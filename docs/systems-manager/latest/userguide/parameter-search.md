@@ -1,161 +1,135 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Searching for Parameter Store parameters in Systems Manager
+<a name="parameter-search"></a>
 
-When you have a lot of parameters in your account, it can be difficult to find
-information about a single or several parameters at a time. In this case, you can
-use filter tools to search for the ones you need information about, according to
-search criteria you specify. You can use the AWS Systems Manager console, the AWS Command Line Interface
-(AWS CLI), the AWS Tools for PowerShell, or the [DescribeParameters](../APIReference/API_DescribeParameters.md "../APIReference/API_DescribeParameters.md") API to
-search for parameters.
+When you have a lot of parameters in your account, it can be difficult to find information about a single or several parameters at a time. In this case, you can use filter tools to search for the ones you need information about, according to search criteria you specify. You can use the AWS Systems Manager console, the AWS Command Line Interface (AWS CLI), the AWS Tools for PowerShell, or the [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html) API to search for parameters.
 
-###### Topics
-
-- [Searching for a parameter using the console](#parameter-search-console "#parameter-search-console")
-- [Searching for a parameter using the AWS CLI](#parameter-search-cli "#parameter-search-cli")
+**Topics**
++ [Searching for a parameter using the console](#parameter-search-console)
++ [Searching for a parameter using the AWS CLI](#parameter-search-cli)
 
 ## Searching for a parameter using the console
+<a name="parameter-search-console"></a>
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. In the navigation pane, choose **Parameter Store**.
-3. Select in the search box and choose how you want to search. For
-   example, `Type` or `Name`.
-4. Provide information for the search type you selected. For
-   example:
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
 
-   - If you're searching by `Type`, choose from
-     `String`, `StringList`, or
-     `SecureString`.
-   - If you're searching by `Name`, choose
-     `contains`, `equals`, or
-     `begins-with`, and then enter all or part of a
-     parameter name.
+1. In the navigation pane, choose **Parameter Store**.
 
-   ###### Note
+1. Select in the search box and choose how you want to search. For example, `Type` or `Name`.
 
-   In the console, the default search type for
-   `Name` is `contains`.
+1. Provide information for the search type you selected. For example:
+   + If you're searching by `Type`, choose from `String`, `StringList`, or `SecureString`.
+   + If you're searching by `Name`, choose `contains`, `equals`, or `begins-with`, and then enter all or part of a parameter name.
+**Note**  
+In the console, the default search type for `Name` is `contains`.
 
-5. Press **Enter**.
+1. Press **Enter**.
 
 The list of parameters is updated with the results of your search.
 
-###### Note
-
-Your search might contain more results than are displayed on the first
-page of results. Use the right arrow (**>**) at
-the topic of the parameter list (if available) to view the next set of
-results.
+**Note**  
+Your search might contain more results than are displayed on the first page of results. Use the right arrow (**>**) at the topic of the parameter list (if available) to view the next set of results.
 
 ## Searching for a parameter using the AWS CLI
+<a name="parameter-search-cli"></a>
 
-Use the `describe-parameters` command to view information about one
-or more parameters in the AWS CLI.
+Use the `describe-parameters` command to view information about one or more parameters in the AWS CLI. 
 
-The following examples demonstrate various options you can use to view
-information about the parameters in your AWS account. For more information
-about these options, see [describe-parameters](../../../cli/latest/reference/ssm/describe-parameters.md "../../../cli/latest/reference/ssm/describe-parameters.md") in the
-_AWS Command Line Interface User Guide_.
+The following examples demonstrate various options you can use to view information about the parameters in your AWS account. For more information about these options, see [describe-parameters](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-parameters.html) in the *AWS Command Line Interface User Guide*.
 
 1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
 
-For information, see [Installing or updating the
-latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). 2. Replace the sample values in the following commands with values
-reflecting parameters that have been created in your account.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-Linux & macOS
+1. Replace the sample values in the following commands with values reflecting parameters that have been created in your account.
 
-```
-aws ssm describe-parameters \
-    --parameter-filters "Key=Name,Values=`MyParameterName`"
-```
+------
+#### [ Linux & macOS ]
 
-Windows
+   ```
+   aws ssm describe-parameters \
+       --parameter-filters "Key=Name,Values={{MyParameterName}}"
+   ```
 
-```
-aws ssm describe-parameters ^
-    --parameter-filters "Key=Name,Values=`MyParameterName`"
-```
+------
+#### [ Windows ]
 
-###### Note
+   ```
+   aws ssm describe-parameters ^
+       --parameter-filters "Key=Name,Values={{MyParameterName}}"
+   ```
 
-For `describe-parameters`, the default search type for
-`Name` is `Equals`. In your parameter
-filters, specifying
-`"Key=Name,Values=`MyParameterName`"`
-is the same as specifying
-`"Key=Name,Option=Equals,Values=`MyParameterName`"`.
+------
+**Note**  
+For `describe-parameters`, the default search type for `Name` is `Equals`. In your parameter filters, specifying `"Key=Name,Values={{MyParameterName}}"` is the same as specifying `"Key=Name,Option=Equals,Values={{MyParameterName}}"`.
 
-```
-aws ssm describe-parameters \
-    --parameter-filters "Key=Name,Option=Contains,Values=`Product`"
-```
+   ```
+   aws ssm describe-parameters \
+       --parameter-filters "Key=Name,Option=Contains,Values={{Product}}"
+   ```
 
-```
-aws ssm describe-parameters \
-    --parameter-filters "Key=Type,Values=String"
-```
+   ```
+   aws ssm describe-parameters \
+       --parameter-filters "Key=Type,Values=String"
+   ```
 
-```
-aws ssm describe-parameters \
-    --parameter-filters "Key=Path,Values=`/Production/West`"
-```
+   ```
+   aws ssm describe-parameters \
+       --parameter-filters "Key=Path,Values={{/Production/West}}"
+   ```
 
-```
-aws ssm describe-parameters \
-    --parameter-filters "Key=Tier,Values=Standard"
-```
+   ```
+   aws ssm describe-parameters \
+       --parameter-filters "Key=Tier,Values=Standard"
+   ```
 
-```
-aws ssm describe-parameters \
-    --parameter-filters "Key=tag:`tag-key`,Values=`tag-value`"
-```
+   ```
+   aws ssm describe-parameters \
+       --parameter-filters "Key=tag:{{tag-key}},Values={{tag-value}}"
+   ```
 
-```
-aws ssm describe-parameters \
-    --parameter-filters "Key=KeyId,Values=`key-id`"
-```
+   ```
+   aws ssm describe-parameters \
+       --parameter-filters "Key=KeyId,Values={{key-id}}"
+   ```
+**Note**  
+In the last example, {{key-id}} represents the ID of an AWS Key Management Service (AWS KMS) key used to encrypt a `SecureString` parameter created in your account. Alternatively, you can enter **alias/aws/ssm** to use the default AWS KMS key for your account. For more information, see [Creating a SecureString parameter using the AWS CLI](param-create-cli.md#param-create-cli-securestring).
 
-###### Note
+   If successful, the command returns output similar to the following.
 
-In the last example, `key-id` represents
-the ID of an AWS Key Management Service (AWS KMS) key used to encrypt a
-`SecureString` parameter created in your account.
-Alternatively, you can enter `alias/aws/ssm` to
-use the default AWS KMS key for your account. For more information,
-see [Creating a SecureString parameter using the AWS CLI](param-create-cli.md#param-create-cli-securestring "param-create-cli.md#param-create-cli-securestring").
-
-If successful, the command returns output similar to the
-following.
-
-```
-{
-    "Parameters": [
-        {
-            "Name": "/Production/West/Manager",
-            "Type": "String",
-            "LastModifiedDate": 1573438580.703,
-            "LastModifiedUser": "arn:aws:iam::111122223333:user/Mateo.Jackson",
-            "Version": 1,
-            "Tier": "Standard",
-            "Policies": []
-        },
-        {
-            "Name": "/Production/West/TeamLead",
-            "Type": "String",
-            "LastModifiedDate": 1572363610.175,
-            "LastModifiedUser": "arn:aws:iam::111122223333:user/Mateo.Jackson",
-            "Version": 1,
-            "Tier": "Standard",
-            "Policies": []
-        },
-        {
-            "Name": "/Production/West/HR",
-            "Type": "String",
-            "LastModifiedDate": 1572363680.503,
-            "LastModifiedUser": "arn:aws:iam::111122223333:user/Mateo.Jackson",
-            "Version": 1,
-            "Tier": "Standard",
-            "Policies": []
-        }
-    ]
-}
-```
+   ```
+   {
+       "Parameters": [
+           {
+               "Name": "/Production/West/Manager",
+               "Type": "String",
+               "LastModifiedDate": 1573438580.703,
+               "LastModifiedUser": "arn:aws:iam::111122223333:user/Mateo.Jackson",
+               "Version": 1,
+               "Tier": "Standard",
+               "Policies": []
+           },
+           {
+               "Name": "/Production/West/TeamLead",
+               "Type": "String",
+               "LastModifiedDate": 1572363610.175,
+               "LastModifiedUser": "arn:aws:iam::111122223333:user/Mateo.Jackson",
+               "Version": 1,
+               "Tier": "Standard",
+               "Policies": []
+           },
+           {
+               "Name": "/Production/West/HR",
+               "Type": "String",
+               "LastModifiedDate": 1572363680.503,
+               "LastModifiedUser": "arn:aws:iam::111122223333:user/Mateo.Jackson",
+               "Version": 1,
+               "Tier": "Standard",
+               "Policies": []
+           }
+       ]
+   }
+   ```

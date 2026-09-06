@@ -1,236 +1,272 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Assign custom compliance metadata using the AWS CLI
+<a name="compliance-custom-metadata-cli"></a>
 
-The following procedure walks you through the process of using the AWS Command Line Interface (AWS CLI)
-to call the AWS Systems Manager [PutComplianceItems](../APIReference/API_PutComplianceItems.md "../APIReference/API_PutComplianceItems.md") API operation to assign custom compliance metadata to a
-resource. You can also use this API operation to manually assign patch or association
-compliance metadata to a managed nodes, as shown in the following walkthrough. For more
-information about custom compliance, see [About custom compliance](compliance-about.md#compliance-custom "compliance-about.md#compliance-custom").
+The following procedure walks you through the process of using the AWS Command Line Interface (AWS CLI) to call the AWS Systems Manager [PutComplianceItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html) API operation to assign custom compliance metadata to a resource. You can also use this API operation to manually assign patch or association compliance metadata to a managed nodes, as shown in the following walkthrough. For more information about custom compliance, see [About custom compliance](compliance-about.md#compliance-custom).
 
-###### To assign custom compliance metadata to a managed instance (AWS CLI)
+**To assign custom compliance metadata to a managed instance (AWS CLI)**
 
 1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
 
-For information, see [Installing or updating the
-latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). 2. Run the following command to assign custom compliance metadata to a managed
-node. Replace each `example resource placeholder` with
-your own information. The `ResourceType` parameter only supports a
-value of `ManagedInstance`. Specify this value even if you are
-assigning custom compliance metadata to a managed AWS IoT Greengrass core device.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-Linux & macOS
+1. Run the following command to assign custom compliance metadata to a managed node. Replace each {{example resource placeholder}} with your own information. The `ResourceType` parameter only supports a value of `ManagedInstance`. Specify this value even if you are assigning custom compliance metadata to a managed AWS IoT Greengrass core device.
 
-```
-aws ssm put-compliance-items \
-    --resource-id `instance_ID` \
-    --resource-type ManagedInstance \
-    --compliance-type Custom:`user-defined_string` \
-    --execution-summary ExecutionTime=`user-defined_time_and/or_date_value` \
-    --items Id=`user-defined_ID`,Title=`user-defined_title`,Severity=`one_or_more_comma-separated_severities:CRITICAL, MAJOR, MINOR,INFORMATIONAL, or UNSPECIFIED`,Status=`COMPLIANT or NON_COMPLIANT`
-```
+------
+#### [ Linux & macOS ]
 
-Windows
+   ```
+   aws ssm put-compliance-items \
+       --resource-id {{instance_ID}} \
+       --resource-type ManagedInstance \
+       --compliance-type Custom:{{user-defined_string}} \
+       --execution-summary ExecutionTime={{user-defined_time_and/or_date_value}} \
+       --items Id={{user-defined_ID}},Title={{user-defined_title}},Severity={{one_or_more_comma-separated_severities:CRITICAL, MAJOR, MINOR,INFORMATIONAL, or UNSPECIFIED}},Status={{COMPLIANT or NON_COMPLIANT}}
+   ```
 
-```
-aws ssm put-compliance-items ^
-    --resource-id `instance_ID` ^
-    --resource-type ManagedInstance ^
-    --compliance-type Custom:`user-defined_string` ^
-    --execution-summary ExecutionTime=`user-defined_time_and/or_date_value` ^
-    --items Id=`user-defined_ID`,Title=`user-defined_title`,Severity=`one_or_more_comma-separated_severities:CRITICAL, MAJOR, MINOR,INFORMATIONAL, or UNSPECIFIED`,Status=`COMPLIANT or NON_COMPLIANT`
-```
+------
+#### [ Windows ]
 
-3. Repeat the previous step to assign additional custom compliance metadata to
-   one or more nodes. You can also manually assign patch or association compliance
-   metadata to managed nodes by using the following commands:
+   ```
+   aws ssm put-compliance-items ^
+       --resource-id {{instance_ID}} ^
+       --resource-type ManagedInstance ^
+       --compliance-type Custom:{{user-defined_string}} ^
+       --execution-summary ExecutionTime={{user-defined_time_and/or_date_value}} ^
+       --items Id={{user-defined_ID}},Title={{user-defined_title}},Severity={{one_or_more_comma-separated_severities:CRITICAL, MAJOR, MINOR,INFORMATIONAL, or UNSPECIFIED}},Status={{COMPLIANT or NON_COMPLIANT}}
+   ```
 
-Association compliance metadata
+------
 
-Linux & macOS
+1. Repeat the previous step to assign additional custom compliance metadata to one or more nodes. You can also manually assign patch or association compliance metadata to managed nodes by using the following commands:
 
-```
-aws ssm put-compliance-items \
-    --resource-id `instance_ID` \
-    --resource-type ManagedInstance \
-    --compliance-type Association \
-    --execution-summary ExecutionTime=`user-defined_time_and/or_date_value` \
-    --items Id=`user-defined_ID`,Title=`user-defined_title`,Severity=`one_or_more_comma-separated_severities:CRITICAL, MAJOR, MINOR,INFORMATIONAL, or UNSPECIFIED`,Status=`COMPLIANT or NON_COMPLIANT`
-```
+   Association compliance metadata
 
-Windows
+------
+#### [ Linux & macOS ]
 
-```
-aws ssm put-compliance-items ^
-    --resource-id `instance_ID` ^
-    --resource-type ManagedInstance ^
-    --compliance-type Association ^
-    --execution-summary ExecutionTime=`user-defined_time_and/or_date_value` ^
-    --items Id=`user-defined_ID`,Title=`user-defined_title`,Severity=`one_or_more_comma-separated_severities:CRITICAL, MAJOR, MINOR,INFORMATIONAL, or UNSPECIFIED`,Status=`COMPLIANT or NON_COMPLIANT`
-```
+   ```
+   aws ssm put-compliance-items \
+       --resource-id {{instance_ID}} \
+       --resource-type ManagedInstance \
+       --compliance-type Association \
+       --execution-summary ExecutionTime={{user-defined_time_and/or_date_value}} \
+       --items Id={{user-defined_ID}},Title={{user-defined_title}},Severity={{one_or_more_comma-separated_severities:CRITICAL, MAJOR, MINOR,INFORMATIONAL, or UNSPECIFIED}},Status={{COMPLIANT or NON_COMPLIANT}}
+   ```
 
-Patch compliance metadata
+------
+#### [ Windows ]
 
-Linux & macOS
+   ```
+   aws ssm put-compliance-items ^
+       --resource-id {{instance_ID}} ^
+       --resource-type ManagedInstance ^
+       --compliance-type Association ^
+       --execution-summary ExecutionTime={{user-defined_time_and/or_date_value}} ^
+       --items Id={{user-defined_ID}},Title={{user-defined_title}},Severity={{one_or_more_comma-separated_severities:CRITICAL, MAJOR, MINOR,INFORMATIONAL, or UNSPECIFIED}},Status={{COMPLIANT or NON_COMPLIANT}}
+   ```
 
-```
-aws ssm put-compliance-items \
-    --resource-id `instance_ID` \
-    --resource-type ManagedInstance \
-    --compliance-type Patch \
-    --execution-summary ExecutionTime=`user-defined_time_and/or_date_value`,ExecutionId=`user-defined_ID`,ExecutionType=Command  \
-    --items Id=`for_example, KB12345`,Title=`user-defined_title`,Severity=`one_or_more_comma-separated_severities:CRITICAL, MAJOR, MINOR,INFORMATIONAL, or UNSPECIFIED`,Status=`COMPLIANT or NON_COMPLIANT`,Details="{PatchGroup=`name_of_group`,PatchSeverity=`the_patch_severity, for example, CRITICAL`}"
-```
+------
 
-Windows
+   Patch compliance metadata
 
-```
-aws ssm put-compliance-items ^
-    --resource-id `instance_ID` ^
-    --resource-type ManagedInstance ^
-    --compliance-type Patch ^
-    --execution-summary ExecutionTime=`user-defined_time_and/or_date_value`,ExecutionId=`user-defined_ID`,ExecutionType=Command  ^
-    --items Id=`for_example, KB12345`,Title=`user-defined_title`,Severity=`one_or_more_comma-separated_severities:CRITICAL, MAJOR, MINOR,INFORMATIONAL, or UNSPECIFIED`,Status=`COMPLIANT or NON_COMPLIANT`,Details="{PatchGroup=`name_of_group`,PatchSeverity=`the_patch_severity, for example, CRITICAL`}"
-```
+------
+#### [ Linux & macOS ]
 
-4. Run the following command to view a list of compliance items for a specific
-   managed node. Use filters to drill down into specific compliance data.
+   ```
+   aws ssm put-compliance-items \
+       --resource-id {{instance_ID}} \
+       --resource-type ManagedInstance \
+       --compliance-type Patch \
+       --execution-summary ExecutionTime={{user-defined_time_and/or_date_value}},ExecutionId={{user-defined_ID}},ExecutionType=Command  \
+       --items Id={{for_example, KB12345}},Title={{user-defined_title}},Severity={{one_or_more_comma-separated_severities:CRITICAL, MAJOR, MINOR,INFORMATIONAL, or UNSPECIFIED}},Status={{COMPLIANT or NON_COMPLIANT}},Details="{PatchGroup={{name_of_group}},PatchSeverity={{the_patch_severity, for example, CRITICAL}}}"
+   ```
 
-Linux & macOS
+------
+#### [ Windows ]
 
-```
-aws ssm list-compliance-items \
-    --resource-ids `instance_ID` \
-    --resource-types ManagedInstance \
-    --filters `one_or_more_filters`
-```
+   ```
+   aws ssm put-compliance-items ^
+       --resource-id {{instance_ID}} ^
+       --resource-type ManagedInstance ^
+       --compliance-type Patch ^
+       --execution-summary ExecutionTime={{user-defined_time_and/or_date_value}},ExecutionId={{user-defined_ID}},ExecutionType=Command  ^
+       --items Id={{for_example, KB12345}},Title={{user-defined_title}},Severity={{one_or_more_comma-separated_severities:CRITICAL, MAJOR, MINOR,INFORMATIONAL, or UNSPECIFIED}},Status={{COMPLIANT or NON_COMPLIANT}},Details="{PatchGroup={{name_of_group}},PatchSeverity={{the_patch_severity, for example, CRITICAL}}}"
+   ```
 
-Windows
+------
 
-```
-aws ssm list-compliance-items ^
-    --resource-ids `instance_ID` ^
-    --resource-types ManagedInstance ^
-    --filters `one_or_more_filters`
-```
+1. Run the following command to view a list of compliance items for a specific managed node. Use filters to drill down into specific compliance data.
 
-The following examples show you how to use this command with filters.
+------
+#### [ Linux & macOS ]
 
-Linux & macOS
+   ```
+   aws ssm list-compliance-items \
+       --resource-ids {{instance_ID}} \
+       --resource-types ManagedInstance \
+       --filters {{one_or_more_filters}}
+   ```
 
-```
-aws ssm list-compliance-items \
-    --resource-ids i-02573cafcfEXAMPLE \
-    --resource-type ManagedInstance \
-    --filters Key=DocumentName,Values=AWS-RunPowerShellScript Key=Status,Values=NON_COMPLIANT,Type=NotEqual Key=Id,Values=cee20ae7-6388-488e-8be1-a88ccEXAMPLE Key=Severity,Values=UNSPECIFIED
-```
+------
+#### [ Windows ]
 
-Windows
+   ```
+   aws ssm list-compliance-items ^
+       --resource-ids {{instance_ID}} ^
+       --resource-types ManagedInstance ^
+       --filters {{one_or_more_filters}}
+   ```
 
-```
-aws ssm list-compliance-items ^
-    --resource-ids i-02573cafcfEXAMPLE ^
-    --resource-type ManagedInstance ^
-    --filters Key=DocumentName,Values=AWS-RunPowerShellScript Key=Status,Values=NON_COMPLIANT,Type=NotEqual Key=Id,Values=cee20ae7-6388-488e-8be1-a88ccEXAMPLE Key=Severity,Values=UNSPECIFIED
-```
+------
 
-Linux & macOS
+   The following examples show you how to use this command with filters.
 
-```
-aws ssm list-resource-compliance-summaries \
-    --filters Key=OverallSeverity,Values=UNSPECIFIED
-```
+------
+#### [ Linux & macOS ]
 
-Windows
+   ```
+   aws ssm list-compliance-items \
+       --resource-ids i-02573cafcfEXAMPLE \
+       --resource-type ManagedInstance \
+       --filters Key=DocumentName,Values=AWS-RunPowerShellScript Key=Status,Values=NON_COMPLIANT,Type=NotEqual Key=Id,Values=cee20ae7-6388-488e-8be1-a88ccEXAMPLE Key=Severity,Values=UNSPECIFIED
+   ```
 
-```
-aws ssm list-resource-compliance-summaries ^
-    --filters Key=OverallSeverity,Values=UNSPECIFIED
-```
+------
+#### [ Windows ]
 
-Linux & macOS
+   ```
+   aws ssm list-compliance-items ^
+       --resource-ids i-02573cafcfEXAMPLE ^
+       --resource-type ManagedInstance ^
+       --filters Key=DocumentName,Values=AWS-RunPowerShellScript Key=Status,Values=NON_COMPLIANT,Type=NotEqual Key=Id,Values=cee20ae7-6388-488e-8be1-a88ccEXAMPLE Key=Severity,Values=UNSPECIFIED
+   ```
 
-```
-aws ssm list-resource-compliance-summaries \
-    --filters Key=OverallSeverity,Values=UNSPECIFIED Key=ComplianceType,Values=Association Key=InstanceId,Values=i-02573cafcfEXAMPLE
-```
+------
 
-Windows
+------
+#### [ Linux & macOS ]
 
-```
-aws ssm list-resource-compliance-summaries ^
-    --filters Key=OverallSeverity,Values=UNSPECIFIED Key=ComplianceType,Values=Association Key=InstanceId,Values=i-02573cafcfEXAMPLE
-```
+   ```
+   aws ssm list-resource-compliance-summaries \
+       --filters Key=OverallSeverity,Values=UNSPECIFIED
+   ```
 
-5. Run the following command to view a summary of compliance statuses. Use
-   filters to drill down into specific compliance data.
+------
+#### [ Windows ]
 
-```
-aws ssm list-resource-compliance-summaries --filters `One or more filters.`
-```
+   ```
+   aws ssm list-resource-compliance-summaries ^
+       --filters Key=OverallSeverity,Values=UNSPECIFIED
+   ```
 
-The following examples show you how to use this command with filters.
+------
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
-```
-aws ssm list-resource-compliance-summaries \
-    --filters Key=ExecutionType,Values=Command
-```
+   ```
+   aws ssm list-resource-compliance-summaries \
+       --filters Key=OverallSeverity,Values=UNSPECIFIED Key=ComplianceType,Values=Association Key=InstanceId,Values=i-02573cafcfEXAMPLE
+   ```
 
-Windows
+------
+#### [ Windows ]
 
-```
-aws ssm list-resource-compliance-summaries ^
-    --filters Key=ExecutionType,Values=Command
-```
+   ```
+   aws ssm list-resource-compliance-summaries ^
+       --filters Key=OverallSeverity,Values=UNSPECIFIED Key=ComplianceType,Values=Association Key=InstanceId,Values=i-02573cafcfEXAMPLE
+   ```
 
-Linux & macOS
+------
 
-```
-aws ssm list-resource-compliance-summaries \
-    --filters Key=AWS:InstanceInformation.PlatformType,Values=Windows Key=OverallSeverity,Values=CRITICAL
-```
+1. Run the following command to view a summary of compliance statuses. Use filters to drill down into specific compliance data.
 
-Windows
+   ```
+   aws ssm list-resource-compliance-summaries --filters {{One or more filters.}}
+   ```
 
-```
-aws ssm list-resource-compliance-summaries ^
-    --filters Key=AWS:InstanceInformation.PlatformType,Values=Windows Key=OverallSeverity,Values=CRITICAL
-```
+   The following examples show you how to use this command with filters.
 
-6. Run the following command to view a summary count of compliant and
-   non-compliant resources for a compliance type. Use filters to drill down into
-   specific compliance data.
+------
+#### [ Linux & macOS ]
 
-```
-aws ssm list-compliance-summaries --filters `One or more filters.`
-```
+   ```
+   aws ssm list-resource-compliance-summaries \
+       --filters Key=ExecutionType,Values=Command
+   ```
 
-The following examples show you how to use this command with filters.
+------
+#### [ Windows ]
 
-Linux & macOS
+   ```
+   aws ssm list-resource-compliance-summaries ^
+       --filters Key=ExecutionType,Values=Command
+   ```
 
-```
-aws ssm list-compliance-summaries \
-    --filters Key=AWS:InstanceInformation.PlatformType,Values=Windows Key=PatchGroup,Values=TestGroup
-```
+------
 
-Windows
+------
+#### [ Linux & macOS ]
 
-```
-aws ssm list-compliance-summaries ^
-    --filters Key=AWS:InstanceInformation.PlatformType,Values=Windows Key=PatchGroup,Values=TestGroup
-```
+   ```
+   aws ssm list-resource-compliance-summaries \
+       --filters Key=AWS:InstanceInformation.PlatformType,Values=Windows Key=OverallSeverity,Values=CRITICAL
+   ```
 
-Linux & macOS
+------
+#### [ Windows ]
 
-```
-aws ssm list-compliance-summaries \
-    --filters Key=AWS:InstanceInformation.PlatformType,Values=Windows Key=ExecutionId,Values=4adf0526-6aed-4694-97a5-14522EXAMPLE
-```
+   ```
+   aws ssm list-resource-compliance-summaries ^
+       --filters Key=AWS:InstanceInformation.PlatformType,Values=Windows Key=OverallSeverity,Values=CRITICAL
+   ```
 
-Windows
+------
 
-```
-aws ssm list-compliance-summaries ^
-    --filters Key=AWS:InstanceInformation.PlatformType,Values=Windows Key=ExecutionId,Values=4adf0526-6aed-4694-97a5-14522EXAMPLE
-```
+1. Run the following command to view a summary count of compliant and non-compliant resources for a compliance type. Use filters to drill down into specific compliance data.
+
+   ```
+   aws ssm list-compliance-summaries --filters {{One or more filters.}}
+   ```
+
+   The following examples show you how to use this command with filters.
+
+------
+#### [ Linux & macOS ]
+
+   ```
+   aws ssm list-compliance-summaries \
+       --filters Key=AWS:InstanceInformation.PlatformType,Values=Windows Key=PatchGroup,Values=TestGroup
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm list-compliance-summaries ^
+       --filters Key=AWS:InstanceInformation.PlatformType,Values=Windows Key=PatchGroup,Values=TestGroup
+   ```
+
+------
+
+------
+#### [ Linux & macOS ]
+
+   ```
+   aws ssm list-compliance-summaries \
+       --filters Key=AWS:InstanceInformation.PlatformType,Values=Windows Key=ExecutionId,Values=4adf0526-6aed-4694-97a5-14522EXAMPLE
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm list-compliance-summaries ^
+       --filters Key=AWS:InstanceInformation.PlatformType,Values=Windows Key=ExecutionId,Values=4adf0526-6aed-4694-97a5-14522EXAMPLE
+   ```
+
+------

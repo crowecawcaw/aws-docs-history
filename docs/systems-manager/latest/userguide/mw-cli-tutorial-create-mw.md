@@ -1,91 +1,83 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Step 1: Create the maintenance window using the AWS CLI
+<a name="mw-cli-tutorial-create-mw"></a>
 
-In this step, you create a maintenance window and specify its basic
-options, such as name, schedule, and duration. In later steps, you choose
-the instance it updates and the task it runs.
+In this step, you create a maintenance window and specify its basic options, such as name, schedule, and duration. In later steps, you choose the instance it updates and the task it runs.
 
-In our example, you create a maintenance window that runs every five
-minutes. Normally, you wouldn't run a maintenance window this frequently.
-However, with this rate you can see your tutorial results quickly. We will
-show you how to change to a less frequent rate after the task has run
-successfully.
+In our example, you create a maintenance window that runs every five minutes. Normally, you wouldn't run a maintenance window this frequently. However, with this rate you can see your tutorial results quickly. We will show you how to change to a less frequent rate after the task has run successfully.
 
-###### Note
+**Note**  
+For an explanation of how the various schedule-related options for maintenance windows relate to one another, see [Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md).  
+For more information about working with the `--schedule` option, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md).
 
-For an explanation of how the various schedule-related options for maintenance windows
-relate to one another, see [Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md "maintenance-windows-schedule-options.md").
+**To create a maintenance window using the AWS CLI**
 
-For more information about working with the `--schedule` option, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
+1. Open the AWS Command Line Interface (AWS CLI) and run the following command on your local machine to create a maintenance window that does the following:
+   + Runs every five minutes for up to two hours (as needed).
+   + Prevents new tasks from starting within one hour of the end of the maintenance window operation.
+   + Allows unassociated targets (instances that you haven't registered with the maintenance window).
+   + Indicates through the use of custom tags that its creator intends to use it in a tutorial.
 
-###### To create a maintenance window using the AWS CLI
+------
+#### [ Linux & macOS ]
 
-1. Open the AWS Command Line Interface (AWS CLI) and run the following command on your
-   local machine to create a maintenance window that does the
-   following:
+   ```
+   aws ssm create-maintenance-window \
+       --name "My-First-Maintenance-Window" \
+       --schedule "rate(5 minutes)" \
+       --duration 2 \
+       --cutoff 1 \
+       --allow-unassociated-targets \
+       --tags "Key=Purpose,Value=Tutorial"
+   ```
 
-   - Runs every five minutes for up to two hours (as
-     needed).
-   - Prevents new tasks from starting within one hour of the
-     end of the maintenance window operation.
-   - Allows unassociated targets (instances that you haven't
-     registered with the maintenance window).
-   - Indicates through the use of custom tags that its creator
-     intends to use it in a tutorial.
+------
+#### [ Windows ]
 
-Linux & macOS
+   ```
+   aws ssm create-maintenance-window ^
+       --name "My-First-Maintenance-Window" ^
+       --schedule "rate(5 minutes)" ^
+       --duration 2 ^
+       --cutoff 1 ^
+       --allow-unassociated-targets ^
+       --tags "Key"="Purpose","Value"="Tutorial"
+   ```
 
-```
-aws ssm create-maintenance-window \
-    --name "My-First-Maintenance-Window" \
-    --schedule "rate(5 minutes)" \
-    --duration 2 \
-    --cutoff 1 \
-    --allow-unassociated-targets \
-    --tags "Key=Purpose,Value=Tutorial"
-```
+------
 
-Windows
+   The system returns information similar to the following.
 
-```
-aws ssm create-maintenance-window ^
-    --name "My-First-Maintenance-Window" ^
-    --schedule "rate(5 minutes)" ^
-    --duration 2 ^
-    --cutoff 1 ^
-    --allow-unassociated-targets ^
-    --tags "Key"="Purpose","Value"="Tutorial"
-```
+   ```
+   {
+      "WindowId":"mw-0c50858d01EXAMPLE"
+   }
+   ```
 
-The system returns information similar to the following.
+1. Now run the following command to view details about this and any other maintenance windows already in your account.
 
-```
-{
-   "WindowId":"mw-0c50858d01EXAMPLE"
-}
-```
+   ```
+   aws ssm describe-maintenance-windows
+   ```
 
-2. Now run the following command to view details about this and any
-   other maintenance windows already in your account.
+   The system returns information similar to the following.
 
-```
-aws ssm describe-maintenance-windows
-```
+   ```
+   {
+      "WindowIdentities":[
+         {
+               "WindowId": "mw-0c50858d01EXAMPLE",
+               "Name": "My-First-Maintenance-Window",
+               "Enabled": true,
+               "Duration": 2,
+               "Cutoff": 1,
+               "NextExecutionTime": "2019-05-11T16:46:16.991Z"
+         }
+      ]
+   }
+   ```
 
-The system returns information similar to the following.
-
-```
-{
-   "WindowIdentities":[
-      {
-            "WindowId": "mw-0c50858d01EXAMPLE",
-            "Name": "My-First-Maintenance-Window",
-            "Enabled": true,
-            "Duration": 2,
-            "Cutoff": 1,
-            "NextExecutionTime": "2019-05-11T16:46:16.991Z"
-      }
-   ]
-}
-```
-
-Continue to [Step 2: Register a target node with the maintenance window using the AWS CLI](mw-cli-tutorial-targets.md "mw-cli-tutorial-targets.md").
+Continue to [Step 2: Register a target node with the maintenance window using the AWS CLI](mw-cli-tutorial-targets.md).

@@ -1,40 +1,27 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Walkthrough: Use the AWS Tools for Windows PowerShell with Run Command
+<a name="walkthrough-powershell"></a>
 
-The following examples show how to use the AWS Tools for Windows PowerShell to view information about
-commands and command parameters, how to run commands, and how to view the status of
-those commands. This walkthrough includes an example for each of the pre-defined
-AWS Systems Manager documents.
+The following examples show how to use the AWS Tools for Windows PowerShell to view information about commands and command parameters, how to run commands, and how to view the status of those commands. This walkthrough includes an example for each of the pre-defined AWS Systems Manager documents.
 
-###### Important
-
-Only trusted administrators should be allowed to use Systems Manager pre-configured
-documents shown in this topic. The commands or scripts specified in Systems Manager
-documents run with administrative permission on your managed nodes. If a user
-has permission to run any of the predefined Systems Manager documents (any document that
-begins with AWS), then that user also has administrator access to the node.
-For all other users, you should create restrictive documents and share them with
-specific users.
+**Important**  
+Only trusted administrators should be allowed to use Systems Manager pre-configured documents shown in this topic. The commands or scripts specified in Systems Manager documents run with administrative permission on your managed nodes. If a user has permission to run any of the predefined Systems Manager documents (any document that begins with AWS), then that user also has administrator access to the node. For all other users, you should create restrictive documents and share them with specific users.
 
 ## Configure AWS Tools for Windows PowerShell session settings
+<a name="walkthrough-powershell-settings"></a>
 
-###### Specify your credentials
-
-Open **Tools for Windows PowerShell** on your local computer and run
-the following command to specify your credentials. You must either have
-administrator permissions on the managed nodes you want to configure or you
-must have been granted the appropriate permission in AWS Identity and Access Management (IAM). For
-more information, see [Setting up managed nodes for AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
+**Specify your credentials**  
+Open **Tools for Windows PowerShell** on your local computer and run the following command to specify your credentials. You must either have administrator permissions on the managed nodes you want to configure or you must have been granted the appropriate permission in AWS Identity and Access Management (IAM). For more information, see [Setting up managed nodes for AWS Systems Manager](systems-manager-setting-up-nodes.md).
 
 ```
-Set-AWSCredentials –AccessKey `key-name` –SecretKey `key-name`
+Set-AWSCredentials –AccessKey {{key-name}} –SecretKey {{key-name}}
 ```
 
-###### Set a default AWS Region
-
-Run the following command to set the region for your PowerShell session.
-The example uses the US East (Ohio) Region (us-east-2). Run Command is available in
-the AWS Regions listed in [Systems Manager service endpoints](../../../general/latest/gr/ssm.md#ssm_region "../../../general/latest/gr/ssm.md#ssm_region") in the
-_Amazon Web Services General Reference_.
+**Set a default AWS Region**  
+Run the following command to set the region for your PowerShell session. The example uses the US East (Ohio) Region (us-east-2). Run Command is available in the AWS Regions listed in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*.
 
 ```
 Set-DefaultAWSRegion `
@@ -42,6 +29,7 @@ Set-DefaultAWSRegion `
 ```
 
 ## List all available documents
+<a name="walkthrough-powershell-all-documents"></a>
 
 This command lists all documents available for your account.
 
@@ -50,15 +38,12 @@ Get-SSMDocumentList
 ```
 
 ## Run PowerShell commands or scripts
+<a name="walkthrough-powershell-run-script"></a>
 
-Using Run Command and the `AWS-RunPowerShell` document, you can run
-any command or script on a managed node as if you were logged on locally. You
-can issue commands or enter a path to a local script to run the command.
+Using Run Command and the `AWS-RunPowerShell` document, you can run any command or script on a managed node as if you were logged on locally. You can issue commands or enter a path to a local script to run the command. 
 
-###### Note
-
-For information about rebooting managed nodes when using Run Command to call
-scripts, see [Handling reboots when running commands](send-commands-reboot.md "send-commands-reboot.md").
+**Note**  
+For information about rebooting managed nodes when using Run Command to call scripts, see [Handling reboots when running commands](send-commands-reboot.md).
 
 **View the description and available parameters**
 
@@ -75,64 +60,54 @@ Get-SSMDocumentDescription `
 ```
 
 ### Send a command using the `AWS-RunPowerShellScript` document
+<a name="walkthrough-powershell-run-script-send-command-aws-runpowershellscript"></a>
 
-The following command shows the contents of the `"C:\Users"`
-directory and the contents of the `"C:\"` directory on two
-managed nodes.
+The following command shows the contents of the `"C:\Users"` directory and the contents of the `"C:\"` directory on two managed nodes. 
 
 ```
 $runPSCommand = Send-SSMCommand `
-    -InstanceIds @("`instance-ID-1`", "`instance-ID-2`") `
+    -InstanceIds @("{{instance-ID-1}}", "{{instance-ID-2}}") `
     -DocumentName "AWS-RunPowerShellScript" `
     -Comment "Demo AWS-RunPowerShellScript with two instances" `
     -Parameter @{'commands'=@('dir C:\Users', 'dir C:\')}
 ```
 
-###### Get command request details
-
-The following command uses the `CommandId` to get the
-status of the command execution on both managed nodes. This example uses
-the `CommandId` that was returned in the previous command.
+**Get command request details**  
+The following command uses the `CommandId` to get the status of the command execution on both managed nodes. This example uses the `CommandId` that was returned in the previous command. 
 
 ```
 Get-SSMCommand `
     -CommandId $runPSCommand.CommandId
 ```
 
-The status of the command in this example can be Success, Pending, or
-InProgress.
+The status of the command in this example can be Success, Pending, or InProgress.
 
-###### Get command information per managed node
-
-The following command uses the `CommandId` from the
-previous command to get the status of the command execution on a per
-managed node basis.
+**Get command information per managed node**  
+The following command uses the `CommandId` from the previous command to get the status of the command execution on a per managed node basis.
 
 ```
 Get-SSMCommandInvocation `
     -CommandId $runPSCommand.CommandId
 ```
 
-###### Get command information with response data for a specific managed node
-
-The following command returns the output of the original
-`Send-SSMCommand` for a specific managed node.
+**Get command information with response data for a specific managed node**  
+The following command returns the output of the original `Send-SSMCommand` for a specific managed node. 
 
 ```
 Get-SSMCommandInvocation `
     -CommandId $runPSCommand.CommandId `
     -Details $true `
-    -InstanceId `instance-ID` | Select -ExpandProperty CommandPlugins
+    -InstanceId {{instance-ID}} | Select -ExpandProperty CommandPlugins
 ```
 
 ### Cancel a command
+<a name="walkthrough-powershell-run-script-cancel-command"></a>
 
-The following command cancels the `Send-SSMCommand` for the
-`AWS-RunPowerShellScript` document.
+The following command cancels the `Send-SSMCommand` for the `AWS-RunPowerShellScript` document.
 
 ```
 $cancelCommand = Send-SSMCommand `
-    -InstanceIds @("`instance-ID-1`","`instance-ID-2`") `
+    -InstanceIds @("{{instance-ID-1}}","{{instance-ID-2}}") `
     -DocumentName "AWS-RunPowerShellScript" `
     -Comment "Demo AWS-RunPowerShellScript with two instances" `
     -Parameter @{'commands'='Start-Sleep –Seconds 120; dir C:\'}
@@ -140,10 +115,8 @@ $cancelCommand = Send-SSMCommand `
 Stop-SSMCommand -CommandId $cancelCommand.CommandId
 ```
 
-###### Check the command status
-
-The following command checks the status of the `Cancel`
-command.
+**Check the command status**  
+The following command checks the status of the `Cancel` command.
 
 ```
 Get-SSMCommand `
@@ -151,15 +124,12 @@ Get-SSMCommand `
 ```
 
 ## Install an application using the `AWS-InstallApplication` document
+<a name="walkthrough-powershell-install-application"></a>
 
-Using Run Command and the `AWS-InstallApplication` document, you can
-install, repair, or uninstall applications on managed nodes. The command
-requires the path or address to an MSI.
+Using Run Command and the `AWS-InstallApplication` document, you can install, repair, or uninstall applications on managed nodes. The command requires the path or address to an MSI.
 
-###### Note
-
-For information about rebooting managed nodes when using Run Command to call
-scripts, see [Handling reboots when running commands](send-commands-reboot.md "send-commands-reboot.md").
+**Note**  
+For information about rebooting managed nodes when using Run Command to call scripts, see [Handling reboots when running commands](send-commands-reboot.md).
 
 **View the description and available parameters**
 
@@ -176,22 +146,19 @@ Get-SSMDocumentDescription `
 ```
 
 ### Send a command using the `AWS-InstallApplication` document
+<a name="walkthrough-powershell-install-application-send-command-aws-installapplication"></a>
 
-The following command installs a version of Python on your managed node in
-unattended mode, and logs the output to a local text file on your
-`C:` drive.
+The following command installs a version of Python on your managed node in unattended mode, and logs the output to a local text file on your `C:` drive.
 
 ```
 $installAppCommand = Send-SSMCommand `
-    -InstanceId `instance-ID` `
+    -InstanceId {{instance-ID}} `
     -DocumentName "AWS-InstallApplication" `
     -Parameter @{'source'='https://www.python.org/ftp/python/2.7.9/python-2.7.9.msi'; 'parameters'='/norestart /quiet /log c:\pythoninstall.txt'}
 ```
 
-###### Get command information per managed node
-
-The following command uses the `CommandId` to get the
-status of the command execution.
+**Get command information per managed node**  
+The following command uses the `CommandId` to get the status of the command execution.
 
 ```
 Get-SSMCommandInvocation `
@@ -199,22 +166,20 @@ Get-SSMCommandInvocation `
     -Details $true
 ```
 
-###### Get command information with response data for a specific managed node
-
-The following command returns the results of the Python
-installation.
+**Get command information with response data for a specific managed node**  
+The following command returns the results of the Python installation.
 
 ```
 Get-SSMCommandInvocation `
     -CommandId $installAppCommand.CommandId `
     -Details $true `
-    -InstanceId `instance-ID` | Select -ExpandProperty CommandPlugins
+    -InstanceId {{instance-ID}} | Select -ExpandProperty CommandPlugins
 ```
 
 ## Install a PowerShell module using the `AWS-InstallPowerShellModule` JSON document
+<a name="walkthrough-powershell-install-module"></a>
 
-You can use Run Command to install PowerShell modules on managed nodes. For more
-information about PowerShell modules, see [Windows PowerShell Modules](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-6 "https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-6").
+You can use Run Command to install PowerShell modules on managed nodes. For more information about PowerShell modules, see [Windows PowerShell Modules](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-6).
 
 **View the description and available parameters**
 
@@ -231,23 +196,20 @@ Get-SSMDocumentDescription `
 ```
 
 ### Install a PowerShell module
+<a name="walkthrough-powershell-install-module-install"></a>
 
-The following command downloads the EZOut.zip file, installs it, and then
-runs an additional command to install XPS viewer. Lastly, the output of this
-command is uploaded to an S3 bucket named "amzn-s3-demo-bucket".
+The following command downloads the EZOut.zip file, installs it, and then runs an additional command to install XPS viewer. Lastly, the output of this command is uploaded to an S3 bucket named "amzn-s3-demo-bucket". 
 
 ```
 $installPSCommand = Send-SSMCommand `
-    -InstanceId `instance-ID` `
+    -InstanceId {{instance-ID}} `
     -DocumentName "AWS-InstallPowerShellModule" `
     -Parameter @{'source'='https://gallery.technet.microsoft.com/EZOut-33ae0fb7/file/110351/1/EZOut.zip';'commands'=@('Add-WindowsFeature -name XPS-Viewer -restart')} `
-    -OutputS3BucketName `amzn-s3-demo-bucket`
+    -OutputS3BucketName {{amzn-s3-demo-bucket}}
 ```
 
-###### Get command information per managed node
-
-The following command uses the `CommandId` to get the
-status of the command execution.
+**Get command information per managed node**  
+The following command uses the `CommandId` to get the status of the command execution. 
 
 ```
 Get-SSMCommandInvocation `
@@ -255,11 +217,8 @@ Get-SSMCommandInvocation `
     -Details $true
 ```
 
-###### Get command information with response data for the managed node
-
-The following command returns the output of the original
-`Send-SSMCommand` for the specific
-`CommandId`.
+**Get command information with response data for the managed node**  
+The following command returns the output of the original `Send-SSMCommand` for the specific `CommandId`. 
 
 ```
 Get-SSMCommandInvocation `
@@ -268,19 +227,14 @@ Get-SSMCommandInvocation `
 ```
 
 ## Join a managed node to a Domain using the `AWS-JoinDirectoryServiceDomain` JSON document
+<a name="walkthrough-powershell-domain-join"></a>
 
-Using Run Command, you can quickly join a managed node to an AWS Directory Service domain.
-Before executing this command, [create a directory](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.md"). We also recommend that you learn more about the
-Directory Service. For more information, see the [AWS Directory Service Administration
-Guide](../../../directoryservice/latest/admin-guide.md "../../../directoryservice/latest/admin-guide.md").
+Using Run Command, you can quickly join a managed node to an AWS Directory Service domain. Before executing this command, [create a directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.html). We also recommend that you learn more about the Directory Service. For more information, see the [AWS Directory Service Administration Guide](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/).
 
-You can only join a managed node to a domain. You can't remove a node from a
-domain.
+You can only join a managed node to a domain. You can't remove a node from a domain.
 
-###### Note
-
-For information about managed nodes when using Run Command to call scripts,
-see [Handling reboots when running commands](send-commands-reboot.md "send-commands-reboot.md").
+**Note**  
+For information about managed nodes when using Run Command to call scripts, see [Handling reboots when running commands](send-commands-reboot.md).
 
 **View the description and available parameters**
 
@@ -297,22 +251,20 @@ Get-SSMDocumentDescription `
 ```
 
 ### Join a managed node to a domain
+<a name="walkthrough-powershell-domain-join-instance"></a>
 
-The following command joins a managed node to the given Directory Service domain and
-uploads any generated output to the example Amazon Simple Storage Service (Amazon S3) bucket.
+The following command joins a managed node to the given Directory Service domain and uploads any generated output to the example Amazon Simple Storage Service (Amazon S3) bucket. 
 
 ```
 $domainJoinCommand = Send-SSMCommand `
-    -InstanceId `instance-ID` `
+    -InstanceId {{instance-ID}} `
     -DocumentName "AWS-JoinDirectoryServiceDomain" `
-    -Parameter @{'directoryId'='`d-example01`'; 'directoryName'='`ssm.example.com`'; 'dnsIpAddresses'=@('`192.168.10.195`', '`192.168.20.97`')} `
-    -OutputS3BucketName `amzn-s3-demo-bucket`
+    -Parameter @{'directoryId'='{{d-example01}}'; 'directoryName'='{{ssm.example.com}}'; 'dnsIpAddresses'=@('{{192.168.10.195}}', '{{192.168.20.97}}')} `
+    -OutputS3BucketName {{amzn-s3-demo-bucket}}
 ```
 
-###### Get command information per managed node
-
-The following command uses the `CommandId` to get the
-status of the command execution.
+**Get command information per managed node**  
+The following command uses the `CommandId` to get the status of the command execution. 
 
 ```
 Get-SSMCommandInvocation `
@@ -320,11 +272,8 @@ Get-SSMCommandInvocation `
     -Details $true
 ```
 
-###### Get command information with response data for the managed node
-
-This command returns the output of the original
-`Send-SSMCommand` for the specific
-`CommandId`.
+**Get command information with response data for the managed node**  
+This command returns the output of the original `Send-SSMCommand` for the specific `CommandId`.
 
 ```
 Get-SSMCommandInvocation `
@@ -333,24 +282,11 @@ Get-SSMCommandInvocation `
 ```
 
 ## Send Windows metrics to Amazon CloudWatch Logs using the `AWS-ConfigureCloudWatch` document
+<a name="walkthrough-powershell-windows-metrics"></a>
 
-You can send Windows Server messages in the application, system, security, and Event
-Tracing for Windows (ETW) logs to Amazon CloudWatch Logs. When you allow logging for the
-first time, Systems Manager sends all logs generated within one (1) minute from the time
-that you start uploading logs for the application, system, security, and ETW
-logs. Logs that occurred before this time aren't included. If you turn off
-logging and then later turn logging back on, Systems Manager sends logs from the time it
-left off. For any custom log files and Internet Information Services (IIS) logs,
-Systems Manager reads the log files from the beginning. In addition, Systems Manager can also send
-performance counter data to CloudWatch Logs.
+You can send Windows Server messages in the application, system, security, and Event Tracing for Windows (ETW) logs to Amazon CloudWatch Logs. When you allow logging for the first time, Systems Manager sends all logs generated within one (1) minute from the time that you start uploading logs for the application, system, security, and ETW logs. Logs that occurred before this time aren't included. If you turn off logging and then later turn logging back on, Systems Manager sends logs from the time it left off. For any custom log files and Internet Information Services (IIS) logs, Systems Manager reads the log files from the beginning. In addition, Systems Manager can also send performance counter data to CloudWatch Logs.
 
-If you previously turned on CloudWatch integration in EC2Config, the Systems Manager settings
-override any settings stored locally on the managed node in the
-`C:\Program
- Files\Amazon\EC2ConfigService\Settings\AWS.EC2.Windows.CloudWatch.json`
-file. For more information about using EC2Config to manage performance counters
-and logs on a single managed node, see [Collecting metrics and logs from Amazon EC2 instances and on-premises servers
-with the CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md "../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md") in the _Amazon CloudWatch User Guide_.
+If you previously turned on CloudWatch integration in EC2Config, the Systems Manager settings override any settings stored locally on the managed node in the `C:\Program Files\Amazon\EC2ConfigService\Settings\AWS.EC2.Windows.CloudWatch.json` file. For more information about using EC2Config to manage performance counters and logs on a single managed node, see [Collecting metrics and logs from Amazon EC2 instances and on-premises servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*.
 
 **View the description and available parameters**
 
@@ -367,21 +303,19 @@ Get-SSMDocumentDescription `
 ```
 
 ### Send application logs to CloudWatch
+<a name="walkthrough-powershell-windows-metrics-send-logs-cloudwatch"></a>
 
-The following command configures the managed node and moves Windows
-Applications logs to CloudWatch.
+The following command configures the managed node and moves Windows Applications logs to CloudWatch.
 
 ```
 $cloudWatchCommand = Send-SSMCommand `
-    -InstanceID `instance-ID` `
+    -InstanceID {{instance-ID}} `
     -DocumentName "AWS-ConfigureCloudWatch" `
-    -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"ApplicationEventLog", "FullName":"AWS.EC2.Windows.CloudWatch.EventLog.EventLogInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"LogName":"Application", "Levels":"7"}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatchLogsOutput,AWS.EC2.Windows.CloudWatch", "Parameters":{"Region":"`region`", "LogGroup":"`my-log-group`", "LogStream":"`instance-id`"}}], "Flows":{"Flows":["ApplicationEventLog,CloudWatch"]}}}'}
+    -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"ApplicationEventLog", "FullName":"AWS.EC2.Windows.CloudWatch.EventLog.EventLogInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"LogName":"Application", "Levels":"7"}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatchLogsOutput,AWS.EC2.Windows.CloudWatch", "Parameters":{"Region":"{{region}}", "LogGroup":"{{my-log-group}}", "LogStream":"{{instance-id}}"}}], "Flows":{"Flows":["ApplicationEventLog,CloudWatch"]}}}'}
 ```
 
-###### Get command information per managed node
-
-The following command uses the `CommandId` to get the
-status of the command execution.
+**Get command information per managed node**  
+The following command uses the `CommandId` to get the status of the command execution. 
 
 ```
 Get-SSMCommandInvocation `
@@ -389,40 +323,32 @@ Get-SSMCommandInvocation `
     -Details $true
 ```
 
-###### Get command information with response data for a specific managed node
-
-The following command returns the results of the Amazon CloudWatch
-configuration.
+**Get command information with response data for a specific managed node**  
+The following command returns the results of the Amazon CloudWatch configuration.
 
 ```
 Get-SSMCommandInvocation `
     -CommandId $cloudWatchCommand.CommandId `
     -Details $true `
-    -InstanceId `instance-ID` | Select -ExpandProperty CommandPlugins
+    -InstanceId {{instance-ID}} | Select -ExpandProperty CommandPlugins
 ```
 
 ### Send performance counters to CloudWatch using the `AWS-ConfigureCloudWatch` document
+<a name="walkthrough-powershell-windows-metrics-send-performance-counters-cloudwatch"></a>
 
-The following demonstration command uploads performance counters to CloudWatch.
-For more information, see the _[Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md")_.
+The following demonstration command uploads performance counters to CloudWatch. For more information, see the *[Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)*.
 
 ```
 $cloudWatchMetricsCommand = Send-SSMCommand `
-    -InstanceID `instance-ID` `
+    -InstanceID {{instance-ID}} `
     -DocumentName "AWS-ConfigureCloudWatch" `
-    -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"PerformanceCounter", "FullName":"AWS.EC2.Windows.CloudWatch.PerformanceCounterComponent.PerformanceCounterInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"CategoryName":"Memory", "CounterName":"Available MBytes", "InstanceName":"", "MetricName":"AvailableMemory", "Unit":"Megabytes","DimensionName":"", "DimensionValue":""}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatch.CloudWatchOutputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"AccessKey":"", "SecretKey":"","Region":"`region`", "NameSpace":"Windows-Default"}}], "Flows":{"Flows":["PerformanceCounter,CloudWatch"]}}}'}
+    -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"PerformanceCounter", "FullName":"AWS.EC2.Windows.CloudWatch.PerformanceCounterComponent.PerformanceCounterInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"CategoryName":"Memory", "CounterName":"Available MBytes", "InstanceName":"", "MetricName":"AvailableMemory", "Unit":"Megabytes","DimensionName":"", "DimensionValue":""}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatch.CloudWatchOutputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"AccessKey":"", "SecretKey":"","Region":"{{region}}", "NameSpace":"Windows-Default"}}], "Flows":{"Flows":["PerformanceCounter,CloudWatch"]}}}'}
 ```
 
 ## Turn on or turn off Windows automatic update using the `AWS-ConfigureWindowsUpdate` document
+<a name="walkthrough-powershell-enable-windows-update"></a>
 
-Using Run Command and the `AWS-ConfigureWindowsUpdate` document, you
-can turn on or turn off automatic Windows updates on your Windows Server managed
-nodes. This command configures the Windows Update Agent to download and install
-Windows updates on the day and hour that you specify. If an update requires a
-reboot, the managed node reboots automatically 15 minutes after updates have
-been installed. With this command you can also configure Windows Update to check
-for updates but not install them. The `AWS-ConfigureWindowsUpdate`
-document is officially supported on Windows Server 2012 and later versions.
+Using Run Command and the `AWS-ConfigureWindowsUpdate` document, you can turn on or turn off automatic Windows updates on your Windows Server managed nodes. This command configures the Windows Update Agent to download and install Windows updates on the day and hour that you specify. If an update requires a reboot, the managed node reboots automatically 15 minutes after updates have been installed. With this command you can also configure Windows Update to check for updates but not install them. The `AWS-ConfigureWindowsUpdate` document is officially supported on Windows Server 2012 and later versions.
 
 **View the description and available parameters**
 
@@ -439,22 +365,19 @@ Get-SSMDocumentDescription `
 ```
 
 ### Turn on Windows automatic update
+<a name="walkthrough-powershell-enable-windows-update-automatic"></a>
 
-The following command configures Windows Update to automatically download
-and install updates daily at 10:00 PM.
+The following command configures Windows Update to automatically download and install updates daily at 10:00 PM. 
 
 ```
 $configureWindowsUpdateCommand = Send-SSMCommand `
-    -InstanceId `instance-ID` `
+    -InstanceId {{instance-ID}} `
     -DocumentName "AWS-ConfigureWindowsUpdate" `
     -Parameters @{'updateLevel'='InstallUpdatesAutomatically'; 'scheduledInstallDay'='Daily'; 'scheduledInstallTime'='22:00'}
 ```
 
-###### View command status for allowing Windows automatic update
-
-The following command uses the `CommandId` to get the
-status of the command execution for allowing Windows automatic
-update.
+**View command status for allowing Windows automatic update**  
+The following command uses the `CommandId` to get the status of the command execution for allowing Windows automatic update.
 
 ```
 Get-SSMCommandInvocation `
@@ -463,23 +386,19 @@ Get-SSMCommandInvocation `
 ```
 
 ### Turn off Windows automatic update
+<a name="walkthrough-powershell-enable-windows-update-disable"></a>
 
-The following command lowers the Windows Update notification level so the
-system checks for updates but doesn't automatically update the managed
-node.
+The following command lowers the Windows Update notification level so the system checks for updates but doesn't automatically update the managed node.
 
 ```
 $configureWindowsUpdateCommand = Send-SSMCommand `
-    -InstanceId `instance-ID` `
+    -InstanceId {{instance-ID}} `
     -DocumentName "AWS-ConfigureWindowsUpdate" `
     -Parameters @{'updateLevel'='NeverCheckForUpdates'}
 ```
 
-###### View command status for turning off Windows automatic update
-
-The following command uses the `CommandId` to get the
-status of the command execution for turning off Windows automatic
-update.
+**View command status for turning off Windows automatic update**  
+The following command uses the `CommandId` to get the status of the command execution for turning off Windows automatic update.
 
 ```
 Get-SSMCommandInvocation `
@@ -488,53 +407,51 @@ Get-SSMCommandInvocation `
 ```
 
 ## Manage Windows updates using Run Command
+<a name="walkthough-powershell-windows-updates"></a>
 
-Using Run Command and the `AWS-InstallWindowsUpdates` document, you
-can manage updates for Windows Server managed nodes. This command scans for or
-installs missing updates on your managed nodes and optionally reboots following
-installation. You can also specify the appropriate classifications and severity
-levels for updates to install in your environment.
+Using Run Command and the `AWS-InstallWindowsUpdates` document, you can manage updates for Windows Server managed nodes. This command scans for or installs missing updates on your managed nodes and optionally reboots following installation. You can also specify the appropriate classifications and severity levels for updates to install in your environment.
 
-###### Note
+**Note**  
+For information about rebooting managed nodes when using Run Command to call scripts, see [Handling reboots when running commands](send-commands-reboot.md).
 
-For information about rebooting managed nodes when using Run Command to call
-scripts, see [Handling reboots when running commands](send-commands-reboot.md "send-commands-reboot.md").
-
-The following examples demonstrate how to perform the specified Windows Update
-management tasks.
+The following examples demonstrate how to perform the specified Windows Update management tasks.
 
 ### Search for all missing Windows updates
+<a name="walkthough-powershell-windows-updates-search"></a>
 
 ```
 Send-SSMCommand `
-    -InstanceId `instance-ID` `
+    -InstanceId {{instance-ID}} `
     -DocumentName "AWS-InstallWindowsUpdates" `
     -Parameters @{'Action'='Scan'}
 ```
 
 ### Install specific Windows updates
+<a name="walkthough-powershell-windows-updates-install-specific"></a>
 
 ```
 Send-SSMCommand `
-    -InstanceId `instance-ID` `
+    -InstanceId {{instance-ID}} `
     -DocumentName "AWS-InstallWindowsUpdates" `
-    -Parameters @{'Action'='Install';'IncludeKbs'='`kb-ID-1`,`kb-ID-2`,`kb-ID-3`';'AllowReboot'='True'}
+    -Parameters @{'Action'='Install';'IncludeKbs'='{{kb-ID-1}},{{kb-ID-2}},{{kb-ID-3}}';'AllowReboot'='True'}
 ```
 
 ### Install important missing Windows updates
+<a name="walkthough-powershell-windows-updates-install-missing"></a>
 
 ```
 Send-SSMCommand `
-    -InstanceId `instance-ID` `
+    -InstanceId {{instance-ID}} `
     -DocumentName "AWS-InstallWindowsUpdates" `
     -Parameters @{'Action'='Install';'SeverityLevels'='Important';'AllowReboot'='True'}
 ```
 
 ### Install missing Windows updates with specific exclusions
+<a name="walkthough-powershell-windows-updates-install-exclusions"></a>
 
 ```
 Send-SSMCommand `
-    -InstanceId `instance-ID` `
+    -InstanceId {{instance-ID}} `
     -DocumentName "AWS-InstallWindowsUpdates" `
-    -Parameters @{'Action'='Install';'ExcludeKbs'='`kb-ID-1`,`kb-ID-2`';'AllowReboot'='True'}
+    -Parameters @{'Action'='Install';'ExcludeKbs'='{{kb-ID-1}},{{kb-ID-2}}';'AllowReboot'='True'}
 ```

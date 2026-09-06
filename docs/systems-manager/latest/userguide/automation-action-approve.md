@@ -1,23 +1,19 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # `aws:approve` – Pause an automation for manual approval
+<a name="automation-action-approve"></a>
 
-Temporarily pauses an automation until designated principals either approve or reject
-the action. After the required number of approvals is reached, the automation resumes.
-You can insert the approval step any place in the `mainSteps` section of your
-runbook.
+Temporarily pauses an automation until designated principals either approve or reject the action. After the required number of approvals is reached, the automation resumes. You can insert the approval step any place in the `mainSteps` section of your runbook. 
 
-###### Note
+**Note**  
+This action doesn't support multi-account and Region automations. The default timeout for this action is 7 days (604800 seconds) and the maximum value is 30 days (2592000 seconds). You can limit or extend the timeout by specifying the `timeoutSeconds` parameter for an `aws:approve` step.
 
-This action doesn't support multi-account and Region automations. The default
-timeout for this action is 7 days (604800 seconds) and the maximum value is 30 days
-(2592000 seconds). You can limit or extend the timeout by specifying the
-`timeoutSeconds` parameter for an `aws:approve`
-step.
+In the following example, the `aws:approve` action temporarily pauses the automation until one approver either accepts or rejects the automation. Upon approval, the automation runs a simple PowerShell command. 
 
-In the following example, the `aws:approve` action temporarily pauses the
-automation until one approver either accepts or rejects the automation. Upon approval,
-the automation runs a simple PowerShell command.
-
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -51,7 +47,8 @@ mainSteps:
       - date
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -100,21 +97,29 @@ JSON
 }
 ```
 
-You can approve or deny Automations that are waiting for approval in the
-console.
+------
 
-###### To approve or deny waiting Automations
+You can approve or deny Automations that are waiting for approval in the console.
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. In the navigation pane, choose **Automation**.
-3. Choose the option next to an Automation with a status of
-   **Waiting**.
+**To approve or deny waiting Automations**
 
-![Accessing the Approve/Deny Automation page](images/automation-approve-action-aws.png) 4. Choose **Approve/Deny**. 5. Review the details of the Automation. 6. Choose either **Approve** or **Deny**, type
-an optional comment, and then choose **Submit**.
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
+
+1. In the navigation pane, choose **Automation**.
+
+1. Choose the option next to an Automation with a status of **Waiting**.  
+![Accessing the Approve/Deny Automation page](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-approve-action-aws.png)
+
+1. Choose **Approve/Deny**.
+
+1. Review the details of the Automation.
+
+1. Choose either **Approve** or **Deny**, type an optional comment, and then choose **Submit**.
+
 **Input example**
 
-YAML
+------
+#### [ YAML ]
 
 ```
 NotificationArn: arn:aws:sns:us-west-1:12345678901:Automation-ApprovalRequest
@@ -127,7 +132,8 @@ Approvers:
 - arn:aws:iam::12345678901:role/IamRole
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -143,60 +149,34 @@ JSON
 }
 ```
 
-NotificationArn
+------
 
-The Amazon Resource Name (ARN of an Amazon Simple Notification Service (Amazon SNS) topic for Automation
-approvals. When you specify an `aws:approve` step in a runbook,
-Automation sends a message to this topic letting principals know that they
-must either approve or reject an Automation step. The title of the Amazon SNS
-topic must be prefixed with "Automation".
-
-Type: String
-
+NotificationArn  
+The Amazon Resource Name (ARN of an Amazon Simple Notification Service (Amazon SNS) topic for Automation approvals. When you specify an `aws:approve` step in a runbook, Automation sends a message to this topic letting principals know that they must either approve or reject an Automation step. The title of the Amazon SNS topic must be prefixed with "Automation".  
+Type: String  
 Required: No
 
-Message
-
-The information you want to include in the Amazon SNS topic when the approval
-request is sent. The maximum message length is 4096 characters.
-
-Type: String
-
+Message  
+The information you want to include in the Amazon SNS topic when the approval request is sent. The maximum message length is 4096 characters.   
+Type: String  
 Required: No
 
-MinRequiredApprovals
-
-The minimum number of approvals required to resume the automation. If you
-don't specify a value, the system defaults to one. The value for this
-parameter must be a positive number. The value for this parameter can't
-exceed the number of approvers defined by the `Approvers`
-parameter.
-
-Type: Integer
-
+MinRequiredApprovals  
+The minimum number of approvals required to resume the automation. If you don't specify a value, the system defaults to one. The value for this parameter must be a positive number. The value for this parameter can't exceed the number of approvers defined by the `Approvers` parameter.   
+Type: Integer  
 Required: No
 
-Approvers
-
-A list of AWS authenticated principals who can either approve or
-reject the action. The maximum number of approvers is 10. You can specify
-principals by using any of the following formats:
-
-- A user name
-- A user ARN
-- An IAM role ARN
-- An IAM assume role ARN
-
-Type: StringList
-
+Approvers  
+A list of AWS authenticated principals who can either approve or reject the action. The maximum number of approvers is 10. You can specify principals by using any of the following formats:  
++ A user name
++ A user ARN
++ An IAM role ARN
++ An IAM assume role ARN
+Type: StringList  
 Required: Yes
 
-EnhancedApprovals
-
-This input is only used for Change Manager templates. A list of AWS
-authenticated principals who can either approve or reject the
-action, the type of IAM principal, and the minimum number of approvers.
-The following is an example:
+EnhancedApprovals  
+This input is only used for Change Manager templates. A list of AWS authenticated principals who can either approve or reject the action, the type of IAM principal, and the minimum number of approvers. The following is an example:  
 
 ```
 schemaVersion: "0.3"
@@ -208,40 +188,31 @@ mainSteps:
     timeoutSeconds: 604800
     inputs:
         Message: Please approve this change request
-        **MinRequiredApprovals: 3**
+        MinRequiredApprovals: 3
         EnhancedApprovals:
         Approvers:
             - approver: John Stiles
             type: IamUser
-            **minRequiredApprovals: 0**
+            minRequiredApprovals: 0
             - approver: Ana Carolina Silva
             type: IamUser
-            **minRequiredApprovals: 0**
+            minRequiredApprovals: 0
             - approver: GroupOfThree
             type: IamGroup
-            **minRequiredApprovals: 0**
+            minRequiredApprovals: 0
             - approver: RoleOfTen
             type: IamRole
-            **minRequiredApprovals: 0**
-
+            minRequiredApprovals: 0
 ```
-
-Type: StringList
-
+Type: StringList  
 Required: Yes
 
 **Output**
 
-ApprovalStatus
-
-The approval status of the step. The status can be one of the following:
-Approved, Rejected, or Waiting. Waiting means that Automation is waiting for
-input from approvers.
-
+ApprovalStatus  
+The approval status of the step. The status can be one of the following: Approved, Rejected, or Waiting. Waiting means that Automation is waiting for input from approvers.  
 Type: String
 
-ApproverDecisions
-
-A JSON map that includes the approval decision of each approver.
-
+ApproverDecisions  
+A JSON map that includes the approval decision of each approver.  
 Type: MapList

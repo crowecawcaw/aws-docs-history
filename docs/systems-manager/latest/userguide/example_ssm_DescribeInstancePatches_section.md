@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DescribeInstancePatches` with a CLI
+<a name="example_ssm_DescribeInstancePatches_section"></a>
 
 The following code examples show how to use `DescribeInstancePatches`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To get the patch state details for an instance**
-
-The following `describe-instance-patches` example retrieves details about the patches for the specified instance.
-
-```
-`aws ssm describe-instance-patches \
- --instance-id `"i-1234567890abcdef0"``
+**AWS CLI**  
+**Example 1: To get the patch state details for an instance**  
+The following `describe-instance-patches` example retrieves details about the patches for the specified instance.  
 
 ```
-
-Output:
+aws ssm describe-instance-patches \
+    --instance-id {{"i-1234567890abcdef0"}}
+```
+Output:  
 
 ```
 {
@@ -42,19 +44,15 @@ Output:
     "NextToken": "--token string truncated--"
 }
 ```
-
-**Example 2: To get a list of patches in the Missing state for an instance**
-
-The following `describe-instance-patches` example retrieves information about patches that are in the Missing state for the specified instance.
+**Example 2: To get a list of patches in the Missing state for an instance**  
+The following `describe-instance-patches` example retrieves information about patches that are in the Missing state for the specified instance.  
 
 ```
-`aws ssm describe-instance-patches \
- --instance-id `"i-1234567890abcdef0"` \
- --filters `Key=State,Values=Missing``
-
+aws ssm describe-instance-patches \
+    --instance-id {{"i-1234567890abcdef0"}} \
+    --filters {{Key=State,Values=Missing}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -72,22 +70,17 @@ Output:
     "NextToken": "--token string truncated--"
 }
 ```
-
-For more information, see [About Patch Compliance States](about-patch-compliance-states.md "about-patch-compliance-states.md") in the _AWS Systems Manager User Guide_.
-
-**Example 3: To get a list of patches installed since a specified InstalledTime for an instance**
-
-The following `describe-instance-patches` example retrieves information about patches installed since a specified time for the specified instance by combining the use of `--filters` and `--query`.
+For more information, see [About Patch Compliance States](https://docs.aws.amazon.com/systems-manager/latest/userguide/about-patch-compliance-states.html) in the *AWS Systems Manager User Guide*.  
+**Example 3: To get a list of patches installed since a specified InstalledTime for an instance**  
+The following `describe-instance-patches` example retrieves information about patches installed since a specified time for the specified instance by combining the use of `--filters` and `--query`.  
 
 ```
-`aws ssm describe-instance-patches \
- --instance-id `"i-1234567890abcdef0"` \
- --filters `Key=State,Values=Installed` \
- --query `"Patches[?InstalledTime >= `2023-01-01T16:00:00`]"``
-
+aws ssm describe-instance-patches \
+    --instance-id {{"i-1234567890abcdef0"}} \
+    --filters {{Key=State,Values=Installed}} \
+    --query {{"Patches[?InstalledTime >= `2023-01-01T16:00:00`]"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -105,39 +98,27 @@ Output:
     "NextToken": "--token string truncated--"
 }
 ```
++  For API details, see [DescribeInstancePatches](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-instance-patches.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeInstancePatches](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-instance-patches.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-instance-patches.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example gets the patch compliance details for an instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example gets the patch compliance details for an instance.**  
 
 ```
 Get-SSMInstancePatch -InstanceId "i-08ee91c0b17045407"
-
 ```
++  For API details, see [DescribeInstancePatches](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeInstancePatches](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example gets the patch compliance details for an instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example gets the patch compliance details for an instance.**  
 
 ```
 Get-SSMInstancePatch -InstanceId "i-08ee91c0b17045407"
-
 ```
++  For API details, see [DescribeInstancePatches](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeInstancePatches](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

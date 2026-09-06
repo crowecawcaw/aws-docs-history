@@ -1,23 +1,25 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `ListInventoryEntries` with a CLI
+<a name="example_ssm_ListInventoryEntries_section"></a>
 
 The following code examples show how to use `ListInventoryEntries`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To view specific inventory type entries for an instance**
-
-This following `list-inventory-entries` example lists the inventory entries for the AWS:Application inventory type on a specific instance.
-
-```
-`aws ssm list-inventory-entries \
- --instance-id `"i-1234567890abcdef0"` \
- --type-name `"AWS:Application"``
+**AWS CLI**  
+**Example 1: To view specific inventory type entries for an instance**  
+This following `list-inventory-entries` example lists the inventory entries for the AWS:Application inventory type on a specific instance.  
 
 ```
-
-Output:
+aws ssm list-inventory-entries \
+    --instance-id {{"i-1234567890abcdef0"}} \
+    --type-name {{"AWS:Application"}}
+```
+Output:  
 
 ```
 {
@@ -43,19 +45,15 @@ Output:
   ]
 }
 ```
-
-**Example 2: To view custom inventory entries assigned to an instance**
-
-The following `list-inventory-entries` example lists a custom inventory entry assigned to an instance.
+**Example 2: To view custom inventory entries assigned to an instance**  
+The following `list-inventory-entries` example lists a custom inventory entry assigned to an instance.  
 
 ```
-`aws ssm list-inventory-entries \
- --instance-id `"i-1234567890abcdef0"` \
- --type-name `"Custom:RackInfo"``
-
+aws ssm list-inventory-entries \
+    --instance-id {{"i-1234567890abcdef0"}} \
+    --type-name {{"Custom:RackInfo"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -70,23 +68,18 @@ Output:
   ]
 }
 ```
++  For API details, see [ListInventoryEntries](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-inventory-entries.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListInventoryEntries](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-inventory-entries.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-inventory-entries.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example lists all the custom inventory entries for an instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example lists all the custom inventory entries for an instance.**  
 
 ```
 Get-SSMInventoryEntriesList -InstanceId "i-0cb2b964d3e14fd9f" -TypeName "Custom:RackInfo"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CaptureTime   : 2016-08-22T10:01:01Z
@@ -96,36 +89,27 @@ NextToken     :
 SchemaVersion : 1.0
 TypeName      : Custom:RackInfo
 ```
-
-**Example 2: This example lists the details.**
+**Example 2: This example lists the details.**  
 
 ```
 (Get-SSMInventoryEntriesList -InstanceId "i-0cb2b964d3e14fd9f" -TypeName "Custom:RackInfo").Entries
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Key          Value
 ---          -----
 RackLocation Bay B/Row C/Rack D/Shelf E
 ```
++  For API details, see [ListInventoryEntries](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListInventoryEntries](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example lists all the custom inventory entries for an instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example lists all the custom inventory entries for an instance.**  
 
 ```
 Get-SSMInventoryEntriesList -InstanceId "i-0cb2b964d3e14fd9f" -TypeName "Custom:RackInfo"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CaptureTime   : 2016-08-22T10:01:01Z
@@ -135,26 +119,20 @@ NextToken     :
 SchemaVersion : 1.0
 TypeName      : Custom:RackInfo
 ```
-
-**Example 2: This example lists the details.**
+**Example 2: This example lists the details.**  
 
 ```
 (Get-SSMInventoryEntriesList -InstanceId "i-0cb2b964d3e14fd9f" -TypeName "Custom:RackInfo").Entries
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Key          Value
 ---          -----
 RackLocation Bay B/Row C/Rack D/Shelf E
 ```
++  For API details, see [ListInventoryEntries](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListInventoryEntries](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

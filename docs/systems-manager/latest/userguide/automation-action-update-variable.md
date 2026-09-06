@@ -1,69 +1,57 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # `aws:updateVariable` – Updates a value for a runbook variable
+<a name="automation-action-update-variable"></a>
 
-This action updates a value for a runbook variable. The data type of the value must
-match the data type of the variable you want to update. Data type conversions aren't
-supported. The `onCancel` property isn't supported for the
-`aws:updateVariable` action.
+This action updates a value for a runbook variable. The data type of the value must match the data type of the variable you want to update. Data type conversions aren't supported. The `onCancel` property isn't supported for the `aws:updateVariable` action.
 
-###### Input
-
+**Input**  
 The input is as follows.
 
-YAML
+------
+#### [ YAML ]
 
 ```
 name: updateStringList
 action: aws:updateVariable
 inputs:
-    Name: variable:`variable name`
+    Name: variable:{{variable name}}
     Value:
     - "1"
     - "2"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
     "name": "updateStringList",
     "action": "aws:updateVariable",
     "inputs": {
-        "Name": "variable:`variable name`",
+        "Name": "variable:{{variable name}}",
         "Value": ["1","2"]
     }
 }
 ```
 
-Name
+------
 
-The name of the variable whose value you want to update. You must use the
-format `variable:`variable name``
-
-Type: String
-
+Name  
+The name of the variable whose value you want to update. You must use the format `variable:{{variable name}}`  
+Type: String  
 Required: Yes
 
-Value
+Value  
+The new value to assign to the variable. The value must match the data type of the variable. Data type conversions aren't supported.  
+Type: Boolean \| Integer \| MapList \| String \| StringList \| StringMap  
+Required: Yes  
+Constraints:  
++ MapList can contain a maximum number of 200 items.
++ Key lengths can be a minimum length of 1 and a maximum length of 50.
++ StringList can be a minimum number of 0 items and a maximum number of 50 items.
++ String lengths can be a minimum length of 1 and a maximum length of 512.Output
 
-The new value to assign to the variable. The value must match the data
-type of the variable. Data type conversions aren't supported.
-
-Type: Boolean | Integer | MapList | String | StringList | StringMap
-
-Required: Yes
-
-Constraints:
-
-- MapList can contain a maximum number of 200 items.
-- Key lengths can be a minimum length of 1 and a maximum length of
-
-50.
-
-- StringList can be a minimum number of 0 items and a maximum number
-  of 50 items.
-- String lengths can be a minimum length of 1 and a maximum length
-  of 512.
-
-###### Output
-
-None
+None  

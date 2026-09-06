@@ -1,23 +1,15 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Command document plugin reference
+<a name="documents-command-ssm-plugin-reference"></a>
 
-This reference describes the plugins that you can specify in an AWS Systems Manager (SSM)
-Command type document. These plugins can't be used in SSM Automation runbooks,
-which use Automation actions. For information about AWS Systems Manager Automation actions,
-see [Systems Manager Automation actions reference](automation-actions.md "automation-actions.md").
+This reference describes the plugins that you can specify in an AWS Systems Manager (SSM) Command type document. These plugins can't be used in SSM Automation runbooks, which use Automation actions. For information about AWS Systems Manager Automation actions, see [Systems Manager Automation actions reference](automation-actions.md).
 
-Systems Manager determines the actions to perform on a managed instance by reading the
-contents of an SSM document. Each document includes a code-execution section.
-Depending on the schema version of your document, this code-execution section can
-include one or more plugins or steps. For the purpose of this Help topic, plugins
-and steps are called _plugins_. This section includes information
-about each of the Systems Manager plugins. For more information about documents, including
-information about creating documents and the differences between schema versions,
-see [AWS Systems Manager Documents](documents.md "documents.md").
+Systems Manager determines the actions to perform on a managed instance by reading the contents of an SSM document. Each document includes a code-execution section. Depending on the schema version of your document, this code-execution section can include one or more plugins or steps. For the purpose of this Help topic, plugins and steps are called *plugins*. This section includes information about each of the Systems Manager plugins. For more information about documents, including information about creating documents and the differences between schema versions, see [AWS Systems Manager Documents](documents.md).
 
-For plugins that accept String parameters, such as `aws:runShellScript`
-and `aws:runPowerShellScript`, the `interpolationType`
-parameter can be used to enhance security by treating parameter inputs as string
-literals rather than potentially executable commands. For example:
+For plugins that accept String parameters, such as `aws:runShellScript` and `aws:runPowerShellScript`, the `interpolationType` parameter can be used to enhance security by treating parameter inputs as string literals rather than potentially executable commands. For example:
 
 ```
 {
@@ -35,90 +27,58 @@ literals rather than potentially executable commands. For example:
  }
 ```
 
-###### Note
+**Note**  
+Some of the plugins described here run only on either Windows Server instances or Linux instances. Platform dependencies are noted for each plugin.   
+The following document plugins are supported on Amazon Elastic Compute Cloud (Amazon EC2) instances for macOS:  
+`aws:refreshAssociation`
+`aws:runShellScript`
+`aws:runPowerShellScript`
+`aws:softwareInventory`
+`aws:updateSsmAgent`
 
-Some of the plugins described here run only on either Windows Server instances or
-Linux instances. Platform dependencies are noted for each plugin.
-
-The following document plugins are supported on Amazon Elastic Compute Cloud (Amazon EC2) instances
-for macOS:
-
-- `aws:refreshAssociation`
-- `aws:runShellScript`
-- `aws:runPowerShellScript`
-- `aws:softwareInventory`
-- `aws:updateSsmAgent`
-
-###### Contents
-
-- [Shared inputs](#shared-inputs "#shared-inputs")
-- [aws:applications](#aws-applications "#aws-applications")
-- [aws:cloudWatch](#aws-cloudWatch "#aws-cloudWatch")
-- [aws:configureDocker](#aws-configuredocker "#aws-configuredocker")
-- [aws:configurePackage](#aws-configurepackage "#aws-configurepackage")
-- [aws:domainJoin](#aws-domainJoin "#aws-domainJoin")
-- [aws:downloadContent](#aws-downloadContent "#aws-downloadContent")
-- [aws:psModule](#aws-psModule "#aws-psModule")
-- [aws:refreshAssociation](#aws-refreshassociation "#aws-refreshassociation")
-- [aws:runDockerAction](#aws-rundockeraction "#aws-rundockeraction")
-- [aws:runDocument](#aws-rundocument "#aws-rundocument")
-- [aws:runPowerShellScript](#aws-runPowerShellScript "#aws-runPowerShellScript")
-- [aws:runShellScript](#aws-runShellScript "#aws-runShellScript")
-- [aws:softwareInventory](#aws-softwareinventory "#aws-softwareinventory")
-- [aws:updateAgent](#aws-updateagent "#aws-updateagent")
-- [aws:updateSsmAgent](#aws-updatessmagent "#aws-updatessmagent")
+**Topics**
++ [Shared inputs](#shared-inputs)
++ [`aws:applications`](#aws-applications)
++ [`aws:cloudWatch`](#aws-cloudWatch)
++ [`aws:configureDocker`](#aws-configuredocker)
++ [`aws:configurePackage`](#aws-configurepackage)
++ [`aws:domainJoin`](#aws-domainJoin)
++ [`aws:downloadContent`](#aws-downloadContent)
++ [`aws:psModule`](#aws-psModule)
++ [`aws:refreshAssociation`](#aws-refreshassociation)
++ [`aws:runDockerAction`](#aws-rundockeraction)
++ [`aws:runDocument`](#aws-rundocument)
++ [`aws:runPowerShellScript`](#aws-runPowerShellScript)
++ [`aws:runShellScript`](#aws-runShellScript)
++ [`aws:softwareInventory`](#aws-softwareinventory)
++ [`aws:updateAgent`](#aws-updateagent)
++ [`aws:updateSsmAgent`](#aws-updatessmagent)
 
 ## Shared inputs
+<a name="shared-inputs"></a>
 
-With SSM Agent version 3.0.502 and later only, all plugins can use the
-following inputs:
+With SSM Agent version 3.0.502 and later only, all plugins can use the following inputs:
 
-**finallyStep**
-
-The last step you want the document to run. If this input is
-defined for a step, it takes precedence over an `exit`
-value specified in the `onFailure` or
-`onSuccess` inputs. For a step with this
-input to run as expected, the step must be the last one defined in
-the `mainSteps` of your document.
-
-Type: Boolean
-
-Valid values: `true` | `false`
-
+**finallyStep**  
+The last step you want the document to run. If this input is defined for a step, it takes precedence over an `exit` value specified in the `onFailure` or `onSuccess` inputs. For a step with this input to run as expected, the step must be the last one defined in the `mainSteps` of your document.  
+Type: Boolean  
+Valid values: `true` \| `false`  
 Required: No
 
-**onFailure**
-
-If you specify this input for a plugin with the `exit`
-value and the step fails, the step status reflects the failure and
-the document doesn't run any remaining steps unless a
-`finallyStep` has been defined. If you specify this
-input for a plugin with the `successAndExit` value and
-the step fails, the step status shows successful and the document
-doesn't run any remaining steps unless a `finallyStep`
-has been defined.
-
-Type: String
-
-Valid values: `exit` |
-`successAndExit`
-
+**onFailure**  
+If you specify this input for a plugin with the `exit` value and the step fails, the step status reflects the failure and the document doesn't run any remaining steps unless a `finallyStep` has been defined. If you specify this input for a plugin with the `successAndExit` value and the step fails, the step status shows successful and the document doesn't run any remaining steps unless a `finallyStep` has been defined.  
+Type: String  
+Valid values: `exit` \| `successAndExit`  
 Required: No
 
-**onSuccess**
-
-If you specify this input for a plugin and the step runs
-successfully, the document doesn't run any remaining steps unless a
-`finallyStep` has been defined.
-
-Type: String
-
-Valid values: `exit`
-
+**onSuccess**  
+If you specify this input for a plugin and the step runs successfully, the document doesn't run any remaining steps unless a `finallyStep` has been defined.  
+Type: String  
+Valid values: `exit`  
 Required: No
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -133,24 +93,25 @@ mainSteps:
   name: runCustomConfiguration
   inputs:
     documentType: SSMDocument
-    documentPath: "`yourCustomDocument`"
+    documentPath: "{{yourCustomDocument}}"
     documentParameters: '"documentParameter":{{customDocumentParameter}}'
     onSuccess: exit
 - action: aws:runDocument
   name: ifConfigurationFailure
   inputs:
     documentType: SSMDocument
-    documentPath: "`yourCustomRepairDocument`"
+    documentPath: "{{yourCustomRepairDocument}}"
     onFailure: exit
 - action: aws:runDocument
   name: finalConfiguration
   inputs:
     documentType: SSMDocument
-    documentPath: "`yourCustomFinalDocument`"
+    documentPath: "{{yourCustomFinalDocument}}"
     finallyStep: true
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -168,7 +129,7 @@ JSON
          "name": "runCustomConfiguration",
          "inputs": {
             "documentType": "SSMDocument",
-            "documentPath": "`yourCustomDocument`",
+            "documentPath": "{{yourCustomDocument}}",
             "documentParameters": "\"documentParameter\":{{customDocumentParameter}}",
             "onSuccess": "exit"
          }
@@ -178,7 +139,7 @@ JSON
          "name": "ifConfigurationFailure",
          "inputs": {
             "documentType": "SSMDocument",
-            "documentPath": "`yourCustomRepairDocument`",
+            "documentPath": "{{yourCustomRepairDocument}}",
             "onFailure": "exit"
          }
       },
@@ -187,7 +148,7 @@ JSON
          "name":"finalConfiguration",
          "inputs": {
             "documentType": "SSMDocument",
-            "documentPath": "`yourCustomFinalDocument`",
+            "documentPath": "{{yourCustomFinalDocument}}",
             "finallyStep": true
          }
       }
@@ -195,16 +156,21 @@ JSON
 }
 ```
 
-## `aws:applications`
+------
 
-Install, repair, or uninstall applications on an EC2 instance. This plugin
-only runs on Windows Server operating systems.
+## `aws:applications`
+<a name="aws-applications"></a>
+
+Install, repair, or uninstall applications on an EC2 instance. This plugin only runs on Windows Server operating systems.
 
 ### Syntax
+<a name="applications-syntax"></a>
 
 #### Schema 2.2
+<a name="applications-syntax-2.2"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -222,7 +188,8 @@ mainSteps:
     source: "{{ source }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -247,9 +214,13 @@ JSON
 }
 ```
 
-#### Schema 1.2
+------
 
-YAML
+#### Schema 1.2
+<a name="applications-syntax-1.2"></a>
+
+------
+#### [ YAML ]
 
 ```
 ---
@@ -263,7 +234,8 @@ runtimeConfig:
       sourceHash: "{{ sourceHash }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -283,142 +255,78 @@ JSON
 }
 ```
 
+------
+
 ### Properties
+<a name="applications-properties"></a>
 
-**action**
-
-The action to take.
-
-Type: Enum
-
-Valid values: `Install` | `Repair` |
-`Uninstall`
-
+**action**  
+The action to take.  
+Type: Enum  
+Valid values: `Install` \| `Repair` \| `Uninstall`  
 Required: Yes
 
-**parameters**
-
-The parameters for the installer.
-
-Type: String
-
+**parameters**  
+The parameters for the installer.  
+Type: String  
 Required: No
 
-**source**
-
-The URL of the `.msi` file for the
-application.
-
-Type: String
-
+**source**  
+The URL of the `.msi` file for the application.  
+Type: String  
 Required: Yes
 
-**sourceHash**
-
-The SHA256 hash of the `.msi` file.
-
-Type: String
-
+**sourceHash**  
+The SHA256 hash of the `.msi` file.  
+Type: String  
 Required: No
 
 ## `aws:cloudWatch`
+<a name="aws-cloudWatch"></a>
 
-Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs and monitor the data using
-CloudWatch metrics. This plugin only runs on Windows Server operating systems. For more
-information about configuring CloudWatch integration with Amazon Elastic Compute Cloud (Amazon EC2), see
-[Collecting metrics, logs, and traces with the CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md "../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md") in the
-_Amazon CloudWatch User Guide_.
+Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs and monitor the data using CloudWatch metrics. This plugin only runs on Windows Server operating systems. For more information about configuring CloudWatch integration with Amazon Elastic Compute Cloud (Amazon EC2), see [Collecting metrics, logs, and traces with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*.
 
-###### Important
-
-The unified CloudWatch agent has replaced SSM Agent as the tool for sending log data to
-Amazon CloudWatch Logs. The SSM Agent aws:cloudWatch plugin is not supported. We recommend using only
-the unified CloudWatch agent for your log collection processes. For more information, see the
-following topics:
-
-- [Sending node logs to unified CloudWatch Logs (CloudWatch agent)](monitoring-cloudwatch-agent.md "monitoring-cloudwatch-agent.md")
-- [Migrate Windows Server node log collection to the CloudWatch agent](monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate "monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate")
-- [Collecting metrics, logs, and traces with the CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md "../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md") in the
-  _Amazon CloudWatch User Guide_.
+**Important**  
+The unified CloudWatch agent has replaced SSM Agent as the tool for sending log data to Amazon CloudWatch Logs. The SSM Agent aws:cloudWatch plugin is not supported. We recommend using only the unified CloudWatch agent for your log collection processes. For more information, see the following topics:  
+[Sending node logs to unified CloudWatch Logs (CloudWatch agent)](monitoring-cloudwatch-agent.md)
+[Migrate Windows Server node log collection to the CloudWatch agent](monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate)
+[Collecting metrics, logs, and traces with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*.
 
 You can export and monitor the following data types:
 
-**ApplicationEventLog**
-
+**ApplicationEventLog**  
 Sends application event log data to CloudWatch Logs.
 
-**CustomLogs**
+**CustomLogs**  
+Sends any text-based log file to Amazon CloudWatch Logs. The CloudWatch plugin creates a fingerprint for log files. The system then associates a data offset with each fingerprint. The plugin uploads files when there are changes, records the offset, and associates the offset with a fingerprint. This method is used to avoid a situation where a user turns on the plugin, associates the service with a directory that contains a large number of files, and the system uploads all of the files.  
+Be aware that if your application truncates or attempts to clean logs during polling, any logs specified for `LogDirectoryPath` can lose entries. If, for example, you want to limit log file size, create a new log file when that limit is reached, and then continue writing data to the new file.
 
-Sends any text-based log file to Amazon CloudWatch Logs. The CloudWatch plugin
-creates a fingerprint for log files. The system then associates a
-data offset with each fingerprint. The plugin uploads files when
-there are changes, records the offset, and associates the offset
-with a fingerprint. This method is used to avoid a situation where a
-user turns on the plugin, associates the service with a directory
-that contains a large number of files, and the system uploads all of
-the files.
-
-###### Warning
-
-Be aware that if your application truncates or attempts to
-clean logs during polling, any logs specified for
-`LogDirectoryPath` can lose entries. If, for
-example, you want to limit log file size, create a new log file
-when that limit is reached, and then continue writing data to
-the new file.
-
-**ETW**
-
+**ETW**  
 Sends Event Tracing for Windows (ETW) data to CloudWatch Logs.
 
-**IIS**
-
+**IIS**  
 Sends IIS log data to CloudWatch Logs.
 
-**PerformanceCounter**
+**PerformanceCounter**  
+Sends Windows performance counters to CloudWatch. You can select different categories to upload to CloudWatch as metrics. For each performance counter that you want to upload, create a **PerformanceCounter** section with a unique ID (for example, "PerformanceCounter2", "PerformanceCounter3", and so on) and configure its properties.  
+If the AWS Systems Manager SSM Agent or the CloudWatch plugin is stopped, performance counter data isn't logged in CloudWatch. This behavior is different than custom logs or Windows Event logs. Custom logs and Windows Event logs preserve performance counter data and upload it to CloudWatch after SSM Agent or the CloudWatch plugin is available.
 
-Sends Windows performance counters to CloudWatch. You can select
-different categories to upload to CloudWatch as metrics. For each
-performance counter that you want to upload, create a
-**PerformanceCounter** section with a unique ID
-(for example, "PerformanceCounter2", "PerformanceCounter3", and so
-on) and configure its properties.
-
-###### Note
-
-If the AWS Systems Manager SSM Agent or the CloudWatch plugin is stopped,
-performance counter data isn't logged in CloudWatch. This behavior is
-different than custom logs or Windows Event logs. Custom logs
-and Windows Event logs preserve performance counter data and
-upload it to CloudWatch after SSM Agent or the CloudWatch plugin is
-available.
-
-**SecurityEventLog**
-
+**SecurityEventLog**  
 Sends security event log data to CloudWatch Logs.
 
-**SystemEventLog**
-
+**SystemEventLog**  
 Sends system event log data to CloudWatch Logs.
 
 You can define the following destinations for the data:
 
-**CloudWatch**
+**CloudWatch**  
+The destination where your performance counter metric data is sent. You can add more sections with unique IDs (for example, "CloudWatch2", CloudWatch3", and so on), and specify a different Region for each new ID to send the same data to different locations.
 
-The destination where your performance counter metric data is
-sent. You can add more sections with unique IDs (for example,
-"CloudWatch2", CloudWatch3", and so on), and specify a different
-Region for each new ID to send the same data to different
-locations.
-
-**CloudWatchLogs**
-
-The destination where your log data is sent. You can add more
-sections with unique IDs (for example, "CloudWatchLogs2",
-CloudWatchLogs3", and so on), and specify a different Region for
-each new ID to send the same data to different locations.
+**CloudWatchLogs**  
+The destination where your log data is sent. You can add more sections with unique IDs (for example, "CloudWatchLogs2", CloudWatchLogs3", and so on), and specify a different Region for each new ID to send the same data to different locations.
 
 ### Syntax
+<a name="cloudWatch-syntax"></a>
 
 ```
 "runtimeConfig":{
@@ -432,403 +340,183 @@ each new ID to send the same data to different locations.
 ```
 
 ### Settings and properties
+<a name="cloudWatch-properties"></a>
 
-**AccessKey**
-
-Your access key ID. This property is required unless you
-launched your instance using an IAM role. This property can't
-be used with SSM.
-
-Type: String
-
+**AccessKey**  
+Your access key ID. This property is required unless you launched your instance using an IAM role. This property can't be used with SSM.  
+Type: String  
 Required: No
 
-**CategoryName**
-
-The performance counter category from Performance
-Monitor.
-
-Type: String
-
+**CategoryName**  
+The performance counter category from Performance Monitor.  
+Type: String  
 Required: Yes
 
-**CounterName**
-
-The name of the performance counter from Performance
-Monitor.
-
-Type: String
-
+**CounterName**  
+The name of the performance counter from Performance Monitor.  
+Type: String  
 Required: Yes
 
-**CultureName**
-
-The locale where the timestamp is logged. If
-**CultureName** is blank, it defaults to
-the same locale used by your Windows Server instance.
-
-Type: String
-
-Valid values: For a list of supported values, see [National Language Support (NLS)](https://msdn.microsoft.com/en-us/library/cc233982.aspx "https://msdn.microsoft.com/en-us/library/cc233982.aspx") on the Microsoft
-website. The **div**,
-**div-MV**, **hu**, and
-**hu-HU** values aren't supported.
-
+**CultureName**  
+The locale where the timestamp is logged. If **CultureName** is blank, it defaults to the same locale used by your Windows Server instance.  
+Type: String  
+Valid values: For a list of supported values, see [National Language Support (NLS)](https://msdn.microsoft.com/en-us/library/cc233982.aspx) on the Microsoft website. The **div**, **div-MV**, **hu**, and **hu-HU** values aren't supported.  
 Required: No
 
-**DimensionName**
-
-A dimension for your Amazon CloudWatch metric. If you specify
-`DimensionName`, you must specify
-`DimensionValue`. These parameters provide
-another view when listing metrics. You can use the same
-dimension for multiple metrics so that you can view all metrics
-belonging to a specific dimension.
-
-Type: String
-
+**DimensionName**  
+A dimension for your Amazon CloudWatch metric. If you specify `DimensionName`, you must specify `DimensionValue`. These parameters provide another view when listing metrics. You can use the same dimension for multiple metrics so that you can view all metrics belonging to a specific dimension.  
+Type: String  
 Required: No
 
-**DimensionValue**
-
-A dimension value for your Amazon CloudWatch metric.
-
-Type: String
-
+**DimensionValue**  
+A dimension value for your Amazon CloudWatch metric.  
+Type: String  
 Required: No
 
-**Encoding**
-
-The file encoding to use (for example, UTF-8). Use the
-encoding name, not the display name.
-
-Type: String
-
-Valid values: For a list of supported values, see [Encoding Class](https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding?view=net-7.0 "https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding?view=net-7.0") in the Microsoft Learn
-Library.
-
+**Encoding**  
+The file encoding to use (for example, UTF-8). Use the encoding name, not the display name.  
+Type: String  
+Valid values: For a list of supported values, see [Encoding Class](https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding?view=net-7.0) in the Microsoft Learn Library.  
 Required: Yes
 
-**Filter**
-
-The prefix of log names. Leave this parameter blank to monitor
-all files.
-
-Type: String
-
-Valid values: For a list of supported values, see the [FileSystemWatcherFilter Property](http://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.filter.aspx "http://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.filter.aspx") in the MSDN
-Library.
-
+**Filter**  
+The prefix of log names. Leave this parameter blank to monitor all files.  
+Type: String  
+Valid values: For a list of supported values, see the [FileSystemWatcherFilter Property](http://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.filter.aspx) in the MSDN Library.  
 Required: No
 
-**Flows**
-
-Each data type to upload, along with the destination for the
-data (CloudWatch or CloudWatch Logs). For example, to send a performance counter
-defined under `"Id": "PerformanceCounter"` to the
-CloudWatch destination defined under `"Id": "CloudWatch"`,
-enter **"PerformanceCounter,CloudWatch"**.
-Similarly, to send the custom log, ETW log, and system log to
-the CloudWatch Logs destination defined under `"Id": "ETW"`,
-enter **"(ETW),CloudWatchLogs"**. In addition,
-you can send the same performance counter or log file to more
-than one destination. For example, to send the application log
-to two different destinations that you defined under `"Id":
- "CloudWatchLogs"` and `"Id":
- "CloudWatchLogs2"`, enter
-**"ApplicationEventLog,(CloudWatchLogs,
-CloudWatchLogs2)"**.
-
-Type: String
-
-Valid values (source): `ApplicationEventLog` |
-`CustomLogs` | `ETW` |
-`PerformanceCounter` |
-`SystemEventLog` | `SecurityEventLog`
-
-Valid values (destination): `CloudWatch` |
-`CloudWatchLogs` |
-`CloudWatch``n` |
-`CloudWatchLogs``n`
-
+**Flows**  
+Each data type to upload, along with the destination for the data (CloudWatch or CloudWatch Logs). For example, to send a performance counter defined under `"Id": "PerformanceCounter"` to the CloudWatch destination defined under `"Id": "CloudWatch"`, enter **"PerformanceCounter,CloudWatch"**. Similarly, to send the custom log, ETW log, and system log to the CloudWatch Logs destination defined under `"Id": "ETW"`, enter **"(ETW),CloudWatchLogs"**. In addition, you can send the same performance counter or log file to more than one destination. For example, to send the application log to two different destinations that you defined under `"Id": "CloudWatchLogs"` and `"Id": "CloudWatchLogs2"`, enter **"ApplicationEventLog,(CloudWatchLogs, CloudWatchLogs2)"**.  
+Type: String  
+Valid values (source): `ApplicationEventLog` \| `CustomLogs` \| `ETW` \| `PerformanceCounter` \| `SystemEventLog` \| `SecurityEventLog`   
+Valid values (destination): `CloudWatch` \| `CloudWatchLogs` \| `CloudWatch`{{n}} \| `CloudWatchLogs`{{n}}   
 Required: Yes
 
-**FullName**
-
-The full name of the component.
-
-Type: String
-
+**FullName**  
+The full name of the component.  
+Type: String  
 Required: Yes
 
-**Id**
-
-Identifies the data source or destination. This identifier
-must be unique within the configuration file.
-
-Type: String
-
+**Id**  
+Identifies the data source or destination. This identifier must be unique within the configuration file.  
+Type: String  
 Required: Yes
 
-**InstanceName**
-
-The name of the performance counter instance. Don't use an
-asterisk (\*) to indicate all instances because each performance
-counter component only supports one metric. You can, however use
-**\_Total**.
-
-Type: String
-
+**InstanceName**  
+The name of the performance counter instance. Don't use an asterisk (\*) to indicate all instances because each performance counter component only supports one metric. You can, however use **\_Total**.  
+Type: String  
 Required: Yes
 
-**Levels**
-
-The types of messages to send to Amazon CloudWatch.
-
-Type: String
-
-Valid values:
-
-- **1** - Only error messages
-  uploaded.
-- **2** - Only warning messages
-  uploaded.
-- **4** - Only information messages
-  uploaded.
-
-You can add values together to include more than one type of
-message. For example, **3** means that error
-messages (**1**) and warning messages
-(**2**) are included. A value of
-**7** means that error messages
-(**1**), warning messages
-(**2**), and informational messages
-(**4**) are included.
-
-Required: Yes
-
-###### Note
-
+**Levels**  
+The types of messages to send to Amazon CloudWatch.  
+Type: String  
+Valid values:   
++ **1** - Only error messages uploaded.
++ **2** - Only warning messages uploaded.
++ **4** - Only information messages uploaded.
+You can add values together to include more than one type of message. For example, **3** means that error messages (**1**) and warning messages (**2**) are included. A value of **7** means that error messages (**1**), warning messages (**2**), and informational messages (**4**) are included.  
+Required: Yes  
 Windows Security Logs should set Levels to 7.
 
-**LineCount**
-
-The number of lines in the header to identify the log file.
-For example, IIS log files have virtually identical headers. You
-could enter **3**, which would read the first
-three lines of the log file's header to identify it. In IIS log
-files, the third line is the date and time stamp, which is
-different between log files.
-
-Type: Integer
-
+**LineCount**  
+The number of lines in the header to identify the log file. For example, IIS log files have virtually identical headers. You could enter **3**, which would read the first three lines of the log file's header to identify it. In IIS log files, the third line is the date and time stamp, which is different between log files.  
+Type: Integer  
 Required: No
 
-**LogDirectoryPath**
-
-For CustomLogs, the path where logs are stored on your EC2
-instance. For IIS logs, the folder where IIS logs are stored for
-an individual site (for example,
-**C:\\inetpub\\logs\\LogFiles\\W3SVC`n`**).
-For IIS logs, only W3C log format is supported. IIS, NCSA, and
-Custom formats aren't supported.
-
-Type: String
-
+**LogDirectoryPath**  
+For CustomLogs, the path where logs are stored on your EC2 instance. For IIS logs, the folder where IIS logs are stored for an individual site (for example, **C:\\\\inetpub\\\\logs\\\\LogFiles\\\\W3SVC{{n}}**). For IIS logs, only W3C log format is supported. IIS, NCSA, and Custom formats aren't supported.   
+Type: String  
 Required: Yes
 
-**LogGroup**
-
-The name for your log group. This name is displayed on the
-**Log Groups** screen in the CloudWatch
-console.
-
-Type: String
-
+**LogGroup**  
+The name for your log group. This name is displayed on the **Log Groups** screen in the CloudWatch console.  
+Type: String  
 Required: Yes
 
-**LogName**
+**LogName**  
+The name of the log file.  
 
-The name of the log file.
+1. To find the name of the log, in Event Viewer, in the navigation pane, select **Applications and Services Logs**.
 
-1. To find the name of the log, in Event Viewer, in the
-   navigation pane, select **Applications and
-   Services Logs**.
-2. In the list of logs, open the context menu for the log you want to
-   upload (for example, `Microsoft` >
-   `Windows` >
-   `Backup` >
-   `Operational`), and then select
-   **Create Custom View**.
-3. In the **Create Custom View** dialog
-   box, select the **XML** tab. The
-   **LogName** is in the <Select
-   Path=> tag (for example,
-   `Microsoft-Windows-Backup`). Copy this
-   text into the **LogName**
-   parameter.
+1. In the list of logs, open the context menu for the log you want to upload (for example, `Microsoft` > `Windows` > `Backup` > `Operational`), and then select **Create Custom View**.
 
-Type: String
-
-Valid values: `Application` | `Security`
-| `System` |
-`Microsoft-Windows-WinINet/Analytic`
-
+1. In the **Create Custom View** dialog box, select the **XML** tab. The **LogName** is in the <Select Path=> tag (for example, `Microsoft-Windows-Backup`). Copy this text into the **LogName** parameter.
+Type: String  
+Valid values: `Application` \| `Security` \| `System` \| `Microsoft-Windows-WinINet/Analytic`  
 Required: Yes
 
-**LogStream**
-
-The destination log stream. If you use
-**{instance\_id}**, the default, the
-instance ID of this instance is used as the log stream
-name.
-
-Type: String
-
-Valid values: `{instance_id}` |
-`{hostname}` | `{ip_address}`
-`<log_stream_name>`
-
-If you enter a log stream name that doesn't already exist,
-CloudWatch Logs automatically creates it for you. You can use a literal
-string or predefined variables
-(**{instance\_id}**,
-**{hostname}**,
-**{ip\_address}**, or a combination of all
-three to define a log stream name.
-
-The log stream name specified in this parameter is displayed
-on the **Log Groups > Streams for
-`<YourLogStream>`**
-screen in the CloudWatch console.
-
+**LogStream**  
+The destination log stream. If you use **{instance\_id}**, the default, the instance ID of this instance is used as the log stream name.  
+Type: String  
+Valid values: `{instance_id}` \| `{hostname}` \| `{ip_address}` {{<log\_stream\_name>}}  
+If you enter a log stream name that doesn't already exist, CloudWatch Logs automatically creates it for you. You can use a literal string or predefined variables (**{instance\_id}**, **{hostname}**, **{ip\_address}**, or a combination of all three to define a log stream name.  
+The log stream name specified in this parameter is displayed on the **Log Groups > Streams for {{<YourLogStream>}}** screen in the CloudWatch console.  
 Required: Yes
 
-**MetricName**
-
-The CloudWatch metric that you want performance data to be included
-under.
-
-###### Note
-
-Don't use special characters in the name. If you do, the
-metric and associated alarms might not work.
-
-Type: String
-
+**MetricName**  
+The CloudWatch metric that you want performance data to be included under.  
+Don't use special characters in the name. If you do, the metric and associated alarms might not work.
+Type: String  
 Required: Yes
 
-**NameSpace**
-
-The metric namespace where you want performance counter data
-to be written.
-
-Type: String
-
+**NameSpace**  
+The metric namespace where you want performance counter data to be written.  
+Type: String  
 Required: Yes
 
-**PollInterval**
-
-How many seconds must elapse before new performance counter
-and log data is uploaded.
-
-Type: Integer
-
-Valid values: Set this to 5 or more seconds. Fifteen seconds
-(00:00:15) is recommended.
-
+**PollInterval**  
+How many seconds must elapse before new performance counter and log data is uploaded.  
+Type: Integer  
+Valid values: Set this to 5 or more seconds. Fifteen seconds (00:00:15) is recommended.  
 Required: Yes
 
-**Region**
-
-The AWS Region where you want to send log data. Although you
-can send performance counters to a different Region from where
-you send your log data, we recommend that you set this parameter
-to the same Region where your instance is running.
-
-Type: String
-
-Valid values: Regions IDs of the AWS Regions supported by
-both Systems Manager and CloudWatch Logs, such as `us-east-2`,
-`eu-west-1`, and `ap-southeast-1`. For
-lists of AWS Regions supported by each service, see [Amazon CloudWatch Logs
-Service Endpoints](../../../general/latest/gr/cwl_region.md#cwl_region "../../../general/latest/gr/cwl_region.md#cwl_region") and [Systems Manager service endpoints](../../../general/latest/gr/ssm.md#ssm_region "../../../general/latest/gr/ssm.md#ssm_region") in the
-_Amazon Web Services General Reference_.
-
+**Region**  
+The AWS Region where you want to send log data. Although you can send performance counters to a different Region from where you send your log data, we recommend that you set this parameter to the same Region where your instance is running.  
+Type: String  
+Valid values: Regions IDs of the AWS Regions supported by both Systems Manager and CloudWatch Logs, such as `us-east-2`, `eu-west-1`, and `ap-southeast-1`. For lists of AWS Regions supported by each service, see [Amazon CloudWatch Logs Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/cwl_region.html#cwl_region) and [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*.   
 Required: Yes
 
-**SecretKey**
-
-Your secret access key. This property is required unless you
-launched your instance using an IAM role.
-
-Type: String
-
+**SecretKey**  
+Your secret access key. This property is required unless you launched your instance using an IAM role.  
+Type: String  
 Required: No
 
-**startType**
-
-Turn on or turn off CloudWatch on the instance.
-
-Type: String
-
-Valid values: `Enabled` |
-`Disabled`
-
+**startType**  
+Turn on or turn off CloudWatch on the instance.  
+Type: String  
+Valid values: `Enabled` \| `Disabled`  
 Required: Yes
 
-**TimestampFormat**
-
-The timestamp format you want to use. For a list of supported
-values, see [Custom Date and Time Format Strings](http://msdn.microsoft.com/en-us/library/8kb3ddd4.aspx "http://msdn.microsoft.com/en-us/library/8kb3ddd4.aspx") in the MSDN
-Library.
-
-Type: String
-
+**TimestampFormat**  
+The timestamp format you want to use. For a list of supported values, see [Custom Date and Time Format Strings](http://msdn.microsoft.com/en-us/library/8kb3ddd4.aspx) in the MSDN Library.  
+Type: String  
 Required: Yes
 
-**TimeZoneKind**
-
-Provides time zone information when no time zone information
-is included in your log’s timestamp. If this parameter is left
-blank and if your timestamp doesn’t include time zone
-information, CloudWatch Logs defaults to the local time zone. This
-parameter is ignored if your timestamp already contains time
-zone information.
-
-Type: String
-
-Valid values: `Local` | `UTC`
-
+**TimeZoneKind**  
+Provides time zone information when no time zone information is included in your log’s timestamp. If this parameter is left blank and if your timestamp doesn’t include time zone information, CloudWatch Logs defaults to the local time zone. This parameter is ignored if your timestamp already contains time zone information.  
+Type: String  
+Valid values: `Local` \| `UTC`  
 Required: No
 
-**Unit**
-
-The appropriate unit of measure for the metric.
-
-Type: String
-
-Valid values: Seconds | Microseconds | Milliseconds | Bytes |
-Kilobytes | Megabytes | Gigabytes | Terabytes | Bits | Kilobits
-| Megabits | Gigabits | Terabits | Percent | Count |
-Bytes/Second | Kilobytes/Second | Megabytes/Second |
-Gigabytes/Second | Terabytes/Second | Bits/Second |
-Kilobits/Second | Megabits/Second | Gigabits/Second |
-Terabits/Second | Count/Second | None
-
+**Unit**  
+The appropriate unit of measure for the metric.  
+Type: String  
+Valid values: Seconds \| Microseconds \| Milliseconds \| Bytes \| Kilobytes \| Megabytes \| Gigabytes \| Terabytes \| Bits \| Kilobits \| Megabits \| Gigabits \| Terabits \| Percent \| Count \| Bytes/Second \| Kilobytes/Second \| Megabytes/Second \| Gigabytes/Second \| Terabytes/Second \| Bits/Second \| Kilobits/Second \| Megabits/Second \| Gigabits/Second \| Terabits/Second \| Count/Second \| None  
 Required: Yes
 
 ## `aws:configureDocker`
+<a name="aws-configuredocker"></a>
 
-(Schema version 2.0 or later) Configure an instance to work with containers
-and Docker. This plugin is supported on most Linux variants and Windows Server
-operating systems.
+(Schema version 2.0 or later) Configure an instance to work with containers and Docker. This plugin is supported on most Linux variants and Windows Server operating systems.
 
 ### Syntax
+<a name="configuredocker-syntax"></a>
 
 #### Schema 2.2
+<a name="configuredocker-syntax-2.2"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -849,7 +537,8 @@ mainSteps:
     action: "{{ action }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -878,42 +567,34 @@ JSON
 }
 ```
 
+------
+
 ### Inputs
+<a name="configuredocker-properties"></a>
 
-**action**
-
-The type of action to perform.
-
-Type: Enum
-
-Valid values: `Install` |
-`Uninstall`
-
+**action**  
+The type of action to perform.  
+Type: Enum  
+Valid values: `Install` \| `Uninstall`  
 Required: Yes
 
 ## `aws:configurePackage`
+<a name="aws-configurepackage"></a>
 
-(Schema version 2.0 or later) Install or uninstall an AWS Systems Manager Distributor
-package. You can install the latest version, default version, or a version of
-the package you specify. Packages provided by AWS are also supported. This
-plugin runs on Windows Server and Linux operating systems, but not all the available
-packages are supported on Linux operating systems.
+(Schema version 2.0 or later) Install or uninstall an AWS Systems Manager Distributor package. You can install the latest version, default version, or a version of the package you specify. Packages provided by AWS are also supported. This plugin runs on Windows Server and Linux operating systems, but not all the available packages are supported on Linux operating systems.
 
-Available AWS packages for Windows Server include the following:
-`AWSPVDriver`, `AWSNVMe`,
-`AwsEnaNetworkDriver`, `AwsVssComponents`,
-`AmazonCloudWatchAgent`, `CodeDeployAgent`, and
-`AWSSupport-EC2Rescue.`
+Available AWS packages for Windows Server include the following: `AWSPVDriver`, `AWSNVMe`, `AwsEnaNetworkDriver`, `AwsVssComponents`, `AmazonCloudWatchAgent`, `CodeDeployAgent`, and `AWSSupport-EC2Rescue.`
 
-Available AWS packages for Linux operating systems include the following:
-`AmazonCloudWatchAgent`, `CodeDeployAgent`, and
-`AWSSupport-EC2Rescue`.
+Available AWS packages for Linux operating systems include the following: `AmazonCloudWatchAgent`, `CodeDeployAgent`, and `AWSSupport-EC2Rescue`.
 
 ### Syntax
+<a name="configurepackage-syntax"></a>
 
 #### Schema 2.2
+<a name="configurepackage-syntax-2.2"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -933,18 +614,19 @@ parameters:
   ssmParameter:
     description: "(Required) Argument stored in Parameter Store."
     type: String
-    default: "{{ ssm:`parameter_store_arg` }}"
+    default: "{{ ssm:{{parameter_store_arg}} }}"
 mainSteps:
 - action: aws:configurePackage
   name: configurePackage
   inputs:
     name: "{{ name }}"
     action: "{{ action }}"
-    additionalArguments:
-      "{\"SSM_parameter_store_arg\": \"{{ ssmParameter }}\", \"SSM_custom_arg\": \"`myValue`\"}"
+    additionalArguments: 
+      "{\"SSM_parameter_store_arg\": \"{{ ssmParameter }}\", \"SSM_custom_arg\": \"{{myValue}}\"}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -967,7 +649,7 @@ JSON
       "ssmParameter": {
          "description": "(Required) Argument stored in Parameter Store.",
          "type": "String",
-         "default": "{{ ssm:`parameter_store_arg` }}"
+         "default": "{{ ssm:{{parameter_store_arg}} }}"
       }
    },
    "mainSteps": [
@@ -977,106 +659,58 @@ JSON
          "inputs": {
             "name": "{{ name }}",
             "action": "{{ action }}",
-            "additionalArguments": "{\"SSM_parameter_store_arg\": \"{{ ssmParameter }}\", \"SSM_custom_arg\": \"`myValue`\"}"
+            "additionalArguments": "{\"SSM_parameter_store_arg\": \"{{ ssmParameter }}\", \"SSM_custom_arg\": \"{{myValue}}\"}"
          }
       }
    ]
 }
 ```
 
+------
+
 ### Inputs
+<a name="configurepackage-properties"></a>
 
-**name**
-
-The name of the AWS package to install or uninstall.
-Available packages include the following:
-`AWSPVDriver`, `AwsEnaNetworkDriver`,
-`AwsVssComponents`, and
-`AmazonCloudWatchAgent`.
-
-Type: String
-
+**name**  
+The name of the AWS package to install or uninstall. Available packages include the following: `AWSPVDriver`, `AwsEnaNetworkDriver`, `AwsVssComponents`, and `AmazonCloudWatchAgent`.  
+Type: String  
 Required: Yes
 
-**action**
-
-Install or uninstall a package.
-
-Type: Enum
-
-Valid values: `Install` |
-`Uninstall`
-
+**action**  
+Install or uninstall a package.  
+Type: Enum  
+Valid values: `Install` \| `Uninstall`  
 Required: Yes
 
-**installationType**
-
-The type of installation to perform. If you specify
-`Uninstall and reinstall`, the package is
-completely uninstalled, and then reinstalled. The application is
-unavailable until the reinstallation is complete. If you specify
-`In-place update`, only new or changed files are
-added to the existing installation according you instructions
-you provide in an update script. The application remains
-available throughout the update process. The `In-place
- update` option isn't supported for AWS-published
-packages. `Uninstall and reinstall` is the default
-value.
-
-Type: Enum
-
-Valid values: `Uninstall and reinstall` |
-`In-place update`
-
+**installationType**  
+The type of installation to perform. If you specify `Uninstall and reinstall`, the package is completely uninstalled, and then reinstalled. The application is unavailable until the reinstallation is complete. If you specify `In-place update`, only new or changed files are added to the existing installation according you instructions you provide in an update script. The application remains available throughout the update process. The `In-place update` option isn't supported for AWS-published packages. `Uninstall and reinstall` is the default value.  
+Type: Enum  
+Valid values: `Uninstall and reinstall` \| `In-place update`  
 Required: No
 
-**additionalArguments**
-
-A JSON string of the additional parameters to provide to your
-install, uninstall, or update scripts. Each parameter must be
-prefixed with `SSM_`. You can reference a Parameter Store
-parameter in your additional arguments by using the convention
-`{{ssm:`parameter-name`}}`.
-To use the additional parameter in your install, uninstall, or
-update script, you must reference the parameter as an
-environment variable using the syntax appropriate for the
-operating system. For example, in PowerShell, you reference the
-`SSM_arg` argument as `$Env:SSM_arg`.
-There is no limit to the number of arguments you define, but the
-additional argument input has a 4096 character limit. This limit
-includes all of the keys and values you define.
-
-Type: StringMap
-
+**additionalArguments**  
+A JSON string of the additional parameters to provide to your install, uninstall, or update scripts. Each parameter must be prefixed with `SSM_`. You can reference a Parameter Store parameter in your additional arguments by using the convention `{{ssm:{{parameter-name}}}}`. To use the additional parameter in your install, uninstall, or update script, you must reference the parameter as an environment variable using the syntax appropriate for the operating system. For example, in PowerShell, you reference the `SSM_arg` argument as `$Env:SSM_arg`. There is no limit to the number of arguments you define, but the additional argument input has a 4096 character limit. This limit includes all of the keys and values you define.  
+Type: StringMap  
 Required: No
 
-**version**
-
-A specific version of the package to install or uninstall. If
-installing, the system installs the latest published version, by
-default. If uninstalling, the system uninstalls the currently
-installed version, by default. If no installed version is found,
-the latest published version is downloaded, and the uninstall
-action is run.
-
-Type: String
-
+**version**  
+A specific version of the package to install or uninstall. If installing, the system installs the latest published version, by default. If uninstalling, the system uninstalls the currently installed version, by default. If no installed version is found, the latest published version is downloaded, and the uninstall action is run.  
+Type: String  
 Required: No
 
 ## `aws:domainJoin`
+<a name="aws-domainJoin"></a>
 
-Join an EC2 instance to a domain. This plugin runs on Linux and Windows Server
-operating systems. This plugin changes the hostname for Linux instances to the
-format EC2AMAZ-`XXXXXXX`. For more information about
-joining EC2 instances, see [Join an
-EC2 Instance to Your AWS Managed Microsoft AD Directory](../../../directoryservice/latest/admin-guide/ms_ad_join_instance.md "../../../directoryservice/latest/admin-guide/ms_ad_join_instance.md") in the
-_AWS Directory Service Administration Guide_.
+Join an EC2 instance to a domain. This plugin runs on Linux and Windows Server operating systems. This plugin changes the hostname for Linux instances to the format EC2AMAZ-{{XXXXXXX}}. For more information about joining EC2 instances, see [Join an EC2 Instance to Your AWS Managed Microsoft AD Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_join_instance.html) in the *AWS Directory Service Administration Guide*.
 
 ### Syntax
+<a name="domainJoin-syntax"></a>
 
 #### Schema 2.2
+<a name="domainJoin-syntax-2.2"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -1109,7 +743,8 @@ mainSteps:
     hostname: "{{ hostname }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -1153,9 +788,13 @@ JSON
 }
 ```
 
-#### Schema 1.2
+------
 
-YAML
+#### Schema 1.2
+<a name="domainJoin-syntax-1.2"></a>
+
+------
+#### [ YAML ]
 
 ```
 ---
@@ -1168,7 +807,8 @@ runtimeConfig:
       dnsIpAddresses: "{{ dnsIpAddresses }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -1185,108 +825,69 @@ JSON
 }
 ```
 
+------
+
 ### Properties
+<a name="domainJoin-properties"></a>
 
-**directoryId**
-
-The ID of the directory.
-
-Type: String
-
-Required: Yes
-
+**directoryId**  
+The ID of the directory.  
+Type: String  
+Required: Yes  
 Example: "directoryId": "d-1234567890"
 
-**directoryName**
-
-The name of the domain.
-
-Type: String
-
-Required: Yes
-
+**directoryName**  
+The name of the domain.  
+Type: String  
+Required: Yes  
 Example: "directoryName": "example.com"
 
-**directoryOU**
-
-The organizational unit (OU).
-
-Type: String
-
-Required: No
-
+**directoryOU**  
+The organizational unit (OU).  
+Type: String  
+Required: No  
 Example: "directoryOU": "OU=test,DC=example,DC=com"
 
-**dnsIpAddresses**
+**dnsIpAddresses**  
+The IP addresses of the DNS servers.  
+Type: StringList  
+Required: Yes  
+Example: "dnsIpAddresses": ["198.51.100.1","198.51.100.2"]
 
-The IP addresses of the DNS servers.
-
-Type: StringList
-
-Required: Yes
-
-Example: "dnsIpAddresses":
-["198.51.100.1","198.51.100.2"]
-
-**hostname**
-
-The hostname you want to assign to the node. If not provided,
-there is no name change for Windows Server instances, while Linux
-instances will use the default naming pattern. If provided,
-Windows Server instances will use the exact provided value, while for
-Linux instances it serves as a prefix (unless
-`keepHostName` is set to "true").
-
-Type: String
-
+**hostname**  
+The hostname you want to assign to the node. If not provided, there is no name change for Windows Server instances, while Linux instances will use the default naming pattern. If provided, Windows Server instances will use the exact provided value, while for Linux instances it serves as a prefix (unless `keepHostName` is set to "true").  
+Type: String  
 Required: No
 
-**keepHostName**
-
-Determines whether the hostname is changed for Linux instances
-when joined to the domain. This is a Linux-only parameter. By
-default (without inputs to `hostname`,
-`hostnameNumAppendDigits`, and with
-`keepHostName` as "false"), Linux hosts will be
-renamed to the pattern EC2AMAZ-XXXXXX. When set to "true", it
-keeps the original hostname and ignores inputs to
-`hostname` and
-`hostnameNumAppendDigits`.
-
-Type: Boolean
-
+**keepHostName**  
+Determines whether the hostname is changed for Linux instances when joined to the domain. This is a Linux-only parameter. By default (without inputs to `hostname`, `hostnameNumAppendDigits`, and with `keepHostName` as "false"), Linux hosts will be renamed to the pattern EC2AMAZ-XXXXXX. When set to "true", it keeps the original hostname and ignores inputs to `hostname` and `hostnameNumAppendDigits`.  
+Type: Boolean  
 Required: No
 
-**hostnameNumAppendDigits**
-
-Defines the number of random numeric digits to append after
-the hostname value. This is a Linux-only parameter and is used
-together with the `hostname` parameter. It is ignored
-if `hostname` is not provided.
-
-Type: String
-
-Allowed values: 1 to 5
-
+**hostnameNumAppendDigits**  
+Defines the number of random numeric digits to append after the hostname value. This is a Linux-only parameter and is used together with the `hostname` parameter. It is ignored if `hostname` is not provided.  
+Type: String  
+Allowed values: 1 to 5  
 Required: No
 
 ### Examples
+<a name="domainJoin-examples"></a>
 
-For examples, see [Join
-an Amazon EC2 Instance to your AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/ec2-join-aws-domain.md "../../../directoryservice/latest/admin-guide/ec2-join-aws-domain.md") in the
-_AWS Directory Service Administration Guide_.
+For examples, see [Join an Amazon EC2 Instance to your AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ec2-join-aws-domain.html) in the *AWS Directory Service Administration Guide*.
 
 ## `aws:downloadContent`
+<a name="aws-downloadContent"></a>
 
-(Schema version 2.0 or later) Download SSM documents and scripts from remote
-locations. GitHub Enterprise repositories are not supported. This
-plugin is supported on Linux and Windows Server operating systems.
+(Schema version 2.0 or later) Download SSM documents and scripts from remote locations. GitHub Enterprise repositories are not supported. This plugin is supported on Linux and Windows Server operating systems.
 
 ### Syntax
+<a name="downloadContent-syntax"></a>
 
 #### Schema 2.2
+<a name="downloadContent-syntax-2.2"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -1308,7 +909,8 @@ mainSteps:
     sourceInfo: "{{ sourceInfo }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -1337,326 +939,180 @@ JSON
 }
 ```
 
+------
+
 ### Inputs
+<a name="downloadContent-inputs"></a>
 
-**sourceType**
-
-The download source. Systems Manager supports the following source types
-for downloading scripts and SSM documents:
-`GitHub`, `Git`, `HTTP`,
-`S3`, and `SSMDocument`.
-
-Type: String
-
+**sourceType**  
+The download source. Systems Manager supports the following source types for downloading scripts and SSM documents: `GitHub`, `Git`, `HTTP`, `S3`, and `SSMDocument`.  
+Type: String  
 Required: Yes
 
-**sourceInfo**
+**sourceInfo**  
+The information required to retrieve the content from the required source.  
+Type: StringMap  
+Required: Yes  
+ **For sourceType `GitHub,` specify the following:**   
++ owner: The repository owner.
++ repository: The name of the repository.
++ path: The path to the file or directory you want to download.
++ getOptions: Extra options to retrieve content from a branch other than master or from a specific commit in the repository. getOptions can be omitted if you're using the latest commit in the master branch. If your repository was created after October 1, 2020 the default branch might be named main instead of master. In this case, you need to specify values for the getOptions parameter.
 
-The information required to retrieve the content from the
-required source.
-
-Type: StringMap
-
-Required: Yes
-
-**For sourceType `GitHub,`
-specify the following:**
-
-- owner: The repository owner.
-- repository: The name of the repository.
-- path: The path to the file or directory you want to
-  download.
-- getOptions: Extra options to retrieve content from a
-  branch other than master or from a specific commit in
-  the repository. getOptions can be omitted if you're
-  using the latest commit in the master branch. If your
-  repository was created after October 1, 2020 the default
-  branch might be named main instead of master. In this
-  case, you need to specify values for the getOptions
-  parameter.
-
-This parameter uses the following format:
-
-    + branch:refs/heads/`branch_name`
-
+  This parameter uses the following format:
+  + branch:refs/heads/{{branch\_name}}
 
     The default is `master`.
 
+    To specify a non-default branch use the following format:
 
-    To specify a non-default branch use the
-     following format:
-
-
-    branch:refs/heads/`branch_name`
-    + commitID:`commitID`
-
+    branch:refs/heads/{{branch\_name}}
+  + commitID:{{commitID}}
 
     The default is `head`.
 
-
-    To use the version of your SSM document in a
-     commit other than the latest, specify the full
-     commit ID. For example:
-
-
+    To use the version of your SSM document in a commit other than the latest, specify the full commit ID. For example:
 
     ```
     "getOptions": "commitID:bbc1ddb94...b76d3bEXAMPLE",
     ```
-
-- tokenInfo: The Systems Manager parameter (a SecureString
-  parameter) where you store your GitHub
-  access token information, in the format
-  `{{ssm-secure:`secure-string-token-name`}}`.
-
-###### Note
-
-This `tokenInfo` field is the only
-SSM document plugin field that supports a
-SecureString parameter. SecureString parameters
-aren't supported for any other fields, nor for any
-other SSM document plugins.
++ tokenInfo: The Systems Manager parameter (a SecureString parameter) where you store your GitHub access token information, in the format `{{ssm-secure:{{secure-string-token-name}}}}`.
+**Note**  
+This `tokenInfo` field is the only SSM document plugin field that supports a SecureString parameter. SecureString parameters aren't supported for any other fields, nor for any other SSM document plugins.
 
 ```
 {
     "owner":"TestUser",
-    "repository":"`GitHubTest`",
-    "path":"`scripts/python/test-script`",
+    "repository":"{{GitHubTest}}",
+    "path":"{{scripts/python/test-script}}",
     "getOptions":"branch:master",
-    "tokenInfo":"{{ssm-secure:`secure-string-token`}}"
+    "tokenInfo":"{{ssm-secure:{{secure-string-token}}}}"
 }
 ```
+ **For sourceType `Git`, you must specify the following:**   
++ repository
 
-**For sourceType `Git`, you must
-specify the following:**
+  The Git repository URL to the file or directory you want to download.
 
-- repository
+  Type: String
+Additionally, you can specify the following optional parameters:  
++ getOptions
 
-The Git repository URL to the file or directory you
-want to download.
+  Extra options to retrieve content from a branch other than master or from a specific commit in the repository. getOptions can be omitted if you're using the latest commit in the master branch.
 
-Type: String
+  Type: String
 
-Additionally, you can specify the following optional
-parameters:
-
-- getOptions
-
-Extra options to retrieve content from a branch other
-than master or from a specific commit in the repository.
-getOptions can be omitted if you're using the latest
-commit in the master branch.
-
-Type: String
-
-This parameter uses the following format:
-
-    + branch:refs/heads/`branch_name`
-
+  This parameter uses the following format:
+  + branch:refs/heads/{{branch\_name}}
 
     The default is `master`.
 
-
-    `"branch"` is required only if your
-     SSM document is stored in a branch other than
-     `master`. For example:
-
-
+    `"branch"` is required only if your SSM document is stored in a branch other than `master`. For example:
 
     ```
     "getOptions": "branch:refs/heads/main"
     ```
-    + commitID:`commitID`
-
+  + commitID:{{commitID}}
 
     The default is `head`.
 
-
-    To use the version of your SSM document in a
-     commit other than the latest, specify the full
-     commit ID. For example:
-
-
+    To use the version of your SSM document in a commit other than the latest, specify the full commit ID. For example:
 
     ```
     "getOptions": "commitID:bbc1ddb94...b76d3bEXAMPLE",
     ```
++ privateSSHKey
 
-- privateSSHKey
+  The SSH key to use when connecting to the `repository` you specify. You can use the following format to reference a `SecureString` parameter for the value of your SSH key: `{{ssm-secure:{{your-secure-string-parameter}}}}`.
 
-The SSH key to use when connecting to the
-`repository` you specify. You can use the
-following format to reference a
-`SecureString` parameter for the value of
-your SSH key:
-`{{ssm-secure:`your-secure-string-parameter`}}`.
+  Type: String
++ skipHostKeyChecking
 
-Type: String
+  Determines the value of the StrictHostKeyChecking option when connecting to the `repository` you specify. The default value is `false`.
 
-- skipHostKeyChecking
+  Type: Boolean
++ username
 
-Determines the value of the StrictHostKeyChecking
-option when connecting to the `repository`
-you specify. The default value is
-`false`.
+  The username to use when connecting to the `repository` you specify using HTTP. You can use the following format to reference a `SecureString` parameter for the value of your username: `{{ssm-secure:{{your-secure-string-parameter}}}}`.
 
-Type: Boolean
+  Type: String
++ password
 
-- username
+  The password to use when connecting to the `repository` you specify using HTTP. You can use the following format to reference a `SecureString` parameter for the value of your password: `{{ssm-secure:{{your-secure-string-parameter}}}}`.
 
-The username to use when connecting to the
-`repository` you specify using HTTP. You
-can use the following format to reference a
-`SecureString` parameter for the value of
-your username:
-`{{ssm-secure:`your-secure-string-parameter`}}`.
+  Type: String
+ **For sourceType `HTTP`, you must specify the following:**   
++ url
 
-Type: String
+  The URL to the file or directory you want to download.
 
-- password
+  Type: String
+Additionally, you can specify the following optional parameters:  
++ allowInsecureDownload
 
-The password to use when connecting to the
-`repository` you specify using HTTP. You
-can use the following format to reference a
-`SecureString` parameter for the value of
-your password:
-`{{ssm-secure:`your-secure-string-parameter`}}`.
+  Determines whether a download can be performed over a connection that isn't encrypted with Secure Socket Layer (SSL) or Transport Layer Security (TLS). The default value is `false`. We don't recommend performing downloads without encryption. If you choose to do so, you assume all associated risks. SSM Agent follows HTTP redirects, which means an HTTPS URL can be redirected to an HTTP URL. Security is a shared responsibility between AWS and you. This is described as the shared responsibility model. To learn more, see the [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/).
 
-Type: String
+  Type: Boolean
++ authMethod
 
-**For sourceType `HTTP`, you must
-specify the following:**
+  Determines whether a username and password are used for authentication when connecting to the `url` you specify. If you specify `Basic` or `Digest`, you must provide values for the `username` and `password` parameters. To use the `Digest` method, SSM Agent version 3.0.1181.0 or later must be installed on your instance. The `Digest` method supports MD5 and SHA256 encryption.
 
-- url
+  Type: String
 
-The URL to the file or directory you want to
-download.
+  Valid values: `None` \| `Basic` \| `Digest`
++ username
 
-Type: String
+  The username to use when connecting to the `url` you specify using `Basic` authentication. You can use the following format to reference a `SecureString` parameter for the value of your username: `{{ssm-secure:{{your-secure-string-parameter}}}}`.
 
-Additionally, you can specify the following optional
-parameters:
+  Type: String
++ password
 
-- allowInsecureDownload
+  The password to use when connecting to the `url` you specify using `Basic` authentication. You can use the following format to reference a `SecureString` parameter for the value of your password: `{{ssm-secure:{{your-secure-string-parameter}}}}`.
 
-Determines whether a download can be performed over a
-connection that isn't encrypted with Secure Socket Layer
-(SSL) or Transport Layer Security (TLS). The default
-value is `false`. We don't recommend
-performing downloads without encryption. If you choose
-to do so, you assume all associated risks. SSM Agent
-follows HTTP redirects, which means an HTTPS URL can be
-redirected to an HTTP URL. Security is a shared
-responsibility between AWS and you. This is described
-as the shared responsibility model. To learn more, see
-the [shared
-responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/").
-
-Type: Boolean
-
-- authMethod
-
-Determines whether a username and password are used
-for authentication when connecting to the
-`url` you specify. If you specify
-`Basic` or `Digest`, you must
-provide values for the `username` and
-`password` parameters. To use the
-`Digest` method, SSM Agent version
-3.0.1181.0 or later must be installed on your instance.
-The `Digest` method supports MD5 and SHA256
-encryption.
-
-Type: String
-
-Valid values: `None` | `Basic` |
-`Digest`
-
-- username
-
-The username to use when connecting to the
-`url` you specify using
-`Basic` authentication. You can use the
-following format to reference a
-`SecureString` parameter for the value of
-your username:
-`{{ssm-secure:`your-secure-string-parameter`}}`.
-
-Type: String
-
-- password
-
-The password to use when connecting to the
-`url` you specify using
-`Basic` authentication. You can use the
-following format to reference a
-`SecureString` parameter for the value of
-your password:
-`{{ssm-secure:`your-secure-string-parameter`}}`.
-
-Type: String
-
-**For sourceType `S3`, specify
-the following:**
-
-- path: The URL to the file or directory you want to
-  download from Amazon S3.
-
-###### Note
-
-When downloading a file from an S3 bucket, the .etag files
-are generated in the download directory.
+  Type: String
+ **For sourceType `S3`, specify the following:**   
++ path: The URL to the file or directory you want to download from Amazon S3.
+When downloading a file from an S3 bucket, the .etag files are generated in the download directory.
 
 ```
 {
-    "path": "https://s3.amazonaws.com/`amzn-s3-demo-bucket`/powershell/helloPowershell.ps1"
+    "path": "https://s3.amazonaws.com/{{amzn-s3-demo-bucket}}/powershell/helloPowershell.ps1" 
 }
 ```
+ **For sourceType `SSMDocument`, specify *one* of the following:**   
++ name: The name and version of the document in the following format: `name:version`. Version is optional. 
 
-**For sourceType `SSMDocument`,
-specify _one_ of the
-following:**
+  ```
+  {
+      "name": "Example-RunPowerShellScript:3" 
+  }
+  ```
++ name: The ARN for the document in the following format: `arn:aws:ssm:{{region}}:{{account_id}}:document/{{document_name}}`
 
-- name: The name and version of the document in the
-  following format: `name:version`. Version is
-  optional.
+  ```
+  {
+     "name":"arn:aws:ssm:us-east-2:3344556677:document/MySharedDoc"
+  }
+  ```
 
-```
-{
-    "name": "Example-RunPowerShellScript:3"
-}
-```
-
-- name: The ARN for the document in the following
-  format:
-  `arn:aws:ssm:`region`:`account_id`:document/`document_name``
-
-```
-{
-   "name":"arn:aws:ssm:us-east-2:3344556677:document/MySharedDoc"
-}
-```
-
-**destinationPath**
-
-An optional local path on the instance where you want to
-download the file. If you don't specify a path, the content is
-downloaded to a path relative to your command ID.
-
-Type: String
-
+**destinationPath**  
+An optional local path on the instance where you want to download the file. If you don't specify a path, the content is downloaded to a path relative to your command ID.  
+Type: String  
 Required: No
 
 ## `aws:psModule`
+<a name="aws-psModule"></a>
 
-Install PowerShell modules on an Amazon EC2 instance. This plugin only runs on
-Windows Server operating systems.
+Install PowerShell modules on an Amazon EC2 instance. This plugin only runs on Windows Server operating systems.
 
 ### Syntax
+<a name="psModule-syntax"></a>
 
 #### Schema 2.2
+<a name="psModule-syntax-2.2"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -1674,7 +1130,8 @@ mainSteps:
     source: "{{ source }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -1698,9 +1155,13 @@ JSON
 }
 ```
 
-#### Schema 1.2
+------
 
-YAML
+#### Schema 1.2
+<a name="domainJoin-syntax-1.2"></a>
+
+------
+#### [ YAML ]
 
 ```
 ---
@@ -1714,7 +1175,8 @@ runtimeConfig:
       timeoutSeconds: "{{ executionTimeout }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -1734,63 +1196,49 @@ JSON
 }
 ```
 
+------
+
 ### Properties
+<a name="psModule-properties"></a>
 
-**runCommand**
-
-The PowerShell command to run after the module is
-installed.
-
-Type: StringList
-
+**runCommand**  
+The PowerShell command to run after the module is installed.  
+Type: StringList  
 Required: No
 
-**source**
-
-The URL or local path on the instance to the application
-`.zip` file.
-
-Type: String
-
+**source**  
+The URL or local path on the instance to the application `.zip` file.  
+Type: String  
 Required: Yes
 
-**sourceHash**
-
-The SHA256 hash of the `.zip` file.
-
-Type: String
-
+**sourceHash**  
+The SHA256 hash of the `.zip` file.  
+Type: String  
 Required: No
 
-**timeoutSeconds**
-
-The time in seconds for a command to be completed before it's
-considered to have failed.
-
-Type: String
-
+**timeoutSeconds**  
+The time in seconds for a command to be completed before it's considered to have failed.  
+Type: String  
 Required: No
 
-**workingDirectory**
-
-The path to the working directory on your instance.
-
-Type: String
-
+**workingDirectory**  
+The path to the working directory on your instance.  
+Type: String  
 Required: No
 
 ## `aws:refreshAssociation`
+<a name="aws-refreshassociation"></a>
 
-(Schema version 2.0 or later) Refresh (force apply) an association on demand.
-This action will change the system state based on what is defined in the
-selected association or all associations bound to the targets. This plugin runs
-on Linux and Microsoft Windows Server operating systems.
+(Schema version 2.0 or later) Refresh (force apply) an association on demand. This action will change the system state based on what is defined in the selected association or all associations bound to the targets. This plugin runs on Linux and Microsoft Windows Server operating systems.
 
 ### Syntax
+<a name="refreshassociation-syntax"></a>
 
 #### Schema 2.2
+<a name="refreshassociation-syntax-2.2"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -1809,7 +1257,8 @@ mainSteps:
     - "{{ associationIds }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -1835,27 +1284,29 @@ JSON
 }
 ```
 
+------
+
 ### Inputs
+<a name="refreshassociation-properties"></a>
 
-**associationIds**
-
-List of association IDs. If empty, all associations bound to
-the specified target are applied.
-
-Type: StringList
-
+**associationIds**  
+List of association IDs. If empty, all associations bound to the specified target are applied.  
+Type: StringList  
 Required: No
 
 ## `aws:runDockerAction`
+<a name="aws-rundockeraction"></a>
 
-(Schema version 2.0 or later) Run Docker actions on containers. This plugin
-runs on Linux and Microsoft Windows Server operating systems.
+(Schema version 2.0 or later) Run Docker actions on containers. This plugin runs on Linux and Microsoft Windows Server operating systems.
 
 ### Syntax
+<a name="rundockeraction-syntax"></a>
 
 #### Schema 2.2
+<a name="rundockeraction-syntax-2.2"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -1877,7 +1328,8 @@ mainSteps:
     timeoutSeconds: "{{ timeoutSeconds }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -1904,119 +1356,84 @@ JSON
 }
 ```
 
+------
+
 ### Inputs
+<a name="rundockeraction-properties"></a>
 
-**action**
-
-The type of action to perform.
-
-Type: String
-
+**action**  
+The type of action to perform.  
+Type: String  
 Required: Yes
 
-**container**
-
-The Docker container ID.
-
-Type: String
-
+**container**  
+The Docker container ID.  
+Type: String  
 Required: No
 
-**image**
-
-The Docker image name.
-
-Type: String
-
+**image**  
+The Docker image name.  
+Type: String  
 Required: No
 
-**cmd**
-
-The container command.
-
-Type: String
-
+**cmd**  
+The container command.  
+Type: String  
 Required: No
 
-**memory**
-
-The container memory limit.
-
-Type: String
-
+**memory**  
+The container memory limit.  
+Type: String  
 Required: No
 
-**cpuShares**
-
-The container CPU shares (relative weight).
-
-Type: String
-
+**cpuShares**  
+The container CPU shares (relative weight).  
+Type: String  
 Required: No
 
-**volume**
-
-The container volume mounts.
-
-Type: StringList
-
+**volume**  
+The container volume mounts.  
+Type: StringList  
 Required: No
 
-**env**
-
-The container environment variables.
-
-Type: String
-
+**env**  
+The container environment variables.  
+Type: String  
 Required: No
 
-**user**
-
-The container user name.
-
-Type: String
-
+**user**  
+The container user name.  
+Type: String  
 Required: No
 
-**publish**
-
-The container published ports.
-
-Type: String
-
+**publish**  
+The container published ports.  
+Type: String  
 Required: No
 
-**workingDirectory**
-
-The path to the working directory on your managed node.
-
-Type: String
-
+**workingDirectory**  
+The path to the working directory on your managed node.  
+Type: String  
 Required: No
 
-**timeoutSeconds**
-
-The time in seconds for a command to be completed before it's
-considered to have failed.
-
-Type: String
-
+**timeoutSeconds**  
+The time in seconds for a command to be completed before it's considered to have failed.  
+Type: String  
 Required: No
 
 ## `aws:runDocument`
+<a name="aws-rundocument"></a>
 
-(Schema version 2.0 or later) Runs SSM documents stored in Systems Manager or on a
-local share. You can use this plugin with the [aws:downloadContent](#aws-downloadContent "#aws-downloadContent") plugin
-to download an SSM document from a remote location to a local share, and then
-run it. This plugin is supported on Linux and Windows Server operating systems. This
-plugin doesn't support running the `AWS-UpdateSSMAgent` document or
-any document that uses the `aws:updateSsmAgent` plugin.
+(Schema version 2.0 or later) Runs SSM documents stored in Systems Manager or on a local share. You can use this plugin with the [`aws:downloadContent`](#aws-downloadContent) plugin to download an SSM document from a remote location to a local share, and then run it. This plugin is supported on Linux and Windows Server operating systems. This plugin doesn't support running the `AWS-UpdateSSMAgent` document or any document that uses the `aws:updateSsmAgent` plugin.
 
 ### Syntax
+<a name="rundocument-syntax"></a>
 
 #### Schema 2.2
+<a name="aws-rundocument-syntax-2.2"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -2036,7 +1453,8 @@ mainSteps:
     documentType: "{{ documentType }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -2064,48 +1482,39 @@ JSON
 }
 ```
 
+------
+
 ### Inputs
+<a name="rundocument-properties"></a>
 
-**documentType**
-
-The document type to run. You can run local documents
-(`LocalPath`) or documents stored in Systems Manager
-(`SSMDocument`).
-
-Type: String
-
+**documentType**  
+The document type to run. You can run local documents (`LocalPath`) or documents stored in Systems Manager (`SSMDocument`).  
+Type: String  
 Required: Yes
 
-**documentPath**
-
-The path to the document. If `documentType` is
-`LocalPath`, then specify the path to the
-document on the local share. If `documentType` is
-`SSMDocument`, then specify the name of the
-document.
-
-Type: String
-
+**documentPath**  
+The path to the document. If `documentType` is `LocalPath`, then specify the path to the document on the local share. If `documentType` is `SSMDocument`, then specify the name of the document.  
+Type: String  
 Required: No
 
-**documentParameters**
-
-Parameters for the document.
-
-Type: StringMap
-
+**documentParameters**  
+Parameters for the document.  
+Type: StringMap  
 Required: No
 
 ## `aws:runPowerShellScript`
+<a name="aws-runPowerShellScript"></a>
 
-Run PowerShell scripts or specify the path to a script to run. This plugin
-runs on Microsoft Windows Server and Linux operating systems.
+Run PowerShell scripts or specify the path to a script to run. This plugin runs on Microsoft Windows Server and Linux operating systems.
 
 ### Syntax
+<a name="runPowerShellScript-syntax"></a>
 
 #### Schema 2.2
+<a name="runPowerShellScript-syntax-2.2"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -2126,7 +1535,8 @@ mainSteps:
     - "{{ commands }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -2154,9 +1564,13 @@ JSON
 }
 ```
 
-#### Schema 1.2
+------
 
-YAML
+#### Schema 1.2
+<a name="runPowerShellScript-syntax-1.2"></a>
+
+------
+#### [ YAML ]
 
 ```
 ---
@@ -2169,7 +1583,8 @@ runtimeConfig:
       timeoutSeconds: "{{ executionTimeout }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -2188,45 +1603,39 @@ JSON
 }
 ```
 
+------
+
 ### Properties
+<a name="runPowerShellScript-properties"></a>
 
-**runCommand**
-
-Specify the commands to run or the path to an existing script
-on the instance.
-
-Type: StringList
-
+**runCommand**  
+Specify the commands to run or the path to an existing script on the instance.  
+Type: StringList  
 Required: Yes
 
-**timeoutSeconds**
-
-The time in seconds for a command to be completed before it's
-considered to have failed. When the timeout is reached, Systems Manager
-stops the command execution.
-
-Type: String
-
+**timeoutSeconds**  
+The time in seconds for a command to be completed before it's considered to have failed. When the timeout is reached, Systems Manager stops the command execution.  
+Type: String  
 Required: No
 
-**workingDirectory**
-
-The path to the working directory on your instance.
-
-Type: String
-
+**workingDirectory**  
+The path to the working directory on your instance.  
+Type: String  
 Required: No
 
 ## `aws:runShellScript`
+<a name="aws-runShellScript"></a>
 
-Run Linux shell scripts or specify the path to a script to run. This plugin
-only runs on Linux operating systems.
+Run Linux shell scripts or specify the path to a script to run. This plugin only runs on Linux operating systems.
 
 ### Syntax
+<a name="runShellScript-syntax"></a>
 
 #### Schema 2.2
+<a name="runShellScript-syntax-2.2"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -2247,7 +1656,8 @@ mainSteps:
     - "{{ commands }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -2275,9 +1685,13 @@ JSON
 }
 ```
 
-#### Schema 1.2
+------
 
-YAML
+#### Schema 1.2
+<a name="runShellScript-syntax-1.2"></a>
+
+------
+#### [ YAML ]
 
 ```
 ---
@@ -2289,7 +1703,8 @@ runtimeConfig:
       timeoutSeconds: "{{ executionTimeout }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -2307,59 +1722,45 @@ JSON
 }
 ```
 
+------
+
 ### Properties
+<a name="runShellScript-properties"></a>
 
-**runCommand**
-
-Specify the commands to run or the path to an existing script
-on the instance.
-
-Type: StringList
-
+**runCommand**  
+Specify the commands to run or the path to an existing script on the instance.  
+Type: StringList  
 Required: Yes
 
-**timeoutSeconds**
-
-The time in seconds for a command to be completed before it's
-considered to have failed. When the timeout is reached, Systems Manager
-stops the command execution.
-
-Type: String
-
+**timeoutSeconds**  
+The time in seconds for a command to be completed before it's considered to have failed. When the timeout is reached, Systems Manager stops the command execution.  
+Type: String  
 Required: No
 
-**workingDirectory**
-
-The path to the working directory on your instance.
-
-Type: String
-
+**workingDirectory**  
+The path to the working directory on your instance.  
+Type: String  
 Required: No
 
 ## `aws:softwareInventory`
+<a name="aws-softwareinventory"></a>
 
-(Schema version 2.0 or later) Gather metadata about applications, files, and
-configurations on your managed instances. This plugin runs on Linux and
-Microsoft Windows Server operating systems. When you configure inventory collection,
-you start by creating an AWS Systems Manager State Manager association. Systems Manager collects the
-inventory data when the association is run. If you don't create the association
-first, and attempt to invoke the `aws:softwareInventory` plugin the
-system returns the following error:
+(Schema version 2.0 or later) Gather metadata about applications, files, and configurations on your managed instances. This plugin runs on Linux and Microsoft Windows Server operating systems. When you configure inventory collection, you start by creating an AWS Systems Manager State Manager association. Systems Manager collects the inventory data when the association is run. If you don't create the association first, and attempt to invoke the `aws:softwareInventory` plugin the system returns the following error:
 
 ```
 The aws:softwareInventory plugin can only be invoked through ssm-associate.
 ```
 
-An instance can have only one inventory association configured at a time. If
-you configure an instance with two or more associations, the inventory
-association doesn't run and no inventory data is collected. For more information
-about collecting inventory, see [AWS Systems Manager Inventory](systems-manager-inventory.md "systems-manager-inventory.md").
+An instance can have only one inventory association configured at a time. If you configure an instance with two or more associations, the inventory association doesn't run and no inventory data is collected. For more information about collecting inventory, see [AWS Systems Manager Inventory](systems-manager-inventory.md).
 
 ### Syntax
+<a name="softwareinventory-syntax"></a>
 
 #### Schema 2.2
+<a name="softwareinventory-syntax-2.2"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -2379,7 +1780,8 @@ mainSteps:
     customInventory: "{{ customInventory }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -2404,138 +1806,84 @@ JSON
 }
 ```
 
+------
+
 ### Inputs
+<a name="softwareinventory-properties"></a>
 
-**applications**
-
-(Optional) Collect metadata for installed applications.
-
-Type: String
-
+**applications**  
+(Optional) Collect metadata for installed applications.  
+Type: String  
 Required: No
 
-**awsComponents**
-
-(Optional) Collect metadata for AWS components like
-amazon-ssm-agent.
-
-Type: String
-
+**awsComponents**  
+(Optional) Collect metadata for AWS components like amazon-ssm-agent.  
+Type: String  
 Required: No
 
-**files**
-
-(Optional, requires SSM Agent version 2.2.64.0 or later)
-Collect metadata for files, including file names, the time files
-were created, the time files were last modified and accessed,
-and file sizes, to name a few. For more information about
-collecting file inventory, see [Working with file and Windows registry inventory](inventory-file-and-registry.md "inventory-file-and-registry.md").
-
-Type: String
-
+**files**  
+(Optional, requires SSM Agent version 2.2.64.0 or later) Collect metadata for files, including file names, the time files were created, the time files were last modified and accessed, and file sizes, to name a few. For more information about collecting file inventory, see [Working with file and Windows registry inventory](inventory-file-and-registry.md).  
+Type: String  
 Required: No
 
-**networkConfig**
-
-(Optional) Collect metadata for network configurations.
-
-Type: String
-
+**networkConfig**  
+(Optional) Collect metadata for network configurations.  
+Type: String  
 Required: No
 
-**billingInfo**
-
-(Optional) Collect metadata for platform details associated
-with the billing code of the AMI.
-
-Type: String
-
+**billingInfo**  
+(Optional) Collect metadata for platform details associated with the billing code of the AMI.  
+Type: String  
 Required: No
 
-**windowsUpdates**
-
-(Optional) Collect metadata for all Windows updates.
-
-Type: String
-
+**windowsUpdates**  
+(Optional) Collect metadata for all Windows updates.  
+Type: String  
 Required: No
 
-**instanceDetailedInformation**
-
-(Optional) Collect more instance information than is provided
-by the default inventory plugin
-(`aws:instanceInformation`), including CPU model,
-speed, and the number of cores, to name a few.
-
-Type: String
-
+**instanceDetailedInformation**  
+(Optional) Collect more instance information than is provided by the default inventory plugin (`aws:instanceInformation`), including CPU model, speed, and the number of cores, to name a few.  
+Type: String  
 Required: No
 
-**services**
-
-(Optional, Windows OS only, requires SSM Agent version 2.2.64.0
-or later) Collect metadata for service configurations.
-
-Type: String
-
+**services**  
+(Optional, Windows OS only, requires SSM Agent version 2.2.64.0 or later) Collect metadata for service configurations.  
+Type: String  
 Required: No
 
-**windowsRegistry**
-
-(Optional, Windows OS only, requires SSM Agent version 2.2.64.0
-or later) Collect Windows Registry keys and values. You can
-choose a key path and collect all keys and values recursively.
-You can also collect a specific registry key and its value for a
-specific path. Inventory collects the key path, name, type, and
-the value. For more information about collecting Windows
-Registry inventory, see [Working with file and Windows registry inventory](inventory-file-and-registry.md "inventory-file-and-registry.md").
-
-Type: String
-
+**windowsRegistry**  
+(Optional, Windows OS only, requires SSM Agent version 2.2.64.0 or later) Collect Windows Registry keys and values. You can choose a key path and collect all keys and values recursively. You can also collect a specific registry key and its value for a specific path. Inventory collects the key path, name, type, and the value. For more information about collecting Windows Registry inventory, see [Working with file and Windows registry inventory](inventory-file-and-registry.md).  
+Type: String  
 Required: No
 
-**windowsRoles**
-
-(Optional, Windows OS only, requires SSM Agent version 2.2.64.0
-or later) Collect metadata for Microsoft Windows role
-configurations.
-
-Type: String
-
+**windowsRoles**  
+(Optional, Windows OS only, requires SSM Agent version 2.2.64.0 or later) Collect metadata for Microsoft Windows role configurations.  
+Type: String  
 Required: No
 
-**customInventory**
-
-(Optional) Collect custom inventory data. For more information
-about custom inventory, see [Working with custom inventory](inventory-custom.md "inventory-custom.md")
-
-Type: String
-
+**customInventory**  
+(Optional) Collect custom inventory data. For more information about custom inventory, see [Working with custom inventory](inventory-custom.md)  
+Type: String  
 Required: No
 
-**customInventoryDirectory**
-
-(Optional) Collect custom inventory data from the specified
-directory. For more information about custom inventory, see
-[Working with custom inventory](inventory-custom.md "inventory-custom.md")
-
-Type: String
-
+**customInventoryDirectory**  
+(Optional) Collect custom inventory data from the specified directory. For more information about custom inventory, see [Working with custom inventory](inventory-custom.md)  
+Type: String  
 Required: No
 
 ## `aws:updateAgent`
+<a name="aws-updateagent"></a>
 
-Update the EC2Config service to the latest version or specify an older
-version. This plugin only runs on Microsoft Windows Server operating systems. For more
-information about the EC2Config service, see [Configuring a Windows
-Instance using the EC2Config service (legacy)](../../../AWSEC2/latest/UserGuide/ec2config-service.md "../../../AWSEC2/latest/UserGuide/ec2config-service.md") in the
-_Amazon EC2 User Guide_.
+Update the EC2Config service to the latest version or specify an older version. This plugin only runs on Microsoft Windows Server operating systems. For more information about the EC2Config service, see [Configuring a Windows Instance using the EC2Config service (legacy)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2config-service.html) in the *Amazon EC2 User Guide*.
 
 ### Syntax
+<a name="updateagent-syntax"></a>
 
 #### Schema 2.2
+<a name="updateagent-syntax-2.2"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -2549,7 +1897,8 @@ mainSteps:
     source: https://s3.{Region}.amazonaws.com/aws-ssm-{Region}/manifest.json
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -2568,9 +1917,13 @@ JSON
 }
 ```
 
-#### Schema 1.2
+------
 
-YAML
+#### Schema 1.2
+<a name="updateagent-syntax-1.2"></a>
+
+------
+#### [ YAML ]
 
 ```
 ---
@@ -2583,7 +1936,8 @@ runtimeConfig:
       targetVersion: "{{ version }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -2600,58 +1954,44 @@ JSON
 }
 ```
 
+------
+
 ### Properties
+<a name="updateagent-properties"></a>
 
-**agentName**
-
-EC2Config. This is the name of the agent that runs the
-EC2Config service.
-
-Type: String
-
+**agentName**  
+EC2Config. This is the name of the agent that runs the EC2Config service.  
+Type: String  
 Required: Yes
 
-**allowDowngrade**
-
-Allow the EC2Config service to be downgraded to an earlier
-version. If set to false, the service can be upgraded to newer
-versions only (default). If set to true, specify the earlier
-version.
-
-Type: Boolean
-
+**allowDowngrade**  
+Allow the EC2Config service to be downgraded to an earlier version. If set to false, the service can be upgraded to newer versions only (default). If set to true, specify the earlier version.   
+Type: Boolean  
 Required: No
 
-**source**
-
-The location where Systems Manager copies the version of EC2Config to
-install. You can't change this location.
-
-Type: String
-
+**source**  
+The location where Systems Manager copies the version of EC2Config to install. You can't change this location.  
+Type: String  
 Required: Yes
 
-**targetVersion**
-
-A specific version of the EC2Config service to install. If not
-specified, the service will be updated to the latest
-version.
-
-Type: String
-
+**targetVersion**  
+A specific version of the EC2Config service to install. If not specified, the service will be updated to the latest version.  
+Type: String  
 Required: No
 
 ## `aws:updateSsmAgent`
+<a name="aws-updatessmagent"></a>
 
-Update the SSM Agent to the latest version or specify an older version. This
-plugin runs on Linux and Windows Server operating systems. For more information, see
-[Working with SSM Agent](ssm-agent.md "ssm-agent.md").
+Update the SSM Agent to the latest version or specify an older version. This plugin runs on Linux and Windows Server operating systems. For more information, see [Working with SSM Agent](ssm-agent.md). 
 
 ### Syntax
+<a name="updateSSMagent-syntax"></a>
 
 #### Schema 2.2
+<a name="updateaSSMgent-syntax-2.2"></a>
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -2676,7 +2016,8 @@ mainSteps:
     allowDowngrade: "{{ allowDowngrade }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -2707,9 +2048,13 @@ JSON
 }
 ```
 
-#### Schema 1.2
+------
 
-YAML
+#### Schema 1.2
+<a name="updateaSSMgent-syntax-1.2"></a>
+
+------
+#### [ YAML ]
 
 ```
 ---
@@ -2721,7 +2066,8 @@ runtimeConfig:
       allowDowngrade: "{{ allowDowngrade }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -2739,41 +2085,27 @@ JSON
 }
 ```
 
+------
+
 ### Properties
+<a name="updateSSMagent-properties"></a>
 
-**agentName**
-
-amazon-ssm-agent. This is the name of the Systems Manager agent that
-processes requests and runs commands on the instance.
-
-Type: String
-
+**agentName**  
+amazon-ssm-agent. This is the name of the Systems Manager agent that processes requests and runs commands on the instance.  
+Type: String  
 Required: Yes
 
-**allowDowngrade**
-
-Allow the SSM Agent to be downgraded to an earlier version. If
-set to false, the agent can be upgraded to newer versions only
-(default). If set to true, specify the earlier version.
-
-Type: Boolean
-
+**allowDowngrade**  
+Allow the SSM Agent to be downgraded to an earlier version. If set to false, the agent can be upgraded to newer versions only (default). If set to true, specify the earlier version.   
+Type: Boolean  
 Required: Yes
 
-**source**
-
-The location where Systems Manager copies the SSM Agent version to
-install. You can't change this location.
-
-Type: String
-
+**source**  
+The location where Systems Manager copies the SSM Agent version to install. You can't change this location.  
+Type: String  
 Required: Yes
 
-**targetVersion**
-
-A specific version of SSM Agent to install. If not specified,
-the agent will be updated to the latest version.
-
-Type: String
-
+**targetVersion**  
+A specific version of SSM Agent to install. If not specified, the agent will be updated to the latest version.  
+Type: String  
 Required: No

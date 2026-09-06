@@ -1,18 +1,17 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Working with Change Calendar
+<a name="systems-manager-change-calendar-working"></a>
 
-You can use the AWS Systems Manager console to add, manage, or delete entries in Change Calendar, a
-tool in AWS Systems Manager. You can also import events from supported third-party calendar
-providers by importing an iCalendar (`.ics`) file that you exported
-from the source calendar. And, you can use the `GetCalendarState` API
-operation or the `get-calendar-state` AWS Command Line Interface (AWS CLI) command to get
-information about the state of Change Calendar at a specific time.
+You can use the AWS Systems Manager console to add, manage, or delete entries in Change Calendar, a tool in AWS Systems Manager. You can also import events from supported third-party calendar providers by importing an iCalendar (`.ics`) file that you exported from the source calendar. And, you can use the `GetCalendarState` API operation or the `get-calendar-state` AWS Command Line Interface (AWS CLI) command to get information about the state of Change Calendar at a specific time.
 
-###### Topics
-
-- [Creating a change calendar](change-calendar-create.md "change-calendar-create.md")
-- [Creating and managing events in Change Calendar](change-calendar-events.md "change-calendar-events.md")
-- [Importing and managing events from third-party calendars](third-party-events.md "third-party-events.md")
-- [Updating a change calendar](change-calendar-update.md "change-calendar-update.md")
-- [Sharing a change calendar](change-calendar-share.md "change-calendar-share.md")
-- [Deleting a change calendar](change-calendar-delete.md "change-calendar-delete.md")
-- [Getting the state of a change calendar](change-calendar-getstate.md "change-calendar-getstate.md")
+**Topics**
++ [Creating a change calendar](change-calendar-create.md)
++ [Creating and managing events in Change Calendar](change-calendar-events.md)
++ [Importing and managing events from third-party calendars](third-party-events.md)
++ [Updating a change calendar](change-calendar-update.md)
++ [Sharing a change calendar](change-calendar-share.md)
++ [Deleting a change calendar](change-calendar-delete.md)
++ [Getting the state of a change calendar](change-calendar-getstate.md)

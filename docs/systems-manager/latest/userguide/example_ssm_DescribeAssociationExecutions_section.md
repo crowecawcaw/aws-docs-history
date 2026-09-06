@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DescribeAssociationExecutions` with a CLI
+<a name="example_ssm_DescribeAssociationExecutions_section"></a>
 
 The following code examples show how to use `DescribeAssociationExecutions`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To get details of all executions for an association**
-
-The following `describe-association-executions` example describes all executions of the specified association.
-
-```
-`aws ssm describe-association-executions \
- --association-id `"8dfe3659-4309-493a-8755-0123456789ab"``
+**AWS CLI**  
+**Example 1: To get details of all executions for an association**  
+The following `describe-association-executions` example describes all executions of the specified association.  
 
 ```
-
-Output:
+aws ssm describe-association-executions \
+    --association-id {{"8dfe3659-4309-493a-8755-0123456789ab"}}
+```
+Output:  
 
 ```
 {
@@ -43,21 +45,16 @@ Output:
     ]
 }
 ```
-
-For more information, see [Viewing association histories](sysman-state-assoc-history.md "sysman-state-assoc-history.md") in the _AWS Systems Manager User Guide_.
-
-**Example 2: To get details of all executions for an association after a specific date and time**
-
-The following `describe-association-executions` example describes all executions of an association after the specified date and time.
+For more information, see [Viewing association histories](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc-history.html) in the *AWS Systems Manager User Guide*.  
+**Example 2: To get details of all executions for an association after a specific date and time**  
+The following `describe-association-executions` example describes all executions of an association after the specified date and time.  
 
 ```
-`aws ssm describe-association-executions \
- --association-id `"8dfe3659-4309-493a-8755-0123456789ab"` \
- --filters `"Key=CreatedTime,Value=2019-02-18T16:00:00Z,Type=GREATER_THAN"``
-
+aws ssm describe-association-executions \
+    --association-id {{"8dfe3659-4309-493a-8755-0123456789ab"}} \
+    --filters {{"Key=CreatedTime,Value=2019-02-18T16:00:00Z,Type=GREATER_THAN"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -84,25 +81,19 @@ Output:
     ]
 }
 ```
+For more information, see [Viewing association histories](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc-history.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [DescribeAssociationExecutions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-association-executions.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Viewing association histories](sysman-state-assoc-history.md "sysman-state-assoc-history.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [DescribeAssociationExecutions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-association-executions.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-association-executions.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example returns the executions for the association ID provided**
+**Tools for PowerShell V4**  
+**Example 1: This example returns the executions for the association ID provided**  
 
 ```
 Get-SSMAssociationExecution -AssociationId 123a45a0-c678-9012-3456-78901234db5e
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId         : 123a45a0-c678-9012-3456-78901234db5e
@@ -114,21 +105,15 @@ LastExecutionDate     : 1/1/0001 12:00:00 AM
 ResourceCountByStatus : {Success=4}
 Status                : Success
 ```
++  For API details, see [DescribeAssociationExecutions](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeAssociationExecutions](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example returns the executions for the association ID provided**
+**Tools for PowerShell V5**  
+**Example 1: This example returns the executions for the association ID provided**  
 
 ```
 Get-SSMAssociationExecution -AssociationId 123a45a0-c678-9012-3456-78901234db5e
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId         : 123a45a0-c678-9012-3456-78901234db5e
@@ -140,11 +125,8 @@ LastExecutionDate     : 1/1/0001 12:00:00 AM
 ResourceCountByStatus : {Success=4}
 Status                : Success
 ```
++  For API details, see [DescribeAssociationExecutions](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeAssociationExecutions](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

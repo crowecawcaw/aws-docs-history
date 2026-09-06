@@ -1,28 +1,18 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Working with custom inventory
+<a name="inventory-custom"></a>
 
-You can assign any metadata you want to your nodes by creating AWS Systems Manager Inventory
-_custom inventory_. For example, let's say you manage a large
-number of servers in racks in your data center, and these servers have been configured
-as Systems Manager managed nodes. Currently, you store information about server rack location in a
-spreadsheet. With custom inventory, you can specify the rack location of each node as
-metadata on the node. When you collect inventory by using Systems Manager, the metadata is
-collected with other inventory metadata. You can then port all inventory metadata to a
-central Amazon S3 bucket by using [resource
-data sync](inventory-resource-data-sync.md "inventory-resource-data-sync.md") and query the data.
+You can assign any metadata you want to your nodes by creating AWS Systems Manager Inventory *custom inventory*. For example, let's say you manage a large number of servers in racks in your data center, and these servers have been configured as Systems Manager managed nodes. Currently, you store information about server rack location in a spreadsheet. With custom inventory, you can specify the rack location of each node as metadata on the node. When you collect inventory by using Systems Manager, the metadata is collected with other inventory metadata. You can then port all inventory metadata to a central Amazon S3 bucket by using [resource data sync](inventory-resource-data-sync.html) and query the data.
 
-###### Note
-
+**Note**  
 Systems Manager supports a maximum of 20 custom inventory types per AWS account.
 
-To assign custom inventory to a node, you can either use the Systems Manager [PutInventory](../APIReference/API_PutInventory.md "../APIReference/API_PutInventory.md") API operation, as
-described in [Assigning custom inventory metadata to a managed node](inventory-custom-metadata.md "inventory-custom-metadata.md"). Or, you can create a custom inventory
-JSON file and upload it to the node. This section describes how to create the JSON
-file.
+To assign custom inventory to a node, you can either use the Systems Manager [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) API operation, as described in [Assigning custom inventory metadata to a managed node](inventory-custom-metadata.md). Or, you can create a custom inventory JSON file and upload it to the node. This section describes how to create the JSON file.
 
-The following example JSON file with custom inventory specifies rack information about
-an on-premises server. This examples specifies one type of custom inventory data
-(`"TypeName": "Custom:RackInformation"`), with multiple entries under
-`Content` that describe the data.
+The following example JSON file with custom inventory specifies rack information about an on-premises server. This examples specifies one type of custom inventory data (`"TypeName": "Custom:RackInformation"`), with multiple entries under `Content` that describe the data.
 
 ```
 {
@@ -38,8 +28,7 @@ an on-premises server. This examples specifies one type of custom inventory data
  }
 ```
 
-You can also specify distinct entries in the `Content` section, as shown in
-the following example.
+You can also specify distinct entries in the `Content` section, as shown in the following example.
 
 ```
 {
@@ -57,368 +46,316 @@ the following example.
 }
 ```
 
-The JSON schema for custom inventory requires `SchemaVersion`,
-`TypeName`, and `Content` sections, but you can define the
-information in those sections.
+The JSON schema for custom inventory requires `SchemaVersion`, `TypeName`, and `Content` sections, but you can define the information in those sections.
 
 ```
 {
-    "SchemaVersion": "`user_defined`",
-    "TypeName": "Custom:`user_defined`",
+    "SchemaVersion": "{{user_defined}}",
+    "TypeName": "Custom:{{user_defined}}",
     "Content": {
-        "`user_defined_attribute1`": "`user_defined_value1`",
-        "`user_defined_attribute2`": "`user_defined_value2`",
-        "`user_defined_attribute3`": "`user_defined_value3`",
-        "`user_defined_attribute4`": "`user_defined_value4`"
+        "{{user_defined_attribute1}}": "{{user_defined_value1}}",
+        "{{user_defined_attribute2}}": "{{user_defined_value2}}",
+        "{{user_defined_attribute3}}": "{{user_defined_value3}}",
+        "{{user_defined_attribute4}}": "{{user_defined_value4}}"
       }
  }
 ```
 
-The value of `TypeName` is limited to 100 characters. Also, the
-`TypeName` value must begin with the capitalized word
-`Custom`. For example, `Custom:PuppetModuleInfo`. Therefore, the
-following examples would result in an exception: `CUSTOM:PuppetModuleInfo`,
-`custom:PuppetModuleInfo`.
+The value of `TypeName` is limited to 100 characters. Also, the `TypeName` value must begin with the capitalized word `Custom`. For example, `Custom:PuppetModuleInfo`. Therefore, the following examples would result in an exception: `CUSTOM:PuppetModuleInfo`, `custom:PuppetModuleInfo`. 
 
-The `Content` section includes attributes and
-`data`. These items aren't case-sensitive. However, if you
-define an attribute (for example: "`Vendor`": "DELL"), then you must
-consistently reference this attribute in your custom inventory files. If you specify
-"`Vendor`": "DELL" (using a capital “V” in `vendor`) in one
-file, and then you specify "`vendor`": "DELL" (using a lowercase “v” in
-`vendor`) in another file, the system returns an error.
+The `Content` section includes attributes and {{data}}. These items aren't case-sensitive. However, if you define an attribute (for example: "`Vendor`": "DELL"), then you must consistently reference this attribute in your custom inventory files. If you specify "`Vendor`": "DELL" (using a capital “V” in `vendor`) in one file, and then you specify "`vendor`": "DELL" (using a lowercase “v” in `vendor`) in another file, the system returns an error.
 
-###### Note
+**Note**  
+You must save the file with a `.json` extension and the inventory you define must consist only of string values.
 
-You must save the file with a `.json` extension and the
-inventory you define must consist only of string values.
+After you create the file, you must save it on the node. The following table shows the location where custom inventory JSON files must be stored on the node.
 
-After you create the file, you must save it on the node. The following table shows the
-location where custom inventory JSON files must be stored on the node.
 
-| Operating system | Path                                                                         |
-| ---------------- | ---------------------------------------------------------------------------- |
-| Linux            | /var/lib/amazon/ssm/`node-id`/inventory/custom                               |
-| macOS            | `/opt/aws/ssm/data/`node-id`/inventory/custom`                               |
-| Windows Server   | %SystemDrive%\ProgramData\Amazon\SSM\InstanceData\`node-id`\inventory\custom |
 
-For an example of how to use custom inventory, see [Get Disk Utilization of Your Fleet Using EC2 Systems Manager Custom Inventory
-Types](https://aws.amazon.com/blogs/mt/get-disk-utilization-of-your-fleet-using-ec2-systems-manager-custom-inventory-types/ "https://aws.amazon.com/blogs/mt/get-disk-utilization-of-your-fleet-using-ec2-systems-manager-custom-inventory-types/").
+| Operating system | Path | 
+| --- | --- | 
+| Linux | /var/lib/amazon/ssm/{{node-id}}/inventory/custom | 
+| macOS | `/opt/aws/ssm/data/{{node-id}}/inventory/custom` | 
+| Windows Server | %SystemDrive%\\ProgramData\\Amazon\\SSM\\InstanceData\\{{node-id}}\\inventory\\custom | 
+
+For an example of how to use custom inventory, see [Get Disk Utilization of Your Fleet Using EC2 Systems Manager Custom Inventory Types](https://aws.amazon.com/blogs/mt/get-disk-utilization-of-your-fleet-using-ec2-systems-manager-custom-inventory-types/).
 
 ## Deleting custom inventory
+<a name="delete-custom-inventory"></a>
 
-You can use the [DeleteInventory](../APIReference/API_DeleteInventory.md "../APIReference/API_DeleteInventory.md") API operation to delete a custom inventory type and the
-data associated with that type. You call the delete-inventory command by using the
-AWS Command Line Interface (AWS CLI) to delete all data for an inventory type. You call the
-delete-inventory command with the `SchemaDeleteOption` to delete a custom
-inventory type.
+You can use the [DeleteInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html) API operation to delete a custom inventory type and the data associated with that type. You call the delete-inventory command by using the AWS Command Line Interface (AWS CLI) to delete all data for an inventory type. You call the delete-inventory command with the `SchemaDeleteOption` to delete a custom inventory type.
 
-###### Note
-
+**Note**  
 An inventory type is also called an inventory schema.
 
-The `SchemaDeleteOption` parameter includes the following
-options:
+The `SchemaDeleteOption` parameter includes the following options:
++ **DeleteSchema**: This option deletes the specified custom type and all data associated with it. You can recreate the schema later, if you want.
++ **DisableSchema**: If you choose this option, the system turns off the current version, deletes all data for it, and ignores all new data if the version is less than or equal to the turned off version. You can allow this inventory type again by calling the [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) action for a version greater than the turned off version.
 
-- **DeleteSchema**: This option deletes the
-  specified custom type and all data associated with it. You can recreate the
-  schema later, if you want.
-- **DisableSchema**: If you choose this option,
-  the system turns off the current version, deletes all data for it, and
-  ignores all new data if the version is less than or equal to the turned off
-  version. You can allow this inventory type again by calling the [PutInventory](../APIReference/API_PutInventory.md "../APIReference/API_PutInventory.md") action for
-  a version greater than the turned off version.
-
-###### To delete or turn off custom inventory by using the AWS CLI
+**To delete or turn off custom inventory by using the AWS CLI**
 
 1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
 
-For information, see [Installing or updating the
-latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). 2. Run the following command to use the `dry-run` option to see
-which data will be deleted from the system. This command doesn't delete any
-data.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-```
-aws ssm delete-inventory --type-name "Custom:`custom_type_name`" --dry-run
-```
+1. Run the following command to use the `dry-run` option to see which data will be deleted from the system. This command doesn't delete any data.
 
-The system returns information like the following.
+   ```
+   aws ssm delete-inventory --type-name "Custom:{{custom_type_name}}" --dry-run
+   ```
 
-```
-{
-   "DeletionSummary":{
-      "RemainingCount":3,
-      "SummaryItems":[
-         {
-            "Count":2,
-            "RemainingCount":2,
-            "Version":"1.0"
-         },
-         {
-            "Count":1,
-            "RemainingCount":1,
-            "Version":"2.0"
-         }
-      ],
-      "TotalCount":3
-   },
-   "TypeName":"Custom:custom_type_name"
-}
-```
+   The system returns information like the following.
 
-For information about how to understand the delete inventory summary, see
-[Understanding the delete inventory summary](#delete-custom-inventory-summary "#delete-custom-inventory-summary"). 3. Run the following command to delete all data for a custom inventory
-type.
+   ```
+   {
+      "DeletionSummary":{
+         "RemainingCount":3,
+         "SummaryItems":[
+            {
+               "Count":2,
+               "RemainingCount":2,
+               "Version":"1.0"
+            },
+            {
+               "Count":1,
+               "RemainingCount":1,
+               "Version":"2.0"
+            }
+         ],
+         "TotalCount":3
+      },
+      "TypeName":"Custom:{{custom_type_name}}"
+   }
+   ```
 
-```
-aws ssm delete-inventory --type-name "Custom:`custom_type_name`"
-```
+   For information about how to understand the delete inventory summary, see [Understanding the delete inventory summary](#delete-custom-inventory-summary).
 
-###### Note
+1. Run the following command to delete all data for a custom inventory type.
 
-The output of this command doesn't show the deletion progress. For
-this reason, TotalCount and Remaining Count are always the same because
-the system hasn't deleted anything yet. You can use the
-describe-inventory-deletions command to show the deletion progress, as
-described later in this topic.
+   ```
+   aws ssm delete-inventory --type-name "Custom:{{custom_type_name}}"
+   ```
+**Note**  
+The output of this command doesn't show the deletion progress. For this reason, TotalCount and Remaining Count are always the same because the system hasn't deleted anything yet. You can use the describe-inventory-deletions command to show the deletion progress, as described later in this topic.
 
-The system returns information like the following.
+   The system returns information like the following.
 
-```
-{
-   "DeletionId":"system_generated_deletion_ID",
-   "DeletionSummary":{
-      "RemainingCount":3,
-      "SummaryItems":[
-         {
-            "Count":2,
-            "RemainingCount":2,
-            "Version":"1.0"
-         },
-         {
-            "Count":1,
-            "RemainingCount":1,
-            "Version":"2.0"
-         }
-      ],
-      "TotalCount":3
-   },
-   "TypeName":"custom_type_name"
-}
-```
+   ```
+   {
+      "DeletionId":"{{system_generated_deletion_ID}}",
+      "DeletionSummary":{
+         "RemainingCount":3,
+         "SummaryItems":[
+            {
+               "Count":2,
+               "RemainingCount":2,
+               "Version":"1.0"
+            },
+            {
+               "Count":1,
+               "RemainingCount":1,
+               "Version":"2.0"
+            }
+         ],
+         "TotalCount":3
+      },
+      "TypeName":"{{custom_type_name}}"
+   }
+   ```
 
-The system deletes all data for the specified custom inventory type from
-the Systems Manager Inventory service. 4. Run the following command. The command performs the following actions for
-the current version of the inventory type: turns off the current version,
-deletes all data for it, and ignores all new data if the version is less
-than or equal to the turned off version.
+   The system deletes all data for the specified custom inventory type from the Systems Manager Inventory service. 
 
-```
-aws ssm delete-inventory --type-name "Custom:`custom_type_name`" --schema-delete-option "DisableSchema"
-```
+1. Run the following command. The command performs the following actions for the current version of the inventory type: turns off the current version, deletes all data for it, and ignores all new data if the version is less than or equal to the turned off version. 
 
-The system returns information like the following.
+   ```
+   aws ssm delete-inventory --type-name "Custom:{{custom_type_name}}" --schema-delete-option "DisableSchema"
+   ```
 
-```
-{
-   "DeletionId":"system_generated_deletion_ID",
-   "DeletionSummary":{
-      "RemainingCount":3,
-      "SummaryItems":[
-         {
-            "Count":2,
-            "RemainingCount":2,
-            "Version":"1.0"
-         },
-         {
-            "Count":1,
-            "RemainingCount":1,
-            "Version":"2.0"
-         }
-      ],
-      "TotalCount":3
-   },
-   "TypeName":"Custom:custom_type_name"
-}
-```
+   The system returns information like the following.
 
-You can view a turned off inventory type by using the following
-command.
+   ```
+   {
+      "DeletionId":"{{system_generated_deletion_ID}}",
+      "DeletionSummary":{
+         "RemainingCount":3,
+         "SummaryItems":[
+            {
+               "Count":2,
+               "RemainingCount":2,
+               "Version":"1.0"
+            },
+            {
+               "Count":1,
+               "RemainingCount":1,
+               "Version":"2.0"
+            }
+         ],
+         "TotalCount":3
+      },
+      "TypeName":"Custom:{{custom_type_name}}"
+   }
+   ```
 
-```
-aws ssm get-inventory-schema --type-name Custom:`custom_type_name`
-```
+   You can view a turned off inventory type by using the following command.
 
-5. Run the following command to delete an inventory type.
+   ```
+   aws ssm get-inventory-schema --type-name Custom:{{custom_type_name}}
+   ```
 
-```
-aws ssm delete-inventory --type-name "Custom:`custom_type_name`" --schema-delete-option "DeleteSchema"
-```
+1. Run the following command to delete an inventory type.
 
-The system deletes the schema and all inventory data for the specified
-custom type.
+   ```
+   aws ssm delete-inventory --type-name "Custom:{{custom_type_name}}" --schema-delete-option "DeleteSchema"
+   ```
 
-The system returns information like the following.
+   The system deletes the schema and all inventory data for the specified custom type.
 
-```
-{
-   "DeletionId":"system_generated_deletion_ID",
-   "DeletionSummary":{
-      "RemainingCount":3,
-      "SummaryItems":[
-         {
-            "Count":2,
-            "RemainingCount":2,
-            "Version":"1.0"
-         },
-         {
-            "Count":1,
-            "RemainingCount":1,
-            "Version":"2.0"
-         }
-      ],
-      "TotalCount":3
-   },
-   "TypeName":"Custom:custom_type_name"
-}
-```
+   The system returns information like the following.
+
+   ```
+   {
+      "DeletionId":"{{system_generated_deletion_ID}}",
+      "DeletionSummary":{
+         "RemainingCount":3,
+         "SummaryItems":[
+            {
+               "Count":2,
+               "RemainingCount":2,
+               "Version":"1.0"
+            },
+            {
+               "Count":1,
+               "RemainingCount":1,
+               "Version":"2.0"
+            }
+         ],
+         "TotalCount":3
+      },
+      "TypeName":"Custom:{{custom_type_name}}"
+   }
+   ```
 
 ### Viewing the deletion status
+<a name="delete-custom-inventory-status"></a>
 
-You can check the status of a delete operation by using the
-`describe-inventory-deletions` AWS CLI command. You can specify a
-deletion ID to view the status of a specific delete operation. Or, you can omit
-the deletion ID to view a list of all deletions run in the last 30 days.
+You can check the status of a delete operation by using the `describe-inventory-deletions` AWS CLI command. You can specify a deletion ID to view the status of a specific delete operation. Or, you can omit the deletion ID to view a list of all deletions run in the last 30 days.
 
-######
+1. Run the following command to view the status of a deletion operation. The system returned the deletion ID in the delete-inventory summary.
 
-1. Run the following command to view the status of a deletion operation.
-   The system returned the deletion ID in the delete-inventory
-   summary.
+   ```
+   aws ssm describe-inventory-deletions --deletion-id {{system_generated_deletion_ID}}
+   ```
 
-```
-aws ssm describe-inventory-deletions --deletion-id `system_generated_deletion_ID`
-```
+   The system returns the latest status. The delete operation might not be finished yet. The system returns information like the following.
 
-The system returns the latest status. The delete operation might not
-be finished yet. The system returns information like the
-following.
+   ```
+   {"InventoryDeletions": 
+     [
+       {"DeletionId": "{{system_generated_deletion_ID}}", 
+        "DeletionStartTime": 1521744844, 
+        "DeletionSummary": 
+         {"RemainingCount": 1, 
+          "SummaryItems": 
+           [
+             {"Count": 1, 
+              "RemainingCount": 1, 
+              "Version": "1.0"}
+           ], 
+          "TotalCount": 1}, 
+        "LastStatus": "InProgress", 
+        "LastStatusMessage": "The Delete is in progress", 
+        "LastStatusUpdateTime": 1521744844, 
+        "TypeName": "Custom:{{custom_type_name}}"}
+     ]
+   }
+   ```
 
-```
-{"InventoryDeletions":
-  [
-    {"DeletionId": "system_generated_deletion_ID",
-     "DeletionStartTime": 1521744844,
-     "DeletionSummary":
-      {"RemainingCount": 1,
-       "SummaryItems":
-        [
-          {"Count": 1,
-           "RemainingCount": 1,
-           "Version": "1.0"}
-        ],
-       "TotalCount": 1},
-     "LastStatus": "InProgress",
-     "LastStatusMessage": "The Delete is in progress",
-     "LastStatusUpdateTime": 1521744844,
-     "TypeName": "Custom:custom_type_name"}
-  ]
-}
-```
+   If the delete operation is successful, the `LastStatusMessage` states: Deletion is successful.
 
-If the delete operation is successful, the
-`LastStatusMessage` states: Deletion is
-successful.
+   ```
+   {"InventoryDeletions": 
+     [
+       {"DeletionId": "{{system_generated_deletion_ID}}", 
+        "DeletionStartTime": 1521744844, 
+        "DeletionSummary": 
+         {"RemainingCount": 0, 
+          "SummaryItems": 
+           [
+             {"Count": 1, 
+              "RemainingCount": 0, 
+              "Version": "1.0"}
+           ], 
+          "TotalCount": 1}, 
+        "LastStatus": "Complete", 
+        "LastStatusMessage": "Deletion is successful", 
+        "LastStatusUpdateTime": 1521745253, 
+        "TypeName": "Custom:{{custom_type_name}}"}
+     ]
+   }
+   ```
 
-```
-{"InventoryDeletions":
-  [
-    {"DeletionId": "system_generated_deletion_ID",
-     "DeletionStartTime": 1521744844,
-     "DeletionSummary":
-      {"RemainingCount": 0,
-       "SummaryItems":
-        [
-          {"Count": 1,
-           "RemainingCount": 0,
-           "Version": "1.0"}
-        ],
-       "TotalCount": 1},
-     "LastStatus": "Complete",
-     "LastStatusMessage": "Deletion is successful",
-     "LastStatusUpdateTime": 1521745253,
-     "TypeName": "Custom:custom_type_name"}
-  ]
-}
-```
+1. Run the following command to view a list of all deletions run in the last 30 days.
 
-2. Run the following command to view a list of all deletions run in the
-   last 30 days.
+   ```
+   aws ssm describe-inventory-deletions --max-results {{a number}}
+   ```
 
-```
-aws ssm describe-inventory-deletions --max-results `a number`
-```
-
-```
-
-{"InventoryDeletions":
-  [
-    {"DeletionId": "system_generated_deletion_ID",
-     "DeletionStartTime": 1521682552,
-     "DeletionSummary":
-      {"RemainingCount": 0,
-       "SummaryItems":
-        [
-          {"Count": 1,
-           "RemainingCount": 0,
-           "Version": "1.0"}
-        ],
-       "TotalCount": 1},
-     "LastStatus": "Complete",
-     "LastStatusMessage": "Deletion is successful",
-     "LastStatusUpdateTime": 1521682852,
-     "TypeName": "Custom:custom_type_name"},
-    {"DeletionId": "system_generated_deletion_ID",
-     "DeletionStartTime": 1521744844,
-     "DeletionSummary":
-      {"RemainingCount": 0,
-       "SummaryItems":
-        [
-          {"Count": 1,
-           "RemainingCount": 0,
-           "Version": "1.0"}
-        ],
-       "TotalCount": 1},
-     "LastStatus": "Complete",
-     "LastStatusMessage": "Deletion is successful",
-     "LastStatusUpdateTime": 1521745253,
-     "TypeName": "Custom:custom_type_name"},
-    {"DeletionId": "system_generated_deletion_ID",
-     "DeletionStartTime": 1521680145,
-     "DeletionSummary":
-      {"RemainingCount": 0,
-       "SummaryItems":
-        [
-          {"Count": 1,
-           "RemainingCount": 0,
-           "Version": "1.0"}
-        ],
-       "TotalCount": 1},
-     "LastStatus": "Complete",
-     "LastStatusMessage": "Deletion is successful",
-     "LastStatusUpdateTime": 1521680471,
-     "TypeName": "Custom:custom_type_name"}
-  ],
- "NextToken": "next-token"
-```
+   ```
+   {"InventoryDeletions": 
+     [
+       {"DeletionId": "{{system_generated_deletion_ID}}", 
+        "DeletionStartTime": 1521682552, 
+        "DeletionSummary": 
+         {"RemainingCount": 0, 
+          "SummaryItems": 
+           [
+             {"Count": 1, 
+              "RemainingCount": 0, 
+              "Version": "1.0"}
+           ], 
+          "TotalCount": 1}, 
+        "LastStatus": "Complete", 
+        "LastStatusMessage": "Deletion is successful", 
+        "LastStatusUpdateTime": 1521682852, 
+        "TypeName": "Custom:{{custom_type_name}}"}, 
+       {"DeletionId": "{{system_generated_deletion_ID}}", 
+        "DeletionStartTime": 1521744844, 
+        "DeletionSummary": 
+         {"RemainingCount": 0, 
+          "SummaryItems": 
+           [
+             {"Count": 1, 
+              "RemainingCount": 0, 
+              "Version": "1.0"}
+           ], 
+          "TotalCount": 1}, 
+        "LastStatus": "Complete", 
+        "LastStatusMessage": "Deletion is successful", 
+        "LastStatusUpdateTime": 1521745253, 
+        "TypeName": "Custom:{{custom_type_name}}"}, 
+       {"DeletionId": "{{system_generated_deletion_ID}}", 
+        "DeletionStartTime": 1521680145, 
+        "DeletionSummary": 
+         {"RemainingCount": 0, 
+          "SummaryItems": 
+           [
+             {"Count": 1, 
+              "RemainingCount": 0, 
+              "Version": "1.0"}
+           ], 
+          "TotalCount": 1}, 
+        "LastStatus": "Complete", 
+        "LastStatusMessage": "Deletion is successful", 
+        "LastStatusUpdateTime": 1521680471, 
+        "TypeName": "Custom:{{custom_type_name}}"}
+     ], 
+    "NextToken": "next-token"
+   ```
 
 ### Understanding the delete inventory summary
+<a name="delete-custom-inventory-summary"></a>
 
-To help you understand the contents of the delete inventory summary, consider
-the following example. A user assigned Custom:RackSpace inventory to three
-nodes. Inventory items 1 and 2 use custom type version 1.0
-("SchemaVersion":"1.0"). Inventory item 3 uses custom type version 2.0
-("SchemaVersion":"2.0").
+To help you understand the contents of the delete inventory summary, consider the following example. A user assigned Custom:RackSpace inventory to three nodes. Inventory items 1 and 2 use custom type version 1.0 ("SchemaVersion":"1.0"). Inventory item 3 uses custom type version 2.0 ("SchemaVersion":"2.0").
 
 RackSpace custom inventory 1
 
@@ -429,7 +366,7 @@ RackSpace custom inventory 1
    "InstanceId":"i-1234567890",
    "SchemaVersion":"1.0"   "Content":[
       {
-         `content of custom type omitted`
+         {{content of custom type omitted}}
       }
    ]
 }
@@ -444,7 +381,7 @@ RackSpace custom inventory 2
    "InstanceId":"i-1234567891",
    "SchemaVersion":"1.0"   "Content":[
       {
-         `content of custom type omitted`
+         {{content of custom type omitted}}
       }
    ]
 }
@@ -459,14 +396,13 @@ RackSpace custom inventory 3
    "InstanceId":"i-1234567892",
    "SchemaVersion":"2.0"   "Content":[
       {
-         `content of custom type omitted`
+         {{content of custom type omitted}}
       }
    ]
 }
 ```
 
-The user runs the following command to preview which data will be
-deleted.
+The user runs the following command to preview which data will be deleted.
 
 ```
 aws ssm delete-inventory --type-name "Custom:RackSpace" --dry-run
@@ -478,17 +414,17 @@ The system returns information like the following.
 {
    "DeletionId":"1111-2222-333-444-66666",
    "DeletionSummary":{
-      "RemainingCount":3,
-      "TotalCount":3,
-                **TotalCount and RemainingCount are the number of items that would be deleted if this was not a dry run. These numbers are the same because the system didn't delete anything.**
+      "RemainingCount":3,           
+      "TotalCount":3,             
+                TotalCount and RemainingCount are the number of items that would be deleted if this was not a dry run. These numbers are the same because the system didn't delete anything.
       "SummaryItems":[
          {
-            "Count":2,             **The system found two items that use SchemaVersion 1.0. Neither item was deleted.**
+            "Count":2,             The system found two items that use SchemaVersion 1.0. Neither item was deleted.           
             "RemainingCount":2,
             "Version":"1.0"
          },
          {
-            "Count":1,             **The system found one item that uses SchemaVersion 1.0. This item was not deleted.**
+            "Count":1,             The system found one item that uses SchemaVersion 1.0. This item was not deleted.
             "RemainingCount":1,
             "Version":"2.0"
          }
@@ -499,15 +435,10 @@ The system returns information like the following.
 }
 ```
 
-The user runs the following command to delete the Custom:RackSpace inventory.
+The user runs the following command to delete the Custom:RackSpace inventory. 
 
-###### Note
-
-The output of this command doesn't show the deletion progress. For this
-reason, `TotalCount` and `RemainingCount` are always
-the same because the system hasn't deleted anything yet. You can use the
-`describe-inventory-deletions` command to show the deletion
-progress.
+**Note**  
+The output of this command doesn't show the deletion progress. For this reason, `TotalCount` and `RemainingCount` are always the same because the system hasn't deleted anything yet. You can use the `describe-inventory-deletions` command to show the deletion progress.
 
 ```
 aws ssm delete-inventory --type-name "Custom:RackSpace"
@@ -519,40 +450,32 @@ The system returns information like the following.
 {
    "DeletionId":"1111-2222-333-444-7777777",
    "DeletionSummary":{
-      "RemainingCount":3,           **There are three items to delete**
+      "RemainingCount":3,           There are three items to delete
       "SummaryItems":[
          {
-            "Count":2,              **The system found two items that use SchemaVersion 1.0.**
-            "RemainingCount":2,
+            "Count":2,              The system found two items that use SchemaVersion 1.0.
+            "RemainingCount":2,     
             "Version":"1.0"
          },
          {
-            "Count":1,              **The system found one item that uses SchemaVersion 2.0.**
-            "RemainingCount":1,
+            "Count":1,              The system found one item that uses SchemaVersion 2.0.
+            "RemainingCount":1,     
             "Version":"2.0"
          }
       ],
-      "TotalCount":3
+      "TotalCount":3                
    },
    "TypeName":"RackSpace"
 }
 ```
 
 ### Viewing inventory delete actions in EventBridge
+<a name="delete-custom-inventory-cwe"></a>
 
-You can configure Amazon EventBridge to create an event anytime a user deletes custom
-inventory. EventBridge offers three types of events for custom inventory delete
-operations:
-
-- **Delete action for an instance**: If the
-  custom inventory for a specific managed node was successfully deleted or
-  not.
-- **Delete action summary**: A summary of
-  the delete action.
-- **Warning for turned off custom inventory
-  type**: A warning event if a user called the [PutInventory](../APIReference/API_PutInventory.md "../APIReference/API_PutInventory.md") API
-  operation for a custom inventory type version that was previously turned
-  off.
+You can configure Amazon EventBridge to create an event anytime a user deletes custom inventory. EventBridge offers three types of events for custom inventory delete operations:
++ **Delete action for an instance**: If the custom inventory for a specific managed node was successfully deleted or not. 
++ **Delete action summary**: A summary of the delete action.
++ **Warning for turned off custom inventory type**: A warning event if a user called the [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) API operation for a custom inventory type version that was previously turned off.
 
 Here are examples of each event.
 
@@ -606,8 +529,7 @@ Here are examples of each event.
 }
 ```
 
-**Warning for turned off custom inventory
-type**
+**Warning for turned off custom inventory type**
 
 ```
 {
@@ -632,40 +554,50 @@ type**
 }
 ```
 
-Use the following procedure to create an EventBridge rule for custom inventory delete
-operations. This procedure shows you how to create a rule that sends
-notifications for custom inventory delete operations to an Amazon SNS topic. Before
-you begin, verify that you have an Amazon SNS topic, or create a new one. For more
-information, see [Getting
-Started](../../../sns/latest/dg/GettingStarted.md "../../../sns/latest/dg/GettingStarted.md") in the _Amazon Simple Notification Service Developer Guide_.
+Use the following procedure to create an EventBridge rule for custom inventory delete operations. This procedure shows you how to create a rule that sends notifications for custom inventory delete operations to an Amazon SNS topic. Before you begin, verify that you have an Amazon SNS topic, or create a new one. For more information, see [Getting Started](https://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html) in the *Amazon Simple Notification Service Developer Guide*.
 
-###### To configure EventBridge for delete inventory operations
+**To configure EventBridge for delete inventory operations**
 
-1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2. In the navigation pane, choose **Rules**.
-3. Choose **Create rule**.
-4. Enter a name and description for the rule.
+1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
-A rule can't have the same name as another rule in the same Region and
-on the same event bus. 5. For **Event bus**, choose the event bus that you want
-to associate with this rule. If you want this rule to respond to
-matching events that come from your own AWS account, select
-**default**. When an AWS service in your account
-emits an event, it always goes to your account’s default event
-bus. 6. For **Rule type**, choose **Rule with an
-event pattern**. 7. Choose **Next**. 8. For **Event source**, choose **AWS events
-or EventBridge partner events**. 9. In the **Event pattern** section, choose
-**Event pattern form**. 10. For **Event source**, choose **AWS
-services**. 11. For **AWS service**, choose
-**Systems Manager**. 12. For **Event type**, choose
-**Inventory**. 13. For **Specific detail type(s)**, choose
-**Inventory Resource State Change**. 14. Choose **Next**. 15. For **Target types**, choose **AWS
-service**. 16. For **Select a target**, choose **SNS
-topic**, and then for **Topic**, choose
-your topic. 17. In the **Additional settings** section, for
-**Configure target input**, verify that
-**Matched event** is selected. 18. Choose **Next**. 19. (Optional) Enter one or more tags for the rule. For more information,
-see [Tagging Your
-Amazon EventBridge Resources](../../../eventbridge/latest/userguide/eventbridge-tagging.md "../../../eventbridge/latest/userguide/eventbridge-tagging.md") in the
-_Amazon EventBridge User Guide_. 20. Choose **Next**. 21. Review the details of the rule and choose **Create
-rule**.
+1. In the navigation pane, choose **Rules**.
+
+1. Choose **Create rule**.
+
+1. Enter a name and description for the rule.
+
+   A rule can't have the same name as another rule in the same Region and on the same event bus.
+
+1. For **Event bus**, choose the event bus that you want to associate with this rule. If you want this rule to respond to matching events that come from your own AWS account, select **default**. When an AWS service in your account emits an event, it always goes to your account’s default event bus.
+
+1. For **Rule type**, choose **Rule with an event pattern**.
+
+1. Choose **Next**.
+
+1. For **Event source**, choose **AWS events or EventBridge partner events**.
+
+1. In the **Event pattern** section, choose **Event pattern form**.
+
+1. For **Event source**, choose **AWS services**.
+
+1. For **AWS service**, choose **Systems Manager**.
+
+1. For **Event type**, choose **Inventory**.
+
+1. For **Specific detail type(s)**, choose **Inventory Resource State Change**.
+
+1. Choose **Next**.
+
+1. For **Target types**, choose **AWS service**.
+
+1. For **Select a target**, choose **SNS topic**, and then for **Topic**, choose your topic.
+
+1. In the **Additional settings** section, for **Configure target input**, verify that **Matched event** is selected.
+
+1. Choose **Next**.
+
+1. (Optional) Enter one or more tags for the rule. For more information, see [Tagging Your Amazon EventBridge Resources](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-tagging.html) in the *Amazon EventBridge User Guide*.
+
+1. Choose **Next**.
+
+1. Review the details of the rule and choose **Create rule**.

@@ -1,54 +1,36 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Creating a Change Calendar event
+<a name="change-calendar-create-event"></a>
 
-When you add an event to an entry in Change Calendar, you
-specify a period of time when the default action of the calendar
-entry is suspended. For example, if the calendar entry type is closed by
-default, the calendar is open to changes during events. You can also
-create an advisory event, which serves an informational role on the calendar
-only.
+When you add an event to an entry in Change Calendar, you specify a period of time when the default action of the calendar entry is suspended. For example, if the calendar entry type is closed by default, the calendar is open to changes during events. You can also create an advisory event, which serves an informational role on the calendar only.
 
-Currently, you can only create a Change Calendar event by using the console. Events
-are added to the Change Calendar document that you create when you create a Change Calendar
-entry.
+Currently, you can only create a Change Calendar event by using the console. Events are added to the Change Calendar document that you create when you create a Change Calendar entry.
 
-###### To create a Change Calendar event
+**To create a Change Calendar event**
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. In the navigation pane, choose **Change Calendar**.
-3. In the list of calendars, choose the name of the calendar entry to
-   which you want to add an event.
-4. On the calendar entry's details page, choose **Create
-   event**.
-5. On the **Create scheduled event** page, in
-   **Event details**, enter a display name for your
-   event. Event names can contain letters, numbers, periods, dashes, and
-   underscores. The name should be specific enough to identify the purpose
-   of the event. An example is
-   `nighttime-hours`.
-6. For **Description**, enter a description for your
-   event. For example, `The support team isn't available during
- these hours`.
-7. (Optional) If you want this event to serve as a visual notification or
-   reminder only, select the **Advisory** check box.
-   Advisory events play no functional role on your calendar. They serve
-   informational purposes only for those who view your calendar.
-8. For **Event start date**, enter or choose a day in
-   the format `MM/DD/YYYY` to start the event, and enter a time
-   on the specified day in the format `hh:mm:ss` (hours,
-   minutes, and seconds) to start the event.
-9. For **Event end date**, enter or choose a day in the
-   format `MM/DD/YYYY` to end the event, and enter a time on the
-   specified day in the format `hh:mm:ss` (hours, minutes, and
-   seconds) to end the event.
-10. For **Schedule time zone**, choose a time zone that
-    applies to the start and end times of the event. You can enter part of a
-    city name or time zone difference from Greenwich Mean Time (GMT) to find
-    a time zone faster. The default is Coordinated Universal Time
-    (UTC).
-11. (Optional) To create an event that recurs daily, weekly, or monthly,
-    turn on **Recurrence**, and then specify the frequency
-    and optional end date for the recurrence.
-12. Choose **Create scheduled event**. The new event is
-    added to your calendar entry, and is displayed on the
-    **Events** tab of the calendar entry's details
-    page.
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
+
+1. In the navigation pane, choose **Change Calendar**.
+
+1. In the list of calendars, choose the name of the calendar entry to which you want to add an event.
+
+1. On the calendar entry's details page, choose **Create event**.
+
+1. On the **Create scheduled event** page, in **Event details**, enter a display name for your event. Event names can contain letters, numbers, periods, dashes, and underscores. The name should be specific enough to identify the purpose of the event. An example is **nighttime-hours**.
+
+1. For **Description**, enter a description for your event. For example, **The support team isn't available during these hours**.
+
+1. (Optional) If you want this event to serve as a visual notification or reminder only, select the **Advisory** check box. Advisory events play no functional role on your calendar. They serve informational purposes only for those who view your calendar.
+
+1. For **Event start date**, enter or choose a day in the format `MM/DD/YYYY` to start the event, and enter a time on the specified day in the format `hh:mm:ss` (hours, minutes, and seconds) to start the event.
+
+1. For **Event end date**, enter or choose a day in the format `MM/DD/YYYY` to end the event, and enter a time on the specified day in the format `hh:mm:ss` (hours, minutes, and seconds) to end the event.
+
+1. For **Schedule time zone**, choose a time zone that applies to the start and end times of the event. You can enter part of a city name or time zone difference from Greenwich Mean Time (GMT) to find a time zone faster. The default is Coordinated Universal Time (UTC).
+
+1. (Optional) To create an event that recurs daily, weekly, or monthly, turn on **Recurrence**, and then specify the frequency and optional end date for the recurrence.
+
+1. Choose **Create scheduled event**. The new event is added to your calendar entry, and is displayed on the **Events** tab of the calendar entry's details page.

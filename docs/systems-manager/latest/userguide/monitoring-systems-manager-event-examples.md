@@ -1,20 +1,25 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Amazon EventBridge event examples for Systems Manager
+<a name="monitoring-systems-manager-event-examples"></a>
 
-The following are examples, in JSON format, of supported EventBridge events for AWS Systems Manager.
+The following are examples, in JSON format, of supported EventBridge events for AWS Systems Manager. 
 
-###### Systems Manager event types
-
-- [AWS Systems Manager Automation Events](#SSM-Automation-event-types "#SSM-Automation-event-types")
-- [AWS Systems Manager Change Calendar Events](#SSM-Change-Management-event-types "#SSM-Change-Management-event-types")
-- [AWS Systems Manager Change Manager Events](#SSM-Change-Manager-event-types "#SSM-Change-Manager-event-types")
-- [AWS Systems Manager Compliance Events](#SSM-Configuration-Compliance-event-types "#SSM-Configuration-Compliance-event-types")
-- [AWS Systems Manager Maintenance Windows Events](#EC2_maintenance_windows_event_types "#EC2_maintenance_windows_event_types")
-- [AWS Systems Manager Parameter Store Events](#SSM-Parameter-Store-event-types "#SSM-Parameter-Store-event-types")
-- [AWS Systems Manager OpsCenter Events](#SSM-OpsCenter-event-types "#SSM-OpsCenter-event-types")
-- [AWS Systems Manager Run Command Events](#SSM-Run-Command-event-types "#SSM-Run-Command-event-types")
-- [AWS Systems Manager State Manager Events](#SSM-State-Manager-event-types "#SSM-State-Manager-event-types")
+**Topics**
++ [AWS Systems Manager Automation Events](#SSM-Automation-event-types)
++ [AWS Systems Manager Change Calendar Events](#SSM-Change-Management-event-types)
++ [AWS Systems Manager Change Manager Events](#SSM-Change-Manager-event-types)
++ [AWS Systems Manager Compliance Events](#SSM-Configuration-Compliance-event-types)
++ [AWS Systems Manager Maintenance Windows Events](#EC2_maintenance_windows_event_types)
++ [AWS Systems Manager Parameter Store Events](#SSM-Parameter-Store-event-types)
++ [AWS Systems Manager OpsCenter Events](#SSM-OpsCenter-event-types)
++ [AWS Systems Manager Run Command Events](#SSM-Run-Command-event-types)
++ [AWS Systems Manager State Manager Events](#SSM-State-Manager-event-types)
 
 ## AWS Systems Manager Automation Events
+<a name="SSM-Automation-event-types"></a>
 
 **Automation Step Status-change Notification**
 
@@ -27,7 +32,7 @@ The following are examples, in JSON format, of supported EventBridge events for 
   "account": "123456789012",
   "time": "2024-11-29T19:43:35Z",
   "region": "us-east-1",
-  "resources": ["arn:aws:ssm:us-east-2:123456789012:automation-execution/333ba70b-2333-48db-b17e-a5e69c6f4d1c",
+  "resources": ["arn:aws:ssm:us-east-2:123456789012:automation-execution/333ba70b-2333-48db-b17e-a5e69c6f4d1c", 
     "arn:aws:ssm:us-east-2:123456789012:automation-definition/runcommand1:1"],
   "detail": {
     "ExecutionId": "333ba70b-2333-48db-b17e-a5e69c6f4d1c",
@@ -43,8 +48,7 @@ The following are examples, in JSON format, of supported EventBridge events for 
 }
 ```
 
-**Automation Execution Status-change
-Notification**
+**Automation Execution Status-change Notification**
 
 ```
 {
@@ -55,7 +59,7 @@ Notification**
   "account": "123456789012",
   "time": "2024-11-29T19:43:35Z",
   "region": "us-east-2",
-  "resources": ["arn:aws:ssm:us-east-2:123456789012:automation-execution/333ba70b-2333-48db-b17e-a5e69c6f4d1c",
+  "resources": ["arn:aws:ssm:us-east-2:123456789012:automation-execution/333ba70b-2333-48db-b17e-a5e69c6f4d1c", 
     "arn:aws:ssm:us-east-2:123456789012:automation-definition/runcommand1:1"],
   "detail": {
     "ExecutionId": "333ba70b-2333-48db-b17e-a5e69c6f4d1c",
@@ -71,70 +75,40 @@ Notification**
 ```
 
 ## AWS Systems Manager Change Calendar Events
+<a name="SSM-Change-Management-event-types"></a>
 
-Use the information in this topic to plan and understand the behavior of EventBridge
-events for AWS Systems Manager Change Calendar.
+Use the information in this topic to plan and understand the behavior of EventBridge events for AWS Systems Manager Change Calendar.
 
-###### Note
-
-State changes for calendars shared from other AWS accounts are not currently
-supported.
+**Note**  
+State changes for calendars shared from other AWS accounts are not currently supported.
 
 ### Change Calendar integration with Amazon EventBridge
+<a name="change-calendar-eventbridge-integration"></a>
 
-AWS Systems Manager Change Calendar integrates with Amazon EventBridge to notify you of calendar state
-changes. Be aware of the following behaviors related to the underlying
-scheduling architecture:
+AWS Systems Manager Change Calendar integrates with Amazon EventBridge to notify you of calendar state changes. Be aware of the following behaviors related to the underlying scheduling architecture:
 
-Event timing and reliability
+Event timing and reliability  
++ EventBridge delivers notifications on a best-effort basis with up to a 15-minute scheduling tolerance.
++ State change events reflect overall calendar status transitions, not individual calendar events.
++ When multiple calendar events occur simultaneously, EventBridge generates only one event per actual calendar state change.
++ EventBridge triggers events only when the calendar's overall state transitions (for example, from CLOSED to OPEN), not for individual calendar events that don't result in a state change.
++ Advisory events that don't modify the calendar state don't trigger EventBridge notifications.
 
-- EventBridge delivers notifications on a best-effort basis with up
-  to a 15-minute scheduling tolerance.
-- State change events reflect overall calendar status
-  transitions, not individual calendar events.
-- When multiple calendar events occur simultaneously, EventBridge
-  generates only one event per actual calendar state
-  change.
-- EventBridge triggers events only when the calendar's overall
-  state transitions (for example, from CLOSED to OPEN), not
-  for individual calendar events that don't result in a state
-  change.
-- Advisory events that don't modify the calendar state don't
-  trigger EventBridge notifications.
+Event modifications and timing considerations  
++ If you modify calendar events within 15 minutes of their scheduled start or end time, EventBridge might generate duplicate notifications or miss notifications.
++ This behavior occurs because the scheduling system might not have sufficient time to properly update or cancel previously scheduled notifications.
++ For recurring events, this behavior typically affects only the first occurrence after modification.
 
-Event modifications and timing considerations
+Adjacent and overlapping events  
++ When calendar events are scheduled within 5 minutes of each other, state transition events might or might not occur, depending on the actual state change.
++ Creating overlapping events in certain orders might generate additional EventBridge events even when no actual state change occurs.
++ To help ensure predictable behavior, avoid creating or modifying calendar events close to their execution times.
 
-- If you modify calendar events within 15 minutes of their
-  scheduled start or end time, EventBridge might generate duplicate
-  notifications or miss notifications.
-- This behavior occurs because the scheduling system might
-  not have sufficient time to properly update or cancel
-  previously scheduled notifications.
-- For recurring events, this behavior typically affects only
-  the first occurrence after modification.
-
-Adjacent and overlapping events
-
-- When calendar events are scheduled within 5 minutes of
-  each other, state transition events might or might not
-  occur, depending on the actual state change.
-- Creating overlapping events in certain orders might
-  generate additional EventBridge events even when no actual state
-  change occurs.
-- To help ensure predictable behavior, avoid creating or
-  modifying calendar events close to their execution
-  times.
-
-Best practices
-
-- Design your EventBridge rules and downstream automation to handle
-  potential duplicate events.
-- Implement idempotency in your automation workflows to
-  prevent issues from duplicate notifications.
-- Allow sufficient lead time (at least 15 minutes) when you
-  create or modify calendar events.
-- Test your EventBridge integrations thoroughly with your specific
-  calendar event patterns.
+Best practices  
++ Design your EventBridge rules and downstream automation to handle potential duplicate events.
++ Implement idempotency in your automation workflows to prevent issues from duplicate notifications.
++ Allow sufficient lead time (at least 15 minutes) when you create or modify calendar events.
++ Test your EventBridge integrations thoroughly with your specific calendar event patterns.
 
 **Calendar OPEN**
 
@@ -181,9 +155,9 @@ Best practices
 ```
 
 ## AWS Systems Manager Change Manager Events
+<a name="SSM-Change-Manager-event-types"></a>
 
-**Change request status update notification - example
-1**
+**Change request status update notification - example 1**
 
 ```
 {
@@ -218,8 +192,7 @@ Best practices
 }
 ```
 
-**Change request status update notification - example
-2**
+**Change request status update notification - example 2**
 
 ```
 {
@@ -255,6 +228,7 @@ Best practices
 ```
 
 ## AWS Systems Manager Compliance Events
+<a name="SSM-Configuration-Compliance-event-types"></a>
 
 The following are examples of the events for AWS Systems Manager Compliance.
 
@@ -357,13 +331,13 @@ The following are examples of the events for AWS Systems Manager Compliance.
 ```
 
 ## AWS Systems Manager Maintenance Windows Events
+<a name="EC2_maintenance_windows_event_types"></a>
 
 The following are examples of the events for Systems Manager Maintenance Windows.
 
 **Register a Target**
 
-Valid status values include `REGISTERED` and
-`DEREGISTERED`.
+Valid status values include `REGISTERED` and `DEREGISTERED`.
 
 ```
 {
@@ -389,14 +363,13 @@ Valid status values include `REGISTERED` and
 **Window Execution Type**
 
 Valid status values include the following:
-
-- `CANCELLED`
-- `CANCELLING`
-- `FAILED`
-- `IN_PROGRESS`
-- `PENDING`
-- `SKIPPED_OVERLAPPING`
-- `SUCCESS TIMED_OUT`
++ `CANCELLED`
++ `CANCELLING`
++ `FAILED`
++ `IN_PROGRESS`
++ `PENDING`
++ `SKIPPED_OVERLAPPING`
++ `SUCCESS TIMED_OUT`
 
 ```
 {
@@ -422,8 +395,7 @@ Valid status values include the following:
 
 **Task Execution Type**
 
-Valid status values include `IN_PROGRESS`, `SUCCESS`,
-`FAILED`, and `TIMED_OUT`.
+Valid status values include `IN_PROGRESS`, `SUCCESS`, `FAILED`, and `TIMED_OUT`.
 
 ```
 {
@@ -450,8 +422,7 @@ Valid status values include `IN_PROGRESS`, `SUCCESS`,
 
 **Task Target Processed**
 
-Valid status values include `IN_PROGRESS`, `SUCCESS`,
-`FAILED`, and `TIMED_OUT`.
+Valid status values include `IN_PROGRESS`, `SUCCESS`, `FAILED`, and `TIMED_OUT`.
 
 ```
 {
@@ -502,13 +473,13 @@ Valid status values include `ENABLED` and `DISABLED`.
 ```
 
 ## AWS Systems Manager Parameter Store Events
+<a name="SSM-Parameter-Store-event-types"></a>
 
 The following are examples of the events for Systems Manager Parameter Store.
 
 **Create Parameter**
 
 ```
-
 {
   "version": "0",
   "id": "6a7e4feb-b491-4cf7-a9f1-bf3703497718",
@@ -576,6 +547,7 @@ The following are examples of the events for Systems Manager Parameter Store.
 ```
 
 ## AWS Systems Manager OpsCenter Events
+<a name="SSM-OpsCenter-event-types"></a>
 
 **OpsCenter OpsItem create notification**
 
@@ -634,6 +606,7 @@ The following are examples of the events for Systems Manager Parameter Store.
 ```
 
 ## AWS Systems Manager Run Command Events
+<a name="SSM-Run-Command-event-types"></a>
 
 **Run Command Status-change Notification**
 
@@ -661,8 +634,7 @@ The following are examples of the events for Systems Manager Parameter Store.
 }
 ```
 
-**Run Command Invocation Status-change
-Notification**
+**Run Command Invocation Status-change Notification**
 
 ```
 {
@@ -685,6 +657,7 @@ Notification**
 ```
 
 ## AWS Systems Manager State Manager Events
+<a name="SSM-State-Manager-event-types"></a>
 
 **State Manager Association State Change**
 

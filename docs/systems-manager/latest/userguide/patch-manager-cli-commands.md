@@ -1,43 +1,43 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Working with Patch Manager resources using the AWS CLI
+<a name="patch-manager-cli-commands"></a>
 
-The section includes examples of AWS Command Line Interface (AWS CLI) commands that you can use to
-perform configuration tasks for Patch Manager.
+The section includes examples of AWS Command Line Interface (AWS CLI) commands that you can use to perform configuration tasks for Patch Manager.
 
-For an illustration of using the AWS CLI to patch a server environment by using a custom
-patch baseline, see [Tutorial: Patch a server environment using the AWS CLI](patch-manager-patch-servers-using-the-aws-cli.md "patch-manager-patch-servers-using-the-aws-cli.md").
+For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Tutorial: Patch a server environment using the AWS CLI](patch-manager-patch-servers-using-the-aws-cli.md).
 
-For more information about using the AWS CLI for AWS Systems Manager tasks, see the
-[AWS Systems Manager section of the AWS CLI Command Reference](../../../cli/latest/reference/ssm/index.md "../../../cli/latest/reference/ssm/index.md").
+For more information about using the AWS CLI for AWS Systems Manager tasks, see the [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html).
 
 ## AWS CLI commands for patch baselines
+<a name="patch-baseline-cli-commands"></a>
 
-###### Sample commands for patch baselines
-
-- [Create a patch baseline](#patch-manager-cli-commands-create-patch-baseline "#patch-manager-cli-commands-create-patch-baseline")
-- [Create a patch baseline with custom repositories for different OS versions](#patch-manager-cli-commands-create-patch-baseline-mult-sources "#patch-manager-cli-commands-create-patch-baseline-mult-sources")
-- [Update a patch baseline](#patch-manager-cli-commands-update-patch-baseline "#patch-manager-cli-commands-update-patch-baseline")
-- [Rename a patch baseline](#patch-manager-cli-commands-rename-patch-baseline "#patch-manager-cli-commands-rename-patch-baseline")
-- [Delete a patch baseline](#patch-manager-cli-commands-delete-patch-baseline "#patch-manager-cli-commands-delete-patch-baseline")
-- [List all patch baselines](#patch-manager-cli-commands-describe-patch-baselines "#patch-manager-cli-commands-describe-patch-baselines")
-- [List all AWS-provided patch baselines](#patch-manager-cli-commands-describe-patch-baselines-aws "#patch-manager-cli-commands-describe-patch-baselines-aws")
-- [List my patch baselines](#patch-manager-cli-commands-describe-patch-baselines-custom "#patch-manager-cli-commands-describe-patch-baselines-custom")
-- [Display a patch baseline](#patch-manager-cli-commands-get-patch-baseline "#patch-manager-cli-commands-get-patch-baseline")
-- [Get the default patch baseline](#patch-manager-cli-commands-get-default-patch-baseline "#patch-manager-cli-commands-get-default-patch-baseline")
-- [Set a custom patch baseline as the default](#patch-manager-cli-commands-register-default-patch-baseline "#patch-manager-cli-commands-register-default-patch-baseline")
-- [Reset an AWS patch baseline as the default](#patch-manager-cli-commands-register-aws-patch-baseline "#patch-manager-cli-commands-register-aws-patch-baseline")
-- [Tag a patch baseline](#patch-manager-cli-commands-add-tags-to-resource "#patch-manager-cli-commands-add-tags-to-resource")
-- [List the tags for a patch baseline](#patch-manager-cli-commands-list-tags-for-resource "#patch-manager-cli-commands-list-tags-for-resource")
-- [Remove a tag from a patch baseline](#patch-manager-cli-commands-remove-tags-from-resource "#patch-manager-cli-commands-remove-tags-from-resource")
+**Topics**
++ [Create a patch baseline](#patch-manager-cli-commands-create-patch-baseline)
++ [Create a patch baseline with custom repositories for different OS versions](#patch-manager-cli-commands-create-patch-baseline-mult-sources)
++ [Update a patch baseline](#patch-manager-cli-commands-update-patch-baseline)
++ [Rename a patch baseline](#patch-manager-cli-commands-rename-patch-baseline)
++ [Delete a patch baseline](#patch-manager-cli-commands-delete-patch-baseline)
++ [List all patch baselines](#patch-manager-cli-commands-describe-patch-baselines)
++ [List all AWS-provided patch baselines](#patch-manager-cli-commands-describe-patch-baselines-aws)
++ [List my patch baselines](#patch-manager-cli-commands-describe-patch-baselines-custom)
++ [Display a patch baseline](#patch-manager-cli-commands-get-patch-baseline)
++ [Get the default patch baseline](#patch-manager-cli-commands-get-default-patch-baseline)
++ [Set a custom patch baseline as the default](#patch-manager-cli-commands-register-default-patch-baseline)
++ [Reset an AWS patch baseline as the default](#patch-manager-cli-commands-register-aws-patch-baseline)
++ [Tag a patch baseline](#patch-manager-cli-commands-add-tags-to-resource)
++ [List the tags for a patch baseline](#patch-manager-cli-commands-list-tags-for-resource)
++ [Remove a tag from a patch baseline](#patch-manager-cli-commands-remove-tags-from-resource)
 
 ### Create a patch baseline
+<a name="patch-manager-cli-commands-create-patch-baseline"></a>
 
-The following command creates a patch baseline that approves all critical and
-important security updates for Windows Server 2012 R2 5 days after they're released.
-Patches have also been specified for the Approved and Rejected patch lists. In
-addition, the patch baseline has been tagged to indicate that it's for a
-production environment.
+The following command creates a patch baseline that approves all critical and important security updates for Windows Server 2012 R2 5 days after they're released. Patches have also been specified for the Approved and Rejected patch lists. In addition, the patch baseline has been tagged to indicate that it's for a production environment.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm create-patch-baseline \
@@ -50,7 +50,8 @@ aws ssm create-patch-baseline \
     --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Important,Critical]},{Key=CLASSIFICATION,Values=SecurityUpdates},{Key=PRODUCT,Values=WindowsServer2012R2}]},ApproveAfterDays=5}]"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm create-patch-baseline ^
@@ -63,6 +64,8 @@ aws ssm create-patch-baseline ^
     --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Important,Critical]},{Key=CLASSIFICATION,Values=SecurityUpdates},{Key=PRODUCT,Values=WindowsServer2012R2}]},ApproveAfterDays=5}]"
 ```
 
+------
+
 The system returns information like the following.
 
 ```
@@ -72,96 +75,87 @@ The system returns information like the following.
 ```
 
 ### Create a patch baseline with custom repositories for different OS versions
+<a name="patch-manager-cli-commands-create-patch-baseline-mult-sources"></a>
 
-Applies to Linux managed nodes only. The following command shows how to
-specify the patch repository to use for a particular version of the Amazon Linux
-operating system. This sample uses a source repository allowed by default on
-Amazon Linux 2017.09, but it could be adapted to a different source repository that you
-have configured for a managed node.
+Applies to Linux managed nodes only. The following command shows how to specify the patch repository to use for a particular version of the Amazon Linux operating system. This sample uses a source repository allowed by default on Amazon Linux 2017.09, but it could be adapted to a different source repository that you have configured for a managed node.
 
-###### Note
+**Note**  
+To better demonstrate this more complex command, we're using the `--cli-input-json` option with additional options stored an external JSON file.
 
-To better demonstrate this more complex command, we're using the
-`--cli-input-json` option with additional options stored an
-external JSON file.
+1. Create a JSON file with a name like `my-patch-repository.json` and add the following content to it.
 
-1. Create a JSON file with a name like
-   `my-patch-repository.json` and add the following
-   content to it.
+   ```
+   {
+       "Description": "My patch repository for Amazon Linux 2",
+       "Name": "Amazon-Linux-2",
+       "OperatingSystem": "AMAZON_LINUX_2",
+       "ApprovalRules": {
+           "PatchRules": [
+               {
+                   "ApproveAfterDays": 7,
+                   "EnableNonSecurity": true,
+                   "PatchFilterGroup": {
+                       "PatchFilters": [
+                           {
+                               "Key": "SEVERITY",
+                               "Values": [
+                                   "Important",
+                                   "Critical"
+                               ]
+                           },
+                           {
+                               "Key": "CLASSIFICATION",
+                               "Values": [
+                                   "Security",
+                                   "Bugfix"
+                               ]
+                           },
+                           {
+                               "Key": "PRODUCT",
+                               "Values": [
+                                   "AmazonLinux2"
+                               ]
+                           }
+                       ]
+                   }
+               }
+           ]
+       },
+       "Sources": [
+           {
+               "Name": "My-AL2",
+               "Products": [
+                   "AmazonLinux2"
+               ],
+               "Configuration": "[amzn-main] \nname=amzn-main-Base\nmirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list //nmirrorlist_expire=300//nmetadata_expire=300 \npriority=10 \nfailovermethod=priority \nfastestmirror_enabled=0 \ngpgcheck=1 \ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga \nenabled=1 \nretries=3 \ntimeout=5\nreport_instanceid=yes"
+           }
+       ]
+   }
+   ```
 
-```
-{
-    "Description": "My patch repository for Amazon Linux 2",
-    "Name": "Amazon-Linux-2",
-    "OperatingSystem": "AMAZON_LINUX_2",
-    "ApprovalRules": {
-        "PatchRules": [
-            {
-                "ApproveAfterDays": 7,
-                "EnableNonSecurity": true,
-                "PatchFilterGroup": {
-                    "PatchFilters": [
-                        {
-                            "Key": "SEVERITY",
-                            "Values": [
-                                "Important",
-                                "Critical"
-                            ]
-                        },
-                        {
-                            "Key": "CLASSIFICATION",
-                            "Values": [
-                                "Security",
-                                "Bugfix"
-                            ]
-                        },
-                        {
-                            "Key": "PRODUCT",
-                            "Values": [
-                                "AmazonLinux2"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "Sources": [
-        {
-            "Name": "My-AL2",
-            "Products": [
-                "AmazonLinux2"
-            ],
-            "Configuration": "[amzn-main] \nname=amzn-main-Base\nmirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list //nmirrorlist_expire=300//nmetadata_expire=300 \npriority=10 \nfailovermethod=priority \nfastestmirror_enabled=0 \ngpgcheck=1 \ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga \nenabled=1 \nretries=3 \ntimeout=5\nreport_instanceid=yes"
-        }
-    ]
-}
-```
+1. In the directory where you saved the file, run the following command.
 
-2. In the directory where you saved the file, run the following
-   command.
+   ```
+   aws ssm create-patch-baseline --cli-input-json file://my-patch-repository.json
+   ```
 
-```
-aws ssm create-patch-baseline --cli-input-json file://my-patch-repository.json
-```
+   The system returns information like the following.
 
-The system returns information like the following.
-
-```
-{
-    "BaselineId": "pb-0c10e65780EXAMPLE"
-}
-```
+   ```
+   {
+       "BaselineId": "pb-0c10e65780EXAMPLE"
+   }
+   ```
 
 ### Update a patch baseline
+<a name="patch-manager-cli-commands-update-patch-baseline"></a>
 
-The following command adds two patches as rejected and one patch as approved
-to an existing patch baseline.
+The following command adds two patches as rejected and one patch as approved to an existing patch baseline.
 
-For information about accepted formats for lists of approved patches and rejected patches,
-see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
+For information about accepted formats for lists of approved patches and rejected patches, see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md).
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm update-patch-baseline \
@@ -170,7 +164,8 @@ aws ssm update-patch-baseline \
     --approved-patches "KB2124261"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm update-patch-baseline ^
@@ -178,6 +173,8 @@ aws ssm update-patch-baseline ^
     --rejected-patches "KB2032276" "MS10-048" ^
     --approved-patches "KB2124261"
 ```
+
+------
 
 The system returns information like the following.
 
@@ -234,8 +231,10 @@ The system returns information like the following.
 ```
 
 ### Rename a patch baseline
+<a name="patch-manager-cli-commands-rename-patch-baseline"></a>
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm update-patch-baseline \
@@ -243,13 +242,16 @@ aws ssm update-patch-baseline \
     --name "Windows-Server-2012-R2-Important-and-Critical-Security-Updates"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm update-patch-baseline ^
     --baseline-id pb-0c10e65780EXAMPLE ^
     --name "Windows-Server-2012-R2-Important-and-Critical-Security-Updates"
 ```
+
+------
 
 The system returns information like the following.
 
@@ -303,10 +305,10 @@ The system returns information like the following.
    ],
    "Description":"Windows Server 2012 R2, Important and Critical security updates"
 }
-
 ```
 
 ### Delete a patch baseline
+<a name="patch-manager-cli-commands-delete-patch-baseline"></a>
 
 ```
 aws ssm delete-patch-baseline --baseline-id "pb-0c10e65780EXAMPLE"
@@ -321,6 +323,7 @@ The system returns information like the following.
 ```
 
 ### List all patch baselines
+<a name="patch-manager-cli-commands-describe-patch-baselines"></a>
 
 ```
 aws ssm describe-patch-baselines
@@ -345,13 +348,12 @@ The system returns information like the following.
       }
    ]
 }
-
 ```
 
-Here is another command that lists all patch baselines in an
-AWS Region.
+Here is another command that lists all patch baselines in an AWS Region.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-patch-baselines \
@@ -359,13 +361,16 @@ aws ssm describe-patch-baselines \
     --filters "Key=OWNER,Values=[All]"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm describe-patch-baselines ^
     --region us-east-2 ^
     --filters "Key=OWNER,Values=[All]"
 ```
+
+------
 
 The system returns information like the following.
 
@@ -389,8 +394,10 @@ The system returns information like the following.
 ```
 
 ### List all AWS-provided patch baselines
+<a name="patch-manager-cli-commands-describe-patch-baselines-aws"></a>
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-patch-baselines \
@@ -398,13 +405,16 @@ aws ssm describe-patch-baselines \
     --filters "Key=OWNER,Values=[AWS]"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm describe-patch-baselines ^
     --region us-east-2 ^
     --filters "Key=OWNER,Values=[AWS]"
 ```
+
+------
 
 The system returns information like the following.
 
@@ -422,8 +432,10 @@ The system returns information like the following.
 ```
 
 ### List my patch baselines
+<a name="patch-manager-cli-commands-describe-patch-baselines-custom"></a>
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-patch-baselines \
@@ -431,13 +443,16 @@ aws ssm describe-patch-baselines \
     --filters "Key=OWNER,Values=[Self]"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm describe-patch-baselines ^
     --region us-east-2 ^
     --filters "Key=OWNER,Values=[Self]"
 ```
+
+------
 
 The system returns information like the following.
 
@@ -455,17 +470,14 @@ The system returns information like the following.
 ```
 
 ### Display a patch baseline
+<a name="patch-manager-cli-commands-get-patch-baseline"></a>
 
 ```
 aws ssm get-patch-baseline --baseline-id pb-0c10e65780EXAMPLE
 ```
 
-###### Note
-
-For custom patch baselines, you can specify either the patch baseline ID
-or the full Amazon Resource Name (ARN). For an AWS-provided patch
-baseline, you must specify the full ARN. For example,
-`arn:aws:ssm:us-east-2:075727635805:patchbaseline/pb-0c10e65780EXAMPLE`.
+**Note**  
+For custom patch baselines, you can specify either the patch baseline ID or the full Amazon Resource Name (ARN). For an AWS-provided patch baseline, you must specify the full ARN. For example, `arn:aws:ssm:us-east-2:075727635805:patchbaseline/pb-0c10e65780EXAMPLE`.
 
 The system returns information like the following.
 
@@ -521,10 +533,10 @@ The system returns information like the following.
    ],
    "Description":"Windows Server 2012 R2, Important and Critical security updates"
 }
-
 ```
 
 ### Get the default patch baseline
+<a name="patch-manager-cli-commands-get-default-patch-baseline"></a>
 
 ```
 aws ssm get-default-patch-baseline --region us-east-2
@@ -539,8 +551,10 @@ The system returns information like the following.
 ```
 
 ### Set a custom patch baseline as the default
+<a name="patch-manager-cli-commands-register-default-patch-baseline"></a>
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-default-patch-baseline \
@@ -548,13 +562,16 @@ aws ssm register-default-patch-baseline \
     --baseline-id "pb-0c10e65780EXAMPLE"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm register-default-patch-baseline ^
     --region us-east-2 ^
     --baseline-id "pb-0c10e65780EXAMPLE"
 ```
+
+------
 
 The system returns information like the following.
 
@@ -565,8 +582,10 @@ The system returns information like the following.
 ```
 
 ### Reset an AWS patch baseline as the default
+<a name="patch-manager-cli-commands-register-aws-patch-baseline"></a>
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-default-patch-baseline \
@@ -574,13 +593,16 @@ aws ssm register-default-patch-baseline \
     --baseline-id "arn:aws:ssm:us-east-2:123456789012:patchbaseline/pb-0c10e65780EXAMPLE"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm register-default-patch-baseline ^
     --region us-east-2 ^
     --baseline-id "arn:aws:ssm:us-east-2:123456789012:patchbaseline/pb-0c10e65780EXAMPLE"
 ```
+
+------
 
 The system returns information like the following.
 
@@ -591,8 +613,10 @@ The system returns information like the following.
 ```
 
 ### Tag a patch baseline
+<a name="patch-manager-cli-commands-add-tags-to-resource"></a>
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm add-tags-to-resource \
@@ -601,7 +625,8 @@ aws ssm add-tags-to-resource \
     --tags "Key=Project,Value=Testing"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm add-tags-to-resource ^
@@ -610,9 +635,13 @@ aws ssm add-tags-to-resource ^
     --tags "Key=Project,Value=Testing"
 ```
 
-### List the tags for a patch baseline
+------
 
-Linux & macOS
+### List the tags for a patch baseline
+<a name="patch-manager-cli-commands-list-tags-for-resource"></a>
+
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm list-tags-for-resource \
@@ -620,7 +649,8 @@ aws ssm list-tags-for-resource \
     --resource-id "pb-0c10e65780EXAMPLE"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm list-tags-for-resource ^
@@ -628,9 +658,13 @@ aws ssm list-tags-for-resource ^
     --resource-id "pb-0c10e65780EXAMPLE"
 ```
 
-### Remove a tag from a patch baseline
+------
 
-Linux & macOS
+### Remove a tag from a patch baseline
+<a name="patch-manager-cli-commands-remove-tags-from-resource"></a>
+
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm remove-tags-from-resource \
@@ -639,7 +673,8 @@ aws ssm remove-tags-from-resource \
     --tag-keys "Project"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm remove-tags-from-resource ^
@@ -648,98 +683,91 @@ aws ssm remove-tags-from-resource ^
     --tag-keys "Project"
 ```
 
+------
+
 ## AWS CLI commands for patch groups
+<a name="patch-group-cli-commands"></a>
 
-###### Sample commands for patch groups
-
-- [Create a patch group](#patch-manager-cli-commands-create-patch-group "#patch-manager-cli-commands-create-patch-group")
-- [Register a patch group "web servers" with a patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers "#patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers")
-- [Register a patch group "Backend" with the AWS-provided patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend "#patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend")
-- [Display patch group registrations](#patch-manager-cli-commands-describe-patch-groups "#patch-manager-cli-commands-describe-patch-groups")
-- [Deregister a patch group from a patch baseline](#patch-manager-cli-commands-deregister-patch-baseline-for-patch-group "#patch-manager-cli-commands-deregister-patch-baseline-for-patch-group")
+**Topics**
++ [Create a patch group](#patch-manager-cli-commands-create-patch-group)
++ [Register a patch group "web servers" with a patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers)
++ [Register a patch group "Backend" with the AWS-provided patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend)
++ [Display patch group registrations](#patch-manager-cli-commands-describe-patch-groups)
++ [Deregister a patch group from a patch baseline](#patch-manager-cli-commands-deregister-patch-baseline-for-patch-group)
 
 ### Create a patch group
+<a name="patch-manager-cli-commands-create-patch-group"></a>
 
-###### Note
+**Note**  
+Patch groups are not used in patching operations that are based on *patch policies*. For information about working with patch policies, see [Patch policy configurations in Quick Setup](patch-manager-policies.md).
 
-Patch groups are not used in patching operations that are based on
-_patch policies_. For information about working with
-patch policies, see [Patch policy configurations in Quick Setup](patch-manager-policies.md "patch-manager-policies.md").
+To help you organize your patching efforts, we recommend that you add managed nodes to patch groups by using tags. Patch groups require use of the tag key `Patch Group` or `PatchGroup`. If you have [allowed tags in EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS), you must use `PatchGroup` (without a space). You can specify any tag value, but the tag key must be `Patch Group` or `PatchGroup`. For more information about patch groups, see [Patch groups](patch-manager-patch-groups.md).
 
-To help you organize your patching efforts, we recommend that you add managed
-nodes to patch groups by using tags. Patch groups require use of the tag key
-`Patch Group` or `PatchGroup`. If you have [allowed tags in EC2 instance metadata](../../../AWSEC2/latest/UserGuide/Using_Tags.md#allow-access-to-tags-in-IMDS "../../../AWSEC2/latest/UserGuide/Using_Tags.md#allow-access-to-tags-in-IMDS"), you must use
-`PatchGroup` (without a space). You can specify any tag value,
-but the tag key must be `Patch Group` or `PatchGroup`. For
-more information about patch groups, see [Patch groups](patch-manager-patch-groups.md "patch-manager-patch-groups.md").
-
-After you group your managed nodes using tags, you add the patch group value
-to a patch baseline. By registering the patch group with a patch baseline, you
-make sure that the correct patches are installed during the patching
-operation.
+After you group your managed nodes using tags, you add the patch group value to a patch baseline. By registering the patch group with a patch baseline, you make sure that the correct patches are installed during the patching operation.
 
 #### Task 1: Add EC2 instances to a patch group using tags
+<a name="create-patch-group-cli-1"></a>
 
-###### Note
+**Note**  
+When using the Amazon Elastic Compute Cloud (Amazon EC2) console and AWS CLI, it's possible to apply `Key = Patch Group` or `Key = PatchGroup` tags to instances that aren't yet configured for use with Systems Manager. If an EC2 instance you expect to see in Patch Manager isn't listed after applying the `Patch Group` or `Key = PatchGroup` tag, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md) for troubleshooting tips.
 
-When using the Amazon Elastic Compute Cloud (Amazon EC2) console and AWS CLI, it's possible to
-apply `Key = Patch Group` or `Key = PatchGroup`
-tags to instances that aren't yet configured for use with Systems Manager. If an
-EC2 instance you expect to see in Patch Manager isn't listed after applying
-the `Patch Group` or `Key = PatchGroup` tag, see
-[Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for
-troubleshooting tips.
-
-Run the following command to add the `PatchGroup` tag to an EC2
-instance.
+Run the following command to add the `PatchGroup` tag to an EC2 instance.
 
 ```
-aws ec2 create-tags --resources `"i-1234567890abcdef0"` --tags "Key=PatchGroup,Value=`GroupValue`"
+aws ec2 create-tags --resources {{"i-1234567890abcdef0"}} --tags "Key=PatchGroup,Value={{GroupValue}}"
 ```
 
 #### Task 2: Add managed nodes to a patch group using tags
+<a name="create-patch-group-cli-2"></a>
 
-Run the following command to add the `PatchGroup` tag to a
-managed node.
+Run the following command to add the `PatchGroup` tag to a managed node.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm add-tags-to-resource \
     --resource-type "ManagedInstance" \
-    --resource-id `"mi-0123456789abcdefg"` \
-    --tags "Key=PatchGroup,Value=`GroupValue`"
+    --resource-id {{"mi-0123456789abcdefg"}} \
+    --tags "Key=PatchGroup,Value={{GroupValue}}"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm add-tags-to-resource ^
     --resource-type "ManagedInstance" ^
-    --resource-id `"mi-0123456789abcdefg"` ^
-    --tags "Key=PatchGroup,Value=`GroupValue`"
+    --resource-id {{"mi-0123456789abcdefg"}} ^
+    --tags "Key=PatchGroup,Value={{GroupValue}}"
 ```
 
+------
+
 #### Task 3: Add a patch group to a patch baseline
+<a name="create-patch-group-cli-3"></a>
 
-Run the following command to associate a `PatchGroup` tag value
-to the specified patch baseline.
+Run the following command to associate a `PatchGroup` tag value to the specified patch baseline.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-patch-baseline-for-patch-group \
-    --baseline-id `"pb-0c10e65780EXAMPLE"` \
-    --patch-group `"Development"`
+    --baseline-id {{"pb-0c10e65780EXAMPLE"}} \
+    --patch-group {{"Development"}}
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm register-patch-baseline-for-patch-group ^
-    --baseline-id `"pb-0c10e65780EXAMPLE"` ^
-    --patch-group `"Development"`
+    --baseline-id {{"pb-0c10e65780EXAMPLE"}} ^
+    --patch-group {{"Development"}}
 ```
+
+------
 
 The system returns information like the following.
 
@@ -751,8 +779,10 @@ The system returns information like the following.
 ```
 
 ### Register a patch group "web servers" with a patch baseline
+<a name="patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers"></a>
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-patch-baseline-for-patch-group \
@@ -760,13 +790,16 @@ aws ssm register-patch-baseline-for-patch-group \
     --patch-group "Web Servers"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm register-patch-baseline-for-patch-group ^
     --baseline-id "pb-0c10e65780EXAMPLE" ^
     --patch-group "Web Servers"
 ```
+
+------
 
 The system returns information like the following.
 
@@ -778,8 +811,10 @@ The system returns information like the following.
 ```
 
 ### Register a patch group "Backend" with the AWS-provided patch baseline
+<a name="patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend"></a>
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-patch-baseline-for-patch-group \
@@ -788,7 +823,8 @@ aws ssm register-patch-baseline-for-patch-group \
     --patch-group "Backend"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm register-patch-baseline-for-patch-group ^
@@ -796,6 +832,8 @@ aws ssm register-patch-baseline-for-patch-group ^
     --baseline-id "arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE" ^
     --patch-group "Backend"
 ```
+
+------
 
 The system returns information like the following.
 
@@ -807,6 +845,7 @@ The system returns information like the following.
 ```
 
 ### Display patch group registrations
+<a name="patch-manager-cli-commands-describe-patch-groups"></a>
 
 ```
 aws ssm describe-patch-groups --region us-east-2
@@ -840,8 +879,10 @@ The system returns information like the following.
 ```
 
 ### Deregister a patch group from a patch baseline
+<a name="patch-manager-cli-commands-deregister-patch-baseline-for-patch-group"></a>
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm deregister-patch-baseline-for-patch-group \
@@ -850,7 +891,8 @@ aws ssm deregister-patch-baseline-for-patch-group \
     --baseline-id "arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm deregister-patch-baseline-for-patch-group ^
@@ -858,6 +900,8 @@ aws ssm deregister-patch-baseline-for-patch-group ^
     --patch-group "Production" ^
     --baseline-id "arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE"
 ```
+
+------
 
 The system returns information like the following.
 
@@ -869,24 +913,25 @@ The system returns information like the following.
 ```
 
 ## AWS CLI commands for viewing patch summaries and details
+<a name="patch-details-cli-commands"></a>
 
-###### Sample commands for viewing patch summaries and details
-
-- [Get all patches defined by a patch baseline](#patch-manager-cli-commands-describe-effective-patches-for-patch-baseline "#patch-manager-cli-commands-describe-effective-patches-for-patch-baseline")
-- [Get all patches for AmazonLinux2018.03 that have a Classification SECURITY and Severity of Critical](#patch-manager-cli-commands-describe-available-patches-linux "#patch-manager-cli-commands-describe-available-patches-linux")
-- [Get all patches for Windows Server 2012 that have a MSRC severity of Critical](#patch-manager-cli-commands-describe-available-patches "#patch-manager-cli-commands-describe-available-patches")
-- [Get all available patches](#patch-manager-cli-commands-describe-available-patches "#patch-manager-cli-commands-describe-available-patches")
-- [Get patch summary states per-managed node](#patch-manager-cli-commands-describe-instance-patch-states "#patch-manager-cli-commands-describe-instance-patch-states")
-- [Get patch compliance details for a managed node](#patch-manager-cli-commands-describe-instance-patches "#patch-manager-cli-commands-describe-instance-patches")
-- [View patching compliance results (AWS CLI)](#viewing-patch-compliance-results-cli "#viewing-patch-compliance-results-cli")
+**Topics**
++ [Get all patches defined by a patch baseline](#patch-manager-cli-commands-describe-effective-patches-for-patch-baseline)
++ [Get all patches for AmazonLinux2018.03 that have a Classification `SECURITY` and Severity of `Critical`](#patch-manager-cli-commands-describe-available-patches-linux)
++ [Get all patches for Windows Server 2012 that have a MSRC severity of `Critical`](#patch-manager-cli-commands-describe-available-patches)
++ [Get all available patches](#patch-manager-cli-commands-describe-available-patches)
++ [Get patch summary states per-managed node](#patch-manager-cli-commands-describe-instance-patch-states)
++ [Get patch compliance details for a managed node](#patch-manager-cli-commands-describe-instance-patches)
++ [View patching compliance results (AWS CLI)](#viewing-patch-compliance-results-cli)
 
 ### Get all patches defined by a patch baseline
+<a name="patch-manager-cli-commands-describe-effective-patches-for-patch-baseline"></a>
 
-###### Note
-
+**Note**  
 This command is supported for Windows Server patch baselines only.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-effective-patches-for-patch-baseline \
@@ -894,13 +939,16 @@ aws ssm describe-effective-patches-for-patch-baseline \
     --baseline-id "pb-0c10e65780EXAMPLE"
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm describe-effective-patches-for-patch-baseline ^
     --region us-east-2 ^
     --baseline-id "pb-0c10e65780EXAMPLE"
 ```
+
+------
 
 The system returns information like the following.
 
@@ -918,11 +966,11 @@ The system returns information like the following.
             "ProductFamily":"Windows",
             "Product":"WindowsServer2012R2",
             "Vendor":"Microsoft",
-            "Description":"A security issue has been identified in a Microsoft software
-               product that could affect your system. You can help protect your system
-               by installing this update from Microsoft. For a complete listing of the
-               issues that are included in this update, see the associated Microsoft
-               Knowledge Base article. After you install this update, you may have to
+            "Description":"A security issue has been identified in a Microsoft software 
+               product that could affect your system. You can help protect your system 
+               by installing this update from Microsoft. For a complete listing of the 
+               issues that are included in this update, see the associated Microsoft 
+               Knowledge Base article. After you install this update, you may have to 
                restart your system.",
             "Classification":"SecurityUpdates",
             "Title":"Security Update for Windows Server 2012 R2 Preview (KB2876331)",
@@ -944,13 +992,13 @@ The system returns information like the following.
             "ProductFamily":"Windows",
             "Product":"WindowsServer2012R2",
             "Vendor":"Microsoft",
-            "Description":"Windows Server 2012 R2 Update is a cumulative
-               set of security updates, critical updates and updates. You
-               must install Windows Server 2012 R2 Update to make sure that
-               your computer can continue to receive future Windows Updates,
-               including security updates. For a complete listing of the
-               issues that are included in this update, see the associated
-               Microsoft Knowledge Base article for more information. After
+            "Description":"Windows Server 2012 R2 Update is a cumulative 
+               set of security updates, critical updates and updates. You 
+               must install Windows Server 2012 R2 Update to make sure that 
+               your computer can continue to receive future Windows Updates, 
+               including security updates. For a complete listing of the 
+               issues that are included in this update, see the associated 
+               Microsoft Knowledge Base article for more information. After 
                you install this item, you may have to restart your computer.",
             "Classification":"SecurityUpdates",
             "Title":"Windows Server 2012 R2 Update (KB2919355)",
@@ -963,12 +1011,13 @@ The system returns information like the following.
          }
       }
      ---output truncated---
-
 ```
 
 ### Get all patches for AmazonLinux2018.03 that have a Classification `SECURITY` and Severity of `Critical`
+<a name="patch-manager-cli-commands-describe-available-patches-linux"></a>
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-available-patches \
@@ -976,13 +1025,16 @@ aws ssm describe-available-patches \
     --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=SEVERITY,Values=Critical
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm describe-available-patches ^
     --region us-east-2 ^
     --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=SEVERITY,Values=Critical
 ```
+
+------
 
 The system returns information like the following.
 
@@ -1004,14 +1056,15 @@ The system returns information like the following.
             "Severity": "CRITICAL"
         }
     ]
-}
+}     
 ---output truncated---
-
 ```
 
 ### Get all patches for Windows Server 2012 that have a MSRC severity of `Critical`
+<a name="patch-manager-cli-commands-describe-available-patches"></a>
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-available-patches \
@@ -1019,13 +1072,16 @@ aws ssm describe-available-patches \
     --filters Key=PRODUCT,Values=WindowsServer2012 Key=MSRC_SEVERITY,Values=Critical
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm describe-available-patches ^
     --region us-east-2 ^
     --filters Key=PRODUCT,Values=WindowsServer2012 Key=MSRC_SEVERITY,Values=Critical
 ```
+
+------
 
 The system returns information like the following.
 
@@ -1037,10 +1093,10 @@ The system returns information like the following.
          "ProductFamily":"Windows",
          "Product":"WindowsServer2012",
          "Vendor":"Microsoft",
-         "Description":"A security issue has been identified that could
-           allow an unauthenticated remote attacker to compromise your
-           system and gain control over it. You can help protect your
-           system by installing this update from Microsoft. After you
+         "Description":"A security issue has been identified that could 
+           allow an unauthenticated remote attacker to compromise your 
+           system and gain control over it. You can help protect your 
+           system by installing this update from Microsoft. After you 
            install this update, you may have to restart your system.",
          "Classification":"SecurityUpdates",
          "Title":"Security Update for Windows Server 2012 (KB2727528)",
@@ -1056,13 +1112,13 @@ The system returns information like the following.
          "ProductFamily":"Windows",
          "Product":"WindowsServer2012",
          "Vendor":"Microsoft",
-         "Description":"A security issue has been identified that could
-           allow an unauthenticated remote attacker to compromise your
-           system and gain control over it. You can help protect your
-           system by installing this update from Microsoft. After you
+         "Description":"A security issue has been identified that could 
+           allow an unauthenticated remote attacker to compromise your 
+           system and gain control over it. You can help protect your 
+           system by installing this update from Microsoft. After you 
            install this update, you may have to restart your system.",
          "Classification":"SecurityUpdates",
-         "Title":"Security Update for Microsoft .NET Framework 3.5 on
+         "Title":"Security Update for Microsoft .NET Framework 3.5 on 
            Windows 8 and Windows Server 2012 for x64-based Systems (KB2729462)",
          "ReleaseDate":1352829600.0,
          "MsrcClassification":"Critical",
@@ -1071,12 +1127,12 @@ The system returns information like the following.
          "MsrcNumber":"MS12-074",
          "Id":"af873760-c97c-4088-ab7e-5219e120eab4"
       }
-
+     
 ---output truncated---
-
 ```
 
 ### Get all available patches
+<a name="patch-manager-cli-commands-describe-available-patches"></a>
 
 ```
 aws ssm describe-available-patches --region us-east-2
@@ -1091,10 +1147,10 @@ The system returns information like the following.
       {
             "Classification": "SecurityUpdates",
             "ContentUrl": "https://support.microsoft.com/en-us/kb/4074588",
-            "Description": "A security issue has been identified in a Microsoft software
-            product that could affect your system. You can help protect your system by
-            installing this update from Microsoft. For a complete listing of the issues
-            that are included in this update, see the associated Microsoft Knowledge Base
+            "Description": "A security issue has been identified in a Microsoft software 
+            product that could affect your system. You can help protect your system by 
+            installing this update from Microsoft. For a complete listing of the issues 
+            that are included in this update, see the associated Microsoft Knowledge Base 
             article. After you install this update, you may have to restart your system.",
             "Id": "11adea10-0701-430e-954f-9471595ae246",
             "KbNumber": "KB4074588",
@@ -1104,15 +1160,15 @@ The system returns information like the following.
             "Product": "WindowsServer2016",
             "ProductFamily": "Windows",
             "ReleaseDate": 1518548400,
-            "Title": "2018-02 Cumulative Update for Windows Server 2016 (1709) for x64-based
+            "Title": "2018-02 Cumulative Update for Windows Server 2016 (1709) for x64-based 
             Systems (KB4074588)",
             "Vendor": "Microsoft"
         },
         {
             "Classification": "SecurityUpdates",
             "ContentUrl": "https://support.microsoft.com/en-us/kb/4074590",
-            "Description": "A security issue has been identified in a Microsoft software
-            product that could affect your system. You can help protect your system by
+            "Description": "A security issue has been identified in a Microsoft software 
+            product that could affect your system. You can help protect your system by 
             installing this update from Microsoft. For a complete listing of the issues that are included in this update, see the associated Microsoft Knowledge Base article. After you install this update, you may have to restart your system.",
             "Id": "f5f58231-ac5d-4640-ab1b-9dc8d857c265",
             "KbNumber": "KB4074590",
@@ -1122,33 +1178,35 @@ The system returns information like the following.
             "Product": "WindowsServer2016",
             "ProductFamily": "Windows",
             "ReleaseDate": 1518544805,
-            "Title": "2018-02 Cumulative Update for Windows Server 2016 for x64-based
+            "Title": "2018-02 Cumulative Update for Windows Server 2016 for x64-based 
             Systems (KB4074590)",
             "Vendor": "Microsoft"
         }
       ---output truncated---
-
 ```
 
 ### Get patch summary states per-managed node
+<a name="patch-manager-cli-commands-describe-instance-patch-states"></a>
 
-The per-managed node summary gives you the number of patches in the following
-states per node: "NotApplicable", "Missing", "Failed", "InstalledOther" and
-"Installed".
+The per-managed node summary gives you the number of patches in the following states per node: "NotApplicable", "Missing", "Failed", "InstalledOther" and "Installed". 
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-instance-patch-states \
     --instance-ids i-08ee91c0b17045407 i-09a618aec652973a9
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm describe-instance-patch-states ^
     --instance-ids i-08ee91c0b17045407 i-09a618aec652973a9
 ```
+
+------
 
 The system returns information like the following.
 
@@ -1192,10 +1250,10 @@ The system returns information like the following.
             "RebootOption": "NoReboot"
         }
      ---output truncated---
-
 ```
 
 ### Get patch compliance details for a managed node
+<a name="patch-manager-cli-commands-describe-instance-patches"></a>
 
 ```
 aws ssm describe-instance-patches --instance-id i-08ee91c0b17045407
@@ -1232,24 +1290,20 @@ The system returns information like the following.
             "InstalledTime": "2019-08-26T11:05:31-07:00"
         },
     ---output truncated---
-
 ```
 
 ### View patching compliance results (AWS CLI)
+<a name="viewing-patch-compliance-results-cli"></a>
 
-**To view patch compliance results for a single managed
-node**
+**To view patch compliance results for a single managed node**
 
-Run the following command in the AWS Command Line Interface (AWS CLI) to view patch compliance
-results for a single managed node.
+Run the following command in the AWS Command Line Interface (AWS CLI) to view patch compliance results for a single managed node.
 
 ```
-aws ssm describe-instance-patch-states --instance-id `instance-id`
+aws ssm describe-instance-patch-states --instance-id {{instance-id}}
 ```
 
-Replace `instance-id` with the ID of the managed node
-for which you want to view results, in the format `i-02573cafcfEXAMPLE`
-or `mi-0282f7c436EXAMPLE`.
+Replace {{instance-id}} with the ID of the managed node for which you want to view results, in the format `i-02573cafcfEXAMPLE` or `mi-0282f7c436EXAMPLE`.
 
 The systems returns information like the following.
 
@@ -1259,7 +1313,7 @@ The systems returns information like the following.
         {
             "InstanceId": "i-02573cafcfEXAMPLE",
             "PatchGroup": "mypatchgroup",
-            "BaselineId": "pb-0c10e65780EXAMPLE",
+            "BaselineId": "pb-0c10e65780EXAMPLE",            
             "SnapshotId": "a3f5ff34-9bc4-4d2c-a665-4d1c1EXAMPLE",
             "CriticalNonCompliantCount": 2,
             "SecurityNonCompliantCount": 2,
@@ -1282,29 +1336,19 @@ The systems returns information like the following.
 }
 ```
 
-**To view a patch count summary for all EC2 instances in a
-Region**
+**To view a patch count summary for all EC2 instances in a Region**
 
-The `describe-instance-patch-states` supports retrieving results
-for just one managed instance at a time. However, using a custom script with the
-`describe-instance-patch-states` command, you can generate a more
-granular report.
+The `describe-instance-patch-states` supports retrieving results for just one managed instance at a time. However, using a custom script with the `describe-instance-patch-states` command, you can generate a more granular report.
 
-For example, if the [jq
-filter tool](https://stedolan.github.io/jq/download/ "https://stedolan.github.io/jq/download/") is installed on you local machine, you could run the
-following command to identify which of your EC2 instances in a particular
-AWS Region have a status of `InstalledPendingReboot`.
+For example, if the [jq filter tool](https://stedolan.github.io/jq/download/) is installed on you local machine, you could run the following command to identify which of your EC2 instances in a particular AWS Region have a status of `InstalledPendingReboot`.
 
 ```
 aws ssm describe-instance-patch-states \
-    --instance-ids $(aws ec2 describe-instances --region `region` | jq '.Reservations[].Instances[] | .InstanceId' | tr '\n|"' ' ') \
+    --instance-ids $(aws ec2 describe-instances --region {{region}} | jq '.Reservations[].Instances[] | .InstanceId' | tr '\n|"' ' ') \
     --output text --query 'InstancePatchStates[*].{Instance:InstanceId, InstalledPendingRebootCount:InstalledPendingRebootCount}'
 ```
 
-`region` represents the identifier for an AWS Region supported
-by AWS Systems Manager, such as `us-east-2` for the US East (Ohio) Region. For a list of supported
-`region` values, see the **Region** column in [Systems Manager service endpoints](../../../general/latest/gr/ssm.md#ssm_region "../../../general/latest/gr/ssm.md#ssm_region") in the
-_Amazon Web Services General Reference_.
+{{region}} represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East (Ohio) Region. For a list of supported {{region}} values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*.
 
 For example:
 
@@ -1328,40 +1372,37 @@ The system returns information like the following.
 7       i-03823c2fedEXAMPLE
 ```
 
-Besides `InstalledPendingRebootCount`, the list of count
-types you can search for include the following:
-
-- `CriticalNonCompliantCount`
-- `SecurityNonCompliantCount`
-- `OtherNonCompliantCount`
-- `UnreportedNotApplicableCount`
-- `InstalledPendingRebootCount`
-- `FailedCount`
-- `NotApplicableCount`
-- `InstalledRejectedCount`
-- `InstalledOtherCount`
-- `MissingCount`
-- `InstalledCount`
+Besides `InstalledPendingRebootCount`, the list of count types you can search for include the following:
++ `CriticalNonCompliantCount`
++ `SecurityNonCompliantCount`
++ `OtherNonCompliantCount`
++ `UnreportedNotApplicableCount `
++ `InstalledPendingRebootCount`
++ `FailedCount`
++ `NotApplicableCount`
++ `InstalledRejectedCount`
++ `InstalledOtherCount`
++ `MissingCount`
++ `InstalledCount`
 
 ## AWS CLI commands for scanning and patching managed nodes
+<a name="patch-operations-cli-commands"></a>
 
-After running the following commands to scan for patch compliance or install
-patches, you can use commands in the [AWS CLI commands for viewing patch summaries and details](#patch-details-cli-commands "#patch-details-cli-commands") section to view information about
-patch status and compliance.
+After running the following commands to scan for patch compliance or install patches, you can use commands in the [AWS CLI commands for viewing patch summaries and details](#patch-details-cli-commands) section to view information about patch status and compliance.
 
-###### Sample commands
-
-- [Scan managed nodes for patch compliance (AWS CLI)](#patch-operations-scan "#patch-operations-scan")
-- [Install patches on managed nodes (AWS CLI)](#patch-operations-install-cli "#patch-operations-install-cli")
+**Topics**
++ [Scan managed nodes for patch compliance (AWS CLI)](#patch-operations-scan)
++ [Install patches on managed nodes (AWS CLI)](#patch-operations-install-cli)
 
 ### Scan managed nodes for patch compliance (AWS CLI)
+<a name="patch-operations-scan"></a>
 
-**To scan specific managed nodes for patch
-compliance**
+**To scan specific managed nodes for patch compliance**
 
 Run the following command.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -1371,7 +1412,8 @@ aws ssm send-command \
     --timeout-seconds 600
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm send-command ^
@@ -1380,6 +1422,8 @@ aws ssm send-command ^
     --parameters "Operation=Scan" ^
     --timeout-seconds 600
 ```
+
+------
 
 The system returns information like the following.
 
@@ -1417,12 +1461,12 @@ The system returns information like the following.
 }
 ```
 
-**To scan managed nodes for patch compliance by patch
-group tag**
+**To scan managed nodes for patch compliance by patch group tag**
 
 Run the following command.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -1432,7 +1476,8 @@ aws ssm send-command \
     --timeout-seconds 600
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm send-command ^
@@ -1441,6 +1486,8 @@ aws ssm send-command ^
     --parameters "Operation=Scan" ^
     --timeout-seconds 600
 ```
+
+------
 
 The system returns information like the following.
 
@@ -1478,18 +1525,17 @@ The system returns information like the following.
 ```
 
 ### Install patches on managed nodes (AWS CLI)
+<a name="patch-operations-install-cli"></a>
 
-**To install patches on specific managed
-nodes**
+**To install patches on specific managed nodes**
 
-Run the following command.
+Run the following command. 
 
-###### Note
+**Note**  
+The target managed nodes reboot as needed to complete patch installation. For more information, see [SSM Command document for patching: `AWS-RunPatchBaseline`](patch-manager-aws-runpatchbaseline.md).
 
-The target managed nodes reboot as needed to complete patch installation.
-For more information, see [SSM Command document for patching: AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md").
-
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -1499,7 +1545,8 @@ aws ssm send-command \
     --timeout-seconds 600
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm send-command ^
@@ -1508,6 +1555,8 @@ aws ssm send-command ^
     --parameters "Operation=Install" ^
     --timeout-seconds 600
 ```
+
+------
 
 The system returns information like the following.
 
@@ -1545,12 +1594,12 @@ The system returns information like the following.
 }
 ```
 
-**To install patches on managed nodes in a specific patch
-group**
+**To install patches on managed nodes in a specific patch group**
 
 Run the following command.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -1560,7 +1609,8 @@ aws ssm send-command \
     --timeout-seconds 600
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
 
 ```
 aws ssm send-command ^
@@ -1569,6 +1619,8 @@ aws ssm send-command ^
     --parameters "Operation=Install" ^
     --timeout-seconds 600
 ```
+
+------
 
 The system returns information like the following.
 

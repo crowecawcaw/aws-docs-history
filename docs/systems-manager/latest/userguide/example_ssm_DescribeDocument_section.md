@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DescribeDocument` with an AWS SDK or CLI
+<a name="example_ssm_DescribeDocument_section"></a>
 
 The following code examples show how to use `DescribeDocument`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To display details of a document**
-
-The following `describe-document` example displays details about a Systems Manager document in your AWS account.
-
-```
-`aws ssm describe-document \
- --name `"Example"``
+**AWS CLI**  
+**To display details of a document**  
+The following `describe-document` example displays details about a Systems Manager document in your AWS account.  
 
 ```
-
-Output:
+aws ssm describe-document \
+    --name {{"Example"}}
+```
+Output:  
 
 ```
 {
@@ -56,25 +58,19 @@ Output:
     }
 }
 ```
+For more information, see [Creating Systems Manager Documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-doc.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [DescribeDocument](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-document.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Creating Systems Manager Documents](create-ssm-doc.md "create-ssm-doc.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [DescribeDocument](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-document.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-document.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example returns information about a document.**
+**Tools for PowerShell V4**  
+**Example 1: This example returns information about a document.**  
 
 ```
 Get-SSMDocumentDescription -Name "RunShellScript"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CreatedDate     : 2/24/2017 5:25:13 AM
@@ -93,21 +89,15 @@ SchemaVersion   : 2.0
 Sha1            :
 Status          : Active
 ```
++  For API details, see [DescribeDocument](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeDocument](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example returns information about a document.**
+**Tools for PowerShell V5**  
+**Example 1: This example returns information about a document.**  
 
 ```
 Get-SSMDocumentDescription -Name "RunShellScript"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CreatedDate     : 2/24/2017 5:25:13 AM
@@ -126,20 +116,13 @@ SchemaVersion   : 2.0
 Sha1            :
 Status          : Active
 ```
++  For API details, see [DescribeDocument](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeDocument](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples). 
 
 ```
     TRY.
@@ -152,14 +135,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_ssminvaliddocument.
         MESSAGE 'Invalid document.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeDocument](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeDocument](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

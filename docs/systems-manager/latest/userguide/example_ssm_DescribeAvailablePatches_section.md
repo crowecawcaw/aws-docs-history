@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DescribeAvailablePatches` with a CLI
+<a name="example_ssm_DescribeAvailablePatches_section"></a>
 
 The following code examples show how to use `DescribeAvailablePatches`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get available patches**
-
-The following `describe-available-patches` example retrieves details about all available patches for Windows Server 2019 that have a MSRC severity of Critical.
-
-```
-`aws ssm describe-available-patches \
- --filters `"Key=PRODUCT,Values=WindowsServer2019"` `"Key=MSRC_SEVERITY,Values=Critical"``
+**AWS CLI**  
+**To get available patches**  
+The following `describe-available-patches` example retrieves details about all available patches for Windows Server 2019 that have a MSRC severity of Critical.  
 
 ```
-
-Output:
+aws ssm describe-available-patches \
+    --filters {{"Key=PRODUCT,Values=WindowsServer2019"}} {{"Key=MSRC_SEVERITY,Values=Critical"}}
+```
+Output:  
 
 ```
 {
@@ -55,18 +57,14 @@ Output:
     ]
 }
 ```
-
-**To get details of a specific patch**
-
-The following `describe-available-patches` example retrieves details about the specified patch.
+**To get details of a specific patch**  
+The following `describe-available-patches` example retrieves details about the specified patch.  
 
 ```
-`aws ssm describe-available-patches \
- --filters `"Key=PATCH_ID,Values=KB4480979"``
-
+aws ssm describe-available-patches \
+    --filters {{"Key=PATCH_ID,Values=KB4480979"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -89,28 +87,22 @@ Output:
     ]
 }
 ```
+For more information, see [How Patch Manager Operations Work](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [DescribeAvailablePatches](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-available-patches.html) in *AWS CLI Command Reference*. 
 
-For more information, see [How Patch Manager Operations Work](patch-manager-how-it-works.md "patch-manager-how-it-works.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [DescribeAvailablePatches](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-available-patches.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-available-patches.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example gets all available patches for Windows Server 2012 that have a MSRC severity of Critical. The syntax used by this example requires PowerShell version 3 or later.**
+**Tools for PowerShell V4**  
+**Example 1: This example gets all available patches for Windows Server 2012 that have a MSRC severity of Critical. The syntax used by this example requires PowerShell version 3 or later.**  
 
 ```
 $filter1 = @{Key="PRODUCT";Values=@("WindowsServer2012")}
 $filter2 = @{Key="MSRC_SEVERITY";Values=@("Critical")}
 
 Get-SSMAvailablePatch -Filter $filter1,$filter2
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Classification : SecurityUpdates
@@ -130,8 +122,7 @@ Title          : Security Update for Windows Server 2012 (KB2727528)
 Vendor         : Microsoft
 ...
 ```
-
-**Example 2: With PowerShell version 2, you must use New-Object to create each filter.**
+**Example 2: With PowerShell version 2, you must use New-Object to create each filter.**  
 
 ```
 $filter1 = New-Object Amazon.SimpleSystemsManagement.Model.PatchOrchestratorFilter
@@ -142,17 +133,13 @@ $filter2.Key = "MSRC_SEVERITY"
 $filter2.Values = "Critical"
 
 Get-SSMAvailablePatch -Filter $filter1,$filter2
-
 ```
-
-**Example 3: This example fetches all the updates which are released in last 20 days and applicable to products matching WindowsServer2019**
+**Example 3: This example fetches all the updates which are released in last 20 days and applicable to products matching WindowsServer2019**  
 
 ```
 Get-SSMAvailablePatch | Where-Object ReleaseDate -ge (Get-Date).AddDays(-20) | Where-Object Product -eq "WindowsServer2019" | Select-Object ReleaseDate, Product, Title
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ReleaseDate         Product           Title
@@ -161,24 +148,18 @@ ReleaseDate         Product           Title
 4/9/2019 5:00:06 PM WindowsServer2019 2019-04 Cumulative Update for Windows Server 2019 for x64-based Systems (KB4493509)
 4/2/2019 5:00:06 PM WindowsServer2019 2019-03 Servicing Stack Update for Windows Server 2019 for x64-based Systems (KB4493510)
 ```
++  For API details, see [DescribeAvailablePatches](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeAvailablePatches](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example gets all available patches for Windows Server 2012 that have a MSRC severity of Critical. The syntax used by this example requires PowerShell version 3 or later.**
+**Tools for PowerShell V5**  
+**Example 1: This example gets all available patches for Windows Server 2012 that have a MSRC severity of Critical. The syntax used by this example requires PowerShell version 3 or later.**  
 
 ```
 $filter1 = @{Key="PRODUCT";Values=@("WindowsServer2012")}
 $filter2 = @{Key="MSRC_SEVERITY";Values=@("Critical")}
 
 Get-SSMAvailablePatch -Filter $filter1,$filter2
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Classification : SecurityUpdates
@@ -198,8 +179,7 @@ Title          : Security Update for Windows Server 2012 (KB2727528)
 Vendor         : Microsoft
 ...
 ```
-
-**Example 2: With PowerShell version 2, you must use New-Object to create each filter.**
+**Example 2: With PowerShell version 2, you must use New-Object to create each filter.**  
 
 ```
 $filter1 = New-Object Amazon.SimpleSystemsManagement.Model.PatchOrchestratorFilter
@@ -210,17 +190,13 @@ $filter2.Key = "MSRC_SEVERITY"
 $filter2.Values = "Critical"
 
 Get-SSMAvailablePatch -Filter $filter1,$filter2
-
 ```
-
-**Example 3: This example fetches all the updates which are released in last 20 days and applicable to products matching WindowsServer2019**
+**Example 3: This example fetches all the updates which are released in last 20 days and applicable to products matching WindowsServer2019**  
 
 ```
 Get-SSMAvailablePatch | Where-Object ReleaseDate -ge (Get-Date).AddDays(-20) | Where-Object Product -eq "WindowsServer2019" | Select-Object ReleaseDate, Product, Title
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ReleaseDate         Product           Title
@@ -229,11 +205,8 @@ ReleaseDate         Product           Title
 4/9/2019 5:00:06 PM WindowsServer2019 2019-04 Cumulative Update for Windows Server 2019 for x64-based Systems (KB4493509)
 4/2/2019 5:00:06 PM WindowsServer2019 2019-03 Servicing Stack Update for Windows Server 2019 for x64-based Systems (KB4493510)
 ```
++  For API details, see [DescribeAvailablePatches](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeAvailablePatches](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

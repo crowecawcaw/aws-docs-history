@@ -1,22 +1,22 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Getting started with virtual machines
+<a name="example_ec2_GettingStarted_013_section"></a>
 
 The following code example shows how to:
++ Create a key pair
++ Create a security group
++ Stop and start your instance
++ Test Elastic IP persistence
++ Clean up resources
 
-- Create a key pair
-- Create a security group
-- Stop and start your instance
-- Test Elastic IP persistence
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/013-ec2-basics "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/013-ec2-basics")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/013-ec2-basics) repository. 
 
 ```
 #!/bin/bash
@@ -45,35 +45,35 @@ handle_error() {
 # Function to clean up resources
 cleanup() {
   log "Resources created:"
-
+  
   if [ -n "$ASSOCIATION_ID" ]; then
     log "- Elastic IP Association: $ASSOCIATION_ID"
   fi
-
+  
   if [ -n "$ALLOCATION_ID" ]; then
     log "- Elastic IP Allocation: $ALLOCATION_ID (IP: $ELASTIC_IP)"
   fi
-
+  
   if [ -n "$INSTANCE_ID" ]; then
     log "- EC2 Instance: $INSTANCE_ID"
   fi
-
+  
   if [ -n "$SECURITY_GROUP_ID" ]; then
     log "- Security Group: $SECURITY_GROUP_ID"
   fi
-
+  
   if [ -n "$KEY_NAME" ]; then
     log "- Key Pair: $KEY_NAME (File: $KEY_FILE)"
   fi
-
+  
   REPLY=y
-
+  
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     log "Starting cleanup..."
-
+    
     # Track cleanup failures
     CLEANUP_FAILURES=0
-
+    
     # Disassociate Elastic IP if it exists
     if [ -n "$ASSOCIATION_ID" ]; then
       log "Disassociating Elastic IP..."
@@ -82,7 +82,7 @@ cleanup() {
         ((CLEANUP_FAILURES++))
       fi
     fi
-
+    
     # Release Elastic IP if it exists
     if [ -n "$ALLOCATION_ID" ]; then
       log "Releasing Elastic IP..."
@@ -91,7 +91,7 @@ cleanup() {
         ((CLEANUP_FAILURES++))
       fi
     fi
-
+    
     # Terminate instance if it exists
     if [ -n "$INSTANCE_ID" ]; then
       log "Terminating instance $INSTANCE_ID..."
@@ -106,7 +106,7 @@ cleanup() {
         fi
       fi
     fi
-
+    
     # Delete security group if it exists
     if [ -n "$SECURITY_GROUP_ID" ]; then
       log "Deleting security group..."
@@ -115,7 +115,7 @@ cleanup() {
         ((CLEANUP_FAILURES++))
       fi
     fi
-
+    
     # Delete key pair if it exists
     if [ -n "$KEY_NAME" ]; then
       log "Deleting key pair..."
@@ -123,7 +123,7 @@ cleanup() {
         log "Failed to delete key pair"
         ((CLEANUP_FAILURES++))
       fi
-
+      
       # Remove key file
       if [ -f "$KEY_FILE" ]; then
         log "Removing key file..."
@@ -133,7 +133,7 @@ cleanup() {
         fi
       fi
     fi
-
+    
     # Report cleanup status
     if [ $CLEANUP_FAILURES -eq 0 ]; then
       log "Cleanup completed successfully."
@@ -410,29 +410,26 @@ log "Tutorial completed successfully!"
 cleanup
 
 exit 0
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AllocateAddress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AllocateAddress)
+  + [AssociateAddress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AssociateAddress)
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateKeyPair)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup)
+  + [DeleteKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteKeyPair)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DescribeImages](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeImages)
+  + [DescribeInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeInstances)
+  + [DisassociateAddress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DisassociateAddress)
+  + [GetParametersByPath](https://docs.aws.amazon.com/goto/aws-cli/ssm-2014-11-06/GetParametersByPath)
+  + [ReleaseAddress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/ReleaseAddress)
+  + [RunInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/RunInstances)
+  + [StartInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/StartInstances)
+  + [StopInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/StopInstances)
+  + [TerminateInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/TerminateInstances)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AllocateAddress](../../../goto/aws-cli/ec2-2016-11-15/AllocateAddress.md "../../../goto/aws-cli/ec2-2016-11-15/AllocateAddress.md")
-  - [AssociateAddress](../../../goto/aws-cli/ec2-2016-11-15/AssociateAddress.md "../../../goto/aws-cli/ec2-2016-11-15/AssociateAddress.md")
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateKeyPair](../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md")
-  - [CreateSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [DeleteKeyPair](../../../goto/aws-cli/ec2-2016-11-15/DeleteKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteKeyPair.md")
-  - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DescribeImages](../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md")
-  - [DescribeInstances](../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md")
-  - [DisassociateAddress](../../../goto/aws-cli/ec2-2016-11-15/DisassociateAddress.md "../../../goto/aws-cli/ec2-2016-11-15/DisassociateAddress.md")
-  - [GetParametersByPath](../../../goto/aws-cli/ssm-2014-11-06/GetParametersByPath.md "../../../goto/aws-cli/ssm-2014-11-06/GetParametersByPath.md")
-  - [ReleaseAddress](../../../goto/aws-cli/ec2-2016-11-15/ReleaseAddress.md "../../../goto/aws-cli/ec2-2016-11-15/ReleaseAddress.md")
-  - [RunInstances](../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md "../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md")
-  - [StartInstances](../../../goto/aws-cli/ec2-2016-11-15/StartInstances.md "../../../goto/aws-cli/ec2-2016-11-15/StartInstances.md")
-  - [StopInstances](../../../goto/aws-cli/ec2-2016-11-15/StopInstances.md "../../../goto/aws-cli/ec2-2016-11-15/StopInstances.md")
-  - [TerminateInstances](../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md "../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md")
-  - [Wait](../../../goto/aws-cli/ec2-2016-11-15/Wait.md "../../../goto/aws-cli/ec2-2016-11-15/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

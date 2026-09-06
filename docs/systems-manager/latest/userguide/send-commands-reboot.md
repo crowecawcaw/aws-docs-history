@@ -1,49 +1,37 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Handling reboots when running commands
+<a name="send-commands-reboot"></a>
 
-If you use Run Command to run scripts that reboot managed
-nodes, we recommend that you specify an exit code in your script. If you attempt to
-reboot a node from a script by using some other mechanism, the script execution
-status might not be updated correctly, even if the reboot is the last step in your
-script. For Windows managed nodes, you specify `exit 3010` in your
-script. For Linux and macOS managed nodes, you specify `exit 194`. The
-exit code instructs AWS Systems Manager Agent (SSM Agent) to reboot the managed node, and then
-restart the script after the reboot completed. Before starting the reboot, SSM Agent
-informs the Systems Manager service in the cloud that communication will be disrupted during
-the server reboot.
+If you use Run Command to run scripts that reboot managed nodes, we recommend that you specify an exit code in your script. If you attempt to reboot a node from a script by using some other mechanism, the script execution status might not be updated correctly, even if the reboot is the last step in your script. For Windows managed nodes, you specify `exit 3010` in your script. For Linux and macOS managed nodes, you specify `exit 194`. The exit code instructs AWS Systems Manager Agent (SSM Agent) to reboot the managed node, and then restart the script after the reboot completed. Before starting the reboot, SSM Agent informs the Systems Manager service in the cloud that communication will be disrupted during the server reboot.
 
-###### Note
-
-The reboot script can't be part of an `aws:runDocument` plugin. If
-a document contains the reboot script and another document tries to run that
-document through the `aws:runDocument` plugin, SSM Agent returns an
-error.
+**Note**  
+The reboot script can't be part of an `aws:runDocument` plugin. If a document contains the reboot script and another document tries to run that document through the `aws:runDocument` plugin, SSM Agent returns an error.
 
 **Create idempotent scripts**
 
-When developing scripts that reboot managed nodes, make the scripts idempotent so
-the script execution continues where it left off after the reboot. Idempotent
-scripts manage state and validate if the action was performed or not. This prevents
-a step from running multiple times when it's only intended to run once.
+When developing scripts that reboot managed nodes, make the scripts idempotent so the script execution continues where it left off after the reboot. Idempotent scripts manage state and validate if the action was performed or not. This prevents a step from running multiple times when it's only intended to run once.
 
-Here is an outline example of an idempotent script that reboots a managed node
-multiple times.
+Here is an outline example of an idempotent script that reboots a managed node multiple times.
 
 ```
 $name = Get current computer name
-If ($name –ne $desiredName)
+If ($name –ne $desiredName) 
     {
         Rename computer
         exit 3010
     }
-
+            
 $domain = Get current domain name
-If ($domain –ne $desiredDomain)
+If ($domain –ne $desiredDomain) 
     {
         Join domain
         exit 3010
     }
-
-If (desired package not installed)
+            
+If (desired package not installed) 
     {
         Install package
         exit 3010
@@ -52,11 +40,10 @@ If (desired package not installed)
 
 **Examples**
 
-The following script samples use exit codes to restart managed nodes. The Linux
-example installs package updates on Amazon Linux, and then restarts the node. The Windows Server
-example installs the Telnet-Client on the node, and then restarts it.
+The following script samples use exit codes to restart managed nodes. The Linux example installs package updates on Amazon Linux, and then restarts the node. The Windows Server example installs the Telnet-Client on the node, and then restarts it. 
 
-Amazon Linux 2
+------
+#### [ Amazon Linux 2 ]
 
 ```
 #!/bin/bash
@@ -70,14 +57,17 @@ else
 fi
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 $telnet = Get-WindowsFeature -Name Telnet-Client
 if (-not $telnet.Installed)
-    {
+    { 
         # Install Telnet and then send a reboot request to SSM Agent.
         Install-WindowsFeature -Name "Telnet-Client"
-        exit 3010
+        exit 3010 
     }
 ```
+
+------

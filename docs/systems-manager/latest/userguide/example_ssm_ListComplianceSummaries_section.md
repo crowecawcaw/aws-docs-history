@@ -1,23 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `ListComplianceSummaries` with a CLI
+<a name="example_ssm_ListComplianceSummaries_section"></a>
 
 The following code examples show how to use `ListComplianceSummaries`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list compliance summaries for all compliance types**
-
-This example lists compliance summaries for all compliance types in your account.
-
-Command:
+**AWS CLI**  
+**To list compliance summaries for all compliance types**  
+This example lists compliance summaries for all compliance types in your account.  
+Command:  
 
 ```
-`aws ssm list-compliance-summaries`
-
+aws ssm list-compliance-summaries
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -77,34 +78,25 @@ Output:
   "NextToken": "eyJOZXh0VG9rZW4iOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAyfQ=="
 }
 ```
-
-**To list compliance summaries for a specific compliance type**
-
-This example lists the compliance summary for the Patch compliance type.
-
-Command:
+**To list compliance summaries for a specific compliance type**  
+This example lists the compliance summary for the Patch compliance type.  
+Command:  
 
 ```
-`aws ssm list-compliance-summaries --filters `"Key=ComplianceType,Values=Patch,Type=EQUAL"``
-
+aws ssm list-compliance-summaries --filters {{"Key=ComplianceType,Values=Patch,Type=EQUAL"}}
 ```
++  For API details, see [ListComplianceSummaries](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-compliance-summaries.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListComplianceSummaries](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-compliance-summaries.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-compliance-summaries.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example returns a summary count of compliant and non-compliant resources for all compliance types.**
+**Tools for PowerShell V4**  
+**Example 1: This example returns a summary count of compliant and non-compliant resources for all compliance types. **  
 
 ```
 Get-SSMComplianceSummaryList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ComplianceType CompliantSummary                                      NonCompliantSummary
@@ -114,21 +106,15 @@ Association    Amazon.SimpleSystemsManagement.Model.CompliantSummary Amazon.Simp
 Custom:InSpec  Amazon.SimpleSystemsManagement.Model.CompliantSummary Amazon.SimpleSystemsManagement.Model.NonCompliantSummary
 Patch          Amazon.SimpleSystemsManagement.Model.CompliantSummary Amazon.SimpleSystemsManagement.Model.NonCompliantSummary
 ```
++  For API details, see [ListComplianceSummaries](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListComplianceSummaries](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example returns a summary count of compliant and non-compliant resources for all compliance types.**
+**Tools for PowerShell V5**  
+**Example 1: This example returns a summary count of compliant and non-compliant resources for all compliance types. **  
 
 ```
 Get-SSMComplianceSummaryList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ComplianceType CompliantSummary                                      NonCompliantSummary
@@ -138,11 +124,8 @@ Association    Amazon.SimpleSystemsManagement.Model.CompliantSummary Amazon.Simp
 Custom:InSpec  Amazon.SimpleSystemsManagement.Model.CompliantSummary Amazon.SimpleSystemsManagement.Model.NonCompliantSummary
 Patch          Amazon.SimpleSystemsManagement.Model.CompliantSummary Amazon.SimpleSystemsManagement.Model.NonCompliantSummary
 ```
++  For API details, see [ListComplianceSummaries](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListComplianceSummaries](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

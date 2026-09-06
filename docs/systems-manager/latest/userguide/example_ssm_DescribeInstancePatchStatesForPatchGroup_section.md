@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DescribeInstancePatchStatesForPatchGroup` with a CLI
+<a name="example_ssm_DescribeInstancePatchStatesForPatchGroup_section"></a>
 
 The following code examples show how to use `DescribeInstancePatchStatesForPatchGroup`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To get the instance states for a patch group**
-
-The following `describe-instance-patch-states-for-patch-group` example retrieves details about the patch summary states per-instance for the specified patch group.
-
-```
-`aws ssm describe-instance-patch-states-for-patch-group \
- --patch-group `"Production"``
+**AWS CLI**  
+**Example 1: To get the instance states for a patch group**  
+The following `describe-instance-patch-states-for-patch-group` example retrieves details about the patch summary states per-instance for the specified patch group.  
 
 ```
-
-Output:
+aws ssm describe-instance-patch-states-for-patch-group \
+    --patch-group {{"Production"}}
+```
+Output:  
 
 ```
 {
@@ -68,19 +70,15 @@ Output:
     ]
 }
 ```
-
-**Example 2: To get the instance states for a patch group with more than five missing patches**
-
-The following `describe-instance-patch-states-for-patch-group` example retrieves details about the patch summary states for the specified patch group for instances with more than five missing patches.
+**Example 2: To get the instance states for a patch group with more than five missing patches**  
+The following `describe-instance-patch-states-for-patch-group` example retrieves details about the patch summary states for the specified patch group for instances with more than five missing patches.  
 
 ```
-`aws ssm describe-instance-patch-states-for-patch-group \
- --filters `Key=MissingCount,Type=GreaterThan,Values=5` \
- --patch-group `"Production"``
-
+aws ssm describe-instance-patch-states-for-patch-group \
+    --filters {{Key=MissingCount,Type=GreaterThan,Values=5}} \
+    --patch-group {{"Production"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -110,19 +108,15 @@ Output:
     ]
 }
 ```
-
-**Example 3: To get the instance states for a patch group with fewer than ten instances that require a reboot**
-
-The following `describe-instance-patch-states-for-patch-group` example retrieves details about the patch summary states for the specified patch group for instances with fewer than ten instances requiring a reboot.
+**Example 3: To get the instance states for a patch group with fewer than ten instances that require a reboot**  
+The following `describe-instance-patch-states-for-patch-group` example retrieves details about the patch summary states for the specified patch group for instances with fewer than ten instances requiring a reboot.  
 
 ```
-`aws ssm describe-instance-patch-states-for-patch-group \
- --filters `Key=InstalledPendingRebootCount,Type=LessThan,Values=10` \
- --patch-group `"Production"``
-
+aws ssm describe-instance-patch-states-for-patch-group \
+    --filters {{Key=InstalledPendingRebootCount,Type=LessThan,Values=10}} \
+    --patch-group {{"Production"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -152,41 +146,28 @@ Output:
     ]
 }
 ```
+For more information, see [Understanding patch compliance state values](https://docs.aws.amazon.com/systems-manager/latest/userguide/about-patch-compliance-states.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [DescribeInstancePatchStatesForPatchGroup](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-instance-patch-states-for-patch-group.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Understanding patch compliance state values](about-patch-compliance-states.md "about-patch-compliance-states.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [DescribeInstancePatchStatesForPatchGroup](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-instance-patch-states-for-patch-group.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-instance-patch-states-for-patch-group.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example gets the patch summary states per-instance for a patch group.**
+**Tools for PowerShell V4**  
+**Example 1: This example gets the patch summary states per-instance for a patch group.**  
 
 ```
 Get-SSMInstancePatchStatesForPatchGroup -PatchGroup "Production"
-
 ```
++  For API details, see [DescribeInstancePatchStatesForPatchGroup](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeInstancePatchStatesForPatchGroup](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example gets the patch summary states per-instance for a patch group.**
+**Tools for PowerShell V5**  
+**Example 1: This example gets the patch summary states per-instance for a patch group.**  
 
 ```
 Get-SSMInstancePatchStatesForPatchGroup -PatchGroup "Production"
-
 ```
++  For API details, see [DescribeInstancePatchStatesForPatchGroup](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeInstancePatchStatesForPatchGroup](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

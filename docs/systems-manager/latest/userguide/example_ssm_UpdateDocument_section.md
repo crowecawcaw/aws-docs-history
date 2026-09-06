@@ -1,36 +1,35 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `UpdateDocument` with a CLI
+<a name="example_ssm_UpdateDocument_section"></a>
 
 The following code examples show how to use `UpdateDocument`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To create a new version of a document**
-
-The following `update-document` example creates a new version of a document when run on a Windows computer. The document specified by `--document` must be in JSON format. Note that `file://` must be referenced followed by the path of the content file. Because of the `$` at the beginning of the `--document-version` parameter, On Windows you must surround the value with double quotes. On Linux, MacOS, or at a PowerShell prompt, you must surround the value with single quotes.
-
-**Windows version**:
+**AWS CLI**  
+**To create a new version of a document**  
+The following `update-document` example creates a new version of a document when run on a Windows computer. The document specified by `--document` must be in JSON format. Note that `file://` must be referenced followed by the path of the content file. Because of the `$` at the beginning of the `--document-version` parameter, On Windows you must surround the value with double quotes. On Linux, MacOS, or at a PowerShell prompt, you must surround the value with single quotes.  
+**Windows version**:  
 
 ```
-`aws ssm update-document \
- --name `"RunShellScript"` \
- --content `"file://RunShellScript.json"` \
- --document-version `"$LATEST"``
+aws ssm update-document \
+    --name {{"RunShellScript"}} \
+    --content {{"file://RunShellScript.json"}} \
+    --document-version {{"$LATEST"}}
+```
+**Linux/Mac version**:  
 
 ```
-
-**Linux/Mac version**:
-
+aws ssm update-document \
+    --name {{"RunShellScript"}} \
+    --content {{"file://RunShellScript.json"}} \
+    --document-version '{{$LATEST}}'
 ```
-`aws ssm update-document \
- --name `"RunShellScript"` \
- --content `"file://RunShellScript.json"` \
- --document-version '`$LATEST`'`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -60,23 +59,18 @@ Output:
   }
 }
 ```
++  For API details, see [UpdateDocument](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/update-document.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [UpdateDocument](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/update-document.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/update-document.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This creates a new version of a document with the updated contents of the json file you specify. The document must be in JSON format. You can obtain the document version with the "Get-SSMDocumentVersionList" cmdlet.**
+**Tools for PowerShell V4**  
+**Example 1: This creates a new version of a document with the updated contents of the json file you specify. The document must be in JSON format. You can obtain the document version with the "Get-SSMDocumentVersionList" cmdlet.**  
 
 ```
 Update-SSMDocument -Name RunShellScript -DocumentVersion "1" -Content (Get-Content -Raw "c:\temp\RunShellScript.json")
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CreatedDate     : 3/1/2017 2:59:17 AM
@@ -95,21 +89,15 @@ SchemaVersion   : 2.0
 Sha1            :
 Status          : Updating
 ```
++  For API details, see [UpdateDocument](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [UpdateDocument](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This creates a new version of a document with the updated contents of the json file you specify. The document must be in JSON format. You can obtain the document version with the "Get-SSMDocumentVersionList" cmdlet.**
+**Tools for PowerShell V5**  
+**Example 1: This creates a new version of a document with the updated contents of the json file you specify. The document must be in JSON format. You can obtain the document version with the "Get-SSMDocumentVersionList" cmdlet.**  
 
 ```
 Update-SSMDocument -Name RunShellScript -DocumentVersion "1" -Content (Get-Content -Raw "c:\temp\RunShellScript.json")
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CreatedDate     : 3/1/2017 2:59:17 AM
@@ -128,11 +116,8 @@ SchemaVersion   : 2.0
 Sha1            :
 Status          : Updating
 ```
++  For API details, see [UpdateDocument](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [UpdateDocument](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,19 +1,20 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # `aws:createImage` – Create an Amazon Machine Image
+<a name="automation-action-create"></a>
 
-Creates an Amazon Machine Image (AMI) from an instance that is either running, stopping, or
-stopped, and polls for the `ImageState` to be `available`.
+Creates an Amazon Machine Image (AMI) from an instance that is either running, stopping, or stopped, and polls for the `ImageState` to be `available`.
 
-###### Note
+**Note**  
+The `aws:createImage` action supports automatic throttling retry. For more information, see [Configuring automatic retry for throttled operations](automation-throttling-retry.md).
 
-The `aws:createImage` action supports automatic throttling retry. For
-more information, see [Configuring automatic retry for throttled operations](automation-throttling-retry.md "automation-throttling-retry.md").
+**Input**  
+This action supports the following `CreateImage` parameters. For more information, see [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html).
 
-###### Input
-
-This action supports the following `CreateImage` parameters. For more
-information, see [CreateImage](../../../AWSEC2/latest/APIReference/API_CreateImage.md "../../../AWSEC2/latest/APIReference/API_CreateImage.md").
-
-YAML
+------
+#### [ YAML ]
 
 ```
 name: createMyImage
@@ -27,7 +28,8 @@ inputs:
   ImageDescription: My newly created AMI
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -44,68 +46,39 @@ JSON
 }
 ```
 
-InstanceId
+------
 
-The ID of the instance.
-
-Type: String
-
+InstanceId  
+The ID of the instance.  
+Type: String  
 Required: Yes
 
-ImageName
-
-The name for the image.
-
-Type: String
-
+ImageName  
+The name for the image.  
+Type: String  
 Required: Yes
 
-ImageDescription
+ImageDescription  
+A description of the image.  
+Type: String  
+Required: No
 
-A description of the image.
+NoReboot  
+A Boolean literal.  
+By default, Amazon Elastic Compute Cloud (Amazon EC2) attempts to shut down and reboot the instance before creating the image. If the **No Reboot** option is set to `true`, Amazon EC2 doesn't shut down the instance before creating the image. When this option is used, file system integrity on the created image can't be guaranteed.   
+If you don't want the instance to run after you create an AMI from it, first use the [`aws:changeInstanceState` – Change or assert instance state](automation-action-changestate.md) action to stop the instance, and then use this `aws:createImage` action with the **NoReboot** option set to `true`.  
+Type: Boolean  
+Required: No
 
+BlockDeviceMappings  
+The block devices for the instance.  
+Type: Map  
+Required: NoOutput
+
+ImageId  
+The ID of the newly created image.  
 Type: String
 
-Required: No
-
-NoReboot
-
-A Boolean literal.
-
-By default, Amazon Elastic Compute Cloud (Amazon EC2) attempts to shut down and reboot the
-instance before creating the image. If the **No Reboot**
-option is set to `true`, Amazon EC2 doesn't shut down the instance
-before creating the image. When this option is used, file system integrity
-on the created image can't be guaranteed.
-
-If you don't want the instance to run after you create an AMI from it,
-first use the [aws:changeInstanceState – Change or assert instance state](automation-action-changestate.md "automation-action-changestate.md") action to stop the
-instance, and then use this `aws:createImage` action with the
-**NoReboot** option set to `true`.
-
-Type: Boolean
-
-Required: No
-
-BlockDeviceMappings
-
-The block devices for the instance.
-
-Type: Map
-
-Required: No
-
-###### Output
-
-ImageId
-
-The ID of the newly created image.
-
-Type: String
-
-ImageState
-
-The current state of the image. If the state is available, the image is
-successfully registered and can be used to launch an instance.
-
+ImageState  
+The current state of the image. If the state is available, the image is successfully registered and can be used to launch an instance.  
 Type: String

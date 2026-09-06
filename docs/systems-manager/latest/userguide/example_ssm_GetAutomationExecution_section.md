@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `GetAutomationExecution` with a CLI
+<a name="example_ssm_GetAutomationExecution_section"></a>
 
 The following code examples show how to use `GetAutomationExecution`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To display details about an automation execution**
-
-The following `get-automation-execution` example displays detailed information about an Automation execution.
-
-```
-`aws ssm get-automation-execution \
- --automation-execution-id `73c8eef8-f4ee-4a05-820c-e354fEXAMPLE``
+**AWS CLI**  
+**To display details about an automation execution**  
+The following `get-automation-execution` example displays detailed information about an Automation execution.  
 
 ```
-
-Output:
+aws ssm get-automation-execution \
+    --automation-execution-id {{73c8eef8-f4ee-4a05-820c-e354fEXAMPLE}}
+```
+Output:  
 
 ```
 {
@@ -67,25 +69,19 @@ Output:
     }
 }
 ```
+For more information, see [Walkthrough: Patch a Linux AMI (AWS CLI)](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-walk-patch-linux-ami-cli.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [GetAutomationExecution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-automation-execution.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Walkthrough: Patch a Linux AMI (AWS CLI)](automation-walk-patch-linux-ami-cli.md "automation-walk-patch-linux-ami-cli.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [GetAutomationExecution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-automation-execution.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-automation-execution.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example displays the details of an Automation Execution.**
+**Tools for PowerShell V4**  
+**Example 1: This example displays the details of an Automation Execution.**  
 
 ```
 Get-SSMAutomationExecution -AutomationExecutionId "4105a4fc-f944-11e6-9d32-8fb2db27a909"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AutomationExecutionId     : 4105a4fc-f944-11e6-9d32-8fb2db27a909
@@ -107,15 +103,12 @@ Parameters                : {[AutomationAssumeRole, Amazon.Runtime.Internal.Util
                             Amazon.Runtime.Internal.Util.AlwaysSendList`1[System.String]]}
 StepExecutions            : {launchInstance, updateOSSoftware, stopInstance, createImage...}
 ```
-
-**Example 2: This example lists step details for the given automation execution id**
+**Example 2: This example lists step details for the given automation execution id**  
 
 ```
 Get-SSMAutomationExecution -AutomationExecutionId e1d2bad3-4567-8901-ae23-456c7c8901be | Select-Object -ExpandProperty StepExecutions | Select-Object StepName, Action, StepStatus, ValidNextSteps
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 StepName                  Action                  StepStatus ValidNextSteps
@@ -135,21 +128,15 @@ StopInstance              aws:changeInstanceState Pending    {}
 CreateImage               aws:createImage         Pending    {}
 TerminateInstance         aws:changeInstanceState Pending    {}
 ```
++  For API details, see [GetAutomationExecution](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetAutomationExecution](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example displays the details of an Automation Execution.**
+**Tools for PowerShell V5**  
+**Example 1: This example displays the details of an Automation Execution.**  
 
 ```
 Get-SSMAutomationExecution -AutomationExecutionId "4105a4fc-f944-11e6-9d32-8fb2db27a909"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AutomationExecutionId     : 4105a4fc-f944-11e6-9d32-8fb2db27a909
@@ -171,15 +158,12 @@ Parameters                : {[AutomationAssumeRole, Amazon.Runtime.Internal.Util
                             Amazon.Runtime.Internal.Util.AlwaysSendList`1[System.String]]}
 StepExecutions            : {launchInstance, updateOSSoftware, stopInstance, createImage...}
 ```
-
-**Example 2: This example lists step details for the given automation execution id**
+**Example 2: This example lists step details for the given automation execution id**  
 
 ```
 Get-SSMAutomationExecution -AutomationExecutionId e1d2bad3-4567-8901-ae23-456c7c8901be | Select-Object -ExpandProperty StepExecutions | Select-Object StepName, Action, StepStatus, ValidNextSteps
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 StepName                  Action                  StepStatus ValidNextSteps
@@ -199,11 +183,8 @@ StopInstance              aws:changeInstanceState Pending    {}
 CreateImage               aws:createImage         Pending    {}
 TerminateInstance         aws:changeInstanceState Pending    {}
 ```
++  For API details, see [GetAutomationExecution](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetAutomationExecution](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,88 +1,63 @@
-# Working with parameters in Parameter Store using Run Command commands
 
-You can work with parameters in Run Command. For more
-information, see [AWS Systems Manager Run Command](run-command.md "run-command.md").
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
+# Working with parameters in Parameter Store using Run Command commands
+<a name="sysman-param-runcommand"></a>
+
+You can work with parameters in Run Command. For more information, see [AWS Systems Manager Run Command](run-command.md).
 
 ## Running a String parameter using the console
+<a name="param-test-console"></a>
 
-The following procedure walks you through the process of running a command
-that uses a `String` parameter.
+The following procedure walks you through the process of running a command that uses a `String` parameter. 
 
-###### To run a String parameter using Parameter Store
+**To run a String parameter using Parameter Store**
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. In the navigation pane, choose **Run Command**.
-3. Choose **Run command**.
-4. In the **Command document** list, choose
-   `AWS-RunPowerShellScript` (Windows) or
-   `AWS-RunShellScript` (Linux).
-5. For **Command parameters**, enter `echo
- {{ssm:`parameter-name`}}`.
-   For example: `echo {{ssm:/Test/helloWorld}}`.
-6. In the **Targets** section, choose the managed nodes on which you want to
-   run this operation by specifying tags, selecting instances or edge devices manually, or
-   specifying a resource group.
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
 
-###### Tip
+1. In the navigation pane, choose **Run Command**.
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
-tips. 7. For **Other parameters**:
+1. Choose **Run command**.
 
-    * For **Comment**, enter information about this command.
-    * For **Timeout (seconds)**, specify the number of seconds for the
-     system to wait before failing the overall command execution.
+1. In the **Command document** list, choose `AWS-RunPowerShellScript` (Windows) or `AWS-RunShellScript` (Linux).
 
-8. For **Rate control**:
+1. For **Command parameters**, enter **echo {{ssm:{{parameter-name}}}}**. For example: **echo {{ssm:/Test/helloWorld}}**. 
 
-    * For **Concurrency**, specify either a number or a percentage of
-     managed nodes on which to run the command at the same time.
+1. In the **Targets** section, choose the managed nodes on which you want to run this operation by specifying tags, selecting instances or edge devices manually, or specifying a resource group.
+**Tip**  
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md) for troubleshooting tips.
 
+1. For **Other parameters**:
+   + For **Comment**, enter information about this command.
+   + For **Timeout (seconds)**, specify the number of seconds for the system to wait before failing the overall command execution. 
 
-    ###### Note
+1. For **Rate control**:
+   + For **Concurrency**, specify either a number or a percentage of managed nodes on which to run the command at the same time.
+**Note**  
+If you selected targets by specifying tags applied to managed nodes or by specifying AWS resource groups, and you aren't certain how many managed nodes are targeted, then restrict the number of targets that can run the document at the same time by specifying a percentage.
+   + For **Error threshold**, specify when to stop running the command on other managed nodes after it fails on either a number or a percentage of nodes. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received. Managed nodes still processing the command might also send errors.
 
-    If you selected targets by specifying tags applied to managed nodes or by
-     specifying AWS resource groups, and you aren't certain how many managed
-     nodes are targeted, then restrict the number of targets that can run the
-     document at the same time by specifying a percentage.
-    * For **Error threshold**, specify when to stop running the command
-     on other managed nodes after it fails on either a number or a percentage of nodes.
-     For example, if you specify three errors, then Systems Manager stops sending the command when
-     the fourth error is received. Managed nodes still processing the command might also
-     send errors.
+1. (Optional) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box. Enter the bucket and prefix (folder) names in the boxes.
+**Note**  
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile (for EC2 instances) or IAM service role (hybrid-activated machines) assigned to the instance, not those of the IAM user performing this task. For more information, see [Configure instance permissions required for Systems Manager](setup-instance-permissions.md) or [Create an IAM service role for a hybrid environment](hybrid-multicloud-service-role.md). In addition, if the specified S3 bucket is in a different AWS account, make sure that the instance profile or IAM service role associated with the managed node has the necessary permissions to write to that bucket.
 
-9. (Optional) For **Output options**, to save the command output to a file,
-select the **Write command output to an S3 bucket** box. Enter the bucket
-and prefix (folder) names in the boxes.
+1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box.
 
-###### Note
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md).
 
-The S3 permissions that grant the ability to write the data to an S3 bucket are those
-of the instance profile (for EC2 instances) or IAM service role (hybrid-activated
-machines) assigned to the instance, not those of the IAM user performing this task.
-For more information, see [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md") or [Create an IAM service role for a hybrid
-environment](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md"). In addition, if the specified S3 bucket is in a different
-AWS account, make sure that the instance profile or IAM service role associated with
-the managed node has the necessary permissions to write to that bucket. 10. In the **SNS notifications** section, if you want notifications sent
-about the status of the command execution, select the **Enable SNS
-notifications** check box.
+1. Choose **Run**.
 
-For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 11. Choose **Run**. 12. In the **Command ID** page, in the **Targets
-and outputs** area, select the button next to the ID of a
-node where you ran the command, and then choose **View
-output**. Verify that the output of the command is the
-value you provided for the parameter, such as `This is my
- first parameter`.
+1. In the **Command ID** page, in the **Targets and outputs** area, select the button next to the ID of a node where you ran the command, and then choose **View output**. Verify that the output of the command is the value you provided for the parameter, such as **This is my first parameter**.
 
 ## Running a parameter using the AWS CLI
+<a name="param-test-cli"></a>
 
-###### Example 1: Simple command
+**Example 1: Simple command**  
+The following example command includes a Systems Manager parameter named `DNS-IP`. The value of this parameter is simply the IP address of a node. This example uses an AWS Command Line Interface (AWS CLI) command to echo the parameter value.
 
-The following example command includes a Systems Manager parameter named
-`DNS-IP`. The value of this parameter is simply the IP
-address of a node. This example uses an AWS Command Line Interface (AWS CLI) command to echo
-the parameter value.
-
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -96,7 +71,8 @@ aws ssm send-command \
     --region us-east-2
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm send-command ^
@@ -109,6 +85,8 @@ aws ssm send-command ^
     --max-errors "0" ^
     --region us-east-2
 ```
+
+------
 
 The command returns information like the following.
 
@@ -166,25 +144,16 @@ The command returns information like the following.
 }
 ```
 
-After a command execution completes, you can view more information about it
-using the following commands:
+After a command execution completes, you can view more information about it using the following commands:
++ [get-command-invocation](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-command-invocation.html) – View detailed information about the command execution.
++ [list-command-invocations](https://docs.aws.amazon.com/cli/latest/reference/ssm/link-cli-ref-list-command-invocations.html) – View the command execution status on a specific managed node.
++ [list-commands](https://docs.aws.amazon.com/cli/latest/reference/ssm/link-cli-ref-list-commands.html) – View the command execution status across managed nodes.
 
-- [get-command-invocation](../../../cli/latest/reference/ssm/get-command-invocation.md "../../../cli/latest/reference/ssm/get-command-invocation.md") – View detailed
-  information about the command execution.
-- [list-command-invocations](../../../cli/latest/reference/ssm/link-cli-ref-list-command-invocations.md "../../../cli/latest/reference/ssm/link-cli-ref-list-command-invocations.md") – View the command
-  execution status on a specific managed node.
-- [list-commands](../../../cli/latest/reference/ssm/link-cli-ref-list-commands.md "../../../cli/latest/reference/ssm/link-cli-ref-list-commands.md") – View the command execution
-  status across managed nodes.
+**Example 2: Decrypt a `SecureString` parameter value**  
+The next example command uses a `SecureString` parameter named **SecureMerchantId**. The command used in the `parameters` field retrieves and decrypts the value of the `SecureString` parameter without including the plaintext value directly in the command.
 
-###### Example 2: Decrypt a `SecureString` parameter value
-
-The next example command uses a `SecureString` parameter named
-**SecureMerchantId**. The command used in the
-`parameters` field retrieves and decrypts the value of the
-`SecureString` parameter without including the plaintext value
-directly in the command.
-
-Linux
+------
+#### [ Linux ]
 
 ```
 aws ssm send-command \
@@ -198,7 +167,8 @@ aws ssm send-command \
         --region us-east-2
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm send-command ^
@@ -212,11 +182,10 @@ aws ssm send-command ^
         --region us-east-2
 ```
 
-###### Example 3: Reference a parameter in an SSM document
+------
 
-You can also reference Systems Manager parameters in the
-_Parameters_ section of an SSM document, as shown
-in the following example.
+**Example 3: Reference a parameter in an SSM document**  
+You can also reference Systems Manager parameters in the *Parameters* section of an SSM document, as shown in the following example.
 
 ```
 {
@@ -225,7 +194,7 @@ in the following example.
    "parameters":{
       "commands" : {
         "type": "StringList",
-        "default": ["**{{ssm:`parameter-name`}}**"]
+        "default": ["{{ssm:{{parameter-name}}}}"]
       }
     },
     "mainSteps":[
@@ -240,11 +209,7 @@ in the following example.
 }
 ```
 
-Don't confuse the similar syntax for _local parameters_
-used in the `runtimeConfig` section of SSM documents with Parameter Store
-parameters. A local parameter isn't the same as a Systems Manager parameter. You can
-distinguish local parameters from Systems Manager parameters by the absence of the
-`ssm:` prefix.
+Don't confuse the similar syntax for *local parameters* used in the `runtimeConfig` section of SSM documents with Parameter Store parameters. A local parameter isn't the same as a Systems Manager parameter. You can distinguish local parameters from Systems Manager parameters by the absence of the `ssm:` prefix.
 
 ```
 "runtimeConfig":{
@@ -252,46 +217,36 @@ distinguish local parameters from Systems Manager parameters by the absence of t
             "properties":[
                 {
                     "id":"0.aws:runShellScript",
-                    "runCommand":"**{{ commands }}**",
-                    "workingDirectory":"**{{ workingDirectory }}**",
-                    "timeoutSeconds":"**{{ executionTimeout }}**"
+                    "runCommand":"{{ commands }}",
+                    "workingDirectory":"{{ workingDirectory }}",
+                    "timeoutSeconds":"{{ executionTimeout }}"
 ```
 
-###### Note
-
-SSM documents don't support references to `SecureString`
-parameters. This means that to use `SecureString` parameters
-with, for example, Run Command, you have to retrieve the parameter value before
-passing it to Run Command, as shown in the following examples.
-
-Linux & macOS
+**Note**  
+SSM documents don't support references to `SecureString` parameters. This means that to use `SecureString` parameters with, for example, Run Command, you have to retrieve the parameter value before passing it to Run Command, as shown in the following examples.  
 
 ```
-merchant_id=$(aws ssm get-parameters --names `parameter-name` --with-decryption --query Parameters[0].Value --output text)
+merchant_id=$(aws ssm get-parameters --names {{parameter-name}} --with-decryption --query Parameters[0].Value --output text)
 ```
 
 ```
 aws ssm send-command \
     --document-name AWS-RunShellScript \
     --parameters commands="test \"$merchant_id\" != \"\" && case \"$merchant_id\" in merchant-*) echo Merchant ID value retrieved ;; *) echo Unexpected merchant ID value; exit 1 ;; esac" \
-    --instance-ids `instance-id`
+    --instance-ids {{instance-id}}
 ```
-
-Windows
 
 ```
 aws ssm send-command ^
     --document-name AWS-RunPowerShellScript ^
-    --parameters commands="$merchantId = (Get-SSMParameterValue -Names `parameter-name` -WithDecryption $True).Parameters[0].Value; if ($merchantId -like 'merchant-*') { Write-Host 'Merchant ID value retrieved' } else { Write-Host 'Unexpected merchant ID value'; exit 1 }" ^
-    --instance-ids `instance-id`
-```
-
-Powershell
-
-```
-$`merchantId` = (Get-SSMParameterValue -Names `parameter-name` -WithDecryption $True).Parameters[0].Value
+    --parameters commands="$merchantId = (Get-SSMParameterValue -Names {{parameter-name}} -WithDecryption $True).Parameters[0].Value; if ($merchantId -like 'merchant-*') { Write-Host 'Merchant ID value retrieved' } else { Write-Host 'Unexpected merchant ID value'; exit 1 }" ^
+    --instance-ids {{instance-id}}
 ```
 
 ```
-if ($`merchantId` -like "merchant-*") { Write-Host "Merchant ID value retrieved" } else { Write-Host "Unexpected merchant ID value"; exit 1 }
+${{merchantId}} = (Get-SSMParameterValue -Names {{parameter-name}} -WithDecryption $True).Parameters[0].Value
+```
+
+```
+if (${{merchantId}} -like "merchant-*") { Write-Host "Merchant ID value retrieved" } else { Write-Host "Unexpected merchant ID value"; exit 1 }
 ```

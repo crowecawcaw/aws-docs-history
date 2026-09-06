@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `GetDocument` with a CLI
+<a name="example_ssm_GetDocument_section"></a>
 
 The following code examples show how to use `GetDocument`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get document content**
-
-The following `get-document` example displays the content of a Systems Manager document.
-
-```
-`aws ssm get-document \
- --name `"AWS-RunShellScript"``
+**AWS CLI**  
+**To get document content**  
+The following `get-document` example displays the content of a Systems Manager document.  
 
 ```
-
-Output:
+aws ssm get-document \
+    --name {{"AWS-RunShellScript"}}
+```
+Output:  
 
 ```
 {
@@ -28,33 +30,26 @@ Output:
     "DocumentFormat": "JSON"
 }
 ```
+For more information, see [AWS Systems Manager Documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [GetDocument](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-document.html) in *AWS CLI Command Reference*. 
 
-For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md "sysman-ssm-docs.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [GetDocument](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-document.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-document.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example returns the content of a document.**
+**Tools for PowerShell V4**  
+**Example 1: This example returns the content of a document.**  
 
 ```
 Get-SSMDocument -Name "RunShellScript"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Content
 -------
 {...
 ```
-
-**Example 2: This example displays the complete contents of a document.**
+**Example 2: This example displays the complete contents of a document.**  
 
 ```
 (Get-SSMDocument -Name "RunShellScript").Content
@@ -86,31 +81,23 @@ Content
       }
    ]
 }
-
 ```
++  For API details, see [GetDocument](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetDocument](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example returns the content of a document.**
+**Tools for PowerShell V5**  
+**Example 1: This example returns the content of a document.**  
 
 ```
 Get-SSMDocument -Name "RunShellScript"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Content
 -------
 {...
 ```
-
-**Example 2: This example displays the complete contents of a document.**
+**Example 2: This example displays the complete contents of a document.**  
 
 ```
 (Get-SSMDocument -Name "RunShellScript").Content
@@ -142,13 +129,9 @@ Content
       }
    ]
 }
-
 ```
++  For API details, see [GetDocument](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetDocument](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

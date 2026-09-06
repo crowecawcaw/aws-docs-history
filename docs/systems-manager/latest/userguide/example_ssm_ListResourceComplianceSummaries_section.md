@@ -1,23 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `ListResourceComplianceSummaries` with a CLI
+<a name="example_ssm_ListResourceComplianceSummaries_section"></a>
 
 The following code examples show how to use `ListResourceComplianceSummaries`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list resource-level compliance summary counts**
-
-This example lists resource-level compliance summary counts.
-
-Command:
+**AWS CLI**  
+**To list resource-level compliance summary counts**  
+This example lists resource-level compliance summary counts.  
+Command:  
 
 ```
-`aws ssm list-resource-compliance-summaries`
-
+aws ssm list-resource-compliance-summaries
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -92,27 +93,20 @@ Output:
   "NextToken": "--token string truncated--"
 }
 ```
-
-**To list resource-level compliance summaries for a specific compliance type**
-
-This example lists resource-level compliance summaries for the Patch compliance type.
-
-Command:
+**To list resource-level compliance summaries for a specific compliance type**  
+This example lists resource-level compliance summaries for the Patch compliance type.  
+Command:  
 
 ```
-`aws ssm list-resource-compliance-summaries --filters `"Key=ComplianceType,Values=Patch,Type=EQUAL"``
-
+aws ssm list-resource-compliance-summaries --filters {{"Key=ComplianceType,Values=Patch,Type=EQUAL"}}
 ```
++  For API details, see [ListResourceComplianceSummaries](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-resource-compliance-summaries.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListResourceComplianceSummaries](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-resource-compliance-summaries.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-resource-compliance-summaries.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example gets a resource-level summary count. The summary includes information about compliant and non-compliant statuses and detailed compliance-item severity counts for products that match "Windows10". Because the MaxResult default is 100 if the parameter is not specified, and this value is not valid, MaxResult parameter is added, and the value is set to 50.**
+**Tools for PowerShell V4**  
+**Example 1: This example gets a resource-level summary count. The summary includes information about compliant and non-compliant statuses and detailed compliance-item severity counts for products that match "Windows10". Because the MaxResult default is 100 if the parameter is not specified, and this value is not valid, MaxResult parameter is added, and the value is set to 50.**  
 
 ```
 $FilterValues = @{
@@ -121,16 +115,11 @@ $FilterValues = @{
         "Values"="Windows10"
 }
         Get-SSMResourceComplianceSummaryList -Filter $FilterValues -MaxResult 50
-
 ```
++  For API details, see [ListResourceComplianceSummaries](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListResourceComplianceSummaries](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example gets a resource-level summary count. The summary includes information about compliant and non-compliant statuses and detailed compliance-item severity counts for products that match "Windows10". Because the MaxResult default is 100 if the parameter is not specified, and this value is not valid, MaxResult parameter is added, and the value is set to 50.**
+**Tools for PowerShell V5**  
+**Example 1: This example gets a resource-level summary count. The summary includes information about compliant and non-compliant statuses and detailed compliance-item severity counts for products that match "Windows10". Because the MaxResult default is 100 if the parameter is not specified, and this value is not valid, MaxResult parameter is added, and the value is set to 50.**  
 
 ```
 $FilterValues = @{
@@ -139,13 +128,9 @@ $FilterValues = @{
         "Values"="Windows10"
 }
         Get-SSMResourceComplianceSummaryList -Filter $FilterValues -MaxResult 50
-
 ```
++  For API details, see [ListResourceComplianceSummaries](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListResourceComplianceSummaries](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

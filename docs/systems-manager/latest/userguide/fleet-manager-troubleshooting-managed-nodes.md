@@ -1,66 +1,51 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Troubleshooting managed node availability
+<a name="fleet-manager-troubleshooting-managed-nodes"></a>
 
-For several AWS Systems Manager tools like Run Command, Distributor, and Session Manager, you can choose to
-manually select the managed nodes on which you want to run an operation. In cases like
-these, after you specify that you want to choose nodes manually, the system displays a
-list of managed nodes where you can run the operation.
+For several AWS Systems Manager tools like Run Command, Distributor, and Session Manager, you can choose to manually select the managed nodes on which you want to run an operation. In cases like these, after you specify that you want to choose nodes manually, the system displays a list of managed nodes where you can run the operation.
 
-This topic provides information to help you diagnose why a managed node _that you have confirmed is running_ isn't included in your
-lists of managed nodes in Systems Manager.
+This topic provides information to help you diagnose why a managed node *that you have confirmed is running* isn't included in your lists of managed nodes in Systems Manager. 
 
-For a node to be managed by Systems Manager and available in lists of managed nodes, it
-must meet three requirements:
+For a node to be managed by Systems Manager and available in lists of managed nodes, it must meet three requirements:
++ SSM Agent must be installed and running on the node with a supported operating system.
+**Note**  
+Some AWS managed Amazon Machine Images (AMIs) are configured to launch instances with [SSM Agent](ssm-agent.md) preinstalled. (You can also configure a custom AMI to preinstall SSM Agent.) For more information, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md).
++ For Amazon Elastic Compute Cloud (Amazon EC2) instances, you must attach an AWS Identity and Access Management (IAM) instance profile to the instance. The instance profile enables the instance to communicate with the Systems Manager service. If you don't assign an instance profile to the instance, you register it using a [hybrid activation](activations.md), which is not a common scenario.
++ SSM Agent must be able to connect to a Systems Manager endpoint to register itself with the service. Thereafter, the managed node must be available to the service, which is confirmed by the service sending a signal every five minutes to check the instance's health. 
++ After the status of a managed node has been `Connection Lost` for at least 30 days, the node might no longer be listed in the Fleet Manager console. To restore it to the list, the issue that caused the lost connection must be resolved.
 
-- SSM Agent must be installed and running on the node with a supported operating
-  system.
+After you verify that a managed node is running, you can use the following command to check whether SSM Agent successfully registered with the Systems Manager service. This command doesn't return results until a successful registration has taken place.
 
-###### Note
-
-Some AWS managed Amazon Machine Images (AMIs) are configured to launch
-instances with [SSM Agent](ssm-agent.md "ssm-agent.md") preinstalled. (You
-can also configure a custom AMI to preinstall SSM Agent.) For more
-information, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
-
-- For Amazon Elastic Compute Cloud (Amazon EC2) instances, you must attach an AWS Identity and Access Management (IAM) instance
-  profile to the instance. The instance profile enables the instance to
-  communicate with the Systems Manager service. If you don't assign an instance profile to
-  the instance, you register it using a [hybrid
-  activation](activations.md "activations.md"), which is not a common scenario.
-- SSM Agent must be able to connect to a Systems Manager endpoint to register
-  itself with the service. Thereafter, the managed node must be available to the
-  service, which is confirmed by the service sending a signal every five minutes
-  to check the instance's health.
-- After the status of a managed node has been `Connection Lost` for
-  at least 30 days, the node might no longer be listed in the Fleet Manager console. To
-  restore it to the list, the issue that caused the lost connection must be
-  resolved.
-  After you verify that a managed node is running, you can use the following command to
-  check whether SSM Agent successfully registered with the Systems Manager service. This command
-  doesn't return results until a successful registration has taken place.
-
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-instance-associations-status \
-    --instance-id `instance-id`
+    --instance-id {{instance-id}}
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm describe-instance-associations-status ^
-    --instance-id `instance-id`
+    --instance-id {{instance-id}}
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
 ```
 Get-SSMInstanceAssociationsStatus `
-    -InstanceId `instance-id`
+    -InstanceId {{instance-id}}
 ```
 
-If registration was successful and the managed node is now available for Systems Manager
-operations, the command returns results similar to the following.
+------
+
+If registration was successful and the managed node is now available for Systems Manager operations, the command returns results similar to the following.
 
 ```
 {
@@ -87,8 +72,7 @@ operations, the command returns results similar to the following.
 }
 ```
 
-If registration hasn't completed yet or was unsuccessful, the command returns results
-similar to the following:
+If registration hasn't completed yet or was unsuccessful, the command returns results similar to the following:
 
 ```
 {
@@ -96,190 +80,135 @@ similar to the following:
 }
 ```
 
-If the command doesn't return results after 5 minutes or so, use the following
-information to help you troubleshoot problems with your managed nodes.
+If the command doesn't return results after 5 minutes or so, use the following information to help you troubleshoot problems with your managed nodes.
 
 ## Solution 1: Verify that SSM Agent is installed and running on the managed node
+<a name="instances-missing-solution-1"></a>
 
-Make sure the latest version of SSM Agent is installed and running on the managed
-node.
+Make sure the latest version of SSM Agent is installed and running on the managed node.
 
-To determine whether SSM Agent is installed and running on a managed node, see
-[Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md "ssm-agent-status-and-restart.md").
+To determine whether SSM Agent is installed and running on a managed node, see [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md).
 
-To install or reinstall SSM Agent on a managed node, see the following
-topics:
-
-- [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md")
-- [How to install the SSM Agent on hybrid Linux nodes](hybrid-multicloud-ssm-agent-install-linux.md "hybrid-multicloud-ssm-agent-install-linux.md")
-- [Manually installing and uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md")
-- [How to install the SSM Agent on hybrid Windows nodes](hybrid-multicloud-ssm-agent-install-windows.md "hybrid-multicloud-ssm-agent-install-windows.md")
+To install or reinstall SSM Agent on a managed node, see the following topics:
++ [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md)
++ [How to install the SSM Agent on hybrid Linux nodes](hybrid-multicloud-ssm-agent-install-linux.md)
++ [Manually installing and uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md)
++ [How to install the SSM Agent on hybrid Windows nodes ](hybrid-multicloud-ssm-agent-install-windows.md)
 
 ## Solution 2: Verify that an IAM instance profile has been specified for the instance (EC2 instances only)
+<a name="instances-missing-solution-2"></a>
 
-For Amazon Elastic Compute Cloud (Amazon EC2) instances, verify that the instance is configured with an
-AWS Identity and Access Management (IAM) instance profile that allows the instance to communicate with the
-Systems Manager API. Also verify that your user has an IAM trust policy that allows your
-user to communicate with the Systems Manager API.
+For Amazon Elastic Compute Cloud (Amazon EC2) instances, verify that the instance is configured with an AWS Identity and Access Management (IAM) instance profile that allows the instance to communicate with the Systems Manager API. Also verify that your user has an IAM trust policy that allows your user to communicate with the Systems Manager API.
 
-###### Note
+**Note**  
+On-premises servers, edge devices, and virtual machines (VMs) use an IAM service role instead of an instance profile. For more information, see [Create the IAM service role required for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md).
 
-On-premises servers, edge devices, and virtual machines (VMs) use an IAM
-service role instead of an instance profile. For more information, see [Create the IAM service role required for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md").
+**To determine whether an instance profile with the necessary permissions is attached to an EC2 instance**
 
-###### To determine whether an instance profile with the necessary permissions is attached to an EC2 instance
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose **Instances**.
-3. Choose the instance to check for an instance profile.
-4. On the **Description** tab in the bottom pane, locate
-   **IAM role** and choose the name of the role.
-5. On the role **Summary** page for the instance profile, on
-   the **Permissions** tab, make sure that
-   `AmazonSSMManagedInstanceCore` is listed under
-   **Permissions policies**.
+1. In the navigation pane, choose **Instances**.
 
-If a custom policy is used instead, make sure that it provides the same
-permissions as `AmazonSSMManagedInstanceCore`.
+1. Choose the instance to check for an instance profile.
 
-[Open `AmazonSSMManagedInstanceCore` in the
-console](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore$jsonEditor")
+1. On the **Description** tab in the bottom pane, locate **IAM role** and choose the name of the role.
 
-For information about other policies that can be attached to an instance
-profile for Systems Manager, see [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
+1. On the role **Summary** page for the instance profile, on the **Permissions** tab, make sure that `AmazonSSMManagedInstanceCore` is listed under **Permissions policies**.
+
+   If a custom policy is used instead, make sure that it provides the same permissions as `AmazonSSMManagedInstanceCore`.
+
+   [Open `AmazonSSMManagedInstanceCore` in the console](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore$jsonEditor)
+
+   For information about other policies that can be attached to an instance profile for Systems Manager, see [Configure instance permissions required for Systems Manager](setup-instance-permissions.md).
 
 ## Solution 3: Verify service endpoint connectivity
+<a name="instances-missing-solution-3"></a>
 
-Verify that the instance has connectivity to the Systems Manager service endpoints. This
-connectivity is provided by creating and configuring VPC endpoints for Systems Manager, or by
-allowing HTTPS (port 443) outbound traffic to the service endpoints.
+Verify that the instance has connectivity to the Systems Manager service endpoints. This connectivity is provided by creating and configuring VPC endpoints for Systems Manager, or by allowing HTTPS (port 443) outbound traffic to the service endpoints.
 
-For Amazon EC2 instances, the Systems Manager service endpoint for the AWS Region is used to
-register the instance if your virtual private cloud (VPC) configuration allows
-outbound traffic. However, if the VPC configuration the instance was launched in
-does not allow outbound traffic and you can't change this configuration to allow
-connectivity to the public service endpoints, you must configure interface endpoints
-for your VPC instead.
+For Amazon EC2 instances, the Systems Manager service endpoint for the AWS Region is used to register the instance if your virtual private cloud (VPC) configuration allows outbound traffic. However, if the VPC configuration the instance was launched in does not allow outbound traffic and you can't change this configuration to allow connectivity to the public service endpoints, you must configure interface endpoints for your VPC instead.
 
-For more information, see [Improve the security of EC2 instances by using VPC endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md").
+For more information, see [Improve the security of EC2 instances by using VPC endpoints for Systems Manager](setup-create-vpc.md).
 
 ## Solution 4: Verify target operating system support
+<a name="instances-missing-solution-4"></a>
 
-Verify that the operation you have chosen can be run on the type of managed node
-you expect to see listed. Some Systems Manager operations can target only Windows instances or
-only Linux instances. For example, the Systems Manager (SSM) documents
-`AWS-InstallPowerShellModule` and
-`AWS-ConfigureCloudWatch` can be run only on Windows instances. In
-the **Run a command** page, if you choose either of these documents
-and select **Choose instances manually**, only your Windows
-instances are listed and available for selection.
+Verify that the operation you have chosen can be run on the type of managed node you expect to see listed. Some Systems Manager operations can target only Windows instances or only Linux instances. For example, the Systems Manager (SSM) documents `AWS-InstallPowerShellModule` and `AWS-ConfigureCloudWatch` can be run only on Windows instances. In the **Run a command** page, if you choose either of these documents and select **Choose instances manually**, only your Windows instances are listed and available for selection.
 
 ## Solution 5: Verify you're working in the same AWS Region as the Amazon EC2 instance
+<a name="instances-missing-solution-5"></a>
 
-Amazon EC2 instances are created and available in specific AWS Regions, such as the
-US East (Ohio) Region (us-east-2) or Europe (Ireland) Region (eu-west-1). Make sure that you're working
-in the same AWS Region as the Amazon EC2 instance that you want to work with. For more
-information, see [Choosing a
-Region](../../../awsconsolehelpdocs/latest/gsg/getting-started.md#select-region "../../../awsconsolehelpdocs/latest/gsg/getting-started.md#select-region") in _Getting Started with the AWS Management Console_.
+Amazon EC2 instances are created and available in specific AWS Regions, such as the US East (Ohio) Region (us-east-2) or Europe (Ireland) Region (eu-west-1). Make sure that you're working in the same AWS Region as the Amazon EC2 instance that you want to work with. For more information, see [Choosing a Region](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) in *Getting Started with the AWS Management Console*.
 
 ## Solution 6: Verify the proxy configuration you applied to SSM Agent on your managed node
+<a name="instances-missing-solution-6"></a>
 
-Verify that the proxy configuration you applied to SSM Agent on your managed node
-is correct. If the proxy configuration is incorrect, the node can't connect to the
-required service endpoints, or Systems Manager might identify the operating system of the
-managed node incorrectly. For more information, see [Configuring SSM Agent to use a proxy on Linux nodes](configure-proxy-ssm-agent.md "configure-proxy-ssm-agent.md")
-and [Configure SSM Agent to use a proxy for Windows Server instances](configure-proxy-ssm-agent-windows.md "configure-proxy-ssm-agent-windows.md").
+Verify that the proxy configuration you applied to SSM Agent on your managed node is correct. If the proxy configuration is incorrect, the node can't connect to the required service endpoints, or Systems Manager might identify the operating system of the managed node incorrectly. For more information, see [Configuring SSM Agent to use a proxy on Linux nodes](configure-proxy-ssm-agent.md) and [Configure SSM Agent to use a proxy for Windows Server instances](configure-proxy-ssm-agent-windows.md).
 
 ## Solution 7: Install a TLS certificate on managed instances
+<a name="hybrid-tls-certificate"></a>
 
-A Transport Layer Security (TLS) certificate must be installed on each managed
-instance you use with AWS Systems Manager. AWS services use these certificates to encrypt
-calls to other AWS services.
+A Transport Layer Security (TLS) certificate must be installed on each managed instance you use with AWS Systems Manager. AWS services use these certificates to encrypt calls to other AWS services.
 
-A TLS certificate is already installed by default on each Amazon EC2 instance created
-from any Amazon Machine Image (AMI). Most modern operating systems include the required TLS
-certificate from Amazon Trust Services CAs in their trust store.
+A TLS certificate is already installed by default on each Amazon EC2 instance created from any Amazon Machine Image (AMI). Most modern operating systems include the required TLS certificate from Amazon Trust Services CAs in their trust store.
 
-To verify whether the required certificate is installed on your instance run the
-following command based on the operating system of your instance. Be sure to replace
-the `region` portion of the URL with the AWS Region where
-your managed instance is located.
+To verify whether the required certificate is installed on your instance run the following command based on the operating system of your instance. Be sure to replace the {{region}} portion of the URL with the AWS Region where your managed instance is located.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
-curl -L https://ssm.`region`.amazonaws.com
+curl -L https://ssm.{{region}}.amazonaws.com
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
-Invoke-WebRequest -Uri https://ssm.`region`.amazonaws.com
+Invoke-WebRequest -Uri https://ssm.{{region}}.amazonaws.com
 ```
 
-The command should return an `UnknownOperationException` error. If you
-receive an SSL/TLS error message instead then the required certificate might not be
-installed.
+------
 
-If you find the required Amazon Trust Services CA certificates aren't installed on
-your base operating systems, on instances created from AMIs that aren't supplied
-by Amazon, or on your own on-premises servers and VMs, you must install and allow a
-certificate from [Amazon Trust
-Services](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/"), or use AWS Certificate Manager (ACM) to create and manage certificates for
-a supported integrated service.
+The command should return an `UnknownOperationException` error. If you receive an SSL/TLS error message instead then the required certificate might not be installed.
 
-Each of your managed instances must have one of the following Transport Layer
-Security (TLS) certificates installed.
+If you find the required Amazon Trust Services CA certificates aren't installed on your base operating systems, on instances created from AMIs that aren't supplied by Amazon, or on your own on-premises servers and VMs, you must install and allow a certificate from [Amazon Trust Services](https://www.amazontrust.com/repository/), or use AWS Certificate Manager (ACM) to create and manage certificates for a supported integrated service.
 
-- Amazon Root CA 1
-- Starfield Services Root Certificate Authority - G2
-- Starfield Class 2 Certificate Authority
+Each of your managed instances must have one of the following Transport Layer Security (TLS) certificates installed.
++ Amazon Root CA 1
++ Starfield Services Root Certificate Authority - G2
++ Starfield Class 2 Certificate Authority
 
-For information about using ACM, see the
-_[AWS Certificate Manager User Guide](../../../acm/latest/userguide.md "../../../acm/latest/userguide.md")_.
+For information about using ACM, see the *[AWS Certificate Manager User Guide](https://docs.aws.amazon.com/acm/latest/userguide/)*.
 
-If certificates in your computing environment are managed by a Group Policy Object
-(GPO), then you might need to configure Group Policy to include one of these
-certificates.
+If certificates in your computing environment are managed by a Group Policy Object (GPO), then you might need to configure Group Policy to include one of these certificates.
 
-For more information about the Amazon Root and Starfield certificates, see the
-blog post [How
-to Prepare for AWS’s Move to Its Own Certificate Authority](https://aws.amazon.com/blogs/security/how-to-prepare-for-aws-move-to-its-own-certificate-authority/ "https://aws.amazon.com/blogs/security/how-to-prepare-for-aws-move-to-its-own-certificate-authority/").
+For more information about the Amazon Root and Starfield certificates, see the blog post [How to Prepare for AWS’s Move to Its Own Certificate Authority](https://aws.amazon.com/blogs/security/how-to-prepare-for-aws-move-to-its-own-certificate-authority/).
 
 ## Solution 8: Verify Default Host Management Configuration (DHMC) settings
+<a name="instances-missing-solution-8"></a>
 
-Default Host Management Configuration (DHMC) allows Systems Manager to manage Amazon EC2 instances
-automatically without requiring an instance profile on each instance. Verify that
-DHMC is enabled in your account and Region, and that the associated IAM role has
-the required permissions and trust policy.
+Default Host Management Configuration (DHMC) allows Systems Manager to manage Amazon EC2 instances automatically without requiring an instance profile on each instance. Verify that DHMC is enabled in your account and Region, and that the associated IAM role has the required permissions and trust policy.
 
 To resolve DHMC-related issues:
 
-1. Verify that DHMC is enabled in your account and Region. For more
-   information, see [Managing EC2 instances automatically with Default Host Management Configuration](fleet-manager-default-host-management-configuration.md "fleet-manager-default-host-management-configuration.md").
-2. If DHMC is enabled, verify that the associated IAM role includes the
-   AmazonSSMManagedInstanceCore managed policy.
-3. Verify that the IAM role has the correct trust policy allowing Systems Manager to
-   assume the role.
+1. Verify that DHMC is enabled in your account and Region. For more information, see [Managing EC2 instances automatically with Default Host Management Configuration](fleet-manager-default-host-management-configuration.md).
+
+1. If DHMC is enabled, verify that the associated IAM role includes the AmazonSSMManagedInstanceCore managed policy.
+
+1. Verify that the IAM role has the correct trust policy allowing Systems Manager to assume the role.
 
 ## Solution 9: Verify hybrid activation settings
+<a name="instances-missing-solution-9"></a>
 
-For hybrid-activated nodes (on-premises servers or VMs in other cloud
-environments), verify that the hybrid activation is valid and that the node can
-connect to Systems Manager service endpoints. Issues can occur if the activation has expired,
-the registration limit has been reached, or if there are conflicting
-registrations.
+For hybrid-activated nodes (on-premises servers or VMs in other cloud environments), verify that the hybrid activation is valid and that the node can connect to Systems Manager service endpoints. Issues can occur if the activation has expired, the registration limit has been reached, or if there are conflicting registrations.
 
 To resolve hybrid activation issues:
 
-1. Verify that the hybrid activation has not expired. If it has expired,
-   create a new activation. For more information, see [Create a hybrid activation to register nodes with Systems Manager](hybrid-activation-managed-nodes.md "hybrid-activation-managed-nodes.md").
-2. Check that the activation registration limit has not been reached. If
-   needed, create a new activation with a higher registration limit, or
-   deregister unused nodes.
-3. If you cloned a VM that was previously registered with Systems Manager, deregister
-   the original node before registering the clone to avoid registration
-   conflicts.
-4. Verify that the hybrid node can reach the required Systems Manager service endpoints
-   from its network location. For more information, see [Improve the security of EC2 instances by using VPC endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md").
+1. Verify that the hybrid activation has not expired. If it has expired, create a new activation. For more information, see [Create a hybrid activation to register nodes with Systems Manager](hybrid-activation-managed-nodes.md).
+
+1. Check that the activation registration limit has not been reached. If needed, create a new activation with a higher registration limit, or deregister unused nodes.
+
+1. If you cloned a VM that was previously registered with Systems Manager, deregister the original node before registering the clone to avoid registration conflicts.
+
+1. Verify that the hybrid node can reach the required Systems Manager service endpoints from its network location. For more information, see [Improve the security of EC2 instances by using VPC endpoints for Systems Manager](setup-create-vpc.md).

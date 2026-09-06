@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `ListAssociationVersions` with a CLI
+<a name="example_ssm_ListAssociationVersions_section"></a>
 
 The following code examples show how to use `ListAssociationVersions`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list all versions of an association for a specific association ID**
-
-The following `list-association-versions` example lists all versions of the specified associations.
-
-```
-`aws ssm list-association-versions \
- --association-id `"8dfe3659-4309-493a-8755-0123456789ab"``
+**AWS CLI**  
+**To list all versions of an association for a specific association ID**  
+The following `list-association-versions` example lists all versions of the specified associations.  
 
 ```
-
-Output:
+aws ssm list-association-versions \
+    --association-id {{"8dfe3659-4309-493a-8755-0123456789ab"}}
+```
+Output:  
 
 ```
 {
@@ -48,25 +50,19 @@ Output:
     ]
 }
 ```
+For more information, see [Working with associations in Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-associations.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [ListAssociationVersions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-association-versions.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Working with associations in Systems Manager](systems-manager-associations.md "systems-manager-associations.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [ListAssociationVersions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-association-versions.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-association-versions.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example retrieves all versions of the association provided.**
+**Tools for PowerShell V4**  
+**Example 1: This example retrieves all versions of the association provided.**  
 
 ```
 Get-SSMAssociationVersionList -AssociationId 123a45a0-c678-9012-3456-78901234db5e
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId      : 123a45a0-c678-9012-3456-78901234db5e
@@ -97,21 +93,15 @@ Parameters         : {}
 ScheduleExpression : rate(30minutes)
 Targets            : {InstanceIds}
 ```
++  For API details, see [ListAssociationVersions](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListAssociationVersions](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example retrieves all versions of the association provided.**
+**Tools for PowerShell V5**  
+**Example 1: This example retrieves all versions of the association provided.**  
 
 ```
 Get-SSMAssociationVersionList -AssociationId 123a45a0-c678-9012-3456-78901234db5e
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId      : 123a45a0-c678-9012-3456-78901234db5e
@@ -142,11 +132,8 @@ Parameters         : {}
 ScheduleExpression : rate(30minutes)
 Targets            : {InstanceIds}
 ```
++  For API details, see [ListAssociationVersions](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListAssociationVersions](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

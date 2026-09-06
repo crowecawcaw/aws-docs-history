@@ -1,23 +1,25 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DescribeMaintenanceWindowExecutionTaskInvocations` with a CLI
+<a name="example_ssm_DescribeMaintenanceWindowExecutionTaskInvocations_section"></a>
 
 The following code examples show how to use `DescribeMaintenanceWindowExecutionTaskInvocations`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get the specific task invocations performed for a maintenance window task execution**
-
-The following `describe-maintenance-window-execution-task-invocations` example lists the invocations for the specified task executed as part of the specified maintenance window execution.
-
-```
-`aws ssm describe-maintenance-window-execution-task-invocations \
- --window-execution-id `"518d5565-5969-4cca-8f0e-da3b2a638355"` \
- --task-id `"ac0c6ae1-daa3-4a89-832e-d384503b6586"``
+**AWS CLI**  
+**To get the specific task invocations performed for a maintenance window task execution**  
+The following `describe-maintenance-window-execution-task-invocations` example lists the invocations for the specified task executed as part of the specified maintenance window execution.  
 
 ```
-
-Output:
+aws ssm describe-maintenance-window-execution-task-invocations \
+    --window-execution-id {{"518d5565-5969-4cca-8f0e-da3b2a638355"}} \
+    --task-id {{"ac0c6ae1-daa3-4a89-832e-d384503b6586"}}
+```
+Output:  
 
 ```
 {
@@ -34,25 +36,19 @@ Output:
     ]
 }
 ```
+For more information, see [View Information About Tasks and Task Executions (AWS CLI)](https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-task-info.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [DescribeMaintenanceWindowExecutionTaskInvocations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-maintenance-window-execution-task-invocations.html) in *AWS CLI Command Reference*. 
 
-For more information, see [View Information About Tasks and Task Executions (AWS CLI)](mw-cli-tutorial-task-info.md "mw-cli-tutorial-task-info.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [DescribeMaintenanceWindowExecutionTaskInvocations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-maintenance-window-execution-task-invocations.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-maintenance-window-execution-task-invocations.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example lists the invocations for a task executed as part of a maintenance window execution.**
+**Tools for PowerShell V4**  
+**Example 1: This example lists the invocations for a task executed as part of a maintenance window execution.**  
 
 ```
 Get-SSMMaintenanceWindowExecutionTaskInvocationList -TaskId "ac0c6ae1-daa3-4a89-832e-d384503b6586" -WindowExecutionId "518d5565-5969-4cca-8f0e-da3b2a638355"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 EndTime           : 2/21/2017 4:00:34 PM
@@ -68,21 +64,15 @@ TaskExecutionId   : ac0c6ae1-daa3-4a89-832e-d384503b6586
 WindowExecutionId : 518d5565-5969-4cca-8f0e-da3b2a638355
 WindowTargetId    :
 ```
++  For API details, see [DescribeMaintenanceWindowExecutionTaskInvocations](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeMaintenanceWindowExecutionTaskInvocations](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example lists the invocations for a task executed as part of a maintenance window execution.**
+**Tools for PowerShell V5**  
+**Example 1: This example lists the invocations for a task executed as part of a maintenance window execution.**  
 
 ```
 Get-SSMMaintenanceWindowExecutionTaskInvocationList -TaskId "ac0c6ae1-daa3-4a89-832e-d384503b6586" -WindowExecutionId "518d5565-5969-4cca-8f0e-da3b2a638355"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 EndTime           : 2/21/2017 4:00:34 PM
@@ -98,11 +88,8 @@ TaskExecutionId   : ac0c6ae1-daa3-4a89-832e-d384503b6586
 WindowExecutionId : 518d5565-5969-4cca-8f0e-da3b2a638355
 WindowTargetId    :
 ```
++  For API details, see [DescribeMaintenanceWindowExecutionTaskInvocations](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeMaintenanceWindowExecutionTaskInvocations](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,28 +1,31 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Calling the ECS optimized AMI public parameter in Parameter Store
+<a name="parameter-store-public-parameters-ecs"></a>
 
-The Amazon Elastic Container Service (Amazon ECS) service publishes the name of the latest Amazon ECS optimized
-Amazon Machine Images (AMIs) as public parameters. Users are encouraged to use this AMI
-when creating a new Amazon Elastic Compute Cloud (Amazon EC2) cluster for Amazon ECS because the optimized
-AMIs include bug fixes and feature updates.
+The Amazon Elastic Container Service (Amazon ECS) service publishes the name of the latest Amazon ECS optimized Amazon Machine Images (AMIs) as public parameters. Users are encouraged to use this AMI when creating a new Amazon Elastic Compute Cloud (Amazon EC2) cluster for Amazon ECS because the optimized AMIs include bug fixes and feature updates.
 
-Use the following command to view the name of the latest Amazon ECS optimized AMI for
-Amazon Linux 2. To see commands for other operating systems, see [Retrieving
-Amazon ECS-Optimized AMI metadata](../../../AmazonECS/latest/developerguide/retrieve-ecs-optimized_AMI.md "../../../AmazonECS/latest/developerguide/retrieve-ecs-optimized_AMI.md") in the
-_Amazon Elastic Container Service Developer Guide_.
+Use the following command to view the name of the latest Amazon ECS optimized AMI for Amazon Linux 2. To see commands for other operating systems, see [Retrieving Amazon ECS-Optimized AMI metadata ](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/retrieve-ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters \
     --names /aws/service/ecs/optimized-ami/amazon-linux-2/recommended
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters ^
     --names /aws/service/ecs/optimized-ami/amazon-linux-2/recommended
 ```
+
+------
 
 The command returns information like the following.
 

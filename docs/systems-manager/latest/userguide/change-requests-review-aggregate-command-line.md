@@ -1,278 +1,282 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Viewing aggregated counts of change requests (command line)
+<a name="change-requests-review-aggregate-command-line"></a>
 
-###### Change Manager availability change
+**Change Manager availability change**  
+AWS Systems Manager Change Manager will no longer be open to new customers starting November 7, 2025. If you would like to use Change Manager, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html). 
 
-AWS Systems Manager Change Manager will no longer be open to new customers
-starting November 7, 2025. If you would like to use Change Manager, sign up prior to that
-date. Existing customers can continue to use the service as normal. For more
-information, see [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+You can view aggregated counts of change requests in Change Manager, a tool in AWS Systems Manager, by using the [GetOpsSummary](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsSummary.html) API operation. This API operation can return counts for a single AWS account in a single AWS Region or for multiple accounts and multiple Regions.
 
-You can view aggregated counts of change requests in Change Manager, a tool in
-AWS Systems Manager, by using the [GetOpsSummary](../APIReference/API_GetOpsSummary.md "../APIReference/API_GetOpsSummary.md") API operation. This API operation can return counts for a
-single AWS account in a single AWS Region or for multiple accounts and multiple
-Regions.
+**Note**  
+If you want to view aggregated counts of change requests for multiple AWS accounts and multiple AWS Regions, you must set up and configure a resource data sync. For more information, see [Creating a resource data sync for Inventory](inventory-create-resource-data-sync.md).
 
-###### Note
+The following procedure describes how to use the AWS Command Line Interface (AWS CLI) (on Linux, macOS, or Windows Server) to view aggregated counts of change requests. 
 
-If you want to view aggregated counts of change requests for multiple
-AWS accounts and multiple AWS Regions, you must set up and configure a
-resource data sync. For more information, see [Creating a resource data sync for Inventory](inventory-create-resource-data-sync.md "inventory-create-resource-data-sync.md").
-
-The following procedure describes how to use the AWS Command Line Interface (AWS CLI) (on Linux,
-macOS, or Windows Server) to view aggregated counts of change requests.
-
-###### To view aggregated counts of change requests
+**To view aggregated counts of change requests**
 
 1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
 
-For information, see [Installing or updating the
-latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). 2. Run one of the following commands.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-**Single account and Region**
+1. Run one of the following commands. 
 
-This command returns a count of all change requests for the AWS account
-and AWS Region for which your AWS CLI session is configured.
+   **Single account and Region**
 
-Linux & macOS
+   This command returns a count of all change requests for the AWS account and AWS Region for which your AWS CLI session is configured.
 
-```
-aws ssm get-ops-summary \
---filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
---aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
-```
+------
+#### [ Linux & macOS ]
 
-Windows
+   ```
+   aws ssm get-ops-summary \
+   --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
+   --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
+   ```
 
-```
-aws ssm get-ops-summary ^
---filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
---aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
-```
+------
+#### [ Windows ]
 
-The call returns information like the following.
+   ```
+   aws ssm get-ops-summary ^
+   --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
+   --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
+   ```
 
-```
-{
-    "Entities": [
-        {
-            "Data": {
-                "AWS:OpsItem": {
-                    "Content": [
-                        {
-                            "Count": "38",
-                            "Status": "Open"
-                        }
-                    ]
-                }
-            }
-        }
-    ]
-}
-```
+------
 
-**Multiple accounts and/or Regions**
+   The call returns information like the following.
 
-This command returns a count of all change requests for the
-AWS accounts and AWS Regions specified in the resource data sync.
+   ```
+   {
+       "Entities": [
+           {
+               "Data": {
+                   "AWS:OpsItem": {
+                       "Content": [
+                           {
+                               "Count": "38",
+                               "Status": "Open"
+                           }
+                       ]
+                   }
+               }
+           }
+       ]
+   }
+   ```
 
-Linux & macOS
+   **Multiple accounts and/or Regions**
 
-```
-aws ssm get-ops-summary \
-    --sync-name `resource_data_sync_name` \
-    --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
-    --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
-```
+   This command returns a count of all change requests for the AWS accounts and AWS Regions specified in the resource data sync.
 
-Windows
+------
+#### [ Linux & macOS ]
 
-```
-aws ssm get-ops-summary ^
-    --sync-name `resource_data_sync_name` ^
-    --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
-    --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
-```
+   ```
+   aws ssm get-ops-summary \
+       --sync-name {{resource_data_sync_name}} \
+       --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
+       --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
+   ```
 
-The call returns information like the following.
+------
+#### [ Windows ]
 
-```
-{
-    "Entities": [
-        {
-            "Data": {
-                "AWS:OpsItem": {
-                    "Content": [
-                        {
-                            "Count": "43",
-                            "Status": "Open"
-                        },
-                        {
-                            "Count": "2",
-                            "Status": "Resolved"
-                        }
-                    ]
-                }
-            }
-        }
-    ]
-}
-```
+   ```
+   aws ssm get-ops-summary ^
+       --sync-name {{resource_data_sync_name}} ^
+       --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
+       --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
+   ```
 
-**Multiple accounts and a specific
-Region**
+------
 
-This command returns a count of all change requests for the
-AWS accounts specified in the resource data sync. However, it only returns
-data from the Region specified in the command.
+   The call returns information like the following.
 
-Linux & macOS
+   ```
+   {
+       "Entities": [
+           {
+               "Data": {
+                   "AWS:OpsItem": {
+                       "Content": [
+                           {
+                               "Count": "43",
+                               "Status": "Open"
+                           },
+                           {
+                               "Count": "2",
+                               "Status": "Resolved"
+                           }
+                       ]
+                   }
+               }
+           }
+       ]
+   }
+   ```
 
-```
-aws ssm get-ops-summary \
-    --sync-name `resource_data_sync_name` \
-    --filters Key=AWS:OpsItem.SourceRegion,Values='`Region`',Type=Equal Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
-    --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
-```
+   **Multiple accounts and a specific Region**
 
-Windows
+   This command returns a count of all change requests for the AWS accounts specified in the resource data sync. However, it only returns data from the Region specified in the command.
 
-```
-aws ssm get-ops-summary ^
-    --sync-name `resource_data_sync_name` ^
-    --filters Key=AWS:OpsItem.SourceRegion,Values='`Region`',Type=Equal Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
-    --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
-```
+------
+#### [ Linux & macOS ]
 
-**Multiple accounts and Regions with output grouped by
-Region**
+   ```
+   aws ssm get-ops-summary \
+       --sync-name {{resource_data_sync_name}} \
+       --filters Key=AWS:OpsItem.SourceRegion,Values='{{Region}}',Type=Equal Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
+       --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
+   ```
 
-This command returns a count of all change requests for the
-AWS accounts and AWS Regions specified in the resource data sync. The
-output displays count information per Region.
+------
+#### [ Windows ]
 
-Linux & macOS
+   ```
+   aws ssm get-ops-summary ^
+       --sync-name {{resource_data_sync_name}} ^
+       --filters Key=AWS:OpsItem.SourceRegion,Values='{{Region}}',Type=Equal Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
+       --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
+   ```
 
-```
-aws ssm get-ops-summary \
-    --sync-name `resource_data_sync_name` \
-    --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
-    --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]'
-```
+------
 
-Windows
+   **Multiple accounts and Regions with output grouped by Region**
 
-```
-aws ssm get-ops-summary ^
-    --sync-name `resource_data_sync_name` ^
-    --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
-    --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]'
-```
+   This command returns a count of all change requests for the AWS accounts and AWS Regions specified in the resource data sync. The output displays count information per Region.
 
-The call returns information like the following.
+------
+#### [ Linux & macOS ]
 
-```
-{
-        "Entities": [
-            {
-                "Data": {
-                    "AWS:OpsItem": {
-                        "Content": [
-                            {
-                                "Count": "38",
-                                "SourceRegion": "us-east-1",
-                                "Status": "Open"
-                            },
-                            {
-                                "Count": "4",
-                                "SourceRegion": "us-east-2",
-                                "Status": "Open"
-                            },
-                            {
-                                "Count": "1",
-                                "SourceRegion": "us-west-1",
-                                "Status": "Open"
-                            },
-                            {
-                                "Count": "2",
-                                "SourceRegion": "us-east-2",
-                                "Status": "Resolved"
-                            }
-                        ]
-                    }
-                }
-            }
-        ]
-    }
-```
+   ```
+   aws ssm get-ops-summary \
+       --sync-name {{resource_data_sync_name}} \
+       --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
+       --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]'
+   ```
 
-**Multiple accounts and Regions with output grouped by
-accounts and Regions**
+------
+#### [ Windows ]
 
-This command returns a count of all change requests for the
-AWS accounts and AWS Regions specified in the resource data sync. The
-output groups the count information by accounts and Regions.
+   ```
+   aws ssm get-ops-summary ^
+       --sync-name {{resource_data_sync_name}} ^
+       --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
+       --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]'
+   ```
 
-Linux & macOS
+------
 
-```
-aws ssm get-ops-summary \
-    --sync-name `resource_data_sync_name` \
-    --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
-    --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceAccountId","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]}]'
-```
+   The call returns information like the following.
 
-Windows
+   ```
+   {
+           "Entities": [
+               {
+                   "Data": {
+                       "AWS:OpsItem": {
+                           "Content": [
+                               {
+                                   "Count": "38",
+                                   "SourceRegion": "us-east-1",
+                                   "Status": "Open"
+                               },
+                               {
+                                   "Count": "4",
+                                   "SourceRegion": "us-east-2",
+                                   "Status": "Open"
+                               },
+                               {
+                                   "Count": "1",
+                                   "SourceRegion": "us-west-1",
+                                   "Status": "Open"
+                               },
+                               {
+                                   "Count": "2",
+                                   "SourceRegion": "us-east-2",
+                                   "Status": "Resolved"
+                               }
+                           ]
+                       }
+                   }
+               }
+           ]
+       }
+   ```
 
-```
-aws ssm get-ops-summary ^
-    --sync-name `resource_data_sync_name` ^
-    --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
-    --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceAccountId","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]}]'
-```
+   **Multiple accounts and Regions with output grouped by accounts and Regions**
 
-The call returns information like the following.
+   This command returns a count of all change requests for the AWS accounts and AWS Regions specified in the resource data sync. The output groups the count information by accounts and Regions.
 
-```
-{
-    "Entities": [
-        {
-            "Data": {
-                "AWS:OpsItem": {
-                    "Content": [
-                        {
-                            "Count": "38",
-                            "SourceAccountId": "123456789012",
-                            "SourceRegion": "us-east-1",
-                            "Status": "Open"
-                        },
-                        {
-                            "Count": "4",
-                            "SourceAccountId": "111122223333",
-                            "SourceRegion": "us-east-2",
-                            "Status": "Open"
-                        },
-                        {
-                            "Count": "1",
-                            "SourceAccountId": "111122223333",
-                            "SourceRegion": "us-west-1",
-                            "Status": "Open"
-                        },
-                        {
-                            "Count": "2",
-                            "SourceAccountId": "444455556666",
-                            "SourceRegion": "us-east-2",
-                            "Status": "Resolved"
-                        },
-                        {
-                            "Count": "1",
-                            "SourceAccountId": "222222222222",
-                            "SourceRegion": "us-east-1",
-                            "Status": "Open"
-                        }
-                    ]
-                }
-            }
-        }
-    ]
-}
-```
+------
+#### [ Linux & macOS ]
+
+   ```
+   aws ssm get-ops-summary \
+       --sync-name {{resource_data_sync_name}} \
+       --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
+       --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceAccountId","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]}]'
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm get-ops-summary ^
+       --sync-name {{resource_data_sync_name}} ^
+       --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
+       --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceAccountId","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]}]'
+   ```
+
+------
+
+   The call returns information like the following.
+
+   ```
+   {
+       "Entities": [
+           {
+               "Data": {
+                   "AWS:OpsItem": {
+                       "Content": [
+                           {
+                               "Count": "38",
+                               "SourceAccountId": "123456789012",
+                               "SourceRegion": "us-east-1",
+                               "Status": "Open"
+                           },
+                           {
+                               "Count": "4",
+                               "SourceAccountId": "111122223333",
+                               "SourceRegion": "us-east-2",
+                               "Status": "Open"
+                           },
+                           {
+                               "Count": "1",
+                               "SourceAccountId": "111122223333",
+                               "SourceRegion": "us-west-1",
+                               "Status": "Open"
+                           },
+                           {
+                               "Count": "2",
+                               "SourceAccountId": "444455556666",
+                               "SourceRegion": "us-east-2",
+                               "Status": "Resolved"
+                           },
+                           {
+                               "Count": "1",
+                               "SourceAccountId": "222222222222",
+                               "SourceRegion": "us-east-1",
+                               "Status": "Open"
+                           }
+                       ]
+                   }
+               }
+           }
+       ]
+   }
+   ```

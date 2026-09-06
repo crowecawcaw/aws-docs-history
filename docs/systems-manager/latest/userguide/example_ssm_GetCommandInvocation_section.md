@@ -1,23 +1,25 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `GetCommandInvocation` with a CLI
+<a name="example_ssm_GetCommandInvocation_section"></a>
 
 The following code examples show how to use `GetCommandInvocation`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To display the details of a command invocation**
-
-The following `get-command-invocation` example lists all the invocations of the specified command on the specified instance.
-
-```
-`aws ssm get-command-invocation \
- --command-id `"ef7fdfd8-9b57-4151-a15c-db9a12345678"` \
- --instance-id `"i-1234567890abcdef0"``
+**AWS CLI**  
+**To display the details of a command invocation**  
+The following `get-command-invocation` example lists all the invocations of the specified command on the specified instance.  
 
 ```
-
-Output:
+aws ssm get-command-invocation \
+    --command-id {{"ef7fdfd8-9b57-4151-a15c-db9a12345678"}} \
+    --instance-id {{"i-1234567890abcdef0"}}
+```
+Output:  
 
 ```
 {
@@ -43,25 +45,19 @@ Output:
     }
 }
 ```
+For more information, see [Understanding Command Statuses](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [GetCommandInvocation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-command-invocation.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Understanding Command Statuses](monitor-commands.md "monitor-commands.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [GetCommandInvocation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-command-invocation.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-command-invocation.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example displays the details of a command executed on an instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example displays the details of a command executed on an instance.**  
 
 ```
 Get-SSMCommandInvocationDetail -InstanceId "i-0cb2b964d3e14fd9f" -CommandId "b8eac879-0541-439d-94ec-47a80d554f44"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CommandId              : b8eac879-0541-439d-94ec-47a80d554f44
@@ -80,21 +76,15 @@ StandardOutputUrl      :
 Status                 : Success
 StatusDetails          : Success
 ```
++  For API details, see [GetCommandInvocation](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetCommandInvocation](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example displays the details of a command executed on an instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example displays the details of a command executed on an instance.**  
 
 ```
 Get-SSMCommandInvocationDetail -InstanceId "i-0cb2b964d3e14fd9f" -CommandId "b8eac879-0541-439d-94ec-47a80d554f44"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CommandId              : b8eac879-0541-439d-94ec-47a80d554f44
@@ -113,11 +103,8 @@ StandardOutputUrl      :
 Status                 : Success
 StatusDetails          : Success
 ```
++  For API details, see [GetCommandInvocation](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetCommandInvocation](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

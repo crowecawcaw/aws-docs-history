@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `ListAssociations` with a CLI
+<a name="example_ssm_ListAssociations_section"></a>
 
 The following code examples show how to use `ListAssociations`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To list your associations for a specific instance**
-
-The following list-associations example lists all associations with the AssociationName, UpdateSSMAgent.
-
-```
-`aws ssm list-associations `/`
- --association-filter-list `"key=AssociationName,value=UpdateSSMAgent"``
+**AWS CLI**  
+**Example 1: To list your associations for a specific instance**  
+The following list-associations example lists all associations with the AssociationName, UpdateSSMAgent.  
 
 ```
-
-Output:
+aws ssm list-associations {{/}}
+    --association-filter-list {{"key=AssociationName,value=UpdateSSMAgent"}}
+```
+Output:  
 
 ```
 {
@@ -47,20 +49,15 @@ Output:
     ]
 }
 ```
-
-For more information, see [Working with associations in Systems Manager](systems-manager-associations.md "systems-manager-associations.md") in the _Systems Manager User Guide_.
-
-**Example 2: To list your associations for a specific document**
-
-The following list-associations example lists all associations for the specified document.
+For more information, see [Working with associations in Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-associations.html) in the *Systems Manager User Guide*.  
+**Example 2: To list your associations for a specific document**  
+The following list-associations example lists all associations for the specified document.  
 
 ```
-`aws ssm list-associations `/`
- --association-filter-list `"key=Name,value=AWS-UpdateSSMAgent"``
-
+aws ssm list-associations {{/}}
+    --association-filter-list {{"key=Name,value=AWS-UpdateSSMAgent"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -113,26 +110,20 @@ Output:
     ]
 }
 ```
+For more information, see [Working with associations in Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-associations.html) in the *Systems Manager User Guide*.  
++  For API details, see [ListAssociations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-associations.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Working with associations in Systems Manager](systems-manager-associations.md "systems-manager-associations.md") in the _Systems Manager User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [ListAssociations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-associations.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-associations.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example lists all the associations for an instance. The syntax used by this example requires PowerShell version 3 or later.**
+**Tools for PowerShell V4**  
+**Example 1: This example lists all the associations for an instance. The syntax used by this example requires PowerShell version 3 or later.**  
 
 ```
 $filter1 = @{Key="InstanceId";Value=@("i-0000293ffd8c57862")}
 Get-SSMAssociationList -AssociationFilterList $filter1
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId      : d8617c07-2079-4c18-9847-1655fc2698b0
@@ -144,16 +135,13 @@ Overview           : Amazon.SimpleSystemsManagement.Model.AssociationOverview
 ScheduleExpression :
 Targets            : {InstanceIds}
 ```
-
-**Example 2: This example lists all associations for a configuration document. The syntax used by this example requires PowerShell version 3 or later.**
+**Example 2: This example lists all associations for a configuration document. The syntax used by this example requires PowerShell version 3 or later.**  
 
 ```
 $filter2 = @{Key="Name";Value=@("AWS-UpdateSSMAgent")}
 Get-SSMAssociationList -AssociationFilterList $filter2
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId      : d8617c07-2079-4c18-9847-1655fc2698b0
@@ -165,8 +153,7 @@ Overview           : Amazon.SimpleSystemsManagement.Model.AssociationOverview
 ScheduleExpression :
 Targets            : {InstanceIds}
 ```
-
-**Example 3: With PowerShell version 2, you must use New-Object to create each filter.**
+**Example 3: With PowerShell version 2, you must use New-Object to create each filter.**  
 
 ```
 $filter1 = New-Object Amazon.SimpleSystemsManagement.Model.AssociationFilter
@@ -174,10 +161,8 @@ $filter1.Key = "InstanceId"
 $filter1.Value = "i-0000293ffd8c57862"
 
 Get-SSMAssociationList -AssociationFilterList $filter1
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId      : d8617c07-2079-4c18-9847-1655fc2698b0
@@ -189,22 +174,16 @@ Overview           : Amazon.SimpleSystemsManagement.Model.AssociationOverview
 ScheduleExpression :
 Targets            : {InstanceIds}
 ```
++  For API details, see [ListAssociations](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListAssociations](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example lists all the associations for an instance. The syntax used by this example requires PowerShell version 3 or later.**
+**Tools for PowerShell V5**  
+**Example 1: This example lists all the associations for an instance. The syntax used by this example requires PowerShell version 3 or later.**  
 
 ```
 $filter1 = @{Key="InstanceId";Value=@("i-0000293ffd8c57862")}
 Get-SSMAssociationList -AssociationFilterList $filter1
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId      : d8617c07-2079-4c18-9847-1655fc2698b0
@@ -216,16 +195,13 @@ Overview           : Amazon.SimpleSystemsManagement.Model.AssociationOverview
 ScheduleExpression :
 Targets            : {InstanceIds}
 ```
-
-**Example 2: This example lists all associations for a configuration document. The syntax used by this example requires PowerShell version 3 or later.**
+**Example 2: This example lists all associations for a configuration document. The syntax used by this example requires PowerShell version 3 or later.**  
 
 ```
 $filter2 = @{Key="Name";Value=@("AWS-UpdateSSMAgent")}
 Get-SSMAssociationList -AssociationFilterList $filter2
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId      : d8617c07-2079-4c18-9847-1655fc2698b0
@@ -237,8 +213,7 @@ Overview           : Amazon.SimpleSystemsManagement.Model.AssociationOverview
 ScheduleExpression :
 Targets            : {InstanceIds}
 ```
-
-**Example 3: With PowerShell version 2, you must use New-Object to create each filter.**
+**Example 3: With PowerShell version 2, you must use New-Object to create each filter.**  
 
 ```
 $filter1 = New-Object Amazon.SimpleSystemsManagement.Model.AssociationFilter
@@ -246,10 +221,8 @@ $filter1.Key = "InstanceId"
 $filter1.Value = "i-0000293ffd8c57862"
 
 Get-SSMAssociationList -AssociationFilterList $filter1
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId      : d8617c07-2079-4c18-9847-1655fc2698b0
@@ -261,11 +234,8 @@ Overview           : Amazon.SimpleSystemsManagement.Model.AssociationOverview
 ScheduleExpression :
 Targets            : {InstanceIds}
 ```
++  For API details, see [ListAssociations](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListAssociations](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

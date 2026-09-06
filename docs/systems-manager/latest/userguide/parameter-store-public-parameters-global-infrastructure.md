@@ -1,37 +1,34 @@
-# Calling public parameters for AWS services, Regions, endpoints, Availability Zones, local zones, and Wavelength Zones in Parameter Store
 
-You can call the AWS Region, service, endpoint, Availability, and Wavelength
-Zones of public parameters by using the following path.
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
+# Calling public parameters for AWS services, Regions, endpoints, Availability Zones, local zones, and Wavelength Zones in Parameter Store
+<a name="parameter-store-public-parameters-global-infrastructure"></a>
+
+You can call the AWS Region, service, endpoint, Availability, and Wavelength Zones of public parameters by using the following path.
 
 `/aws/service/global-infrastructure`
 
-###### Note
-
-Currently, the path `/aws/service/global-infrastructure` is
-supported for queries in the following AWS Regions only:
-
-- US East (N. Virginia) (us-east-1)
-- US East (Ohio) (us-east-2)
-- US West (N. California) (us-west-1)
-- US West (Oregon) (us-west-2)
-- Asia Pacific (Hong Kong) (ap-east-1)
-- Asia Pacific (Mumbai) (ap-south-1)
-- Asia Pacific (Seoul) (ap-northeast-2)
-- Asia Pacific (Singapore) (ap-southeast-1)
-- Asia Pacific (Sydney) (ap-southeast-2)
-- Asia Pacific (Tokyo) (ap-northeast-1)
-- Canada (Central) (ca-central-1)
-- Europe (Frankfurt) (eu-central-1)
-- Europe (Ireland) (eu-west-1)
-- Europe (London) (eu-west-2)
-- Europe (Paris) (eu-west-3)
-- Europe (Stockholm) (eu-north-1)
-- South America (São Paulo) (sa-east-1)
-  If you are working in a different [commercial
-  Region](../../../glossary/latest/reference/glos-chap.md#region "../../../glossary/latest/reference/glos-chap.md#region"), you can specify a supported Region in your query to view
-  results. For example, if you are working in the Canada West (Calgary) (ca-west-1)
-  Region, you could specify Canada (Central) (ca-central-1) in your
-  query:
+**Note**  
+Currently, the path `/aws/service/global-infrastructure` is supported for queries in the following AWS Regions only:  
+US East (N. Virginia) (us-east-1)
+US East (Ohio) (us-east-2)
+US West (N. California) (us-west-1)
+US West (Oregon) (us-west-2) 
+Asia Pacific (Hong Kong) (ap-east-1)
+Asia Pacific (Mumbai) (ap-south-1)
+Asia Pacific (Seoul) (ap-northeast-2)
+Asia Pacific (Singapore) (ap-southeast-1)
+Asia Pacific (Sydney) (ap-southeast-2)
+Asia Pacific (Tokyo) (ap-northeast-1)
+Canada (Central) (ca-central-1)
+Europe (Frankfurt) (eu-central-1)
+Europe (Ireland) (eu-west-1) 
+Europe (London) (eu-west-2) 
+Europe (Paris) (eu-west-3) 
+Europe (Stockholm) (eu-north-1)
+South America (São Paulo) (sa-east-1)
+If you are working in a different [commercial Region](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#region), you can specify a supported Region in your query to view results. For example, if you are working in the Canada West (Calgary) (ca-west-1) Region, you could specify Canada (Central) (ca-central-1) in your query:  
 
 ```
 aws ssm get-parameters-by-path \
@@ -39,12 +36,11 @@ aws ssm get-parameters-by-path \
     --region ca-central-1
 ```
 
-###### View active AWS Regions
+**View active AWS Regions**  
+You can view a list of all active AWS Regions by using the following command in the AWS Command Line Interface (AWS CLI).
 
-You can view a list of all active AWS Regions by using the following command
-in the AWS Command Line Interface (AWS CLI).
-
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -52,13 +48,16 @@ aws ssm get-parameters-by-path \
     --query 'Parameters[].Name'
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
     --path /aws/service/global-infrastructure/regions ^
     --query Parameters[].Name
 ```
+
+------
 
 The command returns information like the following.
 
@@ -100,13 +99,11 @@ The command returns information like the following.
 ]
 ```
 
-###### View available AWS services
+**View available AWS services**  
+You can view a complete list of all available AWS services and sort them into alphabetical order by using the following command. This example output has been truncated for space.
 
-You can view a complete list of all available AWS services and sort them
-into alphabetical order by using the following command. This example output has
-been truncated for space.
-
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -114,7 +111,8 @@ aws ssm get-parameters-by-path \
     --query 'Parameters[].Name | sort(@)'
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
@@ -122,8 +120,9 @@ aws ssm get-parameters-by-path ^
     --query "Parameters[].Name | sort(@)"
 ```
 
-The command returns information like the following. This example has been
-truncated for space.
+------
+
+The command returns information like the following. This example has been truncated for space.
 
 ```
 [
@@ -162,12 +161,11 @@ truncated for space.
     "/aws/service/global-infrastructure/services/awshealthdashboard",
 ```
 
-###### View supported Regions for an AWS service
+**View supported Regions for an AWS service**  
+You can view a list of AWS Regions where a service is available. This example uses AWS Systems Manager (`ssm`).
 
-You can view a list of AWS Regions where a service is available. This
-example uses AWS Systems Manager (`ssm`).
-
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -175,13 +173,16 @@ aws ssm get-parameters-by-path \
     --query 'Parameters[].Value'
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
     --path /aws/service/global-infrastructure/services/ssm/regions ^
     --query Parameters[].Value
 ```
+
+------
 
 The command returns information like the following.
 
@@ -223,12 +224,11 @@ The command returns information like the following.
 ]
 ```
 
-###### View the Regional endpoint for a service
+**View the Regional endpoint for a service**  
+You can view a Regional endpoint for a service by using the following command. This command queries the US East (Ohio) (us-east-2) Region.
 
-You can view a Regional endpoint for a service by using the following command.
-This command queries the US East (Ohio) (us-east-2) Region.
-
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameter \
@@ -236,7 +236,8 @@ aws ssm get-parameter \
     --query 'Parameter.Value'
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameter ^
@@ -244,32 +245,36 @@ aws ssm get-parameter ^
     --query Parameter.Value
 ```
 
+------
+
 The command returns information like the following.
 
 ```
 "ssm.us-east-2.amazonaws.com"
 ```
 
-###### View complete Availability Zone details
-
+**View complete Availability Zone details**  
 You can view Availability Zones by using the following command.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
     --path /aws/service/global-infrastructure/availability-zones/
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
     --path /aws/service/global-infrastructure/availability-zones/
 ```
 
-The command returns information like the following. This example has been
-truncated for space.
+------
+
+The command returns information like the following. This example has been truncated for space.
 
 ```
 {
@@ -305,12 +310,11 @@ truncated for space.
 }
 ```
 
-###### View Availability Zone names only
+**View Availability Zone names only**  
+You can view the names of Availability Zones only by using the following command.
 
-You can view the names of Availability Zones only by using the following
-command.
-
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -318,7 +322,8 @@ aws ssm get-parameters-by-path \
     --query 'Parameters[].Name | sort(@)'
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
@@ -326,8 +331,9 @@ aws ssm get-parameters-by-path ^
     --query "Parameters[].Name | sort(@)"
 ```
 
-The command returns information like the following. This example has been
-truncated for space.
+------
+
+The command returns information like the following. This example has been truncated for space.
 
 ```
 [
@@ -343,13 +349,11 @@ truncated for space.
     "/aws/service/global-infrastructure/availability-zones/apne1-az4"
 ```
 
-###### View names of Availability Zones in a single Region
+**View names of Availability Zones in a single Region**  
+You can view the names of the Availability Zones in one Region (`us-east-2`, in this example) using the following command.
 
-You can view the names of the Availability Zones in one Region
-(`us-east-2`, in this example) using the following
-command.
-
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -357,13 +361,16 @@ aws ssm get-parameters-by-path \
     --query 'Parameters[].Name | sort(@)'
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
     --path /aws/service/global-infrastructure/regions/us-east-2/availability-zones ^
     --query "Parameters[].Name | sort(@)"
 ```
+
+------
 
 The command returns information like the following.
 
@@ -374,12 +381,11 @@ The command returns information like the following.
     "/aws/service/global-infrastructure/regions/us-east-2/availability-zones/use2-az3"
 ```
 
-###### View Availability Zone ARNs only
+**View Availability Zone ARNs only**  
+You can view the Amazon Resource Names (ARNs) of Availability Zones only by using the following command. 
 
-You can view the Amazon Resource Names (ARNs) of Availability Zones only by
-using the following command.
-
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -387,7 +393,8 @@ aws ssm get-parameters-by-path \
     --query 'Parameters[].ARN | sort(@)'
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
@@ -395,8 +402,9 @@ aws ssm get-parameters-by-path ^
     --query "Parameters[].ARN | sort(@)"
 ```
 
-The command returns information like the following. This example has been
-truncated for space.
+------
+
+The command returns information like the following. This example has been truncated for space.
 
 ```
 [
@@ -409,26 +417,28 @@ truncated for space.
     "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/apne1-az1",
 ```
 
-###### View local zone details
-
+**View local zone details**  
 You can view local zones by using the following command.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
     --path /aws/service/global-infrastructure/local-zones
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
     --path /aws/service/global-infrastructure/local-zones
 ```
 
-The command returns information like the following. This example has been
-truncated for space.
+------
+
+The command returns information like the following. This example has been truncated for space.
 
 ```
 {
@@ -464,26 +474,28 @@ truncated for space.
 }
 ```
 
-###### View Wavelength Zone details
-
+**View Wavelength Zone details**  
 You can view Wavelength Zones by using the following command.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
     --path /aws/service/global-infrastructure/wavelength-zones
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
     --path /aws/service/global-infrastructure/wavelength-zones
 ```
 
-The command returns information like the following. This example has been
-truncated for space.
+------
+
+The command returns information like the following. This example has been truncated for space.
 
 ```
 {
@@ -519,27 +531,28 @@ truncated for space.
 }
 ```
 
-###### View all parameters and values under a local zone
+**View all parameters and values under a local zone**  
+You can view all parameter data for a local zone by using the following command.
 
-You can view all parameter data for a local zone by using the following
-command.
-
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
     --path "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/"
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
     --path "/aws/service/global-infrastructure/local-zones/use1-bos1-az1"
 ```
 
-The command returns information like the following. This example has been
-truncated for space.
+------
+
+The command returns information like the following. This example has been truncated for space.
 
 ```
 {
@@ -611,12 +624,11 @@ truncated for space.
 }
 ```
 
-###### View local zone parameter names only
+**View local zone parameter names only**  
+You can view just the names of local zone parameters by using the following command.
 
-You can view just the names of local zone parameters by using the following
-command.
-
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -624,7 +636,8 @@ aws ssm get-parameters-by-path \
     --query 'Parameters[].Name | sort(@)'
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
@@ -632,7 +645,9 @@ aws ssm get-parameters-by-path ^
     --query "Parameters[].Name | sort(@)"
 ```
 
-The command returns information like the following.
+------
+
+The command returns information like the following. 
 
 ```
 [

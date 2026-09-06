@@ -1,136 +1,122 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Schemas, features, and examples
+<a name="documents-schemas-features"></a>
 
 AWS Systems Manager (SSM) documents use the following schema versions.
++ Documents of type `Command` can use schema version 1.2, 2.0, and 2.2. If you use schema 1.2 documents, we recommend that you create documents that use schema version 2.2.
++ Documents of type `Policy` must use schema version 2.0 or later.
++ Documents of type `Automation` must use schema version 0.3.
++ Documents of type `Session` must use schema version 1.0.
++ You can create documents in JSON or YAML.
 
-- Documents of type `Command` can use schema version 1.2, 2.0,
-  and 2.2. If you use schema 1.2 documents, we recommend that you create
-  documents that use schema version 2.2.
-- Documents of type `Policy` must use schema version 2.0 or
-  later.
-- Documents of type `Automation` must use schema version
-  0.3.
-- Documents of type `Session` must use schema version 1.0.
-- You can create documents in JSON or YAML.
-  For more information about `Session` document schema, see [Session document schema](session-manager-schema.md "session-manager-schema.md").
+For more information about `Session` document schema, see [Session document schema](session-manager-schema.md).
 
-By using the latest schema version for `Command` and
-`Policy` documents, you can take advantage of the following
-features.
+By using the latest schema version for `Command` and `Policy` documents, you can take advantage of the following features.
 
-Schema version 2.2 document features| Feature | Details |
-| --- | --- |
-| Document editing | Documents can now be updated. With version 1.2, any update to<br>a document required that you save it with a different<br>name. |
-| Automatic versioning | Any update to a document creates a new version. This isn't a<br>schema version, but a version of the document. |
-| Default version | If you have multiple versions of a document, you can specify<br>which version is the default document. |
-| Sequencing | Plugins or *steps<br>• in a document run in the<br>order that you specified. |
-| Cross-platform support | Cross-platform support lets you specify different<br>operating systems for different plugins within the same SSM<br>document. Cross-platform support uses the<br>`precondition` parameter within a step. |
-| Parameter interpolation | Interpolation means to insert or substitute a variable<br>value into a string. Think of it as filling in a blank space<br>with actual values before the string is used. In the context of<br>SSM documents, parameter interpolation allows string<br>parameters to be interpolated into environment variables before<br>command execution, providing better security against command<br>injections. When set to `ENV_VAR`, the agent creates<br>an environment variable named<br>`SSM_`parameter-name``<br>that contains the parameter's value. |
 
-###### Note
+**Schema version 2.2 document features**  
 
-You must keep AWS Systems Manager SSM Agent on your instances updated with the latest
-version to use new Systems Manager features and SSM document features. For more
-information, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample "run-command-tutorial-update-software.md#rc-console-agentexample").
+| Feature | Details | 
+| --- | --- | 
+| Document editing | Documents can now be updated. With version 1.2, any update to a document required that you save it with a different name. | 
+| Automatic versioning | Any update to a document creates a new version. This isn't a schema version, but a version of the document. | 
+| Default version | If you have multiple versions of a document, you can specify which version is the default document. | 
+| Sequencing | Plugins or *steps* in a document run in the order that you specified. | 
+| Cross-platform support | Cross-platform support lets you specify different operating systems for different plugins within the same SSM document. Cross-platform support uses the `precondition` parameter within a step.  | 
+| Parameter interpolation | Interpolation means to insert or substitute a variable value into a string. Think of it as filling in a blank space with actual values before the string is used. In the context of SSM documents, parameter interpolation allows string parameters to be interpolated into environment variables before command execution, providing better security against command injections. When set to `ENV_VAR`, the agent creates an environment variable named `SSM_{{parameter-name}}` that contains the parameter's value. | 
+
+**Note**  
+You must keep AWS Systems Manager SSM Agent on your instances updated with the latest version to use new Systems Manager features and SSM document features. For more information, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample).
 
 The following table lists the differences between major schema versions.
 
-| Version 1.2    | Version 2.2 (latest version) | Details                                                                                                                                          |
-| -------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| runtimeConfig  | mainSteps                    | In version 2.2, the `mainSteps` section replaces<br>`runtimeConfig`. The `mainSteps`<br>section allows Systems Manager to run steps in sequence. |
-| properties     | inputs                       | In version 2.2, the `inputs` section replaces the<br>`properties` section. The `inputs`<br>section accepts parameters for steps.                 |
-| commands       | runCommand                   | In version 2.2, the `inputs` section takes the<br>`runCommand` parameter instead of the<br>`commands` parameter.                                 |
-| id             | action                       | In version 2.2, `Action` replaces `ID`.<br>This is just a name change.                                                                           |
-| not applicable | name                         | In version 2.2, `name` is any user-defined name for<br>a step.                                                                                   |
 
-###### Using the precondition parameter
 
-With schema version 2.2 or later, you can use the `precondition`
-parameter to specify the target operating system for each plugin or to validate
-input parameters you've defined in your SSM document. The
-`precondition` parameter supports referencing your SSM
-document's input parameters, and `platformType` using values of
-`Linux`, `MacOS`, and `Windows`. Only the
-`StringEquals` operator is supported.
+| Version 1.2 | Version 2.2 (latest version) | Details | 
+| --- | --- | --- | 
+| runtimeConfig | mainSteps | In version 2.2, the `mainSteps` section replaces `runtimeConfig`. The `mainSteps` section allows Systems Manager to run steps in sequence. | 
+| properties | inputs | In version 2.2, the `inputs` section replaces the `properties` section. The `inputs` section accepts parameters for steps. | 
+| commands | runCommand | In version 2.2, the `inputs` section takes the `runCommand` parameter instead of the `commands` parameter. | 
+| id | action | In version 2.2, `Action` replaces `ID`. This is just a name change. | 
+| not applicable | name | In version 2.2, `name` is any user-defined name for a step. | 
 
-For documents that use schema version 2.2 or later, if `precondition`
-isn't specified, each plugin is either run or skipped based on the plugin’s
-compatibility with the operating system. Plugin compatibility with the operating
-system is evaluated before the `precondition`. For documents that use
-schema 2.0 or earlier, incompatible plugins throw an error.
+**Using the precondition parameter**  
+With schema version 2.2 or later, you can use the `precondition` parameter to specify the target operating system for each plugin or to validate input parameters you've defined in your SSM document. The `precondition` parameter supports referencing your SSM document's input parameters, and `platformType` using values of `Linux`, `MacOS`, and `Windows`. Only the `StringEquals` operator is supported.
 
-For example, in a schema version 2.2 document, if `precondition` isn't
-specified and the `aws:runShellScript` plugin is listed, the step
-runs on Linux instances but is skipped on Windows Server instances. This is because
-`aws:runShellScript` isn't compatible with Windows Server.
-In a schema version 2.0 document, specifying
-`aws:runShellScript` and running the document on a Windows Server
-instance causes the execution to fail.
+For documents that use schema version 2.2 or later, if `precondition` isn't specified, each plugin is either run or skipped based on the plugin’s compatibility with the operating system. Plugin compatibility with the operating system is evaluated before the `precondition`. For documents that use schema 2.0 or earlier, incompatible plugins throw an error.
+
+For example, in a schema version 2.2 document, if `precondition` isn't specified and the `aws:runShellScript` plugin is listed, the step runs on Linux instances but is skipped on Windows Server instances. This is because `aws:runShellScript` isn't compatible with Windows Server. In a schema version 2.0 document, specifying `aws:runShellScript` and running the document on a Windows Server instance causes the execution to fail.
 
 ## Schema version 2.2
+<a name="documents-schema-twox"></a>
 
-###### Top-level elements
+**Top-level elements**  
+The following example shows the top-level elements of an SSM document using schema version 2.2.
 
-The following example shows the top-level elements of an SSM document
-using schema version 2.2.
-
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
 schemaVersion: "2.2"
-description: `A description of the document`.
+description: {{A description of the document}}.
 parameters:
-  `parameter 1`:
-    `property 1`: "`value`"
-    `property 2`: "`value`"
-  `parameter 2`:
-    `property 1`: "`value`"
-    `property 2`: "`value`"
+  {{parameter 1}}:
+    {{property 1}}: "{{value}}"
+    {{property 2}}: "{{value}}"
+  {{parameter 2}}:
+    {{property 1}}: "{{value}}"
+    {{property 2}}: "{{value}}"
 mainSteps:
-  - action: `Plugin name`
-    name: `A name for the step`.
+  - action: {{Plugin name}}
+    name: {{A name for the step}}.
     inputs:
-      `input 1`: "`value`"
-      `input 2`: "`value`"
-      `input 3`: "{{ `parameter 1` }}"
+      {{input 1}}: "{{value}}"
+      {{input 2}}: "{{value}}"
+      {{input 3}}: "{{ {{parameter 1}} }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
    "schemaVersion": "2.2",
-   "description": "`A description of the document.`",
+   "description": "{{A description of the document.}}",
    "parameters": {
-       "`parameter 1`": {
-           "`property 1`": "`value`",
-           "`property 2`": "`value`"
+       "{{parameter 1}}": {
+           "{{property 1}}": "{{value}}",
+           "{{property 2}}": "{{value}}"
         },
-        "`parameter 2`":{
-           "`property 1`": "`value`",
-           "`property 2`": "`value`"
-        }
+        "{{parameter 2}}":{
+           "{{property 1}}": "{{value}}",
+           "{{property 2}}": "{{value}}"
+        } 
     },
    "mainSteps": [
       {
-         "action": "`Plugin name`",
-         "name": "`A name for the step.`",
+         "action": "{{Plugin name}}",
+         "name": "{{A name for the step.}}",
          "inputs": {
-            "`input 1`": "`value`",
-            "`input 2`": "`value`",
-            "`input 3`": "{{ `parameter 1` }}"
+            "{{input 1}}": "{{value}}",
+            "{{input 2}}": "{{value}}",
+            "{{input 3}}": "{{ {{parameter 1}} }}"
          }
       }
    ]
 }
 ```
 
-###### Schema version 2.2 example
+------
 
-The following example uses the `aws:runPowerShellScript` plugin
-to run a PowerShell command on the target instances.
+**Schema version 2.2 example**  
+The following example uses the `aws:runPowerShellScript` plugin to run a PowerShell command on the target instances.
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -141,7 +127,7 @@ parameters:
     type: "String"
     description: "Example parameter"
     default: "Hello World"
-    allowedValues:
+    allowedValues: 
     - "Hello World"
 mainSteps:
   - action: "aws:runPowerShellScript"
@@ -152,7 +138,8 @@ mainSteps:
       - "Write-Output {{Message}}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -181,17 +168,13 @@ JSON
 }
 ```
 
-###### Schema version 2.2 precondition parameter examples
+------
 
-Schema version 2.2 provides cross-platform support. This means that within
-a single SSM document you can specify different operating systems for
-different plugins. Cross-platform support uses the `precondition`
-parameter within a step, as shown in the following example. You can also use
-the `precondition` parameter to validate input parameters you've
-defined in your SSM document. You can see this in the second of the
-following examples.
+**Schema version 2.2 precondition parameter examples**  
+Schema version 2.2 provides cross-platform support. This means that within a single SSM document you can specify different operating systems for different plugins. Cross-platform support uses the `precondition` parameter within a step, as shown in the following example. You can also use the `precondition` parameter to validate input parameters you've defined in your SSM document. You can see this in the second of the following examples.
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -200,25 +183,26 @@ description: cross-platform sample
 mainSteps:
 - action: aws:runPowerShellScript
   name: PatchWindows
-  `precondition:
- StringEquals:
- - platformType
- - Windows`
+  {{precondition:
+    StringEquals:
+    - platformType
+    - Windows}}
   inputs:
     runCommand:
     - cmds
 - action: aws:runShellScript
   name: PatchLinux
-  `precondition:
- StringEquals:
- - platformType
- - Linux`
+  {{precondition:
+    StringEquals:
+    - platformType
+    - Linux}}
   inputs:
     runCommand:
     - cmds
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -228,10 +212,10 @@ JSON
       {
          "action": "aws:runPowerShellScript",
          "name": "PatchWindows",
-         `"precondition": {
- "StringEquals": [
- "platformType",
- "Windows"`
+         {{"precondition": {
+            "StringEquals": [
+               "platformType",
+               "Windows"}}
             ]
          },
          "inputs": {
@@ -243,10 +227,10 @@ JSON
       {
          "action": "aws:runShellScript",
          "name": "PatchLinux",
-         `"precondition": {
- "StringEquals": [
- "platformType",
- "Linux"`
+         {{"precondition": {
+            "StringEquals": [
+               "platformType",
+               "Linux"}}
             ]
          },
          "inputs": {
@@ -259,7 +243,10 @@ JSON
 }
 ```
 
-YAML
+------
+
+------
+#### [ YAML ]
 
 ```
 ---
@@ -296,7 +283,8 @@ mainSteps:
     - sudo apt remove aws-cli
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -352,18 +340,12 @@ JSON
 }
 ```
 
-###### Schema version 2.2 interpolation example with SSM Agent versions before 3.3.2746.0
+------
 
-On SSM Agent versions prior to 3.3.2746.0, the agent ignores the
-`interpolationType` parameter and instead performs a raw
-string substitution. If you are referencing
-`SSM_`parameter-name``
-explicitly, you must set this explicitly. In the following example for
-Linux, the `SSM_Message` environment variable is referenced
-explicitly.
+**Schema version 2.2 interpolation example with SSM Agent versions before 3.3.2746.0**  
+On SSM Agent versions prior to 3.3.2746.0, the agent ignores the `interpolationType` parameter and instead performs a raw string substitution. If you are referencing `SSM_{{parameter-name}}` explicitly, you must set this explicitly. In the following example for Linux, the `SSM_Message` environment variable is referenced explicitly.
 
 ```
-
 {
     "schemaVersion": "2.2",
     "description": "An example document",
@@ -393,19 +375,14 @@ explicitly.
 }
 ```
 
-###### Note
+**Note**  
+`allowedPattern` isn’t technically required if an SSM document doesn’t use double braces: `{{ }}`
 
-`allowedPattern` isn’t technically required if an SSM document
-doesn’t use double braces: `{{ }}`
+**Schema version 2.2 State Manager example**  
+You can use the following SSM document with State Manager to download and install the ClamAV antivirus software. State Manager enforces a specific configuration, which means that each time the State Manager association is run, the system checks to see if the ClamAV software is installed. If not, State Manager reruns this document.
 
-###### Schema version 2.2 State Manager example
-
-You can use the following SSM document with State Manager to download and install the ClamAV antivirus software. State Manager enforces a
-specific configuration, which means that each time the State Manager association
-is run, the system checks to see if the ClamAV software is installed. If
-not, State Manager reruns this document.
-
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -421,7 +398,8 @@ mainSteps:
     - sudo yum --enablerepo=epel install -y clamav
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -443,12 +421,13 @@ JSON
 }
 ```
 
-###### Schema version 2.2 Inventory example
+------
 
-You can use the following SSM document with State Manager to collect
-inventory metadata about your instances.
+**Schema version 2.2 Inventory example**  
+You can use the following SSM document with State Manager to collect inventory metadata about your instances.
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -510,7 +489,8 @@ mainSteps:
     customInventory: "{{ customInventory }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -589,19 +569,16 @@ JSON
 }
 ```
 
-###### Schema version 2.2 `AWS-ConfigureAWSPackage` example
+------
 
-The following example shows the `AWS-ConfigureAWSPackage`
-document. The `mainSteps` section includes the
-`aws:configurePackage` plugin in the `action`
-step.
+**Schema version 2.2 `AWS-ConfigureAWSPackage` example**  
+The following example shows the `AWS-ConfigureAWSPackage` document. The `mainSteps` section includes the `aws:configurePackage` plugin in the `action` step.
 
-###### Note
+**Note**  
+On Linux operating systems, only the `AmazonCloudWatchAgent` and `AWSSupport-EC2Rescue` packages are supported.
 
-On Linux operating systems, only the `AmazonCloudWatchAgent`
-and `AWSSupport-EC2Rescue` packages are supported.
-
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -632,7 +609,8 @@ mainSteps:
     version: "{{ version }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -671,44 +649,42 @@ JSON
 }
 ```
 
-## Schema version 1.2
+------
 
-The following example shows the top-level elements of a schema version 1.2
-document.
+## Schema version 1.2
+<a name="documents-schema-onex"></a>
+
+The following example shows the top-level elements of a schema version 1.2 document.
 
 ```
 {
-   "**schemaVersion**":"1.2",
-   "**description**":"`A description of the SSM document.`",
-   "**parameters**":{
-      "`parameter 1`":{
-         "`one or more parameter properties`"
+   "schemaVersion":"1.2",
+   "description":"{{A description of the SSM document.}}",
+   "parameters":{
+      "{{parameter 1}}":{
+         "{{one or more parameter properties}}"
       },
-      "`parameter 2`":{
-         "`one or more parameter properties`"
+      "{{parameter 2}}":{
+         "{{one or more parameter properties}}"
       },
-      "`parameter 3`":{
-         "`one or more parameter properties`"
+      "{{parameter 3}}":{
+         "{{one or more parameter properties}}"
       }
    },
-   "**runtimeConfig**":{
-      "`plugin 1`":{
+   "runtimeConfig":{
+      "{{plugin 1}}":{
          "properties":[
             {
-               "`one or more plugin properties`"
+               "{{one or more plugin properties}}"
             }
          ]
       }
    }
 }
-
 ```
 
-###### Schema version 1.2 `aws:runShellScript` example
-
-The following example shows the `AWS-RunShellScript` SSM
-document. The **runtimeConfig** section
-includes the `aws:runShellScript` plugin.
+**Schema version 1.2 `aws:runShellScript` example**  
+The following example shows the `AWS-RunShellScript` SSM document. The **runtimeConfig** section includes the `aws:runShellScript` plugin.
 
 ```
 {
@@ -750,76 +726,72 @@ includes the `aws:runShellScript` plugin.
 ```
 
 ## Schema version 0.3
+<a name="automation-doc-syntax-examples"></a>
 
-###### Top-level elements
-
-The following example shows the top-level elements of a schema version 0.3
-Automation runbook in JSON format.
+**Top-level elements**  
+The following example shows the top-level elements of a schema version 0.3 Automation runbook in JSON format.
 
 ```
 {
-    "description": "`document-description`",
+    "description": "{{document-description}}",
     "schemaVersion": "0.3",
     "assumeRole": "{{assumeRole}}",
     "parameters": {
         "parameter1": {
             "type": "String",
-            "description": "`parameter-1-description`",
+            "description": "{{parameter-1-description}}",
             "default": ""
         },
         "parameter2": {
             "type": "String",
-            "description": "`parameter-2-description`",
+            "description": "{{parameter-2-description}}",
             "default": ""
         }
     },
     "variables": {
         "variable1": {
             "type": "StringMap",
-            "description": "`variable-1-description`",
+            "description": "{{variable-1-description}}",
             "default": {}
         },
         "variable2": {
             "type": "String",
-            "description": "`variable-2-description`",
-            "default": "`default-value`"
+            "description": "{{variable-2-description}}",
+            "default": "{{default-value}}"
         }
     },
     "mainSteps": [
         {
-            "name": "`myStepName`",
-            "action": "`action-name`",
+            "name": "{{myStepName}}",
+            "action": "{{action-name}}",
             "maxAttempts": 1,
             "inputs": {
-                "Handler": "`python-only-handler-name`",
-                "Runtime": "`runtime-name`",
-                "Attachment": "`script-or-zip-name`"
+                "Handler": "{{python-only-handler-name}}",
+                "Runtime": "{{runtime-name}}",
+                "Attachment": "{{script-or-zip-name}}"
             },
             "outputs": {
-                "Name": "`output-name`",
-                "Selector": "`selector.value`",
-                "Type": "`data-type`"
+                "Name": "{{output-name}}",
+                "Selector": "{{selector.value}}",
+                "Type": "{{data-type}}"
             }
         }
     ],
     "files": {
-        "`script-or-zip-name`": {
+        "{{script-or-zip-name}}": {
             "checksums": {
-                "sha256": "`checksum`"
+                "sha256": "{{checksum}}"
             },
-            "size": `1234`
+            "size": {{1234}}
         }
     }
 }
 ```
 
-###### YAML Automation runbook example
+**YAML Automation runbook example**  
+The following sample shows the contents of an Automation runbook, in YAML format. This working example of version 0.3 of the document schema also demonstrates the use of Markdown to format document descriptions.
 
-The following sample shows the contents of an Automation runbook, in YAML
-format. This working example of version 0.3 of the document schema also
-demonstrates the use of Markdown to format document descriptions.
-
-````
+```
 description: >-
   ##Title: LaunchInstanceAndCheckState
 
@@ -935,23 +907,23 @@ files:
   launch.py:
     checksums:
       sha256: 18871b1311b295c43d0f...[truncated]...772da97b67e99d84d342ef4aEXAMPLE
-````
+```
 
 ## Secure parameter handling examples
+<a name="secure-parameter-examples"></a>
 
-The following examples demonstrate secure parameter handling using environment
-variable `interpolationType`.
+The following examples demonstrate secure parameter handling using environment variable `interpolationType`.
 
 ### Basic secure command execution
+<a name="basic-secure-command"></a>
 
 This example shows how to securely handle a command parameter:
 
-###### Note
+**Note**  
+`allowedPattern` isn’t technically required in SSM documents that don’t use double braces: `{{ }}` 
 
-`allowedPattern` isn’t technically required in SSM
-documents that don’t use double braces: `{{ }}`
-
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -975,10 +947,10 @@ mainSteps:
     inputs:
       runCommand:
         - echo {{Message}}
-
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -1006,14 +978,17 @@ JSON
         }
     }]
 }
-
 ```
 
+------
+
 ### Using parameters in interpreted languages
+<a name="interpreted-language-example"></a>
 
 This example demonstrates secure parameter handling in Python:
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -1033,10 +1008,10 @@ mainSteps:
           python3 -c '
           import os
           import json
-
+          
           # Safely access parameter through environment variable
           input_data = os.environ.get("SSM_inputData", "")
-
+          
           # Process the data
           try:
               processed_data = json.loads(input_data)
@@ -1046,12 +1021,15 @@ mainSteps:
           '
 ```
 
+------
+
 ### Backwards compatibility example
+<a name="backwards-compatibility-example"></a>
 
-This example shows how to handle parameters securely while maintaining
-backwards compatibility:
+This example shows how to handle parameters securely while maintaining backwards compatibility:
 
-YAML
+------
+#### [ YAML ]
 
 ```
 ---
@@ -1075,33 +1053,22 @@ mainSteps:
               # Legacy agent - fall back to direct parameter reference
               export SSM_userInput="{{userInput}}"
           fi
-
+          
           # Process the input securely
           echo "Processing input: $SSM_userInput"
 ```
 
-###### Note
+------
 
-`allowedPattern` isn’t technically required in SSM
-documents that don’t use double braces: `{{ }}`
+**Note**  
+`allowedPattern` isn’t technically required in SSM documents that don’t use double braces: `{{ }}` 
 
 ## Parameter security best practices
+<a name="parameter-security-best-practices"></a>
 
-Follow these best practices when handling parameters in SSM
-documents:
-
-- **Use environment variable
-  interpolation** - Always use `interpolationType:
- "ENV_VAR"` for string parameters that will be used in command
-  execution.
-- **Implement input validation** - Use
-  `allowedPattern` to restrict parameter values to safe
-  patterns.
-- **Handle legacy systems** - Include
-  fallback logic for older SSM Agent versions that don't support
-  environment variable interpolation.
-- **Escape special characters** - When
-  using parameter values in commands, properly escape special characters
-  to prevent interpretation by the shell.
-- **Limit parameter scope** - Use the most
-  restrictive parameter patterns possible for your use case.
+Follow these best practices when handling parameters in SSM documents:
++ **Use environment variable interpolation** - Always use `interpolationType: "ENV_VAR"` for string parameters that will be used in command execution.
++ **Implement input validation** - Use `allowedPattern` to restrict parameter values to safe patterns.
++ **Handle legacy systems** - Include fallback logic for older SSM Agent versions that don't support environment variable interpolation.
++ **Escape special characters** - When using parameter values in commands, properly escape special characters to prevent interpretation by the shell.
++ **Limit parameter scope** - Use the most restrictive parameter patterns possible for your use case.

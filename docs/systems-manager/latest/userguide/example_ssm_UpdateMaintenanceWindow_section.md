@@ -1,23 +1,25 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `UpdateMaintenanceWindow` with an AWS SDK or CLI
+<a name="example_ssm_UpdateMaintenanceWindow_section"></a>
 
 The following code examples show how to use `UpdateMaintenanceWindow`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To update a maintenance window**
-
-The following `update-maintenance-window` example updates the name of a maintenance window.
-
-```
-`aws ssm update-maintenance-window \
- --window-id `"mw-1a2b3c4d5e6f7g8h9"` \
- --name `"My-Renamed-MW"``
+**AWS CLI**  
+**Example 1: To update a maintenance window**  
+The following `update-maintenance-window` example updates the name of a maintenance window.  
 
 ```
-
-Output:
+aws ssm update-maintenance-window \
+    --window-id {{"mw-1a2b3c4d5e6f7g8h9"}} \
+    --name {{"My-Renamed-MW"}}
+```
+Output:  
 
 ```
 {
@@ -30,44 +32,30 @@ Output:
     "Duration": 4
 }
 ```
-
-**Example 2: To disable a maintenance window**
-
-The following `update-maintenance-window` example disables a maintenance window.
+**Example 2: To disable a maintenance window**  
+The following `update-maintenance-window` example disables a maintenance window.  
 
 ```
-`aws ssm update-maintenance-window \
- --window-id `"mw-1a2b3c4d5e6f7g8h9"` \
- --no-enabled`
+aws ssm update-maintenance-window \
+    --window-id {{"mw-1a2b3c4d5e6f7g8h9"}} \
+    --no-enabled
+```
+**Example 3: To enable a maintenance window**  
+The following `update-maintenance-window` example enables a maintenance window.  
 
 ```
-
-**Example 3: To enable a maintenance window**
-
-The following `update-maintenance-window` example enables a maintenance window.
-
+aws ssm update-maintenance-window \
+    --window-id {{"mw-1a2b3c4d5e6f7g8h9"}} \
+    --enabled
 ```
-`aws ssm update-maintenance-window \
- --window-id `"mw-1a2b3c4d5e6f7g8h9"` \
- --enabled`
+For more information, see [Update a Maintenance Window (AWS CLI)](https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-cli-tutorials-update.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [UpdateMaintenanceWindow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/update-maintenance-window.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-For more information, see [Update a Maintenance Window (AWS CLI)](maintenance-windows-cli-tutorials-update.md "maintenance-windows-cli-tutorials-update.md") in the _AWS Systems Manager User Guide_.
-
-- For API details, see
-  [UpdateMaintenanceWindow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/update-maintenance-window.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/update-maintenance-window.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
 ```
     /**
@@ -104,23 +92,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             }
         }).join();
     }
-
-
 ```
++  For API details, see [UpdateMaintenanceWindow](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/UpdateMaintenanceWindow) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateMaintenanceWindow](../../../goto/SdkForJavaV2/ssm-2014-11-06/UpdateMaintenanceWindow.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/UpdateMaintenanceWindow.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
 ```
 import { UpdateMaintenanceWindowCommand, SSMClient } from "@aws-sdk/client-ssm";
@@ -160,26 +139,19 @@ export const main = async ({
     }
   }
 };
-
-
 ```
++  For API details, see [UpdateMaintenanceWindow](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/UpdateMaintenanceWindowCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UpdateMaintenanceWindow](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/UpdateMaintenanceWindowCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/UpdateMaintenanceWindowCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example updates the name of a maintenance window.**
+**Tools for PowerShell V4**  
+**Example 1: This example updates the name of a maintenance window.**  
 
 ```
 Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Name "My-Renamed-MW"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllowUnassociatedTargets : False
@@ -190,15 +162,12 @@ Name                     : My-Renamed-MW
 Schedule                 : cron(0 */30 * * * ? *)
 WindowId                 : mw-03eb9db42890fb82d
 ```
-
-**Example 2: This example enables a maintenance window.**
+**Example 2: This example enables a maintenance window.**  
 
 ```
 Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Enabled $true
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllowUnassociatedTargets : False
@@ -209,15 +178,12 @@ Name                     : My-Renamed-MW
 Schedule                 : cron(0 */30 * * * ? *)
 WindowId                 : mw-03eb9db42890fb82d
 ```
-
-**Example 3: This example disables a maintenance window.**
+**Example 3: This example disables a maintenance window.**  
 
 ```
 Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Enabled $false
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllowUnassociatedTargets : False
@@ -228,21 +194,15 @@ Name                     : My-Renamed-MW
 Schedule                 : cron(0 */30 * * * ? *)
 WindowId                 : mw-03eb9db42890fb82d
 ```
++  For API details, see [UpdateMaintenanceWindow](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [UpdateMaintenanceWindow](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example updates the name of a maintenance window.**
+**Tools for PowerShell V5**  
+**Example 1: This example updates the name of a maintenance window.**  
 
 ```
 Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Name "My-Renamed-MW"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllowUnassociatedTargets : False
@@ -253,15 +213,12 @@ Name                     : My-Renamed-MW
 Schedule                 : cron(0 */30 * * * ? *)
 WindowId                 : mw-03eb9db42890fb82d
 ```
-
-**Example 2: This example enables a maintenance window.**
+**Example 2: This example enables a maintenance window.**  
 
 ```
 Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Enabled $true
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllowUnassociatedTargets : False
@@ -272,15 +229,12 @@ Name                     : My-Renamed-MW
 Schedule                 : cron(0 */30 * * * ? *)
 WindowId                 : mw-03eb9db42890fb82d
 ```
-
-**Example 3: This example disables a maintenance window.**
+**Example 3: This example disables a maintenance window.**  
 
 ```
 Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Enabled $false
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllowUnassociatedTargets : False
@@ -291,20 +245,13 @@ Name                     : My-Renamed-MW
 Schedule                 : cron(0 */30 * * * ? *)
 WindowId                 : mw-03eb9db42890fb82d
 ```
++  For API details, see [UpdateMaintenanceWindow](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [UpdateMaintenanceWindow](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 
 ```
 class MaintenanceWindowWrapper:
@@ -365,24 +312,14 @@ class MaintenanceWindowWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [UpdateMaintenanceWindow](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/UpdateMaintenanceWindow) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateMaintenanceWindow](../../../goto/boto3/ssm-2014-11-06/UpdateMaintenanceWindow.md "../../../goto/boto3/ssm-2014-11-06/UpdateMaintenanceWindow.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples). 
 
 ```
     TRY.
@@ -398,14 +335,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_ssmdoesnotexistex.
         MESSAGE 'Maintenance window does not exist.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [UpdateMaintenanceWindow](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [UpdateMaintenanceWindow](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

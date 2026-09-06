@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `GetParameterHistory` with a CLI
+<a name="example_ssm_GetParameterHistory_section"></a>
 
 The following code examples show how to use `GetParameterHistory`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get a value history for a parameter**
-
-The following `get-parameter-history` example lists the history of changes for the specified parameter, including its value.
-
-```
-`aws ssm get-parameter-history \
- --name `"MyStringParameter"``
+**AWS CLI**  
+**To get a value history for a parameter**  
+The following `get-parameter-history` example lists the history of changes for the specified parameter, including its value.  
 
 ```
-
-Output:
+aws ssm get-parameter-history \
+    --name {{"MyStringParameter"}}
+```
+Output:  
 
 ```
 {
@@ -60,25 +62,19 @@ Output:
     ]
 }
 ```
+For more information, see [Working with parameter versions](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-versions.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [GetParameterHistory](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-parameter-history.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Working with parameter versions](sysman-paramstore-versions.md "sysman-paramstore-versions.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [GetParameterHistory](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-parameter-history.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-parameter-history.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example lists the value history for a parameter.**
+**Tools for PowerShell V4**  
+**Example 1: This example lists the value history for a parameter.**  
 
 ```
 Get-SSMParameterHistory -Name "Welcome"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Description      :
@@ -89,21 +85,15 @@ Name             : Welcome
 Type             : String
 Value            : helloWorld
 ```
++  For API details, see [GetParameterHistory](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetParameterHistory](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example lists the value history for a parameter.**
+**Tools for PowerShell V5**  
+**Example 1: This example lists the value history for a parameter.**  
 
 ```
 Get-SSMParameterHistory -Name "Welcome"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Description      :
@@ -114,11 +104,8 @@ Name             : Welcome
 Type             : String
 Value            : helloWorld
 ```
++  For API details, see [GetParameterHistory](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetParameterHistory](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

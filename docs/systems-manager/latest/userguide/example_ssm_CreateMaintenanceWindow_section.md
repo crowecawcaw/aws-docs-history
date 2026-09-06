@@ -1,76 +1,64 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `CreateMaintenanceWindow` with an AWS SDK or CLI
+<a name="example_ssm_CreateMaintenanceWindow_section"></a>
 
 The following code examples show how to use `CreateMaintenanceWindow`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_ssm_Scenario_section.md) 
 
-- [Learn the basics](example_ssm_Scenario_section.md "example_ssm_Scenario_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**Example 1: To create a maintenance window**
-
-The following `create-maintenance-window` example creates a new maintenance window that every five minutes for up to two hours (as needed), prevents new tasks from starting within one hour of the end of the maintenance window execution, allows unassociated targets (instances that you haven't registered with the maintenance window), and indicates through the use of custom tags that its creator intends to use it in a tutorial.
+**AWS CLI**  
+**Example 1: To create a maintenance window**  
+The following `create-maintenance-window` example creates a new maintenance window that every five minutes for up to two hours (as needed), prevents new tasks from starting within one hour of the end of the maintenance window execution, allows unassociated targets (instances that you haven't registered with the maintenance window), and indicates through the use of custom tags that its creator intends to use it in a tutorial.  
 
 ```
-`aws ssm create-maintenance-window \
- --name `"My-Tutorial-Maintenance-Window"` \
- --schedule `"rate(5 minutes)"` \
- --duration `2` --cutoff `1` \
- --allow-unassociated-targets \
- --tags `"Key=Purpose,Value=Tutorial"``
-
+aws ssm create-maintenance-window \
+    --name {{"My-Tutorial-Maintenance-Window"}} \
+    --schedule {{"rate(5 minutes)"}} \
+    --duration {{2}} --cutoff {{1}} \
+    --allow-unassociated-targets \
+    --tags {{"Key=Purpose,Value=Tutorial"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
     "WindowId": "mw-0c50858d01EXAMPLE"
 }
 ```
-
-**Example 2: To create a maintenance window that runs only once**
-
-The following `create-maintenance-window` example creates a new maintenance window that only runs one time on the specified date and time.
+**Example 2: To create a maintenance window that runs only once**  
+The following `create-maintenance-window` example creates a new maintenance window that only runs one time on the specified date and time.  
 
 ```
-`aws ssm create-maintenance-window \
- --name `My-One-Time-Maintenance-Window` \
- --schedule `"at(2020-05-14T15:55:00)"` \
- --duration `5` \
- --cutoff `2` \
- --allow-unassociated-targets \
- --tags `"Key=Environment,Value=Production"``
-
+aws ssm create-maintenance-window \
+    --name {{My-One-Time-Maintenance-Window}} \
+    --schedule {{"at(2020-05-14T15:55:00)"}} \
+    --duration {{5}} \
+    --cutoff {{2}} \
+    --allow-unassociated-targets \
+    --tags {{"Key=Environment,Value=Production"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
     "WindowId": "mw-01234567890abcdef"
 }
 ```
+For more information, see [Maintenance Windows](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-maintenance.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [CreateMaintenanceWindow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/create-maintenance-window.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Maintenance Windows](systems-manager-maintenance.md "systems-manager-maintenance.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [CreateMaintenanceWindow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/create-maintenance-window.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/create-maintenance-window.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
 ```
     /**
@@ -142,23 +130,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
 
         return windowId[0];
     }
-
-
 ```
++  For API details, see [CreateMaintenanceWindow](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/CreateMaintenanceWindow) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateMaintenanceWindow](../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateMaintenanceWindow.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateMaintenanceWindow.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
 ```
 import { CreateMaintenanceWindowCommand, SSMClient } from "@aws-sdk/client-ssm";
@@ -199,63 +178,43 @@ export const main = async ({
     }
   }
 };
-
-
 ```
++  For API details, see [CreateMaintenanceWindow](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateMaintenanceWindowCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateMaintenanceWindow](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateMaintenanceWindowCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateMaintenanceWindowCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a new maintenance window with the specified name that runs at 4 PM on every Tuesday for 4 hours, with a 1 hour cutoff, and that allows unassociated targets.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a new maintenance window with the specified name that runs at 4 PM on every Tuesday for 4 hours, with a 1 hour cutoff, and that allows unassociated targets.**  
 
 ```
 New-SSMMaintenanceWindow -Name "MyMaintenanceWindow" -Duration 4 -Cutoff 1 -AllowUnassociatedTarget $true -Schedule "cron(0 16 ? * TUE *)"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 mw-03eb53e1ea7383998
 ```
++  For API details, see [CreateMaintenanceWindow](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateMaintenanceWindow](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a new maintenance window with the specified name that runs at 4 PM on every Tuesday for 4 hours, with a 1 hour cutoff, and that allows unassociated targets.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a new maintenance window with the specified name that runs at 4 PM on every Tuesday for 4 hours, with a 1 hour cutoff, and that allows unassociated targets.**  
 
 ```
 New-SSMMaintenanceWindow -Name "MyMaintenanceWindow" -Duration 4 -Cutoff 1 -AllowUnassociatedTarget $true -Schedule "cron(0 16 ? * TUE *)"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 mw-03eb53e1ea7383998
 ```
++  For API details, see [CreateMaintenanceWindow](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateMaintenanceWindow](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 
 ```
 class MaintenanceWindowWrapper:
@@ -312,24 +271,14 @@ class MaintenanceWindowWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [CreateMaintenanceWindow](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/CreateMaintenanceWindow) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateMaintenanceWindow](../../../goto/boto3/ssm-2014-11-06/CreateMaintenanceWindow.md "../../../goto/boto3/ssm-2014-11-06/CreateMaintenanceWindow.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples). 
 
 ```
     TRY.
@@ -343,14 +292,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_ssmresrclimitexcdex.
         MESSAGE 'Resource limit exceeded.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateMaintenanceWindow](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateMaintenanceWindow](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

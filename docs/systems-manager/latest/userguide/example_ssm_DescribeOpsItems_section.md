@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DescribeOpsItems` with an AWS SDK or CLI
+<a name="example_ssm_DescribeOpsItems_section"></a>
 
 The following code examples show how to use `DescribeOpsItems`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list a set of OpsItems**
-
-The following `describe-ops-items` example displays a list of all open OpsItems in your AWS account.
-
-```
-`aws ssm describe-ops-items \
- --ops-item-filters `"Key=Status,Values=Open,Operator=Equal"``
+**AWS CLI**  
+**To list a set of OpsItems**  
+The following `describe-ops-items` example displays a list of all open OpsItems in your AWS account.  
 
 ```
-
-Output:
+aws ssm describe-ops-items \
+    --ops-item-filters {{"Key=Status,Values=Open,Operator=Equal"}}
+```
+Output:  
 
 ```
 {
@@ -72,22 +74,14 @@ Output:
     ]
 }
 ```
+For more information, see [Working with OpsItems](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [DescribeOpsItems](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-ops-items.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Working with OpsItems](OpsCenter-working-with-OpsItems.md "OpsCenter-working-with-OpsItems.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DescribeOpsItems](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-ops-items.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-ops-items.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
 ```
     /**
@@ -137,23 +131,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             throw ex.getCause() instanceof RuntimeException ? (RuntimeException) ex.getCause() : ex;
         }
     }
-
-
 ```
++  For API details, see [DescribeOpsItems](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/DescribeOpsItems) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeOpsItems](../../../goto/SdkForJavaV2/ssm-2014-11-06/DescribeOpsItems.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/DescribeOpsItems.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
 ```
 import {
@@ -194,23 +179,14 @@ export const main = async ({ opsItemId }) => {
     throw caught;
   }
 };
-
-
 ```
++  For API details, see [DescribeOpsItems](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/DescribeOpsItemsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DescribeOpsItems](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/DescribeOpsItemsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/DescribeOpsItemsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 
 ```
 class OpsItemWrapper:
@@ -259,24 +235,14 @@ class OpsItemWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [DescribeOpsItems](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/DescribeOpsItems) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeOpsItems](../../../goto/boto3/ssm-2014-11-06/DescribeOpsItems.md "../../../goto/boto3/ssm-2014-11-06/DescribeOpsItems.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples). 
 
 ```
     TRY.
@@ -310,14 +276,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_ssminternalservererr.
         MESSAGE 'Internal server error occurred.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeOpsItems](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeOpsItems](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

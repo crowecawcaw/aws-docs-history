@@ -1,67 +1,39 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Using the BaselineOverride parameter
+<a name="patch-manager-baselineoverride-parameter"></a>
 
-You can define patching preferences at runtime using the baseline override feature
-in Patch Manager. Do this by specifying an Amazon Simple Storage Service (Amazon S3) bucket
-containing a JSON object with a list of patch baselines. The patching operation uses
-the baselines provided in the JSON object that match the host operating system
-instead of applying the rules from the default patch baseline.
+You can define patching preferences at runtime using the baseline override feature in Patch Manager. Do this by specifying an Amazon Simple Storage Service (Amazon S3) bucket containing a JSON object with a list of patch baselines. The patching operation uses the baselines provided in the JSON object that match the host operating system instead of applying the rules from the default patch baseline.
 
-###### Important
+**Important**  
+The `BaselineOverride` file name can't contain the following characters: backtick (`), single quote ('), double quote ("), and dollar sign ($).
 
-The `BaselineOverride` file name can't contain the following
-characters: backtick (`), single quote ('), double quote ("), and dollar sign
-($).
+Except when a patching operation uses a patch policy, using the `BaselineOverride` parameter doesn't overwrite the patch compliance of the baseline provided in the parameter. The output results are recorded in the Stdout logs from Run Command. The results only print out packages that are marked as `NON_COMPLIANT`. This means the package is marked as `Missing`, `Failed`, `InstalledRejected`, or `InstalledPendingReboot`.
 
-Except when a patching operation uses a patch policy, using the
-`BaselineOverride` parameter doesn't overwrite the patch compliance
-of the baseline provided in the parameter. The output results are recorded in the
-Stdout logs from Run Command. The results only print out packages
-that are marked as `NON_COMPLIANT`. This means the package is marked as
-`Missing`, `Failed`, `InstalledRejected`, or
-`InstalledPendingReboot`.
+When a patch operation uses a patch policy, however, the system passes the override parameter from the associated S3 bucket, and the compliance value is updated for the managed node. For more information about patch policy behaviors, see [Patch policy configurations in Quick Setup](patch-manager-policies.md).
 
-When a patch operation uses a patch policy, however, the system passes the
-override parameter from the associated S3 bucket, and the compliance value is
-updated for the managed node. For more information about patch policy behaviors, see
-[Patch policy configurations in Quick Setup](patch-manager-policies.md "patch-manager-policies.md").
-
-###### Note
-
-When you're patching a node that only uses IPv6, make sure that the provided URL
-is reachable from the node. If the SSM Agent config option
-`UseDualStackEndpoint` is set to `true`, then a
-dualstack S3 client is used when an S3 URL is provided. See [Tutorial: Patching a server in an IPv6 only environment](patch-manager-server-patching-iPv6-tutorial.md "patch-manager-server-patching-iPv6-tutorial.md") for more information
-on configuring the agent to use dualstack.
+**Note**  
+When you're patching a node that only uses IPv6, make sure that the provided URL is reachable from the node. If the SSM Agent config option `UseDualStackEndpoint` is set to `true`, then a dualstack S3 client is used when an S3 URL is provided. See [Tutorial: Patching a server in an IPv6 only environment](patch-manager-server-patching-iPv6-tutorial.md) for more information on configuring the agent to use dualstack.
 
 ## Using the patch baseline override with Snapshot Id or Install Override List parameters
+<a name="patch-manager-baselineoverride-parameter-other-parameters"></a>
 
-There are two cases where the patch baseline override has noteworthy
-behavior.
+There are two cases where the patch baseline override has noteworthy behavior.
 
-###### Using baseline override and Snapshot Id at the same time
+**Using baseline override and Snapshot Id at the same time**  
+Snapshot Ids make sure that all managed nodes in a particular patching command all apply the same thing. For example, if you patch 1,000 nodes at one time, the patches will be the same.
 
-Snapshot Ids make sure that all managed nodes in a particular patching
-command all apply the same thing. For example, if you patch 1,000 nodes at
-one time, the patches will be the same.
+When using both a Snapshot Id and a patch baseline override, the Snapshot Id takes precedence over the patch baseline override. The baseline override rules will still be used, but they will only be evaluated once. In the earlier example, the patches across your 1,000 managed nodes will still always be the same. If, midway through the patching operation, you changed the JSON file in the referenced S3 bucket to be something different, the patches applied will still be the same. This is because the Snapshot Id was provided.
 
-When using both a Snapshot Id and a patch baseline override, the Snapshot Id
-takes precedence over the patch baseline override. The baseline override rules
-will still be used, but they will only be evaluated once. In the earlier
-example, the patches across your 1,000 managed nodes will still always be the
-same. If, midway through the patching operation, you changed the JSON file in
-the referenced S3 bucket to be something different, the patches applied will
-still be the same. This is because the Snapshot Id was provided.
-
-###### Using baseline override and Install Override List at the same time
-
-You can't use these two parameters at the same time. The patching document
-fails if both parameters are supplied, and it doesn't perform any scans or
-installs on the managed node.
+**Using baseline override and Install Override List at the same time**  
+You can't use these two parameters at the same time. The patching document fails if both parameters are supplied, and it doesn't perform any scans or installs on the managed node.
 
 ## Code examples
+<a name="patch-manager-baselineoverride-parameter-code"></a>
 
-The following code example for Python shows how to generate the patch baseline
-override.
+The following code example for Python shows how to generate the patch baseline override.
 
 ```
 import boto3
@@ -81,7 +53,6 @@ for baseline_id in baseline_ids_to_export:
 
 json_content = json.dumps(baseline_overrides, indent=4, sort_keys=True, default=str)
 s3.Object(bucket_name=s3_bucket_name, key=s3_file_name).put(Body=json_content)
-
 ```
 
 This produces a patch baseline override like the following.
@@ -92,25 +63,25 @@ This produces a patch baseline override like the following.
         "ApprovalRules": {
             "PatchRules": [
                 {
-                    "ApproveAfterDays": 0,
-                    "ComplianceLevel": "UNSPECIFIED",
-                    "EnableNonSecurity": false,
+                    "ApproveAfterDays": 0, 
+                    "ComplianceLevel": "UNSPECIFIED", 
+                    "EnableNonSecurity": false, 
                     "PatchFilterGroup": {
                         "PatchFilters": [
                             {
-                                "Key": "PRODUCT",
+                                "Key": "PRODUCT", 
                                 "Values": [
                                     "*"
                                 ]
-                            },
+                            }, 
                             {
-                                "Key": "CLASSIFICATION",
+                                "Key": "CLASSIFICATION", 
                                 "Values": [
                                     "*"
                                 ]
-                            },
+                            }, 
                             {
-                                "Key": "SEVERITY",
+                                "Key": "SEVERITY", 
                                 "Values": [
                                     "*"
                                 ]
@@ -119,41 +90,41 @@ This produces a patch baseline override like the following.
                     }
                 }
             ]
-        },
-        "ApprovedPatches": [],
-        "ApprovedPatchesComplianceLevel": "UNSPECIFIED",
-        "ApprovedPatchesEnableNonSecurity": false,
+        }, 
+        "ApprovedPatches": [], 
+        "ApprovedPatchesComplianceLevel": "UNSPECIFIED", 
+        "ApprovedPatchesEnableNonSecurity": false, 
         "GlobalFilters": {
             "PatchFilters": []
-        },
-        "OperatingSystem": "AMAZON_LINUX_2",
-        "RejectedPatches": [],
-        "RejectedPatchesAction": "ALLOW_AS_DEPENDENCY",
+        }, 
+        "OperatingSystem": "AMAZON_LINUX_2", 
+        "RejectedPatches": [], 
+        "RejectedPatchesAction": "ALLOW_AS_DEPENDENCY", 
         "Sources": []
-    },
+    }, 
     {
         "ApprovalRules": {
             "PatchRules": [
                 {
-                    "ApproveUntilDate": "2021-01-06",
-                    "ComplianceLevel": "UNSPECIFIED",
-                    "EnableNonSecurity": true,
+                    "ApproveUntilDate": "2021-01-06", 
+                    "ComplianceLevel": "UNSPECIFIED", 
+                    "EnableNonSecurity": true, 
                     "PatchFilterGroup": {
                         "PatchFilters": [
                             {
-                                "Key": "PRODUCT",
+                                "Key": "PRODUCT", 
                                 "Values": [
                                     "*"
                                 ]
-                            },
+                            }, 
                             {
-                                "Key": "CLASSIFICATION",
+                                "Key": "CLASSIFICATION", 
                                 "Values": [
                                     "*"
                                 ]
-                            },
+                            }, 
                             {
-                                "Key": "SEVERITY",
+                                "Key": "SEVERITY", 
                                 "Values": [
                                     "*"
                                 ]
@@ -162,20 +133,20 @@ This produces a patch baseline override like the following.
                     }
                 }
             ]
-        },
+        }, 
         "ApprovedPatches": [
             "open-ssl*"
-        ],
-        "ApprovedPatchesComplianceLevel": "UNSPECIFIED",
-        "ApprovedPatchesEnableNonSecurity": false,
+        ], 
+        "ApprovedPatchesComplianceLevel": "UNSPECIFIED", 
+        "ApprovedPatchesEnableNonSecurity": false, 
         "GlobalFilters": {
             "PatchFilters": []
-        },
-        "OperatingSystem": "SUSE",
+        }, 
+        "OperatingSystem": "SUSE", 
         "RejectedPatches": [
             "python*"
-        ],
-        "RejectedPatchesAction": "ALLOW_AS_DEPENDENCY",
+        ], 
+        "RejectedPatchesAction": "ALLOW_AS_DEPENDENCY", 
         "Sources": []
     }
 ]

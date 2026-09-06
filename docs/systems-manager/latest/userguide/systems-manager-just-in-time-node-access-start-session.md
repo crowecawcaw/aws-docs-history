@@ -1,115 +1,77 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Start a just-in-time node access session
+<a name="systems-manager-just-in-time-node-access-start-session"></a>
 
-After enabling and setting up just-in-time node access, and configuring session and
-notification preferences, users are ready to start just-in-time node access sessions.
-You can start sessions using just-in-time node access from the Systems Manager console or from the
-AWS Command Line Interface using the Session Manager plugin. Just-in-time node access sessions can be started on nodes
-in the same account and Region. The following procedures describe how to start sessions
-with just-in-time node access.
+After enabling and setting up just-in-time node access, and configuring session and notification preferences, users are ready to start just-in-time node access sessions. You can start sessions using just-in-time node access from the Systems Manager console or from the AWS Command Line Interface using the Session Manager plugin. Just-in-time node access sessions can be started on nodes in the same account and Region. The following procedures describe how to start sessions with just-in-time node access.
 
-###### Note
+**Note**  
+If your users previously used Session Manager to connect to nodes, you must remove the Session Manager permissions, for example `ssm:StartSession`, from their IAM policies to start sessions using just-in-time node access. Otherwise, when connecting to nodes they'll continue to use Session Manager.
 
-If your users previously used Session Manager to connect to nodes, you must remove the
-Session Manager permissions, for example `ssm:StartSession`, from their IAM
-policies to start sessions using just-in-time node access. Otherwise, when
-connecting to nodes they'll continue to use Session Manager.
+**To start a session with just-in-time node access using the console**
 
-###### To start a session with just-in-time node access using the console
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. Select **Explore nodes** in the navigation pane.
-3. Select the node you want to connect to.
-4. In the **Actions** dropdown, select
-   **Connect**.
-   If your organization's approval policies don't allow you to automatically connect to
-   the node, you're prompted to submit an access request. After you fill out the
-   information requested and submit the acccess request, you'll be able to start sessions
-   to the node once all of the required approvals are received.
+1. Select **Explore nodes** in the navigation pane.
 
-###### To start a session with just-in-time node access using the AWS CLI
+1. Select the node you want to connect to.
 
-1. Run the following command to start the access request workflow, making sure to
-   replace the `placeholder values` with your own
-   information.
+1. In the **Actions** dropdown, select **Connect**.
 
-```
-aws ssm start-access-request \
-    --targets  Key=InstanceIds,Values=`i-02573cafcfEXAMPLE`
-    --reason "`Troubleshooting networking performance issue`"
-```
+If your organization's approval policies don't allow you to automatically connect to the node, you're prompted to submit an access request. After you fill out the information requested and submit the acccess request, you'll be able to start sessions to the node once all of the required approvals are received.
 
-Depending on your organization's approval policies, you'll either be
-automatically connected to the node or the manual approval process is started.
-For requests that require manual approvals, note the ID of the access request
-that is returned in the response. 2. Wait for all of the required approvals to be provided. 3. After all required approvals have been provided, run the following command to
-get an access token containing temporary credentials. Replace the
-`placeholder values` with your own
-information.
+**To start a session with just-in-time node access using the AWS CLI**
 
-```
-aws ssm get-access-token \
-    --access-request-id `oi-12345abcdef`
-```
+1. Run the following command to start the access request workflow, making sure to replace the {{placeholder values}} with your own information.
 
-Note the access token returned in the response. 4. Run the following command to use the temporary credential in the AWS CLI, making
-sure to replace the `placeholder values` with your own
-information.
+   ```
+   aws ssm start-access-request \
+       --targets  Key=InstanceIds,Values={{i-02573cafcfEXAMPLE}}
+       --reason "{{Troubleshooting networking performance issue}}"
+   ```
 
-```
-export AWS_SESSION_TOKEN=`AQoDYXdzEJr...<remainder of session token>`
-```
+   Depending on your organization's approval policies, you'll either be automatically connected to the node or the manual approval process is started. For requests that require manual approvals, note the ID of the access request that is returned in the response.
 
-5. Run the following command to start a session to the node, making sure to
-   replace the `placeholder values` with your own
-   information.
+1. Wait for all of the required approvals to be provided.
 
-```
-aws ssm start-session \
-    --target i-02573cafcfEXAMPLE
-```
+1. After all required approvals have been provided, run the following command to get an access token containing temporary credentials. Replace the {{placeholder values}} with your own information.
+
+   ```
+   aws ssm get-access-token \
+       --access-request-id {{oi-12345abcdef}}
+   ```
+
+   Note the access token returned in the response.
+
+1. Run the following command to use the temporary credential in the AWS CLI, making sure to replace the {{placeholder values}} with your own information.
+
+   ```
+   export AWS_SESSION_TOKEN={{AQoDYXdzEJr...<remainder of session token>}}
+   ```
+
+1. Run the following command to start a session to the node, making sure to replace the {{placeholder values}} with your own information.
+
+   ```
+   aws ssm start-session \
+       --target i-02573cafcfEXAMPLE
+   ```
 
 ## Allowing local network access in your browser
+<a name="just-in-time-node-access-local-network-access"></a>
 
-If you access the Systems Manager console through an interface Amazon VPC endpoint with private
-DNS enabled, your browser might block the access request screen. When private DNS is
-enabled, the Systems Manager endpoint for your AWS Region
-resolves to a private IP address in your VPC. Because the console is served from a
-public address, browsers treat requests to that private IP address as local network
-requests. Browsers block these requests unless you grant the console permission to
-make them. This behavior is known as _Local Network Access_
-(LNA), and was previously called _Private Network Access_
-(PNA).
+If you access the Systems Manager console through an interface Amazon VPC endpoint with private DNS enabled, your browser might block the access request screen. When private DNS is enabled, the Systems Manager endpoint for your AWS Region resolves to a private IP address in your VPC. Because the console is served from a public address, browsers treat requests to that private IP address as local network requests. Browsers block these requests unless you grant the console permission to make them. This behavior is known as *Local Network Access* (LNA), and was previously called *Private Network Access* (PNA).
 
 When your browser blocks these requests, you see the following behavior:
++ You choose **Connect**, but the access request screen doesn't open and the connection doesn't succeed.
++ The blocked requests don't appear in your AWS CloudTrail event history, because your browser stops them before they reach AWS.
 
-- You choose **Connect**, but the access request screen
-  doesn't open and the connection doesn't succeed.
-- The blocked requests don't appear in your AWS CloudTrail event history, because
-  your browser stops them before they reach AWS.
+We recommend granting permission for the console address only, instead of turning off local network protections for all websites. To allow just-in-time node access requests in this configuration, use one of the following methods:
++ For Chromium-based browsers, such as Google Chrome and Microsoft Edge, add the console address to the browser's list of sites allowed to access the local network. In managed environments, your administrator can configure this using the browser's enterprise policies, such as the Microsoft Edge `LocalNetworkAccessAllowedForUrls` policy. If your browser prompts you to allow local network access when you choose **Connect**, choose to allow the request.
++ For Mozilla Firefox, allow local network access for the console address.
 
-We recommend granting permission for the console address only, instead of turning
-off local network protections for all websites. To allow just-in-time node access
-requests in this configuration, use one of the following methods:
+For more information about configuring these permissions, see your browser's documentation. As an alternative, you can access the console from a network path where the Systems Manager endpoint resolves to a public IP address.
 
-- For Chromium-based browsers, such as Google Chrome and
-  Microsoft Edge, add the console address to the browser's
-  list of sites allowed to access the local network. In managed environments,
-  your administrator can configure this using the browser's enterprise
-  policies, such as the Microsoft Edge
-  `LocalNetworkAccessAllowedForUrls` policy. If your browser
-  prompts you to allow local network access when you choose
-  **Connect**, choose to allow the request.
-- For Mozilla Firefox, allow local network access for the
-  console address.
-
-For more information about configuring these permissions, see your browser's
-documentation. As an alternative, you can access the console from a network path
-where the Systems Manager endpoint resolves to a public IP address.
-
-###### Important
-
-Some browsers provide a setting that turns off local network protections for
-all websites. Because this setting reduces protection for your local network, we
-don't recommend it. If you use it to test this behavior, review the change
-against your organization's security requirements and revert it when you're
-finished.
+**Important**  
+Some browsers provide a setting that turns off local network protections for all websites. Because this setting reduces protection for your local network, we don't recommend it. If you use it to test this behavior, review the change against your organization's security requirements and revert it when you're finished.

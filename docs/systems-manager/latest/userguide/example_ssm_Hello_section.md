@@ -1,16 +1,17 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Hello Systems Manager
+<a name="example_ssm_Hello_section"></a>
 
 The following code examples show how to get started using Systems Manager.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -72,23 +73,14 @@ public class HelloSSM {
         } while (nextToken != null && totalDocumentsReturned < maxResults);
     }
 }
-
-
 ```
++  For API details, see [ListDocuments](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/ListDocuments) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListDocuments](../../../goto/SdkForJavaV2/ssm-2014-11-06/ListDocuments.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/ListDocuments.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
 ```
 import { paginateListDocuments, SSMClient } from "@aws-sdk/client-ssm";
@@ -121,23 +113,14 @@ import { fileURLToPath } from "node:url";
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   main();
 }
-
-
 ```
++  For API details, see [ListDocuments](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/ListDocumentsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ListDocuments](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/ListDocumentsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/ListDocumentsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 
 ```
 import boto3
@@ -170,14 +153,9 @@ if __name__ == "__main__":
         print("Hello systems manager had an error.")
         print(err.response["Error"]["Code"])
         print(err.response["Error"]["Message"])
-
-
 ```
++  For API details, see [ListDocuments](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/ListDocuments) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListDocuments](../../../goto/boto3/ssm-2014-11-06/ListDocuments.md "../../../goto/boto3/ssm-2014-11-06/ListDocuments.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

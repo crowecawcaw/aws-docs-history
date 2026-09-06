@@ -1,57 +1,29 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Configuring inputs and outputs for your actions
+<a name="visual-designer-action-inputs-outputs"></a>
 
-Each automation action responds based on input that it receives. Usually, you then
-pass output to the subsequent actions. In the visual design experience, you can configure an action's input
-and output data in the **Inputs** and **Outputs** tabs of
-the **Form** panel.
+Each automation action responds based on input that it receives. Usually, you then pass output to the subsequent actions. In the visual design experience, you can configure an action's input and output data in the **Inputs** and **Outputs** tabs of the **Form** panel.
 
-For detailed information about how to define and use output for automation
-actions, see [Using action outputs as inputs](automation-action-outputs-inputs.md "automation-action-outputs-inputs.md").
+For detailed information about how to define and use output for automation actions, see [Using action outputs as inputs](automation-action-outputs-inputs.md). 
 
 ## Provide input data for an action
+<a name="providing-input"></a>
 
-Each automation action has one or more inputs that you must provide a value for. The
-value you provide for an action's input is determined by the data type and format that's
-accepted by the action. For example, the `aws:sleep` actions requires an ISO 8601
-formatted string value for the `Duration` input.
+Each automation action has one or more inputs that you must provide a value for. The value you provide for an action's input is determined by the data type and format that's accepted by the action. For example, the `aws:sleep` actions requires an ISO 8601 formatted string value for the `Duration` input.
 
-Generally, you use actions in your runbook's workflow that return output that you want
-to use in subsequent actions. It's important to make sure your input values are correct to
-avoid errors in your runbook's workflow. Input values are also important because they
-determine whether the action returns the expected output. For example, when using the
-`aws:executeAwsApi` action, you want to make sure you're providing the
-right value for the API operation.
+Generally, you use actions in your runbook's workflow that return output that you want to use in subsequent actions. It's important to make sure your input values are correct to avoid errors in your runbook's workflow. Input values are also important because they determine whether the action returns the expected output. For example, when using the `aws:executeAwsApi` action, you want to make sure you're providing the right value for the API operation.
 
 ## Define output data for an action
+<a name="defining-output"></a>
 
-Some automation actions return output after performing their defined operations. Actions
-that return output either have predefined outputs, or allow you to define the outputs
-yourself. For example, the `aws:createImage` action has predefined outputs that
-return an `ImageId` and `ImageState`. Comparatively, with the
-`aws:executeAwsApi` action, you can define the outputs you that want from the
-specified API operation. As a result, you can return one or more values from a single API
-operation to use in subsequent actions.
+Some automation actions return output after performing their defined operations. Actions that return output either have predefined outputs, or allow you to define the outputs yourself. For example, the `aws:createImage` action has predefined outputs that return an `ImageId` and `ImageState`. Comparatively, with the `aws:executeAwsApi` action, you can define the outputs you that want from the specified API operation. As a result, you can return one or more values from a single API operation to use in subsequent actions.
 
-Defining your own outputs for an automation action requires that you specify a name of
-the output, the data type, and the output value. To continue using the
-`aws:executeAwsApi` action as an example, let's say you're calling the
-`DescribeInstances` API operation from Amazon EC2. In this example, you want to
-return, or output, the `State` of an Amazon EC2 instance and branch your runbook's
-workflow based on the output. You choose to name the output
-`InstanceState`, and use the `String` data type.
+Defining your own outputs for an automation action requires that you specify a name of the output, the data type, and the output value. To continue using the `aws:executeAwsApi` action as an example, let's say you're calling the `DescribeInstances` API operation from Amazon EC2. In this example, you want to return, or output, the `State` of an Amazon EC2 instance and branch your runbook's workflow based on the output. You choose to name the output **InstanceState**, and use the **String** data type. 
 
-How you define the output value depends on the action.
-For example, with `aws:executeScript`, use
-`return` statements in your functions to provide data to outputs. With
-actions like `aws:executeAwsApi`,
-`aws:waitForAwsResourceProperty`, and
-`aws:assertAwsResourceProperty`, a `Selector` is required. The
-`Selector` (also called `PropertySelector`) is a
-JSONPath string that processes the JSON response from an API
-operation. You need to understand how the JSON response is
-structured so you can select the correct value. Using the
-`DescribeInstances` API operation, see the following example
-response:
+How you define the output value depends on the action. For example, with `aws:executeScript`, use `return` statements in your functions to provide data to outputs. With actions like `aws:executeAwsApi`, `aws:waitForAwsResourceProperty`, and `aws:assertAwsResourceProperty`, a `Selector` is required. The `Selector` (also called `PropertySelector`) is a JSONPath string that processes the JSON response from an API operation. You need to understand how the JSON response is structured so you can select the correct value. Using the `DescribeInstances` API operation, see the following example response:
 
 ```
 {
@@ -183,18 +155,6 @@ response:
 }
 ```
 
-In the JSON response object, the instance `State` is nested in an
-`Instances` object, which is nested in the `Reservations` object. To
-return the value of the instance `State`, use the following string for the
-`Selector` so the value can be used in our output:
-`$.Reservations[0].Instances[0].State.Name`.
+In the JSON response object, the instance `State` is nested in an `Instances` object, which is nested in the `Reservations` object. To return the value of the instance `State`, use the following string for the `Selector` so the value can be used in our output: **$.Reservations[0].Instances[0].State.Name**.
 
-To reference an output value in subsequent actions of your runbook's workflow, the
-following format is used: `{{
-`StepName`.`NameOfOutput` }}`.
-For example, `{{ GetInstanceState.InstanceState }}`. In the
-visual design experience, you can choose output values to use in subsequent actions using the dropdown
-for the input. When using outputs in subsequent actions, the data type of the output must
-match the data type for the input. In this example, the `InstanceState` output is
-a `String`. Therefore, to use the value in a subsequent action's input, the input
-must accept a `String`.
+To reference an output value in subsequent actions of your runbook's workflow, the following format is used: `{{ {{StepName}}.{{NameOfOutput}} }}`. For example, **{{ GetInstanceState.InstanceState }}**. In the visual design experience, you can choose output values to use in subsequent actions using the dropdown for the input. When using outputs in subsequent actions, the data type of the output must match the data type for the input. In this example, the `InstanceState` output is a `String`. Therefore, to use the value in a subsequent action's input, the input must accept a `String`.

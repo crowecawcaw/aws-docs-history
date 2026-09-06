@@ -1,136 +1,94 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # `aws:assertAwsResourceProperty` – Assert an AWS resource state or event state
+<a name="automation-action-assertAwsResourceProperty"></a>
 
-The `aws:assertAwsResourceProperty` action lets you assert a specific
-resource state or event state for a specific Automation step.
+The `aws:assertAwsResourceProperty` action lets you assert a specific resource state or event state for a specific Automation step.
 
-###### Note
+**Note**  
+The `aws:assertAwsResourceProperty` action supports automatic throttling retry. For more information, see [Configuring automatic retry for throttled operations](automation-throttling-retry.md).
 
-The `aws:assertAwsResourceProperty` action supports automatic
-throttling retry. For more information, see [Configuring automatic retry for throttled operations](automation-throttling-retry.md "automation-throttling-retry.md").
+For more examples of how to use this action, see [Additional runbook examples](automation-document-examples.md).
 
-For more examples of how to use this action, see [Additional runbook examples](automation-document-examples.md "automation-document-examples.md").
+**Input**  
+Inputs are defined by the API operation that you choose. 
 
-###### Input
-
-Inputs are defined by the API operation that you choose.
-
-YAML
+------
+#### [ YAML ]
 
 ```
 action: aws:assertAwsResourceProperty
 inputs:
-  Service: `The official namespace of the service`
-  Api: `The API operation or method name`
-  `API operation inputs or parameters`: `A value`
-  PropertySelector: `Response object`
+  Service: {{The official namespace of the service}}
+  Api: {{The API operation or method name}}
+  {{API operation inputs or parameters}}: {{A value}}
+  PropertySelector: {{Response object}}
   DesiredValues:
-  - `Desired property values`
+  - {{Desired property values}}
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
   "action": "aws:assertAwsResourceProperty",
   "inputs": {
-    "Service":"`The official namespace of the service`",
-    "Api":"`The API operation or method name`",
-    "`API operation inputs or parameters`":"`A value`",
-    "PropertySelector": "`Response object`",
+    "Service":"{{The official namespace of the service}}",
+    "Api":"{{The API operation or method name}}",
+    "{{API operation inputs or parameters}}":"{{A value}}",
+    "PropertySelector": "{{Response object}}",
     "DesiredValues": [
-      "`Desired property values`"
+      "{{Desired property values}}"
     ]
   }
 }
 ```
 
-Service
+------
 
-The AWS service namespace that contains the API operation that you want
-to run. For example, the namespace for Systems Manager is `ssm`. The
-namespace for Amazon EC2 is `ec2`. You can view a list of supported
-AWS service namespaces in the [Available Services](../../../cli/latest/reference.md#available-services "../../../cli/latest/reference.md#available-services")
-section of the _AWS CLI Command Reference_.
-
-Type: String
-
+Service  
+The AWS service namespace that contains the API operation that you want to run. For example, the namespace for Systems Manager is `ssm`. The namespace for Amazon EC2 is `ec2`. You can view a list of supported AWS service namespaces in the [Available Services](https://docs.aws.amazon.com/cli/latest/reference/#available-services) section of the *AWS CLI Command Reference*.  
+Type: String  
 Required: Yes
 
-Api
-
-The name of the API operation that you want to run. You can view the API
-operations (also called methods) by choosing a service in the left
-navigation on the following [Services Reference](../../../boto3/latest/reference/services/index.md "../../../boto3/latest/reference/services/index.md") page. Choose a method in the
-**Client** section for the service that you want to
-invoke. For example, all API operations (methods) for Amazon Relational Database Service (Amazon RDS) are
-listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html").
-
-Type: String
-
+Api  
+The name of the API operation that you want to run. You can view the API operations (also called methods) by choosing a service in the left navigation on the following [Services Reference](https://docs.aws.amazon.com/boto3/latest/reference/services/index.html) page. Choose a method in the **Client** section for the service that you want to invoke. For example, all API operations (methods) for Amazon Relational Database Service (Amazon RDS) are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html).  
+Type: String  
 Required: Yes
 
-API operation inputs
-
-One or more API operation inputs. You can view the available inputs (also
-called parameters) by choosing a service in the left navigation on the
-following [Services
-Reference](../../../boto3/latest/reference/services/index.md "../../../boto3/latest/reference/services/index.md") page. Choose a method in the
-**Client** section for the service that you want to
-invoke. For example, all methods for Amazon RDS are listed on the following page:
-[Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html"). Choose the [describe\_db\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances") method and scroll down to see the
-available parameters, such as **DBInstanceIdentifier**,
-**Name**, and **Values**. Use the
-following format to specify more than one input.
-
-YAML
+API operation inputs  
+One or more API operation inputs. You can view the available inputs (also called parameters) by choosing a service in the left navigation on the following [Services Reference](https://docs.aws.amazon.com/boto3/latest/reference/services/index.html) page. Choose a method in the **Client** section for the service that you want to invoke. For example, all methods for Amazon RDS are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html). Choose the [describe\_db\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to see the available parameters, such as **DBInstanceIdentifier**, **Name**, and **Values**. Use the following format to specify more than one input.  
 
 ```
 inputs:
-  Service: `The official namespace of the service`
-  Api: `The API operation name`
-  `API input 1`: `A value`
-  `API Input 2`: `A value`
-  `API Input 3`: `A value`
+  Service: {{The official namespace of the service}}
+  Api: {{The API operation name}}
+  {{API input 1}}: {{A value}}
+  {{API Input 2}}: {{A value}}
+ {{ API Input 3}}: {{A value}}
 ```
-
-JSON
 
 ```
 "inputs":{
-      "Service":"`The official namespace of the service`",
-      "Api":"`The API operation name`",
-      "`API input 1`":"`A value`",
-      "`API Input 2`":"`A value`",
-      "`API Input 3`":"`A value`"
+      "Service":"{{The official namespace of the service}}",
+      "Api":"{{The API operation name}}",
+      "{{API input 1}}":"{{A value}}",
+      "{{API Input 2}}":"{{A value}}",
+      "{{API Input 3}}":"{{A value}}"
 }
 ```
-
-Type: Determined by chosen API operation
-
+Type: Determined by chosen API operation  
 Required: Yes
 
-PropertySelector
-
-The JSONPath to a specific attribute in the response object. You can view
-the response objects by choosing a service in the left navigation on the
-following [Services
-Reference](../../../boto3/latest/reference/services/index.md "../../../boto3/latest/reference/services/index.md") page. Choose a method in the
-**Client** section for the service that you want to
-invoke. For example, all methods for Amazon RDS are listed on the following page:
-[Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html"). Choose the [describe\_db\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances") method and scroll down to the
-**Response Structure** section.
-**DBInstances** is listed as a response object.
-
-Type: String
-
+PropertySelector  
+The JSONPath to a specific attribute in the response object. You can view the response objects by choosing a service in the left navigation on the following [Services Reference](https://docs.aws.amazon.com/boto3/latest/reference/services/index.html) page. Choose a method in the **Client** section for the service that you want to invoke. For example, all methods for Amazon RDS are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html). Choose the [describe\_db\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to the **Response Structure** section. **DBInstances** is listed as a response object.  
+Type: String  
 Required: Yes
 
-DesiredValues
-
-The expected status or state on which to continue the automation. If you
-specify a Boolean value, you must use a capital letter such as True or
-False.
-
-Type: StringList
-
+DesiredValues  
+The expected status or state on which to continue the automation. If you specify a Boolean value, you must use a capital letter such as True or False.  
+Type: StringList  
 Required: Yes

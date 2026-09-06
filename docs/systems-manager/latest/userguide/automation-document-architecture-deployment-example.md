@@ -1,35 +1,22 @@
-# Deploy VPC architecture and Microsoft Active Directory domain controllers
 
-To increase efficiency and standardize common tasks, you might choose to
-automate deployments. This is useful if you regularly deploy the same
-architecture across multiple accounts and AWS Regions. Automating
-architecture deployments can also reduce the potential for human error that
-can occur when deploying architecture manually. AWS Systems Manager Automation actions
-can help you accomplish this. Automation is a tool in AWS Systems Manager.
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
+# Deploy VPC architecture and Microsoft Active Directory domain controllers
+<a name="automation-document-architecture-deployment-example"></a>
+
+To increase efficiency and standardize common tasks, you might choose to automate deployments. This is useful if you regularly deploy the same architecture across multiple accounts and AWS Regions. Automating architecture deployments can also reduce the potential for human error that can occur when deploying architecture manually. AWS Systems Manager Automation actions can help you accomplish this. Automation is a tool in AWS Systems Manager.
 
 The following example AWS Systems Manager runbook performs these actions:
++ Retrieves the latest Windows Server 2016 Amazon Machine Image (AMI) using Systems Manager Parameter Store to use when launching the EC2 instances that will be configured as domain controllers. Parameter Store is a tool in AWS Systems Manager.
++ Uses the `aws:executeAwsApi` automation action to call several AWS API operations to create the VPC architecture. The domain controller instances are launched in private subnets, and connect to the internet using a NAT gateway. This allows the SSM Agent on the instances to access the requisite Systems Manager endpoints.
++ Uses the `aws:waitForAwsResourceProperty` automation action to confirm the instances launched by the previous action are `Online` for AWS Systems Manager.
++ Uses the `aws:runCommand` automation action to configure the instances launched as Microsoft Active Directory domain controllers.
 
-- Retrieves the latest Windows Server 2016 Amazon Machine Image (AMI) using
-  Systems Manager Parameter Store to use when launching the EC2 instances that will be
-  configured as domain controllers. Parameter Store is a tool in
-  AWS Systems Manager.
-- Uses the `aws:executeAwsApi` automation action to call
-  several AWS API operations to create the VPC architecture. The
-  domain controller instances are launched in private subnets, and
-  connect to the internet using a NAT gateway. This allows the
-  SSM Agent on the instances to access the requisite Systems Manager
-  endpoints.
-- Uses the `aws:waitForAwsResourceProperty` automation
-  action to confirm the instances launched by the previous action are
-  `Online` for AWS Systems Manager.
-- Uses the `aws:runCommand` automation action to
-  configure the instances launched as Microsoft Active Directory
-  domain controllers.
-
-YAML
+------
+#### [ YAML ]
 
 ```
-
     ---
     description: Custom Automation Deployment Example
     schemaVersion: '0.3'
@@ -62,7 +49,7 @@ YAML
           Service: iam
           Api: CreateRole
           AssumeRolePolicyDocument: >-
-            {"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
+            {"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
           RoleName: sampleSSMInstanceRole
         nextStep: attachManagedSSMPolicy
       - name: attachManagedSSMPolicy
@@ -513,7 +500,7 @@ YAML
               $domAdminUser = "sample\Administrator"
               $domAdminPass = "sampleAdminPass123!" | ConvertTo-SecureString -asPlainText -Force
               $domAdminCred = New-Object System.Management.Automation.PSCredential($domAdminUser,$domAdminPass)
-
+    
               try {
                   Install-ADDSDomainController -DomainName "sample.com" -InstallDNS -DatabasePath "D:\NTDS" -SysvolPath "D:\SYSVOL" -SafeModeAdministratorPassword $dsrmPass -Credential $domAdminCred -Force
               }
@@ -522,7 +509,8 @@ YAML
               }
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -1226,3 +1214,5 @@ JSON
       ]
     }
 ```
+
+------

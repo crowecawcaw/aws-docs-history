@@ -1,28 +1,28 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `ListCommandInvocations` with an AWS SDK or CLI
+<a name="example_ssm_ListCommandInvocations_section"></a>
 
 The following code examples show how to use `ListCommandInvocations`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_ssm_Scenario_section.md) 
 
-- [Learn the basics](example_ssm_Scenario_section.md "example_ssm_Scenario_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To list the invocations of a specific command**
-
-The following `list-command-invocations` example lists all the invocations of a command.
+**AWS CLI**  
+**To list the invocations of a specific command**  
+The following `list-command-invocations` example lists all the invocations of a command.  
 
 ```
-`aws ssm list-command-invocations \
- --command-id `"ef7fdfd8-9b57-4151-a15c-db9a12345678"` \
- --details`
-
+aws ssm list-command-invocations \
+    --command-id {{"ef7fdfd8-9b57-4151-a15c-db9a12345678"}} \
+    --details
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -108,22 +108,14 @@ Output:
     ]
 }
 ```
+For more information, see [Understanding Command Statuses](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [ListCommandInvocations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-command-invocations.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Understanding Command Statuses](monitor-commands.md "monitor-commands.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [ListCommandInvocations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-command-invocations.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-command-invocations.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
 ```
 import { paginateListCommandInvocations, SSMClient } from "@aws-sdk/client-ssm";
@@ -157,26 +149,19 @@ export const main = async ({ instanceId }) => {
     throw caught;
   }
 };
-
-
 ```
++  For API details, see [ListCommandInvocations](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/ListCommandInvocationsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ListCommandInvocations](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/ListCommandInvocationsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/ListCommandInvocationsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example lists all the invocations of a command.**
+**Tools for PowerShell V4**  
+**Example 1: This example lists all the invocations of a command.**  
 
 ```
 Get-SSMCommandInvocation -CommandId "b8eac879-0541-439d-94ec-47a80d554f44" -Detail $true
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CommandId          : b8eac879-0541-439d-94ec-47a80d554f44
@@ -194,15 +179,12 @@ Status             : Success
 StatusDetails      : Success
 TraceOutput        :
 ```
-
-**Example 2: This example lists CommandPlugins for invocation of the command id e1eb2e3c-ed4c-5123-45c1-234f5612345f**
+**Example 2: This example lists CommandPlugins for invocation of the command id e1eb2e3c-ed4c-5123-45c1-234f5612345f**  
 
 ```
 Get-SSMCommandInvocation -CommandId e1eb2e3c-ed4c-5123-45c1-234f5612345f -Detail:$true | Select-Object -ExpandProperty CommandPlugins
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Name                   : aws:runPowerShellScript
@@ -220,21 +202,15 @@ StandardOutputUrl      :
 Status                 : Success
 StatusDetails          : Success
 ```
++  For API details, see [ListCommandInvocations](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListCommandInvocations](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example lists all the invocations of a command.**
+**Tools for PowerShell V5**  
+**Example 1: This example lists all the invocations of a command.**  
 
 ```
 Get-SSMCommandInvocation -CommandId "b8eac879-0541-439d-94ec-47a80d554f44" -Detail $true
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CommandId          : b8eac879-0541-439d-94ec-47a80d554f44
@@ -252,15 +228,12 @@ Status             : Success
 StatusDetails      : Success
 TraceOutput        :
 ```
-
-**Example 2: This example lists CommandPlugins for invocation of the command id e1eb2e3c-ed4c-5123-45c1-234f5612345f**
+**Example 2: This example lists CommandPlugins for invocation of the command id e1eb2e3c-ed4c-5123-45c1-234f5612345f**  
 
 ```
 Get-SSMCommandInvocation -CommandId e1eb2e3c-ed4c-5123-45c1-234f5612345f -Detail:$true | Select-Object -ExpandProperty CommandPlugins
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Name                   : aws:runPowerShellScript
@@ -278,20 +251,13 @@ StandardOutputUrl      :
 Status                 : Success
 StatusDetails          : Success
 ```
++  For API details, see [ListCommandInvocations](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListCommandInvocations](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 
 ```
 class DocumentWrapper:
@@ -343,24 +309,14 @@ class DocumentWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [ListCommandInvocations](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/ListCommandInvocations) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListCommandInvocations](../../../goto/boto3/ssm-2014-11-06/ListCommandInvocations.md "../../../goto/boto3/ssm-2014-11-06/ListCommandInvocations.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples). 
 
 ```
     TRY.
@@ -386,14 +342,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_ssminvalidcommandid.
         MESSAGE 'Invalid command ID.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListCommandInvocations](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListCommandInvocations](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,15 +1,19 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # `aws:deleteStack` – Delete an CloudFormation stack
+<a name="automation-action-deletestack"></a>
 
 Deletes an AWS CloudFormation stack.
 
-###### Note
-
-The `aws:deleteStack` action supports automatic throttling retry. For
-more information, see [Configuring automatic retry for throttled operations](automation-throttling-retry.md "automation-throttling-retry.md").
+**Note**  
+The `aws:deleteStack` action supports automatic throttling retry. For more information, see [Configuring automatic retry for throttled operations](automation-throttling-retry.md).
 
 **Input**
 
-YAML
+------
+#### [ YAML ]
 
 ```
 name: deleteStack
@@ -20,7 +24,8 @@ inputs:
   StackName: "{{stackName}}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -34,85 +39,58 @@ JSON
 }
 ```
 
-ClientRequestToken
+------
 
-A unique identifier for this `DeleteStack`
-request. Specify this token if you plan to retry requests so that CloudFormation
-knows that you aren't attempting to delete a stack with the same name. You
-can retry `DeleteStack` requests to verify that
-CloudFormation received them.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 128.
-
-Pattern: [a-zA-Z][-a-zA-Z0-9]\*
-
+ClientRequestToken  
+A unique identifier for this `DeleteStack` request. Specify this token if you plan to retry requests so that CloudFormation knows that you aren't attempting to delete a stack with the same name. You can retry `DeleteStack` requests to verify that CloudFormation received them.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 128.  
+Pattern: [a-zA-Z][-a-zA-Z0-9]\*  
 Required: No
 
-RetainResources.member.N
-
-This input applies only to stacks that are in a `DELETE_FAILED` state. A list of logical resource IDs for the
-resources you want to retain. During deletion, CloudFormation deletes the stack,
-but doesn't delete the retained resources.
-
-Retaining resources is useful when you can't delete a resource, such as a
-non-empty S3 bucket, but you want to delete the stack.
-
-Type: array of strings
-
+RetainResources.member.N  
+This input applies only to stacks that are in a `DELETE_FAILED` state. A list of logical resource IDs for the resources you want to retain. During deletion, CloudFormation deletes the stack, but doesn't delete the retained resources.  
+Retaining resources is useful when you can't delete a resource, such as a non-empty S3 bucket, but you want to delete the stack.  
+Type: array of strings  
 Required: No
 
-RoleARN
-
-The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that
-CloudFormation assumes to create the stack. CloudFormation uses the role's
-credentials to make calls on your behalf. CloudFormation always uses this role
-for all future operations on the stack. As long as users have permission to
-operate on the stack, CloudFormation uses this role even if the users don't have
-permission to pass it. Make sure that the role grants the least amount of
-privileges.
-
-If you don't specify a value, CloudFormation uses the role that was previously
-associated with the stack. If no role is available, CloudFormation uses a
-temporary session that is generated from your user credentials.
-
-Type: String
-
-Length Constraints: Minimum length of 20. Maximum length of 2048.
-
+RoleARN  
+The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that CloudFormation assumes to create the stack. CloudFormation uses the role's credentials to make calls on your behalf. CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, CloudFormation uses this role even if the users don't have permission to pass it. Make sure that the role grants the least amount of privileges.   
+If you don't specify a value, CloudFormation uses the role that was previously associated with the stack. If no role is available, CloudFormation uses a temporary session that is generated from your user credentials.   
+Type: String  
+Length Constraints: Minimum length of 20. Maximum length of 2048.  
 Required: No
 
-StackName
-
-The name or the unique stack ID that is associated with the stack.
-
-Type: String
-
+StackName  
+The name or the unique stack ID that is associated with the stack.  
+Type: String  
 Required: Yes
 
 ## Security considerations
+<a name="automation-action-deletestack-security"></a>
 
-Before you can use the `aws:deleteStack` action, you must
-assign the following policy to the IAM Automation assume role. For more
-information about the assume role, see [Task 1: Create a service role for Automation](automation-setup-iam.md#create-service-role "automation-setup-iam.md#create-service-role").
+Before you can use the `aws:deleteStack` action, you must assign the following policy to the IAM Automation assume role. For more information about the assume role, see [Task 1: Create a service role for Automation](automation-setup-iam.md#create-service-role). 
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement":[
- {
- "Effect":"Allow",
- "Action":[
- "sqs:*",
- "cloudformation:DeleteStack",
- "cloudformation:DescribeStacks"
- ],
- "Resource":"*"
- }
- ]
-}`
+****  
 
 ```
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Action":[
+            "sqs:*",
+            "cloudformation:DeleteStack",
+            "cloudformation:DescribeStacks"
+         ],
+         "Resource":"*"
+      }
+   ]
+}
+```
+
+------

@@ -1,50 +1,47 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Disable or enable a maintenance window using the console
+<a name="sysman-maintenance-disable"></a>
 
-You can disable or enable a maintenance window in Maintenance Windows.
-You can choose one maintenance window at a time to either disable or enable the
-maintenance window from running. You can also select multiple or all maintenance
-windows to enable and disable.
+You can disable or enable a maintenance window in Maintenance Windows. You can choose one maintenance window at a time to either disable or enable the maintenance window from running. You can also select multiple or all maintenance windows to enable and disable.
 
-This section describes how to disable or enable a maintenance window by using the
-Systems Manager console. For examples of how to do this by using the AWS Command Line Interface (AWS CLI), see
-[Tutorial: Update a maintenance window using the AWS CLI](maintenance-windows-cli-tutorials-update.md "maintenance-windows-cli-tutorials-update.md").
+This section describes how to disable or enable a maintenance window by using the Systems Manager console. For examples of how to do this by using the AWS Command Line Interface (AWS CLI), see [Tutorial: Update a maintenance window using the AWS CLI](maintenance-windows-cli-tutorials-update.md). 
 
-###### Topics
-
-- [Disable a maintenance window using the console](#sysman-maintenance-disable-mw "#sysman-maintenance-disable-mw")
-- [Enable a maintenance window using the console](#sysman-maintenance-enable-mw "#sysman-maintenance-enable-mw")
+**Topics**
++ [Disable a maintenance window using the console](#sysman-maintenance-disable-mw)
++ [Enable a maintenance window using the console](#sysman-maintenance-enable-mw)
 
 ## Disable a maintenance window using the console
+<a name="sysman-maintenance-disable-mw"></a>
 
-You can disable a maintenance window to pause a task for a specified period,
-and it will remain available to enable again later.
+You can disable a maintenance window to pause a task for a specified period, and it will remain available to enable again later.
 
-###### To disable a maintenance window
+**To disable a maintenance window**
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. In the navigation pane, choose **Maintenance Windows**.
-3. Using the check box next to the maintenance window that you want to
-   disable, select one or more maintenance windows.
-4. Choose **Disable maintenance window** in the
-   **Actions** menu. The system prompts you to confirm
-   your actions.
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
+
+1. In the navigation pane, choose **Maintenance Windows**. 
+
+1. Using the check box next to the maintenance window that you want to disable, select one or more maintenance windows.
+
+1. Choose **Disable maintenance window** in the **Actions** menu. The system prompts you to confirm your actions. 
 
 ## Enable a maintenance window using the console
+<a name="sysman-maintenance-enable-mw"></a>
 
 You can enable a maintenance window to resume a task.
 
-###### Note
+**Note**  
+If the maintenance window uses a rate schedule and the start date is currently set to a past date and time, the current date and time is used as the start date for the maintenance window. You can change the start date of the maintenance window before or after enabling it. For information, see [Update or delete maintenance window resources using the console](sysman-maintenance-update.md).
 
-If the maintenance window uses a rate schedule and the start date is
-currently set to a past date and time, the current date and time is used as
-the start date for the maintenance window. You can change the start date of
-the maintenance window before or after enabling it. For
-information, see [Update or delete maintenance window resources using the console](sysman-maintenance-update.md "sysman-maintenance-update.md").
+**To enable a maintenance window**
 
-###### To enable a maintenance window
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. In the navigation pane, choose **Maintenance Windows**.
-3. Select the check box next to the maintenance window to enable.
-4. Choose **Actions, Enable maintenance window**. The
-   system prompts you to confirm your actions.
+1. In the navigation pane, choose **Maintenance Windows**. 
+
+1. Select the check box next to the maintenance window to enable.
+
+1. Choose **Actions, Enable maintenance window**. The system prompts you to confirm your actions. 

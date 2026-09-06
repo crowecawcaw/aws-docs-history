@@ -1,204 +1,123 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Systems Manager Automation actions reference
+<a name="automation-actions"></a>
 
-This reference describes the Automation actions that you can specify in an Automation
-runbook. Automation is a tool in AWS Systems Manager. These actions can't be used in other types of
-Systems Manager (SSM) documents. For information about plugins for other types of SSM documents,
-see [Command document plugin reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md").
+This reference describes the Automation actions that you can specify in an Automation runbook. Automation is a tool in AWS Systems Manager. These actions can't be used in other types of Systems Manager (SSM) documents. For information about plugins for other types of SSM documents, see [Command document plugin reference](documents-command-ssm-plugin-reference.md).
 
-Systems Manager Automation runs steps defined in Automation runbooks. Each step is associated with a
-particular action. The action determines the inputs, behavior, and outputs of the step.
-Steps are defined in the `mainSteps` section of your runbook.
+Systems Manager Automation runs steps defined in Automation runbooks. Each step is associated with a particular action. The action determines the inputs, behavior, and outputs of the step. Steps are defined in the `mainSteps` section of your runbook.
 
-You don't need to specify the outputs of an action or step. The outputs are predetermined
-by the action associated with the step. When you specify step inputs in your runbooks, you
-can reference one or more outputs from an earlier step. For example, you can make the output
-of `aws:runInstances` available for a subsequent `aws:runCommand` action. You can also reference outputs from earlier
-steps in the `Output` section of the runbook.
+You don't need to specify the outputs of an action or step. The outputs are predetermined by the action associated with the step. When you specify step inputs in your runbooks, you can reference one or more outputs from an earlier step. For example, you can make the output of `aws:runInstances` available for a subsequent `aws:runCommand` action. You can also reference outputs from earlier steps in the `Output` section of the runbook. 
 
-###### Important
+**Important**  
+If you run an automation workflow that invokes other services by using an AWS Identity and Access Management (IAM) service role, be aware that the service role must be configured with permission to invoke those services. This requirement applies to all AWS Automation runbooks (`AWS-*` runbooks) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` runbooks, to name a few. This requirement also applies to any custom Automation runbooks you create that invoke other AWS services by using actions that call other services. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, configure the service role with permission to invoke those services. You can give permissions to other AWS services by adding an IAM inline policy to the role. For more information, see [(Optional) Add an Automation inline policy or customer managed policy to invoke other AWS services](automation-setup-iam.md#add-inline-policy).
 
-If you run an automation workflow that invokes other services by using an AWS Identity and Access Management
-(IAM) service role, be aware that the service role must be configured with permission
-to invoke those services. This requirement applies to all AWS Automation runbooks
-(`AWS-*` runbooks) such as the `AWS-ConfigureS3BucketLogging`,
-`AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance`
-runbooks, to name a few. This requirement also applies to any custom Automation runbooks
-you create that invoke other AWS services by using actions that call other services.
-For example, if you use the `aws:executeAwsApi`,
-`aws:createStack`, or `aws:copyImage` actions, configure the
-service role with permission to invoke those services. You can give permissions to other
-AWS services by adding an IAM inline policy to the role. For more information, see
-[(Optional) Add an Automation inline policy or customer managed policy to invoke other AWS services](automation-setup-iam.md#add-inline-policy "automation-setup-iam.md#add-inline-policy").
-
-###### Topics
-
-- [Properties shared by all actions](#automation-common "#automation-common")
-- [aws:approve – Pause an automation for manual approval](automation-action-approve.md "automation-action-approve.md")
-- [aws:assertAwsResourceProperty – Assert an AWS resource state or event state](automation-action-assertAwsResourceProperty.md "automation-action-assertAwsResourceProperty.md")
-- [aws:branch – Run conditional automation steps](automation-action-branch.md "automation-action-branch.md")
-- [aws:changeInstanceState – Change or assert instance state](automation-action-changestate.md "automation-action-changestate.md")
-- [aws:copyImage – Copy or encrypt an Amazon Machine Image](automation-action-copyimage.md "automation-action-copyimage.md")
-- [aws:createImage – Create an Amazon Machine Image](automation-action-create.md "automation-action-create.md")
-- [aws:createStack – Create an CloudFormation stack](automation-action-createstack.md "automation-action-createstack.md")
-- [aws:createTags – Create tags for AWS resources](automation-action-createtag.md "automation-action-createtag.md")
-- [aws:deleteImage – Delete an Amazon Machine Image](automation-action-delete.md "automation-action-delete.md")
-- [aws:deleteStack – Delete an CloudFormation stack](automation-action-deletestack.md "automation-action-deletestack.md")
-- [aws:executeAutomation – Run another automation](automation-action-executeAutomation.md "automation-action-executeAutomation.md")
-- [aws:executeAwsApi – Call and run AWS API operations](automation-action-executeAwsApi.md "automation-action-executeAwsApi.md")
-- [aws:executeScript – Run a script](automation-action-executeScript.md "automation-action-executeScript.md")
-- [aws:executeStateMachine – Run an AWS Step Functions state machine](automation-action-executeStateMachine.md "automation-action-executeStateMachine.md")
-- [aws:invokeWebhook – Invoke an Automation webhook integration](invoke-webhook.md "invoke-webhook.md")
-- [aws:invokeLambdaFunction – Invoke an AWS Lambda function](automation-action-lamb.md "automation-action-lamb.md")
-- [aws:loop – Iterate over steps in an automation](automation-action-loop.md "automation-action-loop.md")
-- [aws:pause – Pause an automation](automation-action-pause.md "automation-action-pause.md")
-- [aws:runCommand – Run a command on a managed instance](automation-action-runcommand.md "automation-action-runcommand.md")
-- [aws:runInstances – Launch an Amazon EC2 instance](automation-action-runinstance.md "automation-action-runinstance.md")
-- [aws:sleep – Delay an automation](automation-action-sleep.md "automation-action-sleep.md")
-- [aws:updateVariable – Updates a value for a runbook variable](automation-action-update-variable.md "automation-action-update-variable.md")
-- [aws:waitForAwsResourceProperty – Wait on an AWS resource property](automation-action-waitForAwsResourceProperty.md "automation-action-waitForAwsResourceProperty.md")
-- [Automation system variables](automation-variables.md "automation-variables.md")
+**Topics**
++ [Properties shared by all actions](#automation-common)
++ [`aws:approve` – Pause an automation for manual approval](automation-action-approve.md)
++ [`aws:assertAwsResourceProperty` – Assert an AWS resource state or event state](automation-action-assertAwsResourceProperty.md)
++ [`aws:branch` – Run conditional automation steps](automation-action-branch.md)
++ [`aws:changeInstanceState` – Change or assert instance state](automation-action-changestate.md)
++ [`aws:copyImage` – Copy or encrypt an Amazon Machine Image](automation-action-copyimage.md)
++ [`aws:createImage` – Create an Amazon Machine Image](automation-action-create.md)
++ [`aws:createStack` – Create an CloudFormation stack](automation-action-createstack.md)
++ [`aws:createTags` – Create tags for AWS resources](automation-action-createtag.md)
++ [`aws:deleteImage` – Delete an Amazon Machine Image](automation-action-delete.md)
++ [`aws:deleteStack` – Delete an CloudFormation stack](automation-action-deletestack.md)
++ [`aws:executeAutomation` – Run another automation](automation-action-executeAutomation.md)
++ [`aws:executeAwsApi` – Call and run AWS API operations](automation-action-executeAwsApi.md)
++ [`aws:executeScript` – Run a script](automation-action-executeScript.md)
++ [`aws:executeStateMachine` – Run an AWS Step Functions state machine](automation-action-executeStateMachine.md)
++ [`aws:invokeWebhook` – Invoke an Automation webhook integration](invoke-webhook.md)
++ [`aws:invokeLambdaFunction` – Invoke an AWS Lambda function](automation-action-lamb.md)
++ [`aws:loop` – Iterate over steps in an automation](automation-action-loop.md)
++ [`aws:pause` – Pause an automation](automation-action-pause.md)
++ [`aws:runCommand` – Run a command on a managed instance](automation-action-runcommand.md)
++ [`aws:runInstances` – Launch an Amazon EC2 instance](automation-action-runinstance.md)
++ [`aws:sleep` – Delay an automation](automation-action-sleep.md)
++ [`aws:updateVariable` – Updates a value for a runbook variable](automation-action-update-variable.md)
++ [`aws:waitForAwsResourceProperty` – Wait on an AWS resource property](automation-action-waitForAwsResourceProperty.md)
++ [Automation system variables](automation-variables.md)
 
 ## Properties shared by all actions
+<a name="automation-common"></a>
 
-Common properties are parameters or options that are found in all actions. Some
-options define behavior for a step, such as how long to wait for a step to complete and
-what to do if the step fails. The following properties are common to all actions.
+Common properties are parameters or options that are found in all actions. Some options define behavior for a step, such as how long to wait for a step to complete and what to do if the step fails. The following properties are common to all actions.
 
-[description](#descriptProp "#descriptProp")
-
-Information you provide to describe the purpose of a runbook or a
-step.
-
-Type: String
-
+[description](#descriptProp)  
+Information you provide to describe the purpose of a runbook or a step.  
+Type: String  
 Required: No
 
-[name](#nameProp "#nameProp")
-
-An identifier that must be unique across all step names in the
-runbook.
-
-Type: String
-
-Allowed pattern: [a-zA-Z0-9\_]+$
-
+[name](#nameProp)  
+An identifier that must be unique across all step names in the runbook.  
+Type: String  
+Allowed pattern: [a-zA-Z0-9\_]\+$  
 Required: Yes
 
-[action](#actProp "#actProp")
-
-The name of the action the step is to run. [aws:runCommand – Run a command on a managed instance](automation-action-runcommand.md "automation-action-runcommand.md") is an example of an
-action you can specify here. This document provides detailed information
-about all available actions.
-
-Type: String
-
+[action](#actProp)  
+The name of the action the step is to run. [`aws:runCommand` – Run a command on a managed instance](automation-action-runcommand.md) is an example of an action you can specify here. This document provides detailed information about all available actions.  
+Type: String  
 Required: Yes
 
-[maxAttempts](#maxProp "#maxProp")
-
-The number of times the step should be retried in case of failure. If the
-value is greater than 1, the step isn't considered to have failed until all
-retry attempts have failed. The default value is 1.
-
-Type: Integer
-
+[maxAttempts](#maxProp)  
+The number of times the step should be retried in case of failure. If the value is greater than 1, the step isn't considered to have failed until all retry attempts have failed. The default value is 1.  
+Type: Integer  
 Required: No
 
-[timeoutSeconds](#timeProp "#timeProp")
-
-The timeout value for the step. If the timeout is reached and the value of
-`maxAttempts` is greater than 1, then the step
-isn't considered to have timed out until all retries have been
-attempted.
-
-Type: Integer
-
+[timeoutSeconds](#timeProp)  
+The timeout value for the step. If the timeout is reached and the value of `maxAttempts` is greater than 1, then the step isn't considered to have timed out until all retries have been attempted.  
+Type: Integer  
 Required: No
 
-[onFailure](#failProp "#failProp")
-
-Indicates whether the automation should stop, continue, or go to a
-different step on failure. The default value for this option is
-abort.
-
-Type: String
-
-Valid values: Abort | Continue |
-step:`step_name`
-
+[onFailure](#failProp)  
+Indicates whether the automation should stop, continue, or go to a different step on failure. The default value for this option is abort.  
+Type: String  
+Valid values: Abort \| Continue \| step:{{step\_name}}  
 Required: No
 
-[onCancel](#canProp "#canProp")
+[onCancel](#canProp)  
+Indicates which step the automation should go to if a user cancels the automation. Automation runs the cancellation workflow for a maximum of two minutes.  
+Type: String  
+Valid values: Abort \| step:{{step\_name}}  
+Required: No  
+The `onCancel` property doesn't support moving to the following actions:  
++ `aws:approve`
++ `aws:copyImage`
++ `aws:createImage`
++ `aws:createStack`
++ `aws:createTags`
++ `aws:loop`
++ `aws:pause`
++ `aws:runInstances`
++ `aws:sleep`
 
-Indicates which step the automation should go to if a user
-cancels the automation. Automation runs the cancellation workflow for a
-maximum of two minutes.
-
-Type: String
-
-Valid values: Abort | step:`step_name`
-
+[isEnd](#endProp)  
+This option stops an automation at the end of a specific step. The automation stops if the step failed or succeeded. The default value is false.  
+Type: Boolean  
+Valid values: true \| false  
 Required: No
 
-The `onCancel` property doesn't support moving to the following
-actions:
-
-- `aws:approve`
-- `aws:copyImage`
-- `aws:createImage`
-- `aws:createStack`
-- `aws:createTags`
-- `aws:loop`
-- `aws:pause`
-- `aws:runInstances`
-- `aws:sleep`
-
-[isEnd](#endProp "#endProp")
-
-This option stops an automation at the end of a specific step. The
-automation stops if the step failed or succeeded. The default value is
-false.
-
-Type: Boolean
-
-Valid values: true | false
-
+[nextStep](#nextProp)  
+Specifies which step in an automation to process next after successfully completing a step.  
+Type: String  
 Required: No
 
-[nextStep](#nextProp "#nextProp")
-
-Specifies which step in an automation to process next after successfully
-completing a step.
-
-Type: String
-
+[isCritical](#critProp)  
+Designates a step as critical for the successful completion of the Automation. If a step with this designation fails, then Automation reports the final status of the Automation as Failed. This property is only evaluated if you explicitly define it in your step. If the `onFailure` property is set to `Continue` in a step, the value defaults to false. Otherwise, the default value for this option is true.  
+Type: Boolean  
+Valid values: true \| false  
 Required: No
 
-[isCritical](#critProp "#critProp")
-
-Designates a step as critical for the successful completion of the
-Automation. If a step with this designation fails, then Automation reports
-the final status of the Automation as Failed. This property is only
-evaluated if you explicitly define it in your step. If the
-`onFailure` property is set to `Continue` in a
-step, the value defaults to false. Otherwise, the default value for this
-option is true.
-
-Type: Boolean
-
-Valid values: true | false
-
-Required: No
-
-[inputs](#inProp "#inProp")
-
-The properties specific to the action.
-
-Type: Map
-
+[inputs](#inProp)  
+The properties specific to the action.  
+Type: Map  
 Required: Yes
 
 ### Example
+<a name="automation-demo"></a>
 
 ```
 ---
@@ -291,7 +210,7 @@ mainSteps:
     Type: String
   - Name: noSnapshotFound
     Selector: $.Payload.noSnapshotFound
-    Type: String
+    Type: String 
   nextStep: branchFromResults
 - name: branchFromResults
   action: aws:branch

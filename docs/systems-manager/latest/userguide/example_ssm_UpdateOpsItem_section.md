@@ -1,51 +1,43 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `UpdateOpsItem` with an AWS SDK or CLI
+<a name="example_ssm_UpdateOpsItem_section"></a>
 
 The following code examples show how to use `UpdateOpsItem`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_ssm_Scenario_section.md) 
 
-- [Learn the basics](example_ssm_Scenario_section.md "example_ssm_Scenario_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To update an OpsItem**
-
-The following `update-ops-item` example updates the description, priority, and category for an OpsItem. In addition, the command specifies an SNS topic where the notifications are sent when this OpsItem is edited or changed.
+**AWS CLI**  
+**To update an OpsItem**  
+The following `update-ops-item` example updates the description, priority, and category for an OpsItem. In addition, the command specifies an SNS topic where the notifications are sent when this OpsItem is edited or changed.  
 
 ```
-`aws ssm update-ops-item \
- --ops-item-id `"oi-287b5EXAMPLE"` \
- --description `"Primary OpsItem for failover event 2020-01-01-fh398yf"` \
- --priority `2` \
- --category `"Security"` \
- --notifications `"Arn=arn:aws:sns:us-east-2:111222333444:my-us-east-2-topic"``
-
+aws ssm update-ops-item \
+    --ops-item-id {{"oi-287b5EXAMPLE"}} \
+    --description {{"Primary OpsItem for failover event 2020-01-01-fh398yf"}} \
+    --priority {{2}} \
+    --category {{"Security"}} \
+    --notifications {{"Arn=arn:aws:sns:us-east-2:111222333444:my-us-east-2-topic"}}
 ```
-
-Output:
+Output:  
 
 ```
 This command produces no output.
 ```
+For more information, see [Working with OpsItems](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [UpdateOpsItem](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/update-ops-item.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Working with OpsItems](OpsCenter-working-with-OpsItems.md "OpsCenter-working-with-OpsItems.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [UpdateOpsItem](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/update-ops-item.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/update-ops-item.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
 ```
     /**
@@ -85,23 +77,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             throw ex.getCause() instanceof RuntimeException ? (RuntimeException) ex.getCause() : ex;
         }
     }
-
-
 ```
++  For API details, see [UpdateOpsItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/UpdateOpsItem) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateOpsItem](../../../goto/SdkForJavaV2/ssm-2014-11-06/UpdateOpsItem.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/UpdateOpsItem.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
 ```
 import { UpdateOpsItemCommand, SSMClient } from "@aws-sdk/client-ssm";
@@ -138,23 +121,14 @@ export const main = async ({
     }
   }
 };
-
-
 ```
++  For API details, see [UpdateOpsItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/UpdateOpsItemCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UpdateOpsItem](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/UpdateOpsItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/UpdateOpsItemCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 
 ```
 class OpsItemWrapper:
@@ -202,24 +176,14 @@ class OpsItemWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [UpdateOpsItem](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/UpdateOpsItem) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateOpsItem](../../../goto/boto3/ssm-2014-11-06/UpdateOpsItem.md "../../../goto/boto3/ssm-2014-11-06/UpdateOpsItem.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples). 
 
 ```
     TRY.
@@ -234,14 +198,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_ssmopsiteminvparamex.
         MESSAGE 'Invalid OpsItem parameter.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [UpdateOpsItem](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [UpdateOpsItem](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,26 +1,21 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Using native parameter support in Parameter Store for Amazon Machine Image IDs
+<a name="parameter-store-ec2-aliases"></a>
 
-When you create a `String` parameter, you can specify the _data type_ as `aws:ec2:image` to make sure that
-the parameter value you enter is a valid Amazon Machine Image (AMI) ID format.
+When you create a `String` parameter, you can specify the *data type* as `aws:ec2:image` to make sure that the parameter value you enter is a valid Amazon Machine Image (AMI) ID format. 
 
-Support for AMI ID formats lets you avoid updating all your scripts and
-templates with a new ID each time the AMI that you want to use in your processes
-changes. You can create a parameter with the data type `aws:ec2:image`,
-and for its value, enter the ID of an AMI. This is the AMI you want to create
-new instances from. You then reference this parameter in your templates, commands,
-and scripts.
+Support for AMI ID formats lets you avoid updating all your scripts and templates with a new ID each time the AMI that you want to use in your processes changes. You can create a parameter with the data type `aws:ec2:image`, and for its value, enter the ID of an AMI. This is the AMI you want to create new instances from. You then reference this parameter in your templates, commands, and scripts. 
 
-For example, you can specify the parameter that contains your preferred AMI ID
-when you run the Amazon Elastic Compute Cloud (Amazon EC2) `run-instances` command.
+For example, you can specify the parameter that contains your preferred AMI ID when you run the Amazon Elastic Compute Cloud (Amazon EC2) `run-instances` command.
 
-###### Note
+**Note**  
+The user who runs this command must have AWS Identity and Access Management (IAM) permissions that include the `ssm:GetParameters` API operation for the parameter value to be validated. Otherwise, the parameter creation process fails.
 
-The user who runs this command must have AWS Identity and Access Management (IAM) permissions that
-include the `ssm:GetParameters` API operation for the
-parameter value to be validated. Otherwise, the parameter creation process
-fails.
-
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ec2 run-instances \
@@ -31,7 +26,8 @@ aws ec2 run-instances \
     --security-groups my-security-group
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ec2 run-instances ^
@@ -42,67 +38,54 @@ aws ec2 run-instances ^
     --security-groups my-security-group
 ```
 
-You can also choose your preferred AMI when you create an instance using the
-Amazon EC2 console. For more information, see [Using a Systems Manager parameter to find an AMI](../../../AWSEC2/latest/WindowsGuide/finding-an-ami.md#using-systems-manager-parameter-to-find-AMI "../../../AWSEC2/latest/WindowsGuide/finding-an-ami.md#using-systems-manager-parameter-to-find-AMI") in the
-_Amazon EC2 User Guide_.
+------
 
-When it's time to use a different AMI in your instance creation workflow, you
-need only update the parameter with the new AMI value, and Parameter Store again
-validates that you have entered an ID in the proper format.
+You can also choose your preferred AMI when you create an instance using the Amazon EC2 console. For more information, see [Using a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon EC2 User Guide*.
+
+When it's time to use a different AMI in your instance creation workflow, you need only update the parameter with the new AMI value, and Parameter Store again validates that you have entered an ID in the proper format.
 
 ## Granting permissions to create a parameter of `aws:ec2:image` data type
+<a name="parameter-store-ec2-iam"></a>
 
-Using AWS Identity and Access Management (IAM) policies, you can provide or restrict user access to
-Parameter Store API operations and content.
+Using AWS Identity and Access Management (IAM) policies, you can provide or restrict user access to Parameter Store API operations and content.
 
-To create an `aws:ec2:image` data type parameter, the user must
-have both `ssm:PutParameter` and `ec2:DescribeImages`
-permissions.
+To create an `aws:ec2:image` data type parameter, the user must have both `ssm:PutParameter` and `ec2:DescribeImages` permissions.
 
-The following example policy grants users permission to call the
-`PutParameter` API operation for `aws:ec2:image`. This
-means that the user can add a parameter of data type `aws:ec2:image`
-to the system.
+The following example policy grants users permission to call the `PutParameter` API operation for `aws:ec2:image`. This means that the user can add a parameter of data type `aws:ec2:image` to the system. 
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "ssm:PutParameter",
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": "ec2:DescribeImages",
- "Resource": "*"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "ssm:PutParameter",
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ec2:DescribeImages",
+            "Resource": "*"
+        }
+    ]
+}
 ```
+
+------
 
 ## How AMI format validation works
+<a name="parameter-ami-validation"></a>
 
-When you specify `aws:ec2:image` as the data type for a parameter,
-Systems Manager doesn't create the parameter immediately. It instead performs an
-asynchronous validation operation to make sure that the parameter value meets the
-formatting requirements for an AMI ID, and that the specified AMI is
-available in your AWS account.
+When you specify `aws:ec2:image` as the data type for a parameter, Systems Manager doesn't create the parameter immediately. It instead performs an asynchronous validation operation to make sure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your AWS account.
 
-A parameter version number might be generated before the validation operation
-is complete. The operation might not be complete even if a parameter version
-number is generated.
+A parameter version number might be generated before the validation operation is complete. The operation might not be complete even if a parameter version number is generated. 
 
-To monitor whether your parameters are created successfully, we recommend
-using Amazon EventBridge to send you notifications about your `create` and
-`update` parameter operations. These notifications report whether
-a parameter operation was successful or not. If an operation fails, the
-notification includes an error message that indicates the reason for the
-failure.
+To monitor whether your parameters are created successfully, we recommend using Amazon EventBridge to send you notifications about your `create` and `update` parameter operations. These notifications report whether a parameter operation was successful or not. If an operation fails, the notification includes an error message that indicates the reason for the failure. 
 
 ```
 {
@@ -126,4 +109,4 @@ failure.
 }
 ```
 
-For information about subscribing to Parameter Store events in EventBridge, see [Setting up notifications or triggering actions based on Parameter Store events](sysman-paramstore-cwe.md "sysman-paramstore-cwe.md").
+For information about subscribing to Parameter Store events in EventBridge, see [Setting up notifications or triggering actions based on Parameter Store events](sysman-paramstore-cwe.md).

@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `GetParameter` with an AWS SDK or CLI
+<a name="example_ssm_GetParameter_section"></a>
 
 The following code examples show how to use `GetParameter`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To display the value of a parameter**
-
-The following `get-parameter` example lists the value for the specified single parameter.
-
-```
-`aws ssm get-parameter \
- --name `"MyStringParameter"``
+**AWS CLI**  
+**Example 1: To display the value of a parameter**  
+The following `get-parameter` example lists the value for the specified single parameter.  
 
 ```
-
-Output:
+aws ssm get-parameter \
+    --name {{"MyStringParameter"}}
+```
+Output:  
 
 ```
 {
@@ -31,21 +33,16 @@ Output:
     }
 }
 ```
-
-For more information, see [Working with Parameter Store](parameter-store-working-with.md "parameter-store-working-with.md") in the _AWS Systems Manager User Guide_.
-
-**Example 2: To decrypt the value of a SecureString parameter**
-
-The following `get-parameter` example decrypts the value of the specified `SecureString` parameter.
+For more information, see [Working with Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-working-with.html) in the *AWS Systems Manager User Guide*.  
+**Example 2: To decrypt the value of a SecureString parameter**  
+The following `get-parameter` example decrypts the value of the specified `SecureString` parameter.  
 
 ```
-`aws ssm get-parameter \
- --name `"MySecureStringParameter"` \
- --with-decryption`
-
+aws ssm get-parameter \
+    --name {{"MySecureStringParameter"}} \
+    --with-decryption
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -60,20 +57,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Working with Parameter Store](parameter-store-working-with.md "parameter-store-working-with.md") in the _AWS Systems Manager User Guide_.
-
-**Example 3: To display the value of a parameter using labels**
-
-The following `get-parameter` example lists the value for the specified single parameter with a specified label.
+For more information, see [Working with Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-working-with.html) in the *AWS Systems Manager User Guide*.  
+**Example 3: To display the value of a parameter using labels**  
+The following `get-parameter` example lists the value for the specified single parameter with a specified label.  
 
 ```
-`aws ssm get-parameter \
- --name `"MyParameter:label"``
-
+aws ssm get-parameter \
+    --name {{"MyParameter:label"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -89,20 +81,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Working with parameter labels](sysman-paramstore-labels.md "sysman-paramstore-labels.md") in the _AWS Systems Manager User Guide_.
-
-**Example 4: To display the value of a parameter using versions**
-
-The following `get-parameter` example lists the value for the specified single parameter version.
+For more information, see [Working with parameter labels](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html) in the *AWS Systems Manager User Guide*.  
+**Example 4: To display the value of a parameter using versions**  
+The following `get-parameter` example lists the value for the specified single parameter version.  
 
 ```
-`aws ssm get-parameter \
- --name `"MyParameter:2"``
-
+aws ssm get-parameter \
+    --name {{"MyParameter:2"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -118,22 +105,14 @@ Output:
     }
 }
 ```
+For more information, see [Working with parameter labels](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [GetParameter](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-parameter.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Working with parameter labels](sysman-paramstore-labels.md "sysman-paramstore-labels.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ Rust ]
 
-- For API details, see
-  [GetParameter](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-parameter.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-parameter.html")
-  in _AWS CLI Command Reference_.
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ssm#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ssm#code-examples). 
 
 ```
     pub async fn list_path(&self, path: &str) -> Result<Vec<Parameter>, EC2Error> {
@@ -153,14 +132,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
             .collect::<Result<Vec<Parameter>, _>>()?;
         Ok(params)
     }
-
-
 ```
++  For API details, see [GetParameter](https://docs.rs/aws-sdk-ssm/latest/aws_sdk_ssm/client/struct.Client.html#method.get_parameter) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [GetParameter](https://docs.rs/aws-sdk-ssm/latest/aws_sdk_ssm/client/struct.Client.html#method.get_parameter "https://docs.rs/aws-sdk-ssm/latest/aws_sdk_ssm/client/struct.Client.html#method.get_parameter")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

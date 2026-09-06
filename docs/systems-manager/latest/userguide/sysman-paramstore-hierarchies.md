@@ -1,89 +1,69 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Working with parameter hierarchies in Parameter Store
+<a name="sysman-paramstore-hierarchies"></a>
 
-Managing dozens or hundreds of parameters as a flat list is time consuming and
-prone to errors. It can also be difficult to identify the correct parameter for a
-task. This means you might accidentally use the wrong parameter, or you might create
-multiple parameters that use the same configuration data.
+Managing dozens or hundreds of parameters as a flat list is time consuming and prone to errors. It can also be difficult to identify the correct parameter for a task. This means you might accidentally use the wrong parameter, or you might create multiple parameters that use the same configuration data. 
 
-You can use parameter hierarchies to help you organize and manage parameters. A
-hierarchy is a parameter name that includes a path that you define by using forward
-slashes (/).
+You can use parameter hierarchies to help you organize and manage parameters. A hierarchy is a parameter name that includes a path that you define by using forward slashes (/).
 
-###### Topics
-
-- [Understanding parameter hierarchy through examples](#ps-hierarchy-examples "#ps-hierarchy-examples")
-- [Querying parameters in a hierarchy](#ps-hierarchy-queries "#ps-hierarchy-queries")
-- [Managing parameters using hierarchies using the AWS CLI](#sysman-paramstore-walk-hierarchy "#sysman-paramstore-walk-hierarchy")
+**Topics**
++ [Understanding parameter hierarchy through examples](#ps-hierarchy-examples)
++ [Querying parameters in a hierarchy](#ps-hierarchy-queries)
++ [Managing parameters using hierarchies using the AWS CLI](#sysman-paramstore-walk-hierarchy)
 
 ## Understanding parameter hierarchy through examples
+<a name="ps-hierarchy-examples"></a>
 
-The following example uses three hierarchy levels in the name to identify the
-following:
+The following example uses three hierarchy levels in the name to identify the following:
 
 `/Environment/Type of computer/Application/Data`
 
 `/Dev/WebServer/Linux/approved-ami`
 
-You can create a hierarchy with a maximum of 15 levels. We suggest that you
-create hierarchies that reflect an existing hierarchical structure in your
-environment, as shown in the following examples:
+You can create a hierarchy with a maximum of 15 levels. We suggest that you create hierarchies that reflect an existing hierarchical structure in your environment, as shown in the following examples:
++ Your [Continuous integration](https://aws.amazon.com/devops/continuous-integration/) and [Continuous delivery](https://aws.amazon.com/devops/continuous-delivery/) environment (CI/CD workflows)
 
-- Your [Continuous integration](https://aws.amazon.com/devops/continuous-integration/ "https://aws.amazon.com/devops/continuous-integration/") and [Continuous
-  delivery](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/") environment (CI/CD workflows)
+  `/Dev/WebServer/Linux/approved-ami`
 
-`/Dev/WebServer/Linux/approved-ami`
+  `/Staging/WebServer/Linux/approved-ami`
 
-`/Staging/WebServer/Linux/approved-ami`
+  `/Prod/WebServer/Linux/approved-ami`
++ Your applications that use containers
 
-`/Prod/WebServer/Linux/approved-ami`
+  ```
+  /MyApp/.NET/Images/{{approved-ami}}
+  ```
++ Your business organization
 
-- Your applications that use containers
+  `/Finance/Accountants/UserList`
 
-```
-/MyApp/.NET/Images/`approved-ami`
-```
+  `/Finance/Analysts/UserList`
 
-- Your business organization
+  `/HR/Employees/EU/UserList`
 
-`/Finance/Accountants/UserList`
+Parameter hierarchies standardize the way you create parameters and make it easier to manage parameters over time. A parameter hierarchy can also help you identify the correct parameter for a configuration task. This helps you to avoid creating multiple parameters with the same configuration data. 
 
-`/Finance/Analysts/UserList`
+You can create a hierarchy that lets you share parameters across different environments, as shown in the following examples that use approved AMI IDs in development and staging environments.
 
-`/HR/Employees/EU/UserList`
+`/DevTest/MyApp/images/{{approved-ami}}`
 
-Parameter hierarchies standardize the way you create parameters and make it
-easier to manage parameters over time. A parameter hierarchy can also help you
-identify the correct parameter for a configuration task. This helps you to avoid
-creating multiple parameters with the same configuration data.
+You could then create a unique approved AMI ID for your production environment, as shown in the following example:
 
-You can create a hierarchy that lets you share parameters across
-different environments, as shown in the following examples that use approved AMI IDs in
-development and staging environments.
+`/prod/MyApp/images/{{approved-ami}}`
 
-`/DevTest/MyApp/images/`approved-ami``
-
-You could then create a unique approved AMI ID for your production environment, as
-shown in the following example:
-
-`/prod/MyApp/images/`approved-ami``
-
-You aren't required to specify a parameter hierarchy. You can create
-parameters at level one. These are called _root_ parameters.
-For backward compatibility, all parameters created in Parameter Store before
-hierarchies were released are root parameters. The systems treats both of the
-following parameters as root parameters.
+You aren't required to specify a parameter hierarchy. You can create parameters at level one. These are called *root* parameters. For backward compatibility, all parameters created in Parameter Store before hierarchies were released are root parameters. The systems treats both of the following parameters as root parameters.
 
 `/parameter-name`
 
 `parameter-name`
 
 ## Querying parameters in a hierarchy
+<a name="ps-hierarchy-queries"></a>
 
-Another benefit of using hierarchies is the ability to query for all
-parameters _under_ a certain level in a
-hierarchy by using the [GetParametersByPath](../APIReference/API_GetParametersByPath.md "../APIReference/API_GetParametersByPath.md") API operation. For example, if you run the
-following command from the AWS Command Line Interface (AWS CLI), the system returns all parameters
-under the `Oncall` level:
+Another benefit of using hierarchies is the ability to query for all parameters *under* a certain level in a hierarchy by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API operation. For example, if you run the following command from the AWS Command Line Interface (AWS CLI), the system returns all parameters under the `Oncall` level:
 
 ```
 aws ssm get-parameters-by-path --path /Dev/Web/Oncall
@@ -116,196 +96,215 @@ Sample output:
 }
 ```
 
-To view decrypted `SecureString` parameters in a hierarchy, you
-specify the path and the `--with-decryption` parameter, as shown in
-the following example.
+To view decrypted `SecureString` parameters in a hierarchy, you specify the path and the `--with-decryption` parameter, as shown in the following example.
 
 ```
 aws ssm get-parameters-by-path --path /Prod/ERP/SAP --with-decryption
 ```
 
 ## Managing parameters using hierarchies using the AWS CLI
+<a name="sysman-paramstore-walk-hierarchy"></a>
 
-This procedure shows how to work with parameters and parameter hierarchies by
-using the AWS CLI.
+This procedure shows how to work with parameters and parameter hierarchies by using the AWS CLI.
 
-###### To manage parameters using hierarchies
+**To manage parameters using hierarchies**
 
 1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
 
-For information, see [Installing or updating the
-latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). 2. Run the following command to create a parameter that uses the
-`allowedPattern` parameter and the `String`
-parameter type. The allowed pattern in this example means the value for
-the parameter must be between 1 and 4 digits long.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-Linux & macOS
+1. Run the following command to create a parameter that uses the `allowedPattern` parameter and the `String` parameter type. The allowed pattern in this example means the value for the parameter must be between 1 and 4 digits long.
 
-```
-aws ssm put-parameter \
-    --name "/MyService/Test/MaxConnections" \
-    --value 100 --allowed-pattern "\d{1,4}" \
-    --type String
-```
+------
+#### [ Linux & macOS ]
 
-Windows
+   ```
+   aws ssm put-parameter \
+       --name "/MyService/Test/MaxConnections" \
+       --value 100 --allowed-pattern "\d{1,4}" \
+       --type String
+   ```
 
-```
-aws ssm put-parameter ^
-    --name "/MyService/Test/MaxConnections" ^
-    --value 100 --allowed-pattern "\d{1,4}" ^
-    --type String
-```
+------
+#### [ Windows ]
 
-The command returns the version number of the parameter. 3. Run the following command to _attempt_ to overwrite
-the parameter you just created with a new value.
+   ```
+   aws ssm put-parameter ^
+       --name "/MyService/Test/MaxConnections" ^
+       --value 100 --allowed-pattern "\d{1,4}" ^
+       --type String
+   ```
 
-Linux & macOS
+------
 
-```
-aws ssm put-parameter \
-    --name "/MyService/Test/MaxConnections" \
-    --value 10,000 \
-    --type String \
-    --overwrite
-```
+   The command returns the version number of the parameter.
 
-Windows
+1. Run the following command to *attempt* to overwrite the parameter you just created with a new value.
 
-```
-aws ssm put-parameter ^
-    --name "/MyService/Test/MaxConnections" ^
-    --value 10,000 ^
-    --type String ^
-    --overwrite
-```
+------
+#### [ Linux & macOS ]
 
-The system returns the following error because the new value doesn't
-meet the requirements of the allowed pattern you specified in the
-previous step.
+   ```
+   aws ssm put-parameter \
+       --name "/MyService/Test/MaxConnections" \
+       --value 10,000 \
+       --type String \
+       --overwrite
+   ```
 
-```
-An error occurred (ParameterPatternMismatchException) when calling the PutParameter operation: Parameter value, cannot be validated against allowedPattern: \d{1,4}
-```
+------
+#### [ Windows ]
 
-4. Run the following command to create a `SecureString`
-   parameter that uses an AWS managed key. The allowed pattern in this
-   example validates that the parameter value is an AMI ID.
+   ```
+   aws ssm put-parameter ^
+       --name "/MyService/Test/MaxConnections" ^
+       --value 10,000 ^
+       --type String ^
+       --overwrite
+   ```
 
-Linux & macOS
+------
 
-```
-aws ssm put-parameter \
-    --name "/MyService/Test/`approved-ami`" \
-    --value "ami-0abcdef1234567890" \
-    --allowed-pattern "ami-[a-f0-9]{17}" \
-    --type SecureString
-```
+   The system returns the following error because the new value doesn't meet the requirements of the allowed pattern you specified in the previous step.
 
-Windows
+   ```
+   An error occurred (ParameterPatternMismatchException) when calling the PutParameter operation: Parameter value, cannot be validated against allowedPattern: \d{1,4}
+   ```
 
-```
-aws ssm put-parameter ^
-    --name "/MyService/Test/`approved-ami`" ^
-    --value "ami-0abcdef1234567890" ^
-    --allowed-pattern "ami-[a-f0-9]{17}" ^
-    --type SecureString
-```
+1. Run the following command to create a `SecureString` parameter that uses an AWS managed key. The allowed pattern in this example validates that the parameter value is an AMI ID.
 
-5. Run the following commands to create more parameters that use the
-   hierarchy structure from the previous step.
+------
+#### [ Linux & macOS ]
 
-Linux & macOS
+   ```
+   aws ssm put-parameter \
+       --name "/MyService/Test/{{approved-ami}}" \
+       --value "ami-0abcdef1234567890" \
+       --allowed-pattern "ami-[a-f0-9]{17}" \
+       --type SecureString
+   ```
 
-```
-aws ssm put-parameter \
-    --name "/MyService/Test/DBname" \
-    --value "SQLDevDb" \
-    --type String
-```
+------
+#### [ Windows ]
 
-```
-aws ssm put-parameter \
-    --name "/MyService/Test/user" \
-    --value "SA" \
-    --type String
-```
+   ```
+   aws ssm put-parameter ^
+       --name "/MyService/Test/{{approved-ami}}" ^
+       --value "ami-0abcdef1234567890" ^
+       --allowed-pattern "ami-[a-f0-9]{17}" ^
+       --type SecureString
+   ```
 
-```
-aws ssm put-parameter \
-    --name "/MyService/Test/userType" \
-    --value "SQLuser" \
-    --type String
-```
+------
 
-Windows
+1. Run the following commands to create more parameters that use the hierarchy structure from the previous step.
 
-```
-aws ssm put-parameter ^
-    --name "/MyService/Test/DBname" ^
-    --value "SQLDevDb" ^
-    --type String
-```
+------
+#### [ Linux & macOS ]
 
-```
-aws ssm put-parameter ^
-    --name "/MyService/Test/user" ^
-    --value "SA" ^
-    --type String
-```
+   ```
+   aws ssm put-parameter \
+       --name "/MyService/Test/DBname" \
+       --value "SQLDevDb" \
+       --type String
+   ```
 
-```
-aws ssm put-parameter ^
-    --name "/MyService/Test/userType" ^
-    --value "SQLuser" ^
-    --type String
-```
+   ```
+   aws ssm put-parameter \
+       --name "/MyService/Test/user" \
+       --value "SA" \
+       --type String
+   ```
 
-6. Run the following command to get the value of two parameters.
+   ```
+   aws ssm put-parameter \
+       --name "/MyService/Test/userType" \
+       --value "SQLuser" \
+       --type String
+   ```
 
-Linux & macOS
+------
+#### [ Windows ]
 
-```
-aws ssm get-parameters \
-    --names "/MyService/Test/user" "/MyService/Test/userType"
-```
+   ```
+   aws ssm put-parameter ^
+       --name "/MyService/Test/DBname" ^
+       --value "SQLDevDb" ^
+       --type String
+   ```
 
-Windows
+   ```
+   aws ssm put-parameter ^
+       --name "/MyService/Test/user" ^
+       --value "SA" ^
+       --type String
+   ```
 
-```
-aws ssm get-parameters ^
-    --names "/MyService/Test/user" "/MyService/Test/userType"
-```
+   ```
+   aws ssm put-parameter ^
+       --name "/MyService/Test/userType" ^
+       --value "SQLuser" ^
+       --type String
+   ```
 
-7. Run the following command to query for all parameters under a single
-   level.
+------
 
-Linux & macOS
+1. Run the following command to get the value of two parameters.
 
-```
-aws ssm get-parameters-by-path \
-    --path "/MyService/Test"
-```
+------
+#### [ Linux & macOS ]
 
-Windows
+   ```
+   aws ssm get-parameters \
+       --names "/MyService/Test/user" "/MyService/Test/userType"
+   ```
 
-```
-aws ssm get-parameters-by-path ^
-    --path "/MyService/Test"
-```
+------
+#### [ Windows ]
 
-8. Run the following command to delete two parameters.
+   ```
+   aws ssm get-parameters ^
+       --names "/MyService/Test/user" "/MyService/Test/userType"
+   ```
 
-Linux & macOS
+------
 
-```
-aws ssm delete-parameters \
-    --names "/IADRegion/Dev/user" "/IADRegion/Dev/userType"
-```
+1. Run the following command to query for all parameters under a single level. 
 
-Windows
+------
+#### [ Linux & macOS ]
 
-```
-aws ssm delete-parameters ^
-    --names "/IADRegion/Dev/user" "/IADRegion/Dev/userType"
-```
+   ```
+   aws ssm get-parameters-by-path \
+       --path "/MyService/Test"
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm get-parameters-by-path ^
+       --path "/MyService/Test"
+   ```
+
+------
+
+1. Run the following command to delete two parameters.
+
+------
+#### [ Linux & macOS ]
+
+   ```
+   aws ssm delete-parameters \
+       --names "/IADRegion/Dev/user" "/IADRegion/Dev/userType"
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm delete-parameters ^
+       --names "/IADRegion/Dev/user" "/IADRegion/Dev/userType"
+   ```
+
+------

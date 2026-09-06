@@ -1,24 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Learn the basics of Systems Manager with an AWS SDK
+<a name="example_ssm_Scenario_section"></a>
 
 The following code examples show how to:
++ Create a maintenance window.
++ Modify the maintenance window schedule.
++ Create a document.
++ Send a command to a specified EC2 instance.
++ Create an OpsItem.
++ Update and resolve the OpsItem.
++ Delete the maintenance window, OpsItem, and document.
 
-- Create a maintenance window.
-- Modify the maintenance window schedule.
-- Create a document.
-- Send a command to a specified EC2 instance.
-- Create an OpsItem.
-- Update and resolve the OpsItem.
-- Delete the maintenance window, OpsItem, and document.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
 ```
 import software.amazon.awssdk.services.ssm.model.DocumentAlreadyExistsException;
@@ -34,7 +34,7 @@ public class SSMScenario {
         String usage = """
             Usage:
               <title> <source> <category> <severity>
-
+      
             Where:
                 title - The title of the parameter (default is Disk Space Alert).
                 source - The source of the parameter (default is EC2).
@@ -66,7 +66,7 @@ public class SSMScenario {
                 listing documents, listing commands, creating an OpsItem, modifying an OpsItem, and deleting AWS SSM resources.
                 Upon completion of the program, all AWS resources are cleaned up.
                 Let's get started...
-
+            
                 """);
         waitForInputToContinue(scanner);
         System.out.println(DASHES);
@@ -163,13 +163,13 @@ public class SSMScenario {
 
         System.out.println(DASHES);
         System.out.println("""
-             6. Now we will create an SSM OpsItem.
-             A SSM OpsItem is a feature provided by Amazon's Systems Manager (SSM) service.
-             It is a type of operational data item that allows you to manage and track various operational issues,
+             6. Now we will create an SSM OpsItem. 
+             A SSM OpsItem is a feature provided by Amazon's Systems Manager (SSM) service. 
+             It is a type of operational data item that allows you to manage and track various operational issues, 
              events, or tasks within your AWS environment.
-
-             You can create OpsItems to track and manage operational issues as they arise.
-             For example, you could create an OpsItem whenever your application detects a critical error
+             
+             You can create OpsItems to track and manage operational issues as they arise. 
+             For example, you could create an OpsItem whenever your application detects a critical error 
              or an anomaly in your infrastructure.
             """);
 
@@ -270,11 +270,8 @@ public class SSMScenario {
         }
     }
 }
-
-
 ```
-
-A wrapper class for Systems Manager SDK methods.
+A wrapper class for Systems Manager SDK methods.  
 
 ```
 public class SSMActions {
@@ -834,29 +831,21 @@ public class SSMActions {
         return windowId[0];
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateDocument](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/CreateDocument)
+  + [CreateMaintenanceWindow](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/CreateMaintenanceWindow)
+  + [CreateOpsItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/CreateOpsItem)
+  + [DeleteMaintenanceWindow](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/DeleteMaintenanceWindow)
+  + [ListCommandInvocations](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/ListCommandInvocations)
+  + [SendCommand](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/SendCommand)
+  + [UpdateOpsItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/UpdateOpsItem)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [CreateDocument](../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateDocument.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateDocument.md")
-  - [CreateMaintenanceWindow](../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateMaintenanceWindow.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateMaintenanceWindow.md")
-  - [CreateOpsItem](../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateOpsItem.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateOpsItem.md")
-  - [DeleteMaintenanceWindow](../../../goto/SdkForJavaV2/ssm-2014-11-06/DeleteMaintenanceWindow.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/DeleteMaintenanceWindow.md")
-  - [ListCommandInvocations](../../../goto/SdkForJavaV2/ssm-2014-11-06/ListCommandInvocations.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/ListCommandInvocations.md")
-  - [SendCommand](../../../goto/SdkForJavaV2/ssm-2014-11-06/SendCommand.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/SendCommand.md")
-  - [UpdateOpsItem](../../../goto/SdkForJavaV2/ssm-2014-11-06/UpdateOpsItem.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/UpdateOpsItem.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
 ```
 import {
@@ -1374,31 +1363,22 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   });
   main({ confirmAll: values.yes });
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [CreateDocument](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateDocumentCommand)
+  + [CreateMaintenanceWindow](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateMaintenanceWindowCommand)
+  + [CreateOpsItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateOpsItemCommand)
+  + [DeleteMaintenanceWindow](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/DeleteMaintenanceWindowCommand)
+  + [ListCommandInvocations](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/ListCommandInvocationsCommand)
+  + [SendCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/SendCommandCommand)
+  + [UpdateOpsItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/UpdateOpsItemCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-  - [CreateDocument](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateDocumentCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateDocumentCommand.md")
-  - [CreateMaintenanceWindow](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateMaintenanceWindowCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateMaintenanceWindowCommand.md")
-  - [CreateOpsItem](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateOpsItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateOpsItemCommand.md")
-  - [DeleteMaintenanceWindow](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/DeleteMaintenanceWindowCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/DeleteMaintenanceWindowCommand.md")
-  - [ListCommandInvocations](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/ListCommandInvocationsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/ListCommandInvocationsCommand.md")
-  - [SendCommand](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/SendCommandCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/SendCommandCommand.md")
-  - [UpdateOpsItem](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/UpdateOpsItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/UpdateOpsItemCommand.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
 class SystemsManagerScenario:
@@ -1422,9 +1402,9 @@ class SystemsManagerScenario:
                 """
 Welcome to the AWS Systems Manager SDK Getting Started scenario.
 This program demonstrates how to interact with Systems Manager using the AWS SDK for Python (Boto3).
-Systems Manager is the operations hub for your AWS applications and resources and a secure end-to-end management
-solution. The program's primary functions include creating a maintenance window, creating a document, sending a
-command to a document, listing documents, listing commands, creating an OpsItem, modifying an OpsItem, and deleting
+Systems Manager is the operations hub for your AWS applications and resources and a secure end-to-end management 
+solution. The program's primary functions include creating a maintenance window, creating a document, sending a 
+command to a document, listing documents, listing commands, creating an OpsItem, modifying an OpsItem, and deleting 
 Systems Manager resources. Upon completion of the program, all AWS resources are cleaned up.
 Let's get started..."""
             )
@@ -1498,7 +1478,7 @@ Let's get started..."""
 Now you have the option of running a command on an EC2 instance that echoes 'Hello, world!'.
 In order to run this command, you must provide the instance ID of a Linux EC2 instance. If you do
 not already have a running Linux EC2 instance in your account, you can create one using the AWS console.
-For information about creating an EC2 instance, see
+For information about creating an EC2 instance, see 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html.
             """
             )
@@ -1611,11 +1591,8 @@ if __name__ == "__main__":
         scenario.run()
     except Exception:
         logging.exception("Something went wrong with the demo.")
-
-
 ```
-
-Define a class that wraps document and command actions.
+Define a class that wraps document and command actions.  
 
 ```
 class DocumentWrapper:
@@ -1786,14 +1763,8 @@ class DocumentWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
-
-
 ```
-
-Define a class that wraps ops item actions.
+Define a class that wraps ops item actions.  
 
 ```
 class OpsItemWrapper:
@@ -1927,14 +1898,8 @@ class OpsItemWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
-
-
 ```
-
-Define a class that wraps maintenance window actions.
+Define a class that wraps maintenance window actions.  
 
 ```
 class MaintenanceWindowWrapper:
@@ -2056,21 +2021,16 @@ class MaintenanceWindowWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateDocument](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/CreateDocument)
+  + [CreateMaintenanceWindow](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/CreateMaintenanceWindow)
+  + [CreateOpsItem](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/CreateOpsItem)
+  + [DeleteMaintenanceWindow](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/DeleteMaintenanceWindow)
+  + [ListCommandInvocations](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/ListCommandInvocations)
+  + [SendCommand](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/SendCommand)
+  + [UpdateOpsItem](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/UpdateOpsItem)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateDocument](../../../goto/boto3/ssm-2014-11-06/CreateDocument.md "../../../goto/boto3/ssm-2014-11-06/CreateDocument.md")
-  - [CreateMaintenanceWindow](../../../goto/boto3/ssm-2014-11-06/CreateMaintenanceWindow.md "../../../goto/boto3/ssm-2014-11-06/CreateMaintenanceWindow.md")
-  - [CreateOpsItem](../../../goto/boto3/ssm-2014-11-06/CreateOpsItem.md "../../../goto/boto3/ssm-2014-11-06/CreateOpsItem.md")
-  - [DeleteMaintenanceWindow](../../../goto/boto3/ssm-2014-11-06/DeleteMaintenanceWindow.md "../../../goto/boto3/ssm-2014-11-06/DeleteMaintenanceWindow.md")
-  - [ListCommandInvocations](../../../goto/boto3/ssm-2014-11-06/ListCommandInvocations.md "../../../goto/boto3/ssm-2014-11-06/ListCommandInvocations.md")
-  - [SendCommand](../../../goto/boto3/ssm-2014-11-06/SendCommand.md "../../../goto/boto3/ssm-2014-11-06/SendCommand.md")
-  - [UpdateOpsItem](../../../goto/boto3/ssm-2014-11-06/UpdateOpsItem.md "../../../goto/boto3/ssm-2014-11-06/UpdateOpsItem.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

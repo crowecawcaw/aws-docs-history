@@ -1,26 +1,21 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Restore a root volume from the latest snapshot
+<a name="automation-document-instance-recovery-example"></a>
 
-The operating system on a root volume can become corrupted for various
-reasons. For example, following a patching operation, instances might fail
-to boot successfully due to a corrupted kernel or registry. Automating
-common troubleshooting tasks, like restoring a root volume from the latest
-snapshot taken before the patching operation, can reduce downtime and
-expedite your troubleshooting efforts. AWS Systems Manager Automation actions can help
-you accomplish this. Automation is a tool in AWS Systems Manager.
+The operating system on a root volume can become corrupted for various reasons. For example, following a patching operation, instances might fail to boot successfully due to a corrupted kernel or registry. Automating common troubleshooting tasks, like restoring a root volume from the latest snapshot taken before the patching operation, can reduce downtime and expedite your troubleshooting efforts. AWS Systems Manager Automation actions can help you accomplish this. Automation is a tool in AWS Systems Manager.
 
-The following example AWS Systems Manager runbook performs these actions:
+The following example AWS Systems Manager runbook performs these actions: 
++ Uses the `aws:executeAwsApi` automation action to retrieve details from the root volume of the instance.
++ Uses the `aws:executeScript` automation action to retrieve the latest snapshot for the root volume.
++ Uses the `aws:branch` automation action to continue the automation if a snapshot is found for the root volume.
 
-- Uses the `aws:executeAwsApi` automation action to
-  retrieve details from the root volume of the instance.
-- Uses the `aws:executeScript` automation action to
-  retrieve the latest snapshot for the root volume.
-- Uses the `aws:branch` automation action to continue the
-  automation if a snapshot is found for the root volume.
-
-YAML
+------
+#### [ YAML ]
 
 ```
-
     ---
     description: Custom Automation Troubleshooting Example
     schemaVersion: '0.3'
@@ -81,7 +76,7 @@ YAML
         Script: |-
           def getSnapshotsByStartTime(events,context):
             import boto3
-
+    
             #Initialize client
             ec2 = boto3.client('ec2')
             rootVolumeId = events['rootVolumeId']
@@ -110,7 +105,7 @@ YAML
         Type: String
       - Name: noSnapshotFound
         Selector: $.Payload.noSnapshotFound
-        Type: String
+        Type: String 
       nextStep: branchFromResults
     - name: branchFromResults
       action: aws:branch
@@ -220,10 +215,10 @@ YAML
         - "{{ InstanceId }}"
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
-
     {
        "description": "Custom Automation Troubleshooting Example",
        "schemaVersion": "0.3",
@@ -492,3 +487,5 @@ JSON
         }
     }
 ```
+
+------

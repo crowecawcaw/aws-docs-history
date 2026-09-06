@@ -1,20 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Calling AMI public parameters in Parameter Store
+<a name="parameter-store-public-parameters-ami"></a>
 
-Amazon Elastic Compute Cloud (Amazon EC2) Amazon Machine Image (AMI) public parameters are available for Amazon Linux 2,
-Amazon Linux 2023 (AL2023), macOS, and Windows Server from the following paths:
+Amazon Elastic Compute Cloud (Amazon EC2) Amazon Machine Image (AMI) public parameters are available for Amazon Linux 2, Amazon Linux 2023 (AL2023), macOS, and Windows Server from the following paths:
++ Amazon Linux 2, and Amazon Linux 2023: `/aws/service/ami-amazon-linux-latest`
++ macOS: `/aws/service/ec2-macos`
++ Windows Server: `/aws/service/ami-windows-latest`
 
-- Amazon Linux 2, and Amazon Linux 2023:
-  `/aws/service/ami-amazon-linux-latest`
-- macOS: `/aws/service/ec2-macos`
-- Windows Server: `/aws/service/ami-windows-latest`
+
 
 ## Calling AMI public parameters for Amazon Linux 2 and Amazon Linux 2023
+<a name="public-parameters-ami-linux"></a>
 
-You can view a list of all Amazon Linux 2 and Amazon Linux 2023 (AL2023) AMIs in the
-current AWS Region by using the following command in the AWS Command Line Interface
-(AWS CLI).
+You can view a list of all Amazon Linux 2 and Amazon Linux 2023 (AL2023) AMIs in the current AWS Region by using the following command in the AWS Command Line Interface (AWS CLI).
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -22,13 +26,16 @@ aws ssm get-parameters-by-path \
     --query 'Parameters[].Name'
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
     --path /aws/service/ami-amazon-linux-latest ^
     --query Parameters[].Name
 ```
+
+------
 
 The command returns information like the following.
 
@@ -58,32 +65,31 @@ The command returns information like the following.
 ]
 ```
 
-You can view details about these AMIs, including the AMI IDs and Amazon
-Resource Names (ARNs), by using the following command.
+You can view details about these AMIs, including the AMI IDs and Amazon Resource Names (ARNs), by using the following command.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
     --path "/aws/service/ami-amazon-linux-latest" \
-    --region `region`
+    --region {{region}}
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
     --path "/aws/service/ami-amazon-linux-latest" ^
-    --region `region`
+    --region {{region}}
 ```
 
-`region` represents the identifier for an AWS Region supported
-by AWS Systems Manager, such as `us-east-2` for the US East (Ohio) Region. For a list of supported
-`region` values, see the **Region** column in [Systems Manager service endpoints](../../../general/latest/gr/ssm.md#ssm_region "../../../general/latest/gr/ssm.md#ssm_region") in the
-_Amazon Web Services General Reference_.
+------
 
-The command returns information like the following. This example output has
-been truncated for space.
+{{region}} represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East (Ohio) Region. For a list of supported {{region}} values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*.
+
+The command returns information like the following. This example output has been truncated for space.
 
 ```
 {
@@ -119,11 +125,10 @@ been truncated for space.
 }
 ```
 
-You can view details of a specific AMI by using the [GetParameters](../APIReference/API_GetParameters.md "../APIReference/API_GetParameters.md") API
-operation with the full AMI name, including the path. Here is an example
-command.
+You can view details of a specific AMI by using the [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API operation with the full AMI name, including the path. Here is an example command.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters \
@@ -131,13 +136,16 @@ aws ssm get-parameters \
     --region us-east-2
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters ^
     --names /aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-arm64 ^
     --region us-east-2
 ```
+
+------
 
 The command returns the following information.
 
@@ -159,11 +167,12 @@ The command returns the following information.
 ```
 
 ## Calling AMI public parameters for macOS
+<a name="public-parameters-ami-macos"></a>
 
-You can view a list of all macOS AMIs in the current AWS Region by
-using the following command in the AWS CLI.
+You can view a list of all macOS AMIs in the current AWS Region by using the following command in the AWS CLI.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -171,7 +180,8 @@ aws ssm get-parameters-by-path \
     --query 'Parameters[].Name'
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
@@ -179,7 +189,9 @@ aws ssm get-parameters-by-path ^
     --query Parameters[].Name
 ```
 
-The command returns information like the following.
+------
+
+The command returns information like the following. 
 
 ```
 [
@@ -190,77 +202,80 @@ The command returns information like the following.
 ]
 ```
 
-You can view details about these AMIs, including the AMI IDs and Amazon
-Resource Names (ARNs), by using the following command.
+You can view details about these AMIs, including the AMI IDs and Amazon Resource Names (ARNs), by using the following command.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
     --path "/aws/service/ec2-macos" \
-    --region `region`
+    --region {{region}}
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
     --path "/aws/service/ec2-macos" ^
-    --region `region`
+    --region {{region}}
 ```
 
-`region` represents the identifier for an AWS Region supported
-by AWS Systems Manager, such as `us-east-2` for the US East (Ohio) Region. For a list of supported
-`region` values, see the **Region** column in [Systems Manager service endpoints](../../../general/latest/gr/ssm.md#ssm_region "../../../general/latest/gr/ssm.md#ssm_region") in the
-_Amazon Web Services General Reference_.
+------
 
-The command returns information like the following. This example output has
-been truncated for space.
+{{region}} represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East (Ohio) Region. For a list of supported {{region}} values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*.
+
+The command returns information like the following. This example output has been truncated for space.
 
 ```
 {
     "Parameters": [
-        ...sample results pending...
+        {{...sample results pending...}}
     ]
 }
 ```
 
-You can view details of a specific AMI by using the [GetParameters](../APIReference/API_GetParameters.md "../APIReference/API_GetParameters.md") API operation with the full AMI name, including the
-path. Here is an example command.
+You can view details of a specific AMI by using the [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API operation with the full AMI name, including the path. Here is an example command.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters \
-    --names /aws/service/ec2-macos/`...pending...` \
+    --names /aws/service/ec2-macos/{{...pending...}} \
     --region us-east-2
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters ^
-     --names /aws/service/ec2-macos/`...pending...` ^
+     --names /aws/service/ec2-macos/{{...pending...}} ^
     --region us-east-2
 ```
+
+------
 
 The command returns the following information.
 
 ```
 {
     "Parameters": [
-         ...sample results pending...
+         {{...sample results pending...}}
     ],
     "InvalidParameters": []
 }
 ```
 
 ## Calling AMI public parameters for Windows Server
+<a name="public-parameters-ami-windows"></a>
 
-You can view a list of all Windows Server AMIs in the current AWS Region by
-using the following command in the AWS CLI.
+You can view a list of all Windows Server AMIs in the current AWS Region by using the following command in the AWS CLI.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -268,7 +283,8 @@ aws ssm get-parameters-by-path \
     --query 'Parameters[].Name'
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
@@ -276,8 +292,9 @@ aws ssm get-parameters-by-path ^
     --query Parameters[].Name
 ```
 
-The command returns information like the following. This example output has
-been truncated for space.
+------
+
+The command returns information like the following. This example output has been truncated for space.
 
 ```
 [
@@ -312,32 +329,31 @@ been truncated for space.
 ]
 ```
 
-You can view details about these AMIs, including the AMI IDs and Amazon
-Resource Names (ARNs), by using the following command.
+You can view details about these AMIs, including the AMI IDs and Amazon Resource Names (ARNs), by using the following command.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
     --path "/aws/service/ami-windows-latest" \
-    --region `region`
+    --region {{region}}
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters-by-path ^
     --path "/aws/service/ami-windows-latest" ^
-    --region `region`
+    --region {{region}}
 ```
 
-`region` represents the identifier for an AWS Region supported
-by AWS Systems Manager, such as `us-east-2` for the US East (Ohio) Region. For a list of supported
-`region` values, see the **Region** column in [Systems Manager service endpoints](../../../general/latest/gr/ssm.md#ssm_region "../../../general/latest/gr/ssm.md#ssm_region") in the
-_Amazon Web Services General Reference_.
+------
 
-The command returns information like the following. This example output has
-been truncated for space.
+{{region}} represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East (Ohio) Region. For a list of supported {{region}} values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*.
+
+The command returns information like the following. This example output has been truncated for space.
 
 ```
 {
@@ -373,11 +389,10 @@ been truncated for space.
 }
 ```
 
-You can view details of a specific AMI by using the [GetParameters](../APIReference/API_GetParameters.md "../APIReference/API_GetParameters.md") API
-operation with the full AMI name, including the path. Here is an example
-command.
+You can view details of a specific AMI by using the [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API operation with the full AMI name, including the path. Here is an example command.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters \
@@ -385,13 +400,16 @@ aws ssm get-parameters \
     --region us-east-2
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters ^
     --names /aws/service/ami-windows-latest/EC2LaunchV2-Windows_Server-2016-English-Full-Base ^
     --region us-east-2
 ```
+
+------
 
 The command returns the following information.
 

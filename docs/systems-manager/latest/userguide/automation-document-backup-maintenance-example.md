@@ -1,25 +1,21 @@
-# Create an AMI and cross-Region copy
 
-Creating an Amazon Machine Image (AMI) of an instance is a common process used in
-backup and recovery. You might also choose to copy an AMI to another
-AWS Region as part of a disaster recovery architecture. Automating common
-maintenance tasks can reduce downtime if an issue requires failover.
-AWS Systems Manager Automation actions can help you accomplish this. Automation is a
-tool in AWS Systems Manager.
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
+# Create an AMI and cross-Region copy
+<a name="automation-document-backup-maintenance-example"></a>
+
+Creating an Amazon Machine Image (AMI) of an instance is a common process used in backup and recovery. You might also choose to copy an AMI to another AWS Region as part of a disaster recovery architecture. Automating common maintenance tasks can reduce downtime if an issue requires failover. AWS Systems Manager Automation actions can help you accomplish this. Automation is a tool in AWS Systems Manager.
 
 The following example AWS Systems Manager runbook performs these actions:
++ Uses the `aws:executeAwsApi` automation action to create an AMI.
++ Uses the `aws:waitForAwsResourceProperty` automation action to confirm the availability of the AMI.
++ Uses the `aws:executeScript` automation action to copy the AMI to the destination Region.
 
-- Uses the `aws:executeAwsApi` automation action to
-  create an AMI.
-- Uses the `aws:waitForAwsResourceProperty` automation
-  action to confirm the availability of the AMI.
-- Uses the `aws:executeScript` automation action to copy
-  the AMI to the destination Region.
-
-YAML
+------
+#### [ YAML ]
 
 ```
-
     ---
     description: Custom Automation Backup and Recovery Example
     schemaVersion: '0.3'
@@ -74,11 +70,11 @@ YAML
         Script: |-
           def crossRegionImageCopy(events,context):
             import boto3
-
+    
             #Initialize client
             ec2 = boto3.client('ec2', region_name='us-east-1')
             newImageId = events['newImageId']
-
+    
             ec2.copy_image(
               Name='DR Copy for ' + newImageId,
               SourceImageId=newImageId,
@@ -86,10 +82,10 @@ YAML
             )
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
-
     {
        "description": "Custom Automation Backup and Recovery Example",
        "schemaVersion": "0.3",
@@ -168,3 +164,5 @@ JSON
         }
     }
 ```
+
+------

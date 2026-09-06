@@ -1,21 +1,23 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DescribeParameters` with an AWS SDK or CLI
+<a name="example_ssm_DescribeParameters_section"></a>
 
 The following code examples show how to use `DescribeParameters`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To list all parameters**
-
-The following `describe-parameters` example lists all parameters in the current AWS account and Region.
-
-```
-`aws ssm describe-parameters`
+**AWS CLI**  
+**Example 1: To list all parameters**  
+The following `describe-parameters` example lists all parameters in the current AWS account and Region.  
 
 ```
-
-Output:
+aws ssm describe-parameters
+```
+Output:  
 
 ```
 {
@@ -74,14 +76,10 @@ Output:
     ]
 }
 ```
-
-**Example 2: To list all parameters matching specific metadata**
-
-This `describe-parameters` example lists all parameters matching a filter.
-
-aws ssm describe-parameters --filters "Key=Type,Values=StringList"
-
-Output:
+**Example 2: To list all parameters matching specific metadata**  
+This `describe-parameters` example lists all parameters matching a filter.  
+aws ssm describe-parameters --filters "Key=Type,Values=StringList"  
+Output:  
 
 ```
 {
@@ -99,22 +97,14 @@ Output:
     ]
 }
 ```
+For more information, see [Searching for Systems Manager Parameters](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-search.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [DescribeParameters](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-parameters.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Searching for Systems Manager Parameters](parameter-search.md "parameter-search.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DescribeParameters](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-parameters.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-parameters.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -172,26 +162,19 @@ public class GetParameter {
         }
     }
 }
-
-
 ```
++  For API details, see [DescribeParameters](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/DescribeParameters) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeParameters](../../../goto/SdkForJavaV2/ssm-2014-11-06/DescribeParameters.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/DescribeParameters.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example lists all parameters.**
+**Tools for PowerShell V4**  
+**Example 1: This example lists all parameters.**  
 
 ```
 Get-SSMParameterList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Description      :
@@ -201,21 +184,15 @@ LastModifiedUser : arn:aws:iam::123456789012:user/admin
 Name             : Welcome
 Type             : String
 ```
++  For API details, see [DescribeParameters](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeParameters](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example lists all parameters.**
+**Tools for PowerShell V5**  
+**Example 1: This example lists all parameters.**  
 
 ```
 Get-SSMParameterList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Description      :
@@ -225,20 +202,13 @@ LastModifiedUser : arn:aws:iam::123456789012:user/admin
 Name             : Welcome
 Type             : String
 ```
++  For API details, see [DescribeParameters](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeParameters](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ssm#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ssm#code-examples). 
 
 ```
 async fn show_parameters(client: &Client) -> Result<(), Error> {
@@ -250,14 +220,9 @@ async fn show_parameters(client: &Client) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [DescribeParameters](https://docs.rs/aws-sdk-ssm/latest/aws_sdk_ssm/client/struct.Client.html#method.describe_parameters) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DescribeParameters](https://docs.rs/aws-sdk-ssm/latest/aws_sdk_ssm/client/struct.Client.html#method.describe_parameters "https://docs.rs/aws-sdk-ssm/latest/aws_sdk_ssm/client/struct.Client.html#method.describe_parameters")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

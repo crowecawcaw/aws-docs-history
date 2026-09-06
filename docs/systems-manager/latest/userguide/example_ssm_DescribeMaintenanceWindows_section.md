@@ -1,21 +1,23 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DescribeMaintenanceWindows` with a CLI
+<a name="example_ssm_DescribeMaintenanceWindows_section"></a>
 
 The following code examples show how to use `DescribeMaintenanceWindows`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To list all maintenance windows**
-
-The following `describe-maintenance-windows` example lists all maintenance windows in your AWS account in the current Region.
-
-```
-`aws ssm describe-maintenance-windows`
+**AWS CLI**  
+**Example 1: To list all maintenance windows**  
+The following `describe-maintenance-windows` example lists all maintenance windows in your AWS account in the current Region.  
 
 ```
-
-Output:
+aws ssm describe-maintenance-windows
+```
+Output:  
 
 ```
 {
@@ -41,45 +43,33 @@ Output:
     ]
 }
 ```
-
-**Example 2: To list all enabled maintenance windows**
-
-The following `describe-maintenance-windows` example lists all enabled maintenance windows.
+**Example 2: To list all enabled maintenance windows**  
+The following `describe-maintenance-windows` example lists all enabled maintenance windows.  
 
 ```
-`aws ssm describe-maintenance-windows \
- --filters `"Key=Enabled,Values=true"``
+aws ssm describe-maintenance-windows \
+    --filters {{"Key=Enabled,Values=true"}}
+```
+**Example 3: To list maintenance windows matching a specific name**  
+This `describe-maintenance-windows` example lists all maintenance windows with the specified name.  
 
 ```
-
-**Example 3: To list maintenance windows matching a specific name**
-
-This `describe-maintenance-windows` example lists all maintenance windows with the specified name.
-
+aws ssm describe-maintenance-windows \
+    --filters {{"Key=Name,Values=MyMaintenanceWindow"}}
 ```
-`aws ssm describe-maintenance-windows \
- --filters `"Key=Name,Values=MyMaintenanceWindow"``
+For more information, see [View Information About Maintenance Windows (AWS CLI)](https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-cli-tutorials-describe.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [DescribeMaintenanceWindows](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-maintenance-windows.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ PowerShell ]
 
-For more information, see [View Information About Maintenance Windows (AWS CLI)](maintenance-windows-cli-tutorials-describe.md "maintenance-windows-cli-tutorials-describe.md") in the _AWS Systems Manager User Guide_.
-
-- For API details, see
-  [DescribeMaintenanceWindows](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-maintenance-windows.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-maintenance-windows.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example lists all maintenance windows on your account.**
+**Tools for PowerShell V4**  
+**Example 1: This example lists all maintenance windows on your account.**  
 
 ```
 Get-SSMMaintenanceWindowList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Cutoff   : 1
@@ -88,21 +78,15 @@ Enabled  : True
 Name     : My-First-Maintenance-Window
 WindowId : mw-06d59c1a07c022145
 ```
++  For API details, see [DescribeMaintenanceWindows](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeMaintenanceWindows](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example lists all maintenance windows on your account.**
+**Tools for PowerShell V5**  
+**Example 1: This example lists all maintenance windows on your account.**  
 
 ```
 Get-SSMMaintenanceWindowList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Cutoff   : 1
@@ -111,11 +95,8 @@ Enabled  : True
 Name     : My-First-Maintenance-Window
 WindowId : mw-06d59c1a07c022145
 ```
++  For API details, see [DescribeMaintenanceWindows](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeMaintenanceWindows](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

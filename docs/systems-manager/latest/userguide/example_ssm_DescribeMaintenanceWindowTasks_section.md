@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DescribeMaintenanceWindowTasks` with a CLI
+<a name="example_ssm_DescribeMaintenanceWindowTasks_section"></a>
 
 The following code examples show how to use `DescribeMaintenanceWindowTasks`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To list all tasks for a maintenance window**
-
-The following `describe-maintenance-window-tasks` example lists all of the tasks for the specified maintenance window.
-
-```
-`aws ssm describe-maintenance-window-tasks \
- --window-id `"mw-06cf17cbefEXAMPLE"``
+**AWS CLI**  
+**Example 1: To list all tasks for a maintenance window**  
+The following `describe-maintenance-window-tasks` example lists all of the tasks for the specified maintenance window.  
 
 ```
-
-Output:
+aws ssm describe-maintenance-window-tasks \
+    --window-id {{"mw-06cf17cbefEXAMPLE"}}
+```
+Output:  
 
 ```
 {
@@ -66,19 +68,15 @@ Output:
     ]
 }
 ```
-
-**Example 2: To list all tasks for a maintenance window that invokes the AWS-RunPowerShellScript command document**
-
-The following `describe-maintenance-window-tasks` example lists all of the tasks for the specified maintenance window that invokes the `AWS-RunPowerShellScript` command document.
+**Example 2: To list all tasks for a maintenance window that invokes the AWS-RunPowerShellScript command document**  
+The following `describe-maintenance-window-tasks` example lists all of the tasks for the specified maintenance window that invokes the `AWS-RunPowerShellScript` command document.  
 
 ```
-`aws ssm describe-maintenance-window-tasks \
- --window-id `"mw-ab12cd34eEXAMPLE"` \
- --filters `"Key=TaskArn,Values=AWS-RunPowerShellScript"``
-
+aws ssm describe-maintenance-window-tasks \
+    --window-id {{"mw-ab12cd34eEXAMPLE"}} \
+    --filters {{"Key=TaskArn,Values=AWS-RunPowerShellScript"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -106,19 +104,15 @@ Output:
     ]
 }
 ```
-
-**Example 3: To list all tasks for a maintenance window that have a Priority of 3**
-
-The following `describe-maintenance-window-tasks` example lists all of the tasks for the specified maintenance window that have a `Priority` of `3`.
+**Example 3: To list all tasks for a maintenance window that have a Priority of 3**  
+The following `describe-maintenance-window-tasks` example lists all of the tasks for the specified maintenance window that have a `Priority` of `3`.  
 
 ```
-`aws ssm describe-maintenance-window-tasks \
- --window-id `"mw-ab12cd34eEXAMPLE"` \
- --filters `"Key=Priority,Values=3"``
-
+aws ssm describe-maintenance-window-tasks \
+    --window-id {{"mw-ab12cd34eEXAMPLE"}} \
+    --filters {{"Key=Priority,Values=3"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -167,19 +161,15 @@ Output:
     ]
 }
 ```
-
-**Example 4: To list all tasks for a maintenance window that have a Priority of 1 and use Run Command**
-
-This `describe-maintenance-window-tasks` example lists all of the tasks for the specified maintenance window that have a `Priority` of `1` and use `Run Command`.
+**Example 4: To list all tasks for a maintenance window that have a Priority of 1 and use Run Command**  
+This `describe-maintenance-window-tasks` example lists all of the tasks for the specified maintenance window that have a `Priority` of `1` and use `Run Command`.  
 
 ```
-`aws ssm describe-maintenance-window-tasks \
- --window-id `"mw-ab12cd34eEXAMPLE"` \
- --filters `"Key=Priority,Values=1"` `"Key=TaskType,Values=RUN_COMMAND"``
-
+aws ssm describe-maintenance-window-tasks \
+    --window-id {{"mw-ab12cd34eEXAMPLE"}} \
+    --filters {{"Key=Priority,Values=1"}} {{"Key=TaskType,Values=RUN_COMMAND"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -207,25 +197,19 @@ Output:
     ]
 }
 ```
+For more information, see [View information about maintenance windows (AWS CLI)](https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-cli-tutorials-describe.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [DescribeMaintenanceWindowTasks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-maintenance-window-tasks.html) in *AWS CLI Command Reference*. 
 
-For more information, see [View information about maintenance windows (AWS CLI)](maintenance-windows-cli-tutorials-describe.md "maintenance-windows-cli-tutorials-describe.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [DescribeMaintenanceWindowTasks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-maintenance-window-tasks.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-maintenance-window-tasks.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example lists all of the tasks for a maintenance window.**
+**Tools for PowerShell V4**  
+**Example 1: This example lists all of the tasks for a maintenance window.**  
 
 ```
 Get-SSMMaintenanceWindowTaskList -WindowId "mw-06cf17cbefcb4bf4f"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 LoggingInfo    :
@@ -240,21 +224,15 @@ Type           : RUN_COMMAND
 WindowId       : mw-06cf17cbefcb4bf4f
 WindowTaskId   : a23e338d-ff30-4398-8aa3-09cd052ebf17
 ```
++  For API details, see [DescribeMaintenanceWindowTasks](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeMaintenanceWindowTasks](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example lists all of the tasks for a maintenance window.**
+**Tools for PowerShell V5**  
+**Example 1: This example lists all of the tasks for a maintenance window.**  
 
 ```
 Get-SSMMaintenanceWindowTaskList -WindowId "mw-06cf17cbefcb4bf4f"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 LoggingInfo    :
@@ -269,11 +247,8 @@ Type           : RUN_COMMAND
 WindowId       : mw-06cf17cbefcb4bf4f
 WindowTaskId   : a23e338d-ff30-4398-8aa3-09cd052ebf17
 ```
++  For API details, see [DescribeMaintenanceWindowTasks](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeMaintenanceWindowTasks](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

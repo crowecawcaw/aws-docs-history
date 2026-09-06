@@ -1,241 +1,160 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # (Optional) Manually set up OpsCenter to centrally manage OpsItems across accounts
+<a name="OpsCenter-getting-started-multiple-accounts"></a>
 
-This section describes how to manually configure OpsCenter for cross-account
-OpsItem management. While this process is still supported, it has been replaced by
-a newer process that uses Systems Manager Quick Setup. For more information, see [(Optional) Configure OpsCenter to manage OpsItems across accounts by using Quick Setup](OpsCenter-quick-setup-cross-account.md "OpsCenter-quick-setup-cross-account.md").
+This section describes how to manually configure OpsCenter for cross-account OpsItem management. While this process is still supported, it has been replaced by a newer process that uses Systems Manager Quick Setup. For more information, see [(Optional) Configure OpsCenter to manage OpsItems across accounts by using Quick Setup](OpsCenter-quick-setup-cross-account.md). 
 
-You can set up a central account to create manual OpsItems for member accounts,
-and manage and remediate those OpsItems. The central account can be the AWS Organizations
-management account, or both the AWS Organizations management account and Systems Manager delegated
-administrator account. We recommend that you use the Systems Manager delegated
-administrator account as a central account. You can only use this feature after
-you configure AWS Organizations.
+You can set up a central account to create manual OpsItems for member accounts, and manage and remediate those OpsItems. The central account can be the AWS Organizations management account, or both the AWS Organizations management account and Systems Manager delegated administrator account. We recommend that you use the Systems Manager delegated administrator account as a central account. You can only use this feature after you configure AWS Organizations. 
 
-With AWS Organizations, you can consolidate multiple AWS accounts into an
-organization that you create and manage centrally. The central account user can
-create OpsItems for all selected member accounts simultaneously, and manage those
-OpsItems.
+With AWS Organizations, you can consolidate multiple AWS accounts into an organization that you create and manage centrally. The central account user can create OpsItems for all selected member accounts simultaneously, and manage those OpsItems.
 
-Use the process in this section to enable the Systems Manager service principal in Organizations
-and configure AWS Identity and Access Management (IAM) permissions for working with OpsItems across
-accounts.
+Use the process in this section to enable the Systems Manager service principal in Organizations and configure AWS Identity and Access Management (IAM) permissions for working with OpsItems across accounts. 
 
-###### Topics
+**Topics**
++ [Before you begin](#OpsCenter-before-you-begin)
++ [Step 1: Creating a resource data sync](#OpsCenter-getting-started-multiple-accounts-onboarding-rds)
++ [Step 2: Enabling the Systems Manager service principal in AWS Organizations](#OpsCenter-getting-started-multiple-accounts-onboarding-service-principal)
++ [Step 3: Creating the `AWSServiceRoleForAmazonSSM_AccountDiscovery` service-linked role](#OpsCenter-getting-started-multiple-accounts-onboarding-SLR)
++ [Step 4: Configuring permissions to work with OpsItems across accounts](#OpsCenter-getting-started-multiple-accounts-onboarding-resource-policy)
++ [Step 5: Configuring permissions to work with related resources across accounts](#OpsCenter-getting-started-multiple-accounts-onboarding-related-resources-permissions)
 
-- [Before you begin](#OpsCenter-before-you-begin "#OpsCenter-before-you-begin")
-- [Step 1: Creating a resource data sync](#OpsCenter-getting-started-multiple-accounts-onboarding-rds "#OpsCenter-getting-started-multiple-accounts-onboarding-rds")
-- [Step 2: Enabling the Systems Manager service principal in AWS Organizations](#OpsCenter-getting-started-multiple-accounts-onboarding-service-principal "#OpsCenter-getting-started-multiple-accounts-onboarding-service-principal")
-- [Step 3: Creating the AWSServiceRoleForAmazonSSM\_AccountDiscovery service-linked role](#OpsCenter-getting-started-multiple-accounts-onboarding-SLR "#OpsCenter-getting-started-multiple-accounts-onboarding-SLR")
-- [Step 4: Configuring permissions to work with OpsItems across accounts](#OpsCenter-getting-started-multiple-accounts-onboarding-resource-policy "#OpsCenter-getting-started-multiple-accounts-onboarding-resource-policy")
-- [Step 5: Configuring permissions to work with related resources across accounts](#OpsCenter-getting-started-multiple-accounts-onboarding-related-resources-permissions "#OpsCenter-getting-started-multiple-accounts-onboarding-related-resources-permissions")
-
-###### Note
-
-Only OpsItems of type `/aws/issue` are supported when working in
-OpsCenter across accounts.
+**Note**  
+Only OpsItems of type `/aws/issue` are supported when working in OpsCenter across accounts.
 
 ## Before you begin
+<a name="OpsCenter-before-you-begin"></a>
 
-Before you set up OpsCenter to work with OpsItems across accounts, make sure
-that you have set up the following:
-
-- A Systems Manager delegated administrator account. For more information, see
-  [Configuring a delegated administrator for Explorer](Explorer-setup-delegated-administrator.md "Explorer-setup-delegated-administrator.md").
-- One organization set up and configured in Organizations. For more
-  information, see [Creating and managing an organization](../../../organizations/latest/userguide/orgs_manage_org.md "../../../organizations/latest/userguide/orgs_manage_org.md") in the _AWS Organizations User Guide_.
-- You configured Systems Manager Automation to run automation runbooks across
-  multiple AWS Regions and AWS accounts. For more information, see
-  [Running automations in multiple AWS Regions and accounts](running-automations-multiple-accounts-regions.md "running-automations-multiple-accounts-regions.md").
+Before you set up OpsCenter to work with OpsItems across accounts, make sure that you have set up the following:
++ A Systems Manager delegated administrator account. For more information, see [Configuring a delegated administrator for Explorer](Explorer-setup-delegated-administrator.md).
++ One organization set up and configured in Organizations. For more information, see [Creating and managing an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org.html) in the *AWS Organizations User Guide*.
++ You configured Systems Manager Automation to run automation runbooks across multiple AWS Regions and AWS accounts. For more information, see [Running automations in multiple AWS Regions and accounts](running-automations-multiple-accounts-regions.md).
 
 ## Step 1: Creating a resource data sync
+<a name="OpsCenter-getting-started-multiple-accounts-onboarding-rds"></a>
 
-After you set up and configure AWS Organizations, you can aggregate OpsItems in
-OpsCenter for an entire organization by creating a resource data sync. For
-more information, see [Creating a resource data sync](Explorer-resource-data-sync-configuring-multi.md "Explorer-resource-data-sync-configuring-multi.md"). When
-you create the sync, in the **Add accounts** section, be
-sure to choose the **Include all accounts from my AWS Organizations
-configuration** option.
+After you set up and configure AWS Organizations, you can aggregate OpsItems in OpsCenter for an entire organization by creating a resource data sync. For more information, see [Creating a resource data sync](Explorer-resource-data-sync-configuring-multi.md). When you create the sync, in the **Add accounts** section, be sure to choose the **Include all accounts from my AWS Organizations configuration** option.
 
 ## Step 2: Enabling the Systems Manager service principal in AWS Organizations
+<a name="OpsCenter-getting-started-multiple-accounts-onboarding-service-principal"></a>
 
-To enable a user to work with OpsItems across accounts, the Systems Manager service
-principal must be enabled in AWS Organizations. If you previously configured Systems Manager
-for multi-account scenarios using other tools, the Systems Manager service principal
-might already be configured in Organizations. Run the following commands from the
-AWS Command Line Interface (AWS CLI) to verify. If you _haven't_ configured
-Systems Manager for other multi-account scenarios, skip to the next procedure,
-_To enable the Systems Manager service principal in
-AWS Organizations_.
+To enable a user to work with OpsItems across accounts, the Systems Manager service principal must be enabled in AWS Organizations. If you previously configured Systems Manager for multi-account scenarios using other tools, the Systems Manager service principal might already be configured in Organizations. Run the following commands from the AWS Command Line Interface (AWS CLI) to verify. If you *haven't* configured Systems Manager for other multi-account scenarios, skip to the next procedure, *To enable the Systems Manager service principal in AWS Organizations*.
 
-###### To verify the Systems Manager service principal is enabled in AWS Organizations
+**To verify the Systems Manager service principal is enabled in AWS Organizations**
 
-1. [Download](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/") the
-   latest version of the AWS CLI to your local machine.
-2. Open the AWS CLI, and run the following command to specify your
-   credentials and an AWS Region.
+1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine.
 
-```
-aws configure
-```
+1. Open the AWS CLI, and run the following command to specify your credentials and an AWS Region.
 
-The system prompts you to specify the following. In the following
-example, replace each `user input
- placeholder` with your own information.
+   ```
+   aws configure
+   ```
 
-```
-AWS Access Key ID [None]: `key_name`
-AWS Secret Access Key [None]: `key_name`
-Default region name [None]: `region`
-Default output format [None]: ENTER
-```
+   The system prompts you to specify the following. In the following example, replace each {{user input placeholder}} with your own information.
 
-3. Run the following command to verify that the Systems Manager service
-   principal is enabled for AWS Organizations.
+   ```
+   AWS Access Key ID [None]: {{key_name}}
+   AWS Secret Access Key [None]: {{key_name}}
+   Default region name [None]: {{region}}
+   Default output format [None]: ENTER
+   ```
 
-```
-aws organizations list-aws-service-access-for-organization
-```
+1. Run the following command to verify that the Systems Manager service principal is enabled for AWS Organizations.
 
-The command returns information similar to that shown in the
-following example.
+   ```
+   aws organizations list-aws-service-access-for-organization
+   ```
 
-```
-{
-    "EnabledServicePrincipals": [
-        {
-            "ServicePrincipal": "member.org.stacksets.cloudformation.amazonaws.com",
-            "DateEnabled": "2020-12-11T16:32:27.732000-08:00"
-        },
-        {
-            "ServicePrincipal": "opsdatasync.ssm.amazonaws.com",
-            "DateEnabled": "2022-01-19T12:30:48.352000-08:00"
-        },
-        {
-            "ServicePrincipal": "ssm.amazonaws.com",
-            "DateEnabled": "2020-12-11T16:32:26.599000-08:00"
-        }
-    ]
-}
-```
+   The command returns information similar to that shown in the following example.
 
-###### To enable the Systems Manager service principal in AWS Organizations
+   ```
+   {
+       "EnabledServicePrincipals": [
+           {
+               "ServicePrincipal": "member.org.stacksets.cloudformation.amazonaws.com",
+               "DateEnabled": "2020-12-11T16:32:27.732000-08:00"
+           },
+           {
+               "ServicePrincipal": "opsdatasync.ssm.amazonaws.com",
+               "DateEnabled": "2022-01-19T12:30:48.352000-08:00"
+           },
+           {
+               "ServicePrincipal": "ssm.amazonaws.com",
+               "DateEnabled": "2020-12-11T16:32:26.599000-08:00"
+           }
+       ]
+   }
+   ```
 
-If you haven't previously configured the Systems Manager service principal for
-Organizations, use the following procedure to do so. For more information about
-this command, see [enable-aws-service-access](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/enable-aws-service-access.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/enable-aws-service-access.html") in the _AWS CLI Command Reference_.
+**To enable the Systems Manager service principal in AWS Organizations**
 
-1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't
-   already. For information, see [Installing CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") and [Configuring
-   CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md").
-2. [Download](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/") the
-   latest version of the AWS CLI to your local machine.
-3. Open the AWS CLI, and run the following command to specify your
-   credentials and an AWS Region.
+If you haven't previously configured the Systems Manager service principal for Organizations, use the following procedure to do so. For more information about this command, see [enable-aws-service-access](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/enable-aws-service-access.html) in the *AWS CLI Command Reference*.
 
-```
-aws configure
-```
+1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already. For information, see [Installing CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Configuring CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html). 
 
-The system prompts you to specify the following. In the following
-example, replace each `user input
- placeholder` with your own information.
+1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine.
 
-```
-AWS Access Key ID [None]: `key_name`
-AWS Secret Access Key [None]: `key_name`
-Default region name [None]: `region`
-Default output format [None]: ENTER
-```
+1. Open the AWS CLI, and run the following command to specify your credentials and an AWS Region.
 
-4. Run the following command to enable the Systems Manager service principal
-   for AWS Organizations.
+   ```
+   aws configure
+   ```
 
-```
-aws organizations enable-aws-service-access --service-principal "ssm.amazonaws.com"
-```
+   The system prompts you to specify the following. In the following example, replace each {{user input placeholder}} with your own information.
+
+   ```
+   AWS Access Key ID [None]: {{key_name}}
+   AWS Secret Access Key [None]: {{key_name}}
+   Default region name [None]: {{region}}
+   Default output format [None]: ENTER
+   ```
+
+1. Run the following command to enable the Systems Manager service principal for AWS Organizations.
+
+   ```
+   aws organizations enable-aws-service-access --service-principal "ssm.amazonaws.com"
+   ```
 
 ## Step 3: Creating the `AWSServiceRoleForAmazonSSM_AccountDiscovery` service-linked role
+<a name="OpsCenter-getting-started-multiple-accounts-onboarding-SLR"></a>
 
-A service-linked role such as the
-`AWSServiceRoleForAmazonSSM_AccountDiscovery` role is a
-unique type of IAM role that is linked directly to an AWS service, such
-as Systems Manager. Service-linked roles are predefined by the service and include all
-the permissions that the service requires to call other AWS services on
-your behalf. For more information about the
-`AWSServiceRoleForAmazonSSM_AccountDiscovery` service-linked
-role, see [Service-linked role permissions for Systems Manager account discovery](using-service-linked-roles-service-action-2.md#service-linked-role-permissions-service-action-2 "using-service-linked-roles-service-action-2.md#service-linked-role-permissions-service-action-2").
+A service-linked role such as the `AWSServiceRoleForAmazonSSM_AccountDiscovery` role is a unique type of IAM role that is linked directly to an AWS service, such as Systems Manager. Service-linked roles are predefined by the service and include all the permissions that the service requires to call other AWS services on your behalf. For more information about the `AWSServiceRoleForAmazonSSM_AccountDiscovery` service-linked role, see [Service-linked role permissions for Systems Manager account discovery](using-service-linked-roles-service-action-2.md#service-linked-role-permissions-service-action-2).
 
-Use the following procedure to create the
-`AWSServiceRoleForAmazonSSM_AccountDiscovery` service-linked
-role by using the AWS CLI. For more information about the command used in this
-procedure, see [create-service-linked-role](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-service-linked-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-service-linked-role.html") in the _AWS CLI Command Reference._
+Use the following procedure to create the `AWSServiceRoleForAmazonSSM_AccountDiscovery` service-linked role by using the AWS CLI. For more information about the command used in this procedure, see [create-service-linked-role](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-service-linked-role.html) in the *AWS CLI Command Reference.*
 
-###### To create the `AWSServiceRoleForAmazonSSM_AccountDiscovery` service-linked role
+**To create the `AWSServiceRoleForAmazonSSM_AccountDiscovery` service-linked role**
 
 1. Sign in to the AWS Organizations management account.
-2. While signed in to the Organizations management account, run the following
-   command.
 
-```
-aws iam create-service-linked-role \
-    --aws-service-name accountdiscovery.ssm.amazonaws.com \
-    --description "Systems Manager account discovery for AWS Organizations service-linked role"
-```
+1. While signed in to the Organizations management account, run the following command.
+
+   ```
+   aws iam create-service-linked-role \
+       --aws-service-name accountdiscovery.ssm.amazonaws.com \
+       --description "Systems Manager account discovery for AWS Organizations service-linked role"
+   ```
 
 ## Step 4: Configuring permissions to work with OpsItems across accounts
+<a name="OpsCenter-getting-started-multiple-accounts-onboarding-resource-policy"></a>
 
-Use AWS CloudFormation stacksets to create an `OpsItemGroup` resource
-policy and an IAM execution role that give users permission to work with
-OpsItems across accounts. To get started, download and unzip the [`OpsCenterCrossAccountMembers.zip`](samples/OpsCenterCrossAccountMembers.zip.md "samples/OpsCenterCrossAccountMembers.zip.md") file. This
-file contains the `OpsCenterCrossAccountMembers.yaml` CloudFormation
-template file. When you create a stack set by using this template,
-CloudFormation automatically creates the
-`OpsItemCrossAccountResourcePolicy` resource policy and the
-`OpsItemCrossAccountExecutionRole` execution role in the
-account. For more information about creating a stack set, see [Create a stack set](../../../AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.md") in the
-_AWS CloudFormation User Guide_.
+Use AWS CloudFormation stacksets to create an `OpsItemGroup` resource policy and an IAM execution role that give users permission to work with OpsItems across accounts. To get started, download and unzip the [`OpsCenterCrossAccountMembers.zip`](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/OpsCenterCrossAccountMembers.zip) file. This file contains the `OpsCenterCrossAccountMembers.yaml` CloudFormation template file. When you create a stack set by using this template, CloudFormation automatically creates the `OpsItemCrossAccountResourcePolicy` resource policy and the `OpsItemCrossAccountExecutionRole` execution role in the account. For more information about creating a stack set, see [Create a stack set](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.html) in the *AWS CloudFormation User Guide*.
 
-###### Important
-
-Note the following important information about this task:
-
-- You must deploy the stackset while signed in to the AWS Organizations
-  management account.
-- You must repeat this procedure while signed in to
-  _every_ account that you want to
-  _target_ for working with OpsItems across
-  accounts, including the delegated administrator account.
-- If you want to enable cross-account OpsItems administration in
-  different AWS Regions, choose **Add all
-  regions** in the **Specify
-  regions** section of the template. Cross-account
-  OpsItem administration isn't supported for opt-in Regions.
+**Important**  
+Note the following important information about this task:  
+You must deploy the stackset while signed in to the AWS Organizations management account.
+You must repeat this procedure while signed in to *every* account that you want to *target* for working with OpsItems across accounts, including the delegated administrator account.
+If you want to enable cross-account OpsItems administration in different AWS Regions, choose **Add all regions** in the **Specify regions** section of the template. Cross-account OpsItem administration isn't supported for opt-in Regions.
 
 ## Step 5: Configuring permissions to work with related resources across accounts
+<a name="OpsCenter-getting-started-multiple-accounts-onboarding-related-resources-permissions"></a>
 
-An OpsItem can include detailed information about impacted resources such as
-Amazon Elastic Compute Cloud (Amazon EC2) instances or Amazon Simple Storage Service (Amazon S3) buckets. The
-`OpsItemCrossAccountExecutionRole` execution role, which you
-created in the previous Step 4, provides OpsCenter with read-only
-permissions for member accounts to view related resources. You must also
-create an IAM role to provide management accounts with permission to view
-and interact with related resources, which you complete in this task.
+An OpsItem can include detailed information about impacted resources such as Amazon Elastic Compute Cloud (Amazon EC2) instances or Amazon Simple Storage Service (Amazon S3) buckets. The `OpsItemCrossAccountExecutionRole` execution role, which you created in the previous Step 4, provides OpsCenter with read-only permissions for member accounts to view related resources. You must also create an IAM role to provide management accounts with permission to view and interact with related resources, which you complete in this task. 
 
-To get started, download and unzip the [`OpsCenterCrossAccountManagementRole.zip`](samples/OpsCenterCrossAccountManagementRole.zip.md "samples/OpsCenterCrossAccountManagementRole.zip.md") file.
-This file contains the `OpsCenterCrossAccountManagementRole.yaml`
-CloudFormation template file. When you create a stack by using this template,
-CloudFormation automatically creates the
-`OpsCenterCrossAccountManagementRole` IAM role in the
-account. For more information about creating a stack, see [Creating a stack on the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the
-_AWS CloudFormation User Guide_.
+To get started, download and unzip the [`OpsCenterCrossAccountManagementRole.zip`](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/OpsCenterCrossAccountManagementRole.zip) file. This file contains the `OpsCenterCrossAccountManagementRole.yaml` CloudFormation template file. When you create a stack by using this template, CloudFormation automatically creates the `OpsCenterCrossAccountManagementRole` IAM role in the account. For more information about creating a stack, see [Creating a stack on the AWS CloudFormation console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html) in the *AWS CloudFormation User Guide*.
 
-###### Important
-
-Note the following important information about this task:
-
-- If you plan to specify an account as a delegated administrator
-  for OpsCenter, be sure to specify that AWS account when you
-  create the stack.
-- You must perform this procedure while signed in to the
-  AWS Organizations management account and again while signed in to the
-  delegated administrator account.
+**Important**  
+Note the following important information about this task:  
+If you plan to specify an account as a delegated administrator for OpsCenter, be sure to specify that AWS account when you create the stack. 
+You must perform this procedure while signed in to the AWS Organizations management account and again while signed in to the delegated administrator account.

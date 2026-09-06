@@ -1,25 +1,21 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # `aws:executeAutomation` – Run another automation
+<a name="automation-action-executeAutomation"></a>
 
-Runs a secondary automation by calling a secondary runbook. With this action, you can
-create runbooks for your most common operations, and reference those runbooks during an
-automation. This action can simplify your runbooks by removing the need to duplicate
-steps across similar runbooks.
+Runs a secondary automation by calling a secondary runbook. With this action, you can create runbooks for your most common operations, and reference those runbooks during an automation. This action can simplify your runbooks by removing the need to duplicate steps across similar runbooks.
 
-The secondary automation runs in the context of the user who initiated the primary
-automation. This means that the secondary automation uses the same AWS Identity and Access Management (IAM)
-role or user as the user who started the first automation.
+The secondary automation runs in the context of the user who initiated the primary automation. This means that the secondary automation uses the same AWS Identity and Access Management (IAM) role or user as the user who started the first automation.
 
-###### Important
-
-If you specify parameters in a secondary automation that use an assume role (a
-role that uses the iam:passRole policy), then the user or role that initiated the
-primary automation must have permission to pass the assume role specified in the
-secondary automation. For more information about setting up an assume role for
-Automation, see [Create the service roles for Automation using the console](automation-setup-iam.md "automation-setup-iam.md").
+**Important**  
+If you specify parameters in a secondary automation that use an assume role (a role that uses the iam:passRole policy), then the user or role that initiated the primary automation must have permission to pass the assume role specified in the secondary automation. For more information about setting up an assume role for Automation, see [Create the service roles for Automation using the console](automation-setup-iam.md).
 
 **Input**
 
-YAML
+------
+#### [ YAML ]
 
 ```
 name: Secondary_Automation
@@ -34,7 +30,8 @@ inputs:
     - i-1234567890abcdef0
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -54,129 +51,63 @@ JSON
 }
 ```
 
-DocumentName
+------
 
-The name of the secondary runbook to run during the step. For runbooks in
-the same AWS account, specify the runbook name. For runbooks shared from a
-different AWS account, specify the Amazon Resource Name (ARN) of the
-runbook. For information about using shared runbooks, see [Using shared SSM documents](documents-ssm-sharing.md#using-shared-documents "documents-ssm-sharing.md#using-shared-documents").
-
-Type: String
-
+DocumentName  
+The name of the secondary runbook to run during the step. For runbooks in the same AWS account, specify the runbook name. For runbooks shared from a different AWS account, specify the Amazon Resource Name (ARN) of the runbook. For information about using shared runbooks, see [Using shared SSM documents](documents-ssm-sharing.md#using-shared-documents).  
+Type: String  
 Required: Yes
 
-DocumentVersion
-
-The version of the secondary runbook to run. If not specified, Automation
-runs the default runbook version.
-
-Type: String
-
+DocumentVersion  
+The version of the secondary runbook to run. If not specified, Automation runs the default runbook version.  
+Type: String  
 Required: No
 
-MaxConcurrency
-
-The maximum number of targets allowed to run this task in parallel. You
-can specify a number, such as 10, or a percentage, such as 10%.
-
-Type: String
-
+MaxConcurrency  
+The maximum number of targets allowed to run this task in parallel. You can specify a number, such as 10, or a percentage, such as 10%.  
+Type: String  
 Required: No
 
-MaxErrors
-
-The number of errors that are allowed before the system stops running the
-automation on additional targets. You can specify either an absolute number
-of errors, for example 10, or a percentage of the target set, for example
-10%. If you specify 3, for example, the system stops running the automation
-when the fourth error is received. If you specify 0, then the system stops
-running the automation on additional targets after the first error result is
-returned. If you run an automation on 50 resources and set
-`MaxErrors` to 10%, then the system stops running the
-automation on additional targets when the sixth error is received.
-
-Automations that are already running when the `MaxErrors`
-threshold is reached are allowed to complete, but some of these automations
-may fail as well. If you need to make sure that there won't be more failed
-automations than the specified `MaxErrors`, set
-`MaxConcurrency` to 1 so the automations proceed one at a
-time.
-
-Type: String
-
+MaxErrors  
+The number of errors that are allowed before the system stops running the automation on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops running the automation when the fourth error is received. If you specify 0, then the system stops running the automation on additional targets after the first error result is returned. If you run an automation on 50 resources and set `MaxErrors` to 10%, then the system stops running the automation on additional targets when the sixth error is received.  
+Automations that are already running when the `MaxErrors` threshold is reached are allowed to complete, but some of these automations may fail as well. If you need to make sure that there won't be more failed automations than the specified `MaxErrors`, set `MaxConcurrency` to 1 so the automations proceed one at a time.  
+Type: String  
 Required: No
 
-RuntimeParameters
-
-Required parameters for the secondary runbook. The mapping uses the
-following format: {"parameter1" : "value1", "parameter2" : "value2" }
-
-Type: Map
-
+RuntimeParameters  
+Required parameters for the secondary runbook. The mapping uses the following format: {"parameter1" : "value1", "parameter2" : "value2" }  
+Type: Map  
 Required: No
 
-Tags
-
-Optional metadata that you assign to a resource. You can specify a maximum
-of five tags for an automation.
-
-Type: MapList
-
+Tags  
+Optional metadata that you assign to a resource. You can specify a maximum of five tags for an automation.  
+Type: MapList  
 Required: No
 
-TargetLocations
-
-A location is a combination of AWS Regions and/or AWS accounts where
-you want to run the automation. A minimum number of 1 item must be specified
-and a maximum number of 100 items can be specified. When specifying a value
-for this parameter, outputs aren't returned to the parent automation. If
-needed, you must make subsequent calls to API operations to retrieve the
-output from child automations.
-
-Type: MapList
-
+TargetLocations  
+A location is a combination of AWS Regions and/or AWS accounts where you want to run the automation. A minimum number of 1 item must be specified and a maximum number of 100 items can be specified. When specifying a value for this parameter, outputs aren't returned to the parent automation. If needed, you must make subsequent calls to API operations to retrieve the output from child automations.  
+Type: MapList  
 Required: No
 
-TargetMaps
-
-A list of key-value mappings of document parameters to target resources.
-Both `Targets` and `TargetMaps` can't be specified
-together.
-
-Type: MapList
-
+TargetMaps  
+A list of key-value mappings of document parameters to target resources. Both `Targets` and `TargetMaps` can't be specified together.   
+Type: MapList  
 Required: No
 
-TargetParameterName
-
-The name of the parameter used as the target resource for the
-rate-controlled automation. Required if you specify
-`Targets`.
-
-Type: String
-
+TargetParameterName  
+The name of the parameter used as the target resource for the rate-controlled automation. Required if you specify `Targets`.  
+Type: String  
 Required: No
 
-Targets
+Targets  
+A list of key-value mappings to target resources. Required if you specify `TargetParameterName`.  
+Type: MapList  
+Required: NoOutput
 
-A list of key-value mappings to target resources. Required if you specify
-`TargetParameterName`.
-
-Type: MapList
-
-Required: No
-
-###### Output
-
-Output
-
-The output generated by the secondary automation. You can reference the
-output by using the following format:
-`Secondary_Automation_Step_Name`.Output
-
-Type: StringList
-
-Here is an example:
+Output  
+The output generated by the secondary automation. You can reference the output by using the following format: {{Secondary\_Automation\_Step\_Name}}.Output  
+Type: StringList  
+Here is an example:  
 
 ```
 - name: launchNewWindowsInstance
@@ -215,14 +146,10 @@ Here is an example:
     - 'Initial root snapshot for {{launchNewWindowsInstance.Output}}'
 ```
 
-ExecutionId
-
-The ID of the secondary automation.
-
+ExecutionId  
+The ID of the secondary automation.  
 Type: String
 
-Status
-
-The status of the secondary automation.
-
+Status  
+The status of the secondary automation.  
 Type: String

@@ -1,14 +1,13 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Using EventBridge to monitor Inventory events
+<a name="systems-manager-inventory-setting-up-eventbridge"></a>
 
-You can configure a rule in Amazon EventBridge to create an event in response to AWS Systems Manager
-Inventory resource state changes. EventBridge supports events for the following Inventory
-state changes. All events are sent on a best effort basis.
+You can configure a rule in Amazon EventBridge to create an event in response to AWS Systems Manager Inventory resource state changes. EventBridge supports events for the following Inventory state changes. All events are sent on a best effort basis.
 
-**Custom inventory type deleted for a specific
-instance**: If a rule is configured to monitor for this event, EventBridge
-creates an event when a custom inventory type on a specific managed is deleted. EventBridge
-sends one event per node per custom inventory type. Here is a sample event
-pattern.
+**Custom inventory type deleted for a specific instance**: If a rule is configured to monitor for this event, EventBridge creates an event when a custom inventory type on a specific managed is deleted. EventBridge sends one event per node per custom inventory type. Here is a sample event pattern.
 
 ```
 {
@@ -33,10 +32,7 @@ pattern.
 }
 ```
 
-**Custom inventory type deleted event for all
-instances**: If a rule is configured to monitor for this event, EventBridge
-creates an event when a custom inventory type for all managed nodes is deleted. Here
-is a sample event pattern.
+**Custom inventory type deleted event for all instances**: If a rule is configured to monitor for this event, EventBridge creates an event when a custom inventory type for all managed nodes is deleted. Here is a sample event pattern.
 
 ```
 {
@@ -46,7 +42,7 @@ is a sample event pattern.
     "type": "INVENTORY_RESOURCE_STATE_CHANGE",
     "startTime": "Jan 7, 2021 6:08:24 PM",
     "resources": [
-
+        
     ],
     "body": {
         "action-status": "succeeded",
@@ -59,11 +55,7 @@ is a sample event pattern.
 }
 ```
 
-**[PutInventory](../APIReference/API_PutInventory.md "../APIReference/API_PutInventory.md") call with old schema version event**: If a
-rule is configured to monitor for this event, EventBridge creates an event when a
-PutInventory call is made that uses a schema version that is lower than the current
-schema. This event applies to all inventory types. Here is a sample event
-pattern.
+**[PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) call with old schema version event**: If a rule is configured to monitor for this event, EventBridge creates an event when a PutInventory call is made that uses a schema version that is lower than the current schema. This event applies to all inventory types. Here is a sample event pattern.
 
 ```
 {
@@ -88,4 +80,4 @@ pattern.
 }
 ```
 
-For information about how to configure EventBridge to monitor for these events, see [Configuring EventBridge for Systems Manager events](monitoring-systems-manager-events.md "monitoring-systems-manager-events.md").
+For information about how to configure EventBridge to monitor for these events, see [Configuring EventBridge for Systems Manager events](monitoring-systems-manager-events.md).

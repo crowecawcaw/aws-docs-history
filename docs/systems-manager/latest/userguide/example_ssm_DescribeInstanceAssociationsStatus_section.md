@@ -1,23 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DescribeInstanceAssociationsStatus` with a CLI
+<a name="example_ssm_DescribeInstanceAssociationsStatus_section"></a>
 
 The following code examples show how to use `DescribeInstanceAssociationsStatus`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe the status of an instance's associations**
-
-This example shows details of the associations for an instance.
-
-Command:
+**AWS CLI**  
+**To describe the status of an instance's associations**  
+This example shows details of the associations for an instance.  
+Command:  
 
 ```
-`aws ssm describe-instance-associations-status --instance-id `"i-1234567890abcdef0"``
-
+aws ssm describe-instance-associations-status --instance-id {{"i-1234567890abcdef0"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -47,23 +48,18 @@ Output:
   ]
 }
 ```
++  For API details, see [DescribeInstanceAssociationsStatus](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-instance-associations-status.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeInstanceAssociationsStatus](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-instance-associations-status.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-instance-associations-status.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example shows details of the associations for an instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example shows details of the associations for an instance.**  
 
 ```
 Get-SSMInstanceAssociationsStatus -InstanceId "i-0000293ffd8c57862"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId    : d8617c07-2079-4c18-9847-1655fc2698b0
@@ -77,15 +73,12 @@ Name             : AWS-UpdateSSMAgent
 OutputUrl        :
 Status           : Pending
 ```
-
-**Example 2: This example checks the instance association status for the given instance id and further, displays the execution status of those associations**
+**Example 2: This example checks the instance association status for the given instance id and further, displays the execution status of those associations**  
 
 ```
 Get-SSMInstanceAssociationsStatus -InstanceId i-012e3cb4df567e8aa | ForEach-Object {Get-SSMAssociationExecution -AssociationId .AssociationId}
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId         : 512a34a5-c678-1234-1234-12345678db9e
@@ -97,21 +90,15 @@ LastExecutionDate     : 1/1/0001 12:00:00 AM
 ResourceCountByStatus : {Success=9}
 Status                : Success
 ```
++  For API details, see [DescribeInstanceAssociationsStatus](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeInstanceAssociationsStatus](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example shows details of the associations for an instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example shows details of the associations for an instance.**  
 
 ```
 Get-SSMInstanceAssociationsStatus -InstanceId "i-0000293ffd8c57862"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId    : d8617c07-2079-4c18-9847-1655fc2698b0
@@ -125,15 +112,12 @@ Name             : AWS-UpdateSSMAgent
 OutputUrl        :
 Status           : Pending
 ```
-
-**Example 2: This example checks the instance association status for the given instance id and further, displays the execution status of those associations**
+**Example 2: This example checks the instance association status for the given instance id and further, displays the execution status of those associations**  
 
 ```
 Get-SSMInstanceAssociationsStatus -InstanceId i-012e3cb4df567e8aa | ForEach-Object {Get-SSMAssociationExecution -AssociationId .AssociationId}
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId         : 512a34a5-c678-1234-1234-12345678db9e
@@ -145,11 +129,8 @@ LastExecutionDate     : 1/1/0001 12:00:00 AM
 ResourceCountByStatus : {Success=9}
 Status                : Success
 ```
++  For API details, see [DescribeInstanceAssociationsStatus](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeInstanceAssociationsStatus](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

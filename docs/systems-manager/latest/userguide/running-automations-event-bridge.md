@@ -1,337 +1,351 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Run automations based on EventBridge events
+<a name="running-automations-event-bridge"></a>
 
-You can start an automation by specifying a runbook as the target of an Amazon EventBridge
-event. You can start automations according to a schedule, or when a specific AWS
-system event occurs. For example, let's say you create a runbook named
-_BootStrapInstances_ that installs software on an instance when
-an instance starts. To specify the _BootStrapInstances_ runbook (and
-corresponding automation) as a target of an EventBridge event, you first create a new EventBridge
-rule. (Here's an example rule: **Service name**: EC2, **Event
-Type**: EC2 Instance State-change Notification, **Specific
-state(s)**: running, **Any instance**.) Then you use the
-following procedures to specify the _BootStrapInstances_ runbook as
-the target of the event using the EventBridge console and AWS Command Line Interface (AWS CLI). When a new
-instance starts, the system runs the automation and installs software.
+You can start an automation by specifying a runbook as the target of an Amazon EventBridge event. You can start automations according to a schedule, or when a specific AWS system event occurs. For example, let's say you create a runbook named *BootStrapInstances* that installs software on an instance when an instance starts. To specify the *BootStrapInstances* runbook (and corresponding automation) as a target of an EventBridge event, you first create a new EventBridge rule. (Here's an example rule: **Service name**: EC2, **Event Type**: EC2 Instance State-change Notification, **Specific state(s)**: running, **Any instance**.) Then you use the following procedures to specify the *BootStrapInstances* runbook as the target of the event using the EventBridge console and AWS Command Line Interface (AWS CLI). When a new instance starts, the system runs the automation and installs software.
 
-For information about creating runbooks, see [Creating your own runbooks](automation-documents.md "automation-documents.md").
+For information about creating runbooks, see [Creating your own runbooks](automation-documents.md).
 
 ## Creating an EventBridge event that uses a runbook (console)
+<a name="automation-cwe-target-console"></a>
 
-Use the following procedure to configure a runbook as the target of a EventBridge
-event.
+Use the following procedure to configure a runbook as the target of a EventBridge event.
 
-###### To configure a runbook as a target of a EventBridge event rule
+**To configure a runbook as a target of a EventBridge event rule**
 
-1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2. In the navigation pane, choose **Rules**.
-3. Choose **Create rule**.
-4. Enter a name and description for the rule.
+1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
-A rule can't have the same name as another rule in the same Region and on
-the same event bus. 5. For **Event bus**, choose the event bus that you want to
-associate with this rule. If you want this rule to respond to matching
-events that come from your own AWS account, select
-**default**. When an AWS service in your account
-emits an event, it always goes to your account’s default event bus. 6. Choose how the rule is triggered.
+1. In the navigation pane, choose **Rules**.
 
-| To create a rule based on... | Do this...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Event                        | 1. For **Rule type**, choose<br>**Rule with an event<br>pattern**.<br>2. Choose **Next**.<br>3. For **Event source**, choose<br>**AWS events or EventBridge partner<br>events**.<br>4. In the **Event pattern**<br>section, do one of the following:<br>• To use a template to create your event<br>pattern, choose *_Event pattern<br>form_<br>• and choose **Event<br>source**, **AWS<br>service**, and **Event<br>type**. If you choose *_All<br>Events_<br>• as the event type, all events<br>emitted by the AWS service will match the<br>rule.<br>To customize the template, choose<br>**Custom pattern (JSON editor)**<br>and make your changes.<br>• To use a custom event pattern, choose<br>**Custom pattern (JSON editor)**<br>and create your event pattern. |
-| Schedule                     | 1. For **Rule type**, choose<br>**Schedule**.<br>2. Choose **Next**.<br>3. For **Schedule pattern**, do<br>one of the following:<br>• To use a cron expression to define the<br>schedule, choose **A fine-grained schedule<br>that runs at a specific time, such as 8:00 a.m.<br>PST on the first Monday of every month**<br>and enter the cron expression.<br>• To use a rate expression to define the<br>schedule, choose *_A schedule that runs at<br>a regular rate, such as every 10<br>minutes_<br>• and enter the rate<br>expression.                                                                                                                                                                                                                             |
+1. Choose **Create rule**.
 
-7. Choose **Next**.
-8. For **Target types**, choose **AWS
-   service**.
-9. For **Select a target**, choose **Systems Manager
-   Automation**.
-10. For **Document**, choose a runbook to use when your
-    target is invoked.
-11. In the **Configure automation parameter(s)** section,
-    either keep the default parameter values (if available) or enter your own
-    values.
+1. Enter a name and description for the rule.
 
-###### Note
+   A rule can't have the same name as another rule in the same Region and on the same event bus.
 
-To create a target, you must specify a value for each required
-parameter. If you don't, the system creates the rule, but the rule won't
-run. 12. For many target types, EventBridge needs permissions to send events to the
-target. In these cases, EventBridge can create the IAM role needed for your rule
-to run. Do one of the following:
+1. For **Event bus**, choose the event bus that you want to associate with this rule. If you want this rule to respond to matching events that come from your own AWS account, select **default**. When an AWS service in your account emits an event, it always goes to your account’s default event bus.
 
-    * To create an IAM role automatically, choose **Create a
-     new role for this specific resource**.
-    * To use an IAM role that you created earlier, choose
-     **Use existing role** and select the existing
-     role from the dropdown. Note that you might need to update the trust
-     policy for your IAM role to include EventBridge. The following is an
-     example:
+1. Choose how the rule is triggered.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/systems-manager/latest/userguide/running-automations-event-bridge.html)
 
-JSON
+1. Choose **Next**.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "",
- "Effect": "Allow",
- "Principal": {
- "Service": [
- "`events.amazonaws.com`",
- "ssm.amazonaws.com"
- ]
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
+1. For **Target types**, choose **AWS service**.
 
-```
+1. For **Select a target**, choose **Systems Manager Automation**. 
 
-13. Choose **Next**.
-14. (Optional) Enter one or more tags for the rule. For more information, see
-    [Tagging Your
-    Amazon EventBridge Resources](../../../eventbridge/latest/userguide/eventbridge-tagging.md "../../../eventbridge/latest/userguide/eventbridge-tagging.md") in the
-    _Amazon EventBridge User Guide_.
-15. Choose **Next**.
-16. Review the details of the rule and choose **Create
-    rule**.
+1. For **Document**, choose a runbook to use when your target is invoked.
+
+1. In the **Configure automation parameter(s)** section, either keep the default parameter values (if available) or enter your own values. 
+**Note**  
+To create a target, you must specify a value for each required parameter. If you don't, the system creates the rule, but the rule won't run.
+
+1. For many target types, EventBridge needs permissions to send events to the target. In these cases, EventBridge can create the IAM role needed for your rule to run. Do one of the following:
+   + To create an IAM role automatically, choose **Create a new role for this specific resource**.
+   + To use an IAM role that you created earlier, choose **Use existing role** and select the existing role from the dropdown. Note that you might need to update the trust policy for your IAM role to include EventBridge. The following is an example:
+
+------
+#### [ JSON ]
+
+****  
+
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Sid": "",
+               "Effect": "Allow",
+               "Principal": {
+                   "Service": [
+                       "{{events.amazonaws.com}}",
+                       "ssm.amazonaws.com"
+                   ]
+               },
+               "Action": "sts:AssumeRole"
+           }
+       ]
+   }
+   ```
+
+------
+
+1. Choose **Next**.
+
+1. (Optional) Enter one or more tags for the rule. For more information, see [Tagging Your Amazon EventBridge Resources](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-tagging.html) in the *Amazon EventBridge User Guide*.
+
+1. Choose **Next**.
+
+1. Review the details of the rule and choose **Create rule**.
 
 ## Create an EventBridge event that uses a runbook (command line)
+<a name="automation-cwe-target-commandline"></a>
 
-The following procedure describes how to use the AWS CLI (on Linux or Windows) or
-AWS Tools for PowerShell to create an EventBridge event rule and configure a runbook as the
-target.
+The following procedure describes how to use the AWS CLI (on Linux or Windows) or AWS Tools for PowerShell to create an EventBridge event rule and configure a runbook as the target.
 
-###### To configure a runbook as a target of an EventBridge event rule
+**To configure a runbook as a target of an EventBridge event rule**
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already.
 
-For information, see [Installing or updating the
-latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") and [Installing the
-AWS Tools for PowerShell](../../../powershell/latest/userguide/pstools-getting-set-up.md "../../../powershell/latest/userguide/pstools-getting-set-up.md"). 2. Create a command to specify a new EventBridge event rule. Replace each
-`example resource placeholder` with your own
-information.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Installing the AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html).
 
-_Triggers based on a schedule_
+1. Create a command to specify a new EventBridge event rule. Replace each {{example resource placeholder}} with your own information.
 
-Linux & macOS
+   *Triggers based on a schedule*
 
-```
-aws events put-rule \
---name "`rule name`" \
---schedule-expression "`cron or rate expression`"
-```
+------
+#### [ Linux & macOS ]
 
-Windows
+   ```
+   aws events put-rule \
+   --name "{{rule name}}" \
+   --schedule-expression "{{cron or rate expression}}"
+   ```
 
-```
-aws events put-rule ^
---name "`rule name`" ^
---schedule-expression "`cron or rate expression`"
-```
+------
+#### [ Windows ]
 
-PowerShell
+   ```
+   aws events put-rule ^
+   --name "{{rule name}}" ^
+   --schedule-expression "{{cron or rate expression}}"
+   ```
 
-```
-Write-CWERule `
--Name "`rule name`" `
--ScheduleExpression "`cron or rate expression`"
-```
+------
+#### [ PowerShell ]
 
-The following example creates an EventBridge event rule that starts every day at
-9:00 AM (UTC).
+   ```
+   Write-CWERule `
+   -Name "{{rule name}}" `
+   -ScheduleExpression "{{cron or rate expression}}"
+   ```
 
-Linux & macOS
+------
 
-```
-aws events put-rule \
---name "DailyAutomationRule" \
---schedule-expression "cron(0 9 * * ? *)"
-```
+   The following example creates an EventBridge event rule that starts every day at 9:00 AM (UTC).
 
-Windows
+------
+#### [ Linux & macOS ]
 
-```
-aws events put-rule ^
---name "DailyAutomationRule" ^
---schedule-expression "cron(0 9 * * ? *)"
-```
+   ```
+   aws events put-rule \
+   --name "DailyAutomationRule" \
+   --schedule-expression "cron(0 9 * * ? *)"
+   ```
 
-PowerShell
+------
+#### [ Windows ]
 
-```
-Write-CWERule `
--Name "DailyAutomationRule" `
--ScheduleExpression "cron(0 9 * * ? *)"
-```
+   ```
+   aws events put-rule ^
+   --name "DailyAutomationRule" ^
+   --schedule-expression "cron(0 9 * * ? *)"
+   ```
 
-_Triggers based on an event_
+------
+#### [ PowerShell ]
 
-Linux & macOS
+   ```
+   Write-CWERule `
+   -Name "DailyAutomationRule" `
+   -ScheduleExpression "cron(0 9 * * ? *)"
+   ```
 
-```
-aws events put-rule \
---name "`rule name`" \
---event-pattern "{\"source\":[\"aws.`service`\"],\"detail-type\":[\"`service event detail type`\"]}"
-```
+------
 
-Windows
+   *Triggers based on an event*
 
-```
-aws events put-rule ^
---name "`rule name`" ^
---event-pattern "{\"source\":[\"aws.`service`\"],\"detail-type\":[\"`service event detail type`\"]}"
-```
+------
+#### [ Linux & macOS ]
 
-PowerShell
+   ```
+   aws events put-rule \
+   --name "{{rule name}}" \
+   --event-pattern "{\"source\":[\"aws.{{service}}\"],\"detail-type\":[\"{{service event detail type}}\"]}"
+   ```
 
-```
-Write-CWERule `
--Name "`rule name`" `
--EventPattern '{"source":["aws.`service`"],"detail-type":["`service event detail type`"]}'
-```
+------
+#### [ Windows ]
 
-The following example creates an EventBridge event rule that starts when any EC2
-instance in the Region changes state.
+   ```
+   aws events put-rule ^
+   --name "{{rule name}}" ^
+   --event-pattern "{\"source\":[\"aws.{{service}}\"],\"detail-type\":[\"{{service event detail type}}\"]}"
+   ```
 
-Linux & macOS
+------
+#### [ PowerShell ]
 
-```
-aws events put-rule \
---name "EC2InstanceStateChanges" \
---event-pattern "{\"source\":[\"aws.ec2\"],\"detail-type\":[\"EC2 Instance State-change Notification\"]}"
-```
+   ```
+   Write-CWERule `
+   -Name "{{rule name}}" `
+   -EventPattern '{"source":["aws.{{service}}"],"detail-type":["{{service event detail type}}"]}'
+   ```
 
-Windows
+------
 
-```
-aws events put-rule ^
---name "EC2InstanceStateChanges" ^
---event-pattern "{\"source\":[\"aws.ec2\"],\"detail-type\":[\"EC2 Instance State-change Notification\"]}"
-```
+   The following example creates an EventBridge event rule that starts when any EC2 instance in the Region changes state.
 
-PowerShell
+------
+#### [ Linux & macOS ]
 
-```
-Write-CWERule `
--Name "`EC2InstanceStateChanges`" `
--EventPattern '{"source":["aws.ec2"],"detail-type":["EC2 Instance State-change Notification"]}'
-```
+   ```
+   aws events put-rule \
+   --name "EC2InstanceStateChanges" \
+   --event-pattern "{\"source\":[\"aws.ec2\"],\"detail-type\":[\"EC2 Instance State-change Notification\"]}"
+   ```
 
-The command returns details for the new EventBridge rule similar to the
-following.
+------
+#### [ Windows ]
 
-Linux & macOS
+   ```
+   aws events put-rule ^
+   --name "EC2InstanceStateChanges" ^
+   --event-pattern "{\"source\":[\"aws.ec2\"],\"detail-type\":[\"EC2 Instance State-change Notification\"]}"
+   ```
 
-```
-{
-"RuleArn": "arn:aws:events:us-east-1:123456789012:rule/automationrule"
-}
-```
+------
+#### [ PowerShell ]
 
-Windows
+   ```
+   Write-CWERule `
+   -Name "{{EC2InstanceStateChanges}}" `
+   -EventPattern '{"source":["aws.ec2"],"detail-type":["EC2 Instance State-change Notification"]}'
+   ```
 
-```
-{
-"RuleArn": "arn:aws:events:us-east-1:123456789012:rule/automationrule"
-}
-```
+------
 
-PowerShell
+   The command returns details for the new EventBridge rule similar to the following.
 
-```
-arn:aws:events:us-east-1:123456789012:rule/EC2InstanceStateChanges
-```
+------
+#### [ Linux & macOS ]
 
-3. Create a command to specify a runbook as a target of the EventBridge event rule
-   you created in step 2. Replace each `example resource
- placeholder` with your own information.
+   ```
+   {
+   "RuleArn": "arn:aws:events:us-east-1:123456789012:rule/automationrule"
+   }
+   ```
 
-Linux & macOS
+------
+#### [ Windows ]
 
-```
-aws events put-targets \
---rule `rule name` \
---targets '{"Arn": " arn:aws:ssm:`region`:`account ID`:automation-definition/`runbook name`","Input":"{\"Message\":[\"{\\\"Key\\\":\\\"`key name`\\\",\\\"Values\\\":[\\\"`value`\\\"]}\"]}","Id": "`target ID`","RoleArn": "arn:aws:iam::`123456789012`:role/service-role/`EventBridge service role`"}'
-```
+   ```
+   {
+   "RuleArn": "arn:aws:events:us-east-1:123456789012:rule/automationrule"
+   }
+   ```
 
-Windows
+------
+#### [ PowerShell ]
 
-```
-aws events put-targets ^
---rule `rule name` ^
---targets '{"Arn": "arn:aws:ssm:`region`:`account ID`:automation-definition/`runbook name`","Input":"{\"Message\":[\"{\\\"Key\\\":\\\"`key name`\\\",\\\"Values\\\":[\\\"`value`\\\"]}\"]}","Id": "`target ID`","RoleArn": "arn:aws:iam::`123456789012`:role/service-role/`EventBridge service role`"}'
-```
+   ```
+   arn:aws:events:us-east-1:123456789012:rule/EC2InstanceStateChanges
+   ```
 
-PowerShell
+------
 
-```
-$Target = New-Object Amazon.CloudWatchEvents.Model.Target
-$Target.Id = "`target ID`"
-$Target.Arn = "arn:aws:ssm:`region`:`account ID`:automation-definition/`runbook name`"
-$Target.RoleArn = "arn:aws:iam::`123456789012`:role/service-role/`EventBridge service role`"
-$Target.Input = '{"`input parameter`":["`value`"],"AutomationAssumeRole":["arn:aws:iam::`123456789012`:role/`AutomationServiceRole`"]}'
+1. Create a command to specify a runbook as a target of the EventBridge event rule you created in step 2. Replace each {{example resource placeholder}} with your own information.
 
-Write-CWETarget `
--Rule "`rule name`" `
--Target $Target
-```
+------
+#### [ Linux & macOS ]
 
-The following example creates an EventBridge event target that starts the
-specified instance ID using the runbook
-`AWS-StartEC2Instance`.
+   ```
+   aws events put-targets \
+   --rule {{rule name}} \
+   --targets '{"Arn": " arn:aws:ssm:{{region}}:{{account ID}}:automation-definition/{{runbook name}}","Input":"{\"Message\":[\"{\\\"Key\\\":\\\"{{key name}}\\\",\\\"Values\\\":[\\\"{{value}}\\\"]}\"]}","Id": "{{target ID}}","RoleArn": "arn:aws:iam::{{123456789012}}:role/service-role/{{EventBridge service role}}"}'
+   ```
 
-Linux & macOS
+------
+#### [ Windows ]
 
-```
-aws events put-targets \
---rule DailyAutomationRule \
---targets '{"Arn": "arn:aws:ssm:`region`:*:automation-definition/AWS-StartEC2Instance","Input":"{\"InstanceId\":[\"i-02573cafcfEXAMPLE\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target1","RoleArn": "arn:aws:iam::123456789012:role/service-role/AWS_Events_Invoke_Start_Automation_Execution_1213609520"}'
-```
+   ```
+   aws events put-targets ^
+   --rule {{rule name}} ^
+   --targets '{"Arn": "arn:aws:ssm:{{region}}:{{account ID}}:automation-definition/{{runbook name}}","Input":"{\"Message\":[\"{\\\"Key\\\":\\\"{{key name}}\\\",\\\"Values\\\":[\\\"{{value}}\\\"]}\"]}","Id": "{{target ID}}","RoleArn": "arn:aws:iam::{{123456789012}}:role/service-role/{{EventBridge service role}}"}'
+   ```
 
-Windows
+------
+#### [ PowerShell ]
 
-```
-aws events put-targets ^
---rule DailyAutomationRule ^
---targets '{"Arn": "arn:aws:ssm:`region`:*:automation-definition/AWS-StartEC2Instance","Input":"{\"InstanceId\":[\"i-02573cafcfEXAMPLE\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target1","RoleArn": "arn:aws:iam::123456789012:role/service-role/AWS_Events_Invoke_Start_Automation_Execution_1213609520"}'
-```
+   ```
+   $Target = New-Object Amazon.CloudWatchEvents.Model.Target
+   $Target.Id = "{{target ID}}"
+   $Target.Arn = "arn:aws:ssm:{{region}}:{{account ID}}:automation-definition/{{runbook name}}"
+   $Target.RoleArn = "arn:aws:iam::{{123456789012}}:role/service-role/{{EventBridge service role}}"
+   $Target.Input = '{"{{input parameter}}":["{{value}}"],"AutomationAssumeRole":["arn:aws:iam::{{123456789012}}:role/{{AutomationServiceRole}}"]}'
+   
+   Write-CWETarget `
+   -Rule "{{rule name}}" `
+   -Target $Target
+   ```
 
-PowerShell
+------
 
-```
-$Target = New-Object Amazon.CloudWatchEvents.Model.Target
-$Target.Id = "Target1"
-$Target.Arn = "arn:aws:ssm:`region`:*:automation-definition/AWS-StartEC2Instance"
-$Target.RoleArn = "arn:aws:iam::123456789012:role/service-role/AWS_Events_Invoke_Start_Automation_Execution_1213609520"
-$Target.Input = '{"InstanceId":["i-02573cafcfEXAMPLE"],"AutomationAssumeRole":["arn:aws:iam::123456789012:role/AutomationServiceRole"]}'
+   The following example creates an EventBridge event target that starts the specified instance ID using the runbook `AWS-StartEC2Instance`.
 
-Write-CWETarget `
--Rule "DailyAutomationRule" `
--Target $Target
-```
+------
+#### [ Linux & macOS ]
 
-The system returns information like the following.
+   ```
+   aws events put-targets \
+   --rule DailyAutomationRule \
+   --targets '{"Arn": "arn:aws:ssm:{{region}}:*:automation-definition/AWS-StartEC2Instance","Input":"{\"InstanceId\":[\"i-02573cafcfEXAMPLE\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target1","RoleArn": "arn:aws:iam::123456789012:role/service-role/AWS_Events_Invoke_Start_Automation_Execution_1213609520"}'
+   ```
 
-Linux & macOS
+------
+#### [ Windows ]
 
-```
-{
-"FailedEntries": [],
-"FailedEntryCount": 0
-}
-```
+   ```
+   aws events put-targets ^
+   --rule DailyAutomationRule ^
+   --targets '{"Arn": "arn:aws:ssm:{{region}}:*:automation-definition/AWS-StartEC2Instance","Input":"{\"InstanceId\":[\"i-02573cafcfEXAMPLE\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target1","RoleArn": "arn:aws:iam::123456789012:role/service-role/AWS_Events_Invoke_Start_Automation_Execution_1213609520"}'
+   ```
 
-Windows
+------
+#### [ PowerShell ]
 
-```
-{
-"FailedEntries": [],
-"FailedEntryCount": 0
-}
-```
+   ```
+   $Target = New-Object Amazon.CloudWatchEvents.Model.Target
+   $Target.Id = "Target1"
+   $Target.Arn = "arn:aws:ssm:{{region}}:*:automation-definition/AWS-StartEC2Instance"
+   $Target.RoleArn = "arn:aws:iam::123456789012:role/service-role/AWS_Events_Invoke_Start_Automation_Execution_1213609520"
+   $Target.Input = '{"InstanceId":["i-02573cafcfEXAMPLE"],"AutomationAssumeRole":["arn:aws:iam::123456789012:role/AutomationServiceRole"]}'
+   
+   Write-CWETarget `
+   -Rule "DailyAutomationRule" `
+   -Target $Target
+   ```
 
-PowerShell
-There is no output if the command succeeds for
-PowerShell.
+------
+
+   The system returns information like the following.
+
+------
+#### [ Linux & macOS ]
+
+   ```
+   {
+   "FailedEntries": [],
+   "FailedEntryCount": 0
+   }
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   {
+   "FailedEntries": [],
+   "FailedEntryCount": 0
+   }
+   ```
+
+------
+#### [ PowerShell ]
+
+   There is no output if the command succeeds for PowerShell.
+
+------

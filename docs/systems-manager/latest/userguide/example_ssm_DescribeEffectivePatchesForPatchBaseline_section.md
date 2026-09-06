@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DescribeEffectivePatchesForPatchBaseline` with a CLI
+<a name="example_ssm_DescribeEffectivePatchesForPatchBaseline_section"></a>
 
 The following code examples show how to use `DescribeEffectivePatchesForPatchBaseline`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To get all patches defined by a custom patch baseline**
-
-The following `describe-effective-patches-for-patch-baseline` example returns the patches defined by a custom patch baseline in the current AWS account. Note that for a custom baseline, only the ID is required for `--baseline-id`.
-
-```
-`aws ssm describe-effective-patches-for-patch-baseline \
- --baseline-id `"pb-08b654cf9b9681f04"``
+**AWS CLI**  
+**Example 1: To get all patches defined by a custom patch baseline**  
+The following `describe-effective-patches-for-patch-baseline` example returns the patches defined by a custom patch baseline in the current AWS account. Note that for a custom baseline, only the ID is required for `--baseline-id`.  
 
 ```
-
-Output:
+aws ssm describe-effective-patches-for-patch-baseline \
+    --baseline-id {{"pb-08b654cf9b9681f04"}}
+```
+Output:  
 
 ```
 {
@@ -70,99 +72,74 @@ Output:
     "NextToken": "--token string truncated--"
 }
 ```
-
-**Example 2: To get all patches defined by an AWS managed patch baseline**
-
-The following `describe-effective-patches-for-patch-baseline` example returns the patches defined by an AWS managed patch baseline. Note that for an AWS managed baseline, the complete baseline ARN is required for `--baseline-id`
+**Example 2: To get all patches defined by an AWS managed patch baseline**  
+The following `describe-effective-patches-for-patch-baseline` example returns the patches defined by an AWS managed patch baseline. Note that for an AWS managed baseline, the complete baseline ARN is required for `--baseline-id`  
 
 ```
-`aws ssm describe-effective-patches-for-patch-baseline \
- --baseline-id `"arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-020d361a05defe4ed"``
-
+aws ssm describe-effective-patches-for-patch-baseline \
+    --baseline-id {{"arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-020d361a05defe4ed"}}
 ```
+See example 1 for sample output.  
+For more information, see [How Security Patches Are Selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-selection.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [DescribeEffectivePatchesForPatchBaseline](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-effective-patches-for-patch-baseline.html) in *AWS CLI Command Reference*. 
 
-See example 1 for sample output.
+------
+#### [ PowerShell ]
 
-For more information, see [How Security Patches Are Selected](patch-manager-how-it-works-selection.md "patch-manager-how-it-works-selection.md") in the _AWS Systems Manager User Guide_.
-
-- For API details, see
-  [DescribeEffectivePatchesForPatchBaseline](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-effective-patches-for-patch-baseline.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-effective-patches-for-patch-baseline.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example lists all patch baselines, with a maximum result list of 1.**
+**Tools for PowerShell V4**  
+**Example 1: This example lists all patch baselines, with a maximum result list of 1.**  
 
 ```
 Get-SSMEffectivePatchesForPatchBaseline -BaselineId "pb-0a2f1059b670ebd31" -MaxResult 1
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Patch                                      PatchStatus
 -----                                      -----------
 Amazon.SimpleSystemsManagement.Model.Patch Amazon.SimpleSystemsManagement.Model.PatchStatus
 ```
-
-**Example 2: This example displays the patch status for all patch baselines, with a maximum result list of 1.**
+**Example 2: This example displays the patch status for all patch baselines, with a maximum result list of 1.**  
 
 ```
 (Get-SSMEffectivePatchesForPatchBaseline -BaselineId "pb-0a2f1059b670ebd31" -MaxResult 1).PatchStatus
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ApprovalDate          DeploymentStatus
 ------------          ----------------
 12/21/2010 6:00:00 PM APPROVED
 ```
++  For API details, see [DescribeEffectivePatchesForPatchBaseline](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeEffectivePatchesForPatchBaseline](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example lists all patch baselines, with a maximum result list of 1.**
+**Tools for PowerShell V5**  
+**Example 1: This example lists all patch baselines, with a maximum result list of 1.**  
 
 ```
 Get-SSMEffectivePatchesForPatchBaseline -BaselineId "pb-0a2f1059b670ebd31" -MaxResult 1
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Patch                                      PatchStatus
 -----                                      -----------
 Amazon.SimpleSystemsManagement.Model.Patch Amazon.SimpleSystemsManagement.Model.PatchStatus
 ```
-
-**Example 2: This example displays the patch status for all patch baselines, with a maximum result list of 1.**
+**Example 2: This example displays the patch status for all patch baselines, with a maximum result list of 1.**  
 
 ```
 (Get-SSMEffectivePatchesForPatchBaseline -BaselineId "pb-0a2f1059b670ebd31" -MaxResult 1).PatchStatus
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ApprovalDate          DeploymentStatus
 ------------          ----------------
 12/21/2010 6:00:00 PM APPROVED
 ```
++  For API details, see [DescribeEffectivePatchesForPatchBaseline](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeEffectivePatchesForPatchBaseline](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

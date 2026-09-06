@@ -1,54 +1,46 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `CreateOpsItem` with an AWS SDK or CLI
+<a name="example_ssm_CreateOpsItem_section"></a>
 
 The following code examples show how to use `CreateOpsItem`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_ssm_Scenario_section.md) 
 
-- [Learn the basics](example_ssm_Scenario_section.md "example_ssm_Scenario_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To create an OpsItems**
-
-The following `create-ops-item` example uses the /aws/resources key in OperationalData to create an OpsItem with an Amazon DynamoDB related resource.
+**AWS CLI**  
+**To create an OpsItems**  
+The following `create-ops-item` example uses the /aws/resources key in OperationalData to create an OpsItem with an Amazon DynamoDB related resource.  
 
 ```
-`aws ssm create-ops-item \
- --title `"EC2 instance disk full"` \
- --description `"Log clean up may have failed which caused the disk to be full"` \
- --priority `2` \
- --source `ec2` \
- --operational-data '`{"/aws/resources":{"Value":"[{\"arn\": \"arn:aws:dynamodb:us-west-2:12345678:table/OpsItems\"}]","Type":"SearchableString"}}`' \
- --notifications Arn="arn:aws:sns:us-west-2:12345678:TestUser"`
-
+aws ssm create-ops-item \
+    --title {{"EC2 instance disk full"}} \
+    --description {{"Log clean up may have failed which caused the disk to be full"}} \
+    --priority {{2}} \
+    --source {{ec2}} \
+    --operational-data '{{{"/aws/resources":{"Value":"[{\"arn\": \"arn:aws:dynamodb:us-west-2:12345678:table/OpsItems\"}]","Type":"SearchableString"}}}}' \
+    --notifications Arn="arn:aws:sns:us-west-2:12345678:TestUser"
 ```
-
-Output:
+Output:  
 
 ```
 {
     "OpsItemId": "oi-1a2b3c4d5e6f"
 }
 ```
+For more information, see [Creating OpsItems](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [CreateOpsItem](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/create-ops-item.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Creating OpsItems](OpsCenter-creating-OpsItems.md "OpsCenter-creating-OpsItems.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [CreateOpsItem](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/create-ops-item.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/create-ops-item.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
 ```
     /**
@@ -87,23 +79,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             }
         }
     }
-
-
 ```
++  For API details, see [CreateOpsItem](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/CreateOpsItem) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateOpsItem](../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateOpsItem.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateOpsItem.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
 ```
 import { CreateOpsItemCommand, SSMClient } from "@aws-sdk/client-ssm";
@@ -139,23 +122,14 @@ export const main = async ({
     }
   }
 };
-
-
 ```
++  For API details, see [CreateOpsItem](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateOpsItemCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateOpsItem](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateOpsItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateOpsItemCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 
 ```
 class OpsItemWrapper:
@@ -213,23 +187,14 @@ class OpsItemWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
 ```
++  For API details, see [CreateOpsItem](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/CreateOpsItem) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateOpsItem](../../../goto/boto3/ssm-2014-11-06/CreateOpsItem.md "../../../goto/boto3/ssm-2014-11-06/CreateOpsItem.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples). 
 
 ```
     TRY.
@@ -245,14 +210,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_ssmopsitemalrdyexex.
         MESSAGE 'OpsItem already exists.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateOpsItem](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateOpsItem](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

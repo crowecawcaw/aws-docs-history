@@ -1,49 +1,41 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DeleteMaintenanceWindow` with an AWS SDK or CLI
+<a name="example_ssm_DeleteMaintenanceWindow_section"></a>
 
 The following code examples show how to use `DeleteMaintenanceWindow`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_ssm_Scenario_section.md) 
 
-- [Learn the basics](example_ssm_Scenario_section.md "example_ssm_Scenario_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To delete a maintenance window**
-
-This `delete-maintenance-window` example removes the specified maintenance window.
+**AWS CLI**  
+**To delete a maintenance window**  
+This `delete-maintenance-window` example removes the specified maintenance window.  
 
 ```
-`aws ssm delete-maintenance-window \
- --window-id `"mw-1a2b3c4d5e6f7g8h9"``
-
+aws ssm delete-maintenance-window \
+    --window-id {{"mw-1a2b3c4d5e6f7g8h9"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
     "WindowId":"mw-1a2b3c4d5e6f7g8h9"
 }
 ```
+For more information, see [Delete a Maintenance Window (AWS CLI)](https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-delete-mw.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [DeleteMaintenanceWindow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/delete-maintenance-window.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Delete a Maintenance Window (AWS CLI)](mw-cli-tutorial-delete-mw.md "mw-cli-tutorial-delete-mw.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DeleteMaintenanceWindow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/delete-maintenance-window.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/delete-maintenance-window.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
 ```
     /**
@@ -82,23 +74,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             throw ex.getCause() instanceof RuntimeException ? (RuntimeException) ex.getCause() : ex;
         }
     }
-
-
 ```
++  For API details, see [DeleteMaintenanceWindow](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/DeleteMaintenanceWindow) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteMaintenanceWindow](../../../goto/SdkForJavaV2/ssm-2014-11-06/DeleteMaintenanceWindow.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/DeleteMaintenanceWindow.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
 ```
 import { DeleteMaintenanceWindowCommand, SSMClient } from "@aws-sdk/client-ssm";
@@ -124,63 +107,43 @@ export const main = async ({ windowId }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [DeleteMaintenanceWindow](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/DeleteMaintenanceWindowCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteMaintenanceWindow](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/DeleteMaintenanceWindowCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/DeleteMaintenanceWindowCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example removes a maintenance window.**
+**Tools for PowerShell V4**  
+**Example 1: This example removes a maintenance window.**  
 
 ```
 Remove-SSMMaintenanceWindow -WindowId "mw-06d59c1a07c022145"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 mw-06d59c1a07c022145
 ```
++  For API details, see [DeleteMaintenanceWindow](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteMaintenanceWindow](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example removes a maintenance window.**
+**Tools for PowerShell V5**  
+**Example 1: This example removes a maintenance window.**  
 
 ```
 Remove-SSMMaintenanceWindow -WindowId "mw-06d59c1a07c022145"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 mw-06d59c1a07c022145
 ```
++  For API details, see [DeleteMaintenanceWindow](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteMaintenanceWindow](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 
 ```
 class MaintenanceWindowWrapper:
@@ -220,24 +183,14 @@ class MaintenanceWindowWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [DeleteMaintenanceWindow](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/DeleteMaintenanceWindow) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteMaintenanceWindow](../../../goto/boto3/ssm-2014-11-06/DeleteMaintenanceWindow.md "../../../goto/boto3/ssm-2014-11-06/DeleteMaintenanceWindow.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples). 
 
 ```
     TRY.
@@ -246,14 +199,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_ssminternalservererr.
         MESSAGE 'Internal server error occurred.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteMaintenanceWindow](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteMaintenanceWindow](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

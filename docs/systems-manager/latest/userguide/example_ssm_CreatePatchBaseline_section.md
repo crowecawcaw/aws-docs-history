@@ -1,64 +1,58 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `CreatePatchBaseline` with a CLI
+<a name="example_ssm_CreatePatchBaseline_section"></a>
 
 The following code examples show how to use `CreatePatchBaseline`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To create a patch baseline with auto-approval**
-
-The following `create-patch-baseline` example creates a patch baseline for Windows Server that approves patches for a production environment seven days after they are released by Microsoft.
-
-```
-`aws ssm create-patch-baseline \
- --name `"Windows-Production-Baseline-AutoApproval"` \
- --operating-system `"WINDOWS"` \
- --approval-rules `"PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important,Moderate]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]"` \
- --description `"Baseline containing all updates approved for Windows Server production systems"``
+**AWS CLI**  
+**Example 1: To create a patch baseline with auto-approval**  
+The following `create-patch-baseline` example creates a patch baseline for Windows Server that approves patches for a production environment seven days after they are released by Microsoft.  
 
 ```
-
-Output:
+aws ssm create-patch-baseline \
+    --name {{"Windows-Production-Baseline-AutoApproval"}} \
+    --operating-system {{"WINDOWS"}} \
+    --approval-rules {{"PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important,Moderate]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]"}} \
+    --description {{"Baseline containing all updates approved for Windows Server production systems"}}
+```
+Output:  
 
 ```
 {
     "BaselineId": "pb-045f10b4f3EXAMPLE"
 }
 ```
-
-**Example 2: To create a patch baseline with an approval cutoff date**
-
-The following `create-patch-baseline` example creates a patch baseline for Windows Server that approves all patches for a production environment that are released on or before July 7, 2020.
+**Example 2: To create a patch baseline with an approval cutoff date**  
+The following `create-patch-baseline` example creates a patch baseline for Windows Server that approves all patches for a production environment that are released on or before July 7, 2020.  
 
 ```
-`aws ssm create-patch-baseline \
- --name `"Windows-Production-Baseline-AutoApproval"` \
- --operating-system `"WINDOWS"` \
- --approval-rules `"PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important,Moderate]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,UpdateRollups,CriticalUpdates]}]},ApproveUntilDate=2020-07-07}]"` \
- --description `"Baseline containing all updates approved for Windows Server production systems"``
-
+aws ssm create-patch-baseline \
+    --name {{"Windows-Production-Baseline-AutoApproval"}} \
+    --operating-system {{"WINDOWS"}} \
+    --approval-rules {{"PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important,Moderate]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,UpdateRollups,CriticalUpdates]}]},ApproveUntilDate=2020-07-07}]"}} \
+    --description {{"Baseline containing all updates approved for Windows Server production systems"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
     "BaselineId": "pb-045f10b4f3EXAMPLE"
 }
 ```
-
-**Example 3: To create a patch baseline with approval rules stored in a JSON file**
-
-The following `create-patch-baseline` example creates a patch baseline for Amazon Linux 2017.09 that approves patches for a production environment seven days after they are released, specifies approval rules for the patch baseline, and specifies a custom repository for patches.
+**Example 3: To create a patch baseline with approval rules stored in a JSON file**  
+The following `create-patch-baseline` example creates a patch baseline for Amazon Linux 2017.09 that approves patches for a production environment seven days after they are released, specifies approval rules for the patch baseline, and specifies a custom repository for patches.  
 
 ```
-`aws ssm create-patch-baseline \
- --cli-input-json `file://my-amazon-linux-approval-rules-and-repo.json``
-
+aws ssm create-patch-baseline \
+    --cli-input-json {{file://my-amazon-linux-approval-rules-and-repo.json}}
 ```
-
-Contents of `my-amazon-linux-approval-rules-and-repo.json`:
+Contents of `my-amazon-linux-approval-rules-and-repo.json`:  
 
 ```
 {
@@ -114,34 +108,27 @@ Contents of `my-amazon-linux-approval-rules-and-repo.json`:
     ]
 }
 ```
-
-**Example 4: To create a patch baseline that specifies approved and rejected patches**
-
-The following `create-patch-baseline` example explicitly specifies patches to approve and reject as exception to the default approval rules.
+**Example 4: To create a patch baseline that specifies approved and rejected patches**  
+The following `create-patch-baseline` example explicitly specifies patches to approve and reject as exception to the default approval rules.  
 
 ```
-`aws ssm create-patch-baseline \
- --name `"Amazon-Linux-2017.09-Alpha-Baseline"` \
- --description `"My custom approve/reject patch baseline for Amazon Linux 2017.09 instances"` \
- --operating-system `"AMAZON_LINUX"` \
- --approved-patches `"CVE-2018-1234567,example-pkg-EE-2018*.amzn1.noarch"` \
- --approved-patches-compliance-level `"HIGH"` \
- --approved-patches-enable-non-security \
- --tags `"Key=Environment,Value=Alpha"``
-
+aws ssm create-patch-baseline \
+    --name {{"Amazon-Linux-2017.09-Alpha-Baseline"}} \
+    --description {{"My custom approve/reject patch baseline for Amazon Linux 2017.09 instances"}} \
+    --operating-system {{"AMAZON_LINUX"}} \
+    --approved-patches {{"CVE-2018-1234567,example-pkg-EE-2018*.amzn1.noarch"}} \
+    --approved-patches-compliance-level {{"HIGH"}} \
+    --approved-patches-enable-non-security \
+    --tags {{"Key=Environment,Value=Alpha"}}
 ```
+For more information, see [Create a Custom Patch Baseline](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-patch-baseline-console.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [CreatePatchBaseline](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/create-patch-baseline.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Create a Custom Patch Baseline](sysman-patch-baseline-console.md "sysman-patch-baseline-console.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [CreatePatchBaseline](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/create-patch-baseline.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/create-patch-baseline.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a patch baseline that approves patches, seven days after they are released by Microsoft, for managed instances running Windows Server 2019 in a production environment.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a patch baseline that approves patches, seven days after they are released by Microsoft, for managed instances running Windows Server 2019 in a production environment.**  
 
 ```
 $rule = New-Object Amazon.SimpleSystemsManagement.Model.PatchRule
@@ -172,22 +159,16 @@ $ruleFilters.PatchFilters.Add($patchFilter)
 $rule.PatchFilterGroup = $ruleFilters
 
 New-SSMPatchBaseline -Name "Production-Baseline-Windows2019" -Description "Baseline containing all updates approved for production systems" -ApprovalRules_PatchRule $rule
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 pb-0z4z6221c4296b23z
 ```
++  For API details, see [CreatePatchBaseline](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreatePatchBaseline](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a patch baseline that approves patches, seven days after they are released by Microsoft, for managed instances running Windows Server 2019 in a production environment.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a patch baseline that approves patches, seven days after they are released by Microsoft, for managed instances running Windows Server 2019 in a production environment.**  
 
 ```
 $rule = New-Object Amazon.SimpleSystemsManagement.Model.PatchRule
@@ -218,19 +199,14 @@ $ruleFilters.PatchFilters.Add($patchFilter)
 $rule.PatchFilterGroup = $ruleFilters
 
 New-SSMPatchBaseline -Name "Production-Baseline-Windows2019" -Description "Baseline containing all updates approved for production systems" -ApprovalRules_PatchRule $rule
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 pb-0z4z6221c4296b23z
 ```
++  For API details, see [CreatePatchBaseline](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreatePatchBaseline](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,52 +1,40 @@
-# AWS Systems Manager Run Command
 
-Using Run Command, you can remotely and securely manage the
-configuration of your managed nodes. A _managed node_ is any Amazon Elastic Compute Cloud
-(Amazon EC2) instance or non-EC2 machine in your [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment that has been configured
-for Systems Manager. With Run Command, you can automate common administrative tasks and perform one-time
-configuration changes at scale. You can use Run Command from the AWS Management Console, the AWS Command Line Interface
-(AWS CLI), AWS Tools for Windows PowerShell, or the AWS SDKs. Run Command is offered at no additional cost. To get
-started with Run Command, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/run-command "https://console.aws.amazon.com/systems-manager/run-command"). In the navigation pane, choose
-**Run Command**.
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
+# AWS Systems Manager Run Command
+<a name="run-command"></a>
+
+Using Run Command, you can remotely and securely manage the configuration of your managed nodes. A *managed node* is any Amazon Elastic Compute Cloud (Amazon EC2) instance or non-EC2 machine in your [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types) environment that has been configured for Systems Manager. With Run Command, you can automate common administrative tasks and perform one-time configuration changes at scale. You can use Run Command from the AWS Management Console, the AWS Command Line Interface (AWS CLI), AWS Tools for Windows PowerShell, or the AWS SDKs. Run Command is offered at no additional cost. To get started with Run Command, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/run-command). In the navigation pane, choose **Run Command**.
 
 This section includes the following topics.
++ [Setting up Run Command](run-command-setting-up.md)
++ [Updating software using Run Command](run-command-tutorial-update-software.md)
++ [Using exit codes in commands](run-command-handle-exit-status.md)
++ [Running commands using a specific document version](run-command-version.md)
++ [Troubleshooting Systems Manager Run Command](troubleshooting-remote-commands.md)
 
-- [Setting up Run Command](run-command-setting-up.md "run-command-setting-up.md")
-- [Updating software using Run Command](run-command-tutorial-update-software.md "run-command-tutorial-update-software.md")
-- [Using exit codes in commands](run-command-handle-exit-status.md "run-command-handle-exit-status.md")
-- [Running commands using a specific document version](run-command-version.md "run-command-version.md")
-- [Troubleshooting Systems Manager Run Command](troubleshooting-remote-commands.md "troubleshooting-remote-commands.md")
-  Administrators use Run Command to install or bootstrap applications, build a deployment
-  pipeline, capture log files when an instance is removed from an Auto Scaling group, and join instances
-  to a Windows domain.
+Administrators use Run Command to install or bootstrap applications, build a deployment pipeline, capture log files when an instance is removed from an Auto Scaling group, and join instances to a Windows domain.
 
-The Run Command API follows an eventual consistency model, due to the distributed nature of
-the system supporting the API. This means that the result of an API command you run that
-affects your resources might not be immediately visible to all subsequent commands you run.
-You should keep this in mind when you carry out an API command that immediately follows a
-previous API command.
+The Run Command API follows an eventual consistency model, due to the distributed nature of the system supporting the API. This means that the result of an API command you run that affects your resources might not be immediately visible to all subsequent commands you run. You should keep this in mind when you carry out an API command that immediately follows a previous API command.
 
-###### Getting Started
-
+**Getting Started**  
 The following table includes information to help you get started with Run Command.
 
-| Topic                                                                                                                                                    | Details                                                                                                                                                                                                                                                                                                                  |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Setting up managed nodes for AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md")                            | Verify that you have completed the setup requirements for your<br>Amazon Elastic Compute Cloud (Amazon EC2) instances and non-EC2 machines in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types")<br>environment. |
-| [Managing nodes in hybrid and multicloud environments with Systems Manager](systems-manager-hybrid-multicloud.md "systems-manager-hybrid-multicloud.md") | (Optional) Register on-premises servers and VMs with AWS so you can<br>manage them using Run Command.                                                                                                                                                                                                                    |
-| [Managing edge devices with Systems Manager](systems-manager-setting-up-edge-devices.md "systems-manager-setting-up-edge-devices.md")                    | (Optional) Configure edge devices so you can manage them using<br>Run Command.                                                                                                                                                                                                                                           |
-| [Running commands on managed nodes](running-commands.md "running-commands.md")                                                                           | Learn how to run a command that targets one or more managed nodes by<br>using the AWS Management Console.                                                                                                                                                                                                                |
-| [Run Command walkthroughs](run-command-walkthroughs.md "run-command-walkthroughs.md")                                                                    | Learn how to run commands using either Tools for Windows PowerShell or the AWS CLI.                                                                                                                                                                                                                                      |
 
-###### EventBridge support
 
-This Systems Manager tool is supported as both an _event_ type and a
-_target_ type in Amazon EventBridge rules. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md") and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
+| Topic | Details | 
+| --- | --- | 
+| [Setting up managed nodes for AWS Systems Manager](systems-manager-setting-up-nodes.md) | Verify that you have completed the setup requirements for your Amazon Elastic Compute Cloud (Amazon EC2) instances and non-EC2 machines in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types) environment. | 
+| [Managing nodes in hybrid and multicloud environments with Systems Manager](systems-manager-hybrid-multicloud.md) | (Optional) Register on-premises servers and VMs with AWS so you can manage them using Run Command. | 
+| [Managing edge devices with Systems Manager](systems-manager-setting-up-edge-devices.md) | (Optional) Configure edge devices so you can manage them using Run Command. | 
+| [Running commands on managed nodes](running-commands.md) | Learn how to run a command that targets one or more managed nodes by using the AWS Management Console. | 
+| [Run Command walkthroughs](run-command-walkthroughs.md) | Learn how to run commands using either Tools for Windows PowerShell or the AWS CLI. | 
 
-**More info**
+**EventBridge support**  
+This Systems Manager tool is supported as both an *event* type and a *target* type in Amazon EventBridge rules. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md).
 
-- [Remotely Run Command on an EC2 Instance (10 minute
-  tutorial)](https://aws.amazon.com/getting-started/hands-on/remotely-run-commands-ec2-instance-systems-manager/ "https://aws.amazon.com/getting-started/hands-on/remotely-run-commands-ec2-instance-systems-manager/")
-- [Systems Manager service quotas](../../../general/latest/gr/ssm.md#limits_ssm "../../../general/latest/gr/ssm.md#limits_ssm") in the
-  _Amazon Web Services General Reference_
-- [AWS Systems Manager API Reference](../APIReference.md "../APIReference.md")
+**More info**  
++ [Remotely Run Command on an EC2 Instance (10 minute tutorial)](https://aws.amazon.com/getting-started/hands-on/remotely-run-commands-ec2-instance-systems-manager/)
++ [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*
++ [AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/) 

@@ -1,71 +1,72 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Discovering public parameters in Parameter Store
+<a name="parameter-store-finding-public-parameters"></a>
 
-You can search for public parameters using the Parameter Store console or the AWS Command Line Interface.
+You can search for public parameters using the Parameter Store console or the AWS Command Line Interface. 
 
-A public parameter name begins with `aws/service/list`. The next part
-of the name corresponds to the service that owns that parameter.
+A public parameter name begins with `aws/service/list`. The next part of the name corresponds to the service that owns that parameter. 
 
-The following is a partial list of AWS services and other resources that provide
-public parameters:
+The following is a partial list of AWS services and other resources that provide public parameters:
++ `ami-amazon-linux-latest`
++ `ami-windows-latest`
++  `ec2-macos`
++ `appmesh`
++ `aws-for-fluent-bit`
++ `aws-sdk-pandas`
++ `bottlerocket`
++ `canonical`
++ `cloud9`
++ `datasync`
++ `deeplearning`
++ `ecs`
++ `eks`
++ `fis`
++ `freebsd`
++ `global-infrastructure`
++ `marketplace`
++ `neuron`
++ `powertools`
++ `sagemaker-distribution`
++ `storagegateway`
 
-- `ami-amazon-linux-latest`
-- `ami-windows-latest`
-- `ec2-macos`
-- `appmesh`
-- `aws-for-fluent-bit`
-- `aws-sdk-pandas`
-- `bottlerocket`
-- `canonical`
-- `cloud9`
-- `datasync`
-- `deeplearning`
-- `ecs`
-- `eks`
-- `fis`
-- `freebsd`
-- `global-infrastructure`
-- `marketplace`
-- `neuron`
-- `powertools`
-- `sagemaker-distribution`
-- `storagegateway`
-  Not all public parameters are published to every AWS Region.
+Not all public parameters are published to every AWS Region.
 
 ## Finding public parameters using the Parameter Store console
+<a name="paramstore-discover-public-console"></a>
 
-You must have at least one parameter in your AWS account and AWS Region
-before you can search for public parameters using the console.
+You must have at least one parameter in your AWS account and AWS Region before you can search for public parameters using the console.
 
-###### To find public parameters using the console
+**To find public parameters using the console**
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. In the navigation pane, choose **Parameter Store**.
-3. Choose the **Public parameters** tab.
-4. Choose the **Select a service** dropdown. Choose the
-   service whose parameters you want to use.
-5. (Optional) Filter the parameters owned by the service you selected by
-   entering more information into the search bar.
-6. Choose the public parameter you want to use.
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
+
+1. In the navigation pane, choose **Parameter Store**.
+
+1. Choose the **Public parameters** tab.
+
+1. Choose the **Select a service** dropdown. Choose the service whose parameters you want to use.
+
+1. (Optional) Filter the parameters owned by the service you selected by entering more information into the search bar.
+
+1. Choose the public parameter you want to use. 
 
 ## Finding public parameters using the AWS CLI
+<a name="paramstore-discover-public-cli"></a>
 
-Use `describe-parameters` for discovery of public parameters.
+Use `describe-parameters` for discovery of public parameters. 
 
-Use `get-parameters-by-path` to get the actual path for a service
-listed under `/aws/service/list`. To get the service's path, remove
-`/list` from the path. For example,
-`/aws/service/list/ecs` becomes
-`/aws/service/ecs`.
+Use `get-parameters-by-path` to get the actual path for a service listed under `/aws/service/list`. To get the service's path, remove `/list` from the path. For example, `/aws/service/list/ecs` becomes `/aws/service/ecs`.
 
-To retrieve a list of public parameters owned by different services in
-Parameter Store, run the following command.
+To retrieve a list of public parameters owned by different services in Parameter Store, run the following command.
 
 ```
 aws ssm get-parameters-by-path --path /aws/service/list
 ```
 
-The command returns information like the following. This example has been
-truncated for space.
+The command returns information like the following. This example has been truncated for space.
 
 ```
 {
@@ -110,29 +111,20 @@ truncated for space.
 }
 ```
 
-If you want to view parameters owned by a specific service, choose the service
-from the list that was produced after running the earlier command. Then, make a
-`get-parameters-by-path` call using the name of your desired
-service.
+If you want to view parameters owned by a specific service, choose the service from the list that was produced after running the earlier command. Then, make a `get-parameters-by-path` call using the name of your desired service. 
 
-For example, `/aws/service/global-infrastructure`. The path might
-be one-level (only calls parameters that match the exact values given) or
-recursive (contains elements in the path beyond what you have given).
+For example, `/aws/service/global-infrastructure`. The path might be one-level (only calls parameters that match the exact values given) or recursive (contains elements in the path beyond what you have given). 
 
-###### Note
+**Note**  
+The `/aws/service/global-infrastructure` path is not supported for queries in all Regions. For information, see [Calling public parameters for AWS services, Regions, endpoints, Availability Zones, local zones, and Wavelength Zones in Parameter Store](parameter-store-public-parameters-global-infrastructure.md).
 
-The `/aws/service/global-infrastructure` path is not supported
-for queries in all Regions. For information, see [Calling public parameters for AWS services, Regions, endpoints, Availability Zones, local zones, and Wavelength Zones in Parameter Store](parameter-store-public-parameters-global-infrastructure.md "parameter-store-public-parameters-global-infrastructure.md").
-
-If no results are returned for the service you specify, add the
-`--recursive` flag and run the command again.
+If no results are returned for the service you specify, add the `--recursive` flag and run the command again.
 
 ```
 aws ssm get-parameters-by-path --path /aws/service/global-infrastructure
 ```
 
-This returns all parameters owned by `global-infrastructure`. The
-following is an example.
+ This returns all parameters owned by `global-infrastructure`. The following is an example.
 
 ```
 {
@@ -159,15 +151,13 @@ following is an example.
 }
 ```
 
-You can also view parameters owned by a specific service by using the
-`Option:BeginsWith` filter.
+You can also view parameters owned by a specific service by using the `Option:BeginsWith` filter.
 
 ```
 aws ssm describe-parameters --parameter-filters "Key=Name, Option=BeginsWith, Values=/aws/service/ami-amazon-linux-latest"
 ```
 
-The command returns information like the following. This example output has
-been truncated for space.
+The command returns information like the following. This example output has been truncated for space.
 
 ```
 {
@@ -203,8 +193,5 @@ been truncated for space.
 }
 ```
 
-###### Note
-
-The returned parameters might be different when you use
-`Option=BeginsWith` because it uses a different search
-pattern.
+**Note**  
+The returned parameters might be different when you use `Option=BeginsWith` because it uses a different search pattern.

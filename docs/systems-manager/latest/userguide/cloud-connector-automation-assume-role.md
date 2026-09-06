@@ -1,21 +1,19 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Automation assume role
+<a name="cloud-connector-automation-assume-role"></a>
 
-The automation assume role is the role Automation assumes when it runs the
-runbook that onboards an Azure virtual machine as a managed node. The role
-can call the core Systems Manager APIs needed for hybrid activation. It can also pass a
-service role to Systems Manager and assume the Azure federation role to obtain Azure
-credentials.
+The automation assume role is the role Automation assumes when it runs the runbook that onboards an Azure virtual machine as a managed node. The role can call the core Systems Manager APIs needed for hybrid activation. It can also pass a service role to Systems Manager and assume the Azure federation role to obtain Azure credentials.
 
-**Role name pattern:**
-`SSM-AzureAssumeRole-`connector-name``
+**Role name pattern:** `SSM-AzureAssumeRole-{{connector-name}}`
 
-The trust policy lets the Systems Manager service principal assume the role, scoped
-to your AWS account. Replace `123456789012` with your
-AWS account ID.
+The trust policy lets the Systems Manager service principal assume the role, scoped to your AWS account. Replace `123456789012` with your AWS account ID.
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17", 		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -33,42 +31,19 @@ AWS account ID.
 }
 ```
 
-The permissions policy grants the actions Automation needs to execute the
-onboarding runbooks. Replace `123456789012` with your
-AWS account ID, `us-east-1` with the AWS Region that the Cloud
-Connector is created in, `SSM-AzureRole-MyConnector`
-with the name of the Azure federation role,
-`AmazonEC2RunCommandRoleForManagedInstances` with the name of
-the managed instance role attached to the Cloud Connector, and
-`connector-id` with the ID of the Cloud Connector.
+The permissions policy grants the actions Automation needs to execute the onboarding runbooks. Replace `123456789012` with your AWS account ID, `us-east-1` with the AWS Region that the Cloud Connector is created in, `SSM-AzureRole-MyConnector` with the name of the Azure federation role, `AmazonEC2RunCommandRoleForManagedInstances` with the name of the managed instance role attached to the Cloud Connector, and `connector-id` with the ID of the Cloud Connector.
 
 **Permissions details**
 
 This policy includes the following permissions.
-
-- `ssm` – Allows Automation to create, delete, and
-  describe hybrid activations
-  (`CreateActivation`, `DeleteActivation`,
-  `DescribeActivations`); to register Azure virtual machines
-  as managed nodes and read their status
-  (`DescribeInstanceInformation`); to tag activations and
-  managed instances (`AddTagsToResource`); to read the
-  installation runbook (`GetDocument` on
-  `AWS-InstallSSMAgentOnAzure`); and to read the Cloud
-  Connector configuration (`GetCloudConnector`).
-- `iam:PassRole` – Allows Automation to pass the
-  managed instance role to Systems Manager when registering an Azure virtual
-  machine. The `iam:PassedToService` condition restricts
-  the pass to `ssm.amazonaws.com`.
-- `iam:ListRoleTags` – Allows Automation to read
-  tags on the Azure federation role to confirm it belongs to the same
-  Cloud Connector before assuming it.
-- `sts:AssumeRole` – Allows Automation to assume the
-  Azure federation role to obtain Azure credentials.
++ `ssm` – Allows Automation to create, delete, and describe hybrid activations (`CreateActivation`, `DeleteActivation`, `DescribeActivations`); to register Azure virtual machines as managed nodes and read their status (`DescribeInstanceInformation`); to tag activations and managed instances (`AddTagsToResource`); to read the installation runbook (`GetDocument` on `AWS-InstallSSMAgentOnAzure`); and to read the Cloud Connector configuration (`GetCloudConnector`).
++ `iam:PassRole` – Allows Automation to pass the managed instance role to Systems Manager when registering an Azure virtual machine. The `iam:PassedToService` condition restricts the pass to `ssm.amazonaws.com`.
++ `iam:ListRoleTags` – Allows Automation to read tags on the Azure federation role to confirm it belongs to the same Cloud Connector before assuming it.
++ `sts:AssumeRole` – Allows Automation to assume the Azure federation role to obtain Azure credentials.
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17", 		 	 	 
     "Statement": [
         {
             "Effect": "Allow",

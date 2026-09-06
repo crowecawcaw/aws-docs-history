@@ -1,23 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DescribeEffectiveInstanceAssociations` with a CLI
+<a name="example_ssm_DescribeEffectiveInstanceAssociations_section"></a>
 
 The following code examples show how to use `DescribeEffectiveInstanceAssociations`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get details of the effective associations for an instance**
-
-The following `describe-effective-instance-associations` example retrieves details about the effective associations for an instance.
-
-Command:
+**AWS CLI**  
+**To get details of the effective associations for an instance**  
+The following `describe-effective-instance-associations` example retrieves details about the effective associations for an instance.  
+Command:  
 
 ```
-`aws ssm describe-effective-instance-associations --instance-id `"i-1234567890abcdef0"``
-
+aws ssm describe-effective-instance-associations --instance-id {{"i-1234567890abcdef0"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -31,38 +32,30 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeEffectiveInstanceAssociations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-effective-instance-associations.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeEffectiveInstanceAssociations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-effective-instance-associations.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-effective-instance-associations.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the effective associations for an instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the effective associations for an instance.**  
 
 ```
 Get-SSMEffectiveInstanceAssociationList -InstanceId "i-0000293ffd8c57862" -MaxResult 5
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId                        Content
 -------------                        -------
 d8617c07-2079-4c18-9847-1655fc2698b0 {...
 ```
-
-**Example 2: This example displays the contents of the effective associations for an instance.**
+**Example 2: This example displays the contents of the effective associations for an instance.**  
 
 ```
 (Get-SSMEffectiveInstanceAssociationList -InstanceId "i-0000293ffd8c57862" -MaxResult 5).Content
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 {
@@ -100,36 +93,27 @@ t will be updated to the latest version.",
     }
 }
 ```
++  For API details, see [DescribeEffectiveInstanceAssociations](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeEffectiveInstanceAssociations](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the effective associations for an instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the effective associations for an instance.**  
 
 ```
 Get-SSMEffectiveInstanceAssociationList -InstanceId "i-0000293ffd8c57862" -MaxResult 5
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AssociationId                        Content
 -------------                        -------
 d8617c07-2079-4c18-9847-1655fc2698b0 {...
 ```
-
-**Example 2: This example displays the contents of the effective associations for an instance.**
+**Example 2: This example displays the contents of the effective associations for an instance.**  
 
 ```
 (Get-SSMEffectiveInstanceAssociationList -InstanceId "i-0000293ffd8c57862" -MaxResult 5).Content
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 {
@@ -167,11 +151,8 @@ t will be updated to the latest version.",
     }
 }
 ```
++  For API details, see [DescribeEffectiveInstanceAssociations](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeEffectiveInstanceAssociations](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

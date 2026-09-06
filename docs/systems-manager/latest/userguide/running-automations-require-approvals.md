@@ -1,238 +1,220 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Run an automation that requires approvals
+<a name="running-automations-require-approvals"></a>
 
-The following procedures describe how to use the AWS Systems Manager console and AWS Command Line Interface
-(AWS CLI) to run an automation with approvals using simple execution. The automation uses
-the automation action `aws:approve`, which temporarily pauses the automation
-until the designated principals either approve or deny the action. The automation runs
-in the context of the current user. This means that you don't need to configure
-additional IAM permissions as long as you have permission to use the runbook, and any
-actions called by the runbook. If you have administrator permissions in IAM, then you
-already have permission to use this runbook.
+The following procedures describe how to use the AWS Systems Manager console and AWS Command Line Interface (AWS CLI) to run an automation with approvals using simple execution. The automation uses the automation action `aws:approve`, which temporarily pauses the automation until the designated principals either approve or deny the action. The automation runs in the context of the current user. This means that you don't need to configure additional IAM permissions as long as you have permission to use the runbook, and any actions called by the runbook. If you have administrator permissions in IAM, then you already have permission to use this runbook.
 
-###### Before you begin
+**Before you begin**  
+Besides the standard inputs required by the runbook, the `aws:approve` action requires the following two parameters: 
++ A list of approvers. The list of approvers must contain at least one approver in the form of a user name or a user ARN. If multiple approvers are provided, a corresponding minimum approval count must also be specified within the runbook. 
++ An Amazon Simple Notification Service (Amazon SNS) topic ARN. The Amazon SNS topic name must start with `Automation`.
 
-Besides the standard inputs required by the runbook, the
-`aws:approve` action requires the following two parameters:
-
-- A list of approvers. The list of approvers must contain at least one approver
-  in the form of a user name or a user ARN. If multiple approvers are provided, a
-  corresponding minimum approval count must also be specified within the runbook.
-- An Amazon Simple Notification Service (Amazon SNS) topic ARN. The Amazon SNS topic name must start with
-  `Automation`.
-  This procedure assumes that you have already created an Amazon SNS topic, which is required
-  to deliver the approval request. For information, see [Create a Topic](../../../sns/latest/dg/sns-getting-started.md#CreateTopic "../../../sns/latest/dg/sns-getting-started.md#CreateTopic") in
-  the _Amazon Simple Notification Service Developer Guide_.
+This procedure assumes that you have already created an Amazon SNS topic, which is required to deliver the approval request. For information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html#CreateTopic) in the *Amazon Simple Notification Service Developer Guide*.
 
 ## Running an automation with approvers (console)
+<a name="approval-console"></a>
 
-###### To run an automation with approvers
+**To run an automation with approvers**
 
-The following procedure describes how to use the Systems Manager console to run an
-automation with approvers.
+The following procedure describes how to use the Systems Manager console to run an automation with approvers.
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. In the navigation pane, choose **Automation**, and then choose
-   **Execute automation**.
-3. In the **Automation document** list, choose a runbook. Choose one or
-   more options in the **Document categories** pane to filter SSM
-   documents according to their purpose. To view a runbook that you own, choose the
-   **Owned by me** tab. To view a runbook that is shared with your
-   account, choose the **Shared with me** tab. To view all runbooks,
-   choose the **All documents** tab.
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
 
-###### Note
+1. In the navigation pane, choose **Automation**, and then choose **Execute automation**.
 
-You can view information about a runbook by choosing the runbook name. 4. In the **Document details** section, verify that **Document
-version** is set to the version that you want to run. The system includes
-the following version options:
+1. In the **Automation document** list, choose a runbook. Choose one or more options in the **Document categories** pane to filter SSM documents according to their purpose. To view a runbook that you own, choose the **Owned by me** tab. To view a runbook that is shared with your account, choose the **Shared with me** tab. To view all runbooks, choose the **All documents** tab.
+**Note**  
+You can view information about a runbook by choosing the runbook name.
 
-    * **Default version at runtime** – Choose this option if
-     the Automation runbook is updated periodically and a new default version is
-     assigned.
-    * **Latest version at runtime** – Choose this option if
-     the Automation runbook is updated periodically, and you want to run the version
-     that was most recently updated.
-    * **1 (Default)** – Choose this option to run the first
-     version of the document, which is the default.
+1. In the **Document details** section, verify that **Document version** is set to the version that you want to run. The system includes the following version options: 
+   + **Default version at runtime** – Choose this option if the Automation runbook is updated periodically and a new default version is assigned.
+   + **Latest version at runtime** – Choose this option if the Automation runbook is updated periodically, and you want to run the version that was most recently updated.
+   + **1 (Default)** – Choose this option to run the first version of the document, which is the default.
 
-5. Choose **Next**. 6. On the **Execute automation document** page, choose
-**Simple execution**. 7. In the **Input parameters** section, specify the required
-input parameters.
+1. Choose **Next**.
 
-For example, if you chose the
-`**AWS-StartEC2InstanceWithApproval**`
-runbook, then you must specify or choose instance IDs for the
-**InstanceId** parameter. 8. In the **Approvers** section, specify the user names or
-user ARNs of approvers for the automation action. 9. In the **SNSTopicARN** section, specify the SNS topic ARN
-to use for sending approval notification. The SNS topic name must start with
-**Automation**. 10. Optionally, you can choose an IAM service role from the
-**AutomationAssumeRole** list. If you're targeting more
-than 100 accounts and Regions, you must specify the
-`AWS-SystemsManager-AutomationAdministrationRole`. 11. Choose **Execute automation**.
+1. On the **Execute automation document** page, choose **Simple execution**.
 
-The specified approver receives an Amazon SNS notification with details to approve or
-reject the automation. This approval action is valid for 7 days from the date of
-issue and can be issued using the Systems Manager console or the AWS Command Line Interface (AWS CLI).
+1. In the **Input parameters** section, specify the required input parameters.
 
-If you chose to approve the automation, the automation continues to run the steps
-included in the specified runbook. The console displays the status of the
-automation. If the automation fails to run, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md "automation-troubleshooting.md").
+   For example, if you chose the `AWS-StartEC2InstanceWithApproval` runbook, then you must specify or choose instance IDs for the **InstanceId** parameter. 
 
-###### To approve or deny an automation
+1. In the **Approvers** section, specify the user names or user ARNs of approvers for the automation action.
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. In the navigation pane, choose **Automation**, and then
-   select the automation that was run in the previous procedure.
-3. Choose **Actions** and then choose
-   **Approve/Deny**.
-4. Choose to **Approve** or **Deny** and
-   optionally provide a comment.
-5. Choose **Submit**.
+1. In the **SNSTopicARN** section, specify the SNS topic ARN to use for sending approval notification. The SNS topic name must start with **Automation**.
+
+1. Optionally, you can choose an IAM service role from the **AutomationAssumeRole** list. If you're targeting more than 100 accounts and Regions, you must specify the `AWS-SystemsManager-AutomationAdministrationRole`.
+
+1. Choose **Execute automation**. 
+
+The specified approver receives an Amazon SNS notification with details to approve or reject the automation. This approval action is valid for 7 days from the date of issue and can be issued using the Systems Manager console or the AWS Command Line Interface (AWS CLI).
+
+If you chose to approve the automation, the automation continues to run the steps included in the specified runbook. The console displays the status of the automation. If the automation fails to run, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md).
+
+**To approve or deny an automation**
+
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
+
+1. In the navigation pane, choose **Automation**, and then select the automation that was run in the previous procedure.
+
+1. Choose **Actions** and then choose **Approve/Deny**.
+
+1. Choose to **Approve** or **Deny** and optionally provide a comment.
+
+1. Choose **Submit**.
 
 ## Running an automation with approvers (command line)
+<a name="approval-cli"></a>
 
-The following procedure describes how to use the AWS CLI (on Linux or Windows) or
-AWS Tools for PowerShell to run an automation with approvers.
+The following procedure describes how to use the AWS CLI (on Linux or Windows) or AWS Tools for PowerShell to run an automation with approvers.
 
-###### To run an automation with approvers
+**To run an automation with approvers**
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already.
 
-For information, see [Installing or updating the
-latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") and [Installing the
-AWS Tools for PowerShell](../../../powershell/latest/userguide/pstools-getting-set-up.md "../../../powershell/latest/userguide/pstools-getting-set-up.md"). 2. Run the following command to run an automation with approvers. Replace
-each `example resource placeholder` with your own
-information. In the document name section, specify a runbook that includes
-the automation action, `aws:approve`.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Installing the AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html).
 
-For `Approvers`, specify the user names or user ARNs of
-approvers for the action. For `SNSTopic`, specify the SNS topic
-ARN to use to send approval notification. The Amazon SNS topic name must start
-with `Automation`.
+1. Run the following command to run an automation with approvers. Replace each {{example resource placeholder}} with your own information. In the document name section, specify a runbook that includes the automation action, `aws:approve`.
 
-###### Note
+   For `Approvers`, specify the user names or user ARNs of approvers for the action. For `SNSTopic`, specify the SNS topic ARN to use to send approval notification. The Amazon SNS topic name must start with `Automation`.
+**Note**  
+The specific names of the parameter values for approvers and the SNS topic depend on the values specified within the runbook you choose. 
 
-The specific names of the parameter values for approvers and the SNS
-topic depend on the values specified within the runbook you choose.
+------
+#### [ Linux & macOS ]
 
-Linux & macOS
+   ```
+   aws ssm start-automation-execution \
+       --document-name "{{AWS-StartEC2InstanceWithApproval}}" \
+       --parameters "InstanceId={{i-02573cafcfEXAMPLE}},Approvers=arn:aws:iam::{{123456789012:role/Administrator}},SNSTopicArn=arn:aws:sns:{{region:123456789012:AutomationApproval}}"
+   ```
 
-```
-aws ssm start-automation-execution \
-    --document-name "`AWS-StartEC2InstanceWithApproval`" \
-    --parameters "InstanceId=`i-02573cafcfEXAMPLE`,Approvers=arn:aws:iam::`123456789012:role/Administrator`,SNSTopicArn=arn:aws:sns:`region:123456789012:AutomationApproval`"
-```
+------
+#### [ Windows ]
 
-Windows
+   ```
+   aws ssm start-automation-execution ^
+       --document-name "{{AWS-StartEC2InstanceWithApproval}}" ^
+       --parameters "InstanceId={{i-02573cafcfEXAMPLE}},Approvers=arn:aws:iam::{{123456789012:role/Administrator}},SNSTopicArn=arn:aws:sns:{{region:123456789012:AutomationApproval}}"
+   ```
 
-```
-aws ssm start-automation-execution ^
-    --document-name "`AWS-StartEC2InstanceWithApproval`" ^
-    --parameters "InstanceId=`i-02573cafcfEXAMPLE`,Approvers=arn:aws:iam::`123456789012:role/Administrator`,SNSTopicArn=arn:aws:sns:`region:123456789012:AutomationApproval`"
-```
+------
+#### [ PowerShell ]
 
-PowerShell
+   ```
+   Start-SSMAutomationExecution `
+       -DocumentName AWS-StartEC2InstanceWithApproval `
+       -Parameters @{
+           "InstanceId"="{{i-02573cafcfEXAMPLE}}"
+           "Approvers"="arn:aws:iam::{{123456789012:role/Administrator}}"
+           "SNSTopicArn"="arn:aws:sns:{{region:123456789012:AutomationApproval}}"
+       }
+   ```
 
-```
-Start-SSMAutomationExecution `
-    -DocumentName AWS-StartEC2InstanceWithApproval `
-    -Parameters @{
-        "InstanceId"="`i-02573cafcfEXAMPLE`"
-        "Approvers"="arn:aws:iam::`123456789012:role/Administrator`"
-        "SNSTopicArn"="arn:aws:sns:`region:123456789012:AutomationApproval`"
-    }
-```
+------
 
-The system returns information like the following.
+   The system returns information like the following.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
-```
-{
-    "AutomationExecutionId": "df325c6d-b1b1-4aa0-8003-6cb7338213c6"
-}
-```
+   ```
+   {
+       "AutomationExecutionId": "df325c6d-b1b1-4aa0-8003-6cb7338213c6"
+   }
+   ```
 
-Windows
+------
+#### [ Windows ]
 
-```
-{
-    "AutomationExecutionId": "df325c6d-b1b1-4aa0-8003-6cb7338213c6"
-}
-```
+   ```
+   {
+       "AutomationExecutionId": "df325c6d-b1b1-4aa0-8003-6cb7338213c6"
+   }
+   ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-```
-df325c6d-b1b1-4aa0-8003-6cb7338213c6
-```
+   ```
+   df325c6d-b1b1-4aa0-8003-6cb7338213c6
+   ```
 
-###### To approve an automation
+------
 
-- Run the following command to approve an automation. Replace each
-  `example resource placeholder` with your own
-  information.
+**To approve an automation**
++ Run the following command to approve an automation. Replace each {{example resource placeholder}} with your own information.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
-```
-aws ssm send-automation-signal \
-    --automation-execution-id "`df325c6d-b1b1-4aa0-8003-6cb7338213c6`" \
-    --signal-type "Approve" \
-    --payload "Comment=`your comments`"
-```
+  ```
+  aws ssm send-automation-signal \
+      --automation-execution-id "{{df325c6d-b1b1-4aa0-8003-6cb7338213c6}}" \
+      --signal-type "Approve" \
+      --payload "Comment={{your comments}}"
+  ```
 
-Windows
+------
+#### [ Windows ]
 
-```
-aws ssm send-automation-signal ^
-    --automation-execution-id "`df325c6d-b1b1-4aa0-8003-6cb7338213c6`" ^
-    --signal-type "Approve" ^
-    --payload "Comment=`your comments`"
-```
+  ```
+  aws ssm send-automation-signal ^
+      --automation-execution-id "{{df325c6d-b1b1-4aa0-8003-6cb7338213c6}}" ^
+      --signal-type "Approve" ^
+      --payload "Comment={{your comments}}"
+  ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-```
-Send-SSMAutomationSignal `
-    -AutomationExecutionId `df325c6d-b1b1-4aa0-8003-6cb7338213c6` `
-    -SignalType Approve `
-    -Payload @{"Comment"="`your comments`"}
-```
+  ```
+  Send-SSMAutomationSignal `
+      -AutomationExecutionId {{df325c6d-b1b1-4aa0-8003-6cb7338213c6}} `
+      -SignalType Approve `
+      -Payload @{"Comment"="{{your comments}}"}
+  ```
 
-There is no output if the command succeeds.
+------
 
-###### To deny an automation
+  There is no output if the command succeeds.
 
-- Run the following command to deny an automation. Replace each
-  `example resource placeholder` with your own
-  information.
+**To deny an automation**
++ Run the following command to deny an automation. Replace each {{example resource placeholder}} with your own information.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
-```
-aws ssm send-automation-signal \
-    --automation-execution-id "`df325c6d-b1b1-4aa0-8003-6cb7338213c6`" \
-    --signal-type "Deny" \
-    --payload "Comment=`your comments`"
-```
+  ```
+  aws ssm send-automation-signal \
+      --automation-execution-id "{{df325c6d-b1b1-4aa0-8003-6cb7338213c6}}" \
+      --signal-type "Deny" \
+      --payload "Comment={{your comments}}"
+  ```
 
-Windows
+------
+#### [ Windows ]
 
-```
-aws ssm send-automation-signal ^
-    --automation-execution-id "`df325c6d-b1b1-4aa0-8003-6cb7338213c6`" ^
-    --signal-type "Deny" ^
-    --payload "Comment=`your comments`"
-```
+  ```
+  aws ssm send-automation-signal ^
+      --automation-execution-id "{{df325c6d-b1b1-4aa0-8003-6cb7338213c6}}" ^
+      --signal-type "Deny" ^
+      --payload "Comment={{your comments}}"
+  ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-```
-Send-SSMAutomationSignal `
-    -AutomationExecutionId `df325c6d-b1b1-4aa0-8003-6cb7338213c6` `
-    -SignalType Deny `
-    -Payload @{"Comment"="`your comments`"}
-```
+  ```
+  Send-SSMAutomationSignal `
+      -AutomationExecutionId {{df325c6d-b1b1-4aa0-8003-6cb7338213c6}} `
+      -SignalType Deny `
+      -Payload @{"Comment"="{{your comments}}"}
+  ```
 
-There is no output if the command succeeds.
+------
+
+  There is no output if the command succeeds.

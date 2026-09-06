@@ -1,67 +1,63 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Turning off Kernel Live Patching using Run Command
+<a name="disable-klp"></a>
 
-To turn off Kernel Live Patching, you can either run `yum` commands on your
-managed nodes or use Run Command and the custom SSM document
-`AWS-ConfigureKernelLivePatching`.
+To turn off Kernel Live Patching, you can either run `yum` commands on your managed nodes or use Run Command and the custom SSM document `AWS-ConfigureKernelLivePatching`.
 
-###### Note
+**Note**  
+If you no longer need to use Kernel Live Patching, you can turn it off at any time. Usually, turning off the feature isn't necessary.
 
-If you no longer need to use Kernel Live Patching, you can turn it off at any
-time. Usually, turning off the feature isn't necessary.
+For information about turning off Kernel Live Patching by running `yum` commands directly on the managed node, see [Enable Kernel Live Patching](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/al2-live-patching.html#al2-live-patching-enable) in the *Amazon EC2 User Guide*.
 
-For information about turning off Kernel Live Patching by running `yum` commands
-directly on the managed node, see [Enable Kernel Live Patching](../../../AWSEC2/latest/UserGuide/al2-live-patching.md#al2-live-patching-enable "../../../AWSEC2/latest/UserGuide/al2-live-patching.md#al2-live-patching-enable") in the _Amazon EC2 User Guide_.
+**Note**  
+When you turn off Kernel Live Patching, the process uninstalls the Kernel Live Patching plugin and then reboots the managed node.
 
-###### Note
+**To turn off Kernel Live Patching using Run Command (console)**
 
-When you turn off Kernel Live Patching, the process uninstalls the Kernel Live Patching plugin and
-then reboots the managed node.
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
 
-###### To turn off Kernel Live Patching using Run Command (console)
+1. In the navigation pane, choose **Run Command**.
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. In the navigation pane, choose **Run Command**.
-3. Choose **Run command**.
-4. In the **Command document** list, choose the SSM
-   document `AWS-ConfigureKernelLivePatching`.
-5. In the **Command parameters** section, specify values for
-   required parameters.
-6. For information about working with the remaining controls on this page,
-   see [Running commands from the console](running-commands-console.md "running-commands-console.md").
-7. Choose **Run**.
+1. Choose **Run command**.
 
-###### To turn off Kernel Live Patching (AWS CLI)
+1. In the **Command document** list, choose the SSM document `AWS-ConfigureKernelLivePatching`.
 
-- Run a command similar to the following.
+1. In the **Command parameters** section, specify values for required parameters.
 
-Linux & macOS
+1. For information about working with the remaining controls on this page, see [Running commands from the console](running-commands-console.md).
 
-```
-aws ssm send-command \
-    --document-name "AWS-ConfigureKernelLivePatching" \
-    --targets "Key=instanceIds,Values=`instance-id`" \
-    --parameters "EnableOrDisable=Disable"
-```
+1. Choose **Run**.
 
-Windows Server
+**To turn off Kernel Live Patching (AWS CLI)**
++ Run a command similar to the following.
 
-```
-aws ssm send-command ^
-    --document-name "AWS-ConfigureKernelLivePatching" ^
-    --targets "Key=instanceIds,Values=`instance-id`" ^
-    --parameters "EnableOrDisable=Disable"
-```
+------
+#### [ Linux & macOS ]
 
-Replace `instance-id` with the ID of the Amazon Linux 2
-managed node on which you want to turn off the feature, such as
-i-02573cafcfEXAMPLE. To turn off the feature on multiple managed nodes, you can
-use either of the following formats.
+  ```
+  aws ssm send-command \
+      --document-name "AWS-ConfigureKernelLivePatching" \
+      --targets "Key=instanceIds,Values={{instance-id}}" \
+      --parameters "EnableOrDisable=Disable"
+  ```
 
-    + `--targets
-     "Key=instanceids,Values=`instance-id1`,`instance-id2`"`
-    + `--targets
-     "Key=tag:`tag-key`,Values=`tag-value`"`
+------
+#### [ Windows Server ]
 
-For information about other options you can use in the command, see
-[send-command](../../../cli/latest/reference/ssm/send-command.md "../../../cli/latest/reference/ssm/send-command.md") in the
-_AWS CLI Command Reference_.
+  ```
+  aws ssm send-command ^
+      --document-name "AWS-ConfigureKernelLivePatching" ^
+      --targets "Key=instanceIds,Values={{instance-id}}" ^
+      --parameters "EnableOrDisable=Disable"
+  ```
+
+------
+
+  Replace {{instance-id}} with the ID of the Amazon Linux 2 managed node on which you want to turn off the feature, such as i-02573cafcfEXAMPLE. To turn off the feature on multiple managed nodes, you can use either of the following formats.
+  + `--targets "Key=instanceids,Values={{instance-id1}},{{instance-id2}}"`
+  + `--targets "Key=tag:{{tag-key}},Values={{tag-value}}"`
+
+  For information about other options you can use in the command, see [send-command](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the *AWS CLI Command Reference*.

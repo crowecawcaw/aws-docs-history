@@ -1,425 +1,415 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Viewing association histories
+<a name="state-manager-associations-history"></a>
 
-You can view all executions for a specific association ID by using the [DescribeAssociationExecutions](../APIReference/API_DescribeAssociationExecutions.md "../APIReference/API_DescribeAssociationExecutions.md") API operation. Use this operation to see
-the status, detailed status, results, last execution time, and more information for
-a State Manager association. State Manager is a tool in AWS Systems Manager. This API operation also
-includes filters to help you locate associations according to the criteria you
-specify. For example, you can specify an exact date and time, and use a GREATER\_THAN
-filter to view executions processed after the specified date and time.
+You can view all executions for a specific association ID by using the [DescribeAssociationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutions.html) API operation. Use this operation to see the status, detailed status, results, last execution time, and more information for a State Manager association. State Manager is a tool in AWS Systems Manager. This API operation also includes filters to help you locate associations according to the criteria you specify. For example, you can specify an exact date and time, and use a GREATER\_THAN filter to view executions processed after the specified date and time.
 
-If, for example, an association execution failed, you can drill down into the
-details of a specific execution by using the [DescribeAssociationExecutionTargets](../APIReference/API_DescribeAssociationExecutionTargets.md "../APIReference/API_DescribeAssociationExecutionTargets.md") API operation. This operation shows
-you the resources, such as node IDs, where the association ran and the various
-association statuses. You can then see which resource or node failed to run an
-association. With the resource ID you can then view the command execution details to
-see which step in a command failed.
+If, for example, an association execution failed, you can drill down into the details of a specific execution by using the [DescribeAssociationExecutionTargets](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutionTargets.html) API operation. This operation shows you the resources, such as node IDs, where the association ran and the various association statuses. You can then see which resource or node failed to run an association. With the resource ID you can then view the command execution details to see which step in a command failed.
 
-The examples in this section also include information about how to use the [StartAssociationsOnce](../APIReference/API_StartAssociationsOnce.md "../APIReference/API_StartAssociationsOnce.md")
-API operation to run an association once at the time of creation. You can use this
-API operation when you investigate failed association executions. If you see that an
-association failed, you can make a change on the resource, and then immediately run
-the association to see if the change on the resource allows the association to run
-successfully.
+The examples in this section also include information about how to use the [StartAssociationsOnce](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAssociationsOnce.html) API operation to run an association once at the time of creation. You can use this API operation when you investigate failed association executions. If you see that an association failed, you can make a change on the resource, and then immediately run the association to see if the change on the resource allows the association to run successfully.
 
-###### Note
-
-API operations that are initiated by the SSM document during an association
-run are not logged in AWS CloudTrail.
+**Note**  
+API operations that are initiated by the SSM document during an association run are not logged in AWS CloudTrail.
 
 ## Viewing association histories (console)
+<a name="state-manager-associations-history-console"></a>
 
-Use the following procedure to view the execution history for a specific
-association ID and then view execution details for one or more resources.
+Use the following procedure to view the execution history for a specific association ID and then view execution details for one or more resources. 
 
-###### To view execution history for a specific association ID
+**To view execution history for a specific association ID**
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. Choose **State Manager**.
-3. In the **Association id** field, choose an
-   association for which you want to view the history.
-4. Choose the **View details** button.
-5. Choose the **Execution history** tab.
-6. Choose an association for which you want to view resource-level
-   execution details. For example, choose an association that shows a
-   status of **Failed**. You can then view the execution
-   details for the nodes that failed to run the association.
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
 
-Use the search box filters to locate the execution for which you want
-to view details.
+1. Choose **State Manager**.
 
-![Filtering the list of State Manager association executions.](images/sysman-state-executions-filter.png) 7. Choose an execution ID. The **Association execution
-targets** page opens. This page shows all the resources
-that ran the association. 8. Choose a resource ID to view specific information about that
-resource.
+1. In the **Association id** field, choose an association for which you want to view the history.
 
-Use the search box filters to locate the resource for which you want
-to view details.
+1. Choose the **View details** button.
 
-![Filtering the list of State Manager association executions targets.](images/sysman-state-executions-targets-filter.png) 9. If you're investigating an association that failed to run, you can use
-the **Apply association now** button to run an
-association once at the time of creation. After you made changes on the
-resource where the association failed to run, choose the
-**Association ID** link in the navigation
-breadcrumb. 10. Choose the **Apply association now** button. After
-the execution is complete, verify that the association execution
-succeeded.
+1. Choose the **Execution history** tab.
+
+1. Choose an association for which you want to view resource-level execution details. For example, choose an association that shows a status of **Failed**. You can then view the execution details for the nodes that failed to run the association.
+
+   Use the search box filters to locate the execution for which you want to view details.  
+![Filtering the list of State Manager association executions.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-state-executions-filter.png)
+
+1. Choose an execution ID. The **Association execution targets** page opens. This page shows all the resources that ran the association.
+
+1. Choose a resource ID to view specific information about that resource.
+
+   Use the search box filters to locate the resource for which you want to view details.  
+![Filtering the list of State Manager association executions targets.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-state-executions-targets-filter.png)
+
+1. If you're investigating an association that failed to run, you can use the **Apply association now** button to run an association once at the time of creation. After you made changes on the resource where the association failed to run, choose the **Association ID** link in the navigation breadcrumb.
+
+1. Choose the **Apply association now** button. After the execution is complete, verify that the association execution succeeded.
 
 ## Viewing association histories (command line)
+<a name="state-manager-associations-history-commandline"></a>
 
-The following procedure describes how to use the AWS Command Line Interface (AWS CLI) (on Linux
-or Windows Server) or AWS Tools for PowerShell to view the execution history for a specific
-association ID. Following this, the procedure describes how to view execution
-details for one or more resources.
+The following procedure describes how to use the AWS Command Line Interface (AWS CLI) (on Linux or Windows Server) or AWS Tools for PowerShell to view the execution history for a specific association ID. Following this, the procedure describes how to view execution details for one or more resources.
 
-###### To view execution history for a specific association ID
+**To view execution history for a specific association ID**
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already.
 
-For information, see [Installing or updating the
-latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") and [Installing the
-AWS Tools for PowerShell](../../../powershell/latest/userguide/pstools-getting-set-up.md "../../../powershell/latest/userguide/pstools-getting-set-up.md"). 2. Run the following command to view a list of executions for a specific
-association ID.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Installing the AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html).
 
-Linux & macOS
+1. Run the following command to view a list of executions for a specific association ID.
 
-```
-aws ssm describe-association-executions \
-  --association-id `ID` \
-  --filters Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN
-```
+------
+#### [ Linux & macOS ]
 
-###### Note
+   ```
+   aws ssm describe-association-executions \
+     --association-id {{ID}} \
+     --filters Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN
+   ```
 
-This command includes a filter to limit the results to
-only those executions that occurred after a specific
-date and time. If you want to view all executions for a
-specific association ID, remove the
-`--filters` parameter and `Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN`
-value.
+**Note**  
+This command includes a filter to limit the results to only those executions that occurred after a specific date and time. If you want to view all executions for a specific association ID, remove the `--filters` parameter and ` Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN` value.
 
-Windows
+------
+#### [ Windows ]
 
-```
-aws ssm describe-association-executions ^
-  --association-id `ID` ^
-  --filters Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN
-```
+   ```
+   aws ssm describe-association-executions ^
+     --association-id {{ID}} ^
+     --filters Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN
+   ```
 
-###### Note
+**Note**  
+This command includes a filter to limit the results to only those executions that occurred after a specific date and time. If you want to view all executions for a specific association ID, remove the `--filters` parameter and ` Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN` value.
 
-This command includes a filter to limit the results to
-only those executions that occurred after a specific
-date and time. If you want to view all executions for a
-specific association ID, remove the
-`--filters` parameter and `Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN`
-value.
+------
+#### [ PowerShell ]
 
-PowerShell
+   ```
+   Get-SSMAssociationExecution `
+     -AssociationId {{ID}} `
+     -Filter @{"Key"="CreatedTime";"Value"="2019-06-01T19:15:38.372Z";"Type"="GREATER_THAN"}
+   ```
 
-```
-Get-SSMAssociationExecution `
-  -AssociationId `ID` `
-  -Filter @{"Key"="CreatedTime";"Value"="2019-06-01T19:15:38.372Z";"Type"="GREATER_THAN"}
-```
+**Note**  
+This command includes a filter to limit the results to only those executions that occurred after a specific date and time. If you want to view all executions for a specific association ID, remove the `-Filter` parameter and ` @{"Key"="CreatedTime";"Value"="2019-06-01T19:15:38.372Z";"Type"="GREATER_THAN"}` value.
 
-###### Note
+------
 
-This command includes a filter to limit the results to
-only those executions that occurred after a specific
-date and time. If you want to view all executions for a
-specific association ID, remove the `-Filter`
-parameter and `@{"Key"="CreatedTime";"Value"="2019-06-01T19:15:38.372Z";"Type"="GREATER_THAN"}`
-value.
+   The system returns information like the following.
 
-The system returns information like the following.
+------
+#### [ Linux & macOS ]
 
-Linux & macOS
+   ```
+   {
+      "AssociationExecutions":[
+         {
+            "Status":"Success",
+            "DetailedStatus":"Success",
+            "AssociationId":"c336d2ab-09de-44ba-8f6a-6136cEXAMPLE",
+            "ExecutionId":"76a5a04f-caf6-490c-b448-92c02EXAMPLE",
+            "CreatedTime":1523986028.219,
+            "AssociationVersion":"1"
+         },
+         {
+            "Status":"Success",
+            "DetailedStatus":"Success",
+            "AssociationId":"c336d2ab-09de-44ba-8f6a-6136cEXAMPLE",
+            "ExecutionId":"791b72e0-f0da-4021-8b35-f95dfEXAMPLE",
+            "CreatedTime":1523984226.074,
+            "AssociationVersion":"1"
+         },
+         {
+            "Status":"Success",
+            "DetailedStatus":"Success",
+            "AssociationId":"c336d2ab-09de-44ba-8f6a-6136cEXAMPLE",
+            "ExecutionId":"ecec60fa-6bb0-4d26-98c7-140308EXAMPLE",
+            "CreatedTime":1523982404.013,
+            "AssociationVersion":"1"
+         }
+      ]
+   }
+   ```
 
-```
-{
-   "AssociationExecutions":[
-      {
-         "Status":"Success",
-         "DetailedStatus":"Success",
-         "AssociationId":"c336d2ab-09de-44ba-8f6a-6136cEXAMPLE",
-         "ExecutionId":"76a5a04f-caf6-490c-b448-92c02EXAMPLE",
-         "CreatedTime":1523986028.219,
-         "AssociationVersion":"1"
-      },
-      {
-         "Status":"Success",
-         "DetailedStatus":"Success",
-         "AssociationId":"c336d2ab-09de-44ba-8f6a-6136cEXAMPLE",
-         "ExecutionId":"791b72e0-f0da-4021-8b35-f95dfEXAMPLE",
-         "CreatedTime":1523984226.074,
-         "AssociationVersion":"1"
-      },
-      {
-         "Status":"Success",
-         "DetailedStatus":"Success",
-         "AssociationId":"c336d2ab-09de-44ba-8f6a-6136cEXAMPLE",
-         "ExecutionId":"ecec60fa-6bb0-4d26-98c7-140308EXAMPLE",
-         "CreatedTime":1523982404.013,
-         "AssociationVersion":"1"
-      }
-   ]
-}
-```
+------
+#### [ Windows ]
 
-Windows
+   ```
+   {
+      "AssociationExecutions":[
+         {
+            "Status":"Success",
+            "DetailedStatus":"Success",
+            "AssociationId":"c336d2ab-09de-44ba-8f6a-6136cEXAMPLE",
+            "ExecutionId":"76a5a04f-caf6-490c-b448-92c02EXAMPLE",
+            "CreatedTime":1523986028.219,
+            "AssociationVersion":"1"
+         },
+         {
+            "Status":"Success",
+            "DetailedStatus":"Success",
+            "AssociationId":"c336d2ab-09de-44ba-8f6a-6136cEXAMPLE",
+            "ExecutionId":"791b72e0-f0da-4021-8b35-f95dfEXAMPLE",
+            "CreatedTime":1523984226.074,
+            "AssociationVersion":"1"
+         },
+         {
+            "Status":"Success",
+            "DetailedStatus":"Success",
+            "AssociationId":"c336d2ab-09de-44ba-8f6a-6136cEXAMPLE",
+            "ExecutionId":"ecec60fa-6bb0-4d26-98c7-140308EXAMPLE",
+            "CreatedTime":1523982404.013,
+            "AssociationVersion":"1"
+         }
+      ]
+   }
+   ```
 
-```
-{
-   "AssociationExecutions":[
-      {
-         "Status":"Success",
-         "DetailedStatus":"Success",
-         "AssociationId":"c336d2ab-09de-44ba-8f6a-6136cEXAMPLE",
-         "ExecutionId":"76a5a04f-caf6-490c-b448-92c02EXAMPLE",
-         "CreatedTime":1523986028.219,
-         "AssociationVersion":"1"
-      },
-      {
-         "Status":"Success",
-         "DetailedStatus":"Success",
-         "AssociationId":"c336d2ab-09de-44ba-8f6a-6136cEXAMPLE",
-         "ExecutionId":"791b72e0-f0da-4021-8b35-f95dfEXAMPLE",
-         "CreatedTime":1523984226.074,
-         "AssociationVersion":"1"
-      },
-      {
-         "Status":"Success",
-         "DetailedStatus":"Success",
-         "AssociationId":"c336d2ab-09de-44ba-8f6a-6136cEXAMPLE",
-         "ExecutionId":"ecec60fa-6bb0-4d26-98c7-140308EXAMPLE",
-         "CreatedTime":1523982404.013,
-         "AssociationVersion":"1"
-      }
-   ]
-}
-```
+------
+#### [ PowerShell ]
 
-PowerShell
+   ```
+   AssociationId         : c336d2ab-09de-44ba-8f6a-6136cEXAMPLE
+   AssociationVersion    : 1
+   CreatedTime           : 8/18/2019 2:00:50 AM
+   DetailedStatus        : Success
+   ExecutionId           : 76a5a04f-caf6-490c-b448-92c02EXAMPLE
+   LastExecutionDate     : 1/1/0001 12:00:00 AM
+   ResourceCountByStatus : {Success=1}
+   Status                : Success
+   
+   AssociationId         : c336d2ab-09de-44ba-8f6a-6136cEXAMPLE
+   AssociationVersion    : 1
+   CreatedTime           : 8/11/2019 2:00:54 AM
+   DetailedStatus        : Success
+   ExecutionId           : 791b72e0-f0da-4021-8b35-f95dfEXAMPLE
+   LastExecutionDate     : 1/1/0001 12:00:00 AM
+   ResourceCountByStatus : {Success=1}
+   Status                : Success
+   
+   AssociationId         : c336d2ab-09de-44ba-8f6a-6136cEXAMPLE
+   AssociationVersion    : 1
+   CreatedTime           : 8/4/2019 2:01:00 AM
+   DetailedStatus        : Success
+   ExecutionId           : ecec60fa-6bb0-4d26-98c7-140308EXAMPLE
+   LastExecutionDate     : 1/1/0001 12:00:00 AM
+   ResourceCountByStatus : {Success=1}
+   Status                : Success
+   ```
 
-```
-AssociationId         : c336d2ab-09de-44ba-8f6a-6136cEXAMPLE
-AssociationVersion    : 1
-CreatedTime           : 8/18/2019 2:00:50 AM
-DetailedStatus        : Success
-ExecutionId           : 76a5a04f-caf6-490c-b448-92c02EXAMPLE
-LastExecutionDate     : 1/1/0001 12:00:00 AM
-ResourceCountByStatus : {Success=1}
-Status                : Success
+------
 
-AssociationId         : c336d2ab-09de-44ba-8f6a-6136cEXAMPLE
-AssociationVersion    : 1
-CreatedTime           : 8/11/2019 2:00:54 AM
-DetailedStatus        : Success
-ExecutionId           : 791b72e0-f0da-4021-8b35-f95dfEXAMPLE
-LastExecutionDate     : 1/1/0001 12:00:00 AM
-ResourceCountByStatus : {Success=1}
-Status                : Success
+   You can limit the results by using one or more filters. The following example returns all associations that were run before a specific date and time. 
 
-AssociationId         : c336d2ab-09de-44ba-8f6a-6136cEXAMPLE
-AssociationVersion    : 1
-CreatedTime           : 8/4/2019 2:01:00 AM
-DetailedStatus        : Success
-ExecutionId           : ecec60fa-6bb0-4d26-98c7-140308EXAMPLE
-LastExecutionDate     : 1/1/0001 12:00:00 AM
-ResourceCountByStatus : {Success=1}
-Status                : Success
-```
+------
+#### [ Linux & macOS ]
 
-You can limit the results by using one or more filters. The following
-example returns all associations that were run before a specific date
-and time.
+   ```
+   aws ssm describe-association-executions \
+     --association-id {{ID}} \
+     --filters Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=LESS_THAN
+   ```
 
-Linux & macOS
+------
+#### [ Windows ]
 
-```
-aws ssm describe-association-executions \
-  --association-id `ID` \
-  --filters Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=LESS_THAN
-```
+   ```
+   aws ssm describe-association-executions ^
+     --association-id {{ID}} ^
+     --filters Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=LESS_THAN
+   ```
 
-Windows
+------
+#### [ PowerShell ]
 
-```
-aws ssm describe-association-executions ^
-  --association-id `ID` ^
-  --filters Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=LESS_THAN
-```
+   ```
+   Get-SSMAssociationExecution `
+     -AssociationId {{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}} `
+     -Filter @{"Key"="CreatedTime";"Value"="2019-06-01T19:15:38.372Z";"Type"="LESS_THAN"}
+   ```
 
-PowerShell
+------
 
-```
-Get-SSMAssociationExecution `
-  -AssociationId `14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE` `
-  -Filter @{"Key"="CreatedTime";"Value"="2019-06-01T19:15:38.372Z";"Type"="LESS_THAN"}
-```
+   The following returns all associations that were *successfully* run after a specific date and time.
 
-The following returns all associations that were
-_successfully_ run after a specific date and
-time.
+------
+#### [ Linux & macOS ]
 
-Linux & macOS
+   ```
+   aws ssm describe-association-executions \
+     --association-id {{ID}} \
+     --filters Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN Key=Status,Value=Success,Type=EQUAL
+   ```
 
-```
-aws ssm describe-association-executions \
-  --association-id `ID` \
-  --filters Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN Key=Status,Value=Success,Type=EQUAL
-```
+------
+#### [ Windows ]
 
-Windows
+   ```
+   aws ssm describe-association-executions ^
+     --association-id {{ID}} ^
+     --filters Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN Key=Status,Value=Success,Type=EQUAL
+   ```
 
-```
-aws ssm describe-association-executions ^
-  --association-id `ID` ^
-  --filters Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN Key=Status,Value=Success,Type=EQUAL
-```
+------
+#### [ PowerShell ]
 
-PowerShell
+   ```
+   Get-SSMAssociationExecution `
+     -AssociationId {{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}} `
+     -Filter @{
+         "Key"="CreatedTime";
+         "Value"="2019-06-01T19:15:38.372Z";
+         "Type"="GREATER_THAN"
+       },
+       @{
+         "Key"="Status";
+         "Value"="Success";
+         "Type"="EQUAL"
+       }
+   ```
 
-```
-Get-SSMAssociationExecution `
-  -AssociationId `14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE` `
-  -Filter @{
-      "Key"="CreatedTime";
-      "Value"="2019-06-01T19:15:38.372Z";
-      "Type"="GREATER_THAN"
-    },
-    @{
-      "Key"="Status";
-      "Value"="Success";
-      "Type"="EQUAL"
-    }
-```
+------
 
-3. Run the following command to view all targets where the specific
-   execution ran.
+1. Run the following command to view all targets where the specific execution ran.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
-```
-aws ssm describe-association-execution-targets \
-  --association-id `ID` \
-  --execution-id `ID`
-```
+   ```
+   aws ssm describe-association-execution-targets \
+     --association-id {{ID}} \
+     --execution-id {{ID}}
+   ```
 
-Windows
+------
+#### [ Windows ]
 
-```
-aws ssm describe-association-execution-targets ^
-  --association-id `ID` ^
-  --execution-id `ID`
-```
+   ```
+   aws ssm describe-association-execution-targets ^
+     --association-id {{ID}} ^
+     --execution-id {{ID}}
+   ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-```
-Get-SSMAssociationExecutionTarget `
-  -AssociationId `14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE` `
-  -ExecutionId `76a5a04f-caf6-490c-b448-92c02EXAMPLE`
-```
+   ```
+   Get-SSMAssociationExecutionTarget `
+     -AssociationId {{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}} `
+     -ExecutionId {{76a5a04f-caf6-490c-b448-92c02EXAMPLE}}
+   ```
 
-You can limit the results by using one or more filters. The following
-example returns information about all targets where the specific
-association failed to run.
+------
 
-Linux & macOS
+   You can limit the results by using one or more filters. The following example returns information about all targets where the specific association failed to run.
 
-```
-aws ssm describe-association-execution-targets \
-  --association-id `ID` \
-  --execution-id `ID` \
-  --filters Key=Status,Value="Failed"
-```
+------
+#### [ Linux & macOS ]
 
-Windows
+   ```
+   aws ssm describe-association-execution-targets \
+     --association-id {{ID}} \
+     --execution-id {{ID}} \
+     --filters Key=Status,Value="Failed"
+   ```
 
-```
-aws ssm describe-association-execution-targets ^
-  --association-id `ID` ^
-  --execution-id `ID` ^
-  --filters Key=Status,Value="Failed"
-```
+------
+#### [ Windows ]
 
-PowerShell
+   ```
+   aws ssm describe-association-execution-targets ^
+     --association-id {{ID}} ^
+     --execution-id {{ID}} ^
+     --filters Key=Status,Value="Failed"
+   ```
 
-```
-Get-SSMAssociationExecutionTarget `
-  -AssociationId `14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE` `
-  -ExecutionId `76a5a04f-caf6-490c-b448-92c02EXAMPLE` `
-  -Filter @{
-      "Key"="Status";
-      "Value"="Failed"
-    }
-```
+------
+#### [ PowerShell ]
 
-The following example returns information about a specific managed
-node where an association failed to run.
+   ```
+   Get-SSMAssociationExecutionTarget `
+     -AssociationId {{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}} `
+     -ExecutionId {{76a5a04f-caf6-490c-b448-92c02EXAMPLE}} `
+     -Filter @{
+         "Key"="Status";
+         "Value"="Failed"
+       }
+   ```
 
-Linux & macOS
+------
 
-```
-aws ssm describe-association-execution-targets \
-  --association-id `ID` \
-  --execution-id `ID` \
-  --filters Key=Status,Value=Failed Key=ResourceId,Value="`i-02573cafcfEXAMPLE`" Key=ResourceType,Value=ManagedInstance
-```
+   The following example returns information about a specific managed node where an association failed to run.
 
-Windows
+------
+#### [ Linux & macOS ]
 
-```
-aws ssm describe-association-execution-targets ^
-  --association-id `ID` ^
-  --execution-id `ID` ^
-  --filters Key=Status,Value=Failed Key=ResourceId,Value="`i-02573cafcfEXAMPLE`" Key=ResourceType,Value=ManagedInstance
-```
+   ```
+   aws ssm describe-association-execution-targets \
+     --association-id {{ID}} \
+     --execution-id {{ID}} \
+     --filters Key=Status,Value=Failed Key=ResourceId,Value="{{i-02573cafcfEXAMPLE}}" Key=ResourceType,Value=ManagedInstance
+   ```
 
-PowerShell
+------
+#### [ Windows ]
 
-```
-Get-SSMAssociationExecutionTarget `
-  -AssociationId `14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE` `
-  -ExecutionId `76a5a04f-caf6-490c-b448-92c02EXAMPLE` `
-  -Filter @{
-      "Key"="Status";
-      "Value"="Success"
-    },
-    @{
-      "Key"="ResourceId";
-      "Value"="`i-02573cafcfEXAMPLE`"
-    },
-    @{
-      "Key"="ResourceType";
-      "Value"="ManagedInstance"
-    }
-```
+   ```
+   aws ssm describe-association-execution-targets ^
+     --association-id {{ID}} ^
+     --execution-id {{ID}} ^
+     --filters Key=Status,Value=Failed Key=ResourceId,Value="{{i-02573cafcfEXAMPLE}}" Key=ResourceType,Value=ManagedInstance
+   ```
 
-4. If you're investigating an association that failed to run, you can use
-   the [StartAssociationsOnce](../APIReference/API_StartAssociationsOnce.md "../APIReference/API_StartAssociationsOnce.md") API operation to run an association
-   immediately and only one time. After you change the resource where the
-   association failed to run, run the following command to run the
-   association immediately and only one time.
+------
+#### [ PowerShell ]
 
-Linux & macOS
+   ```
+   Get-SSMAssociationExecutionTarget `
+     -AssociationId {{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}} `
+     -ExecutionId {{76a5a04f-caf6-490c-b448-92c02EXAMPLE}} `
+     -Filter @{
+         "Key"="Status";
+         "Value"="Success"
+       },
+       @{
+         "Key"="ResourceId";
+         "Value"="{{i-02573cafcfEXAMPLE}}"
+       },
+       @{
+         "Key"="ResourceType";
+         "Value"="ManagedInstance"
+       }
+   ```
 
-```
-aws ssm start-associations-once \
-  --association-id `ID`
-```
+------
 
-Windows
+1. If you're investigating an association that failed to run, you can use the [StartAssociationsOnce](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAssociationsOnce.html) API operation to run an association immediately and only one time. After you change the resource where the association failed to run, run the following command to run the association immediately and only one time.
 
-```
-aws ssm start-associations-once ^
-  --association-id `ID`
-```
+------
+#### [ Linux & macOS ]
 
-PowerShell
+   ```
+   aws ssm start-associations-once \
+     --association-id {{ID}}
+   ```
 
-```
-Start-SSMAssociationsOnce `
-  -AssociationId `ID`
-```
+------
+#### [ Windows ]
+
+   ```
+   aws ssm start-associations-once ^
+     --association-id {{ID}}
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Start-SSMAssociationsOnce `
+     -AssociationId {{ID}}
+   ```
+
+------

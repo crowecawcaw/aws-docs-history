@@ -1,22 +1,24 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `DescribeMaintenanceWindowExecutions` with a CLI
+<a name="example_ssm_DescribeMaintenanceWindowExecutions_section"></a>
 
 The following code examples show how to use `DescribeMaintenanceWindowExecutions`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To list all executions for a maintenance window**
-
-The following `describe-maintenance-window-executions` example lists all of the executions for the specified maintenance window.
-
-```
-`aws ssm describe-maintenance-window-executions \
- --window-id `"mw-ab12cd34eEXAMPLE"``
+**AWS CLI**  
+**Example 1: To list all executions for a maintenance window**  
+The following `describe-maintenance-window-executions` example lists all of the executions for the specified maintenance window.  
 
 ```
-
-Output:
+aws ssm describe-maintenance-window-executions \
+    --window-id {{"mw-ab12cd34eEXAMPLE"}}
+```
+Output:  
 
 ```
 {
@@ -46,19 +48,15 @@ Output:
     ]
 }
 ```
-
-**Example 2: To list all executions for a maintenance window before a specified date**
-
-The following `describe-maintenance-window-executions` example lists all of the executions for the specified maintenance window before the specified date.
+**Example 2: To list all executions for a maintenance window before a specified date**  
+The following `describe-maintenance-window-executions` example lists all of the executions for the specified maintenance window before the specified date.  
 
 ```
-`aws ssm describe-maintenance-window-executions \
- --window-id `"mw-ab12cd34eEXAMPLE"` \
- --filters `"Key=ExecutedBefore,Values=2021-08-03T00:00:00Z"``
-
+aws ssm describe-maintenance-window-executions \
+    --window-id {{"mw-ab12cd34eEXAMPLE"}} \
+    --filters {{"Key=ExecutedBefore,Values=2021-08-03T00:00:00Z"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -74,19 +72,15 @@ Output:
     ]
 }
 ```
-
-**Example 3: To list all executions for a maintenance window after a specified date**
-
-The following `describe-maintenance-window-executions` example lists all of the executions for the specified maintenance window after the specified date.
+**Example 3: To list all executions for a maintenance window after a specified date**  
+The following `describe-maintenance-window-executions` example lists all of the executions for the specified maintenance window after the specified date.  
 
 ```
-`aws ssm describe-maintenance-window-executions \
- --window-id `"mw-ab12cd34eEXAMPLE"` \
- --filters `"Key=ExecutedAfter,Values=2021-08-04T00:00:00Z"``
-
+aws ssm describe-maintenance-window-executions \
+    --window-id {{"mw-ab12cd34eEXAMPLE"}} \
+    --filters {{"Key=ExecutedAfter,Values=2021-08-04T00:00:00Z"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -100,25 +94,19 @@ Output:
     ]
 }
 ```
+For more information, see [View information about tasks and task executions (AWS CLI)](https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-task-info.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [DescribeMaintenanceWindowExecutions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-maintenance-window-executions.html) in *AWS CLI Command Reference*. 
 
-For more information, see [View information about tasks and task executions (AWS CLI)](mw-cli-tutorial-task-info.md "mw-cli-tutorial-task-info.md") in the _AWS Systems Manager User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [DescribeMaintenanceWindowExecutions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-maintenance-window-executions.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/describe-maintenance-window-executions.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example lists all of the executions for a maintenance window.**
+**Tools for PowerShell V4**  
+**Example 1: This example lists all of the executions for a maintenance window.**  
 
 ```
 Get-SSMMaintenanceWindowExecutionList -WindowId "mw-03eb9db42890fb82d"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 EndTime           : 2/20/2017 6:30:17 PM
@@ -128,37 +116,27 @@ StatusDetails     : One or more tasks in the orchestration failed.
 WindowExecutionId : 6f3215cf-4101-4fa0-9b7b-9523269599c7
 WindowId          : mw-03eb9db42890fb82d
 ```
-
-**Example 2: This example lists all of the executions for a maintenance window before a specified date.**
+**Example 2: This example lists all of the executions for a maintenance window before a specified date.**  
 
 ```
 $option1 = @{Key="ExecutedBefore";Values=@("2016-11-04T05:00:00Z")}
 Get-SSMMaintenanceWindowExecutionList -WindowId "mw-03eb9db42890fb82d" -Filter $option1
-
 ```
-
-**Example 3: This example lists all of the executions for a maintenance window after a specified date.**
+**Example 3: This example lists all of the executions for a maintenance window after a specified date.**  
 
 ```
 $option1 = @{Key="ExecutedAfter";Values=@("2016-11-04T05:00:00Z")}
 Get-SSMMaintenanceWindowExecutionList -WindowId "mw-03eb9db42890fb82d" -Filter $option1
-
 ```
++  For API details, see [DescribeMaintenanceWindowExecutions](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeMaintenanceWindowExecutions](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example lists all of the executions for a maintenance window.**
+**Tools for PowerShell V5**  
+**Example 1: This example lists all of the executions for a maintenance window.**  
 
 ```
 Get-SSMMaintenanceWindowExecutionList -WindowId "mw-03eb9db42890fb82d"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 EndTime           : 2/20/2017 6:30:17 PM
@@ -168,27 +146,20 @@ StatusDetails     : One or more tasks in the orchestration failed.
 WindowExecutionId : 6f3215cf-4101-4fa0-9b7b-9523269599c7
 WindowId          : mw-03eb9db42890fb82d
 ```
-
-**Example 2: This example lists all of the executions for a maintenance window before a specified date.**
+**Example 2: This example lists all of the executions for a maintenance window before a specified date.**  
 
 ```
 $option1 = @{Key="ExecutedBefore";Values=@("2016-11-04T05:00:00Z")}
 Get-SSMMaintenanceWindowExecutionList -WindowId "mw-03eb9db42890fb82d" -Filter $option1
-
 ```
-
-**Example 3: This example lists all of the executions for a maintenance window after a specified date.**
+**Example 3: This example lists all of the executions for a maintenance window after a specified date.**  
 
 ```
 $option1 = @{Key="ExecutedAfter";Values=@("2016-11-04T05:00:00Z")}
 Get-SSMMaintenanceWindowExecutionList -WindowId "mw-03eb9db42890fb82d" -Filter $option1
-
 ```
++  For API details, see [DescribeMaintenanceWindowExecutions](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeMaintenanceWindowExecutions](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

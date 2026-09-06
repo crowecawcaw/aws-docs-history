@@ -1,163 +1,156 @@
-# Install ASCP for Amazon EKS
 
-This section explains how to install the AWS Secrets and Configuration Provider for Amazon EKS. With ASCP,
-you can mount parameters from Parameter Store and secrets from AWS Secrets Manager as files in
-Amazon EKS Pods.
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
+# Install ASCP for Amazon EKS
+<a name="ascp-eks-installation"></a>
+
+This section explains how to install the AWS Secrets and Configuration Provider for Amazon EKS. With ASCP, you can mount parameters from Parameter Store and secrets from AWS Secrets Manager as files in Amazon EKS Pods.
 
 ## Prerequisites
-
-- An Amazon EKS cluster
-
-  - Version 1.24 or later for Pod Identity
-  - Version 1.17 or later for IRSA
-
-- The AWS CLI installed and configured
-- kubectl installed and configured for your Amazon EKS cluster
-- Helm (version 3.0 or later)
+<a name="prerequisites"></a>
++ An Amazon EKS cluster
+  + Version 1.24 or later for Pod Identity
+  + Version 1.17 or later for IRSA
++ The AWS CLI installed and configured
++ kubectl installed and configured for your Amazon EKS cluster
++ Helm (version 3.0 or later)
 
 ## Install and configure the ASCP
+<a name="integrating_csi_driver_install"></a>
 
-The ASCP is available on GitHub in the [secrets-store-csi-provider-aws](https://github.com/aws/secrets-store-csi-driver-provider-aws "https://github.com/aws/secrets-store-csi-driver-provider-aws") repository. The repo also
-contains example YAML files for creating and mounting a secret by changing
-the `objectType` value from `secretsmanager` to
-`ssmparameter`.
+The ASCP is available on GitHub in the [secrets-store-csi-provider-aws](https://github.com/aws/secrets-store-csi-driver-provider-aws) repository. The repo also contains example YAML files for creating and mounting a secret by changing the `objectType` value from `secretsmanager` to `ssmparameter`. 
 
-During installation, you can configure the ASCP to use a FIPS endpoint.
-For a list of Systems Manager endpoints, see [Systems Manager service endpoints](../../../general/latest/gr/ssm.md#ssm_region "../../../general/latest/gr/ssm.md#ssm_region") in the
-_Amazon Web Services General Reference_.
+During installation, you can configure the ASCP to use a FIPS endpoint. For a list of Systems Manager endpoints, see [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*.
 
-###### To install the ASCP by using Helm
+**To install the ASCP by using Helm**
 
-1. To make sure the repo is pointing to the latest charts, use
-   `helm repo update.`
-2. Add the Secrets Store CSI Driver chart.
+1. To make sure the repo is pointing to the latest charts, use `helm repo update.`
 
-```
-helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
-```
+1. Add the Secrets Store CSI Driver chart. 
 
-3. Install the chart. To configure throttling, add the following
-   flag: `--set-json 'k8sThrottlingParams={"qps":
- "`number of queries per second`",
- "burst": "`number of queries per
-   second`"}'`
+   ```
+   helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
+   ```
 
-```
-helm install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
-```
+1. Install the chart. To configure throttling, add the following flag: `--set-json 'k8sThrottlingParams={"qps": "{{number of queries per second}}", "burst": "{{number of queries per second}}"}'`
 
-4. Add the ASCP chart.
+   ```
+   helm install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
+   ```
 
-```
-helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
-```
+1. Add the ASCP chart.
 
-5. Install the chart. To use a FIPS endpoint, add the following flag:
-   `--set useFipsEndpoint=true`
+   ```
+   helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
+   ```
 
-```
-helm install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
-```
+1. Install the chart. To use a FIPS endpoint, add the following flag: `--set useFipsEndpoint=true`
 
-###### To install by using the YAML in the repo
+   ```
+   helm install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
+   ```
 
-- Use the following commands.
+**To install by using the YAML in the repo**
++ Use the following commands.
 
-```
-helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
-helm install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
-kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/deployment/aws-provider-installer.yaml
-```
+  ```
+  helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
+  helm install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
+  kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/deployment/aws-provider-installer.yaml
+  ```
 
 ## Verify the installations
+<a name="verify-ascp-installations"></a>
 
-To verify the installations of your EKS cluster, Secrets Store CSI driver,
-and ASCP plugin, follow these steps:
+To verify the installations of your EKS cluster, Secrets Store CSI driver, and ASCP plugin, follow these steps:
 
 1. Verify the EKS cluster:
 
-```
-eksctl get cluster --name `clusterName`
-```
+   ```
+   eksctl get cluster --name {{clusterName}}
+   ```
 
-This command should return information about your cluster. 2. Verify the Secrets Store CSI driver installation:
+   This command should return information about your cluster.
 
-```
-kubectl get pods -n kube-system -l app=secrets-store-csi-driver
-```
+1. Verify the Secrets Store CSI driver installation:
 
-You should see Pods running with names like
-`csi-secrets-store-secrets-store-csi-driver-xxx`. 3. Verify the ASCP plugin installation:
+   ```
+   kubectl get pods -n kube-system -l app=secrets-store-csi-driver
+   ```
 
-YAML installation
+   You should see Pods running with names like `csi-secrets-store-secrets-store-csi-driver-xxx`.
 
-```
-`$` kubectl get pods -n kube-system -l app=csi-secrets-store-provider-aws
-```
+1. Verify the ASCP plugin installation:
 
-Example output:
+------
+#### [ YAML installation ]
 
-```
-NAME                                     READY   STATUS    RESTARTS   AGE
-csi-secrets-store-provider-aws-12345      1/1     Running   0          2m
-```
+   ```
+   $ kubectl get pods -n kube-system -l app=csi-secrets-store-provider-aws
+   ```
 
-Helm installation
+   Example output:
 
-```
-`$`  kubectl get pods -n kube-system -l app=secrets-store-csi-driver-provider-aws
-```
+   ```
+   NAME                                     READY   STATUS    RESTARTS   AGE
+   csi-secrets-store-provider-aws-12345      1/1     Running   0          2m
+   ```
 
-Example output:
+------
+#### [ Helm installation ]
 
-```
-NAME                                              READY   STATUS    RESTARTS   AGE
-secrets-provider-aws-secrets-store-csi-driver-provider-67890       1/1     Running   0          2m
-```
+   ```
+   $  kubectl get pods -n kube-system -l app=secrets-store-csi-driver-provider-aws
+   ```
 
-You should see Pods in the `Running` state.
+   Example output:
 
-After running these commands, if everything is set up correctly, you
-should see all components running without any errors. If you encounter any
-issues, you may need to troubleshoot by checking the logs of the specific
-Pods that are having problems.
+   ```
+   NAME                                              READY   STATUS    RESTARTS   AGE
+   secrets-provider-aws-secrets-store-csi-driver-provider-67890       1/1     Running   0          2m
+   ```
+
+------
+
+   You should see Pods in the `Running` state.
+
+After running these commands, if everything is set up correctly, you should see all components running without any errors. If you encounter any issues, you may need to troubleshoot by checking the logs of the specific Pods that are having problems.
 
 ## Troubleshooting
+<a name="troubleshooting"></a>
 
 1. To check the logs of the ASCP provider, run:
 
-```
-kubectl logs -n kube-system -l app=csi-secrets-store-provider-aws
-```
+   ```
+   kubectl logs -n kube-system -l app=csi-secrets-store-provider-aws
+   ```
 
-2. Check the status of all pods in the `kube-system`
-   namespace.
+1. Check the status of all pods in the `kube-system` namespace.
 
-Replace the `default placeholder text`
-with your own pod ID:
+   Replace the {{default placeholder text}} with your own pod ID:
 
-```
-kubectl -n kube-system get pods
-```
+   ```
+   kubectl -n kube-system get pods
+   ```
 
-```
-kubectl -n kube-system logs pod/`pod-id`
-```
+   ```
+   kubectl -n kube-system logs pod/{{pod-id}}
+   ```
 
-All Pods related to the CSI driver and ASCP should be in the
-'Running' state. 3. Check the CSI driver version:
+   All Pods related to the CSI driver and ASCP should be in the 'Running' state.
 
-```
-kubectl get csidriver secrets-store.csi.k8s.io -o yaml
-```
+1. Check the CSI driver version:
 
-This command should return information about the installed CSI
-driver.
+   ```
+   kubectl get csidriver secrets-store.csi.k8s.io -o yaml
+   ```
+
+   This command should return information about the installed CSI driver.
 
 ## Additional resources
+<a name="additional-resources"></a>
 
-For more information about using ASCP with Amazon EKS, see the following
-resources:
-
-- [Using Pod Identity with Amazon EKS](../../../eks/latest/userguide/pod-identities.md "../../../eks/latest/userguide/pod-identities.md")
-- [AWS Secrets Store CSI Driver on GitHub](https://github.com/aws/secrets-store-csi-driver-provider-aws "https://github.com/aws/secrets-store-csi-driver-provider-aws")
+For more information about using ASCP with Amazon EKS, see the following resources:
++ [Using Pod Identity with Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/pod-identities.html)
++ [AWS Secrets Store CSI Driver on GitHub](https://github.com/aws/secrets-store-csi-driver-provider-aws)

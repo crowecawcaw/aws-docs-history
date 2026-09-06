@@ -1,59 +1,39 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Try out the AWS managed `Hello World` change template
+<a name="change-templates-aws-managed"></a>
 
-###### Change Manager availability change
+**Change Manager availability change**  
+AWS Systems Manager Change Manager will no longer be open to new customers starting November 7, 2025. If you would like to use Change Manager, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html). 
 
-AWS Systems Manager Change Manager will no longer be open to new customers
-starting November 7, 2025. If you would like to use Change Manager, sign up prior to that
-date. Existing customers can continue to use the service as normal. For more
-information, see [AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+You can use the sample change template `AWS-HelloWorldChangeTemplate`, which uses the sample Automation runbook `AWS-HelloWorld`, to test the review and approval process after you have finished setting up Change Manager. This template is designed for testing or verifying your configured permissions, approver assignments, and approval process. Approval to use this change template in your organization or account has already been provided by AWS. Any change request based on this change template, however, must still be approved by reviewers in your organization or account.
 
-You can use the sample change template
-`AWS-HelloWorldChangeTemplate`, which uses the sample Automation
-runbook `AWS-HelloWorld`, to test the review and approval process
-after you have finished setting up Change Manager. This template
-is designed for testing or verifying your configured permissions, approver
-assignments, and approval process. Approval to use this change template in your
-organization or account has already been provided by AWS. Any change request
-based on this change template, however, must still be approved by reviewers in
-your organization or account.
+Rather than make changes to a resource, the result of the runbook workflow associated with this template is to print a message in the output of an Automation step.
 
-Rather than make changes to a resource, the result of the runbook workflow
-associated with this template is to print a message in the output of an
-Automation step.
-
-###### Before you begin
-
+**Before you begin**  
 Before you begin, make sure you have completed the following tasks:
++ If you're using AWS Organizations to manage change across an organization, complete the organization setup tasks described in [Setting up Change Manager for an organization (management account)](change-manager-organization-setup.md).
++ Configure Change Manager for your delegated administrator account or single account, as described in [Configuring Change Manager options and best practices](change-manager-account-setup.md). 
+**Note**  
+If you turned on the best practice option **Require monitors for all templates** in your Change Manager settings, turn it off temporarily while you test the Hello World change template.
 
-- If you're using AWS Organizations to manage change across an organization,
-  complete the organization setup tasks described in [Setting up Change Manager for an organization (management account)](change-manager-organization-setup.md "change-manager-organization-setup.md").
-- Configure Change Manager for your delegated administrator account or single account, as
-  described in [Configuring Change Manager options and best practices](change-manager-account-setup.md "change-manager-account-setup.md").
+**To try out the AWS managed Hello World change template**
 
-###### Note
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
 
-If you turned on the best practice option **Require
-monitors for all templates** in your Change Manager settings,
-turn it off temporarily while you test the Hello World
-change template.
+1. In the navigation pane, choose **Change Manager**.
 
-###### To try out the AWS managed Hello World change template
+1. Choose **Create request**.
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. In the navigation pane, choose **Change Manager**.
-3. Choose **Create request**.
-4. Choose the change template named
-   `AWS-HelloWorldChangeTemplate`, and then choose
-   **Next**.
-5. For **Name**, enter a name for the change request
-   that makes its purpose easy to identify, such as
-   `MyChangeRequestTest`.
-6. For the remainder of the steps to create your change request, see
-   [Creating change requests](change-requests-create.md "change-requests-create.md").
+1. Choose the change template named `AWS-HelloWorldChangeTemplate`, and then choose **Next**.
 
-###### Next steps
+1. For **Name**, enter a name for the change request that makes its purpose easy to identify, such as **MyChangeRequestTest**.
 
-For information about approving change requests, see [Reviewing and approving or rejecting change requests](change-requests-review.md "change-requests-review.md").
+1. For the remainder of the steps to create your change request, see [Creating change requests](change-requests-create.md).
 
-To view the status and results of your change request, choose the name of
-your change request on the **Requests** tab in Change Manager.
+**Next steps**  
+For information about approving change requests, see [Reviewing and approving or rejecting change requests](change-requests-review.md).
+
+To view the status and results of your change request, choose the name of your change request on the **Requests** tab in Change Manager. 

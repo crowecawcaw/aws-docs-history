@@ -1,264 +1,230 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Referencing AWS Secrets Manager secrets from Parameter Store parameters
+<a name="integration-ps-secretsmanager"></a>
 
-AWS Secrets Manager helps you organize and manage important configuration data such as
-credentials, passwords, and license keys. Parameter Store is
-integrated with Secrets Manager so that you can retrieve Secrets Manager secrets when using other
-AWS services that already support references to Parameter Store parameters. These
-services include Amazon Elastic Compute Cloud (Amazon EC2), Amazon Elastic Container Service (Amazon ECS), AWS Lambda, CloudFormation, AWS CodeBuild,
-AWS CodeDeploy, and other Systems Manager tools. By using Parameter Store to reference Secrets Manager secrets, you
-create a consistent and secure process for calling and using secrets and reference
-data in your code and configuration scripts.
+AWS Secrets Manager helps you organize and manage important configuration data such as credentials, passwords, and license keys. Parameter Store is integrated with Secrets Manager so that you can retrieve Secrets Manager secrets when using other AWS services that already support references to Parameter Store parameters. These services include Amazon Elastic Compute Cloud (Amazon EC2), Amazon Elastic Container Service (Amazon ECS), AWS Lambda, CloudFormation, AWS CodeBuild, AWS CodeDeploy, and other Systems Manager tools. By using Parameter Store to reference Secrets Manager secrets, you create a consistent and secure process for calling and using secrets and reference data in your code and configuration scripts. 
 
-For more information about Secrets Manager, see [What Is AWS Secrets Manager?](../../../secretsmanager/latest/userguide.md "../../../secretsmanager/latest/userguide.md") in the
-_AWS Secrets Manager User Guide_.
+For more information about Secrets Manager, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/) in the *AWS Secrets Manager User Guide*.
 
 ## Restrictions
+<a name="integration-ps-secretsmanager-restrictions"></a>
 
-Note the following restrictions when using Parameter Store to reference Secrets Manager
-secrets:
+Note the following restrictions when using Parameter Store to reference Secrets Manager secrets:
++ You can only retrieve Secrets Manager secrets by using the [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html) and [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API operations. Modification operations and advance querying API operations, such as [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html) and [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html), aren't supported for Secrets Manager.
++ You can use the AWS Command Line Interface (AWS CLI), AWS Tools for Windows PowerShell, and the SDKs to retrieve a secret by using Parameter Store.
++ Secrets Manager secrets in Parameter Store must have a prefix of `/aws/reference/secretsmanager`. The following are examples:
 
-- You can only retrieve Secrets Manager secrets by using the [GetParameter](../APIReference/API_GetParameter.md "../APIReference/API_GetParameter.md") and [GetParameters](../APIReference/API_GetParameters.md "../APIReference/API_GetParameters.md") API operations. Modification operations and
-  advance querying API operations, such as [DescribeParameters](../APIReference/API_DescribeParameters.md "../APIReference/API_DescribeParameters.md") and [GetParametersByPath](../APIReference/API_GetParametersByPath.md "../APIReference/API_GetParametersByPath.md"), aren't supported for Secrets Manager.
-- You can use the AWS Command Line Interface (AWS CLI), AWS Tools for Windows PowerShell, and the SDKs to retrieve a
-  secret by using Parameter Store.
-- Secrets Manager secrets in Parameter Store must have a prefix of
-  `/aws/reference/secretsmanager`. The following are
-  examples:
+  `/aws/reference/secretsmanager/CFCreds1`
 
-`/aws/reference/secretsmanager/CFCreds1`
-
-`/aws/reference/secretsmanager/myapp/db/password`
-
-- Parameter Store honors AWS Identity and Access Management (IAM) policies attached to Secrets Manager secrets. For
-  example, if User 1 doesn't have access to Secret A, then User 1 can't
-  retrieve Secret A by using Parameter Store.
-- Parameters that reference Secrets Manager secrets can't use the Parameter Store versioning
-  or history features.
-- Parameter Store honors Secrets Manager version stages. If you reference a version stage, it
-  uses letters, numbers, a period (.), a hyphen (-), or an underscore (\_). All
-  other symbols specified in the version stage cause the reference to
-  fail.
+  `/aws/reference/secretsmanager/myapp/db/password`
++ Parameter Store honors AWS Identity and Access Management (IAM) policies attached to Secrets Manager secrets. For example, if User 1 doesn't have access to Secret A, then User 1 can't retrieve Secret A by using Parameter Store.
++ Parameters that reference Secrets Manager secrets can't use the Parameter Store versioning or history features.
++ Parameter Store honors Secrets Manager version stages. If you reference a version stage, it uses letters, numbers, a period (.), a hyphen (-), or an underscore (\_). All other symbols specified in the version stage cause the reference to fail.
 
 ## How to reference a Secrets Manager secret by using Parameter Store
+<a name="integration-ps-secretsmanager-create"></a>
 
-The following procedure describes how to reference a Secrets Manager secret by using
-Parameter Store APIs. The procedure references other procedures in the
-_AWS Secrets Manager User Guide_.
+The following procedure describes how to reference a Secrets Manager secret by using Parameter Store APIs. The procedure references other procedures in the *AWS Secrets Manager User Guide*.
 
-###### Note
+**Note**  
+Before you begin, verify that you have permission to reference Secrets Manager secrets in Parameter Store parameters. If you have administrator permissions in Secrets Manager and Systems Manager, then you can reference or retrieve secrets by using Parameter Store APIs. If you reference a Secrets Manager secret in a Parameter Store parameter, and you don't have permission to access that secret, then the reference fails. For more information, see [Authentication and access control for AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html) in the *AWS Secrets Manager User Guide*.
 
-Before you begin, verify that you have permission to reference Secrets Manager
-secrets in Parameter Store parameters. If you have administrator permissions in
-Secrets Manager and Systems Manager, then you can reference or retrieve secrets by using
-Parameter Store APIs. If you reference a Secrets Manager secret in a Parameter Store parameter, and
-you don't have permission to access that secret, then the reference fails.
-For more information, see [Authentication and access control for AWS Secrets Manager](../../../secretsmanager/latest/userguide/auth-and-access.md "../../../secretsmanager/latest/userguide/auth-and-access.md") in the
-_AWS Secrets Manager User Guide_.
+**Important**  
+Parameter Store functions as a pass-through service for references to Secrets Manager secrets. Parameter Store doesn't retain data or metadata about secrets. The reference is stateless.
 
-###### Important
+**To reference a Secrets Manager secret by using Parameter Store**
 
-Parameter Store functions as a pass-through service for references to Secrets Manager
-secrets. Parameter Store doesn't retain data or metadata about secrets. The
-reference is stateless.
+1. Create a secret in Secrets Manager. For more information, see [Create and manage secrets with AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managing-secrets.html).
 
-###### To reference a Secrets Manager secret by using Parameter Store
+1. Reference a secret by using the AWS CLI, AWS Tools for Windows PowerShell, or the SDK. When you reference a Secrets Manager secret, the name must begin with the following reserved path: `/aws/reference/secretsmanager/`. By specifying this path, Systems Manager knows to retrieve the secret from Secrets Manager instead of Parameter Store. Here are some example names that correctly reference the Secrets Manager secrets, `CFCreds1` and `DBPass`, using Parameter Store.
+   + `/aws/reference/secretsmanager/CFCreds1`
+   + `/aws/reference/secretsmanager/DBPass`
 
-1. Create a secret in Secrets Manager. For more information, see [Create
-   and manage secrets with AWS Secrets Manager](../../../secretsmanager/latest/userguide/managing-secrets.md "../../../secretsmanager/latest/userguide/managing-secrets.md").
-2. Reference a secret by using the AWS CLI, AWS Tools for Windows PowerShell, or the SDK. When you
-   reference a Secrets Manager secret, the name must begin with the following
-   reserved path: `/aws/reference/secretsmanager/`. By
-   specifying this path, Systems Manager knows to retrieve the secret from Secrets Manager
-   instead of Parameter Store. Here are some example names that correctly
-   reference the Secrets Manager secrets, `CFCreds1` and
-   `DBPass`, using Parameter Store.
+   Here is a Java code example that references an access key and a secret key that are stored in Secrets Manager. This code example sets up an Amazon DynamoDB client. The code retrieves configuration data and credentials from Parameter Store. The configuration data is stored as a string parameter in Parameter Store and the credentials are stored in Secrets Manager. Even though the configuration data and credentials are stored in separate services, both sets of data can be accessed from Parameter Store by using the `GetParameter` API.
 
-   - `/aws/reference/secretsmanager/CFCreds1`
-   - `/aws/reference/secretsmanager/DBPass`
-     Here is a Java code example that references an access key and a secret
-     key that are stored in Secrets Manager. This code example sets up an Amazon DynamoDB
-     client. The code retrieves configuration data and credentials from
-     Parameter Store. The configuration data is stored as a string parameter in
-     Parameter Store and the credentials are stored in Secrets Manager. Even though the
-     configuration data and credentials are stored in separate services, both
-     sets of data can be accessed from Parameter Store by using the
-     `GetParameter` API.
+   ```
+   /**
+   * Initialize Systems Manager client with default credentials
+   */
+   AWSSimpleSystemsManagement ssm = AWSSimpleSystemsManagementClientBuilder.defaultClient();
+    
+   ...
+    
+   /**
+   * Example method to launch DynamoDB client with credentials different from default
+   * @return DynamoDB client
+   */
+   AmazonDynamoDB getDynamoDbClient() {
+       //Getting AWS credentials from Secrets Manager using GetParameter
+       BasicAWSCredentials differentAWSCreds = new BasicAWSCredentials(
+               getParameter("/aws/reference/secretsmanager/{{access-key}}"),
+               getParameter("/aws/reference/secretsmanager/{{secret-key}}"));
+    
+       //Initialize the DynamoDB client with different credentials
+       final AmazonDynamoDB client = AmazonDynamoDBClient.builder()
+               .withCredentials(new AWSStaticCredentialsProvider(differentAWSCreds))
+               .withRegion(getParameter("region")) //Getting configuration from Parameter Store
+               .build();
+       return client;
+   }
+    
+   /**
+   * Helper method to retrieve parameter value
+   * @param parameterName identifier of the parameter
+   * @return decrypted parameter value
+   */
+   public GetParameterResult getParameter(String parameterName) {
+       GetParameterRequest request = new GetParameterRequest();
+       request.setName(parameterName);
+       request.setWithDecryption(true);
+       return ssm.newGetParameterCall().call(request).getParameter().getValue();
+   }
+   ```
 
-```
-/**
-* Initialize Systems Manager client with default credentials
-*/
-AWSSimpleSystemsManagement ssm = AWSSimpleSystemsManagementClientBuilder.defaultClient();
+   Here are some AWS CLI examples. Use the `aws secretsmanager list-secrets` command to find the names of your secrets.
 
-...
+   **AWS CLI Example 1: Reference by using the name of the secret**
 
-/**
-* Example method to launch DynamoDB client with credentials different from default
-* @return DynamoDB client
-*/
-AmazonDynamoDB getDynamoDbClient() {
-    //Getting AWS credentials from Secrets Manager using GetParameter
-    BasicAWSCredentials differentAWSCreds = new BasicAWSCredentials(
-            getParameter("/aws/reference/secretsmanager/`access-key`"),
-            getParameter("/aws/reference/secretsmanager/`secret-key`"));
+------
+#### [ Linux & macOS ]
 
-    //Initialize the DynamoDB client with different credentials
-    final AmazonDynamoDB client = AmazonDynamoDBClient.builder()
-            .withCredentials(new AWSStaticCredentialsProvider(differentAWSCreds))
-            .withRegion(getParameter("region")) //Getting configuration from Parameter Store
-            .build();
-    return client;
-}
+   ```
+   aws ssm get-parameter \
+       --name /aws/reference/secretsmanager/{{s1-secret}} \
+       --with-decryption
+   ```
 
-/**
-* Helper method to retrieve parameter value
-* @param parameterName identifier of the parameter
-* @return decrypted parameter value
-*/
-public GetParameterResult getParameter(String parameterName) {
-    GetParameterRequest request = new GetParameterRequest();
-    request.setName(parameterName);
-    request.setWithDecryption(true);
-    return ssm.newGetParameterCall().call(request).getParameter().getValue();
-}
+------
+#### [ Windows ]
 
-```
+   ```
+   aws ssm get-parameter ^
+       --name /aws/reference/secretsmanager/{{s1-secret}} ^
+       --with-decryption
+   ```
 
-Here are some AWS CLI examples. Use the `aws secretsmanager
- list-secrets` command to find the names of your
-secrets.
+------
 
-**AWS CLI Example 1: Reference by using the name of
-the secret**
+   The command returns information like the following.
 
-Linux & macOS
+   ```
+   {
+       "Parameter": {
+           "Name": "/aws/reference/secretsmanager/s1-secret",
+           "Type": "SecureString",
+           "Value": "Fl*MEishm!al875",
+           "Version": 0,
+           "SourceResult": 
+                 "{
+                      \"CreatedDate\": 1526334434.743,
+                      \"Name\": \"s1-secret\",
+                      \"VersionId\": \"aaabbbccc-1111-222-333-123456789\",
+                      \"SecretString\": \"Fl*MEishm!al875\",
+                      \"VersionStages\": [\"AWSCURRENT\"],
+                      \"ARN\": \"arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-E18LRP\"
+                  }"
+           "LastModifiedDate": 2018-05-14T21:47:14.743Z,
+           "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
+                  E18LRP",
+         }
+   }
+   ```
 
-```
-aws ssm get-parameter \
-    --name /aws/reference/secretsmanager/`s1-secret` \
-    --with-decryption
-```
+   **AWS CLI Example 2: Reference that includes the version ID**
 
-Windows
+------
+#### [ Linux & macOS ]
 
-```
-aws ssm get-parameter ^
-    --name /aws/reference/secretsmanager/`s1-secret` ^
-    --with-decryption
-```
+   ```
+   aws ssm get-parameter \
+       --name /aws/reference/secretsmanager/{{s1-secret:11111-aaa-bbb-ccc-123456789}} \
+       --with-decryption
+   ```
 
-The command returns information like the following.
+------
+#### [ Windows ]
 
-```
-{
-    "Parameter": {
-        "Name": "/aws/reference/secretsmanager/s1-secret",
-        "Type": "SecureString",
-        "Value": "Fl*MEishm!al875",
-        "Version": 0,
-        "SourceResult":
-              "{
-                   \"CreatedDate\": 1526334434.743,
-                   \"Name\": \"s1-secret\",
-                   \"VersionId\": \"aaabbbccc-1111-222-333-123456789\",
-                   \"SecretString\": \"Fl*MEishm!al875\",
-                   \"VersionStages\": [\"AWSCURRENT\"],
-                   \"ARN\": \"arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-E18LRP\"
-               }"
-        "LastModifiedDate": 2018-05-14T21:47:14.743Z,
-        "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
-               E18LRP",
-      }
-}
-```
+   ```
+   aws ssm get-parameter ^
+       --name /aws/reference/secretsmanager/{{s1-secret:11111-aaa-bbb-ccc-123456789}} ^
+       --with-decryption
+   ```
 
-**AWS CLI Example 2: Reference that includes the
-version ID**
+------
 
-Linux & macOS
+   The command returns information like the following.
 
-```
-aws ssm get-parameter \
-    --name /aws/reference/secretsmanager/`s1-secret:11111-aaa-bbb-ccc-123456789` \
-    --with-decryption
-```
+   ```
+   {
+       "Parameter": {
+           "Name": "/aws/reference/secretsmanager/s1-secret",
+           "Type": "SecureString",
+           "Value": "Fl*MEishm!al875",
+           "Version": 0,
+           "SourceResult": 
+                 "{
+                      \"CreatedDate\": 1526334434.743,
+                      \"Name\": \"s1-secret\",
+                      \"VersionId\": \"11111-aaa-bbb-ccc-123456789\",
+                      \"SecretString\": \"Fl*MEishm!al875\",
+                      \"VersionStages\": [\"AWSCURRENT\"],
+                      \"ARN\": \"arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-E18LRP\"
+                  }"
+           "Selector": ":11111-aaa-bbb-ccc-123456789"
+         }
+           "LastModifiedDate": 2018-05-14T21:47:14.743Z,
+           "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
+                  E18LRP",
+   }
+   ```
 
-Windows
+   **AWS CLI Example 3: Reference that includes the version stage**
 
-```
-aws ssm get-parameter ^
-    --name /aws/reference/secretsmanager/`s1-secret:11111-aaa-bbb-ccc-123456789` ^
-    --with-decryption
-```
+------
+#### [ Linux & macOS ]
 
-The command returns information like the following.
+   ```
+   aws ssm get-parameter \
+       --name /aws/reference/secretsmanager/{{s1-secret:AWSCURRENT}} \
+       --with-decryption
+   ```
 
-```
-{
-    "Parameter": {
-        "Name": "/aws/reference/secretsmanager/s1-secret",
-        "Type": "SecureString",
-        "Value": "Fl*MEishm!al875",
-        "Version": 0,
-        "SourceResult":
-              "{
-                   \"CreatedDate\": 1526334434.743,
-                   \"Name\": \"s1-secret\",
-                   \"VersionId\": \"11111-aaa-bbb-ccc-123456789\",
-                   \"SecretString\": \"Fl*MEishm!al875\",
-                   \"VersionStages\": [\"AWSCURRENT\"],
-                   \"ARN\": \"arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-E18LRP\"
-               }"
-        "Selector": ":11111-aaa-bbb-ccc-123456789"
-      }
-        "LastModifiedDate": 2018-05-14T21:47:14.743Z,
-        "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
-               E18LRP",
-}
+------
+#### [ Windows ]
 
-```
+   ```
+   aws ssm get-parameter ^
+       --name /aws/reference/secretsmanager/{{s1-secret:AWSCURRENT}} ^
+       --with-decryption
+   ```
 
-**AWS CLI Example 3: Reference that includes the
-version stage**
+------
 
-Linux & macOS
+   The command returns information like the following.
 
-```
-aws ssm get-parameter \
-    --name /aws/reference/secretsmanager/`s1-secret:AWSCURRENT` \
-    --with-decryption
-```
-
-Windows
-
-```
-aws ssm get-parameter ^
-    --name /aws/reference/secretsmanager/`s1-secret:AWSCURRENT` ^
-    --with-decryption
-```
-
-The command returns information like the following.
-
-```
-{
-    "Parameter": {
-        "Name": "/aws/reference/secretsmanager/s1-secret",
-        "Type": "SecureString",
-        "Value": "Fl*MEishm!al875",
-        "Version": 0,
-        "SourceResult":
-              "{
-                   \"CreatedDate\": 1526334434.743,
-                   \"Name\": \"s1-secret\",
-                   \"VersionId\": \"11111-aaa-bbb-ccc-123456789\",
-                   \"SecretString\": \"Fl*MEishm!al875\",
-                   \"VersionStages\": [\"AWSCURRENT\"],
-                   \"ARN\": \"arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-E18LRP\"
-               }"
-        "Selector": ":AWSCURRENT"
-      }
-      "LastModifiedDate": 2018-05-14T21:47:14.743Z,
-      "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
-                E18LRP",
-}
-```
+   ```
+   {
+       "Parameter": {
+           "Name": "/aws/reference/secretsmanager/s1-secret",
+           "Type": "SecureString",
+           "Value": "Fl*MEishm!al875",
+           "Version": 0,
+           "SourceResult": 
+                 "{
+                      \"CreatedDate\": 1526334434.743,
+                      \"Name\": \"s1-secret\",
+                      \"VersionId\": \"11111-aaa-bbb-ccc-123456789\",
+                      \"SecretString\": \"Fl*MEishm!al875\",
+                      \"VersionStages\": [\"AWSCURRENT\"],
+                      \"ARN\": \"arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-E18LRP\"
+                  }"
+           "Selector": ":AWSCURRENT"
+         }
+         "LastModifiedDate": 2018-05-14T21:47:14.743Z,
+         "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
+                   E18LRP",
+   }
+   ```

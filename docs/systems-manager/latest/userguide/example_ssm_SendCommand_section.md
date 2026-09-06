@@ -1,30 +1,30 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Use `SendCommand` with an AWS SDK or CLI
+<a name="example_ssm_SendCommand_section"></a>
 
 The following code examples show how to use `SendCommand`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_ssm_Scenario_section.md) 
 
-- [Learn the basics](example_ssm_Scenario_section.md "example_ssm_Scenario_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**Example 1: To run a command on one or more remote instances**
-
-The following `send-command` example runs an `echo` command on a target instance.
+**AWS CLI**  
+**Example 1: To run a command on one or more remote instances**  
+The following `send-command` example runs an `echo` command on a target instance.  
 
 ```
-`aws ssm send-command \
- --document-name `"AWS-RunShellScript"` \
- --parameters '`commands=["echo HelloWorld"]`' \
- --targets `"Key=instanceids,Values=i-1234567890abcdef0"` \
- --comment `"echo HelloWorld"``
-
+aws ssm send-command \
+    --document-name {{"AWS-RunShellScript"}} \
+    --parameters '{{commands=["echo HelloWorld"]}}' \
+    --targets {{"Key=instanceids,Values=i-1234567890abcdef0"}} \
+    --comment {{"echo HelloWorld"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -67,141 +67,98 @@ Output:
     }
 }
 ```
-
-For more information, see [Running Commands Using Systems Manager Run Command](run-command.md "run-command.md") in the _AWS Systems Manager User Guide_.
-
-**Example 2: To get IP information about an instance**
-
-The following `send-command` example retrieves the IP information about an instance.
+For more information, see [Running Commands Using Systems Manager Run Command](https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html) in the *AWS Systems Manager User Guide*.  
+**Example 2: To get IP information about an instance**  
+The following `send-command` example retrieves the IP information about an instance.  
 
 ```
-`aws ssm send-command \
- --instance-ids `"i-1234567890abcdef0"` \
- --document-name `"AWS-RunShellScript"` \
- --comment `"IP config"` \
- --parameters `"commands=ifconfig"``
+aws ssm send-command \
+    --instance-ids {{"i-1234567890abcdef0"}} \
+    --document-name {{"AWS-RunShellScript"}} \
+    --comment {{"IP config"}} \
+    --parameters {{"commands=ifconfig"}}
+```
+See example 1 for sample output.  
+For more information, see [Running Commands Using Systems Manager Run Command](https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html) in the *AWS Systems Manager User Guide*.  
+**Example 3: To run a command on instances with specific tags**  
+The following `send-command` example runs a command on instances that have the tag key "ENV" and the value "Dev".  
 
 ```
-
-See example 1 for sample output.
-
-For more information, see [Running Commands Using Systems Manager Run Command](run-command.md "run-command.md") in the _AWS Systems Manager User Guide_.
-
-**Example 3: To run a command on instances with specific tags**
-
-The following `send-command` example runs a command on instances that have the tag key "ENV" and the value "Dev".
+aws ssm send-command \
+    --targets {{"Key=tag:ENV,Values=Dev"}} \
+    --document-name {{"AWS-RunShellScript"}} \
+    --parameters {{"commands=ifconfig"}}
+```
+See example 1 for sample output.  
+For more information, see [Running Commands Using Systems Manager Run Command](https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html) in the *AWS Systems Manager User Guide*.  
+**Example 4: To run a command that sends SNS notifications**  
+The following `send-command` example runs a command that sends SNS notifications for all notification events and the `Command` notification type.  
 
 ```
-`aws ssm send-command \
- --targets `"Key=tag:ENV,Values=Dev"` \
- --document-name `"AWS-RunShellScript"` \
- --parameters `"commands=ifconfig"``
+aws ssm send-command \
+    --instance-ids {{"i-1234567890abcdef0"}} \
+    --document-name {{"AWS-RunShellScript"}} \
+    --comment {{"IP config"}} \
+    --parameters {{"commands=ifconfig"}} \
+    --service-role-arn {{"arn:aws:iam::123456789012:role/SNS_Role"}} \
+    --notification-config {{"NotificationArn=arn:aws:sns:us-east-1:123456789012:SNSTopicName,NotificationEvents=All,NotificationType=Command"}}
+```
+See example 1 for sample output.  
+For more information, see [Running Commands Using Systems Manager Run Command](https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html) in the *AWS Systems Manager User Guide*.  
+**Example 5: To run a command that outputs to S3 and CloudWatch**  
+The following `send-command` example runs a command that outputs command details to an S3 bucket and to a CloudWatch Logs log group.  
 
 ```
-
-See example 1 for sample output.
-
-For more information, see [Running Commands Using Systems Manager Run Command](run-command.md "run-command.md") in the _AWS Systems Manager User Guide_.
-
-**Example 4: To run a command that sends SNS notifications**
-
-The following `send-command` example runs a command that sends SNS notifications for all notification events and the `Command` notification type.
+aws ssm send-command \
+    --instance-ids {{"i-1234567890abcdef0"}} \
+    --document-name {{"AWS-RunShellScript"}} \
+    --comment {{"IP config"}} \
+    --parameters {{"commands=ifconfig"}} \
+    --output-{{s3-bucket-name}} "s3-bucket-name" \
+    --output-s3-key-prefix {{"runcommand"}} \
+    --cloud-watch-output-config {{"CloudWatchOutputEnabled=true,CloudWatchLogGroupName=CWLGroupName"}}
+```
+See example 1 for sample output.  
+For more information, see [Running Commands Using Systems Manager Run Command](https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html) in the *AWS Systems Manager User Guide*.  
+**Example 6: To run commands on multiple instances with different tags**  
+The following `send-command` example runs a command on instances with two different tag keys and values.  
 
 ```
-`aws ssm send-command \
- --instance-ids `"i-1234567890abcdef0"` \
- --document-name `"AWS-RunShellScript"` \
- --comment `"IP config"` \
- --parameters `"commands=ifconfig"` \
- --service-role-arn `"arn:aws:iam::123456789012:role/SNS_Role"` \
- --notification-config `"NotificationArn=arn:aws:sns:us-east-1:123456789012:SNSTopicName,NotificationEvents=All,NotificationType=Command"``
+aws ssm send-command \
+    --document-name {{"AWS-RunPowerShellScript"}} \
+    --parameters commands=["echo helloWorld"] \
+    --targets {{Key=tag:Env,Values=Dev}} {{Key=tag:Role,Values=WebServers}}
+```
+See example 1 for sample output.  
+For more information, see [Running Commands Using Systems Manager Run Command](https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html) in the *AWS Systems Manager User Guide*.  
+**Example 7: To target multiple instances with the same tag key**  
+The following `send-command` example runs a command on instances that have the same tag key but with different values.  
 
 ```
-
-See example 1 for sample output.
-
-For more information, see [Running Commands Using Systems Manager Run Command](run-command.md "run-command.md") in the _AWS Systems Manager User Guide_.
-
-**Example 5: To run a command that outputs to S3 and CloudWatch**
-
-The following `send-command` example runs a command that outputs command details to an S3 bucket and to a CloudWatch Logs log group.
+aws ssm send-command \
+    --document-name {{"AWS-RunPowerShellScript"}} \
+    --parameters commands=["echo helloWorld"] \
+    --targets {{Key=tag:Env,Values=Dev,Test}}
+```
+See example 1 for sample output.  
+For more information, see [Running Commands Using Systems Manager Run Command](https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html) in the *AWS Systems Manager User Guide*.  
+**Example 8: To run a command that uses a shared document**  
+The following `send-command` example runs a shared document on a target instance.  
 
 ```
-`aws ssm send-command \
- --instance-ids `"i-1234567890abcdef0"` \
- --document-name `"AWS-RunShellScript"` \
- --comment `"IP config"` \
- --parameters `"commands=ifconfig"` \
- --output-`s3-bucket-name` "s3-bucket-name" \
- --output-s3-key-prefix `"runcommand"` \
- --cloud-watch-output-config `"CloudWatchOutputEnabled=true,CloudWatchLogGroupName=CWLGroupName"``
-
+aws ssm send-command \
+    --document-name {{"arn:aws:ssm:us-east-1:123456789012:document/ExampleDocument"}} \
+    --targets {{"Key=instanceids,Values=i-1234567890abcdef0"}}
 ```
+See example 1 for sample output.  
+For more information, see [Using shared SSM documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html) in the *AWS Systems Manager User Guide*.  
++  For API details, see [SendCommand](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/send-command.html) in *AWS CLI Command Reference*. 
 
-See example 1 for sample output.
+------
+#### [ Java ]
 
-For more information, see [Running Commands Using Systems Manager Run Command](run-command.md "run-command.md") in the _AWS Systems Manager User Guide_.
-
-**Example 6: To run commands on multiple instances with different tags**
-
-The following `send-command` example runs a command on instances with two different tag keys and values.
-
-```
-`aws ssm send-command \
- --document-name `"AWS-RunPowerShellScript"` \
- --parameters commands=["echo helloWorld"] \
- --targets `Key=tag:Env,Values=Dev` `Key=tag:Role,Values=WebServers``
-
-```
-
-See example 1 for sample output.
-
-For more information, see [Running Commands Using Systems Manager Run Command](run-command.md "run-command.md") in the _AWS Systems Manager User Guide_.
-
-**Example 7: To target multiple instances with the same tag key**
-
-The following `send-command` example runs a command on instances that have the same tag key but with different values.
-
-```
-`aws ssm send-command \
- --document-name `"AWS-RunPowerShellScript"` \
- --parameters commands=["echo helloWorld"] \
- --targets `Key=tag:Env,Values=Dev,Test``
-
-```
-
-See example 1 for sample output.
-
-For more information, see [Running Commands Using Systems Manager Run Command](run-command.md "run-command.md") in the _AWS Systems Manager User Guide_.
-
-**Example 8: To run a command that uses a shared document**
-
-The following `send-command` example runs a shared document on a target instance.
-
-```
-`aws ssm send-command \
- --document-name `"arn:aws:ssm:us-east-1:123456789012:document/ExampleDocument"` \
- --targets `"Key=instanceids,Values=i-1234567890abcdef0"``
-
-```
-
-See example 1 for sample output.
-
-For more information, see [Using shared SSM documents](ssm-using-shared.md "ssm-using-shared.md") in the _AWS Systems Manager User Guide_.
-
-- For API details, see
-  [SendCommand](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/send-command.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/send-command.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
 ```
     /**
@@ -297,23 +254,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
 
         return commandId[0];
     }
-
-
 ```
++  For API details, see [SendCommand](https://docs.aws.amazon.com/goto/SdkForJavaV2/ssm-2014-11-06/SendCommand) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [SendCommand](../../../goto/SdkForJavaV2/ssm-2014-11-06/SendCommand.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/SendCommand.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
 ```
 import { SendCommandCommand, SSMClient } from "@aws-sdk/client-ssm";
@@ -341,30 +289,23 @@ export const main = async ({ documentName }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [SendCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/SendCommandCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [SendCommand](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/SendCommandCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/SendCommandCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example runs an echo command on a target instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example runs an echo command on a target instance.**  
 
 ```
 Send-SSMCommand -DocumentName "AWS-RunPowerShellScript" -Parameter @{commands = "echo helloWorld"} -Target @{Key="instanceids";Values=@("i-0cb2b964d3e14fd9f")}
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CommandId          : d8d190fc-32c1-4d65-a0df-ff5ff3965524
-Comment            :
+Comment            : 
 CompletedCount     : 0
 DocumentName       : AWS-RunPowerShellScript
 ErrorCount         : 0
@@ -373,43 +314,35 @@ InstanceIds        : {}
 MaxConcurrency     : 50
 MaxErrors          : 0
 NotificationConfig : Amazon.SimpleSystemsManagement.Model.NotificationConfig
-OutputS3BucketName :
-OutputS3KeyPrefix  :
-OutputS3Region     :
+OutputS3BucketName : 
+OutputS3KeyPrefix  : 
+OutputS3Region     : 
 Parameters         : {[commands, Amazon.Runtime.Internal.Util.AlwaysSendList`1[System.String]]}
 RequestedDateTime  : 3/7/2017 9:48:37 PM
-ServiceRole        :
+ServiceRole        : 
 Status             : Pending
 StatusDetails      : Pending
 TargetCount        : 0
 Targets            : {instanceids}
 ```
-
-**Example 2: This example shows how to run a command that accepts nested parameters.**
+**Example 2: This example shows how to run a command that accepts nested parameters.**  
 
 ```
 Send-SSMCommand -DocumentName "AWS-RunRemoteScript" -Parameter @{ sourceType="GitHub";sourceInfo='{"owner": "me","repository": "amazon-ssm","path": "Examples/Install-Win32OpenSSH"}'; "commandLine"=".\Install-Win32OpenSSH.ps1"} -InstanceId i-0cb2b964d3e14fd9f
-
 ```
++  For API details, see [SendCommand](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [SendCommand](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example runs an echo command on a target instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example runs an echo command on a target instance.**  
 
 ```
 Send-SSMCommand -DocumentName "AWS-RunPowerShellScript" -Parameter @{commands = "echo helloWorld"} -Target @{Key="instanceids";Values=@("i-0cb2b964d3e14fd9f")}
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CommandId          : d8d190fc-32c1-4d65-a0df-ff5ff3965524
-Comment            :
+Comment            : 
 CompletedCount     : 0
 DocumentName       : AWS-RunPowerShellScript
 ErrorCount         : 0
@@ -418,38 +351,29 @@ InstanceIds        : {}
 MaxConcurrency     : 50
 MaxErrors          : 0
 NotificationConfig : Amazon.SimpleSystemsManagement.Model.NotificationConfig
-OutputS3BucketName :
-OutputS3KeyPrefix  :
-OutputS3Region     :
+OutputS3BucketName : 
+OutputS3KeyPrefix  : 
+OutputS3Region     : 
 Parameters         : {[commands, Amazon.Runtime.Internal.Util.AlwaysSendList`1[System.String]]}
 RequestedDateTime  : 3/7/2017 9:48:37 PM
-ServiceRole        :
+ServiceRole        : 
 Status             : Pending
 StatusDetails      : Pending
 TargetCount        : 0
 Targets            : {instanceids}
 ```
-
-**Example 2: This example shows how to run a command that accepts nested parameters.**
+**Example 2: This example shows how to run a command that accepts nested parameters.**  
 
 ```
 Send-SSMCommand -DocumentName "AWS-RunRemoteScript" -Parameter @{ sourceType="GitHub";sourceInfo='{"owner": "me","repository": "amazon-ssm","path": "Examples/Install-Win32OpenSSH"}'; "commandLine"=".\Install-Win32OpenSSH.ps1"} -InstanceId i-0cb2b964d3e14fd9f
-
 ```
++  For API details, see [SendCommand](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [SendCommand](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 
 ```
 class DocumentWrapper:
@@ -488,24 +412,14 @@ class DocumentWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [SendCommand](https://docs.aws.amazon.com/goto/boto3/ssm-2014-11-06/SendCommand) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [SendCommand](../../../goto/boto3/ssm-2014-11-06/SendCommand.md "../../../goto/boto3/ssm-2014-11-06/SendCommand.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples). 
 
 ```
     TRY.
@@ -523,14 +437,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_ssminvalidinstanceid.
         MESSAGE 'Invalid instance ID.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [SendCommand](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [SendCommand](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

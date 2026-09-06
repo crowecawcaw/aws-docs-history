@@ -1,176 +1,103 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Integrating Patch Manager with AWS Security Hub CSPM
+<a name="patch-manager-security-hub-integration"></a>
 
-[AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
-gives you a comprehensive view of your security state in AWS. Security Hub CSPM
-collects security data from across AWS accounts, AWS services, and supported
-third-party partner products. With Security Hub CSPM, you can check your environment against
-security industry standards and best practices. Security Hub CSPM helps you to analyze your
-security trends and identify the highest priority security issues.
+[AWS Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) gives you a comprehensive view of your security state in AWS. Security Hub CSPM collects security data from across AWS accounts, AWS services, and supported third-party partner products. With Security Hub CSPM, you can check your environment against security industry standards and best practices. Security Hub CSPM helps you to analyze your security trends and identify the highest priority security issues.
 
-By using the integration between Patch Manager, and Security Hub CSPM, you can
-send findings about noncompliant nodes from Patch Manager to Security Hub CSPM. A finding is the
-observable record of a security check or security-related detection. Security Hub CSPM can then
-include those patch-related findings in its analysis of your security
-posture.
+By using the integration between Patch Manager, and Security Hub CSPM, you can send findings about noncompliant nodes from Patch Manager to Security Hub CSPM. A finding is the observable record of a security check or security-related detection. Security Hub CSPM can then include those patch-related findings in its analysis of your security posture.
 
-The information in the following topics applies no matter which method or type of
-configuration you are using for your patching operations:
-
-- A patch policy configured in Quick Setup
-- A Host Management option configured in Quick Setup
-- A maintenance window to run a patch `Scan` or
-  `Install` task
-- An on-demand **Patch now** operation
+The information in the following topics applies no matter which method or type of configuration you are using for your patching operations:
++ A patch policy configured in Quick Setup
++ A Host Management option configured in Quick Setup
++ A maintenance window to run a patch `Scan` or `Install` task
++ An on-demand **Patch now** operation
 
 ## How Patch Manager sends findings to Security Hub CSPM
+<a name="securityhub-integration-sending-findings"></a>
 
-In Security Hub CSPM, security issues are tracked as findings. Some findings come from
-issues that are detected by other AWS services or by third-party partners.
-Security Hub CSPM also has a set of rules that it uses to detect security issues and
-generate findings.
+In Security Hub CSPM, security issues are tracked as findings. Some findings come from issues that are detected by other AWS services or by third-party partners. Security Hub CSPM also has a set of rules that it uses to detect security issues and generate findings.
 
-Patch Manager is one of the Systems Manager tools that sends findings to Security Hub CSPM. After you
-perform a patching operation by running a SSM document
-(`AWS-RunPatchBaseline`,
-`AWS-RunPatchBaselineAssociation`, or
-`AWS-RunPatchBaselineWithHooks`), the patching information is
-sent to Inventory or Compliance, tools in AWS Systems Manager, or both. After Inventory,
-Compliance, or both receive the data, Patch Manager receives a notification. Then,
-Patch Manager evaluates the data for accuracy, formatting, and compliance. If all
-conditions are met, Patch Manager forwards the data to Security Hub CSPM.
+ Patch Manager is one of the Systems Manager tools that sends findings to Security Hub CSPM. After you perform a patching operation by running a SSM document (`AWS-RunPatchBaseline`, `AWS-RunPatchBaselineAssociation`, or `AWS-RunPatchBaselineWithHooks`), the patching information is sent to Inventory or Compliance, tools in AWS Systems Manager, or both. After Inventory, Compliance, or both receive the data, Patch Manager receives a notification. Then, Patch Manager evaluates the data for accuracy, formatting, and compliance. If all conditions are met, Patch Manager forwards the data to Security Hub CSPM.
 
-Security Hub CSPM provides tools to manage findings from across all of these sources. You
-can view and filter lists of findings and view details for a finding. For more
-information, see [Viewing
-findings](../../../securityhub/latest/userguide/securityhub-findings-viewing.md "../../../securityhub/latest/userguide/securityhub-findings-viewing.md") in the _AWS Security Hub User Guide_.
-You can also track the status of an investigation into a finding. For more
-information, see [Taking action on findings](../../../securityhub/latest/userguide/securityhub-findings-taking-action.md "../../../securityhub/latest/userguide/securityhub-findings-taking-action.md") in the _AWS Security Hub User Guide_.
+Security Hub CSPM provides tools to manage findings from across all of these sources. You can view and filter lists of findings and view details for a finding. For more information, see [Viewing findings](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-viewing.html) in the *AWS Security Hub User Guide*. You can also track the status of an investigation into a finding. For more information, see [Taking action on findings](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-taking-action.html) in the *AWS Security Hub User Guide*.
 
-All findings in Security Hub CSPM use a standard JSON format called the AWS Security
-Finding Format (ASFF). The ASFF includes details about the source of the issue,
-the affected resources, and the current status of the finding. For more
-information, see [AWS
-Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.htm.md "../../../securityhub/latest/userguide/securityhub-findings-format.htm.md") in the _AWS Security Hub User Guide_.
+All findings in Security Hub CSPM use a standard JSON format called the AWS Security Finding Format (ASFF). The ASFF includes details about the source of the issue, the affected resources, and the current status of the finding. For more information, see [AWS Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.htm) in the *AWS Security Hub User Guide*.
 
 ### Types of findings that Patch Manager sends
+<a name="securityhub-integration-finding-types"></a>
 
-Patch Manager sends the findings to Security Hub CSPM using the [AWS Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md"). In ASFF, the
-`Types` field provides the finding type. Findings from
-Patch Manager have the following value for `Types`:
+Patch Manager sends the findings to Security Hub CSPM using the [AWS Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html). In ASFF, the `Types` field provides the finding type. Findings from Patch Manager have the following value for `Types`:
++ Software and Configuration Checks/Patch Management
 
-- Software and Configuration Checks/Patch Management
+ Patch Manager sends one finding per noncompliant managed node. The finding is reported with the resource type [`AwsEc2Instance`](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-attributes.html#asff-resourcedetails-awsec2instance) so that findings can be correlated with other Security Hub CSPM integrations that report `AwsEc2Instance` resource types. Patch Manager only forwards a finding to Security Hub CSPM if the operation discovered the managed node to be noncompliant. The finding includes the Patch Summary results. 
 
-Patch Manager sends one finding per noncompliant managed node. The finding is
-reported with the resource type [`AwsEc2Instance`](../../../securityhub/latest/userguide/securityhub-findings-format-attributes.md#asff-resourcedetails-awsec2instance "../../../securityhub/latest/userguide/securityhub-findings-format-attributes.md#asff-resourcedetails-awsec2instance") so that findings can be
-correlated with other Security Hub CSPM integrations that report
-`AwsEc2Instance` resource types. Patch Manager only forwards a
-finding to Security Hub CSPM if the operation discovered the managed node to be
-noncompliant. The finding includes the Patch Summary results.
+**Note**  
+After reporting a noncompliant node to Security Hub CSPM. Patch Manager doesn't send an update to Security Hub CSPM after the node is made compliant. You can manually resolve findings in Security Hub CSPM after the required patches have been applied to the managed node.
 
-###### Note
-
-After reporting a noncompliant node to Security Hub CSPM. Patch Manager doesn't send an
-update to Security Hub CSPM after the node is made compliant. You can manually
-resolve findings in Security Hub CSPM after the required patches have been applied
-to the managed node.
-
-For more information about compliance definitions, see [Patch compliance state values](patch-manager-compliance-states.md "patch-manager-compliance-states.md"). For more information about
-`PatchSummary`, see [PatchSummary](../../../securityhub/1.0/APIReference/API_PatchSummary.md "../../../securityhub/1.0/APIReference/API_PatchSummary.md") in the
-_AWS Security Hub API Reference_.
+For more information about compliance definitions, see [Patch compliance state values](patch-manager-compliance-states.md). For more information about `PatchSummary`, see [PatchSummary](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_PatchSummary.html) in the *AWS Security Hub API Reference*.
 
 ### Latency for sending findings
+<a name="securityhub-integration-finding-latency"></a>
 
-When Patch Manager creates a new finding, it's usually sent to Security Hub CSPM within a
-few seconds to 2 hours. The speed depends on the traffic in the AWS Region
-being processed at that time.
+When Patch Manager creates a new finding, it's usually sent to Security Hub CSPM within a few seconds to 2 hours. The speed depends on the traffic in the AWS Region being processed at that time.
 
 ### Retrying when Security Hub CSPM isn't available
+<a name="securityhub-integration-retry-send"></a>
 
-If there is a service outage, an AWS Lambda function is run to put the
-messages back into the main queue after the service is running again. After
-the messages are in the main queue, the retry is automatic.
+If there is a service outage, an AWS Lambda function is run to put the messages back into the main queue after the service is running again. After the messages are in the main queue, the retry is automatic.
 
-If Security Hub CSPM isn't available, Patch Manager retries sending the findings until
-they're received.
+If Security Hub CSPM isn't available, Patch Manager retries sending the findings until they're received.
 
 ### Viewing findings in Security Hub CSPM
+<a name="securityhub-integration-view-findings"></a>
 
-This procedure describes how to view findings in Security Hub CSPM about managed nodes
-in your fleet that are out of patch compliance.
+This procedure describes how to view findings in Security Hub CSPM about managed nodes in your fleet that are out of patch compliance.
 
-###### To review Security Hub CSPM findings for patch compliance
+**To review Security Hub CSPM findings for patch compliance**
 
-1. Sign in to the AWS Management Console and open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
-2. In the navigation pane, choose
-   **Findings**.
-3. Choose the **Add filters** (
-   ![The Search icon](images/search-icon.png)
-   ) box.
-4. In the menu, under **Filters**, choose
-   **Product name**.
-5. In the dialog box that opens, choose **is** in
-   the first field and then enter `Systems Manager
- Patch Manager` in the second field.
-6. Choose **Apply**.
-7. Add any additional filters you want to help narrow down your
-   results.
-8. In the list of results, choose the title of a finding you want
-   more information about.
+1. Sign in to the AWS Management Console and open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/).
 
-A pane opens on the right side of the screen with more details
-about the resource, the issue discovered, and a recommended
-remediation.
+1. In the navigation pane, choose **Findings**.
 
-###### Important
+1. Choose the **Add filters** (![The Search icon](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)) box.
 
-Currently, Security Hub CSPM reports the resource type of all managed
-nodes as `EC2 Instance`. This includes on-premises
-servers and virtual machines (VMs) that you have registered for
-use with Systems Manager.
+1. In the menu, under **Filters**, choose **Product name**.
 
-###### Severity classifications
+1. In the dialog box that opens, choose **is** in the first field and then enter **Systems Manager Patch Manager** in the second field.
 
-The list of findings for `Systems Manager Patch
- Manager` includes a report of the severity of the
-finding. **Severity** levels include the following,
-from lowest to highest:
+1. Choose **Apply**.
 
-- **INFORMATIONAL** – No issue was
-  found.
-- **LOW** – The issue does not require
-  remediation.
-- **MEDIUM** – The issue must be addressed
-  but is not urgent.
-- **HIGH** – The issue must be addressed as
-  a priority.
-- **CRITICAL** – The issue must be
-  remediated immediately to avoid escalation.
+1. Add any additional filters you want to help narrow down your results.
 
-Severity is determined by the most severe noncompliant package on an
-instance. Because you can have multiple patch baselines with multiple
-severity levels, the highest severity is reported out of all the
-noncompliant packages. For example, suppose you have two noncompliant
-packages where the severity of package A is "Critical" and the severity of
-package B is "Low". "Critical" will be reported as the severity.
+1. In the list of results, choose the title of a finding you want more information about.
 
-Note that the severity field correlates directly with the Patch Manager
-`Compliance` field. This is a field that you set assign to
-individual patches that match the rule. Because this `Compliance`
-field is assigned to individual patches, it is not reflected at the Patch
-Summary level.
+   A pane opens on the right side of the screen with more details about the resource, the issue discovered, and a recommended remediation.
+**Important**  
+Currently, Security Hub CSPM reports the resource type of all managed nodes as `EC2 Instance`. This includes on-premises servers and virtual machines (VMs) that you have registered for use with Systems Manager.
+
+**Severity classifications**  
+The list of findings for **Systems Manager Patch Manager** includes a report of the severity of the finding. **Severity** levels include the following, from lowest to highest:
++ **INFORMATIONAL ** – No issue was found.
++ **LOW** – The issue does not require remediation.
++ **MEDIUM** – The issue must be addressed but is not urgent.
++ **HIGH** – The issue must be addressed as a priority.
++ **CRITICAL** – The issue must be remediated immediately to avoid escalation.
+
+Severity is determined by the most severe noncompliant package on an instance. Because you can have multiple patch baselines with multiple severity levels, the highest severity is reported out of all the noncompliant packages. For example, suppose you have two noncompliant packages where the severity of package A is "Critical" and the severity of package B is "Low". "Critical" will be reported as the severity.
+
+Note that the severity field correlates directly with the Patch Manager `Compliance` field. This is a field that you set assign to individual patches that match the rule. Because this `Compliance` field is assigned to individual patches, it is not reflected at the Patch Summary level.
 
 **Related content**
-
-- [Findings](../../../securityhub/latest/userguide/securityhub-findings.md "../../../securityhub/latest/userguide/securityhub-findings.md") in the
-  _AWS Security Hub User Guide_
-- [Multi-Account patch compliance with Patch Manager and Security
-  Hub](https://aws.amazon.com/blogs/mt/multi-account-patch-compliance-with-patch-manager-and-security-hub/ "https://aws.amazon.com/blogs/mt/multi-account-patch-compliance-with-patch-manager-and-security-hub/") in the _AWS Management & Governance
-  Blog_
++ [Findings](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings.html) in the *AWS Security Hub User Guide*
++ [Multi-Account patch compliance with Patch Manager and Security Hub](https://aws.amazon.com/blogs/mt/multi-account-patch-compliance-with-patch-manager-and-security-hub/) in the *AWS Management & Governance Blog*
 
 ## Typical finding from Patch Manager
+<a name="securityhub-integration-finding-example"></a>
 
-Patch Manager sends findings to Security Hub CSPM using the [AWS
-Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md").
+Patch Manager sends findings to Security Hub CSPM using the [AWS Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html).
 
 Here is an example of a typical finding from Patch Manager.
 
@@ -234,36 +161,29 @@ Here is an example of a typical finding from Patch Manager.
 ```
 
 ## Turning on and configuring the integration
+<a name="securityhub-integration-enable"></a>
 
-To use the Patch Manager integration with Security Hub CSPM, you must turn on Security Hub CSPM. For
-information about how to turn on Security Hub CSPM, see [Setting up
-Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-settingup.md "../../../securityhub/latest/userguide/securityhub-settingup.md") in the _AWS Security Hub User Guide_.
+To use the Patch Manager integration with Security Hub CSPM, you must turn on Security Hub CSPM. For information about how to turn on Security Hub CSPM, see [Setting up Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html) in the *AWS Security Hub User Guide*.
 
-The following procedure describes how to integrate Patch Manager and Security Hub CSPM when
-Security Hub CSPM is already active but Patch Manager integration is turned off. You only need to
-complete this procedure if integration was manually turned off.
+The following procedure describes how to integrate Patch Manager and Security Hub CSPM when Security Hub CSPM is already active but Patch Manager integration is turned off. You only need to complete this procedure if integration was manually turned off.
 
-###### To add Patch Manager to Security Hub CSPM integration
+**To add Patch Manager to Security Hub CSPM integration**
 
 1. In the navigation pane, choose **Patch Manager**.
-2. Choose the **Settings** tab.
 
--or-
+1. Choose the **Settings** tab.
 
-If you are accessing Patch Manager for the first time in the current
-AWS Region, choose **Start with an overview**, and
-then choose the **Settings** tab. 3. Under the **Export to Security Hub CSPM** section, to the right
-of **Patch compliance findings aren't being exported to Security
-Hub**, choose **Enable**.
+   -or-
+
+   If you are accessing Patch Manager for the first time in the current AWS Region, choose **Start with an overview**, and then choose the **Settings** tab.
+
+1. Under the **Export to Security Hub CSPM** section, to the right of **Patch compliance findings aren't being exported to Security Hub**, choose **Enable**.
 
 ## How to stop sending findings
+<a name="securityhub-integration-disable"></a>
 
-To stop sending findings to Security Hub CSPM, you can use either the Security Hub CSPM console or the
-API.
+To stop sending findings to Security Hub CSPM, you can use either the Security Hub CSPM console or the API.
 
-For more information, see the following topics in the _AWS Security Hub User Guide_:
-
-- [Disabling and enabling the flow of findings
-  from an integration (console)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-console")
-- [Disabling the flow of findings from an
-  integration (Security Hub CSPM API, AWS CLI)](../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api "../../../securityhub/latest/userguide/securityhub-integrations-managing.md#securityhub-integration-findings-flow-disable-api")
+For more information, see the following topics in the *AWS Security Hub User Guide*:
++ [Disabling and enabling the flow of findings from an integration (console)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-integrations-managing.html#securityhub-integration-findings-flow-console)
++ [Disabling the flow of findings from an integration (Security Hub CSPM API, AWS CLI)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-integrations-managing.html#securityhub-integration-findings-flow-disable-api)

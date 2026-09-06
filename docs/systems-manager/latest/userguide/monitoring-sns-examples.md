@@ -1,20 +1,18 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Example Amazon SNS notifications for AWS Systems Manager
+<a name="monitoring-sns-examples"></a>
 
-You can configure Amazon Simple Notification Service (Amazon SNS) to send notifications about the status of
-commands that you send using Run Command or Maintenance Windows, which are tools in
-AWS Systems Manager.
+You can configure Amazon Simple Notification Service (Amazon SNS) to send notifications about the status of commands that you send using Run Command or Maintenance Windows, which are tools in AWS Systems Manager.
 
-###### Note
+**Note**  
+This guide doesn't address how to configure notifications for Run Command or Maintenance Windows. For information about configuring Run Command or Maintenance Windows to send Amazon SNS notifications about the status of commands, see [Configure Amazon SNS notifications for AWS Systems Manager](monitoring-sns-notifications.md#monitoring-sns-configure). 
 
-This guide doesn't address how to configure notifications for Run Command or
-Maintenance Windows. For information about configuring Run Command or Maintenance Windows to send Amazon SNS
-notifications about the status of commands, see [Configure Amazon SNS notifications for AWS Systems Manager](monitoring-sns-notifications.md#monitoring-sns-configure "monitoring-sns-notifications.md#monitoring-sns-configure").
+The following examples show the structure of the JSON output returned by Amazon SNS notifications when configured for Run Command or Maintenance Windows.
 
-The following examples show the structure of the JSON output returned by Amazon SNS
-notifications when configured for Run Command or Maintenance Windows.
-
-**Sample JSON Output for Command summary messages using
-instance ID targeting**
+**Sample JSON Output for Command summary messages using instance ID targeting**
 
 ```
 {
@@ -33,8 +31,7 @@ instance ID targeting**
 }
 ```
 
-**Sample JSON Output for Command summary messages using
-tag-based targeting**
+**Sample JSON Output for Command summary messages using tag-based targeting**
 
 ```
 {

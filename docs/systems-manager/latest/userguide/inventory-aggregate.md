@@ -1,54 +1,30 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Aggregating inventory data
+<a name="inventory-aggregate"></a>
 
-After you configure your managed nodes for AWS Systems Manager Inventory, you can view
-aggregated counts of inventory data. For example, say you configured dozens or hundreds
-of managed nodes to collect the `AWS:Application` inventory type. By using
-the information in this section, you can see an exact count of how many nodes are
-configured to collect this data.
+After you configure your managed nodes for AWS Systems Manager Inventory, you can view aggregated counts of inventory data. For example, say you configured dozens or hundreds of managed nodes to collect the `AWS:Application` inventory type. By using the information in this section, you can see an exact count of how many nodes are configured to collect this data.
 
-You can also see specific inventory details by aggregating on a data type. For
-example, the `AWS:InstanceInformation` inventory type collects operating
-system platform information with the `Platform` data type. By aggregating
-data on the `Platform` data type, you can quickly see how many nodes are
-running Windows Server, how many are running Linux, and how many are running macOS.
+You can also see specific inventory details by aggregating on a data type. For example, the `AWS:InstanceInformation` inventory type collects operating system platform information with the `Platform` data type. By aggregating data on the `Platform` data type, you can quickly see how many nodes are running Windows Server, how many are running Linux, and how many are running macOS. 
 
-The procedures in this section describe how to view aggregated counts of inventory
-data by using the AWS Command Line Interface (AWS CLI). You can also view pre-configured aggregated counts
-in the AWS Systems Manager console on the **Inventory** page. These
-pre-configured dashboards are called _Inventory Insights_ and they
-offer one-click remediation of your inventory configuration issues.
+The procedures in this section describe how to view aggregated counts of inventory data by using the AWS Command Line Interface (AWS CLI). You can also view pre-configured aggregated counts in the AWS Systems Manager console on the **Inventory** page. These pre-configured dashboards are called *Inventory Insights* and they offer one-click remediation of your inventory configuration issues.
 
-Note the following important details about aggregation counts of inventory
-data:
+Note the following important details about aggregation counts of inventory data:
++ If you terminate a managed node that is configured to collect inventory data, Systems Manager retains the inventory data for 30 days and then deletes it. For running nodes, the systems deletes inventory data that is older than 30 days. If you need to store inventory data longer than 30 days, you can use AWS Config to record history or periodically query and upload the data to an Amazon Simple Storage Service (Amazon S3) bucket.
++ If a node was previously configured to report a specific inventory data type, for example `AWS:Network`, and later you change the configuration to stop collecting that type, aggregation counts still show `AWS:Network` data until the node has been terminated and 30 days have passed.
 
-- If you terminate a managed node that is configured to collect inventory data,
-  Systems Manager retains the inventory data for 30 days and then deletes it. For running
-  nodes, the systems deletes inventory data that is older than 30 days. If you
-  need to store inventory data longer than 30 days, you can use AWS Config to record
-  history or periodically query and upload the data to an Amazon Simple Storage Service (Amazon S3)
-  bucket.
-- If a node was previously configured to report a specific inventory data type,
-  for example `AWS:Network`, and later you change the configuration to
-  stop collecting that type, aggregation counts still show
-  `AWS:Network` data until the node has been terminated and 30 days
-  have passed.
-  For information about how to quickly configure and collect inventory data from all
-  nodes in a specific AWS account (and any future nodes that might be created in that
-  account), see [Inventory all managed nodes in your AWS account](inventory-collection.md#inventory-management-inventory-all "inventory-collection.md#inventory-management-inventory-all").
+For information about how to quickly configure and collect inventory data from all nodes in a specific AWS account (and any future nodes that might be created in that account), see [Inventory all managed nodes in your AWS account](inventory-collection.md#inventory-management-inventory-all).
 
-###### Topics
-
-- [Aggregating inventory data to see counts of nodes that collect specific types of data](#inventory-aggregate-type "#inventory-aggregate-type")
-- [Aggregating inventory data with groups to see which nodes are and aren't configured to collect an inventory type](#inventory-aggregate-groups "#inventory-aggregate-groups")
+**Topics**
++ [Aggregating inventory data to see counts of nodes that collect specific types of data](#inventory-aggregate-type)
++ [Aggregating inventory data with groups to see which nodes are and aren't configured to collect an inventory type](#inventory-aggregate-groups)
 
 ## Aggregating inventory data to see counts of nodes that collect specific types of data
+<a name="inventory-aggregate-type"></a>
 
-You can use the AWS Systems Manager [GetInventory](../APIReference/API_GetInventory.md "../APIReference/API_GetInventory.md") API operation to view aggregated counts of nodes that
-collect one or more inventory types and data types. For example, the
-`AWS:InstanceInformation` inventory type lets you view an
-aggregate of operating systems by using the GetInventory API operation with the
-`AWS:InstanceInformation.PlatformType` data type. Here is an example
-AWS CLI command and output.
+You can use the AWS Systems Manager [GetInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetInventory.html) API operation to view aggregated counts of nodes that collect one or more inventory types and data types. For example, the `AWS:InstanceInformation` inventory type lets you view an aggregate of operating systems by using the GetInventory API operation with the `AWS:InstanceInformation.PlatformType` data type. Here is an example AWS CLI command and output.
 
 ```
 aws ssm get-inventory --aggregators "Expression=AWS:InstanceInformation.PlatformType"
@@ -79,21 +55,14 @@ The system returns information like the following.
 }
 ```
 
-###### Getting started
-
-Determine the inventory types and data types for which you want to view
-counts. You can view a list of inventory types and data types that support
-aggregation by running the following command in the AWS CLI.
+**Getting started**  
+Determine the inventory types and data types for which you want to view counts. You can view a list of inventory types and data types that support aggregation by running the following command in the AWS CLI.
 
 ```
 aws ssm get-inventory-schema --aggregator
 ```
 
-The command returns a JSON list of inventory types and data types that support
-aggregation. The **TypeName** field shows supported inventory
-types. And the **Name** field shows each data type. For example, in
-the following list, the `AWS:Application` inventory type includes data
-types for `Name` and `Version`.
+The command returns a JSON list of inventory types and data types that support aggregation. The **TypeName** field shows supported inventory types. And the **Name** field shows each data type. For example, in the following list, the `AWS:Application` inventory type includes data types for `Name` and `Version`.
 
 ```
 {
@@ -197,11 +166,10 @@ types for `Name` and `Version`.
 }
 ```
 
-You can aggregate data for any of the listed inventory types by creating a command
-that uses the following syntax.
+You can aggregate data for any of the listed inventory types by creating a command that uses the following syntax.
 
 ```
-aws ssm get-inventory --aggregators "Expression=`InventoryType`.`DataType`"
+aws ssm get-inventory --aggregators "Expression={{InventoryType}}.{{DataType}}"
 ```
 
 Here are some examples.
@@ -216,22 +184,18 @@ aws ssm get-inventory --aggregators "Expression=AWS:WindowsRole.Name"
 
 **Example 2**
 
-This example aggregates a count of the applications installed on your
-nodes.
+This example aggregates a count of the applications installed on your nodes.
 
 ```
 aws ssm get-inventory --aggregators "Expression=AWS:Application.Name"
 ```
 
-###### Combining multiple aggregators
-
-You can also combine multiple inventory types and data types in one command to
-help you better understand the data. Here are some examples.
+**Combining multiple aggregators**  
+You can also combine multiple inventory types and data types in one command to help you better understand the data. Here are some examples.
 
 **Example 1**
 
-This example aggregates a count of the operating system types used by your nodes.
-It also returns the specific name of the operating systems.
+This example aggregates a count of the operating system types used by your nodes. It also returns the specific name of the operating systems.
 
 ```
 aws ssm get-inventory --aggregators '[{"Expression": "AWS:InstanceInformation.PlatformType", "Aggregators":[{"Expression": "AWS:InstanceInformation.PlatformName"}]}]'
@@ -239,16 +203,13 @@ aws ssm get-inventory --aggregators '[{"Expression": "AWS:InstanceInformation.Pl
 
 **Example 2**
 
-This example aggregates a count of the applications running on your nodes and the
-specific version of each application.
+This example aggregates a count of the applications running on your nodes and the specific version of each application.
 
 ```
 aws ssm get-inventory --aggregators '[{"Expression": "AWS:Application.Name", "Aggregators":[{"Expression": "AWS:Application.Version"}]}]'
 ```
 
-If you prefer, you can create an aggregation expression with one or more inventory
-types and data types in a JSON file and call the file from the AWS CLI. The JSON in
-the file must use the following syntax.
+If you prefer, you can create an aggregation expression with one or more inventory types and data types in a JSON file and call the file from the AWS CLI. The JSON in the file must use the following syntax.
 
 ```
 [
@@ -263,7 +224,7 @@ the file must use the following syntax.
 ]
 ```
 
-You must save the file with the .json file extension.
+You must save the file with the .json file extension. 
 
 Here is an example that uses multiple inventory types and data types.
 
@@ -285,80 +246,71 @@ Here is an example that uses multiple inventory types and data types.
 ]
 ```
 
-Use the following command to call the file from the AWS CLI.
+Use the following command to call the file from the AWS CLI. 
 
 ```
-aws ssm get-inventory --aggregators file://`file_name`.json
+aws ssm get-inventory --aggregators file://{{file_name}}.json
 ```
 
 The command returns information like the following.
 
 ```
-{"Entities":
+{"Entities": 
  [
-   {"Data":
-     {"AWS:Application":
-       {"Content":
+   {"Data": 
+     {"AWS:Application": 
+       {"Content": 
          [
-           {"Count": "3",
-            "PlatformType": "linux",
-            "Version": "2.6.5",
-            "Name": "audit-libs"},
-           {"Count": "2",
-            "PlatformType": "windows",
-            "Version": "2.6.5",
-            "Name": "audit-libs"},
-           {"Count": "4",
-            "PlatformType": "windows",
-            "Version": "6.2.8",
-            "Name": "microsoft office"},
-           {"Count": "2",
-            "PlatformType": "windows",
-            "Version": "2.6.5",
-            "Name": "chrome"},
-           {"Count": "1",
-            "PlatformType": "linux",
-            "Version": "2.6.5",
-            "Name": "chrome"},
-           {"Count": "2",
-            "PlatformType": "linux",
-            "Version": "6.3",
+           {"Count": "3", 
+            "PlatformType": "linux", 
+            "Version": "2.6.5", 
+            "Name": "audit-libs"}, 
+           {"Count": "2", 
+            "PlatformType": "windows", 
+            "Version": "2.6.5", 
+            "Name": "audit-libs"}, 
+           {"Count": "4", 
+            "PlatformType": "windows", 
+            "Version": "6.2.8", 
+            "Name": "microsoft office"}, 
+           {"Count": "2", 
+            "PlatformType": "windows", 
+            "Version": "2.6.5", 
+            "Name": "chrome"}, 
+           {"Count": "1", 
+            "PlatformType": "linux", 
+            "Version": "2.6.5", 
+            "Name": "chrome"}, 
+           {"Count": "2", 
+            "PlatformType": "linux", 
+            "Version": "6.3", 
             "Name": "authconfig"}
          ]
        }
-     },
+     }, 
     "ResourceType": "ManagedInstance"}
  ]
 }
 ```
 
 ## Aggregating inventory data with groups to see which nodes are and aren't configured to collect an inventory type
+<a name="inventory-aggregate-groups"></a>
 
-Groups in Systems Manager Inventory allow you to quickly see a count of which managed nodes
-are and aren’t configured to collect one or more inventory types. With groups, you
-specify one or more inventory types and a filter that uses the `exists`
-operator.
+Groups in Systems Manager Inventory allow you to quickly see a count of which managed nodes are and aren’t configured to collect one or more inventory types. With groups, you specify one or more inventory types and a filter that uses the `exists` operator.
 
-For example, say that you have four managed nodes configured to collect the
-following inventory types:
+For example, say that you have four managed nodes configured to collect the following inventory types:
++ Node 1: `AWS:Application`
++ Node 2: `AWS:File`
++ Node 3: `AWS:Application`, `AWS:File`
++ Node 4: `AWS:Network`
 
-- Node 1: `AWS:Application`
-- Node 2: `AWS:File`
-- Node 3: `AWS:Application`, `AWS:File`
-- Node 4: `AWS:Network`
-
-You can run the following command from the AWS CLI to see how many nodes are
-configured to collect both the `AWS:Application` and `AWS:File
- inventory` types. The response also returns a count of how many nodes
-aren't configured to collect both of these inventory types.
+You can run the following command from the AWS CLI to see how many nodes are configured to collect both the `AWS:Application` and `AWS:File inventory` types. The response also returns a count of how many nodes aren't configured to collect both of these inventory types.
 
 ```
 aws ssm get-inventory --aggregators 'Groups=[{Name=ApplicationAndFile,Filters=[{Key=TypeName,Values=[AWS:Application],Type=Exists},{Key=TypeName,Values=[AWS:File],Type=Exists}]}]'
 ```
 
-The command response shows that only one managed node is configured to collect
-both the `AWS:Application` and `AWS:File` inventory
-types.
+The command response shows that only one managed node is configured to collect both the `AWS:Application` and `AWS:File` inventory types.
 
 ```
 {
@@ -381,15 +333,10 @@ types.
 }
 ```
 
-###### Note
+**Note**  
+Groups don't return data type counts. Also, you can't drill-down into the results to see the IDs of nodes that are or aren't configured to collect the inventory type.
 
-Groups don't return data type counts. Also, you can't drill-down into the
-results to see the IDs of nodes that are or aren't configured to collect the
-inventory type.
-
-If you prefer, you can create an aggregation expression with one or more inventory
-types in a JSON file and call the file from the AWS CLI. The JSON in the file must use
-the following syntax:
+If you prefer, you can create an aggregation expression with one or more inventory types in a JSON file and call the file from the AWS CLI. The JSON in the file must use the following syntax:
 
 ```
 {
@@ -397,19 +344,19 @@ the following syntax:
       {
          "Groups":[
             {
-               "Name":"`Name`",
+               "Name":"{{Name}}",
                "Filters":[
                   {
                      "Key":"TypeName",
                      "Values":[
-                        "`Inventory_type`"
+                        "{{Inventory_type}}"
                      ],
                      "Type":"Exists"
                   },
                   {
                      "Key":"TypeName",
                      "Values":[
-                        "`Inventory_type`"
+                        "{{Inventory_type}}"
                      ],
                      "Type":"Exists"
                   }
@@ -421,27 +368,20 @@ the following syntax:
 }
 ```
 
-You must save the file with the .json file extension.
+You must save the file with the .json file extension. 
 
-Use the following command to call the file from the AWS CLI.
+Use the following command to call the file from the AWS CLI. 
 
 ```
-aws ssm get-inventory --cli-input-json file://`file_name`.json
+aws ssm get-inventory --cli-input-json file://{{file_name}}.json
 ```
 
-###### Additional examples
-
-The following examples show you how to aggregate inventory data to see which
-managed nodes are and aren't configured to collect the specified inventory
-types. These examples use the AWS CLI. Each example includes a full command with
-filters that you can run from the command line and a sample input.json file if
-you prefer to enter the information in a file.
+**Additional examples**  
+The following examples show you how to aggregate inventory data to see which managed nodes are and aren't configured to collect the specified inventory types. These examples use the AWS CLI. Each example includes a full command with filters that you can run from the command line and a sample input.json file if you prefer to enter the information in a file.
 
 **Example 1**
 
-This example aggregates a count of nodes that are and aren't configured to collect
-either the `AWS:Application` or the `AWS:File` inventory
-types.
+This example aggregates a count of nodes that are and aren't configured to collect either the `AWS:Application` or the `AWS:File` inventory types.
 
 Run the following command from the AWS CLI.
 
@@ -449,8 +389,7 @@ Run the following command from the AWS CLI.
 aws ssm get-inventory --aggregators 'Groups=[{Name=ApplicationORFile,Filters=[{Key=TypeName,Values=[AWS:Application, AWS:File],Type=Exists}]}]'
 ```
 
-If you prefer to use a file, copy and paste the following sample into a file and
-save it as input.json.
+If you prefer to use a file, copy and paste the following sample into a file and save it as input.json.
 
 ```
 {
@@ -507,9 +446,7 @@ The command returns information like the following.
 
 **Example 2**
 
-This example aggregates a count of nodes that are and aren't configured to collect
-the `AWS:Application`, `AWS:File`, and
-`AWS:Network` inventory types.
+This example aggregates a count of nodes that are and aren't configured to collect the `AWS:Application`, `AWS:File`, and `AWS:Network` inventory types.
 
 Run the following command from the AWS CLI.
 
@@ -517,8 +454,7 @@ Run the following command from the AWS CLI.
 aws ssm get-inventory --aggregators 'Groups=[{Name=Application,Filters=[{Key=TypeName,Values=[AWS:Application],Type=Exists}]}, {Name=File,Filters=[{Key=TypeName,Values=[AWS:File],Type=Exists}]}, {Name=Network,Filters=[{Key=TypeName,Values=[AWS:Network],Type=Exists}]}]'
 ```
 
-If you prefer to use a file, copy and paste the following sample into a file and
-save it as input.json.
+If you prefer to use a file, copy and paste the following sample into a file and save it as input.json.
 
 ```
 {

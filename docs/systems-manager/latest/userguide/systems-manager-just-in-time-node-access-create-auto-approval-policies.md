@@ -1,11 +1,11 @@
-# Create an auto-approval policy for just-in-time node access
 
-Auto-approval policies use the Cedar policy language to define which users can
-automatically connect to the specified nodes without manual approval. An
-auto-approval policy contains multiple `permit` statements specifying
-the `principal` and `resource`. Each statement includes a
-`when` clause defining the conditions for automatic
-approval.
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
+# Create an auto-approval policy for just-in-time node access
+<a name="systems-manager-just-in-time-node-access-create-auto-approval-policies"></a>
+
+Auto-approval policies use the Cedar policy language to define which users can automatically connect to the specified nodes without manual approval. An auto-approval policy contains multiple `permit` statements specifying the `principal` and `resource`. Each statement includes a `when` clause defining the conditions for automatic approval.
 
 The following is an example auto-approval policy.
 
@@ -38,21 +38,16 @@ when {
 };
 ```
 
-The following procedure describes how to create an auto-approval policy for
-just-in-time node acces. The access duration for an access request that is
-automatically approved is 1 hour. This value can't be changed. You can only have
-one auto-approval policy per AWS account and AWS Region. For more
-information about how to construct policy statements, see [Statement structure and built-in operators for auto-approval and deny-access policies](auto-approval-deny-access-policy-statement-structure.md "auto-approval-deny-access-policy-statement-structure.md").
+The following procedure describes how to create an auto-approval policy for just-in-time node acces. The access duration for an access request that is automatically approved is 1 hour. This value can't be changed. You can only have one auto-approval policy per AWS account and AWS Region. For more information about how to construct policy statements, see [Statement structure and built-in operators for auto-approval and deny-access policies](auto-approval-deny-access-policy-statement-structure.md).
 
-###### To create an auto-approval policy
+**To create an auto-approval policy**
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. Select **Manage node access** in the navigation
-   pane.
-3. In the **Approval policies** tab, select
-   **Create an auto-approval policy**.
-4. Enter your policy statement for the auto-approval policy in the
-   **Policy statement** section. You can use the
-   **Sample statements** provided to help you create
-   your policy.
-5. Select **Create auto-approval policy**.
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
+
+1. Select **Manage node access** in the navigation pane.
+
+1. In the **Approval policies** tab, select **Create an auto-approval policy**.
+
+1. Enter your policy statement for the auto-approval policy in the **Policy statement** section. You can use the **Sample statements** provided to help you create your policy.
+
+1. Select **Create auto-approval policy**.

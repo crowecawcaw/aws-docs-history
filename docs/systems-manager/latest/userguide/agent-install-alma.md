@@ -1,143 +1,117 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Manually install SSM Agent on AlmaLinux instances
+<a name="agent-install-alma"></a>
 
-Use the information in this section to help you manually install or reinstall
-SSM Agent on an AlmaLinux instance.
+Use the information in this section to help you manually install or reinstall SSM Agent on an AlmaLinux instance.
 
-###### Before you begin
+**Before you begin**  
+Before you install SSM Agent on an AlmaLinux instance, note the following:
++ Make sure that Python 3 is installed on your AlmaLinux instance. This is required for SSM Agent to work properly.
++ For important information that applies to installation of SSM Agent on all Linux-based operating systems, see [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md).
 
-Before you install SSM Agent on an AlmaLinux instance, note the
-following:
-
-- Make sure that Python 3 is installed on your AlmaLinux instance. This is
-  required for SSM Agent to work properly.
-- For important information that applies to installation of SSM Agent on
-  all Linux-based operating systems, see [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
-
-###### Topics
-
-- [Quick installation commands for SSM Agent on AlmaLinux](#quick-install-alma "#quick-install-alma")
-- [Create custom agent installation commands for AlmaLinux in your Region](#custom-url-alma "#custom-url-alma")
+**Topics**
++ [Quick installation commands for SSM Agent on AlmaLinux](#quick-install-alma)
++ [Create custom agent installation commands for AlmaLinux in your Region](#custom-url-alma)
 
 ## Quick installation commands for SSM Agent on AlmaLinux
+<a name="quick-install-alma"></a>
 
-Use the following steps to manually install SSM Agent on a single instance.
-This procedure uses globally available installation files.
+Use the following steps to manually install SSM Agent on a single instance. This procedure uses globally available installation files. 
 
-###### Before you begin
+**Before you begin**  
+Before you install SSM Agent on a AlmaLinux instance, note the following:
++ Make sure that Python 3 is installed on your AlmaLinux instance. This is required for SSM Agent to work properly.
 
-Before you install SSM Agent on a AlmaLinux instance, note the
-following:
+**To install SSM Agent on AlmaLinux**
 
-- Make sure that Python 3 is installed on your AlmaLinux instance. This
-  is required for SSM Agent to work properly.
+1. Connect to your AlmaLinux instance using your preferred method, such as SSH. 
 
-###### To install SSM Agent on AlmaLinux
+1. Copy the command for your instance’s architecture and run it on the instance.
+**Note**  
+Even though URLs in the following commands include an `ec2-downloads-windows` directory, these are the correct global installation files for AlmaLinux.   
+x86\_64 instances  
 
-1. Connect to your AlmaLinux instance using your preferred method,
-   such as SSH.
-2. Copy the command for your instance’s architecture and run it on
-   the instance.
+   ```
+   sudo dnf install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+   ```  
+ARM64 instances  
 
-###### Note
+   ```
+   sudo dnf install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm
+   ```
 
-Even though URLs in the following commands include an
-`ec2-downloads-windows` directory, these
-are the correct global installation files for AlmaLinux.
+1. (Recommended) Run the following command to verify that the agent is running.
 
-x86\_64 instances
+   ```
+   sudo systemctl status amazon-ssm-agent
+   ```
 
-```
-sudo dnf install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
-```
+   In most cases, the command reports that the agent is running, as shown in the following example.
 
-ARM64 instances
+   ```
+   ● amazon-ssm-agent.service - amazon-ssm-agent
+      Loaded: loaded (/etc/systemd/system/amazon-ssm-agent.service; enabled; vendo>
+      Active: active (running) since Tue 2025-04-19 16:40:41 UTC; 9s ago
+    Main PID: 4898 (amazon-ssm-agen)
+       Tasks: 14 (limit: 4821)
+      Memory: 34.6M
+      CGroup: /system.slice/amazon-ssm-agent.service
+              ├─4898 /usr/bin/amazon-ssm-agent
+              └─4954 /usr/bin/ssm-agent-worker
+               --truncated--
+   ```
 
-```
-sudo dnf install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm
-```
+   In rare cases, the command reports that the agent is installed but not running, as shown in the following example.
 
-3. (Recommended) Run the following command to verify that the agent
-   is running.
+   ```
+   ● amazon-ssm-agent.service - amazon-ssm-agent
+      Loaded: loaded (/etc/systemd/system/amazon-ssm-agent.service; enabled; vendo>
+      Active: inactive (dead) since Tue 2025-04-19 16:42:05 UTC; 2s ago
+               --truncated--
+   ```
 
-```
-sudo systemctl status amazon-ssm-agent
-```
+   To activate the agent in these cases, run the following commands.
 
-In most cases, the command reports that the agent is running, as
-shown in the following example.
+   ```
+   sudo systemctl enable amazon-ssm-agent
+   ```
 
-```
-● amazon-ssm-agent.service - amazon-ssm-agent
-   Loaded: loaded (/etc/systemd/system/amazon-ssm-agent.service; enabled; vendo>
-   Active: active (running) since Tue 2025-04-19 16:40:41 UTC; 9s ago
- Main PID: 4898 (amazon-ssm-agen)
-    Tasks: 14 (limit: 4821)
-   Memory: 34.6M
-   CGroup: /system.slice/amazon-ssm-agent.service
-           ├─4898 /usr/bin/amazon-ssm-agent
-           └─4954 /usr/bin/ssm-agent-worker
-            --truncated--
-```
-
-In rare cases, the command reports that the agent is installed but
-not running, as shown in the following example.
-
-```
-● amazon-ssm-agent.service - amazon-ssm-agent
-   Loaded: loaded (/etc/systemd/system/amazon-ssm-agent.service; enabled; vendo>
-   Active: inactive (dead) since Tue 2025-04-19 16:42:05 UTC; 2s ago
-            --truncated--
-```
-
-To activate the agent in these cases, run the following
-commands.
-
-```
-sudo systemctl enable amazon-ssm-agent
-```
-
-```
-sudo systemctl start amazon-ssm-agent
-```
+   ```
+   sudo systemctl start amazon-ssm-agent
+   ```
 
 ## Create custom agent installation commands for AlmaLinux in your Region
+<a name="custom-url-alma"></a>
 
-When you install SSM Agent on multiple instances using a script or
-template, we recommend using installation files that are stored in the
-AWS Region you're working in.
+When you install SSM Agent on multiple instances using a script or template, we recommend using installation files that are stored in the AWS Region you're working in. 
 
-For the following commands, we provide examples that use a publicly
-accessible S3 bucket in the US East (Ohio) Region (`us-east-2`).
+For the following commands, we provide examples that use a publicly accessible S3 bucket in the US East (Ohio) Region (`us-east-2`). 
 
-###### Tip
+**Tip**  
+You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on AlmaLinux](#quick-install-alma) earlier in this topic with a custom Regional URL you construct.
 
-You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on AlmaLinux](#quick-install-alma "#quick-install-alma")
-earlier in this topic with a custom Regional URL you construct.
+In the following command, replace {{region}} with your own information. For a list of supported {{region}} values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*.
 
-In the following command, replace `region` with your own
-information. For a list of supported `region` values, see the
-**Region** column in [Systems Manager service endpoints](../../../general/latest/gr/ssm.md#ssm_region "../../../general/latest/gr/ssm.md#ssm_region") in the
-_Amazon Web Services General Reference_.
-
-**x86\_64**
+**x86\_64**  
 
 ```
-sudo dnf install -y https://s3.`region`.amazonaws.com/amazon-ssm-`region`/latest/linux_amd64/amazon-ssm-agent.rpm
+sudo dnf install -y https://s3.{{region}}.amazonaws.com/amazon-ssm-{{region}}/latest/linux_amd64/amazon-ssm-agent.rpm
 ```
-
-See the following example.
+See the following example.  
 
 ```
 sudo dnf install -y https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/latest/linux_amd64/amazon-ssm-agent.rpm
 ```
 
-**ARM64**
+**ARM64**  
 
 ```
-sudo dnf install -y https://s3.`region`.amazonaws.com/amazon-ssm-`region`/latest/linux_arm64/amazon-ssm-agent.rpm
+sudo dnf install -y https://s3.{{region}}.amazonaws.com/amazon-ssm-{{region}}/latest/linux_arm64/amazon-ssm-agent.rpm
 ```
-
-See the following example.
+See the following example.  
 
 ```
 sudo dnf install -y https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/latest/linux_arm64/amazon-ssm-agent.rpm

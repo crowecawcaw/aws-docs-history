@@ -1,28 +1,31 @@
+
+
+• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
+
 # Calling the EKS optimized AMI public parameter in Parameter Store
+<a name="parameter-store-public-parameters-eks"></a>
 
-The Amazon Elastic Kubernetes Service (Amazon EKS) service publishes the name of the latest Amazon EKS optimized
-Amazon Machine Image (AMI) as a public parameter. We encourage you to use this AMI when
-adding nodes to an Amazon EKS cluster, as new releases include Kubernetes patches and
-security updates. Previously, to guarantee you were using the latest AMI meant
-checking the Amazon EKS documentation and manually updating any deployment templates or
-resources with the new AMI ID.
+The Amazon Elastic Kubernetes Service (Amazon EKS) service publishes the name of the latest Amazon EKS optimized Amazon Machine Image (AMI) as a public parameter. We encourage you to use this AMI when adding nodes to an Amazon EKS cluster, as new releases include Kubernetes patches and security updates. Previously, to guarantee you were using the latest AMI meant checking the Amazon EKS documentation and manually updating any deployment templates or resources with the new AMI ID.
 
-Use the following command to view the name of the latest Amazon EKS optimized AMI for
-Amazon Linux 2.
+Use the following command to view the name of the latest Amazon EKS optimized AMI for Amazon Linux 2.
 
-Linux & macOS
+------
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters \
     --names /aws/service/eks/optimized-ami/1.14/amazon-linux-2/recommended
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
 aws ssm get-parameters ^
     --names /aws/service/eks/optimized-ami/1.14/amazon-linux-2/recommended
 ```
+
+------
 
 The command returns information like the following.
 
