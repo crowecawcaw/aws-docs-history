@@ -1,23 +1,21 @@
+
+
 # Managed policies for your organization
+<a name="scps-and-rcps-for-projects"></a>
 
-###### Warning
-
+**Warning**  
 We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
 
-When you use our new AWS experience, AWS manages the organization management policies
-including the resource control policies (RCPs) and the service control policies (SCPs). These
-protective controls prevent a project owner or team member from performing actions that would
-inhibit the preconfigured defaults AWS has defined to help you build and develop
-quickly.
+When you use our new AWS experience, AWS manages the organization management policies including the resource control policies (RCPs) and the service control policies (SCPs). These protective controls prevent a project owner or team member from performing actions that would inhibit the preconfigured defaults AWS has defined to help you build and develop quickly.
 
 ## Service control policies for projects
+<a name="scps-for-projects"></a>
 
-The following is a service control policy for all users in a project and cannot be
-changed:
+The following is a service control policy for all users in a project and cannot be changed:
 
 ```
 {
-  "Version" : "2012-10-17",
+  "Version" : "2012-10-17",		 	 	 
   "Statement" : [
     {
       "Sid" : "BlockOrgEscape",
@@ -58,16 +56,13 @@ changed:
 }
 ```
 
-This policy is not removed when you activate advanced features. For more information, see
-[Activate advanced AWS features](activate-advanced-features.md "activate-advanced-features.md").
+This policy is not removed when you activate advanced features. For more information, see [Activate advanced AWS features](activate-advanced-features.md).
 
-In addition, we apply the following service control policy for all users in a project to
-restrict certain modifications to your project that are either not supported or must be
-completed in AWS Settings:
+In addition, we apply the following service control policy for all users in a project to restrict certain modifications to your project that are either not supported or must be completed in AWS Settings:
 
 ```
 {
-  "Version" : "2012-10-17",
+  "Version" : "2012-10-17",		 	 	 
   "Statement" : [
     {
       "Sid" : "BlockAccountManagementAPIs",
@@ -157,16 +152,13 @@ completed in AWS Settings:
 }
 ```
 
-This policy is removed when you activate advanced features. For more information, see
-[Activate advanced AWS features](activate-advanced-features.md "activate-advanced-features.md").
+This policy is removed when you activate advanced features. For more information, see [Activate advanced AWS features](activate-advanced-features.md).
 
-In addition, we also apply the following service control policy for all users in a project
-to restrict AWS Regions to allow for support for partitional services, depending on your
-`selected-region`:
+In addition, we also apply the following service control policy for all users in a project to restrict AWS Regions to allow for support for partitional services, depending on your {{selected-region}}:
 
 ```
 {
-  "Version" : "2012-10-17",
+  "Version" : "2012-10-17",		 	 	 
   "Statement" : [
     {
       "Sid" : "UsEast1Partitional",
@@ -366,7 +358,7 @@ to restrict AWS Regions to allow for support for partitional services, depending
           "aws:RequestedRegion" : [
             "unspecified",
             "us-east-1",
-            "`selected-region`",
+            "{{selected-region}}",
             "us-west-2"
           ]
         }
@@ -376,12 +368,11 @@ to restrict AWS Regions to allow for support for partitional services, depending
 }
 ```
 
-After you activate advanced features, the following service control policy is applied to
-your account:
+After you activate advanced features, the following service control policy is applied to your account:
 
 ```
 {
-  "Version" : "2012-10-17",
+  "Version" : "2012-10-17",		 	 	 
   "Statement" : [
     {
       "Sid" : "UsEast1Partitional",
@@ -613,7 +604,7 @@ your account:
           "aws:RequestedRegion" : [
             "unspecified",
             "us-east-1",
-            "`selected-region`",
+            "{{selected-region}}",
             "us-west-2"
           ]
         }
@@ -624,13 +615,13 @@ your account:
 ```
 
 ### Service control policies for spend limits
+<a name="scps-for-spend-limits"></a>
 
-If you use a spend limit, the following service control policies are applied to your
-project as it nears the spend limit. For more information about spend limits, see [Create a spend limit in AWS Settings](create-spend-limit.md "create-spend-limit.md").
+If you use a spend limit, the following service control policies are applied to your project as it nears the spend limit. For more information about spend limits, see [Create a spend limit in AWS Settings](create-spend-limit.md).
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": {
     "Sid": "DenyBedrockUsage",
     "Effect": "Deny",
@@ -660,7 +651,7 @@ project as it nears the spend limit. For more information about spend limits, se
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": {
     "Sid": "DenyLambdaUsage",
     "Effect": "Deny",
@@ -678,7 +669,7 @@ project as it nears the spend limit. For more information about spend limits, se
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": {
     "Sid": "DenySageMakerInference",
     "Effect": "Deny",
@@ -694,7 +685,7 @@ project as it nears the spend limit. For more information about spend limits, se
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "DenyCompute",
@@ -960,13 +951,13 @@ project as it nears the spend limit. For more information about spend limits, se
 ```
 
 ## Resource control policies for projects
+<a name="rcps-for-projects"></a>
 
-The following is the resource control policy for the [resources
-in the project](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md#rcp-supported-services "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md#rcp-supported-services"). This policy cannot be modified:
+The following is the resource control policy for the [resources in the project](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html#rcp-supported-services). This policy cannot be modified:
 
 ```
 {
-  "Version" : "2012-10-17",
+  "Version" : "2012-10-17",		 	 	 
   "Statement" : [
     {
       "Sid" : "DenyAnyoneOutsideMyOrgAndAWS",

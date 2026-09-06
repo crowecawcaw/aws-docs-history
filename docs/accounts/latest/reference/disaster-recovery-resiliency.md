@@ -1,16 +1,10 @@
+
+
 # Resilience in AWS Account Management
+<a name="disaster-recovery-resiliency"></a>
 
-The following information is relevant for all AWS accounts. If you use our new AWS experience,
-additional Regional considerations apply. For more information, see
-[AWS Regions for your projects](project-regions.md "project-regions.md").
+The following information is relevant for all AWS accounts. If you use our new AWS experience, additional Regional considerations apply. For more information, see [AWS Regions for your projects](project-regions.md).
 
-The AWS global infrastructure is built around AWS Regions and Availability Zones.
-Regions provide multiple physically separated and isolated Availability Zones, which are
-connected through low-latency, high-throughput, and highly redundant networking. With
-Availability Zones, you can design and operate applications and databases that automatically
-fail over between zones without interruption. Availability Zones are more highly available,
-fault tolerant, and scalable than traditional single or multiple data center
-infrastructures.
+The AWS global infrastructure is built around AWS Regions and Availability Zones. Regions provide multiple physically separated and isolated Availability Zones, which are connected through low-latency, high-throughput, and highly redundant networking. With Availability Zones, you can design and operate applications and databases that automatically fail over between zones without interruption. Availability Zones are more highly available, fault tolerant, and scalable than traditional single or multiple data center infrastructures.
 
-For more information about AWS Regions and Availability Zones, see [AWS Global
-Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
+For more information about AWS Regions and Availability Zones, see [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/).

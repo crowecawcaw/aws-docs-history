@@ -1,77 +1,43 @@
+
+
 # Logging AWS Account Management API calls using AWS CloudTrail
+<a name="monitoring-cloudtrail"></a>
 
-This includes AWS accounts you create using our new AWS experience and accounts you create
-using our advanced AWS experience. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md "sign-up-for-aws.md").
+This includes AWS accounts you create using our new AWS experience and accounts you create using our advanced AWS experience. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
 
-The AWS Account Management APIs are integrated with AWS CloudTrail, a service that provides a record of
-actions taken by a user, role, or an AWS service that calls an Account Management operation. CloudTrail
-captures all Account Management API calls as events. The calls captured include all calls to the Account Management
-operations. If you create a trail, you can turn on continuous delivery of CloudTrail events to an
-Amazon S3 bucket, including events for Account Management operations. If you don't configure a trail, you can
-still view the most recent events in the CloudTrail console in **Event history**.
-Using the information collected by CloudTrail, you can determine the request that called an Account Management
-operation, the IP address used to make the request, who made the request and when, and
-additional details.
+The AWS Account Management APIs are integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service that calls an Account Management operation. CloudTrail captures all Account Management API calls as events. The calls captured include all calls to the Account Management operations. If you create a trail, you can turn on continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Account Management operations. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that called an Account Management operation, the IP address used to make the request, who made the request and when, and additional details.
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## Account Management information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is turned on in your AWS account when you create the account. When activity
-occurs with an Account Management operation, CloudTrail records that activity in a CloudTrail event along with
-other AWS service events in **Event history**. You can view, search,
-and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event
-History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is turned on in your AWS account when you create the account. When activity occurs with an Account Management operation, CloudTrail records that activity in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 
-For an ongoing record of events in your AWS account, including events for Account Management
-operations, create a trail. A _trail_ enables CloudTrail to deliver log
-files to an Amazon S3 bucket. By default, when you create a trail in the AWS Management Console, the trail
-applies to all AWS Regions. The trail logs events from all Regions in the AWS
-partition and delivers the log files to the Amazon S3 bucket that you specify. You can
-configure other AWS services to further analyze and act upon the event data collected
-in CloudTrail logs. For more information, see the following:
+For an ongoing record of events in your AWS account, including events for Account Management operations, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the AWS Management Console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. You can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following:
++ [Overview for creating a trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail log files from multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html)
++ [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview
-  for creating a trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring
-  Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail log files from multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md")
-- [Receiving CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+AWS CloudTrail logs all Account Management API operations found in the [API Reference](https://docs.aws.amazon.com/accounts/latest/APIReference/Welcome.html) section of this guide. For example, calls to the `CreateAccount`, `DeleteAlternateContact`, and `PutAlternateContact` operations generate entries in the CloudTrail log files.
 
-AWS CloudTrail logs all Account Management API operations found in the [API
-Reference](../APIReference/Welcome.md "../APIReference/Welcome.md") section of this guide. For example, calls to the
-`CreateAccount`, `DeleteAlternateContact`, and
-`PutAlternateContact` operations generate entries in the CloudTrail log
-files.
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root user or AWS Identity and Access Management (IAM) user credentials
++ Whether the request was made with temporary security credentials for an IAM role or federated user
++ Whether the request was made by another AWS service
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root user or AWS Identity and Access Management (IAM) user
-  credentials
-- Whether the request was made with temporary security credentials for an IAM
-  role or federated user
-- Whether the request was made by another AWS service
-
-For more information, see the [CloudTrail userIdentity
-element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Understanding the Account Management log entries
+<a name="understanding-service-name-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. CloudTrail log files contain one or more log entries. An event
-represents a single request from any source and includes information about the requested
-operation, the date and time of the operation, request parameters, and so on. CloudTrail log
-files aren't an ordered stack trace of the public API calls, so they don't appear in any
-specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
-**Example 1:** The following example shows a CloudTrail log
-entry for a call to the `GetAlternateContact` operation to retrieve the
-current `OPERATIONS` alternate contact for an account. The values returned by
-the operation aren't included in the logged information.
+**Example 1:** The following example shows a CloudTrail log entry for a call to the `GetAlternateContact` operation to retrieve the current `OPERATIONS` alternate contact for an account. The values returned by the operation aren't included in the logged information.
 
-###### Example 1
+**Example 1**  
 
 ```
 {
@@ -117,9 +83,7 @@ the operation aren't included in the logged information.
 }
 ```
 
-**Example 2:** The following example shows a CloudTrail log
-entry for a call to the `PutAlternateContact` operation to add a new
-`BILLING` alternate contact to an account.
+**Example 2:** The following example shows a CloudTrail log entry for a call to the `PutAlternateContact` operation to add a new `BILLING` alternate contact to an account.
 
 ```
 {
@@ -168,9 +132,7 @@ entry for a call to the `PutAlternateContact` operation to add a new
 }
 ```
 
-**Example 3:** The following example shows a CloudTrail log
-entry for a call to the `DeleteAlternateContact` operation to delete the
-current `OPERATIONS` alternate contact.
+**Example 3:** The following example shows a CloudTrail log entry for a call to the `DeleteAlternateContact` operation to delete the current `OPERATIONS` alternate contact.
 
 ```
 {
