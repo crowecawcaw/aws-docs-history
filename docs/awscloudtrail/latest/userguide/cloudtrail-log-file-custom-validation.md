@@ -1,132 +1,108 @@
+
+
 # Custom implementations of CloudTrail log file integrity validation
+<a name="cloudtrail-log-file-custom-validation"></a>
 
-Because CloudTrail uses industry standard, openly available cryptographic algorithms and hash
-functions, you can create your own tools to validate the integrity of CloudTrail log files. When
-log file integrity validation is enabled, CloudTrail delivers digest files to your Amazon S3 bucket.
-You can use these files to implement your own validation solution. For more information
-about digest files, see [CloudTrail digest file structure](cloudtrail-log-file-validation-digest-file-structure.md "cloudtrail-log-file-validation-digest-file-structure.md").
+Because CloudTrail uses industry standard, openly available cryptographic algorithms and hash functions, you can create your own tools to validate the integrity of CloudTrail log files. When log file integrity validation is enabled, CloudTrail delivers digest files to your Amazon S3 bucket. You can use these files to implement your own validation solution. For more information about digest files, see [CloudTrail digest file structure](cloudtrail-log-file-validation-digest-file-structure.md). 
 
-This topic describes how digest files are signed, and then details the steps that you will
-need to take to implement a solution that validates the digest files and the log files that
-they reference.
+This topic describes how digest files are signed, and then details the steps that you will need to take to implement a solution that validates the digest files and the log files that they reference.
 
 ## Understanding how CloudTrail digest files are signed
+<a name="cloudtrail-log-file-custom-validation-how-cloudtrail-digest-files-are-signed"></a>
 
-CloudTrail digest files are signed with RSA digital signatures. For each digest file, CloudTrail
-does the following:
+CloudTrail digest files are signed with RSA digital signatures. For each digest file, CloudTrail does the following: 
 
-1. Creates a string for data signing based on designated digest file fields
-   (described in the next section).
-2. Gets a private key unique to the Region.
-3. Passes the SHA-256 hash of the string and the private key to the RSA signing
-   algorithm, which produces a digital signature.
-4. Encodes the byte code of the signature into hexadecimal format.
-5. Puts the digital signature into the `x-amz-meta-signature` metadata
-   property of the Amazon S3 digest file object.
+1. Creates a string for data signing based on designated digest file fields (described in the next section). 
+
+1. Gets a private key unique to the Region.
+
+1. Passes the SHA-256 hash of the string and the private key to the RSA signing algorithm, which produces a digital signature.
+
+1. Encodes the byte code of the signature into hexadecimal format.
+
+1. Puts the digital signature into the `x-amz-meta-signature` metadata property of the Amazon S3 digest file object.
 
 ### Contents of the data signing string
+<a name="cloudtrail-log-file-custom-validation-data-signing-string-summary"></a>
 
-The following CloudTrail objects are included in the string for data signing:
+The following CloudTrail objects are included in the string for data signing: 
++ The ending timestamp of the digest file in UTC extended format (for example, `2015-05-08T07:19:37Z`)
++ The current digest file S3 path
++ The hexadecimal-encoded SHA-256 hash of the current digest file
++ The hexadecimal-encoded signature of the previous digest file
 
-- The ending timestamp of the digest file in UTC extended format (for
-  example, `2015-05-08T07:19:37Z`)
-- The current digest file S3 path
-- The hexadecimal-encoded SHA-256 hash of the current digest file
-- The hexadecimal-encoded signature of the previous digest file
-
-The format for calculating this string and an example string are provided later in
-this document.
+The format for calculating this string and an example string are provided later in this document.
 
 ## Custom validation implementation steps
+<a name="cloudtrail-log-file-custom-validation-steps"></a>
 
-When implementing a custom validation solution, you will need to validate the digest
-file first, and then the log files that it references.
+When implementing a custom validation solution, you will need to validate the digest file first, and then the log files that it references. 
 
 ### Validate the digest file
+<a name="cloudtrail-log-file-custom-validation-steps-digest"></a>
 
-To validate a digest file, you need its signature, the public key whose private
-key was used to signed it, and a data signing string that you compute.
+To validate a digest file, you need its signature, the public key whose private key was used to signed it, and a data signing string that you compute. 
 
 1. Get the digest file.
-2. Verify that the digest file has been retrieved from its original
-   location.
-3. Get the hexadecimal-encoded signature of the digest file.
-4. Get the hexadecimal-encoded fingerprint of the public key whose private
-   key was used to sign the digest file.
-5. Retrieve the public keys for the time range corresponding to the digest
-   file.
-6. From among the public keys retrieved, choose the public key whose
-   fingerprint matches the fingerprint in the digest file.
-7. Using the digest file hash and other digest file fields, recreate the data
-   signing string used to verify the digest file signature.
-8. Validate the signature by passing in the SHA-256 hash of the string, the
-   public key, and the signature as parameters to the RSA signature
-   verification algorithm. If the result is true, the digest file is valid.
+
+1. Verify that the digest file has been retrieved from its original location. 
+
+1. Get the hexadecimal-encoded signature of the digest file.
+
+1. Get the hexadecimal-encoded fingerprint of the public key whose private key was used to sign the digest file.
+
+1. Retrieve the public keys for the time range corresponding to the digest file.
+
+1. From among the public keys retrieved, choose the public key whose fingerprint matches the fingerprint in the digest file.
+
+1. Using the digest file hash and other digest file fields, recreate the data signing string used to verify the digest file signature.
+
+1. Validate the signature by passing in the SHA-256 hash of the string, the public key, and the signature as parameters to the RSA signature verification algorithm. If the result is true, the digest file is valid. 
 
 ### Validate the log files
+<a name="cloudtrail-log-file-custom-validation-steps-logs"></a>
 
-If the digest file is valid, validate each of the log files that the digest file
-references.
+If the digest file is valid, validate each of the log files that the digest file references.
 
-1. To validate the integrity of a log file, compute its SHA-256 hash value on
-   its uncompressed content and compare the results with the hash for the log
-   file recorded in hexadecimal in the digest. If the hashes match, the log
-   file is valid.
-2. By using the information about the previous digest file that is included
-   in the current digest file, validate the previous digest files and their
-   corresponding log files in succession.
+1. To validate the integrity of a log file, compute its SHA-256 hash value on its uncompressed content and compare the results with the hash for the log file recorded in hexadecimal in the digest. If the hashes match, the log file is valid.
+
+1. By using the information about the previous digest file that is included in the current digest file, validate the previous digest files and their corresponding log files in succession.
 
 The following sections describe these steps in detail.
 
 ### A. Get the digest file
+<a name="cloudtrail-log-file-custom-validation-steps-get-the-digest-file"></a>
 
-The first steps are to get the most recent digest file, verify that you have
-retrieved it from its original location, verify its digital signature, and get the
-fingerprint of the public key.
+The first steps are to get the most recent digest file, verify that you have retrieved it from its original location, verify its digital signature, and get the fingerprint of the public key.
 
-1. Using S3 [`GetObject`](../../../AmazonS3/latest/API/API_GetObject.md "../../../AmazonS3/latest/API/API_GetObject.md") or the AmazonS3Client class (for example), get the most recent digest
-   file from your Amazon S3 bucket for the time range that you want to validate.
-2. Check that the S3 bucket and S3 object used to retrieve the file match
-   the S3 bucket S3 object locations that are recorded in the digest file
-   itself.
-3. Next, get the digital signature of the digest file from the
-   `x-amz-meta-signature` metadata property of the digest file
-   object in Amazon S3.
-4. In the digest file, get the fingerprint of the public key whose private
-   key was used to sign the digest file from the
-   `digestPublicKeyFingerprint` field.
+1. Using S3 [`GetObject`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) or the AmazonS3Client class (for example), get the most recent digest file from your Amazon S3 bucket for the time range that you want to validate. 
+
+1. Check that the S3 bucket and S3 object used to retrieve the file match the S3 bucket S3 object locations that are recorded in the digest file itself. 
+
+1. Next, get the digital signature of the digest file from the `x-amz-meta-signature` metadata property of the digest file object in Amazon S3.
+
+1. In the digest file, get the fingerprint of the public key whose private key was used to sign the digest file from the `digestPublicKeyFingerprint` field. 
 
 ### B. Retrieve the public key for validating the digest file
+<a name="cloudtrail-log-file-custom-validation-steps-retrieve-public-key"></a>
 
-To get the public key to validate the digest file, you can use either the AWS CLI or
-the CloudTrail API. In both cases, you specify a time range (that is, a start time and end
-time) for the digest files that you want to validate. One or more public keys may be
-returned for the time range that you specify. The returned keys may have validity
-time ranges that overlap.
+To get the public key to validate the digest file, you can use either the AWS CLI or the CloudTrail API. In both cases, you specify a time range (that is, a start time and end time) for the digest files that you want to validate. One or more public keys may be returned for the time range that you specify. The returned keys may have validity time ranges that overlap.
 
-###### Note
-
-Because CloudTrail uses different private/public key pairs per Region, each digest
-file is signed with a private key unique to its Region. Therefore, when you
-validate a digest file from a particular Region, you must retrieve its public
-key from the same Region.
+**Note**  
+Because CloudTrail uses different private/public key pairs per Region, each digest file is signed with a private key unique to its Region. Therefore, when you validate a digest file from a particular Region, you must retrieve its public key from the same Region.
 
 #### Use the AWS CLI to retrieve public keys
+<a name="cloudtrail-log-file-custom-validation-steps-retrieve-public-key-cli"></a>
 
-To retrieve public keys for digest files by using the AWS CLI, use the
-`cloudtrail list-public-keys` command. The command has the following
-format:
+To retrieve public keys for digest files by using the AWS CLI, use the `cloudtrail list-public-keys` command. The command has the following format: 
 
-`aws cloudtrail list-public-keys [--start-time <start-time>] [--end-time <end-time>]`
+ `aws cloudtrail list-public-keys [--start-time <start-time>] [--end-time <end-time>]` 
 
-The start-time and end-time parameters are UTC timestamps and are optional. If
-not specified, the current time is used, and the currently active public key or
-keys are returned.
+The start-time and end-time parameters are UTC timestamps and are optional. If not specified, the current time is used, and the currently active public key or keys are returned.
 
-**Sample Response**
+ **Sample Response** 
 
-The response will be a list of JSON objects representing the key (or keys)
-returned:
+The response will be a list of JSON objects representing the key (or keys) returned: 
 
 ```
 {
@@ -154,66 +130,59 @@ returned:
 ```
 
 #### Use the CloudTrail API to retrieve public keys
+<a name="cloudtrail-log-file-custom-validation-steps-retrieve-public-key-api"></a>
 
-To retrieve public keys for digest files by using the CloudTrail API, pass in start
-time and end time values to the `ListPublicKeys` API. The
-`ListPublicKeys` API returns the public keys whose private keys were
-used to sign digest files within the specified time range. For each public key,
-the API also returns the corresponding fingerprint.
+To retrieve public keys for digest files by using the CloudTrail API, pass in start time and end time values to the `ListPublicKeys` API. The `ListPublicKeys` API returns the public keys whose private keys were used to sign digest files within the specified time range. For each public key, the API also returns the corresponding fingerprint.
 
 ##### `ListPublicKeys`
+<a name="cloudtrail-log-file-custom-validation-steps-list-public-keys"></a>
 
-This section describes the request parameters and response elements for
-the `ListPublicKeys` API.
+This section describes the request parameters and response elements for the `ListPublicKeys` API.
 
-###### Note
+**Note**  
+The encoding for the binary fields for `ListPublicKeys` is subject to change. 
 
-The encoding for the binary fields for `ListPublicKeys` is
-subject to change.
+ **Request Parameters** 
 
-**Request Parameters**
 
-| Name        | Description                                                                                                                                                                                                                               |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `StartTime` | Optionally specifies, in UTC, the start of the time<br>range to look up public keys for CloudTrail digest files. If<br>StartTime is not specified, the current time is used,<br>and the current public key is returned.<br>Type: DateTime |
-| `EndTime`   | Optionally specifies, in UTC, the end of the time<br>range to look up public keys for CloudTrail digest files. If<br>EndTime is not specified, the current time is used.<br>Type: DateTime                                                |
 
-**Response Elements**
+| Name | Description | 
+| --- | --- | 
+|  StartTime  | Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If StartTime is not specified, the current time is used, and the current public key is returned. <br />Type: DateTime  | 
+|  EndTime  | Optionally specifies, in UTC, the end of the time range to look up public keys for CloudTrail digest files. If EndTime is not specified, the current time is used. <br />Type: DateTime  | 
 
-`PublicKeyList`, an array of `PublicKey` objects
-that contains:
+ **Response Elements** 
 
-|                     |                                                                                                                                                                |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Name**            | **Description**                                                                                                                                                |
-| `Value`             | The DER encoded public key value in PKCS #1<br>format.<br>Type: Blob                                                                                           |
-| `ValidityStartTime` | The starting time of validity of the public<br>key.<br>Type: DateTime                                                                                          |
-| `ValidityEndTime`   | The ending time of validity of the public<br>key.<br>Type: DateTime                                                                                            |
-| `Fingerprint`       | The fingerprint of the public key. The fingerprint<br>can be used to identify the public key that you must<br>use to validate the digest file.<br>Type: String |
+`PublicKeyList`, an array of `PublicKey` objects that contains: 
+
+
+
+|  |  | 
+| --- |--- |
+|  Name  |  Description  | 
+|  Value  | The DER encoded public key value in PKCS \#1 format. <br />Type: Blob  | 
+|  ValidityStartTime  | The starting time of validity of the public key.<br />Type: DateTime  | 
+|  ValidityEndTime  | The ending time of validity of the public key.<br />Type: DateTime  | 
+|  Fingerprint  | The fingerprint of the public key. The fingerprint can be used to identify the public key that you must use to validate the digest file.<br />Type: String  | 
 
 ### C. Choose the public key to use for validation
+<a name="cloudtrail-log-file-custom-validation-steps-choose-public-key"></a>
 
-From among the public keys retrieved by `list-public-keys` or
-`ListPublicKeys`, choose the public key returned whose fingerprint
-matches the fingerprint recorded in the `digestPublicKeyFingerprint`
-field of the digest file. This is the public key that you will use to validate the
-digest file.
+From among the public keys retrieved by `list-public-keys` or `ListPublicKeys`, choose the public key returned whose fingerprint matches the fingerprint recorded in the `digestPublicKeyFingerprint` field of the digest file. This is the public key that you will use to validate the digest file. 
 
 ### D. Recreate the data signing string
+<a name="cloudtrail-log-file-custom-validation-steps-recreate-data-signing-string"></a>
 
-Now that you have the signature of the digest file and associated public key, you
-need to calculate the data signing string. After you have calculated the data
-signing string, you will have the inputs needed to verify the signature.
+Now that you have the signature of the digest file and associated public key, you need to calculate the data signing string. After you have calculated the data signing string, you will have the inputs needed to verify the signature.
 
-The data signing string has the following format:
+The data signing string has the following format: 
 
 ```
-Data_To_Sign_String =
+Data_To_Sign_String = 
   Digest_End_Timestamp_in_UTC_Extended_format + '\n' +
   Current_Digest_File_S3_Path + '\n' +
   Hex(Sha256(current-digest-file-content)) + '\n' +
   Previous_digest_signature_in_hex
-
 ```
 
 An example `Data_To_Sign_String` follows.
@@ -230,111 +199,75 @@ d4c7c09dd152b84e79099ce7a9ec35d2b264eb92eb6e090f1e5ec5d40ec8a0729c02ff57f9e30d53
 After you recreate this string, you can validate the digest file.
 
 ### E. Validate the digest file
+<a name="cloudtrail-log-file-custom-validation-steps-validate-digest-file"></a>
 
-Pass the SHA-256 hash of the recreated data signing string, digital signature,
-and public key to the RSA signature verification algorithm. If the output is true,
-the signature of the digest file is verified and the digest file is valid.
+Pass the SHA-256 hash of the recreated data signing string, digital signature, and public key to the RSA signature verification algorithm. If the output is true, the signature of the digest file is verified and the digest file is valid. 
 
 ### F. Validate the log files
+<a name="cloudtrail-log-file-custom-validation-steps-validate-log-files"></a>
 
-After you have validated the digest file, you can validate the log files it
-references. The digest file contains the SHA-256 hashes of the log files. If one of
-the log files was modified after CloudTrail delivered it, the SHA-256 hashes will change,
-and the signature of digest file will not match.
+After you have validated the digest file, you can validate the log files it references. The digest file contains the SHA-256 hashes of the log files. If one of the log files was modified after CloudTrail delivered it, the SHA-256 hashes will change, and the signature of digest file will not match. 
 
 The following shows how validate the log files:
 
-1. Do an `S3 Get` of the log file using the S3 location
-   information in the digest file's `logFiles.s3Bucket` and
-   `logFiles.s3Object` fields.
-2. If the `S3 Get` operation is successful, iterate through the
-   log files listed in the digest file's logFiles array using the following
-   steps:
+1. Do an `S3 Get` of the log file using the S3 location information in the digest file's `logFiles.s3Bucket` and `logFiles.s3Object` fields.
 
-   1. Retrieve the original hash of the file from the
-      `logFiles.hashValue` field of the corresponding log in
-      the digest file.
-   2. Hash the uncompressed contents of the log file with the hashing
-      algorithm specified in `logFiles.hashAlgorithm`.
-   3. Compare the hash value that you generated with the one for the log
-      in the digest file. If the hashes match, the log file is
-      valid.
+1. If the `S3 Get` operation is successful, iterate through the log files listed in the digest file's logFiles array using the following steps:
+
+   1. Retrieve the original hash of the file from the `logFiles.hashValue` field of the corresponding log in the digest file.
+
+   1. Hash the uncompressed contents of the log file with the hashing algorithm specified in `logFiles.hashAlgorithm`.
+
+   1. Compare the hash value that you generated with the one for the log in the digest file. If the hashes match, the log file is valid.
 
 ### G. Validate additional digest and log files
+<a name="cloudtrail-log-file-custom-validation-steps-validate-additional-files"></a>
 
-In each digest file, the following fields provide the location and signature of
-the previous digest file:
+In each digest file, the following fields provide the location and signature of the previous digest file:
++  `previousDigestS3Bucket` 
++  `previousDigestS3Object` 
++  `previousDigestSignature` 
 
-- `previousDigestS3Bucket`
-- `previousDigestS3Object`
-- `previousDigestSignature`
+Use this information to visit previous digest files sequentially, validating the signature of each and the log files that they reference by using the steps in the previous sections. The only difference is that for previous digest files, you do not need to retrieve the digital signature from the digest file object's Amazon S3 metadata properties. The signature for the previous digest file is provided for you in the `previousDigestSignature` field. 
 
-Use this information to visit previous digest files sequentially, validating the
-signature of each and the log files that they reference by using the steps in the
-previous sections. The only difference is that for previous digest files, you do not
-need to retrieve the digital signature from the digest file object's Amazon S3 metadata
-properties. The signature for the previous digest file is provided for you in the
-`previousDigestSignature` field.
-
-You can go back until the starting digest file is reached, or until the chain of
-digest files is broken, whichever comes first.
+You can go back until the starting digest file is reached, or until the chain of digest files is broken, whichever comes first. 
 
 ## Validating digest and log files offline
+<a name="cloudtrail-log-file-custom-validation-offline"></a>
 
-When validating digest and log files offline, you can generally follow the procedures
-described in the previous sections. However, you must take into account the following
-areas:
+When validating digest and log files offline, you can generally follow the procedures described in the previous sections. However, you must take into account the following areas:
 
 ### Handling the most recent digest file
+<a name="cloudtrail-log-file-custom-validation-offline-most-recent-digest"></a>
 
-The digital signature of the most recent (that is, "current") digest file is in
-the Amazon S3 metadata properties of the digest file object. In an offline scenario, the
-digital signature for the current digest file will not be available.
+The digital signature of the most recent (that is, "current") digest file is in the Amazon S3 metadata properties of the digest file object. In an offline scenario, the digital signature for the current digest file will not be available.
 
 Two possible ways of handling this are:
-
-- Since the digital signature for the previous digest file is in the current
-  digest file, start validating from the next-to-last digest file. With this
-  method, the most recent digest file cannot be validated.
-- As a preliminary step, obtain the signature for the current digest file
-  from the digest file object's metadata properties and then store it securely offline. This
-  would allow the current digest file to be validated in addition to the
-  previous files in the chain.
++ Since the digital signature for the previous digest file is in the current digest file, start validating from the next-to-last digest file. With this method, the most recent digest file cannot be validated.
++ As a preliminary step, obtain the signature for the current digest file from the digest file object's metadata properties and then store it securely offline. This would allow the current digest file to be validated in addition to the previous files in the chain.
 
 ### Path resolution
+<a name="cloudtrail-log-file-custom-validation-offline-path-resolution"></a>
 
-Fields in the downloaded digest files like `s3Object` and
-`previousDigestS3Object` will still be pointing to Amazon S3 online locations
-for log files and digest files. An offline solution must find a way to reroute these
-to the current path of the downloaded log and digest files.
+Fields in the downloaded digest files like `s3Object` and `previousDigestS3Object` will still be pointing to Amazon S3 online locations for log files and digest files. An offline solution must find a way to reroute these to the current path of the downloaded log and digest files.
 
 ### Public keys
+<a name="cloudtrail-log-file-custom-validation-offline-public-keys"></a>
 
-In order to validate offline, all of the public keys that you need for validating
-log files in a given time range must first be obtained online (by calling
-`ListPublicKeys`, for example) and then stored securely offline. This
-step must be repeated whenever you want to validate additional files outside the
-initial time range that you specified.
+In order to validate offline, all of the public keys that you need for validating log files in a given time range must first be obtained online (by calling `ListPublicKeys`, for example) and then stored securely offline. This step must be repeated whenever you want to validate additional files outside the initial time range that you specified.
 
 ## Sample validation snippet
+<a name="cloudtrail-log-file-custom-validation-sample-code"></a>
 
-The following sample snippet provides skeleton code for validating CloudTrail digest and
-log files. The skeleton code is online/offline agnostic; that is, it is up to you to
-decide whether to implement it with or without online connectivity to AWS. The suggested
-implementation uses the [Java Cryptography
-Extension (JCE)](https://en.wikipedia.org/wiki/Java_Cryptography_Extension "https://en.wikipedia.org/wiki/Java_Cryptography_Extension") and [Bouncy
-Castle](https://www.bouncycastle.org/ "https://www.bouncycastle.org/") as a security provider.
+The following sample snippet provides skeleton code for validating CloudTrail digest and log files. The skeleton code is online/offline agnostic; that is, it is up to you to decide whether to implement it with or without online connectivity to AWS. The suggested implementation uses the [Java Cryptography Extension (JCE)](https://en.wikipedia.org/wiki/Java_Cryptography_Extension) and [Bouncy Castle](https://www.bouncycastle.org/) as a security provider. 
 
 The sample snippet shows:
-
-- How to create the data signing string used to validate the digest file
-  signature.
-- How to verify the digest file signature.
-- How to verify the log file hashes.
-- A code structure for validating a chain of digest files.
++ How to create the data signing string used to validate the digest file signature. 
++ How to verify the digest file signature.
++ How to verify the log file hashes.
++ A code structure for validating a chain of digest files.
 
 ```
-
 import java.util.Arrays;
 import java.security.MessageDigest;
 import java.security.KeyFactory;
@@ -349,13 +282,13 @@ import org.apache.commons.codec.binary.Hex;
 public class DigestFileValidator {
 
     public void validateDigestFile(String digestS3Bucket, String digestS3Object, String digestSignature) {
-
+ 
         // Using the Bouncy Castle provider as a JCE security provider - http://www.bouncycastle.org/
         Security.addProvider(new BouncyCastleProvider());
-
+ 
         // Load the digest file from S3 (using Amazon S3 Client) or from your local copy
         JSONObject digestFile = loadDigestFileInMemory(digestS3Bucket, digestS3Object);
-
+ 
         // Check that the digest file has been retrieved from its original location
         if (!digestFile.getString("digestS3Bucket").equals(digestS3Bucket) ||
                 !digestFile.getString("digestS3Object").equals(digestS3Object)) {
@@ -366,53 +299,53 @@ public class DigestFileValidator {
             messageDigest.update(convertToByteArray(digestFile));
             byte[] digestFileHash = messageDigest.digest();
             messageDigest.reset();
-
+ 
             // Compute the data to sign
             String dataToSign = String.format("%s%n%s/%s%n%s%n%s",
                                 digestFile.getString("digestEndTime"),
                                 digestFile.getString("digestS3Bucket"), digestFile.getString("digestS3Object"), // Constructing the S3 path of the digest file as part of the data to sign
                                 Hex.encodeHexString(digestFileHash),
                                 digestFile.getString("previousDigestSignature"));
-
+ 
             byte[] signatureContent = Hex.decodeHex(digestSignature);
-
+ 
             /*
-                NOTE:
-                To find the right public key to verify the signature, call CloudTrail ListPublicKey API to get a list
-                of public keys, then match by the publicKeyFingerprint in the digest file. Also, the public key bytes
+                NOTE: 
+                To find the right public key to verify the signature, call CloudTrail ListPublicKey API to get a list 
+                of public keys, then match by the publicKeyFingerprint in the digest file. Also, the public key bytes 
                 returned from ListPublicKey API are DER encoded in PKCS#1 format:
-
+ 
                 PublicKeyInfo ::= SEQUENCE {
                     algorithm       AlgorithmIdentifier,
                     PublicKey       BIT STRING
                 }
-
+ 
                 AlgorithmIdentifier ::= SEQUENCE {
                     algorithm       OBJECT IDENTIFIER,
                     parameters      ANY DEFINED BY algorithm OPTIONAL
-                }
+                }                
             */
             pkcs1PublicKeyBytes = getPublicKey(digestFile.getString("digestPublicKeyFingerprint")));
-
+ 
             // Transform the PKCS#1 formatted public key to x.509 format.
             RSAPublicKey rsaPublicKey = RSAPublicKey.getInstance(pkcs1PublicKeyBytes);
             AlgorithmIdentifier rsaEncryption = new AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption, null);
             SubjectPublicKeyInfo publicKeyInfo = new SubjectPublicKeyInfo(rsaEncryption, rsaPublicKey);
-
+ 
             // Create the PublicKey object needed for the signature validation
             PublicKey publicKey = KeyFactory.getInstance("RSA", "BC").generatePublic(new X509EncodedKeySpec(publicKeyInfo.getEncoded()));
-
+ 
             // Verify signature
             Signature signature = Signature.getInstance("SHA256withRSA", "BC");
             signature.initVerify(publicKey);
             signature.update(dataToSign.getBytes("UTF-8"));
-
+ 
             if (signature.verify(signatureContent)) {
                 System.out.println("Digest file signature is valid, validating log files…");
                 for (int i = 0; i < digestFile.getJSONArray("logFiles").length(); i++) {
-
+ 
                     JSONObject logFileMetadata = digestFile.getJSONArray("logFiles").getJSONObject(i);
-
+ 
                     // Compute log file hash
                     byte[] logFileContent = loadUncompressedLogFileInMemory(
                                                 logFileMetadata.getString("s3Bucket"),
@@ -421,10 +354,10 @@ public class DigestFileValidator {
                     messageDigest.update(logFileContent);
                      byte[] logFileHash = messageDigest.digest();
                     messageDigest.reset();
-
+ 
                     // Retrieve expected hash for the log file being processed
                     byte[] expectedHash = Hex.decodeHex(logFileMetadata.getString("hashValue"));
-
+ 
                     boolean signaturesMatch = Arrays.equals(expectedHash, logFileHash);
                     if (!signaturesMatch) {
                         System.err.println(String.format("Log file: %s/%s hash doesn't match.\tExpected: %s Actual: %s",
@@ -435,13 +368,13 @@ public class DigestFileValidator {
                                logFileMetadata.getString("s3Bucket"), logFileMetadata.getString("s3Object")));
                     }
                 }
-
+ 
             } else {
                 System.err.println("Digest signature failed validation.");
             }
-
+ 
             System.out.println("Digest file validation completed.");
-
+ 
             if (chainValidationIsEnabled()) {
                 // This enables the digests' chain validation
                 validateDigestFile(
@@ -452,6 +385,4 @@ public class DigestFileValidator {
         }
     }
 }
-
-
 ```

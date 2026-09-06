@@ -1,185 +1,117 @@
+
+
 # CloudTrail Lake availability change
+<a name="cloudtrail-lake-service-availability-change"></a>
 
-###### Note
+**Note**  
+AWS CloudTrail Lake will no longer be open to new customers starting on May 31, 2026. For capabilities similar to CloudTrail Lake, explore CloudWatch.
 
-AWS CloudTrail Lake will no longer be open to new customers starting on May 31, 2026.
-For capabilities similar to CloudTrail Lake, explore CloudWatch.
+After careful consideration, we decided to close AWS CloudTrail Lake to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal.
 
-After careful consideration, we decided to close AWS CloudTrail Lake to new customers starting
-May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing
-customers can continue to use the service as normal.
+AWS CloudTrail Lake provides a managed solution for capturing, storing, and analyzing audit logs from AWS and non-AWS sources. AWS CloudTrail continues to be available for existing customers, but CloudTrail Lake will only receive critical bug fixes and security updates.
 
-AWS CloudTrail Lake provides a managed solution for capturing, storing, and analyzing audit logs
-from AWS and non-AWS sources. AWS CloudTrail continues to be available for existing customers,
-but CloudTrail Lake will only receive critical bug fixes and security updates.
+This guide provides information about migration options for AWS CloudTrail Lake customers.
 
-This guide provides information about migration options for
-AWS CloudTrail Lake customers.
-
-###### Note
-
-AWS CloudTrail continues to be fully supported. Only AWS CloudTrail Lake is no longer open to
-new customers. Your AWS CloudTrail Trails, Insights and Aggregated Events are not affected.
+**Note**  
+AWS CloudTrail continues to be fully supported. Only AWS CloudTrail Lake is no longer open to new customers. Your AWS CloudTrail Trails, Insights and Aggregated Events are not affected.
 
 ## Continued support for existing event data stores
+<a name="cloudtrail-lake-continued-support"></a>
 
-AWS CloudTrail Lake supports two types of event data stores (EDS): organization event data
-stores, and account event data stores. The level of continued support depends on which
-type you have configured.
+AWS CloudTrail Lake supports two types of event data stores (EDS): organization event data stores, and account event data stores. The level of continued support depends on which type you have configured.
++ **Organization event data stores** – If your AWS Organization has an organization-level EDS, AWS CloudTrail Lake will continue to function as expected. This includes support for new member accounts added to your organization and expansion to additional AWS Regions. To learn how to create an organization event data store, see [Create an organization event data store](cloudtrail-lake-organizations.md#cloudtrail-lake-organizations-create-eds).
++ **Account event data stores** – If your AWS Organization has only account-level event data stores, AWS CloudTrail Lake will continue to support those existing accounts, including expansion to new AWS Regions. However, AWS CloudTrail Lake will not support ingestion for new accounts added to your organization. To capture AWS CloudTrail Lake data for new accounts in your organization, you must create an organization event data store or migrate to Amazon CloudWatch.
 
-- **Organization event data stores** – If
-  your AWS Organization has an organization-level EDS, AWS CloudTrail Lake will
-  continue to function as expected. This includes support for new member accounts
-  added to your organization and expansion to additional AWS Regions. To learn
-  how to create an organization event data store, see
-  [Create an organization event data store](cloudtrail-lake-organizations.md#cloudtrail-lake-organizations-create-eds "cloudtrail-lake-organizations.md#cloudtrail-lake-organizations-create-eds").
-- **Account event data stores** – If your
-  AWS Organization has only account-level event data stores, AWS CloudTrail Lake will
-  continue to support those existing accounts, including expansion to new
-  AWS Regions. However, AWS CloudTrail Lake will not support ingestion for new accounts
-  added to your organization. To capture AWS CloudTrail Lake data for new accounts in
-  your organization, you must create an organization event data store or migrate
-  to Amazon CloudWatch.
-
-###### Note
-
-If you anticipate adding new member accounts to your AWS Organization and want
-AWS CloudTrail Lake to automatically cover those accounts, ensure you have an organization
-event data store configured. Account event data stores will not extend coverage to
-newly added organization member accounts.
+**Note**  
+If you anticipate adding new member accounts to your AWS Organization and want AWS CloudTrail Lake to automatically cover those accounts, ensure you have an organization event data store configured. Account event data stores will not extend coverage to newly added organization member accounts.
 
 ## Migration options
+<a name="cloudtrail-lake-migration-options"></a>
 
 We recommend that you migrate your AWS CloudTrail Lake logs data to Amazon CloudWatch.
 
-Amazon CloudWatch
-
-- Amazon CloudWatch unifies security, operations, and compliance data in one
-  solution, and provides flexible analytics and seamless integration
-  capabilities. Customers can automatically normalize and process data
-  to offer consistency across sources with built-in support for Open
-  Cybersecurity Schema Framework (OCSF) and Open Telemetry (OTel)
-  formats, so you can focus on analytics and insights.
-- Amazon CloudWatch provides the current capabilities of CloudTrail Lake at a
-  comparable price point, and has additional capabilities that were top
-  requests from CloudTrail Lake customers. These include native analytics
-  powered by OpenSearch, pre-built connectors for popular third-party
-  sources, and open access through Apache Iceberg APIs.
-- To get started with Amazon CloudWatch, see
-  [CloudWatch
-  pipelines](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-pipelines.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-pipelines.md") in the _Amazon CloudWatch User Guide_.
-  For details about pricing, see
-  [CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+Amazon CloudWatch  
++ Amazon CloudWatch unifies security, operations, and compliance data in one solution, and provides flexible analytics and seamless integration capabilities. Customers can automatically normalize and process data to offer consistency across sources with built-in support for Open Cybersecurity Schema Framework (OCSF) and Open Telemetry (OTel) formats, so you can focus on analytics and insights.
++ Amazon CloudWatch provides the current capabilities of CloudTrail Lake at a comparable price point, and has additional capabilities that were top requests from CloudTrail Lake customers. These include native analytics powered by OpenSearch, pre-built connectors for popular third-party sources, and open access through Apache Iceberg APIs.
++ To get started with Amazon CloudWatch, see [CloudWatch pipelines](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-pipelines.html) in the *Amazon CloudWatch User Guide*. For details about pricing, see [CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
 ## Comparing architectures
+<a name="cloudtrail-lake-comparing-architectures"></a>
 
-The current AWS CloudTrail Lake architecture provides a managed solution for capturing, storing,
-and analyzing audit logs through event data stores, and queries. This system operates as a
-feature within AWS CloudTrail. The recommended alternative, Amazon CloudWatch, maintains the core ability
-to capture, store, and analyze CloudTrail logs. It unifies security, operations, and compliance
-data in one solution. Amazon CloudWatch offers additional capabilities such as native analytics
-powered by OpenSearch, pre-built connectors for popular third-party sources, open access
-through Apache Iceberg APIs, and built-in support for Open Cybersecurity Schema Framework
-(OCSF) and Open Telemetry (OTel) formats.
+The current AWS CloudTrail Lake architecture provides a managed solution for capturing, storing, and analyzing audit logs through event data stores, and queries. This system operates as a feature within AWS CloudTrail. The recommended alternative, Amazon CloudWatch, maintains the core ability to capture, store, and analyze CloudTrail logs. It unifies security, operations, and compliance data in one solution. Amazon CloudWatch offers additional capabilities such as native analytics powered by OpenSearch, pre-built connectors for popular third-party sources, open access through Apache Iceberg APIs, and built-in support for Open Cybersecurity Schema Framework (OCSF) and Open Telemetry (OTel) formats.
 
-| Capability                                                                               | CloudTrail Lake       | CloudWatch              | Details                                                                                                                             |
-| ---------------------------------------------------------------------------------------- | --------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Data Sources                                                                             | 3 AWS, 16 Third-Party | 60+ AWS, 12 Third-Party | CloudWatch supports 30+ AWS sources includes VPC Flow, Lambda, EKS, ALB, NLB & CloudTrail (except Network & Insights Events).       |
-| Cross-account/cross-region Enablement                                                    | Yes                   | Partial                 | CloudWatch Ingestion supports enablement across accounts but requires separate enablement in each Region.                           |
-| Cross-account/cross-region Centralization                                                | Yes                   | Yes                     | Enable aggregation of logs across accounts & Regions in a single account & Region.                                                  |
-| CloudTrail Safety Features – Late event ingestion, termination protection & immutability | Yes                   | Yes                     | CloudWatch supports only CloudTrail events/data via CW Ingestion (and, not trails).                                                 |
-| Data Transformation & Enrichment                                                         | Limited               | Yes                     | CloudWatch supports Managed OCSF Transformations for key sources & custom transformations for remaining sources.                    |
-| Native Analytics                                                                         | Yes                   | Yes                     | CloudTrail Lake supports SQL In-place queries with Athena. CloudWatch supports Logs QL, SQL & PPL In-place queries with OpenSearch. |
-| Nested SQL                                                                               | Yes                   | No                      | CloudTrail Lake supports complex nested SQL queries.                                                                                |
-| 3P Analytics                                                                             | Yes                   | Yes                     | CloudWatch supports in-place queries with 3P tool of choice via Amazon S3 Tables and SageMaker AI Unified Studio.                   |
-| Data Export to other AWS destinations or 3P tools                                        | Yes                   | Yes                     | You can send data via CloudWatch subscription filters, and S3 tables connectors.                                                    |
-| Additional Analytics                                                                     | No                    | Yes                     | CloudWatch supports Alerts & Metrics for observability & security use cases.                                                        |
-| Event Selectors for CloudTrail                                                           | Yes                   | Limited                 | CloudWatch supports Advanced selectors for CloudTrail Data events.                                                                  |
+
+| Capability | CloudTrail Lake | CloudWatch | Details | 
+| --- | --- | --- | --- | 
+| Data Sources | 3 AWS, 16 Third-Party | 60\+ AWS, 12 Third-Party | CloudWatch supports 30\+ AWS sources includes VPC Flow, Lambda, EKS, ALB, NLB & CloudTrail (except Network & Insights Events). | 
+| Cross-account/cross-region Enablement | Yes | Partial | CloudWatch Ingestion supports enablement across accounts but requires separate enablement in each Region. | 
+| Cross-account/cross-region Centralization | Yes | Yes | Enable aggregation of logs across accounts & Regions in a single account & Region. | 
+| CloudTrail Safety Features – Late event ingestion, termination protection & immutability | Yes | Yes | CloudWatch supports only CloudTrail events/data via CW Ingestion (and, not trails). | 
+| Data Transformation & Enrichment | Limited | Yes | CloudWatch supports Managed OCSF Transformations for key sources & custom transformations for remaining sources. | 
+| Native Analytics | Yes | Yes | CloudTrail Lake supports SQL In-place queries with Athena. CloudWatch supports Logs QL, SQL & PPL In-place queries with OpenSearch. | 
+| Nested SQL | Yes | No | CloudTrail Lake supports complex nested SQL queries. | 
+| 3P Analytics | Yes | Yes | CloudWatch supports in-place queries with 3P tool of choice via Amazon S3 Tables and SageMaker AI Unified Studio. | 
+| Data Export to other AWS destinations or 3P tools | Yes | Yes | You can send data via CloudWatch subscription filters, and S3 tables connectors. | 
+| Additional Analytics | No | Yes | CloudWatch supports Alerts & Metrics for observability & security use cases. | 
+| Event Selectors for CloudTrail | Yes | Limited | CloudWatch supports Advanced selectors for CloudTrail Data events. | 
 
 ## Migration procedure
+<a name="cloudtrail-lake-migration-procedure"></a>
 
-AWS recently introduced a simplified way to unify your operational and security data by
-allowing you to import historical CloudTrail Lake event data stores (EDS) directly into Amazon CloudWatch.
-This integration utilizes CloudWatch's new unified data management architecture to provide a
-single pane of glass for your logs.
+AWS recently introduced a simplified way to unify your operational and security data by allowing you to import historical CloudTrail Lake event data stores (EDS) directly into Amazon CloudWatch. This integration utilizes CloudWatch's new unified data management architecture to provide a single pane of glass for your logs.
 
 ### Best Practice: The Pilot Approach
+<a name="cloudtrail-lake-migration-pilot"></a>
 
-Before performing a full-scale migration of your historical data, it is highly
-recommended to perform a pilot migration using a small subset of data. This allows
-you to:
+Before performing a full-scale migration of your historical data, it is highly recommended to perform a pilot migration using a small subset of data. This allows you to:
++ Verify that the imported logs appear correctly in CloudWatch.
++ Confirm that your queries and dashboards behave as expected.
++ Validate that IAM permissions and roles are properly configured.
 
-- Verify that the imported logs appear correctly in CloudWatch.
-- Confirm that your queries and dashboards behave as expected.
-- Validate that IAM permissions and roles are properly configured.
+Once you are satisfied with the results, you can proceed with confidence to migrate the full historical dataset.
++ **Verify Schema:** Ensure the log format appears as expected in CloudWatch Logs.
++ **Cost Management:** Estimate the ingestion costs by observing the volume of a 24-hour sample.
++ **Query Validation:** Test your CloudWatch Logs Insights queries against the sample data to ensure your monitoring logic remains intact.
 
-Once you are satisfied with the results, you can proceed with confidence to migrate
-the full historical dataset.
+Once you've successfully migrated your historical dataset, you can enable live ingestion of CloudTrail logs from CloudWatch to ensure you continue to capture logs.
 
-- **Verify Schema:** Ensure the log format
-  appears as expected in CloudWatch Logs.
-- **Cost Management:** Estimate the ingestion
-  costs by observing the volume of a 24-hour sample.
-- **Query Validation:** Test your CloudWatch Logs
-  Insights queries against the sample data to ensure your monitoring logic remains
-  intact.
-
-Once you've successfully migrated your historical dataset, you can enable live
-ingestion of CloudTrail logs from CloudWatch to ensure you continue to capture logs.
-
-###### Note
-
-Data prior to 2023 will not be migrated from CloudTrail Lake to Amazon CloudWatch. If you
-require access to events older than 2023, you must continue to query them directly
-within CloudTrail Lake, or move it to an Amazon S3 bucket.
+**Note**  
+Data prior to 2023 will not be migrated from CloudTrail Lake to Amazon CloudWatch. If you require access to events older than 2023, you must continue to query them directly within CloudTrail Lake, or move it to an Amazon S3 bucket.
 
 ### Prerequisites
-
-- **IAM Permissions:** Ensure your IAM
-  identity has permissions to access both CloudTrail Lake
-  (`cloudtrail:GetEventDataStore`,
-  `cloudtrail:ListEventDataStore`) and CloudWatch Logs
-  (`logs:CreateImportTask`), as well as IAM permissions
-  (`iam:ListRoles`, `iam:CreateRole`,
-  `iam:PassRole`).
-- **Service-Linked Role:** CloudTrail requires an
-  IAM role to perform the export on your behalf. You can create this during the
-  setup process in the console.
+<a name="cloudtrail-lake-migration-prerequisites"></a>
++ **IAM Permissions:** Ensure your IAM identity has permissions to access both CloudTrail Lake (`cloudtrail:GetEventDataStore`, `cloudtrail:ListEventDataStore`) and CloudWatch Logs (`logs:CreateImportTask`), as well as IAM permissions (`iam:ListRoles`, `iam:CreateRole`, `iam:PassRole`).
++ **Service-Linked Role:** CloudTrail requires an IAM role to perform the export on your behalf. You can create this during the setup process in the console.
 
 ### Method 1: Using the CloudTrail Console (Recommended)
+<a name="cloudtrail-lake-migration-console"></a>
 
 This is the most direct way to push data from your existing Lake Event Data Store.
 
 1. Open the CloudTrail console.
-2. In the left navigation pane, under **Lake**, choose
-   **Event data stores**.
-3. Select the Event data store that contains the data you want to
-   migrate.
-4. Choose the **Actions** button in the top right and
-   select **Export to CloudWatch**.
-5. Configure Export Settings:
 
-   - **Time Range:** (recommended for
-     Pilot) Instead of selecting your entire history, choose a narrow window
-     (for example, the last 24 hours) to verify the integration. Once verified,
-     repeat the process for the remaining historical data.
-   - **Destination:** Specify an existing
-     CloudWatch Log Group or create a new one.
+1. In the left navigation pane, under **Lake**, choose **Event data stores**.
 
-6. **IAM Role:** Choose an existing IAM
-   role or select **Create new IAM role** to allow CloudTrail to deliver
-   logs to CloudWatch.
-7. Review the configuration and choose **Export**.
+1. Select the Event data store that contains the data you want to migrate.
+
+1. Choose the **Actions** button in the top right and select **Export to CloudWatch**.
+
+1. Configure Export Settings:
+   + **Time Range:** (recommended for Pilot) Instead of selecting your entire history, choose a narrow window (for example, the last 24 hours) to verify the integration. Once verified, repeat the process for the remaining historical data.
+   + **Destination:** Specify an existing CloudWatch Log Group or create a new one.
+
+1. **IAM Role:** Choose an existing IAM role or select **Create new IAM role** to allow CloudTrail to deliver logs to CloudWatch.
+
+1. Review the configuration and choose **Export**.
 
 ### Method 2: Using the AWS CLI (create-import-task)
+<a name="cloudtrail-lake-migration-cli"></a>
 
 This method allows you to programmatically trigger the ingestion of historical event data.
 
 **Step 1: Identify the Source ARN**
 
-You will need the Amazon Resource Name (ARN) of your CloudTrail Lake Event Data Store.
-You can find this in the CloudTrail console or by running
-`aws cloudtrail list-event-data-stores`.
+You will need the Amazon Resource Name (ARN) of your CloudTrail Lake Event Data Store. You can find this in the CloudTrail console or by running `aws cloudtrail list-event-data-stores`.
 
 **Step 2: Create the Import Task**
 
@@ -187,36 +119,29 @@ Use the `logs` service to create the task. You must specify the source ARN of th
 
 ```
 aws logs create-import-task \
-    --import-source-arn "arn:aws:cloudtrail:`region`:`account-id`:eventdatastore/`eds-id`" \
-    --import-role-arn "arn:aws:iam::`account-id`:role/`role-name`" \
-    --import-filter '{"startEventTime": `START_TIME`, "endEventTime": `END_TIME`}'
+    --import-source-arn "arn:aws:cloudtrail:{{region}}:{{account-id}}:eventdatastore/{{eds-id}}" \
+    --import-role-arn "arn:aws:iam::{{account-id}}:role/{{role-name}}" \
+    --import-filter '{"startEventTime": {{START_TIME}}, "endEventTime": {{END_TIME}}}'
 ```
 
 Parameters:
-
-- `--import-source-arn`: The ARN of the CloudTrail Lake Event Data
-  Store containing the historical logs.
-- `--import-role-arn`: The ARN of the IAM role with the
-  correct permissions.
-- `--import-filter`: Optional object specifying the start and
-  end times of events you want imported.
++ `--import-source-arn`: The ARN of the CloudTrail Lake Event Data Store containing the historical logs.
++ `--import-role-arn`: The ARN of the IAM role with the correct permissions.
++ `--import-filter`: Optional object specifying the start and end times of events you want imported.
 
 **Step 3: Monitor the Task Status**
 
-Because the import is asynchronous, you can check the progress of the migration
-using the `describe-import-tasks` command:
+Because the import is asynchronous, you can check the progress of the migration using the `describe-import-tasks` command:
 
 ```
 aws logs describe-import-tasks \
-    --import-id "`import-id`"
+    --import-id "{{import-id}}"
 ```
 
 ## Additional resources
-
-- [AWS CloudTrail API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md")
-- [AWS CloudTrail User Guide](cloudtrail-user-guide.md "cloudtrail-user-guide.md")
-- [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring/Welcome.md "../../../AmazonCloudWatch/latest/monitoring/Welcome.md")
-- [Working
-  with CloudWatch telemetry enablement rules](../../../AmazonCloudWatch/latest/monitoring/telemetry-config-rules.md "../../../AmazonCloudWatch/latest/monitoring/telemetry-config-rules.md")
-- [CloudWatch
-  Cross-account cross-Region log centralization](../../../AmazonCloudWatch/latest/logs/CloudWatchLogs_Centralization.md "../../../AmazonCloudWatch/latest/logs/CloudWatchLogs_Centralization.md")
+<a name="cloudtrail-lake-additional-resources"></a>
++ [AWS CloudTrail API Reference](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html)
++ [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
++ [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Welcome.html)
++ [Working with CloudWatch telemetry enablement rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/telemetry-config-rules.html)
++ [CloudWatch Cross-account cross-Region log centralization](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs_Centralization.html)

@@ -1,161 +1,147 @@
+
+
 # Using the CloudTrail Processing Library
+<a name="use-the-cloudtrail-processing-library"></a>
 
-The CloudTrail Processing Library is a Java library that provides an easy way to process AWS CloudTrail logs. You
-provide configuration details about your CloudTrail SQS queue and write code to process events. The
-CloudTrail Processing Library does the rest. It polls your Amazon SQS queue, reads and parses queue messages, downloads
-CloudTrail log files, parses events in the log files, and passes the events to your code as Java
-objects.
+The CloudTrail Processing Library is a Java library that provides an easy way to process AWS CloudTrail logs. You provide configuration details about your CloudTrail SQS queue and write code to process events. The CloudTrail Processing Library does the rest. It polls your Amazon SQS queue, reads and parses queue messages, downloads CloudTrail log files, parses events in the log files, and passes the events to your code as Java objects. 
 
-The CloudTrail Processing Library is highly scalable and fault-tolerant. It handles parallel processing of log
-files so that you can process as many logs as needed. It handles network failures related to
-network timeouts and inaccessible resources.
+The CloudTrail Processing Library is highly scalable and fault-tolerant. It handles parallel processing of log files so that you can process as many logs as needed. It handles network failures related to network timeouts and inaccessible resources.
 
-The following topic shows you how to use the CloudTrail Processing Library to process CloudTrail logs in your Java
-projects.
+The following topic shows you how to use the CloudTrail Processing Library to process CloudTrail logs in your Java projects.
 
-The library is provided as an Apache-licensed open-source project, available on GitHub:
-[https://github.com/aws/aws-cloudtrail-processing-library](https://github.com/aws/aws-cloudtrail-processing-library "https://github.com/aws/aws-cloudtrail-processing-library"). The library source
-includes sample code that you can use as a base for your own projects.
+The library is provided as an Apache-licensed open-source project, available on GitHub: [https://github.com/aws/aws-cloudtrail-processing-library](https://github.com/aws/aws-cloudtrail-processing-library). The library source includes sample code that you can use as a base for your own projects.
 
-###### Topics
-
-- [Minimum requirements](#use-the-cloudtrail-processing-library-prerequisites "#use-the-cloudtrail-processing-library-prerequisites")
-- [Processing CloudTrail logs](#use-the-cloudtrail-processing-library-how-to "#use-the-cloudtrail-processing-library-how-to")
-- [Advanced topics](#use-the-cloudtrail-processing-library-advanced "#use-the-cloudtrail-processing-library-advanced")
-- [Additional resources](#UsingProcessingLib-ar "#UsingProcessingLib-ar")
+**Topics**
++ [Minimum requirements](#use-the-cloudtrail-processing-library-prerequisites)
++ [Processing CloudTrail logs](#use-the-cloudtrail-processing-library-how-to)
++ [Advanced topics](#use-the-cloudtrail-processing-library-advanced)
++ [Additional resources](#UsingProcessingLib-ar)
 
 ## Minimum requirements
+<a name="use-the-cloudtrail-processing-library-prerequisites"></a>
 
 To use the CloudTrail Processing Library, you must have the following:
-
-- [AWS SDK for Java
-  1.11.830](https://github.com/aws/aws-sdk-java "https://github.com/aws/aws-sdk-java")
-- [Java
-  1.8 (Java SE 8)](https://www.oracle.com/java/technologies/java-se-glance.html "https://www.oracle.com/java/technologies/java-se-glance.html")
++ [AWS SDK for Java 1.11.830](https://github.com/aws/aws-sdk-java)
++ [Java 1.8 (Java SE 8)](https://www.oracle.com/java/technologies/java-se-glance.html)
 
 ## Processing CloudTrail logs
+<a name="use-the-cloudtrail-processing-library-how-to"></a>
 
 To process CloudTrail logs in your Java application:
 
-1. [Adding the CloudTrail Processing Library to your project](#use-the-cloudtrail-processing-library-add-to-project "#use-the-cloudtrail-processing-library-add-to-project")
-2. [Configuring the CloudTrail Processing Library](#use-the-cloudtrail-processing-library-configure "#use-the-cloudtrail-processing-library-configure")
-3. [Implementing the events processor](#use-the-cloudtrail-processing-library-implement-events-processor "#use-the-cloudtrail-processing-library-implement-events-processor")
-4. [Instantiating and running the processing executor](#use-the-cloudtrail-processing-library-instantiate-and-run-executor "#use-the-cloudtrail-processing-library-instantiate-and-run-executor")
+1. [Adding the CloudTrail Processing Library to your project](#use-the-cloudtrail-processing-library-add-to-project)
+
+1. [Configuring the CloudTrail Processing Library](#use-the-cloudtrail-processing-library-configure)
+
+1. [Implementing the events processor](#use-the-cloudtrail-processing-library-implement-events-processor)
+
+1. [Instantiating and running the processing executor](#use-the-cloudtrail-processing-library-instantiate-and-run-executor)
 
 ### Adding the CloudTrail Processing Library to your project
+<a name="use-the-cloudtrail-processing-library-add-to-project"></a>
 
 To use the CloudTrail Processing Library, add it to your Java project's classpath.
 
-###### Contents
-
-- [Adding the library to an Apache Ant project](use-the-cloudtrail-processing-library.md#use-the-cloudtrail-processing-library-add-to-project-apache-ant "use-the-cloudtrail-processing-library.md#use-the-cloudtrail-processing-library-add-to-project-apache-ant")
-- [Adding the library to an Apache Maven project](use-the-cloudtrail-processing-library.md#use-the-cloudtrail-processing-library-add-to-project-apache-maven "use-the-cloudtrail-processing-library.md#use-the-cloudtrail-processing-library-add-to-project-apache-maven")
-- [Adding the library to an Eclipse project](use-the-cloudtrail-processing-library.md#use-the-cloudtrail-processing-library-add-to-project-eclipse "use-the-cloudtrail-processing-library.md#use-the-cloudtrail-processing-library-add-to-project-eclipse")
-- [Adding the library to an IntelliJ project](use-the-cloudtrail-processing-library.md#use-the-cloudtrail-processing-library-add-to-intellij-project "use-the-cloudtrail-processing-library.md#use-the-cloudtrail-processing-library-add-to-intellij-project")
+**Contents**
++ [Adding the library to an Apache Ant project](#use-the-cloudtrail-processing-library-add-to-project-apache-ant)
++ [Adding the library to an Apache Maven project](#use-the-cloudtrail-processing-library-add-to-project-apache-maven)
++ [Adding the library to an Eclipse project](#use-the-cloudtrail-processing-library-add-to-project-eclipse)
++ [Adding the library to an IntelliJ project](#use-the-cloudtrail-processing-library-add-to-intellij-project)
 
 #### Adding the library to an Apache Ant project
+<a name="use-the-cloudtrail-processing-library-add-to-project-apache-ant"></a>
 
-###### To add the CloudTrail Processing Library to an Apache Ant project
+**To add the CloudTrail Processing Library to an Apache Ant project**
 
 1. Download or clone the CloudTrail Processing Library source code from GitHub:
+   + [https://github.com/aws/aws-cloudtrail-processing-library](https://github.com/aws/aws-cloudtrail-processing-library)
 
-   - [https://github.com/aws/aws-cloudtrail-processing-library](https://github.com/aws/aws-cloudtrail-processing-library "https://github.com/aws/aws-cloudtrail-processing-library")
+1. Build the .jar file from source as described in the [README](https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst):
 
-2. Build the .jar file from source as described in the [README](https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst "https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst"):
+   ```
+   mvn clean install -Dgpg.skip=true
+   ```
 
-```
-mvn clean install -Dgpg.skip=true
-```
+1. Copy the resulting .jar file into your project and add it to your project's `build.xml` file. For example:
 
-3. Copy the resulting .jar file into your project and add it to your project's
-   `build.xml` file. For example:
-
-```
-
-<classpath>
-  <pathelement path="${classpath}"/>
-  <pathelement location="lib/aws-cloudtrail-processing-library-1.6.1.jar"/>
-</classpath>
-```
+   ```
+   <classpath>
+     <pathelement path="${classpath}"/>
+     <pathelement location="lib/aws-cloudtrail-processing-library-1.6.1.jar"/>
+   </classpath>
+   ```
 
 #### Adding the library to an Apache Maven project
+<a name="use-the-cloudtrail-processing-library-add-to-project-apache-maven"></a>
 
-The CloudTrail Processing Library is available for [Apache Maven](https://maven.apache.org/ "https://maven.apache.org/"). You can add it to your project by writing
-a single dependency in your project's `pom.xml` file.
+The CloudTrail Processing Library is available for [Apache Maven](https://maven.apache.org/). You can add it to your project by writing a single dependency in your project's `pom.xml` file.
 
-###### To add the CloudTrail Processing Library to a Maven project
+**To add the CloudTrail Processing Library to a Maven project**
++ Open your Maven project's `pom.xml` file and add the following dependency:
 
-- Open your Maven project's `pom.xml` file and add the following
-  dependency:
-
-```
-
-<dependency>
-    <groupId>com.amazonaws</groupId>
-    <artifactId>aws-cloudtrail-processing-library</artifactId>
-    <version>1.6.1</version>
-</dependency>
-```
+  ```
+  <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-cloudtrail-processing-library</artifactId>
+      <version>1.6.1</version>
+  </dependency>
+  ```
 
 #### Adding the library to an Eclipse project
+<a name="use-the-cloudtrail-processing-library-add-to-project-eclipse"></a>
 
-###### To add the CloudTrail Processing Library to an Eclipse project
+**To add the CloudTrail Processing Library to an Eclipse project**
 
 1. Download or clone the CloudTrail Processing Library source code from GitHub:
+   + [https://github.com/aws/aws-cloudtrail-processing-library](https://github.com/aws/aws-cloudtrail-processing-library)
 
-   - [https://github.com/aws/aws-cloudtrail-processing-library](https://github.com/aws/aws-cloudtrail-processing-library "https://github.com/aws/aws-cloudtrail-processing-library")
+1. Build the .jar file from source as described in the [README](https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst):
 
-2. Build the .jar file from source as described in the [README](https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst "https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst"):
+   ```
+   mvn clean install -Dgpg.skip=true
+   ```
 
-```
-mvn clean install -Dgpg.skip=true
-```
+1. Copy the built aws-cloudtrail-processing-library-1.6.1.jar to a directory in your project (typically `lib`).
 
-3. Copy the built aws-cloudtrail-processing-library-1.6.1.jar to a directory in your project (typically
-   `lib`).
-4. Right-click your project's name in the Eclipse **Project
-   Explorer**, choose **Build Path**, and then choose
-   **Configure**
-5. In the **Java Build Path** window, choose the
-   **Libraries** tab.
-6. Choose **Add JARs...** and navigate to the path where you copied
-   aws-cloudtrail-processing-library-1.6.1.jar.
-7. Choose **OK** to complete adding the `.jar` to
-   your project.
+1. Right-click your project's name in the Eclipse **Project Explorer**, choose **Build Path**, and then choose **Configure**
+
+1. In the **Java Build Path** window, choose the **Libraries** tab.
+
+1. Choose **Add JARs...** and navigate to the path where you copied aws-cloudtrail-processing-library-1.6.1.jar.
+
+1. Choose **OK** to complete adding the `.jar` to your project.
 
 #### Adding the library to an IntelliJ project
+<a name="use-the-cloudtrail-processing-library-add-to-intellij-project"></a>
 
-###### To add the CloudTrail Processing Library to an IntelliJ project
+**To add the CloudTrail Processing Library to an IntelliJ project**
 
 1. Download or clone the CloudTrail Processing Library source code from GitHub:
+   + [https://github.com/aws/aws-cloudtrail-processing-library](https://github.com/aws/aws-cloudtrail-processing-library)
 
-   - [https://github.com/aws/aws-cloudtrail-processing-library](https://github.com/aws/aws-cloudtrail-processing-library "https://github.com/aws/aws-cloudtrail-processing-library")
+1. Build the .jar file from source as described in the [README](https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst):
 
-2. Build the .jar file from source as described in the [README](https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst "https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst"):
+   ```
+   mvn clean install -Dgpg.skip=true
+   ```
 
-```
-mvn clean install -Dgpg.skip=true
-```
+1. From **File**, choose **Project Structure**.
 
-3. From **File**, choose **Project
-   Structure**.
-4. Choose **Modules** and then choose
-   **Dependencies**.
-5. Choose **+ JARS or Directories** and then go to the path where
-   you built the `aws-cloudtrail-processing-library-1.6.1.jar`.
-6. Choose **Apply** and then choose **OK** to
-   complete adding the `.jar` to your project.
+1. Choose **Modules** and then choose **Dependencies**.
+
+1. Choose **\+ JARS or Directories** and then go to the path where you built the `aws-cloudtrail-processing-library-1.6.1.jar`.
+
+1. Choose **Apply** and then choose **OK** to complete adding the `.jar` to your project.
 
 ### Configuring the CloudTrail Processing Library
+<a name="use-the-cloudtrail-processing-library-configure"></a>
 
-You can configure the CloudTrail Processing Library by creating a classpath properties file that is loaded
-at runtime, or by creating a `ClientConfiguration` object and setting options
-manually.
+You can configure the CloudTrail Processing Library by creating a classpath properties file that is loaded at runtime, or by creating a `ClientConfiguration` object and setting options manually.
 
 #### Providing a properties file
+<a name="use-the-cloudtrail-processing-library-configure-provide-classpath-properties-file"></a>
 
-You can write a classpath properties file that provides configuration options to your
-application. The following example file shows the options you can set:
+You can write a classpath properties file that provides configuration options to your application. The following example file shows the options you can set:
 
 ```
 # AWS access key. (Required)
@@ -197,29 +183,19 @@ enableRawEventInfo = false
 deleteMessageUponFailure = false
 ```
 
-The following parameters are required:
+The following parameters are required: 
++ `sqsUrl` – Provides the URL from which to pull your CloudTrail notifications. If you don't specify this value, the `AWSCloudTrailProcessingExecutor` throws an `IllegalStateException`.
++ `accessKey` – A unique identifier for your account, such as AKIAIOSFODNN7EXAMPLE.
++ `secretKey` – A unique identifier for your account, such as wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY. 
 
-- `sqsUrl` – Provides the URL from which to pull your CloudTrail
-  notifications. If you don't specify this value, the
-  `AWSCloudTrailProcessingExecutor` throws an
-  `IllegalStateException`.
-- `accessKey` – A unique identifier for your account, such as
-  AKIAIOSFODNN7EXAMPLE.
-- `secretKey` – A unique identifier for your account, such as
-  wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY.
+The `accessKey` and `secretKey` parameters provide your AWS credentials to the library so the library can access AWS on your behalf.
 
-The `accessKey` and `secretKey` parameters provide your AWS
-credentials to the library so the library can access AWS on your behalf.
-
-Defaults for the other parameters are set by the library. For more information, see
-the [AWS CloudTrail Processing Library
-Reference](../processinglib.md "../processinglib.md").
+Defaults for the other parameters are set by the library. For more information, see the [AWS CloudTrail Processing Library Reference](https://docs.aws.amazon.com/awscloudtrail/latest/processinglib/).
 
 #### Creating a ClientConfiguration
+<a name="use-the-cloudtrail-processing-library-configure-create-clientconfiguration"></a>
 
-Instead of setting options in the classpath properties, you can provide options to the
-`AWSCloudTrailProcessingExecutor` by initializing and setting options on a
-`ClientConfiguration` object, as shown in the following example:
+Instead of setting options in the classpath properties, you can provide options to the `AWSCloudTrailProcessingExecutor` by initializing and setting options on a `ClientConfiguration` object, as shown in the following example:
 
 ```
 ClientConfiguration basicConfig = new ClientConfiguration(
@@ -229,13 +205,12 @@ ClientConfiguration basicConfig = new ClientConfiguration(
 basicConfig.setEnableRawEventInfo(true);
 basicConfig.setThreadCount(4);
 basicConfig.setnEventsPerEmit(20);
-
 ```
 
 ### Implementing the events processor
+<a name="use-the-cloudtrail-processing-library-implement-events-processor"></a>
 
-To process CloudTrail logs, you must implement an `EventsProcessor` that receives
-the CloudTrail log data. The following is an example implementation:
+To process CloudTrail logs, you must implement an `EventsProcessor` that receives the CloudTrail log data. The following is an example implementation: 
 
 ```
 public class SampleEventsProcessor implements EventsProcessor {
@@ -247,40 +222,26 @@ public class SampleEventsProcessor implements EventsProcessor {
         }
     }
 }
-
 ```
 
-When implementing an `EventsProcessor`, you implement the
-`process()` callback that the `AWSCloudTrailProcessingExecutor` uses
-to send you CloudTrail events. Events are provided in a list of `CloudTrailClientEvent`
-objects.
+When implementing an `EventsProcessor`, you implement the `process()` callback that the `AWSCloudTrailProcessingExecutor` uses to send you CloudTrail events. Events are provided in a list of `CloudTrailClientEvent` objects.
 
-The `CloudTrailClientEvent` object provides a `CloudTrailEvent`
-and `CloudTrailEventMetadata` that you can use to read the CloudTrail event and
-delivery information.
+The `CloudTrailClientEvent` object provides a `CloudTrailEvent` and `CloudTrailEventMetadata` that you can use to read the CloudTrail event and delivery information.
 
-This simple example prints the event information for each event passed to
-`SampleEventsProcessor`. In your own implementation, you can process logs as
-you see fit. The `AWSCloudTrailProcessingExecutor` continues to send events to
-your `EventsProcessor` as long as it has events to send and is still
-running.
+This simple example prints the event information for each event passed to `SampleEventsProcessor`. In your own implementation, you can process logs as you see fit. The `AWSCloudTrailProcessingExecutor` continues to send events to your `EventsProcessor` as long as it has events to send and is still running.
 
 ### Instantiating and running the processing executor
+<a name="use-the-cloudtrail-processing-library-instantiate-and-run-executor"></a>
 
-After you write an `EventsProcessor` and set configuration values for the
-CloudTrail Processing Library (either in a properties file or by using the `ClientConfiguration`
-class), you can use these elements to initialize and use an
-`AWSCloudTrailProcessingExecutor`.
+After you write an `EventsProcessor` and set configuration values for the CloudTrail Processing Library (either in a properties file or by using the `ClientConfiguration` class), you can use these elements to initialize and use an `AWSCloudTrailProcessingExecutor`.
 
-###### To use `AWSCloudTrailProcessingExecutor` to process CloudTrail events
+**To use `AWSCloudTrailProcessingExecutor` to process CloudTrail events**
 
-1. Instantiate an `AWSCloudTrailProcessingExecutor.Builder` object.
-   `Builder`'s constructor takes an `EventsProcessor` object and a
-   classpath properties file name.
-2. Call the `Builder`'s `build()` factory method to configure and
-   obtain an `AWSCloudTrailProcessingExecutor` object.
-3. Use the `AWSCloudTrailProcessingExecutor`'s `start()` and
-   `stop()` methods to begin and end CloudTrail event processing.
+1. Instantiate an `AWSCloudTrailProcessingExecutor.Builder` object. `Builder`'s constructor takes an `EventsProcessor` object and a classpath properties file name.
+
+1. Call the `Builder`'s `build()` factory method to configure and obtain an `AWSCloudTrailProcessingExecutor` object.
+
+1. Use the `AWSCloudTrailProcessingExecutor`'s `start()` and `stop()` methods to begin and end CloudTrail event processing.
 
 ```
 public class SampleApp {
@@ -294,38 +255,26 @@ public class SampleApp {
     executor.stop(); // optional
   }
 }
-
 ```
 
 ## Advanced topics
+<a name="use-the-cloudtrail-processing-library-advanced"></a>
 
-###### Topics
-
-- [Filtering the events to process](#use-the-cloudtrail-processing-library-advanced-filter-events "#use-the-cloudtrail-processing-library-advanced-filter-events")
-- [Processing data events](#use-the-cpl-advanced-integers-floats "#use-the-cpl-advanced-integers-floats")
-- [Reporting progress](#use-the-cloudtrail-processing-library-advanced-report-progress "#use-the-cloudtrail-processing-library-advanced-report-progress")
-- [Handling errors](#use-the-cloudtrail-processing-library-advanced-handle-errors "#use-the-cloudtrail-processing-library-advanced-handle-errors")
+**Topics**
++ [Filtering the events to process](#use-the-cloudtrail-processing-library-advanced-filter-events)
++ [Processing data events](#use-the-cpl-advanced-integers-floats)
++ [Reporting progress](#use-the-cloudtrail-processing-library-advanced-report-progress)
++ [Handling errors](#use-the-cloudtrail-processing-library-advanced-handle-errors)
 
 ### Filtering the events to process
+<a name="use-the-cloudtrail-processing-library-advanced-filter-events"></a>
 
-By default, all logs in your Amazon SQS queue's S3 bucket and all events that they contain
-are sent to your `EventsProcessor`. The CloudTrail Processing Library provides optional interfaces
-that you can implement to filter the sources used to obtain CloudTrail logs and to filter the
-events that you are interested in processing.
+By default, all logs in your Amazon SQS queue's S3 bucket and all events that they contain are sent to your `EventsProcessor`. The CloudTrail Processing Library provides optional interfaces that you can implement to filter the sources used to obtain CloudTrail logs and to filter the events that you are interested in processing.
 
-`SourceFilter`
-
-You can implement the `SourceFilter` interface to choose whether you
-want to process logs from a provided source. `SourceFilter` declares a
-single callback method, `filterSource()`, that receives a
-`CloudTrailSource` object. To keep events from a source from being
-processed, return `false` from `filterSource()`.
-
-The CloudTrail Processing Library calls the `filterSource()` method after the library polls
-for logs on the Amazon SQS queue. This occurs before the library starts event filtering or
-processing for the logs.
-
-The following is an example implementation:
+`SourceFilter`  
+You can implement the `SourceFilter` interface to choose whether you want to process logs from a provided source. `SourceFilter` declares a single callback method, `filterSource()`, that receives a `CloudTrailSource` object. To keep events from a source from being processed, return `false` from `filterSource()`.  
+The CloudTrail Processing Library calls the `filterSource()` method after the library polls for logs on the Amazon SQS queue. This occurs before the library starts event filtering or processing for the logs.  
+The following is an example implementation:  
 
 ```
 public class SampleSourceFilter implements SourceFilter{
@@ -354,26 +303,13 @@ public class SampleSourceFilter implements SourceFilter{
     return approximateReceivedCount <= MAX_RECEIVED_COUNT && accountIDs.contains(accountId);
   }
 }
-
 ```
+If you don't provide your own `SourceFilter`, then `DefaultSourceFilter` is used, which allows all sources to be processed (it always returns `true`).
 
-If you don't provide your own `SourceFilter`, then
-`DefaultSourceFilter` is used, which allows all sources to be processed
-(it always returns `true`).
-
-`EventFilter`
-
-You can implement the `EventFilter` interface to choose whether a CloudTrail
-event is sent to your `EventsProcessor`. `EventFilter` declares
-a single callback method, `filterEvent()`, that receives a
-`CloudTrailEvent` object. To keep the event from being processed, return
-`false` from `filterEvent()`.
-
-The CloudTrail Processing Library calls the `filterEvent()` method after the library polls
-for logs on the Amazon SQS queue and after source filtering. This occurs before the library
-starts event processing for the logs.
-
-See the following example implementation:
+`EventFilter`  
+You can implement the `EventFilter` interface to choose whether a CloudTrail event is sent to your `EventsProcessor`. `EventFilter` declares a single callback method, `filterEvent()`, that receives a `CloudTrailEvent` object. To keep the event from being processed, return `false` from `filterEvent()`.  
+The CloudTrail Processing Library calls the `filterEvent()` method after the library polls for logs on the Amazon SQS queue and after source filtering. This occurs before the library starts event processing for the logs.  
+See the following example implementation:  
 
 ```
 public class SampleEventFilter implements EventFilter{
@@ -390,27 +326,17 @@ public class SampleEventFilter implements EventFilter{
     return eventSource.equals(EC2_EVENTS) && eventName.startsWith("Delete");
   }
 }
-
 ```
-
-If you don't provide your own `EventFilter`, then
-`DefaultEventFilter` is used, which allows all events to be processed (it
-always returns `true`).
+If you don't provide your own `EventFilter`, then `DefaultEventFilter` is used, which allows all events to be processed (it always returns `true`).
 
 ### Processing data events
+<a name="use-the-cpl-advanced-integers-floats"></a>
 
-When CloudTrail processes data events, it preserves numbers in their original format, whether
-that is an integer (`int`) or a `float` (a number that contains a
-decimal). In events that have integers in the fields of a data event, CloudTrail historically
-processed these numbers as floats. Currently, CloudTrail processes numbers in these fields by
-keeping their original format.
+When CloudTrail processes data events, it preserves numbers in their original format, whether that is an integer (`int`) or a `float` (a number that contains a decimal). In events that have integers in the fields of a data event, CloudTrail historically processed these numbers as floats. Currently, CloudTrail processes numbers in these fields by keeping their original format.
 
-As a best practice, to avoid breaking your automations, be flexible in any code or automation that you are using
-to process or filter CloudTrail data events, and allow both `int` and `float` formatted numbers. For best results,
-use version 1.4.0 or higher of the CloudTrail Processing Library.
+As a best practice, to avoid breaking your automations, be flexible in any code or automation that you are using to process or filter CloudTrail data events, and allow both `int` and `float` formatted numbers. For best results, use version 1.4.0 or higher of the CloudTrail Processing Library.
 
-The following example snippet shows a `float` formatted number, `2.0`, for the `desiredCount` parameter in the
-`ResponseParameters` block of a data event.
+The following example snippet shows a `float` formatted number, `2.0`, for the `desiredCount` parameter in the `ResponseParameters` block of a data event.
 
 ```
 "eventName": "CreateService",
@@ -424,8 +350,7 @@ The following example snippet shows a `float` formatted number, `2.0`, for the `
 ...
 ```
 
-The following example snippet shows an `int` formatted number, `2`, for the `desiredCount`
-parameter in the `ResponseParameters` block of a data event.
+The following example snippet shows an `int` formatted number, `2`, for the `desiredCount` parameter in the `ResponseParameters` block of a data event.
 
 ```
 "eventName": "CreateService",
@@ -440,29 +365,19 @@ parameter in the `ResponseParameters` block of a data event.
 ```
 
 ### Reporting progress
+<a name="use-the-cloudtrail-processing-library-advanced-report-progress"></a>
 
-Implement the `ProgressReporter` interface to customize the reporting of
-CloudTrail Processing Library progress. `ProgressReporter` declares two methods:
-`reportStart()` and `reportEnd()`, which are called at the beginning
-and end of the following operations:
+Implement the `ProgressReporter` interface to customize the reporting of CloudTrail Processing Library progress. `ProgressReporter` declares two methods: `reportStart()` and `reportEnd()`, which are called at the beginning and end of the following operations:
++ Polling messages from Amazon SQS
++ Parsing messages from Amazon SQS
++ Processing an Amazon SQS source for CloudTrail logs
++ Deleting messages from Amazon SQS
++ Downloading a CloudTrail log file
++ Processing a CloudTrail log file
 
-- Polling messages from Amazon SQS
-- Parsing messages from Amazon SQS
-- Processing an Amazon SQS source for CloudTrail logs
-- Deleting messages from Amazon SQS
-- Downloading a CloudTrail log file
-- Processing a CloudTrail log file
+Both methods receive a `ProgressStatus` object that contains information about the operation that was performed. The `progressState` member holds a member of the `ProgressState` enumeration that identifies the current operation. This member can contain additional information in the `progressInfo` member. Additionally, any object that you return from `reportStart()` is passed to `reportEnd()`, so you can provide contextual information such as the time when the event began processing.
 
-Both methods receive a `ProgressStatus` object that contains information
-about the operation that was performed. The `progressState` member holds a member
-of the `ProgressState` enumeration that identifies the current operation. This
-member can contain additional information in the `progressInfo` member.
-Additionally, any object that you return from `reportStart()` is passed to
-`reportEnd()`, so you can provide contextual information such as the time when
-the event began processing.
-
-The following is an example implementation that provides information about how long an
-operation took to complete:
+The following is an example implementation that provides information about how long an operation took to complete:
 
 ```
 public class SampleProgressReporter implements ProgressReporter {
@@ -482,27 +397,16 @@ public class SampleProgressReporter implements ProgressReporter {
       milliseconds.");
   }
 }
-
 ```
 
-If you don't implement your own `ProgressReporter`, then
-`DefaultExceptionHandler`, which prints the name of the state being run, is
-used instead.
+If you don't implement your own `ProgressReporter`, then `DefaultExceptionHandler`, which prints the name of the state being run, is used instead.
 
 ### Handling errors
+<a name="use-the-cloudtrail-processing-library-advanced-handle-errors"></a>
 
-The `ExceptionHandler` interface allows you to provide special handling when
-an exception occurs during log processing. `ExceptionHandler` declares a single
-callback method, `handleException()`, which receives a
-`ProcessingLibraryException` object with context about the exception that
-occurred.
+The `ExceptionHandler` interface allows you to provide special handling when an exception occurs during log processing. `ExceptionHandler` declares a single callback method, `handleException()`, which receives a `ProcessingLibraryException` object with context about the exception that occurred.
 
-You can use the passed-in `ProcessingLibraryException`'s
-`getStatus()` method to find out what operation was executed when the exception
-occurred and get additional information about the status of the operation.
-`ProcessingLibraryException` is derived from Java's standard
-`Exception` class, so you can also retrieve information about the exception by
-invoking any of the exception methods.
+You can use the passed-in `ProcessingLibraryException`'s `getStatus()` method to find out what operation was executed when the exception occurred and get additional information about the status of the operation. `ProcessingLibraryException` is derived from Java's standard `Exception` class, so you can also retrieve information about the exception by invoking any of the exception methods.
 
 See the following example implementation:
 
@@ -521,37 +425,20 @@ public class SampleExceptionHandler implements ExceptionHandler{
       "Exception. Progress State: %s. Progress Information: %s.", state, info));
   }
 }
-
 ```
 
-If you don't provide your own `ExceptionHandler`, then
-`DefaultExceptionHandler`, which prints a standard error message, is used
-instead.
+If you don't provide your own `ExceptionHandler`, then `DefaultExceptionHandler`, which prints a standard error message, is used instead.<a name="delete-message-exception"></a>
 
-###### Note
-
-If the `deleteMessageUponFailure` parameter is `true`, the
-CloudTrail Processing Library does not distinguish general exceptions from processing errors and may delete
-queue messages.
-
-1. For example, you use the `SourceFilter` to filter messages by
-   timestamp.
-2. However, you don't have the required permissions to access the S3 bucket that
-   receives the CloudTrail log files. Because you don't have the required permissions, an
-   `AmazonServiceException` is thrown. The CloudTrail Processing Library wraps this in a
-   `CallBackException`.
-3. The `DefaultExceptionHandler` logs this as an error, but does not
-   identify the root cause, which is that you don't have the required permissions. The
-   CloudTrail Processing Library considers this a processing error and deletes the message, even if the
-   message includes a valid CloudTrail log file.
-   If you want to filter messages with `SourceFilter`, verify that your
-   `ExceptionHandler` can distinguish service exceptions from processing errors.
+**Note**  
+If the `deleteMessageUponFailure` parameter is `true`, the CloudTrail Processing Library does not distinguish general exceptions from processing errors and may delete queue messages.  
+For example, you use the `SourceFilter` to filter messages by timestamp.
+However, you don't have the required permissions to access the S3 bucket that receives the CloudTrail log files. Because you don't have the required permissions, an `AmazonServiceException` is thrown. The CloudTrail Processing Library wraps this in a `CallBackException`. 
+The `DefaultExceptionHandler` logs this as an error, but does not identify the root cause, which is that you don't have the required permissions. The CloudTrail Processing Library considers this a processing error and deletes the message, even if the message includes a valid CloudTrail log file.
+If you want to filter messages with `SourceFilter`, verify that your `ExceptionHandler` can distinguish service exceptions from processing errors. 
 
 ## Additional resources
+<a name="UsingProcessingLib-ar"></a>
 
 For more information about the CloudTrail Processing Library, see the following:
-
-- [CloudTrail Processing Library](https://github.com/aws/aws-cloudtrail-processing-library "https://github.com/aws/aws-cloudtrail-processing-library") GitHub project, which includes [sample](https://github.com/aws/aws-cloudtrail-processing-library/tree/master/src/sample "https://github.com/aws/aws-cloudtrail-processing-library/tree/master/src/sample") code that demonstrates how to implement a
-  CloudTrail Processing Library application.
-- [CloudTrail Processing Library Java Package
-  Documentation](../processinglib.md "../processinglib.md").
++ [CloudTrail Processing Library](https://github.com/aws/aws-cloudtrail-processing-library) GitHub project, which includes [sample](https://github.com/aws/aws-cloudtrail-processing-library/tree/master/src/sample) code that demonstrates how to implement a CloudTrail Processing Library application.
++ [CloudTrail Processing Library Java Package Documentation](https://docs.aws.amazon.com/awscloudtrail/latest/processinglib/).

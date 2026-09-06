@@ -1,59 +1,41 @@
+
+
 # AWS Management Console sign-in events
+<a name="cloudtrail-event-reference-aws-console-sign-in-events"></a>
 
-CloudTrail logs attempts to sign in to the AWS Management Console, the AWS Discussion Forums, and the AWS
-Support Center. All IAM user and root user sign-in events, as well as all federated
-user sign-in events, generate records in CloudTrail log files. For information about finding and
-viewing logs, see [Finding your CloudTrail log files](get-and-view-cloudtrail-log-files.md#cloudtrail-find-log-files "get-and-view-cloudtrail-log-files.md#cloudtrail-find-log-files") and [Downloading your CloudTrail log files](cloudtrail-read-log-files.md "cloudtrail-read-log-files.md").
+CloudTrail logs attempts to sign in to the AWS Management Console, the AWS Discussion Forums, and the AWS Support Center. All IAM user and root user sign-in events, as well as all federated user sign-in events, generate records in CloudTrail log files. For information about finding and viewing logs, see [Finding your CloudTrail log files](get-and-view-cloudtrail-log-files.md#cloudtrail-find-log-files) and [Downloading your CloudTrail log files](cloudtrail-read-log-files.md). 
 
-You can use [AWS User Notifications](../../../notifications/latest/userguide/what-is.md "../../../notifications/latest/userguide/what-is.md") to set up delivery channels to get notified about AWS CloudTrail events. You receive a notification when an event matches a rule that you specify.
-You can receive notifications for events through multiple channels, including email,
-[Amazon Q Developer in chat applications](../../../chatbot/latest/adminguide/what-is.md "../../../chatbot/latest/adminguide/what-is.md") chat notifications, or [AWS Console Mobile Application](../../../consolemobileapp/latest/userguide/what-is-consolemobileapp.md "../../../consolemobileapp/latest/userguide/what-is-consolemobileapp.md") push notifications. You can also see notifications in the [Console Notifications Center](https://console.aws.amazon.com/notifications/ "https://console.aws.amazon.com/notifications/").
-User Notifications supports aggregation, which can reduce the number of notifications you receive during specific events.
+You can use [AWS User Notifications](https://docs.aws.amazon.com/notifications/latest/userguide/what-is.html) to set up delivery channels to get notified about AWS CloudTrail events. You receive a notification when an event matches a rule that you specify. You can receive notifications for events through multiple channels, including email, [Amazon Q Developer in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/what-is.html) chat notifications, or [AWS Console Mobile Application](https://docs.aws.amazon.com/consolemobileapp/latest/userguide/what-is-consolemobileapp.html) push notifications. You can also see notifications in the [Console Notifications Center](https://console.aws.amazon.com/notifications/). User Notifications supports aggregation, which can reduce the number of notifications you receive during specific events.
 
-###### Note
+**Note**  
+The Region recorded in a `ConsoleLogin` event varies based on the user type and whether you use a global or regional endpoint to sign in.  
+If you sign in as the root user, CloudTrail records the event in one of the following Regions: us-east-1, us-east-2, or us-west-2.
+If you sign in with an IAM user and use the global endpoint, CloudTrail records the Region of the `ConsoleLogin` event as follows:  
+If an account alias cookie is present in the browser, CloudTrail records the `ConsoleLogin` event in one of the following regions: us-east-2, eu-north-1, or ap-southeast-2. This is because the console proxy redirects the user based on the latency from the user sign-in location.
+If an account alias cookie is not present in the browser, CloudTrail records the `ConsoleLogin` event in us-east-1. This is because the console proxy redirects back to the global sign-in.
+If you sign in with an IAM user and use a [Regional endpoint](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints), CloudTrail records the `ConsoleLogin` event in the appropriate Region for the endpoint. For more information about AWS Sign-In endpoints, see [AWS Sign-In endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/signin-service.html).
 
-The Region recorded in a `ConsoleLogin` event varies based on the user type and whether you
-use a global or regional endpoint to sign in.
-
-- If you sign in as the root user, CloudTrail records the event in one of the following
-  Regions: us-east-1, us-east-2, or us-west-2.
-- If you sign in with an IAM user and use the global endpoint, CloudTrail records
-  the Region of the `ConsoleLogin` event as follows:
-
-  - If an account alias cookie is present in the browser, CloudTrail records the `ConsoleLogin` event
-    in one of the following regions: us-east-2, eu-north-1, or ap-southeast-2. This is because the console proxy
-    redirects the user based on the latency from the user sign-in location.
-  - If an account alias cookie is not present in the browser, CloudTrail records the `ConsoleLogin` event in us-east-1.
-    This is because the console proxy redirects back to the global sign-in.
-
-- If you sign in with an IAM user and use a [Regional
-  endpoint](../../../general/latest/gr/rande.md#regional-endpoints "../../../general/latest/gr/rande.md#regional-endpoints"), CloudTrail records the `ConsoleLogin` event in the
-  appropriate Region for the endpoint. For more information about AWS Sign-In endpoints,
-  see [AWS Sign-In endpoints and quotas](../../../general/latest/gr/signin-service.md "../../../general/latest/gr/signin-service.md").
-
-###### Topics
-
-- [Example event records for IAM users](#cloudtrail-event-reference-aws-console-sign-in-events-iam-user "#cloudtrail-event-reference-aws-console-sign-in-events-iam-user")
-- [Example event records for root users](#cloudtrail-event-reference-aws-console-sign-in-events-root "#cloudtrail-event-reference-aws-console-sign-in-events-root")
-- [Example event records for federated users](#cloudtrail-event-reference-aws-console-sign-in-events-federated-user "#cloudtrail-event-reference-aws-console-sign-in-events-federated-user")
+**Topics**
++ [Example event records for IAM users](#cloudtrail-event-reference-aws-console-sign-in-events-iam-user)
++ [Example event records for root users](#cloudtrail-event-reference-aws-console-sign-in-events-root)
++ [Example event records for federated users](#cloudtrail-event-reference-aws-console-sign-in-events-federated-user)
 
 ## Example event records for IAM users
+<a name="cloudtrail-event-reference-aws-console-sign-in-events-iam-user"></a>
 
-The following examples show event records for several IAM user sign-in
-scenarios.
+The following examples show event records for several IAM user sign-in scenarios.
 
-###### Topics
-
-- [IAM user, successful sign-in without MFA](#cloudtrail-aws-console-sign-in-events-iam-user-success "#cloudtrail-aws-console-sign-in-events-iam-user-success")
-- [IAM user, successful sign-in with MFA](#cloudtrail-aws-console-sign-in-events-iam-user-mfa "#cloudtrail-aws-console-sign-in-events-iam-user-mfa")
-- [IAM user, unsuccessful sign-in](#cloudtrail-aws-console-sign-in-events-iam-user-failure "#cloudtrail-aws-console-sign-in-events-iam-user-failure")
-- [IAM user, sign-in process checks for MFA (single MFA device type)](#cloudtrail-aws-console-sign-in-requires-mfa "#cloudtrail-aws-console-sign-in-requires-mfa")
-- [IAM user, sign-in process checks for MFA (multiple MFA device types)](#cloudtrail-aws-console-sign-in-requires-mfa-multiple "#cloudtrail-aws-console-sign-in-requires-mfa-multiple")
+**Topics**
++ [IAM user, successful sign-in without MFA](#cloudtrail-aws-console-sign-in-events-iam-user-success)
++ [IAM user, successful sign-in with MFA](#cloudtrail-aws-console-sign-in-events-iam-user-mfa)
++ [IAM user, unsuccessful sign-in](#cloudtrail-aws-console-sign-in-events-iam-user-failure)
++ [IAM user, sign-in process checks for MFA (single MFA device type)](#cloudtrail-aws-console-sign-in-requires-mfa)
++ [IAM user, sign-in process checks for MFA (multiple MFA device types)](#cloudtrail-aws-console-sign-in-requires-mfa-multiple)
 
 ### IAM user, successful sign-in without MFA
+<a name="cloudtrail-aws-console-sign-in-events-iam-user-success"></a>
 
-The following record shows that a user named `Anaya` successfully
-signed in to the AWS Management Console without using multi-factor authentication (MFA).
+The following record shows that a user named `Anaya` successfully signed in to the AWS Management Console without using multi-factor authentication (MFA). 
 
 ```
 {
@@ -95,10 +77,9 @@ signed in to the AWS Management Console without using multi-factor authenticatio
 ```
 
 ### IAM user, successful sign-in with MFA
+<a name="cloudtrail-aws-console-sign-in-events-iam-user-mfa"></a>
 
-The following record shows that an IAM user named `Anaya`
-successfully signed in to the AWS Management Console using multi-factor authentication
-(MFA).
+The following record shows that an IAM user named `Anaya` successfully signed in to the AWS Management Console using multi-factor authentication (MFA).
 
 ```
 {
@@ -141,9 +122,9 @@ successfully signed in to the AWS Management Console using multi-factor authenti
 ```
 
 ### IAM user, unsuccessful sign-in
+<a name="cloudtrail-aws-console-sign-in-events-iam-user-failure"></a>
 
-The following record shows an unsuccessful sign-in attempt from an IAM user
-named `Paulo`.
+The following record shows an unsuccessful sign-in attempt from an IAM user named `Paulo`.
 
 ```
 {
@@ -183,16 +164,12 @@ named `Paulo`.
         "clientProvidedHostHeader": "us-east-1.signin.aws.amazon.com"
     }
 }
-
 ```
 
 ### IAM user, sign-in process checks for MFA (single MFA device type)
+<a name="cloudtrail-aws-console-sign-in-requires-mfa"></a>
 
-The following shows that the sign-process checked whether multi-factor
-authentication (MFA) is required for an IAM user during sign-in. In this example,
-the `mfaType` value is `U2F MFA`, which indicates that the
-IAM user enabled either a single MFA device or multiple MFA devices of the same
-type (`U2F MFA`).
+The following shows that the sign-process checked whether multi-factor authentication (MFA) is required for an IAM user during sign-in. In this example, the `mfaType` value is `U2F MFA`, which indicates that the IAM user enabled either a single MFA device or multiple MFA devices of the same type (`U2F MFA`).
 
 ```
 {
@@ -232,11 +209,9 @@ type (`U2F MFA`).
 ```
 
 ### IAM user, sign-in process checks for MFA (multiple MFA device types)
+<a name="cloudtrail-aws-console-sign-in-requires-mfa-multiple"></a>
 
-The following shows that the sign-process checked whether multi-factor
-authentication (MFA) is required for an IAM user during sign-in. In this example,
-the `mfaType` value is `Multiple MFA Devices`, which indicates
-that the IAM user enabled multiple MFA device types.
+The following shows that the sign-process checked whether multi-factor authentication (MFA) is required for an IAM user during sign-in. In this example, the `mfaType` value is `Multiple MFA Devices`, which indicates that the IAM user enabled multiple MFA device types.
 
 ```
  {
@@ -276,23 +251,21 @@ that the IAM user enabled multiple MFA device types.
 ```
 
 ## Example event records for root users
+<a name="cloudtrail-event-reference-aws-console-sign-in-events-root"></a>
 
-The following examples show event records for several `root` user sign-in
-scenarios. When you sign-in using the root user, CloudTrail records the `ConsoleLogin`
-event in one of the following Regions: us-east-1, us-east-2, or us-west-2.
+The following examples show event records for several `root` user sign-in scenarios. When you sign-in using the root user, CloudTrail records the `ConsoleLogin` event in one of the following Regions: us-east-1, us-east-2, or us-west-2.
 
-###### Topics
-
-- [Root user, successful sign-in without MFA](#cloudtrail-signin-root "#cloudtrail-signin-root")
-- [Root user, successful sign-in with MFA](#cloudtrail-signin-root-mfa "#cloudtrail-signin-root-mfa")
-- [Root user, unsuccessful sign-in](#cloudtrail-unsuccessful-signin-root "#cloudtrail-unsuccessful-signin-root")
-- [Root user, MFA changed](#cloudtrail-signin-mfa-changed-root "#cloudtrail-signin-mfa-changed-root")
-- [Root user, password changed](#cloudtrail-root-password-changed "#cloudtrail-root-password-changed")
+**Topics**
++ [Root user, successful sign-in without MFA](#cloudtrail-signin-root)
++ [Root user, successful sign-in with MFA](#cloudtrail-signin-root-mfa)
++ [Root user, unsuccessful sign-in](#cloudtrail-unsuccessful-signin-root)
++ [Root user, MFA changed](#cloudtrail-signin-mfa-changed-root)
++ [Root user, password changed](#cloudtrail-root-password-changed)
 
 ### Root user, successful sign-in without MFA
+<a name="cloudtrail-signin-root"></a>
 
-The following shows a successful sign-in event for a root user not using
-multi-factor authentication (MFA).
+The following shows a successful sign-in event for a root user not using multi-factor authentication (MFA).
 
 ```
 {
@@ -334,9 +307,9 @@ multi-factor authentication (MFA).
 ```
 
 ### Root user, successful sign-in with MFA
+<a name="cloudtrail-signin-root-mfa"></a>
 
-The following shows a successful sign-in event for a root user using
-multi-factor authentication (MFA).
+The following shows a successful sign-in event for a root user using multi-factor authentication (MFA).
 
 ```
 {
@@ -379,9 +352,9 @@ multi-factor authentication (MFA).
 ```
 
 ### Root user, unsuccessful sign-in
+<a name="cloudtrail-unsuccessful-signin-root"></a>
 
-The following shows an unsuccessful sign-in event for a root user not using
-MFA.
+The following shows an unsuccessful sign-in event for a root user not using MFA.
 
 ```
 {
@@ -424,9 +397,9 @@ MFA.
 ```
 
 ### Root user, MFA changed
+<a name="cloudtrail-signin-mfa-changed-root"></a>
 
-The following shows an example event for a root user changing multi-factor
-authentication (MFA) settings.
+The following shows an example event for a root user changing multi-factor authentication (MFA) settings.
 
 ```
 {
@@ -470,9 +443,9 @@ authentication (MFA) settings.
 ```
 
 ### Root user, password changed
+<a name="cloudtrail-root-password-changed"></a>
 
-The following shows an example event for a root user changing their
-password.
+The following shows an example event for a root user changing their password.
 
 ```
 {
@@ -511,23 +484,14 @@ password.
 ```
 
 ## Example event records for federated users
+<a name="cloudtrail-event-reference-aws-console-sign-in-events-federated-user"></a>
 
-The following examples show event records for federated users. Federated users are
-given temporary security credentials to access AWS resources through an [`AssumeRole`](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") request.
+The following examples show event records for federated users. Federated users are given temporary security credentials to access AWS resources through an [`AssumeRole`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) request.
 
-The following shows an example event for a federation encryption request. The original
-access key ID is provided in the `accessKeyId` field of the
-`userIdentity` element. The `accessKeyId` field in the
-`responseElements` contains a new access key ID if the requested
-`sessionDuration` is passed in the encryption request, otherwise it
-contains the value of the original access key ID.
+The following shows an example event for a federation encryption request. The original access key ID is provided in the `accessKeyId` field of the `userIdentity` element. The `accessKeyId` field in the `responseElements` contains a new access key ID if the requested `sessionDuration` is passed in the encryption request, otherwise it contains the value of the original access key ID. 
 
-###### Note
-
-In this example, the `mfaAuthenticated` value is `false` and
-the `MFAUsed` value is `No` because the request was made by a
-federated user. These fields will only be set to true if the request was made
-by an IAM user or root user using MFA.
+**Note**  
+In this example, the `mfaAuthenticated` value is `false` and the `MFAUsed` value is `No` because the request was made by a federated user. These fields will only be set to true if the request was made by an IAM user or root user using MFA.
 
 ```
 {
@@ -537,7 +501,7 @@ by an IAM user or root user using MFA.
         "principalId": "EXAMPLEUU4MH7OYK5ZCOA:JohnDoe",
         "arn": "arn:aws:sts::123456789012:assumed-role/roleName/JohnDoe",
         "accountId": "123456789012",
-        "accessKeyId": "`originalAccessKeyID`",
+        "accessKeyId": "{{originalAccessKeyID}}",
         "sessionContext": {
             "sessionIssuer": {
                 "type": "Role",
@@ -562,7 +526,7 @@ by an IAM user or root user using MFA.
     "requestParameters": null,
     "responseElements": {
         "credentials": {
-            "accessKeyId": "`accessKeyID`"
+            "accessKeyId": "{{accessKeyID}}"
         },
         "GetSigninToken": "Success"
     },
@@ -584,8 +548,7 @@ by an IAM user or root user using MFA.
 }
 ```
 
-The following shows a successful sign-in event for a federated user; not using
-multi-factor authentication (MFA).
+The following shows a successful sign-in event for a federated user; not using multi-factor authentication (MFA).
 
 ```
 {
@@ -593,16 +556,16 @@ multi-factor authentication (MFA).
     "userIdentity": {
         "type": "AssumedRole",
         "principalId": "EXAMPLEPHCNW7ZCASLJOH:JohnDoe",
-        "arn": "arn:aws:sts::123456789012:assumed-role/`RoleName`/JohnDoe",
+        "arn": "arn:aws:sts::123456789012:assumed-role/{{RoleName}}/JohnDoe",
         "accountId": "123456789012",
         "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "sessionContext": {
             "sessionIssuer": {
                 "type": "Role",
                 "principalId": "EXAMPLEPHCNW7ZCASLJOH",
-                "arn": "arn:aws:iam::123456789012:role/`RoleName`",
+                "arn": "arn:aws:iam::123456789012:role/{{RoleName}}",
                 "accountId": "123456789012",
-                "userName": "`RoleName`"
+                "userName": "{{RoleName}}"
             },
             "webIdFederationData": {},
             "attributes": {

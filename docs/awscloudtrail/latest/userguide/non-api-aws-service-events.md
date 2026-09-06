@@ -1,12 +1,11 @@
+
+
 # AWS service events
+<a name="non-api-aws-service-events"></a>
 
-CloudTrail supports logging non-API service events. These events are created by AWS
-services but are not directly triggered by a request to a public AWS API. For these
-events, the `eventType` field is `AwsServiceEvent`.
+CloudTrail supports logging non-API service events. These events are created by AWS services but are not directly triggered by a request to a public AWS API. For these events, the `eventType` field is `AwsServiceEvent`. 
 
-The following is an example scenario of an AWS service event when a customer managed key is automatically rotated
-in AWS Key Management Service (AWS KMS). For more information about rotating KMS keys, see
-[Rotating KMS keys](../../../kms/latest/developerguide/rotate-keys.md "../../../kms/latest/developerguide/rotate-keys.md").
+The following is an example scenario of an AWS service event when a customer managed key is automatically rotated in AWS Key Management Service (AWS KMS). For more information about rotating KMS keys, see [Rotating KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html).
 
 ```
 {

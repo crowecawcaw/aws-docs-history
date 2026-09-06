@@ -1,43 +1,38 @@
-# Filtering data events by using advanced event selectors
 
-This section describes how you can use advanced event selectors to create fine-grained selectors for logging data events, which can help
-you control costs by only logging the specific data events of interest.
+
+# Filtering data events by using advanced event selectors
+<a name="filtering-data-events"></a>
+
+This section describes how you can use advanced event selectors to create fine-grained selectors for logging data events, which can help you control costs by only logging the specific data events of interest.
 
 For example:
++ You can include or exclude specific API calls by adding a filter on the `eventName` field.
++ You can include or exclude logging for specific resources by adding a filter on the `resources.ARN` field. For example, if you were logging S3 data events, you could exclude logging for the S3 bucket for your trail.
++ You can choose to log only write-only events or read-only events by adding a filter on the `readOnly` field.
 
-- You can include or exclude specific API calls by adding a filter on the `eventName` field.
-- You can include or exclude logging for specific resources by adding a filter on the `resources.ARN` field. For example, if you were logging S3 data events,
-  you could exclude logging for the S3 bucket for your trail.
-- You can choose to log only write-only events or read-only events by adding a filter on the `readOnly` field.
-  The following table describes the supported fields for filtering data events. For a list of supported fields for each CloudTrail event type, see
-  [AdvancedEventSelector](../APIReference/API_AdvancedEventSelector.md "../APIReference/API_AdvancedEventSelector.md") in the _AWS CloudTrail API Reference_.
+The following table describes the supported fields for filtering data events. For a list of supported fields for each CloudTrail event type, see [AdvancedEventSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html) in the *AWS CloudTrail API Reference*.
 
-| Field                              | Required | Valid operators                                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---------------------------------- | -------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`eventCategory`**                | Yes      | `Equals`                                                                                  | This field is set to `Data` to log data events.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **`resources.type`**               | Yes      | `Equals`                                                                                  | This field is used to select the resource type for which you want to log data events. The [Data<br>events](logging-data-events-with-cloudtrail.md#logging-data-events "logging-data-events-with-cloudtrail.md#logging-data-events") table shows the possible values.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **`readOnly`**                     | No       | `Equals`                                                                                  | This is an optional field used to include or exclude data events based on the `readOnly` value.<br>A value of `true` logs only read events. A value of `false` logs only write events. If you do not add this field, CloudTrail logs both read and write events.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **`eventName`**                    | No       | `EndsWith`<br>`Equals`<br>`NotEndsWith`<br>`NotEquals`<br>`NotStartsWith`<br>`StartsWith` | This is an optional filed used to ﬁlter in or ﬁlter out any data<br>event logged to CloudTrail, such as `PutBucket` or<br>`GetSnapshotBlock`.<br>If you're using the AWS CLI, you can specify multiple values by separating each value with a comma.<br>If you're using the console, you can specify multiple values by creating a condition for each `eventName` you want to filter on.                                                                                                                                                                                                                                                                                                                                                    |
-| **`resources.ARN`**                | No       | `EndsWith`<br>`Equals`<br>`NotEndsWith`<br>`NotEquals`<br>`NotStartsWith`<br>`StartsWith` | This is an optional field used to exclude or include data events<br>for a specific resource by providing the `resources.ARN`.<br>You can use any operator with `resources.ARN`, but if you<br>use `Equals` or `NotEquals`, the value must<br>exactly match the ARN of a valid resource for the<br>`resources.type` you've speciﬁed. To log all data events for all objects in a specific S3 bucket,<br>use the `StartsWith` operator, and include only the bucket ARN as the matching value.<br>If you're using the AWS CLI, you can specify multiple values by separating each value with a comma.<br>If you're using the console, you can specify multiple values by creating a condition for each `resources.ARN` you want to filter on. |
-| **`eventSource`**                  | No       | `EndsWith`<br>`Equals`<br>`NotEndsWith`<br>`NotEquals`<br>`NotStartsWith`<br>`StartsWith` | You can use it to include or exclude specific event sources. The `eventSource` is typically a short form of the service name<br>without spaces plus `.amazonaws.com`. For example, you could set `eventSource` `Equals` to<br>`ec2.amazonaws.com` to log only Amazon EC2 data events.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **`eventType`**                    | No       | `EndsWith`<br>`Equals`<br>`NotEndsWith`<br>`NotEquals`<br>`NotStartsWith`<br>`StartsWith` | The [eventType](cloudtrail-event-reference-record-contents.md#ct-event-type "cloudtrail-event-reference-record-contents.md#ct-event-type") to include or exclude. For example, you can set this field to<br>`NotEquals` `AwsServiceEvent` to exclude [AWS service events](non-api-aws-service-events.md "non-api-aws-service-events.md").                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **`sessionCredentialFromConsole`** | No       | `Equals`<br>`NotEquals`                                                                   | Include or exclude events originating from an AWS Management Console session.<br>This field can be set to `Equals` or `NotEquals` with a value of<br>`true`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **`userIdentity.arn`**             | No       | `EndsWith`<br>`Equals`<br>`NotEndsWith`<br>`NotEquals`<br>`NotStartsWith`<br>`StartsWith` | Include or exclude events for actions taken by specific IAM identities. For more information, see [CloudTrail userIdentity element](cloudtrail-event-reference-user-identity.md "cloudtrail-event-reference-user-identity.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-To log data events using the CloudTrail console, you choose the **Data events** option and then select the **Resource type** of interest when you are creating or updating a trail or event data store. The [Data
-events](logging-data-events-with-cloudtrail.md#logging-data-events "logging-data-events-with-cloudtrail.md#logging-data-events") table shows the possible resource types you can choose on the CloudTrail console.
+| Field | Required | Valid operators | Description | 
+| --- | --- | --- | --- | 
+| **`eventCategory` ** | Yes | `Equals` | This field is set to `Data` to log data events. | 
+| **`resources.type`** | Yes | `Equals` | This field is used to select the resource type for which you want to log data events. The [Data events](logging-data-events-with-cloudtrail.md#logging-data-events) table shows the possible values. | 
+| **`readOnly`** | No | `Equals` | This is an optional field used to include or exclude data events based on the `readOnly` value. A value of `true` logs only read events. A value of `false` logs only write events. If you do not add this field, CloudTrail logs both read and write events.  | 
+| **`eventName`** | No | `EndsWith`<br />`Equals`<br />`NotEndsWith`<br />`NotEquals`<br />`NotStartsWith`<br />`StartsWith` | This is an optional filed used to ﬁlter in or ﬁlter out any data event logged to CloudTrail, such as `PutBucket` or `GetSnapshotBlock`.<br />If you're using the AWS CLI, you can specify multiple values by separating each value with a comma.<br />If you're using the console, you can specify multiple values by creating a condition for each `eventName` you want to filter on. | 
+| **`resources.ARN`** | No | `EndsWith`<br />`Equals`<br />`NotEndsWith`<br />`NotEquals`<br />`NotStartsWith`<br />`StartsWith` | This is an optional field used to exclude or include data events for a specific resource by providing the `resources.ARN`. You can use any operator with `resources.ARN`, but if you use `Equals` or `NotEquals`, the value must exactly match the ARN of a valid resource for the `resources.type` you've speciﬁed. To log all data events for all objects in a specific S3 bucket, use the `StartsWith` operator, and include only the bucket ARN as the matching value.<br />If you're using the AWS CLI, you can specify multiple values by separating each value with a comma.<br />If you're using the console, you can specify multiple values by creating a condition for each `resources.ARN` you want to filter on. | 
+| **`eventSource`** | No | `EndsWith`<br />`Equals`<br />`NotEndsWith`<br />`NotEquals`<br />`NotStartsWith`<br />`StartsWith` | You can use it to include or exclude specific event sources. The `eventSource` is typically a short form of the service name without spaces plus `.amazonaws.com`. For example, you could set `eventSource` `Equals` to `ec2.amazonaws.com` to log only Amazon EC2 data events. | 
+| **`eventType`** | No | `EndsWith`<br />`Equals`<br />`NotEndsWith`<br />`NotEquals`<br />`NotStartsWith`<br />`StartsWith` | The [eventType](cloudtrail-event-reference-record-contents.md#ct-event-type) to include or exclude. For example, you can set this field to `NotEquals` `AwsServiceEvent` to exclude [AWS service events](non-api-aws-service-events.md). | 
+| **`sessionCredentialFromConsole`** | No | `Equals`<br />`NotEquals` | Include or exclude events originating from an AWS Management Console session. This field can be set to `Equals` or `NotEquals` with a value of `true`. | 
+| **`userIdentity.arn`** | No | `EndsWith`<br />`Equals`<br />`NotEndsWith`<br />`NotEquals`<br />`NotStartsWith`<br />`StartsWith` | Include or exclude events for actions taken by specific IAM identities. For more information, see [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html). | 
 
-![Selection of the SNS topic resource type on the console.](images/cloudtrail-data-event-type.png)
-To log data events with the AWS CLI, configure the
-`--advanced-event-selector` parameter to set the
-`eventCategory` equal to `Data` and the
-`resources.type` value equal to the resource type value for which you
-want to log data events. The [Data
-events](logging-data-events-with-cloudtrail.md#logging-data-events "logging-data-events-with-cloudtrail.md#logging-data-events") table lists the available resource types.
+To log data events using the CloudTrail console, you choose the **Data events** option and then select the **Resource type** of interest when you are creating or updating a trail or event data store. The [Data events](logging-data-events-with-cloudtrail.md#logging-data-events) table shows the possible resource types you can choose on the CloudTrail console.
 
-For example, if you wanted to log data events for all Cognito Identity pools, you’d
-configure the `--advanced-event-selectors` parameter to look like
-this:
+![Selection of the SNS topic resource type on the console.](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/images/cloudtrail-data-event-type.png)
+
+
+To log data events with the AWS CLI, configure the `--advanced-event-selector` parameter to set the `eventCategory` equal to `Data` and the `resources.type` value equal to the resource type value for which you want to log data events. The [Data events](logging-data-events-with-cloudtrail.md#logging-data-events) table lists the available resource types.
+
+For example, if you wanted to log data events for all Cognito Identity pools, you’d configure the `--advanced-event-selectors` parameter to look like this:
 
 ```
 --advanced-event-selectors '[
@@ -51,16 +46,9 @@ this:
 ]'
 ```
 
-The preceding example logs all Cognito data events on Identity pools. You can further
-refine the advanced event selectors to filter on the `eventName`,
-`readOnly`, and `resources.ARN` fields to log specific events
-of interest or exclude events that aren’t of interest.
+The preceding example logs all Cognito data events on Identity pools. You can further refine the advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log specific events of interest or exclude events that aren’t of interest.
 
-You can configure advanced event selectors to filter data events based on multiple
-fields. For example, you can configure advanced event selectors to log all Amazon S3
-`PutObject` and `DeleteObject` API calls
-but exclude event logging for a specific S3 bucket as shown in the following example.
-Replace `amzn-s3-demo-bucket` with the name of your bucket.
+You can configure advanced event selectors to filter data events based on multiple fields. For example, you can configure advanced event selectors to log all Amazon S3 `PutObject` and `DeleteObject` API calls but exclude event logging for a specific S3 bucket as shown in the following example. Replace {{amzn-s3-demo-bucket}} with the name of your bucket.
 
 ```
 --advanced-event-selectors
@@ -71,56 +59,42 @@ Replace `amzn-s3-demo-bucket` with the name of your bucket.
       { "Field": "eventCategory", "Equals": ["Data"] },
       { "Field": "resources.type", "Equals": ["AWS::S3::Object"] },
       { "Field": "eventName", "Equals": ["PutObject","DeleteObject"] },
-      { "Field": "resources.ARN", "NotStartsWith": ["arn:aws:s3:::`amzn-s3-demo-bucket`/"] }
+      { "Field": "resources.ARN", "NotStartsWith": ["arn:aws:s3:::{{amzn-s3-demo-bucket}}/"] }
     ]
   }
 ]'
 ```
 
-You can also include multiple conditions for a field. For information on how multiple conditions are evaluated, see
-[How CloudTrail evaluates multiple conditions for a field](#filtering-data-events-conditions "#filtering-data-events-conditions").
+You can also include multiple conditions for a field. For information on how multiple conditions are evaluated, see [How CloudTrail evaluates multiple conditions for a field](#filtering-data-events-conditions).
 
-You can use advanced event selectors to log both management and data events.
-To log data events for multiple resource types, add a field selector statement
-for each resource type that you want to log data events for.
+You can use advanced event selectors to log both management and data events. To log data events for multiple resource types, add a field selector statement for each resource type that you want to log data events for.
 
-###### Note
+**Note**  
+Trails can use either basic event selectors or advanced event selectors, but not both. If you apply advanced event selectors to a trail, any existing basic event selectors are overwritten.  
+Selectors don't support the use of wildcards like `*` . To match multiple values with a single condition, you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to explicitly match the beginning or end of the event field.
 
-Trails can use either basic event selectors or advanced event selectors, but not both.
-If you apply advanced event selectors to a trail, any existing basic event selectors are
-overwritten.
-
-Selectors don't support the use of wildcards like `*` . To match multiple values with a single condition,
-you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to explicitly match the beginning or end of the event field.
-
-###### Topics
-
-- [How CloudTrail evaluates multiple conditions for a field](#filtering-data-events-conditions "#filtering-data-events-conditions")
-- [AWS CLI examples for filtering data events](#filtering-data-events-examples "#filtering-data-events-examples")
+**Topics**
++ [How CloudTrail evaluates multiple conditions for a field](#filtering-data-events-conditions)
++ [AWS CLI examples for filtering data events](#filtering-data-events-examples)
 
 ## How CloudTrail evaluates multiple conditions for a field
+<a name="filtering-data-events-conditions"></a>
 
 For advanced event selectors, CloudTrail evaluates multiple conditions for a field as follows:
-
-- DESELECT operators are AND'd together. If any of the DESELECT operator conditions are met, the event is not delivered. These are the valid DESELECT operators for advanced event selectors:
-
-  - `NotEndsWith`
-  - `NotEquals`
-  - `NotStartsWith`
-
-- SELECT operators are OR'd together. These are the valid SELECT operators for advanced event selectors:
-
-  - `EndsWith`
-  - `Equals`
-  - `StartsWith`
-
-- Combinations of SELECT and DESELECT operators follow the above rules and
-  both groups are AND'd together.
++ DESELECT operators are AND'd together. If any of the DESELECT operator conditions are met, the event is not delivered. These are the valid DESELECT operators for advanced event selectors:
+  + `NotEndsWith`
+  + `NotEquals`
+  + `NotStartsWith`
++ SELECT operators are OR'd together. These are the valid SELECT operators for advanced event selectors:
+  + `EndsWith`
+  + `Equals`
+  + `StartsWith`
++ Combinations of SELECT and DESELECT operators follow the above rules and both groups are AND'd together.
 
 ### Example showing multiple conditions for the `resources.ARN` field
+<a name="filtering-data-events-conditions-ex"></a>
 
-The following example event selector statement collects data events for the `AWS::S3::Object` resource type
-and applies multiple conditions on the `resources.ARN` field.
+The following example event selector statement collects data events for the `AWS::S3::Object` resource type and applies multiple conditions on the `resources.ARN` field.
 
 ```
 {
@@ -163,64 +137,54 @@ and applies multiple conditions on the `resources.ARN` field.
   }
 ```
 
-In the preceding example, Amazon S3 data events for the `AWS::S3::Object` resource will be delivered if:
+In the preceding example, Amazon S3 data events for the `AWS::S3::Object` resource will be delivered if: 
 
 1. None of these DESELECT operator conditions are met:
+   + the `resources.ARN` field `NotStartsWith` the value `arn:aws:s3:::amzn-s3-demo-bucket/deselect`
+   + the `resources.ARN` field `NotEndsWith` the value `object5`
+   + the `resources.ARN` field `NotEquals` the value `arn:aws:s3:::amzn-s3-demo-bucket/object6`
 
-   - the `resources.ARN` field `NotStartsWith` the value `arn:aws:s3:::amzn-s3-demo-bucket/deselect`
-   - the `resources.ARN` field `NotEndsWith` the value `object5`
-   - the `resources.ARN` field `NotEquals` the value `arn:aws:s3:::amzn-s3-demo-bucket/object6`
-
-2. At least one of these SELECT operator conditions is met:
-
-   - the `resources.ARN` field `Equals` the value `arn:aws:s3:::amzn-s3-demo-bucket/object1`
-   - the `resources.ARN` field `StartsWith` the value `arn:aws:s3:::amzn-s3-demo-bucket/`
-   - the `resources.ARN` field `EndsWith` the value `object3`
+1. At least one of these SELECT operator conditions is met: 
+   + the `resources.ARN` field `Equals` the value `arn:aws:s3:::amzn-s3-demo-bucket/object1`
+   + the `resources.ARN` field `StartsWith` the value `arn:aws:s3:::amzn-s3-demo-bucket/`
+   + the `resources.ARN` field `EndsWith` the value `object3`
 
 Based on the evaluation logic:
 
-1. Data events for `amzn-s3-demo-bucket/object1` will be delivered because it matches the value for the `Equals` operator
-   and doesn’t match any of the values for the `NotStartsWith`, `NotEndsWith`, and `NotEquals` operators.
-2. Data event for `amzn-s3-demo-bucket/object2` will be delivered
-   because it matches the value for the `StartsWith` operator and doesn’t match any of the values for the
-   `NotStartsWith`, `NotEndsWith`, and `NotEquals` operators.
-3. Data events for `amzn-s3-demo-bucket1/object3` will be delivered because it matches the `EndsWith` operator and
-   doesn’t match any of the values for the
-   `NotStartsWith`, `NotEndsWith`, and `NotEquals` operators.
-4. Data events for `arn:aws:s3:::amzn-s3-demo-bucket/deselectObject4` will not be delivered because it matches the
-   condition for the `NotStartsWith` even though it matches the condition for the `StartsWith` operator.
-5. Data events for `arn:aws:s3:::amzn-s3-demo-bucket/object5` will not be delivered because it matches the condition
-   for the `NotEndsWith` even though it matches the condition for the `StartsWith` operator.
-6. Data events for the `arn:aws:s3:::amzn-s3-demo-bucket/object6` will not be delivered because it matches the condition for the
-   `NotEquals` operator even though it matches the condition for the `StartsWith` operator.
+1. Data events for `amzn-s3-demo-bucket/object1` will be delivered because it matches the value for the `Equals` operator and doesn’t match any of the values for the `NotStartsWith`, `NotEndsWith`, and `NotEquals` operators.
+
+1. Data event for `amzn-s3-demo-bucket/object2` will be delivered because it matches the value for the `StartsWith` operator and doesn’t match any of the values for the `NotStartsWith`, `NotEndsWith`, and `NotEquals` operators.
+
+1. Data events for `amzn-s3-demo-bucket1/object3` will be delivered because it matches the `EndsWith` operator and doesn’t match any of the values for the `NotStartsWith`, `NotEndsWith`, and `NotEquals` operators.
+
+1. Data events for `arn:aws:s3:::amzn-s3-demo-bucket/deselectObject4` will not be delivered because it matches the condition for the `NotStartsWith` even though it matches the condition for the `StartsWith` operator.
+
+1. Data events for `arn:aws:s3:::amzn-s3-demo-bucket/object5` will not be delivered because it matches the condition for the `NotEndsWith` even though it matches the condition for the `StartsWith` operator.
+
+1. Data events for the `arn:aws:s3:::amzn-s3-demo-bucket/object6` will not be delivered because it matches the condition for the `NotEquals` operator even though it matches the condition for the `StartsWith` operator.
 
 ## AWS CLI examples for filtering data events
+<a name="filtering-data-events-examples"></a>
 
-This section provides AWS CLI examples showing how to filter data events on different fields.
-For additional AWS CLI examples, see [Log data events for trails by using advanced event selectors](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-advanced "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-advanced") and
-[Logging data events for event data stores with the AWS CLI](logging-data-events-with-cloudtrail.md#logging-data-events-CLI-eds-examples "logging-data-events-with-cloudtrail.md#logging-data-events-CLI-eds-examples").
+This section provides AWS CLI examples showing how to filter data events on different fields. For additional AWS CLI examples, see [Log data events for trails by using advanced event selectors](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-advanced) and [Logging data events for event data stores with the AWS CLI](logging-data-events-with-cloudtrail.md#logging-data-events-CLI-eds-examples).
 
-For information about how to log data events using the console, see
-[Logging data events with the AWS Management Console](logging-data-events-with-cloudtrail.md#logging-data-events-console "logging-data-events-with-cloudtrail.md#logging-data-events-console").
+For information about how to log data events using the console, see [Logging data events with the AWS Management Console](logging-data-events-with-cloudtrail.md#logging-data-events-console).
 
-###### Examples:
-
-- [Example 1: Filtering on the eventName field](#filtering-data-events-eventname "#filtering-data-events-eventname")
-- [Example 2: Filtering on the resources.ARN and userIdentity.arn fields](#filtering-data-events-useridentityarn "#filtering-data-events-useridentityarn")
-- [Example 3: Filtering on the resources.type and eventName fields to exclude individual objects deleted by an Amazon S3 DeleteObjects event](#filtering-data-events-deleteobjects "#filtering-data-events-deleteobjects")
-- [Example 4: Filtering on the eventSource field to exclude Amazon S3 lifecycle data events](#filtering-data-events-eventsource-s3lifecycle "#filtering-data-events-eventsource-s3lifecycle")
-- [Example 5: Filtering on the eventSource field to exclude Amazon S3 authentication failure data events](#filtering-data-events-eventsource-s3auth "#filtering-data-events-eventsource-s3auth")
+**Topics**
++ [Example 1: Filtering on the `eventName` field](#filtering-data-events-eventname)
++ [Example 2: Filtering on the `resources.ARN` and `userIdentity.arn` fields](#filtering-data-events-useridentityarn)
++ [Example 3: Filtering on the `resources.type` and `eventName` fields to exclude individual objects deleted by an Amazon S3 DeleteObjects event](#filtering-data-events-deleteobjects)
++ [Example 4: Filtering on the `eventSource` field to exclude Amazon S3 lifecycle data events](#filtering-data-events-eventsource-s3lifecycle)
++ [Example 5: Filtering on the `eventSource` field to exclude Amazon S3 authentication failure data events](#filtering-data-events-eventsource-s3auth)
 
 ### Example 1: Filtering on the `eventName` field
+<a name="filtering-data-events-eventname"></a>
 
-In the first example, the `--advanced-event-selectors` for a
-trail are configured to log only the `GetObject`,
-`PutObject`, and `DeleteObject` API calls for Amazon S3
-objects in general purpose buckets.
+In the first example, the `--advanced-event-selectors` for a trail are configured to log only the `GetObject`, `PutObject`, and `DeleteObject` API calls for Amazon S3 objects in general purpose buckets.
 
 ```
 aws cloudtrail put-event-selectors \
---trail-name `trailName` \
+--trail-name {{trailName}} \
 --advanced-event-selectors '[
   {
     "Name": "Log GetObject, PutObject and DeleteObject S3 data events",
@@ -233,14 +197,11 @@ aws cloudtrail put-event-selectors \
 ]'
 ```
 
-The next example creates a new event data store that logs data events for EBS
-Direct APIs but excludes `ListChangedBlocks` API calls. You can use
-the [update-event-data-store](../../../cli/latest/reference/cloudtrail/update-event-data-store.md "../../../cli/latest/reference/cloudtrail/update-event-data-store.md") command to update an
-existing event data store.
+The next example creates a new event data store that logs data events for EBS Direct APIs but excludes `ListChangedBlocks` API calls. You can use the [update-event-data-store](https://docs.aws.amazon.com/cli/latest/reference/cloudtrail/update-event-data-store.html) command to update an existing event data store.
 
 ```
 aws cloudtrail create-event-data-store \
---name "`eventDataStoreName`"
+--name "{{eventDataStoreName}}"
 --advanced-event-selectors '[
     {
         "Name": "Log all EBS Direct API data events except ListChangedBlocks",
@@ -254,19 +215,13 @@ aws cloudtrail create-event-data-store \
 ```
 
 ### Example 2: Filtering on the `resources.ARN` and `userIdentity.arn` fields
+<a name="filtering-data-events-useridentityarn"></a>
 
-The following example shows how to include all data events for all Amazon S3
-objects in a specific general purpose S3 bucket but exclude events generated
-by the `bucket-scanner-role`
-`userIdentity`. The value for S3 events for the
-`resources.type` field is `AWS::S3::Object`.
-Because the ARN values for S3 objects and S3 buckets are slightly different,
-you must add the `StartsWith` operator for
-`resources.ARN`.
+The following example shows how to include all data events for all Amazon S3 objects in a specific general purpose S3 bucket but exclude events generated by the `bucket-scanner-role` `userIdentity`. The value for S3 events for the `resources.type` field is `AWS::S3::Object`. Because the ARN values for S3 objects and S3 buckets are slightly different, you must add the `StartsWith` operator for `resources.ARN`.
 
 ```
 aws cloudtrail put-event-selectors \
---trail-name `trailName` \
+--trail-name {{trailName}} \
 --advanced-event-selectors \
 '[
     {
@@ -274,26 +229,21 @@ aws cloudtrail put-event-selectors \
         "FieldSelectors": [
             { "Field": "eventCategory", "Equals": ["Data"] },
             { "Field": "resources.type", "Equals": ["AWS::S3::Object"] },
-            { "Field": "resources.ARN", "StartsWith": ["arn:`partition`:s3:::`amzn-s3-demo-bucket`/"] },
+            { "Field": "resources.ARN", "StartsWith": ["arn:{{partition}}:s3:::{{amzn-s3-demo-bucket}}/"] },
             { "Field": "userIdentity.arn", "NotStartsWith": ["arn:aws:sts::123456789012:assumed-role/bucket-scanner-role"]}
         ]
     }
 ]'
-
 ```
 
 ### Example 3: Filtering on the `resources.type` and `eventName` fields to exclude individual objects deleted by an Amazon S3 DeleteObjects event
+<a name="filtering-data-events-deleteobjects"></a>
 
-The following example shows how to include all data events for all Amazon S3
-objects in a specific general purpose Amazon S3 bucket but exclude the individual
-objects deleted by the `DeleteObject` operation. The value for S3
-events for the `resources.type` field is
-`AWS::S3::Object`. The value for the event name is
-`DeleteObject`.
+The following example shows how to include all data events for all Amazon S3 objects in a specific general purpose Amazon S3 bucket but exclude the individual objects deleted by the `DeleteObject` operation. The value for S3 events for the `resources.type` field is `AWS::S3::Object`. The value for the event name is `DeleteObject`. 
 
 ```
 aws cloudtrail put-event-selectors \
---trail-name `trailName` \
+--trail-name {{trailName}} \
 --advanced-event-selectors \
 
 {
@@ -349,22 +299,16 @@ aws cloudtrail put-event-selectors \
     ]
   }
 ] (edited)
-
 ```
 
 ### Example 4: Filtering on the `eventSource` field to exclude Amazon S3 lifecycle data events
+<a name="filtering-data-events-eventsource-s3lifecycle"></a>
 
-The following example shows how to log all Amazon S3 data events but exclude Amazon S3
-lifecycle operations. These operations include object expirations, delete marker
-creation, storage class transitions, and multipart upload aborts. Amazon S3 lifecycle events use the
-`s3lifecycle.amazonaws.com` event source. By filtering on the
-`s3lifecycle.amazonaws.com` event source using the `NotEquals`
-operator, you can exclude these service-initiated events while continuing to log
-all user-initiated Amazon S3 data events.
+The following example shows how to log all Amazon S3 data events but exclude Amazon S3 lifecycle operations. These operations include object expirations, delete marker creation, storage class transitions, and multipart upload aborts. Amazon S3 lifecycle events use the `s3lifecycle.amazonaws.com` event source. By filtering on the `s3lifecycle.amazonaws.com` event source using the `NotEquals` operator, you can exclude these service-initiated events while continuing to log all user-initiated Amazon S3 data events.
 
 ```
 aws cloudtrail put-event-selectors \
---trail-name `trailName` \
+--trail-name {{trailName}} \
 --advanced-event-selectors \
 '[
   {
@@ -376,24 +320,16 @@ aws cloudtrail put-event-selectors \
     ]
   }
 ]'
-
 ```
 
 ### Example 5: Filtering on the `eventSource` field to exclude Amazon S3 authentication failure data events
+<a name="filtering-data-events-eventsource-s3auth"></a>
 
-The following example shows how to log all Amazon S3 data events but exclude Amazon S3
-authentication failure events, such as
-`AuthenticateSignatureDoesNotMatch`,
-`AuthenticateInvalidAccessKeyId`, and
-`AuthenticateExpiredToken`. Amazon S3 authentication failure events use
-the `s3-authn-errors.amazonaws.com` event source. By filtering on the
-`s3-authn-errors.amazonaws.com` event source using the
-`NotEquals` operator, you can exclude these events while continuing to
-log all successful Amazon S3 data events.
+The following example shows how to log all Amazon S3 data events but exclude Amazon S3 authentication failure events, such as `AuthenticateSignatureDoesNotMatch`, `AuthenticateInvalidAccessKeyId`, and `AuthenticateExpiredToken`. Amazon S3 authentication failure events use the `s3-authn-errors.amazonaws.com` event source. By filtering on the `s3-authn-errors.amazonaws.com` event source using the `NotEquals` operator, you can exclude these events while continuing to log all successful Amazon S3 data events.
 
 ```
 aws cloudtrail put-event-selectors \
---trail-name `trailName` \
+--trail-name {{trailName}} \
 --advanced-event-selectors \
 '[
   {
@@ -405,15 +341,6 @@ aws cloudtrail put-event-selectors \
     ]
   }
 ]'
-
 ```
 
-This advanced event selector filters out all events where the
-`eventSource` is `s3-authn-errors.amazonaws.com`. Authentication
-failure events follow the naming pattern `Authenticate` followed by
-error code (for example, `AuthenticateSignatureDoesNotMatch`,
-`AuthenticateInvalidAccessKeyId`,
-`AuthenticateExpiredToken`,
-`AuthenticateInvalidToken`). Excluding these events can help reduce
-costs if you do not need to audit failed authentication attempts against your
-Amazon S3 resources.
+This advanced event selector filters out all events where the `eventSource` is `s3-authn-errors.amazonaws.com`. Authentication failure events follow the naming pattern `Authenticate` followed by error code (for example, `AuthenticateSignatureDoesNotMatch`, `AuthenticateInvalidAccessKeyId`, `AuthenticateExpiredToken`, `AuthenticateInvalidToken`). Excluding these events can help reduce costs if you do not need to audit failed authentication attempts against your Amazon S3 resources.

@@ -1,46 +1,41 @@
-# CloudTrail digest file structure
 
-Each digest file contains the names of the log files that were delivered to your Amazon S3
-bucket during the last hour, the hash values for those log files, and the digital signature
-of the previous digest file. The signature for the current digest file is stored in the
-metadata properties of the digest file object. The digital signatures and hashes are used
-for validating the integrity of the log files and of the digest file itself.
+
+# CloudTrail digest file structure
+<a name="cloudtrail-log-file-validation-digest-file-structure"></a>
+
+Each digest file contains the names of the log files that were delivered to your Amazon S3 bucket during the last hour, the hash values for those log files, and the digital signature of the previous digest file. The signature for the current digest file is stored in the metadata properties of the digest file object. The digital signatures and hashes are used for validating the integrity of the log files and of the digest file itself. 
 
 ## Digest file location
+<a name="cloudtrail-log-file-validation-digest-file-location"></a>
 
 Digest files are delivered to an Amazon S3 bucket location that follows this syntax.
 
 ```
-s3://`amzn-s3-demo-bucket`/`optional-prefix/`AWSLogs/`aws-account-id`/CloudTrail-Digest/
-    `region`/`digest-end-year`/`digest-end-month`/`digest-end-date`/
-    `aws-account-id`_CloudTrail-Digest_`region_trail-name`_`region_digest`_`end_timestamp`.json.gz
-
+s3://{{amzn-s3-demo-bucket}}/{{optional-prefix/}}AWSLogs/{{aws-account-id}}/CloudTrail-Digest/
+    {{region}}/{{digest-end-year}}/{{digest-end-month}}/{{digest-end-date}}/
+    {{aws-account-id}}_CloudTrail-Digest_{{region_trail-name}}_{{region_digest}}_{{end_timestamp}}.json.gz
 ```
 
-###### Note
-
-For organization trails, the bucket location also includes the organization unit
-ID, as follows:
+**Note**  
+For organization trails, the bucket location also includes the organization unit ID, as follows:  
 
 ```
-s3://`amzn-s3-demo-bucket`/`optional-prefix/`AWSLogs/`O-ID`/`aws-account-id`/CloudTrail-Digest/
-    `region`/`digest-end-year`/`digest-end-month`/`digest-end-date`/
-    `aws-account-id`_CloudTrail-Digest_`region_trail-name`_`region_digest`_`end_timestamp`.json.gz
+s3://{{amzn-s3-demo-bucket}}/{{optional-prefix/}}AWSLogs/{{O-ID}}/{{aws-account-id}}/CloudTrail-Digest/
+    {{region}}/{{digest-end-year}}/{{digest-end-month}}/{{digest-end-date}}/
+    {{aws-account-id}}_CloudTrail-Digest_{{region_trail-name}}_{{region_digest}}_{{end_timestamp}}.json.gz
 ```
 
-###### Note
-
-Backfill digest files are delivered when CloudTrail needs to include log files that
-were not referenced in the original digest due to processing delays. Backfill digest
-files use the `_backfill` suffix in their filename, as follows:
+**Note**  
+Backfill digest files are delivered when CloudTrail needs to include log files that were not referenced in the original digest due to processing delays. Backfill digest files use the `_backfill` suffix in their filename, as follows:  
 
 ```
-s3://`amzn-s3-demo-bucket`/`optional-prefix/`AWSLogs/`aws-account-id`/CloudTrail-Digest/
-    `region`/`digest-end-year`/`digest-end-month`/`digest-end-date`/
-    `aws-account-id`_CloudTrail-Digest_`region_trail-name`_`region_digest`_`end_timestamp`_backfill.json.gz
+s3://{{amzn-s3-demo-bucket}}/{{optional-prefix/}}AWSLogs/{{aws-account-id}}/CloudTrail-Digest/
+    {{region}}/{{digest-end-year}}/{{digest-end-month}}/{{digest-end-date}}/
+    {{aws-account-id}}_CloudTrail-Digest_{{region_trail-name}}_{{region_digest}}_{{end_timestamp}}_backfill.json.gz
 ```
 
 ## Sample digest file contents
+<a name="cloudtrail-log-file-validation-digest-file-contents"></a>
 
 The following example digest file contains information for a CloudTrail log.
 
@@ -74,147 +69,85 @@ The following example digest file contains information for a CloudTrail log.
 ```
 
 ## Digest file field descriptions
+<a name="cloudtrail-log-file-validation-digest-file-descriptions"></a>
 
-The following are descriptions for each field in the digest file:
+The following are descriptions for each field in the digest file: 
 
-`awsAccountId`
+`awsAccountId`  
+The AWS account ID for which the digest file has been delivered. 
 
-The AWS account ID for which the digest file has been delivered.
+`digestStartTime`  
+The starting UTC time range that the digest file covers, taking as a reference the time in which log files have been delivered by CloudTrail. This means that if the time range is [Ta, Tb], the digest will contain all the log files delivered to the customer between Ta and Tb. 
 
-`digestStartTime`
+`digestEndTime`  
+The ending UTC time range that the digest file covers, taking as a reference the time in which log files have been delivered by CloudTrail. This means that if the time range is [Ta, Tb], the digest will contain all the log files delivered to the customer between Ta and Tb. 
 
-The starting UTC time range that the digest file covers, taking as a
-reference the time in which log files have been delivered by CloudTrail. This
-means that if the time range is [Ta, Tb], the digest will contain all the
-log files delivered to the customer between Ta and Tb.
+`digestS3Bucket`  
+The name of the Amazon S3 bucket to which the current digest file has been delivered. 
 
-`digestEndTime`
+`digestS3Object`  
+The Amazon S3 object key (that is, the Amazon S3 bucket location) of the current digest file. The first two Regions in the string show the Region from which the digest file was delivered. The last Region (after `your-trail-name`) is the home Region of the trail. The home Region is the Region in which the trail was created. In the case of a multi-Region trail, this can be different from the Region from which the digest file was delivered.
 
-The ending UTC time range that the digest file covers, taking as a
-reference the time in which log files have been delivered by CloudTrail. This
-means that if the time range is [Ta, Tb], the digest will contain all the
-log files delivered to the customer between Ta and Tb.
+`newestEventTime`  
+The UTC time of the most recent event among all of the events in the log files in the digest. 
 
-`digestS3Bucket`
+`oldestEventTime`  
+The UTC time of the oldest event among all of the events in the log files in the digest.   
+If the digest file is delivered late, the value of `oldestEventTime` will be earlier than the value of `digestStartTime`. 
 
-The name of the Amazon S3 bucket to which the current digest file has been
-delivered.
+`previousDigestS3Bucket`  
+The Amazon S3 bucket to which the previous digest file was delivered. 
 
-`digestS3Object`
+`previousDigestS3Object`  
+The Amazon S3 object key (that is, the Amazon S3 bucket location) of the previous digest file. 
 
-The Amazon S3 object key (that is, the Amazon S3 bucket location) of the current
-digest file. The first two Regions in the string show the Region from which
-the digest file was delivered. The last Region (after
-`your-trail-name`) is the home Region of the trail. The home
-Region is the Region in which the trail was created. In the case of a
-multi-Region trail, this can be different from the Region from which the
-digest file was delivered.
+`previousDigestHashValue`  
+The hexadecimal encoded hash value of the uncompressed contents of the previous digest file. 
 
-`newestEventTime`
+`previousDigestHashAlgorithm`  
+The name of the hash algorithm that was used to hash the previous digest file. 
 
-The UTC time of the most recent event among all of the events in the log
-files in the digest.
+`publicKeyFingerprint`  
+The hexadecimal encoded fingerprint of the public key that matches the private key used to sign this digest file. You can retrieve the public keys for the time range corresponding to the digest file by using the AWS CLI or the CloudTrail API. Of the public keys returned, the one whose fingerprint matches this value can be used for validating the digest file. For information about retrieving public keys for digest files, see the AWS CLI [`list-public-keys`](https://docs.aws.amazon.com/cli/latest/reference/cloudtrail/list-public-keys.html) command or the CloudTrail [`ListPublicKeys`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListPublicKeys.html) API.   
+CloudTrail uses different private/public key pairs per Region. Each digest file is signed with a private key unique to its Region. Therefore, when you validate a digest file from a particular Region, you must look in the same Region for its corresponding public key. 
 
-`oldestEventTime`
+`digestSignatureAlgorithm`  
+The algorithm used to sign the digest file. 
 
-The UTC time of the oldest event among all of the events in the log files
-in the digest.
+`logFiles.s3Bucket`  
+The name of the Amazon S3 bucket for the log file. 
 
-###### Note
+`logFiles.s3Object`  
+The Amazon S3 object key of the current log file. 
 
-If the digest file is delivered late, the value of
-`oldestEventTime` will be earlier than the value of
-`digestStartTime`.
+`logFiles.newestEventTime`  
+The UTC time of the most recent event in the log file. This time also corresponds to the time stamp of the log file itself. 
 
-`previousDigestS3Bucket`
+`logFiles.oldestEventTime`  
+The UTC time of the oldest event in the log file. 
 
-The Amazon S3 bucket to which the previous digest file was delivered.
+`logFiles.hashValue`  
+The hexadecimal encoded hash value of the uncompressed log file content. 
 
-`previousDigestS3Object`
-
-The Amazon S3 object key (that is, the Amazon S3 bucket location) of the previous
-digest file.
-
-`previousDigestHashValue`
-
-The hexadecimal encoded hash value of the uncompressed contents of the
-previous digest file.
-
-`previousDigestHashAlgorithm`
-
-The name of the hash algorithm that was used to hash the previous digest
-file.
-
-`publicKeyFingerprint`
-
-The hexadecimal encoded fingerprint of the public key that matches the
-private key used to sign this digest file. You can retrieve the public keys
-for the time range corresponding to the digest file by using the AWS CLI or
-the CloudTrail API. Of the public keys returned, the one whose fingerprint matches
-this value can be used for validating the digest file. For information about
-retrieving public keys for digest files, see the AWS CLI [`list-public-keys`](../../../cli/latest/reference/cloudtrail/list-public-keys.md "../../../cli/latest/reference/cloudtrail/list-public-keys.md") command or the CloudTrail [`ListPublicKeys`](../APIReference/API_ListPublicKeys.md "../APIReference/API_ListPublicKeys.md") API.
-
-###### Note
-
-CloudTrail uses different private/public key pairs per Region. Each digest
-file is signed with a private key unique to its Region. Therefore, when
-you validate a digest file from a particular Region, you must look in
-the same Region for its corresponding public key.
-
-`digestSignatureAlgorithm`
-
-The algorithm used to sign the digest file.
-
-`logFiles.s3Bucket`
-
-The name of the Amazon S3 bucket for the log file.
-
-`logFiles.s3Object`
-
-The Amazon S3 object key of the current log file.
-
-`logFiles.newestEventTime`
-
-The UTC time of the most recent event in the log file. This time also
-corresponds to the time stamp of the log file itself.
-
-`logFiles.oldestEventTime`
-
-The UTC time of the oldest event in the log file.
-
-`logFiles.hashValue`
-
-The hexadecimal encoded hash value of the uncompressed log file content.
-
-`logFiles.hashAlgorithm`
-
-The hash algorithm used to hash the log file.
+`logFiles.hashAlgorithm`  
+The hash algorithm used to hash the log file. 
 
 ## Starting digest file
+<a name="cloudtrail-log-file-validation-digest-file-starting"></a>
 
-When log file integrity validation is started, a starting digest file will be
-generated. A starting digest file will also be generated when log file integrity
-validation is restarted (by either disabling and then reenabling log file integrity
-validation, or by stopping logging and then restarting logging with validation enabled).
-In a starting digest file, the following fields relating to the previous digest file
-will be null:
-
-- `previousDigestS3Bucket`
-- `previousDigestS3Object`
-- `previousDigestHashValue`
-- `previousDigestHashAlgorithm`
-- `previousDigestSignature`
+When log file integrity validation is started, a starting digest file will be generated. A starting digest file will also be generated when log file integrity validation is restarted (by either disabling and then reenabling log file integrity validation, or by stopping logging and then restarting logging with validation enabled). In a starting digest file, the following fields relating to the previous digest file will be null:
++ `previousDigestS3Bucket`
++ `previousDigestS3Object`
++ `previousDigestHashValue`
++ `previousDigestHashAlgorithm`
++ `previousDigestSignature`
 
 ## 'Empty' digest files
+<a name="cloudtrail-log-file-validation-digest-file-empty"></a>
 
-CloudTrail will deliver a digest file even when there has been no API activity in your
-account during the one hour period that the digest file represents. This can be useful
-when you need to assert that no log files were delivered during the hour reported by the
-digest file.
+CloudTrail will deliver a digest file even when there has been no API activity in your account during the one hour period that the digest file represents. This can be useful when you need to assert that no log files were delivered during the hour reported by the digest file. 
 
-The following example shows the contents of a digest file that recorded an hour when
-no API activity occurred. Note that the `logFiles:[ ]` field at the end of
-the digest file contents is empty.
+The following example shows the contents of a digest file that recorded an hour when no API activity occurred. Note that the `logFiles:[ ]` field at the end of the digest file contents is empty. 
 
 ```
 {
@@ -237,66 +170,37 @@ the digest file contents is empty.
 ```
 
 ## Signature of the digest file
+<a name="cloudtrail-log-file-validation-digest-file-signature"></a>
 
-The signature information for a digest file is located in two object metadata
-properties of the Amazon S3 digest file object. Each digest file has the following metadata
-entries:
+The signature information for a digest file is located in two object metadata properties of the Amazon S3 digest file object. Each digest file has the following metadata entries: 
++ `x-amz-meta-signature`
 
-- `x-amz-meta-signature`
+  The hexadecimal encoded value of the digest file signature. The following is an example signature:
 
-The hexadecimal encoded value of the digest file signature. The following is
-an example signature:
+  ```
+  3be472336fa2989ef34de1b3c1bf851f59eb030eaff3e2fb6600a082a23f4c6a82966565b994f9de4a5989d053d9d15d20fc5c43e66358652d93326550a4acc5c5f541bb52e9b455897ab723bd7cbabfe963a406a41d600f3658f7a3135e5ed9fcae7b79bb5857d1e5eb78fcce8595ce0ade2f3ad1d9f2d62be7bc4660d83166ce24586489b7da9ee9883eaf0b9efabb5dd3cbba565cc4aab5c9c46c9fa7e9cda310afcc5e8adcd9e48d0597ec5f8174a52c3bebb3e845eeb1d18904fbf4cc14cd117080098e10022ddf55e017a9431446acad8560de0ba1e477af9f8a3048bc6196350adad0cc0cb4ab99b5e7c9944437a3c674a038009220684ced7be07b4f
+  28f1cc237f372264a51b611c01da429565def703539f4e71009051769469231bc22232fa260df02740047af532229885ea2b0e95ecd353326b7104941e0cbddb076a391f1fcf2923c19565f4841770a78723451aeb732ff1b6162dc40e601fc6720bc5325987942ebd817783b322f0ac77698523bf742fdea7aa44f4911b3101221b7e1233387f16a52077610498f4a1254211258e37da0fb4cb207aef593b4c1baa13674e85acc52046b3adb889e63331a66abac5de7e42ffdd6952987c31ae871650e130bd2e63bfe145b22bbd39ea192210f6df64d49b888a321e02d3fc4cf126accae30d2857ccd6b2286a7c9feba6c35c44161b24147d645e6ca26844ba
+  05d3ffcb5d2dd5dc28f8bb5b7993938e8a5f912a82b448a367eccb2ec0f198ba71e23eb0b97278cf65f3c8d1e652c6de33a22ca8428821ffc95bf8b726ba9f37cfbc20c54dc5bd6159bdea1c4d951b68cb8e0528852c55bb0c5e499ea60560f7c2bb3af7f694407da863a2594f7a2f2838cb09254afbaf8003587746e719a0437f85eeffae534f283f3837eb939a9bccc3c71573500661245891051231b580ac92d9e0e68c6f47ad38975f493e2c40e7f303353c4adc7d563ef1e875977afac2e085f0c824045d998c9543d8a3293ad3c063b7a109d0bfd84b0b1e3f72c4f057e744e6a2cf9cc97727b08584f44bfa47799c5072b60f0b619aea88a17de585e9
+  ```
++ `x-amz-meta-signature-algorithm`
 
-```
+  The following shows an example value of the algorithm used to generate the digest signature:
 
-3be472336fa2989ef34de1b3c1bf851f59eb030eaff3e2fb6600a082a23f4c6a82966565b994f9de4a5989d053d9d15d20fc5c43e66358652d93326550a4acc5c5f541bb52e9b455897ab723bd7cbabfe963a406a41d600f3658f7a3135e5ed9fcae7b79bb5857d1e5eb78fcce8595ce0ade2f3ad1d9f2d62be7bc4660d83166ce24586489b7da9ee9883eaf0b9efabb5dd3cbba565cc4aab5c9c46c9fa7e9cda310afcc5e8adcd9e48d0597ec5f8174a52c3bebb3e845eeb1d18904fbf4cc14cd117080098e10022ddf55e017a9431446acad8560de0ba1e477af9f8a3048bc6196350adad0cc0cb4ab99b5e7c9944437a3c674a038009220684ced7be07b4f
-28f1cc237f372264a51b611c01da429565def703539f4e71009051769469231bc22232fa260df02740047af532229885ea2b0e95ecd353326b7104941e0cbddb076a391f1fcf2923c19565f4841770a78723451aeb732ff1b6162dc40e601fc6720bc5325987942ebd817783b322f0ac77698523bf742fdea7aa44f4911b3101221b7e1233387f16a52077610498f4a1254211258e37da0fb4cb207aef593b4c1baa13674e85acc52046b3adb889e63331a66abac5de7e42ffdd6952987c31ae871650e130bd2e63bfe145b22bbd39ea192210f6df64d49b888a321e02d3fc4cf126accae30d2857ccd6b2286a7c9feba6c35c44161b24147d645e6ca26844ba
-05d3ffcb5d2dd5dc28f8bb5b7993938e8a5f912a82b448a367eccb2ec0f198ba71e23eb0b97278cf65f3c8d1e652c6de33a22ca8428821ffc95bf8b726ba9f37cfbc20c54dc5bd6159bdea1c4d951b68cb8e0528852c55bb0c5e499ea60560f7c2bb3af7f694407da863a2594f7a2f2838cb09254afbaf8003587746e719a0437f85eeffae534f283f3837eb939a9bccc3c71573500661245891051231b580ac92d9e0e68c6f47ad38975f493e2c40e7f303353c4adc7d563ef1e875977afac2e085f0c824045d998c9543d8a3293ad3c063b7a109d0bfd84b0b1e3f72c4f057e744e6a2cf9cc97727b08584f44bfa47799c5072b60f0b619aea88a17de585e9
+  `SHA256withRSA`
++ `x-amz-meta-backfill-generation-timestamp`
 
-```
+  The UTC timestamp when the backfill digest was generated. This metadata property is present only in backfill digest files and is used to identify the correct public key for signature validation. The following is an example timestamp:
 
-- `x-amz-meta-signature-algorithm`
-
-The following shows an example value of the algorithm used to generate the
-digest signature:
-
-`SHA256withRSA`
-
-- `x-amz-meta-backfill-generation-timestamp`
-
-The UTC timestamp when the backfill digest was generated. This metadata property
-is present only in backfill digest files and is used to identify the correct public key
-for signature validation. The following is an example timestamp:
-
-`2025-05-20T00:00:00.000Z`
+  `2025-05-20T00:00:00.000Z`
 
 ## Digest file chaining
+<a name="cloudtrail-log-file-validation-digest-file-chaining"></a>
 
-The fact that each digest file contains a reference to its previous digest file
-enables a "chaining" that permits validation tools like the AWS CLI to detect if a digest
-file has been deleted. It also allows the digest files in a specified time range to be
-successively inspected, starting with the most recent first.
+The fact that each digest file contains a reference to its previous digest file enables a "chaining" that permits validation tools like the AWS CLI to detect if a digest file has been deleted. It also allows the digest files in a specified time range to be successively inspected, starting with the most recent first. 
 
-###### Note
+**Note**  
+When you disable log file integrity validation, the chain of digest files is broken after one hour. CloudTrail will not create digest files for log files that were delivered during a period in which log file integrity validation was disabled. For example, if you enable log file integrity validation at noon on January 1, disable it at noon on January 2, and re-enable it at noon on January 10, digest files will not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail. 
 
-When you disable log file integrity validation, the chain of digest files is
-broken after one hour. CloudTrail will not create digest files for log files that were
-delivered during a period in which log file integrity validation was disabled. For
-example, if you enable log file integrity validation at noon on January 1, disable
-it at noon on January 2, and re-enable it at noon on January 10, digest files will
-not be created for the log files delivered from noon on January 2 to noon on January 10. The same applies whenever you stop CloudTrail logging or delete a trail.
+If your trail's [S3 bucket policy](create-s3-bucket-policy-for-cloudtrail.md) is misconfigured or CloudTrail experiences an unexpected service disruption, you might not receive all or some digest files. To confirm if your trail has any digest delivery errors, run the [`get-trail-status`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetTrailStatus.html) command and check the `LatestDigestDeliveryError` parameter for errors. After the delivery issue is resolved (for example, by fixing the bucket policy), CloudTrail will attempt to redeliver any missing digest files. During the redelivery period, the digest files might be delivered out of order, so the chain might temporarily appear to be broken.
 
-If your trail's [S3 bucket policy](create-s3-bucket-policy-for-cloudtrail.md "create-s3-bucket-policy-for-cloudtrail.md")
-is misconfigured or CloudTrail experiences an unexpected
-service disruption, you might not receive all or some digest
-files. To confirm if your trail has any digest delivery errors, run the
-[`get-trail-status`](../APIReference/API_GetTrailStatus.md "../APIReference/API_GetTrailStatus.md") command and check the
-`LatestDigestDeliveryError` parameter for errors. After the delivery
-issue is resolved (for example, by fixing the bucket policy), CloudTrail will attempt to
-redeliver any missing digest files. During the redelivery period, the digest files
-might be delivered out of order, so the chain might temporarily appear to be
-broken.
-
-If logging is stopped or the trail is deleted, CloudTrail will deliver a final digest file.
-This digest file can contain information for any remaining log files that cover events
-up to and including the `StopLogging` event.
+If logging is stopped or the trail is deleted, CloudTrail will deliver a final digest file. This digest file can contain information for any remaining log files that cover events up to and including the `StopLogging` event. 
