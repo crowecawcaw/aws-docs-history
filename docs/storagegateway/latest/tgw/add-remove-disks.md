@@ -1,58 +1,49 @@
-# Removing Disks from Your Gateway
 
-Although we don’t recommend removing the underlying disks from your gateway, you might
-want to remove a disk from your gateway, for example if you have a failed disk.
+
+# Removing Disks from Your Gateway
+<a name="add-remove-disks"></a>
+
+Although we don’t recommend removing the underlying disks from your gateway, you might want to remove a disk from your gateway, for example if you have a failed disk.
 
 ## Removing a Disk from a Gateway Hosted on VMware ESXi
+<a name="remove-disk-vmware"></a>
 
-You can use the following procedure to remove a disk from your gateway hosted on
-VMware hypervisor.
+You can use the following procedure to remove a disk from your gateway hosted on VMware hypervisor.<a name="CachedLocalDiskUploadBufferSizing-commonRemovingConsoleVMware"></a>
 
-###### To remove a disk allocated for the upload buffer (VMware ESXi)
+**To remove a disk allocated for the upload buffer (VMware ESXi)**
 
-1. In the vSphere client, open the context (right-click) menu, choose the name of
-   your gateway VM, and then choose **Edit Settings**.
-2. On the **Hardware** tab of the **Virtual Machine
-   Properties** dialog box, select the disk allocated as upload buffer
-   space, and then choose **Remove**.
+1. In the vSphere client, open the context (right-click) menu, choose the name of your gateway VM, and then choose **Edit Settings**. 
 
-Verify that the **Virtual Device Node** value in the
-**Virtual Machine Properties** dialog box has the same
-value that you noted previously. Doing this helps ensure that you remove the
-correct disk. 3. Choose an option in the **Removal Options** panel, and then
-choose **OK** to complete the process of removing the
-disk.
+1. On the **Hardware** tab of the **Virtual Machine Properties** dialog box, select the disk allocated as upload buffer space, and then choose **Remove**.
+
+   Verify that the **Virtual Device Node** value in the **Virtual Machine Properties** dialog box has the same value that you noted previously. Doing this helps ensure that you remove the correct disk.
+
+1. Choose an option in the **Removal Options** panel, and then choose **OK** to complete the process of removing the disk.
 
 ## Removing a Disk from a Gateway Hosted on Microsoft Hyper-V
+<a name="remove-disk-hyperV"></a>
 
-Using the following procedure, you can remove a disk from your gateway hosted on a
-Microsoft Hyper-V hypervisor.
+Using the following procedure, you can remove a disk from your gateway hosted on a Microsoft Hyper-V hypervisor.<a name="CachedLocalDiskUploadBufferSizing-commonRemovingConsoleHyperV"></a>
 
-###### To remove an underlying disk allocated for the upload buffer (Microsoft Hyper-V)
+**To remove an underlying disk allocated for the upload buffer (Microsoft Hyper-V)**
 
-1. In the Microsoft Hyper-V Manager, open the context (right-click) menu, choose
-   the name of your gateway VM, and then choose **Settings**.
-2. In the **Hardware** list of the **Settings**
-   dialog box, select the disk to remove, and then choose
-   **Remove**.
+1. In the Microsoft Hyper-V Manager, open the context (right-click) menu, choose the name of your gateway VM, and then choose **Settings**. 
 
-The disks you add to a gateway appear under the **SCSI
-Controller** entry in the **Hardware** list.
-Verify that the **Controller** and
-**Location** value are the same value that you noted
-previously. Doing this helps ensure that you remove the correct disk.
+1. In the **Hardware** list of the **Settings** dialog box, select the disk to remove, and then choose **Remove**.
 
-The first SCSI controller displayed in the Microsoft Hyper-V Manager is
-controller 0. 3. Choose **OK** to apply the change.
+   The disks you add to a gateway appear under the **SCSI Controller** entry in the **Hardware** list. Verify that the **Controller** and **Location** value are the same value that you noted previously. Doing this helps ensure that you remove the correct disk. 
+
+   The first SCSI controller displayed in the Microsoft Hyper-V Manager is controller 0.
+
+1. Choose **OK** to apply the change.
 
 ## Removing a Disk from a Gateway Hosted on Linux KVM
+<a name="remove-disk-KVM"></a>
 
-To detach a disk from your gateway hosted on Linux Kernel-based Virtual Machine (KVM)
-hypervisor, you can use a `virsh` command similar to the one following.
+To detach a disk from your gateway hosted on Linux Kernel-based Virtual Machine (KVM) hypervisor, you can use a `virsh` command similar to the one following. 
 
 ```
-$ virsh detach-disk `domain_name` `/device/path`
+$ virsh detach-disk {{domain_name}} {{/device/path}}
 ```
 
-For more details about managing KVM disks, see documentation of your Linux
-distribution.
+For more details about managing KVM disks, see documentation of your Linux distribution.

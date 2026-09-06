@@ -1,30 +1,26 @@
+
+
 # Understanding virtual tape metrics
+<a name="monitoring-tape"></a>
 
-You can find information following about the Storage Gateway metrics that cover virtual
-tapes. Each tape has a set of metrics associated with it.
+You can find information following about the Storage Gateway metrics that cover virtual tapes. Each tape has a set of metrics associated with it. 
 
-Some tape-specific metrics might have the same name as certain gateway-specific
-metrics. These metrics represent the same kinds of measurements but are scoped to a tape
-instead of a gateway. Before starting work, specify whether you want to work with a
-gateway metric or a tape metric. When working with tape metrics, specify the tape ID for
-the tape that you want to view metrics for. For more information, see [Using Amazon CloudWatch Metrics](UsingCloudWatchConsole-vtl-common.md "UsingCloudWatchConsole-vtl-common.md").
+Some tape-specific metrics might have the same name as certain gateway-specific metrics. These metrics represent the same kinds of measurements but are scoped to a tape instead of a gateway. Before starting work, specify whether you want to work with a gateway metric or a tape metric. When working with tape metrics, specify the tape ID for the tape that you want to view metrics for. For more information, see [Using Amazon CloudWatch Metrics](UsingCloudWatchConsole-vtl-common.md).
 
-###### Note
+**Note**  
+Some metrics return data points only when new data has been generated during the most recent monitoring period.
 
-Some metrics return data points only when new data has been generated during the
-most recent monitoring period.
+The following table describes the Storage Gateway metrics that you can use to get information about your tapes. 
 
-The following table describes the Storage Gateway metrics that you can use to get
-information about your tapes.
 
-| Metric               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CachePercentDirty`  | The tape's contribution to the overall percentage of the<br>gateway's cache that isn't persisted to AWS. The sample is<br>taken at the end of the reporting period.<br>Use the `CachePercentDirty` metric of the gateway to<br>view the overall percentage of the gateway's cache that<br>isn't persisted to AWS. For more information, see [Understanding gateway metrics](MonitoringGateways-common.md "MonitoringGateways-common.md").<br>Units: Percent |
-| `CloudTraffic`       | The amount of bytes uploaded and downloaded from the cloud to the<br>tape.<br>Units: bytes                                                                                                                                                                                                                                                                                                                                                                  |
-| `IoWaitPercent`      | The percentage of allocated IoWait units that are currently used<br>by the tape.<br>Units: Percent                                                                                                                                                                                                                                                                                                                                                          |
-| `HealthNotification` | The number of health notifications sent by the tape.<br>Units: count                                                                                                                                                                                                                                                                                                                                                                                        |
-| `MemUsedBytes`       | The percentage of allocated memory that is currently used by the<br>tape.<br>Units: Bytes                                                                                                                                                                                                                                                                                                                                                                   |
-| `MemTotalBytes`      | The percentage of total memory that is currently used by the tape.<br>Units: Bytes                                                                                                                                                                                                                                                                                                                                                                          |
-| `ReadBytes`          | The total number of bytes read from your on-premises applications<br>in the reporting period for a file share.<br>Use this metric with the `Sum` statistic to measure<br>throughput and with the `Samples` statistic to measure<br>IOPS.<br>Units: Bytes                                                                                                                                                                                                    |
-| `UserCpuPercent`     | The percentage of allocated CPU compute units for the user that<br>are currently used by the tape.<br>Units: Percent                                                                                                                                                                                                                                                                                                                                        |
-| `WriteBytes`         | The total number of bytes written to your on-premises applications<br>in the reporting period.<br>Use this metric with the `Sum` statistic to measure<br>throughput and with the `Samples` statistic to measure<br>IOPS.<br>Units: Bytes                                                                                                                                                                                                                    |
+| Metric | Description | 
+| --- | --- | 
+| CachePercentDirty | The tape's contribution to the overall percentage of the gateway's cache that isn't persisted to AWS. The sample is taken at the end of the reporting period.<br />Use the `CachePercentDirty` metric of the gateway to view the overall percentage of the gateway's cache that isn't persisted to AWS. For more information, see [Understanding gateway metrics](MonitoringGateways-common.md).<br />Units: Percent | 
+| CloudTraffic | The amount of bytes uploaded and downloaded from the cloud to the tape.<br />Units: bytes | 
+| IoWaitPercent | The percentage of allocated IoWait units that are currently used by the tape. <br />Units: Percent | 
+| HealthNotification | The number of health notifications sent by the tape.<br />Units: count | 
+| MemUsedBytes | The percentage of allocated memory that is currently used by the tape. <br />Units: Bytes | 
+| MemTotalBytes | The percentage of total memory that is currently used by the tape. <br />Units: Bytes | 
+| ReadBytes   | The total number of bytes read from your on-premises applications in the reporting period for a file share.<br />Use this metric with the `Sum` statistic to measure throughput and with the `Samples` statistic to measure IOPS.<br />Units: Bytes | 
+| UserCpuPercent | The percentage of allocated CPU compute units for the user that are currently used by the tape. <br />Units: Percent | 
+| WriteBytes | The total number of bytes written to your on-premises applications in the reporting period.<br />Use this metric with the `Sum` statistic to measure throughput and with the `Samples` statistic to measure IOPS.<br />Units: Bytes | 
