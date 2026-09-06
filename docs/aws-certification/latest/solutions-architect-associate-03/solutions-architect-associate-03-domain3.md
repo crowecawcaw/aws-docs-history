@@ -66,7 +66,7 @@ Knowledge of:
 
 - Edge networking services with appropriate use cases (for example, Amazon CloudFront, AWS Global Accelerator)
 - How to design network architecture (for example, subnet tiers, routing, IP addressing)
-- Load balancing concepts (for example, Application Load Balancer)
+- Load balancing concepts (for example, Application Load Balancer [ALB])
 - Network connection options (for example, AWS VPN, AWS Direct Connect, AWS PrivateLink)
 
 Skills in:
@@ -80,7 +80,7 @@ Skills in:
 
 Knowledge of:
 
-- Data analytics and visualization services with appropriate use cases (for example, Amazon Athena, AWS Lake Formation, Amazon QuickSuite)
+- Data analytics and visualization services with appropriate use cases (for example, Amazon Athena, AWS Lake Formation, Amazon Quick)
 - Data ingestion patterns (for example, frequency)
 - Data transfer services with appropriate use cases (for example, AWS DataSync, AWS Storage Gateway)
 - Data transformation services with appropriate use cases (for example, AWS Glue)

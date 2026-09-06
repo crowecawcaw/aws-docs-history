@@ -68,7 +68,6 @@ The following list contains AWS services and features that are out of scope for 
 ## Machine Learning
 
 - Apache MXNet on AWS
-- Amazon Augmented AI (Amazon A2I)
 - AWS DeepComposer
 - AWS Deep Learning AMIs (DLAMI)
 - AWS Deep Learning Containers
@@ -78,8 +77,6 @@ The following list contains AWS services and features that are out of scope for 
 - AWS Inferentia
 - Amazon Personalize
 - PyTorch on AWS
-- Amazon SageMaker Canvas
-- Amazon SageMaker Ground Truth
 - TensorFlow on AWS
 
 ## Management and Governance

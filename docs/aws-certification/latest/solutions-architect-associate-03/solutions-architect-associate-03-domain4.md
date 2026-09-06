@@ -87,7 +87,7 @@ Knowledge of:
 
 - AWS cost management service features (for example, cost allocation tags, multi-account billing)
 - AWS cost management tools with appropriate use cases (for example, AWS Cost Explorer, AWS Budgets, AWS Cost and Usage Report)
-- Load balancing concepts (for example, Application Load Balancer)
+- Load balancing concepts (for example, Application Load Balancer [ALB])
 - NAT gateways (for example, NAT instance costs compared with NAT gateway costs)
 - Network connectivity (for example, private lines, dedicated lines, VPNs)
 - Network routing, topology, and peering (for example, AWS Transit Gateway, VPC peering)

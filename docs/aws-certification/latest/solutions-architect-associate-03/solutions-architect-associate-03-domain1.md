@@ -33,7 +33,7 @@ Knowledge of:
 - AWS service endpoints
 - Control ports, protocols, and network traffic on AWS
 - Secure application access
-- Security services with appropriate use cases (for example, AWS Cognito, AWS GuardDuty, AWS Macie)
+- Security services with appropriate use cases (for example, Amazon Cognito, Amazon GuardDuty, Amazon Macie)
 - Threat vectors external to AWS (for example, DDoS, SQL injection)
 
 Skills in:
