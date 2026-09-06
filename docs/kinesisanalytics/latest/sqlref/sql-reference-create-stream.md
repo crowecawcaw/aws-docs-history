@@ -1,15 +1,18 @@
+
+
 # CREATE STREAM
+<a name="sql-reference-create-stream"></a>
 
 The CREATE STREAM statement creates a (local) stream. The name of the stream must be distinct from the name of any other stream in the same schema. It is good practice to include a description of the stream.
 
 Like tables, streams have columns, and you specify the data types for these in the CREATE STREAM statement. These should map to the data source for which you are creating the stream. For column\_name, any valid non-reserved SQL name is usable. Column values cannot be null.
-
-- Specifying OR REPLACE re-creates the stream if it already exists, enabling a definition change for an existing object, implicitly dropping it without first needing to use a DRP command. Using CREATE OR REPLACE on a stream that already has data in flight kills the stream and loses all history.
-- RENAME can be specified only if OR REPLACE has been specified.
-- For the complete list of types and values in type\_specification, such as TIMESTAMP, INTEGER, or varchar(2), see the topic Amazon Kinesis Data Analytics Data Types in the Amazon Kinesis Data Analytics SQL Reference Guide.
-- For option\_value, any string can be used.
++ Specifying OR REPLACE re-creates the stream if it already exists, enabling a definition change for an existing object, implicitly dropping it without first needing to use a DRP command. Using CREATE OR REPLACE on a stream that already has data in flight kills the stream and loses all history.
++ RENAME can be specified only if OR REPLACE has been specified.
++ For the complete list of types and values in type\_specification, such as TIMESTAMP, INTEGER, or varchar(2), see the topic Amazon Kinesis Data Analytics Data Types in the Amazon Kinesis Data Analytics SQL Reference Guide.
++ For option\_value, any string can be used.
 
 ## Simple stream for unparsed log data
+<a name="sql-reference-capture-stream-simple"></a>
 
 ```
 CREATE OR REPLACE STREAM logStream (
@@ -19,6 +22,7 @@ DESCRIPTION 'Head of webwatcher stream processing';
 ```
 
 ## Stream capturing sensor data from Intelligent Travel System pipeline
+<a name="sql-reference-create-stream-capturing-sensor"></a>
 
 ```
 CREATE OR REPLACE STREAM "LaneData" (
@@ -30,10 +34,10 @@ CREATE OR REPLACE STREAM "LaneData" (
     VOL     SMALLINT,
     SPEED   DECIMAL(4,2)
 ) DESCRIPTION 'Conditioned LaneData for analysis queries';
-
 ```
 
 ## Stream capturing order data from e-commerce pipeline
+<a name="sql-reference-create-stream-capturing-order"></a>
 
 ```
 CREATE OR REPLACE STREAM "OrderData" (

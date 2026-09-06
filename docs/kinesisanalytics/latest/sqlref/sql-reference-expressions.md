@@ -1,15 +1,16 @@
+
+
 # Expressions and Literals
-
-###### Value expressions
-
+<a name="sql-reference-expressions"></a>
+<a name="value-expression"></a>
+**Value expressions**  
 Value expressions are defined by the following syntax:
 
 ```
 value-expression := <character-expression > | <number-expression> | <datetime-expression> | <interval-expression> | <boolean-expression>
 ```
-
-###### Character (string) expressions
-
+<a name="character-expression"></a>
+**Character (string) expressions**  
 Character expressions are defined by the following syntax:
 
 ```
@@ -23,20 +24,13 @@ character-expression := <character-literal>
                   | FIRST_VALUE  | INITCAP | LAST_VALUE
                   | LOWER | MAX | MIN | NULLIF
                   | OVERLAY | SUBSTRING| SYSTEM_USER
-                  | TRIM | UPPER
+                  | TRIM | UPPER 
                   | <user-defined-function>
-
 ```
 
-Note that Amazon Kinesis Data Analytics streaming SQL supports unicode character literals, such as
-u&'foo'. As in the use of regular literals, you can escape single quotes in these, such
-as u&'can''t'. Unlike regular literals, you can have unicode escapes: e.g.,
-u&'\0009' is a string consisting only of a tab character. You can escape a \ with
-another \, such as u&'back\\slash'. Amazon Kinesis Data Analytics also supports alternate escape characters,
-such as u&'!0009!!' uescape '!' is a tab character.
-
-###### Numeric expressions
-
+Note that Amazon Kinesis Data Analytics streaming SQL supports unicode character literals, such as u&'foo'. As in the use of regular literals, you can escape single quotes in these, such as u&'can''t'. Unlike regular literals, you can have unicode escapes: e.g., u&'\\0009' is a string consisting only of a tab character. You can escape a \\ with another \\, such as u&'back\\\\slash'. Amazon Kinesis Data Analytics also supports alternate escape characters, such as u&'\!0009\!\!' uescape '\!' is a tab character.
+<a name="numeric-expression"></a>
+**Numeric expressions**  
 Numeric expressions are defined by the following syntax:
 
 ```
@@ -48,8 +42,10 @@ number-expression := <number-literal>
                            | <APPROX_NUMERIC_LITERAL>
 ```
 
+
+
 ```
---Note: An <APPROX_NUMERIC_LITERAL> is a number in scientific notation, such as with an
+--Note: An <APPROX_NUMERIC_LITERAL> is a number in scientific notation, such as with an 
 --exponent, such as 1e2 or -1.5E-6.
 number-unary-oper := + | -
  number-operator      :=   + | - | / | *
@@ -66,9 +62,8 @@ number-unary-oper := + | -
                           | POSITION | POWER
                           | SUM| <user-defined-function>
 ```
-
-###### Date / Time expressions
-
+<a name="datetime-expression"></a>
+**Date / Time expressions**  
 Date / Time expressions are defined by the following syntax:
 
 ```
@@ -89,9 +84,8 @@ datetime-expression := <datetime-literal>
                           | <user-defined-function>
  <time unit>         :=  YEAR | MONTH | DAY | HOUR | MINUTE | SECOND
 ```
-
-###### Interval Expression
-
+<a name="INTERVAL-EXPRESSION"></a>
+**Interval Expression**  
 Interval expressions are defined by the following syntax:
 
 ```
@@ -115,9 +109,8 @@ interval-expression := <interval-literal>
                           | LAST_VALUE | MAX | MIN
                           | NULLIF| <user-defined-function>
 ```
-
-###### Boolean expression
-
+<a name="BOOLEAN_EXPRESSION"></a>
+**Boolean expression**  
 Boolean expressions are defined by the following syntax:
 
 ```

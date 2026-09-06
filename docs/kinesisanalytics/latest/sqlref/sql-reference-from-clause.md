@@ -1,4 +1,7 @@
+
+
 # FROM clause
+<a name="sql-reference-from-clause"></a>
 
 The FROM clause is the source of rows for a query.
 
@@ -33,12 +36,9 @@ The FROM clause is the source of rows for a query.
       | <value-expression> { PRECEDING | FOLLOWING }
     }
     }
-
 ```
 
-For charts on
-window-specification and windowing-clause, see the [WINDOW Clause (Sliding Windows)](sql-reference-window-clause.md "sql-reference-window-clause.md") under the Window
-statement.
+For charts on window-specification and windowing-clause, see the [WINDOW Clause (Sliding Windows)](sql-reference-window-clause.md) under the Window statement.
 
 ```
  <correlation> :=
@@ -58,18 +58,15 @@ statement.
   | RIGHT
   | FULL
 ```
-
-###### Relations
-
+<a name="SELRELATIONS"></a>
+**Relations**  
 Several types of relation can appear in a FROM clause:
++ A named relation (table, stream)
++ A subquery enclosed in parentheses.
++ A join combining two relations (see the topic JOIN in this guide).
++ A transform expression.
 
-- A named relation (table, stream)
-- A subquery enclosed in parentheses.
-- A join combining two relations (see the topic
-  JOIN in this guide).
-- A transform expression.
-  Subqueries are described in more detail in the topic
-  Query in this guide.
+Subqueries are described in more detail in the topic Query in this guide.
 
 Here are some examples of subqueries:
 
@@ -87,11 +84,9 @@ SELECT *
 FROM Dept AS d
   JOIN (VALUES ('Fred', 10), ('Bill', 20)) AS e (name, deptno)
   ON d.deptno = e.deptno;
-
 ```
 
-Unlike subqueries in other parts of the SELECT statement, such as in the [WHERE clause](sql-reference-where-clause.md "sql-reference-where-clause.md") clause (WHERE [Condition Clause](sql-reference-conditions.md "sql-reference-conditions.md")), a subquery in the
-FROM clause cannot contain correlating variables. For example:
+Unlike subqueries in other parts of the SELECT statement, such as in the [WHERE clause](sql-reference-where-clause.md) clause (WHERE [Condition Clause](sql-reference-conditions.md)), a subquery in the FROM clause cannot contain correlating variables. For example:
 
 ```
 // Invalid query. Dept.deptno is an illegal reference to
@@ -104,37 +99,28 @@ FROM Dept,
 ```
 
 ## FROM clause with multiple relations
+<a name="sqlrf-from-clause-multiple-relations"></a>
 
-If a FROM clause contains multiple, comma-separated relations, the query constructs the
-cartesian product of those relations; that is, it combines each row from each relation with each
-row from every other relation.
+If a FROM clause contains multiple, comma-separated relations, the query constructs the cartesian product of those relations; that is, it combines each row from each relation with each row from every other relation.
 
-The comma in the FROM clause is therefore equivalent to the
-CROSS JOIN operator.
+The comma in the FROM clause is therefore equivalent to the CROSS JOIN operator.
 
 ## Correlation names
+<a name="sqlrf-from-clause-correlation-names"></a>
 
-Each relation in the FROM clause can have a correlation name assigned using AS
-correlation-name. This name is an alternative name by which the relation can be referenced in
-expressions throughout the query. (Even though the relation may be a subquery or stream, it
-is conventionally called a 'table alias' to distinguish it from column aliases defined in the
-SELECT clause.)
+Each relation in the FROM clause can have a correlation name assigned using AS correlation-name. This name is an alternative name by which the relation can be referenced in expressions throughout the query. (Even though the relation may be a subquery or stream, it is conventionally called a 'table alias' to distinguish it from column aliases defined in the SELECT clause.)
 
-Without an AS clause, a named relation's name becomes its default alias. (In streaming
-queries, the OVER clause does not prevent this default assignment from happening.)
+Without an AS clause, a named relation's name becomes its default alias. (In streaming queries, the OVER clause does not prevent this default assignment from happening.)
 
-An alias is necessary if a query uses the same named relation more than once, or if any of
-the relations are subqueries or table expressions.
+An alias is necessary if a query uses the same named relation more than once, or if any of the relations are subqueries or table expressions.
 
-For example, in the following query, the named relation EMPS is used twice;
-once with its default alias EMPS, and once with an assigned alias MANAGERS:
+For example, in the following query, the named relation EMPS is used twice; once with its default alias EMPS, and once with an assigned alias MANAGERS:
 
 ```
 SELECT EMPS.NAME || ' is managed by ' || MANAGERS.NAME
 FROM LOCALDB.Sales.EMPS,
   LOCALDB.Sales.EMPS AS MANAGERS
 WHERE MANAGERS.EMPNO = EMPS.MGRNO
-
 ```
 
 An alias can optionally be followed by a list of columns:
@@ -145,7 +131,6 @@ FROM LOCALDB.Sales.EMPS AS e(empname, empmgrno)
 ```
 
 ## OVER clause
+<a name="sqlrf-from-clause-over"></a>
 
-The OVER clause is only applicable for streaming joins. For more detail, see the topic
-[JOIN clause](sql-reference-join-clause.md "sql-reference-join-clause.md")
-in this guide.
+The OVER clause is only applicable for streaming joins. For more detail, see the topic [JOIN clause](sql-reference-join-clause.md) in this guide.

@@ -1,4 +1,7 @@
+
+
 # SUBSTRING
+<a name="sql-reference-substring"></a>
 
 ```
  SUBSTRING ( <source-string> FROM <start-position> [ FOR <string-length> ] )
@@ -10,91 +13,87 @@
  <regex-expression> := <character-expression>
  <pattern> := <character-expression>
  <escape-char> := <character-expression>
-
 ```
 
-SUBSTRING extracts a portion of the source string specified in the first argument.
-Extraction starts at the value of _start-position_ or the first expression matching
-the value of _regex-expression_.
+SUBSTRING extracts a portion of the source string specified in the first argument. Extraction starts at the value of *start-position* or the first expression matching the value of *regex-expression*.
 
-If a value is specified for _string-length_, only that number of characters is
-returned. If there aren't that many characters left in the string, only the characters that are
-left are returned. If _string-length_ is not specified, the string length defaults to
-the remaining length of the input string.
+If a value is specified for *string-length*, only that number of characters is returned. If there aren't that many characters left in the string, only the characters that are left are returned. If *string-length* is not specified, the string length defaults to the remaining length of the input string.
 
-If the start position is less than 1, then the start position is interpreted as if it is 1
-and the string length is reduced by (1–start position). For examples, see following. If
-the start position is greater than the number of characters in the string, or the length
-parameter is 0, the result is an empty string.
+If the start position is less than 1, then the start position is interpreted as if it is 1 and the string length is reduced by (1–start position). For examples, see following. If the start position is greater than the number of characters in the string, or the length parameter is 0, the result is an empty string.
 
 ## Parameters
+<a name="sql-reference-substring-parameters"></a>
 
-_source-string_
+*source-string*
 
 The string to search for positional or regular-expression matches.
 
-_start-position_
+*start-position*
 
-The first character of _source-string_ to return. If _start-position_ is greater than the length of _source-string_, SUBSTRING returns null.
+The first character of *source-string* to return. If *start-position* is greater than the length of *source-string*, SUBSTRING returns null.
 
-_string-length_
+*string-length*
 
-The number of characters from _source-string_ to return.
+The number of characters from *source-string* to return.
 
-_regex-expression_
+*regex-expression*
 
-A pattern of characters to match and return from _source-string_. Only the first match is returned.
+A pattern of characters to match and return from *source-string*. Only the first match is returned.
 
-_pattern_
+*pattern*
 
 A three-part pattern of characters that consists of the following:
++ The string to be found before the returned substring
++ The returned substring
++ The string to be found after the returned substring
 
-- The string to be found before the returned substring
-- The returned substring
-- The string to be found after the returned substring
-
-The parts are delimited by a double quotation mark (") and a specified escape character.
-For more information, see [Similar...Escape](#sql-reference-substring-examples-similar "#sql-reference-substring-examples-similar") Samples following.
+The parts are delimited by a double quotation mark (") and a specified escape character. For more information, see [Similar...Escape](#sql-reference-substring-examples-similar) Samples following.
 
 ## Examples
+<a name="sql-reference-substring-examples"></a>
 
 ### FROM/ FOR
+<a name="sql-reference-substring-examples-from-for"></a>
 
-| Function                             | Result         |
-| ------------------------------------ | -------------- |
-| SUBSTRING('123456789' FROM 3 FOR 4)  | 3456           |
-| SUBSTRING('123456789' FROM 17 FOR 4) | <empty string> |
-| SUBSTRING('123456789' FROM -1 FOR 4) | 12             |
-| SUBSTRING('123456789' FROM 6 FOR 0)  | <empty string> |
-| SUBSTRING('123456789' FROM 8 FOR 4)  | 89             |
+
+| Function | Result | 
+| --- | --- | 
+| SUBSTRING('123456789' FROM 3 FOR 4) | 3456 | 
+| SUBSTRING('123456789' FROM 17 FOR 4) | <empty string> | 
+| SUBSTRING('123456789' FROM -1 FOR 4) | 12 | 
+| SUBSTRING('123456789' FROM 6 FOR 0) | <empty string> | 
+| SUBSTRING('123456789' FROM 8 FOR 4) | 89 | 
 
 ### FROM Regex
+<a name="sql-reference-substring-examples-from"></a>
 
-| Function                                | Result |
-| --------------------------------------- | ------ |
-| SUBSTRING('TECHNOLOGY' FROM 'L[A-Z]\*') | LOGY   |
-| SUBSTRING('TECHNOLOGY' FROM 'FOO')      | null   |
-| SUBSTRING('TECHNOLOGY' FROM 'O[A-Z]')   | OL     |
+
+| Function | Result | 
+| --- | --- | 
+| SUBSTRING('TECHNOLOGY' FROM 'L[A-Z]\*') | LOGY | 
+| SUBSTRING('TECHNOLOGY' FROM 'FOO') | null | 
+| SUBSTRING('TECHNOLOGY' FROM 'O[A-Z]') | OL | 
 
 ### Numeric
+<a name="sql-reference-substring-examples-numeric"></a>
 
-| Function                      | Result |
-| ----------------------------- | ------ |
-| SUBSTRING('123456789', 3, 4)  | 3456   |
-| SUBSTRING('123456789', 7, 4)  | 789    |
-| SUBSTRING('123456789', 10, 4) | null   |
+
+| Function | Result | 
+| --- | --- | 
+| SUBSTRING('123456789', 3, 4) | 3456 | 
+| SUBSTRING('123456789', 7, 4) | 789 | 
+| SUBSTRING('123456789', 10, 4) | null | 
 
 ### Similar...Escape
+<a name="sql-reference-substring-examples-similar"></a>
 
-| Function                                                    | Result |
-| ----------------------------------------------------------- | ------ |
-| SUBSTRING('123456789' SIMILAR '23#"456#"78' ESCAPE '#')     | 456    |
-| SUBSTRING('TECHNOLOGY' SIMILAR 'TECH%"NOLO%"GY' ESCAPE '%') | NOLO   |
+
+| Function | Result | 
+| --- | --- | 
+| SUBSTRING('123456789' SIMILAR '23\#"456\#"78' ESCAPE '\#') | 456 | 
+| SUBSTRING('TECHNOLOGY' SIMILAR 'TECH%"NOLO%"GY' ESCAPE '%') | NOLO | 
 
 ## Notes
-
-- Amazon Kinesis Data Analytics streaming SQL doesn't support the optional 'USING CHARACTERS | OCTETS' clause
-  defined in SQL:2008. USING CHARACTERS is simply assumed.
-- The second and third forms of the SUBSTRING function listed preceding (using a regular
-  expression, and using commas rather than FROM...FOR) are not part of the SQL:2008
-  standard. They are part of the streaming SQL extension to Amazon Kinesis Data Analytics.
+<a name="sql-reference-substring-notes"></a>
++ Amazon Kinesis Data Analytics streaming SQL doesn't support the optional 'USING CHARACTERS \| OCTETS' clause defined in SQL:2008. USING CHARACTERS is simply assumed.
++ The second and third forms of the SUBSTRING function listed preceding (using a regular expression, and using commas rather than FROM...FOR) are not part of the SQL:2008 standard. They are part of the streaming SQL extension to Amazon Kinesis Data Analytics.

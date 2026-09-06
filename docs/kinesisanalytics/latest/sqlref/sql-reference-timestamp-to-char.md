@@ -1,15 +1,15 @@
-# TIMESTAMP\_TO\_CHAR
 
-Uses a format string to format a timestamp as char. Returns the timestamp as a
-string.
+
+# TIMESTAMP\_TO\_CHAR
+<a name="sql-reference-timestamp-to-char"></a>
+
+Uses a format string to format a timestamp as char. Returns the timestamp as a string.
 
 ```
 TIMESTAMP_TO_CHAR(format,ts);
-
 ```
 
 Where ts is timestamp.
 
-###### Note
-
+**Note**  
 If the input is `null`, the output will be the string "`null`".

@@ -1,4 +1,7 @@
+
+
 # OVERLAY
+<a name="sql-reference-overlay"></a>
 
 ```
  OVERLAY ( <original-string>
@@ -10,7 +13,6 @@
  <replacement-string> := <character-expression>
  <start-position> := <integer-expression>
  <string-length> := <integer-expression>
-
 ```
 
 The OVERLAY function is used to replace a portion of the first string argument (the original string) with the second string argument (the replacement string).
@@ -24,18 +26,21 @@ If the string length is less than zero, an exception is raised.
 If any of the input arguments are null, the result is null.
 
 ## Examples
+<a name="sqlrf-overlay-examples"></a>
 
-| Function                                     | Result   |
-| -------------------------------------------- | -------- |
-| OVERLAY ('12345' PLACING 'foo' FROM 1)       | foo45    |
-| OVERLAY ('12345' PLACING 'foo' FROM 0)       | foo345   |
-| OVERLAY ('12345' PLACING 'foo' FROM -2)      | foo12345 |
-| OVERLAY ('12345' PLACING 'foo' FROM 4)       | 123foo   |
-| OVERLAY ('12345' PLACING 'foo' FROM 17)      | 12345foo |
-| OVERLAY ('12345' PLACING 'foo' FROM 2 FOR 0) | 1foo2345 |
-| OVERLAY ('12345' PLACING 'foo' FROM 2 FOR 2) | 1foo45   |
-| OVERLAY ('12345' PLACING 'foo' FROM 2 FOR 9) | 1foo     |
+
+| Function | Result | 
+| --- | --- | 
+| OVERLAY ('12345' PLACING 'foo' FROM 1) | foo45 | 
+| OVERLAY ('12345' PLACING 'foo' FROM 0) | foo345 | 
+| OVERLAY ('12345' PLACING 'foo' FROM -2) | foo12345 | 
+| OVERLAY ('12345' PLACING 'foo' FROM 4) | 123foo | 
+| OVERLAY ('12345' PLACING 'foo' FROM 17) | 12345foo | 
+| OVERLAY ('12345' PLACING 'foo' FROM 2 FOR 0) | 1foo2345 | 
+| OVERLAY ('12345' PLACING 'foo' FROM 2 FOR 2) | 1foo45 | 
+| OVERLAY ('12345' PLACING 'foo' FROM 2 FOR 9) | 1foo | 
 
 ## Limitations
+<a name="sqlrf-overlay-limitations"></a>
 
-Amazon Kinesis Data Analytics does not support the optional USING CHARACTERS | OCTETS clause defined in SQL:2008; USING CHARACTERS is simply assumed. Strict SQL:2008 also requires that a start position less than 1 return a null result, rather than the behavior described above. These are departures from the standard.
+Amazon Kinesis Data Analytics does not support the optional USING CHARACTERS \| OCTETS clause defined in SQL:2008; USING CHARACTERS is simply assumed. Strict SQL:2008 also requires that a start position less than 1 return a null result, rather than the behavior described above. These are departures from the standard.

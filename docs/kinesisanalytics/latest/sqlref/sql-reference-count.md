@@ -1,40 +1,35 @@
-# COUNT
 
-Returns the number of qualifying rows of a group of values from a windowed query. A windowed query is defined in terms of time or rows.
-For information about windowed queries, see [Windowed Queries](../dev/windowed-sql.md "../dev/windowed-sql.md").
+
+# COUNT
+<a name="sql-reference-count"></a>
+
+Returns the number of qualifying rows of a group of values from a windowed query. A windowed query is defined in terms of time or rows. For information about windowed queries, see [Windowed Queries](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/windowed-sql.html).
 
 When you use COUNT, be aware of the following:
-
-- If you don't use the `OVER` clause, `COUNT` is calculated as an aggregate function. In this case,
-  the aggregate query must contain a [GROUP BY clause](sql-reference-group-by-clause.md "sql-reference-group-by-clause.md") on a monotonic expression based on `ROWTIME` that
-  groups the stream into finite rows. Otherwise,
-  the group is the infinite stream, and the query will never complete and no rows will be emitted. For more information, see [Aggregate Functions](sql-reference-aggregate-functions.md "sql-reference-aggregate-functions.md").
-- A windowed query that uses a GROUP BY clause processes rows in a tumbling window. For more information, see
-  [Tumbling Windows (Aggregations Using GROUP BY)](../dev/tumbling-window-concepts.md "../dev/tumbling-window-concepts.md").
-- If you use the `OVER` clause, `COUNT` is calculated as an analytic function. For more information, see
-  [Analytic Functions](sql-reference-analytic-functions.md "sql-reference-analytic-functions.md").
-- A windowed query that uses an OVER clause processes rows in a sliding window. For more information, see
-  [Sliding Windows](../dev/sliding-window-concepts.md "../dev/sliding-window-concepts.md")
++ If you don't use the `OVER` clause, `COUNT` is calculated as an aggregate function. In this case, the aggregate query must contain a [GROUP BY clause](sql-reference-group-by-clause.md) on a monotonic expression based on `ROWTIME` that groups the stream into finite rows. Otherwise, the group is the infinite stream, and the query will never complete and no rows will be emitted. For more information, see [Aggregate Functions](sql-reference-aggregate-functions.md). 
++ A windowed query that uses a GROUP BY clause processes rows in a tumbling window. For more information, see [Tumbling Windows (Aggregations Using GROUP BY)](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/tumbling-window-concepts.html).
++ If you use the `OVER` clause, `COUNT` is calculated as an analytic function. For more information, see [Analytic Functions](sql-reference-analytic-functions.md).
++ A windowed query that uses an OVER clause processes rows in a sliding window. For more information, see [Sliding Windows](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/sliding-window-concepts.html) 
 
 ## Syntax
+<a name="w2aac22b7c32b9"></a>
 
 ### Tumbling Windowed Query
+<a name="w2aac22b7c32b9b2"></a>
 
 ```
-
-COUNT(*number-expression*) ... GROUP BY *monotonic-expression* | *time-based-expression*
-
+COUNT(number-expression) ... GROUP BY monotonic-expression | time-based-expression
 ```
 
 ### Sliding Windowed Query
+<a name="w2aac22b7c32b9b4"></a>
 
 ```
-
-COUNT(* | ALL *number-expression*) OVER *window-specification*
-
+COUNT(* | ALL number-expression) OVER window-specification
 ```
 
 ## Parameters
+<a name="w2aac22b7c32c11"></a>
 
 \*
 
@@ -44,132 +39,121 @@ ALL
 
 Counts all rows. `ALL` is the default.
 
-_number-expression_
+*number-expression*
 
 Specifies the value expressions evaluated for each row in the aggregation.
 
-OVER _window-specification_
+OVER *window-specification*
 
-Divides records in a stream partitioned by the time range interval or the number of rows.
-A window specification defines how records in the stream are partitioned by the time range interval or the number of rows.
+Divides records in a stream partitioned by the time range interval or the number of rows. A window specification defines how records in the stream are partitioned by the time range interval or the number of rows. 
 
-GROUP BY _monotonic-expression_ | _time-based-expression_
+GROUP BY *monotonic-expression* \| *time-based-expression*
 
 Groups records based on the value of the grouping expression returning a single summary row for each group of rows that has identical values in all columns.
 
 ## Examples
+<a name="sql-reference-count-examples"></a>
 
 ### Example Dataset
+<a name="w2aac22b7c32c13b3"></a>
 
-The examples following are based on the sample stock dataset that is part of [Getting Started](../dev/get-started-exercise.md "../dev/get-started-exercise.md") in the
-
-_Amazon Kinesis Analytics Developer Guide_. To run each example, you need an Amazon Kinesis Analytics application that has the sample stock ticker input stream.
-To learn how to create an Analytics application and configure the sample stock ticker input stream,
-see [Getting Started](../dev/get-started-exercise.md "../dev/get-started-exercise.md") in the _Amazon Kinesis Analytics Developer Guide_.
+The examples following are based on the sample stock dataset that is part of [Getting Started](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) in the *Amazon Kinesis Analytics Developer Guide*. To run each example, you need an Amazon Kinesis Analytics application that has the sample stock ticker input stream. To learn how to create an Analytics application and configure the sample stock ticker input stream, see [Getting Started](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) in the *Amazon Kinesis Analytics Developer Guide*. 
 
 The sample stock dataset has the schema following.
 
 ```
-
 (ticker_symbol  VARCHAR(4),
 sector          VARCHAR(16),
 change          REAL,
 price           REAL)
-
 ```
 
 ### Example 1: Return the Number of Values Using the GROUP BY Clause
+<a name="w2aac22b7c32c13b5"></a>
 
-In this example, the aggregate query has a `GROUP BY` clause on `ROWTIME` that groups the stream into finite rows.
-The `COUNT` function is then calculated from the rows returned by the `GROUP BY` clause.
+In this example, the aggregate query has a `GROUP BY` clause on `ROWTIME` that groups the stream into finite rows. The `COUNT` function is then calculated from the rows returned by the `GROUP BY` clause.
 
 #### Using STEP (Recommended)
+<a name="sql-reference-count-step"></a>
 
 ```
-
 CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (
-    ticker_symbol VARCHAR(4),
+    ticker_symbol VARCHAR(4), 
     count_price     DOUBLE);
 
-CREATE OR REPLACE PUMP "STREAM_PUMP" AS
-  INSERT INTO "DESTINATION_SQL_STREAM"
-    SELECT STREAM
+CREATE OR REPLACE PUMP "STREAM_PUMP" AS 
+  INSERT INTO "DESTINATION_SQL_STREAM" 
+    SELECT STREAM 
         ticker_symbol,
         COUNT(Price) AS count_price
     FROM "SOURCE_SQL_STREAM_001"
     GROUP BY ticker_symbol, STEP("SOURCE_SQL_STREAM_001".ROWTIME BY INTERVAL '60' SECOND);
-
 ```
 
 #### Using FLOOR
+<a name="sql-reference-count-floor"></a>
 
 ```
-
 CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (
-    ticker_symbol VARCHAR(4),
+    ticker_symbol VARCHAR(4), 
     count_price     DOUBLE);
 -- CREATE OR REPLACE PUMP to insert into output
-CREATE OR REPLACE PUMP "STREAM_PUMP" AS
-  INSERT INTO "DESTINATION_SQL_STREAM"
-    SELECT STREAM
+CREATE OR REPLACE PUMP "STREAM_PUMP" AS 
+  INSERT INTO "DESTINATION_SQL_STREAM" 
+    SELECT STREAM 
         ticker_symbol,
         COUNT(Price) AS count_price
     FROM "SOURCE_SQL_STREAM_001"
     GROUP BY ticker_symbol, FLOOR("SOURCE_SQL_STREAM_001".ROWTIME TO MINUTE);
-
 ```
 
 #### Results
+<a name="sql-reference-count-results"></a>
 
 The preceding examples output a stream similar to the following.
 
-![Table showing stock trades with columns for row time, ticker symbol, and count price.](images/sql-reference-count-example-1.png)
+![Table showing stock trades with columns for row time, ticker symbol, and count price.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-count-example-1.png)
+
 
 ### Example 2: Return the Number of Values Using the OVER Clause
+<a name="w2aac22b7c32c13b9"></a>
 
-In this example, the `OVER` clause divides records in a stream partitioned by the time range interval of '1' hour preceding.
-The `COUNT` function is then calculated from the rows returned by the `OVER` clause.
+ In this example, the `OVER` clause divides records in a stream partitioned by the time range interval of '1' hour preceding. The `COUNT` function is then calculated from the rows returned by the `OVER` clause. 
 
 ```
-
 CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (
     ticker_symbol VARCHAR(4),
     count_price     DOUBLE);
-CREATE OR REPLACE PUMP "STREAM_PUMP" AS
+CREATE OR REPLACE PUMP "STREAM_PUMP" AS 
     INSERT INTO "DESTINATION_SQL_STREAM"
-    SELECT STREAM ticker_symbol,
+    SELECT STREAM ticker_symbol, 
         COUNT(price) OVER (
             PARTITION BY ticker_symbol
             RANGE INTERVAL '1' HOUR PRECEDING) AS count_price
     FROM "SOURCE_SQL_STREAM_001"
-
 ```
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing rowtime, ticker symbols such as WMT and DFG, and count price values.](images/sql-reference-count-example-2.png)
+![Table showing rowtime, ticker symbols such as WMT and DFG, and count price values.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-count-example-2.png)
+
 
 ## Usage Notes
+<a name="w2aac22b7c32c15"></a>
 
-Amazon Kinesis Analytics doesn't support the `FILTER` clause of the `COUNT` function or the use of `COUNT DISTINCT`
-in either aggregate functions or analytic functions. For more information on aggregate and analytic functions, see [Aggregate Functions](sql-reference-aggregate-functions.md "sql-reference-aggregate-functions.md") and [Analytic Functions](sql-reference-analytic-functions.md "sql-reference-analytic-functions.md"). This functionality is a departure from the SQL:2008 standard.
+Amazon Kinesis Analytics doesn't support the `FILTER` clause of the `COUNT` function or the use of `COUNT DISTINCT` in either aggregate functions or analytic functions. For more information on aggregate and analytic functions, see [Aggregate Functions](sql-reference-aggregate-functions.md) and [Analytic Functions](sql-reference-analytic-functions.md). This functionality is a departure from the SQL:2008 standard. 
 
-When used as an analytic function, `COUNT` returns zero if the window being evaluated contains no rows.
-For more information, see [Analytic Functions](sql-reference-analytic-functions.md "sql-reference-analytic-functions.md"). COUNT also returns zero for a `PARTITION BY`
-clause for which the partition
-within the window matching the input row contains no rows. For more information about `PARTITION BY`, see
-[WINDOW Clause (Sliding Windows)](sql-reference-window-clause.md "sql-reference-window-clause.md").
+ When used as an analytic function, `COUNT` returns zero if the window being evaluated contains no rows. For more information, see [Analytic Functions](sql-reference-analytic-functions.md). COUNT also returns zero for a `PARTITION BY` clause for which the partition within the window matching the input row contains no rows. For more information about `PARTITION BY`, see [WINDOW Clause (Sliding Windows)](sql-reference-window-clause.md). 
 
-`COUNT` ignores null values from the set of values or a numeric expression. For example, each of the following return the value of 3:
-
-- COUNT(1, 2, 3) = 3
-- COUNT(1,null, 2, null, 3, null) = 3
+ `COUNT` ignores null values from the set of values or a numeric expression. For example, each of the following return the value of 3: 
++ COUNT(1, 2, 3) = 3
++ COUNT(1,null, 2, null, 3, null) = 3
 
 ## Related Topics
-
-- [Windowed Queries](../dev/windowed-sql.md "../dev/windowed-sql.md")
-- [Aggregate Functions](sql-reference-aggregate-functions.md "sql-reference-aggregate-functions.md")
-- [GROUP BY clause](sql-reference-group-by-clause.md "sql-reference-group-by-clause.md")
-- [Analytic Functions](sql-reference-analytic-functions.md "sql-reference-analytic-functions.md")
-- [Getting Started Exercise](../dev/get-started-exercise.md "../dev/get-started-exercise.md")
-- [WINDOW Clause (Sliding Windows)](sql-reference-window-clause.md "sql-reference-window-clause.md")
+<a name="w2aac22b7c32c17"></a>
++ [Windowed Queries](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/windowed-sql.html)
++ [Aggregate Functions](sql-reference-aggregate-functions.md)
++ [GROUP BY clause](sql-reference-group-by-clause.md)
++ [Analytic Functions](sql-reference-analytic-functions.md)
++ [Getting Started Exercise](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html)
++ [WINDOW Clause (Sliding Windows)](sql-reference-window-clause.md)

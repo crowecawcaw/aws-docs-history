@@ -1,23 +1,24 @@
-# ROWTIME
 
-ROWTIME is an operator and system column that returns the time at which a particular row of a stream was created.
+
+# ROWTIME
+<a name="sql-reference-rowtime"></a>
+
+ROWTIME is an operator and system column that returns the time at which a particular row of a stream was created. 
 
 It is used in four distinct ways:
++ As an operator
++ As a system column of a stream
++ As a column alias, to override the timestamp on the current row
++ As an ordinary column in a table
 
-- As an operator
-- As a system column of a stream
-- As a column alias, to override the timestamp on the current row
-- As an ordinary column in a table
-  For more details, see the topics Timestamp, ROWTIME, and [CURRENT\_ROW\_TIMESTAMP](sql-reference-current-row-timestamp.md "sql-reference-current-row-timestamp.md") in this guide.
+For more details, see the topics Timestamp, ROWTIME, and [CURRENT\_ROW\_TIMESTAMP](sql-reference-current-row-timestamp.md) in this guide.
 
-###### ROWTIME operator
-
+**ROWTIME operator**  
 When used in the SELECT clause of a streaming query, without being qualified by a preceding 'alias.' , ROWTIME is an operator that evaluates to the timestamp of the row that is just about to be generated.
 
 Its type is always TIMESTAMP NOT NULL.
 
-###### ROWTIME system column
-
+**ROWTIME system column**  
 Every stream has a ROWTIME column. To reference this column from within a query, qualify it with the stream name (or alias). For example, the following join query returns three timestamp columns: the system columns of its input streams, and the timestamp of the generated row.
 
 ```
@@ -35,6 +36,8 @@ leftRowtime         rightRowtime        joinRowtime
 2008-02-20 10:25:00 2008-02-20 11:15:00 2008-02-20 10:25:00
 2008-02-20 10:25:30 2008-02-20 11:05:00 2008-02-20 10:25:30
 ```
+
+
 
 As it happens, leftRowtime is always equal to joinRowtime, because the join is specified such that the output row timestamp is always equal to the ROWTIME column from the Orders stream.
 
@@ -71,5 +74,6 @@ ROWTIME             orderId custId
 2008-02-20 10:25:30     102    699
 ```
 
-This is mainly to ensure compatibility with JDBC: the stream Orders declares two columns, so it makes sense that
-"SELECT STREAM \*" should return two columns.
+
+
+This is mainly to ensure compatibility with JDBC: the stream Orders declares two columns, so it makes sense that "SELECT STREAM \*" should return two columns.
