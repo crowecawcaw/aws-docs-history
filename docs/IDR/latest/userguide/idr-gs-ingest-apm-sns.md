@@ -169,7 +169,7 @@ AWS Incident Detection and Response**
 
 ## Option 2: Manual integration
 
-![Diagram showing an example of integration using Amazon SNS.](images/example-int-sns.png)
+![Diagram showing an example of integration using Amazon SNS.](/images/IDR/latest/userguide/images/example-int-sns.png)
 
 1. Open the Amazon SNS Console and create a **Standard** Amazon SNS topic
    named `[apm_name]-sns` to receive alarm events
