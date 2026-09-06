@@ -1,37 +1,36 @@
+
+
 # View a resource-based delegation policy with AWS Organizations
+<a name="view-delegated-resource-based-policy"></a>
 
-From the management account, view your organization’s resource-based delegation policy
-to understand which delegated administrators have access to manage which policy
-types.
+From the management account, view your organization’s resource-based delegation policy to understand which delegated administrators have access to manage which policy types.
 
-###### Minimum permissions
+**Minimum permissions**  
+To view the resource-based delegation policy, you need permissions to run the following action: `organizations:DescribeResourcePolicy`. 
 
-To view the resource-based delegation policy, you need permissions to run the
-following action: `organizations:DescribeResourcePolicy`.
+------
+#### [ AWS Management Console ]
 
-AWS Management Console
+**To view a delegation policy**
 
-###### To view a delegation policy
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
-   sign in as the root user ([not
-   recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
-2. Choose **Settings**.
-3. In the **Delegated administrator for AWS Organizations**
-   section, scroll to view the full delegation policy.
+1. Choose **Settings**.
 
-AWS CLI & AWS SDKs
+1. In the **Delegated administrator for AWS Organizations** section, scroll to view the full delegation policy.
 
-###### View a delegation policy
+------
+#### [ AWS CLI & AWS SDKs ]
 
-You can use the following command to view a delegation policy:
+**View a delegation policy**  
+You can use the following command to view a delegation policy: 
++ AWS CLI: [describe-resource-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-resource-policy.html)
 
-- AWS CLI: [describe-resource-policy](../../../cli/latest/reference/organizations/describe-resource-policy.md "../../../cli/latest/reference/organizations/describe-resource-policy.md")
+  The following example retrieves the policy.
 
-The following example retrieves the policy.
+  ```
+  $ aws organizations describe-resource-policy
+  ```
++ AWS SDK: [DescribeResourcePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeResourcePolicy.html)
 
-```
-`$` **aws organizations describe-resource-policy**
-```
-
-- AWS SDK: [DescribeResourcePolicy](../APIReference/API_DescribeResourcePolicy.md "../APIReference/API_DescribeResourcePolicy.md")
+------

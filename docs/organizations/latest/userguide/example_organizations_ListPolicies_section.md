@@ -1,16 +1,15 @@
+
+
 # Use `ListPolicies` with an AWS SDK or CLI
+<a name="example_organizations_ListPolicies_section"></a>
 
 The following code examples show how to use `ListPolicies`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
 ```
     using System;
@@ -78,29 +77,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             Console.WriteLine(policyInfo);
         }
     }
+```
++  For API details, see [ListPolicies](https://docs.aws.amazon.com/goto/DotNetSDKV3/organizations-2016-11-28/ListPolicies) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To retrieve a list of all policies in an organization of a certain type**  
+The following example shows you how to get a list of SCPs, as specified by the filter parameter:  
 
 ```
-
-- For API details, see
-  [ListPolicies](../../../goto/DotNetSDKV3/organizations-2016-11-28/ListPolicies.md "../../../goto/DotNetSDKV3/organizations-2016-11-28/ListPolicies.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To retrieve a list of all policies in an organization of a certain type**
-
-The following example shows you how to get a list of SCPs, as specified by the filter parameter:
-
+aws organizations list-policies --filter {{SERVICE_CONTROL_POLICY}}
 ```
-`aws organizations list-policies --filter `SERVICE_CONTROL_POLICY``
-
-```
-
-The output includes a list of policies with summary information:
+The output includes a list of policies with summary information:  
 
 ```
 {
@@ -132,20 +122,13 @@ The output includes a list of policies with summary information:
         ]
 }
 ```
++  For API details, see [ListPolicies](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/list-policies.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListPolicies](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/list-policies.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/list-policies.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples). 
 
 ```
 def list_policies(policy_filter, orgs_client):
@@ -165,25 +148,14 @@ def list_policies(policy_filter, orgs_client):
         raise
     else:
         return policies
-
-
-
-
 ```
++  For API details, see [ListPolicies](https://docs.aws.amazon.com/goto/boto3/organizations-2016-11-28/ListPolicies) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListPolicies](../../../goto/boto3/organizations-2016-11-28/ListPolicies.md "../../../goto/boto3/organizations-2016-11-28/ListPolicies.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples). 
 
 ```
     TRY.
@@ -196,14 +168,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_orgawsorgsnotinuseex.
         MESSAGE 'Your account is not a member of an organization.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListPolicies](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListPolicies](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Organizations with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Organizations with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

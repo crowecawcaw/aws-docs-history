@@ -1,65 +1,47 @@
+
+
 # Moving accounts to an organizational unit (OU) or between the root and OUs with AWS Organizations
+<a name="move_account_to_ou"></a>
 
-When you sign in to your organization's management account, you can move accounts in
-your organization from the root to an OU, from one OU to another, or back to the root
-from an OU. Placing an account inside an OU makes it subject to any policies that are
-attached to the parent OU and any OUs in the parent chain up to the root. If an account
-isn't in an OU, it's subject to only the policies that are attached directly to the root
-and any policies that are attached directly to the account. To move accounts, complete
-the following steps.
+When you sign in to your organization's management account, you can move accounts in your organization from the root to an OU, from one OU to another, or back to the root from an OU. Placing an account inside an OU makes it subject to any policies that are attached to the parent OU and any OUs in the parent chain up to the root. If an account isn't in an OU, it's subject to only the policies that are attached directly to the root and any policies that are attached directly to the account. To move accounts, complete the following steps.
 
-###### Minimum permissions
+**Minimum permissions**  
+To move accounts to a new location in the OU hierarchy, you must have the following permissions:  
+`organizations:DescribeOrganization` – required only when using the Organizations console
+`organizations:MoveAccount`
 
-To move accounts to a new location in the OU hierarchy, you must have the
-following permissions:
+------
+#### [ AWS Management Console ]
 
-- `organizations:DescribeOrganization` – required only when using the Organizations console
-- `organizations:MoveAccount`
+**To move accounts to an OU**
 
-AWS Management Console
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-###### To move accounts to an OU
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, find the account or accounts that you want to move. You can navigate the OU hierarchy or enable **View AWS accounts only** to see a flat list of accounts without the OU structure. If you have a lot of accounts, you might have to choose **Load more accounts in '*ou-name*'** at the bottom of the list to find all of those you want to move.
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
-   sign in as the root user ([not
-   recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
-2. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page, find the account or accounts that you want
-   to move. You can navigate the OU hierarchy or enable **View
-   AWS accounts only** to see a flat
-   list of accounts without the OU structure. If you have a lot of
-   accounts, you might have to choose **Load more accounts in
-   '_ou-name_'** at
-   the bottom of the list to find all of those you want to move.
-3. Choose the check box
-   ![Blue checkmark icon indicating confirmation or completion of a task.](images/checkbox-selected.png)
-   next to the name of each account that you want
-   to move.
-4. On the **Actions** menu, under
-   **AWS account**, choose **Move** .
-5. In the **Move AWS account** dialog box,
-   navigate to and then choose the OU or root that you want to move the
-   account to, and then choose **Move
-   AWS account**.
+1. Choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to the name of each account that you want to move.
 
-AWS CLI & AWS SDKs
+1. On the **Actions** menu, under **AWS account**, choose **Move **.
 
-###### To move accounts to an OU
+1. In the **Move AWS account** dialog box, navigate to and then choose the OU or root that you want to move the account to, and then choose **Move AWS account**.
 
+------
+#### [ AWS CLI & AWS SDKs ]
+
+**To move accounts to an OU**  
 You can use one of the following commands to move an account:
++ AWS CLI: [move-account](https://docs.aws.amazon.com/cli/latest/reference/organizations/move-account.html)
 
-- AWS CLI: [move-account](../../../cli/latest/reference/organizations/move-account.md "../../../cli/latest/reference/organizations/move-account.md")
+  The following example moves an AWS account from the root to an OU. Note that you must specify the IDs of both the source and destination containers.
 
-The following example moves an AWS account from the root to an
-OU. Note that you must specify the IDs of both the source and
-destination containers.
+  ```
+  $ aws organizations move-account \
+      --account-id 111122223333 \
+      --source-parent-id r-a1b2 \
+      --destination-parent-id ou-a1b2-f6g7h111
+  ```
 
-```
-`$` **aws organizations move-account \
- --account-id 111122223333 \
- --source-parent-id r-a1b2 \
- --destination-parent-id ou-a1b2-f6g7h111**
-```
+  This command produces no output when successful.
++ AWS SDKs: [MoveAccount](https://docs.aws.amazon.com/organizations/latest/APIReference/API_MoveAccount.html)
 
-This command produces no output when successful.
-
-- AWS SDKs: [MoveAccount](../APIReference/API_MoveAccount.md "../APIReference/API_MoveAccount.md")
+------

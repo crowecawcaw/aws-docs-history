@@ -1,86 +1,73 @@
-# About invalid effective policy alerts
 
-_Invalid policy alerts_ let you know about invalid effective policies and provide
-mechanisms (APIs) to identify accounts with invalid policies. AWS Organizations notifies you
-asynchronously when one of your accounts has an invalid effective policy. The notification
-appears as a banner in the AWS Organizations console page, and it is recorded as an AWS CloudTrail
-event.
+
+# About invalid effective policy alerts
+<a name="invalid-policy-alerts"></a>
+
+*Invalid policy alerts* let you know about invalid effective policies and provide mechanisms (APIs) to identify accounts with invalid policies. AWS Organizations notifies you asynchronously when one of your accounts has an invalid effective policy. The notification appears as a banner in the AWS Organizations console page, and it is recorded as an AWS CloudTrail event.
 
 ## Detect invalid effective declarative policies in your organization
+<a name="detect-invalid-policies"></a>
 
-There are several ways in which you can view invalid effective declarative policies in
-your organization: from the AWS Management Console, AWS API, AWS Command Line
-Interface (CLI), or as an AWS CloudTrail event.
+There are several ways in which you can view invalid effective declarative policies in your organization: from the AWS Management Console, AWS API, AWS Command Line Interface (CLI), or as an AWS CloudTrail event.
 
-###### Minimum permissions
+**Minimum permissions**  
+ To find the information related to invalid effective policies of a declarative policy type in your organization, you must have permission to run the following actions:  
+`organizations:ListAccountsWithInvalidEffectivePolicy`
+`organizations:ListEffectivePolicyValidationErrors`
+`organizations:ListRoots` - required only when using the Organizations console
 
-To find the information related to invalid effective policies of a declarative policy
-type in your organization, you must have permission to run the following actions:
+------
+#### [ AWS Management Console ]
 
-- `organizations:ListAccountsWithInvalidEffectivePolicy`
-- `organizations:ListEffectivePolicyValidationErrors`
-- `organizations:ListRoots` - required only when using the
-  Organizations console
+**To view invalid effective declarative policies from the console**
 
-AWS Management Console
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-###### To view invalid effective declarative policies from the console
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page page, if your organization has invalid effective policies, a warning banner is displayed at the top of the page.
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
-   sign in as the root user ([not
-   recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
-2. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page page, if your organization has invalid effective
-   policies, a warning banner is displayed at the top of the page.
-3. In the banner, click on **View detected issues** to view the
-   list of all accounts in your organization that have invalid effective
-   policies.
-4. For each account in the list, select **View issues** to get
-   more information on errors for each account shown under the **Effective
-   policy issues** sections on this page.
+1. In the banner, click on **View detected issues** to view the list of all accounts in your organization that have invalid effective policies.
 
-AWS CLI & AWS SDKs
+1. For each account in the list, select **View issues** to get more information on errors for each account shown under the **Effective policy issues** sections on this page.
 
-###### To view the effective policy of a declarative policy type for an account
+------
+#### [ AWS CLI & AWS SDKs ]
 
+**To view the effective policy of a declarative policy type for an account**  
 The following commands help you view accounts with invalid effective policies
++ AWS CLI: [list-accounts-with-invalid-effective-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-accounts-with-invalid-effective-policy.html)
++ AWS SDKs: [ListAccountsWithInvalidEffectivePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListAccountsWithInvalidEffectivePolicy.html) 
 
-- AWS CLI: [list-accounts-with-invalid-effective-policy](../../../cli/latest/reference/organizations/list-accounts-with-invalid-effective-policy.md "../../../cli/latest/reference/organizations/list-accounts-with-invalid-effective-policy.md")
-- AWS SDKs: [ListAccountsWithInvalidEffectivePolicy](../APIReference/API_ListAccountsWithInvalidEffectivePolicy.md "../APIReference/API_ListAccountsWithInvalidEffectivePolicy.md")
+**The following commands help you view effective policy errors on an account**
++ AWS CLI: [list-effective-policy-validation-errors](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-effective-policy-validation-errors.html)
++ AWS SDKs: [ListEffectivePolicyValidationErrors](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListEffectivePolicyValidationErrors.html) 
 
-###### The following commands help you view effective policy errors on an account
-
-- AWS CLI: [list-effective-policy-validation-errors](../../../cli/latest/reference/organizations/list-effective-policy-validation-errors.md "../../../cli/latest/reference/organizations/list-effective-policy-validation-errors.md")
-- AWS SDKs: [ListEffectivePolicyValidationErrors](../APIReference/API_ListEffectivePolicyValidationErrors.md "../APIReference/API_ListEffectivePolicyValidationErrors.md")
+------
 
 **AWS CloudTrail**
 
-You can use AWS CloudTrail events to monitor when accounts in your organizations have invalid effective declarative policies and when the policies are fixed. For more information, see _Effective policy examples_ in [Understanding AWS Organizations log file entries](orgs_cloudtrail-integration.md#understanding-service-name-entries "orgs_cloudtrail-integration.md#understanding-service-name-entries").
+You can use AWS CloudTrail events to monitor when accounts in your organizations have invalid effective declarative policies and when the policies are fixed. For more information, see *Effective policy examples* in [Understanding AWS Organizations log file entries](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_cloudtrail-integration.html#understanding-service-name-entries).
 
 If you receive an invalid effective policy notification, you can navigate through the AWS Organizations console or call these APIs from your management or delegated administrator account to find more details about the status of specific accounts and policies:
-
-- `ListAccountsWithInvalidEffectivePolicy` – Returns a list of
-  accounts in the organization that have invalid effective policies of a specified type.
-- `ListEffectivePolicyValidationErrors` – Returns a list of validation errors for a specified account and declarative policy type. The validation errors contain details, including the error code, error description, and contributing policies that made the effective policy invalid.
++  `ListAccountsWithInvalidEffectivePolicy` – Returns a list of accounts in the organization that have invalid effective policies of a specified type.
++ `ListEffectivePolicyValidationErrors` – Returns a list of validation errors for a specified account and declarative policy type. The validation errors contain details, including the error code, error description, and contributing policies that made the effective policy invalid.
 
 ## When an effective declarative policy might be considered invalid
+<a name="effective-policy-invalid"></a>
 
 Effective policies on an account can become invalid if they violate the constraints defined for the particular policy type. For example, a policy might be missing a required parameter in the final effective policy or exceed certain quotas defined for the policy type.
 
-AWS Organizations validates effective policies before applying them to the accounts in your organization. This auditing process is especially beneficial if you
-have a large organization structure, and if your organization's policies are managed by more
-than one team.
+AWS Organizations validates effective policies before applying them to the accounts in your organization. This auditing process is especially beneficial if you have a large organization structure, and if your organization's policies are managed by more than one team.
 
 **Examples of possible errors for effective policies**
++ `ELEMENTS_TOO_MANY` – Occurs when a particular attribute in an effective policy exceeds the allowed limit, such as when more than 10 rules are given for a backup plan.
++ `ELEMENTS_TOO_FEW` – Occurs when a particular attribute in an effective policy does not meet the minimum limit, such as when no region is defined for a backup plan.
++ `KEY_REQUIRED` – Occurs when a required configuration is missing in the effective policy, such as when a backup plan is missing a backup rule.
 
-- `ELEMENTS_TOO_MANY` – Occurs when a particular attribute in an effective policy exceeds the allowed limit, such as when more than 10 rules are given for a backup plan.
-- `ELEMENTS_TOO_FEW` – Occurs when a particular attribute in an effective policy does not meet the minimum limit, such as when no region is defined for a backup plan.
-- `KEY_REQUIRED` – Occurs when a required configuration is missing in the effective policy, such as when a backup plan is missing a backup rule.
-
-###### Warning
-
+**Warning**  
 If any account in the organization has an invalid effective policy, that account will not receive effective policy updates for the particular policy type. It continues with the last applied valid effective policy for the account, unless all the errors are fixed.
 
 ## Validations by policy type
+<a name="validations-by-policy-type"></a>
 
 **Backup policy**
 
@@ -89,6 +76,5 @@ Suppose that you create a backup policy with nine backup rules and attach it to 
 **Tag policy**
 
 Tag policy effective policies are subject to the following validations:
-
-- The effective tag policy size must not exceed 395,000 characters. Multi-byte characters (such as those in Chinese, Japanese, or Korean) consume more space and will reduce this limit accordingly. If the aggregation of all inherited and directly attached tag policies at an account level results in an effective policy larger than 395,000 characters, the effective policy is considered invalid.
-- The number of unique required tag keys per resource type must not exceed 50. Suppose that you attach a tag policy with 30 required tag keys for EC2 instances to the root, and later attach another tag policy with 25 different required tag keys for EC2 instances to an OU. In that situation, there's an invalid effective policy on accounts in that OU. It is invalid because the aggregation of the two policies defines 55 unique required tag keys for a single resource type. The limit is 50 unique required tag keys per resource type. This limit is validated both on individual tag policies and on the aggregated effective policy.
++ The effective tag policy size must not exceed 395,000 characters. Multi-byte characters (such as those in Chinese, Japanese, or Korean) consume more space and will reduce this limit accordingly. If the aggregation of all inherited and directly attached tag policies at an account level results in an effective policy larger than 395,000 characters, the effective policy is considered invalid.
++ The number of unique required tag keys per resource type must not exceed 50. Suppose that you attach a tag policy with 30 required tag keys for EC2 instances to the root, and later attach another tag policy with 25 different required tag keys for EC2 instances to an OU. In that situation, there's an invalid effective policy on accounts in that OU. It is invalid because the aggregation of the two policies defines 55 unique required tag keys for a single resource type. The limit is 50 unique required tag keys per resource type. This limit is validated both on individual tag policies and on the aggregated effective policy.

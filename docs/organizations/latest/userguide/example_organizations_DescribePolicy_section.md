@@ -1,21 +1,21 @@
+
+
 # Use `DescribePolicy` with an AWS SDK or CLI
+<a name="example_organizations_DescribePolicy_section"></a>
 
 The following code examples show how to use `DescribePolicy`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get information about a policy**
-
-The following example shows how to request information about a policy:
-
-```
-`aws organizations describe-policy --policy-id `p-examplepolicyid111``
+**AWS CLI**  
+**To get information about a policy**  
+The following example shows how to request information about a policy:  
 
 ```
-
-The output includes a policy object that contains details about the policy:
+aws organizations describe-policy --policy-id {{p-examplepolicyid111}}
+```
+The output includes a policy object that contains details about the policy:  
 
 ```
 {
@@ -32,20 +32,13 @@ The output includes a policy object that contains details about the policy:
         }
 }
 ```
++  For API details, see [DescribePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/describe-policy.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/describe-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/describe-policy.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples). 
 
 ```
 def describe_policy(policy_id, orgs_client):
@@ -65,25 +58,14 @@ def describe_policy(policy_id, orgs_client):
         raise
     else:
         return policy
-
-
-
-
 ```
++  For API details, see [DescribePolicy](https://docs.aws.amazon.com/goto/boto3/organizations-2016-11-28/DescribePolicy) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribePolicy](../../../goto/boto3/organizations-2016-11-28/DescribePolicy.md "../../../goto/boto3/organizations-2016-11-28/DescribePolicy.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples). 
 
 ```
     TRY.
@@ -96,14 +78,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_orgpolicynotfoundex.
         MESSAGE 'The specified policy does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribePolicy](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribePolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Organizations with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Organizations with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

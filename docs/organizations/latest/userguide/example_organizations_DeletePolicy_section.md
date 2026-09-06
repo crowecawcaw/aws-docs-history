@@ -1,16 +1,15 @@
+
+
 # Use `DeletePolicy` with an AWS SDK or CLI
+<a name="example_organizations_DeletePolicy_section"></a>
 
 The following code examples show how to use `DeletePolicy`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
 ```
     using System;
@@ -51,41 +50,26 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [DeletePolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/organizations-2016-11-28/DeletePolicy) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To delete a policy**  
+The following example shows how to delete a policy from an organization. The example assumes that you previously detached the policy from all entities:  
 
 ```
-
-- For API details, see
-  [DeletePolicy](../../../goto/DotNetSDKV3/organizations-2016-11-28/DeletePolicy.md "../../../goto/DotNetSDKV3/organizations-2016-11-28/DeletePolicy.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete a policy**
-
-The following example shows how to delete a policy from an organization. The example assumes that you previously detached the policy from all entities:
-
+aws organizations delete-policy --policy-id {{p-examplepolicyid111}}
 ```
-`aws organizations delete-policy --policy-id `p-examplepolicyid111``
++  For API details, see [DeletePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/delete-policy.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Python ]
 
-- For API details, see
-  [DeletePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/delete-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/delete-policy.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples). 
 
 ```
 def delete_policy(policy_id, orgs_client):
@@ -101,25 +85,14 @@ def delete_policy(policy_id, orgs_client):
     except ClientError:
         logger.exception("Couldn't delete policy %s.", policy_id)
         raise
-
-
-
-
 ```
++  For API details, see [DeletePolicy](https://docs.aws.amazon.com/goto/boto3/organizations-2016-11-28/DeletePolicy) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeletePolicy](../../../goto/boto3/organizations-2016-11-28/DeletePolicy.md "../../../goto/boto3/organizations-2016-11-28/DeletePolicy.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples). 
 
 ```
     TRY.
@@ -133,14 +106,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_orgpolicyinuseex.
         MESSAGE 'The policy is still attached to one or more targets.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeletePolicy](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeletePolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Organizations with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Organizations with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

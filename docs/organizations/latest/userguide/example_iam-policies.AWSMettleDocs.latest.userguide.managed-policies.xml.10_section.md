@@ -1,25 +1,30 @@
+
+
 # Allows the AWS Compute Optimizer Automation feature to apply recommended actions
+<a name="example_iam-policies.AWSMettleDocs.latest.userguide.managed-policies.xml.10_section"></a>
 
 The following code example shows how to This permission-based policy allows the AWS Compute Optimizer Automation feature to apply recommended actions
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "aco-automation.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "aco-automation.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Organizations with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Organizations with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

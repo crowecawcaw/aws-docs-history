@@ -1,48 +1,44 @@
+
+
 # Deleting an organizational unit (OU) with AWS Organizations
+<a name="delete-ou"></a>
 
-When you sign in to your organization's management account, you can delete any OUs
-that you no longer need.
+When you sign in to your organization's management account, you can delete any OUs that you no longer need. 
 
-You must first move all accounts out of the OU and any child OUs, and then you can
-delete the child OUs.
+You must first move all accounts out of the OU and any child OUs, and then you can delete the child OUs.
 
-###### Minimum permissions
+**Minimum permissions**  
+To delete an OU, you must have the following permissions:  
+`organizations:DescribeOrganization` – required only when using the Organizations console
+`organizations:DeleteOrganizationalUnit`
 
-To delete an OU, you must have the following permissions:
+## AWS Management Console
+<a name="delete-ou-console"></a>
 
-- `organizations:DescribeOrganization` – required only when using the Organizations console
-- `organizations:DeleteOrganizationalUnit`
+**To delete an OU**
 
-###### To delete an OU
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
-   sign in as the root user ([not
-   recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
-2. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts "https://console.aws.amazon.com/organizations/v2/home/accounts")** page, find the OUs that you want to delete and
-   choose the check box
-   ![Blue checkmark icon indicating confirmation or completion of a task.](images/checkbox-selected.png)
-   next to each OU's name.
-3. Choose **Actions**, and then under
-   **Organizational unit**, choose
-   **Delete**.
-4. To confirm that you want to delete the OUs, enter the OU's name
-   (if you chose to delete only one) or the word 'delete' (if you chose
-   more than one), and then choose **Delete**.
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, find the OUs that you want to delete and choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to each OU's name.
 
-AWS Organizations deletes the OUs and removes them from the list.
+1. Choose **Actions**, and then under **Organizational unit**, choose **Delete**.
+
+1. To confirm that you want to delete the OUs, enter the OU's name (if you chose to delete only one) or the word 'delete' (if you chose more than one), and then choose **Delete**.
+
+   AWS Organizations deletes the OUs and removes them from the list.
+
+## AWS CLI & AWS SDKs
+<a name="delete-ou-cli-sdk"></a>
+
 **To delete an OU**
 
 The following code examples show how to use `DeleteOrganizationalUnit`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
 ```
     using System;
@@ -84,28 +80,19 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [DeleteOrganizationalUnit](https://docs.aws.amazon.com/goto/DotNetSDKV3/organizations-2016-11-28/DeleteOrganizationalUnit) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To delete an OU**  
+The following example shows how to delete an OU. The example assumes that you previously removed all accounts and other OUs from the OU:  
 
 ```
-
-- For API details, see
-  [DeleteOrganizationalUnit](../../../goto/DotNetSDKV3/organizations-2016-11-28/DeleteOrganizationalUnit.md "../../../goto/DotNetSDKV3/organizations-2016-11-28/DeleteOrganizationalUnit.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete an OU**
-
-The following example shows how to delete an OU. The example assumes that you previously removed all accounts and other OUs from the OU:
-
+aws organizations delete-organizational-unit --organizational-unit-id {{ou-examplerootid111-exampleouid111}}
 ```
-`aws organizations delete-organizational-unit --organizational-unit-id `ou-examplerootid111-exampleouid111``
++  For API details, see [DeleteOrganizationalUnit](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/delete-organizational-unit.html) in *AWS CLI Command Reference*. 
 
-```
-
-- For API details, see
-  [DeleteOrganizationalUnit](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/delete-organizational-unit.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/delete-organizational-unit.html")
-  in _AWS CLI Command Reference_.
+------

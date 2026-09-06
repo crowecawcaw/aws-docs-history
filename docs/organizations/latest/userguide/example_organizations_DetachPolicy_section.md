@@ -1,16 +1,15 @@
+
+
 # Use `DetachPolicy` with an AWS SDK or CLI
+<a name="example_organizations_DetachPolicy_section"></a>
 
 The following code examples show how to use `DetachPolicy`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
 ```
     using System;
@@ -54,41 +53,26 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [DetachPolicy](https://docs.aws.amazon.com/goto/DotNetSDKV3/organizations-2016-11-28/DetachPolicy) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To detach a policy from a root, OU, or account**  
+The following example shows how to detach a policy from an OU:  
 
 ```
-
-- For API details, see
-  [DetachPolicy](../../../goto/DotNetSDKV3/organizations-2016-11-28/DetachPolicy.md "../../../goto/DotNetSDKV3/organizations-2016-11-28/DetachPolicy.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To detach a policy from a root, OU, or account**
-
-The following example shows how to detach a policy from an OU:
-
+aws organizations  detach-policy  --target-id {{ou-examplerootid111-exampleouid111}} --policy-id {{p-examplepolicyid111}}
 ```
-`aws organizations detach-policy --target-id `ou-examplerootid111-exampleouid111` --policy-id `p-examplepolicyid111``
++  For API details, see [DetachPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/detach-policy.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Python ]
 
-- For API details, see
-  [DetachPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/detach-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/detach-policy.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/organizations#code-examples). 
 
 ```
 def detach_policy(policy_id, target_id, orgs_client):
@@ -107,25 +91,14 @@ def detach_policy(policy_id, target_id, orgs_client):
             "Couldn't detach policy %s from target %s.", policy_id, target_id
         )
         raise
-
-
-
-
 ```
++  For API details, see [DetachPolicy](https://docs.aws.amazon.com/goto/boto3/organizations-2016-11-28/DetachPolicy) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DetachPolicy](../../../goto/boto3/organizations-2016-11-28/DetachPolicy.md "../../../goto/boto3/organizations-2016-11-28/DetachPolicy.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/org#code-examples). 
 
 ```
     TRY.
@@ -142,14 +115,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_orgpolicynotattex.
         MESSAGE 'The policy is not attached to the target.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DetachPolicy](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DetachPolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Organizations with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Organizations with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

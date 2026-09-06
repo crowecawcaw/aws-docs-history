@@ -1,77 +1,73 @@
-# API operations by account type
 
-This page lists all AWS Organizations API operations, grouped by the account that can call them.
-Choose any API operation to learn more about using it.
+
+# API operations by account type
+<a name="orgs_reference_actions-by-account"></a>
+
+This page lists all AWS Organizations API operations, grouped by the account that can call them. Choose any API operation to learn more about using it. 
 
 ## Operations you can call from only the organization's management account
-
-- [CancelHandshake](../APIReference/API_CancelHandshake.md "../APIReference/API_CancelHandshake.md")
-- [CreateAccount](../APIReference/API_CreateAccount.md "../APIReference/API_CreateAccount.md")
-- [CreateGovCloudAccount](../APIReference/API_CreateGovCloudAccount.md "../APIReference/API_CreateGovCloudAccount.md") (only under specific conditions)
-- [CreateOrganization](../APIReference/API_CreateOrganization.md "../APIReference/API_CreateOrganization.md") (the AWS account that calls this operation
-  becomes the management account of the organization after the operation
-  completes)
-- [CreateOrganizationalUnit](../APIReference/API_CreateOrganizationalUnit.md "../APIReference/API_CreateOrganizationalUnit.md")
-- [DeleteOrganization](../APIReference/API_DeleteOrganization.md "../APIReference/API_DeleteOrganization.md")
-- [DeleteOrganizationalUnit](../APIReference/API_DeleteOrganizationalUnit.md "../APIReference/API_DeleteOrganizationalUnit.md")
-- [DeregisterDelegatedAdministrator](../APIReference/API_DeregisterDelegatedAdministrator.md "../APIReference/API_DeregisterDelegatedAdministrator.md")
-- [DisableAWSServiceAccess](../APIReference/API_DisableAWSServiceAccess.md "../APIReference/API_DisableAWSServiceAccess.md")
-- [EnableAllFeatures](../APIReference/API_EnableAllFeatures.md "../APIReference/API_EnableAllFeatures.md")
-- [EnableAWSServiceAccess](../APIReference/API_EnableAWSServiceAccess.md "../APIReference/API_EnableAWSServiceAccess.md")
-- [InviteAccountToOrganization](../APIReference/API_InviteAccountToOrganization.md "../APIReference/API_InviteAccountToOrganization.md")
-- [MoveAccount](../APIReference/API_MoveAccount.md "../APIReference/API_MoveAccount.md")
-- [RegisterDelegatedAdministrator](../APIReference/API_RegisterDelegatedAdministrator.md "../APIReference/API_RegisterDelegatedAdministrator.md")
-- [RemoveAccountFromOrganization](../APIReference/API_RemoveAccountFromOrganization.md "../APIReference/API_RemoveAccountFromOrganization.md")
-- [UpdateOrganizationalUnit](../APIReference/API_UpdateOrganizationalUnit.md "../APIReference/API_UpdateOrganizationalUnit.md")
+<a name="actions-management-account"></a>
++ [CancelHandshake](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CancelHandshake.html)
++ [CreateAccount](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateAccount.html)
++ [CreateGovCloudAccount](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateGovCloudAccount.html) (only under specific conditions)
++ [CreateOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateOrganization.html) (the AWS account that calls this operation becomes the management account of the organization after the operation completes)
++ [CreateOrganizationalUnit](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateOrganizationalUnit.html)
++ [DeleteOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeleteOrganization.html)
++ [DeleteOrganizationalUnit](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeleteOrganizationalUnit.html)
++ [DeregisterDelegatedAdministrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeregisterDelegatedAdministrator.html)
++ [DisableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html)
++ [EnableAllFeatures](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAllFeatures.html)
++ [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html)
++ [InviteAccountToOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_InviteAccountToOrganization.html)
++ [MoveAccount](https://docs.aws.amazon.com/organizations/latest/APIReference/API_MoveAccount.html)
++ [RegisterDelegatedAdministrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html)
++ [RemoveAccountFromOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RemoveAccountFromOrganization.html)
++ [UpdateOrganizationalUnit](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdateOrganizationalUnit.html)
 
 ## Operations you can call from only the organization's management account or a member account designated as a delegated administrator
-
-- [AttachPolicy](../APIReference/API_AttachPolicy.md "../APIReference/API_AttachPolicy.md")
-- [CreatePolicy](../APIReference/API_CreatePolicy.md "../APIReference/API_CreatePolicy.md")
-- [DeletePolicy](../APIReference/API_DeletePolicy.md "../APIReference/API_DeletePolicy.md")
-- [DescribeAccount](../APIReference/API_DescribeAccount.md "../APIReference/API_DescribeAccount.md")
-- [DescribeCreateAccountStatus](../APIReference/API_DescribeCreateAccountStatus.md "../APIReference/API_DescribeCreateAccountStatus.md")
-- [DescribeEffectivePolicy](../APIReference/API_DescribeEffectivePolicy.md "../APIReference/API_DescribeEffectivePolicy.md")
-- [DescribeOrganizationalUnit](../APIReference/API_DescribeOrganizationalUnit.md "../APIReference/API_DescribeOrganizationalUnit.md")
-- [DescribePolicy](../APIReference/API_DescribePolicy.md "../APIReference/API_DescribePolicy.md")
-- [DescribeResourcePolicy](../APIReference/API_DescribeResourcePolicy.md "../APIReference/API_DescribeResourcePolicy.md")
-- [DetachPolicy](../APIReference/API_DetachPolicy.md "../APIReference/API_DetachPolicy.md")
-- [DisablePolicyType](../APIReference/API_DisablePolicyType.md "../APIReference/API_DisablePolicyType.md")
-- [EnablePolicyType](../APIReference/API_EnablePolicyType.md "../APIReference/API_EnablePolicyType.md")
-- [ListAccounts](../APIReference/API_ListAccounts.md "../APIReference/API_ListAccounts.md")
-- [ListAccountsForParent](../APIReference/API_ListAccountsForParent.md "../APIReference/API_ListAccountsForParent.md")
-- [ListAWSServiceAccessForOrganization](../APIReference/API_ListAWSServiceAccessForOrganization.md "../APIReference/API_ListAWSServiceAccessForOrganization.md")
-- [ListChildren](../APIReference/API_ListChildren.md "../APIReference/API_ListChildren.md")
-- [ListCreateAccountStatus](../APIReference/API_ListCreateAccountStatus.md "../APIReference/API_ListCreateAccountStatus.md")
-- [ListDelegatedAdministrators](../APIReference/API_ListDelegatedAdministrators.md "../APIReference/API_ListDelegatedAdministrators.md")
-- [ListDelegatedServicesForAccount](../APIReference/API_ListDelegatedServicesForAccount.md "../APIReference/API_ListDelegatedServicesForAccount.md")
-- [ListHandshakesForOrganization](../APIReference/API_ListHandshakesForOrganization.md "../APIReference/API_ListHandshakesForOrganization.md")
-- [ListOrganizationalUnitsForParent](../APIReference/API_ListOrganizationalUnitsForParent.md "../APIReference/API_ListOrganizationalUnitsForParent.md")
-- [ListParents](../APIReference/API_ListParents.md "../APIReference/API_ListParents.md")
-- [ListPolicies](../APIReference/API_ListPolicies.md "../APIReference/API_ListPolicies.md")
-- [ListPoliciesForTarget](../APIReference/API_ListPoliciesForTarget.md "../APIReference/API_ListPoliciesForTarget.md")
-- [ListRoots](../APIReference/API_ListRoots.md "../APIReference/API_ListRoots.md")
-- [ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md")
-- [ListTargetsForPolicy](../APIReference/API_ListTargetsForPolicy.md "../APIReference/API_ListTargetsForPolicy.md")
-- [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md")
-- [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md")
-- [UpdatePolicy](../APIReference/API_UpdatePolicy.md "../APIReference/API_UpdatePolicy.md")
+<a name="actions-management-or-delegated-admin"></a>
++ [AttachPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_AttachPolicy.html)
++ [CreatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreatePolicy.html)
++ [DeletePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeletePolicy.html)
++ [DescribeAccount](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeAccount.html)
++ [DescribeCreateAccountStatus](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeCreateAccountStatus.html)
++ [DescribeEffectivePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeEffectivePolicy.html)
++ [DescribeOrganizationalUnit](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganizationalUnit.html)
++ [DescribePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribePolicy.html)
++ [DescribeResourcePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeResourcePolicy.html)
++ [DetachPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DetachPolicy.html)
++ [DisablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisablePolicyType.html)
++ [EnablePolicyType](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html)
++ [ListAccounts](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListAccounts.html)
++ [ListAccountsForParent](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListAccountsForParent.html)
++ [ListAWSServiceAccessForOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListAWSServiceAccessForOrganization.html)
++ [ListChildren](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListChildren.html)
++ [ListCreateAccountStatus](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListCreateAccountStatus.html)
++ [ListDelegatedAdministrators](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListDelegatedAdministrators.html)
++ [ListDelegatedServicesForAccount](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListDelegatedServicesForAccount.html)
++ [ListHandshakesForOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListHandshakesForOrganization.html)
++ [ListOrganizationalUnitsForParent](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListOrganizationalUnitsForParent.html)
++ [ListParents](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListParents.html)
++ [ListPolicies](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPolicies.html)
++ [ListPoliciesForTarget](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPoliciesForTarget.html)
++ [ListRoots](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html)
++ [ListTagsForResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListTagsForResource.html)
++ [ListTargetsForPolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListTargetsForPolicy.html)
++ [TagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_TagResource.html)
++ [UntagResource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UntagResource.html)
++ [UpdatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdatePolicy.html)
 
 ## Operations you can call from only a member account in the organization
-
-- [AcceptHandshake](../APIReference/API_AcceptHandshake.md "../APIReference/API_AcceptHandshake.md") (can be called from only the account that received
-  the handshake/invitation)
-- [DeclineHandshake](../APIReference/API_DeclineHandshake.md "../APIReference/API_DeclineHandshake.md") (can be called from only the account that received
-  the handshake/invitation)
-- [LeaveOrganization](../APIReference/API_LeaveOrganization.md "../APIReference/API_LeaveOrganization.md")
+<a name="actions-member-account"></a>
++ [AcceptHandshake](https://docs.aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html) (can be called from only the account that received the handshake/invitation)
++ [DeclineHandshake](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeclineHandshake.html) (can be called from only the account that received the handshake/invitation)
++ [LeaveOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_LeaveOrganization.html)
 
 ## Operations you can call from any account in the organization
+<a name="actions-any-account"></a>
 
 These operations can be called from any account in the organization.
-
-- [DescribeHandshake](../APIReference/API_DescribeHandshake.md "../APIReference/API_DescribeHandshake.md")
-- [DescribeEffectivePolicy](../APIReference/API_DescribeEffectivePolicy.md "../APIReference/API_DescribeEffectivePolicy.md") (A member account can call this operation
-  only if the `TargetId` parameter is set to the member account's own
-  ID - it can't target another account.)
-- [DescribeOrganization](../APIReference/API_DescribeOrganization.md "../APIReference/API_DescribeOrganization.md")
-- [ListHandshakesForAccount](../APIReference/API_ListHandshakesForAccount.md "../APIReference/API_ListHandshakesForAccount.md")
++ [DescribeHandshake](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeHandshake.html)
++ [DescribeEffectivePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeEffectivePolicy.html) (A member account can call this operation only if the `TargetId` parameter is set to the member account's own ID - it can't target another account.)
++ [DescribeOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html)
++ [ListHandshakesForAccount](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListHandshakesForAccount.html)

@@ -1,16 +1,15 @@
+
+
 # Use `CreateOrganization` with an AWS SDK or CLI
+<a name="example_organizations_CreateOrganization_section"></a>
 
 The following code examples show how to use `CreateOrganization`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
 ```
     using System;
@@ -42,29 +41,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             Console.WriteLine($"Organization: {newOrg.Id} Main Accoount: {newOrg.MasterAccountId}");
         }
     }
+```
++  For API details, see [CreateOrganization](https://docs.aws.amazon.com/goto/DotNetSDKV3/organizations-2016-11-28/CreateOrganization) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**Example 1: To create a new organization**  
+Bill wants to create an organization using credentials from account 111111111111. The following example shows that the account becomes the master account in the new organization. Because he does not specify a features set, the new organization defaults to all features enabled and service control policies are enabled on the root.  
 
 ```
-
-- For API details, see
-  [CreateOrganization](../../../goto/DotNetSDKV3/organizations-2016-11-28/CreateOrganization.md "../../../goto/DotNetSDKV3/organizations-2016-11-28/CreateOrganization.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To create a new organization**
-
-Bill wants to create an organization using credentials from account 111111111111. The following example shows that the account becomes the master account in the new organization. Because he does not specify a features set, the new organization defaults to all features enabled and service control policies are enabled on the root.
-
+aws organizations create-organization
 ```
-`aws organizations create-organization`
-
-```
-
-The output includes an organization object with details about the new organization:
+The output includes an organization object with details about the new organization:  
 
 ```
 {
@@ -84,17 +74,13 @@ The output includes an organization object with details about the new organizati
         }
 }
 ```
-
-**Example 2: To create a new organization with only consolidated billing features enabled**
-
-The following example creates an organization that supports only the consolidated billing features:
+**Example 2: To create a new organization with only consolidated billing features enabled**  
+The following example creates an organization that supports only the consolidated billing features:  
 
 ```
-`aws organizations create-organization --feature-set `CONSOLIDATED_BILLING``
-
+aws organizations create-organization --feature-set {{CONSOLIDATED_BILLING}}
 ```
-
-The output includes an organization object with details about the new organization:
+The output includes an organization object with details about the new organization:  
 
 ```
 {
@@ -109,13 +95,9 @@ The output includes an organization object with details about the new organizati
         }
 }
 ```
+For more information, see Creating an Organization in the *AWS Organizations Users Guide*.  
++  For API details, see [CreateOrganization](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/create-organization.html) in *AWS CLI Command Reference*. 
 
-For more information, see Creating an Organization in the _AWS Organizations Users Guide_.
+------
 
-- For API details, see
-  [CreateOrganization](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/create-organization.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/create-organization.html")
-  in _AWS CLI Command Reference_.
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Organizations with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Organizations with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

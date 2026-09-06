@@ -1,16 +1,15 @@
+
+
 # Use `CreateOrganizationalUnit` with an AWS SDK or CLI
+<a name="example_organizations_CreateOrganizationalUnit_section"></a>
 
 The following code examples show how to use `CreateOrganizationalUnit`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Organizations#code-examples). 
 
 ```
     using System;
@@ -55,29 +54,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [CreateOrganizationalUnit](https://docs.aws.amazon.com/goto/DotNetSDKV3/organizations-2016-11-28/CreateOrganizationalUnit) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To create an OU in a root or parent OU**  
+The following example shows how to create an OU that is named AccountingOU:  
 
 ```
-
-- For API details, see
-  [CreateOrganizationalUnit](../../../goto/DotNetSDKV3/organizations-2016-11-28/CreateOrganizationalUnit.md "../../../goto/DotNetSDKV3/organizations-2016-11-28/CreateOrganizationalUnit.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create an OU in a root or parent OU**
-
-The following example shows how to create an OU that is named AccountingOU:
-
+aws organizations create-organizational-unit --parent-id {{r-examplerootid111}} --name {{AccountingOU}}
 ```
-`aws organizations create-organizational-unit --parent-id `r-examplerootid111` --name `AccountingOU``
-
-```
-
-The output includes an organizationalUnit object with details about the new OU:
+The output includes an organizationalUnit object with details about the new OU:  
 
 ```
 {
@@ -89,11 +79,8 @@ The output includes an organizationalUnit object with details about the new OU:
         }
 }
 ```
++  For API details, see [CreateOrganizationalUnit](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/create-organizational-unit.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateOrganizationalUnit](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/create-organizational-unit.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/create-organizational-unit.html")
-  in _AWS CLI Command Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Organizations with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Organizations with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

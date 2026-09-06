@@ -1,84 +1,46 @@
+
+
 # Logging API calls with AWS CloudTrail for AWS Organizations
+<a name="orgs_cloudtrail-integration"></a>
 
-AWS Organizations is integrated with AWS CloudTrail, a service that provides a record of actions
-taken by a user, role, or an AWS service in AWS Organizations. CloudTrail captures all API calls for
-AWS Organizations as events, including calls from the AWS Organizations console and from code calls to the
-AWS Organizations APIs. If you create a trail, you can enable continuous delivery of CloudTrail events
-to an Amazon S3 bucket, including events for AWS Organizations. If you don't configure a trail, you
-can still view the most recent events in the CloudTrail console in **Event
-history**. Using the information collected by CloudTrail, you can determine the
-request that was made to AWS Organizations, the IP address it was made from, who made it, when it
-was made, and additional details.
+AWS Organizations is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Organizations. CloudTrail captures all API calls for AWS Organizations as events, including calls from the AWS Organizations console and from code calls to the AWS Organizations APIs. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Organizations. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to AWS Organizations, the IP address it was made from, who made it, when it was made, and additional details. 
 
-To learn more about CloudTrail, see the _AWS CloudTrail User Guide_.
+To learn more about CloudTrail, see the *AWS CloudTrail User Guide*.
 
-###### Important
-
-You can view all CloudTrail information for AWS Organizations only in the US East (N. Virginia)
-Region. If you don't see your AWS Organizations activity in the CloudTrail console, set your
-console to **US East (N. Virginia)** using the menu in the upper-right
-corner. If you query CloudTrail with the AWS CLI or SDK tools, direct your query to the
-US East (N. Virginia) endpoint.
+**Important**  
+You can view all CloudTrail information for AWS Organizations only in the US East (N. Virginia) Region. If you don't see your AWS Organizations activity in the CloudTrail console, set your console to **US East (N. Virginia)** using the menu in the upper-right corner. If you query CloudTrail with the AWS CLI or SDK tools, direct your query to the US East (N. Virginia) endpoint.
 
 ## AWS Organizations information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity
-occurs in AWS Organizations, that activity is recorded in a CloudTrail event along with other AWS
-service events in **Event history**. You can view, search, and
-download recent events in your AWS account. For more information, see [Viewing
-Events with CloudTrail Event History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in AWS Organizations, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 
-For an ongoing record of events in your AWS account, including events for
-AWS Organizations, create a trail. A trail enables CloudTrail to deliver log files to an Amazon S3
-bucket. When CloudTrail logging is enabled in your AWS account, API calls made to
-AWS Organizations actions are tracked in CloudTrail log files, where they are written with other
-AWS service records. You can configure other AWS services to further analyze and
-act on the event data collected in CloudTrail logs. For more information, see the
-following:
+For an ongoing record of events in your AWS account, including events for AWS Organizations, create a trail. A trail enables CloudTrail to deliver log files to an Amazon S3 bucket. When CloudTrail logging is enabled in your AWS account, API calls made to AWS Organizations actions are tracked in CloudTrail log files, where they are written with other AWS service records. You can configure other AWS services to further analyze and act on the event data collected in CloudTrail logs. For more information, see the following:
++ [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail Supported Services and Integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
 
-- [Overview
-  for Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail Supported Services and Integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring
-  Amazon SNS Notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
+All AWS Organizations actions are logged by CloudTrail and are documented in the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/). For example, calls to `CreateAccount` (including the `CreateAccountResult` event), `ListHandshakesForAccount`, `CreatePolicy`, and `InviteAccountToOrganization` generate entries in the CloudTrail log files. 
 
-All AWS Organizations actions are logged by CloudTrail and are documented in the [AWS Organizations API Reference](../APIReference.md "../APIReference.md").
-For example, calls to `CreateAccount` (including the
-`CreateAccountResult` event), `ListHandshakesForAccount`,
-`CreatePolicy`, and `InviteAccountToOrganization` generate
-entries in the CloudTrail log files.
+Every log entry contains information about who generated the request. The user identity information in the log entry helps you determine the following: 
++ Whether the request was made with root user or IAM user credentials
++ Whether the request was made with temporary security credentials for an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) or a [federated user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html)
++ Whether the request was made by another AWS service
 
-Every log entry contains information about who generated the request. The user
-identity information in the log entry helps you determine the following:
+For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
-- Whether the request was made with root user or IAM user credentials
-- Whether the request was made with temporary security credentials for an
-  [IAM
-  role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") or a [federated
-  user](../../../IAM/latest/UserGuide/id_roles_providers.md "../../../IAM/latest/UserGuide/id_roles_providers.md")
-- Whether the request was made by another AWS service
-
-For more information, see the [CloudTrail
-userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
-
-###### Note
-
-CloudTrail will log events in the account that takes a given action (i.e. in member account rather than management account if member account took the action). For example, a member account leaving an organization will be logged in member account trail, and a management account removing a member account will be logged in management account trail.
+**Note**  
+CloudTrail will log events in the account that takes a given action (i.e. in member account rather than management account if member account took the action). For example, a member account leaving an organization will be logged in member account trail, and a management account removing a member account will be logged in management account trail. 
 
 ## Understanding AWS Organizations log file entries
+<a name="understanding-service-name-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. CloudTrail log files contain one or more log entries. An event
-represents a single request from any source and includes information about the
-requested action, the date and time of the action, request parameters, and so on.
-CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't
-appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
 ### Example log entries: CloseAccount
+<a name="Log-entries-close-account"></a>
 
-The following example shows a CloudTrail log entry for a sample
-`CloseAccount` call that is generated when the API is called and
-the workflow to close the account starts processing in the background.
+The following example shows a CloudTrail log entry for a sample `CloseAccount` call that is generated when the API is called and the workflow to close the account starts processing in the background.
 
 ```
 {
@@ -124,9 +86,7 @@ the workflow to close the account starts processing in the background.
 }
 ```
 
-The following example shows a CloudTrail log entry for a
-`CloseAccountResult` call after the background workflow to close
-the account successfully completes.
+The following example shows a CloudTrail log entry for a `CloseAccountResult` call after the background workflow to close the account successfully completes.
 
 ```
 {
@@ -163,10 +123,9 @@ the account successfully completes.
 ```
 
 ### Example log entries: CreateAccount
+<a name="Log-entries-create-account"></a>
 
-The following example shows a CloudTrail log entry for a sample
-`CreateAccount` call that is generated when the API is called and
-the workflow to create the account starts processing in the background.
+The following example shows a CloudTrail log entry for a sample `CreateAccount` call that is generated when the API is called and the workflow to create the account starts processing in the background.
 
 ```
 {
@@ -218,9 +177,7 @@ the workflow to create the account starts processing in the background.
 }
 ```
 
-The following example shows a CloudTrail log entry for a `CreateAccount`
-call after the background workflow to create the account successfully
-completes.
+The following example shows a CloudTrail log entry for a `CreateAccount` call after the background workflow to create the account successfully completes.
 
 ```
 {
@@ -254,12 +211,9 @@ completes.
 }
 ```
 
-The following example shows a CloudTrail log entry that is generated after a
-`CreateAccount` background workflow fails to create the
-account.
+ The following example shows a CloudTrail log entry that is generated after a `CreateAccount` background workflow fails to create the account.
 
 ```
-
   {
   "eventVersion": "1.06",
   "userIdentity": {
@@ -292,17 +246,11 @@ account.
 ```
 
 ### Example log entries: AcceptResponsibilityTransfer
+<a name="Log-entries-accept-responsibility-transfer"></a>
 
-When AWS Organizations accepts a billing responsibility transfer, it publishes a
-`ResponsibilityTransferAccepted` service event to each affected
-account. For chained transfers, AWS Organizations also notifies upstream participants.
-The `transferChain` field lists the affected transfer IDs from the
-accepted transfer through the highest affected upstream transfer.
+When AWS Organizations accepts a billing responsibility transfer, it publishes a `ResponsibilityTransferAccepted` service event to each affected account. For chained transfers, AWS Organizations also notifies upstream participants. The `transferChain` field lists the affected transfer IDs from the accepted transfer through the highest affected upstream transfer.
 
-The following example shows a CloudTrail log entry delivered to an upstream
-Distributor account (111122223333) after AWS Organizations accepts a downstream transfer
-(rt-5ipg3ess). The `transferChain` field includes both the accepted
-transfer and the affected upstream transfer (rt-9zpzuocg).
+The following example shows a CloudTrail log entry delivered to an upstream Distributor account (111122223333) after AWS Organizations accepts a downstream transfer (rt-5ipg3ess). The `transferChain` field includes both the accepted transfer and the affected upstream transfer (rt-9zpzuocg).
 
 ```
 {
@@ -347,19 +295,11 @@ transfer and the affected upstream transfer (rt-9zpzuocg).
 ```
 
 ### Example log entries: TerminateResponsibilityTransfer
+<a name="Log-entries-terminate-responsibility-transfer"></a>
 
-When a billing responsibility transfer ends, AWS Organizations publishes a
-`ResponsibilityTransferTerminated` service event to each affected
-account. For chained transfers, upstream participants such as Distributors also
-receive notification. The `transferChain` field lists the affected
-transfer IDs from the terminated transfer through the highest affected upstream
-transfer.
+When a billing responsibility transfer ends, AWS Organizations publishes a `ResponsibilityTransferTerminated` service event to each affected account. For chained transfers, upstream participants such as Distributors also receive notification. The `transferChain` field lists the affected transfer IDs from the terminated transfer through the highest affected upstream transfer.
 
-The following example shows a CloudTrail log entry delivered to an upstream
-Distributor account (111122223333) after AWS Organizations terminates a downstream
-transfer (rt-5ipg3ess). The
-`transferChain` field includes both the terminated transfer and
-the affected upstream transfer (rt-9zpzuocg).
+The following example shows a CloudTrail log entry delivered to an upstream Distributor account (111122223333) after AWS Organizations terminates a downstream transfer (rt-5ipg3ess). The `transferChain` field includes both the terminated transfer and the affected upstream transfer (rt-9zpzuocg).
 
 ```
 {
@@ -405,9 +345,9 @@ the affected upstream transfer (rt-9zpzuocg).
 ```
 
 ### Example log entry: CreateOrganizationalUnit
+<a name="Log-entries-create-ou"></a>
 
-The following example shows a CloudTrail log entry for a sample
-`CreateOrganizationalUnit` call.
+The following example shows a CloudTrail log entry for a sample `CreateOrganizationalUnit` call.
 
 ```
 {
@@ -446,9 +386,9 @@ The following example shows a CloudTrail log entry for a sample
 ```
 
 ### Example log entry: InviteAccountToOrganization
+<a name="Log-entries-invite-account"></a>
 
-The following example shows a CloudTrail log entry for a sample
-`InviteAccountToOrganization` call.
+The following example shows a CloudTrail log entry for a sample `InviteAccountToOrganization` call.
 
 ```
 {
@@ -530,11 +470,9 @@ The following example shows a CloudTrail log entry for a sample
 ```
 
 ### Example log entry: AttachPolicy
+<a name="Log-entries-attach-policy"></a>
 
-The following example shows a CloudTrail log entry for a sample
-`AttachPolicy` call. The response indicates that the call failed
-because the requested policy type isn't enabled in the root where the request to
-attach was attempted.
+The following example shows a CloudTrail log entry for a sample `AttachPolicy` call. The response indicates that the call failed because the requested policy type isn't enabled in the root where the request to attach was attempted.
 
 ```
 {
@@ -568,6 +506,7 @@ attach was attempted.
 ```
 
 ### Example log entry: Invalid effective policy
+<a name="Log-entries-invalid-effective-policy"></a>
 
 The following example shows a CloudTrail log entry for a sample `EffectivePolicyValidation` event. This event is emitted to the management account of the organization whenever an update in the organization creates an invalid effective policy on any account.
 
@@ -612,11 +551,10 @@ The following example shows a CloudTrail log entry for a sample `EffectivePolicy
     },
     "eventCategory": "Management"
 }
-
-
 ```
 
 ### Example log entry: Valid effective policy
+<a name="Log-entries-valid-effective-policy"></a>
 
 The following example shows a CloudTrail log entry for a sample `EffectivePolicyValidation` event. This event is emitted to the management account of the organization whenever an update in the organization fixes an effective policy on an account which was invalid previously.
 
@@ -649,6 +587,4 @@ The following example shows a CloudTrail log entry for a sample `EffectivePolicy
     },
     "eventCategory": "Management"
 }
-
-
 ```

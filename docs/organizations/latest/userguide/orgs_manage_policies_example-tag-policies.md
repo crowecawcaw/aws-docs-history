@@ -1,21 +1,22 @@
+
+
 # Tag policy syntax and examples
+<a name="orgs_manage_policies_example-tag-policies"></a>
 
 This page describes tag policy syntax and provides examples.
 
-###### Topics
-
-- [Tag policy syntax](#tag-policy-syntax-reference "#tag-policy-syntax-reference")
-- [Tag policy examples](#tag-policy-examples "#tag-policy-examples")
-- [Example 1: Define organization-wide tag key case](#tag-policy-example-key-case "#tag-policy-example-key-case")
-- [Example 2: Prevent use of a tag key](#tag-policy-example-prevent-key "#tag-policy-example-prevent-key")
-- [Example 3: Specify a tag policy for all supported resource types of a specific AWS service](#tag-policy-example-all-supported "#tag-policy-example-all-supported")
-- [Example 4: Enforce required tag keys for compliance](#tag-policy-example-required-tags "#tag-policy-example-required-tags")
+**Topics**
++ [Tag policy syntax](#tag-policy-syntax-reference)
++ [Tag policy examples](#tag-policy-examples)
++ [Example 1: Define organization-wide tag key case](#tag-policy-example-key-case)
++ [Example 2: Prevent use of a tag key](#tag-policy-example-prevent-key)
++ [Example 3: Specify a tag policy for all supported resource types of a specific AWS service](#tag-policy-example-all-supported)
++ [Example 4: Enforce required tag keys for compliance](#tag-policy-example-required-tags)
 
 ## Tag policy syntax
+<a name="tag-policy-syntax-reference"></a>
 
-A tag policy is a plaintext file that is structured according to the rules of [JSON](http://json.org "http://json.org"). The syntax for tag policies follows the syntax
-for declarative policy types. For a complete discussion of that syntax, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md"). This topic focuses on
-applying that general syntax to the specific requirements of the tag policy type.
+A tag policy is a plaintext file that is structured according to the rules of [JSON](http://json.org). The syntax for tag policies follows the syntax for declarative policy types. For a complete discussion of that syntax, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md). This topic focuses on applying that general syntax to the specific requirements of the tag policy type.
 
 The following tag policy shows basic tag policy syntax:
 
@@ -41,96 +42,48 @@ The following tag policy shows basic tag policy syntax:
         }
     }
 }
-
 ```
 
-Tag policy syntax includes the following elements:
+Tag policy syntax includes the following elements: 
++ The `tags` field key name. Tag policies always start with this fixed key name. It's the top line in the example policy above.
++ A *policy key* that uniquely identifies the policy statement. It must match the value for the *tag key*, except for the case treatment. The policy value is case sensitive.
 
-- The `tags` field key name. Tag policies always start with this
-  fixed key name. It's the top line in the example policy above.
-- A _policy key_ that uniquely identifies the policy
-  statement. It must match the value for the _tag key_, except
-  for the case treatment. The policy value is case sensitive.
+  In this example, `costcenter` is the policy key.
++ At least one *tag key* that specifies the allowed tag key with the capitalization that you want resources to be compliant with. If case treatment isn't defined, lowercase is the default case treatment for tag keys. The value for the tag key must match the value for the policy key. But since the policy key value is case insensitive, the capitalization can be different. 
 
-In this example, `costcenter` is the policy key.
+  In this example, `CostCenter` is the tag key. This is the case treatment that is required for compliance with the tag policy. Resources with alternate case treatment for this tag key are noncompliant with the tag policy. 
 
-- At least one _tag key_ that specifies the allowed tag key
-  with the capitalization that you want resources to be compliant with. If case
-  treatment isn't defined, lowercase is the default case treatment for tag keys.
-  The value for the tag key must match the value for the policy key. But since the
-  policy key value is case insensitive, the capitalization can be different.
+  You can define multiple tag keys in a tag policy.
++ (Optional) A list of one or more acceptable *tag values* for the tag key. If the tag policy doesn't specify a tag value for a tag key, any value (including no value at all) is considered compliant.
 
-In this example, `CostCenter` is the tag key. This is the case
-treatment that is required for compliance with the tag policy. Resources with
-alternate case treatment for this tag key are noncompliant with the tag policy.
+  In this example, acceptable values for the `CostCenter` tag key are `100`, `200`, and `300*`. 
++ (Optional) An `enforced_for` option that indicates whether to prevent any noncompliant tagging operations on specified services and resources. In the console, this is the **Prevent noncompliant operations for this tag** option in the visual editor for creating tag policies. The default setting for this option is null.
 
-You can define multiple tag keys in a tag policy.
-
-- (Optional) A list of one or more acceptable _tag values_
-  for the tag key. If the tag policy doesn't specify a tag value for a tag key,
-  any value (including no value at all) is considered compliant.
-
-In this example, acceptable values for the `CostCenter` tag key are
-`100`, `200`, and `300*`.
-
-- (Optional) An `enforced_for` option that indicates whether to
-  prevent any noncompliant tagging operations on specified services and resources.
-  In the console, this is the **Prevent noncompliant operations for this
-  tag** option in the visual editor for creating tag policies. The
-  default setting for this option is null.
-
-The example tag policy specifies that the `CostCenter` tag applied to all AWS Secrets Manager resources must be compliant with this policy.
-
-###### Warning
-
-You should only change this option from the default if you are experienced
-with using tag policies. Otherwise, you could prevent users in your
-organization's accounts from creating the resources they need.
-
-- _Operators_ that specify how the tag policy merges with
-  other tag policies within the organization tree to create an account's [effective tag
-  policy](orgs_manage_policies_effective.md "orgs_manage_policies_effective.md"). In this example, `@@assign` is used to assign
-  strings to `tag_key`, `tag_value`, and
-  `enforced_for`. For more information about operators, see [Inheritance operators](policy-operators.md "policy-operators.md").
-- You can use the `*` wildcard in
-  tag values.
-
-  - You can use only one wildcard per tag value. For example,
-    `*@example.com` is allowed, but `*@*.com` is
-    not.
-  - You can use the `ALL_SUPPORTED` wildcard in the `enforced_for` field with some services
-    to enable enforcement for all supported resources for that
-    service. For a list of services and resource types that support
-    `enforced_for`, see [Services and resource types that support enforcement](orgs_manage_policies_supported-resources-enforcement.md "orgs_manage_policies_supported-resources-enforcement.md").
-  - You can't use a wildcard to specify all services or to specify a
-    resource for all services.
+  The example tag policy specifies that the `CostCenter` tag applied to all AWS Secrets Manager resources must be compliant with this policy.
+**Warning**  
+You should only change this option from the default if you are experienced with using tag policies. Otherwise, you could prevent users in your organization's accounts from creating the resources they need. 
++ *Operators* that specify how the tag policy merges with other tag policies within the organization tree to create an account's [effective tag policy](orgs_manage_policies_effective.md). In this example, `@@assign` is used to assign strings to `tag_key`, `tag_value`, and `enforced_for`. For more information about operators, see [Inheritance operators](policy-operators.md).
++ You can use the `*` wildcard in tag values.
+  + You can use only one wildcard per tag value. For example, `*@example.com` is allowed, but `*@*.com` is not. 
+  + You can use the `ALL_SUPPORTED` wildcard in the `enforced_for` field with some services to enable enforcement for all supported resources for that service. For a list of services and resource types that support `enforced_for`, see [Services and resource types that support enforcement](orgs_manage_policies_supported-resources-enforcement.md). 
+  + You can't use a wildcard to specify all services or to specify a resource for all services.
 
 ## Tag policy examples
+<a name="tag-policy-examples"></a>
 
-The example [tag policies](orgs_manage_policies_tag-policies.md "orgs_manage_policies_tag-policies.md") that
-follow are for information purposes only.
+The example [tag policies](orgs_manage_policies_tag-policies.md) that follow are for information purposes only.
 
-###### Note
-
-Before you attempt to use these example tag policies in your organization, note
-the following:
-
-- Make sure that you've followed the [recommended workflow](orgs_manage_policies_tag-policies-getting-started.md "orgs_manage_policies_tag-policies-getting-started.md") for getting started with tag
-  policies.
-- You should carefully review and customize these tag policies for your
-  unique requirements.
-- All characters in your tag policy are subject to a [maximum size](orgs_reference_limits.md#min-max-values "orgs_reference_limits.md#min-max-values"). The examples in this guide
-  show tag policies formatted with extra white space to improve their
-  readability. However, to save space if your policy size approaches the
-  maximum size, you can delete any white space. Examples of white space
-  include space characters and line breaks that are outside quotation
-  marks.
-- Untagged resources don't appear as noncompliant in results.
+**Note**  
+Before you attempt to use these example tag policies in your organization, note the following:  
+Make sure that you've followed the [recommended workflow](orgs_manage_policies_tag-policies-getting-started.md) for getting started with tag policies.
+You should carefully review and customize these tag policies for your unique requirements.
+All characters in your tag policy are subject to a [maximum size](orgs_reference_limits.md#min-max-values). The examples in this guide show tag policies formatted with extra white space to improve their readability. However, to save space if your policy size approaches the maximum size, you can delete any white space. Examples of white space include space characters and line breaks that are outside quotation marks.
+Untagged resources don't appear as noncompliant in results.
 
 ## Example 1: Define organization-wide tag key case
+<a name="tag-policy-example-key-case"></a>
 
-The following example shows a tag policy that only defines two tag keys and the
-capitalization that you want accounts in your organization to standardize on.
+The following example shows a tag policy that only defines two tag keys and the capitalization that you want accounts in your organization to standardize on. 
 
 **Policy A – organization root tag policy**
 
@@ -153,34 +106,18 @@ capitalization that you want accounts in your organization to standardize on.
 }
 ```
 
-This tag policy defines two tag keys: `CostCenter` and
-`Project`. Attaching this tag policy to the organization root has the
-following effects:
+This tag policy defines two tag keys: `CostCenter` and `Project`. Attaching this tag policy to the organization root has the following effects:
++ All accounts in your organization inherit this tag policy.
++ All accounts in your organization must use the defined case treatment for compliance. Resources with `CostCenter` and `Project` tags are compliant. Resources with alternate case treatment for the tag key (for example, `costcenter`, `Costcenter`, or `COSTCENTER`) are noncompliant. 
++ The `@@operators_allowed_for_child_policies": ["@@none"]` lines lock down the tag keys. Tag policies that are attached lower in the organization tree (child policies) can't use value-setting operators to change the tag key, including its case treatment.
++ As with all tag policies, untagged resources or tags that aren't defined in the tag policy aren't evaluated for compliance with the tag policy.
 
-- All accounts in your organization inherit this tag policy.
-- All accounts in your organization must use the defined case treatment for
-  compliance. Resources with `CostCenter` and `Project` tags
-  are compliant. Resources with alternate case treatment for the tag key (for
-  example, `costcenter`, `Costcenter`, or
-  `COSTCENTER`) are noncompliant.
-- The `@@operators_allowed_for_child_policies": ["@@none"]` lines
-  lock down the tag keys. Tag policies that are attached lower in the organization
-  tree (child policies) can't use value-setting operators to change the tag key,
-  including its case treatment.
-- As with all tag policies, untagged resources or tags that aren't defined in
-  the tag policy aren't evaluated for compliance with the tag policy.
-
-AWS recommends that you use this example as a guide in creating a similar tag policy
-for tag keys that you want to use. Attach it to the organization root. Then create a tag
-policy similar to the next example, which only defines the acceptable values for the
-defined tag keys.
+AWS recommends that you use this example as a guide in creating a similar tag policy for tag keys that you want to use. Attach it to the organization root. Then create a tag policy similar to the next example, which only defines the acceptable values for the defined tag keys. 
 
 ### Next step: Define values
+<a name="tag-policy-example-add-values"></a>
 
-Assume that you attached the previous tag policy to the organization root. Next,
-you can create a tag policy like the following and attach it to an account. This
-policy defines acceptable values for the `CostCenter` and
-`Project` tag keys.
+Assume that you attached the previous tag policy to the organization root. Next, you can create a tag policy like the following and attach it to an account. This policy defines acceptable values for the `CostCenter` and `Project` tag keys. 
 
 **Policy B – account tag policy**
 
@@ -207,12 +144,9 @@ policy defines acceptable values for the `CostCenter` and
 }
 ```
 
-If you attach Policy A to the organization root and Policy B to an account, the
-policies combine to create the following effective tag policy for the
-account:
+If you attach Policy A to the organization root and Policy B to an account, the policies combine to create the following effective tag policy for the account:
 
-**Policy A + Policy B = effective tag policy for
-account**
+**Policy A \+ Policy B = effective tag policy for account**
 
 ```
 {
@@ -235,19 +169,14 @@ account**
 }
 ```
 
-For more information about policy inheritance, including examples of how the
-inheritance operators work and example effective tag policies, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md "orgs_manage_policies_inheritance_mgmt.md").
+For more information about policy inheritance, including examples of how the inheritance operators work and example effective tag policies, see [Understanding declarative policy inheritance](orgs_manage_policies_inheritance_mgmt.md).
 
 ## Example 2: Prevent use of a tag key
+<a name="tag-policy-example-prevent-key"></a>
 
-To prevent the use of a tag key, you can attach a tag policy like the following to an
-organization entity.
+To prevent the use of a tag key, you can attach a tag policy like the following to an organization entity.
 
-This example policy specifies that no values are acceptable for the `Color`
-tag key. It also specifies that no [operators](policy-operators.md "policy-operators.md") are allowed in child tag policies.
-Therefore, any `Color` tags on resources in affected accounts are considered
-non-compliant. However, the `enforced_for` option actually prevents affected
-accounts from tagging _**only**_ Amazon DynamoDB tables with the `Color` tag.
+This example policy specifies that no values are acceptable for the `Color` tag key. It also specifies that no [operators](policy-operators.md) are allowed in child tag policies. Therefore, any `Color` tags on resources in affected accounts are considered non-compliant. However, the `enforced_for` option actually prevents affected accounts from tagging ***only*** Amazon DynamoDB tables with the `Color` tag.
 
 ```
 {
@@ -276,14 +205,11 @@ accounts from tagging _**only**_ Amazon DynamoDB tables with the `Color` tag.
 ```
 
 ## Example 3: Specify a tag policy for all supported resource types of a specific AWS service
+<a name="tag-policy-example-all-supported"></a>
 
-To specify a tag policy for all supported resource types of a specific AWS service,
-you use the `ALL_SUPPORTED` wildcard.
+To specify a tag policy for all supported resource types of a specific AWS service, you use the `ALL_SUPPORTED` wildcard.
 
-This policy uses the `ALL_SUPPORTED` wildcard to specify that all Amazon EC2 instances with the tag key `Environment`
-can only have a tag value of `Prod` or `Non-prod`. This wildcard provides an effective, single-line alternative to
-listing each Amazon EC2 instance individually. For a list of services and resource types that support the
-`ALL_SUPPORTED` wildcard, see [Services and resource types that support enforcement](orgs_manage_policies_supported-resources-enforcement.md "orgs_manage_policies_supported-resources-enforcement.md").
+This policy uses the `ALL_SUPPORTED` wildcard to specify that all Amazon EC2 instances with the tag key `Environment` can only have a tag value of `Prod` or `Non-prod`. This wildcard provides an effective, single-line alternative to listing each Amazon EC2 instance individually. For a list of services and resource types that support the `ALL_SUPPORTED` wildcard, see [Services and resource types that support enforcement](orgs_manage_policies_supported-resources-enforcement.md). 
 
 ```
 {
@@ -311,6 +237,7 @@ listing each Amazon EC2 instance individually. For a list of services and resour
 ```
 
 ## Example 4: Enforce required tag keys for compliance
+<a name="tag-policy-example-required-tags"></a>
 
 This example demonstrates how to define a tag policy that requires all resources to include mandatory compliance tags. Organizations commonly use this pattern to ensure proper cost allocation, ownership tracking, and environment identification.
 
@@ -365,10 +292,9 @@ This example demonstrates how to define a tag policy that requires all resources
 ```
 
 When you apply this policy and configure your IaC tool with tag policy enforcement:
-
-- CostCenter: Required for EC2 instances, S3 buckets, RDS databases, and Lambda functions
-- Environment: Required for all EC2, RDS, and S3 resources, with allowed values restricted to Production, Staging, Development, or Test
-- Owner: Required for all EC2 resources in your organization
++ CostCenter: Required for EC2 instances, S3 buckets, RDS databases, and Lambda functions
++ Environment: Required for all EC2, RDS, and S3 resources, with allowed values restricted to Production, Staging, Development, or Test
++ Owner: Required for all EC2 resources in your organization
 
 Example infrastructure code that complies with this policy:
 
@@ -390,10 +316,6 @@ EC2Instance:
 If you attempt to create a resource without the required tags, your IaC deployment will fail or generate a warning during the planning phase, depending on your configuration. When configured in fail mode, the deployment is blocked before any resources are created. When configured in warn mode, the deployment proceeds but alerts your team to the missing tags. The validation error message identifies exactly which required tags are missing and which resources need them.
 
 For specific configuration instructions for your IaC tool:
-
-- **CloudFormation**: See
-  [Enforce with CloudFormation](enforce-required-tag-keys-iac.md#enforce-with-cloudformation "enforce-required-tag-keys-iac.md#enforce-with-cloudformation") to activate the tagging compliance hook
-- **Terraform**: See
-  [Enforce with Terraform](enforce-required-tag-keys-iac.md#enforce-with-terraform "enforce-required-tag-keys-iac.md#enforce-with-terraform") to enable tag policy validation in the AWS Provider
-- **Pulumi**: See
-  [Enforce with Pulumi](enforce-required-tag-keys-iac.md#enforce-with-pulumi "enforce-required-tag-keys-iac.md#enforce-with-pulumi") to enable the Tag Policy Reporting policy pack
++  **CloudFormation**: See [Enforce with CloudFormation](enforce-required-tag-keys-iac.md#enforce-with-cloudformation) to activate the tagging compliance hook 
++  **Terraform**: See [Enforce with Terraform](enforce-required-tag-keys-iac.md#enforce-with-terraform) to enable tag policy validation in the AWS Provider 
++  **Pulumi**: See [Enforce with Pulumi](enforce-required-tag-keys-iac.md#enforce-with-pulumi) to enable the Tag Policy Reporting policy pack 

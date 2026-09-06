@@ -1,60 +1,48 @@
+
+
 # Viewing details of an organization from the management account
+<a name="orgs_view_org"></a>
 
-When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"), you
-can view details of the organization.
+When you sign in to the organization's management account in the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2), you can view details of the organization.
 
-###### Minimum permissions
+**Minimum permissions**  
+To view the details of an organization, you must have the following permission:  
+`organizations:DescribeOrganization`
 
-To view the details of an organization, you must have the following
-permission:
+------
+#### [ AWS Management Console ]
 
-- `organizations:DescribeOrganization`
+**To view the details for your organization**
 
-AWS Management Console
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-###### To view the details for your organization
+1. Navigate to the **[Settings](https://console.aws.amazon.com/organizations/v2/home/settings)** page. This page displays details about the organization, including the organization ID and the account name and email address assigned to the organization's management account.
 
-1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
-   sign in as the root user ([not
-   recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
-2. Navigate to the **[Settings](https://console.aws.amazon.com/organizations/v2/home/settings "https://console.aws.amazon.com/organizations/v2/home/settings")** page. This page displays details
-   about the organization, including the organization ID and the
-   account name and email address assigned to the organization's
-   management account.
+------
+#### [ AWS CLI & AWS SDKs ]
 
-AWS CLI & AWS SDKs
+**To view the details for your organization**  
+You can use one of the following commands to view details of an organization:
++ AWS CLI: [describe-organization](https://docs.aws.amazon.com/cli/latest/reference/organizations/describe-organization.html) 
 
-###### To view the details for your organization
+  The following example shows the information included in the output of this command.
 
-You can use one of the following commands to view details of an
-organization:
+  ```
+  $ aws organizations describe-organization
+  {
+      "Organization": {
+          "Id": "o-aa111bb222",
+          "Arn": "arn:aws:organizations::123456789012:organization/o-aa111bb222",
+          "FeatureSet": "ALL",
+          "MasterAccountArn": "arn:aws:organizations::128716708097:account/o-aa111bb222/123456789012",
+          "MasterAccountId": "123456789012",
+          "MasterAccountEmail": "admin@example.com",
+          "AvailablePolicyTypes": [ ...DEPRECATED - DO NOT USE... ]
+      }
+  }
+  ```
+**Important**  
+The `AvailablePolicyTypes` field is deprecated and doesn't contain accurate information about the policies enabled in your organization. To see the accurate and complete list of policy types that are actually enabled for the organization, use the `ListRoots` command, as described in the AWS CLI portion of the following section.
++ AWS SDKs: [DescribeOrganization](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html)
 
-- AWS CLI: [describe-organization](../../../cli/latest/reference/organizations/describe-organization.md "../../../cli/latest/reference/organizations/describe-organization.md")
-
-The following example shows the information included in the output
-of this command.
-
-```
-`$` **aws organizations describe-organization**`{
- "Organization": {
- "Id": "o-aa111bb222",
- "Arn": "arn:aws:organizations::123456789012:organization/o-aa111bb222",
- "FeatureSet": "ALL",
- "MasterAccountArn": "arn:aws:organizations::128716708097:account/o-aa111bb222/123456789012",
- "MasterAccountId": "123456789012",
- "MasterAccountEmail": "admin@example.com",
- "AvailablePolicyTypes": [ ...DEPRECATED - DO NOT USE... ]
- }
-}`
-```
-
-###### Important
-
-The `AvailablePolicyTypes` field is deprecated and
-doesn't contain accurate information about the policies enabled
-in your organization. To see the accurate and complete list of
-policy types that are actually enabled for the organization, use
-the `ListRoots` command, as described in the AWS CLI
-portion of the following section.
-
-- AWS SDKs: [DescribeOrganization](../APIReference/API_DescribeOrganization.md "../APIReference/API_DescribeOrganization.md")
+------
