@@ -225,8 +225,6 @@ contract:
      overall costs.
     * **3-year contract** – Longer commitment with lower overall
      costs.
-    * **5-year contract** – Longest commitment with the lowest
-     overall costs.
 
 **Payment options** – Select how you want to pay:
 
