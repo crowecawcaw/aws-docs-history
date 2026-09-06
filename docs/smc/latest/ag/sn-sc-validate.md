@@ -1,82 +1,77 @@
-End of support notice: On March 31, 2027, AWS
-will end support for AWS Service Management Connector. After March 31, 2027, you will
-no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources.
-For more information, see [AWS Service Management Connector end of support](smc-end-of-support.md "smc-end-of-support.md").
+
+
+End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Using service integration features to validate AWS Service Catalog integration in ServiceNow
+<a name="sn-sc-validate"></a>
 
-This section describes how you can use service integration features to validate
-AWS Service Management Connector for ServiceNow installation.
+ This section describes how you can use service integration features to validate AWS Service Management Connector for ServiceNow installation. 
 
-###### **To order a Service Catalog product**
+****To order a Service Catalog product****
 
-1. Log in to your ServiceNow instance as the end user (for this example,
-   Abel Tuter).
-2. Enter `Service Catalog` in the navigation filter
-   and choose **Service Catalog**.
-3. Choose the **AWS Service Catalog S3 Storage** product
-   to provision.
-4. Enter the product request details, including product name, parameters,
-   and tags.
-5. Choose **Order Now** to submit the ServiceNow
-   request and provision the Service Catalog product.
+1. Log in to your ServiceNow instance as the end user (for this example, Abel Tuter). 
 
-After approximately one minute, you receive an order status
-acknowledging the submission.
+1. Enter **Service Catalog** in the navigation filter and choose **Service Catalog**. 
+
+1. Choose the **AWS Service Catalog S3 Storage** product to provision. 
+
+1. Enter the product request details, including product name, parameters, and tags. 
+
+1.  Choose **Order Now** to submit the ServiceNow request and provision the Service Catalog product. 
+
+   After approximately one minute, you receive an order status acknowledging the submission.
+
 **To view provisioned products**
 
-End users can view products in two places on the ServiceNow portal: **request items (Requests)** or **My
-AWS Service Catalog Products** widgets.
+End users can view products in two places on the ServiceNow portal: **request items (Requests)** or **My AWS Service Catalog Products** widgets. 
 
-###### **To view products in Service Portal Requests**
+****To view products in Service Portal Requests****
 
-1. Choose **Requests** in the home page navigation
-   bar.
-2. Choose the request item with the Service Catalog product and request the item
-   number.
+1. Choose **Requests** in the home page navigation bar.
 
-###### Note
+1. Choose the request item with the Service Catalog product and request the item number.
+**Note**  
+AWS product events and outputs update the request item. When you terminate the AWS product, the ServiceNow request item enters a state of **Closed Complete**. 
 
-AWS product events and outputs update the request item. When you
-terminate the AWS product, the ServiceNow request
-item enters a state of **Closed Complete**.
+****To view products in the My AWS Products widget Service Portal Requests****
 
-###### **To view products in the My AWS Products widget Service Portal Requests**
+1. In the **My AWS Products** widget, choose the AWS Select product name on the request form.
 
-1. In the **My AWS Products**
-   widget, choose the AWS Select product name on the request
-   form.
-2. View **Status and Product Events**.
-3. If you want to perform post-provisioned operational actions, choose
-   **Request Update**, **Request Self-Service
-   Action**, or **Terminate**.
+1. View **Status and Product Events**.
 
-###### **To override workflows on Portfolios**
+1. If you want to perform post-provisioned operational actions, choose **Request Update**, **Request Self-Service Action**, or **Terminate**.
+
+****To override workflows on Portfolios****
 
 1. Log in to your ServiceNow fulfiller view (standard user interface).
-2. Enter `AWS Service Catalog` in the navigation ﬁlter and choose **Portfolios**.
-3. Choose **Display Name** to open a portfolio.
-4. Select the required workflow from the search to set **Workflow
-   Override.**
-5. Choose **Update**.
 
-###### **To view AppRegistry applications**
+1. Enter **AWS Service Catalog** in the navigation ﬁlter and choose **Portfolios**.
 
-1. Log in to your ServiceNow fulfiller view (standard user interface).
-2. Enter `AWS Service Catalog` in the navigation
-   ﬁlter and choose **AppRegistry
-   Applications**.
-3. Choose the AppRegistry application.
+1. Choose **Display Name** to open a portfolio.
 
-###### **To view AppRegistry attribute groups**
+1. Select the required workflow from the search to set **Workflow Override.** 
 
-1. Log in to your ServiceNow fulfiller view (standard user interface).
-2. Enter `AWS Service Catalog` in the navigation
-   ﬁlter and choose **AppRegistry Attribute
-   Groups**.
-3. Choose the AppRegistry attribute group.
+1. Choose **Update**.
+
+****To view AppRegistry applications****
+
+1. Log in to your ServiceNow fulfiller view (standard user interface). 
+
+1. Enter **AWS Service Catalog** in the navigation ﬁlter and choose **AppRegistry Applications**.
+
+1. Choose the AppRegistry application.
+
+****To view AppRegistry attribute groups****
+
+1. Log in to your ServiceNow fulfiller view (standard user interface). 
+
+1. Enter **AWS Service Catalog** in the navigation ﬁlter and choose **AppRegistry Attribute Groups**.
+
+1. Choose the AppRegistry attribute group. 
 
 ## Video: Integrate AWS Products into Your ServiceNow Portal with the AWS Service Management Connector
+<a name="sn-video-integrate-servicenow"></a>
 
-This video (18:33) describes how to integrate AWS products in your ServiceNow
-Portal with the AWS Service Management Connector.
+This video (18:33) describes how to integrate AWS products in your ServiceNow Portal with the AWS Service Management Connector.
+
+[![AWS Videos](http://img.youtube.com/vi/YCvNK-fzgoc/0.jpg)](http://www.youtube.com/watch?v=YCvNK-fzgoc)

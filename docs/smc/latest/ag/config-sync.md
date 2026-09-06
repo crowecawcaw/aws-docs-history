@@ -1,40 +1,32 @@
-End of support notice: On March 31, 2027, AWS
-will end support for AWS Service Management Connector. After March 31, 2027, you will
-no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources.
-For more information, see [AWS Service Management Connector end of support](smc-end-of-support.md "smc-end-of-support.md").
+
+
+End of support notice: On March 31, 2027, AWS will end support for AWS Service Management Connector. After March 31, 2027, you will no longer be able to access the AWS Service Management Connector console or AWS Service Management Connector resources. For more information, see [AWS Service Management Connector end of support](https://docs.aws.amazon.com/smc/latest/ag/smc-end-of-support.html). 
 
 # Configuring synchronization of AWS Config data using an Aggregator in ServiceNow CMDB
+<a name="config-sync"></a>
 
-**Prerequisite**: You need to opt-in and
-configure the AWS account that contains the aggregated AWS Config resources details
-prior to performing the steps below. For more information, see [Configuring AWS Accounts to Synchronize in the Connector.](sn-configure-accounts.md "sn-configure-accounts.md")
+**Prerequisite**: You need to opt-in and configure the AWS account that contains the aggregated AWS Config resources details prior to performing the steps below. For more information, see [Configuring AWS Accounts to Synchronize in the Connector. ](sn-configure-accounts.md) 
 
-###### To configure the Connector to use an Aggregator to synchronize AWS Config data
+**To configure the Connector to use an Aggregator to synchronize AWS Config data**
 
 1. In the AWS Service Management scoped app, choose the **Setup** module.
-2. Choose **Aggregators for AWS Config**.
-3. Choose **New**.
-4. Enter the name of the new Config Aggregator.
-5. Choose the Region where you created the new Config Aggregator.
-6. Choose the AWS account that should use the new
-   Aggregator. Only AWS accounts opted into the Connector
-   for ServiceNow that have **Integrate with AWS Config** are viewable.
-7. Choose **Submit**.
 
-If you define an Aggregator for an AWS account and
-Region, the Aggregator integration becomes the only AWS Config to
-ServiceNow CMDB synchronization mechanism for that AWS
-account.
-The Connector can now synchronize Config data from multiple accounts and Regions
-using an Aggregator. You must configure the Config Aggregator in AWS
-before using this feature. For more information, see [Setting up an Aggregator](../../../config/latest/developerguide/setup-aggregator-console.md "../../../config/latest/developerguide/setup-aggregator-console.md") in the console.
+1. Choose **Aggregators for AWS Config**.
 
-###### Note
+1. Choose **New**.
 
-The Config Aggregator view in AWS displays only current config
-item resources in AWS Config. Thus, terminated resources are not
-available in the Config Aggregator view.
+1. Enter the name of the new Config Aggregator.
 
-To minimize stale config item records from rendering in the ServiceNow CMDB
-from the AWS Config Aggregator, we recommend you remove Config rules
-associated to terminated resources. For more information, see [Evaluating Resources with AWS Config Rules](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md")
+1. Choose the Region where you created the new Config Aggregator.
+
+1. Choose the AWS account that should use the new Aggregator. Only AWS accounts opted into the Connector for ServiceNow that have **Integrate with AWS Config** are viewable. 
+
+1. Choose **Submit**.
+
+   If you define an Aggregator for an AWS account and Region, the Aggregator integration becomes the only AWS Config to ServiceNow CMDB synchronization mechanism for that AWS account. 
+
+The Connector can now synchronize Config data from multiple accounts and Regions using an Aggregator. You must configure the Config Aggregator in AWS before using this feature. For more information, see [Setting up an Aggregator](https://docs.aws.amazon.com/config/latest/developerguide/setup-aggregator-console.html) in the console. 
+
+**Note**  
+The Config Aggregator view in AWS displays only current config item resources in AWS Config. Thus, terminated resources are not available in the Config Aggregator view.   
+To minimize stale config item records from rendering in the ServiceNow CMDB from the AWS Config Aggregator, we recommend you remove Config rules associated to terminated resources. For more information, see [ Evaluating Resources with AWS Config Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html) 
