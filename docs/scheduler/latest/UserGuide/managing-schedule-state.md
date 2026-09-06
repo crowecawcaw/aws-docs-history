@@ -1,19 +1,19 @@
+
+
 # Changing the schedule state in EventBridge Scheduler
+<a name="managing-schedule-state"></a>
 
-An EventBridge Scheduler schedule has two states: _enabled_ and _disabled_.
-The following example uses `UpdateSchedule` to disable a schedule
-that fires every five minutes and invokes a Lambda target.
+ An EventBridge Scheduler schedule has two states: *enabled* and *disabled*. The following example uses `UpdateSchedule` to disable a schedule that fires every five minutes and invokes a Lambda target. 
 
-When you use `UpdateSchedule`, you must provide all required parameters. EventBridge Scheduler replaces your schedule with the information you provide.
-If you do not specify a parameter that you've previously set, it defaults to `null`.
+ When you use `UpdateSchedule`, you must provide all required parameters. EventBridge Scheduler replaces your schedule with the information you provide. If you do not specify a parameter that you've previously set, it defaults to `null`. 
 
-###### Example AWS CLI
+**Example AWS CLI**  
 
 ```
-`$` `aws scheduler update-schedule --name lambda-universal --schedule-expression 'rate(5 minutes)' \
---target '{"RoleArn": "`ROLE_ARN`", "Arn":"arn:aws:scheduler:::aws-sdk:lambda:invoke" "Input": "{\"FunctionName\":\"arn:aws:lambda:`REGION`:123456789012:function:HelloWorld\",\"InvocationType\":\"Event\",\"Payload\":\"{\\\"message\\\":\\\"testing function\\\"}\"}" }' \
+$ aws scheduler update-schedule --name lambda-universal --schedule-expression 'rate(5 minutes)' \
+--target '{"RoleArn": "{{ROLE_ARN}}", "Arn":"arn:aws:scheduler:::aws-sdk:lambda:invoke" "Input": "{\"FunctionName\":\"arn:aws:lambda:{{REGION}}:123456789012:function:HelloWorld\",\"InvocationType\":\"Event\",\"Payload\":\"{\\\"message\\\":\\\"testing function\\\"}\"}" }' \
 --flexible-time-window '{ "Mode": "OFF"}' \
-**--state DISABLED**`
+--state DISABLED
 ```
 
 ```
@@ -22,9 +22,9 @@ If you do not specify a parameter that you've previously set, it defaults to `nu
 }
 ```
 
-The following example uses the Python SDK and the `UpdateSchedule` operation to disable a schedule that targets Amazon SQS using a templated target.
+ The following example uses the Python SDK and the `UpdateSchedule` operation to disable a schedule that targets Amazon SQS using a templated target. 
 
-###### Example Python SDK
+**Example Python SDK**  
 
 ```
 import boto3
