@@ -1,36 +1,32 @@
+
+
 # Integrating Express with Amazon Verified Permissions
+<a name="integration-express"></a>
 
-The Verified Permissions Express integration provides a middleware-based approach to implementing
-authorization in your Express.js applications. With this integration, you can protect your API
-endpoints using fine-grained authorization policies without modifying your existing route
-handlers. The integration handles authorization checks automatically by intercepting requests,
-evaluating them against your defined policies, and ensuring that only authorized users can
-access protected resources.
+The Verified Permissions Express integration provides a middleware-based approach to implementing authorization in your Express.js applications. With this integration, you can protect your API endpoints using fine-grained authorization policies without modifying your existing route handlers. The integration handles authorization checks automatically by intercepting requests, evaluating them against your defined policies, and ensuring that only authorized users can access protected resources.
 
-This topic walks you through setting up the Express integration, from creating a policy
-store to implementing and testing the authorization middleware. By following these steps, you
-can add robust authorization controls to your Express application with minimal code
-changes.
+This topic walks you through setting up the Express integration, from creating a policy store to implementing and testing the authorization middleware. By following these steps, you can add robust authorization controls to your Express application with minimal code changes.
 
 The following GitHub repos are referenced throughout this topic:
-
-- [cedar-policy/authorization-for-expressjs](https://github.com/cedar-policy/authorization-for-expressjs "https://github.com/cedar-policy/authorization-for-expressjs") - The Cedar authorization middleware for Express.js
-- [verifiedpermissions/authorization-clients-js](https://github.com/verifiedpermissions/authorization-clients-js "https://github.com/verifiedpermissions/authorization-clients-js") - The Verified Permissions authorization clients for JavaScript
-- [verifiedpermissions/examples/express-petstore](https://github.com/verifiedpermissions/examples/tree/main/express-petstore "https://github.com/verifiedpermissions/examples/tree/main/express-petstore") - Example implementation using the Express.js middleware
++ [cedar-policy/authorization-for-expressjs](https://github.com/cedar-policy/authorization-for-expressjs) - The Cedar authorization middleware for Express.js
++ [verifiedpermissions/authorization-clients-js](https://github.com/verifiedpermissions/authorization-clients-js) - The Verified Permissions authorization clients for JavaScript
++ [verifiedpermissions/examples/express-petstore](https://github.com/verifiedpermissions/examples/tree/main/express-petstore) - Example implementation using the Express.js middleware
 
 ## Prerequisites
+<a name="express-integration-prerequisites"></a>
 
 Before you implement the Express integration, ensure you have:
-
-- An [AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md") with access to Verified Permissions
-- [Node.js](https://nodejs.org/ "https://nodejs.org/") and [npm](https://docs.npmjs.com/ "https://docs.npmjs.com/") installed
-- An [Express.js](https://expressjs.com/ "https://expressjs.com/") application
-- An OpenID Connect (OIDC) identity provider (such as [Amazon Cognito](../../../cognito/latest/developerguide/what-is-amazon-cognito.md "../../../cognito/latest/developerguide/what-is-amazon-cognito.md"))
-- [AWS CLI](../../../cli/latest/userguide/getting-started-quickstart.md "../../../cli/latest/userguide/getting-started-quickstart.md") configured with appropriate permissions
++ An [AWS account](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html) with access to Verified Permissions
++ [Node.js](https://nodejs.org/) and [npm](https://docs.npmjs.com/) installed
++ An [Express.js](https://expressjs.com/) application
++ An OpenID Connect (OIDC) identity provider (such as [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html))
++ [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html) configured with appropriate permissions
 
 ## Setting up the integration
+<a name="express-integration-setup"></a>
 
 ### Step 1: Create a policy store
+<a name="setup-create-policy-store"></a>
 
 Create a policy store using the AWS CLI:
 
@@ -38,11 +34,11 @@ Create a policy store using the AWS CLI:
 aws verifiedpermissions create-policy-store --validation-settings "mode=STRICT"
 ```
 
-###### Note
-
+**Note**  
 Save the policy store ID returned in the response for use in subsequent steps.
 
 ### Step 2: Install dependencies
+<a name="setup-install-dependencies"></a>
 
 Install the required packages in your Express application:
 
@@ -52,22 +48,24 @@ npm i --save @cedar-policy/authorization-for-expressjs
 ```
 
 ## Configuring authorization
+<a name="express-integration-configuration"></a>
 
 ### Step 1: Generate and upload Cedar schema
+<a name="config-generate-cedar-schema"></a>
 
-A schema defines the authorization model for an application, including the entities types in the application and the actions users are allowed to take. We recommend defining a [namespace](https://docs.cedarpolicy.com/overview/terminology.html#term-namespaces "https://docs.cedarpolicy.com/overview/terminology.html#term-namespaces") for your schema. In this example, we use `YourNamespace`. You attach your schema to your Verified Permissions policy stores, and when policies are added or modified, the service automatically validates the policies against the schema.
+A schema defines the authorization model for an application, including the entities types in the application and the actions users are allowed to take. We recommend defining a [namespace](https://docs.cedarpolicy.com/overview/terminology.html#term-namespaces) for your schema. In this example, we use `YourNamespace`. You attach your schema to your Verified Permissions policy stores, and when policies are added or modified, the service automatically validates the policies against the schema.
 
-The `@cedar-policy/authorization-for-expressjs` package can analyze the [OpenAPI specifications](https://swagger.io/specification/ "https://swagger.io/specification/") of your application and generate a Cedar schema. Specifically, the paths object is required in your specification.
+The `@cedar-policy/authorization-for-expressjs` package can analyze the [OpenAPI specifications](https://swagger.io/specification/) of your application and generate a Cedar schema. Specifically, the paths object is required in your specification.
 
-If you don't have an OpenAPI specification, you can follow the quick instructions of the [express-openapi-generator](https://github.com/nklisch/express-openapi-generator "https://github.com/nklisch/express-openapi-generator") package to generate an OpenAPI specification.
+If you don't have an OpenAPI specification, you can follow the quick instructions of the [express-openapi-generator](https://github.com/nklisch/express-openapi-generator) package to generate an OpenAPI specification.
 
 Generate a schema from your OpenAPI specification:
 
 ```
-npx @cedar-policy/authorization-for-expressjs generate-schema --api-spec schemas/openapi.json --namespace `YourNamespace` --mapping-type SimpleRest
+npx @cedar-policy/authorization-for-expressjs generate-schema --api-spec schemas/openapi.json --namespace YourNamespace --mapping-type SimpleRest
 ```
 
-Next, format the Cedar schema for use with the AWS CLI. For more information about the specific format required, see [Amazon Verified Permissions policy store schema](schema.md "schema.md"). If you need help formatting the schema, there's a script called `prepare-cedar-schema.sh` in the [verifiedpermissions/examples](https://github.com/verifiedpermissions/examples/tree/main/express-petstore/start/scripts "https://github.com/verifiedpermissions/examples/tree/main/express-petstore/start/scripts") GitHub repo. The following is an example call to that script that outputs the Verified Permissions formatted schema in the `v2.cedarschema.forAVP.json` file.
+Next, format the Cedar schema for use with the AWS CLI. For more information about the specific format required, see [Amazon Verified Permissions policy store schema](schema.md). If you need help formatting the schema, there's a script called `prepare-cedar-schema.sh` in the [verifiedpermissions/examples](https://github.com/verifiedpermissions/examples/tree/main/express-petstore/start/scripts) GitHub repo. The following is an example call to that script that outputs the Verified Permissions formatted schema in the `v2.cedarschema.forAVP.json` file.
 
 ```
 ./scripts/prepare-cedar-schema.sh v2.cedarschema.json v2.cedarschema.forAVP.json
@@ -78,14 +76,15 @@ Upload the formatted schema to your policy store, replacing `policy-store-id` wi
 ```
 aws verifiedpermissions put-schema \
   --definition file://v2.cedarschema.forAVP.json \
-  --policy-store-id `policy-store-id`
+  --policy-store-id policy-store-id
 ```
 
 ### Step 2: Create authorization policies
+<a name="config-create-authorization-policies"></a>
 
 If no policies are configured, Cedar denies all authorization requests. The Express framework integration helps bootstrap this process by generating example policies based on the previously generated schema.
 
-When using this integration in your production applications, we recommend creating new policies using infrastructure as a code (IaaC) tools. For more information, see [Creating Amazon Verified Permissions resources with AWS CloudFormation](cloudformation-verified-permissions.md "cloudformation-verified-permissions.md").
+When using this integration in your production applications, we recommend creating new policies using infrastructure as a code (IaaC) tools. For more information, see [Creating Amazon Verified Permissions resources with AWS CloudFormation](cloudformation-verified-permissions.md).
 
 Generate sample Cedar policies:
 
@@ -115,7 +114,7 @@ permit (
 );
 ```
 
-Format the policies for use with the AWS CLI. Fore more information about the required format, see [create-policy](../../../cli/latest/reference/verifiedpermissions/create-policy.md "../../../cli/latest/reference/verifiedpermissions/create-policy.md") in the _AWS CLI reference_. If you need help formatting the policies, there's a script called `convert_cedar_policies.sh` in the [verifiedpermissions/examples](https://github.com/verifiedpermissions/examples/tree/main/express-petstore/start/scripts "https://github.com/verifiedpermissions/examples/tree/main/express-petstore/start/scripts") GitHub repo. The following is a call to that script:
+Format the policies for use with the AWS CLI. Fore more information about the required format, see [create-policy](https://docs.aws.amazon.com/cli/latest/reference/verifiedpermissions/create-policy.html) in the *AWS CLI reference*. If you need help formatting the policies, there's a script called `convert_cedar_policies.sh` in the [verifiedpermissions/examples](https://github.com/verifiedpermissions/examples/tree/main/express-petstore/start/scripts) GitHub repo. The following is a call to that script:
 
 ```
 ./scripts/convert_cedar_policies.sh
@@ -125,23 +124,22 @@ Upload the formatted policies to Verified Permissions, replacing `policy_1.json`
 
 ```
 aws verifiedpermissions create-policy \
-  --definition file://`policies/json/policy_1.json` \
-  --policy-store-id `policy-store-id`
+  --definition file://{{policies/json/policy_1.json}} \
+  --policy-store-id policy-store-id
 ```
 
 ### Step 3: Connect an identity provider
+<a name="config-connect-identity-provider"></a>
 
 By default, the Verified Permissions authorizer middleware reads a JSON Web Token (JWT) provided within the authorization header of the API request to get user information. Verified Permissions can validate the token in addition to performing authorization policy evaluation.
 
-Create an identity source configuration file named
-`identity-source-configuration.txt` that looks like the following with
-your `userPoolArn` and `clientId`:
+Create an identity source configuration file named `identity-source-configuration.txt` that looks like the following with your `userPoolArn` and `clientId`:
 
 ```
 {
     "cognitoUserPoolConfiguration": {
-        "userPoolArn": "`arn:aws:cognito-idp:region:account:userpool/pool-id`",
-        "clientIds": ["`client-id`"],
+        "userPoolArn": "arn:aws:cognito-idp:region:account:userpool/pool-id",
+        "clientIds": ["client-id"],
         "groupConfiguration": {
             "groupEntityType": "YourNamespace::UserGroup"
         }
@@ -154,13 +152,14 @@ Create the identity source by running the following AWS CLI command, replacing `
 ```
 aws verifiedpermissions create-identity-source \
   --configuration file://identity-source-configuration.txt \
-  --policy-store-id `policy-store-id` \
+  --policy-store-id policy-store-id \
   --principal-entity-type YourNamespace::User
 ```
 
 ## Implementing the authorization middleware
+<a name="express-integration-implementing-middleware"></a>
 
-Update your Express application to include the authorization middleware. In this example we're using identity tokens, but you can also use access tokens. For more information, see [authorization-for-expressjs](https://github.com/cedar-policy/authorization-for-expressjs "https://github.com/cedar-policy/authorization-for-expressjs") on GitHub.
+Update your Express application to include the authorization middleware. In this example we're using identity tokens, but you can also use access tokens. For more information, see [authorization-for-expressjs](https://github.com/cedar-policy/authorization-for-expressjs) on GitHub.
 
 ```
 const { ExpressAuthorizationMiddleware } = require('@cedar-policy/authorization-for-expressjs');
@@ -168,7 +167,7 @@ const { ExpressAuthorizationMiddleware } = require('@cedar-policy/authorization-
 const { AVPAuthorizationEngine } = require('@verifiedpermissions/authorization-clients');
 
 const avpAuthorizationEngine = new AVPAuthorizationEngine({
-    policyStoreId: '`policy-store-id`',
+    policyStoreId: 'policy-store-id',
     callType: 'identityToken'
 });
 
@@ -191,30 +190,30 @@ app.use(expressAuthorization.middleware);
 ```
 
 ## Testing the integration
+<a name="testing-authorization"></a>
 
 You can test your authorization implementation by making requests to your API endpoints with different user tokens. The authorization middleware will automatically evaluate each request against your defined policies.
 
 For example, if you've set up different user groups with different permissions:
-
-- Administrators: Full access to all resources and management functions
-- Employees: Can view, create, and update resources
-- Customers: Can only view resources
++ Administrators: Full access to all resources and management functions
++ Employees: Can view, create, and update resources
++ Customers: Can only view resources
 
 You can validate that the permissions policies are working as expected by signing in with different users and attempting various operations. In the terminal for the Express application, you can see log output that provides additional details about the authorization decisions.
 
 ## Troubleshooting
+<a name="troubleshooting"></a>
 
-If you have authorization failures, try the following:
-
-- Verify your policy store ID is correct
-- Ensure your identity source is properly configured
-- Check that your policies are correctly formatted
-- Validate that your JWT tokens are valid
+If you have authorization failures, try the following:  
++ Verify your policy store ID is correct
++ Ensure your identity source is properly configured
++ Check that your policies are correctly formatted
++ Validate that your JWT tokens are valid
 
 ## Next steps
+<a name="express-integration-next-steps"></a>
 
 After implementing the basic integration, consider:
-
-- Implementing custom mappers for specific authorization scenarios
-- Setting up monitoring and logging for authorization decisions
-- Creating additional policies for different user roles
++ Implementing custom mappers for specific authorization scenarios
++ Setting up monitoring and logging for authorization decisions
++ Creating additional policies for different user roles

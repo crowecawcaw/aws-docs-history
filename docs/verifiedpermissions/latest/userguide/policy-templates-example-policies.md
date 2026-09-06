@@ -1,20 +1,17 @@
-# Amazon Verified Permissions example template-linked policies
 
-When you create a policy store in Verified Permissions using the **Sample policy store** method,
-your policy store is created with predefined policies, policy templates, and a schema for the sample project
-you chose. The following Verified Permissions template-linked policy examples can be used with the sample policy stores and their
-respective policies, policy templates, and schemas.
+
+# Amazon Verified Permissions example template-linked policies
+<a name="policy-templates-example-policies"></a>
+
+When you create a policy store in Verified Permissions using the **Sample policy store** method, your policy store is created with predefined policies, policy templates, and a schema for the sample project you chose. The following Verified Permissions template-linked policy examples can be used with the sample policy stores and their respective policies, policy templates, and schemas.
 
 ## PhotoFlash examples
+<a name="policy-templates-example-policies-photoflash"></a>
 
-The following example shows how you might create a template-linked policy that uses the policy template **Grant limited access to non-private shared
-photos** with an individual user and photo.
+The following example shows how you might create a template-linked policy that uses the policy template **Grant limited access to non-private shared photos** with an individual user and photo.
 
-###### Note
-
-Cedar policy language considers an entity to be `in` itself. Therefore,
-`principal in User::"Alice"` is equivalent to `principal ==
- User::"Alice"`.
+**Note**  
+Cedar policy language considers an entity to be `in` itself. Therefore, `principal in User::"Alice"` is equivalent to `principal == User::"Alice"`.
 
 ```
 permit (
@@ -24,8 +21,7 @@ permit (
  );
 ```
 
-The following example shows how you might create a template-linked policy that uses the policy template **Grant limited access to non-private shared
-photos** with an individual user and album.
+The following example shows how you might create a template-linked policy that uses the policy template **Grant limited access to non-private shared photos** with an individual user and album.
 
 ```
 permit (
@@ -35,8 +31,7 @@ permit (
  );
 ```
 
-The following example shows how you might create a template-linked policy that uses the policy template **Grant limited access to non-private shared
-photos** with a friend group and individual photo.
+The following example shows how you might create a template-linked policy that uses the policy template **Grant limited access to non-private shared photos** with a friend group and individual photo.
 
 ```
 permit (
@@ -46,8 +41,7 @@ permit (
  );
 ```
 
-The following example shows how you might create a template-linked policy that uses the policy template **Grant limited access to non-private shared
-photos** with a friend group and album.
+The following example shows how you might create a template-linked policy that uses the policy template **Grant limited access to non-private shared photos** with a friend group and album.
 
 ```
 permit (
@@ -57,8 +51,7 @@ permit (
  );
 ```
 
-The following example shows how you might create a template-linked policy that uses the policy template **Grant full access to non-private shared
-photos** with a friend group and an individual photo.
+The following example shows how you might create a template-linked policy that uses the policy template **Grant full access to non-private shared photos** with a friend group and an individual photo.
 
 ```
 permit (
@@ -68,8 +61,7 @@ permit (
  );
 ```
 
-The following example shows how you might create a template-linked policy that uses the policy template **Block user from an
-account**.
+The following example shows how you might create a template-linked policy that uses the policy template **Block user from an account**.
 
 ```
 forbid(
@@ -80,15 +72,14 @@ forbid(
 ```
 
 ## DigitalPetStore examples
+<a name="policy-templates-example-policies-digitalpetstore"></a>
 
-The DigitalPetStore sample policy store does not include any policy templates. You can view the policies
-included with the policy store by choosing **Policies** in the navigation pane
-on the left after creating the **DigitalPetStore** sample policy store.
+The DigitalPetStore sample policy store does not include any policy templates. You can view the policies included with the policy store by choosing **Policies** in the navigation pane on the left after creating the **DigitalPetStore** sample policy store.
 
 ## TinyToDo examples
+<a name="policy-templates-example-policies-tinytodo"></a>
 
-The following example shows how you might create a template-linked policy that uses the policy template that gives viewer access for an individual user and
-task list.
+The following example shows how you might create a template-linked policy that uses the policy template that gives viewer access for an individual user and task list.
 
 ```
 permit (
@@ -98,8 +89,7 @@ permit (
 );
 ```
 
-The following example shows how you might create a template-linked policy that uses the policy template that gives editor access for an individual user and
-task list.
+The following example shows how you might create a template-linked policy that uses the policy template that gives editor access for an individual user and task list.
 
 ```
 permit (

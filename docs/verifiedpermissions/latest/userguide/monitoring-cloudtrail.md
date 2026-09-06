@@ -1,101 +1,74 @@
+
+
 # Logging Amazon Verified Permissions API calls using AWS CloudTrail
+<a name="monitoring-cloudtrail"></a>
 
-Amazon Verified Permissions is integrated with AWS CloudTrail, a service that provides a record of actions taken by
-a user, role, or an AWS service in Verified Permissions. CloudTrail captures all API calls for Verified Permissions as events. The
-calls captured include calls from the Verified Permissions console and code calls to the Verified Permissions API operations.
-If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket,
-including events for Verified Permissions. If you don't configure a trail, you can still view the most recent
-management action events in the CloudTrail console in **Event history**, but not
-events for API calls such as `isAuthorized`. Using the information collected by CloudTrail,
-you can determine the request that was made to Verified Permissions, the IP address from which the request was
-made, who made the request, when it was made, and additional details.
+Amazon Verified Permissions is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Verified Permissions. CloudTrail captures all API calls for Verified Permissions as events. The calls captured include calls from the Verified Permissions console and code calls to the Verified Permissions API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Verified Permissions. If you don't configure a trail, you can still view the most recent management action events in the CloudTrail console in **Event history**, but not events for API calls such as `isAuthorized`. Using the information collected by CloudTrail, you can determine the request that was made to Verified Permissions, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
 ## Verified Permissions information in CloudTrail
+<a name="verified-permissions-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity occurs in
-Verified Permissions, that activity is recorded in a CloudTrail event along with other AWS service events in
-**Event history**. You can view, search, and download recent events in your
-AWS account. For more information, see [Viewing events with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in Verified Permissions, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 
-For an ongoing record of events in your AWS account, including events for Verified Permissions, create
-a trail. A _trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket. By
-default, when you create a trail in the console, the trail applies to all AWS Regions. The
-trail logs events from all Regions in the AWS partition and delivers the log files to the
-Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further
-analyze and act upon the event data collected in CloudTrail logs. For more information, see the
-following:
+For an ongoing record of events in your AWS account, including events for Verified Permissions, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following:
++ [Overview for creating a trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html)
++ [Receiving CloudTrail log files from multiple regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview for creating a trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md")
-- [Configuring Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md")
-- [Receiving CloudTrail log files from multiple regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+All Verified Permissions actions are logged by CloudTrail and are documented in the [Amazon Verified Permissions API Reference Guide](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/). For example, calls to the `CreateIdentitySource`, `DeletePolicy`, and `ListPolicyStores` actions generate entries in the CloudTrail log files.
 
-All Verified Permissions actions are logged by CloudTrail and are documented in the [Amazon Verified Permissions API Reference Guide](../apireference.md "../apireference.md"). For
-example, calls to the `CreateIdentitySource`, `DeletePolicy`, and
-`ListPolicyStores` actions generate entries in the CloudTrail log files.
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
-- Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
-
-Data events like [IsAuthorized](../apireference/API_IsAuthorized.md "../apireference/API_IsAuthorized.md") and [IsAuthorizedWithToken](../apireference/API_IsAuthorizedWithToken.md "../apireference/API_IsAuthorizedWithToken.md") are not
-logged by default when you create a trail or event data store. To record CloudTrail data events, you
-must explicitly add the supported resources or resource types for which you want to collect
-activity. For more information, see [Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") in the _AWS CloudTrail User Guide_.
+Data events like [IsAuthorized](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html) and [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html) are not logged by default when you create a trail or event data store. To record CloudTrail data events, you must explicitly add the supported resources or resource types for which you want to collect activity. For more information, see [Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events) in the *AWS CloudTrail User Guide*.
 
 ## Understanding Verified Permissions log file entries
+<a name="understanding-verified-permissions-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
-the public API calls, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
 For authorization API calls, the response elements, such as the decision, are included under `additionalEventData` rather than `responseElements`.
 
-###### Topics
+**Topics**
++ [IsAuthorized](#understanding-verified-permissions-entries-isauthorized)
++ [IsAuthorizedWithToken](#understanding-verified-permissions-entries-isauthorizedwithtoken)
++ [BatchIsAuthorized](#understanding-verified-permissions-entries-batchisauthorized)
++ [BatchIsAuthorizedWithToken](#understanding-verified-permissions-entries-batchisauthorizedwithtoken)
++ [CreatePolicyStore](#understanding-verified-permissions-entries-createpolicystore)
++ [ListPolicyStores](#understanding-verified-permissions-entries-listpolicystores)
++ [DeletePolicyStore](#understanding-verified-permissions-entries-deletepolicystore)
++ [PutSchema](#understanding-verified-permissions-entries-putschema)
++ [GetSchema](#understanding-verified-permissions-entries-getschema)
++ [CreatePolicyTemplate](#understanding-verified-permissions-entries-createpolicytemplate)
++ [DeletePolicyTemplate](#understanding-verified-permissions-entries-deletepolicytemplate)
++ [CreatePolicy](#understanding-verified-permissions-entries-createpolicy)
++ [GetPolicy](#understanding-verified-permissions-entries-getpolicy)
++ [CreateIdentitySource](#understanding-verified-permissions-entries-createidentitysource)
++ [GetIdentitySource](#understanding-verified-permissions-entries-getidentitysource)
++ [ListIdentitySources](#understanding-verified-permissions-entries-listidentitysources)
++ [DeleteIdentitySource](#understanding-verified-permissions-entries-deleteidentitysource)
 
-- [IsAuthorized](#understanding-verified-permissions-entries-isauthorized "#understanding-verified-permissions-entries-isauthorized")
-- [IsAuthorizedWithToken](#understanding-verified-permissions-entries-isauthorizedwithtoken "#understanding-verified-permissions-entries-isauthorizedwithtoken")
-- [BatchIsAuthorized](#understanding-verified-permissions-entries-batchisauthorized "#understanding-verified-permissions-entries-batchisauthorized")
-- [BatchIsAuthorizedWithToken](#understanding-verified-permissions-entries-batchisauthorizedwithtoken "#understanding-verified-permissions-entries-batchisauthorizedwithtoken")
-- [CreatePolicyStore](#understanding-verified-permissions-entries-createpolicystore "#understanding-verified-permissions-entries-createpolicystore")
-- [ListPolicyStores](#understanding-verified-permissions-entries-listpolicystores "#understanding-verified-permissions-entries-listpolicystores")
-- [DeletePolicyStore](#understanding-verified-permissions-entries-deletepolicystore "#understanding-verified-permissions-entries-deletepolicystore")
-- [PutSchema](#understanding-verified-permissions-entries-putschema "#understanding-verified-permissions-entries-putschema")
-- [GetSchema](#understanding-verified-permissions-entries-getschema "#understanding-verified-permissions-entries-getschema")
-- [CreatePolicyTemplate](#understanding-verified-permissions-entries-createpolicytemplate "#understanding-verified-permissions-entries-createpolicytemplate")
-- [DeletePolicyTemplate](#understanding-verified-permissions-entries-deletepolicytemplate "#understanding-verified-permissions-entries-deletepolicytemplate")
-- [CreatePolicy](#understanding-verified-permissions-entries-createpolicy "#understanding-verified-permissions-entries-createpolicy")
-- [GetPolicy](#understanding-verified-permissions-entries-getpolicy "#understanding-verified-permissions-entries-getpolicy")
-- [CreateIdentitySource](#understanding-verified-permissions-entries-createidentitysource "#understanding-verified-permissions-entries-createidentitysource")
-- [GetIdentitySource](#understanding-verified-permissions-entries-getidentitysource "#understanding-verified-permissions-entries-getidentitysource")
-- [ListIdentitySources](#understanding-verified-permissions-entries-listidentitysources "#understanding-verified-permissions-entries-listidentitysources")
-- [DeleteIdentitySource](#understanding-verified-permissions-entries-deleteidentitysource "#understanding-verified-permissions-entries-deleteidentitysource")
-
-###### Note
-
+**Note**  
 Some fields have been redacted from the examples for data privacy.
 
 ### IsAuthorized
+<a name="understanding-verified-permissions-entries-isauthorized"></a>
 
-The following example shows a CloudTrail log entry for an `IsAuthorized` API
-call:
+The following example shows a CloudTrail log entry for an `IsAuthorized` API call:
 
 ```
 {
     "eventVersion": "1.08",
     "userIdentity": {
 		"type": "AssumedRole",
-		"principalId": "`EXAMPLE_PRINCIPAL_ID`",
+		"principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
 		"arn": "arn:aws:iam::123456789012:role/ExampleRole",
 		"accountId": "123456789012",
 		"accessKeyId": "AKIAIOSFODNN7EXAMPLE"
@@ -104,7 +77,7 @@ call:
     "eventSource": "verifiedpermissions.amazonaws.com",
     "eventName": "IsAuthorized",
     "awsRegion": "us-west-2",
-    "sourceIPAddress": "`203.0.113.0`",
+    "sourceIPAddress": "{{203.0.113.0}}",
     "userAgent": "aws-cli/2.11.18 Python/3.11.3 Linux/5.4.241-160.348.amzn2int.x86_64 exe/x86_64.amzn.2 prompt/off command/verifiedpermissions.is-authorized",
     "requestParameters": {
         "principal": {
@@ -143,16 +116,16 @@ call:
 ```
 
 ### IsAuthorizedWithToken
+<a name="understanding-verified-permissions-entries-isauthorizedwithtoken"></a>
 
-The following example shows a CloudTrail log entry for an
-`IsAuthorizedWithToken` API call:
+The following example shows a CloudTrail log entry for an `IsAuthorizedWithToken` API call:
 
 ```
 {
     "eventVersion": "1.08",
     "userIdentity": {
 		"type": "AssumedRole",
-		"principalId": "`EXAMPLE_PRINCIPAL_ID`",
+		"principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
 		"arn": "arn:aws:iam::123456789012:role/ExampleRole",
 		"accountId": "123456789012",
 		"accessKeyId": "AKIAIOSFODNN7EXAMPLE"
@@ -161,7 +134,7 @@ The following example shows a CloudTrail log entry for an
     "eventSource": "verifiedpermissions.amazonaws.com",
     "eventName": "IsAuthorizedWithToken",
     "awsRegion": "us-west-2",
-    "sourceIPAddress": "`203.0.113.0`",
+    "sourceIPAddress": "{{203.0.113.0}}",
     "userAgent": "aws-cli/2.11.18 Python/3.11.3 Linux/5.4.241-160.348.amzn2int.x86_64 exe/x86_64.amzn.2 prompt/off command/verifiedpermissions.is-authorized-with-token",
     "requestParameters": {
         "policyStoreId": "PSEXAMPLEabcdefg111111",
@@ -179,7 +152,7 @@ The following example shows a CloudTrail log entry for an
         "decision": "ALLOW",
         "principal": {
             "entityType": "PhotoFlash::User",
-            "entityId": "us-east-1_EXAMPLE|`EXAMPLE_SUBJECT_ID`"
+            "entityId": "us-east-1_EXAMPLE|{{EXAMPLE_SUBJECT_ID}}"
         }
     },
     "requestID": "346c4b6a-d12f-46b6-bc06-6c857bd3b28e",
@@ -200,16 +173,16 @@ The following example shows a CloudTrail log entry for an
 ```
 
 ### BatchIsAuthorized
+<a name="understanding-verified-permissions-entries-batchisauthorized"></a>
 
-The following example shows a CloudTrail log entry for a `BatchIsAuthorized`
-API call:
+The following example shows a CloudTrail log entry for a `BatchIsAuthorized` API call:
 
 ```
 {
     "eventVersion": "1.08",
     "userIdentity": {
 		"type": "AssumedRole",
-		"principalId": "`EXAMPLE_PRINCIPAL_ID`",
+		"principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
 		"arn": "arn:aws:iam::123456789012:role/ExampleRole",
 		"accountId": "123456789012",
 		"accessKeyId": "AKIAIOSFODNN7EXAMPLE"
@@ -218,7 +191,7 @@ API call:
     "eventSource": "verifiedpermissions.amazonaws.com",
     "eventName": "BatchIsAuthorized",
     "awsRegion": "us-west-2",
-    "sourceIPAddress": "`203.0.113.0`",
+    "sourceIPAddress": "{{203.0.113.0}}",
     "userAgent": "aws-cli/2.11.18 Python/3.11.3 Linux/5.4.241-160.348.amzn2int.x86_64 exe/x86_64.amzn.2 prompt/off command/verifiedpermissions.is-authorized",
     "requestParameters": {
         "requests": [
@@ -310,16 +283,16 @@ API call:
 ```
 
 ### BatchIsAuthorizedWithToken
+<a name="understanding-verified-permissions-entries-batchisauthorizedwithtoken"></a>
 
-The following example shows a CloudTrail log entry for a
-`BatchIsAuthorizedWithToken` API call:
+The following example shows a CloudTrail log entry for a `BatchIsAuthorizedWithToken` API call:
 
 ```
 {
     "eventVersion": "1.08",
     "userIdentity": {
 		"type": "AssumedRole",
-		"principalId": "`EXAMPLE_PRINCIPAL_ID`",
+		"principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
 		"arn": "arn:aws:iam::123456789012:role/ExampleRole",
 		"accountId": "123456789012",
 		"accessKeyId": "AKIAIOSFODNN7EXAMPLE"
@@ -328,7 +301,7 @@ The following example shows a CloudTrail log entry for a
     "eventSource": "verifiedpermissions.amazonaws.com",
     "eventName": "BatchIsAuthorizedWithToken",
     "awsRegion": "us-west-2",
-    "sourceIPAddress": "`203.0.113.0`",
+    "sourceIPAddress": "{{203.0.113.0}}",
     "userAgent": "aws-cli/2.11.18 Python/3.11.3 Linux/5.4.241-160.348.amzn2int.x86_64 exe/x86_64.amzn.2 prompt/off command/verifiedpermissions.batch-is-authorized-with-token",
     "requestParameters": {
         "policyStoreId": "PSEXAMPLEabcdefg111111",
@@ -359,7 +332,7 @@ The following example shows a CloudTrail log entry for a
     "additionalEventData": {
         "principal": {
             "entityType": "PhotoFlash::User",
-            "entityId": "us-east-1_EXAMPLE|`EXAMPLE_SUBJECT_ID`"
+            "entityId": "us-east-1_EXAMPLE|{{EXAMPLE_SUBJECT_ID}}"
         },
         "results": [
             {
@@ -408,16 +381,16 @@ The following example shows a CloudTrail log entry for a
 ```
 
 ### CreatePolicyStore
+<a name="understanding-verified-permissions-entries-createpolicystore"></a>
 
-The following example shows a CloudTrail log entry for a `CreatePolicyStore`
-API call:
+The following example shows a CloudTrail log entry for a `CreatePolicyStore` API call:
 
 ```
 {
   "eventVersion": "1.08",
   "userIdentity": {
     "type": "AssumedRole",
-    "principalId": "`EXAMPLE_PRINCIPAL_ID`",
+    "principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
     "arn": "arn:aws:iam::123456789012:role/ExampleRole",
     "accountId": "123456789012",
     "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
@@ -426,7 +399,7 @@ API call:
   "eventSource": "verifiedpermissions.amazonaws.com",
   "eventName": "CreatePolicyStore",
   "awsRegion": "us-west-2",
-  "sourceIPAddress": "`203.0.113.0`",
+  "sourceIPAddress": "{{203.0.113.0}}",
   "userAgent": "aws-sdk-rust/0.55.2 os/linux lang/rust/1.69.0",
   "requestParameters": {
     "clientToken": "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
@@ -451,16 +424,16 @@ API call:
 ```
 
 ### ListPolicyStores
+<a name="understanding-verified-permissions-entries-listpolicystores"></a>
 
-The following example shows a CloudTrail log entry for a `ListPolicyStores`
-API call:
+The following example shows a CloudTrail log entry for a `ListPolicyStores` API call:
 
 ```
 {
   "eventVersion": "1.08",
   "userIdentity": {
     "type": "AssumedRole",
-    "principalId": "`EXAMPLE_PRINCIPAL_ID`",
+    "principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
     "arn": "arn:aws:iam::123456789012:role/ExampleRole",
     "accountId": "123456789012",
     "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
@@ -469,7 +442,7 @@ API call:
   "eventSource": "verifiedpermissions.amazonaws.com",
   "eventName": "ListPolicyStores",
   "awsRegion": "us-west-2",
-  "sourceIPAddress": "`203.0.113.0`",
+  "sourceIPAddress": "{{203.0.113.0}}",
   "userAgent": "aws-sdk-rust/0.55.2 os/linux lang/rust/1.69.0",
   "requestParameters": {
     "maxResults": 10
@@ -486,16 +459,16 @@ API call:
 ```
 
 ### DeletePolicyStore
+<a name="understanding-verified-permissions-entries-deletepolicystore"></a>
 
-The following example shows a CloudTrail log entry for a `DeletePolicyStore`
-API call:
+The following example shows a CloudTrail log entry for a `DeletePolicyStore` API call:
 
 ```
 {
   "eventVersion": "1.08",
   "userIdentity": {
     "type": "AssumedRole",
-    "principalId": "`EXAMPLE_PRINCIPAL_ID`",
+    "principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
     "arn": "arn:aws:iam::123456789012:role/ExampleRole",
     "accountId": "123456789012",
     "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
@@ -504,7 +477,7 @@ API call:
   "eventSource": "verifiedpermissions.amazonaws.com",
   "eventName": "DeletePolicyStore",
   "awsRegion": "us-west-2",
-  "sourceIPAddress": "`203.0.113.0`",
+  "sourceIPAddress": "{{203.0.113.0}}",
   "userAgent": "aws-sdk-rust/0.55.2 os/linux lang/rust/1.69.0",
   "requestParameters": {
     "policyStoreId": "PSEXAMPLEabcdefg111111"
@@ -528,16 +501,16 @@ API call:
 ```
 
 ### PutSchema
+<a name="understanding-verified-permissions-entries-putschema"></a>
 
-The following example shows a CloudTrail log entry for a `PutSchema` API
-call:
+The following example shows a CloudTrail log entry for a `PutSchema` API call:
 
 ```
 {
   "eventVersion": "1.08",
   "userIdentity": {
     "type": "AssumedRole",
-    "principalId": "`EXAMPLE_PRINCIPAL_ID`",
+    "principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
     "arn": "arn:aws:iam::123456789012:role/ExampleRole",
     "accountId": "123456789012",
     "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
@@ -546,14 +519,14 @@ call:
   "eventSource": "verifiedpermissions.amazonaws.com",
   "eventName": "PutSchema",
   "awsRegion": "us-west-2",
-  "sourceIPAddress": "`203.0.113.0`",
+  "sourceIPAddress": "{{203.0.113.0}}",
   "userAgent": "aws-sdk-rust/0.55.2 os/linux lang/rust/1.69.0",
   "requestParameters": {
     "policyStoreId": "PSEXAMPLEabcdefg111111"
   },
   "responseElements": {
     "lastUpdatedDate": "2023-05-16T12:58:57.513442Z",
-    "namespaces": "[`some_namespace`]",
+    "namespaces": "[{{some_namespace}}]",
     "createdDate": "2023-05-16T12:58:57.513442Z",
     "policyStoreId": "PSEXAMPLEabcdefg111111",
   },
@@ -575,17 +548,17 @@ call:
 ```
 
 ### GetSchema
+<a name="understanding-verified-permissions-entries-getschema"></a>
 
-The following example shows a CloudTrail log entry for a `GetSchema` API
-call:
+The following example shows a CloudTrail log entry for a `GetSchema` API call:
 
 ```
 {
   "eventVersion": "1.08",
   "userIdentity": {
     "type": "AssumedRole",
-    "principalId": "`EXAMPLE_PRINCIPAL_ID`",
-    "arn": "arn:aws:iam::222222222222:role/`ExampleRole`",
+    "principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
+    "arn": "arn:aws:iam::222222222222:role/{{ExampleRole}}",
     "accountId": "222222222222",
     "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
   },
@@ -593,7 +566,7 @@ call:
   "eventSource": "verifiedpermissions.amazonaws.com",
   "eventName": "GetSchema",
   "awsRegion": "us-west-2",
-  "sourceIPAddress": "`203.0.113.0`",
+  "sourceIPAddress": "{{203.0.113.0}}",
   "userAgent": "aws-sdk-rust/0.55.2 os/linux lang/rust/1.69.0",
   "requestParameters": {
     "policyStoreId": "PSEXAMPLEabcdefg111111"
@@ -617,16 +590,16 @@ call:
 ```
 
 ### CreatePolicyTemplate
+<a name="understanding-verified-permissions-entries-createpolicytemplate"></a>
 
-The following example shows a CloudTrail log entry for a `CreatePolicyTemplate`
-API call:
+The following example shows a CloudTrail log entry for a `CreatePolicyTemplate` API call:
 
 ```
 {
   "eventVersion": "1.08",
   "userIdentity": {
     "type": "AssumedRole",
-    "principalId": "`EXAMPLE_PRINCIPAL_ID`",
+    "principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
     "arn": "arn:aws:iam::123456789012:role/ExampleRole",
     "accountId": "123456789012",
     "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
@@ -635,7 +608,7 @@ API call:
   "eventSource": "verifiedpermissions.amazonaws.com",
   "eventName": "CreatePolicyTemplate",
   "awsRegion": "us-west-2",
-  "sourceIPAddress": "`203.0.113.0`",
+  "sourceIPAddress": "{{203.0.113.0}}",
   "userAgent": "aws-sdk-rust/0.55.2 os/linux lang/rust/1.69.0",
   "requestParameters": {
     "policyStoreId": "PSEXAMPLEabcdefg111111"
@@ -664,17 +637,17 @@ API call:
 ```
 
 ### DeletePolicyTemplate
+<a name="understanding-verified-permissions-entries-deletepolicytemplate"></a>
 
-The following example shows a CloudTrail log entry for a `DeletePolicyTemplate`
-API call:
+The following example shows a CloudTrail log entry for a `DeletePolicyTemplate` API call:
 
 ```
 {
   "eventVersion": "1.08",
   "userIdentity": {
     "type": "AssumedRole",
-    "principalId": "`EXAMPLE_PRINCIPAL_ID`",
-    "arn": "arn:aws:iam::222222222222:role/`ExampleRole`",
+    "principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
+    "arn": "arn:aws:iam::222222222222:role/{{ExampleRole}}",
     "accountId": "222222222222",
     "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
   },
@@ -682,7 +655,7 @@ API call:
   "eventSource": "verifiedpermissions.amazonaws.com",
   "eventName": "DeletePolicyTemplate",
   "awsRegion": "us-west-2",
-  "sourceIPAddress": "`203.0.113.0`",
+  "sourceIPAddress": "{{203.0.113.0}}",
   "userAgent": "aws-sdk-rust/0.55.2 os/linux lang/rust/1.69.0",
   "requestParameters": {
     "policyStoreId": "PSEXAMPLEabcdefg111111",
@@ -707,16 +680,16 @@ API call:
 ```
 
 ### CreatePolicy
+<a name="understanding-verified-permissions-entries-createpolicy"></a>
 
-The following example shows a CloudTrail log entry for a `CreatePolicy` API
-call:
+The following example shows a CloudTrail log entry for a `CreatePolicy` API call:
 
 ```
 {
   "eventVersion": "1.08",
   "userIdentity": {
     "type": "AssumedRole",
-    "principalId": "`EXAMPLE_PRINCIPAL_ID`",
+    "principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
     "arn": "arn:aws:iam::123456789012:role/ExampleRole",
     "accountId": "123456789012",
     "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
@@ -725,7 +698,7 @@ call:
   "eventSource": "verifiedpermissions.amazonaws.com",
   "eventName": "CreatePolicy",
   "awsRegion": "us-west-2",
-  "sourceIPAddress": "`203.0.113.0`",
+  "sourceIPAddress": "{{203.0.113.0}}",
   "userAgent": "aws-sdk-rust/0.55.2 os/linux lang/rust/1.69.0",
   "requestParameters": {
     "clientToken": "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
@@ -764,16 +737,16 @@ call:
 ```
 
 ### GetPolicy
+<a name="understanding-verified-permissions-entries-getpolicy"></a>
 
-The following example shows a CloudTrail log entry for a `GetPolicy` API
-call:
+The following example shows a CloudTrail log entry for a `GetPolicy` API call:
 
 ```
 {
   "eventVersion": "1.08",
   "userIdentity": {
     "type": "AssumedRole",
-    "principalId": "`EXAMPLE_PRINCIPAL_ID`",
+    "principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
     "arn": "arn:aws:iam::123456789012:role/ExampleRole",
     "accountId": "123456789012",
     "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
@@ -782,7 +755,7 @@ call:
   "eventSource": "verifiedpermissions.amazonaws.com",
   "eventName": "GetPolicy",
   "awsRegion": "us-west-2",
-  "sourceIPAddress": "`203.0.113.0`",
+  "sourceIPAddress": "{{203.0.113.0}}",
   "userAgent": "aws-sdk-rust/0.55.2 os/linux lang/rust/1.69.0",
   "requestParameters": {
     "policyStoreId": "PSEXAMPLEabcdefg111111",
@@ -807,17 +780,17 @@ call:
 ```
 
 ### CreateIdentitySource
+<a name="understanding-verified-permissions-entries-createidentitysource"></a>
 
-The following example shows a CloudTrail log entry for a `CreateIdentitySource`
-API call:
+The following example shows a CloudTrail log entry for a `CreateIdentitySource` API call:
 
 ```
 {
   "eventVersion": "1.08",
   "userIdentity": {
     "type": "AssumedRole",
-    "principalId": "`EXAMPLE_PRINCIPAL_ID`",
-    "arn": "arn:aws:iam::333333333333:role/`ExampleRole`",
+    "principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
+    "arn": "arn:aws:iam::333333333333:role/{{ExampleRole}}",
     "accountId": "333333333333",
     "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
   },
@@ -825,7 +798,7 @@ API call:
   "eventSource": "verifiedpermissions.amazonaws.com",
   "eventName": "CreateIdentitySource",
   "awsRegion": "us-west-2",
-  "sourceIPAddress": "`203.0.113.0`",
+  "sourceIPAddress": "{{203.0.113.0}}",
   "userAgent": "aws-sdk-rust/0.55.2 os/linux lang/rust/1.69.0",
   "requestParameters": {
     "clientToken": "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
@@ -861,17 +834,17 @@ API call:
 ```
 
 ### GetIdentitySource
+<a name="understanding-verified-permissions-entries-getidentitysource"></a>
 
-The following example shows a CloudTrail log entry for a `GetIdentitySource`
-API call:
+The following example shows a CloudTrail log entry for a `GetIdentitySource` API call:
 
 ```
 {
   "eventVersion": "1.08",
   "userIdentity": {
     "type": "AssumedRole",
-    "principalId": "`EXAMPLE_PRINCIPAL_ID`",
-    "arn": "arn:aws:iam::333333333333:role/`ExampleRole`",
+    "principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
+    "arn": "arn:aws:iam::333333333333:role/{{ExampleRole}}",
     "accountId": "333333333333",
     "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
   },
@@ -879,7 +852,7 @@ API call:
   "eventSource": "verifiedpermissions.amazonaws.com",
   "eventName": "GetIdentitySource",
   "awsRegion": "us-west-2",
-  "sourceIPAddress": "`203.0.113.0`",
+  "sourceIPAddress": "{{203.0.113.0}}",
   "userAgent": "aws-sdk-rust/0.55.2 os/linux lang/rust/1.69.0",
   "requestParameters": {
     "identitySourceId": "ISEXAMPLEabcdefg111111",
@@ -904,17 +877,17 @@ API call:
 ```
 
 ### ListIdentitySources
+<a name="understanding-verified-permissions-entries-listidentitysources"></a>
 
-The following example shows a CloudTrail log entry for a `ListIdentitySources`
-API call:
+The following example shows a CloudTrail log entry for a `ListIdentitySources` API call:
 
 ```
 {
   "eventVersion": "1.08",
   "userIdentity": {
     "type": "AssumedRole",
-    "principalId": "`EXAMPLE_PRINCIPAL_ID`",
-    "arn": "arn:aws:iam::333333333333:role/`ExampleRole`",
+    "principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
+    "arn": "arn:aws:iam::333333333333:role/{{ExampleRole}}",
     "accountId": "333333333333",
     "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
   },
@@ -922,7 +895,7 @@ API call:
   "eventSource": "verifiedpermissions.amazonaws.com",
   "eventName": "ListIdentitySources",
   "awsRegion": "us-west-2",
-  "sourceIPAddress": "`203.0.113.0`",
+  "sourceIPAddress": "{{203.0.113.0}}",
   "userAgent": "aws-sdk-rust/0.55.2 os/linux lang/rust/1.69.0",
   "requestParameters": {
     "policyStoreId": "PSEXAMPLEabcdefg111111"
@@ -946,17 +919,17 @@ API call:
 ```
 
 ### DeleteIdentitySource
+<a name="understanding-verified-permissions-entries-deleteidentitysource"></a>
 
-The following example shows a CloudTrail log entry for a `DeleteIdentitySource`
-API call:
+The following example shows a CloudTrail log entry for a `DeleteIdentitySource` API call:
 
 ```
 {
   "eventVersion": "1.08",
   "userIdentity": {
     "type": "AssumedRole",
-    "principalId": "`EXAMPLE_PRINCIPAL_ID`",
-    "arn": "arn:aws:iam::333333333333:role/`ExampleRole`",
+    "principalId": "{{EXAMPLE_PRINCIPAL_ID}}",
+    "arn": "arn:aws:iam::333333333333:role/{{ExampleRole}}",
     "accountId": "333333333333",
     "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
   },
@@ -964,7 +937,7 @@ API call:
   "eventSource": "verifiedpermissions.amazonaws.com",
   "eventName": "DeleteIdentitySource",
   "awsRegion": "us-west-2",
-  "sourceIPAddress": "`203.0.113.0`",
+  "sourceIPAddress": "{{203.0.113.0}}",
   "userAgent": "aws-sdk-rust/0.55.2 os/linux lang/rust/1.69.0",
   "requestParameters": {
     "identitySourceId": "ISEXAMPLEabcdefg111111",
