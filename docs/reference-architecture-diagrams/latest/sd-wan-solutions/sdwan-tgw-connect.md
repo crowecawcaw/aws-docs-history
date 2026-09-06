@@ -1,50 +1,61 @@
+
+
 # SD-WAN Connectivity with AWS Transit Gateway Connect Attachments
+<a name="sdwan-tgw-connect"></a>
 
-Publication date: **December 28, 2024 ([Diagram history](#sdwan1-diagram-history "#sdwan1-diagram-history"))**
+Publication date: **December 28, 2024 ([Diagram history](#sdwan1-diagram-history))**
 
-This architecture shows how to use [AWS Transit Gateway](../../../vpc/latest/tgw/what-is-transit-gateway.md "../../../vpc/latest/tgw/what-is-transit-gateway.md") Connect attachments to connect your software-defined wide area network (SD-WAN) to Transit Gateway, and simplify your route management across hybrid cloud environments. The SD-WAN headend peers with the Transit Gateway over a Generic Routing Encapsulation (GRE) tunnel, allowing this design to take advantage of the higher border gateway protocol (BGP) prefix limit of Transit Gateway. Additionally, with a single Transit Gateway Connect attachment, you can scale horizontally the bandwidth of your connection up to 20 Gbps.
+This architecture shows how to use [AWS Transit Gateway](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html) Connect attachments to connect your software-defined wide area network (SD-WAN) to Transit Gateway, and simplify your route management across hybrid cloud environments. The SD-WAN headend peers with the Transit Gateway over a Generic Routing Encapsulation (GRE) tunnel, allowing this design to take advantage of the higher border gateway protocol (BGP) prefix limit of Transit Gateway. Additionally, with a single Transit Gateway Connect attachment, you can scale horizontally the bandwidth of your connection up to 20 Gbps.
 
 ## SD-WAN connectivity with AWS Transit Gateway Connect architecture
+<a name="sdwan1-diagram1"></a>
 
-![Architecture diagram showing SD-WAN connectivity using AWS Transit Gateway Connect attachments with GRE tunneling and BGP peering.](images/sd-wan-solutions-1.png)
+![Architecture diagram showing SD-WAN connectivity using AWS Transit Gateway Connect attachments with GRE tunneling and BGP peering.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-1.png)
+
 
 The following steps describe the AWS to on-premises traffic flow:
 
-1. Traffic initiated from an Amazon Elastic Compute Cloud instance in the Spoke [Amazon VPC](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") A and destined for the corporate data center is routed to the Transit Gateway elastic network interface (TGW ENI) as per the **Spoke VPC A** route table.
-2. Traffic is forwarded to AWS Transit Gateway. As per the **Spoke VPC route table**, the traffic is routed to the **appliance VPC** through the Transit Gateway Connect attachment.
-3. The Transit Gateway Connect attachment uses the Amazon VPC attachment as transport, and connects Transit Gateway to the third-party appliance in the **appliance VPC** using GRE tunneling and BGP.
-4. The third-party virtual appliance encapsulates the traffic, which uses the SD-WAN overlay (on top of the [AWS Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") link) to reach the corporate data center.
+1. Traffic initiated from an Amazon Elastic Compute Cloud instance in the Spoke [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) A and destined for the corporate data center is routed to the Transit Gateway elastic network interface (TGW ENI) as per the **Spoke VPC A** route table.
+
+1. Traffic is forwarded to AWS Transit Gateway. As per the **Spoke VPC route table**, the traffic is routed to the **appliance VPC** through the Transit Gateway Connect attachment.
+
+1. The Transit Gateway Connect attachment uses the Amazon VPC attachment as transport, and connects Transit Gateway to the third-party appliance in the **appliance VPC** using GRE tunneling and BGP.
+
+1. The third-party virtual appliance encapsulates the traffic, which uses the SD-WAN overlay (on top of the [AWS Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html) link) to reach the corporate data center.
 
 The following steps describe the on-premises to AWS traffic flow:
 
 1. Traffic from branches outside AWS destined to the Spoke Amazon VPC B reaches the internet gateway of the **appliance VPC** through the SD-WAN overlay - on top of the internet.
-2. The third-party virtual appliance in the **Connect VPC** forwards the traffic to the Transit Gateway through the Connect attachment.
-3. As per the Transit Gateway Appliance Amazon VPC Route Table, the traffic is forwarded to the **Spoke VPC B** attachment.
-4. The Transit Gateway ENI of the **Spoke VPC B** forwards the traffic to the destination.
 
-For more information about AWS Transit Gateway Connect attachments and SD-WAN connectivity, see [Simplify SD-WAN connectivity with AWS Transit Gateway Connect](https://aws.amazon.com/blogs/networking-and-content-delivery/simplify-sd-wan-connectivity-with-aws-transit-gateway-connect/ "https://aws.amazon.com/blogs/networking-and-content-delivery/simplify-sd-wan-connectivity-with-aws-transit-gateway-connect/").
+1. The third-party virtual appliance in the **Connect VPC** forwards the traffic to the Transit Gateway through the Connect attachment.
+
+1. As per the Transit Gateway Appliance Amazon VPC Route Table, the traffic is forwarded to the **Spoke VPC B** attachment.
+
+1. The Transit Gateway ENI of the **Spoke VPC B** forwards the traffic to the destination.
+
+For more information about AWS Transit Gateway Connect attachments and SD-WAN connectivity, see [Simplify SD-WAN connectivity with AWS Transit Gateway Connect](https://aws.amazon.com/blogs/networking-and-content-delivery/simplify-sd-wan-connectivity-with-aws-transit-gateway-connect/).
 
 ## Further reading
+<a name="sdwan1-further-reading"></a>
 
 For additional information, see the following resources:
-
-- [AWS Architecture Icons](https://aws.amazon.com/architecture/icons "https://aws.amazon.com/architecture/icons")
-- [AWS Well-Architected](https://aws.amazon.com/architecture/well-architected "https://aws.amazon.com/architecture/well-architected")
++ [AWS Architecture Icons](https://aws.amazon.com/architecture/icons)
++ [AWS Well-Architected](https://aws.amazon.com/architecture/well-architected)
 
 ## Diagram history
+<a name="sdwan1-diagram-history"></a>
 
 To be notified about updates to this reference architecture diagram, subscribe to the RSS feed.
 
-| Change                                                                                                                           | Description                                     | Date              |
-| -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ----------------- |
-| Initial publication                                                                                                              | Reference architecture diagram first published. | December 28, 2024 |
-| [Initial publication](sdwan-cloudwan-connect.md#sdwan2-diagram-history "sdwan-cloudwan-connect.md#sdwan2-diagram-history")       | Reference architecture diagram first published. | December 28, 2024 |
-| [Initial publication](sdwan-cloudwan-tunnelless.md#sdwan3-diagram-history "sdwan-cloudwan-tunnelless.md#sdwan3-diagram-history") | Reference architecture diagram first published. | December 28, 2024 |
-| [Initial publication](sdwan-vpn-tgw.md#sdwan4-diagram-history "sdwan-vpn-tgw.md#sdwan4-diagram-history")                         | Reference architecture diagram first published. | December 28, 2024 |
-| [Initial publication](sdwan-vpn-cloudwan.md#sdwan5-diagram-history "sdwan-vpn-cloudwan.md#sdwan5-diagram-history")               | Reference architecture diagram first published. | December 28, 2024 |
-| [Initial publication](sdwan-dx-tgw.md#sdwan6-diagram-history "sdwan-dx-tgw.md#sdwan6-diagram-history")                           | Reference architecture diagram first published. | December 28, 2024 |
-| [Initial publication](sdwan-dx-cloudwan.md#sdwan7-diagram-history "sdwan-dx-cloudwan.md#sdwan7-diagram-history")                 | Reference architecture diagram first published. | December 28, 2024 |
+| Change | Description | Date | 
+| --- |--- |--- |
+| [Initial publication](#sdwan1-diagram-history) | Reference architecture diagram first published. | December 28, 2024 | 
+| [Initial publication](sdwan-cloudwan-connect.md#sdwan2-diagram-history) | Reference architecture diagram first published. | December 28, 2024 | 
+| [Initial publication](sdwan-cloudwan-tunnelless.md#sdwan3-diagram-history) | Reference architecture diagram first published. | December 28, 2024 | 
+| [Initial publication](sdwan-vpn-tgw.md#sdwan4-diagram-history) | Reference architecture diagram first published. | December 28, 2024 | 
+| [Initial publication](sdwan-vpn-cloudwan.md#sdwan5-diagram-history) | Reference architecture diagram first published. | December 28, 2024 | 
+| [Initial publication](sdwan-dx-tgw.md#sdwan6-diagram-history) | Reference architecture diagram first published. | December 28, 2024 | 
+| [Initial publication](sdwan-dx-cloudwan.md#sdwan7-diagram-history) | Reference architecture diagram first published. | December 28, 2024 | 
 
-###### Note
-
+**Note**  
 To subscribe to RSS updates, you must have an RSS plugin enabled for the browser you are using.
