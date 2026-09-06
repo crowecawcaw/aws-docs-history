@@ -1,243 +1,207 @@
+
+
 # Access logging
+<a name="access-logging"></a>
 
-AWS Elemental MediaPackage v2 provides access logs that capture detailed information about requests sent to
-your channels. MediaPackage generates two log types:
+AWS Elemental MediaPackage v2 provides access logs that capture detailed information about requests sent to your channels. MediaPackage generates two log types:
++ Ingress access logs are for requests sent to the channel's input endpoints
++ Egress access logs are for requests sent to the channel's endpoints or packaging group's assets
 
-- Ingress access logs are for requests sent to the channel's input endpoints
-- Egress access logs are for requests sent to the channel's endpoints or packaging
-  group's assets
-  Each log contains information such as the time the request was received, the client's IP
-  address, latencies, request paths, and server responses. You can use these access logs to
-  analyze service performance and troubleshoot issues. They can also help you learn about your
-  customer base and understand your MediaPackage bill.
+Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze service performance and troubleshoot issues. They can also help you learn about your customer base and understand your MediaPackage bill.
 
-Access logging is an optional feature of MediaPackage that's disabled by default. After you
-enable access logging, MediaPackage captures the logs and sends them to a destination. Amazon CloudWatch
-vending log charges apply. For more information, see [CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/#Vended_Logs "https://aws.amazon.com/cloudwatch/pricing/#Vended_Logs").
+Access logging is an optional feature of MediaPackage that's disabled by default. After you enable access logging, MediaPackage captures the logs and sends them to a destination. Amazon CloudWatch vending log charges apply. For more information, see [CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/#Vended_Logs).
 
-###### Topics
-
-- [Permissions](#permissions "#permissions")
-- [Enable access logging](#enable-access-logging "#enable-access-logging")
-- [Manage and disable access logging](#disable-access-logging "#disable-access-logging")
-- [Read access logs](#read-access-logs "#read-access-logs")
+**Topics**
++ [Permissions](#permissions)
++ [Enable access logging](#enable-access-logging)
++ [Manage and disable access logging](#disable-access-logging)
++ [Read access logs](#read-access-logs)
 
 ## Permissions
+<a name="permissions"></a>
 
-MediaPackage uses CloudWatch vended logs to deliver access logging. To deliver access logs, you
-need permissions to the logging destination that you specify.
+MediaPackage uses CloudWatch vended logs to deliver access logging. To deliver access logs, you need permissions to the logging destination that you specify. 
 
-To see the required permissions for each logging destination, choose from the
-following AWS services in the _Amazon CloudWatch Logs User
-Guide_.
+To see the required permissions for each logging destination, choose from the following AWS services in the *Amazon CloudWatch Logs User Guide*.
++ [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-logs-infrastructure-V2-CloudWatchLogs)
++ [Amazon Simple Storage Service (Amazon S3)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-logs-infrastructure-V2-S3)
++ [Amazon Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-logs-infrastructure-V2-Firehose)
 
-- [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-V2-CloudWatchLogs "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-V2-CloudWatchLogs")
-- [Amazon Simple Storage Service (Amazon S3)](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-V2-S3 "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-V2-S3")
-- [Amazon Data Firehose](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-V2-Firehose "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-V2-Firehose")
+To create, view, or modify logging configuration in MediaPackage, you must have the required permissions. Your IAM role must include the following minimum permissions to manage access logging in the MediaPackage console.
 
-To create, view, or modify logging configuration in MediaPackage, you must have the required
-permissions. Your IAM role must include the following minimum permissions to manage
-access logging in the MediaPackage console.
+------
+#### [ JSON ]
 
-JSON
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "ServiceLevelAccessForLogDelivery",
- "Effect": "Allow",
- "Action": [
- "logs:CreateLogGroup",
- "logs:CreateLogStream",
- "logs:PutLogEvents"
- ],
- "Resource": "arn:aws:mediapackagev2:`us-east-1`:123456789012:channelGroup/*"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "ServiceLevelAccessForLogDelivery",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:mediapackagev2:{{us-east-1}}:123456789012:channelGroup/*"
+        }
+    ]
+}
 ```
 
-For more information about permissions to manage access logging, see [Enable logging
-from AWS services](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") in the _Amazon CloudWatch Logs User Guide_.
+------
+
+For more information about permissions to manage access logging, see [Enable logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html) in the *Amazon CloudWatch Logs User Guide*. 
 
 ## Enable access logging
+<a name="enable-access-logging"></a>
 
-After you set up permissions to the logging destination, you can enable access logging
-for MediaPackage.
+After you set up permissions to the logging destination, you can enable access logging for MediaPackage.
 
 For each log type, you can configure up to 3 log deliveries.
 
-###### To enable access logs for an existing channel (console)
+**To enable access logs for an existing channel (console)**
 
-1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
-2. Select your channel group from the list of channel groups.
-3. Under **Access Logging**, do the following:
+1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/).
 
-   1. For **Log deliveries – Egress Access Logs** or
-      **Log deliveries – Ingress Access Logs**,
-      choose **Add**, and then do the following:
-   2. Choose one of the following logging destinations.
+1. Select your channel group from the list of channel groups.
 
-      - Amazon CloudWatch Logs
-      - Amazon S3
-      - Firehose
+1. Under **Access Logging**, do the following:
 
-   ###### Tip
+   1. For **Log deliveries – Egress Access Logs** or **Log deliveries – Ingress Access Logs**, choose **Add**, and then do the following:
 
-        * If you choose Amazon S3 or Firehose, you can deliver your logs to
-         a **Cross account** or **In current
-         account**.
-        * To enable cross-account delivery, both AWS accounts must
-         have the required permissions. For more information, see the
-         [Cross-account delivery example](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#vended-logs-crossaccount-example "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#vended-logs-crossaccount-example") in the
-         *Amazon CloudWatch Logs User Guide*.
+   1. Choose one of the following logging destinations.
+      + Amazon CloudWatch Logs
+      + Amazon S3
+      + Firehose
+**Tip**  
+If you choose Amazon S3 or Firehose, you can deliver your logs to a **Cross account** or **In current account**.
+To enable cross-account delivery, both AWS accounts must have the required permissions. For more information, see the [Cross-account delivery example](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#vended-logs-crossaccount-example) in the *Amazon CloudWatch Logs User Guide*.
 
-4. For the **Delivery destination ARN**, choose or enter the
-   ARN. If you don't have one already, follow the prompts to create one.
-5. For **Additional settings - _optional_**,
-   choose the following:
+1. For the **Delivery destination ARN**, choose or enter the ARN. If you don't have one already, follow the prompts to create one.
 
-   1. For **Field selection**, select the log fields to
-      include in each log record.
-   2. For **Output format**, choose the output format for
-      the log.
-   3. For **Field delimiter**, choose how to separate each
-      log field.
-   4. (Amazon S3) For **Suffix**, specify the suffix path to
-      partition your data. You can use the following fields: {accountid},
-      {region}, {channel\_group\_id}, {yyyy}, {MM}, {dd}, {HH}
-   5. (Amazon S3) For **Hive-compatible**, choose
-      **Enable** if you want to use Hive-compatible S3
-      paths.
+1. For **Additional settings - *optional***, choose the following:
 
-6. To apply your changes to all log types, choose **Apply to all log
-   types**.
-7. To create another log destination, repeat steps 3 – 5.
-8. Follow the prompts to update your channel group.
+   1. For **Field selection**, select the log fields to include in each log record.
 
-You can also use the CloudWatch API to enable access logs for your channel groups.
+   1. For **Output format**, choose the output format for the log.
 
-###### To enable access logs for an existing channel (API)
+   1. For **Field delimiter**, choose how to separate each log field.
 
-1. After you a create a channel group by using either the MediaPackage v2 API or the
-   MediaPackage v2 console, get the Amazon Resource Name (ARN) of the channel group.
+   1. (Amazon S3) For **Suffix**, specify the suffix path to partition your data. You can use the following fields: {accountid}, {region}, {channel\_group\_id}, {yyyy}, {MM}, {dd}, {HH}
 
-You can find the ARN from the **Channel groups** page in the
-MediaPackage console or you can use the [GetChannel](../APIReference/API_GetChannel.md "../APIReference/API_GetChannel.md") API operation. A channel group ARN
-follows this format:
-`arn:aws:mediapackagev2:`region`:`123456789012`:`channelGroup`/`channelGroupName`` 2. Next, use the CloudWatch [PutDeliverySource](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.md") API operation to create a delivery source for the
-channel group.
+   1. (Amazon S3) For **Hive-compatible**, choose **Enable** if you want to use Hive-compatible S3 paths.
 
-    1. Pass the `resourceArn`.
-    2. For `logType`, specify the type of logs that are collected:
+1. To apply your changes to all log types, choose **Apply to all log types**. 
 
+1. To create another log destination, repeat steps 3 – 5.
 
+1. Follow the prompts to update your channel group.
 
+You can also use the CloudWatch API to enable access logs for your channel groups. 
 
-    	* `EGRESS_ACCESS_LOGS` for requests sent to the endpoint or
-    	 asset
-    	* `INGRESS_ACCESS_LOGS` for requests sent to channel###### Example PutDeliverySource operation
+**To enable access logs for an existing channel (API)**
 
-```
-{
-    "logType": "EGRESS_ACCESS_LOGS",
-    "name": "my-channel-group-source",
-    "resourceArn": "arn:aws:mediapackagev2:`region`:`123456789012`:`channelGroup`/`channelGroupName`"
-}
-```
+1. After you a create a channel group by using either the MediaPackage v2 API or the MediaPackage v2 console, get the Amazon Resource Name (ARN) of the channel group. 
 
-3. Use the [PutDeliveryDestination](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md") API operation to
-   configure where to store your logs. You can choose either CloudWatch Logs, Amazon S3, or Firehose
-   as the destination. You must specify the ARN of one of the destination options
-   for where your logs will be stored. You can choose the `outputFormat`
-   of the logs to be one of the following: json, plain, w3c, raw, parquet.
+   You can find the ARN from the **Channel groups** page in the MediaPackage console or you can use the [GetChannel](https://docs.aws.amazon.com/mediapackage/latest/APIReference/API_GetChannel.html) API operation. A channel group ARN follows this format: `arn:aws:mediapackagev2:{{region}}:{{123456789012}}:{{channelGroup}}/{{channelGroupName}}` 
 
-The following is an example of configuring logs to store in an Amazon S3 bucket and
-in JSON format.
+1. Next, use the CloudWatch [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html) API operation to create a delivery source for the channel group. 
 
-```
-{
-   "deliveryDestinationConfiguration": {
-      "destinationResourceArn": "arn:aws:s3:::`amzn-s3-demo-bucket-name`"
-   },
-   "name": "string",
-   "outputFormat": "json",
-   "tags": {
-      "key" : "value"
+   1. Pass the `resourceArn`. 
+
+   1. For `logType`, specify the type of logs that are collected: 
+      + `EGRESS_ACCESS_LOGS` for requests sent to the endpoint or asset
+      + `INGRESS_ACCESS_LOGS` for requests sent to channel  
+**Example PutDeliverySource operation**  
+
+   ```
+   {
+       "logType": "EGRESS_ACCESS_LOGS",
+       "name": "my-channel-group-source",
+       "resourceArn": "arn:aws:mediapackagev2:{{region}}:{{123456789012}}:{{channelGroup}}/{{channelGroupName}}"
    }
-}
-```
+   ```
 
-###### Note
+1. Use the [PutDeliveryDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html) API operation to configure where to store your logs. You can choose either CloudWatch Logs, Amazon S3, or Firehose as the destination. You must specify the ARN of one of the destination options for where your logs will be stored. You can choose the `outputFormat` of the logs to be one of the following: json, plain, w3c, raw, parquet. 
 
-If you're delivering logs cross-account, you must use the
-`PutDeliveryDestinationPolicy` API to assign an AWS Identity and Access Management
-(IAM) policy to the destination account. The IAM policy allows delivery
-from one account to another account. 4. Use the [CreateDelivery](../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.md") API operation to link the
-delivery source to the destination that you created in the previous steps. This
-API operation associates the delivery source with the end destination.
+   The following is an example of configuring logs to store in an Amazon S3 bucket and in JSON format.
 
-```
-{
-   "deliveryDestinationArn": "string",
-   "deliverySourceName": "string",
-   "tags": {
-      "string" : "string"
+   ```
+   {
+      "deliveryDestinationConfiguration": { 
+         "destinationResourceArn": "arn:aws:s3:::{{amzn-s3-demo-bucket-name}}"
+      },
+      "name": "string",
+      "outputFormat": "json",
+      "tags": { 
+         "key" : "value" 
+      }
    }
-}
-```
+   ```
+**Note**  
+If you're delivering logs cross-account, you must use the `PutDeliveryDestinationPolicy` API to assign an AWS Identity and Access Management (IAM) policy to the destination account. The IAM policy allows delivery from one account to another account.
+
+1. Use the [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html) API operation to link the delivery source to the destination that you created in the previous steps. This API operation associates the delivery source with the end destination.
+
+   ```
+   {
+      "deliveryDestinationArn": "string",
+      "deliverySourceName": "string",
+      "tags": { 
+         "string" : "string" 
+      }
+   }
+   ```
 
 ## Manage and disable access logging
+<a name="disable-access-logging"></a>
 
 Follow these procedures to manage or disable access logging for MediaPackage.
 
-###### To manage access logging for a channel (console)
+**To manage access logging for a channel (console)**
 
-1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
-2. Select your channel group from the list of channel groups.
-3. In the **Access Logging** section, select the destination and
-   choose **Edit**.
-4. Modify the log configuration as needed and then choose **Update**.
+1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/).
 
-###### Note
+1. Select your channel group from the list of channel groups.
 
-You can't modify the logging destination. If you need to change the
-logging destination, delete the current configuration and create a new
-logging destination.
+1. In the **Access Logging** section, select the destination and choose **Edit**.
 
-You can disable access logs for your MediaPackage channel at any
-time.
+1. Modify the log configuration as needed and then choose **Update**.
+**Note**  
+You can't modify the logging destination. If you need to change the logging destination, delete the current configuration and create a new logging destination.
 
-###### To disable access logging for a channel (console)
+You can disable access logs for your MediaPackage channel at any time.
 
-1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
-2. Select your channel group from the list of channel groups.
-3. In the **Access Logging** section, select the destination to
-   disable and choose **Remove**.
-4. Review your changes and then choose **Delete**.
+**To disable access logging for a channel (console)**
+
+1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/).
+
+1. Select your channel group from the list of channel groups.
+
+1. In the **Access Logging** section, select the destination to disable and choose **Remove**.
+
+1. Review your changes and then choose **Delete**.
 
 ## Read access logs
+<a name="read-access-logs"></a>
 
 MediaPackage v2 uses ingestion hub to deliver your access logs.
 
-If you're using CloudWatch Logs as the destination, you can use CloudWatch Logs Insights to read the
-access logs. Typical CloudWatch Logs charges apply. For more information, see [Analyzing Log Data with CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md") in the _AWS CloudWatch Logs
-User Guide_.
+ If you're using CloudWatch Logs as the destination, you can use CloudWatch Logs Insights to read the access logs. Typical CloudWatch Logs charges apply. For more information, see [Analyzing Log Data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html) in the *AWS CloudWatch Logs User Guide*.
 
-###### Note
-
-Access logs can take a few minutes to appear in your destination. If you don't see
-the logs, wait a few minutes and try again.
+**Note**  
+Access logs can take a few minutes to appear in your destination. If you don't see the logs, wait a few minutes and try again.
 
 ### Access log format
+<a name="access-log-format"></a>
 
-The access log files consist of a sequence of formatted log records, where each
-log record represents one request. The order of the fields within the log can vary.
+The access log files consist of a sequence of formatted log records, where each log record represents one request. The order of the fields within the log can vary. 
 
-###### Example: Ingress access log
+**Example: Ingress access log**  
 
 ```
 {
@@ -263,7 +227,7 @@ log record represents one request. The order of the fields within the log can va
 }
 ```
 
-###### Example: Egress access log
+**Example: Egress access log**  
 
 ```
 {
@@ -294,141 +258,93 @@ log record represents one request. The order of the fields within the log can va
 
 The following list describes the log record fields, in order:
 
-**event\_timestamp**
+**event\_timestamp**  
+The time of day when the request was received. The value is `ISO-8601` date time and is based on the system clock of the host that served the request.
 
-The time of day when the request was received. The value is
-`ISO-8601` date time and is based on the system clock of
-the host that served the request.
+**resource\_arn**  
+The Amazon Resource Name (ARN) of the channel group that received the request.
 
-**resource\_arn**
-
-The Amazon Resource Name (ARN) of the channel group that received the
-request.
-
-**client\_ip**
-
+**client\_ip**  
 The IP address of the requesting client.
 
-**time\_to\_first\_byte**
+**time\_to\_first\_byte**  
+ The number of seconds that MediaPackage spent processing your request. This value is measured from the time the last byte of your request was received until the time the first byte of the response was sent. 
 
-The number of seconds that MediaPackage spent processing your request. This
-value is measured from the time the last byte of your request was
-received until the time the first byte of the response was sent.
-
-**status\_code**
-
+**status\_code**  
 The numeric HTTP status code of the response.
 
-**received\_bytes**
+**received\_bytes**  
+The number of bytes in the request body that the MediaPackage server receives.
 
-The number of bytes in the request body that the MediaPackage server
-receives.
+**sent\_bytes**  
+The number of bytes in the response body that the MediaPackage server sends. This value often is the same as the value of the `Content-Length` header that's included with server responses.
 
-**sent\_bytes**
+**method**  
+The HTTP request method that was used for the request: DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT.
 
-The number of bytes in the response body that the MediaPackage server sends.
-This value often is the same as the value of the
-`Content-Length` header that's included with server
-responses.
-
-**method**
-
-The HTTP request method that was used for the request: DELETE, GET,
-HEAD, OPTIONS, PATCH, POST, or PUT.
-
-**request**
-
+**request**  
 The request URL.
 
-**protocol**
-
+**protocol**  
 The type of protocol used for the request, such as HTTP.
 
-**user\_agent**
+**user\_agent**  
+A user-agent string that identifies the client that originated the request, enclosed in double quotes. The string consists of one or more product identifiers, product/version. If the string is longer than 8 KB, it is truncated.
 
-A user-agent string that identifies the client that originated the
-request, enclosed in double quotes. The string consists of one or more
-product identifiers, product/version. If the string is longer than 8 KB,
-it is truncated.
+**account**  
+The AWS account ID of the account that was used to make the request.
 
-**account**
-
-The AWS account ID of the account that was used to make the
-request.
-
-**channel\_id**
-
+**channel\_id**  
 The ID of the channel that received the request.
 
-**channel\_arn**
+**channel\_arn**  
+The Amazon Resource Name (ARN) of the channel that received the request.
 
-The Amazon Resource Name (ARN) of the channel that received the
-request.
+**domain\_name**  
+The server name indication domain provided by the client during the TLS handshake, enclosed in double quotes. This value is set to `-` if the client doesn't support SNI or the domain doesn't match a certificate and the default certificate is presented to the client.
 
-**domain\_name**
+**request\_id**  
+A string that's generated by MediaPackage to uniquely identify each request.
 
-The server name indication domain provided by the client during the
-TLS handshake, enclosed in double quotes. This value is set to
-`-` if the client doesn't support SNI or the domain
-doesn't match a certificate and the default certificate is presented to
-the client.
-
-**request\_id**
-
-A string that's generated by MediaPackage to uniquely identify each
-request.
-
-**endpoint\_id**
-
+**endpoint\_id**  
 The ID of the endpoint that received the request.
 
-**endpoint\_arn**
+**endpoint\_arn**  
+The Amazon Resource Name (ARN) of the endpoint that received the request.
 
-The Amazon Resource Name (ARN) of the endpoint that received the
-request.
-
-**input\_type**
-
+**input\_type**  
 The ingest file formats and protocol.
 
-**input\_index**
-
+**input\_index**  
 The input source index.
 
-**manifest\_name**
+**manifest\_name**  
+The name of the egress request manifest request. Remains empty for segment egress request.
 
-The name of the egress request manifest request. Remains empty for
-segment egress request.
+**manifest\_type**  
+The type of the egress request manifest request. Remains empty for segment egress request.
 
-**manifest\_type**
-
-The type of the egress request manifest request. Remains empty for
-segment egress request.
-
-**request\_query\_params**
-
+**request\_query\_params**  
 The manifest filtering query parameter names and values.
 
 ### Examples
+<a name="query-examples"></a>
 
-The following are queries that you can use to read MediaPackage debug log data.
+The following are queries that you can use to read MediaPackage debug log data. 
 
-###### Example View the HTTP status code responses for a channel
-
-Use this query to view the responses by HTTP status code for a channel. You
-can use this to view HTTP error code responses to help you to troubleshoot
-issues.
+**Example View the HTTP status code responses for a channel**  
+Use this query to view the responses by HTTP status code for a channel. You can use this to view HTTP error code responses to help you to troubleshoot issues.   
 
 ```
 fields @timestamp, @message
-                | filter `channelId` like `my-channel`
+                | filter {{channelId}} like {{my-channel}}
                 | stats count() by statusCode
 ```
 
-###### Example Get the number of requests per endpoint on a channel
+**Example Get the number of requests per endpoint on a channel**  
 
 ```
 fields @timestamp, @message
-                | filter `channelId` like `my-channel`
-                | stats count() by `endpointId`
+                | filter {{channelId}} like {{my-channel}}
+                | stats count() by {{endpointId}}
 ```

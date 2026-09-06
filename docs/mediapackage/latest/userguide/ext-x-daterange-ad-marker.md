@@ -1,76 +1,57 @@
+
+
 # HLS EXT-X-DATERANGE ad markers in AWS Elemental MediaPackage
+<a name="ext-x-daterange-ad-marker"></a>
 
-Daterange ad markers are used to signal ads and program transitions in live HLS
-manifests. When you enable daterange ad markers on your origin endpoint, MediaPackage inserts
-`EXT-X-DATERANGE` tags into the manifest where there are SCTE-35
-`time_signal` or `splice_insert` tags present.
-`EXT-X-DATERANGE` is used in concert with
-`EXT-X-PROGRAM-DATE-TIME` tags.
+Daterange ad markers are used to signal ads and program transitions in live HLS manifests. When you enable daterange ad markers on your origin endpoint, MediaPackage inserts `EXT-X-DATERANGE` tags into the manifest where there are SCTE-35 `time_signal` or `splice_insert` tags present. `EXT-X-DATERANGE` is used in concert with `EXT-X-PROGRAM-DATE-TIME` tags. 
 
-For information about the `EXT-X-DATERANGE` and
-`EXT-X-PROGRAM-DATE-TIME` tags for HLS, see the [HTTP Live Streaming 2nd Edition Specification](https://tools.ietf.org/html/draft-pantos-hls-rfc8216bis-07#section-4.4.5.1 "https://tools.ietf.org/html/draft-pantos-hls-rfc8216bis-07#section-4.4.5.1").
+ For information about the `EXT-X-DATERANGE` and `EXT-X-PROGRAM-DATE-TIME` tags for HLS, see the [HTTP Live Streaming 2nd Edition Specification](https://tools.ietf.org/html/draft-pantos-hls-rfc8216bis-07#section-4.4.5.1).
 
 The following table describes how to enable daterange ad markers in MediaPackage.
 
-Console
-To enable daterange ad markers when creating or editing an origin
-endpoint, in the MediaPackage console, under the HLS or LL-HLS manifest settings,
-**SCTE configuration**, **Ad
-markers**, choose **Daterange**.
+------
+#### [ Console ]
 
-If you choose daterange, you _must_ also enter a
-**Program date/time interval (sec.)** value of 1 or
-greater. The program date/time interval is set in the same manifest fields
-as the ad marker settings.
+To enable daterange ad markers when creating or editing an origin endpoint, in the MediaPackage console, under the HLS or LL-HLS manifest settings, **SCTE configuration**, **Ad markers**, choose **Daterange**.
 
-AWS CLI
-To enable daterange ad markers for your origin endpoint, run the following
-command in the AWS CLI replacing `region` with your
-own information:
+If you choose daterange, you *must* also enter a **Program date/time interval (sec.)** value of 1 or greater. The program date/time interval is set in the same manifest fields as the ad marker settings. 
+
+------
+#### [ AWS CLI ]
+
+To enable daterange ad markers for your origin endpoint, run the following command in the AWS CLI replacing {{region}} with your own information:
 
 ```
-
-  aws --endpoint=https://mediapackagev2.region.amazonaws.com mediapackage --region region create-origin-endpoint --channel-id test_channel --id hlsmuxed
+  aws --endpoint=https://mediapackagev2.{{region}}.amazonaws.com mediapackage --region {{region}} create-origin-endpoint --channel-id {{test_channel}} --id {{hlsmuxed}}
   --hls-package "{\"ProgramDateTimeIntervalSeconds\":60,\"AdMarkers\":\"DATERANGE\"}"
-
 ```
 
-###### Important
+**Important**  
+You must set a `ProgramDateTimeIntervalSeconds` value that's greater than 0 (zero).
 
-You must set a `ProgramDateTimeIntervalSeconds` value
-that's greater than 0 (zero).
+------
+#### [ API and SDK ]
 
-API and SDK
-To learn how to enable daterange ad markers for TS and CMAF origin
-endpoints via the MediaPackage live API or AWS SDK, see the following:
+ To learn how to enable daterange ad markers for TS and CMAF origin endpoints via the MediaPackage live API or AWS SDK, see the following: 
++ [MediaPackage Live API reference ](https://docs.aws.amazon.com/mediapackage/latest/apireference/origin_endpoints.html)
++ [AWS SDK](https://aws.amazon.com/getting-started/tools-sdks/)
 
-- [MediaPackage Live API reference](../apireference/origin_endpoints.md "../apireference/origin_endpoints.md")
-- [AWS
-  SDK](https://aws.amazon.com/getting-started/tools-sdks/ "https://aws.amazon.com/getting-started/tools-sdks/")
+------
 
 ## Enabling daterange via the MediaPackage API or AWS SDK
+<a name="enable-daterange-via-live-api-or-sdk"></a>
 
-To learn how to enable daterange ad markers for TS and CMAF origin endpoints via
-the MediaPackage live API or AWS SDK, see the following:
-
-- [MediaPackage Live
-  API reference](../apireference/origin_endpoints.md "../apireference/origin_endpoints.md")
-- [AWS
-  SDK](https://aws.amazon.com/getting-started/tools-sdks/ "https://aws.amazon.com/getting-started/tools-sdks/")
+ To learn how to enable daterange ad markers for TS and CMAF origin endpoints via the MediaPackage live API or AWS SDK, see the following: 
++ [MediaPackage Live API reference ](https://docs.aws.amazon.com/mediapackage/latest/apireference/origin_endpoints.html)
++ [AWS SDK](https://aws.amazon.com/getting-started/tools-sdks/)
 
 ## Example HLS manifest showing SCTE-35 EXT-X-DATERANGE signaling
+<a name="example"></a>
 
-This example shows a HLS manifest generated by MediaPackage using
-`EXT-X-DATERANGE` and `EXT-X-PROGRAM-DATE-TIME` tags to
-signal events in the live stream.
+This example shows a HLS manifest generated by MediaPackage using `EXT-X-DATERANGE` and `EXT-X-PROGRAM-DATE-TIME` tags to signal events in the live stream.
 
-###### Note
-
-The `DURATION`, `PLANNED-DURATION`, and
-`END-DATE` attributes of the `EXT-X-DATERANGE` tag are
-optional. If these attributes aren't present in the SCTE-35 input, or aren't set
-when you create your origin endpoint via the MediaPackage API, then they are omitted
-from the generated manifests.
+**Note**  
+The `DURATION`, `PLANNED-DURATION`, and `END-DATE` attributes of the `EXT-X-DATERANGE` tag are optional. If these attributes aren't present in the SCTE-35 input, or aren't set when you create your origin endpoint via the MediaPackage API, then they are omitted from the generated manifests.
 
 ```
 #EXTM3U

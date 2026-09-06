@@ -1,21 +1,14 @@
+
+
 # DASH manifest compactness
+<a name="compacted"></a>
 
-For some players, processing a manifest with duplicate data about each representation
-(track) is difficult and slow. To reduce some of the burden, AWS Elemental MediaPackage compacts the manifest
-by default. Compacting is achieved by moving some attributes from the
-`Representation` object to the `AdaptationSet` object. This way,
-rather than having the attributes defined for each representation in the manifest, they're
-defined once at a higher level. The representations then inherit these attributes from the
-adaptation set.
+For some players, processing a manifest with duplicate data about each representation (track) is difficult and slow. To reduce some of the burden, AWS Elemental MediaPackage compacts the manifest by default. Compacting is achieved by moving some attributes from the `Representation` object to the `AdaptationSet` object. This way, rather than having the attributes defined for each representation in the manifest, they're defined once at a higher level. The representations then inherit these attributes from the adaptation set.
 
-If you require an uncompacted manifest, you can set the [manifest compactness](endpoints-create.md#dash-manifest "endpoints-create.md#dash-manifest") on the DASH endpoint.
+If you require an uncompacted manifest, you can set the [manifest compactness](endpoints-create.md#dash-manifest) on the DASH endpoint. 
 
-###### Example standard DVB-DASH manifest (compacted)
-
-In this example, the `SegmentTemplate` objects and all of their elements
-are collapsed into one and moved to the `AdaptationSet`. The playback device
-understands that each representation in this adaptation set uses this same
-template:
+**Example standard DVB-DASH manifest (compacted)**  
+In this example, the `SegmentTemplate` objects and all of their elements are collapsed into one and moved to the `AdaptationSet`. The playback device understands that each representation in this adaptation set uses this same template:  
 
 ```
 <MPD id="0" profiles="urn:dvb:dash:profile:dvb-dash:2014,urn:dvb:dash:profile:dvb-dash:isoff-ext-live:2014" type="dynamic" minimumUpdatePeriod="PT2S" minBufferTime="PT5S" timeShiftBufferDepth="PT1M0.002S" suggestedPresentationDelay="PT10S" availabilityStartTime="2024-01-01T00:00:00.000000+00:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:mpeg:dash:schema:mpd:2011" xmlns:dvb="urn:dvb:dash-extensions:2014-1" xsi:schemaLocation="urn:mpeg:dash:schema:mpd:2011 http://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-DASH_schema_files/DASH-MPD.xsd" publishTime="2025-02-27T19:52:52.000491+00:00">
@@ -49,13 +42,8 @@ template:
 </MPD>
 ```
 
-###### Example full DASH manifest (uncompacted)
-
-In the following example, the `SegmentTemplate` object and all of its
-elements are listed in every `Representation.` If
-`ContentProtection` is configured, those values are also listed in each
-`Representation`. Each adaptation set in the manifest has this same
-layout:
+**Example full DASH manifest (uncompacted)**  
+In the following example, the `SegmentTemplate` object and all of its elements are listed in every `Representation.` If `ContentProtection` is configured, those values are also listed in each `Representation`. Each adaptation set in the manifest has this same layout:  
 
 ```
 <AdaptationSet mimeType="video/mp4" segmentAlignment="true" subsegmentAlignment="true" startWithSAP="1" subsegmentStartsWithSAP="1" bitstreamSwitching="true">
