@@ -1,41 +1,28 @@
-# Set up metrics ingestion from Amazon ECS using AWS Distro for Open Telemetry
 
-This section explains how to collect metrics from Amazon Elastic Container Service (Amazon ECS) and ingest
-them into Amazon Managed Service for Prometheus using AWS Distro for Open Telemetry (ADOT). It also describes
-how to visualize your metrics in Amazon Managed Grafana.
+
+# Set up metrics ingestion from Amazon ECS using AWS Distro for Open Telemetry
+<a name="AMP-onboard-ingest-metrics-OpenTelemetry-ECS"></a>
+
+This section explains how to collect metrics from Amazon Elastic Container Service (Amazon ECS) and ingest them into Amazon Managed Service for Prometheus using AWS Distro for Open Telemetry (ADOT). It also describes how to visualize your metrics in Amazon Managed Grafana.
 
 ## Prerequisites
+<a name="AMP-onboard-ingest-metrics-OpenTelemetry-ECS-prereq"></a>
 
-###### Important
-
-Before you begin, you must have an Amazon ECS environment on an AWS Fargate
-cluster with default settings, an Amazon Managed Service for Prometheus workspace, and an Amazon Managed Grafana
-workspace. We assume that you are familiar with container workloads,
-Amazon Managed Service for Prometheus, and Amazon Managed Grafana.
+**Important**  
+Before you begin, you must have an Amazon ECS environment on an AWS Fargate cluster with default settings, an Amazon Managed Service for Prometheus workspace, and an Amazon Managed Grafana workspace. We assume that you are familiar with container workloads, Amazon Managed Service for Prometheus, and Amazon Managed Grafana.
 
 For more information, see the following links:
-
-- For information about how to create an Amazon ECS environment on a
-  Fargate cluster with default settings, see [Creating a cluster](../../../AmazonECS/latest/developerguide/create_cluster.md "../../../AmazonECS/latest/developerguide/create_cluster.md") in the _Amazon ECS Developer
-  Guide_.
-- For information about how to create an Amazon Managed Service for Prometheus workspace, see [Create a workspace](AMP-onboard-create-workspace.md "AMP-onboard-create-workspace.md") in the _Amazon Managed Service for Prometheus User
-  Guide_.
-- For information about how to create an Amazon Managed Grafana workspace, see [Creating a workspace](../../../grafana/latest/userguide/AMG-create-workspace.md "../../../grafana/latest/userguide/AMG-create-workspace.md") in the _Amazon Managed Grafana User
-  Guide_.
++ For information about how to create an Amazon ECS environment on a Fargate cluster with default settings, see [Creating a cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) in the *Amazon ECS Developer Guide*.
++ For information about how to create an Amazon Managed Service for Prometheus workspace, see [Create a workspace](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html) in the *Amazon Managed Service for Prometheus User Guide*.
++ For information about how to create an Amazon Managed Grafana workspace, see [Creating a workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-create-workspace.html) in the *Amazon Managed Grafana User Guide*.
 
 ## Step 1: Define a custom ADOT collector container image
+<a name="AMP-onboard-ingest-metrics-OpenTelemetry-ECS-create"></a>
 
-Use the following config file as a template to define your own ADOT collector
-container image. Replace `my-remote-URL` and
-`my-region` with your `endpoint` and
-`region` values. Save the config in a file called
-_adot-config.yaml_.
+Use the following config file as a template to define your own ADOT collector container image. Replace {{my-remote-URL}} and {{my-region}} with your `endpoint` and `region` values. Save the config in a file called *adot-config.yaml*.
 
-###### Note
-
-This configuration uses the `sigv4auth` extension to
-authenticate calls to Amazon Managed Service for Prometheus. For more information about configuring
-`sigv4auth`, see [Authenticator - Sigv4](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension/sigv4authextension "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension/sigv4authextension") on GitHub.
+**Note**  
+This configuration uses the `sigv4auth` extension to authenticate calls to Amazon Managed Service for Prometheus. For more information about configuring `sigv4auth`, see [Authenticator - Sigv4](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension/sigv4authextension) on GitHub.
 
 ```
 receivers:
@@ -66,7 +53,7 @@ processors:
           - ecs.task.storage.write_bytes
 exporters:
   prometheusremotewrite:
-    endpoint: `my-remote-URL`
+    endpoint: {{my-remote-URL}}
     auth:
       authenticator: sigv4auth
   logging:
@@ -78,7 +65,7 @@ extensions:
   zpages:
     endpoint: :55679
   sigv4auth:
-    region: `my-region`
+    region: {{my-region}}
     service: aps
 service:
   extensions: [pprof, zpages, health_check, sigv4auth]
@@ -93,77 +80,61 @@ service:
 ```
 
 ## Step 2: Push your ADOT collector container image to an Amazon ECR repository
+<a name="AMP-onboard-ingest-metrics-OpenTelemetry-ECS-push"></a>
 
-Use a Dockerfile to create and push your container image to an Amazon Elastic Container Registry (ECR)
-repository.
+Use a Dockerfile to create and push your container image to an Amazon Elastic Container Registry (ECR) repository.
 
-1. Build the Dockerfile to copy and add your container image to the OTEL
-   Docker image.
+1. Build the Dockerfile to copy and add your container image to the OTEL Docker image.
 
-```
-FROM public.ecr.aws/aws-observability/aws-otel-collector:latest
-COPY adot-config.yaml /etc/ecs/otel-config.yaml
-CMD ["--config=/etc/ecs/otel-config.yaml"]
-```
+   ```
+   FROM public.ecr.aws/aws-observability/aws-otel-collector:latest
+   COPY adot-config.yaml /etc/ecs/otel-config.yaml
+   CMD ["--config=/etc/ecs/otel-config.yaml"]
+   ```
 
-2. Create an Amazon ECR repository.
+1. Create an Amazon ECR repository.
 
-```
-# create repo:
-COLLECTOR_REPOSITORY=$(aws ecr create-repository --repository aws-otel-collector \
-                               --query repository.repositoryUri --output text)
-```
+   ```
+   # create repo:
+   COLLECTOR_REPOSITORY=$(aws ecr create-repository --repository aws-otel-collector \ 
+                                  --query repository.repositoryUri --output text)
+   ```
 
-3. Create your container image.
+1. Create your container image.
 
-```
-# build ADOT collector image:
-docker build -t $COLLECTOR_REPOSITORY:ecs .
-```
+   ```
+   # build ADOT collector image:
+   docker build -t $COLLECTOR_REPOSITORY:ecs .
+   ```
+**Note**  
+This assumes you are building your container in the same environment that it will run in. If not, you may need to use the `--platform` parameter when building the image.
 
-###### Note
+1. Sign in to the Amazon ECR repository. Replace {{my-region}} with your `region` value.
 
-This assumes you are building your container in the same
-environment that it will run in. If not, you may need to use the
-`--platform` parameter when building the
-image. 4. Sign in to the Amazon ECR repository. Replace
-`my-region` with your `region`
-value.
+   ```
+   # sign in to repo:
+   aws ecr get-login-password --region {{my-region}} | \
+           docker login --username AWS --password-stdin $COLLECTOR_REPOSITORY
+   ```
 
-```
-# sign in to repo:
-aws ecr get-login-password --region `my-region` | \
-        docker login --username AWS --password-stdin $COLLECTOR_REPOSITORY
-```
+1. Push your container image.
 
-5. Push your container image.
-
-```
-# push ADOT collector image:
-docker push $COLLECTOR_REPOSITORY:ecs
-```
+   ```
+   # push ADOT collector image:
+   docker push $COLLECTOR_REPOSITORY:ecs
+   ```
 
 ## Step 3: Create an Amazon ECS task definition to scrape Amazon Managed Service for Prometheus
+<a name="AMP-onboard-ingest-metrics-OpenTelemetry-ECS-task"></a>
 
-Create an Amazon ECS task definition to scrape Amazon Managed Service for Prometheus. Your task definition
-should include a container named `adot-collector` and a container
-named `prometheus`. `prometheus` generates metrics, and
-`adot-collector` scrapes `prometheus`.
+Create an Amazon ECS task definition to scrape Amazon Managed Service for Prometheus. Your task definition should include a container named `adot-collector` and a container named `prometheus`. `prometheus` generates metrics, and `adot-collector` scrapes `prometheus`.
 
-###### Note
-
-Amazon Managed Service for Prometheus runs as a service, collecting metrics from containers. The
-containers in this case run Prometheus locally, in Agent mode, which send
-the local metrics to Amazon Managed Service for Prometheus.
+**Note**  
+Amazon Managed Service for Prometheus runs as a service, collecting metrics from containers. The containers in this case run Prometheus locally, in Agent mode, which send the local metrics to Amazon Managed Service for Prometheus.
 
 **Example: Task definition**
 
-The following is an example of how your task definition might look. You can
-use this example as a template to create your own task definition. Replace the
-`image` value of `adot-collector` with your repository
-URL and image tag (`$COLLECTOR_REPOSITORY:ecs`). Replace the
-`region` values of `adot-collector` and
-`prometheus` with your `region` values.
+The following is an example of how your task definition might look. You can use this example as a template to create your own task definition. Replace the `image` value of `adot-collector` with your repository URL and image tag (`$COLLECTOR_REPOSITORY:ecs`). Replace the `region` values of `adot-collector` and `prometheus` with your `region` values.
 
 ```
 {
@@ -172,13 +143,13 @@ URL and image tag (`$COLLECTOR_REPOSITORY:ecs`). Replace the
   "containerDefinitions": [
     {
       "name": "adot-collector",
-      "image": "`account_id`.dkr.ecr.`region`.amazonaws.com/`image-tag`",
+      "image": "{{account_id}}.dkr.ecr.{{region}}.amazonaws.com/{{image-tag}}",
       "essential": true,
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
           "awslogs-group": "/ecs/ecs-adot-collector",
-          "awslogs-region": "`my-region`",
+          "awslogs-region": "{{my-region}}",
           "awslogs-stream-prefix": "ecs",
           "awslogs-create-group": "True"
         }
@@ -191,7 +162,7 @@ URL and image tag (`$COLLECTOR_REPOSITORY:ecs`). Replace the
         "logDriver": "awslogs",
         "options": {
           "awslogs-group": "/ecs/ecs-prom",
-          "awslogs-region": "`my-region`",
+          "awslogs-region": "{{my-region}}",
           "awslogs-stream-prefix": "ecs",
           "awslogs-create-group": "True"
         }
@@ -206,30 +177,22 @@ URL and image tag (`$COLLECTOR_REPOSITORY:ecs`). Replace the
 ```
 
 ## Step 4: Give your task permissions to access Amazon Managed Service for Prometheus
+<a name="AMP-onboard-ingest-metrics-OpenTelemetry-ECS-attach"></a>
 
-To send the scraped metrics to Amazon Managed Service for Prometheus, your Amazon ECS task must have the
-correct permissions to call the AWS API operations for you. You must create an
-IAM role for your tasks and attach the
-`AmazonPrometheusRemoteWriteAccess` policy to it. For more
-information about creating this role and attaching the policy, see [Creating an IAM role and policy for your tasks](../../../AmazonECS/latest/developerguide/task-iam-roles.md#create_task_iam_policy_and_role "../../../AmazonECS/latest/developerguide/task-iam-roles.md#create_task_iam_policy_and_role").
+To send the scraped metrics to Amazon Managed Service for Prometheus, your Amazon ECS task must have the correct permissions to call the AWS API operations for you. You must create an IAM role for your tasks and attach the `AmazonPrometheusRemoteWriteAccess` policy to it. For more information about creating this role and attaching the policy, see [Creating an IAM role and policy for your tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html#create_task_iam_policy_and_role).
 
-After you attach `AmazonPrometheusRemoteWriteAccess` to your IAM
-role, and use that role for your tasks, Amazon ECS can send your scraped metrics to
-Amazon Managed Service for Prometheus.
+After you attach `AmazonPrometheusRemoteWriteAccess` to your IAM role, and use that role for your tasks, Amazon ECS can send your scraped metrics to Amazon Managed Service for Prometheus.
 
 ## Step 5: Visualize your metrics in Amazon Managed Grafana
+<a name="AMP-onboard-ingest-metrics-OpenTelemetry-ECS-vis"></a>
 
-###### Important
+**Important**  
+Before you begin, you must run a Fargate task on your Amazon ECS task definition. Otherwise, Amazon Managed Service for Prometheus can't consume your metrics.
 
-Before you begin, you must run a Fargate task on your Amazon ECS task
-definition. Otherwise, Amazon Managed Service for Prometheus can't consume your metrics.
+1. From the navigation pane in your Amazon Managed Grafana workspace, choose **Data sources** under the AWS icon.
 
-1. From the navigation pane in your Amazon Managed Grafana workspace, choose
-   **Data sources** under the AWS icon.
-2. On the **Data sources** tab, for
-   **Service**, select **Amazon Managed
-   Service for Prometheus** and choose your **Default
-   Region**.
-3. Choose **Add data source**.
-4. Use the `ecs` and `prometheus` prefixes to query
-   and view your metrics.
+1. On the **Data sources** tab, for **Service**, select **Amazon Managed Service for Prometheus** and choose your **Default Region**.
+
+1. Choose **Add data source**.
+
+1. Use the `ecs` and `prometheus` prefixes to query and view your metrics.

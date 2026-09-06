@@ -1,11 +1,13 @@
+
+
 # Troubleshooting Ruler
+<a name="Troubleshooting-rule-fail-error"></a>
 
-Using [Monitor Amazon Managed Service for Prometheus events with CloudWatch Logs](CW-logs.md "CW-logs.md"), you can troubleshoot Alert
-Manager and Ruler related issues. This section contains ruler related troubleshooting
-topics.
+Using [Monitor Amazon Managed Service for Prometheus events with CloudWatch Logs](CW-logs.md), you can troubleshoot Alert Manager and Ruler related issues. This section contains ruler related troubleshooting topics. 
 
-**When the log contains the following ruler failure
-error**
+**
+
+**When the log contains the following ruler failure error**
 
 ```
 {
@@ -19,10 +21,9 @@ error**
     },
     "component": "ruler"
 }
-
 ```
 
-This means that some error occurred while executing the rule.
+This means that some error occurred while executing the rule. 
 
 **Action to take**
 

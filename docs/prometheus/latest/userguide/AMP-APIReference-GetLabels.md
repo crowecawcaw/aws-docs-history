@@ -1,44 +1,33 @@
+
+
 # GetLabels
+<a name="AMP-APIReference-GetLabels"></a>
 
-The `GetLabels` operation retrieves the labels associated with a time
-series.
+The `GetLabels` operation retrieves the labels associated with a time series.
 
-Valid HTTP verbs:
-
+Valid HTTP verbs:  
 `GET`, `POST`
 
-Valid URIs:
+Valid URIs:  
+`/workspaces/{{workspaceId}}/api/v1/labels`  
+`/workspaces/{{workspaceId}}/api/v1/label/{{label-name}}/values` This URI supports only GET requests.
 
-`/workspaces/`workspaceId`/api/v1/labels`
+URL query parameters:  
+`match[]=<series_selector>` Repeated series selector argument that selects the series from which to read the label names. Optional.  
+`start=<rfc3339 | unix_timestamp>` Start timestamp. Optional.  
+`end=<rfc3339 | unix_timestamp>` End timestamp. Optional.
 
-`/workspaces/`workspaceId`/api/v1/label/`label-name`/values`
-This URI supports only GET requests.
-
-URL query parameters:
-
-`match[]=<series_selector>` Repeated series selector
-argument that selects the series from which to read the label names.
-Optional.
-
-`start=<rfc3339 | unix_timestamp>` Start timestamp.
-Optional.
-
-`end=<rfc3339 | unix_timestamp>` End timestamp.
-Optional.
-
-**Sample request for
-`/workspaces/workspaceId/api/v1/labels`**
+**Sample request for `/workspaces/workspaceId/api/v1/labels`**
 
 ```
 GET /workspaces/ws-b226cc2a-a446-46a9-933a-ac50479a5568/api/v1/labels HTTP/1.1
-Content-Length: 0,
+Content-Length: 0, 
 Authorization: AUTHPARAMS
 X-Amz-Date: 20201201T193725Z
 User-Agent: Grafana/8.1.0
 ```
 
-**Sample response for
-`/workspaces/workspaceId/api/v1/labels`**
+**Sample response for `/workspaces/workspaceId/api/v1/labels`**
 
 ```
 HTTP/1.1 200 OK
@@ -76,19 +65,17 @@ vary: Origin
 }
 ```
 
-**Sample request for
-`/workspaces/workspaceId/api/v1/label/label-name/values`**
+**Sample request for `/workspaces/workspaceId/api/v1/label/label-name/values`**
 
 ```
 GET /workspaces/ws-b226cc2a-a446-46a9-933a-ac50479a5568/api/v1/label/access_mode/values HTTP/1.1
-Content-Length: 0,
+Content-Length: 0, 
 Authorization: AUTHPARAMS
 X-Amz-Date: 20201201T193725Z
 User-Agent: Grafana/8.1.0
 ```
 
-**Sample response for
-`/workspaces/workspaceId/api/v1/label/label-name/values`**
+**Sample response for `/workspaces/workspaceId/api/v1/label/label-name/values`**
 
 ```
 HTTP/1.1 200 OK

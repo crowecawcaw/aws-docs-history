@@ -1,33 +1,27 @@
+
+
 # GetMetricMetadata
+<a name="AMP-APIReference-GetMetricMetadata"></a>
 
-The `GetMetricMetadata` operation retrieves metadata about metrics that are
-currently being scraped from targets. It does not provide any target information.
+The `GetMetricMetadata` operation retrieves metadata about metrics that are currently being scraped from targets. It does not provide any target information.
 
-The data section of the query result consists of an object where each key is a metric
-name and each value is a list of unique metadata objects, as exposed for that metric
-name across all targets.
+The data section of the query result consists of an object where each key is a metric name and each value is a list of unique metadata objects, as exposed for that metric name across all targets.
 
-Valid HTTP verbs:
-
+Valid HTTP verbs:  
 `GET`
 
-Valid URIs:
+Valid URIs:  
+`/workspaces/{{workspaceId}}/api/v1/metadata`
 
-`/workspaces/`workspaceId`/api/v1/metadata`
-
-URL query parameters:
-
-`limit=<number>` The maximum number of metrics to
-return.
-
-`metric=<string>` A metric name to filter metadata for.
-If you keep this empty, all metric metadata is retrieved.
+URL query parameters:  
+`limit=<number>` The maximum number of metrics to return.  
+`metric=<string>` A metric name to filter metadata for. If you keep this empty, all metric metadata is retrieved.
 
 **Sample request**
 
 ```
 GET /workspaces/ws-b226cc2a-a446-46a9-933a-ac50479a5568/api/v1/metadata HTTP/1.1
-Content-Length: 0,
+Content-Length: 0, 
 Authorization: AUTHPARAMS
 X-Amz-Date: 20201201T193725Z
 User-Agent: Grafana/8.1.0

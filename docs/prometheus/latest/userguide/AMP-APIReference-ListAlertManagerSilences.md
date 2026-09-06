@@ -1,26 +1,24 @@
+
+
 # ListAlertManagerSilences
+<a name="AMP-APIReference-ListAlertManagerSilences"></a>
 
-The `ListAlertManagerSilences` operation retrieves information about the
-alert silences configured in the workspace.
+The `ListAlertManagerSilences` operation retrieves information about the alert silences configured in the workspace.
 
-Valid HTTP verbs:
-
+Valid HTTP verbs:  
 `GET`
 
-Valid URIs:
+Valid URIs:  
+`/workspaces/{{workspaceId}}/alertmanager/api/v2/silences`
 
-`/workspaces/`workspaceId`/alertmanager/api/v2/silences`
-
-URL query parameters:
-
-`filter` An array of strings. A list of matchers to filter
-silences by. Optional
+URL query parameters:  
+`filter` An array of strings. A list of matchers to filter silences by. Optional
 
 **Sample request**
 
 ```
 GET /workspaces/ws-58a6a446-5ec4-415b-9052-a449073bbd0a/alertmanager/api/v2/silences HTTP/1.1
-Content-Length: 0,
+Content-Length: 0, 
 Authorization: AUTHPARAMS
 X-Amz-Date: 20201201T193725Z
 User-Agent: Grafana/8.1.0

@@ -1,20 +1,18 @@
+
+
 # CreateAlertManagerAlerts
+<a name="AMP-APIReference-CreateAlertManagerAlerts"></a>
 
-The `CreateAlertManagerAlerts` operation creates an alert in the
-workspace.
+The `CreateAlertManagerAlerts` operation creates an alert in the workspace.
 
-Valid HTTP verbs:
-
+Valid HTTP verbs:  
 `POST`
 
-Valid URIs:
+Valid URIs:  
+`/workspaces/{{workspaceId}}/alertmanager/api/v2/alerts`
 
-`/workspaces/`workspaceId`/alertmanager/api/v2/alerts`
-
-URL query parameters:
-
-`alerts` An array of objects, where each object represents one
-alert. The following is an example of an alert object:
+URL query parameters:  
+`alerts` An array of objects, where each object represents one alert. The following is an example of an alert object:  
 
 ```
 [
@@ -40,7 +38,7 @@ alert. The following is an example of an alert object:
 
 ```
 POST /workspaces/ws-b226cc2a-a446-46a9-933a-ac50479a5568/alertmanager/api/v2/alerts HTTP/1.1
-Content-Length: 203,
+Content-Length: 203, 
 Authorization: AUTHPARAMS
 X-Amz-Date: 20201201T193725Z
 User-Agent: Grafana/8.1.0

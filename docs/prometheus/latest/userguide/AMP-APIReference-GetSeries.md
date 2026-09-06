@@ -1,33 +1,26 @@
+
+
 # GetSeries
+<a name="AMP-APIReference-GetSeries"></a>
 
-The `GetSeries` operation retrieves list of time series that match a
-certain label set.
+The `GetSeries` operation retrieves list of time series that match a certain label set.
 
-Valid HTTP verbs:
-
+Valid HTTP verbs:  
 `GET`, `POST`
 
-Valid URIs:
+Valid URIs:  
+`/workspaces/{{workspaceId}}/api/v1/series`
 
-`/workspaces/`workspaceId`/api/v1/series`
-
-URL query parameters:
-
-`match[]=<series_selector>` Repeated series selector
-argument that selects the series to return. At least one
-`match[]` argument must be provided.
-
-`start=<rfc3339 | unix_timestamp>` Start timestamp.
-Optional
-
-`end=<rfc3339 | unix_timestamp>` End timestamp.
-Optional
+URL query parameters:  
+`match[]=<series_selector>` Repeated series selector argument that selects the series to return. At least one `match[]` argument must be provided.  
+`start=<rfc3339 | unix_timestamp>` Start timestamp. Optional  
+`end=<rfc3339 | unix_timestamp>` End timestamp. Optional
 
 **Sample request**
 
 ```
 POST /workspaces/ws-b226cc2a-a446-46a9-933a-ac50479a5568/api/v1/series --data-urlencode 'match[]=node_cpu_seconds_total{app="prometheus"}' --data-urlencode 'start=1634936400' --data-urlencode 'end=1634939100' HTTP/1.1
-Content-Length: 0,
+Content-Length: 0, 
 Authorization: AUTHPARAMS
 X-Amz-Date: 20201201T193725Z
 User-Agent: Grafana/8.1.0

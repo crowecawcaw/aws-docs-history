@@ -1,23 +1,24 @@
+
+
 # GetAlertManagerStatus
+<a name="AMP-APIReference-GetAlertManagerStatus"></a>
 
-The `GetAlertManagerStatus` retrieves information about the status of alert
-manager.
+The `GetAlertManagerStatus` retrieves information about the status of alert manager.
 
-Valid HTTP verbs:
-
+Valid HTTP verbs:  
 `GET`
 
-Valid URIs:
+Valid URIs:  
+`/workspaces/{{workspaceId}}/alertmanager/api/v2/status`
 
-`/workspaces/`workspaceId`/alertmanager/api/v2/status`
+URL query parameters: none  
 
-URL query parameters: none
 
 **Sample request**
 
 ```
 GET /workspaces/ws-b226cc2a-a446-46a9-933a-ac50479a5568/alertmanager/api/v2/status HTTP/1.1
-Content-Length: 0,
+Content-Length: 0, 
 Authorization: AUTHPARAMS
 X-Amz-Date: 20201201T193725Z
 User-Agent: Grafana/8.1.0

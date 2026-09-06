@@ -1,20 +1,18 @@
+
+
 # PutAlertManagerSilences
+<a name="AMP-APIReference-PutAlertManagerSilences"></a>
 
-The `PutAlertManagerSilences` operation creates a new alert silence or
-updates an existing one.
+The `PutAlertManagerSilences` operation creates a new alert silence or updates an existing one.
 
-Valid HTTP verbs:
-
+Valid HTTP verbs:  
 `POST`
 
-Valid URIs:
+Valid URIs:  
+`/workspaces/{{workspaceId}}/alertmanager/api/v2/silences`
 
-`/workspaces/`workspaceId`/alertmanager/api/v2/silences`
-
-URL query parameters:
-
-`silence` An object that represents the silence. The following
-is the format:
+URL query parameters:  
+`silence` An object that represents the silence. The following is the format:  
 
 ```
 {
@@ -38,7 +36,7 @@ is the format:
 
 ```
 POST /workspaces/ws-b226cc2a-a446-46a9-933a-ac50479a5568/alertmanager/api/v2/silences HTTP/1.1
-Content-Length: 281,
+Content-Length: 281, 
 Authorization: AUTHPARAMS
 X-Amz-Date: 20201201T193725Z
 User-Agent: Grafana/8.1.0

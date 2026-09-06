@@ -1,156 +1,90 @@
+
+
 # Encryption at rest
+<a name="encryption-at-rest-Amazon-Service-Prometheus"></a>
 
-By default, Amazon Managed Service for Prometheus automatically provides you with encryption at rest and does this
-using AWS owned encryption keys.
+By default, Amazon Managed Service for Prometheus automatically provides you with encryption at rest and does this using AWS owned encryption keys.
++ **AWS owned keys** – Amazon Managed Service for Prometheus uses these keys to automatically encrypt data uploaded to your workspace. You can't view, manage or use AWS owned keys, or audit their use. However, you don't have to take any action or change any programs to protect the keys that encrypt your data. For more information, see [AWS owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) in the *AWS Key Management Service Developer Guide*.
 
-- **AWS owned keys** – Amazon Managed Service for Prometheus uses these
-  keys to automatically encrypt data uploaded to your workspace. You can't view,
-  manage or use AWS owned keys, or audit their use. However, you don't have to
-  take any action or change any programs to protect the keys that encrypt your
-  data. For more information, see [AWS owned
-  keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") in the _AWS Key Management Service Developer Guide_.
-  Encryption of data at rest helps reduce the operational overhead and complexity that goes into
-  protecting sensitive customer data, such as personally identifiable information. It
-  allows you to build secure applications that meet strict encryption compliance and
-  regulatory requirements.
+Encryption of data at rest helps reduce the operational overhead and complexity that goes into protecting sensitive customer data, such as personally identifiable information. It allows you to build secure applications that meet strict encryption compliance and regulatory requirements.
 
-You can alternatively choose to use a customer managed key when you create your
-workspace:
+You can alternatively choose to use a customer managed key when you create your workspace:
++ **Customer managed keys** – Amazon Managed Service for Prometheus supports the use of a symmetric customer managed key that you create, own, and manage to encrypt the data in your workspace. Because you have full control of this encryption, you can perform such tasks as:
+  + Establishing and maintaining key policies
+  + Establishing and maintaining IAM policies and grants
+  + Enabling and disabling key policies
+  + Rotating key cryptographic material
+  + Adding tags
+  + Creating key aliases
+  + Scheduling keys for deletion
 
-- **Customer managed keys** – Amazon Managed Service for Prometheus
-  supports the use of a symmetric customer managed key that you create, own, and
-  manage to encrypt the data in your workspace. Because you have
-  full control of this encryption, you can perform such tasks
-  as:
+  For more information, see [customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) in the *AWS Key Management Service Developer Guide.*
 
-  - Establishing and maintaining key policies
-  - Establishing and maintaining IAM policies and grants
-  - Enabling and disabling key policies
-  - Rotating key cryptographic material
-  - Adding tags
-  - Creating key aliases
-  - Scheduling keys for deletion
-    For more information, see [customer
-    managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the _AWS Key Management Service Developer
-    Guide._
-    Choose whether to use customer managed keys or AWS owned keys
-    carefully. Workspaces created with customer managed keys can't be
-    converted to use AWS owned keys later (and vice versa).
+Choose whether to use customer managed keys or AWS owned keys carefully. Workspaces created with customer managed keys can't be converted to use AWS owned keys later (and vice versa).
 
-###### Note
+**Note**  
+Amazon Managed Service for Prometheus automatically enables encryption at rest using AWS owned keys to protect your data at no charge.  
+However, AWS KMS charges apply for using a customer managed key. For more information about pricing, see [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing/).
 
-Amazon Managed Service for Prometheus automatically enables encryption at rest using AWS owned keys to
-protect your data at no charge.
+For more information on AWS KMS, see [What is AWS Key Management Service?](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)
 
-However, AWS KMS charges apply for using a customer managed key. For more
-information about pricing, see [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
-
-For more information on AWS KMS, see [What is AWS Key Management Service?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md")
-
-###### Note
-
-Workspaces created with customer managed keys cannot use [AWS managed collectors](AMP-collector.md "AMP-collector.md") for
-ingestion.
+**Note**  
+Workspaces created with customer managed keys cannot use [AWS managed collectors](AMP-collector.md) for ingestion.
 
 ## How Amazon Managed Service for Prometheus uses grants in AWS KMS
+<a name="encryption-grant"></a>
 
-Amazon Managed Service for Prometheus requires three [grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to use your customer
-managed key.
+Amazon Managed Service for Prometheus requires three [grants](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) to use your customer managed key.
 
-When you create an Amazon Managed Service for Prometheus workspace encrypted with a customer managed key,
-Amazon Managed Service for Prometheus creates the three grants on your behalf by sending [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") requests to AWS KMS. Grants in AWS KMS are used to give
-Amazon Managed Service for Prometheus access to the KMS key in your account, even when not called directly on
-your behalf (for example, when storing metrics data that has been scraped from an
-Amazon EKS cluster.
+When you create an Amazon Managed Service for Prometheus workspace encrypted with a customer managed key, Amazon Managed Service for Prometheus creates the three grants on your behalf by sending [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) requests to AWS KMS. Grants in AWS KMS are used to give Amazon Managed Service for Prometheus access to the KMS key in your account, even when not called directly on your behalf (for example, when storing metrics data that has been scraped from an Amazon EKS cluster.
 
-Amazon Managed Service for Prometheus requires the grants to use your customer managed key for the following
-internal operations:
+Amazon Managed Service for Prometheus requires the grants to use your customer managed key for the following internal operations:
++ Send [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) requests to AWS KMS to verify that the symmetric customer managed KMS key given when creating a workspace is valid.
++ Send [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) requests to AWS KMS to generate data keys encrypted by your customer managed key.
++ Send [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) requests to AWS KMS to decrypt the encrypted data keys so that they can be used to encrypt your data.
 
-- Send [DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md")
-  requests to AWS KMS to verify that the symmetric customer managed KMS key
-  given when creating a workspace is valid.
-- Send [GenerateDataKey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") requests to AWS KMS to generate
-  data keys encrypted by your customer managed key.
-- Send [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") requests
-  to AWS KMS to decrypt the encrypted data keys so that they can be used to
-  encrypt your data.
+Amazon Managed Service for Prometheus creates three grants to the AWS KMS key that allow Amazon Managed Service for Prometheus to use the key on your behalf. You can remove access to the key by changing the key policy, by disabling the key, or by revoking the grant. You should understand the consequences of these actions before performing them. This can cause data loss in your workspace.
 
-Amazon Managed Service for Prometheus creates three grants to the AWS KMS key that allow Amazon Managed Service for Prometheus to use the
-key on your behalf. You can remove access to the key by changing the key policy, by
-disabling the key, or by revoking the grant. You should understand the
-consequences of these actions before performing them. This can cause data loss in
-your workspace.
+If you remove access to any of the grants in any way, Amazon Managed Service for Prometheus won't be able to access any of the data encrypted by the customer managed key, nor store new data sent to the workspace, which affects operations that are dependent on that data. New data sent to the workspace will not be accessible and may be permanently lost.
 
-If you remove access to any of the grants in any way, Amazon Managed Service for Prometheus won't be able to
-access any of the data encrypted by the customer managed key, nor store new data
-sent to the workspace, which affects operations that are dependent on that data.
-New data sent to the workspace will not be accessible and may be permanently lost.
-
-###### Warning
-
-- If you disable the key, or remove Amazon Managed Service for Prometheus access in the key policy,
-  the workspace data is no longer accessible. New data being sent to the
-  workspace will not be accessible and may be permanently lost.
-
-You can get access to the workspace data and start receiving new data
-again by restoring Amazon Managed Service for Prometheus access to the key.
-
-- If you _revoke_ a
-  grant, it can't be recreated, and the data in the workspace is lost
-  permanently.
+**Warning**  
+If you disable the key, or remove Amazon Managed Service for Prometheus access in the key policy, the workspace data is no longer accessible. New data being sent to the workspace will not be accessible and may be permanently lost.  
+You can get access to the workspace data and start receiving new data again by restoring Amazon Managed Service for Prometheus access to the key.
+If you *revoke* a grant, it can't be recreated, and the data in the workspace is lost permanently.
 
 ## Step 1: Create a customer managed key
+<a name="create-key"></a>
 
-You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS
-APIs. The key does not need to be in the same account as the Amazon Managed Service for Prometheus workspace,
-as long as you provide the correct access through policy, as described below.
+ You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs. The key does not need to be in the same account as the Amazon Managed Service for Prometheus workspace, as long as you provide the correct access through policy, as described below.
 
 **To create a symmetric customer managed key**
 
-Follow the steps for [Creating
-symmetric customer managed key](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS Key Management Service Developer
-Guide_.
+Follow the steps for [Creating symmetric customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *AWS Key Management Service Developer Guide*.
 
 **Key policy**
 
-Key policies control access to your customer managed key. Every customer managed key must have exactly
-one key policy, which contains statements that determine who can use the key and how
-they can use it. When you create your customer managed key, you can specify a key policy. For
-more information, see [Managing access to customer managed keys](../../../kms/latest/developerguide/control-access-overview.md#managing-access "../../../kms/latest/developerguide/control-access-overview.md#managing-access") in the _AWS Key Management Service
-Developer Guide_.
+Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Managing access to customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html#managing-access) in the *AWS Key Management Service Developer Guide*.
 
-To use your customer managed key with your Amazon Managed Service for Prometheus workspaces, the following API
-operations must be permitted in the key policy:
+To use your customer managed key with your Amazon Managed Service for Prometheus workspaces, the following API operations must be permitted in the key policy:
++ `[kms:CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html)` – Adds a grant to a customer managed key. Grants control access to a specified KMS key, which allows access to [grant operations](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations) Amazon Managed Service for Prometheus requires. For more information, see [Using Grants](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) in the *AWS Key Management Service Developer Guide*.
 
-- `kms:CreateGrant` – Adds a grant to a customer managed key.
-  Grants control access to a specified KMS key, which allows access to [grant
-  operations](../../../kms/latest/developerguide/grants.md#terms-grant-operations "../../../kms/latest/developerguide/grants.md#terms-grant-operations") Amazon Managed Service for Prometheus requires. For more information, see [Using
-  Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in the _AWS Key Management Service Developer
-  Guide_.
-
-This allows Amazon Managed Service for Prometheus to do the following:
-
-    + Call `GenerateDataKey` to generate an
-     encrypted data key and store it, because the data key isn't
-     immediately used to encrypt.
-    + Call `Decrypt` to use the stored encrypted data key to
-     access encrypted data.
-
-- `kms:DescribeKey` – Provides the customer managed key details to
-  allow Amazon Managed Service for Prometheus to validate the key.
+  This allows Amazon Managed Service for Prometheus to do the following:
+  + Call `GenerateDataKey` to generate an encrypted data key and store it, because the data key isn't immediately used to encrypt.
+  + Call `Decrypt` to use the stored encrypted data key to access encrypted data.
++ `[kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html)` – Provides the customer managed key details to allow Amazon Managed Service for Prometheus to validate the key.
 
 The following are policy statement examples you can add for Amazon Managed Service for Prometheus:
 
 ```
-  "Statement" : [
+  "Statement" : [ 
     {
       "Sid" : "Allow access to Amazon Managed Service for Prometheus principal within your account",
       "Effect" : "Allow",
       "Principal" : {
         "AWS" : "*"
       },
-      "Action" : [
-        "kms:DescribeKey",
+      "Action" : [ 
+        "kms:DescribeKey", 
         "kms:CreateGrant",
         "kms:GenerateDataKey",
         "kms:Decrypt"
@@ -158,7 +92,7 @@ The following are policy statement examples you can add for Amazon Managed Servi
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "kms:ViaService" : "aps.`region`.amazonaws.com",
+          "kms:ViaService" : "aps.{{region}}.amazonaws.com",
           "kms:CallerAccount" : "111122223333"
         }
     },
@@ -168,77 +102,57 @@ The following are policy statement examples you can add for Amazon Managed Servi
       "Principal": {
         "AWS": "arn:aws:iam::111122223333:root"
        },
-      "Action" : [
+      "Action" : [ 
         "kms:*"
        ],
-      "Resource": "arn:aws:kms:`region`:111122223333:key/`key_ID`"
+      "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key_ID}}"
     },
-    `<other statements needed for other non-Amazon Managed Service for Prometheus scenarios>`
+    {{<other statements needed for other non-Amazon Managed Service for Prometheus scenarios>}}
   ]
 ```
-
-- For more information about [specifying permissions in a policy](../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements "../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements"), see the _AWS Key Management Service Developer Guide_.
-- For more information about [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), see the _AWS Key Management Service Developer Guide_.
++ For more information about [specifying permissions in a policy](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html#overview-policy-elements), see the *AWS Key Management Service Developer Guide*.
++ For more information about [troubleshooting key access](https://docs.aws.amazon.com/kms/latest/developerguide/policy-evaluation.html#example-no-iam), see the *AWS Key Management Service Developer Guide*.
 
 ## Step 2: Specifying a customer managed key for Amazon Managed Service for Prometheus
+<a name="enable-custom-encryption"></a>
 
-When you create a workspace, you can specify the customer managed key by entering
-a **KMS Key ARN**, which Amazon Managed Service for Prometheus uses to encrypt the data
-stored by the workspace.
+When you create a workspace, you can specify the customer managed key by entering a **KMS Key ARN**, which Amazon Managed Service for Prometheus uses to encrypt the data stored by the workspace.
 
 ## Step 3: Accessing data from other services, such as Amazon Managed Grafana
+<a name="key-use-other"></a>
 
-_This step is optional — it is only required if you need to access
-your Amazon Managed Service for Prometheus data from another service._
+*This step is optional — it is only required if you need to access your Amazon Managed Service for Prometheus data from another service.*
 
-Your encrypted data is not accessible from other services, unless they also have
-access to use the AWS KMS key. For example, if you want to use Amazon Managed Grafana to create a
-dashboard or alert on your data, you must give Amazon Managed Grafana access to the key.
+Your encrypted data is not accessible from other services, unless they also have access to use the AWS KMS key. For example, if you want to use Amazon Managed Grafana to create a dashboard or alert on your data, you must give Amazon Managed Grafana access to the key.
 
-###### To give Amazon Managed Grafana access to your customer managed key
+**To give Amazon Managed Grafana access to your customer managed key**
 
-1. In your [Amazon Managed Grafana
-   workspaces list](https://console.aws.amazon.com/grafana/home?#/workspaces "https://console.aws.amazon.com/grafana/home?#/workspaces"), select the name for the workspace that you want to
-   have access to Amazon Managed Service for Prometheus. This shows you summary information about your
-   Amazon Managed Grafana workspace.
-2. Note the name of the IAM role used by your workspace. The name is in
-   the format `AmazonGrafanaServiceRole-<unique-id>`. The console
-   shows you the full ARN for the role. You will specify this name in the AWS KMS
-   console in a later step.
-3. In your [AWS KMS Customer
-   managed keys list](https://console.aws.amazon.com/kms/home?#/kme/keys "https://console.aws.amazon.com/kms/home?#/kme/keys"), choose the customer managed key you used during
-   creation of your Amazon Managed Service for Prometheus workspace. This
-   opens the key configuration details page.
-4. Next to **Key users**, select the **Add**
-   button.
-5. From the list of names, choose the Amazon Managed Grafana IAM role that you noted
-   above. To make it easier to find, you can search by the name, as well.
-6. Choose **Add** to add the IAM role to the list of Key
-   users.
+1. In your [Amazon Managed Grafana workspaces list](https://console.aws.amazon.com/grafana/home?#/workspaces), select the name for the workspace that you want to have access to Amazon Managed Service for Prometheus. This shows you summary information about your Amazon Managed Grafana workspace.
 
-Your Amazon Managed Grafana workspace can now access the data in your Amazon Managed Service for Prometheus workspace. You
-can add other users or roles to the key users to enable other services to access
-your workspace.
+1. Note the name of the IAM role used by your workspace. The name is in the format `AmazonGrafanaServiceRole-<unique-id>`. The console shows you the full ARN for the role. You will specify this name in the AWS KMS console in a later step.
+
+1. In your [AWS KMS Customer managed keys list](https://console.aws.amazon.com/kms/home?#/kme/keys), choose the customer managed key you used during creation of your Amazon Managed Service for Prometheus workspace. This opens the key configuration details page.
+
+1. Next to **Key users**, select the **Add** button.
+
+1. From the list of names, choose the Amazon Managed Grafana IAM role that you noted above. To make it easier to find, you can search by the name, as well.
+
+1. Choose **Add** to add the IAM role to the list of Key users.
+
+Your Amazon Managed Grafana workspace can now access the data in your Amazon Managed Service for Prometheus workspace. You can add other users or roles to the key users to enable other services to access your workspace.
 
 ## Amazon Managed Service for Prometheus encryption context
+<a name="location-encryption-context"></a>
 
-An [encryption
-context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is an optional set of key-value pairs that contain additional
-contextual information about the data.
+An [encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) is an optional set of key-value pairs that contain additional contextual information about the data.
 
-AWS KMS uses the encryption context as additional authenticated data to support
-authenticated encryption. When you include an encryption context in a
-request to encrypt data, AWS KMS binds the encryption context to the encrypted data.
-To decrypt data, you include the same encryption context in the request.
+AWS KMS uses the encryption context as additional authenticated data to support authenticated encryption. When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you include the same encryption context in the request.
 
 **Amazon Managed Service for Prometheus encryption context**
 
-Amazon Managed Service for Prometheus uses the same encryption context in all AWS KMS cryptographic
-operations, where the key is `aws:amp:arn` and the value is the
-[Amazon Resource
-Name](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") (ARN) of the workspace.
+Amazon Managed Service for Prometheus uses the same encryption context in all AWS KMS cryptographic operations, where the key is `aws:amp:arn` and the value is the [Amazon Resource Name](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) (ARN) of the workspace.
 
-###### Example
+**Example**  
 
 ```
 "encryptionContext": {
@@ -248,28 +162,16 @@ Name](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/la
 
 **Using encryption context for monitoring**
 
-When you use a symmetric customer managed key to encrypt your workspace data,
-you can also use the encryption context in audit records and logs to identify how
-the customer managed key is being used. The encryption context also appears in [logs generated by AWS CloudTrail or
-Amazon CloudWatch Logs](#example-custom-encryption "#example-custom-encryption").
+When you use a symmetric customer managed key to encrypt your workspace data, you can also use the encryption context in audit records and logs to identify how the customer managed key is being used. The encryption context also appears in [logs generated by AWS CloudTrail or Amazon CloudWatch Logs](#example-custom-encryption).
 
-**Using encryption context to control access to your
-customer managed key**
+**Using encryption context to control access to your customer managed key**
 
-You can use the encryption context in key policies and IAM policies as
-`conditions` to control access to your symmetric customer managed key. You can
-also use encryption context constraints in a grant.
+You can use the encryption context in key policies and IAM policies as `conditions` to control access to your symmetric customer managed key. You can also use encryption context constraints in a grant.
 
-Amazon Managed Service for Prometheus uses an encryption context constraint in grants to control access to the
-customer managed key in your account or region. The grant constraint requires that the
-operations that the grant allows use the specified encryption context.
+Amazon Managed Service for Prometheus uses an encryption context constraint in grants to control access to the customer managed key in your account or region. The grant constraint requires that the operations that the grant allows use the specified encryption context.
 
-###### Example
-
-The following are example key policy statements to give access to a customer
-managed key for a specific encryption context. The condition in this policy
-statement requires that the grants have an encryption context constraint that
-specifies the encryption context.
+**Example**  
+The following are example key policy statements to give access to a customer managed key for a specific encryption context. The condition in this policy statement requires that the grants have an encryption context constraint that specifies the encryption context.  
 
 ```
 {
@@ -298,26 +200,18 @@ specifies the encryption context.
 ```
 
 ## Monitoring your encryption keys for Amazon Managed Service for Prometheus
+<a name="example-custom-encryption"></a>
 
-When you use an AWS KMS customer managed key with your Amazon Managed Service for Prometheus workspaces, you can
-use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md")
-or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md")
-to track requests that Amazon Managed Service for Prometheus sends to AWS KMS.
+When you use an AWS KMS customer managed key with your Amazon Managed Service for Prometheus workspaces, you can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) or [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) to track requests that Amazon Managed Service for Prometheus sends to AWS KMS.
 
-The following examples are AWS CloudTrail events for `CreateGrant`,
-`GenerateDataKey`, `Decrypt`, and
-`DescribeKey` to monitor KMS operations called by Amazon Managed Service for Prometheus to access
-data encrypted by your customer managed key:
+The following examples are AWS CloudTrail events for `CreateGrant`, `GenerateDataKey`, `Decrypt`, and `DescribeKey` to monitor KMS operations called by Amazon Managed Service for Prometheus to access data encrypted by your customer managed key:
 
-CreateGrant
-When you use an AWS KMS customer managed key to encrypt your workspace,
-Amazon Managed Service for Prometheus sends three `CreateGrant` requests
-on your behalf to access the KMS key you specified. The grants
-that Amazon Managed Service for Prometheus creates are specific to the resource associated with the
-AWS KMS customer managed key.
+------
+#### [ CreateGrant ]
 
-The following example event records a `CreateGrant`
-operation:
+When you use an AWS KMS customer managed key to encrypt your workspace, Amazon Managed Service for Prometheus sends three `CreateGrant` requests on your behalf to access the KMS key you specified. The grants that Amazon Managed Service for Prometheus creates are specific to the resource associated with the AWS KMS customer managed key.
+
+The following example event records a `CreateGrant` operation:
 
 ```
 {
@@ -380,14 +274,12 @@ operation:
 }
 ```
 
-GenerateDataKey
-When you enable an AWS KMS customer managed key for your workspace,
-Amazon Managed Service for Prometheus creates a unique key. It sends a
-`GenerateDataKey` request to AWS KMS that
-specifies the AWS KMScustomer managed key for the resource.
+------
+#### [ GenerateDataKey ]
 
-The following example event records the
-`GenerateDataKey` operation:
+When you enable an AWS KMS customer managed key for your workspace, Amazon Managed Service for Prometheus creates a unique key. It sends a `GenerateDataKey` request to AWS KMS that specifies the AWS KMScustomer managed key for the resource.
+
+The following example event records the `GenerateDataKey` operation:
 
 ```
 {
@@ -428,13 +320,12 @@ The following example event records the
 }
 ```
 
-Decrypt
-When a query is generated on an encrypted workspace, Amazon Managed Service for Prometheus
-calls the `Decrypt` operation to use the stored encrypted
-data key to access the encrypted data.
+------
+#### [ Decrypt ]
 
-The following example event records the `Decrypt`
-operation:
+When a query is generated on an encrypted workspace, Amazon Managed Service for Prometheus calls the `Decrypt` operation to use the stored encrypted data key to access the encrypted data. 
+
+The following example event records the `Decrypt` operation:
 
 ```
 {
@@ -475,13 +366,12 @@ operation:
 }
 ```
 
-DescribeKey
-Amazon Managed Service for Prometheus uses the `DescribeKey` operation to verify if the
-AWS KMS customer managed key associated with your workspace
-exists in the account and region.
+------
+#### [ DescribeKey ]
 
-The following example event records the `DescribeKey`
-operation:
+Amazon Managed Service for Prometheus uses the `DescribeKey` operation to verify if the AWS KMS customer managed key associated with your workspace exists in the account and region.
+
+The following example event records the `DescribeKey` operation:
 
 ```
 {
@@ -535,13 +425,11 @@ operation:
 }
 ```
 
+------
+
 ## Learn more
+<a name="Learn-more-data-at-rest-encryption"></a>
 
-The following resources provide more information about data encryption at
-rest.
-
-- For more information about [AWS Key Management Service basic
-  concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md"), see the _AWS Key Management Service Developer
-  Guide_.
-- For more information about [Security best
-  practices for AWS Key Management Service](../../../kms/latest/developerguide/best-practices.md "../../../kms/latest/developerguide/best-practices.md"), see the _AWS Key Management Service Developer Guide_.
+The following resources provide more information about data encryption at rest.
++ For more information about [AWS Key Management Service basic concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html), see the *AWS Key Management Service Developer Guide*.
++ For more information about [Security best practices for AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/best-practices.html), see the *AWS Key Management Service Developer Guide*.

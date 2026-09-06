@@ -1,26 +1,26 @@
+
+
 # Troubleshoot alert manager with CloudWatch Logs
+<a name="Troubleshooting-alerting"></a>
 
-Using [Monitor Amazon Managed Service for Prometheus events with CloudWatch Logs](CW-logs.md "CW-logs.md"), you can troubleshoot Alert
-Manager and Ruler related issues. This section contains Alert Manager related
-troubleshooting topics.
+Using [Monitor Amazon Managed Service for Prometheus events with CloudWatch Logs](CW-logs.md), you can troubleshoot Alert Manager and Ruler related issues. This section contains Alert Manager related troubleshooting topics. 
 
-###### Topics
-
-- [Active alerts warning](#Troubleshooting-alerting-active-alerts "#Troubleshooting-alerting-active-alerts")
-- [Alert aggregation group size warning](#Troubleshooting-alerting-aggregation-group-size "#Troubleshooting-alerting-aggregation-group-size")
-- [Alerts size too big warning](#Troubleshooting-alerting-size-too-big "#Troubleshooting-alerting-size-too-big")
-- [Empty content warning](#Troubleshooting-alerting-empty "#Troubleshooting-alerting-empty")
-- [Invalid key/value warning](#Troubleshooting-alerting-invalid-keyvalue "#Troubleshooting-alerting-invalid-keyvalue")
-- [Message limit warning](#Troubleshooting-alerting-msg-limit "#Troubleshooting-alerting-msg-limit")
-- [No resource based policy error](#Troubleshooting-alerting-no-policy "#Troubleshooting-alerting-no-policy")
-- [Non ASCII warning](#Troubleshooting-alerting-non-ASCII "#Troubleshooting-alerting-non-ASCII")
-- [Not authorized to call KMS](#Troubleshooting-alerting-no-access-kms "#Troubleshooting-alerting-no-access-kms")
-- [Template error](#Troubleshooting-template-error "#Troubleshooting-template-error")
+**Topics**
++ [Active alerts warning](#Troubleshooting-alerting-active-alerts)
++ [Alert aggregation group size warning](#Troubleshooting-alerting-aggregation-group-size)
++ [Alerts size too big warning](#Troubleshooting-alerting-size-too-big)
++ [Empty content warning](#Troubleshooting-alerting-empty)
++ [Invalid `key/value` warning](#Troubleshooting-alerting-invalid-keyvalue)
++ [Message limit warning](#Troubleshooting-alerting-msg-limit)
++ [No resource based policy error](#Troubleshooting-alerting-no-policy)
++ [Non ASCII warning](#Troubleshooting-alerting-non-ASCII)
++ [Not authorized to call KMS](#Troubleshooting-alerting-no-access-kms)
++ [Template error](#Troubleshooting-template-error)
 
 ## Active alerts warning
+<a name="Troubleshooting-alerting-active-alerts"></a>
 
-**When the log contains the following
-warning**
+**When the log contains the following warning**
 
 ```
 {
@@ -33,18 +33,16 @@ warning**
 }
 ```
 
-This means that the Alert manager **Active alerts** quota is
-exceeded.
+This means that the Alert manager **Active alerts** quota is exceeded.
 
 **Action to take**
 
-Request a quota increase. Sign in to the AWS Management Console and open the Service Quotas console
-at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
+Request a quota increase. Sign in to the AWS Management Console and open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/).
 
 ## Alert aggregation group size warning
+<a name="Troubleshooting-alerting-aggregation-group-size"></a>
 
-**When the log contains the following
-warning**
+**When the log contains the following warning**
 
 ```
 {
@@ -57,22 +55,18 @@ warning**
 }
 ```
 
-This means that the Alert manager Alert aggregation group size quota has been
-exceeded.
+This means that the Alert manager Alert aggregation group size quota has been exceeded.
 
 **Action to take**
 
-Reduce the Alert aggregation group size by using the `group_by`
-parameter. For more information, see [Route-related
-settings in the](https://prometheus.io/docs/alerting/latest/configuration/ "https://prometheus.io/docs/alerting/latest/configuration/")_Prometheus documentation_.
+Reduce the Alert aggregation group size by using the `group_by` parameter. For more information, see [Route-related settings in the](https://prometheus.io/docs/alerting/latest/configuration/)*Prometheus documentation*.
 
-You can also request a quota increase. Sign in to the AWS Management Console and open the
-Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
+You can also request a quota increase. Sign in to the AWS Management Console and open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/).
 
 ## Alerts size too big warning
+<a name="Troubleshooting-alerting-size-too-big"></a>
 
-**When the log contains the following
-warning**
+**When the log contains the following warning**
 
 ```
 {
@@ -85,17 +79,16 @@ warning**
 }
 ```
 
-This means that Alert manager Alerts per workspace, in size quota has been
-exceeded.
+This means that Alert manager Alerts per workspace, in size quota has been exceeded.
 
 **Action to take**
 
 Remove unnecessary annotations and labels to reduce alert size.
 
 ## Empty content warning
+<a name="Troubleshooting-alerting-empty"></a>
 
-**When the log contains the following
-warning**
+**When the log contains the following warning**
 
 ```
 {
@@ -108,18 +101,16 @@ warning**
 }
 ```
 
-This means that the Alert manager template resolved the outbound alert to an empty
-message.
+This means that the Alert manager template resolved the outbound alert to an empty message. 
 
 **Action to take**
 
-Validate your Alert manager template and ensure that you have a valid template for
-all receiver pathways.
+Validate your Alert manager template and ensure that you have a valid template for all receiver pathways. 
 
 ## Invalid `key/value` warning
+<a name="Troubleshooting-alerting-invalid-keyvalue"></a>
 
-**When the log contains the following
-warning**
+**When the log contains the following warning**
 
 ```
 {
@@ -132,19 +123,16 @@ warning**
 }
 ```
 
-This means that some of the message attributes have been removed due to
-keys/values being invalid.
+This means that some of the message attributes have been removed due to keys/values being invalid. 
 
 **Action to take**
 
-Re-evaluate the templates you are using to populate the message attributes, and
-ensure it is resolving to a valid SNS message attribute. For more information about
-validating a message to an Amazon SNS topic, see [Validating SNS topic](../../../sns/latest/api/API_Publish.md#API_Publish_RequestParameters "../../../sns/latest/api/API_Publish.md#API_Publish_RequestParameters")
+Re-evaluate the templates you are using to populate the message attributes, and ensure it is resolving to a valid SNS message attribute. For more information about validating a message to an Amazon SNS topic, see [Validating SNS topic](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html#API_Publish_RequestParameters)
 
 ## Message limit warning
+<a name="Troubleshooting-alerting-msg-limit"></a>
 
-**When the log contains the following
-warning**
+**When the log contains the following warning**
 
 ```
 {
@@ -157,14 +145,14 @@ warning**
 }
 ```
 
-This means that some of the message size is too big.
+This means that some of the message size is too big. 
 
 **Action to take**
 
-Look at the Alert receiver message template and re-work it to fit within the size
-limit.
+Look at the Alert receiver message template and re-work it to fit within the size limit.
 
 ## No resource based policy error
+<a name="Troubleshooting-alerting-no-policy"></a>
 
 **When the log contains the following error**
 
@@ -179,23 +167,16 @@ limit.
 }
 ```
 
-This means that Amazon Managed Service for Prometheus does not have the permissions to submit the alert to the
-SNS topic specified.
+This means that Amazon Managed Service for Prometheus does not have the permissions to submit the alert to the SNS topic specified. 
 
 **Action to take**
 
-Validate that the access policy on your Amazon SNS topic grants Amazon Managed Service for Prometheus the ability
-to send SNS messages to the topic. Create an SNS Access Policy giving the service
-`aps.amazonaws.com` (Amazon Managed Service for Prometheus) access to your Amazon SNS topic. For more
-information about SNS Access Policies, see [Using the Access
-Policy Language](../../../sns/latest/dg/sns-access-policy-language-using.md "../../../sns/latest/dg/sns-access-policy-language-using.md") and [Example cases for Amazon SNS
-access control](../../../sns/latest/dg/sns-access-policy-use-cases.md "../../../sns/latest/dg/sns-access-policy-use-cases.md") in the _Amazon Simple Notification Service Developer
-Guide_.
+Validate that the access policy on your Amazon SNS topic grants Amazon Managed Service for Prometheus the ability to send SNS messages to the topic. Create an SNS Access Policy giving the service `aps.amazonaws.com` (Amazon Managed Service for Prometheus) access to your Amazon SNS topic. For more information about SNS Access Policies, see [Using the Access Policy Language](https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-language-using.html) and [Example cases for Amazon SNS access control](https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html) in the *Amazon Simple Notification Service Developer Guide*.
 
 ## Non ASCII warning
+<a name="Troubleshooting-alerting-non-ASCII"></a>
 
-**When the log contains the following
-warning**
+**When the log contains the following warning**
 
 ```
 {
@@ -208,17 +189,16 @@ warning**
 }
 ```
 
-This means that the subject has non-ASCII characters.
+This means that the subject has non-ASCII characters. 
 
 **Action to take**
 
-Remove references in subject field of your template to the labels that might
-contain non-ASCII characters.
+Remove references in subject field of your template to the labels that might contain non-ASCII characters.
 
 ## Not authorized to call KMS
+<a name="Troubleshooting-alerting-no-access-kms"></a>
 
-**When the log contains the following AWS KMS
-error**
+**When the log contains the following AWS KMS error**
 
 ```
 {
@@ -233,18 +213,14 @@ error**
 
 **Action to take**
 
-Validate that the key policy of the key used to encrypt the Amazon SNS topic allows the
-Amazon Managed Service for Prometheus service principal `aps.amazonaws.com` to perform the following
-actions: `kms:GenerateDataKey*`, and `kms:Decrypt`. For more
-information, see [AWS
-KMS Permissions for SNS Topic](../../../sns/latest/dg/sns-key-management.md#sns-what-permissions-for-sse "../../../sns/latest/dg/sns-key-management.md#sns-what-permissions-for-sse").
+Validate that the key policy of the key used to encrypt the Amazon SNS topic allows the Amazon Managed Service for Prometheus service principal `aps.amazonaws.com` to perform the following actions: `kms:GenerateDataKey*`, and `kms:Decrypt`. For more information, see [AWS KMS Permissions for SNS Topic](https://docs.aws.amazon.com/sns/latest/dg/sns-key-management.html#sns-what-permissions-for-sse).
 
 ## Template error
+<a name="Troubleshooting-template-error"></a>
 
 **When the log contains the following error**
 
 ```
-
                {
    "workspaceId": "ws-efdc5b42-b051-11ec-b123-4567ac120002",
    "message": {
@@ -253,17 +229,10 @@ KMS Permissions for SNS Topic](../../../sns/latest/dg/sns-key-management.md#sns-
    },
    "component": "alertmanager"
 }
-
 ```
 
-This means that there is an error in a template being used in the AlertManager
-definition. The error entry contains directions about what receiver, the position in
-the sns\_configs and the property that contains errors.
+This means that there is an error in a template being used in the AlertManager definition. The error entry contains directions about what receiver, the position in the sns\_configs and the property that contains errors.
 
 **Action to take**
 
-Validate your Alert Manager definition. Make sure that the syntax is correct and
-that you reference template variables and functions that exist. For more
-information, see the [Notification
-Template Reference](https://prometheus.io/docs/alerting/latest/notifications/ "https://prometheus.io/docs/alerting/latest/notifications/") in the _Prometheus_ open-source
-documentation.
+Validate your Alert Manager definition. Make sure that the syntax is correct and that you reference template variables and functions that exist. For more information, see the [Notification Template Reference](https://prometheus.io/docs/alerting/latest/notifications/) in the *Prometheus* open-source documentation.

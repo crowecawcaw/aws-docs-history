@@ -1,21 +1,21 @@
+
+
 # ListAlerts
+<a name="AMP-APIReference-ListAlerts"></a>
 
-The `ListAlerts` operation retrieves currently active alerts in the
-workspace.
+The `ListAlerts` operation retrieves currently active alerts in the workspace.
 
-Valid HTTP verbs:
-
+Valid HTTP verbs:  
 `GET`
 
-Valid URIs:
-
+Valid URIs:  
 `/workspaces/workspaceId/api/v1/alerts`
 
 **Sample request**
 
 ```
 GET /workspaces/ws-b226cc2a-a446-46a9-933a-ac50479a5568/api/v1/alerts HTTP/1.1
-Content-Length: 0,
+Content-Length: 0, 
 Authorization: AUTHPARAMS
 X-Amz-Date: 20201201T193725Z
 User-Agent: Grafana/8.1.0

@@ -1,17 +1,17 @@
+
+
 # Use cross Region workspaces to add high availability in Amazon Managed Service for Prometheus
+<a name="AMP-send-to-multiple-workspaces"></a>
 
-To add cross-Region availability to your data, you can send metrics to multiple
-workspaces across AWS Regions. Prometheus supports both multiple writers and
-cross-Region writing.
+To add cross-Region availability to your data, you can send metrics to multiple workspaces across AWS Regions. Prometheus supports both multiple writers and cross-Region writing.
 
-The following example shows how to set up a Prometheus server running in Agent
-mode to send metrics to two workspaces in different Regions with Helm.
+The following example shows how to set up a Prometheus server running in Agent mode to send metrics to two workspaces in different Regions with Helm.
 
 ```
 extensions:
       sigv4auth:
         service: "aps"
-
+     
     receivers:
       prometheus:
         config:
@@ -33,17 +33,17 @@ extensions:
                 regex: (.+)
                 target_label: __metrics_path__
                 replacement: /api/v1/nodes/$${1}/proxy/metrics
-
+     
     exporters:
       prometheusremotewrite/one:
-        endpoint: "https://aps-workspaces.`workspace_1_region`.amazonaws.com/workspaces/ws-`workspace_1_id`/api/v1/remote_write"
+        endpoint: "https://aps-workspaces.{{workspace_1_region}}.amazonaws.com/workspaces/ws-{{workspace_1_id}}/api/v1/remote_write"
         auth:
           authenticator: sigv4auth
       prometheusremotewrite/two:
-        endpoint: "https://aps-workspaces.`workspace_2_region`.amazonaws.com/workspaces/ws-`workspace_2_id`/api/v1/remote_write"
+        endpoint: "https://aps-workspaces.{{workspace_2_region}}.amazonaws.com/workspaces/ws-{{workspace_2_id}}/api/v1/remote_write"
         auth:
           authenticator: sigv4auth
-
+     
     service:
       extensions: [sigv4auth]
       pipelines:

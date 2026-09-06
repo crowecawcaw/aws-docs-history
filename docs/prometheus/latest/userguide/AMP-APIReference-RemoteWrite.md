@@ -1,23 +1,20 @@
+
+
 # RemoteWrite
+<a name="AMP-APIReference-RemoteWrite"></a>
 
-The `RemoteWrite` operation writes metrics from a Prometheus server to a
-remote URL in a standardized format. Typically, you will use an existing client such as
-a Prometheus server to call this operation.
+The `RemoteWrite` operation writes metrics from a Prometheus server to a remote URL in a standardized format. Typically, you will use an existing client such as a Prometheus server to call this operation.
 
-Valid HTTP verbs:
-
+Valid HTTP verbs:  
 `POST`
 
-Valid URIs:
+Valid URIs:  
+`/workspaces/{{workspaceId}}/api/v1/remote_write`
 
-`/workspaces/`workspaceId`/api/v1/remote_write`
-
-URL query parameters:
-
+URL query parameters:  
 None
 
-`RemoteWrite` has an ingestion rate of 70,000 samples per second and
-ingestion burst size of 1,000,000 samples.
+`RemoteWrite` has an ingestion rate of 70,000 samples per second and ingestion burst size of 1,000,000 samples.
 
 **Sample request**
 
@@ -30,12 +27,11 @@ Content-Type: application/x-protobuf
 Content-Encoding: snappy
 X-Prometheus-Remote-Write-Version: 0.1.0
 
-`body`
+{{body}}
 ```
 
-###### Note
-
-For the request body syntax, see to the protocol buffer definition at [https://github.com/prometheus/prometheus/blob/1c624c58ca934f618be737b4995e22051f5724c1/prompb/remote.pb.go#L64](https://github.com/prometheus/prometheus/blob/1c624c58ca934f618be737b4995e22051f5724c1/prompb/remote.pb.go#L64 "https://github.com/prometheus/prometheus/blob/1c624c58ca934f618be737b4995e22051f5724c1/prompb/remote.pb.go#L64").
+**Note**  
+For the request body syntax, see to the protocol buffer definition at [ https://github.com/prometheus/prometheus/blob/1c624c58ca934f618be737b4995e22051f5724c1/prompb/remote.pb.go\#L64](https://github.com/prometheus/prometheus/blob/1c624c58ca934f618be737b4995e22051f5724c1/prompb/remote.pb.go#L64).
 
 **Sample response**
 

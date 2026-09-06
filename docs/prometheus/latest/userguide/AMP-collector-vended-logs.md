@@ -1,33 +1,27 @@
+
+
 # Monitor collectors with vended logs
+<a name="AMP-collector-vended-logs"></a>
 
-Amazon Managed Service for Prometheus collectors provide vended logs to help you monitor and troubleshoot the metrics
-collection process. These logs are automatically sent to Amazon CloudWatch Logs and provide visibility
-into service discovery, metric collection, and data export operations. The collector vends
-logs for three main components of the metrics collection pipeline:
+Amazon Managed Service for Prometheus collectors provide vended logs to help you monitor and troubleshoot the metrics collection process. These logs are automatically sent to Amazon CloudWatch Logs and provide visibility into service discovery, metric collection, and data export operations. The collector vends logs for three main components of the metrics collection pipeline:
 
-###### Topics
-
-- [Service discovery logs](#amp-collector-service-discovery-vended-logs "#amp-collector-service-discovery-vended-logs")
-- [Collector logs](#amp-collector-vended-logs "#amp-collector-vended-logs")
-- [Exporter logs](#amp-exporter-vended-logs "#amp-exporter-vended-logs")
-- [Understanding and using collector vended logs](#amp-collector-log-details "#amp-collector-log-details")
+**Topics**
++ [Service discovery logs](#amp-collector-service-discovery-vended-logs)
++ [Collector logs](#amp-collector-vended-logs)
++ [Exporter logs](#amp-exporter-vended-logs)
++ [Understanding and using collector vended logs](#amp-collector-log-details)
 
 ## Service discovery logs
+<a name="amp-collector-service-discovery-vended-logs"></a>
 
-Service discovery logs provide information about the target discovery process,
-including:
+Service discovery logs provide information about the target discovery process, including:
++ Authentication or permission issues when accessing Kubernetes API resources.
++ Configuration errors in service discovery settings.
 
-- Authentication or permission issues when accessing Kubernetes API
-  resources.
-- Configuration errors in service discovery settings.
+The following examples demonstrate common authentication and permission errors you might encounter during service discovery:
 
-The following examples demonstrate common authentication and permission errors you
-might encounter during service discovery:
-
-**Nonexistent Amazon EKS cluster**
-
-When the specified Amazon EKS cluster does not exist, you receive the following
-error:
+**Nonexistent Amazon EKS cluster**  
+When the specified Amazon EKS cluster does not exist, you receive the following error:  
 
 ```
 {
@@ -40,10 +34,8 @@ error:
 }
 ```
 
-**Invalid permissions for services**
-
-When the collector lacks proper Role-Based Access Control (RBAC)
-permissions to watch Services, you receive this error:
+**Invalid permissions for services**  
+When the collector lacks proper Role-Based Access Control (RBAC) permissions to watch Services, you receive this error:  
 
 ```
 {
@@ -56,10 +48,8 @@ permissions to watch Services, you receive this error:
 }
 ```
 
-**Invalid permissions for endpoints**
-
-When the collector lacks proper Role-Based Access Control (RBAC)
-permissions to watch Endpoints, you receive this error:
+**Invalid permissions for endpoints**  
+When the collector lacks proper Role-Based Access Control (RBAC) permissions to watch Endpoints, you receive this error:  
 
 ```
 {
@@ -73,22 +63,18 @@ permissions to watch Endpoints, you receive this error:
 ```
 
 ## Collector logs
+<a name="amp-collector-vended-logs"></a>
 
-Collector logs provide information about the metric scraping process,
-including:
+Collector logs provide information about the metric scraping process, including:
++ Scrape failures due to endpoints not being available.
++ Connection issues when attempting to scrape targets.
++ Timeouts during scrape operations.
++ HTTP status errors returned by scrape targets.
 
-- Scrape failures due to endpoints not being available.
-- Connection issues when attempting to scrape targets.
-- Timeouts during scrape operations.
-- HTTP status errors returned by scrape targets.
+The following examples demonstrate common collector errors you might encounter during the metric scraping process:
 
-The following examples demonstrate common collector errors you might encounter during
-the metric scraping process:
-
-**Missing metrics endpoint**
-
-When the `/metrics` endpoint is not available on the target
-instance, you receive this error:
+**Missing metrics endpoint**  
+When the `/metrics` endpoint is not available on the target instance, you receive this error:  
 
 ```
 {
@@ -103,10 +89,8 @@ instance, you receive this error:
 }
 ```
 
-**Connection refused**
-
-When the collector cannot establish a connection to the target endpoint,
-you receive this error:
+**Connection refused**  
+When the collector cannot establish a connection to the target endpoint, you receive this error:  
 
 ```
 {
@@ -123,22 +107,18 @@ you receive this error:
 ```
 
 ## Exporter logs
+<a name="amp-exporter-vended-logs"></a>
 
-Exporter logs provide information about the process of sending collected metrics to
-your Amazon Managed Service for Prometheus workspace, including:
+Exporter logs provide information about the process of sending collected metrics to your Amazon Managed Service for Prometheus workspace, including:
++ Number of metrics and data points processed.
++ Export failures due to workspace issues.
++ Permission errors when attempting to write metrics.
++ Dependency failures in the export pipeline.
 
-- Number of metrics and data points processed.
-- Export failures due to workspace issues.
-- Permission errors when attempting to write metrics.
-- Dependency failures in the export pipeline.
+The following example demonstrates a common exporter error you might encounter during the metric export process:
 
-The following example demonstrates a common exporter error you might encounter during
-the metric export process:
-
-**Workspace not found**
-
-When the target workspace for metric export cannot be found, you receive
-this error:
+**Workspace not found**  
+When the target workspace for metric export cannot be found, you receive this error:  
 
 ```
 {
@@ -153,74 +133,58 @@ this error:
 ```
 
 ## Understanding and using collector vended logs
+<a name="amp-collector-log-details"></a>
 
 ### Log structure
+<a name="amp-log-structure"></a>
 
 All collector vended logs follow a consistent structure with these fields:
 
-**scrapeConfigId**
+**scrapeConfigId**  
+The unique identifier of the scrape configuration that generated the log.
 
-The unique identifier of the scrape configuration that generated the
-log.
-
-**timestamp**
-
+**timestamp**  
 The time when the log entry was generated.
 
-**message**
+**message**  
+The log message content, which may include additional structured fields.
 
-The log message content, which may include additional structured
-fields.
-
-**component**
-
-The component that generated the log (SERVICE\_DISCOVERY, COLLECTOR, or
-EXPORTER)
+**component**  
+The component that generated the log (SERVICE\_DISCOVERY, COLLECTOR, or EXPORTER)
 
 ### Using vended logs for troubleshooting
+<a name="amp-troubleshooting"></a>
 
-The collector vended logs help you troubleshoot common issues with metrics
-collection:
+The collector vended logs help you troubleshoot common issues with metrics collection:
 
 1. Service discovery issues
+   + Check **SERVICE\_DISCOVERY** logs for authentication or permission errors.
+   + Verify that the collector has the necessary permissions to access Kubernetes resources.
 
-   - Check **SERVICE\_DISCOVERY** logs for
-     authentication or permission errors.
-   - Verify that the collector has the necessary permissions to access
-     Kubernetes resources.
+1. Metric scraping issues
+   + Check **COLLECTOR** logs for scrape failures.
+   + Verify that target endpoints are accessible and returning metrics.
+   + Ensure that firewall rules allow the collector to connect to target endpoints.
 
-2. Metric scraping issues
-
-   - Check **COLLECTOR** logs for scrape
-     failures.
-   - Verify that target endpoints are accessible and returning
-     metrics.
-   - Ensure that firewall rules allow the collector to connect to
-     target endpoints.
-
-3. Metric export issues
-
-   - Check **EXPORTER** logs for export
-     failures.
-   - Verify that the workspace exists and is correctly
-     configured.
-   - Ensure that the collector has the necessary permissions to write
-     to the workspace.
+1. Metric export issues
+   + Check **EXPORTER** logs for export failures.
+   + Verify that the workspace exists and is correctly configured.
+   + Ensure that the collector has the necessary permissions to write to the workspace.
 
 ### Accessing collector vended logs
+<a name="amp-accessing-logs"></a>
 
-Collector vended logs are automatically sent to Amazon CloudWatch Logs. To access these
-logs:
+Collector vended logs are automatically sent to Amazon CloudWatch Logs. To access these logs:
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane, choose **Log groups**.
-3. Find and select the log group for your collector:
-   `/aws/prometheus/workspace_id/collector/collector_id`.
-4. Browse or search the log events to find relevant information.
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-You can also use CloudWatch Logs Insights to query and analyze your collector logs. For
-example, to find all service discovery errors:
+1. In the navigation pane, choose **Log groups**.
+
+1. Find and select the log group for your collector: `/aws/prometheus/workspace_id/collector/collector_id`.
+
+1. Browse or search the log events to find relevant information.
+
+You can also use CloudWatch Logs Insights to query and analyze your collector logs. For example, to find all service discovery errors:
 
 ```
 fields @timestamp, message.message
@@ -229,16 +193,16 @@ fields @timestamp, message.message
 ```
 
 ### Best practices for monitoring collectors
+<a name="amp-monitoring-best-practices"></a>
 
 To effectively monitor your Amazon Managed Service for Prometheus collectors:
 
-1. Set up CloudWatch alarms for critical collector issues, such as persistent
-   scrape failures or export errors. For more information, see [Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the _Amazon CloudWatch User Guide_.
-2. Create CloudWatch dashboards to visualize collector performance metrics
-   alongside vended log data. For more information, see [Dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") in the _Amazon CloudWatch User Guide_.
-3. Regularly review service discovery logs to ensure targets are being
-   discovered correctly.
-4. Monitor the number of dropped targets to identify potential configuration
-   issues.
-5. Track export failures to ensure metrics are being successfully sent to
-   your workspace.
+1. Set up CloudWatch alarms for critical collector issues, such as persistent scrape failures or export errors. For more information, see [Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*.
+
+1. Create CloudWatch dashboards to visualize collector performance metrics alongside vended log data. For more information, see [Dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) in the *Amazon CloudWatch User Guide*.
+
+1. Regularly review service discovery logs to ensure targets are being discovered correctly.
+
+1. Monitor the number of dropped targets to identify potential configuration issues.
+
+1. Track export failures to ensure metrics are being successfully sent to your workspace.

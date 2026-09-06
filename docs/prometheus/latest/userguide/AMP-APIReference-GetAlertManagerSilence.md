@@ -1,23 +1,24 @@
+
+
 # GetAlertManagerSilence
+<a name="AMP-APIReference-GetAlertManagerSilence"></a>
 
-The `GetAlertManagerSilence` retrieves information about one alert
-silence.
+The `GetAlertManagerSilence` retrieves information about one alert silence.
 
-Valid HTTP verbs:
-
+Valid HTTP verbs:  
 `GET`
 
-Valid URIs:
+Valid URIs:  
+`/workspaces/{{workspaceId}}/alertmanager/api/v2/silence/{{silenceID}}`
 
-`/workspaces/`workspaceId`/alertmanager/api/v2/silence/`silenceID``
+URL query parameters: none  
 
-URL query parameters: none
 
 **Sample request**
 
 ```
 GET /workspaces/ws-b226cc2a-a446-46a9-933a-ac50479a5568/alertmanager/api/v2/silence/d29d9df3-9125-4441-912c-70b05f86f973 HTTP/1.1
-Content-Length: 0,
+Content-Length: 0, 
 Authorization: AUTHPARAMS
 X-Amz-Date: 20201201T193725Z
 User-Agent: Grafana/8.1.0

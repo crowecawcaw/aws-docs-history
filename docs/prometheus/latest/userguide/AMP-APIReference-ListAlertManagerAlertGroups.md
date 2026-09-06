@@ -1,41 +1,29 @@
+
+
 # ListAlertManagerAlertGroups
+<a name="AMP-APIReference-ListAlertManagerAlertGroups"></a>
 
-The `ListAlertManagerAlertGroups` operation retrieves a list of alert
-groups configured in alert manager in the workspace.
+The `ListAlertManagerAlertGroups` operation retrieves a list of alert groups configured in alert manager in the workspace.
 
-Valid HTTP verbs:
-
+Valid HTTP verbs:  
 `GET`
 
-Valid URIs:
+Valid URIs:  
+`/workspaces/{{workspaceId}}/alertmanager/api/v2/alerts/groups`
 
-`/workspaces/`workspaceId`/alertmanager/api/v2/alerts/groups`
-
-URL query parameters:
-
-`active` Boolean. If true, the returned list includes active
-alerts. The default is true. Optional
-
-`silenced` Boolean. If true, the returned list includes
-silenced alerts. The default is true. Optional
-
-`inhibited` Boolean. If true, the returned list includes
-inhibited alerts. The default is true. Optional
-
-`muted` Boolean. If true, the returned list includes muted
-alerts. The default is true. Optional
-
-`filter` An array of strings. A list of matchers to filter
-alerts by. Optional
-
-`receiver` String. A regular expression matching receivers to
-filter alerts by. Optional
+URL query parameters:  
+`active` Boolean. If true, the returned list includes active alerts. The default is true. Optional  
+`silenced` Boolean. If true, the returned list includes silenced alerts. The default is true. Optional  
+`inhibited` Boolean. If true, the returned list includes inhibited alerts. The default is true. Optional  
+`muted` Boolean. If true, the returned list includes muted alerts. The default is true. Optional  
+`filter` An array of strings. A list of matchers to filter alerts by. Optional  
+`receiver` String. A regular expression matching receivers to filter alerts by. Optional
 
 **Sample request**
 
 ```
 GET /workspaces/ws-b226cc2a-a446-46a9-933a-ac50479a5568/alertmanager/api/v2/alerts/groups HTTP/1.1
-Content-Length: 0,
+Content-Length: 0, 
 Authorization: AUTHPARAMS
 X-Amz-Date: 20201201T193725Z
 User-Agent: Grafana/8.1.0

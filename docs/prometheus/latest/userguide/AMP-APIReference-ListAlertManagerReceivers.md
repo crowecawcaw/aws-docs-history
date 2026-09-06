@@ -1,23 +1,24 @@
+
+
 # ListAlertManagerReceivers
+<a name="AMP-APIReference-ListAlertManagerReceivers"></a>
 
-The `ListAlertManagerReceivers` operation retrieves information about the
-receivers configured in alert manager.
+The `ListAlertManagerReceivers` operation retrieves information about the receivers configured in alert manager.
 
-Valid HTTP verbs:
-
+Valid HTTP verbs:  
 `GET`
 
-Valid URIs:
+Valid URIs:  
+`/workspaces/{{workspaceId}}/alertmanager/api/v2/receivers`
 
-`/workspaces/`workspaceId`/alertmanager/api/v2/receivers`
+URL query parameters: none  
 
-URL query parameters: none
 
 **Sample request**
 
 ```
 GET /workspaces/ws-b226cc2a-a446-46a9-933a-ac50479a5568/alertmanager/api/v2/receivers HTTP/1.1
-Content-Length: 0,
+Content-Length: 0, 
 Authorization: AUTHPARAMS
 X-Amz-Date: 20201201T193725Z
 User-Agent: Grafana/8.1.0
