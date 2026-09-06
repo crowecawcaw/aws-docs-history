@@ -1,87 +1,58 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AWS re:Post Private. After June 30, 2027, you will
-no longer be able to access the re:Post Private console or re:Post Private resources.
-For more information, see [AWS re:Post Private end of support](../userguide/repost-private-end-of-support.md "../userguide/repost-private-end-of-support.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AWS re:Post Private. After June 30, 2027, you will no longer be able to access the re:Post Private console or re:Post Private resources. For more information, see [AWS re:Post Private end of support](https://docs.aws.amazon.com/repostprivate/latest/userguide/repost-private-end-of-support.html). 
 
 # Logging AWS re:Post Private API calls using AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-AWS re:Post Private is integrated with AWS CloudTrail, a service that provides a record of actions
-taken by a user, role, or an AWS service in re:Post Private. CloudTrail captures all API calls for
-re:Post Private as events. The calls captured include calls from the re:Post Private console and
-code calls to the re:Post Private API operations. If you create a trail, you can enable
-continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for re:Post Private. If
-you don't configure a trail, you can still view the most recent events in the CloudTrail console
-in **Event history**. Using the information collected by CloudTrail, you can
-determine the request that was made to re:Post Private, the IP address from which the request
-was made, who made the request, when it was made, and additional details.
+AWS re:Post Private is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in re:Post Private. CloudTrail captures all API calls for re:Post Private as events. The calls captured include calls from the re:Post Private console and code calls to the re:Post Private API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for re:Post Private. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to re:Post Private, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
 ## re:Post Private information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity occurs
-in re:Post Private, that activity is recorded in a CloudTrail event along with other AWS service events
-in **Event history**. You can view, search, and download recent events in
-your AWS account. For more information, see [Working with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in re:Post Private, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Working with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 
-For an ongoing record of events in your AWS account, including events for re:Post Private,
-create a trail. A _trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket.
-By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail
-logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket
-that you specify. Additionally, you can configure other AWS services to further analyze and act
-upon the event data collected in CloudTrail logs. For more information, see the following:
+For an ongoing record of events in your AWS account, including events for re:Post Private, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following:
++ [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html)
++ [Receiving CloudTrail log files from multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Creating a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md")
-- [Configuring Amazon SNS notifications
-  for CloudTrail](../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md")
-- [Receiving CloudTrail log
-  files from multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail log
-  files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
-
-All re:Post Private actions are logged by CloudTrail and are documented in the [AWS re:Post Private API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md"). re:Post Private supports logging the following actions as events in CloudTrail log files:
-
-- [CreateSpace](../APIReference/API_CreateSpace.md "../APIReference/API_CreateSpace.md")
-- [DeleteSpace](../APIReference/API_DeleteSpace.md "../APIReference/API_DeleteSpace.md")
-- [DeregisterAdmin](../APIReference/API_DeregisterAdmin.md "../APIReference/API_DeregisterAdmin.md")
-- [GetSpace](../APIReference/API_GetSpace.md "../APIReference/API_GetSpace.md")
-- [ListSpaces](../APIReference/APIListSpaces.md "../APIReference/APIListSpaces.md")
-- [ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md")
-- [RegisterAdmin](../APIReference/API_RegisterAdmin.md "../APIReference/API_RegisterAdmin.md")
-- [SendInvites](../APIReference/API_SendInvites.md "../APIReference/API_SendInvites.md")
-- [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md")
-- [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md")
-- [UpdateSpace](../APIReference/API_UpdateSpace.md "../APIReference/API_UpdateSpace.md")
+All re:Post Private actions are logged by CloudTrail and are documented in the [AWS re:Post Private API Reference](https://docs.aws.amazon.com/repostprivate/latest/APIReference/Welcome.html). re:Post Private supports logging the following actions as events in CloudTrail log files:
++ [CreateSpace](https://docs.aws.amazon.com/repostprivate/latest/APIReference/API_CreateSpace.html)
++ [DeleteSpace](https://docs.aws.amazon.com/repostprivate/latest/APIReference/API_DeleteSpace.html)
++ [DeregisterAdmin](https://docs.aws.amazon.com/repostprivate/latest/APIReference/API_DeregisterAdmin.html)
++ [GetSpace](https://docs.aws.amazon.com/repostprivate/latest/APIReference/API_GetSpace.html)
++ [ListSpaces](https://docs.aws.amazon.com/repostprivate/latest/APIReference/APIListSpaces.html)
++ [ListTagsForResource](https://docs.aws.amazon.com/repostprivate/latest/APIReference/API_ListTagsForResource.html)
++ [RegisterAdmin](https://docs.aws.amazon.com/repostprivate/latest/APIReference/API_RegisterAdmin.html)
++ [SendInvites](https://docs.aws.amazon.com/repostprivate/latest/APIReference/API_SendInvites.html)
++ [TagResource](https://docs.aws.amazon.com/repostprivate/latest/APIReference/API_TagResource.html)
++ [UntagResource](https://docs.aws.amazon.com/repostprivate/latest/APIReference/API_UntagResource.html)
++ [UpdateSpace](https://docs.aws.amazon.com/repostprivate/latest/APIReference/API_UpdateSpace.html)
 
 re:Post Private supports logging the following Support actions as events in the CloudTrail log files:
++ [CreateCase](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CreateCase.html)
++ [AddCommunicationToCase](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddCommunicationToCase.html)
++ [ResolveCase](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_ResolveCase.html)
 
-- [CreateCase](../../../awssupport/latest/APIReference/API_CreateCase.md "../../../awssupport/latest/APIReference/API_CreateCase.md")
-- [AddCommunicationToCase](../../../awssupport/latest/APIReference/API_AddCommunicationToCase.md "../../../awssupport/latest/APIReference/API_AddCommunicationToCase.md")
-- [ResolveCase](../../../awssupport/latest/APIReference/API_ResolveCase.md "../../../awssupport/latest/APIReference/API_ResolveCase.md")
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity
-element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Understanding re:Post Private log file entries
+<a name="understanding-service-name-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
-the public API calls, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateSpace` action.
 
 ```
-
  {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -131,13 +102,11 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
     "recipientAccountId": "123456789012",
     "eventCategory": "Management"
 }
-
 ```
 
 The following example shows a CloudTrail log entry that demonstrates the `RegisterAdmin` action.
 
 ```
-
  {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -182,13 +151,11 @@ The following example shows a CloudTrail log entry that demonstrates the `Regist
     "recipientAccountId": "123456789012",
     "eventCategory": "Management"
 }
-
 ```
 
 The following example shows a CloudTrail log entry that demonstrates the `ListSpaces` action.
 
 ```
-
  {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -228,7 +195,6 @@ The following example shows a CloudTrail log entry that demonstrates the `ListSp
     "recipientAccountId": "123456789012",
     "eventCategory": "Management"
 }
-
 ```
 
 The following example shows a CloudTrail log entry that demonstrates the `ResolveCase` action. You can use the `sourceIdentity` element in this log entry to identify the user that resolved the case.
@@ -281,5 +247,4 @@ The following example shows a CloudTrail log entry that demonstrates the `Resolv
         "clientProvidedHostHeader": "support.us-west-2.amazonaws.com"
     }
 }
-
 ```

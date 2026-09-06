@@ -1,33 +1,21 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AWS re:Post Private. After June 30, 2027, you will
-no longer be able to access the re:Post Private console or re:Post Private resources.
-For more information, see [AWS re:Post Private end of support](../userguide/repost-private-end-of-support.md "../userguide/repost-private-end-of-support.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AWS re:Post Private. After June 30, 2027, you will no longer be able to access the re:Post Private console or re:Post Private resources. For more information, see [AWS re:Post Private end of support](https://docs.aws.amazon.com/repostprivate/latest/userguide/repost-private-end-of-support.html). 
 
 # Security in re:Post Private
+<a name="security"></a>
 
-Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data
-centers and network architectures that are built to meet the requirements of the most
-security-sensitive organizations.
+Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data centers and network architectures that are built to meet the requirements of the most security-sensitive organizations.
 
-Security is a shared responsibility between AWS and you. The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security
-_of_ the cloud and security _in_ the cloud:
+Security is a shared responsibility between AWS and you. The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) describes this as security *of* the cloud and security *in* the cloud:
++ **Security of the cloud** – AWS is responsible for protecting the infrastructure that runs AWS services in the AWS Cloud. AWS also provides you with services that you can use securely. Third-party auditors regularly test and verify the effectiveness of our security as part of the [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/). To learn about the compliance programs that apply to AWS re:Post Private, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/).
++ **Security in the cloud** – Your responsibility is determined by the AWS service that you use. You are also responsible for other factors, including the sensitivity of your data, your company’s requirements, and applicable laws and regulations. 
 
-- **Security of the cloud** – AWS is responsible for protecting the
-  infrastructure that runs AWS services in the AWS Cloud. AWS also provides you with services that you can use
-  securely. Third-party auditors regularly test and verify the effectiveness of our security as part of the [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to AWS re:Post Private, see [AWS Services in Scope by Compliance
-  Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
-- **Security in the cloud** – Your responsibility is
-  determined by the AWS service that you use. You are also responsible for other factors, including the sensitivity of your data, your company’s requirements, and applicable laws and
-  regulations.
-  This documentation helps you understand how to apply the shared responsibility model when
-  using re:Post Private. The following topics show you how to configure re:Post Private to meet your
-  security and compliance objectives. You also learn how to use other AWS services that help you
-  to monitor and secure your re:Post Private resources.
+This documentation helps you understand how to apply the shared responsibility model when using re:Post Private. The following topics show you how to configure re:Post Private to meet your security and compliance objectives. You also learn how to use other AWS services that help you to monitor and secure your re:Post Private resources. 
 
-###### Topics
-
-- [Data protection in AWS re:Post Private](data-protection.md "data-protection.md")
-- [How re:Post Private works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [Compliance validation for AWS re:Post Private](compliance-validation.md "compliance-validation.md")
-- [Resilience in AWS re:Post Private](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure Security in AWS re:Post Private](infrastructure-security.md "infrastructure-security.md")
+**Topics**
++ [Data protection in AWS re:Post Private](data-protection.md)
++ [How re:Post Private works with IAM](security_iam_service-with-iam.md)
++ [Compliance validation for AWS re:Post Private](compliance-validation.md)
++ [Resilience in AWS re:Post Private](disaster-recovery-resiliency.md)
++ [Infrastructure Security in AWS re:Post Private](infrastructure-security.md)
