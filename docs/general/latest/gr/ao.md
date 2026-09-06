@@ -1,90 +1,89 @@
+
+
 # AWS Organizations endpoints and quotas
+<a name="ao"></a>
 
-To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types
-in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints.
-Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md "rande.md").
+To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
-Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account.
-For more information, see [AWS service quotas](aws_service_limits.md "aws_service_limits.md").
+Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](aws_service_limits.md).
 
 The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
+<a name="ao_region"></a>
 
-Because AWS Organizations is a global service, there is a single global endpoint for all of the
-AWS Regions in each partition.
+Because AWS Organizations is a global service, there is a single global endpoint for all of the AWS Regions in each partition.
 
-| Region Name                | Region         | Endpoint                                                                            | Protocol       |
-| -------------------------- | -------------- | ----------------------------------------------------------------------------------- | -------------- |
-| US East (Ohio)             | us-east-2      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| US East (N. Virginia)      | us-east-1      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| US West (N. California)    | us-west-1      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| US West (Oregon)           | us-west-2      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Africa (Cape Town)         | af-south-1     | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Hong Kong)   | ap-east-1      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Hyderabad)   | ap-south-2     | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Jakarta)     | ap-southeast-3 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Malaysia)    | ap-southeast-5 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Melbourne)   | ap-southeast-4 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Mumbai)      | ap-south-1     | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (New Zealand) | ap-southeast-6 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Osaka)       | ap-northeast-3 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Seoul)       | ap-northeast-2 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Singapore)   | ap-southeast-1 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Sydney)      | ap-southeast-2 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Taipei)      | ap-east-2      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Thailand)    | ap-southeast-7 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Asia Pacific (Tokyo)       | ap-northeast-1 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Canada (Central)           | ca-central-1   | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Canada West (Calgary)      | ca-west-1      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Frankfurt)         | eu-central-1   | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Ireland)           | eu-west-1      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (London)            | eu-west-2      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Milan)             | eu-south-1     | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Paris)             | eu-west-3      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Spain)             | eu-south-2     | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Stockholm)         | eu-north-1     | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Europe (Zurich)            | eu-central-2   | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Israel (Tel Aviv)          | il-central-1   | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Mexico (Central)           | mx-central-1   | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Middle East (Bahrain)      | me-south-1     | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| Middle East (UAE)          | me-central-1   | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| South America (São Paulo)  | sa-east-1      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
-| AWS GovCloud (US-East)     | us-gov-east-1  | organizations.us-gov-west-1.amazonaws.com                                           | HTTPS          |
-| AWS GovCloud (US-West)     | us-gov-west-1  | organizations.us-gov-west-1.amazonaws.com                                           | HTTPS          |
+
+| Region Name | Region | Endpoint | Protocol | 
+| --- | --- | --- | --- | 
+| US East (Ohio) | us-east-2 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| US East (N. Virginia) | us-east-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| US West (N. California) | us-west-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| US West (Oregon) | us-west-2 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Africa (Cape Town) | af-south-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hong Kong) | ap-east-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hyderabad) | ap-south-2 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Asia Pacific (Jakarta) | ap-southeast-3 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Asia Pacific (Malaysia) | ap-southeast-5 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Asia Pacific (Melbourne) | ap-southeast-4 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Asia Pacific (Mumbai) | ap-south-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Asia Pacific (New Zealand) | ap-southeast-6 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Asia Pacific (Osaka) | ap-northeast-3 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Asia Pacific (Seoul) | ap-northeast-2 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Asia Pacific (Singapore) | ap-southeast-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Asia Pacific (Sydney) | ap-southeast-2 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Asia Pacific (Taipei) | ap-east-2 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Asia Pacific (Thailand) | ap-southeast-7 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Canada (Central) | ca-central-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Canada West (Calgary) | ca-west-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Europe (Frankfurt) | eu-central-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Europe (Ireland) | eu-west-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Europe (London) | eu-west-2 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Europe (Milan) | eu-south-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Europe (Paris) | eu-west-3 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Europe (Spain) | eu-south-2 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Europe (Stockholm) | eu-north-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Europe (Zurich) | eu-central-2 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Israel (Tel Aviv) | il-central-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Mexico (Central) | mx-central-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Middle East (Bahrain) | me-south-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Middle East (UAE) | me-central-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| South America (São Paulo) | sa-east-1 |  organizations.us-east-1.amazonaws.com <br /> organizations-fips.us-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-East) | us-gov-east-1 |  organizations.us-gov-west-1.amazonaws.com  | HTTPS | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  organizations.us-gov-west-1.amazonaws.com  | HTTPS | 
 
 ## Service quotas
+<a name="aws-organizations-limits"></a>
 
 AWS Organizations has the following quotas:
 
-###### Note
+**Note**  
+AWS Organizations limits apply at the organization level, unless otherwise specified. Many quotas apply only to actions performed from the AWS Organizations management account.
 
-AWS Organizations limits apply at the organization level, unless otherwise specified. Many
-quotas apply only to actions performed from the AWS Organizations management account.
 
-| Name                                                              | Default                       | Adjustable                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                                  |
-| ----------------------------------------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Enable all features request expiration                            | Each supported Region: 90     | No                                                                                                                                                                                             | Maximum number of days to allow before request to enable all features expires.                                                                                                                                                                                                                               |
-| Handshake expiration                                              | Each supported Region: 30     | No                                                                                                                                                                                             | Maximum number of days to allow to complete handshake.                                                                                                                                                                                                                                                       |
-| Inbound billing transfers                                         | Each supported Region: 0      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/organizations/quotas/L-DC9D128D "https://console.aws.amazon.com/servicequotas/home/services/organizations/quotas/L-DC9D128D") | The maximum number of external organizations that you can manage and pay for at any given time. The maximum value is 1,000.                                                                                                                                                                                  |
-| Invitation acceptance expiration                                  | Each supported Region: 15     | No                                                                                                                                                                                             | Maximum number of days to allow before invitations to join an organization expire.                                                                                                                                                                                                                           |
-| Length of bill-transfer chain                                     | Each supported Region: 1      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/organizations/quotas/L-35422876 "https://console.aws.amazon.com/servicequotas/home/services/organizations/quotas/L-35422876") | The maximum number of interconnections that each of your inbound billing transfers can have at any given time. The maximum value for this quota is 2 for Distributors, and 1 for Solution Providers and Direct Customers. The maximum value for Solution Providers and Direct Customers cannot be increased. |
-| Maximum number of accounts                                        | Each supported Region: 10     | [Yes](https://console.aws.amazon.com/servicequotas/home/services/organizations/quotas/L-E619E033 "https://console.aws.amazon.com/servicequotas/home/services/organizations/quotas/L-E619E033") | The maximum number of accounts allowed in an organization.                                                                                                                                                                                                                                                   |
-| Member accounts you can concurrently close                        | Each supported Region: 3      | No                                                                                                                                                                                             | Maximum number of accounts that you can concurrently close. As soon as one finishes, you can close another.                                                                                                                                                                                                  |
-| Member accounts you can concurrently create                       | Each supported Region: 5      | No                                                                                                                                                                                             | Maximum number of accounts that you can concurrently create. As soon as one finishes, you can start another.                                                                                                                                                                                                 |
-| Minimum age for removal of created accounts                       | Each supported Region: 4      | No                                                                                                                                                                                             | The minimum number of days a created account must exist before you can remove it from the organization.                                                                                                                                                                                                      |
-| Number of accounts you can close within a 30 day period           | Each supported Region: 250    | No                                                                                                                                                                                             | The maximum number of member accounts that can be closed in a 30-day period. For organizations with up to 250 accounts, the quota equals the number of accounts. For larger organizations, the quota is 250 or 20-percent of total member accounts, whichever is greater, up to 1000.                        |
-| Number of invitation attempts you can perform in a 24-hour period | Each supported Region: 20     | No                                                                                                                                                                                             | Maximum number of invitation attempts you can perform in a 24-hour period. The number of attempts can be either 20 or the maximum number of accounts allowed in your organization, whichever is greater.                                                                                                     |
-| OU maximum nesting in a root                                      | Each supported Region: 5      | No                                                                                                                                                                                             | The maximum number of levels that you can nest OUs under the root.                                                                                                                                                                                                                                           |
-| OUs in an organization                                            | Each supported Region: 2,000  | No                                                                                                                                                                                             | The maximum number of OUs that you can include in an organization.                                                                                                                                                                                                                                           |
-| Outbound billing transfers                                        | Each supported Region: 1      | No                                                                                                                                                                                             | The maximum number of external organizations that you can allow to manage and pay for your consolidated bill at any given time.                                                                                                                                                                              |
-| Roots in an organization                                          | Each supported Region: 1      | No                                                                                                                                                                                             | The maximum number of root accounts allowed per organization.                                                                                                                                                                                                                                                |
-| Service control policies in an organization                       | Each supported Region: 10,000 | No                                                                                                                                                                                             | The maximum number of service control policies (SCPs) allowed per organization.                                                                                                                                                                                                                              |
-| Service control policies per OU                                   | Each supported Region: 10     | No                                                                                                                                                                                             | The maximum number of service control policies (SCPs) allowed per OU.                                                                                                                                                                                                                                        |
-| Service control policies per account                              | Each supported Region: 10     | No                                                                                                                                                                                             | The maximum number of service control policies (SCPs) allowed per account.                                                                                                                                                                                                                                   |
-| Service control policies per root                                 | Each supported Region: 10     | No                                                                                                                                                                                             | The maximum number of service control policies (SCPs) allowed per root.                                                                                                                                                                                                                                      |
-| Service control policy document size                              | Each supported Region: 10,240 | No                                                                                                                                                                                             | The maximum document size (in characters) allowed for service control policies (SCPs).                                                                                                                                                                                                                       |
+| Name | Default | Adjustable | Description | 
+| --- | --- | --- | --- | 
+| Enable all features request expiration | Each supported Region: 90 | No | Maximum number of days to allow before request to enable all features expires. | 
+| Handshake expiration | Each supported Region: 30 | No | Maximum number of days to allow to complete handshake. | 
+| Inbound billing transfers | Each supported Region: 0 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/organizations/quotas/L-DC9D128D)  | The maximum number of external organizations that you can manage and pay for at any given time. The maximum value is 1,000. | 
+| Invitation acceptance expiration | Each supported Region: 15 | No | Maximum number of days to allow before invitations to join an organization expire. | 
+| Length of bill-transfer chain | Each supported Region: 1 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/organizations/quotas/L-35422876)  | The maximum number of interconnections that each of your inbound billing transfers can have at any given time. The maximum value for this quota is 2 for Distributors, and 1 for Solution Providers and Direct Customers. The maximum value for Solution Providers and Direct Customers cannot be increased. | 
+| Maximum number of accounts | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/organizations/quotas/L-E619E033)  | The maximum number of accounts allowed in an organization. | 
+| Member accounts you can concurrently close | Each supported Region: 3 | No | Maximum number of accounts that you can concurrently close. As soon as one finishes, you can close another. | 
+| Member accounts you can concurrently create | Each supported Region: 5 | No | Maximum number of accounts that you can concurrently create. As soon as one finishes, you can start another. | 
+| Minimum age for removal of created accounts | Each supported Region: 4 | No | The minimum number of days a created account must exist before you can remove it from the organization. | 
+| Number of accounts you can close within a 30 day period | Each supported Region: 250 | No | The maximum number of member accounts that can be closed in a 30-day period. For organizations with up to 250 accounts, the quota equals the number of accounts. For larger organizations, the quota is 250 or 20-percent of total member accounts, whichever is greater, up to 1000. | 
+| Number of invitation attempts you can perform in a 24-hour period | Each supported Region: 20 | No | Maximum number of invitation attempts you can perform in a 24-hour period. The number of attempts can be either 20 or the maximum number of accounts allowed in your organization, whichever is greater. | 
+| OU maximum nesting in a root | Each supported Region: 5 | No | The maximum number of levels that you can nest OUs under the root. | 
+| OUs in an organization | Each supported Region: 2,000 | No | The maximum number of OUs that you can include in an organization. | 
+| Outbound billing transfers | Each supported Region: 1 | No | The maximum number of external organizations that you can allow to manage and pay for your consolidated bill at any given time. | 
+| Roots in an organization | Each supported Region: 1 | No | The maximum number of root accounts allowed per organization. | 
+| Service control policies in an organization | Each supported Region: 10,000 | No | The maximum number of service control policies (SCPs) allowed per organization. | 
+| Service control policies per OU | Each supported Region: 10 | No | The maximum number of service control policies (SCPs) allowed per OU. | 
+| Service control policies per account | Each supported Region: 10 | No | The maximum number of service control policies (SCPs) allowed per account. | 
+| Service control policies per root | Each supported Region: 10 | No | The maximum number of service control policies (SCPs) allowed per root. | 
+| Service control policy document size | Each supported Region: 10,240 | No | The maximum document size (in characters) allowed for service control policies (SCPs). | 
 
-For more information, see [Quotas
-and service limits for AWS Organizations](../../../organizations/latest/userguide/orgs_reference_limits.md "../../../organizations/latest/userguide/orgs_reference_limits.md") in the
-_AWS Organizations User Guide_.
+For more information, see [Quotas and service limits for AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html) in the *AWS Organizations User Guide*.

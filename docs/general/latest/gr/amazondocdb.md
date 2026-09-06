@@ -1,67 +1,70 @@
+
+
 # Amazon DocumentDB endpoints and quotas
+<a name="amazondocdb"></a>
 
-To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types
-in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints.
-Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md "rande.md").
+To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
-Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account.
-For more information, see [AWS service quotas](aws_service_limits.md "aws_service_limits.md").
+Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](aws_service_limits.md).
 
 The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
+<a name="amazondocdb_region"></a>
 
-| Region Name               | Region         | Endpoint                                                                                                                           | Protocol                         |
-| ------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| US East (Ohio)            | us-east-2      | rds.us-east-2.amazonaws.com<br>rds-fips.us-east-2.api.aws<br>rds.us-east-2.api.aws<br>rds-fips.us-east-2.amazonaws.com             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US East (N. Virginia)     | us-east-1      | rds.us-east-1.amazonaws.com<br>rds-fips.us-east-1.api.aws<br>rds-fips.us-east-1.amazonaws.com<br>rds.us-east-1.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US West (Oregon)          | us-west-2      | rds.us-west-2.amazonaws.com<br>rds-fips.us-west-2.amazonaws.com<br>rds.us-west-2.api.aws<br>rds-fips.us-west-2.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| Africa (Cape Town)        | af-south-1     | rds.af-south-1.amazonaws.com<br>rds.af-south-1.api.aws                                                                             | HTTPS<br>HTTPS                   |
-| Asia Pacific (Hong Kong)  | ap-east-1      | rds.ap-east-1.amazonaws.com<br>rds.ap-east-1.api.aws                                                                               | HTTPS<br>HTTPS                   |
-| Asia Pacific (Hyderabad)  | ap-south-2     | rds.ap-south-2.amazonaws.com<br>rds.ap-south-2.api.aws                                                                             | HTTPS<br>HTTPS                   |
-| Asia Pacific (Jakarta)    | ap-southeast-3 | rds.ap-southeast-3.amazonaws.com<br>rds.ap-southeast-3.api.aws                                                                     | HTTPS<br>HTTPS                   |
-| Asia Pacific (Malaysia)   | ap-southeast-5 | rds.ap-southeast-5.amazonaws.com                                                                                                   | HTTPS                            |
-| Asia Pacific (Melbourne)  | ap-southeast-4 | rds.ap-southeast-4.amazonaws.com<br>rds.ap-southeast-4.api.aws                                                                     | HTTPS<br>HTTPS                   |
-| Asia Pacific (Mumbai)     | ap-south-1     | rds.ap-south-1.amazonaws.com<br>rds.ap-south-1.api.aws                                                                             | HTTPS<br>HTTPS                   |
-| Asia Pacific (Osaka)      | ap-northeast-3 | rds.ap-northeast-3.amazonaws.com<br>rds.ap-northeast-3.api.aws                                                                     | HTTPS<br>HTTPS                   |
-| Asia Pacific (Seoul)      | ap-northeast-2 | rds.ap-northeast-2.amazonaws.com<br>rds.ap-northeast-2.api.aws                                                                     | HTTPS<br>HTTPS                   |
-| Asia Pacific (Singapore)  | ap-southeast-1 | rds.ap-southeast-1.amazonaws.com<br>rds.ap-southeast-1.api.aws                                                                     | HTTPS<br>HTTPS                   |
-| Asia Pacific (Sydney)     | ap-southeast-2 | rds.ap-southeast-2.amazonaws.com<br>rds.ap-southeast-2.api.aws                                                                     | HTTPS<br>HTTPS                   |
-| Asia Pacific (Thailand)   | ap-southeast-7 | rds.ap-southeast-7.amazonaws.com                                                                                                   | HTTPS                            |
-| Asia Pacific (Tokyo)      | ap-northeast-1 | rds.ap-northeast-1.amazonaws.com<br>rds.ap-northeast-1.api.aws                                                                     | HTTPS<br>HTTPS                   |
-| Canada (Central)          | ca-central-1   | rds.ca-central-1.amazonaws.com<br>rds.ca-central-1.api.aws<br>rds-fips.ca-central-1.api.aws<br>rds-fips.ca-central-1.amazonaws.com | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| Canada West (Calgary)     | ca-west-1      | rds.ca-west-1.amazonaws.com<br>rds-fips.ca-west-1.amazonaws.com                                                                    | HTTPS<br>HTTPS                   |
-| Europe (Frankfurt)        | eu-central-1   | rds.eu-central-1.amazonaws.com<br>rds.eu-central-1.api.aws                                                                         | HTTPS<br>HTTPS                   |
-| Europe (Ireland)          | eu-west-1      | rds.eu-west-1.amazonaws.com<br>rds.eu-west-1.api.aws                                                                               | HTTPS<br>HTTPS                   |
-| Europe (London)           | eu-west-2      | rds.eu-west-2.amazonaws.com<br>rds.eu-west-2.api.aws                                                                               | HTTPS<br>HTTPS                   |
-| Europe (Milan)            | eu-south-1     | rds.eu-south-1.amazonaws.com<br>rds.eu-south-1.api.aws                                                                             | HTTPS<br>HTTPS                   |
-| Europe (Paris)            | eu-west-3      | rds.eu-west-3.amazonaws.com<br>rds.eu-west-3.api.aws                                                                               | HTTPS<br>HTTPS                   |
-| Europe (Spain)            | eu-south-2     | rds.eu-south-2.amazonaws.com<br>rds.eu-south-2.api.aws                                                                             | HTTPS<br>HTTPS                   |
-| Europe (Stockholm)        | eu-north-1     | rds.eu-north-1.amazonaws.com<br>rds.eu-north-1.api.aws                                                                             | HTTPS<br>HTTPS                   |
-| Europe (Zurich)           | eu-central-2   | rds.eu-central-2.amazonaws.com<br>rds.eu-central-2.api.aws                                                                         | HTTPS<br>HTTPS                   |
-| Israel (Tel Aviv)         | il-central-1   | rds.il-central-1.amazonaws.com<br>rds.il-central-1.api.aws                                                                         | HTTPS<br>HTTPS                   |
-| Mexico (Central)          | mx-central-1   | rds.mx-central-1.amazonaws.com                                                                                                     | HTTPS                            |
-| Middle East (UAE)         | me-central-1   | rds.me-central-1.amazonaws.com<br>rds.me-central-1.api.aws                                                                         | HTTPS<br>HTTPS                   |
-| South America (São Paulo) | sa-east-1      | rds.sa-east-1.amazonaws.com<br>rds.sa-east-1.api.aws                                                                               | HTTPS<br>HTTPS                   |
-| AWS GovCloud (US-East)    | us-gov-east-1  | rds.us-gov-east-1.amazonaws.com<br>rds.us-gov-east-1.api.aws                                                                       | HTTPS<br>HTTPS                   |
-| AWS GovCloud (US-West)    | us-gov-west-1  | rds.us-gov-west-1.amazonaws.com<br>rds.us-gov-west-1.api.aws                                                                       | HTTPS<br>HTTPS                   |
 
-For information on finding and connecting to your cluster or instance endpoints,
-see [Working with Amazon DocumentDB Endpoints](../../../documentdb/latest/developerguide/endpoints.md "../../../documentdb/latest/developerguide/endpoints.md") in the _Amazon DocumentDB Developer Guide_.
+| Region Name | Region | Endpoint | Protocol | 
+| --- | --- | --- | --- | 
+| US East (Ohio) | us-east-2 |  rds.us-east-2.amazonaws.com <br /> rds-fips.us-east-2.api.aws <br /> rds.us-east-2.api.aws <br /> rds-fips.us-east-2.amazonaws.com  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| US East (N. Virginia) | us-east-1 |  rds.us-east-1.amazonaws.com <br /> rds-fips.us-east-1.api.aws <br /> rds-fips.us-east-1.amazonaws.com <br /> rds.us-east-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| US West (Oregon) | us-west-2 |  rds.us-west-2.amazonaws.com <br /> rds-fips.us-west-2.amazonaws.com <br /> rds.us-west-2.api.aws <br /> rds-fips.us-west-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| Africa (Cape Town) | af-south-1 |  rds.af-south-1.amazonaws.com <br /> rds.af-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hong Kong) | ap-east-1 |  rds.ap-east-1.amazonaws.com <br /> rds.ap-east-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hyderabad) | ap-south-2 |  rds.ap-south-2.amazonaws.com <br /> rds.ap-south-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Jakarta) | ap-southeast-3 |  rds.ap-southeast-3.amazonaws.com <br /> rds.ap-southeast-3.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Malaysia) | ap-southeast-5 |  rds.ap-southeast-5.amazonaws.com  | HTTPS | 
+| Asia Pacific (Melbourne) | ap-southeast-4 |  rds.ap-southeast-4.amazonaws.com <br /> rds.ap-southeast-4.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Mumbai) | ap-south-1 |  rds.ap-south-1.amazonaws.com <br /> rds.ap-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Osaka) | ap-northeast-3 |  rds.ap-northeast-3.amazonaws.com <br /> rds.ap-northeast-3.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Seoul) | ap-northeast-2 |  rds.ap-northeast-2.amazonaws.com <br /> rds.ap-northeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Singapore) | ap-southeast-1 |  rds.ap-southeast-1.amazonaws.com <br /> rds.ap-southeast-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Sydney) | ap-southeast-2 |  rds.ap-southeast-2.amazonaws.com <br /> rds.ap-southeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Thailand) | ap-southeast-7 |  rds.ap-southeast-7.amazonaws.com  | HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 |  rds.ap-northeast-1.amazonaws.com <br /> rds.ap-northeast-1.api.aws  | HTTPS<br />HTTPS | 
+| Canada (Central) | ca-central-1 |  rds.ca-central-1.amazonaws.com <br /> rds.ca-central-1.api.aws <br /> rds-fips.ca-central-1.api.aws <br /> rds-fips.ca-central-1.amazonaws.com  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| Canada West (Calgary) | ca-west-1 |  rds.ca-west-1.amazonaws.com <br /> rds-fips.ca-west-1.amazonaws.com  | HTTPS<br />HTTPS | 
+| Europe (Frankfurt) | eu-central-1 |  rds.eu-central-1.amazonaws.com <br /> rds.eu-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Ireland) | eu-west-1 |  rds.eu-west-1.amazonaws.com <br /> rds.eu-west-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (London) | eu-west-2 |  rds.eu-west-2.amazonaws.com <br /> rds.eu-west-2.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Milan) | eu-south-1 |  rds.eu-south-1.amazonaws.com <br /> rds.eu-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Paris) | eu-west-3 |  rds.eu-west-3.amazonaws.com <br /> rds.eu-west-3.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Spain) | eu-south-2 |  rds.eu-south-2.amazonaws.com <br /> rds.eu-south-2.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Stockholm) | eu-north-1 |  rds.eu-north-1.amazonaws.com <br /> rds.eu-north-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Zurich) | eu-central-2 |  rds.eu-central-2.amazonaws.com <br /> rds.eu-central-2.api.aws  | HTTPS<br />HTTPS | 
+| Israel (Tel Aviv) | il-central-1 |  rds.il-central-1.amazonaws.com <br /> rds.il-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Mexico (Central) | mx-central-1 |  rds.mx-central-1.amazonaws.com  | HTTPS | 
+| Middle East (UAE) | me-central-1 |  rds.me-central-1.amazonaws.com <br /> rds.me-central-1.api.aws  | HTTPS<br />HTTPS | 
+| South America (São Paulo) | sa-east-1 |  rds.sa-east-1.amazonaws.com <br /> rds.sa-east-1.api.aws  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-East) | us-gov-east-1 |  rds.us-gov-east-1.amazonaws.com <br /> rds.us-gov-east-1.api.aws  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  rds.us-gov-west-1.amazonaws.com <br /> rds.us-gov-west-1.api.aws  | HTTPS<br />HTTPS | 
+
+For information on finding and connecting to your cluster or instance endpoints, see [Working with Amazon DocumentDB Endpoints](https://docs.aws.amazon.com/documentdb/latest/developerguide/endpoints.html) in the *Amazon DocumentDB Developer Guide*.
 
 ## Service quotas
+<a name="amazondocdb_quotas"></a>
 
-| Name                             | Default                    | Adjustable                                                                                                                                                                     | Description                                                                      |
-| -------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
-| Cluster parameter groups         | Each supported Region: 50  | No                                                                                                                                                                             | The maximum number of DB cluster parameter groups                                |
-| Clusters                         | Each supported Region: 40  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-13F31459 "https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-13F31459") | The maximum number of clusters allowed in this account in the current Region     |
-| Event subscriptions              | Each supported Region: 20  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-F7FABF71 "https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-F7FABF71") | The maximum number of event subscriptions                                        |
-| Instances                        | Each supported Region: 40  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-739A3A85 "https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-739A3A85") | The maximum number of DB instances allowed in this account in the current Region |
-| Manual cluster snapshots         | Each supported Region: 100 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-B2551F83 "https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-B2551F83") | The maximum number of manual snapshots                                           |
-| Read replicas per cluster        | Each supported Region: 15  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-5BA57179 "https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-5BA57179") | The maximum number of read replicas per cluster                                  |
-| Subnet groups                    | Each supported Region: 50  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-02DEA053 "https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-02DEA053") | The maximum number of DB subnet groups                                           |
-| Subnets per subnet group         | Each supported Region: 20  | No                                                                                                                                                                             | The maximum number of subnets per DB subnet group                                |
-| Tags per resource                | Each supported Region: 50  | No                                                                                                                                                                             | The maximum number of tags per Amazon RDS resource                               |
-| VPC security groups per instance | Each supported Region: 5   | No                                                                                                                                                                             | The maximum number of DB security groups per Amazon VPC                          |
 
-For more information, see [Amazon DocumentDB Service Quotas](../../../documentdb/latest/developerguide/limits.md "../../../documentdb/latest/developerguide/limits.md") in the _Amazon DocumentDB Developer Guide._
+| Name | Default | Adjustable | Description | 
+| --- | --- | --- | --- | 
+| Cluster parameter groups | Each supported Region: 50 | No | The maximum number of DB cluster parameter groups | 
+| Clusters | Each supported Region: 40 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-13F31459)  | The maximum number of clusters allowed in this account in the current Region | 
+| Event subscriptions | Each supported Region: 20 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-F7FABF71)  | The maximum number of event subscriptions | 
+| Instances | Each supported Region: 40 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-739A3A85)  | The maximum number of DB instances allowed in this account in the current Region | 
+| Manual cluster snapshots | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-B2551F83)  | The maximum number of manual snapshots | 
+| Read replicas per cluster | Each supported Region: 15 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-5BA57179)  | The maximum number of read replicas per cluster | 
+| Subnet groups | Each supported Region: 50 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/docdb/quotas/L-02DEA053)  | The maximum number of DB subnet groups | 
+| Subnets per subnet group | Each supported Region: 20 | No | The maximum number of subnets per DB subnet group | 
+| Tags per resource | Each supported Region: 50 | No | The maximum number of tags per Amazon RDS resource | 
+| VPC security groups per instance | Each supported Region: 5 | No | The maximum number of DB security groups per Amazon VPC | 
+
+For more information, see [ Amazon DocumentDB Service Quotas](https://docs.aws.amazon.com/documentdb/latest/developerguide/limits.html) in the *Amazon DocumentDB Developer Guide.*

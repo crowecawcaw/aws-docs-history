@@ -1,80 +1,86 @@
+
+
 # AWS Outposts endpoints and quotas
+<a name="outposts_region"></a>
 
-To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types
-in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints.
-Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md "rande.md").
+To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
-Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account.
-For more information, see [AWS service quotas](aws_service_limits.md "aws_service_limits.md").
+Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](aws_service_limits.md).
 
 The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
+<a name="outposts_region"></a>
 
-| Region Name               | Region         | Endpoint                                                                                                                                               | Protocol                         |
-| ------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
-| US East (Ohio)            | us-east-2      | outposts.us-east-2.amazonaws.com<br>outposts-fips.us-east-2.api.aws<br>outposts-fips.us-east-2.amazonaws.com<br>outposts.us-east-2.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US East (N. Virginia)     | us-east-1      | outposts.us-east-1.amazonaws.com<br>outposts-fips.us-east-1.api.aws<br>outposts-fips.us-east-1.amazonaws.com<br>outposts.us-east-1.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US West (N. California)   | us-west-1      | outposts.us-west-1.amazonaws.com<br>outposts-fips.us-west-1.api.aws<br>outposts-fips.us-west-1.amazonaws.com<br>outposts.us-west-1.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US West (Oregon)          | us-west-2      | outposts.us-west-2.amazonaws.com<br>outposts-fips.us-west-2.api.aws<br>outposts-fips.us-west-2.amazonaws.com<br>outposts.us-west-2.api.aws             | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| Africa (Cape Town)        | af-south-1     | outposts.af-south-1.amazonaws.com<br>outposts.af-south-1.api.aws                                                                                       | HTTPS<br>HTTPS                   |
-| Asia Pacific (Hong Kong)  | ap-east-1      | outposts.ap-east-1.amazonaws.com<br>outposts.ap-east-1.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| Asia Pacific (Jakarta)    | ap-southeast-3 | outposts.ap-southeast-3.amazonaws.com<br>outposts.ap-southeast-3.api.aws                                                                               | HTTPS<br>HTTPS                   |
-| Asia Pacific (Mumbai)     | ap-south-1     | outposts.ap-south-1.amazonaws.com<br>outposts.ap-south-1.api.aws                                                                                       | HTTPS<br>HTTPS                   |
-| Asia Pacific (Osaka)      | ap-northeast-3 | outposts.ap-northeast-3.amazonaws.com<br>outposts.ap-northeast-3.api.aws                                                                               | HTTPS<br>HTTPS                   |
-| Asia Pacific (Seoul)      | ap-northeast-2 | outposts.ap-northeast-2.amazonaws.com<br>outposts.ap-northeast-2.api.aws                                                                               | HTTPS<br>HTTPS                   |
-| Asia Pacific (Singapore)  | ap-southeast-1 | outposts.ap-southeast-1.amazonaws.com<br>outposts.ap-southeast-1.api.aws                                                                               | HTTPS<br>HTTPS                   |
-| Asia Pacific (Sydney)     | ap-southeast-2 | outposts.ap-southeast-2.amazonaws.com<br>outposts.ap-southeast-2.api.aws                                                                               | HTTPS<br>HTTPS                   |
-| Asia Pacific (Tokyo)      | ap-northeast-1 | outposts.ap-northeast-1.amazonaws.com<br>outposts.ap-northeast-1.api.aws                                                                               | HTTPS<br>HTTPS                   |
-| Canada (Central)          | ca-central-1   | outposts.ca-central-1.amazonaws.com<br>outposts-fips.ca-central-1.api.aws<br>outposts-fips.ca-central-1.amazonaws.com<br>outposts.ca-central-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| Europe (Frankfurt)        | eu-central-1   | outposts.eu-central-1.amazonaws.com<br>outposts.eu-central-1.api.aws                                                                                   | HTTPS<br>HTTPS                   |
-| Europe (Ireland)          | eu-west-1      | outposts.eu-west-1.amazonaws.com<br>outposts.eu-west-1.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| Europe (London)           | eu-west-2      | outposts.eu-west-2.amazonaws.com<br>outposts.eu-west-2.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| Europe (Milan)            | eu-south-1     | outposts.eu-south-1.amazonaws.com<br>outposts.eu-south-1.api.aws                                                                                       | HTTPS<br>HTTPS                   |
-| Europe (Paris)            | eu-west-3      | outposts.eu-west-3.amazonaws.com<br>outposts.eu-west-3.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| Europe (Spain)            | eu-south-2     | outposts.eu-south-2.amazonaws.com<br>outposts.eu-south-2.api.aws                                                                                       | HTTPS<br>HTTPS                   |
-| Europe (Stockholm)        | eu-north-1     | outposts.eu-north-1.amazonaws.com<br>outposts.eu-north-1.api.aws                                                                                       | HTTPS<br>HTTPS                   |
-| Israel (Tel Aviv)         | il-central-1   | outposts.il-central-1.amazonaws.com<br>outposts.il-central-1.api.aws                                                                                   | HTTPS<br>HTTPS                   |
-| Mexico (Central)          | mx-central-1   | outposts.mx-central-1.amazonaws.com<br>outposts.mx-central-1.api.aws                                                                                   | HTTPS<br>HTTPS                   |
-| Middle East (Bahrain)     | me-south-1     | outposts.me-south-1.amazonaws.com<br>outposts.me-south-1.api.aws                                                                                       | HTTPS<br>HTTPS                   |
-| Middle East (UAE)         | me-central-1   | outposts.me-central-1.amazonaws.com<br>outposts.me-central-1.api.aws                                                                                   | HTTPS<br>HTTPS                   |
-| South America (São Paulo) | sa-east-1      | outposts.sa-east-1.amazonaws.com<br>outposts.sa-east-1.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| AWS GovCloud (US-East)    | us-gov-east-1  | outposts.us-gov-east-1.amazonaws.com<br>outposts.us-gov-east-1.api.aws                                                                                 | HTTPS<br>HTTPS                   |
-| AWS GovCloud (US-West)    | us-gov-west-1  | outposts.us-gov-west-1.amazonaws.com<br>outposts.us-gov-west-1.api.aws                                                                                 | HTTPS<br>HTTPS                   |
+
+| Region Name | Region | Endpoint | Protocol | 
+| --- | --- | --- | --- | 
+| US East (Ohio) | us-east-2 |  outposts.us-east-2.amazonaws.com <br /> outposts-fips.us-east-2.api.aws <br /> outposts-fips.us-east-2.amazonaws.com <br /> outposts.us-east-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| US East (N. Virginia) | us-east-1 |  outposts.us-east-1.amazonaws.com <br /> outposts-fips.us-east-1.api.aws <br /> outposts-fips.us-east-1.amazonaws.com <br /> outposts.us-east-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| US West (N. California) | us-west-1 |  outposts.us-west-1.amazonaws.com <br /> outposts-fips.us-west-1.api.aws <br /> outposts-fips.us-west-1.amazonaws.com <br /> outposts.us-west-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| US West (Oregon) | us-west-2 |  outposts.us-west-2.amazonaws.com <br /> outposts-fips.us-west-2.api.aws <br /> outposts-fips.us-west-2.amazonaws.com <br /> outposts.us-west-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| Africa (Cape Town) | af-south-1 |  outposts.af-south-1.amazonaws.com <br /> outposts.af-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hong Kong) | ap-east-1 |  outposts.ap-east-1.amazonaws.com <br /> outposts.ap-east-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Jakarta) | ap-southeast-3 |  outposts.ap-southeast-3.amazonaws.com <br /> outposts.ap-southeast-3.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Mumbai) | ap-south-1 |  outposts.ap-south-1.amazonaws.com <br /> outposts.ap-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Osaka) | ap-northeast-3 |  outposts.ap-northeast-3.amazonaws.com <br /> outposts.ap-northeast-3.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Seoul) | ap-northeast-2 |  outposts.ap-northeast-2.amazonaws.com <br /> outposts.ap-northeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Singapore) | ap-southeast-1 |  outposts.ap-southeast-1.amazonaws.com <br /> outposts.ap-southeast-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Sydney) | ap-southeast-2 |  outposts.ap-southeast-2.amazonaws.com <br /> outposts.ap-southeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 |  outposts.ap-northeast-1.amazonaws.com <br /> outposts.ap-northeast-1.api.aws  | HTTPS<br />HTTPS | 
+| Canada (Central) | ca-central-1 |  outposts.ca-central-1.amazonaws.com <br /> outposts-fips.ca-central-1.api.aws <br /> outposts-fips.ca-central-1.amazonaws.com <br /> outposts.ca-central-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| Europe (Frankfurt) | eu-central-1 |  outposts.eu-central-1.amazonaws.com <br /> outposts.eu-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Ireland) | eu-west-1 |  outposts.eu-west-1.amazonaws.com <br /> outposts.eu-west-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (London) | eu-west-2 |  outposts.eu-west-2.amazonaws.com <br /> outposts.eu-west-2.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Milan) | eu-south-1 |  outposts.eu-south-1.amazonaws.com <br /> outposts.eu-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Paris) | eu-west-3 |  outposts.eu-west-3.amazonaws.com <br /> outposts.eu-west-3.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Spain) | eu-south-2 |  outposts.eu-south-2.amazonaws.com <br /> outposts.eu-south-2.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Stockholm) | eu-north-1 |  outposts.eu-north-1.amazonaws.com <br /> outposts.eu-north-1.api.aws  | HTTPS<br />HTTPS | 
+| Israel (Tel Aviv) | il-central-1 |  outposts.il-central-1.amazonaws.com <br /> outposts.il-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Mexico (Central) | mx-central-1 |  outposts.mx-central-1.amazonaws.com <br /> outposts.mx-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Middle East (Bahrain) | me-south-1 |  outposts.me-south-1.amazonaws.com <br /> outposts.me-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Middle East (UAE) | me-central-1 |  outposts.me-central-1.amazonaws.com <br /> outposts.me-central-1.api.aws  | HTTPS<br />HTTPS | 
+| South America (São Paulo) | sa-east-1 |  outposts.sa-east-1.amazonaws.com <br /> outposts.sa-east-1.api.aws  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-East) | us-gov-east-1 |  outposts.us-gov-east-1.amazonaws.com <br /> outposts.us-gov-east-1.api.aws  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  outposts.us-gov-west-1.amazonaws.com <br /> outposts.us-gov-west-1.api.aws  | HTTPS<br />HTTPS | 
 
 ## Amazon S3 on Outposts
+<a name="outposts_region_s3"></a>
 
-| Region Name               | Region         | Endpoint                                                                                                                                                               | Protocol                         |
-| ------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| US East (Ohio)            | us-east-2      | s3-outposts.us-east-2.amazonaws.com<br>s3-outposts-fips.us-east-2.api.aws<br>s3-outposts-fips.us-east-2.amazonaws.com<br>s3-outposts.us-east-2.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US East (N. Virginia)     | us-east-1      | s3-outposts.us-east-1.amazonaws.com<br>s3-outposts-fips.us-east-1.api.aws<br>s3-outposts-fips.us-east-1.amazonaws.com<br>s3-outposts.us-east-1.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US West (N. California)   | us-west-1      | s3-outposts.us-west-1.amazonaws.com<br>s3-outposts-fips.us-west-1.api.aws<br>s3-outposts-fips.us-west-1.amazonaws.com<br>s3-outposts.us-west-1.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US West (Oregon)          | us-west-2      | s3-outposts.us-west-2.amazonaws.com<br>s3-outposts-fips.us-west-2.api.aws<br>s3-outposts-fips.us-west-2.amazonaws.com<br>s3-outposts.us-west-2.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| Africa (Cape Town)        | af-south-1     | s3-outposts.af-south-1.amazonaws.com<br>s3-outposts.af-south-1.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
-| Asia Pacific (Hong Kong)  | ap-east-1      | s3-outposts.ap-east-1.amazonaws.com<br>s3-outposts.ap-east-1.api.aws                                                                                                   | HTTPS<br>HTTPS                   |
-| Asia Pacific (Jakarta)    | ap-southeast-3 | s3-outposts.ap-southeast-3.amazonaws.com<br>s3-outposts.ap-southeast-3.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| Asia Pacific (Mumbai)     | ap-south-1     | s3-outposts.ap-south-1.amazonaws.com<br>s3-outposts.ap-south-1.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
-| Asia Pacific (Osaka)      | ap-northeast-3 | s3-outposts.ap-northeast-3.amazonaws.com<br>s3-outposts.ap-northeast-3.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| Asia Pacific (Seoul)      | ap-northeast-2 | s3-outposts.ap-northeast-2.amazonaws.com<br>s3-outposts.ap-northeast-2.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| Asia Pacific (Singapore)  | ap-southeast-1 | s3-outposts.ap-southeast-1.amazonaws.com<br>s3-outposts.ap-southeast-1.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| Asia Pacific (Sydney)     | ap-southeast-2 | s3-outposts.ap-southeast-2.amazonaws.com<br>s3-outposts.ap-southeast-2.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| Asia Pacific (Tokyo)      | ap-northeast-1 | s3-outposts.ap-northeast-1.amazonaws.com<br>s3-outposts.ap-northeast-1.api.aws                                                                                         | HTTPS<br>HTTPS                   |
-| Canada (Central)          | ca-central-1   | s3-outposts.ca-central-1.amazonaws.com<br>s3-outposts-fips.ca-central-1.api.aws<br>s3-outposts-fips.ca-central-1.amazonaws.com<br>s3-outposts.ca-central-1.api.aws     | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| Europe (Frankfurt)        | eu-central-1   | s3-outposts.eu-central-1.amazonaws.com<br>s3-outposts.eu-central-1.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| Europe (Ireland)          | eu-west-1      | s3-outposts.eu-west-1.amazonaws.com<br>s3-outposts.eu-west-1.api.aws                                                                                                   | HTTPS<br>HTTPS                   |
-| Europe (London)           | eu-west-2      | s3-outposts.eu-west-2.amazonaws.com<br>s3-outposts.eu-west-2.api.aws                                                                                                   | HTTPS<br>HTTPS                   |
-| Europe (Milan)            | eu-south-1     | s3-outposts.eu-south-1.amazonaws.com<br>s3-outposts.eu-south-1.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
-| Europe (Paris)            | eu-west-3      | s3-outposts.eu-west-3.amazonaws.com<br>s3-outposts.eu-west-3.api.aws                                                                                                   | HTTPS<br>HTTPS                   |
-| Europe (Stockholm)        | eu-north-1     | s3-outposts.eu-north-1.amazonaws.com<br>s3-outposts.eu-north-1.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
-| Israel (Tel Aviv)         | il-central-1   | s3-outposts.il-central-1.amazonaws.com<br>s3-outposts.il-central-1.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| Middle East (Bahrain)     | me-south-1     | s3-outposts.me-south-1.amazonaws.com<br>s3-outposts.me-south-1.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
-| South America (São Paulo) | sa-east-1      | s3-outposts.sa-east-1.amazonaws.com<br>s3-outposts.sa-east-1.api.aws                                                                                                   | HTTPS<br>HTTPS                   |
-| AWS GovCloud (US-East)    | us-gov-east-1  | s3-outposts.us-gov-east-1.amazonaws.com<br>s3-outposts-fips.us-gov-east-1.api.aws<br>s3-outposts-fips.us-gov-east-1.amazonaws.com<br>s3-outposts.us-gov-east-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| AWS GovCloud (US-West)    | us-gov-west-1  | s3-outposts.us-gov-west-1.amazonaws.com<br>s3-outposts-fips.us-gov-west-1.api.aws<br>s3-outposts-fips.us-gov-west-1.amazonaws.com<br>s3-outposts.us-gov-west-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+
+| Region Name | Region | Endpoint | Protocol | 
+| --- | --- | --- | --- | 
+| US East (Ohio) | us-east-2 |  s3-outposts.us-east-2.amazonaws.com <br /> s3-outposts-fips.us-east-2.api.aws <br /> s3-outposts-fips.us-east-2.amazonaws.com <br /> s3-outposts.us-east-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| US East (N. Virginia) | us-east-1 |  s3-outposts.us-east-1.amazonaws.com <br /> s3-outposts-fips.us-east-1.api.aws <br /> s3-outposts-fips.us-east-1.amazonaws.com <br /> s3-outposts.us-east-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| US West (N. California) | us-west-1 |  s3-outposts.us-west-1.amazonaws.com <br /> s3-outposts-fips.us-west-1.api.aws <br /> s3-outposts-fips.us-west-1.amazonaws.com <br /> s3-outposts.us-west-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| US West (Oregon) | us-west-2 |  s3-outposts.us-west-2.amazonaws.com <br /> s3-outposts-fips.us-west-2.api.aws <br /> s3-outposts-fips.us-west-2.amazonaws.com <br /> s3-outposts.us-west-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| Africa (Cape Town) | af-south-1 |  s3-outposts.af-south-1.amazonaws.com <br /> s3-outposts.af-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hong Kong) | ap-east-1 |  s3-outposts.ap-east-1.amazonaws.com <br /> s3-outposts.ap-east-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Jakarta) | ap-southeast-3 |  s3-outposts.ap-southeast-3.amazonaws.com <br /> s3-outposts.ap-southeast-3.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Mumbai) | ap-south-1 |  s3-outposts.ap-south-1.amazonaws.com <br /> s3-outposts.ap-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Osaka) | ap-northeast-3 |  s3-outposts.ap-northeast-3.amazonaws.com <br /> s3-outposts.ap-northeast-3.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Seoul) | ap-northeast-2 |  s3-outposts.ap-northeast-2.amazonaws.com <br /> s3-outposts.ap-northeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Singapore) | ap-southeast-1 |  s3-outposts.ap-southeast-1.amazonaws.com <br /> s3-outposts.ap-southeast-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Sydney) | ap-southeast-2 |  s3-outposts.ap-southeast-2.amazonaws.com <br /> s3-outposts.ap-southeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 |  s3-outposts.ap-northeast-1.amazonaws.com <br /> s3-outposts.ap-northeast-1.api.aws  | HTTPS<br />HTTPS | 
+| Canada (Central) | ca-central-1 |  s3-outposts.ca-central-1.amazonaws.com <br /> s3-outposts-fips.ca-central-1.api.aws <br /> s3-outposts-fips.ca-central-1.amazonaws.com <br /> s3-outposts.ca-central-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| Europe (Frankfurt) | eu-central-1 |  s3-outposts.eu-central-1.amazonaws.com <br /> s3-outposts.eu-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Ireland) | eu-west-1 |  s3-outposts.eu-west-1.amazonaws.com <br /> s3-outposts.eu-west-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (London) | eu-west-2 |  s3-outposts.eu-west-2.amazonaws.com <br /> s3-outposts.eu-west-2.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Milan) | eu-south-1 |  s3-outposts.eu-south-1.amazonaws.com <br /> s3-outposts.eu-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Paris) | eu-west-3 |  s3-outposts.eu-west-3.amazonaws.com <br /> s3-outposts.eu-west-3.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Stockholm) | eu-north-1 |  s3-outposts.eu-north-1.amazonaws.com <br /> s3-outposts.eu-north-1.api.aws  | HTTPS<br />HTTPS | 
+| Israel (Tel Aviv) | il-central-1 |  s3-outposts.il-central-1.amazonaws.com <br /> s3-outposts.il-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Middle East (Bahrain) | me-south-1 |  s3-outposts.me-south-1.amazonaws.com <br /> s3-outposts.me-south-1.api.aws  | HTTPS<br />HTTPS | 
+| South America (São Paulo) | sa-east-1 |  s3-outposts.sa-east-1.amazonaws.com <br /> s3-outposts.sa-east-1.api.aws  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-East) | us-gov-east-1 |  s3-outposts.us-gov-east-1.amazonaws.com <br /> s3-outposts-fips.us-gov-east-1.api.aws <br /> s3-outposts-fips.us-gov-east-1.amazonaws.com <br /> s3-outposts.us-gov-east-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  s3-outposts.us-gov-west-1.amazonaws.com <br /> s3-outposts-fips.us-gov-west-1.api.aws <br /> s3-outposts-fips.us-gov-west-1.amazonaws.com <br /> s3-outposts.us-gov-west-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
 
 ## Service quotas
+<a name="limits_outposts"></a>
 
-| Name              | Default                    | Adjustable                                                                                                                                                                           | Description                                                                                                                                                                                                                |
-| ----------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Outpost sites     | Each supported Region: 100 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/outposts/quotas/L-3D389D34 "https://console.aws.amazon.com/servicequotas/home/services/outposts/quotas/L-3D389D34") | The maximum number of Outpost sites that you can create in this account in the current region. An Outpost site is the customer-managed physical building where you power and attach your Outpost equipment to the network. |
-| Outposts per site | Each supported Region: 10  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/outposts/quotas/L-0B277C74 "https://console.aws.amazon.com/servicequotas/home/services/outposts/quotas/L-0B277C74") | The maximum number of Outposts that you can create per site. AWS Outposts includes hardware and virtual resources known as Outposts. This quota limits your Outpost virtual resources.                                     |
+
+| Name | Default | Adjustable | Description | 
+| --- | --- | --- | --- | 
+| Outpost sites | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/outposts/quotas/L-3D389D34)  | The maximum number of Outpost sites that you can create in this account in the current region. An Outpost site is the customer-managed physical building where you power and attach your Outpost equipment to the network. | 
+| Outposts per site | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/outposts/quotas/L-0B277C74)  | The maximum number of Outposts that you can create per site. AWS Outposts includes hardware and virtual resources known as Outposts. This quota limits your Outpost virtual resources. | 

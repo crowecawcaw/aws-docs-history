@@ -1,89 +1,93 @@
+
+
 # Amazon CloudWatch Observability Admin endpoints and quotas
+<a name="cwobsadmin"></a>
 
-To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types
-in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints.
-Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md "rande.md").
+To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
-Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account.
-For more information, see [AWS service quotas](aws_service_limits.md "aws_service_limits.md").
+Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](aws_service_limits.md).
 
 The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
+<a name="cwobsadmin_region"></a>
 
-| Region Name                | Region         | Endpoint                                        | Protocol |
-| -------------------------- | -------------- | ----------------------------------------------- | -------- |
-| US East (Ohio)             | us-east-2      | observabilityadmin.us-east-2.amazonaws.com      |          |
-| US East (N. Virginia)      | us-east-1      | observabilityadmin.us-east-1.amazonaws.com      |          |
-| US West (N. California)    | us-west-1      | observabilityadmin.us-west-1.amazonaws.com      |          |
-| US West (Oregon)           | us-west-2      | observabilityadmin.us-west-2.amazonaws.com      |          |
-| Africa (Cape Town)         | af-south-1     | observabilityadmin.af-south-1.amazonaws.com     |          |
-| Asia Pacific (Hong Kong)   | ap-east-1      | observabilityadmin.ap-east-1.amazonaws.com      |          |
-| Asia Pacific (Hyderabad)   | ap-south-2     | observabilityadmin.ap-south-2.amazonaws.com     |          |
-| Asia Pacific (Jakarta)     | ap-southeast-3 | observabilityadmin.ap-southeast-3.amazonaws.com |          |
-| Asia Pacific (Malaysia)    | ap-southeast-5 | observabilityadmin.ap-southeast-5.amazonaws.com |          |
-| Asia Pacific (Melbourne)   | ap-southeast-4 | observabilityadmin.ap-southeast-4.amazonaws.com |          |
-| Asia Pacific (Mumbai)      | ap-south-1     | observabilityadmin.ap-south-1.amazonaws.com     |          |
-| Asia Pacific (New Zealand) | ap-southeast-6 | observabilityadmin.ap-southeast-6.amazonaws.com |          |
-| Asia Pacific (Osaka)       | ap-northeast-3 | observabilityadmin.ap-northeast-3.amazonaws.com |          |
-| Asia Pacific (Seoul)       | ap-northeast-2 | observabilityadmin.ap-northeast-2.amazonaws.com |          |
-| Asia Pacific (Singapore)   | ap-southeast-1 | observabilityadmin.ap-southeast-1.amazonaws.com |          |
-| Asia Pacific (Sydney)      | ap-southeast-2 | observabilityadmin.ap-southeast-2.amazonaws.com |          |
-| Asia Pacific (Taipei)      | ap-east-2      | observabilityadmin.ap-east-2.amazonaws.com      |          |
-| Asia Pacific (Thailand)    | ap-southeast-7 | observabilityadmin.ap-southeast-7.amazonaws.com |          |
-| Asia Pacific (Tokyo)       | ap-northeast-1 | observabilityadmin.ap-northeast-1.amazonaws.com |          |
-| Canada (Central)           | ca-central-1   | observabilityadmin.ca-central-1.amazonaws.com   |          |
-| Canada West (Calgary)      | ca-west-1      | observabilityadmin.ca-west-1.amazonaws.com      |          |
-| Europe (Frankfurt)         | eu-central-1   | observabilityadmin.eu-central-1.amazonaws.com   |          |
-| Europe (Ireland)           | eu-west-1      | observabilityadmin.eu-west-1.amazonaws.com      |          |
-| Europe (London)            | eu-west-2      | observabilityadmin.eu-west-2.amazonaws.com      |          |
-| Europe (Milan)             | eu-south-1     | observabilityadmin.eu-south-1.amazonaws.com     |          |
-| Europe (Paris)             | eu-west-3      | observabilityadmin.eu-west-3.amazonaws.com      |          |
-| Europe (Spain)             | eu-south-2     | observabilityadmin.eu-south-2.amazonaws.com     |          |
-| Europe (Stockholm)         | eu-north-1     | observabilityadmin.eu-north-1.amazonaws.com     |          |
-| Europe (Zurich)            | eu-central-2   | observabilityadmin.eu-central-2.amazonaws.com   |          |
-| Israel (Tel Aviv)          | il-central-1   | observabilityadmin.il-central-1.amazonaws.com   |          |
-| Mexico (Central)           | mx-central-1   | observabilityadmin.mx-central-1.amazonaws.com   |          |
-| South America (São Paulo)  | sa-east-1      | observabilityadmin.sa-east-1.amazonaws.com      |          |
-| AWS GovCloud (US-East)     | us-gov-east-1  | observabilityadmin.us-gov-east-1.amazonaws.com  |          |
-| AWS GovCloud (US-West)     | us-gov-west-1  | observabilityadmin.us-gov-west-1.amazonaws.com  |          |
+
+| Region Name | Region | Endpoint | Protocol | 
+| --- | --- | --- | --- | 
+| US East (Ohio) | us-east-2 |  observabilityadmin.us-east-2.amazonaws.com  |  | 
+| US East (N. Virginia) | us-east-1 |  observabilityadmin.us-east-1.amazonaws.com  |  | 
+| US West (N. California) | us-west-1 |  observabilityadmin.us-west-1.amazonaws.com  |  | 
+| US West (Oregon) | us-west-2 |  observabilityadmin.us-west-2.amazonaws.com  |  | 
+| Africa (Cape Town) | af-south-1 |  observabilityadmin.af-south-1.amazonaws.com  |  | 
+| Asia Pacific (Hong Kong) | ap-east-1 |  observabilityadmin.ap-east-1.amazonaws.com  |  | 
+| Asia Pacific (Hyderabad) | ap-south-2 |  observabilityadmin.ap-south-2.amazonaws.com  |  | 
+| Asia Pacific (Jakarta) | ap-southeast-3 |  observabilityadmin.ap-southeast-3.amazonaws.com  |  | 
+| Asia Pacific (Malaysia) | ap-southeast-5 |  observabilityadmin.ap-southeast-5.amazonaws.com  |  | 
+| Asia Pacific (Melbourne) | ap-southeast-4 |  observabilityadmin.ap-southeast-4.amazonaws.com  |  | 
+| Asia Pacific (Mumbai) | ap-south-1 |  observabilityadmin.ap-south-1.amazonaws.com  |  | 
+| Asia Pacific (New Zealand) | ap-southeast-6 |  observabilityadmin.ap-southeast-6.amazonaws.com  |  | 
+| Asia Pacific (Osaka) | ap-northeast-3 |  observabilityadmin.ap-northeast-3.amazonaws.com  |  | 
+| Asia Pacific (Seoul) | ap-northeast-2 |  observabilityadmin.ap-northeast-2.amazonaws.com  |  | 
+| Asia Pacific (Singapore) | ap-southeast-1 |  observabilityadmin.ap-southeast-1.amazonaws.com  |  | 
+| Asia Pacific (Sydney) | ap-southeast-2 |  observabilityadmin.ap-southeast-2.amazonaws.com  |  | 
+| Asia Pacific (Taipei) | ap-east-2 |  observabilityadmin.ap-east-2.amazonaws.com  |  | 
+| Asia Pacific (Thailand) | ap-southeast-7 |  observabilityadmin.ap-southeast-7.amazonaws.com  |  | 
+| Asia Pacific (Tokyo) | ap-northeast-1 |  observabilityadmin.ap-northeast-1.amazonaws.com  |  | 
+| Canada (Central) | ca-central-1 |  observabilityadmin.ca-central-1.amazonaws.com  |  | 
+| Canada West (Calgary) | ca-west-1 |  observabilityadmin.ca-west-1.amazonaws.com  |  | 
+| Europe (Frankfurt) | eu-central-1 |  observabilityadmin.eu-central-1.amazonaws.com  |  | 
+| Europe (Ireland) | eu-west-1 |  observabilityadmin.eu-west-1.amazonaws.com  |  | 
+| Europe (London) | eu-west-2 |  observabilityadmin.eu-west-2.amazonaws.com  |  | 
+| Europe (Milan) | eu-south-1 |  observabilityadmin.eu-south-1.amazonaws.com  |  | 
+| Europe (Paris) | eu-west-3 |  observabilityadmin.eu-west-3.amazonaws.com  |  | 
+| Europe (Spain) | eu-south-2 |  observabilityadmin.eu-south-2.amazonaws.com  |  | 
+| Europe (Stockholm) | eu-north-1 |  observabilityadmin.eu-north-1.amazonaws.com  |  | 
+| Europe (Zurich) | eu-central-2 |  observabilityadmin.eu-central-2.amazonaws.com  |  | 
+| Israel (Tel Aviv) | il-central-1 |  observabilityadmin.il-central-1.amazonaws.com  |  | 
+| Mexico (Central) | mx-central-1 |  observabilityadmin.mx-central-1.amazonaws.com  |  | 
+| South America (São Paulo) | sa-east-1 |  observabilityadmin.sa-east-1.amazonaws.com  |  | 
+|  AWS GovCloud (US-East) | us-gov-east-1 |  observabilityadmin.us-gov-east-1.amazonaws.com  |  | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  observabilityadmin.us-gov-west-1.amazonaws.com  |  | 
 
 ## Service quotas
+<a name="limits_cwobsadmin"></a>
 
-| Name                                                                              | Default                                         | Adjustable                                                                                                                                                                                               | Description                                                                                               |
-| --------------------------------------------------------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| CreateCentralizationRuleForOrganization throttle limit in transactions per second | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of create-centralization-rule-for-organization calls per second per account/per region |
-| CreateTelemetryPipeline throttle limit in transactions per second                 | Each supported Region: 5 per second             | No                                                                                                                                                                                                       | The maximum number of CreateTelemetryPipeline calls per second per account and per Region                 |
-| CreateTelemetryRule throttle limit in transactions per second                     | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of create-telemetry-rule calls per second per account/per region                       |
-| CreateTelemetryRuleForOrganization throttle limit in transactions per second      | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of create-telemetry-rule-for-organization calls per second per account/per region      |
-| DeleteCentralizationRuleForOrganization throttle limit in transactions per second | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of delete-centralization-rule-for-organization calls per second per account/per region |
-| DeleteTelemetryPipeline throttle limit in transactions per second                 | Each supported Region: 5 per second             | No                                                                                                                                                                                                       | The maximum number of DeleteTelemetryPipeline calls per second per account and per Region                 |
-| DeleteTelemetryRule throttle limit in transactions per second                     | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of delete-telemetry-rule calls per second per account/per region                       |
-| DeleteTelemetryRuleForOrganization throttle limit in transactions per second      | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of delete-telemetry-rule-for-organization calls per second per account/per region      |
-| GetCentralizationRuleForOrganization throttle limit in transactions per second    | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of get-centralization-rule-for-organization calls per second per account/per region    |
-| GetTelemetryEnrichmentStatus throttle limit in transactions per second            | Each supported Region: 5 per second             | [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-B19247CC "https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-B19247CC") | The maximum number of GetTelemetryEnrichmentStatus calls per second per account and per region            |
-| GetTelemetryPipeline throttle limit in transactions per second                    | Each supported Region: 5 per second             | No                                                                                                                                                                                                       | The maximum number of GetTelemetryPipeline calls per second per account and per Region                    |
-| GetTelemetryRule throttle limit in transactions per second                        | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of get-telemetry-rule calls per second per account/per region                          |
-| GetTelemetryRuleForOrganization throttle limit in transactions per second         | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of get-telemetry-rule-for-organization calls per second per account/per region         |
-| ListCentralizationRulesForOrganization throttle limit in transactions per second  | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of list-centralization-rules-for-organization calls per second per account/per region  |
-| ListTagsForResource throttle limit in transactions per second                     | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of list-tags-for-resource calls per second per account/per region                      |
-| ListTelemetryPipelines throttle limit in transactions per second                  | Each supported Region: 5 per second             | No                                                                                                                                                                                                       | The maximum number of ListTelemetryPipelines calls per second per account and per Region                  |
-| ListTelemetryRules throttle limit in transactions per second                      | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of list-telemetry-rules calls per second per account/per region                        |
-| ListTelemetryRulesForOrganization throttle limit in transactions per second       | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of list-telemetry-rules-for-organization calls per second per account/per region       |
-| Logs Centralization throughput per destination region                             | Each supported Region: 2.5 Gigabytes per second | No                                                                                                                                                                                                       | The maximum organization-level throughput for centralization of logs per destination region               |
-| Organization Centralization Rules                                                 | Each supported Region: 50                       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-B8EC8109 "https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-B8EC8109") | The maximum number of organization centralization rules that you can create for an organization           |
-| Organization Telemetry Rules                                                      | Each supported Region: 50                       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-74ABF7EB "https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-74ABF7EB") | The maximum number of organization telemetry rules that you can create for an organization                |
-| Pipelines for managed OTel metrics experience                                     | Each supported Region: 300                      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-7964BA6F "https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-7964BA6F") | The maximum number of pipelines for managed OTel metrics experience allowed per account and per Region    |
-| Pipelines with a CloudWatch Logs source                                           | Each supported Region: 300                      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-928E7B34 "https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-928E7B34") | The maximum number of pipelines with a CloudWatch Logs source allowed per account per Region              |
-| Pipelines with a third-party integration source                                   | Each supported Region: 30                       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-57445DF8 "https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-57445DF8") | The maximum number of pipelines with a third-party integration source allowed per account per Region      |
-| StartTelemetryEnrichment throttle limit in transactions per second                | Each supported Region: 1 per second             | [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-E3DAB469 "https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-E3DAB469") | The maximum number of StartTelemetryEnrichment calls per second per account and per region                |
-| StopTelemetryEnrichment throttle limit in transactions per second                 | Each supported Region: 1 per second             | [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-C6A78D4B "https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-C6A78D4B") | The maximum number of StopTelemetryEnrichment calls per second per account and per region                 |
-| TagResource throttle limit in transactions per second                             | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of tag-resource calls per second per account/per region                                |
-| Telemetry Rules                                                                   | Each supported Region: 20                       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-A344069D "https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-A344069D") | The maximum number of telemetry rules that you can create for an account                                  |
-| TestTelemetryPipeline throttle limit in transactions per second                   | Each supported Region: 5 per second             | No                                                                                                                                                                                                       | The maximum number of TestTelemetryPipeline calls per second per account and per Region                   |
-| UntagResource throttle limit in transactions per second                           | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of untag-resource calls per second per account/per region                              |
-| UpdateCentralizationRuleForOrganization throttle limit in transactions per second | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of update-centralization-rule-for-organization calls per second per account/per region |
-| UpdateTelemetryPipeline throttle limit in transactions per second                 | Each supported Region: 5 per second             | No                                                                                                                                                                                                       | The maximum number of UpdateTelemetryPipeline calls per second per account and per Region                 |
-| UpdateTelemetryRule throttle limit in transactions per second                     | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of update-telemetry-rule calls per second per account/per region                       |
-| UpdateTelemetryRuleForOrganization throttle limit in transactions per second      | Each supported Region: 5                        | No                                                                                                                                                                                                       | The maximum number of update-telemetry-rule-for-organization calls per second per account/per region      |
-| ValidateTelemetryPipelineConfiguration throttle limit in transactions per second  | Each supported Region: 5 per second             | No                                                                                                                                                                                                       | The maximum number of ValidateTelemetryPipelineConfiguration calls per second per account and per Region  |
+
+| Name | Default | Adjustable | Description | 
+| --- | --- | --- | --- | 
+| CreateCentralizationRuleForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of create-centralization-rule-for-organization calls per second per account/per region | 
+| CreateTelemetryPipeline throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of CreateTelemetryPipeline calls per second per account and per Region | 
+| CreateTelemetryRule throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of create-telemetry-rule calls per second per account/per region | 
+| CreateTelemetryRuleForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of create-telemetry-rule-for-organization calls per second per account/per region | 
+| DeleteCentralizationRuleForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of delete-centralization-rule-for-organization calls per second per account/per region | 
+| DeleteTelemetryPipeline throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of DeleteTelemetryPipeline calls per second per account and per Region | 
+| DeleteTelemetryRule throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of delete-telemetry-rule calls per second per account/per region | 
+| DeleteTelemetryRuleForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of delete-telemetry-rule-for-organization calls per second per account/per region | 
+| GetCentralizationRuleForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of get-centralization-rule-for-organization calls per second per account/per region | 
+| GetTelemetryEnrichmentStatus throttle limit in transactions per second | Each supported Region: 5 per second |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-B19247CC)  | The maximum number of GetTelemetryEnrichmentStatus calls per second per account and per region | 
+| GetTelemetryPipeline throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of GetTelemetryPipeline calls per second per account and per Region | 
+| GetTelemetryRule throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of get-telemetry-rule calls per second per account/per region | 
+| GetTelemetryRuleForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of get-telemetry-rule-for-organization calls per second per account/per region | 
+| ListCentralizationRulesForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of list-centralization-rules-for-organization calls per second per account/per region | 
+| ListTagsForResource throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of list-tags-for-resource calls per second per account/per region | 
+| ListTelemetryPipelines throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of ListTelemetryPipelines calls per second per account and per Region | 
+| ListTelemetryRules throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of list-telemetry-rules calls per second per account/per region | 
+| ListTelemetryRulesForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of list-telemetry-rules-for-organization calls per second per account/per region | 
+| Logs Centralization throughput per destination region | Each supported Region: 2.5 Gigabytes per second | No | The maximum organization-level throughput for centralization of logs per destination region | 
+| Organization Centralization Rules | Each supported Region: 50 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-B8EC8109)  | The maximum number of organization centralization rules that you can create for an organization | 
+| Organization Telemetry Rules | Each supported Region: 50 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-74ABF7EB)  | The maximum number of organization telemetry rules that you can create for an organization | 
+| Pipelines for managed OTel metrics experience | Each supported Region: 300 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-7964BA6F)  | The maximum number of pipelines for managed OTel metrics experience allowed per account and per Region | 
+| Pipelines with a CloudWatch Logs source | Each supported Region: 300 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-928E7B34)  | The maximum number of pipelines with a CloudWatch Logs source allowed per account per Region | 
+| Pipelines with a third-party integration source | Each supported Region: 30 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-57445DF8)  | The maximum number of pipelines with a third-party integration source allowed per account per Region | 
+| StartTelemetryEnrichment throttle limit in transactions per second | Each supported Region: 1 per second |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-E3DAB469)  | The maximum number of StartTelemetryEnrichment calls per second per account and per region | 
+| StopTelemetryEnrichment throttle limit in transactions per second | Each supported Region: 1 per second |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-C6A78D4B)  | The maximum number of StopTelemetryEnrichment calls per second per account and per region | 
+| TagResource throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of tag-resource calls per second per account/per region | 
+| Telemetry Rules | Each supported Region: 20 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/observabilityadmin/quotas/L-A344069D)  | The maximum number of telemetry rules that you can create for an account | 
+| TestTelemetryPipeline throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of TestTelemetryPipeline calls per second per account and per Region | 
+| UntagResource throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of untag-resource calls per second per account/per region | 
+| UpdateCentralizationRuleForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of update-centralization-rule-for-organization calls per second per account/per region | 
+| UpdateTelemetryPipeline throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of UpdateTelemetryPipeline calls per second per account and per Region | 
+| UpdateTelemetryRule throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of update-telemetry-rule calls per second per account/per region | 
+| UpdateTelemetryRuleForOrganization throttle limit in transactions per second | Each supported Region: 5 | No | The maximum number of update-telemetry-rule-for-organization calls per second per account/per region | 
+| ValidateTelemetryPipelineConfiguration throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of ValidateTelemetryPipelineConfiguration calls per second per account and per Region | 

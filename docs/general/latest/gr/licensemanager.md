@@ -1,193 +1,205 @@
+
+
 # AWS License Manager endpoints and quotas
+<a name="licensemanager"></a>
 
-To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types
-in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints.
-Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md "rande.md").
+To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
-Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account.
-For more information, see [AWS service quotas](aws_service_limits.md "aws_service_limits.md").
+Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](aws_service_limits.md).
 
 The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
+<a name="w2aac14d350b9"></a>
 
-###### Topics
-
-- [Endpoints for working with licenses](#licensemanager_region "#licensemanager_region")
-- [Endpoints for working with user-based subscriptions](#license-manager-user-based-subscriptions_region "#license-manager-user-based-subscriptions_region")
-- [Endpoints for working with Linux subscriptions](#license-manager-linux-subscriptions_region "#license-manager-linux-subscriptions_region")
+**Topics**
++ [Endpoints for working with licenses](#licensemanager_region)
++ [Endpoints for working with user-based subscriptions](#license-manager-user-based-subscriptions_region)
++ [Endpoints for working with Linux subscriptions](#license-manager-linux-subscriptions_region)
 
 ### Endpoints for working with licenses
+<a name="licensemanager_region"></a>
 
-| Region Name                | Region         | Endpoint                                                                                                                                 | Protocol                |
-| -------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| US East (Ohio)             | us-east-2      | license-manager.us-east-2.amazonaws.com<br>license-manager-fips.us-east-2.amazonaws.com<br>license-manager.us-east-2.api.aws             | HTTPS<br>HTTPS<br>HTTPS |
-| US East (N. Virginia)      | us-east-1      | license-manager.us-east-1.amazonaws.com<br>license-manager-fips.us-east-1.amazonaws.com<br>license-manager.us-east-1.api.aws             | HTTPS<br>HTTPS<br>HTTPS |
-| US West (N. California)    | us-west-1      | license-manager.us-west-1.amazonaws.com<br>license-manager-fips.us-west-1.amazonaws.com<br>license-manager.us-west-1.api.aws             | HTTPS<br>HTTPS<br>HTTPS |
-| US West (Oregon)           | us-west-2      | license-manager.us-west-2.amazonaws.com<br>license-manager-fips.us-west-2.amazonaws.com<br>license-manager.us-west-2.api.aws             | HTTPS<br>HTTPS<br>HTTPS |
-| Africa (Cape Town)         | af-south-1     | license-manager.af-south-1.amazonaws.com<br>license-manager.af-south-1.api.aws                                                           | HTTPS<br>HTTPS          |
-| Asia Pacific (Hong Kong)   | ap-east-1      | license-manager.ap-east-1.amazonaws.com<br>license-manager.ap-east-1.api.aws                                                             | HTTPS<br>HTTPS          |
-| Asia Pacific (Hyderabad)   | ap-south-2     | license-manager.ap-south-2.amazonaws.com<br>license-manager.ap-south-2.api.aws                                                           | HTTPS<br>HTTPS          |
-| Asia Pacific (Jakarta)     | ap-southeast-3 | license-manager.ap-southeast-3.amazonaws.com<br>license-manager.ap-southeast-3.api.aws                                                   | HTTPS<br>HTTPS          |
-| Asia Pacific (Malaysia)    | ap-southeast-5 | license-manager.ap-southeast-5.amazonaws.com<br>license-manager.ap-southeast-5.api.aws                                                   | HTTPS<br>HTTPS          |
-| Asia Pacific (Melbourne)   | ap-southeast-4 | license-manager.ap-southeast-4.amazonaws.com<br>license-manager.ap-southeast-4.api.aws                                                   | HTTPS<br>HTTPS          |
-| Asia Pacific (Mumbai)      | ap-south-1     | license-manager.ap-south-1.amazonaws.com<br>license-manager.ap-south-1.api.aws                                                           | HTTPS<br>HTTPS          |
-| Asia Pacific (New Zealand) | ap-southeast-6 | license-manager.ap-southeast-6.amazonaws.com<br>license-manager.ap-southeast-6.api.aws                                                   | HTTPS<br>HTTPS          |
-| Asia Pacific (Osaka)       | ap-northeast-3 | license-manager.ap-northeast-3.amazonaws.com<br>license-manager.ap-northeast-3.api.aws                                                   | HTTPS<br>HTTPS          |
-| Asia Pacific (Seoul)       | ap-northeast-2 | license-manager.ap-northeast-2.amazonaws.com<br>license-manager.ap-northeast-2.api.aws                                                   | HTTPS<br>HTTPS          |
-| Asia Pacific (Singapore)   | ap-southeast-1 | license-manager.ap-southeast-1.amazonaws.com<br>license-manager.ap-southeast-1.api.aws                                                   | HTTPS<br>HTTPS          |
-| Asia Pacific (Sydney)      | ap-southeast-2 | license-manager.ap-southeast-2.amazonaws.com<br>license-manager.ap-southeast-2.api.aws                                                   | HTTPS<br>HTTPS          |
-| Asia Pacific (Taipei)      | ap-east-2      | license-manager.ap-east-2.amazonaws.com<br>license-manager.ap-east-2.api.aws                                                             | HTTPS<br>HTTPS          |
-| Asia Pacific (Thailand)    | ap-southeast-7 | license-manager.ap-southeast-7.amazonaws.com<br>license-manager.ap-southeast-7.api.aws                                                   | HTTPS<br>HTTPS          |
-| Asia Pacific (Tokyo)       | ap-northeast-1 | license-manager.ap-northeast-1.amazonaws.com<br>license-manager.ap-northeast-1.api.aws                                                   | HTTPS<br>HTTPS          |
-| Canada (Central)           | ca-central-1   | license-manager.ca-central-1.amazonaws.com<br>license-manager.ca-central-1.api.aws                                                       | HTTPS<br>HTTPS          |
-| Canada West (Calgary)      | ca-west-1      | license-manager.ca-west-1.amazonaws.com<br>license-manager.ca-west-1.api.aws                                                             | HTTPS<br>HTTPS          |
-| Europe (Frankfurt)         | eu-central-1   | license-manager.eu-central-1.amazonaws.com<br>license-manager.eu-central-1.api.aws                                                       | HTTPS<br>HTTPS          |
-| Europe (Ireland)           | eu-west-1      | license-manager.eu-west-1.amazonaws.com<br>license-manager.eu-west-1.api.aws                                                             | HTTPS<br>HTTPS          |
-| Europe (London)            | eu-west-2      | license-manager.eu-west-2.amazonaws.com<br>license-manager.eu-west-2.api.aws                                                             | HTTPS<br>HTTPS          |
-| Europe (Milan)             | eu-south-1     | license-manager.eu-south-1.amazonaws.com<br>license-manager.eu-south-1.api.aws                                                           | HTTPS<br>HTTPS          |
-| Europe (Paris)             | eu-west-3      | license-manager.eu-west-3.amazonaws.com<br>license-manager.eu-west-3.api.aws                                                             | HTTPS<br>HTTPS          |
-| Europe (Spain)             | eu-south-2     | license-manager.eu-south-2.amazonaws.com<br>license-manager.eu-south-2.api.aws                                                           | HTTPS<br>HTTPS          |
-| Europe (Stockholm)         | eu-north-1     | license-manager.eu-north-1.amazonaws.com<br>license-manager.eu-north-1.api.aws                                                           | HTTPS<br>HTTPS          |
-| Europe (Zurich)            | eu-central-2   | license-manager.eu-central-2.amazonaws.com<br>license-manager.eu-central-2.api.aws                                                       | HTTPS<br>HTTPS          |
-| Israel (Tel Aviv)          | il-central-1   | license-manager.il-central-1.amazonaws.com<br>license-manager.il-central-1.api.aws                                                       | HTTPS<br>HTTPS          |
-| Mexico (Central)           | mx-central-1   | license-manager.mx-central-1.amazonaws.com<br>license-manager.mx-central-1.api.aws                                                       | HTTPS<br>HTTPS          |
-| Middle East (Bahrain)      | me-south-1     | license-manager.me-south-1.amazonaws.com<br>license-manager.me-south-1.api.aws                                                           | HTTPS<br>HTTPS          |
-| Middle East (UAE)          | me-central-1   | license-manager.me-central-1.amazonaws.com<br>license-manager.me-central-1.api.aws                                                       | HTTPS<br>HTTPS          |
-| South America (São Paulo)  | sa-east-1      | license-manager.sa-east-1.amazonaws.com<br>license-manager.sa-east-1.api.aws                                                             | HTTPS<br>HTTPS          |
-| AWS GovCloud (US-East)     | us-gov-east-1  | license-manager.us-gov-east-1.amazonaws.com<br>license-manager-fips.us-gov-east-1.amazonaws.com<br>license-manager.us-gov-east-1.api.aws | HTTPS<br>HTTPS<br>HTTPS |
-| AWS GovCloud (US-West)     | us-gov-west-1  | license-manager.us-gov-west-1.amazonaws.com<br>license-manager-fips.us-gov-west-1.amazonaws.com<br>license-manager.us-gov-west-1.api.aws | HTTPS<br>HTTPS<br>HTTPS |
+
+| Region Name | Region | Endpoint | Protocol | 
+| --- | --- | --- | --- | 
+| US East (Ohio) | us-east-2 |  license-manager.us-east-2.amazonaws.com <br /> license-manager-fips.us-east-2.amazonaws.com <br /> license-manager.us-east-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
+| US East (N. Virginia) | us-east-1 |  license-manager.us-east-1.amazonaws.com <br /> license-manager-fips.us-east-1.amazonaws.com <br /> license-manager.us-east-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
+| US West (N. California) | us-west-1 |  license-manager.us-west-1.amazonaws.com <br /> license-manager-fips.us-west-1.amazonaws.com <br /> license-manager.us-west-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
+| US West (Oregon) | us-west-2 |  license-manager.us-west-2.amazonaws.com <br /> license-manager-fips.us-west-2.amazonaws.com <br /> license-manager.us-west-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
+| Africa (Cape Town) | af-south-1 |  license-manager.af-south-1.amazonaws.com <br /> license-manager.af-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hong Kong) | ap-east-1 |  license-manager.ap-east-1.amazonaws.com <br /> license-manager.ap-east-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hyderabad) | ap-south-2 |  license-manager.ap-south-2.amazonaws.com <br /> license-manager.ap-south-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Jakarta) | ap-southeast-3 |  license-manager.ap-southeast-3.amazonaws.com <br /> license-manager.ap-southeast-3.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Malaysia) | ap-southeast-5 |  license-manager.ap-southeast-5.amazonaws.com <br /> license-manager.ap-southeast-5.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Melbourne) | ap-southeast-4 |  license-manager.ap-southeast-4.amazonaws.com <br /> license-manager.ap-southeast-4.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Mumbai) | ap-south-1 |  license-manager.ap-south-1.amazonaws.com <br /> license-manager.ap-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (New Zealand) | ap-southeast-6 |  license-manager.ap-southeast-6.amazonaws.com <br /> license-manager.ap-southeast-6.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Osaka) | ap-northeast-3 |  license-manager.ap-northeast-3.amazonaws.com <br /> license-manager.ap-northeast-3.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Seoul) | ap-northeast-2 |  license-manager.ap-northeast-2.amazonaws.com <br /> license-manager.ap-northeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Singapore) | ap-southeast-1 |  license-manager.ap-southeast-1.amazonaws.com <br /> license-manager.ap-southeast-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Sydney) | ap-southeast-2 |  license-manager.ap-southeast-2.amazonaws.com <br /> license-manager.ap-southeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Taipei) | ap-east-2 |  license-manager.ap-east-2.amazonaws.com <br /> license-manager.ap-east-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Thailand) | ap-southeast-7 |  license-manager.ap-southeast-7.amazonaws.com <br /> license-manager.ap-southeast-7.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 |  license-manager.ap-northeast-1.amazonaws.com <br /> license-manager.ap-northeast-1.api.aws  | HTTPS<br />HTTPS | 
+| Canada (Central) | ca-central-1 |  license-manager.ca-central-1.amazonaws.com <br /> license-manager.ca-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Canada West (Calgary) | ca-west-1 |  license-manager.ca-west-1.amazonaws.com <br /> license-manager.ca-west-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Frankfurt) | eu-central-1 |  license-manager.eu-central-1.amazonaws.com <br /> license-manager.eu-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Ireland) | eu-west-1 |  license-manager.eu-west-1.amazonaws.com <br /> license-manager.eu-west-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (London) | eu-west-2 |  license-manager.eu-west-2.amazonaws.com <br /> license-manager.eu-west-2.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Milan) | eu-south-1 |  license-manager.eu-south-1.amazonaws.com <br /> license-manager.eu-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Paris) | eu-west-3 |  license-manager.eu-west-3.amazonaws.com <br /> license-manager.eu-west-3.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Spain) | eu-south-2 |  license-manager.eu-south-2.amazonaws.com <br /> license-manager.eu-south-2.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Stockholm) | eu-north-1 |  license-manager.eu-north-1.amazonaws.com <br /> license-manager.eu-north-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Zurich) | eu-central-2 |  license-manager.eu-central-2.amazonaws.com <br /> license-manager.eu-central-2.api.aws  | HTTPS<br />HTTPS | 
+| Israel (Tel Aviv) | il-central-1 |  license-manager.il-central-1.amazonaws.com <br /> license-manager.il-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Mexico (Central) | mx-central-1 |  license-manager.mx-central-1.amazonaws.com <br /> license-manager.mx-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Middle East (Bahrain) | me-south-1 |  license-manager.me-south-1.amazonaws.com <br /> license-manager.me-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Middle East (UAE) | me-central-1 |  license-manager.me-central-1.amazonaws.com <br /> license-manager.me-central-1.api.aws  | HTTPS<br />HTTPS | 
+| South America (São Paulo) | sa-east-1 |  license-manager.sa-east-1.amazonaws.com <br /> license-manager.sa-east-1.api.aws  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-East) | us-gov-east-1 |  license-manager.us-gov-east-1.amazonaws.com <br /> license-manager-fips.us-gov-east-1.amazonaws.com <br /> license-manager.us-gov-east-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  license-manager.us-gov-west-1.amazonaws.com <br /> license-manager-fips.us-gov-west-1.amazonaws.com <br /> license-manager.us-gov-west-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
 
 ### Endpoints for working with user-based subscriptions
+<a name="license-manager-user-based-subscriptions_region"></a>
 
-| Region Name               | Region         | Endpoint                                                                                                                                                                              | Protocol                |
-| ------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| US East (Ohio)            | us-east-2      | license-manager-user-subscriptions.us-east-2.amazonaws.com<br>license-manager-user-subscriptions-fips.us-east-2.amazonaws.com<br>license-manager-user-subscriptions.us-east-2.api.aws | HTTPS<br>HTTPS<br>HTTPS |
-| US East (N. Virginia)     | us-east-1      | license-manager-user-subscriptions.us-east-1.amazonaws.com<br>license-manager-user-subscriptions-fips.us-east-1.amazonaws.com<br>license-manager-user-subscriptions.us-east-1.api.aws | HTTPS<br>HTTPS<br>HTTPS |
-| US West (N. California)   | us-west-1      | license-manager-user-subscriptions.us-west-1.amazonaws.com<br>license-manager-user-subscriptions-fips.us-west-1.amazonaws.com<br>license-manager-user-subscriptions.us-west-1.api.aws | HTTPS<br>HTTPS<br>HTTPS |
-| US West (Oregon)          | us-west-2      | license-manager-user-subscriptions.us-west-2.amazonaws.com<br>license-manager-user-subscriptions-fips.us-west-2.amazonaws.com<br>license-manager-user-subscriptions.us-west-2.api.aws | HTTPS<br>HTTPS<br>HTTPS |
-| Africa (Cape Town)        | af-south-1     | license-manager-user-subscriptions.af-south-1.amazonaws.com<br>license-manager-user-subscriptions.af-south-1.api.aws                                                                  | HTTPS<br>HTTPS          |
-| Asia Pacific (Hong Kong)  | ap-east-1      | license-manager-user-subscriptions.ap-east-1.amazonaws.com<br>license-manager-user-subscriptions.ap-east-1.api.aws                                                                    | HTTPS<br>HTTPS          |
-| Asia Pacific (Hyderabad)  | ap-south-2     | license-manager-user-subscriptions.ap-south-2.amazonaws.com<br>license-manager-user-subscriptions.ap-south-2.api.aws                                                                  | HTTPS<br>HTTPS          |
-| Asia Pacific (Jakarta)    | ap-southeast-3 | license-manager-user-subscriptions.ap-southeast-3.amazonaws.com<br>license-manager-user-subscriptions.ap-southeast-3.api.aws                                                          | HTTPS<br>HTTPS          |
-| Asia Pacific (Malaysia)   | ap-southeast-5 | license-manager-user-subscriptions.ap-southeast-5.amazonaws.com<br>license-manager-user-subscriptions.ap-southeast-5.api.aws                                                          | HTTPS<br>HTTPS          |
-| Asia Pacific (Melbourne)  | ap-southeast-4 | license-manager-user-subscriptions.ap-southeast-4.amazonaws.com<br>license-manager-user-subscriptions.ap-southeast-4.api.aws                                                          | HTTPS<br>HTTPS          |
-| Asia Pacific (Mumbai)     | ap-south-1     | license-manager-user-subscriptions.ap-south-1.amazonaws.com<br>license-manager-user-subscriptions.ap-south-1.api.aws                                                                  | HTTPS<br>HTTPS          |
-| Asia Pacific (Osaka)      | ap-northeast-3 | license-manager-user-subscriptions.ap-northeast-3.amazonaws.com<br>license-manager-user-subscriptions.ap-northeast-3.api.aws                                                          | HTTPS<br>HTTPS          |
-| Asia Pacific (Seoul)      | ap-northeast-2 | license-manager-user-subscriptions.ap-northeast-2.amazonaws.com<br>license-manager-user-subscriptions.ap-northeast-2.api.aws                                                          | HTTPS<br>HTTPS          |
-| Asia Pacific (Singapore)  | ap-southeast-1 | license-manager-user-subscriptions.ap-southeast-1.amazonaws.com<br>license-manager-user-subscriptions.ap-southeast-1.api.aws                                                          | HTTPS<br>HTTPS          |
-| Asia Pacific (Sydney)     | ap-southeast-2 | license-manager-user-subscriptions.ap-southeast-2.amazonaws.com<br>license-manager-user-subscriptions.ap-southeast-2.api.aws                                                          | HTTPS<br>HTTPS          |
-| Asia Pacific (Taipei)     | ap-east-2      | license-manager-user-subscriptions.ap-east-2.amazonaws.com<br>license-manager-user-subscriptions.ap-east-2.api.aws                                                                    | HTTPS<br>HTTPS          |
-| Asia Pacific (Thailand)   | ap-southeast-7 | license-manager-user-subscriptions.ap-southeast-7.amazonaws.com<br>license-manager-user-subscriptions.ap-southeast-7.api.aws                                                          | HTTPS<br>HTTPS          |
-| Asia Pacific (Tokyo)      | ap-northeast-1 | license-manager-user-subscriptions.ap-northeast-1.amazonaws.com<br>license-manager-user-subscriptions.ap-northeast-1.api.aws                                                          | HTTPS<br>HTTPS          |
-| Canada (Central)          | ca-central-1   | license-manager-user-subscriptions.ca-central-1.amazonaws.com<br>license-manager-user-subscriptions.ca-central-1.api.aws                                                              | HTTPS<br>HTTPS          |
-| Canada West (Calgary)     | ca-west-1      | license-manager-user-subscriptions.ca-west-1.amazonaws.com<br>license-manager-user-subscriptions.ca-west-1.api.aws                                                                    | HTTPS<br>HTTPS          |
-| Europe (Frankfurt)        | eu-central-1   | license-manager-user-subscriptions.eu-central-1.amazonaws.com<br>license-manager-user-subscriptions.eu-central-1.api.aws                                                              | HTTPS<br>HTTPS          |
-| Europe (Ireland)          | eu-west-1      | license-manager-user-subscriptions.eu-west-1.amazonaws.com<br>license-manager-user-subscriptions.eu-west-1.api.aws                                                                    | HTTPS<br>HTTPS          |
-| Europe (London)           | eu-west-2      | license-manager-user-subscriptions.eu-west-2.amazonaws.com<br>license-manager-user-subscriptions.eu-west-2.api.aws                                                                    | HTTPS<br>HTTPS          |
-| Europe (Milan)            | eu-south-1     | license-manager-user-subscriptions.eu-south-1.amazonaws.com<br>license-manager-user-subscriptions.eu-south-1.api.aws                                                                  | HTTPS<br>HTTPS          |
-| Europe (Paris)            | eu-west-3      | license-manager-user-subscriptions.eu-west-3.amazonaws.com<br>license-manager-user-subscriptions.eu-west-3.api.aws                                                                    | HTTPS<br>HTTPS          |
-| Europe (Spain)            | eu-south-2     | license-manager-user-subscriptions.eu-south-2.amazonaws.com<br>license-manager-user-subscriptions.eu-south-2.api.aws                                                                  | HTTPS<br>HTTPS          |
-| Europe (Stockholm)        | eu-north-1     | license-manager-user-subscriptions.eu-north-1.amazonaws.com<br>license-manager-user-subscriptions.eu-north-1.api.aws                                                                  | HTTPS<br>HTTPS          |
-| Europe (Zurich)           | eu-central-2   | license-manager-user-subscriptions.eu-central-2.amazonaws.com<br>license-manager-user-subscriptions.eu-central-2.api.aws                                                              | HTTPS<br>HTTPS          |
-| Israel (Tel Aviv)         | il-central-1   | license-manager-user-subscriptions.il-central-1.amazonaws.com<br>license-manager-user-subscriptions.il-central-1.api.aws                                                              | HTTPS<br>HTTPS          |
-| Mexico (Central)          | mx-central-1   | license-manager-user-subscriptions.mx-central-1.amazonaws.com<br>license-manager-user-subscriptions.mx-central-1.api.aws                                                              | HTTPS<br>HTTPS          |
-| Middle East (Bahrain)     | me-south-1     | license-manager-user-subscriptions.me-south-1.amazonaws.com<br>license-manager-user-subscriptions.me-south-1.api.aws                                                                  | HTTPS<br>HTTPS          |
-| Middle East (UAE)         | me-central-1   | license-manager-user-subscriptions.me-central-1.amazonaws.com<br>license-manager-user-subscriptions.me-central-1.api.aws                                                              | HTTPS<br>HTTPS          |
-| South America (São Paulo) | sa-east-1      | license-manager-user-subscriptions.sa-east-1.amazonaws.com<br>license-manager-user-subscriptions.sa-east-1.api.aws                                                                    | HTTPS<br>HTTPS          |
-| AWS GovCloud (US-East)    | us-gov-east-1  | license-manager-user-subscriptions.us-gov-east-1.amazonaws.com<br>license-manager-user-subscriptions.us-gov-east-1.api.aws                                                            | HTTPS<br>HTTPS          |
-| AWS GovCloud (US-West)    | us-gov-west-1  | license-manager-user-subscriptions.us-gov-west-1.amazonaws.com<br>license-manager-user-subscriptions.us-gov-west-1.api.aws                                                            | HTTPS<br>HTTPS          |
+
+| Region Name | Region | Endpoint | Protocol | 
+| --- | --- | --- | --- | 
+| US East (Ohio) | us-east-2 |  license-manager-user-subscriptions.us-east-2.amazonaws.com <br /> license-manager-user-subscriptions-fips.us-east-2.amazonaws.com <br /> license-manager-user-subscriptions.us-east-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
+| US East (N. Virginia) | us-east-1 |  license-manager-user-subscriptions.us-east-1.amazonaws.com <br /> license-manager-user-subscriptions-fips.us-east-1.amazonaws.com <br /> license-manager-user-subscriptions.us-east-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
+| US West (N. California) | us-west-1 |  license-manager-user-subscriptions.us-west-1.amazonaws.com <br /> license-manager-user-subscriptions-fips.us-west-1.amazonaws.com <br /> license-manager-user-subscriptions.us-west-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
+| US West (Oregon) | us-west-2 |  license-manager-user-subscriptions.us-west-2.amazonaws.com <br /> license-manager-user-subscriptions-fips.us-west-2.amazonaws.com <br /> license-manager-user-subscriptions.us-west-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
+| Africa (Cape Town) | af-south-1 |  license-manager-user-subscriptions.af-south-1.amazonaws.com <br /> license-manager-user-subscriptions.af-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hong Kong) | ap-east-1 |  license-manager-user-subscriptions.ap-east-1.amazonaws.com <br /> license-manager-user-subscriptions.ap-east-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hyderabad) | ap-south-2 |  license-manager-user-subscriptions.ap-south-2.amazonaws.com <br /> license-manager-user-subscriptions.ap-south-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Jakarta) | ap-southeast-3 |  license-manager-user-subscriptions.ap-southeast-3.amazonaws.com <br /> license-manager-user-subscriptions.ap-southeast-3.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Malaysia) | ap-southeast-5 |  license-manager-user-subscriptions.ap-southeast-5.amazonaws.com <br /> license-manager-user-subscriptions.ap-southeast-5.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Melbourne) | ap-southeast-4 |  license-manager-user-subscriptions.ap-southeast-4.amazonaws.com <br /> license-manager-user-subscriptions.ap-southeast-4.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Mumbai) | ap-south-1 |  license-manager-user-subscriptions.ap-south-1.amazonaws.com <br /> license-manager-user-subscriptions.ap-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Osaka) | ap-northeast-3 |  license-manager-user-subscriptions.ap-northeast-3.amazonaws.com <br /> license-manager-user-subscriptions.ap-northeast-3.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Seoul) | ap-northeast-2 |  license-manager-user-subscriptions.ap-northeast-2.amazonaws.com <br /> license-manager-user-subscriptions.ap-northeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Singapore) | ap-southeast-1 |  license-manager-user-subscriptions.ap-southeast-1.amazonaws.com <br /> license-manager-user-subscriptions.ap-southeast-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Sydney) | ap-southeast-2 |  license-manager-user-subscriptions.ap-southeast-2.amazonaws.com <br /> license-manager-user-subscriptions.ap-southeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Taipei) | ap-east-2 |  license-manager-user-subscriptions.ap-east-2.amazonaws.com <br /> license-manager-user-subscriptions.ap-east-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Thailand) | ap-southeast-7 |  license-manager-user-subscriptions.ap-southeast-7.amazonaws.com <br /> license-manager-user-subscriptions.ap-southeast-7.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 |  license-manager-user-subscriptions.ap-northeast-1.amazonaws.com <br /> license-manager-user-subscriptions.ap-northeast-1.api.aws  | HTTPS<br />HTTPS | 
+| Canada (Central) | ca-central-1 |  license-manager-user-subscriptions.ca-central-1.amazonaws.com <br /> license-manager-user-subscriptions.ca-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Canada West (Calgary) | ca-west-1 |  license-manager-user-subscriptions.ca-west-1.amazonaws.com <br /> license-manager-user-subscriptions.ca-west-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Frankfurt) | eu-central-1 |  license-manager-user-subscriptions.eu-central-1.amazonaws.com <br /> license-manager-user-subscriptions.eu-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Ireland) | eu-west-1 |  license-manager-user-subscriptions.eu-west-1.amazonaws.com <br /> license-manager-user-subscriptions.eu-west-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (London) | eu-west-2 |  license-manager-user-subscriptions.eu-west-2.amazonaws.com <br /> license-manager-user-subscriptions.eu-west-2.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Milan) | eu-south-1 |  license-manager-user-subscriptions.eu-south-1.amazonaws.com <br /> license-manager-user-subscriptions.eu-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Paris) | eu-west-3 |  license-manager-user-subscriptions.eu-west-3.amazonaws.com <br /> license-manager-user-subscriptions.eu-west-3.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Spain) | eu-south-2 |  license-manager-user-subscriptions.eu-south-2.amazonaws.com <br /> license-manager-user-subscriptions.eu-south-2.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Stockholm) | eu-north-1 |  license-manager-user-subscriptions.eu-north-1.amazonaws.com <br /> license-manager-user-subscriptions.eu-north-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Zurich) | eu-central-2 |  license-manager-user-subscriptions.eu-central-2.amazonaws.com <br /> license-manager-user-subscriptions.eu-central-2.api.aws  | HTTPS<br />HTTPS | 
+| Israel (Tel Aviv) | il-central-1 |  license-manager-user-subscriptions.il-central-1.amazonaws.com <br /> license-manager-user-subscriptions.il-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Mexico (Central) | mx-central-1 |  license-manager-user-subscriptions.mx-central-1.amazonaws.com <br /> license-manager-user-subscriptions.mx-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Middle East (Bahrain) | me-south-1 |  license-manager-user-subscriptions.me-south-1.amazonaws.com <br /> license-manager-user-subscriptions.me-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Middle East (UAE) | me-central-1 |  license-manager-user-subscriptions.me-central-1.amazonaws.com <br /> license-manager-user-subscriptions.me-central-1.api.aws  | HTTPS<br />HTTPS | 
+| South America (São Paulo) | sa-east-1 |  license-manager-user-subscriptions.sa-east-1.amazonaws.com <br /> license-manager-user-subscriptions.sa-east-1.api.aws  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-East) | us-gov-east-1 |  license-manager-user-subscriptions.us-gov-east-1.amazonaws.com <br /> license-manager-user-subscriptions.us-gov-east-1.api.aws  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  license-manager-user-subscriptions.us-gov-west-1.amazonaws.com <br /> license-manager-user-subscriptions.us-gov-west-1.api.aws  | HTTPS<br />HTTPS | 
 
 ### Endpoints for working with Linux subscriptions
+<a name="license-manager-linux-subscriptions_region"></a>
 
-| Region Name                | Region         | Endpoint                                                                                                                                                                                 | Protocol                |
-| -------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| US East (Ohio)             | us-east-2      | license-manager-linux-subscriptions.us-east-2.amazonaws.com<br>license-manager-linux-subscriptions-fips.us-east-2.amazonaws.com<br>license-manager-linux-subscriptions.us-east-2.api.aws | HTTPS<br>HTTPS<br>HTTPS |
-| US East (N. Virginia)      | us-east-1      | license-manager-linux-subscriptions.us-east-1.amazonaws.com<br>license-manager-linux-subscriptions-fips.us-east-1.amazonaws.com<br>license-manager-linux-subscriptions.us-east-1.api.aws | HTTPS<br>HTTPS<br>HTTPS |
-| US West (N. California)    | us-west-1      | license-manager-linux-subscriptions.us-west-1.amazonaws.com<br>license-manager-linux-subscriptions-fips.us-west-1.amazonaws.com<br>license-manager-linux-subscriptions.us-west-1.api.aws | HTTPS<br>HTTPS<br>HTTPS |
-| US West (Oregon)           | us-west-2      | license-manager-linux-subscriptions.us-west-2.amazonaws.com<br>license-manager-linux-subscriptions-fips.us-west-2.amazonaws.com<br>license-manager-linux-subscriptions.us-west-2.api.aws | HTTPS<br>HTTPS<br>HTTPS |
-| Africa (Cape Town)         | af-south-1     | license-manager-linux-subscriptions.af-south-1.amazonaws.com<br>license-manager-linux-subscriptions.af-south-1.api.aws                                                                   | HTTPS<br>HTTPS          |
-| Asia Pacific (Hong Kong)   | ap-east-1      | license-manager-linux-subscriptions.ap-east-1.amazonaws.com<br>license-manager-linux-subscriptions.ap-east-1.api.aws                                                                     | HTTPS<br>HTTPS          |
-| Asia Pacific (Hyderabad)   | ap-south-2     | license-manager-linux-subscriptions.ap-south-2.amazonaws.com<br>license-manager-linux-subscriptions.ap-south-2.api.aws                                                                   | HTTPS<br>HTTPS          |
-| Asia Pacific (Jakarta)     | ap-southeast-3 | license-manager-linux-subscriptions.ap-southeast-3.amazonaws.com<br>license-manager-linux-subscriptions.ap-southeast-3.api.aws                                                           | HTTPS<br>HTTPS          |
-| Asia Pacific (Malaysia)    | ap-southeast-5 | license-manager-linux-subscriptions.ap-southeast-5.amazonaws.com<br>license-manager-linux-subscriptions.ap-southeast-5.api.aws                                                           | HTTPS<br>HTTPS          |
-| Asia Pacific (Melbourne)   | ap-southeast-4 | license-manager-linux-subscriptions.ap-southeast-4.amazonaws.com<br>license-manager-linux-subscriptions.ap-southeast-4.api.aws                                                           | HTTPS<br>HTTPS          |
-| Asia Pacific (Mumbai)      | ap-south-1     | license-manager-linux-subscriptions.ap-south-1.amazonaws.com<br>license-manager-linux-subscriptions.ap-south-1.api.aws                                                                   | HTTPS<br>HTTPS          |
-| Asia Pacific (New Zealand) | ap-southeast-6 | license-manager-linux-subscriptions.ap-southeast-6.amazonaws.com<br>license-manager-linux-subscriptions.ap-southeast-6.api.aws                                                           | HTTPS<br>HTTPS          |
-| Asia Pacific (Osaka)       | ap-northeast-3 | license-manager-linux-subscriptions.ap-northeast-3.amazonaws.com<br>license-manager-linux-subscriptions.ap-northeast-3.api.aws                                                           | HTTPS<br>HTTPS          |
-| Asia Pacific (Seoul)       | ap-northeast-2 | license-manager-linux-subscriptions.ap-northeast-2.amazonaws.com<br>license-manager-linux-subscriptions.ap-northeast-2.api.aws                                                           | HTTPS<br>HTTPS          |
-| Asia Pacific (Singapore)   | ap-southeast-1 | license-manager-linux-subscriptions.ap-southeast-1.amazonaws.com<br>license-manager-linux-subscriptions.ap-southeast-1.api.aws                                                           | HTTPS<br>HTTPS          |
-| Asia Pacific (Sydney)      | ap-southeast-2 | license-manager-linux-subscriptions.ap-southeast-2.amazonaws.com<br>license-manager-linux-subscriptions.ap-southeast-2.api.aws                                                           | HTTPS<br>HTTPS          |
-| Asia Pacific (Taipei)      | ap-east-2      | license-manager-linux-subscriptions.ap-east-2.amazonaws.com<br>license-manager-linux-subscriptions.ap-east-2.api.aws                                                                     | HTTPS<br>HTTPS          |
-| Asia Pacific (Thailand)    | ap-southeast-7 | license-manager-linux-subscriptions.ap-southeast-7.amazonaws.com<br>license-manager-linux-subscriptions.ap-southeast-7.api.aws                                                           | HTTPS<br>HTTPS          |
-| Asia Pacific (Tokyo)       | ap-northeast-1 | license-manager-linux-subscriptions.ap-northeast-1.amazonaws.com<br>license-manager-linux-subscriptions.ap-northeast-1.api.aws                                                           | HTTPS<br>HTTPS          |
-| Canada (Central)           | ca-central-1   | license-manager-linux-subscriptions.ca-central-1.amazonaws.com<br>license-manager-linux-subscriptions.ca-central-1.api.aws                                                               | HTTPS<br>HTTPS          |
-| Canada West (Calgary)      | ca-west-1      | license-manager-linux-subscriptions.ca-west-1.amazonaws.com<br>license-manager-linux-subscriptions.ca-west-1.api.aws                                                                     | HTTPS<br>HTTPS          |
-| Europe (Frankfurt)         | eu-central-1   | license-manager-linux-subscriptions.eu-central-1.amazonaws.com<br>license-manager-linux-subscriptions.eu-central-1.api.aws                                                               | HTTPS<br>HTTPS          |
-| Europe (Ireland)           | eu-west-1      | license-manager-linux-subscriptions.eu-west-1.amazonaws.com<br>license-manager-linux-subscriptions.eu-west-1.api.aws                                                                     | HTTPS<br>HTTPS          |
-| Europe (London)            | eu-west-2      | license-manager-linux-subscriptions.eu-west-2.amazonaws.com<br>license-manager-linux-subscriptions.eu-west-2.api.aws                                                                     | HTTPS<br>HTTPS          |
-| Europe (Milan)             | eu-south-1     | license-manager-linux-subscriptions.eu-south-1.amazonaws.com<br>license-manager-linux-subscriptions.eu-south-1.api.aws                                                                   | HTTPS<br>HTTPS          |
-| Europe (Paris)             | eu-west-3      | license-manager-linux-subscriptions.eu-west-3.amazonaws.com<br>license-manager-linux-subscriptions.eu-west-3.api.aws                                                                     | HTTPS<br>HTTPS          |
-| Europe (Spain)             | eu-south-2     | license-manager-linux-subscriptions.eu-south-2.amazonaws.com<br>license-manager-linux-subscriptions.eu-south-2.api.aws                                                                   | HTTPS<br>HTTPS          |
-| Europe (Stockholm)         | eu-north-1     | license-manager-linux-subscriptions.eu-north-1.amazonaws.com<br>license-manager-linux-subscriptions.eu-north-1.api.aws                                                                   | HTTPS<br>HTTPS          |
-| Europe (Zurich)            | eu-central-2   | license-manager-linux-subscriptions.eu-central-2.amazonaws.com<br>license-manager-linux-subscriptions.eu-central-2.api.aws                                                               | HTTPS<br>HTTPS          |
-| Israel (Tel Aviv)          | il-central-1   | license-manager-linux-subscriptions.il-central-1.amazonaws.com<br>license-manager-linux-subscriptions.il-central-1.api.aws                                                               | HTTPS<br>HTTPS          |
-| Mexico (Central)           | mx-central-1   | license-manager-linux-subscriptions.mx-central-1.amazonaws.com<br>license-manager-linux-subscriptions.mx-central-1.api.aws                                                               | HTTPS<br>HTTPS          |
-| Middle East (Bahrain)      | me-south-1     | license-manager-linux-subscriptions.me-south-1.amazonaws.com<br>license-manager-linux-subscriptions.me-south-1.api.aws                                                                   | HTTPS<br>HTTPS          |
-| Middle East (UAE)          | me-central-1   | license-manager-linux-subscriptions.me-central-1.amazonaws.com<br>license-manager-linux-subscriptions.me-central-1.api.aws                                                               | HTTPS<br>HTTPS          |
-| South America (São Paulo)  | sa-east-1      | license-manager-linux-subscriptions.sa-east-1.amazonaws.com<br>license-manager-linux-subscriptions.sa-east-1.api.aws                                                                     | HTTPS<br>HTTPS          |
-| AWS GovCloud (US-East)     | us-gov-east-1  | license-manager-linux-subscriptions.us-gov-east-1.amazonaws.com<br>license-manager-linux-subscriptions.us-gov-east-1.api.aws                                                             | HTTPS<br>HTTPS          |
-| AWS GovCloud (US-West)     | us-gov-west-1  | license-manager-linux-subscriptions.us-gov-west-1.amazonaws.com<br>license-manager-linux-subscriptions.us-gov-west-1.api.aws                                                             | HTTPS<br>HTTPS          |
+
+| Region Name | Region | Endpoint | Protocol | 
+| --- | --- | --- | --- | 
+| US East (Ohio) | us-east-2 |  license-manager-linux-subscriptions.us-east-2.amazonaws.com <br /> license-manager-linux-subscriptions-fips.us-east-2.amazonaws.com <br /> license-manager-linux-subscriptions.us-east-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
+| US East (N. Virginia) | us-east-1 |  license-manager-linux-subscriptions.us-east-1.amazonaws.com <br /> license-manager-linux-subscriptions-fips.us-east-1.amazonaws.com <br /> license-manager-linux-subscriptions.us-east-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
+| US West (N. California) | us-west-1 |  license-manager-linux-subscriptions.us-west-1.amazonaws.com <br /> license-manager-linux-subscriptions-fips.us-west-1.amazonaws.com <br /> license-manager-linux-subscriptions.us-west-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
+| US West (Oregon) | us-west-2 |  license-manager-linux-subscriptions.us-west-2.amazonaws.com <br /> license-manager-linux-subscriptions-fips.us-west-2.amazonaws.com <br /> license-manager-linux-subscriptions.us-west-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
+| Africa (Cape Town) | af-south-1 |  license-manager-linux-subscriptions.af-south-1.amazonaws.com <br /> license-manager-linux-subscriptions.af-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hong Kong) | ap-east-1 |  license-manager-linux-subscriptions.ap-east-1.amazonaws.com <br /> license-manager-linux-subscriptions.ap-east-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hyderabad) | ap-south-2 |  license-manager-linux-subscriptions.ap-south-2.amazonaws.com <br /> license-manager-linux-subscriptions.ap-south-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Jakarta) | ap-southeast-3 |  license-manager-linux-subscriptions.ap-southeast-3.amazonaws.com <br /> license-manager-linux-subscriptions.ap-southeast-3.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Malaysia) | ap-southeast-5 |  license-manager-linux-subscriptions.ap-southeast-5.amazonaws.com <br /> license-manager-linux-subscriptions.ap-southeast-5.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Melbourne) | ap-southeast-4 |  license-manager-linux-subscriptions.ap-southeast-4.amazonaws.com <br /> license-manager-linux-subscriptions.ap-southeast-4.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Mumbai) | ap-south-1 |  license-manager-linux-subscriptions.ap-south-1.amazonaws.com <br /> license-manager-linux-subscriptions.ap-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (New Zealand) | ap-southeast-6 |  license-manager-linux-subscriptions.ap-southeast-6.amazonaws.com <br /> license-manager-linux-subscriptions.ap-southeast-6.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Osaka) | ap-northeast-3 |  license-manager-linux-subscriptions.ap-northeast-3.amazonaws.com <br /> license-manager-linux-subscriptions.ap-northeast-3.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Seoul) | ap-northeast-2 |  license-manager-linux-subscriptions.ap-northeast-2.amazonaws.com <br /> license-manager-linux-subscriptions.ap-northeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Singapore) | ap-southeast-1 |  license-manager-linux-subscriptions.ap-southeast-1.amazonaws.com <br /> license-manager-linux-subscriptions.ap-southeast-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Sydney) | ap-southeast-2 |  license-manager-linux-subscriptions.ap-southeast-2.amazonaws.com <br /> license-manager-linux-subscriptions.ap-southeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Taipei) | ap-east-2 |  license-manager-linux-subscriptions.ap-east-2.amazonaws.com <br /> license-manager-linux-subscriptions.ap-east-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Thailand) | ap-southeast-7 |  license-manager-linux-subscriptions.ap-southeast-7.amazonaws.com <br /> license-manager-linux-subscriptions.ap-southeast-7.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 |  license-manager-linux-subscriptions.ap-northeast-1.amazonaws.com <br /> license-manager-linux-subscriptions.ap-northeast-1.api.aws  | HTTPS<br />HTTPS | 
+| Canada (Central) | ca-central-1 |  license-manager-linux-subscriptions.ca-central-1.amazonaws.com <br /> license-manager-linux-subscriptions.ca-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Canada West (Calgary) | ca-west-1 |  license-manager-linux-subscriptions.ca-west-1.amazonaws.com <br /> license-manager-linux-subscriptions.ca-west-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Frankfurt) | eu-central-1 |  license-manager-linux-subscriptions.eu-central-1.amazonaws.com <br /> license-manager-linux-subscriptions.eu-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Ireland) | eu-west-1 |  license-manager-linux-subscriptions.eu-west-1.amazonaws.com <br /> license-manager-linux-subscriptions.eu-west-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (London) | eu-west-2 |  license-manager-linux-subscriptions.eu-west-2.amazonaws.com <br /> license-manager-linux-subscriptions.eu-west-2.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Milan) | eu-south-1 |  license-manager-linux-subscriptions.eu-south-1.amazonaws.com <br /> license-manager-linux-subscriptions.eu-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Paris) | eu-west-3 |  license-manager-linux-subscriptions.eu-west-3.amazonaws.com <br /> license-manager-linux-subscriptions.eu-west-3.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Spain) | eu-south-2 |  license-manager-linux-subscriptions.eu-south-2.amazonaws.com <br /> license-manager-linux-subscriptions.eu-south-2.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Stockholm) | eu-north-1 |  license-manager-linux-subscriptions.eu-north-1.amazonaws.com <br /> license-manager-linux-subscriptions.eu-north-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Zurich) | eu-central-2 |  license-manager-linux-subscriptions.eu-central-2.amazonaws.com <br /> license-manager-linux-subscriptions.eu-central-2.api.aws  | HTTPS<br />HTTPS | 
+| Israel (Tel Aviv) | il-central-1 |  license-manager-linux-subscriptions.il-central-1.amazonaws.com <br /> license-manager-linux-subscriptions.il-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Mexico (Central) | mx-central-1 |  license-manager-linux-subscriptions.mx-central-1.amazonaws.com <br /> license-manager-linux-subscriptions.mx-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Middle East (Bahrain) | me-south-1 |  license-manager-linux-subscriptions.me-south-1.amazonaws.com <br /> license-manager-linux-subscriptions.me-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Middle East (UAE) | me-central-1 |  license-manager-linux-subscriptions.me-central-1.amazonaws.com <br /> license-manager-linux-subscriptions.me-central-1.api.aws  | HTTPS<br />HTTPS | 
+| South America (São Paulo) | sa-east-1 |  license-manager-linux-subscriptions.sa-east-1.amazonaws.com <br /> license-manager-linux-subscriptions.sa-east-1.api.aws  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-East) | us-gov-east-1 |  license-manager-linux-subscriptions.us-gov-east-1.amazonaws.com <br /> license-manager-linux-subscriptions.us-gov-east-1.api.aws  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  license-manager-linux-subscriptions.us-gov-west-1.amazonaws.com <br /> license-manager-linux-subscriptions.us-gov-west-1.api.aws  | HTTPS<br />HTTPS | 
 
 ## Service quotas
+<a name="limits_license-manager-quotas"></a>
 
-###### Topics
-
-- [Quotas for working with licenses](#limits_license-manager "#limits_license-manager")
-- [Quotas for working with user-based subscriptions](#limits_license-manager-user-based-subscriptions "#limits_license-manager-user-based-subscriptions")
-- [Quotas for working with Linux subscriptions](#limits_license-manager-linux-subscriptions "#limits_license-manager-linux-subscriptions")
+**Topics**
++ [Quotas for working with licenses](#limits_license-manager)
++ [Quotas for working with user-based subscriptions](#limits_license-manager-user-based-subscriptions)
++ [Quotas for working with Linux subscriptions](#limits_license-manager-linux-subscriptions)
 
 ### Quotas for working with licenses
+<a name="limits_license-manager"></a>
 
-| Name                                                                            | Default                       | Adjustable                                                                                                                                                                                         | Description                                                                                                  |
-| ------------------------------------------------------------------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Custom license asset rulesets per account                                       | Each supported Region: 25     | No                                                                                                                                                                                                 | Total number of custom license asset rulesets that can be created per account.                               |
-| Extend license consumption per consumption token                                | Each supported Region: 1      | No                                                                                                                                                                                                 | The number of ExtendLicenseConsumption calls that can be made for a consumption token per hour.              |
-| GetAccessTokens calls                                                           | Each supported Region: 10     | No                                                                                                                                                                                                 | The total number of GetAccessToken calls that can be made for a license per hour.                            |
-| License asset groups per account                                                | Each supported Region: 25     | No                                                                                                                                                                                                 | Total number of license asset groups that can be created per account.                                        |
-| License asset rulesets per asset group                                          | Each supported Region: 5      | No                                                                                                                                                                                                 | Total number of license asset rulesets that can attached to a license asset group.                           |
-| License configuration associations per resource                                 | Each supported Region: 10     | [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-0B08C8C5 "https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-0B08C8C5") | Number of license configurations that can be associated with a resource.                                     |
-| License configurations                                                          | Each supported Region: 25     | [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-CDB75D7A "https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-CDB75D7A") | Total number of license configurations that can be created in an account.                                    |
-| License conversion tasks per resource per day                                   | Each supported Region: 5      | [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-6FD36464 "https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-6FD36464") | Number of license conversion tasks that can be created per resource per day.                                 |
-| Maximum number of concurrent organization grant activities                      | Each supported Region: 10     | No                                                                                                                                                                                                 | The maximum number of concurrent grant activities for an organization.                                       |
-| Number of Report generators                                                     | Each supported Region: 25     | No                                                                                                                                                                                                 | The Total number of report generators that can be created.                                                   |
-| Number of account discovery mode updates per day                                | Each supported Region: 1      | No                                                                                                                                                                                                 | The maximum number of account discovery mode updates per day for an account.                                 |
-| Number of accounts per organization for License Manager                         | Each supported Region: 15,000 | No                                                                                                                                                                                                 | The maximum number of accounts within your organization that License Manager can support.                    |
-| Number of grants per license                                                    | Each supported Region: 2,000  | No                                                                                                                                                                                                 | The total number of active grants per license.                                                               |
-| Number of instances aggregated per license asset group per account              | Each supported Region: 10,000 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-252E35E9 "https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-252E35E9") | Total number of instances each license asset group can aggregate usage data for each account.                |
-| Number of instances aggregated per license asset group per organization         | Each supported Region: 50,000 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-30F617EC "https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-30F617EC") | Total number of instances each license asset group can aggregate usage data for each organization.           |
-| Number of instances tracked per license asset group per account per region      | Each supported Region: 5,000  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-F6FC7130 "https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-F6FC7130") | Total number of instances each license asset group can track and evaluate for each account in a region.      |
-| Number of instances tracked per license asset group per organization per region | Each supported Region: 25,000 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-46604BA1 "https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-46604BA1") | Total number of instances each license asset group can track and evaluate for each organization in a region. |
-| Number of licenses you can create                                               | Each supported Region: 2,000  | No                                                                                                                                                                                                 | The total number of licenses that can be created in an account.                                              |
-| Number of received licenses per product                                         | Each supported Region: 10     | No                                                                                                                                                                                                 | The total number of licenses received with same product SKU.                                                 |
-| Number of tokens per account and license                                        | Each supported Region: 10     | No                                                                                                                                                                                                 | The total number of tokens per license that can be created in an account.                                    |
-| Number of updates for a report generator per day                                | Each supported Region: 25     | No                                                                                                                                                                                                 | The maximum number of updates per day for a given report generator.                                          |
-| Rules per custom license asset ruleset                                          | Each supported Region: 5      | No                                                                                                                                                                                                 | Total number of rules per custom license asset ruleset.                                                      |
-| Total number counted entitlements per checkout                                  | Each supported Region: 5      | No                                                                                                                                                                                                 | The total number of counted entitlements that can be specified on a single CheckoutLicense call.             |
-| Total number counted entitlements per license                                   | Each supported Region: 25     | No                                                                                                                                                                                                 | The total number of counted entitlements allowed per license.                                                |
-| Total number uncounted entitlements per license                                 | Each supported Region: 25     | No                                                                                                                                                                                                 | The total number of uncounted entitlements allowed per license.                                              |
+
+| Name | Default | Adjustable | Description | 
+| --- | --- | --- | --- | 
+| Custom license asset rulesets per account | Each supported Region: 25 | No | Total number of custom license asset rulesets that can be created per account. | 
+| Extend license consumption per consumption token | Each supported Region: 1 | No | The number of ExtendLicenseConsumption calls that can be made for a consumption token per hour. | 
+| GetAccessTokens calls | Each supported Region: 10 | No | The total number of GetAccessToken calls that can be made for a license per hour. | 
+| License asset groups per account | Each supported Region: 25 | No | Total number of license asset groups that can be created per account. | 
+| License asset rulesets per asset group | Each supported Region: 5 | No | Total number of license asset rulesets that can attached to a license asset group. | 
+| License configuration associations per resource | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-0B08C8C5)  | Number of license configurations that can be associated with a resource. | 
+| License configurations | Each supported Region: 25 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-CDB75D7A)  | Total number of license configurations that can be created in an account. | 
+| License conversion tasks per resource per day | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-6FD36464)  | Number of license conversion tasks that can be created per resource per day. | 
+| Maximum number of concurrent organization grant activities | Each supported Region: 10 | No | The maximum number of concurrent grant activities for an organization. | 
+| Number of Report generators | Each supported Region: 25 | No | The Total number of report generators that can be created. | 
+| Number of account discovery mode updates per day | Each supported Region: 1 | No | The maximum number of account discovery mode updates per day for an account. | 
+| Number of accounts per organization for License Manager | Each supported Region: 15,000 | No | The maximum number of accounts within your organization that License Manager can support. | 
+| Number of grants per license | Each supported Region: 2,000 | No | The total number of active grants per license. | 
+| Number of instances aggregated per license asset group per account | Each supported Region: 10,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-252E35E9)  | Total number of instances each license asset group can aggregate usage data for each account. | 
+| Number of instances aggregated per license asset group per organization | Each supported Region: 50,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-30F617EC)  | Total number of instances each license asset group can aggregate usage data for each organization. | 
+| Number of instances tracked per license asset group per account per region | Each supported Region: 5,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-F6FC7130)  | Total number of instances each license asset group can track and evaluate for each account in a region. | 
+| Number of instances tracked per license asset group per organization per region | Each supported Region: 25,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager/quotas/L-46604BA1)  | Total number of instances each license asset group can track and evaluate for each organization in a region. | 
+| Number of licenses you can create | Each supported Region: 2,000 | No | The total number of licenses that can be created in an account. | 
+| Number of received licenses per product | Each supported Region: 10 | No | The total number of licenses received with same product SKU. | 
+| Number of tokens per account and license | Each supported Region: 10 | No | The total number of tokens per license that can be created in an account. | 
+| Number of updates for a report generator per day | Each supported Region: 25 | No | The maximum number of updates per day for a given report generator. | 
+| Rules per custom license asset ruleset | Each supported Region: 5 | No | Total number of rules per custom license asset ruleset. | 
+| Total number counted entitlements per checkout | Each supported Region: 5 | No | The total number of counted entitlements that can be specified on a single CheckoutLicense call. | 
+| Total number counted entitlements per license | Each supported Region: 25 | No | The total number of counted entitlements allowed per license. | 
+| Total number uncounted entitlements per license | Each supported Region: 25 | No | The total number of uncounted entitlements allowed per license. | 
 
 ### Quotas for working with user-based subscriptions
+<a name="limits_license-manager-user-based-subscriptions"></a>
 
-| Name                                                    | Default                   | Adjustable                                                                                                                                                                                                                               | Description                                                                                                                              |
-| ------------------------------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Instance associations per user                          | Each supported Region: 25 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-8BE7CFDB "https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-8BE7CFDB") | The maximum number of instances that a user can be associated with in this account in the current Region.                                |
-| User-based subscriptions for Office Professional Plus   | Each supported Region: 50 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-792C9CCF "https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-792C9CCF") | The maximum number of user-based subscriptions for Office Professional Plus that you can create in this account in the current Region.   |
-| User-based subscriptions for Visual Studio Enterprise   | Each supported Region: 30 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-79A245D6 "https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-79A245D6") | The maximum number of user-based subscriptions for Visual Studio Enterprise that you can create in this account in the current Region.   |
-| User-based subscriptions for Visual Studio Professional | Each supported Region: 50 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-FA5F53F9 "https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-FA5F53F9") | The maximum number of user-based subscriptions for Visual Studio Professional that you can create in this account in the current Region. |
+
+| Name | Default | Adjustable | Description | 
+| --- | --- | --- | --- | 
+| Instance associations per user | Each supported Region: 25 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-8BE7CFDB)  | The maximum number of instances that a user can be associated with in this account in the current Region. | 
+| User-based subscriptions for Office Professional Plus | Each supported Region: 50 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-792C9CCF)  | The maximum number of user-based subscriptions for Office Professional Plus that you can create in this account in the current Region. | 
+| User-based subscriptions for Visual Studio Enterprise | Each supported Region: 30 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-79A245D6)  | The maximum number of user-based subscriptions for Visual Studio Enterprise that you can create in this account in the current Region. | 
+| User-based subscriptions for Visual Studio Professional | Each supported Region: 50 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-FA5F53F9)  | The maximum number of user-based subscriptions for Visual Studio Professional that you can create in this account in the current Region. | 
 
 ### Quotas for working with Linux subscriptions
+<a name="limits_license-manager-linux-subscriptions"></a>
 
-| Name                           | Default                      | Adjustable | Description                                                                         |
-| ------------------------------ | ---------------------------- | ---------- | ----------------------------------------------------------------------------------- |
-| Number of discovered resources | Each supported Region: 5,000 | No         | The total number of resources (EC2 instances) that can be discovered and displayed. |
+
+| Name | Default | Adjustable | Description | 
+| --- | --- | --- | --- | 
+| Number of discovered resources | Each supported Region: 5,000 | No | The total number of resources (EC2 instances) that can be discovered and displayed. | 

@@ -1,63 +1,67 @@
+
+
 # AWS Lake Formation endpoints and quotas
+<a name="lake-formation"></a>
 
-To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types
-in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints.
-Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md "rande.md").
+To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
-Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account.
-For more information, see [AWS service quotas](aws_service_limits.md "aws_service_limits.md").
+Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](aws_service_limits.md).
 
 The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
+<a name="lake-formation_region"></a>
 
-| Region Name                | Region         | Endpoint                                                                                                                                                                       | Protocol                         |
-| -------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
-| US East (Ohio)             | us-east-2      | lakeformation.us-east-2.amazonaws.com<br>lakeformation-fips.us-east-2.api.aws<br>lakeformation-fips.us-east-2.amazonaws.com<br>lakeformation.us-east-2.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US East (N. Virginia)      | us-east-1      | lakeformation.us-east-1.amazonaws.com<br>lakeformation-fips.us-east-1.api.aws<br>lakeformation-fips.us-east-1.amazonaws.com<br>lakeformation.us-east-1.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US West (N. California)    | us-west-1      | lakeformation.us-west-1.amazonaws.com<br>lakeformation-fips.us-west-1.api.aws<br>lakeformation-fips.us-west-1.amazonaws.com<br>lakeformation.us-west-1.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US West (Oregon)           | us-west-2      | lakeformation.us-west-2.amazonaws.com<br>lakeformation-fips.us-west-2.api.aws<br>lakeformation-fips.us-west-2.amazonaws.com<br>lakeformation.us-west-2.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| Africa (Cape Town)         | af-south-1     | lakeformation.af-south-1.amazonaws.com<br>lakeformation.af-south-1.api.aws                                                                                                     | HTTPS<br>HTTPS                   |
-| Asia Pacific (Hong Kong)   | ap-east-1      | lakeformation.ap-east-1.amazonaws.com<br>lakeformation.ap-east-1.api.aws                                                                                                       | HTTPS<br>HTTPS                   |
-| Asia Pacific (Hyderabad)   | ap-south-2     | lakeformation.ap-south-2.amazonaws.com<br>lakeformation.ap-south-2.api.aws                                                                                                     | HTTPS<br>HTTPS                   |
-| Asia Pacific (Jakarta)     | ap-southeast-3 | lakeformation.ap-southeast-3.amazonaws.com<br>lakeformation.ap-southeast-3.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| Asia Pacific (Malaysia)    | ap-southeast-5 | lakeformation.ap-southeast-5.amazonaws.com<br>lakeformation.ap-southeast-5.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| Asia Pacific (Melbourne)   | ap-southeast-4 | lakeformation.ap-southeast-4.amazonaws.com<br>lakeformation.ap-southeast-4.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| Asia Pacific (Mumbai)      | ap-south-1     | lakeformation.ap-south-1.amazonaws.com<br>lakeformation.ap-south-1.api.aws                                                                                                     | HTTPS<br>HTTPS                   |
-| Asia Pacific (New Zealand) | ap-southeast-6 | lakeformation.ap-southeast-6.amazonaws.com<br>lakeformation.ap-southeast-6.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| Asia Pacific (Osaka)       | ap-northeast-3 | lakeformation.ap-northeast-3.amazonaws.com<br>lakeformation.ap-northeast-3.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| Asia Pacific (Seoul)       | ap-northeast-2 | lakeformation.ap-northeast-2.amazonaws.com<br>lakeformation.ap-northeast-2.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| Asia Pacific (Singapore)   | ap-southeast-1 | lakeformation.ap-southeast-1.amazonaws.com<br>lakeformation.ap-southeast-1.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| Asia Pacific (Sydney)      | ap-southeast-2 | lakeformation.ap-southeast-2.amazonaws.com<br>lakeformation.ap-southeast-2.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| Asia Pacific (Taipei)      | ap-east-2      | lakeformation.ap-east-2.amazonaws.com<br>lakeformation.ap-east-2.api.aws                                                                                                       | HTTPS<br>HTTPS                   |
-| Asia Pacific (Thailand)    | ap-southeast-7 | lakeformation.ap-southeast-7.amazonaws.com<br>lakeformation.ap-southeast-7.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| Asia Pacific (Tokyo)       | ap-northeast-1 | lakeformation.ap-northeast-1.amazonaws.com<br>lakeformation.ap-northeast-1.api.aws                                                                                             | HTTPS<br>HTTPS                   |
-| Canada (Central)           | ca-central-1   | lakeformation.ca-central-1.amazonaws.com<br>lakeformation-fips.ca-central-1.api.aws<br>lakeformation-fips.ca-central-1.amazonaws.com<br>lakeformation.ca-central-1.api.aws     | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| Canada West (Calgary)      | ca-west-1      | lakeformation.ca-west-1.amazonaws.com<br>lakeformation-fips.ca-west-1.api.aws<br>lakeformation-fips.ca-west-1.amazonaws.com<br>lakeformation.ca-west-1.api.aws                 | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| Europe (Frankfurt)         | eu-central-1   | lakeformation.eu-central-1.amazonaws.com<br>lakeformation.eu-central-1.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
-| Europe (Ireland)           | eu-west-1      | lakeformation.eu-west-1.amazonaws.com<br>lakeformation.eu-west-1.api.aws                                                                                                       | HTTPS<br>HTTPS                   |
-| Europe (London)            | eu-west-2      | lakeformation.eu-west-2.amazonaws.com<br>lakeformation.eu-west-2.api.aws                                                                                                       | HTTPS<br>HTTPS                   |
-| Europe (Milan)             | eu-south-1     | lakeformation.eu-south-1.amazonaws.com<br>lakeformation.eu-south-1.api.aws                                                                                                     | HTTPS<br>HTTPS                   |
-| Europe (Paris)             | eu-west-3      | lakeformation.eu-west-3.amazonaws.com<br>lakeformation.eu-west-3.api.aws                                                                                                       | HTTPS<br>HTTPS                   |
-| Europe (Spain)             | eu-south-2     | lakeformation.eu-south-2.amazonaws.com<br>lakeformation.eu-south-2.api.aws                                                                                                     | HTTPS<br>HTTPS                   |
-| Europe (Stockholm)         | eu-north-1     | lakeformation.eu-north-1.amazonaws.com<br>lakeformation.eu-north-1.api.aws                                                                                                     | HTTPS<br>HTTPS                   |
-| Europe (Zurich)            | eu-central-2   | lakeformation.eu-central-2.amazonaws.com<br>lakeformation.eu-central-2.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
-| Israel (Tel Aviv)          | il-central-1   | lakeformation.il-central-1.amazonaws.com<br>lakeformation.il-central-1.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
-| Mexico (Central)           | mx-central-1   | lakeformation.mx-central-1.amazonaws.com<br>lakeformation.mx-central-1.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
-| Middle East (Bahrain)      | me-south-1     | lakeformation.me-south-1.amazonaws.com<br>lakeformation.me-south-1.api.aws                                                                                                     | HTTPS<br>HTTPS                   |
-| Middle East (UAE)          | me-central-1   | lakeformation.me-central-1.amazonaws.com<br>lakeformation.me-central-1.api.aws                                                                                                 | HTTPS<br>HTTPS                   |
-| South America (São Paulo)  | sa-east-1      | lakeformation.sa-east-1.amazonaws.com<br>lakeformation.sa-east-1.api.aws                                                                                                       | HTTPS<br>HTTPS                   |
-| AWS GovCloud (US-East)     | us-gov-east-1  | lakeformation.us-gov-east-1.amazonaws.com<br>lakeformation-fips.us-gov-east-1.api.aws<br>lakeformation-fips.us-gov-east-1.amazonaws.com<br>lakeformation.us-gov-east-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| AWS GovCloud (US-West)     | us-gov-west-1  | lakeformation.us-gov-west-1.amazonaws.com<br>lakeformation-fips.us-gov-west-1.api.aws<br>lakeformation-fips.us-gov-west-1.amazonaws.com<br>lakeformation.us-gov-west-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
+
+| Region Name | Region | Endpoint | Protocol | 
+| --- | --- | --- | --- | 
+| US East (Ohio) | us-east-2 |  lakeformation.us-east-2.amazonaws.com <br /> lakeformation-fips.us-east-2.api.aws <br /> lakeformation-fips.us-east-2.amazonaws.com <br /> lakeformation.us-east-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| US East (N. Virginia) | us-east-1 |  lakeformation.us-east-1.amazonaws.com <br /> lakeformation-fips.us-east-1.api.aws <br /> lakeformation-fips.us-east-1.amazonaws.com <br /> lakeformation.us-east-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| US West (N. California) | us-west-1 |  lakeformation.us-west-1.amazonaws.com <br /> lakeformation-fips.us-west-1.api.aws <br /> lakeformation-fips.us-west-1.amazonaws.com <br /> lakeformation.us-west-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| US West (Oregon) | us-west-2 |  lakeformation.us-west-2.amazonaws.com <br /> lakeformation-fips.us-west-2.api.aws <br /> lakeformation-fips.us-west-2.amazonaws.com <br /> lakeformation.us-west-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| Africa (Cape Town) | af-south-1 |  lakeformation.af-south-1.amazonaws.com <br /> lakeformation.af-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hong Kong) | ap-east-1 |  lakeformation.ap-east-1.amazonaws.com <br /> lakeformation.ap-east-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hyderabad) | ap-south-2 |  lakeformation.ap-south-2.amazonaws.com <br /> lakeformation.ap-south-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Jakarta) | ap-southeast-3 |  lakeformation.ap-southeast-3.amazonaws.com <br /> lakeformation.ap-southeast-3.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Malaysia) | ap-southeast-5 |  lakeformation.ap-southeast-5.amazonaws.com <br /> lakeformation.ap-southeast-5.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Melbourne) | ap-southeast-4 |  lakeformation.ap-southeast-4.amazonaws.com <br /> lakeformation.ap-southeast-4.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Mumbai) | ap-south-1 |  lakeformation.ap-south-1.amazonaws.com <br /> lakeformation.ap-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (New Zealand) | ap-southeast-6 |  lakeformation.ap-southeast-6.amazonaws.com <br /> lakeformation.ap-southeast-6.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Osaka) | ap-northeast-3 |  lakeformation.ap-northeast-3.amazonaws.com <br /> lakeformation.ap-northeast-3.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Seoul) | ap-northeast-2 |  lakeformation.ap-northeast-2.amazonaws.com <br /> lakeformation.ap-northeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Singapore) | ap-southeast-1 |  lakeformation.ap-southeast-1.amazonaws.com <br /> lakeformation.ap-southeast-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Sydney) | ap-southeast-2 |  lakeformation.ap-southeast-2.amazonaws.com <br /> lakeformation.ap-southeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Taipei) | ap-east-2 |  lakeformation.ap-east-2.amazonaws.com <br /> lakeformation.ap-east-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Thailand) | ap-southeast-7 |  lakeformation.ap-southeast-7.amazonaws.com <br /> lakeformation.ap-southeast-7.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 |  lakeformation.ap-northeast-1.amazonaws.com <br /> lakeformation.ap-northeast-1.api.aws  | HTTPS<br />HTTPS | 
+| Canada (Central) | ca-central-1 |  lakeformation.ca-central-1.amazonaws.com <br /> lakeformation-fips.ca-central-1.api.aws <br /> lakeformation-fips.ca-central-1.amazonaws.com <br /> lakeformation.ca-central-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| Canada West (Calgary) | ca-west-1 |  lakeformation.ca-west-1.amazonaws.com <br /> lakeformation-fips.ca-west-1.api.aws <br /> lakeformation-fips.ca-west-1.amazonaws.com <br /> lakeformation.ca-west-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| Europe (Frankfurt) | eu-central-1 |  lakeformation.eu-central-1.amazonaws.com <br /> lakeformation.eu-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Ireland) | eu-west-1 |  lakeformation.eu-west-1.amazonaws.com <br /> lakeformation.eu-west-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (London) | eu-west-2 |  lakeformation.eu-west-2.amazonaws.com <br /> lakeformation.eu-west-2.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Milan) | eu-south-1 |  lakeformation.eu-south-1.amazonaws.com <br /> lakeformation.eu-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Paris) | eu-west-3 |  lakeformation.eu-west-3.amazonaws.com <br /> lakeformation.eu-west-3.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Spain) | eu-south-2 |  lakeformation.eu-south-2.amazonaws.com <br /> lakeformation.eu-south-2.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Stockholm) | eu-north-1 |  lakeformation.eu-north-1.amazonaws.com <br /> lakeformation.eu-north-1.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Zurich) | eu-central-2 |  lakeformation.eu-central-2.amazonaws.com <br /> lakeformation.eu-central-2.api.aws  | HTTPS<br />HTTPS | 
+| Israel (Tel Aviv) | il-central-1 |  lakeformation.il-central-1.amazonaws.com <br /> lakeformation.il-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Mexico (Central) | mx-central-1 |  lakeformation.mx-central-1.amazonaws.com <br /> lakeformation.mx-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Middle East (Bahrain) | me-south-1 |  lakeformation.me-south-1.amazonaws.com <br /> lakeformation.me-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Middle East (UAE) | me-central-1 |  lakeformation.me-central-1.amazonaws.com <br /> lakeformation.me-central-1.api.aws  | HTTPS<br />HTTPS | 
+| South America (São Paulo) | sa-east-1 |  lakeformation.sa-east-1.amazonaws.com <br /> lakeformation.sa-east-1.api.aws  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-East) | us-gov-east-1 |  lakeformation.us-gov-east-1.amazonaws.com <br /> lakeformation-fips.us-gov-east-1.api.aws <br /> lakeformation-fips.us-gov-east-1.amazonaws.com <br /> lakeformation.us-gov-east-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  lakeformation.us-gov-west-1.amazonaws.com <br /> lakeformation-fips.us-gov-west-1.api.aws <br /> lakeformation-fips.us-gov-west-1.amazonaws.com <br /> lakeformation.us-gov-west-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
 
 ## Service quotas
+<a name="limits_lake-formation"></a>
 
-| Name                                                    | Default                       | Adjustable                                                                                                                                                                                     | Description                                                         |
-| ------------------------------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| Length of a path that can be registered                 | Each supported Region: 700    | [Yes](https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-3D55E97C "https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-3D55E97C") | The maximum length of a path that can be registered per catalog.    |
-| Number of data lake administrators                      | Each supported Region: 30     | [Yes](https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-3E3798DF "https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-3E3798DF") | The maximum number of data lake administrators per catalog.         |
-| Number of lf tag per account                            | Each supported Region: 1,000  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-F165AF61 "https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-F165AF61") | The maximum number of lf tag per account                            |
-| Number of lf tag policy per principal per resource type | Each supported Region: 50     | [Yes](https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-9F3EFFAB "https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-9F3EFFAB") | The maximum number of lf tag policy per principal per resource type |
-| Number of registered paths                              | Each supported Region: 10,000 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-B0A837CA "https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-B0A837CA") | The maximum number of registered paths per catalog.                 |
-| Number of subfolders in an Amazon S3 path               | Each supported Region: 20     | [Yes](https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-1343AC0E "https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-1343AC0E") | The maximum number of subfolders in an Amazon S3 path per catalog.  |
-| Number of tag values per lf tag                         | Each supported Region: 1,000  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-47097528 "https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-47097528") | The maximum number of tag values per lf tag.                        |
+
+| Name | Default | Adjustable | Description | 
+| --- | --- | --- | --- | 
+| Length of a path that can be registered | Each supported Region: 700 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-3D55E97C)  | The maximum length of a path that can be registered per catalog. | 
+| Number of data lake administrators | Each supported Region: 30 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-3E3798DF)  | The maximum number of data lake administrators per catalog. | 
+| Number of lf tag per account | Each supported Region: 1,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-F165AF61)  | The maximum number of lf tag per account | 
+| Number of lf tag policy per principal per resource type | Each supported Region: 50 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-9F3EFFAB)  | The maximum number of lf tag policy per principal per resource type | 
+| Number of registered paths | Each supported Region: 10,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-B0A837CA)  | The maximum number of registered paths per catalog. | 
+| Number of subfolders in an Amazon S3 path | Each supported Region: 20 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-1343AC0E)  | The maximum number of subfolders in an Amazon S3 path per catalog. | 
+| Number of tag values per lf tag | Each supported Region: 1,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/lakeformation/quotas/L-47097528)  | The maximum number of tag values per lf tag. | 

@@ -1,52 +1,56 @@
+
+
 # AWS Elemental MediaConnect endpoints and quotas
+<a name="mediaconnect"></a>
 
-To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types
-in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints.
-Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md "rande.md").
+To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
 
-Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account.
-For more information, see [AWS service quotas](aws_service_limits.md "aws_service_limits.md").
+Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](aws_service_limits.md).
 
 The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
+<a name="mediaconnect_region"></a>
 
-| Region Name               | Region         | Endpoint                                  | Protocol |
-| ------------------------- | -------------- | ----------------------------------------- | -------- |
-| US East (Ohio)            | us-east-2      | mediaconnect.us-east-2.amazonaws.com      | HTTPS    |
-| US East (N. Virginia)     | us-east-1      | mediaconnect.us-east-1.amazonaws.com      | HTTPS    |
-| US West (N. California)   | us-west-1      | mediaconnect.us-west-1.amazonaws.com      | HTTPS    |
-| US West (Oregon)          | us-west-2      | mediaconnect.us-west-2.amazonaws.com      | HTTPS    |
-| Africa (Cape Town)        | af-south-1     | mediaconnect.af-south-1.amazonaws.com     | HTTPS    |
-| Asia Pacific (Hong Kong)  | ap-east-1      | mediaconnect.ap-east-1.amazonaws.com      | HTTPS    |
-| Asia Pacific (Hyderabad)  | ap-south-2     | mediaconnect.ap-south-2.amazonaws.com     | HTTPS    |
-| Asia Pacific (Malaysia)   | ap-southeast-5 | mediaconnect.ap-southeast-5.amazonaws.com | HTTPS    |
-| Asia Pacific (Melbourne)  | ap-southeast-4 | mediaconnect.ap-southeast-4.amazonaws.com | HTTPS    |
-| Asia Pacific (Mumbai)     | ap-south-1     | mediaconnect.ap-south-1.amazonaws.com     | HTTPS    |
-| Asia Pacific (Osaka)      | ap-northeast-3 | mediaconnect.ap-northeast-3.amazonaws.com | HTTPS    |
-| Asia Pacific (Seoul)      | ap-northeast-2 | mediaconnect.ap-northeast-2.amazonaws.com | HTTPS    |
-| Asia Pacific (Singapore)  | ap-southeast-1 | mediaconnect.ap-southeast-1.amazonaws.com | HTTPS    |
-| Asia Pacific (Sydney)     | ap-southeast-2 | mediaconnect.ap-southeast-2.amazonaws.com | HTTPS    |
-| Asia Pacific (Tokyo)      | ap-northeast-1 | mediaconnect.ap-northeast-1.amazonaws.com | HTTPS    |
-| Canada (Central)          | ca-central-1   | mediaconnect.ca-central-1.amazonaws.com   | HTTPS    |
-| Europe (Frankfurt)        | eu-central-1   | mediaconnect.eu-central-1.amazonaws.com   | HTTPS    |
-| Europe (Ireland)          | eu-west-1      | mediaconnect.eu-west-1.amazonaws.com      | HTTPS    |
-| Europe (London)           | eu-west-2      | mediaconnect.eu-west-2.amazonaws.com      | HTTPS    |
-| Europe (Paris)            | eu-west-3      | mediaconnect.eu-west-3.amazonaws.com      | HTTPS    |
-| Europe (Stockholm)        | eu-north-1     | mediaconnect.eu-north-1.amazonaws.com     | HTTPS    |
-| Middle East (UAE)         | me-central-1   | mediaconnect.me-central-1.amazonaws.com   | HTTPS    |
-| South America (São Paulo) | sa-east-1      | mediaconnect.sa-east-1.amazonaws.com      | HTTPS    |
+
+| Region Name | Region | Endpoint | Protocol | 
+| --- | --- | --- | --- | 
+| US East (Ohio) | us-east-2 |  mediaconnect.us-east-2.amazonaws.com  | HTTPS | 
+| US East (N. Virginia) | us-east-1 |  mediaconnect.us-east-1.amazonaws.com  | HTTPS | 
+| US West (N. California) | us-west-1 |  mediaconnect.us-west-1.amazonaws.com  | HTTPS | 
+| US West (Oregon) | us-west-2 |  mediaconnect.us-west-2.amazonaws.com  | HTTPS | 
+| Africa (Cape Town) | af-south-1 |  mediaconnect.af-south-1.amazonaws.com  | HTTPS | 
+| Asia Pacific (Hong Kong) | ap-east-1 |  mediaconnect.ap-east-1.amazonaws.com  | HTTPS | 
+| Asia Pacific (Hyderabad) | ap-south-2 |  mediaconnect.ap-south-2.amazonaws.com  | HTTPS | 
+| Asia Pacific (Malaysia) | ap-southeast-5 |  mediaconnect.ap-southeast-5.amazonaws.com  | HTTPS | 
+| Asia Pacific (Melbourne) | ap-southeast-4 |  mediaconnect.ap-southeast-4.amazonaws.com  | HTTPS | 
+| Asia Pacific (Mumbai) | ap-south-1 |  mediaconnect.ap-south-1.amazonaws.com  | HTTPS | 
+| Asia Pacific (Osaka) | ap-northeast-3 |  mediaconnect.ap-northeast-3.amazonaws.com  | HTTPS | 
+| Asia Pacific (Seoul) | ap-northeast-2 |  mediaconnect.ap-northeast-2.amazonaws.com  | HTTPS | 
+| Asia Pacific (Singapore) | ap-southeast-1 |  mediaconnect.ap-southeast-1.amazonaws.com  | HTTPS | 
+| Asia Pacific (Sydney) | ap-southeast-2 |  mediaconnect.ap-southeast-2.amazonaws.com  | HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 |  mediaconnect.ap-northeast-1.amazonaws.com  | HTTPS | 
+| Canada (Central) | ca-central-1 |  mediaconnect.ca-central-1.amazonaws.com  | HTTPS | 
+| Europe (Frankfurt) | eu-central-1 |  mediaconnect.eu-central-1.amazonaws.com  | HTTPS | 
+| Europe (Ireland) | eu-west-1 |  mediaconnect.eu-west-1.amazonaws.com  | HTTPS | 
+| Europe (London) | eu-west-2 |  mediaconnect.eu-west-2.amazonaws.com  | HTTPS | 
+| Europe (Paris) | eu-west-3 |  mediaconnect.eu-west-3.amazonaws.com  | HTTPS | 
+| Europe (Stockholm) | eu-north-1 |  mediaconnect.eu-north-1.amazonaws.com  | HTTPS | 
+| Middle East (UAE) | me-central-1 |  mediaconnect.me-central-1.amazonaws.com  | HTTPS | 
+| South America (São Paulo) | sa-east-1 |  mediaconnect.sa-east-1.amazonaws.com  | HTTPS | 
 
 ## Service quotas
+<a name="limits_mediaconnect"></a>
 
-| Name                    | Default                   | Adjustable                                                                                                                                                                                   | Description                                                                          |
-| ----------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| Bridges                 | Each supported Region: 40 | No                                                                                                                                                                                           | The maximum number of bridges that a gateway can have.                               |
-| Entitlements            | Each supported Region: 50 | No                                                                                                                                                                                           | The maximum number of entitlements that you can grant on a flow.                     |
-| Flows                   | Each supported Region: 20 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-A99016A8 "https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-A99016A8") | The maximum number of flows that you can create in each AWS Region.                  |
-| Outputs                 | Each supported Region: 50 | No                                                                                                                                                                                           | The maximum number of outputs that a flow can have.                                  |
-| RouterInputs            | Each supported Region: 20 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-77138741 "https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-77138741") | The maximum number of router inputs that you can create in an AWS region             |
-| RouterNetworkInterfaces | Each supported Region: 10 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-6C50CD26 "https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-6C50CD26") | The maximum number of router network interfaces that you can create in an AWS region |
-| RouterOutputs           | Each supported Region: 20 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-58DF4801 "https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-58DF4801") | The maximum number of router outputs that you can create in an AWS region            |
 
-For more information, see [Quotas](../../../mediaconnect/latest/ug/quotas.md "../../../mediaconnect/latest/ug/quotas.md") in the _AWS Elemental MediaConnect User Guide_.
+| Name | Default | Adjustable | Description | 
+| --- | --- | --- | --- | 
+| Bridges | Each supported Region: 40 | No | The maximum number of bridges that a gateway can have. | 
+| Entitlements | Each supported Region: 50 | No | The maximum number of entitlements that you can grant on a flow. | 
+| Flows | Each supported Region: 20 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-A99016A8)  | The maximum number of flows that you can create in each AWS Region. | 
+| Outputs | Each supported Region: 50 | No | The maximum number of outputs that a flow can have. | 
+| RouterInputs | Each supported Region: 20 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-77138741)  | The maximum number of router inputs that you can create in an AWS region | 
+| RouterNetworkInterfaces | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-6C50CD26)  | The maximum number of router network interfaces that you can create in an AWS region | 
+| RouterOutputs | Each supported Region: 20 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-58DF4801)  | The maximum number of router outputs that you can create in an AWS region | 
+
+For more information, see [Quotas](https://docs.aws.amazon.com/mediaconnect/latest/ug/quotas.html) in the *AWS Elemental MediaConnect User Guide*.
