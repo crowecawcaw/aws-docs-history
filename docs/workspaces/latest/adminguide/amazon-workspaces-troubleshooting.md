@@ -44,6 +44,21 @@ for issues with your WorkSpaces clients, contact AWS Support. For more informati
 4. From the **Develop** tab in the menu bar, choose **Develop** > **Show Web Inspector**.
 5. In the Safari Web Inspector panel, choose the **Console** tab to find the log files.
 
+For 2023.x and later Linux clients, the client binary is installed at
+`/usr/bin/workspacesclient`.
+
+The Linux client logs are stored in the following location:
+
+`~/.local/share/Amazon Web Services/Amazon WorkSpaces/logs`
+
+###### To enable advanced logging for Linux clients
+
+1. Close the Amazon WorkSpaces client.
+2. Open Terminal.
+3. Run the following command.
+
+`/usr/bin/workspacesclient --l3`
+
 ###### Windows clients
 
 The Windows client logs are stored in the following location:
