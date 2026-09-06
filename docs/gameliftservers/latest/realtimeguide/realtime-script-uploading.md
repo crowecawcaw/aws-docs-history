@@ -1,56 +1,37 @@
+
+
 # Upload a script for Amazon GameLift Servers Realtime servers
+<a name="realtime-script-uploading"></a>
 
-When you're ready to deploy Amazon GameLift Servers Realtime for your game, upload completed Realtime server script
-files to Amazon GameLift Servers. Do this by creating an Amazon GameLift Servers script resource and specifying the location of
-your script files. You can also update server script files that are already deployed by
-uploading new files for an existing script resource.
+When you're ready to deploy Amazon GameLift Servers Realtime for your game, upload completed Realtime server script files to Amazon GameLift Servers. Do this by creating an Amazon GameLift Servers script resource and specifying the location of your script files. You can also update server script files that are already deployed by uploading new files for an existing script resource.
 
-When creating a script, you can choose the Node.js runtime version. Node.js 24 runs on Amazon Linux 2023,
-while Node.js 10 uses Amazon Linux 2. Amazon GameLift Servers automatically manages Node.js minor and patch version updates for
-new fleets. The runtime will remain unchanged for a fleet once it is created. If you would like to pick a
-specific minor and patch version of Node.js you can install it using an install script. See
-[Add an install script (optional)](#realtime-script-uploading-install-script "#realtime-script-uploading-install-script").
+When creating a script, you can choose the Node.js runtime version. Node.js 24 runs on Amazon Linux 2023, while Node.js 10 uses Amazon Linux 2. Amazon GameLift Servers automatically manages Node.js minor and patch version updates for new fleets. The runtime will remain unchanged for a fleet once it is created. If you would like to pick a specific minor and patch version of Node.js you can install it using an install script. See [Add an install script (optional)](#realtime-script-uploading-install-script).
 
-When you create a new script resource, Amazon GameLift Servers assigns it a unique script ID (for example,
-`script-1111aaaa-22bb-33cc-44dd-5555eeee66ff`) and uploads a copy of the
-script files. Upload time depends on the size of your script files and on your connection
-speed.
+When you create a new script resource, Amazon GameLift Servers assigns it a unique script ID (for example, `script-1111aaaa-22bb-33cc-44dd-5555eeee66ff`) and uploads a copy of the script files. Upload time depends on the size of your script files and on your connection speed.
 
-After you create the script resource, Amazon GameLift Servers deploys the script with a new Amazon GameLift Servers Realtime fleet.
-Amazon GameLift Servers installs your server script onto each instance in the fleet, placing the script files
-in `/local/game`.
+After you create the script resource, Amazon GameLift Servers deploys the script with a new Amazon GameLift Servers Realtime fleet. Amazon GameLift Servers installs your server script onto each instance in the fleet, placing the script files in `/local/game`.
 
-To troubleshoot fleet activation problems related to the server script, see [Debug managed EC2 fleets for Amazon GameLift Servers Realtime](fleets-creating-debug-realtime.md "fleets-creating-debug-realtime.md").
+To troubleshoot fleet activation problems related to the server script, see [Debug managed EC2 fleets for Amazon GameLift Servers Realtime](fleets-creating-debug-realtime.md).
 
 ## Package script files
+<a name="realtime-script-uploading-packaging"></a>
 
-Your server script can include one or more files combined into a single .zip file for
-uploading. The .zip file must contain all files that your script needs to run.
+Your server script can include one or more files combined into a single .zip file for uploading. The .zip file must contain all files that your script needs to run.
 
-You can store your zipped script files in either a local file directory or in an
-Amazon Simple Storage Service (Amazon S3) bucket.
+You can store your zipped script files in either a local file directory or in an Amazon Simple Storage Service (Amazon S3) bucket.
 
 ### Add an install script (optional)
+<a name="realtime-script-uploading-install-script"></a>
 
-Similar to [Add a build install script](../developerguide/gamelift-build-cli-uploading-install.md "../developerguide/gamelift-build-cli-uploading-install.md") for an Amazon GameLift Servers build, you can optionally add an install script to
-customize the runtime environment for your Realtime script. This feature is only available for
-scripts using Node.js version 24 and later.
+Similar to [ Add a build install script](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-build-cli-uploading-install.html) for an Amazon GameLift Servers build, you can optionally add an install script to customize the runtime environment for your Realtime script. This feature is only available for scripts using Node.js version 24 and later.
 
-To add an install script, include a file named
-`install.sh` in the root directory of your script .zip file. Amazon GameLift Servers will automatically
-detect and execute this script during fleet deployment.
+To add an install script, include a file named `install.sh` in the root directory of your script .zip file. Amazon GameLift Servers will automatically detect and execute this script during fleet deployment.
 
-###### Note
+**Note**  
+The install script only executes during fleet creation. If you update an existing script using [UpdateScript](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_UpdateScript.html), the install script will not be executed on fleets that are already running. To apply install script changes, you must create a new fleet with the updated script.
 
-The install script only executes during fleet creation. If you update an existing script using
-[UpdateScript](../apireference/API_UpdateScript.md "../apireference/API_UpdateScript.md"),
-the install script will not be executed on fleets that are already running. To apply install script
-changes, you must create a new fleet with the updated script.
-
-###### Example Install script example
-
-This example `install.sh` file installs Node.js 24.10.0 to replace the default
-Node.js 24 runtime:
+**Example Install script example**  
+This example `install.sh` file installs Node.js 24.10.0 to replace the default Node.js 24 runtime:  
 
 ```
 #!/bin/bash
