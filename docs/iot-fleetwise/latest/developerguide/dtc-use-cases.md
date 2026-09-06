@@ -1,19 +1,17 @@
-AWS IoT FleetWise is no longer open to new customers. Existing
-AWS IoT FleetWise customers can continue using the service. The
-[Guidance
-for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/ "https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/") provides guidance on how to develop and deploy modular
-services for connected mobility solutions that can be used to achieve equivalent capabilities
-as AWS IoT FleetWise.
+
+
+AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Diagnostic trouble code use cases
+<a name="dtc-use-cases"></a>
 
-###### Important
+**Important**  
+Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
 
-Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md "fleetwise-regions.md").
-
-The following use cases assume the `DTC_QUERY` function was defined in the [demo script](https://github.com/aws/aws-iot-fleetwise-edge/blob/main/docs/dev-guide/edge-agent-uds-dtc-dev-guide.md "https://github.com/aws/aws-iot-fleetwise-edge/blob/main/docs/dev-guide/edge-agent-uds-dtc-dev-guide.md").
+The following use cases assume the `DTC_QUERY` function was defined in the [demo script](https://github.com/aws/aws-iot-fleetwise-edge/blob/main/docs/dev-guide/edge-agent-uds-dtc-dev-guide.md).
 
 ## Periodic fetch
+<a name="dtc-periodic-fetch"></a>
 
 Fetch a DTC collection at configured intervals.
 
@@ -56,7 +54,7 @@ The following example is a campaign with periodic signal fetching of `Vehicle.DT
   },
   "dataDestinationConfigs": [
     {
-      "s3Config":
+      "s3Config": 
         {
           "bucketArn": "bucket-arn",
           "dataFormat": "PARQUET",
@@ -69,6 +67,7 @@ The following example is a campaign with periodic signal fetching of `Vehicle.DT
 ```
 
 ## Condition-driven fetch
+<a name="dtc-condition-fetch"></a>
 
 Fetch a DTC collection when a condition is met. For example, when the CAN signal is `Vehicle.Ignition == 1`, fetch and upload the DTC data.
 
@@ -107,7 +106,7 @@ The following example campaign has condition-driven signal fetching of `Vehicle.
   },
   "dataDestinationConfigs": [
     {
-      "s3Config":
+      "s3Config": 
         {
           "bucketArn": "bucket-arn",
           "dataFormat": "PARQUET",
@@ -120,16 +119,16 @@ The following example campaign has condition-driven signal fetching of `Vehicle.
 ```
 
 ## On-demand fetch
+<a name="fetch-dtc-for-fleet"></a>
 
 Fetch a specific DTC for a fleet.
 
 For an on-demand use case, you can use the same campaign as defined in the periodic fetch. The on-demand effect is achieved by suspending the campaign shortly after the campaign is deployed using the AWS IoT FleetWise console or by running the following CLI command.
-
-- Replace `command-name` with the command name.
++ Replace {{command-name}} with the command name.
 
 ```
 aws iotfleetwise update-campaign \
-    --name `campaign-name` \
+    --name {{campaign-name}} \
     --action APPROVE
 ```
 
@@ -137,7 +136,7 @@ Then, suspend the campaign after the DTC data arrives.
 
 ```
 aws iotfleetwise update-campaign \
-    --name `campaign-name` \
+    --name {{campaign-name}} \
     --action SUSPEND
 ```
 
@@ -145,6 +144,6 @@ You can resume the campaign again for DTC data fetching.
 
 ```
 aws iotfleetwise update-campaign \
-    --name `campaign-name` \
+    --name {{campaign-name}} \
     --action RESUME
 ```

@@ -1,50 +1,32 @@
-AWS IoT FleetWise is no longer open to new customers. Existing
-AWS IoT FleetWise customers can continue using the service. The
-[Guidance
-for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/ "https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/") provides guidance on how to develop and deploy modular
-services for connected mobility solutions that can be used to achieve equivalent capabilities
-as AWS IoT FleetWise.
+
+
+AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Process last known state vehicle data using MQTT messaging
+<a name="process-last-known-state-vehicle-data"></a>
 
-###### Important
+**Important**  
+Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md).
 
-Access to certain AWS IoT FleetWise features is currently gated. For more information, see [AWS Region and feature availability in AWS IoT FleetWise](fleetwise-regions.md "fleetwise-regions.md").
-
-To receive updates from your vehicle and process its data, subscribe to the following
-MQTT topic. For more information, see [MQTT
-topics](../../../iot/latest/developerguide/iot-connect-devices.md "../../../iot/latest/developerguide/iot-connect-devices.md") in the _AWS IoT Core Developer Guide._
+To receive updates from your vehicle and process its data, subscribe to the following MQTT topic. For more information, see [MQTT topics](https://docs.aws.amazon.com/iot/latest/developerguide/iot-connect-devices.html) in the *AWS IoT Core Developer Guide.*
 
 ```
-$aws/iotfleetwise/vehicles/`$vehicle_name`/last_known_state/`$state_template_name`/data
+$aws/iotfleetwise/vehicles/{{$vehicle_name}}/last_known_state/{{$state_template_name}}/data
 ```
 
-Last known state signal update messages might be received out of order, as MQTT doesn't
-guarantee ordering. Any clients which use MQTT to receive and process vehicle data must
-handle this. Last known state signal update messages follow the MQTT 5 messaging protocol.
+Last known state signal update messages might be received out of order, as MQTT doesn't guarantee ordering. Any clients which use MQTT to receive and process vehicle data must handle this. Last known state signal update messages follow the MQTT 5 messaging protocol.
 
 The message header for each MQTT message has the following user properties:
++ **vehicleName** – A unique identifier of the [vehicles](vehicles.md).
++ **stateTemplateName** – A unique identifier of the last known state [state template](state-templates.md).
 
-- **vehicleName** – A unique identifier of the
-  [vehicles](vehicles.md "vehicles.md").
-- **stateTemplateName** – A unique identifier of the last
-  known state [state template](state-templates.md "state-templates.md").
-  In addition, you can specify [vehicle attributes](signal-catalogs.md "signal-catalogs.md")
-  to be included in the MQTT message header by specifying the `metadataExtraDimensions`
-  request parameter while updating or creating a state template. (See [State Templates](state-templates.md "state-templates.md").)
+In addition, you can specify [vehicle attributes](signal-catalogs.md) to be included in the MQTT message header by specifying the `metadataExtraDimensions` request parameter while updating or creating a state template. (See [ State Templates](state-templates.md).)
 
-The user properties in the MQTT message header are useful for routing messages to different
-destinations without inspecting the payload.
+The user properties in the MQTT message header are useful for routing messages to different destinations without inspecting the payload. 
 
-The MQTT message payload contains data collected from the vehicles. You can specify
-vehicle attributes to be included in the MQTT message payload by specifying the
-`extraDimensions` request parameter while creating or updating a state template
-(see [Create an AWS IoT FleetWise state template](state-templates.md "state-templates.md")). The extra dimensions
-enrich the data collected from the vehicles by associating extra dimensions to them.
+The MQTT message payload contains data collected from the vehicles. You can specify vehicle attributes to be included in the MQTT message payload by specifying the `extraDimensions` request parameter while creating or updating a state template (see [Create an AWS IoT FleetWise state template](state-templates.md)). The extra dimensions enrich the data collected from the vehicles by associating extra dimensions to them.
 
-The MQTT message payload is protocol buffers (Protobuf) encoded, and the MQTT message header contains a content
-type indicator defined as application/octet-stream. The Protobuf encoding schema is as
-follows:
+The MQTT message payload is protocol buffers (Protobuf) encoded, and the MQTT message header contains a content type indicator defined as application/octet-stream. The Protobuf encoding schema is as follows:
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -131,23 +113,12 @@ message ExtraDimension {
 ```
 
 Where:
++ `time_ms`:
 
-- `time_ms`:
+  The absolute timestamp (in milliseconds since the Unix Epoch) of when the event was triggered in the vehicle. The Edge Agent software uses on the vehicle's clock for this timestamp.
++ `signal`:
 
-The absolute timestamp (in milliseconds since the Unix Epoch)
-of when the event was triggered in the vehicle. The Edge Agent software
-uses on the vehicle's clock for this timestamp.
+  An array of `Signal`s that contain the signal information: `name` (string) and `signalValue` which supports the following data types - `double`, `bool`, `int8`, `uint8`, `int16`, `uint16`, `int32`, `uint32`, `int64`, `uint64`, `float`, `string`.
++ `extra_dimensions`:
 
-- `signal`:
-
-An array of `Signal`s that contain the signal information: `name`
-(string) and `signalValue` which supports the following data types -
-`double`, `bool`, `int8`, `uint8`, `int16`,
-`uint16`, `int32`, `uint32`, `int64`, `uint64`,
-`float`, `string`.
-
-- `extra_dimensions`:
-
-An array of `ExtraDimensions` that contain vehicle attribute information:
-`name` (string) and `extraDimensionValue` which currently only
-supports the `string` data type.
+  An array of `ExtraDimensions` that contain vehicle attribute information: `name` (string) and `extraDimensionValue` which currently only supports the `string` data type.

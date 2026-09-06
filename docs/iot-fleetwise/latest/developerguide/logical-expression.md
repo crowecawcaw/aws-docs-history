@@ -1,20 +1,13 @@
-AWS IoT FleetWise is no longer open to new customers. Existing
-AWS IoT FleetWise customers can continue using the service. The
-[Guidance
-for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/ "https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/") provides guidance on how to develop and deploy modular
-services for connected mobility solutions that can be used to achieve equivalent capabilities
-as AWS IoT FleetWise.
+
+
+AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Logical expressions for AWS IoT FleetWise campaigns
+<a name="logical-expression"></a>
 
-AWS IoT FleetWise uses a logical expression to recognize what data to collect as part of a
-campaign. For more information about expressions, see [Expressions](../../../iotevents/latest/developerguide/iotevents-expressions.md "../../../iotevents/latest/developerguide/iotevents-expressions.md") in the _AWS IoT Events Developer Guide_.
+AWS IoT FleetWise uses a logical expression to recognize what data to collect as part of a campaign. For more information about expressions, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
 
-The expression variable should be constructed to comply with the rules for the
-type of data being collected. For telemetry system data, the expression variable
-should be the signal's fully qualified name. For vision system data, the expression combines the
-signal's fully qualified name with the path leading from the signal's data type to
-one of its properties.
+The expression variable should be constructed to comply with the rules for the type of data being collected. For telemetry system data, the expression variable should be the signal's fully qualified name. For vision system data, the expression combines the signal's fully qualified name with the path leading from the signal's data type to one of its properties.
 
 For example, if the signal catalog contains the following nodes:
 
@@ -31,7 +24,7 @@ For example, if the signal catalog contains the following nodes:
 }
 ```
 
-If the nodes follow the ROS 2 definition:
+If the nodes follow the ROS 2 definition: 
 
 ```
 {

@@ -1,30 +1,26 @@
-AWS IoT FleetWise is no longer open to new customers. Existing
-AWS IoT FleetWise customers can continue using the service. The
-[Guidance
-for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/ "https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/") provides guidance on how to develop and deploy modular
-services for connected mobility solutions that can be used to achieve equivalent capabilities
-as AWS IoT FleetWise.
+
+
+AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Create an AWS IoT FleetWise signal catalog
+<a name="create-signal-catalog"></a>
 
-You can use the [CreateSignalCatalog](../APIReference/API_CreateSignalCatalog.md "../APIReference/API_CreateSignalCatalog.md") API operation to create a signal catalog. The
-following example uses AWS CLI.
+You can use the [CreateSignalCatalog](https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateSignalCatalog.html) API operation to create a signal catalog. The following example uses AWS CLI.
 
 To create a signal catalog, run the following command.
 
-Replace `signal-catalog-configuration` with the name of
-the .json file that contains the configuration.
+Replace {{signal-catalog-configuration}} with the name of the .json file that contains the configuration.
 
 ```
-aws iotfleetwise create-signal-catalog --cli-input-json file://`signal-catalog-configuration`.json
+aws iotfleetwise create-signal-catalog --cli-input-json file://{{signal-catalog-configuration}}.json
 ```
 
-- Replace `signal-catalog-name` with
-  the name of the signal catalog that you're creating.
-- (Optional) Replace `description` with
-  a description to help you identify the signal catalog.
-  For more information about how to configure branches, attributes,
-  sensors, and actuators, see [Configure AWS IoT FleetWise signals](define-signal.md "define-signal.md").
+## Signal catalog configuration
+<a name="signal-catalog-configuration"></a>
++ Replace {{signal-catalog-name}} with the name of the signal catalog that you're creating.
++ (Optional) Replace {{description}} with a description to help you identify the signal catalog.
+
+For more information about how to configure branches, attributes, sensors, and actuators, see [Configure AWS IoT FleetWise signals](define-signal.md).
 
 ```
 {
@@ -198,33 +194,33 @@ aws iotfleetwise create-signal-catalog --cli-input-json file://`signal-catalog-c
 }
 ```
 
-###### Note
-
-You can download a [demo script](https://raw.githubusercontent.com/aws/aws-iot-fleetwise-edge/main/tools/cloud/ros2-to-nodes.py "https://raw.githubusercontent.com/aws/aws-iot-fleetwise-edge/main/tools/cloud/ros2-to-nodes.py") to convert ROS 2 messages to VSS .json files that are compatible with the signal catalog. For more information, see the [_Vision System Data Developer Guide_](https://github.com/aws/aws-iot-fleetwise-edge/blob/main/docs/dev-guide/vision-system-data/vision-system-data-demo.ipynb "https://github.com/aws/aws-iot-fleetwise-edge/blob/main/docs/dev-guide/vision-system-data/vision-system-data-demo.ipynb").
-
+**Note**  
+You can download a [demo script](https://raw.githubusercontent.com/aws/aws-iot-fleetwise-edge/main/tools/cloud/ros2-to-nodes.py) to convert ROS 2 messages to VSS .json files that are compatible with the signal catalog. For more information, see the [*Vision System Data Developer Guide*](https://github.com/aws/aws-iot-fleetwise-edge/blob/main/docs/dev-guide/vision-system-data/vision-system-data-demo.ipynb).  
 Vision system data is in preview release and is subject to change.
 
-If you [enabled encryption](key-management.md "key-management.md") using a customer
-managed AWS KMS key, include the following policy statement so that your role can
-invoke the `CreateSignalCatalog` API operation.
+If you [enabled encryption](key-management.md) using a customer managed AWS KMS key, include the following policy statement so that your role can invoke the `CreateSignalCatalog` API operation.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "kms:GenerateDataKey*",
- "kms:Decrypt"
- ],
- "Resource": [
- "arn:aws:kms:`us-east-1`:`111122223333`:key/`KMS_KEY_ID`"
- ]
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:GenerateDataKey*",
+                "kms:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{KMS_KEY_ID}}"
+            ]
+        }
+    ]
+}
+```
+
+------

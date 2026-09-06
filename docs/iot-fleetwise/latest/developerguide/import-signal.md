@@ -1,89 +1,73 @@
-AWS IoT FleetWise is no longer open to new customers. Existing
-AWS IoT FleetWise customers can continue using the service. The
-[Guidance
-for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/ "https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/") provides guidance on how to develop and deploy modular
-services for connected mobility solutions that can be used to achieve equivalent capabilities
-as AWS IoT FleetWise.
+
+
+AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Import an AWS IoT FleetWise signal catalog
+<a name="import-signal"></a>
 
 You can use the AWS IoT FleetWise console or API to import a signal catalog.
 
-###### Topics
-
-- [Import a signal catalog (console)](#import-signal-catalog-console "#import-signal-catalog-console")
-- [Import a signal catalog (AWS CLI)](#import-signal-catalog "#import-signal-catalog")
+**Topics**
++ [Import a signal catalog (console)](#import-signal-catalog-console)
++ [Import a signal catalog (AWS CLI)](#import-signal-catalog)
 
 ## Import a signal catalog (console)
+<a name="import-signal-catalog-console"></a>
 
 You can use the AWS IoT FleetWise console to import a signal catalog.
 
-###### Important
+**Important**  
+You can have a maximum of one signal catalog. If you already have a signal catalog, you won't see the option to import a signal catalog in the console.
 
-You can have a maximum of one signal catalog. If you already have a signal
-catalog, you won't see the option to import a signal catalog in the
-console.
+**To import a signal catalog**
 
-###### To import a signal catalog
+1. Open the [AWS IoT FleetWise console](https://console.aws.amazon.com/iotfleetwise/).
 
-1. Open the [AWS IoT FleetWise
-   console](https://console.aws.amazon.com/iotfleetwise/ "https://console.aws.amazon.com/iotfleetwise/").
-2. On the navigation pane, choose **Signal
-   catalog**.
-3. On the signal catalog summary page, choose **Import signal
-   catalog**.
-4. Import the file containing the signals.
+1. On the navigation pane, choose **Signal catalog**.
 
-   - To upload a file from an S3 bucket:
+1. On the signal catalog summary page, choose **Import signal catalog**.
+
+1. Import the file containing the signals.
+   + To upload a file from an S3 bucket:
 
      1. Choose **Import from S3**.
-     2. Choose **Browse S3**.
-     3. For **Buckets**, enter the bucket
-        name or object, choose it from the list, and then choose
-        the file from the list. Choose the **Choose
-        file** button.Or, for **S3 URI**, enter an Amazon Simple
-        Storage Service URI. For more information, see [Methods for accessing a bucket](../../../AmazonS3/latest/userguide/access-bucket-intro.md "../../../AmazonS3/latest/userguide/access-bucket-intro.md") in the
-        _Amazon S3 User Guide_.
 
-   - To upload a file from your computer:
+     1. Choose **Browse S3**.
+
+     1. For **Buckets**, enter the bucket name or object, choose it from the list, and then choose the file from the list. Choose the **Choose file** button.
+
+     Or, for **S3 URI**, enter an Amazon Simple Storage Service URI. For more information, see [Methods for accessing a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html) in the *Amazon S3 User Guide*.
+   + To upload a file from your computer:
 
      1. Choose **Import from file**.
-     2. Upload a .json file in a [Vehicle Signal Specification (VSS)](<https://www.w3.org/auto/wg/wiki/Vehicle_Signal_Specification_(VSS)/Vehicle_Data_Spec> "https://www.w3.org/auto/wg/wiki/Vehicle_Signal_Specification_(VSS)/Vehicle_Data_Spec")
-        format.
 
-5. Verify the signal catalog, and then choose **Import
-   file**.
+     1. Upload a .json file in a [Vehicle Signal Specification (VSS)](https://www.w3.org/auto/wg/wiki/Vehicle_Signal_Specification_(VSS)/Vehicle_Data_Spec) format.
+
+1. Verify the signal catalog, and then choose **Import file**.
 
 ## Import a signal catalog (AWS CLI)
+<a name="import-signal-catalog"></a>
 
-You can use the [ImportSignalCatalog](../APIReference/API_ImportSignalCatalog.md "../APIReference/API_ImportSignalCatalog.md") API operation to upload a JSON file that helps
-create a signal catalog. You must follow the [Vehicle Signal Specification (VSS)](<https://www.w3.org/auto/wg/wiki/Vehicle_Signal_Specification_(VSS)/Vehicle_Data_Spec> "https://www.w3.org/auto/wg/wiki/Vehicle_Signal_Specification_(VSS)/Vehicle_Data_Spec") to save signals in the JSON
-file. The following example uses AWS CLI.
+You can use the [ImportSignalCatalog](https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ImportSignalCatalog.html) API operation to upload a JSON file that helps create a signal catalog. You must follow the [Vehicle Signal Specification (VSS)](https://www.w3.org/auto/wg/wiki/Vehicle_Signal_Specification_(VSS)/Vehicle_Data_Spec) to save signals in the JSON file. The following example uses AWS CLI.
 
 To import a signal catalog, run the following command.
++ Replace {{signal-catalog-name}} with the name of the signal catalog that you're creating.
++  (Optional) Replace description with a {{description}} to help you identify the signal catalog.
++ Replace {{signal-catalog-configuration-vss}} with the name of the JSON string file that contains signals defined in VSS.
 
-- Replace `signal-catalog-name` with the name
-  of the signal catalog that you're creating.
-- (Optional) Replace description with a
-  `description` to help you identify the
-  signal catalog.
-- Replace `signal-catalog-configuration-vss`
-  with the name of the JSON string file that contains signals defined in
-  VSS.
-
-For more information about how to configure branches, attributes, sensors, and
-actuators, see [Configure AWS IoT FleetWise signals](define-signal.md "define-signal.md").
+For more information about how to configure branches, attributes, sensors, and actuators, see [Configure AWS IoT FleetWise signals](define-signal.md).
 
 ```
 aws iotfleetwise import-signal-catalog \
-                 --name `signal-catalog-name` \
-                 --description  `description` \
-                 --vss file://`signal-catalog-configuration-vss`.json
+                 --name {{signal-catalog-name}} \
+                 --description  {{description}} \
+                 --vss file://{{signal-catalog-configuration-vss}}.json
 ```
 
-The JSON must be stringified and passed through the
-`vssJson` field. The following is an example of
-signals defined in VSS.
+### Signal catalog configuration (VSS)
+<a name="signal-catalog-configuration-VSS"></a>
+
+The JSON must be stringified and passed through the `vssJson` field. The following is an example of signals defined in VSS.
 
 ```
 {
@@ -370,12 +354,11 @@ signals defined in VSS.
 			}
 		}
 	}
-
+ 
 }
 ```
 
-The following example shows the same signals defined in VSS in a
-JSON string.
+The following example shows the same signals defined in VSS in a JSON string.
 
 ```
 {
@@ -383,35 +366,33 @@ JSON string.
 }
 ```
 
-###### Note
-
-You can download a [demo script](https://raw.githubusercontent.com/aws/aws-iot-fleetwise-edge/main/tools/cloud/ros2-to-nodes.py "https://raw.githubusercontent.com/aws/aws-iot-fleetwise-edge/main/tools/cloud/ros2-to-nodes.py") to convert ROS 2 messages to VSS JSON files that
-are compatible with the signal catalog. For more information, see the [_Vision System Data Developer
-Guide_](https://github.com/aws/aws-iot-fleetwise-edge/blob/main/docs/dev-guide/vision-system-data/vision-system-data-demo.ipynb "https://github.com/aws/aws-iot-fleetwise-edge/blob/main/docs/dev-guide/vision-system-data/vision-system-data-demo.ipynb").
-
+**Note**  
+You can download a [demo script](https://raw.githubusercontent.com/aws/aws-iot-fleetwise-edge/main/tools/cloud/ros2-to-nodes.py) to convert ROS 2 messages to VSS JSON files that are compatible with the signal catalog. For more information, see the [*Vision System Data Developer Guide*](https://github.com/aws/aws-iot-fleetwise-edge/blob/main/docs/dev-guide/vision-system-data/vision-system-data-demo.ipynb).  
 Vision system data is in preview release and is subject to change.
 
-If you [enabled encryption](key-management.md "key-management.md") using a
-customer managed AWS KMS key, include the following policy statement so that your
-role can invoke the `ImportSignalCatalog` API operation.
+If you [enabled encryption](key-management.md) using a customer managed AWS KMS key, include the following policy statement so that your role can invoke the `ImportSignalCatalog` API operation.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "kms:GenerateDataKey*",
- "kms:Decrypt"
- ],
- "Resource": [
- "arn:aws:kms:`us-east-1`:`111122223333`:key/`KMS_KEY_ID`"
- ]
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:GenerateDataKey*",
+                "kms:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{KMS_KEY_ID}}"
+            ]
+        }
+    ]
+}
+```
+
+------

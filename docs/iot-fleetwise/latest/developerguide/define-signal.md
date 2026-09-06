@@ -1,181 +1,90 @@
-AWS IoT FleetWise is no longer open to new customers. Existing
-AWS IoT FleetWise customers can continue using the service. The
-[Guidance
-for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/ "https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/") provides guidance on how to develop and deploy modular
-services for connected mobility solutions that can be used to achieve equivalent capabilities
-as AWS IoT FleetWise.
+
+
+AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise customers can continue using the service. The [Guidance for Connected Mobility on AWS](https://aws.amazon.com/solutions/guidance/connected-mobility-on-aws/) provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
 
 # Configure AWS IoT FleetWise signals
+<a name="define-signal"></a>
 
-This section shows you how to configure branches, attributes, sensors, and
-actuators.
+This section shows you how to configure branches, attributes, sensors, and actuators.
 
-###### Topics
-
-- [Configure branches](#configure-branch "#configure-branch")
-- [Configure attributes](#configure-attributes "#configure-attributes")
-- [Configure sensors or actuators](#configure-sensors-or-acuators "#configure-sensors-or-acuators")
-- [Configure complex data types](#configure-complex-data-types "#configure-complex-data-types")
+**Topics**
++ [Configure branches](#configure-branch)
++ [Configure attributes](#configure-attributes)
++ [Configure sensors or actuators](#configure-sensors-or-acuators)
++ [Configure complex data types](#configure-complex-data-types)
 
 ## Configure branches
+<a name="configure-branch"></a>
 
 To configure a branch, specify the following information.
++ `fullyQualifiedName` – The fully qualified name of the branch is the path to the branch plus the branch's name. Use a dot(.) to refer to a child branch. For example, `Vehicle.Chassis.SteeringWheel` is the fully qualified name for the `SteeringWheel` branch. `Vehicle.Chassis.` is the path to this branch.
 
-- `fullyQualifiedName` – The fully qualified name of
-  the branch is the path to the branch plus the branch's name. Use a
-  dot(.) to refer to a child branch. For example,
-  `Vehicle.Chassis.SteeringWheel` is the fully qualified
-  name for the `SteeringWheel` branch.
-  `Vehicle.Chassis.` is the path to this branch.
+  The fully qualified name can have up to 150 characters. Valid characters: a–z, A–Z, 0–9, colon (:), and underscore (\_).
++ (Optional) `Description` – The description for the branch.
 
-The fully qualified name can have up to 150 characters. Valid
-characters: a–z, A–Z, 0–9, colon (:), and
-underscore (\_).
+  The description can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
++ (Optional) `deprecationMessage` – The deprecation message for the node or branch being moved or deleted.
 
-- (Optional) `Description` – The description for the
-  branch.
+  The deprecationMessage can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
++ (Optional) `comment` – A comment in addition to the description. A comment can be used to provide additional information about the branch, such as the rationale for the branch or references to related branches.
 
-The description can have up to 2048 characters. Valid characters:
-a–z, A–Z, 0–9, : (colon), \_ (underscore), and -
-(hyphen).
-
-- (Optional) `deprecationMessage` – The deprecation
-  message for the node or branch being moved or deleted.
-
-The deprecationMessage can have up to 2048 characters. Valid
-characters: a–z, A–Z, 0–9, : (colon), \_
-(underscore), and - (hyphen).
-
-- (Optional) `comment` – A comment in addition to the
-  description. A comment can be used to provide additional information
-  about the branch, such as the rationale for the branch or references to
-  related branches.
-
-The comment can have up to 2048 characters. Valid characters:
-a–z, A–Z, 0–9, : (colon), \_ (underscore), and -
-(hyphen).
+  The comment can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
 
 ## Configure attributes
+<a name="configure-attributes"></a>
 
 To configure an attribute, specify the following information.
++ `dataType` – The attribute's data type must be one of the following: INT8, UINT8, INT16, UINT16, INT32, UINT32, INT64, UINT64, BOOLEAN, FLOAT, DOUBLE, STRING, UNIX\_TIMESTAMP, INT8\_ARRAY, UINT8\_ARRAY, INT16\_ARRAY, UINT16\_ARRAY, INT32\_ARRAY, UINT32\_ARRAY, INT64\_ARRAY, UINT64\_ARRAY, BOOLEAN\_ARRAY, FLOAT\_ARRAY, DOUBLE\_ARRAY, STRING\_ARRAY, UNIX\_TIMESTAMP\_ARRAY, UNKNOWN, fullyQualifiedName, or a custom struct defined in the data type branch.
++ `fullyQualifiedName` – The fully qualified name of the attribute is the path to the attribute plus the attribute's name. Use a dot(.) to refer to a child signal. For example, `Vehicle.Chassis.SteeringWheel.Diameter` is the fully qualified name for the `Diameter` attribute. `Vehicle.Chassis.SteeringWheel.` is the path to this attribute.
 
-- `dataType` – The attribute's data type must be one
-  of the following: INT8, UINT8, INT16, UINT16, INT32, UINT32, INT64,
-  UINT64, BOOLEAN, FLOAT, DOUBLE, STRING, UNIX\_TIMESTAMP, INT8\_ARRAY,
-  UINT8\_ARRAY, INT16\_ARRAY, UINT16\_ARRAY, INT32\_ARRAY, UINT32\_ARRAY,
-  INT64\_ARRAY, UINT64\_ARRAY, BOOLEAN\_ARRAY, FLOAT\_ARRAY, DOUBLE\_ARRAY,
-  STRING\_ARRAY, UNIX\_TIMESTAMP\_ARRAY, UNKNOWN, fullyQualifiedName, or a
-  custom struct defined in the data type branch.
-- `fullyQualifiedName` – The fully qualified name of
-  the attribute is the path to the attribute plus the attribute's name.
-  Use a dot(.) to refer to a child signal. For example,
-  `Vehicle.Chassis.SteeringWheel.Diameter` is the fully
-  qualified name for the `Diameter` attribute.
-  `Vehicle.Chassis.SteeringWheel.` is the path to this
-  attribute.
+  The fully qualified name can have up to 150 characters. Valid characters: a–z, A–Z, 0–9, : (colon), and \_ (underscore).
++ (Optional) `Description` – The description for the attribute.
 
-The fully qualified name can have up to 150 characters. Valid
-characters: a–z, A–Z, 0–9, : (colon), and \_
-(underscore).
+  The description can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
++ (Optional) `unit` – The scientific unit for the attribute, such as km or Celsius.
++ (Optional) `min` – The minimum value of the attribute.
++ (Optional) `max` – The maximum value of the attribute.
++ (Optional) `defaultValue` – The default value of the attribute.
++ (Optional) `assignedValue` – The value assigned to the attribute.
++ (Optional) `allowedValues` – A list of values that the attribute accepts.
++ (Optional) `deprecationMessage` – The deprecation message for the node or branch that's being moved or deleted.
 
-- (Optional) `Description` – The description for the
-  attribute.
+  The deprecationMessage can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
++ (Optional) `comment` – A comment in addition to the description. A comment can be used to provide additional information about the attribute, such as the rationale for the attribute or references to related attributes.
 
-The description can have up to 2048 characters. Valid characters:
-a–z, A–Z, 0–9, : (colon), \_ (underscore), and -
-(hyphen).
-
-- (Optional) `unit` – The scientific unit for the
-  attribute, such as km or Celsius.
-- (Optional) `min` – The minimum value of the
-  attribute.
-- (Optional) `max` – The maximum value of the
-  attribute.
-- (Optional) `defaultValue` – The default value of the
-  attribute.
-- (Optional) `assignedValue` – The value assigned to
-  the attribute.
-- (Optional) `allowedValues` – A list of values that
-  the attribute accepts.
-- (Optional) `deprecationMessage` – The deprecation
-  message for the node or branch that's being moved or deleted.
-
-The deprecationMessage can have up to 2048 characters. Valid
-characters: a–z, A–Z, 0–9, : (colon), \_
-(underscore), and - (hyphen).
-
-- (Optional) `comment` – A comment in addition to the
-  description. A comment can be used to provide additional information
-  about the attribute, such as the rationale for the attribute or
-  references to related attributes.
-
-The comment can have up to 2048 characters. Valid characters:
-a–z, A–Z, 0–9, : (colon), \_ (underscore), and -
-(hyphen).
+  The comment can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
 
 ## Configure sensors or actuators
+<a name="configure-sensors-or-acuators"></a>
 
 To configure a sensor or actuator, specify the following information.
++ `dataType` – The signal's data type must be one of the following: INT8, UINT8, INT16, UINT16, INT32, UINT32, INT64, UINT64, BOOLEAN, FLOAT, DOUBLE, STRING, UNIX\_TIMESTAMP, INT8\_ARRAY, UINT8\_ARRAY, INT16\_ARRAY, UINT16\_ARRAY, INT32\_ARRAY, UINT32\_ARRAY, INT64\_ARRAY, UINT64\_ARRAY, BOOLEAN\_ARRAY, FLOAT\_ARRAY, DOUBLE\_ARRAY, STRING\_ARRAY, UNIX\_TIMESTAMP\_ARRAY, UNKNOWN, fullyQualifiedName, or a custom struct defined in the data type branch.
++ `fullyQualifiedName` – The fully qualified name of the signal is the path to the signal plus the signal's name. Use a dot(.) to refer to a child signal. For example, `Vehicle.Chassis.SteeringWheel.HandsOff.HandsOffSteeringState` is the fully qualified name for the `HandsOffSteeringState` actuator. `Vehicle.Chassis.SteeringWheel.HandsOff.` is the path to this actuator.
 
-- `dataType` – The signal's data type must be one of
-  the following: INT8, UINT8, INT16, UINT16, INT32, UINT32, INT64, UINT64,
-  BOOLEAN, FLOAT, DOUBLE, STRING, UNIX\_TIMESTAMP, INT8\_ARRAY, UINT8\_ARRAY,
-  INT16\_ARRAY, UINT16\_ARRAY, INT32\_ARRAY, UINT32\_ARRAY, INT64\_ARRAY,
-  UINT64\_ARRAY, BOOLEAN\_ARRAY, FLOAT\_ARRAY, DOUBLE\_ARRAY, STRING\_ARRAY,
-  UNIX\_TIMESTAMP\_ARRAY, UNKNOWN, fullyQualifiedName, or a custom struct
-  defined in the data type branch.
-- `fullyQualifiedName` – The fully qualified name of
-  the signal is the path to the signal plus the signal's name. Use a
-  dot(.) to refer to a child signal. For example,
-  `Vehicle.Chassis.SteeringWheel.HandsOff.HandsOffSteeringState`
-  is the fully qualified name for the `HandsOffSteeringState`
-  actuator. `Vehicle.Chassis.SteeringWheel.HandsOff.` is the
-  path to this actuator.
+  The fully qualified name can have up to 150 characters. Valid characters: a–z, A–Z, 0–9, : (colon), and \_ (underscore).
++ (Optional) `Description` – The description for the signal.
 
-The fully qualified name can have up to 150 characters. Valid
-characters: a–z, A–Z, 0–9, : (colon), and \_
-(underscore).
+  The description can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
++ (Optional) `unit` – The scientific unit for the signal, such as km or Celsius.
++ (Optional) `min` – The minimum value of the signal.
++ (Optional) `max` – The maximum value of the signal.
++ (Optional) `assignedValue` – The value assigned to the signal.
++ (Optional) `allowedValues` – list of values that the signal accepts.
++ (Optional) `deprecationMessage` – The deprecation message for the node or branch that's being moved or deleted.
 
-- (Optional) `Description` – The description for the
-  signal.
+  The deprecationMessage can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
++ (Optional) `comment` – A comment in addition to the description. A comment can be used to provide additional information about the sensor or actuator, such as their rationale or references to related sensors or actuators.
 
-The description can have up to 2048 characters. Valid characters:
-a–z, A–Z, 0–9, : (colon), \_ (underscore), and -
-(hyphen).
-
-- (Optional) `unit` – The scientific unit for the
-  signal, such as km or Celsius.
-- (Optional) `min` – The minimum value of the
-  signal.
-- (Optional) `max` – The maximum value of the
-  signal.
-- (Optional) `assignedValue` – The value assigned to
-  the signal.
-- (Optional) `allowedValues` – list of values that the
-  signal accepts.
-- (Optional) `deprecationMessage` – The deprecation
-  message for the node or branch that's being moved or deleted.
-
-The deprecationMessage can have up to 2048 characters. Valid
-characters: a–z, A–Z, 0–9, : (colon), \_
-(underscore), and - (hyphen).
-
-- (Optional) `comment` – A comment in addition to the
-  description. A comment can be used to provide additional information
-  about the sensor or actuator, such as their rationale or references to
-  related sensors or actuators.
-
-The comment can have up to 2048 characters. Valid characters:
-a–z, A–Z, 0–9, : (colon), \_ (underscore), and -
-(hyphen).
+  The comment can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
 
 ## Configure complex data types
+<a name="configure-complex-data-types"></a>
 
 Complex data types are used when modeling vision systems. In addition to branches, these data types are made up of structures (also known as a struct) and properties. A struct is a signal that is described by multiple values, like an image. A property represents a member of the struct, like a primitive data type (such as UINT8) or another struct (such as timestamp). For example, Vehicle.Cameras.Front represents a branch, Vehicle.Cameras.Front.Image represents a struct, and Vehicle.Cameras.Timestamp represents a property.
 
 The following complex data type example demonstrates how signals and data types are exported to a single .json file.
 
-###### Example complex data type
+**Example complex data type**  
 
 ```
 {
@@ -211,99 +120,45 @@ The following complex data type example demonstrates how signals and data types 
 }
 ```
 
-###### Note
-
-You can download a [demo script](https://raw.githubusercontent.com/aws/aws-iot-fleetwise-edge/main/tools/cloud/ros2-to-nodes.py "https://raw.githubusercontent.com/aws/aws-iot-fleetwise-edge/main/tools/cloud/ros2-to-nodes.py") to convert ROS 2 messages to VSS .json files that are compatible with the signal catalog. For more information, see the [_Vision System Data Developer Guide_](https://github.com/aws/aws-iot-fleetwise-edge/blob/main/docs/dev-guide/vision-system-data/vision-system-data-demo.ipynb "https://github.com/aws/aws-iot-fleetwise-edge/blob/main/docs/dev-guide/vision-system-data/vision-system-data-demo.ipynb").
-
+**Note**  
+You can download a [demo script](https://raw.githubusercontent.com/aws/aws-iot-fleetwise-edge/main/tools/cloud/ros2-to-nodes.py) to convert ROS 2 messages to VSS .json files that are compatible with the signal catalog. For more information, see the [*Vision System Data Developer Guide*](https://github.com/aws/aws-iot-fleetwise-edge/blob/main/docs/dev-guide/vision-system-data/vision-system-data-demo.ipynb).  
 Vision system data is in preview release and is subject to change.
 
-To configure a custom structure (or struct), specify the following
-information.
+### Configure struct
+<a name="configure-custom-structure"></a>
 
-- `fullyQualifiedName` – The fully qualified
-  name of the custom structure. For example, the fully qualified
-  name of a custom structure might be
-  `ComplexDataTypes.VehicleDataTypes.SVMCamera`.
+To configure a custom structure (or struct), specify the following information.
++ `fullyQualifiedName` – The fully qualified name of the custom structure. For example, the fully qualified name of a custom structure might be `ComplexDataTypes.VehicleDataTypes.SVMCamera`.
 
-The fully qualified name can have up to 150 characters. Valid
-characters: a–z, A–Z, 0–9, : (colon), and \_
-(underscore).
+  The fully qualified name can have up to 150 characters. Valid characters: a–z, A–Z, 0–9, : (colon), and \_ (underscore).
++ (Optional) `Description` – The description for the signal.
 
-- (Optional) `Description` – The description
-  for the signal.
+  The description can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
++ (Optional) `deprecationMessage` – The deprecation message for the node or branch that's being moved or deleted.
 
-The description can have up to 2048 characters. Valid
-characters: a–z, A–Z, 0–9, : (colon), \_
-(underscore), and - (hyphen).
+  The deprecationMessage can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
++ (Optional) `comment` – A comment in addition to the description. A comment can be used to provide additional information about the sensor or actuator, such as their rationale or references to related sensors or actuators.
 
-- (Optional) `deprecationMessage` – The
-  deprecation message for the node or branch that's being moved or
-  deleted.
+  The comment can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
 
-The deprecationMessage can have up to 2048 characters. Valid
-characters: a–z, A–Z, 0–9, : (colon), \_
-(underscore), and - (hyphen).
+### Configure property
+<a name="configure-custom-property"></a>
 
-- (Optional) `comment` – A comment in addition
-  to the description. A comment can be used to provide additional
-  information about the sensor or actuator, such as their
-  rationale or references to related sensors or actuators.
+To configure a custom property, specify the following information.
++ `dataType` – The signal's data type must be one of the following: INT8, UINT8, INT16, UINT16, INT32, UINT32, INT64, UINT64, BOOLEAN, FLOAT, DOUBLE, STRING, UNIX\_TIMESTAMP, INT8\_ARRAY, UINT8\_ARRAY, INT16\_ARRAY, UINT16\_ARRAY, INT32\_ARRAY, UINT32\_ARRAY, INT64\_ARRAY, UINT64\_ARRAY, BOOLEAN\_ARRAY, FLOAT\_ARRAY, DOUBLE\_ARRAY, STRING\_ARRAY, UNIX\_TIMESTAMP\_ARRAY, STRUCT, STRUCT\_ARRAY, or UNKNOWN.
++ `fullyQualifiedName` – The fully qualified name of the custom property. For example, the fully qualified name of a custom property might be `ComplexDataTypes.VehicleDataTypes.SVMCamera.FPS`.
 
-The comment can have up to 2048 characters. Valid characters:
-a–z, A–Z, 0–9, : (colon), \_ (underscore),
-and - (hyphen).
+  The fully qualified name can have up to 150 characters. Valid characters: a–z, A–Z, 0–9, : (colon), and \_ (underscore)
++ (Optional) `Description` – The description for the signal.
 
-To configure a custom property, specify the following
-information.
+  The description can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
++ (Optional) `deprecationMessage` – The deprecation message for the node or branch that's being moved or deleted.
 
-- `dataType` – The signal's data type must be
-  one of the following: INT8, UINT8, INT16, UINT16, INT32, UINT32,
-  INT64, UINT64, BOOLEAN, FLOAT, DOUBLE, STRING, UNIX\_TIMESTAMP,
-  INT8\_ARRAY, UINT8\_ARRAY, INT16\_ARRAY, UINT16\_ARRAY, INT32\_ARRAY,
-  UINT32\_ARRAY, INT64\_ARRAY, UINT64\_ARRAY, BOOLEAN\_ARRAY,
-  FLOAT\_ARRAY, DOUBLE\_ARRAY, STRING\_ARRAY, UNIX\_TIMESTAMP\_ARRAY,
-  STRUCT, STRUCT\_ARRAY, or UNKNOWN.
-- `fullyQualifiedName` – The fully qualified
-  name of the custom property. For example, the fully qualified
-  name of a custom property might be
-  `ComplexDataTypes.VehicleDataTypes.SVMCamera.FPS`.
+  The deprecationMessage can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
++ (Optional) `comment` – A comment in addition to the description. A comment can be used to provide additional information about the sensor or actuator, such as their rationale or references to related sensors or actuators.
 
-The fully qualified name can have up to 150 characters. Valid
-characters: a–z, A–Z, 0–9, : (colon), and \_
-(underscore)
+  The comment can have up to 2048 characters. Valid characters: a–z, A–Z, 0–9, : (colon), \_ (underscore), and - (hyphen).
++ (Optional) `dataEncoding` – Indicates whether the property is binary data. The custom property's data encoding must be one of the following: BINARY or TYPED.
++ (Optional) `structFullyQualifiedName ` – The fully qualified name of the structure (struct) node for the custom property if the data type of the custom property is Struct or StructArray.
 
-- (Optional) `Description` – The description
-  for the signal.
-
-The description can have up to 2048 characters. Valid
-characters: a–z, A–Z, 0–9, : (colon), \_
-(underscore), and - (hyphen).
-
-- (Optional) `deprecationMessage` – The
-  deprecation message for the node or branch that's being moved or
-  deleted.
-
-The deprecationMessage can have up to 2048 characters. Valid
-characters: a–z, A–Z, 0–9, : (colon), \_
-(underscore), and - (hyphen).
-
-- (Optional) `comment` – A comment in addition
-  to the description. A comment can be used to provide additional
-  information about the sensor or actuator, such as their
-  rationale or references to related sensors or actuators.
-
-The comment can have up to 2048 characters. Valid characters:
-a–z, A–Z, 0–9, : (colon), \_ (underscore),
-and - (hyphen).
-
-- (Optional) `dataEncoding` – Indicates
-  whether the property is binary data. The custom property's data
-  encoding must be one of the following: BINARY or TYPED.
-- (Optional) `structFullyQualifiedName` – The
-  fully qualified name of the structure (struct) node for the
-  custom property if the data type of the custom property is
-  Struct or StructArray.
-
-The fully qualified name can have up to 150 characters. Valid
-characters: a–z, A–Z, 0–9, : (colon), and \_
-(underscore).
+  The fully qualified name can have up to 150 characters. Valid characters: a–z, A–Z, 0–9, : (colon), and \_ (underscore).
