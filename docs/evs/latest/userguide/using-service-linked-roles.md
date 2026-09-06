@@ -1,72 +1,60 @@
+
+
 # Using service-linked roles for Amazon EVS
+<a name="using-service-linked-roles"></a>
 
-Amazon Elastic VMware Service uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles.md#iam-term-service-linked-role").
-A service-linked role is a unique type of IAM role that is linked directly to Amazon EVS.
-Service-linked roles are predefined by Amazon EVS and include all the permissions that the service requires to call other AWS services on your behalf.
+Amazon Elastic VMware Service uses AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Amazon EVS. Service-linked roles are predefined by Amazon EVS and include all the permissions that the service requires to call other AWS services on your behalf.
 
-A service-linked role makes setting up Amazon EVS easier because you don’t have to manually add the necessary permissions.
-Amazon EVS defines the permissions of its service-linked roles, and unless defined otherwise, only Amazon EVS can assume its roles.
-The defined permissions include the trust policy and the permissions policy, and that permissions policy cannot be attached to any other IAM entity.
+A service-linked role makes setting up Amazon EVS easier because you don’t have to manually add the necessary permissions. Amazon EVS defines the permissions of its service-linked roles, and unless defined otherwise, only Amazon EVS can assume its roles. The defined permissions include the trust policy and the permissions policy, and that permissions policy cannot be attached to any other IAM entity.
 
-You can delete a service-linked role only after first deleting their related resources.
-This protects your Amazon EVS resources because you can’t inadvertently remove permission to access the resources.
+You can delete a service-linked role only after first deleting their related resources. This protects your Amazon EVS resources because you can’t inadvertently remove permission to access the resources.
 
-For information about other services that support service-linked roles, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") and look for the services that have **Yes** in the **Service-linked role** column.
-Choose a **Yes** with a link to view the service-linked role documentation for that service.
+For information about other services that support service-linked roles, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) and look for the services that have **Yes** in the **Service-linked role** column. Choose a **Yes** with a link to view the service-linked role documentation for that service.
 
 ## Service-linked role permissions for Amazon EVS
+<a name="service-linked-role-permissions"></a>
 
-Amazon EVS uses the service-linked role named `AWSServiceRoleForAmazonEVS`.
-The role allows Amazon EVS to manage environments in your account.
-The attached policy allows the role to manage the following resources: EVS elastic network interfaces, EVS VLAN subnets, EVS hosts, VPCs, and CloudWatch metrics.
+Amazon EVS uses the service-linked role named `AWSServiceRoleForAmazonEVS`. The role allows Amazon EVS to manage environments in your account. The attached policy allows the role to manage the following resources: EVS elastic network interfaces, EVS VLAN subnets, EVS hosts, VPCs, and CloudWatch metrics.
 
 The `AWSServiceRoleForAmazonEVS` service-linked role trusts the following services to assume the role:
-
-- `evs.amazonaws.com`
++  `evs.amazonaws.com` 
 
 The role permissions policy allows Amazon EVS to complete the following actions on the specified resources:
++  [AmazonEVSServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEVSServiceRolePolicy.html) 
 
-- [AmazonEVSServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonEVSServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonEVSServiceRolePolicy.md")
-
-You must configure permissions to allow an IAM entity (such as a user, group, or role) to create, edit, or delete a service-linked role.
-For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
+You must configure permissions to allow an IAM entity (such as a user, group, or role) to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*.
 
 ## Creating a service-linked role for Amazon EVS
+<a name="creating-evs-slr"></a>
 
 You don’t need to manually create a service-linked role. When you create an environment in the AWS Management Console, the AWS CLI, or the AWS API, Amazon EVS creates the service-linked role for you.
 
-If you delete this service-linked role, and then need to create it again, you can use the same process to recreate the role in your account.
-When you create an environment, Amazon EVS creates the service-linked role for you again.
+If you delete this service-linked role, and then need to create it again, you can use the same process to recreate the role in your account. When you create an environment, Amazon EVS creates the service-linked role for you again.
 
 ## Editing a service-linked role for Amazon EVS
+<a name="editing-evs-slr"></a>
 
-Amazon EVS does not allow you to edit the `AWSServiceRoleForAmazonEVS` service-linked role.
-After you create a service-linked role, you cannot change the name of the role because various entities might reference the role.
-However, you can edit the description of the role using IAM.
-For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
+Amazon EVS does not allow you to edit the `AWSServiceRoleForAmazonEVS` service-linked role. After you create a service-linked role, you cannot change the name of the role because various entities might reference the role. However, you can edit the description of the role using IAM. For more information, see [Editing a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#edit-service-linked-role) in the *IAM User Guide*.
 
 ## Deleting a service-linked role for Amazon EVS
+<a name="deleting-evs-slr"></a>
 
-If you no longer need to use a feature or service that requires a service-linked role, we recommend that you delete that role.
-That way you don’t have an unused entity that is not actively monitored or maintained.
-However, you must clean up your service-linked role before you can manually delete it.
+If you no longer need to use a feature or service that requires a service-linked role, we recommend that you delete that role. That way you don’t have an unused entity that is not actively monitored or maintained. However, you must clean up your service-linked role before you can manually delete it.
 
 ### Cleaning up a service-linked role
+<a name="evs-slr-cleanup"></a>
 
-Before you can use IAM to delete a service-linked role, you must first delete any resources used by the role.
-For steps to delete an Amazon EVS environment with hosts, see [Delete the Amazon EVS hosts and environment](getting-started.md#getting-started-cleanup-env-hosts "getting-started.md#getting-started-cleanup-env-hosts").
+Before you can use IAM to delete a service-linked role, you must first delete any resources used by the role. For steps to delete an Amazon EVS environment with hosts, see [Delete the Amazon EVS hosts and environment](getting-started.md#getting-started-cleanup-env-hosts).
 
-###### Note
-
-If the Amazon EVS service is using the role when you try to delete the resources, then the deletion might fail.
-If that happens, wait for a few minutes and try the operation again.
+**Note**  
+If the Amazon EVS service is using the role when you try to delete the resources, then the deletion might fail. If that happens, wait for a few minutes and try the operation again.
 
 ### Manually delete the service-linked role
+<a name="evs-slr-manual-delete"></a>
 
-Use the IAM console, the AWS CLI, or the AWS API to delete the `AWSServiceRoleForAmazonEVS` service-linked role.
-For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
+Use the IAM console, the AWS CLI, or the AWS API to delete the `AWSServiceRoleForAmazonEVS` service-linked role. For more information, see [Deleting a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*.
 
 ## Supported regions for Amazon EVS service-linked roles
+<a name="evs-slr-regions"></a>
 
-Amazon EVS supports using service-linked roles in all of the regions where the service is available.
-For more information, see [Amazon Elastic VMware Service endpoints and quotas](../../../general/latest/gr/evs.md "../../../general/latest/gr/evs.md") in the _AWS General Reference Guide_.
+Amazon EVS supports using service-linked roles in all of the regions where the service is available. For more information, see [Amazon Elastic VMware Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/evs.html) in the * AWS General Reference Guide*.

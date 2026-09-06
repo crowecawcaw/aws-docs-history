@@ -1,13 +1,16 @@
+
+
 # Troubleshooting Amazon EVS identity and access
+<a name="security-iam-troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with Amazon EVS and IAM.
 
-###### Topics
-
-- [AccessDeniedException](#security-iam-troubleshoot-access-denied "#security-iam-troubleshoot-access-denied")
-- [I want to allow people outside of my AWS account to access my Amazon EVS resources](#security-iam-troubleshoot-cross-account-access "#security-iam-troubleshoot-cross-account-access")
+**Topics**
++ [AccessDeniedException](#security-iam-troubleshoot-access-denied)
++ [I want to allow people outside of my AWS account to access my Amazon EVS resources](#security-iam-troubleshoot-cross-account-access)
 
 ## AccessDeniedException
+<a name="security-iam-troubleshoot-access-denied"></a>
 
 If you receive an `AccessDeniedException` when calling an AWS API operation, then the IAM principal credentials that you’re using don’t have the required permissions to make that call.
 
@@ -17,18 +20,18 @@ User: arn:aws:iam::111122223333:user/user_name is not authorized to perform:
 evs:CreateEnvironment on resource: arn:aws:evs:region:111122223333:environment/my-env
 ```
 
-In the previous example message, the user does not have permissions to call the Amazon EVS `CreateEnvironment` API operation. To provide Amazon EVS admin permissions to an IAM principal, see [Amazon EVS identity-based policy examples](security-iam-id-based-policy-examples.md "security-iam-id-based-policy-examples.md").
+In the previous example message, the user does not have permissions to call the Amazon EVS `CreateEnvironment` API operation. To provide Amazon EVS admin permissions to an IAM principal, see [Amazon EVS identity-based policy examples](security-iam-id-based-policy-examples.md).
 
-For more general information about IAM, see [Control access to AWS resources using policies](../../../IAM/latest/UserGuide/access_controlling.md "../../../IAM/latest/UserGuide/access_controlling.md") in the _IAM User Guide_.
+For more general information about IAM, see [Control access to AWS resources using policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html) in the *IAM User Guide*.
 
 ## I want to allow people outside of my AWS account to access my Amazon EVS resources
+<a name="security-iam-troubleshoot-cross-account-access"></a>
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant people access to your resources.
 
 To learn more, consult the following:
-
-- To learn whether Amazon EVS supports these features, see [How Amazon EVS works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
-- To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you own](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md") in the _IAM User Guide_.
-- To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md") in the _IAM User Guide_.
-- To learn how to provide access through identity federation, see [Providing Access to Externally Authenticated Users (Identity Federation)](../../../IAM/latest/UserGuide/id_roles_common-scenarios_federated-users.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_federated-users.md") in the _IAM User Guide_.
-- To learn the difference between using roles and resource-based policies for cross-account access, see [How IAM roles differ from resource-based policies](../../../IAM/latest/UserGuide/id_roles_compare-resource-policies.md "../../../IAM/latest/UserGuide/id_roles_compare-resource-policies.md") in the _IAM User Guide_.
++ To learn whether Amazon EVS supports these features, see [How Amazon EVS works with IAM](security_iam_service-with-iam.md).
++ To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you own](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html) in the *IAM User Guide*.
++ To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html) in the *IAM User Guide*.
++ To learn how to provide access through identity federation, see [Providing Access to Externally Authenticated Users (Identity Federation)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_federated-users.html) in the *IAM User Guide*.
++ To learn the difference between using roles and resource-based policies for cross-account access, see [How IAM roles differ from resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html) in the *IAM User Guide*.
