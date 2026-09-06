@@ -1,99 +1,90 @@
-# Customizing your Cost Optimization Hub preferences
 
-In **Cost Management preferences**, you can customize various Cost Optimization Hub
-settings, including how savings are estimated and your commitment preferences.
+
+# Customizing your Cost Optimization Hub preferences
+<a name="coh-preferences"></a>
+
+In **Cost Management preferences**, you can customize various Cost Optimization Hub settings, including how savings are estimated and your commitment preferences.
 
 ## Savings estimation mode preferences
+<a name="coh-savings-estimation"></a>
 
-You can customize how your estimated monthly savings are calculated. Savings estimation
-mode supports the following two options:
+You can customize how your estimated monthly savings are calculated. Savings estimation mode supports the following two options:
++ **After discounts**: Cost Optimization Hub estimates savings incorporating all discounts with AWS, such as Reserved Instances and Savings Plans.
++ **Before discounts**: Cost Optimization Hub estimates savings by using AWS public (On-Demand) pricing, without incorporating any discounts.
 
-- **After discounts**: Cost Optimization Hub estimates savings incorporating all
-  discounts with AWS, such as Reserved Instances and Savings Plans.
-- **Before discounts**: Cost Optimization Hub estimates savings by using AWS public
-  (On-Demand) pricing, without incorporating any discounts.
-
-###### Important
-
+**Important**  
 When you use billing transfer as a bill source account, the `after discounts` functionality is disabled and you can't enable it. Bill source accounts must validate rightsizing recommendations against their Reserved Instance and Savings Plans inventory to consider any unused commitment before making optimization decisions.
 
-###### To customize how estimated monthly savings are calculated
+**To customize how estimated monthly savings are calculated**
 
-1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
-2. In the navigation pane, choose **Cost Management
-   preferences**.
-3. On the **Preferences page**, choose the **Cost Optimization Hub**
-   tab.
-4. Under **Savings estimation mode**, choose **After
-   discounts** or **Before discounts**.
-5. Choose **Save preferences**.
+1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
+
+1. In the navigation pane, choose **Cost Management preferences**.
+
+1. On the **Preferences page**, choose the **Cost Optimization Hub** tab.
+
+1. Under **Savings estimation mode**, choose **After discounts** or **Before discounts**.
+
+1. Choose **Save preferences**.
 
 ## Commitment preferences
+<a name="coh-commitment-preferences"></a>
 
-You can customize your preferred term length and payment option for reservations and
-Savings Plans, which populates the overall estimated savings in the Cost Optimization Hub dashboard. For
-example, if you prefer 1-year no upfront commitments, configure these preferences and Cost Optimization Hub
-will reflect them in the dashboard within 24 hours. The resulting estimated monthly savings
-reflect the savings you can achieve with your preferred commitment term length and payment
-option.
+You can customize your preferred term length and payment option for reservations and Savings Plans, which populates the overall estimated savings in the Cost Optimization Hub dashboard. For example, if you prefer 1-year no upfront commitments, configure these preferences and Cost Optimization Hub will reflect them in the dashboard within 24 hours. The resulting estimated monthly savings reflect the savings you can achieve with your preferred commitment term length and payment option.
 
-**To customize your preferred term length and payment
-option:**
+**To customize your preferred term length and payment option:**
 
-Console
+------
+#### [ Console ]
 
-1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
-2. In the navigation pane, choose **Cost Management
-   preferences**.
-3. On the **Preferences** page, choose the
-   **Cost Optimization Hub** tab.
-4. For **Term length**, choose between **Highest overall
-   savings**, **1-year term**, or **3-year
-   term**.
-5. For **Payment option**, choose between **Highest
-   overall savings**, **No upfront**, **Partial
-   upfront**, or **All upfront**.
-6. Choose **Save preferences**.
+1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
 
-###### Note
+1. In the navigation pane, choose **Cost Management preferences**.
 
-If your preferred commitment type isn't available, such as for specific Regions or
-instance types, Cost Optimization Hub automatically recommends Savings Plans or reservations with the
-highest overall savings.
+1. On the **Preferences** page, choose the **Cost Optimization Hub** tab.
 
-CLI
+1. For **Term length**, choose between **Highest overall savings**, **1-year term**, or **3-year term**.
+
+1. For **Payment option**, choose between **Highest overall savings**, **No upfront**, **Partial upfront**, or **All upfront**.
+
+1. Choose **Save preferences**.
+
+**Note**  
+If your preferred commitment type isn't available, such as for specific Regions or instance types, Cost Optimization Hub automatically recommends Savings Plans or reservations with the highest overall savings.
+
+------
+#### [ CLI ]
 
 1. Log in to your account.
-2. Open a terminal or command prompt window.
-3. Use the `UpdatePreferences` API operation to update your preferred
-   term and payment option:
 
-```
-aws cost-optimization-hub update-preferences
-                  --preferred-commitment '{"term":"OneYear", "paymentOption": "NoUpfront"}'
-```
+1. Open a terminal or command prompt window.
 
-You can change either the term or payment option, but both fields must be
-included in the request. For example, to change only the term to
-`ThreeYear` while maintaining your current payment option:
+1. Use the `UpdatePreferences` API operation to update your preferred term and payment option:
 
-```
-aws cost-optimization-hub update-preferences
-                  --preferred-commitment '{"term":"ThreeYear", "paymentOption": "NoUpfront"}'
-```
+   ```
+   aws cost-optimization-hub update-preferences
+                     --preferred-commitment '{"term":"OneYear", "paymentOption": "NoUpfront"}'
+   ```
 
-To use the default 3-year term (highest savings), either omit the term field or
-set it to null:
+   You can change either the term or payment option, but both fields must be included in the request. For example, to change only the term to `ThreeYear` while maintaining your current payment option:
 
-```
-aws cost-optimization-hub update-preferences
-                  --preferred-commitment '{"paymentOption": "NoUpfront"}'
-```
+   ```
+   aws cost-optimization-hub update-preferences
+                     --preferred-commitment '{"term":"ThreeYear", "paymentOption": "NoUpfront"}'
+   ```
 
-To use the default for both fields (highest savings), use an empty
-object:
+   To use the default 3-year term (highest savings), either omit the term field or set it to null:
 
-```
-aws cost-optimization-hub update-preferences
-                  --preferred-commitment '{}'
-```
+   ```
+   aws cost-optimization-hub update-preferences
+                     --preferred-commitment '{"paymentOption": "NoUpfront"}'
+   ```
+
+   To use the default for both fields (highest savings), use an empty object:
+
+   ```
+   aws cost-optimization-hub update-preferences
+                     --preferred-commitment '{}'
+   ```
+
+------

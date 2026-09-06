@@ -1,77 +1,64 @@
+
+
 # Identifying opportunities with Cost Optimization Hub
+<a name="cost-optimization-hub"></a>
 
-Cost Optimization Hub is an AWS Billing and Cost Management feature that helps you consolidate and
-prioritize cost optimization recommendations across your AWS accounts and AWS Regions, so that
-you can get the most out of your AWS spend.
+Cost Optimization Hub is an AWS Billing and Cost Management feature that helps you consolidate and prioritize cost optimization recommendations across your AWS accounts and AWS Regions, so that you can get the most out of your AWS spend.
 
-You can use Cost Optimization Hub to identify, filter, and aggregate AWS cost optimization recommendations
-across your AWS accounts and AWS Regions. It makes recommendations on resource rightsizing,
-idle resource deletion, Savings Plans, and Reserved Instances. With a single dashboard, you avoid having
-to go to multiple AWS products to identify cost optimization opportunities.
+You can use Cost Optimization Hub to identify, filter, and aggregate AWS cost optimization recommendations across your AWS accounts and AWS Regions. It makes recommendations on resource rightsizing, idle resource deletion, Savings Plans, and Reserved Instances. With a single dashboard, you avoid having to go to multiple AWS products to identify cost optimization opportunities.
 
-Cost Optimization Hub helps you quantify and aggregate estimated savings when you implement cost optimization
-recommendations. Cost Optimization Hub accounts for your specific commercial terms with AWS, such as Reserved
-Instances and Savings Plans, so you can easily compare and prioritize recommendations. It helps you measure cost efficiency to establish consistent cost savings benchmarks, set performance goals, and track progress to maximize your return on cloud investments.
+Cost Optimization Hub helps you quantify and aggregate estimated savings when you implement cost optimization recommendations. Cost Optimization Hub accounts for your specific commercial terms with AWS, such as Reserved Instances and Savings Plans, so you can easily compare and prioritize recommendations. It helps you measure cost efficiency to establish consistent cost savings benchmarks, set performance goals, and track progress to maximize your return on cloud investments.
 
-After you enable Cost Optimization Hub, you can see estimated monthly savings in AWS Compute Optimizer,
-consistent with the savings estimates in Cost Optimization Hub.
+After you enable Cost Optimization Hub, you can see estimated monthly savings in AWS Compute Optimizer, consistent with the savings estimates in Cost Optimization Hub.
 
 Cost Optimization Hub provides the following main benefits:
++ Automatically identify and consolidate your AWS cost optimization opportunities.
++ Quantify estimated savings that incorporate your AWS pricing and discounts.
++ Aggregate and deduplicate savings across related cost optimization opportunities.
++ Prioritize your cost optimization recommendations with filtering, sorting, and grouping.
++ Establish consistent cost savings benchmarks, set performance goals, and track progress to maximize your return on cloud investments.
 
-- Automatically identify and consolidate your AWS cost optimization opportunities.
-- Quantify estimated savings that incorporate your AWS pricing and discounts.
-- Aggregate and deduplicate savings across related cost optimization opportunities.
-- Prioritize your cost optimization recommendations with filtering, sorting, and
-  grouping.
-- Establish consistent cost savings benchmarks, set performance goals, and track progress to maximize your return on cloud investments.
-  Cost Optimization Hub provides you with a console experience and a set of API operations that you can use to measure and track cost efficiency and
-  view the findings of the analysis and recommendations for your resources across multiple AWS
-  Regions. You can also view findings and recommendations across multiple accounts within your
-  organization when you opt in the management account of an organization. The findings from the
-  feature are also reported in the consoles of the supported services, such as the Amazon EC2
-  console.
+Cost Optimization Hub provides you with a console experience and a set of API operations that you can use to measure and track cost efficiency and view the findings of the analysis and recommendations for your resources across multiple AWS Regions. You can also view findings and recommendations across multiple accounts within your organization when you opt in the management account of an organization. The findings from the feature are also reported in the consoles of the supported services, such as the Amazon EC2 console.
 
-###### Topics
-
-- [Getting started with Cost Optimization Hub](coh-getting-started.md "coh-getting-started.md")
-- [Customizing your Cost Optimization Hub preferences](coh-preferences.md "coh-preferences.md")
-- [Viewing your cost optimization opportunities](coh-view-opportunities.md "coh-view-opportunities.md")
-- [Understanding your cost efficiency metric](coh-cost-efficiency.md "coh-cost-efficiency.md")
-- [Prioritizing your cost optimization opportunities](coh-prioritize-opportunities.md "coh-prioritize-opportunities.md")
-- [Understanding cost optimization strategies](coh-optimization-strategies.md "coh-optimization-strategies.md")
-- [Viewing your savings opportunities](coh-savings-opportunities.md "coh-savings-opportunities.md")
-- [Estimating monthly savings](coh-estimated-monthly-savings.md "coh-estimated-monthly-savings.md")
-- [Supported resources](#coh-supported-resources "#coh-supported-resources")
+**Topics**
++ [Getting started with Cost Optimization Hub](coh-getting-started.md)
++ [Customizing your Cost Optimization Hub preferences](coh-preferences.md)
++ [Viewing your cost optimization opportunities](coh-view-opportunities.md)
++ [Understanding your cost efficiency metric](coh-cost-efficiency.md)
++ [Prioritizing your cost optimization opportunities](coh-prioritize-opportunities.md)
++ [Understanding cost optimization strategies](coh-optimization-strategies.md)
++ [Viewing your savings opportunities](coh-savings-opportunities.md)
++ [Estimating monthly savings](coh-estimated-monthly-savings.md)
++ [Supported resources](#coh-supported-resources)
 
 ## Supported resources
+<a name="coh-supported-resources"></a>
 
 Cost Optimization Hub generates recommendations for the following resources:
++ Amazon Elastic Compute Cloud (Amazon EC2) instances
++ Amazon EC2 Auto Scaling groups
++ Amazon Elastic Block Store (Amazon EBS) volumes
++ AWS Lambda functions
++ Amazon Elastic Container Service (Amazon ECS) tasks on AWS Fargate
++ Compute Savings Plans
++ EC2 Instance Savings Plans
++ EC2 Reserved Instances
++ Amazon RDS DB instances
++ Amazon RDS DB instance storage
++ Amazon RDS Reserved Instances
++ Amazon Aurora DB cluster storage
++ ElastiCache cluster
++ ElastiCache reserved nodes
++ MemoryDB cluster
++ MemoryDB reserved instances
++ DynamoDB table
++ DynamoDB reserved capacity
++ DocumentDB cluster
++ OpenSearch Reserved Instances
++ Amazon Redshift reserved nodes
++ SageMaker endpoint
++ SageMaker Savings Plans
++ WorkSpaces
++ NAT Gateway
 
-- Amazon Elastic Compute Cloud (Amazon EC2) instances
-- Amazon EC2 Auto Scaling groups
-- Amazon Elastic Block Store (Amazon EBS) volumes
-- AWS Lambda functions
-- Amazon Elastic Container Service (Amazon ECS) tasks on AWS Fargate
-- Compute Savings Plans
-- EC2 Instance Savings Plans
-- EC2 Reserved Instances
-- Amazon RDS DB instances
-- Amazon RDS DB instance storage
-- Amazon RDS Reserved Instances
-- Amazon Aurora DB cluster storage
-- ElastiCache cluster
-- ElastiCache reserved nodes
-- MemoryDB cluster
-- MemoryDB reserved instances
-- DynamoDB table
-- DynamoDB reserved capacity
-- DocumentDB cluster
-- OpenSearch Reserved Instances
-- Amazon Redshift reserved nodes
-- SageMaker endpoint
-- SageMaker Savings Plans
-- WorkSpaces
-- NAT Gateway
-
-Resource rightsizing and idle resource recommendations are provided by AWS Compute Optimizer. To see what type of recommendations are supported for each resource, see
-[AWS resources supported by Compute Optimizer](../../../compute-optimizer/latest/ug/supported-resources.md "../../../compute-optimizer/latest/ug/supported-resources.md").
+Resource rightsizing and idle resource recommendations are provided by AWS Compute Optimizer. To see what type of recommendations are supported for each resource, see [AWS resources supported by Compute Optimizer](https://docs.aws.amazon.com/compute-optimizer/latest/ug/supported-resources.html).

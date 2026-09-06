@@ -1,576 +1,343 @@
+
+
 # Getting started with AWS Cost Anomaly Detection
+<a name="getting-started-ad"></a>
 
-With AWS Cost Anomaly Detection in AWS Billing and Cost Management, you can configure your cost monitors and alert
-subscriptions to automatically adapt to your growing AWS environment.
+With AWS Cost Anomaly Detection in AWS Billing and Cost Management, you can configure your cost monitors and alert subscriptions to automatically adapt to your growing AWS environment.
 
-AWS Cost Anomaly Detection offers AWS managed monitors that automatically track costs across all your
-accounts, teams, or business units without manual configuration. As your organization
-grows and changes, these monitors automatically include new accounts, tag values, or
-categories, maintaining comprehensive coverage without additional setup.
+AWS Cost Anomaly Detection offers AWS managed monitors that automatically track costs across all your accounts, teams, or business units without manual configuration. As your organization grows and changes, these monitors automatically include new accounts, tag values, or categories, maintaining comprehensive coverage without additional setup.
 
-###### Topics
-
-- [Creating your cost monitors and alert subscriptions](#create-ad-alerts "#create-ad-alerts")
-- [Detected anomalies overview](#detector-history-values "#detector-history-values")
-- [Viewing your detected anomalies and potential root causes](#view-ad-monitor "#view-ad-monitor")
-- [Monitor types](#monitor-type-def "#monitor-type-def")
+**Topics**
++ [Creating your cost monitors and alert subscriptions](#create-ad-alerts)
++ [Detected anomalies overview](#detector-history-values)
++ [Viewing your detected anomalies and potential root causes](#view-ad-monitor)
++ [Monitor types](#monitor-type-def)
 
 ## Creating your cost monitors and alert subscriptions
+<a name="create-ad-alerts"></a>
 
-To start monitoring your spend, AWS Cost Anomaly Detection requires setting up at least one cost
-monitor to define what spending patterns to track. After creating your monitor, you
-can attach alert subscriptions to specify who receives notifications and through
-which channels. You can also create individual alerts using AWS User Notifications
-for more granular control over how alerts are delivered.
+To start monitoring your spend, AWS Cost Anomaly Detection requires setting up at least one cost monitor to define what spending patterns to track. After creating your monitor, you can attach alert subscriptions to specify who receives notifications and through which channels. You can also create individual alerts using AWS User Notifications for more granular control over how alerts are delivered.
 
-###### Note
+**Note**  
+You can only access cost monitors and alert subscriptions under the account that created them. Cost monitors for linked accounts, cost allocation tags, and cost categories can only be created in the management account
 
-You can only access cost monitors and alert subscriptions under the account
-that created them. Cost monitors for linked accounts, cost allocation tags, and
-cost categories can only be created in the management account
+------
+#### [ Cost monitors ]<a name="ad-alert-process"></a>
 
-Cost monitors
+**To create a cost monitor**
 
-###### To create a cost monitor
+1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
 
-1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
-2. In the navigation pane, choose
-   **Cost Anomaly Detection**.
-3. Choose the **Cost monitors** tab.
-4. Choose **Create monitor**.
-5. In **Step 1**, choose a monitor type and name
-   your monitor.
+1. In the navigation pane, choose **Cost Anomaly Detection**.
 
-For **Monitor name**, enter a name for your
-anomaly monitor. We recommend that the name is a short
-description. That way, you know what the monitor represents when
-you view your monitors on the **Cost monitors**
-tab.
+1. Choose the **Cost monitors** tab.
 
-For more information about each monitor type and best
-practices, see [Monitor types](#monitor-type-def "#monitor-type-def").
+1. Choose **Create monitor**.
 
-Choose your monitor method based on your needs:
+1. In **Step 1**, choose a monitor type and name your monitor.
 
-    * **For AWS managed monitors:**
+   For **Monitor name**, enter a name for your anomaly monitor. We recommend that the name is a short description. That way, you know what the monitor represents when you view your monitors on the **Cost monitors** tab.
 
+   For more information about each monitor type and best practices, see [Monitor types](#monitor-type-def).
 
+   Choose your monitor method based on your needs:
+   + **For AWS managed monitors:**
 
+     1. Under **Monitor method**, select **Managed by AWS**.
 
-    	1. Under **Monitor method**, select
-    	 **Managed by AWS**.
-    	2. Select the dimension you want to monitor:
+     1. Select the dimension you want to monitor:
+        + AWS services - Tracks all AWS services automatically
+        + Linked account - Tracks all member accounts automatically
+        + Cost allocation tag - Tracks all values for a specified tag key
+        + Cost category - Tracks all values in a specified category
 
+     1. If you selected Cost allocation tag, specify the tag key from the dropdown (for example, "application-team" or "environment").
 
+     1. If you selected Cost category, specify the category from the dropdown.
+   + **For customer managed monitors:**
 
+     1. Select the dimension for your monitor.
 
-    		+ AWS services - Tracks all
-    		 AWS services automatically
-    		+ Linked account - Tracks all member
-    		 accounts automatically
-    		+ Cost allocation tag - Tracks all values
-    		 for a specified tag key
-    		+ Cost category - Tracks all values in a
-    		 specified category
-    	3. If you selected Cost allocation tag, specify the tag
-    	 key from the dropdown (for example, "application-team"
-    	 or "environment").
-    	4. If you selected Cost category, specify the category
-    	 from the dropdown.
-    * **For customer managed monitors:**
+     1. Under monitor method, select **Customer managed**.
 
+     1. Choose the specific values you want to monitor (up to 10).
 
+1. (Optional) Add a tag to your monitor. For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference guide*.
 
+   1. Enter the key value for the tag.
 
-    	1. Select the dimension for your monitor.
-    	2. Under monitor method, select **Customer
-    	 managed**.
-    	3. Choose the specific values you want to monitor (up to
-    	 10).
+   1. Choose **Add new tag** to add additional tags. The maximum number of tags that you can add is 50.
 
-6. (Optional) Add a tag to your monitor. For more information
-about tags, see [Tagging AWS
-resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the _AWS General Reference
-guide_.
+1. Choose **Next**.
 
-    1. Enter the key value for the tag.
-    2. Choose **Add new tag** to add
-     additional tags. The maximum number of tags that you can
-     add is 50.
+1. In **Step 2**, configure your alert subscriptions.
 
-7. Choose **Next**. 8. In **Step 2**, configure your alert
-subscriptions.
+   For **Alert subscription**, if you don't have an existing subscription, choose **Create a new subscription**. If you have existing subscriptions, select **Choose an existing subscription**.
+**Note**  
+An alert subscription notifies you when a cost monitor detects an anomaly. Depending on the alert frequency, you can notify designated individuals by email or Amazon SNS.  
+For Amazon SNS topics, configure to create an Amazon Q Developer in chat applications configuration. This configuration maps the Amazon SNS topic to a Slack channel or an Amazon Chime chat room. For example, create a subscription for the Finance team in your organization. For more information, see [Receiving anomaly alerts in chat applications](cad-alert-chime.md).
 
-For **Alert subscription**, if you don't have
-an existing subscription, choose **Create a new
-subscription**. If you have existing subscriptions,
-select **Choose an existing
-subscription**.
+   For **Subscription name**, enter a name that describes your use case. For example, if the subscription is meant for leadership, the subscription name might be “Leadership report.” 
 
-###### Note
+   Under **Alerting frequency**, choose your preferred notification frequency.
+   + **Individual alerts** - The alert notifies you as soon as an anomaly is detected. You might receive multiple alerts throughout a day. These notifications require an Amazon SNS topic.
 
-An alert subscription notifies you when a cost monitor
-detects an anomaly. Depending on the alert frequency, you
-can notify designated individuals by email or Amazon SNS.
+     You can configure the Amazon SNS topic to create an Amazon Q Developer in chat applications configuration that maps the Amazon SNS topic to a Slack channel or an Amazon Chime chat room. For more information, see [Receiving anomaly alerts in chat applications](cad-alert-chime.md).
+   + **Daily summaries** - An email notification with a daily summary of top 10 alerts from the previous day, sorted by cost impact. The system generates this summary at 00:00 UTC daily, though actual delivery time may vary. For example, an anomaly detected at 04:30 UTC on January 14 will be included in the daily summary sent at 00:00 UTC on January 15. At least one email recipient must be specified. For immediate alerts, we recommend using the individual alerts option.
+   + **Weekly summaries** - An email notification with a weekly summary of alerts. You receive one email per week containing information about multiple anomalies that occurred during that week. At least one email recipient must be specified.
 
-For Amazon SNS topics, configure to create an
-Amazon Q Developer in chat applications configuration. This configuration maps the Amazon SNS topic
-to a Slack channel or an Amazon Chime chat room. For example,
-create a subscription for the Finance team in your
-organization. For more information, see [Receiving anomaly alerts in chat applications](cad-alert-chime.md "cad-alert-chime.md").
+   Under **Alert recipients**, enter email addresses for this subscription.
 
-For **Subscription name**, enter a name that
-describes your use case. For example, if the subscription is
-meant for leadership, the subscription name might be “Leadership
-report.”
+   For **Threshold**, enter a number to configure the anomalies that you want to generate alerts for.
 
-Under **Alerting frequency**, choose your
-preferred notification frequency.
+   There are two types of thresholds: absolute and percentage. Absolute thresholds trigger alerts when an anomaly's total cost impact exceeds your chosen threshold. Percentage thresholds trigger alerts when an anomaly's total impact percentage exceeds your chosen threshold. Total impact percentage is the percentage difference between the total expected spend and total actual spend.
 
-    * **Individual alerts** - The alert
-     notifies you as soon as an anomaly is detected. You
-     might receive multiple alerts throughout a day. These
-     notifications require an Amazon SNS topic.
+   (Optional) Choose **Add threshold** to configure a second threshold on the same subscription. Thresholds can be combined by choosing **AND** or **OR** from the dropdown list.
+**Note**  
+AWS Cost Anomaly Detection sends you a notification when an anomaly reaches or exceeds the **Threshold**. If an anomaly continues over multiple days, then alert recipients will continue to get notifications while the threshold is met.  
+Even if an anomaly is below the alert threshold, the machine learning model continues to detect spend anomalies on your account. All the anomalies that the machine learning model detected (with cost impacts that are greater or less than the threshold) are available in the **Detected anomalies** tab.
 
+1. (Optional) Add a tag to your alert subscription. For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference guide*.
 
-    You can configure the Amazon SNS topic to
-     create an Amazon Q Developer in chat applications configuration that maps the Amazon SNS topic to
-     a Slack channel or an Amazon Chime chat room. For more
-     information, see [Receiving anomaly alerts in chat applications](cad-alert-chime.md "cad-alert-chime.md").
-    * **Daily summaries** - An email
-     notification with a daily summary of top 10 alerts from
-     the previous day, sorted by cost impact. The system
-     generates this summary at 00:00 UTC daily, though actual
-     delivery time may vary. For example, an anomaly detected
-     at 04:30 UTC on January 14 will be included in the daily
-     summary sent at 00:00 UTC on January 15. At least one
-     email recipient must be specified. For immediate alerts,
-     we recommend using the individual alerts option.
-    * **Weekly summaries** - An email
-     notification with a weekly summary of alerts. You
-     receive one email per week containing information about
-     multiple anomalies that occurred during that week. At
-     least one email recipient must be specified.
+   1. Enter the key value for the tag.
 
-Under **Alert recipients**, enter email
-addresses for this subscription.
+   1. Choose **Add new tag** to add additional tags. The maximum number of tags that you can add is 50.
 
-For **Threshold**, enter a number to
-configure the anomalies that you want to generate alerts
-for.
+1. (Optional) Choose **Add alert subscriptions** to create another alert subscription. With this option, you can create a new subscription using the same monitor. 
 
-There are two types of thresholds: absolute and percentage.
-Absolute thresholds trigger alerts when an anomaly's total cost
-impact exceeds your chosen threshold. Percentage thresholds
-trigger alerts when an anomaly's total impact percentage exceeds
-your chosen threshold. Total impact percentage is the percentage
-difference between the total expected spend and total actual
-spend.
+1. Choose **Create monitor**.
 
-(Optional) Choose **Add threshold** to
-configure a second threshold on the same subscription.
-Thresholds can be combined by choosing **AND**
-or **OR** from the dropdown list.
+**Important considerations for AWS managed monitors:**
++ Alert subscriptions attached to AWS managed monitors use the same threshold across all tracked values
++ As new member accounts, tags, or categories are added to your AWS environment, they're automatically included
++ You cannot convert existing customer managed monitors to AWS managed monitors
++ For granular alert routing based on specific values, configure AWS User Notifications with JSON filtering patterns 
 
-###### Note
+**Note**  
+AWS managed monitors can track up to 5,000 values within a dimension. If your organization has more than 5,000 values (for example, more than 5,000 member accounts or tag values), the monitor will track the top 5,000 values based on their total spend.
 
-AWS Cost Anomaly Detection sends you a notification when an anomaly reaches
-or exceeds the **Threshold**. If an anomaly
-continues over multiple days, then alert recipients will
-continue to get notifications while the threshold is
-met.
+------
+#### [ Alert subscriptions ]<a name="ad-create-a-subscription"></a>
 
-Even if an anomaly is below the alert threshold, the
-machine learning model continues to detect spend anomalies
-on your account. All the anomalies that the machine learning
-model detected (with cost impacts that are greater or less
-than the threshold) are available in the **Detected
-anomalies** tab. 9. (Optional) Add a tag to your alert subscription. For more
-information about tags, see [Tagging AWS
-resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the _AWS General Reference
-guide_.
+**To create an alert subscription**
 
-    1. Enter the key value for the tag.
-    2. Choose **Add new tag** to add
-     additional tags. The maximum number of tags that you can
-     add is 50.
+You must create at least one alert subscription for each monitor. The "create cost monitor steps" that are described earlier already include the alert subscription creation process. If you want to create additional subscriptions, follow these steps.
 
-10. (Optional) Choose **Add alert subscriptions**
-to create another alert subscription. With this option, you can
-create a new subscription using the same monitor. 11. Choose **Create monitor**.
+1. Choose the **Alert subscriptions** tab.
 
-**Important considerations for AWS managed
-monitors:**
+1. Choose **Create a subscription**.
 
-- Alert subscriptions attached to AWS managed monitors
-  use the same threshold across all tracked values
-- As new member accounts, tags, or categories are added to
-  your AWS environment, they're automatically included
-- You cannot convert existing customer managed monitors to
-  AWS managed monitors
-- For granular alert routing based on specific values,
-  configure AWS User Notifications with JSON filtering patterns
+1. For **Subscription name**, enter a name that describes your use case. For example, if the subscription is meant for leadership, then the subscription name might be “Leadership report.” 
 
-###### Note
+1. Under **Alerting frequency**, choose your preferred notification frequency.
+   + **Individual alerts** - The alert notifies you as soon as an anomaly is detected. You might receive multiple alerts throughout a day. These notifications require an Amazon SNS topic.
 
-AWS managed monitors can track up to 5,000 values within a
-dimension. If your organization has more than 5,000 values (for
-example, more than 5,000 member accounts or tag values), the monitor
-will track the top 5,000 values based on their total spend.
+     You can configure the Amazon SNS topic to create an Amazon Q Developer in chat applications configuration that maps the Amazon SNS topic to a Slack channel or an Amazon Chime chat room. For more information, see [Receiving anomaly alerts in chat applications](cad-alert-chime.md).
+   + **Daily summaries** - An email notification with a daily summary of top 10 alerts from the previous day, sorted by cost impact. The system generates this summary at 00:00 UTC daily, though actual delivery time may vary. For example, an anomaly detected at 04:30 UTC on January 14 will be included in the daily summary sent at 00:00 UTC on January 15. At least one email recipient must be specified. For immediate alerts, we recommend using the individual alerts option.
+   + **Weekly summaries** - An email notification with a weekly summary of alerts. You receive one email per week containing information about multiple anomalies that occurred during that week. At least one email recipient must be specified.
 
-Alert subscriptions
+1. Under **Alert recipients**, enter email addresses for this subscription. 
 
-###### To create an alert subscription
+1. For **Threshold**, enter a number to configure the anomalies that you want to generate alerts for.
 
-You must create at least one alert subscription for each monitor.
-The "create cost monitor steps" that are described earlier already
-include the alert subscription creation process. If you want to
-create additional subscriptions, follow these steps.
+   There are two types of thresholds: absolute and percentage. Absolute thresholds trigger alerts when an anomaly's total cost impact exceeds your chosen threshold. Percentage thresholds trigger alerts when an anomaly's total impact percentage exceeds your chosen threshold. Total impact percentage is the percentage difference between the total expected spend and total actual spend.
 
-1. Choose the **Alert subscriptions**
-   tab.
-2. Choose **Create a subscription**.
-3. For **Subscription name**, enter a name that
-   describes your use case. For example, if the subscription is
-   meant for leadership, then the subscription name might be
-   “Leadership report.”
-4. Under **Alerting frequency**, choose your
-   preferred notification frequency.
+   (Optional) Choose **Add threshold** to configure a second threshold on the same subscription. Thresholds can be combined by choosing **AND** or **OR** from the dropdown list.
+**Note**  
+AWS Cost Anomaly Detection sends you a notification when an anomaly reaches or exceeds the **Threshold**. If an anomaly continues over multiple days, then alert recipients will continue to get notifications while the threshold is met.  
+Even if an anomaly is below the alert threshold, the machine learning model continues to detect spend anomalies on your account. All the anomalies that the machine learning model detected (with cost impacts that are greater or less than the threshold) are available in the **Detected anomalies** tab.
 
-   - **Individual alerts** - The alert
-     notifies you as soon as an anomaly is detected. You
-     might receive multiple alerts throughout a day. These
-     notifications require an Amazon SNS topic.
+1. In the **Cost monitors** section, select the monitors that you want to be associated with the alert subscription.
 
-   You can configure the Amazon SNS topic to
-   create an Amazon Q Developer in chat applications configuration that maps the Amazon SNS topic to
-   a Slack channel or an Amazon Chime chat room. For more
-   information, see [Receiving anomaly alerts in chat applications](cad-alert-chime.md "cad-alert-chime.md").
-   - **Daily summaries** - An email
-     notification with a daily summary of top 10 alerts from
-     the previous day, sorted by cost impact. The system
-     generates this summary at 00:00 UTC daily, though actual
-     delivery time may vary. For example, an anomaly detected
-     at 04:30 UTC on January 14 will be included in the daily
-     summary sent at 00:00 UTC on January 15. At least one
-     email recipient must be specified. For immediate alerts,
-     we recommend using the individual alerts option.
-   - **Weekly summaries** - An email
-     notification with a weekly summary of alerts. You
-     receive one email per week containing information about
-     multiple anomalies that occurred during that week. At
-     least one email recipient must be specified.
+1. (Optional) Add a tag to your alert subscription. For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference guide*.
 
-5. Under **Alert recipients**, enter email
-   addresses for this subscription.
-6. For **Threshold**, enter a number to
-   configure the anomalies that you want to generate alerts
-   for.
+   1. Enter the key value for the tag.
 
-There are two types of thresholds: absolute and percentage.
-Absolute thresholds trigger alerts when an anomaly's total cost
-impact exceeds your chosen threshold. Percentage thresholds
-trigger alerts when an anomaly's total impact percentage exceeds
-your chosen threshold. Total impact percentage is the percentage
-difference between the total expected spend and total actual
-spend.
+   1. Choose **Add new tag** to add additional tags. The maximum number of tags that you can add is 50.
 
-(Optional) Choose **Add threshold** to
-configure a second threshold on the same subscription.
-Thresholds can be combined by choosing **AND**
-or **OR** from the dropdown list.
+1. Choose **Create subscription**.
 
-###### Note
+------
+#### [ AWS User Notifications ]
 
-AWS Cost Anomaly Detection sends you a notification when an anomaly reaches
-or exceeds the **Threshold**. If an anomaly
-continues over multiple days, then alert recipients will
-continue to get notifications while the threshold is
-met.
+For information about how to create individual alerts, see [Using AWS User Notifications with Cost Anomaly Detection](https://docs.aws.amazon.com/cost-management/latest/userguide/cad-user-notifications.html).
 
-Even if an anomaly is below the alert threshold, the
-machine learning model continues to detect spend anomalies
-on your account. All the anomalies that the machine learning
-model detected (with cost impacts that are greater or less
-than the threshold) are available in the **Detected
-anomalies** tab. 7. In the **Cost monitors** section, select the
-monitors that you want to be associated with the alert
-subscription. 8. (Optional) Add a tag to your alert subscription. For more
-information about tags, see [Tagging AWS
-resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the _AWS General Reference
-guide_.
-
-    1. Enter the key value for the tag.
-    2. Choose **Add new tag** to add
-     additional tags. The maximum number of tags that you can
-     add is 50.
-
-9. Choose **Create subscription**.
-
-AWS User Notifications
-For information about how to create individual alerts, see [Using AWS User Notifications with Cost
-Anomaly Detection](cad-user-notifications.md "cad-user-notifications.md").
+------
 
 ## Detected anomalies overview
+<a name="detector-history-values"></a>
 
-On the **Detected anomalies** tab, you can view a list of all the
-anomalies detected over a selected time frame. By default, you can see the anomalies
-that are detected in the last 90 days. You can search the anomalies by
-**Severity**, **Assessment**,
-**Services**, **Usage type**,
-**Region**, **Monitor type**,
-**Account**, or **Anomaly ID**. You can sort
-by **Start date**, **Last detected**,
-**Duration**, **Cost impact**,
-**Impact %**, **Monitor name**, and
-**Top root cause (Service)**.
+On the **Detected anomalies** tab, you can view a list of all the anomalies detected over a selected time frame. By default, you can see the anomalies that are detected in the last 90 days. You can search the anomalies by **Severity**, **Assessment**, **Services**, **Usage type**, **Region**, **Monitor type**, **Account**, or **Anomaly ID**. You can sort by **Start date**, **Last detected**, **Duration**, **Cost impact**, **Impact %**, **Monitor name**, and **Top root cause (Service)**.
 
-The following default columns are included on the **Detected
-anomalies** tab:
+The following default columns are included on the **Detected anomalies** tab:
 
-**Start date**
-
+**Start date**  
 The day that the anomaly started.
 
-**Last detected**
-
+**Last detected**  
 The last time that the anomaly was detected.
 
-**Duration**
+**Duration**  
+The duration that the anomaly lasted. An anomaly can be ongoing.
 
-The duration that the anomaly lasted. An anomaly can be
-ongoing.
+**Cost impact**  
+The spend increase detected compared to the expected spend amount. It is calculated as **actual spend - expected spend**. For example, a total cost impact of $20 on a service monitor means that there was a $20 increase detected in a particular service with a total duration of the specified days.
 
-**Cost impact**
+**Impact %**  
+The percentage difference between the actual spend and expected spend. It is calculated as **(total cost impact / expected spend) \* 100**. For example, if the total cost impact was $20 and the expected spend was $60, then the impact percentage would be 33.33%. This value cannot be calculated when expected spend is zero, so in those situations the value will show as “N/A”.
 
-The spend increase detected compared to the expected spend amount. It
-is calculated as **actual spend - expected spend**. For
-example, a total cost impact of $20 on a service monitor means that
- there was a $20 increase detected in a particular service with a total
-duration of the specified days.
-
-**Impact %**
-
-The percentage difference between the actual spend and expected spend.
-It is calculated as **(total cost impact / expected spend) \*
-100**. For example, if the total cost impact was $20 and the
- expected spend was $60, then the impact percentage would be 33.33%. This
-value cannot be calculated when expected spend is zero, so in those
-situations the value will show as “N/A”.
-
-**Monitor name**
-
+**Monitor name**  
 The name of the anomaly monitor.
 
-**Top root cause (Service)**
+**Top root cause (Service)**  
+The top service root cause for the anomaly. Choosing the service name in the Top root cause column displays the three other root cause dimensions—account, Region, and usage type—for the anomaly’s top root cause.
 
-The top service root cause for the anomaly. Choosing the service name
-in the Top root cause column displays the three other root cause
-dimensions—account, Region, and usage type—for the anomaly’s top root
-cause.
+**View more**  
+A link to the Anomaly details page with information on the root cause analysis and cost impact of the anomaly. The link also indicates the number of root causes detected for an anomaly.
 
-**View more**
+The **Detected anomalies** tab can also be configured to display additional columns of information. Any changes you make will be saved at the account level for all subsequent visits to the **Detected anomalies** tab. The following **optional columns** are included on the **Detected anomalies** tab.
 
-A link to the Anomaly details page with information on the root cause
-analysis and cost impact of the anomaly. The link also indicates the
-number of root causes detected for an anomaly.
+**Account**  
+The account ID and account name that caused the anomaly. If the account is empty, AWS has detected an anomaly, but the root cause is undetermined.
 
-The **Detected anomalies** tab can also be configured to display
-additional columns of information. Any changes you make will be saved at the account
-level for all subsequent visits to the **Detected anomalies** tab.
-The following **optional columns** are included on the
-**Detected anomalies** tab.
-
-**Account**
-
-The account ID and account name that caused the anomaly. If the
-account is empty, AWS has detected an anomaly, but the root cause is
-undetermined.
-
-**Region**
-
+**Region**  
 The Region detected as the top root cause for the anomaly.
 
-**Usage type**
-
+**Usage type**  
 The usage type detected as the top root cause for the anomaly.
 
-**Expected spend**
+**Expected spend**  
+The amount our machine learning models expected you to spend during the anomaly’s duration, based on your historical spending pattern.
 
-The amount our machine learning models expected you to spend during
-the anomaly’s duration, based on your historical spending
-pattern.
+**Actual spend**  
+The total amount you actually spent during the anomaly’s duration.
 
-**Actual spend**
+**Assessment**  
+For each detected anomaly, you can submit an assessment to help improve our anomaly detection systems. The possible values are **Not submitted**, **Not an issue**, or **Accurate anomaly**. 
 
-The total amount you actually spent during the anomaly’s
-duration.
-
-**Assessment**
-
-For each detected anomaly, you can submit an assessment to help
-improve our anomaly detection systems. The possible values are
-**Not submitted**, **Not an
-issue**, or **Accurate anomaly**.
-
-**Severity**
-
-Represents how abnormal a certain anomaly is accounting for historical
-spending patterns. A low severity generally suggests a small spike
-compared to historical spend and a high severity suggests a big spike.
-However, a small spike with historically consistent spend is categorized
-as high severity. And, similarly, a big spike with irregular historical
-spend is categorized as low severity.
+**Severity**  
+Represents how abnormal a certain anomaly is accounting for historical spending patterns. A low severity generally suggests a small spike compared to historical spend and a high severity suggests a big spike. However, a small spike with historically consistent spend is categorized as high severity. And, similarly, a big spike with irregular historical spend is categorized as low severity. 
 
 ## Viewing your detected anomalies and potential root causes
+<a name="view-ad-monitor"></a>
 
-After you create your monitors, AWS Cost Anomaly Detection evaluates your future spend. Based on
-your defined alert subscriptions, you might start receiving alerts within 24
-hours.
+After you create your monitors, AWS Cost Anomaly Detection evaluates your future spend. Based on your defined alert subscriptions, you might start receiving alerts within 24 hours.<a name="view-email-process"></a>
 
-###### To view your anomalies from an email alert
+**To view your anomalies from an email alert**
 
-1. Choose the provided **View in Anomaly Detection**
-   link.
-2. On the **Anomaly details** page, you can view the root
-   cause analysis and cost impact of the anomaly.
-3. (Optional) Choose **View in Cost Explorer** to view a
-   time series graph of the cost impact.
-4. (Optional) Choose **View root cause** in the
-   **Top ranked potential root causes** table for a root
-   cause of interest to see a time series graph that's filtered by that root
-   cause.
-5. (Optional) Choose **Submit assessment** in the
-   **Did you find this detected anomaly to be helpful?**
-   information alert to provide feedback and help improve our detection
-   accuracy.
+1. Choose the provided **View in Anomaly Detection** link.
 
-###### To view your anomalies from the AWS Billing and Cost Management console
+1. On the **Anomaly details** page, you can view the root cause analysis and cost impact of the anomaly.
 
-1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
-2. In the navigation pane, choose **Cost Anomaly Detection**.
-3. (Optional) On the **Detected anomalies** tab, use the
-   search area to narrow the list of detected anomalies for a particular
-   category. The categories that you can choose are Severity, Assessment,
-   Service, Account, Usage type, Region, and Monitor type.
-4. (Optional) Choose the **Start date** for a particular
-   anomaly to view the details.
-5. On the **Anomaly details** page, you can view the root
-   cause analysis and cost impact of the anomaly.
-6. (Optional) Choose **View in Cost Explorer** to view a
-   time series graph of the cost impact and, if necessary, dive deeper into the
-   data.
-7. (Optional) Choose **View root cause** in the
-   **Top ranked potential root causes** table to see a
-   time series graph that's filtered by the root cause.
-8. (Optional) Choose **Submit assessment** in the
-   **Did you find this detected anomaly to be helpful?**
-   information alert to provide feedback and help improve our detection
-   accuracy.
+1. (Optional) Choose **View in Cost Explorer** to view a time series graph of the cost impact.
 
-###### To view your anomalies from an Amazon SNS topic
+1. (Optional) Choose **View root cause** in the **Top ranked potential root causes** table for a root cause of interest to see a time series graph that's filtered by that root cause.
 
-1. Subscribe an endpoint to the Amazon SNS topic that you created for a cost
-   monitor with individual alerts. For instructions, see [Subscribing to an Amazon SNS topic](../../../sns/latest/dg/sns-create-subscribe-endpoint-to-topic.md "../../../sns/latest/dg/sns-create-subscribe-endpoint-to-topic.md") in the
-   _Amazon Simple Notification Service Developer Guide_.
-2. After your endpoint receives messages from the Amazon SNS topic, open a message
-   and then find the **anomalyDetailsLink** URL. The following
-   example is a message from AWS Cost Anomaly Detection through Amazon SNS.
+1. (Optional) Choose **Submit assessment** in the **Did you find this detected anomaly to be helpful?** information alert to provide feedback and help improve our detection accuracy.<a name="view-console-process"></a>
 
-```
-{
-    "accountId": "123456789012",
-    "anomalyDetailsLink": "https://console.aws.amazon.com/cost-management/home#/anomaly-detection/monitors/abcdef12-1234-4ea0-84cc-918a97d736ef/anomalies/12345678-abcd-ef12-3456-987654321a12",
-    "anomalyEndDate": "2021-05-25T00:00:00Z",
-    "anomalyId": "12345678-abcd-ef12-3456-987654321a12",
-    "anomalyScore": {
-        "currentScore": 0.47,
-        "maxScore": 0.47
-    },
-    "anomalyStartDate": "2021-05-25T00:00:00Z",
-    "dimensionKey": {
-        "type": "DIMENSION",
-        "key": "SERVICE"
-    },
-    "dimensionalValue": "ServiceName",
-    "impact": {
-        "maxImpact": 151,
-        "totalActualSpend": 1301,
-        "totalExpectedSpend": 300,
-        "totalImpact": 1001,
-        "totalImpactPercentage": 333.67
-    },
-    "monitorArn": "arn:aws:ce::123456789012:anomalymonitor/abcdef12-1234-4ea0-84cc-918a97d736ef",
-    "rootCauses": [
-        {
-            "linkedAccount": "AnomalousLinkedAccount",
-            "linkedAccountName": "AnomalousLinkedAccountName",
-            "region": "AnomalousRegionName",
-            "service": "AnomalousServiceName",
-            "usageType": "AnomalousUsageType",
-            "impact": {
-                "contribution": 601,
-            }
-        }
-    ],
-    "subscriptionId": "874c100c-59a6-4abb-a10a-4682cc3f2d69",
-    "subscriptionName": "alertSubscription"
-}
-```
+**To view your anomalies from the AWS Billing and Cost Management console**
 
-3. Open the **anomalyDetailsLink** URL in a web browser. The
-   URL takes you to the associated **Anomaly details** page.
-   This page shows the root cause analysis and cost impact of the
-   anomaly.
+1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
+
+1. In the navigation pane, choose **Cost Anomaly Detection**.
+
+1. (Optional) On the **Detected anomalies** tab, use the search area to narrow the list of detected anomalies for a particular category. The categories that you can choose are Severity, Assessment, Service, Account, Usage type, Region, and Monitor type.
+
+1. (Optional) Choose the **Start date** for a particular anomaly to view the details.
+
+1. On the **Anomaly details** page, you can view the root cause analysis and cost impact of the anomaly.
+
+1. (Optional) Choose **View in Cost Explorer** to view a time series graph of the cost impact and, if necessary, dive deeper into the data.
+
+1. (Optional) Choose **View root cause** in the **Top ranked potential root causes** table to see a time series graph that's filtered by the root cause.
+
+1. (Optional) Choose **Submit assessment** in the **Did you find this detected anomaly to be helpful?** information alert to provide feedback and help improve our detection accuracy.<a name="view-anomaly-sns"></a>
+
+**To view your anomalies from an Amazon SNS topic**
+
+1. Subscribe an endpoint to the Amazon SNS topic that you created for a cost monitor with individual alerts. For instructions, see [Subscribing to an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html) in the *Amazon Simple Notification Service Developer Guide*.
+
+1. After your endpoint receives messages from the Amazon SNS topic, open a message and then find the **anomalyDetailsLink** URL. The following example is a message from AWS Cost Anomaly Detection through Amazon SNS.
+
+   ```
+   {
+       "accountId": "123456789012",
+       "anomalyDetailsLink": "https://console.aws.amazon.com/cost-management/home#/anomaly-detection/monitors/abcdef12-1234-4ea0-84cc-918a97d736ef/anomalies/12345678-abcd-ef12-3456-987654321a12",
+       "anomalyEndDate": "2021-05-25T00:00:00Z",
+       "anomalyId": "12345678-abcd-ef12-3456-987654321a12",
+       "anomalyScore": {
+           "currentScore": 0.47,
+           "maxScore": 0.47
+       },
+       "anomalyStartDate": "2021-05-25T00:00:00Z",
+       "dimensionKey": {
+           "type": "DIMENSION",
+           "key": "SERVICE"
+       },
+       "dimensionalValue": "ServiceName",
+       "impact": {
+           "maxImpact": 151,
+           "totalActualSpend": 1301,
+           "totalExpectedSpend": 300,
+           "totalImpact": 1001,
+           "totalImpactPercentage": 333.67
+       },
+       "monitorArn": "arn:aws:ce::123456789012:anomalymonitor/abcdef12-1234-4ea0-84cc-918a97d736ef",
+       "rootCauses": [
+           {
+               "linkedAccount": "AnomalousLinkedAccount",
+               "linkedAccountName": "AnomalousLinkedAccountName",    
+               "region": "AnomalousRegionName",
+               "service": "AnomalousServiceName",
+               "usageType": "AnomalousUsageType",
+               "impact": {
+                   "contribution": 601,
+               }
+           }                
+       ],
+       "subscriptionId": "874c100c-59a6-4abb-a10a-4682cc3f2d69",
+       "subscriptionName": "alertSubscription"
+   }
+   ```
+
+1. Open the **anomalyDetailsLink** URL in a web browser. The URL takes you to the associated **Anomaly details** page. This page shows the root cause analysis and cost impact of the anomaly.
 
 ## Monitor types
+<a name="monitor-type-def"></a>
 
-You can choose the monitor type that fits your account structure. AWS Cost Anomaly Detection offers
-two approaches for creating monitors: AWS managed monitors that automatically
-track the top 5,000 values independently within a dimension, and customer managed
-monitors that let you select specific values that get monitored in aggregate.
+You can choose the monitor type that fits your account structure. AWS Cost Anomaly Detection offers two approaches for creating monitors: AWS managed monitors that automatically track the top 5,000 values independently within a dimension, and customer managed monitors that let you select specific values that get monitored in aggregate.
 
-| Monitor Dimension    | AWS Managed                                                                                                                                                                                                                                                                                                                | Customer Managed                                                                                                                                                                                         |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS services         | Automatically evaluates all AWS services used by your account<br>for anomalies. When you start using new AWS services, the monitor<br>automatically begins evaluating them. Available in both management<br>and member accounts.                                                                                           | Customer managed AWS services monitors are not supported.                                                                                                                                                |
-| Linked Accounts      | Automatically tracks spending patterns across all member accounts<br>in your organization. As new accounts are added, they're<br>automatically included in monitoring coverage. Only available in<br>management accounts.                                                                                                  | Track specific member accounts (up to 10) that you manually<br>select. Spending is aggregated across selected accounts. Useful for<br>monitoring specific project accounts or environments together.     |
-| Cost Allocation Tags | Automatically monitors all unique values for a specified tag key.<br>For example, specifying "application-team" tracks every team value<br>(team-a, team-b, team-c) independently. New tag values are<br>automatically included as they're created.                                                                        | Track specific tag values (up to 10) that you manually select for<br>a given tag key. Useful when you need different thresholds for<br>different tag values or want to monitor only high-priority teams. |
-| Cost Categories      | Automatically tracks all values within a specified cost category.<br>If you have a "business-unit" category with values like "retail",<br>"wholesale", and "operations", the monitor analyzes spending<br>patterns for each unit independently. New cost category values are<br>automatically included as they're created. | Track one specific cost category value that you manually select.<br>Useful for monitoring specific business units or cost centers with<br>unique threshold requirements.                                 |
 
-The maximum number of member accounts or tag values you can select for each
-customer managed monitor is 10.
+| Monitor Dimension | AWS Managed | Customer Managed | 
+| --- | --- | --- | 
+| AWS services | Automatically evaluates all AWS services used by your account for anomalies. When you start using new AWS services, the monitor automatically begins evaluating them. Available in both management and member accounts. | Customer managed AWS services monitors are not supported. | 
+| Linked Accounts | Automatically tracks spending patterns across all member accounts in your organization. As new accounts are added, they're automatically included in monitoring coverage. Only available in management accounts. | Track specific member accounts (up to 10) that you manually select. Spending is aggregated across selected accounts. Useful for monitoring specific project accounts or environments together.  | 
+| Cost Allocation Tags | Automatically monitors all unique values for a specified tag key. For example, specifying "application-team" tracks every team value (team-a, team-b, team-c) independently. New tag values are automatically included as they're created. | Track specific tag values (up to 10) that you manually select for a given tag key. Useful when you need different thresholds for different tag values or want to monitor only high-priority teams.  | 
+| Cost Categories | Automatically tracks all values within a specified cost category. If you have a "business-unit" category with values like "retail", "wholesale", and "operations", the monitor analyzes spending patterns for each unit independently. New cost category values are automatically included as they're created. | Track one specific cost category value that you manually select. Useful for monitoring specific business units or cost centers with unique threshold requirements. | 
+
+The maximum number of member accounts or tag values you can select for each customer managed monitor is 10.
 
 **When to Use Each Monitor Type**
 
 Use **AWS managed monitors** when you need:
++ Comprehensive coverage across all values in a dimension
++ Automatic adaptation as your organization grows
++ Minimal maintenance overhead
++ Consistent monitoring across all teams/accounts
 
-- Comprehensive coverage across all values in a dimension
-- Automatic adaptation as your organization grows
-- Minimal maintenance overhead
-- Consistent monitoring across all teams/accounts
-
-Use **customer managed monitors** when you need:
-
-- Different alert thresholds for different groups
-- To monitor specific subsets of accounts or teams
-- To aggregate spending across specific values
-- Special monitoring for high-priority or sensitive workloads
+Use **customer managed monitors** when you need: 
++ Different alert thresholds for different groups
++ To monitor specific subsets of accounts or teams
++ To aggregate spending across specific values
++ Special monitoring for high-priority or sensitive workloads
 
 **Best Practices:**
++ Use AWS managed monitors for comprehensive coverage across your primary cost organization dimension
++ Maintain your AWS services monitor alongside other AWS managed monitors for aggregate service-level visibility
++ Use customer managed monitors to supplement AWS managed monitors for specific use cases requiring different thresholds or groupings
++ Avoid creating monitors that span multiple dimensions to prevent duplicate alerts
 
-- Use AWS managed monitors for comprehensive coverage across your
-  primary cost organization dimension
-- Maintain your AWS services monitor alongside other AWS managed
-  monitors for aggregate service-level visibility
-- Use customer managed monitors to supplement AWS managed monitors
-  for specific use cases requiring different thresholds or groupings
-- Avoid creating monitors that span multiple dimensions to prevent
-  duplicate alerts
+**Note**  
+Customer managed monitors were previously called custom monitors. The functionality remains the same, with the name change reflecting the distinction from monitors that AWS manages on your behalf.
 
-###### Note
-
-Customer managed monitors were previously called custom monitors. The
-functionality remains the same, with the name change reflecting the distinction
-from monitors that AWS manages on your behalf.
-
-For more information about creating your Amazon SNS topic, see [Creating an Amazon SNS topic for anomaly notifications](ad-SNS.md "ad-SNS.md").
+For more information about creating your Amazon SNS topic, see [Creating an Amazon SNS topic for anomaly notifications](ad-SNS.md).

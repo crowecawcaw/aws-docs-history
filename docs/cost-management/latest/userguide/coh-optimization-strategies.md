@@ -1,78 +1,92 @@
+
+
 # Understanding cost optimization strategies
+<a name="coh-optimization-strategies"></a>
 
 Cost Optimization Hub groups your recommendations into the following cost optimization strategies:
 
-**Purchase Savings Plans**
-
+**Purchase Savings Plans**  
 Purchase Compute, EC2 instance, and SageMaker Savings Plans.
 
-**Purchase reservations**
+**Purchase reservations**  
+Purchase EC2, Amazon RDS, OpenSearch, Amazon Redshift, ElastiCache, MemoryDB, and DynamoDB reservations.
 
-Purchase EC2, Amazon RDS, OpenSearch, Amazon Redshift, ElastiCache, MemoryDB, and
-DynamoDB reservations.
-
-**Stop**
-
+**Stop**  
 Stop idle or unused resources to save up to 100% of the resource cost.
 
-**Delete**
-
+**Delete**  
 Delete idle or unused resources to save up to 100% of the resource cost.
 
-**Scale in**
-
+**Scale in**  
 Scale in idle or unused resources to save on resource costs.
 
-**Rightsize**
-
+**Rightsize**  
 Move to a smaller EC2 instance type of the same CPU architecture.
 
-**Upgrade**
+**Upgrade**  
+Move to a later generation product, such as moving from Amazon EBS io1 volume type to io2.
 
-Move to a later generation product, such as moving from Amazon EBS io1 volume type to
-io2.
-
-**Migrate to Graviton**
-
+**Migrate to Graviton**  
 Move from x86 to Graviton to save costs.
 
 The following table shows the full mapping of recommended actions and resource type.
 
-| Action                         | Resource type                                      | Conditions                                      | Implementation effort | Resource restart needed | Rollback possible |
-| ------------------------------ | -------------------------------------------------- | ----------------------------------------------- | --------------------- | ----------------------- | ----------------- |
-| Purchase Savings Plans         | Compute Savings Plans                              | All                                             | Very low              | No                      | No                |
-| EC2 Instance Savings Plans     | All                                                | Very low                                        | No                    | No                      |
-| SageMaker Savings Plans        | All                                                | Very low                                        | No                    | No                      |
-| Purchase reservations          | EC2 Reserved Instances                             | All                                             | Very low              | No                      | Yes               |
-| Amazon RDS Reserved Instances  | All                                                | Very low                                        | No                    | No                      |
-| Amazon Redshift reserved nodes | All                                                | Very low                                        | No                    | No                      |
-| OpenSearch Reserved Instances  | All                                                | Very low                                        | No                    | No                      |
-| ElastiCache reserved nodes     | All                                                | Very low                                        | No                    | No                      |
-| MemoryDB reserved instances    | All                                                | Very low                                        | No                    | No                      |
-| DynamoDB reserved capacity     | All                                                | Very low                                        | No                    | No                      |
-| Stop                           | EC2 instance                                       | All                                             | Low                   | No                      | Yes               |
-| RDS DB instance                | RDS MySQL and RDS PostgreSQL engines only          | Low                                             | Yes                   | Yes                     |
-| Delete                         | EBS volume                                         | All                                             | Low                   | No                      | No                |
-| Amazon ECS service             | All                                                | Low                                             | No                    | No                      |
-| RDS DB instance                | Aurora MySQL and Aurora PostgreSQL engines only    | Low                                             | No                    | Yes                     |
-| Scale in                       | EC2 Auto Scaling group                             | All                                             | Low                   | No                      | No                |
-| Rightsize                      | EC2 instance (standalone)                          | No hypervisor change                            | Medium                | Yes                     | Yes               |
-| EC2 instance (standalone)      | With hypervisor change                             | High                                            | Yes                   | Yes                     |
-| EC2 Auto Scaling group         | All                                                | Medium                                          | Yes                   | Yes                     |
-| EBS volume                     | All                                                | Low                                             | No                    | Yes                     |
-| Lambda function                | All                                                | Low                                             | No                    | Yes                     |
-| Amazon ECS service             | All                                                | Low                                             | Yes                   | Yes                     |
-| RDS DB instance                | All                                                | Medium                                          | Yes                   | Yes                     |
-| RDS DB instance storage        | All                                                | Low                                             | No                    | Yes                     |
-| Aurora DB cluster storage      | All                                                | Low                                             | No                    | Yes                     |
-| Upgrade                        | EC2 instance (standalone)                          | No hypervisor change                            | Medium                | Yes                     | Yes               |
-| EC2 instance (standalone)      | With hypervisor change                             | High                                            | Yes                   | Yes                     |
-| EC2 Auto Scaling group         | All                                                | Medium                                          | Yes                   | Yes                     |
-| EBS volume                     | All                                                | Low                                             | No                    | Yes                     |
-| RDS DB instance                | All                                                | Medium                                          | Yes                   | Yes                     |
-| RDS DB instance storage        | All                                                | Low                                             | No                    | Yes                     |
-| Migrate to Graviton            | EC2 instance (standalone)                          | With Graviton-compatible inferred workload type | High                  | Yes                     | Yes               |
-| EC2 instance (standalone)      | Without Graviton-compatible inferred workload type | Very high                                       | Yes                   | Yes                     |
-| EC2 Auto Scaling group         | With Graviton-compatible inferred workload type    | High                                            | Yes                   | Yes                     |
-| EC2 Auto Scaling group         | Without Graviton-compatible inferred workload type | Very high                                       | Yes                   | Yes                     |
-| RDS DB instance                | All                                                | Medium                                          | Yes                   | Yes                     |
+
+
+
+- **Purchase Savings Plans**
+  - **Resource type:** Compute Savings Plans / **Conditions:** All / **Implementation effort:** Very low / **Resource restart needed:** No / **Rollback possible:** No
+  - **Resource type:** EC2 Instance Savings Plans / **Conditions:** All / **Implementation effort:** Very low / **Resource restart needed:** No / **Rollback possible:** No
+  - **Resource type:** SageMaker Savings Plans / **Conditions:** All / **Implementation effort:** Very low / **Resource restart needed:** No / **Rollback possible:** No
+
+- **Purchase reservations**
+  - **Resource type:** EC2 Reserved Instances / **Conditions:** All / **Implementation effort:** Very low / **Resource restart needed:** No / **Rollback possible:** Yes
+  - **Resource type:** Amazon RDS Reserved Instances / **Conditions:** All / **Implementation effort:** Very low / **Resource restart needed:** No / **Rollback possible:** No
+  - **Resource type:** Amazon Redshift reserved nodes / **Conditions:** All / **Implementation effort:** Very low / **Resource restart needed:** No / **Rollback possible:** No
+  - **Resource type:** OpenSearch Reserved Instances / **Conditions:** All / **Implementation effort:** Very low / **Resource restart needed:** No / **Rollback possible:** No
+  - **Resource type:** ElastiCache reserved nodes / **Conditions:** All / **Implementation effort:** Very low / **Resource restart needed:** No / **Rollback possible:** No
+  - **Resource type:** MemoryDB reserved instances / **Conditions:** All / **Implementation effort:** Very low / **Resource restart needed:** No / **Rollback possible:** No
+  - **Resource type:** DynamoDB reserved capacity / **Conditions:** All / **Implementation effort:** Very low / **Resource restart needed:** No / **Rollback possible:** No
+
+- **Stop**
+  - **Resource type:** EC2 instance / **Conditions:** All / **Implementation effort:** Low / **Resource restart needed:** No / **Rollback possible:** Yes
+  - **Resource type:** RDS DB instance / **Conditions:** RDS MySQL and RDS PostgreSQL engines only / **Implementation effort:** Low / **Resource restart needed:** Yes / **Rollback possible:** Yes
+
+- **Delete**
+  - **Resource type:** EBS volume / **Conditions:** All / **Implementation effort:** Low / **Resource restart needed:** No / **Rollback possible:** No
+  - **Resource type:** Amazon ECS service / **Conditions:** All / **Implementation effort:** Low / **Resource restart needed:** No / **Rollback possible:** No
+  - **Resource type:** RDS DB instance / **Conditions:** Aurora MySQL and Aurora PostgreSQL engines only / **Implementation effort:** Low / **Resource restart needed:** No / **Rollback possible:** Yes
+
+- **Scale in**
+  - **Resource type:** EC2 Auto Scaling group
+  - **Conditions:** All
+  - **Implementation effort:** Low
+  - **Resource restart needed:** No
+  - **Rollback possible:** No
+
+- **Rightsize**
+  - **Resource type:** EC2 instance (standalone) / **Conditions:** No hypervisor change / **Implementation effort:** Medium / **Resource restart needed:** Yes / **Rollback possible:** Yes
+  - **Resource type:** EC2 instance (standalone) / **Conditions:** With hypervisor change / **Implementation effort:** High / **Resource restart needed:** Yes / **Rollback possible:** Yes
+  - **Resource type:** EC2 Auto Scaling group / **Conditions:** All / **Implementation effort:** Medium / **Resource restart needed:** Yes / **Rollback possible:** Yes
+  - **Resource type:** EBS volume / **Conditions:** All / **Implementation effort:** Low / **Resource restart needed:** No / **Rollback possible:** Yes
+  - **Resource type:** Lambda function / **Conditions:** All / **Implementation effort:** Low / **Resource restart needed:** No / **Rollback possible:** Yes
+  - **Resource type:** Amazon ECS service / **Conditions:** All / **Implementation effort:** Low / **Resource restart needed:** Yes / **Rollback possible:** Yes
+  - **Resource type:** RDS DB instance / **Conditions:** All / **Implementation effort:** Medium / **Resource restart needed:** Yes / **Rollback possible:** Yes
+  - **Resource type:** RDS DB instance storage / **Conditions:** All / **Implementation effort:** Low / **Resource restart needed:** No / **Rollback possible:** Yes
+  - **Resource type:** Aurora DB cluster storage / **Conditions:** All / **Implementation effort:** Low / **Resource restart needed:** No / **Rollback possible:** Yes
+
+- **Upgrade**
+  - **Resource type:** EC2 instance (standalone) / **Conditions:** No hypervisor change / **Implementation effort:** Medium / **Resource restart needed:** Yes / **Rollback possible:** Yes
+  - **Resource type:** EC2 instance (standalone) / **Conditions:** With hypervisor change / **Implementation effort:** High / **Resource restart needed:** Yes / **Rollback possible:** Yes
+  - **Resource type:** EC2 Auto Scaling group / **Conditions:** All / **Implementation effort:** Medium / **Resource restart needed:** Yes / **Rollback possible:** Yes
+  - **Resource type:** EBS volume / **Conditions:** All / **Implementation effort:** Low / **Resource restart needed:** No / **Rollback possible:** Yes
+  - **Resource type:** RDS DB instance / **Conditions:** All / **Implementation effort:** Medium / **Resource restart needed:** Yes / **Rollback possible:** Yes
+  - **Resource type:** RDS DB instance storage / **Conditions:** All / **Implementation effort:** Low / **Resource restart needed:** No / **Rollback possible:** Yes
+
+- **Migrate to Graviton**
+  - **Resource type:** EC2 instance (standalone) / **Conditions:** With Graviton-compatible inferred workload type / **Implementation effort:** High / **Resource restart needed:** Yes / **Rollback possible:** Yes
+  - **Resource type:** EC2 instance (standalone) / **Conditions:** Without Graviton-compatible inferred workload type / **Implementation effort:** Very high / **Resource restart needed:** Yes / **Rollback possible:** Yes
+  - **Resource type:** EC2 Auto Scaling group / **Conditions:** With Graviton-compatible inferred workload type / **Implementation effort:** High / **Resource restart needed:** Yes / **Rollback possible:** Yes
+  - **Resource type:** EC2 Auto Scaling group / **Conditions:** Without Graviton-compatible inferred workload type / **Implementation effort:** Very high / **Resource restart needed:** Yes / **Rollback possible:** Yes
+  - **Resource type:** RDS DB instance / **Conditions:** All / **Implementation effort:** Medium / **Resource restart needed:** Yes / **Rollback possible:** Yes
+

@@ -1,187 +1,126 @@
+
+
 # Best practices for AWS Budgets
+<a name="budgets-best-practices"></a>
 
 Note the following best practices when you're working with budgets.
 
-###### Topics
-
-- [Controlling access to AWS Budgets](#budgets-best-practices-access "#budgets-best-practices-access")
-- [Understanding budget actions](#budgets-best-practices-actions "#budgets-best-practices-actions")
-- [Setting budgets](#budgets-best-practices-setting-budgets "#budgets-best-practices-setting-budgets")
-- [Understanding custom period budgets](#budgets-best-practices-custom-period "#budgets-best-practices-custom-period")
-- [Using the advanced options when setting cost budgets](#budgets-best-practices-cost-budgets "#budgets-best-practices-cost-budgets")
-- [Understanding the AWS Budgets update frequency](#budgets-best-practices-updates "#budgets-best-practices-updates")
-- [Setting budget alerts](#budgets-best-practices-alerts "#budgets-best-practices-alerts")
-- [Setting budget alerts using Amazon SNS topics](#budgets-best-practices-alerts-sns-topics "#budgets-best-practices-alerts-sns-topics")
-- [Tagging budgets](#budgets-best-practices-tags "#budgets-best-practices-tags")
-- [Reviewing budgets when organizational structure changes](#budgets-best-practices-organizations "#budgets-best-practices-organizations")
+**Topics**
++ [Controlling access to AWS Budgets](#budgets-best-practices-access)
++ [Understanding budget actions](#budgets-best-practices-actions)
++ [Setting budgets](#budgets-best-practices-setting-budgets)
++ [Understanding custom period budgets](#budgets-best-practices-custom-period)
++ [Using the advanced options when setting cost budgets](#budgets-best-practices-cost-budgets)
++ [Understanding the AWS Budgets update frequency](#budgets-best-practices-updates)
++ [Setting budget alerts](#budgets-best-practices-alerts)
++ [Setting budget alerts using Amazon SNS topics](#budgets-best-practices-alerts-sns-topics)
++ [Tagging budgets](#budgets-best-practices-tags)
++ [Reviewing budgets when organizational structure changes](#budgets-best-practices-organizations)
 
 ## Controlling access to AWS Budgets
+<a name="budgets-best-practices-access"></a>
 
-To allow users to create budgets in the AWS Billing and Cost Management console, you must also allow
-users to do the following:
+To allow users to create budgets in the AWS Billing and Cost Management console, you must also allow users to do the following:
++ View your billing information
++ Create Amazon CloudWatch alarms
++ Create Amazon Simple Notification Service (Amazon SNS) notifications
 
-- View your billing information
-- Create Amazon CloudWatch alarms
-- Create Amazon Simple Notification Service (Amazon SNS) notifications
+To learn more about giving users the ability to create budgets on the AWS Budgets console, see [Allow users to create budgets](billing-example-policies.md#example-billing-allow-createbudgets).
 
-To learn more about giving users the ability to create budgets on the
-AWS Budgets console, see [Allow users to create budgets](billing-example-policies.md#example-billing-allow-createbudgets "billing-example-policies.md#example-billing-allow-createbudgets").
-
-You can also create budgets programmatically using the Budgets API. When
-configuring access to the Budgets API, we recommend creating a unique user role
-for making programmatic requests. This helps you define more precise access controls
-between who in your organization has access to the AWS Budgets console and the
-API. To give multiple users query access to the Budgets API, we recommend creating
-a role for each of them.
+You can also create budgets programmatically using the Budgets API. When configuring access to the Budgets API, we recommend creating a unique user role for making programmatic requests. This helps you define more precise access controls between who in your organization has access to the AWS Budgets console and the API. To give multiple users query access to the Budgets API, we recommend creating a role for each of them.
 
 ## Understanding budget actions
+<a name="budgets-best-practices-actions"></a>
 
 ### Using managed policies
+<a name="budgets-best-practices-actions-policies"></a>
 
-There are two AWS managed policies to help get you started with budget
-actions. One for the user, and the other for budgets. These policies are
-related. The first policy ensures a user can pass a role to the budgets service,
-and the second allows budgets to execute the action.
+There are two AWS managed policies to help get you started with budget actions. One for the user, and the other for budgets. These policies are related. The first policy ensures a user can pass a role to the budgets service, and the second allows budgets to execute the action.
 
-If you don't have proper permissions configured and assigned for the user and
-for AWS Budgets, AWS Budgets can't execute your configured actions. To
-ensure proper configuration and execution, we've configured these managed
-policies so your AWS Budgets actions work as intended. We recommend you use
-these IAM policies to be sure you don't have to update your existing IAM
-policy for AWS Budgets when a new functionality is included. We will add new
-capabilities to the managed policy by default.
+If you don't have proper permissions configured and assigned for the user and for AWS Budgets, AWS Budgets can't execute your configured actions. To ensure proper configuration and execution, we've configured these managed policies so your AWS Budgets actions work as intended. We recommend you use these IAM policies to be sure you don't have to update your existing IAM policy for AWS Budgets when a new functionality is included. We will add new capabilities to the managed policy by default.
 
-For details about managed policies, see [Managed policies](billing-permissions-ref.md#managed-policies "billing-permissions-ref.md#managed-policies").
+For details about managed policies, see [Managed policies](billing-permissions-ref.md#managed-policies).
 
-To learn more about AWS Budgets actions, see the [Configuring budget actions](budgets-controls.md "budgets-controls.md")
-section.
+To learn more about AWS Budgets actions, see the [Configuring budget actions](budgets-controls.md) section.
 
 ### Using Amazon EC2 Auto Scaling
+<a name="budgets-best-practices-actions-auto"></a>
 
-If a budget action is used to stop an Amazon EC2 instance in an Auto Scaling Group (ASG),
-Amazon EC2 Auto Scaling restarts the instance, or launches new instances to replace the stopped
-instance. Therefore, "shutdown budget actions is not effective to Amazon EC2/Amazon RDS
-budget actions" aren't effective unless you combine a second budget action that
-removes permissions on the role used by the Launch Configuration managing the
-ASG.
+If a budget action is used to stop an Amazon EC2 instance in an Auto Scaling Group (ASG), Amazon EC2 Auto Scaling restarts the instance, or launches new instances to replace the stopped instance. Therefore, "shutdown budget actions is not effective to Amazon EC2/Amazon RDS budget actions" aren't effective unless you combine a second budget action that removes permissions on the role used by the Launch Configuration managing the ASG.
 
 ## Setting budgets
+<a name="budgets-best-practices-setting-budgets"></a>
 
-Use AWS Budgets to set custom budgets based on your costs, usage, reservation
-utilization, and reservation coverage.
+Use AWS Budgets to set custom budgets based on your costs, usage, reservation utilization, and reservation coverage.
 
-With AWS Budgets, you can set budgets on a recurring basis or for a specific
-time frame. However, we recommend setting your budget on a recurring basis so that
-you don't unexpectedly stop receiving budget alerts.
+With AWS Budgets, you can set budgets on a recurring basis or for a specific time frame. However, we recommend setting your budget on a recurring basis so that you don't unexpectedly stop receiving budget alerts.
 
 ## Understanding custom period budgets
+<a name="budgets-best-practices-custom-period"></a>
 
 To get the most benefit from your custom period budget and more effectively manage your budgets, consider the following:
-
-- **Set an appropriate budget time frame.** Choose a start and end
-  date that aligns with your budgeting cycle. The end date must be within
-  three years of the start date.
-- **Understand your budget calculations.** Budget tracking uses the
-  full date range, from start to end. For amount calculations, only the date
-  (00:00 UTC) is used. The start date is included, but the end date is
-  excluded from calculations.
-- **Optimize your forecast alerts.** You can set forecasts up to 3
-  years in the future. Forecasting begins when the current date is within 12
-  months of the end date. Alert triggers are restricted to this 12-month time
-  frame.
-- **Maintain active monitoring.** Custom period budgets don't
-  auto-renew and expire on the end date. Regularly review your budgets and
-  extend end dates as needed to ensure continuous monitoring.
-- **Consider your billing cycle.** Align your custom period budget
-  with your billing cycle for more accurate tracking.
-- **Use with other budget types.** Combine custom period budgets
-  with monthly, quarterly, or annual budgets for comprehensive financial
-  monitoring.
++ **Set an appropriate budget time frame.** Choose a start and end date that aligns with your budgeting cycle. The end date must be within three years of the start date.
++ **Understand your budget calculations.** Budget tracking uses the full date range, from start to end. For amount calculations, only the date (00:00 UTC) is used. The start date is included, but the end date is excluded from calculations.
++ **Optimize your forecast alerts.** You can set forecasts up to 3 years in the future. Forecasting begins when the current date is within 12 months of the end date. Alert triggers are restricted to this 12-month time frame.
++ **Maintain active monitoring.** Custom period budgets don't auto-renew and expire on the end date. Regularly review your budgets and extend end dates as needed to ensure continuous monitoring.
++ **Consider your billing cycle.** Align your custom period budget with your billing cycle for more accurate tracking.
++ **Use with other budget types.** Combine custom period budgets with monthly, quarterly, or annual budgets for comprehensive financial monitoring.
 
 ## Using the advanced options when setting cost budgets
+<a name="budgets-best-practices-cost-budgets"></a>
 
-Cost budgets can be aggregated by blended, unblended, net unblended, amortized, or
-net amortized costs. Cost budgets can also either include or exclude refunds,
-credits, upfront reservation fees, recurring reservation charges, non-reservation
-subscription costs, taxes, and support charges.
+Cost budgets can be aggregated by blended, unblended, net unblended, amortized, or net amortized costs. Cost budgets can also either include or exclude refunds, credits, upfront reservation fees, recurring reservation charges, non-reservation subscription costs, taxes, and support charges.
 
 ## Understanding the AWS Budgets update frequency
+<a name="budgets-best-practices-updates"></a>
 
-AWS billing data, which Budgets uses to monitor resources, is updated at least
-once per day. Keep in mind that budget information and associated alerts are updated
-and sent according to this data refresh cadence.
+AWS billing data, which Budgets uses to monitor resources, is updated at least once per day. Keep in mind that budget information and associated alerts are updated and sent according to this data refresh cadence.
 
 ## Setting budget alerts
+<a name="budgets-best-practices-alerts"></a>
 
-Budget alerts can be sent to up to 10 email addresses and one Amazon SNS topic per
-alert. You can set budgets to alert against either actual values or forecasted
-values.
+Budget alerts can be sent to up to 10 email addresses and one Amazon SNS topic per alert. You can set budgets to alert against either actual values or forecasted values.
 
-Actual alerts are only sent out once per budget, per budget period, when a budget
-first reached the actual alert threshold.
+Actual alerts are only sent out once per budget, per budget period, when a budget first reached the actual alert threshold.
 
-Forecast-based budget alerts are sent out on a per-budget, per-budget period
-basis. They might alert more than once in a budgeted period if the forecasted values
-exceed, dip below, and then exceed the alert threshold again during the budgeted
-period.
+Forecast-based budget alerts are sent out on a per-budget, per-budget period basis. They might alert more than once in a budgeted period if the forecasted values exceed, dip below, and then exceed the alert threshold again during the budgeted period.
 
-AWS requires approximately 5 weeks of usage data to generate budget forecasts.
-If you set a budget to alert based on a forecasted amount, this budget alert isn't
-triggered until you have enough historical usage information.
+AWS requires approximately 5 weeks of usage data to generate budget forecasts. If you set a budget to alert based on a forecasted amount, this budget alert isn't triggered until you have enough historical usage information.
 
-The following video highlights the importance of setting up budget alerts, which
-give you control over your spending. It also touches on the use of multi-factor
-authentication (MFA) to increase the security of your account.
+The following video highlights the importance of setting up budget alerts, which give you control over your spending. It also touches on the use of multi-factor authentication (MFA) to increase the security of your account.
+
+[![AWS Videos](http://img.youtube.com/vi/e6A7z7FqQDE/0.jpg)](http://www.youtube.com/watch?v=e6A7z7FqQDE)
+
 
 ## Setting budget alerts using Amazon SNS topics
+<a name="budgets-best-practices-alerts-sns-topics"></a>
 
-When you create a budget that sends notifications to an Amazon SNS topic, you must
-either have a preexisting Amazon SNS topic or create an Amazon SNS topic. Amazon SNS topics enable
-you to send notifications over SMS in addition to email.
+When you create a budget that sends notifications to an Amazon SNS topic, you must either have a preexisting Amazon SNS topic or create an Amazon SNS topic. Amazon SNS topics enable you to send notifications over SMS in addition to email.
 
-For budget notifications to be sent successfully, your budget must have
-permissions to send a notification to your topic, and you must accept the
-subscription to the Amazon SNS notification topic. For more information, see [Creating an Amazon SNS topic for budget notifications](budgets-sns-policy.md "budgets-sns-policy.md").
+For budget notifications to be sent successfully, your budget must have permissions to send a notification to your topic, and you must accept the subscription to the Amazon SNS notification topic. For more information, see [Creating an Amazon SNS topic for budget notifications](budgets-sns-policy.md).
 
 ## Tagging budgets
+<a name="budgets-best-practices-tags"></a>
 
-You can use tags to control access to your AWS Budgets resources. You can also
-use resource-level permissions to allow or deny access to one or more AWS Budgets
-resources in an AWS Identity and Access Management (IAM) policy. This allows for
-easy budget management and auditing, improving governance and information security.
-You can specify the users, roles, and actions that are permitted on the
-AWS Budgets resources.
+You can use tags to control access to your AWS Budgets resources. You can also use resource-level permissions to allow or deny access to one or more AWS Budgets resources in an AWS Identity and Access Management (IAM) policy. This allows for easy budget management and auditing, improving governance and information security. You can specify the users, roles, and actions that are permitted on the AWS Budgets resources.
 
-To add tags to budgets, use AWS Budgets in the Billing and Cost Management
-console or programmatically using the [Budgets API](../../../aws-cost-management/latest/APIReference/API_budgets_TagResource.md "../../../aws-cost-management/latest/APIReference/API_budgets_TagResource.md").
+To add tags to budgets, use AWS Budgets in the Billing and Cost Management console or programmatically using the [Budgets API](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_TagResource.html).
 
-You can add tags when creating an AWS Budgets resource, or later using the
-console or the `TagResource` operation.
+You can add tags when creating an AWS Budgets resource, or later using the console or the `TagResource` operation.
 
-You can view the tags on an AWS Budgets resource using the console or by calling
-the `ListTagsForResource` operation.
+You can view the tags on an AWS Budgets resource using the console or by calling the `ListTagsForResource` operation.
 
-You can remove tags from an AWS Budgets resource using the console or by calling
-the `UntagResource` operation.
+You can remove tags from an AWS Budgets resource using the console or by calling the `UntagResource` operation.
 
-###### Note
-
-AWS Budgets does not support tags for cost allocation. This means you will
-not see tag information in cost and usage data—in Data Exports, Cost and Usage Reports,
-or Cost Explorer, for example.
+**Note**  
+AWS Budgets does not support tags for cost allocation. This means you will not see tag information in cost and usage data—in Data Exports, Cost and Usage Reports, or Cost Explorer, for example.
 
 ## Reviewing budgets when organizational structure changes
+<a name="budgets-best-practices-organizations"></a>
 
-When a member account leaves an AWS Organization, their budget's behavior
-changes significantly. Keep the following points in mind:
+When a member account leaves an AWS Organization, their budget's behavior changes significantly. Keep the following points in mind:
++ AWS Budgets only track costs incurred after a member account leaves the organization.
++ No notification is sent when this tracking behavior changes.
++ Historical cost data from before the account's departure is not included in budget calculations or alerts.
 
-- AWS Budgets only track costs incurred after a member account leaves the
-  organization.
-- No notification is sent when this tracking behavior changes.
-- Historical cost data from before the account's departure is not included
-  in budget calculations or alerts.
-
-Regularly review your AWS Budgets configuration when organizational changes
-occur, particularly when member accounts leave the organization. Update budget
-thresholds and settings to reflect the new standalone account status and ensure
-continuous cost monitoring.
+Regularly review your AWS Budgets configuration when organizational changes occur, particularly when member accounts leave the organization. Update budget thresholds and settings to reflect the new standalone account status and ensure continuous cost monitoring.

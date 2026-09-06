@@ -1,73 +1,45 @@
+
+
 # Logging AWS Cost Management API calls with AWS CloudTrail
+<a name="logging-with-cloudtrail"></a>
 
-AWS Cost Management is integrated with AWS CloudTrail, a service that provides a record of actions taken
-by a user, role, or an AWS service in AWS Cost Management. CloudTrail captures API calls for AWS Cost Management as
-events. The calls captured include API calls from the AWS Cost Management console and from your
-applications.
+AWS Cost Management is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Cost Management. CloudTrail captures API calls for AWS Cost Management as events. The calls captured include API calls from the AWS Cost Management console and from your applications.
 
-If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3
-bucket, including events for AWS Cost Management. If you don't configure a trail, you can still view
-the most recent events in the CloudTrail console in **Event history**. Using
-the information collected by CloudTrail, you can determine the request that was made to AWS Cost Management,
-the IP address from which the request was made, who made the request, when it was made,
-and additional details.
+If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Cost Management. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to AWS Cost Management, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## AWS Cost Management information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity
-occurs in AWS Cost Management, that activity is recorded in a CloudTrail event along with other
-AWS service events in **Event history**. You can view, search,
-and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event
-History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in AWS Cost Management, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 
-For an ongoing record of events in your AWS account, including events for AWS Cost Management,
-create a trail. A trail enables CloudTrail to deliver log files to an Amazon S3 bucket. By
-default, when you create a trail in the CloudTrail console, the trail applies to all AWS
-Regions. The trail logs events from all Regions in the AWS partitions and delivers
-the log files to the Amazon S3 bucket that you specify. Additionally, you can configure
-other AWS services to analyze and act on the event data collected in CloudTrail
-logs.
+For an ongoing record of events in your AWS account, including events for AWS Cost Management, create a trail. A trail enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the CloudTrail console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partitions and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to analyze and act on the event data collected in CloudTrail logs.
 
-For more information, see the following in the _CloudTrail User
-Guide_:
+For more information, see the following in the *CloudTrail User Guide*:
++ [Creating a trail for your AWS account (overview)](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail log files from multiple regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html)
++ [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Creating a trail for your AWS account (overview)](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring
-  Amazon SNS Notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail log files from multiple regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md")
-- [Receiving CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+AWS Cost Management actions are logged by CloudTrail and documented in the [AWS Billing and Cost Management API Reference](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/Welcome.html). For example, calls to the `GetDimensionValues`, `GetCostCategories`, and `GetCostandUsage` endpoints generate entries in the CloudTrail log files.
 
-AWS Cost Management actions are logged by CloudTrail and documented in the [AWS Billing and Cost Management API Reference](../../../aws-cost-management/latest/APIReference/Welcome.md "../../../aws-cost-management/latest/APIReference/Welcome.md"). For example, calls to the
-`GetDimensionValues`, `GetCostCategories`, and
-`GetCostandUsage` endpoints generate entries in the CloudTrail log
-files.
+Every event or log entry contains information about who generated the request. The identity information helps you determine whether the request was made:
++ With root or user role credentials.
++ With temporary security credentials for a role or federated user.
++ By another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine whether the request was made:
-
-- With root or user role credentials.
-- With temporary security credentials for a role or federated user.
-- By another AWS service.
-
-For more information, see the [CloudTrail
-userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Understanding AWS Cost Management log file entries
+<a name="understanding-log-file-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. An event represents a single request from any source and
-includes information about the requested action, the date and time of the action,
-request parameters, and so on.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on.
 
-CloudTrail log files contain one or more log entries. CloudTrail log files are not an ordered
-stack trace of the public API calls, so they do not appear in any specific
-order.
+CloudTrail log files contain one or more log entries. CloudTrail log files are not an ordered stack trace of the public API calls, so they do not appear in any specific order.
 
-The following example shows a CloudTrail log entry for the `GetCostandUsage`
-endpoint.
+The following example shows a CloudTrail log entry for the `GetCostandUsage` endpoint.
 
 ```
 {
@@ -114,33 +86,26 @@ endpoint.
 ```
 
 ## Understanding Cost Optimization Hub log file entries
+<a name="understanding-cost-optimization-hub-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
-the public API calls, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
-The following examples show CloudTrail log entries that demonstrate API actions and exceptions
-for Cost Optimization Hub.
+The following examples show CloudTrail log entries that demonstrate API actions and exceptions for Cost Optimization Hub.
 
-###### Examples
-
-- Exceptions
-
-  - [Throttling Exception](#example-throttling-exception "#example-throttling-exception")
-  - [Access denied exception](#example-access-denied "#example-access-denied")
-
-- API actions
-
-  - [ListEnrollmentStatus](#example-listenrollmentstatus "#example-listenrollmentstatus")
-  - [ListRecommendations](#example-listrecommendations "#example-listrecommendations")
-  - [ListRecommendationSummaries](#example-listrecommendationsummaries "#example-listrecommendationsummaries")
-  - [GetRecommendation](#example-get-recommendation "#example-get-recommendation")
-  - [UpdateEnrollmentStatus](#example-update-enrollment-status "#example-update-enrollment-status")
-  - [UpdatePreferences](#example-update-preferences "#example-update-preferences")
+**Examples**
++ Exceptions
+  + [Throttling Exception](#example-throttling-exception)
+  + [Access denied exception](#example-access-denied)
++ API actions
+  + [ListEnrollmentStatus](#example-listenrollmentstatus)
+  + [ListRecommendations](#example-listrecommendations)
+  + [ListRecommendationSummaries](#example-listrecommendationsummaries)
+  + [GetRecommendation](#example-get-recommendation)
+  + [UpdateEnrollmentStatus](#example-update-enrollment-status)
+  + [UpdatePreferences](#example-update-preferences)
 
 ### Throttling Exception
+<a name="example-throttling-exception"></a>
 
 The following example shows a log entry for a throttling exception.
 
@@ -190,9 +155,9 @@ The following example shows a log entry for a throttling exception.
 ```
 
 ### Access denied exception
+<a name="example-access-denied"></a>
 
-The following example shows a log entry for an `AccessDenied`
-exception.
+The following example shows a log entry for an `AccessDenied` exception.
 
 ```
 {
@@ -241,9 +206,9 @@ exception.
 ```
 
 ### ListEnrollmentStatus
+<a name="example-listenrollmentstatus"></a>
 
-The following example shows a log entry for the `ListEnrollmentStatus` API
-action.
+The following example shows a log entry for the `ListEnrollmentStatus` API action.
 
 ```
     {
@@ -292,9 +257,9 @@ action.
 ```
 
 ### ListRecommendations
+<a name="example-listrecommendations"></a>
 
-The following example shows a log entry for the `ListRecommendations` API
-action.
+ The following example shows a log entry for the `ListRecommendations` API action.
 
 ```
     {
@@ -348,9 +313,9 @@ action.
 ```
 
 ### ListRecommendationSummaries
+<a name="example-listrecommendationsummaries"></a>
 
-The following example shows a log entry for the `ListRecommendationSummaries`
-API action.
+The following example shows a log entry for the `ListRecommendationSummaries` API action.
 
 ```
     {
@@ -399,9 +364,9 @@ API action.
 ```
 
 ### GetRecommendation
+<a name="example-get-recommendation"></a>
 
-The following example shows a log entry for the `GetRecommendation` API
-action.
+The following example shows a log entry for the `GetRecommendation` API action.
 
 ```
     {
@@ -450,9 +415,9 @@ action.
 ```
 
 ### UpdateEnrollmentStatus
+<a name="example-update-enrollment-status"></a>
 
-The following example shows a log entry for the `UpdateEnrollmentStatus` API
-action.
+The following example shows a log entry for the `UpdateEnrollmentStatus` API action.
 
 ```
 {
@@ -503,9 +468,9 @@ action.
 ```
 
 ### UpdatePreferences
+<a name="example-update-preferences"></a>
 
-The following example shows a log entry for the `UpdatePreferences` API
-action.
+ The following example shows a log entry for the `UpdatePreferences` API action.
 
 ```
     {
@@ -557,60 +522,60 @@ action.
 ```
 
 ## Understanding AWS Pricing Calculator log file entries
+<a name="understanding-pc-hub-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specifyincluding events for AWS Pricing Calculator. If you don't configure a trail, you
-can still view the most recent events in the CloudTrail console in Event history. Using the
-information collected by CloudTrail, you can determine the request that was made to AWS Pricing Calculator, the
-IP address from which the request was made, who made the request, when it was made, and additional details.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specifyincluding events for AWS Pricing Calculator. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in Event history. Using the information collected by CloudTrail, you can determine the request that was made to AWS Pricing Calculator, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
 ### AWS Pricing Calculator CloudTrail events
+<a name="understanding-pc-hub-entries-ct-events"></a>
 
 This section shows a full list of the CloudTrail events related to Pricing Calculator.
 
-###### Note
-
+**Note**  
 The event source for the following events is `bcm-pricing-calculator.amazonaws.com`.
 
-| Event name                                       | Definition                                                                                                                                            |
-| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CreateWorkloadEstimate`                         | Mutating operation. Allows customers to create a Workload estimate.                                                                                   |
-| `UpdateWorkloadEstimate`                         | Mutating operation. Allows customers to update a Workload estimate metadata.                                                                          |
-| `DeleteWorkloadEstimate`                         | Mutating operation. Allows customers to delete a Workload estimate.                                                                                   |
-| `GetWorkloadEstimate`                            | Non-mutating operation. Allows customers to get details of a Workload estimate.                                                                       |
-| `ListWorkloadEstimates`                          | Non-mutating operation. Allows customers to list all Workload estimates in their account.                                                             |
-| `ListWorkloadEstimateUsage`                      | Non-mutating operation. Allows customers to list all usage lines in a Workload estimate.                                                              |
-| `BatchCreateWorkloadEstimateUsage`               | Mutating operation. Allows customers to create usage lines in their Workload estimate.                                                                |
-| `BatchUpdateWorkloadEstimateUsage`               | Mutating operation. Allows customers to modify existing usage lines in their Workload estimate.                                                       |
-| `BatchDeleteWorkloadEstimateUsage`               | Mutating operation. Allows customers to delete added usage lines in their Workload estimate.                                                          |
-| `CreateBillScenario`                             | Mutating operation. Allows customers to create a Bill scenario.                                                                                       |
-| `GetBillScenario`                                | Mutating operation. Allows customers to get details of a Bill scenario.                                                                               |
-| `UpdateBillScenario`                             | Mutating operation. Allows customers to update metadata of a Bill scenario.                                                                           |
-| `DeleteBillScenario`                             | Mutating operation. Allows customers to delete a Bill scenario.                                                                                       |
-| `ListBillScenarios`                              | Non-mutating operation. Allows customers to list all Bill scenarios in their account.                                                                 |
-| `BatchCreateBillScenarioUsageModifications`      | Mutating operation. Allows customers to create usage lines in their Bill scenario.                                                                    |
-| `BatchUpdateBillScenarioUsageModifications`      | Mutating operation. Allows customers to modify existing usage lines in their Bill scenario.                                                           |
-| `BatchDeleteBillScenarioUsageModifications`      | Mutating operation. Allows customers to delete existing usage lines in their Bill scenario.                                                           |
-| `ListBillScenarioUsageModifications`             | Non-mutating operation. Allows customers to list all usage lines in a Bill scenario.                                                                  |
-| `BatchCreateBillScenarioCommitmentModifications` | Mutating operation. Allows customers to model commitments in their Bill scenario.                                                                     |
-| `BatchUpdateBillScenarioCommitmentModifications` | Mutating operation. Allows customers to modify modeled commitment lines in their Bill scenario.                                                       |
-| `BatchDeleteBillScenarioCommitmentModifications` | Mutating operation. Allows customers to delete modeled commitment lines in their Bill scenario.                                                       |
-| `ListBillScenarioCommitmentModifications`        | Non-mutating operation. Allows customers to list all modeled commitments in a Bill scenario.                                                          |
-| `CreateBillEstimate`                             | Mutating operation. Allows customers to create a new Bill estimate from a Bill scenario.                                                              |
-| `GetBillEstimate`                                | Mutating operation. Allows customers to get details of a Bill estimate.                                                                               |
-| `UpdateBillEstimate`                             | Mutating operation. Allows customers to update metadata of a Bill estimate.                                                                           |
-| `DeleteBillEstimate`                             | Mutating operation. Allows customers to delete a Bill estimate.                                                                                       |
-| `ListBillEstimates`                              | Non-mutating operation. Allows customers to list all Bill estimates in their account.                                                                 |
-| `ListBillEstimateLineItems`                      | Non-mutating operation. Allows customers to list all result lines of a successfull completed Bill estimate.                                           |
-| `ListBillEstimateCommitments`                    | Non-mutating operation. Allows customers to list all commitments of a successfull completed Bill estimate.                                            |
-| `ListBillEstimateInputUsageModifications`        | Non-mutating operation. Allows customers to list all commitments modeled in a Bill scenario that contributed to creating a Bill estimate.             |
-| `GetPreferences`                                 | Non-mutating operation. Allows customers to get rate preferences set by the payer or standalone account                                               |
-| `UpdatePreferences`                              | Mutating operation. Allows customers to set rate preferences for use in Workload estimates. This is a payer or standalone account only API operation. |
-| `TagResource`                                    | Mutating operation. Allows customers to tag a Pricing Calculator resource.                                                                            |
-| `UntagResource`                                  | Mutating operation. Allows customers to un-tag a Pricing Calculator resource.                                                                         |
-| `ListTagsForResource`                            | Non-mutating operation. Allows customers to list all tags attached to a Pricing Calculator resource.                                                  |
+
+
+| Event name | Definition | 
+| --- | --- | 
+| `CreateWorkloadEstimate` | Mutating operation. Allows customers to create a Workload estimate. | 
+| `UpdateWorkloadEstimate` | Mutating operation. Allows customers to update a Workload estimate metadata. | 
+| `DeleteWorkloadEstimate` | Mutating operation. Allows customers to delete a Workload estimate. | 
+| `GetWorkloadEstimate` | Non-mutating operation. Allows customers to get details of a Workload estimate. | 
+| `ListWorkloadEstimates` | Non-mutating operation. Allows customers to list all Workload estimates in their account. | 
+| `ListWorkloadEstimateUsage` | Non-mutating operation. Allows customers to list all usage lines in a Workload estimate. | 
+| `BatchCreateWorkloadEstimateUsage` | Mutating operation. Allows customers to create usage lines in their Workload estimate. | 
+| `BatchUpdateWorkloadEstimateUsage` | Mutating operation. Allows customers to modify existing usage lines in their Workload estimate. | 
+| `BatchDeleteWorkloadEstimateUsage` | Mutating operation. Allows customers to delete added usage lines in their Workload estimate. | 
+| `CreateBillScenario` | Mutating operation. Allows customers to create a Bill scenario. | 
+| `GetBillScenario` | Mutating operation. Allows customers to get details of a Bill scenario. | 
+| `UpdateBillScenario` | Mutating operation. Allows customers to update metadata of a Bill scenario. | 
+| `DeleteBillScenario` | Mutating operation. Allows customers to delete a Bill scenario. | 
+| `ListBillScenarios` | Non-mutating operation. Allows customers to list all Bill scenarios in their account. | 
+| `BatchCreateBillScenarioUsageModifications` | Mutating operation. Allows customers to create usage lines in their Bill scenario. | 
+| `BatchUpdateBillScenarioUsageModifications` | Mutating operation. Allows customers to modify existing usage lines in their Bill scenario. | 
+| `BatchDeleteBillScenarioUsageModifications` | Mutating operation. Allows customers to delete existing usage lines in their Bill scenario. | 
+| `ListBillScenarioUsageModifications` | Non-mutating operation. Allows customers to list all usage lines in a Bill scenario. | 
+| `BatchCreateBillScenarioCommitmentModifications` | Mutating operation. Allows customers to model commitments in their Bill scenario. | 
+| `BatchUpdateBillScenarioCommitmentModifications` | Mutating operation. Allows customers to modify modeled commitment lines in their Bill scenario. | 
+| `BatchDeleteBillScenarioCommitmentModifications` | Mutating operation. Allows customers to delete modeled commitment lines in their Bill scenario. | 
+| `ListBillScenarioCommitmentModifications` | Non-mutating operation. Allows customers to list all modeled commitments in a Bill scenario. | 
+| `CreateBillEstimate` | Mutating operation. Allows customers to create a new Bill estimate from a Bill scenario. | 
+| `GetBillEstimate` | Mutating operation. Allows customers to get details of a Bill estimate. | 
+| `UpdateBillEstimate` | Mutating operation. Allows customers to update metadata of a Bill estimate. | 
+| `DeleteBillEstimate` | Mutating operation. Allows customers to delete a Bill estimate. | 
+| `ListBillEstimates` | Non-mutating operation. Allows customers to list all Bill estimates in their account. | 
+| `ListBillEstimateLineItems` | Non-mutating operation. Allows customers to list all result lines of a successfull completed Bill estimate. | 
+| `ListBillEstimateCommitments` | Non-mutating operation. Allows customers to list all commitments of a successfull completed Bill estimate. | 
+| `ListBillEstimateInputUsageModifications` | Non-mutating operation. Allows customers to list all commitments modeled in a Bill scenario that contributed to creating a Bill estimate. | 
+| `GetPreferences` | Non-mutating operation. Allows customers to get rate preferences set by the payer or standalone account | 
+| `UpdatePreferences` | Mutating operation. Allows customers to set rate preferences for use in Workload estimates. This is a payer or standalone account only API operation. | 
+| `TagResource` | Mutating operation. Allows customers to tag a Pricing Calculator resource. | 
+| `UntagResource` | Mutating operation. Allows customers to un-tag a Pricing Calculator resource. | 
+| `ListTagsForResource` | Non-mutating operation. Allows customers to list all tags attached to a Pricing Calculator resource. | 
 
 ### CreateWorkloadEstimate
+<a name="understanding-pc-hub-entries-example"></a>
 
 The following example shows a CloudTrail log entry that uses the `CreateWorkloadEstimate` API action.
 
