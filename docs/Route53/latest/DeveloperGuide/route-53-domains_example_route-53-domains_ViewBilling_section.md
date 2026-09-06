@@ -1,24 +1,20 @@
+
+
 # Use `ViewBilling` with an AWS SDK or CLI
+<a name="route-53-domains_example_route-53-domains_ViewBilling_section"></a>
 
 The following code examples show how to use `ViewBilling`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md) 
 
-- [Learn the basics](route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md "route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples). 
 
 ```
-
     /// <summary>
     /// View billing records for the account between a start and end date.
     /// </summary>
@@ -42,33 +38,24 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         }
         return results;
     }
+```
++  For API details, see [ViewBilling](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/ViewBilling) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To get billing information for domain registration charges for the current AWS account**  
+The following `view-billing` command returns all the domain-related billing records for the current account for the period from January 1, 2018 (1514764800 in Unix time) and midnight on December 31, 2019 (1577836800 in Unix time).  
+This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.  
 
 ```
-
-- For API details, see
-  [ViewBilling](../../../goto/DotNetSDKV3/route53domains-2014-05-15/ViewBilling.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/ViewBilling.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To get billing information for domain registration charges for the current AWS account**
-
-The following `view-billing` command returns all the domain-related billing records for the current account for the period from January 1, 2018 (1514764800 in Unix time) and midnight on December 31, 2019 (1577836800 in Unix time).
-
-This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.
-
+aws route53domains view-billing \
+    --region {{us-east-1}} \
+    --start-time {{1514764800}} \
+    --end-time {{1577836800}}
 ```
-`aws route53domains view-billing \
- --region `us-east-1` \
- --start-time `1514764800` \
- --end-time `1577836800``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -90,22 +77,14 @@ Output:
     ]
 }
 ```
+For more information, see [ViewBilling](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ViewBilling.html) in the *Amazon Route 53 API Reference*.  
++  For API details, see [ViewBilling](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/view-billing.html) in *AWS CLI Command Reference*. 
 
-For more information, see [ViewBilling](../APIReference/API_domains_ViewBilling.md "../APIReference/API_domains_ViewBilling.md") in the _Amazon Route 53 API Reference_.
+------
+#### [ Java ]
 
-- For API details, see
-  [ViewBilling](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/view-billing.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/view-billing.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples). 
 
 ```
     public static void listBillingRecords(Route53DomainsClient route53DomainsClient) {
@@ -134,23 +113,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [ViewBilling](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/ViewBilling) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ViewBilling](../../../goto/SdkForJavaV2/route53domains-2014-05-15/ViewBilling.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/ViewBilling.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples). 
 
 ```
 suspend fun listBillingRecords() {
@@ -180,14 +150,9 @@ suspend fun listBillingRecords() {
             }
     }
 }
-
-
 ```
++  For API details, see [ViewBilling](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ViewBilling](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Route 53 with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Route 53 with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

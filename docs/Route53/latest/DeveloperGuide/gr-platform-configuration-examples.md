@@ -1,43 +1,46 @@
-# Platform configuration examples
 
-Use these platform-specific examples to configure client devices with your Route 53 Global Resolver access
-tokens and connection details.
+
+# Platform configuration examples
+<a name="gr-platform-configuration-examples"></a>
+
+Use these platform-specific examples to configure client devices with your Route 53 Global Resolver access tokens and connection details.
 
 ## Windows configuration
+<a name="gr-windows-configuration"></a>
 
 Follow these steps to configure Windows clients to use DoH with access tokens using the netsh command.
 
 1. Open Command Prompt as an administrator.
-2. Enable the global DoH setting:
 
-```
-netsh dns add global doh=yes
-```
+1. Enable the global DoH setting:
 
-3. Register DoH servers with access tokens. Replace the example values with your actual
-   resolver details:
+   ```
+   netsh dns add global doh=yes
+   ```
 
-```
-netsh dns add encryption server=3.3.3.3 dohtemplate=https://a1bc234567890a.route53globalresolver.global.on.aws/dns-query?token=<your-token> autoupgrade=yes
-netsh dns add encryption server=3.3.3.4 dohtemplate=https://a1bc234567890a.route53globalresolver.global.on.aws/dns-query?token=<your-token> autoupgrade=yes
-```
+1. Register DoH servers with access tokens. Replace the example values with your actual resolver details:
 
-4. Flush the DNS cache:
+   ```
+   netsh dns add encryption server=3.3.3.3 dohtemplate=https://a1bc234567890a.route53globalresolver.global.on.aws/dns-query?token=<your-token> autoupgrade=yes
+   netsh dns add encryption server=3.3.3.4 dohtemplate=https://a1bc234567890a.route53globalresolver.global.on.aws/dns-query?token=<your-token> autoupgrade=yes
+   ```
 
-```
-ipconfig /flushdns
-```
+1. Flush the DNS cache:
 
-5. Verify the configuration:
+   ```
+   ipconfig /flushdns
+   ```
 
-```
-netsh dns show global
-```
+1. Verify the configuration:
+
+   ```
+   netsh dns show global
+   ```
 
 ## macOS configuration
+<a name="gr-macOS-configuration"></a>
 
-Follow these steps to configure macOS clients using a mobile configuration profile for DoH with access
-tokens.
+Follow these steps to configure macOS clients using a mobile configuration profile for DoH with access tokens.
 
 Create a mobile configuration profile with the following structure:
 

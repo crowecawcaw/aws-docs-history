@@ -1,29 +1,25 @@
+
+
 # Learn the basics of Route 53 domain registration with an AWS SDK
+<a name="route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section"></a>
 
 The following code examples show how to:
++ List current domains, and list operations in the past year.
++ View billing for the past year, and view prices for domain types.
++ Get domain suggestions.
++ Check domain availability and transferability.
++ Optionally, request a domain registration.
++ Get an operation detail.
++ Optionally, get a domain detail.
 
-- List current domains, and list operations in the past year.
-- View billing for the past year, and view prices for domain types.
-- Get domain suggestions.
-- Check domain availability and transferability.
-- Optionally, request a domain registration.
-- Get an operation detail.
-- Optionally, get a domain detail.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
-
 public static class Route53DomainScenario
 {
     /*
@@ -341,14 +337,10 @@ public static class Route53DomainScenario
         return null;
     }
 }
-
+```
+Wrapper methods used by the scenario for Route 53 domain registration actions.  
 
 ```
-
-Wrapper methods used by the scenario for Route 53 domain registration actions.
-
-```
-
 public class Route53Wrapper
 {
     private readonly IAmazonRoute53Domains _amazonRoute53Domains;
@@ -595,32 +587,24 @@ public class Route53Wrapper
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [CheckDomainAvailability](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/CheckDomainAvailability)
+  + [CheckDomainTransferability](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/CheckDomainTransferability)
+  + [GetDomainDetail](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/GetDomainDetail)
+  + [GetDomainSuggestions](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/GetDomainSuggestions)
+  + [GetOperationDetail](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/GetOperationDetail)
+  + [ListDomains](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/ListDomains)
+  + [ListOperations](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/ListOperations)
+  + [ListPrices](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/ListPrices)
+  + [RegisterDomain](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/RegisterDomain)
+  + [ViewBilling](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/ViewBilling)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-  - [CheckDomainAvailability](../../../goto/DotNetSDKV3/route53domains-2014-05-15/CheckDomainAvailability.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/CheckDomainAvailability.md")
-  - [CheckDomainTransferability](../../../goto/DotNetSDKV3/route53domains-2014-05-15/CheckDomainTransferability.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/CheckDomainTransferability.md")
-  - [GetDomainDetail](../../../goto/DotNetSDKV3/route53domains-2014-05-15/GetDomainDetail.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/GetDomainDetail.md")
-  - [GetDomainSuggestions](../../../goto/DotNetSDKV3/route53domains-2014-05-15/GetDomainSuggestions.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/GetDomainSuggestions.md")
-  - [GetOperationDetail](../../../goto/DotNetSDKV3/route53domains-2014-05-15/GetOperationDetail.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/GetOperationDetail.md")
-  - [ListDomains](../../../goto/DotNetSDKV3/route53domains-2014-05-15/ListDomains.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/ListDomains.md")
-  - [ListOperations](../../../goto/DotNetSDKV3/route53domains-2014-05-15/ListOperations.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/ListOperations.md")
-  - [ListPrices](../../../goto/DotNetSDKV3/route53domains-2014-05-15/ListPrices.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/ListPrices.md")
-  - [RegisterDomain](../../../goto/DotNetSDKV3/route53domains-2014-05-15/RegisterDomain.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/RegisterDomain.md")
-  - [ViewBilling](../../../goto/DotNetSDKV3/route53domains-2014-05-15/ViewBilling.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/ViewBilling.md")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples). 
 
 ```
 /**
@@ -959,35 +943,26 @@ public class Route53Scenario {
         }
     }
 }
+```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CheckDomainAvailability](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/CheckDomainAvailability)
+  + [CheckDomainTransferability](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/CheckDomainTransferability)
+  + [GetDomainDetail](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/GetDomainDetail)
+  + [GetDomainSuggestions](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/GetDomainSuggestions)
+  + [GetOperationDetail](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/GetOperationDetail)
+  + [ListDomains](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/ListDomains)
+  + [ListOperations](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/ListOperations)
+  + [ListPrices](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/ListPrices)
+  + [RegisterDomain](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/RegisterDomain)
+  + [ViewBilling](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/ViewBilling)
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples). 
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
-
-  - [CheckDomainAvailability](../../../goto/SdkForJavaV2/route53domains-2014-05-15/CheckDomainAvailability.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/CheckDomainAvailability.md")
-  - [CheckDomainTransferability](../../../goto/SdkForJavaV2/route53domains-2014-05-15/CheckDomainTransferability.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/CheckDomainTransferability.md")
-  - [GetDomainDetail](../../../goto/SdkForJavaV2/route53domains-2014-05-15/GetDomainDetail.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/GetDomainDetail.md")
-  - [GetDomainSuggestions](../../../goto/SdkForJavaV2/route53domains-2014-05-15/GetDomainSuggestions.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/GetDomainSuggestions.md")
-  - [GetOperationDetail](../../../goto/SdkForJavaV2/route53domains-2014-05-15/GetOperationDetail.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/GetOperationDetail.md")
-  - [ListDomains](../../../goto/SdkForJavaV2/route53domains-2014-05-15/ListDomains.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/ListDomains.md")
-  - [ListOperations](../../../goto/SdkForJavaV2/route53domains-2014-05-15/ListOperations.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/ListOperations.md")
-  - [ListPrices](../../../goto/SdkForJavaV2/route53domains-2014-05-15/ListPrices.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/ListPrices.md")
-  - [RegisterDomain](../../../goto/SdkForJavaV2/route53domains-2014-05-15/RegisterDomain.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/RegisterDomain.md")
-  - [ViewBilling](../../../goto/SdkForJavaV2/route53domains-2014-05-15/ViewBilling.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/ViewBilling.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples").
-
-```
-
 /**
 Before running this Kotlin code example, set up your development environment,
 including your credentials.
@@ -1016,13 +991,13 @@ suspend fun main(args: Array<String>) {
         Usage:
             <domainType> <phoneNumber> <email> <domainSuggestion> <firstName> <lastName> <city>
         Where:
-           domainType - The domain type (for example, com).
-           phoneNumber - The phone number to use (for example, +1.2065550100)
-           email - The email address to use.
-           domainSuggestion - The domain suggestion (for example, findmy.example).
-           firstName - The first name to use to register a domain.
-           lastName -  The last name to use to register a domain.
-           city - The city to use to register a domain.
+           domainType - The domain type (for example, com). 
+           phoneNumber - The phone number to use (for example, +1.2065550100)      
+           email - The email address to use.      
+           domainSuggestion - The domain suggestion (for example, findmy.example). 
+           firstName - The first name to use to register a domain. 
+           lastName -  The last name to use to register a domain. 
+           city - The city to use to register a domain. 
     """
 
     if (args.size != 7) {
@@ -1280,23 +1255,19 @@ suspend fun listDomains() {
             }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [CheckDomainAvailability](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CheckDomainTransferability](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetDomainDetail](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetDomainSuggestions](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetOperationDetail](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListDomains](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListOperations](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListPrices](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [RegisterDomain](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ViewBilling](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
 
-  - [CheckDomainAvailability](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CheckDomainTransferability](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetDomainDetail](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetDomainSuggestions](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetOperationDetail](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListDomains](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListOperations](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListPrices](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [RegisterDomain](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ViewBilling](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Route 53 with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Route 53 with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

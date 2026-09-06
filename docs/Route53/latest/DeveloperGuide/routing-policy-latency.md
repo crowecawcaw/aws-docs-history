@@ -1,47 +1,32 @@
+
+
 # Latency-based routing
+<a name="routing-policy-latency"></a>
 
-If your application is hosted in multiple AWS Regions, you can improve performance for your users by serving
-their requests from the AWS Region with the lowest latency.
+If your application is hosted in multiple AWS Regions, you can improve performance for your users by serving their requests from the AWS Region with the lowest latency. 
 
-###### Note
+**Note**  
+Data about the latency between users and your resources is based entirely on traffic between users and AWS data centers. If you aren't using resources in an AWS Region, the actual latency between your users and your resources can vary significantly from AWS latency data. This is true even if your resources are located in the same city as an AWS Region.
 
-Data about the latency between users and your resources is based entirely on traffic between users and
-AWS data centers. If you aren't using resources in an AWS Region, the actual latency between your users and
-your resources can vary significantly from AWS latency data. This is true even if your resources are located
-in the same city as an AWS Region.
+To use latency-based routing, you create latency records for your resources in multiple AWS Regions. When Route 53 gets a DNS query for your domain or subdomain (example.com or acme.example.com), it checks which AWS Regions you've created latency records for, finds which Region gives the user the lowest latency, and then picks a latency record for that Region. Route 53 responds with the value from the chosen record, such as the IP address for a web server. 
 
-To use latency-based routing, you create latency records for your resources in multiple AWS Regions.
-When Route 53 gets a DNS query for your domain or subdomain (example.com or acme.example.com), it checks which AWS Regions
-you've created latency records for, finds which Region gives the user the lowest latency, and then
-picks a latency record for that Region. Route 53 responds with the value from the chosen record, such as the IP address
-for a web server.
-
-For example, suppose you have Elastic Load Balancing load balancers in the US West (Oregon) Region and in the Asia Pacific (Singapore) Region.
-You create a latency record for each load balancer. Here's what happens when a user in London enters the name
-of your domain in a browser:
+For example, suppose you have Elastic Load Balancing load balancers in the US West (Oregon) Region and in the Asia Pacific (Singapore) Region. You create a latency record for each load balancer. Here's what happens when a user in London enters the name of your domain in a browser:
 
 1. DNS routes the query to a Route 53 name server.
-2. Route 53 refers to its data on latency between London and the Singapore Region and between London
-   and the Oregon Region.
-3. If latency is lower between the London and Oregon Regions, Route 53 responds to the query with the IP address
-   for the Oregon load balancer. If latency is lower between London and the Singapore Region, Route 53 responds with the IP address
-   for the Singapore load balancer.
-   Latency between hosts on the internet can change over time as network connections and routing change.
-   Latency-based routing uses latency data taken over a period of time, and the data reflects
-   these changes. A request routed to the Oregon Region this week might go to the Singapore Region next week.
 
-###### Note
+1. Route 53 refers to its data on latency between London and the Singapore Region and between London and the Oregon Region. 
 
-When a browser or other viewer uses a DNS resolver that supports the edns-client-subnet extension of EDNS0,
-the DNS resolver sends Route 53 a truncated version of the user's IP address. If you configure latency-based routing,
-Route 53 considers this value when routing traffic to your resources. For more information, see
-[How Amazon Route 53 uses EDNS0 to estimate the location of a user](routing-policy-edns0.md "routing-policy-edns0.md").
+1. If latency is lower between the London and Oregon Regions, Route 53 responds to the query with the IP address for the Oregon load balancer. If latency is lower between London and the Singapore Region, Route 53 responds with the IP address for the Singapore load balancer. 
+
+Latency between hosts on the internet can change over time as network connections and routing change. Latency-based routing uses latency data taken over a period of time, and the data reflects these changes. A request routed to the Oregon Region this week might go to the Singapore Region next week.
+
+**Note**  
+When a browser or other viewer uses a DNS resolver that supports the edns-client-subnet extension of EDNS0, the DNS resolver sends Route 53 a truncated version of the user's IP address. If you configure latency-based routing, Route 53 considers this value when routing traffic to your resources. For more information, see [How Amazon Route 53 uses EDNS0 to estimate the location of a user](routing-policy-edns0.md).
 
 You can use latency routing policy for records in a private hosted zone.
 
 For information about values that you specify when you use the latency routing policy to create records, see the following topics:
-
-- [Values specific for latency records](resource-record-sets-values-latency.md "resource-record-sets-values-latency.md")
-- [Values specific for latency alias records](resource-record-sets-values-latency-alias.md "resource-record-sets-values-latency-alias.md")
-- [Values that are common for all routing policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
-- [Values that are common for alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")
++ [Values specific for latency records](resource-record-sets-values-latency.md)
++ [Values specific for latency alias records](resource-record-sets-values-latency-alias.md)
++ [Values that are common for all routing policies](resource-record-sets-values-shared.md)
++ [Values that are common for alias records for all routing policies](resource-record-sets-values-alias-common.md)

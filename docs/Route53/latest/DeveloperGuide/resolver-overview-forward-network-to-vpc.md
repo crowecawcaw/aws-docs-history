@@ -1,54 +1,62 @@
-# How DNS resolvers on your network forward DNS queries to Resolver endpoints
 
-To forward DNS queries from your network to Route 53 VPC Resolver, you create inbound endpoints in an
-AWS Region. There are two categories of inbound endpoints, **default** and **delegation**.
+
+# How DNS resolvers on your network forward DNS queries to Resolver endpoints
+<a name="resolver-overview-forward-network-to-vpc"></a>
+
+To forward DNS queries from your network to Route 53 VPC Resolver, you create inbound endpoints in an AWS Region. There are two categories of inbound endpoints, **default** and **delegation**.
 
 **Steps for creating default inbound endpoints**
 
-1. You create a default Resolver inbound endpoint in a VPC and specify the IP addresses that
-   the resolvers on your network forward DNS queries to, along with a VPC
-   security group that includes inbound rules allowing TCP and UDP access on
-   port 53. For instructions see [Configuring inbound forwarding](resolver-forwarding-inbound-queries-configuring.md "resolver-forwarding-inbound-queries-configuring.md").
+1. You create a default Resolver inbound endpoint in a VPC and specify the IP addresses that the resolvers on your network forward DNS queries to, along with a VPC security group that includes inbound rules allowing TCP and UDP access on port 53. For instructions see [Configuring inbound forwarding](resolver-forwarding-inbound-queries-configuring.md).
 
-For each IP address that you specify for the inbound endpoint, VPC Resolver creates a VPC elastic network interface
-in the VPC where you created the inbound endpoint. 2. You configure resolvers on your network to forward DNS queries for the applicable domain names to the IP addresses
-that you specified in the inbound endpoint. For more information, see
-[Considerations when creating inbound and outbound endpoints](resolver-choose-vpc.md "resolver-choose-vpc.md").
+   For each IP address that you specify for the inbound endpoint, VPC Resolver creates a VPC elastic network interface in the VPC where you created the inbound endpoint. 
+
+1. You configure resolvers on your network to forward DNS queries for the applicable domain names to the IP addresses that you specified in the inbound endpoint. For more information, see [Considerations when creating inbound and outbound endpoints](resolver-choose-vpc.md).
+
 **Here's how VPC Resolver resolves DNS queries that originate on your network through a default inbound endpoint:**
 
-1. A web browser or another application on your network submits a DNS query for a domain name
-   that you forwarded to VPC Resolver.
-2. A resolver on your network forwards the query to the IP addresses in your inbound endpoint.
-3. The inbound endpoint forwards the query to VPC Resolver.
-4. VPC Resolver gets the applicable value for the domain name in the DNS query, either internally or by
-   performing a recursive lookup against public name servers.
-5. VPC Resolver returns the value to the inbound endpoint.
-6. The inbound endpoint returns the value to the resolver on your network.
-7. The resolver on your network returns the value to the application.
-8. Using the value that was returned by VPC Resolver, the application submits a request, for example, a
-   request for an object in an Amazon S3 bucket.
-   **Steps for creating delegation inbound endpoints**
+1. A web browser or another application on your network submits a DNS query for a domain name that you forwarded to VPC Resolver.
 
-9. You create a delegation Resolver inbound endpoint in a VPC. For instructions see [Configuring inbound forwarding](resolver-forwarding-inbound-queries-configuring.md "resolver-forwarding-inbound-queries-configuring.md").
+1. A resolver on your network forwards the query to the IP addresses in your inbound endpoint.
 
-For each IP address that you specify for the inbound endpoint, VPC Resolver creates a VPC elastic network interface
-in the VPC where you created the inbound endpoint. 2. You configure resolvers on your network to delegate DNS queries for the applicable domain
-names to VPC Resolver. For the glue records you must enter the IP addresses for
-the inbound endpoints. For more information, see [Considerations when creating inbound and outbound endpoints](resolver-choose-vpc.md "resolver-choose-vpc.md").
+1. The inbound endpoint forwards the query to VPC Resolver.
+
+1. VPC Resolver gets the applicable value for the domain name in the DNS query, either internally or by performing a recursive lookup against public name servers.
+
+1. VPC Resolver returns the value to the inbound endpoint.
+
+1. The inbound endpoint returns the value to the resolver on your network.
+
+1. The resolver on your network returns the value to the application.
+
+1. Using the value that was returned by VPC Resolver, the application submits a request, for example, a request for an object in an Amazon S3 bucket.
+
+**Steps for creating delegation inbound endpoints**
+
+1. You create a delegation Resolver inbound endpoint in a VPC. For instructions see [Configuring inbound forwarding](resolver-forwarding-inbound-queries-configuring.md).
+
+   For each IP address that you specify for the inbound endpoint, VPC Resolver creates a VPC elastic network interface in the VPC where you created the inbound endpoint. 
+
+1. You configure resolvers on your network to delegate DNS queries for the applicable domain names to VPC Resolver. For the glue records you must enter the IP addresses for the inbound endpoints. For more information, see [Considerations when creating inbound and outbound endpoints](resolver-choose-vpc.md).
+
 **Here's how VPC Resolver resolves DNS queries that originate on your network through a delegation inbound endpoint:**
 
-1. As a prerequisite, you must delegate the subdomain that is hosted in the private hosted zone
-   from on-premises. Because you are delegating the subdomain through the inbound
-   delegation endpoint, you use the inbound endpoint IP addresses as the glue
-   records for the subdomain that's being delegated.
+1. As a prerequisite, you must delegate the subdomain that is hosted in the private hosted zone from on-premises. Because you are delegating the subdomain through the inbound delegation endpoint, you use the inbound endpoint IP addresses as the glue records for the subdomain that's being delegated.
+**Note**  
+You might also need to include the glue records to make sure the DNS query is resolvable. If you delegate a subdomain to name servers that are in the same zone as the parent domain, glue records are needed.
 
-###### Note
+1. A web browser or another application on your network submits a DNS query for a domain name that you delegated to the VPC Resolver.
 
-You might also need to include the glue records to make sure the DNS query is resolvable. If
-you delegate a subdomain to name servers that are in the same zone as
-the parent domain, glue records are needed. 2. A web browser or another application on your network submits a DNS query for a domain name
-that you delegated to the VPC Resolver. 3. A resolver on your network forwards the query to the IP addresses in your inbound endpoint. 4. The inbound endpoint delegates the query to VPC Resolver. 5. VPC Resolver returns the address to the AWS resource from the private hosted zone to the inbound
-endpoint. 6. The inbound endpoint returns the value to the resolver on your network. 7. The resolver on your network returns the value to the application. 8. Using the value that was returned by VPC Resolver, the application submits a request, for example, a
-request for an object in an Amazon S3 bucket.
-Creating an inbound endpoint doesn't change the behavior of VPC Resolver, it just provides a path from a location
-outside the AWS network to VPC Resolver.
+1. A resolver on your network forwards the query to the IP addresses in your inbound endpoint.
+
+1. The inbound endpoint delegates the query to VPC Resolver.
+
+1. VPC Resolver returns the address to the AWS resource from the private hosted zone to the inbound endpoint.
+
+1. The inbound endpoint returns the value to the resolver on your network.
+
+1. The resolver on your network returns the value to the application.
+
+1. Using the value that was returned by VPC Resolver, the application submits a request, for example, a request for an object in an Amazon S3 bucket.
+
+Creating an inbound endpoint doesn't change the behavior of VPC Resolver, it just provides a path from a location outside the AWS network to VPC Resolver.

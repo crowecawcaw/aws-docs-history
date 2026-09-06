@@ -1,41 +1,36 @@
+
+
 # Supported DNS record types
+<a name="ResourceRecordTypes"></a>
 
-Amazon Route 53 supports the DNS record types that are listed in this section. Each record type also includes
-an example of how to format the `Value` element when you are accessing Route 53 using the API.
+Amazon Route 53 supports the DNS record types that are listed in this section. Each record type also includes an example of how to format the `Value` element when you are accessing Route 53 using the API.
 
-###### Note
+**Note**  
+For record types that include a domain name, enter a fully qualified domain name, for example, *www.example.com*. The trailing dot is optional; Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.
 
-For record types that include a domain name, enter a fully qualified domain name, for example,
-*www.example.com*. The trailing dot is optional; Route 53 assumes that the domain name
-is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot)
-and *www.example.com.* (with a trailing dot) as identical.
+Route 53 provides an extension to DNS functionality known as alias records. Similar to CNAME records, alias records let you route traffic to selected AWS resources, such as CloudFront distributions and Amazon S3 buckets. For more information, including a comparison of alias and CNAME records, see [Choosing between alias and non-alias records](resource-record-sets-choosing-alias-non-alias.md).
 
-Route 53 provides an extension to DNS functionality known as alias records. Similar to CNAME records, alias records let you
-route traffic to selected AWS resources, such as CloudFront distributions and Amazon S3 buckets. For more information, including a
-comparison of alias and CNAME records, see
-[Choosing between alias and non-alias records](resource-record-sets-choosing-alias-non-alias.md "resource-record-sets-choosing-alias-non-alias.md").
-
-###### Topics
-
-- [A record type](#AFormat "#AFormat")
-- [AAAA record type](#AAAAFormat "#AAAAFormat")
-- [CAA record type](#CAAFormat "#CAAFormat")
-- [CNAME record type](#CNAMEFormat "#CNAMEFormat")
-- [DS record type](#DSFormat "#DSFormat")
-- [HTTPS record type](#HTTPSFormat "#HTTPSFormat")
-- [MX record type](#MXFormat "#MXFormat")
-- [NAPTR record type](#NAPTRFormat "#NAPTRFormat")
-- [NS record type](#NSFormat "#NSFormat")
-- [PTR record type](#PTRFormat "#PTRFormat")
-- [SOA record type](#SOAFormat "#SOAFormat")
-- [SPF record type](#SPFFormat "#SPFFormat")
-- [SRV record type](#SRVFormat "#SRVFormat")
-- [SSHFP record type](#SSHFPFormat "#SSHFPFormat")
-- [SVCB record type](#SVCBFormat "#SVCBFormat")
-- [TLSA record type](#TLSAFormat "#TLSAFormat")
-- [TXT record type](#TXTFormat "#TXTFormat")
+**Topics**
++ [A record type](#AFormat)
++ [AAAA record type](#AAAAFormat)
++ [CAA record type](#CAAFormat)
++ [CNAME record type](#CNAMEFormat)
++ [DS record type](#DSFormat)
++ [HTTPS record type](#HTTPSFormat)
++ [MX record type](#MXFormat)
++ [NAPTR record type](#NAPTRFormat)
++ [NS record type](#NSFormat)
++ [PTR record type](#PTRFormat)
++ [SOA record type](#SOAFormat)
++ [SPF record type](#SPFFormat)
++ [SRV record type](#SRVFormat)
++ [SSHFP record type](#SSHFPFormat)
++ [SVCB record type](#SVCBFormat)
++ [TLSA record type](#TLSAFormat)
++ [TXT record type](#TXTFormat)
 
 ## A record type
+<a name="AFormat"></a>
 
 You use an A record to route traffic to a resource, such as a web server, using an IPv4 address in dotted decimal notation.
 
@@ -52,6 +47,7 @@ You use an A record to route traffic to a resource, such as a web server, using 
 ```
 
 ## AAAA record type
+<a name="AAAAFormat"></a>
 
 You use an AAAA record to route traffic to a resource, such as a web server, using an IPv6 address in colon-separated hexadecimal format.
 
@@ -68,112 +64,86 @@ You use an AAAA record to route traffic to a resource, such as a web server, usi
 ```
 
 ## CAA record type
+<a name="CAAFormat"></a>
 
-A CAA record specifies which certificate authorities (CAs) are allowed to issue certificates for a domain or subdomain.
-Creating a CAA record helps to prevent the wrong CAs from issuing certificates for your domains. A CAA record isn't a substitute
-for the security requirements that are specified by your certificate authority, such as the requirement to validate that you're the
-owner of a domain.
+A CAA record specifies which certificate authorities (CAs) are allowed to issue certificates for a domain or subdomain. Creating a CAA record helps to prevent the wrong CAs from issuing certificates for your domains. A CAA record isn't a substitute for the security requirements that are specified by your certificate authority, such as the requirement to validate that you're the owner of a domain.
 
 You can use CAA records to specify the following:
-
-- Which certificate authorities (CAs) can issue SSL/TLS certificates, if any
-- The email address or URL to contact when a CA issues a certificate for the domain or subdomain
++ Which certificate authorities (CAs) can issue SSL/TLS certificates, if any
++ The email address or URL to contact when a CA issues a certificate for the domain or subdomain
 
 When you add a CAA record to your hosted zone, you specify three settings separated by spaces:
 
 `flags tag "value"`
 
 Note the following about the format for CAA records:
++ The value of `tag` can contain only the characters A-Z, a-z, and 0-9.
++ Always enclose `value` in quotation marks ("").
++ Some CAs allow or require additional values for `value`. Specify additional values as name-value pairs, and separate them with semicolons (;), for example:
 
-- The value of `tag` can contain only the characters A-Z, a-z, and 0-9.
-- Always enclose `value` in quotation marks ("").
-- Some CAs allow or require additional values for `value`. Specify additional values as name-value pairs, and
-  separate them with semicolons (;), for example:
+  `0 issue "ca.example.net; account=123456"`
++ If a CA receives a request for a certificate for a subdomain (such as www.example.com) and if no CAA record for the subdomain exists, the CA submits a DNS query for a CAA record for the parent domain (such as example.com). If a record for the parent domain exists and if the certificate request is valid, the CA issues the certificate for the subdomain.
++ We recommend that you consult with your CA to determine what values to specify for a CAA record.
++ You can't create a CAA record and a CNAME record that have the same name because DNS doesn't allow using the same name for both a CNAME record and any other type of record.
 
-`0 issue "ca.example.net; account=123456"`
-
-- If a CA receives a request for a certificate for a subdomain (such as www.example.com) and if no CAA record
-  for the subdomain exists, the CA submits a DNS query for a CAA record for the parent domain (such as example.com).
-  If a record for the parent domain exists and if the certificate request is valid, the CA issues the certificate
-  for the subdomain.
-- We recommend that you consult with your CA to determine what values to specify for a CAA record.
-- You can't create a CAA record and a CNAME record that have the same name because DNS doesn't allow using
-  the same name for both a CNAME record and any other type of record.
-
-###### Topics
-
-- [Authorize a CA to issue a certificate for a domain or subdomain](#CAAFormat-issue "#CAAFormat-issue")
-- [Authorize a CA to issue a wildcard certificate for a domain or subdomain](#CAAFormat-issue-wild "#CAAFormat-issue-wild")
-- [Prevent any CA from issuing a certificate for a domain or subdomain](#CAAFormat-prevent-issue "#CAAFormat-prevent-issue")
-- [Request that any CA contacts you if the CA receives an invalid certificate request](#CAAFormat-contact "#CAAFormat-contact")
-- [Use another setting that is supported by the CA](#CAAFormat-custom-setting "#CAAFormat-custom-setting")
-- [Examples](#CAAFormat-examples "#CAAFormat-examples")
+**Topics**
++ [Authorize a CA to issue a certificate for a domain or subdomain](#CAAFormat-issue)
++ [Authorize a CA to issue a wildcard certificate for a domain or subdomain](#CAAFormat-issue-wild)
++ [Prevent any CA from issuing a certificate for a domain or subdomain](#CAAFormat-prevent-issue)
++ [Request that any CA contacts you if the CA receives an invalid certificate request](#CAAFormat-contact)
++ [Use another setting that is supported by the CA](#CAAFormat-custom-setting)
++ [Examples](#CAAFormat-examples)
 
 ### Authorize a CA to issue a certificate for a domain or subdomain
+<a name="CAAFormat-issue"></a>
 
-To authorize a CA to issue a certificate for a domain or subdomain, create a record that has the
-same name as the domain or subdomain, and specify the following settings:
+To authorize a CA to issue a certificate for a domain or subdomain, create a record that has the same name as the domain or subdomain, and specify the following settings:
++ **flags** – `0`
++ **tag** – `issue`
++ **value** – the code for the CA that you authorize to issue a certificate for the domain or subdomain
 
-- **flags** – `0`
-- **tag** – `issue`
-- **value** – the code for the CA that you authorize to issue a certificate
-  for the domain or subdomain
-
-For example, suppose you want to authorize ca.example.net to issue a certificate for example.com. You create a CAA record
-for example.com with the following settings:
+For example, suppose you want to authorize ca.example.net to issue a certificate for example.com. You create a CAA record for example.com with the following settings:
 
 ```
 0 issue "ca.example.net"
 ```
 
-For information about how to authorize AWS Certificate Manager to issue a certificate, see
-[Configure a CAA record](../../../acm/latest/userguide/setup-caa.md "../../../acm/latest/userguide/setup-caa.md") in the _AWS Certificate Manager User Guide_.
+For information about how to authorize AWS Certificate Manager to issue a certificate, see [Configure a CAA record](https://docs.aws.amazon.com/acm/latest/userguide/setup-caa.html) in the *AWS Certificate Manager User Guide*.
 
 ### Authorize a CA to issue a wildcard certificate for a domain or subdomain
+<a name="CAAFormat-issue-wild"></a>
 
-To authorize a CA to issue a wildcard certificate for a domain or subdomain, create a record that has the
-same name as the domain or subdomain, and specify the following settings. A wildcard certificate applies to the
-domain or subdomain and all of its subdomains.
+To authorize a CA to issue a wildcard certificate for a domain or subdomain, create a record that has the same name as the domain or subdomain, and specify the following settings. A wildcard certificate applies to the domain or subdomain and all of its subdomains.
++ **flags** – `0`
++ **tag** – `issuewild`
++ **value** – the code for the CA that you authorize to issue a certificate for a domain or subdomain, and its subdomains
 
-- **flags** – `0`
-- **tag** – `issuewild`
-- **value** – the code for the CA that you authorize to issue a certificate
-  for a domain or subdomain, and its subdomains
-
-For example, suppose you want to authorize ca.example.net to issue a wildcard certificate for example.com, which applies to
-example.com and all of its subdomains. You create a CAA record for example.com with the following settings:
+For example, suppose you want to authorize ca.example.net to issue a wildcard certificate for example.com, which applies to example.com and all of its subdomains. You create a CAA record for example.com with the following settings:
 
 ```
 0 issuewild "ca.example.net"
 ```
 
-When you want to authorize a CA to issue a wildcard certificate for a domain or subdomain, create a record that has the
-same name as the domain or subdomain, and specify the following settings. A wildcard certificate applies to the
-domain or subdomain and all of its subdomains.
+When you want to authorize a CA to issue a wildcard certificate for a domain or subdomain, create a record that has the same name as the domain or subdomain, and specify the following settings. A wildcard certificate applies to the domain or subdomain and all of its subdomains.
 
 ### Prevent any CA from issuing a certificate for a domain or subdomain
+<a name="CAAFormat-prevent-issue"></a>
 
-To prevent any CA from issuing a certificate for a domain or subdomain, create a record that has the
-same name as the domain or subdomain, and specify the following settings:
+To prevent any CA from issuing a certificate for a domain or subdomain, create a record that has the same name as the domain or subdomain, and specify the following settings:
++ **flags** – `0`
++ **tag** – `issue`
++ **value** – `";"`
 
-- **flags** – `0`
-- **tag** – `issue`
-- **value** – `";"`
-
-For example, suppose you don't want any CA to issue a certificate for example.com. You create a CAA record for
-example.com with the following settings:
+For example, suppose you don't want any CA to issue a certificate for example.com. You create a CAA record for example.com with the following settings:
 
 `0 issue ";"`
 
-If you don't want any CA to issue a certificate for example.com or its subdomains, you create a CAA record for
-example.com with the following settings:
+If you don't want any CA to issue a certificate for example.com or its subdomains, you create a CAA record for example.com with the following settings: 
 
 `0 issuewild ";"`
 
-###### Note
-
-If you create a CAA record for example.com and specify both of the following values, a CA that is using the value
-ca.example.net can issue the certificate for example.com:
+**Note**  
+If you create a CAA record for example.com and specify both of the following values, a CA that is using the value ca.example.net can issue the certificate for example.com:  
 
 ```
 0 issue ";"
@@ -181,44 +151,41 @@ ca.example.net can issue the certificate for example.com:
 ```
 
 ### Request that any CA contacts you if the CA receives an invalid certificate request
+<a name="CAAFormat-contact"></a>
 
 If you want any CA that receives an invalid request for a certificate to contact you, specify the following settings:
++ **flags** – `0`
++ **tag** – `iodef`
++ **value** – the URL or email address that you want the CA to notify if the CA receives an invalid request for a certificate. Use the applicable format:
 
-- **flags** – `0`
-- **tag** – `iodef`
-- **value** – the URL or email address that you want the CA to notify
-  if the CA receives an invalid request for a certificate. Use the applicable format:
+  `"mailto:{{email-address}}"`
 
-`"mailto:`email-address`"`
+  `"http://{{URL}}"`
 
-`"http://`URL`"`
+  `"https://{{URL}}"`
 
-`"https://`URL`"`
-
-For example, if you want any CA that receives an invalid request for a certificate to send email to
-admin@example.com, you create a CAA record with the following settings:
+For example, if you want any CA that receives an invalid request for a certificate to send email to admin@example.com, you create a CAA record with the following settings:
 
 ```
 0 iodef "mailto:admin@example.com"
 ```
 
 ### Use another setting that is supported by the CA
+<a name="CAAFormat-custom-setting"></a>
 
 If your CA supports a feature that isn't defined in the RFC for CAA records, specify the following settings:
++ **flags** – 128 (This value prevents the CA from issuing a certificate if the CA doesn't support the specified feature.)
++ **tag** – the tag that you authorize the CA to use
++ **value** – the value that corresponds with the value of tag
 
-- **flags** – 128 (This value prevents the CA from issuing a certificate
-  if the CA doesn't support the specified feature.)
-- **tag** – the tag that you authorize the CA to use
-- **value** – the value that corresponds with the value of tag
-
-For example, suppose your CA supports sending a text message if the CA receives an invalid certificate request.
-(We aren't aware of any CAs that support this option.) Settings for the record might be the following:
+For example, suppose your CA supports sending a text message if the CA receives an invalid certificate request. (We aren't aware of any CAs that support this option.) Settings for the record might be the following:
 
 ```
 128 exampletag "15555551212"
 ```
 
 ### Examples
+<a name="CAAFormat-examples"></a>
 
 **Example for the Route 53 console**
 
@@ -237,24 +204,15 @@ For example, suppose your CA supports sending a text message if the CA receives 
 ```
 
 ## CNAME record type
+<a name="CNAMEFormat"></a>
 
-A CNAME record maps DNS queries for the name of the current record, such as acme.example.com, to another domain (example.com or
-example.net) or subdomain (acme.example.com or zenith.example.org).
+A CNAME record maps DNS queries for the name of the current record, such as acme.example.com, to another domain (example.com or example.net) or subdomain (acme.example.com or zenith.example.org). 
 
-###### Important
+**Important**  
+The DNS protocol does not allow you to create a CNAME record for the top node of a DNS namespace, also known as the zone apex. For example, if you register the DNS name example.com, the zone apex is example.com. You cannot create a CNAME record for example.com, but you can create CNAME records for www.example.com, newproduct.example.com, and so on.  
+In addition, if you create a CNAME record for a subdomain, you cannot create any other records for that subdomain. For example, if you create a CNAME for www.example.com, you cannot create any other records for which the value of the **Name** field is www.example.com.
 
-The DNS protocol does not allow you to create a CNAME record for the top node of a DNS namespace, also known as the zone apex.
-For example, if you register the DNS name example.com, the zone apex is example.com. You cannot create a CNAME record for example.com,
-but you can create CNAME records for www.example.com, newproduct.example.com, and so on.
-
-In addition, if you create a CNAME record for a subdomain, you cannot create any other records for that subdomain.
-For example, if you create a CNAME for www.example.com, you cannot create any other records for which the value of the
-**Name** field is www.example.com.
-
-Amazon Route 53 also supports alias records, which allow you to route queries to selected AWS resources, such as CloudFront distributions and
-Amazon S3 buckets. Aliases are similar in some ways to the CNAME record type; however, you can create an alias for the zone apex.
-For more information, see
-[Choosing between alias and non-alias records](resource-record-sets-choosing-alias-non-alias.md "resource-record-sets-choosing-alias-non-alias.md").
+Amazon Route 53 also supports alias records, which allow you to route queries to selected AWS resources, such as CloudFront distributions and Amazon S3 buckets. Aliases are similar in some ways to the CNAME record type; however, you can create an alias for the zone apex. For more information, see [Choosing between alias and non-alias records](resource-record-sets-choosing-alias-non-alias.md).
 
 **Example for the Route 53 console**
 
@@ -269,14 +227,11 @@ hostname.example.com
 ```
 
 ## DS record type
+<a name="DSFormat"></a>
 
-A delegation signer (DS) record refers a zone key for a delegated subdomain zone. You might create a DS record when you
-establish a chain of trust when you configure DNSSEC signing. For more information about configuring DNSSEC in Route 53, see
-[Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md "dns-configuring-dnssec.md").
+A delegation signer (DS) record refers a zone key for a delegated subdomain zone. You might create a DS record when you establish a chain of trust when you configure DNSSEC signing. For more information about configuring DNSSEC in Route 53, see [Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md).
 
-The first three values are decimal numbers representing the key tag, algorithm, and digest type.
-The fourth value is the digest of the zone key. For more information about the DS record format, see
-[RFC 4034](https://www.ietf.org/rfc/rfc4034.txt "https://www.ietf.org/rfc/rfc4034.txt").
+The first three values are decimal numbers representing the key tag, algorithm, and digest type. The fourth value is the digest of the zone key. For more information about the DS record format, see [RFC 4034](https://www.ietf.org/rfc/rfc4034.txt).
 
 **Example for the Route 53 console**
 
@@ -291,46 +246,32 @@ The fourth value is the digest of the zone key. For more information about the D
 ```
 
 ## HTTPS record type
+<a name="HTTPSFormat"></a>
 
-An HTTPS resource record is a form of the Service Binding (SVCB) DNS record that provides
-extended configuration information, enabling a client to easily and securely connect
-to a service with an HTTP protocol. The configuration information is provided in
-parameters that allow the connection in one DNS query, rather than necessitating
-multiple DNS queries.
+An HTTPS resource record is a form of the Service Binding (SVCB) DNS record that provides extended configuration information, enabling a client to easily and securely connect to a service with an HTTP protocol. The configuration information is provided in parameters that allow the connection in one DNS query, rather than necessitating multiple DNS queries. 
 
 The format for an HTTPS resource record is:
 
 `SvcPriority TargetName SvcParams(optional)`
 
-The following parameters are described in [RFC 9460, section 9.1](https://www.rfc-editor.org/rfc/rfc9460.html#section-9.1 "https://www.rfc-editor.org/rfc/rfc9460.html#section-9.1").
+The following parameters are described in [RFC 9460, section 9.1](https://www.rfc-editor.org/rfc/rfc9460.html#section-9.1).
 
-**SvcPriority**
-An integer that represents the priority. 0 priority
-means alias mode, and is generally intended for aliasing at the zone apex.
-This value is an integer 0-32767 for Route 53 of which
-1-32767 are service mode records. Lower the priority, higher the
-preference.
+**SvcPriority**  
+An integer that represents the priority. 0 priority means alias mode, and is generally intended for aliasing at the zone apex. This value is an integer 0-32767 for Route 53 of which 1-32767 are service mode records. Lower the priority, higher the preference. 
 
-**TargetName**
-The domain name of either the alias target (for alias mode) or the alternate endpoint (for
-ServiceMode).
+**TargetName**  
+The domain name of either the alias target (for alias mode) or the alternate endpoint (for ServiceMode).
 
-**SvcParams (optional)**
-A whitespace-separated list, with each parameter consisting of a Key=Value pair or a
-standalone key. If there is more than one value, they are presented as a
-comma-separated list. The following are the defined
-SvcParams:
-
-- `1:alpn` – Application Layer Protocol Negotiation Protocol IDs. Default is HTTP/1.1, `h2` is HTTP/2 over TLS, and
-  `h3` is HTTP/3 (HTTP over QUIC protocol).
-- `2:no-default-alpn` – The default is not supported and you must provide an `alpn` parameter.
-- `3:port` – the alternate endpoint, or the port where the service can be
-  reached.
-- `4:ipv4hint` – IPv4 address hints.
-- `5:ech` – Encrypted Client Hello.
-- `6:ipv6hint` – IPv6 address hints.
-- `7:dohpath` – DNS over HTTPS template
-- `8:ohttp` – The service operates an Oblivious HTTP target
+**SvcParams (optional)**  
+ A whitespace-separated list, with each parameter consisting of a Key=Value pair or a standalone key. If there is more than one value, they are presented as a comma-separated list. The following are the defined SvcParams:  
++ `1:alpn` – Application Layer Protocol Negotiation Protocol IDs. Default is HTTP/1.1, `h2` is HTTP/2 over TLS, and `h3` is HTTP/3 (HTTP over QUIC protocol). 
++ `2:no-default-alpn` – The default is not supported and you must provide an `alpn` parameter.
++ `3:port` – the alternate endpoint, or the port where the service can be reached. 
++ `4:ipv4hint` – IPv4 address hints.
++ `5:ech` – Encrypted Client Hello.
++ `6:ipv6hint` – IPv6 address hints.
++ `7:dohpath` – DNS over HTTPS template
++ `8:ohttp` – The service operates an Oblivious HTTP target
 
 **Example for the Amazon Route 53 console for alias mode**
 
@@ -356,30 +297,21 @@ SvcParams:
 <Value>16 example.com alpn="h2,h3" port=808</Value>
 ```
 
-For more information, see [RFC 9460, Service Binding and Parameter Specification via the DNS (SVCB and HTTPS Resource Records)](https://datatracker.ietf.org/doc/html/rfc9460 "https://datatracker.ietf.org/doc/html/rfc9460").
+For more information, see [RFC 9460, Service Binding and Parameter Specification via the DNS (SVCB and HTTPS Resource Records)](https://datatracker.ietf.org/doc/html/rfc9460).
 
-###### Note
-
+**Note**  
 Route 53 does not support the arbitrary unknown-key presentation format `keyNNNNN`
 
 ## MX record type
+<a name="MXFormat"></a>
 
-An MX record specifies the names of your mail servers and, if you have two or more mail servers, the priority order. Each value for an MX record
-contains two values, priority and domain name.
+An MX record specifies the names of your mail servers and, if you have two or more mail servers, the priority order. Each value for an MX record contains two values, priority and domain name.
 
-**Priority**
-An integer that represents the priority for an email server. If you specify only one server, the priority can be
-any integer between 0 and 65535. If you specify multiple servers, the value that you specify for the priority indicates
-which email server you want email to be routed to first, second, and so on. The server with the lowest value for the priority
-takes precedence. For example, if you have two email servers and you specify values of 10 and 20 for the priority,
-email always goes to the server with a priority of 10 unless it's unavailable. If you specify values of 10 and 10, email is routed
-to the two servers approximately equally.
+**Priority**  
+An integer that represents the priority for an email server. If you specify only one server, the priority can be any integer between 0 and 65535. If you specify multiple servers, the value that you specify for the priority indicates which email server you want email to be routed to first, second, and so on. The server with the lowest value for the priority takes precedence. For example, if you have two email servers and you specify values of 10 and 20 for the priority, email always goes to the server with a priority of 10 unless it's unavailable. If you specify values of 10 and 10, email is routed to the two servers approximately equally.
 
-**Domain name**
-The domain name of the email server. Specify the name (such as mail.example.com) of an A or AAAA record.
-In [RFC 2181, Clarifications to the DNS Specification](https://tools.ietf.org/html/rfc2181 "https://tools.ietf.org/html/rfc2181"), section 10.3
-forbids specifying the name of a CNAME record for the domain name value. (When the RFC mentions "alias," it means a CNAME record,
-not a Route 53 alias record.)
+**Domain name**  
+The domain name of the email server. Specify the name (such as mail.example.com) of an A or AAAA record. In [RFC 2181, Clarifications to the DNS Specification](https://tools.ietf.org/html/rfc2181), section 10.3 forbids specifying the name of a CNAME record for the domain name value. (When the RFC mentions "alias," it means a CNAME record, not a Route 53 alias record.)
 
 **Example for the Amazon Route 53 console**
 
@@ -394,73 +326,50 @@ not a Route 53 alias record.)
 ```
 
 ## NAPTR record type
+<a name="NAPTRFormat"></a>
 
-A Name Authority Pointer (NAPTR) is a type of record that is used by Dynamic Delegation Discovery System (DDDS) applications
-to convert one value to another or to replace one value with another. For example, one common use is to convert phone numbers into SIP URIs.
+A Name Authority Pointer (NAPTR) is a type of record that is used by Dynamic Delegation Discovery System (DDDS) applications to convert one value to another or to replace one value with another. For example, one common use is to convert phone numbers into SIP URIs. 
 
 The `Value` element for an NAPTR record consists of six space-separated values:
 
-**Order**
-When you specify more than one record, the sequence that you want the DDDS application to evaluate records in.
-Valid values: 0-65535.
+**Order**  
+When you specify more than one record, the sequence that you want the DDDS application to evaluate records in. Valid values: 0-65535.
 
-**Preference**
-When you specify two or more records that have the same **Order**, your preference for the sequence
-that those records are evaluated in. For example, if two records have an **Order** of 1, the DDDS application
-first evaluates the record that has the lower **Preference**. Valid values: 0-65535.
+**Preference**  
+When you specify two or more records that have the same **Order**, your preference for the sequence that those records are evaluated in. For example, if two records have an **Order** of 1, the DDDS application first evaluates the record that has the lower **Preference**. Valid values: 0-65535.
 
-**Flags**
-A setting that is specific to DDDS applications. Values currently defined in [RFC 3404](https://www.ietf.org/rfc/rfc3404.txt "https://www.ietf.org/rfc/rfc3404.txt")
-are uppercase- and lowercase letters **"A"**, **"P"**, **"S"**, and **"U"**,
-and the empty string, **""**. Enclose **Flags** in quotation marks.
+**Flags**  
+A setting that is specific to DDDS applications. Values currently defined in [RFC 3404](https://www.ietf.org/rfc/rfc3404.txt) are uppercase- and lowercase letters **"A"**, **"P"**, **"S"**, and **"U"**, and the empty string, **""**. Enclose **Flags** in quotation marks. 
 
-**Service**
-A setting that is specific to DDDS applications. Enclose **Service** in quotation marks.
+**Service**  
+A setting that is specific to DDDS applications. Enclose **Service** in quotation marks.  
+For more information, see the applicable RFCs:  
++ **URI DDDS application** – [https://tools.ietf.org/html/rfc3404\#section-4.4](https://tools.ietf.org/html/rfc3404#section-4.4)
++ **S-NAPTR DDDS application** – [https://tools.ietf.org/html/rfc3958\#section-6.5](https://tools.ietf.org/html/rfc3958#section-6.5)
++ **U-NAPTR DDDS application** – [https://tools.ietf.org/html/rfc4848\#section-4.5](https://tools.ietf.org/html/rfc4848#section-4.5)
 
-For more information, see the applicable RFCs:
+**Regexp**  
+A regular expression that the DDDS application uses to convert an input value into an output value. For example, an IP phone system might use a regular expression to convert a phone number that is entered by a user into a SIP URI. Enclose **Regexp** in quotation marks. Specify either a value for **Regexp** or a value for **Replacement**, but not both.  
+The regular expression can include any of the following printable ASCII characters:  
++ a-z
++ 0-9
++ - (hyphen)
++ (space)
++ \! \# $ % & ' ( ) \* \+ , - / : ; < = > ? @ [ ] ^ \_ ` { \| } \~ .
++ " (quotation mark). To include a literal quote in a string, precede it with a \\ character: \\".
++ \\ (backslash). To include a backslash in a string, precede it with a \\ character: \\\\.
+Specify all other values, such as internationalized domain names, in octal format.  
+For the syntax for **Regexp**, see [RFC 3402, section 3.2, Substitution Expression Syntax](https://tools.ietf.org/html/rfc3402#section-3.2)
 
-- **URI DDDS application** –
-  [https://tools.ietf.org/html/rfc3404#section-4.4](https://tools.ietf.org/html/rfc3404#section-4.4 "https://tools.ietf.org/html/rfc3404#section-4.4")
-- **S-NAPTR DDDS application** –
-  [https://tools.ietf.org/html/rfc3958#section-6.5](https://tools.ietf.org/html/rfc3958#section-6.5 "https://tools.ietf.org/html/rfc3958#section-6.5")
-- **U-NAPTR DDDS application** –
-  [https://tools.ietf.org/html/rfc4848#section-4.5](https://tools.ietf.org/html/rfc4848#section-4.5 "https://tools.ietf.org/html/rfc4848#section-4.5")
-
-**Regexp**
-A regular expression that the DDDS application uses to convert an input value into an output value. For example, an
-IP phone system might use a regular expression to convert a phone number that is entered by a user into a SIP URI.
-Enclose **Regexp** in quotation marks. Specify either a value for **Regexp** or a value for
-**Replacement**, but not both.
-
-The regular expression can include any of the following printable ASCII characters:
-
-- a-z
-- 0-9
-- - (hyphen)
-- (space)
-- ! # $ % & ' ( ) \* + , - / : ; < = > ? @ [ ] ^ \_ ` { | } ~ .
-- " (quotation mark). To include a literal quote in a string, precede it with a \ character: \".
-- \ (backslash). To include a backslash in a string, precede it with a \ character: \\.
-
-Specify all other values, such as internationalized domain names, in octal format.
-
-For the syntax for **Regexp**, see
-[RFC 3402, section 3.2, Substitution Expression Syntax](https://tools.ietf.org/html/rfc3402#section-3.2 "https://tools.ietf.org/html/rfc3402#section-3.2")
-
-**Replacement**
-The fully qualified domain name (FQDN) of the next domain name that you want the DDDS application to submit a
-DNS query for. The DDDS application replaces the input value with the value that you specify for **Replacement**, if any.
-Specify either a value for **Regexp** or a value for **Replacement**, but not both.
-If you specify a value for **Regexp**, specify a dot (**.**) for **Replacement**.
-
+**Replacement**  
+The fully qualified domain name (FQDN) of the next domain name that you want the DDDS application to submit a DNS query for. The DDDS application replaces the input value with the value that you specify for **Replacement**, if any. Specify either a value for **Regexp** or a value for **Replacement**, but not both. If you specify a value for **Regexp**, specify a dot (**.**) for **Replacement**.  
 The domain name can include a-z, 0-9, and - (hyphen).
 
 For more information about DDDS applications and about NAPTR records, see the following RFCs:
-
-- [RFC 3401](https://www.ietf.org/rfc/rfc3401.txt "https://www.ietf.org/rfc/rfc3401.txt")
-- [RFC 3402](https://www.ietf.org/rfc/rfc3402.txt "https://www.ietf.org/rfc/rfc3402.txt")
-- [RFC 3403](https://www.ietf.org/rfc/rfc3403.txt "https://www.ietf.org/rfc/rfc3403.txt")
-- [RFC 3404](https://www.ietf.org/rfc/rfc3404.txt "https://www.ietf.org/rfc/rfc3404.txt")
++ [RFC 3401](https://www.ietf.org/rfc/rfc3401.txt)
++ [RFC 3402](https://www.ietf.org/rfc/rfc3402.txt)
++ [RFC 3403](https://www.ietf.org/rfc/rfc3403.txt)
++ [RFC 3404](https://www.ietf.org/rfc/rfc3404.txt)
 
 **Example for the Amazon Route 53 console**
 
@@ -481,24 +390,15 @@ For more information about DDDS applications and about NAPTR records, see the fo
 ```
 
 ## NS record type
+<a name="NSFormat"></a>
 
 An NS record identifies the name servers for the hosted zone. Note the following:
++ The most common use for an NS record is to control how internet traffic is routed for a domain. To use the records in a hosted zone to route traffic for a domain, you update the domain registration settings to use the four name servers in the default NS record. (This is the NS record that has the same name as the hosted zone.)
++ You can create a separate hosted zone for a subdomain (acme.example.com) and use that hosted zone to route internet traffic for the subdomain and its subdomains (subdomain.acme.example.com). You set up this configuration, known as "delegating responsibility for a subdomain to a hosted zone" by creating another NS record in the hosted zone for the root domain (example.com). For more information, see [Routing traffic for subdomains](dns-routing-traffic-for-subdomains.md).
++ You also use NS records to configure white-label name servers. For more information, see [Configuring white-label name servers](white-label-name-servers.md).
++ Another use for an NS record is for private hosted zones when you create a delegate rule to delegate the authority for a subdomain to your on-premises resolver. You must create this NS record before you create a delegate rule. For more information, see [How Resolver endpoints forward DNS queries from your VPCs to your network](resolver-overview-forward-vpc-to-network.md).
 
-- The most common use for an NS record is to control how internet traffic is routed for a domain.
-  To use the records in a hosted zone to route traffic for a domain, you update the domain registration settings
-  to use the four name servers in the default NS record. (This is the NS record that has the same name as the hosted zone.)
-- You can create a separate hosted zone for a subdomain (acme.example.com) and use that hosted zone to route
-  internet traffic for the subdomain and its subdomains (subdomain.acme.example.com). You set up this configuration,
-  known as "delegating responsibility for a subdomain to a hosted zone" by creating another NS record in the hosted zone
-  for the root domain (example.com). For more information, see
-  [Routing traffic for subdomains](dns-routing-traffic-for-subdomains.md "dns-routing-traffic-for-subdomains.md").
-- You also use NS records to configure white-label name servers. For more information, see
-  [Configuring white-label name servers](white-label-name-servers.md "white-label-name-servers.md").
-- Another use for an NS record is for private hosted zones when you create a delegate rule to delegate the authority for a subdomain
-  to your on-premises resolver. You must create this NS record before you create a delegate rule. For more information, see
-  [How Resolver endpoints forward DNS queries from your VPCs to your network](resolver-overview-forward-vpc-to-network.md "resolver-overview-forward-vpc-to-network.md").
-
-For more information about NS records, see [NS and SOA records that Amazon Route 53 creates for a public hosted zone](SOA-NSrecords.md "SOA-NSrecords.md").
+For more information about NS records, see [NS and SOA records that Amazon Route 53 creates for a public hosted zone](SOA-NSrecords.md).
 
 **Example for the Amazon Route 53 console**
 
@@ -513,6 +413,7 @@ ns-1.example.com
 ```
 
 ## PTR record type
+<a name="PTRFormat"></a>
 
 A PTR record maps an IP address to the corresponding domain name.
 
@@ -529,9 +430,9 @@ hostname.example.com
 ```
 
 ## SOA record type
+<a name="SOAFormat"></a>
 
-A start of authority (SOA) record provides information about a domain and the corresponding Amazon Route 53 hosted zone. For information
-about the fields in an SOA record, see [NS and SOA records that Amazon Route 53 creates for a public hosted zone](SOA-NSrecords.md "SOA-NSrecords.md").
+A start of authority (SOA) record provides information about a domain and the corresponding Amazon Route 53 hosted zone. For information about the fields in an SOA record, see [NS and SOA records that Amazon Route 53 creates for a public hosted zone](SOA-NSrecords.md).
 
 **Example for the Route 53 console**
 
@@ -546,17 +447,11 @@ ns-2048.awsdns-64.net hostmaster.awsdns.com 1 1 1 1 60
 ```
 
 ## SPF record type
+<a name="SPFFormat"></a>
 
-SPF records were formerly used to verify the identity of the sender of email messages. However, we no longer recommend
-that you create records for which the record type is SPF. RFC 7208,
-_Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1_, has been updated to say,
-"...[I]ts existence and mechanism defined in [RFC4408] have led to some interoperability issues. Accordingly, its use is
-no longer appropriate for SPF version 1; implementations are not to use it." In RFC 7208, see section 14.1,
-[The SPF DNS Record Type](http://tools.ietf.org/html/rfc7208#section-14.1 "http://tools.ietf.org/html/rfc7208#section-14.1").
+SPF records were formerly used to verify the identity of the sender of email messages. However, we no longer recommend that you create records for which the record type is SPF. RFC 7208, *Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1*, has been updated to say, "...[I]ts existence and mechanism defined in [RFC4408] have led to some interoperability issues. Accordingly, its use is no longer appropriate for SPF version 1; implementations are not to use it." In RFC 7208, see section 14.1, [The SPF DNS Record Type](http://tools.ietf.org/html/rfc7208#section-14.1).
 
-Instead of an SPF record, we recommend that you create a TXT record that contains the applicable value.
-For more information about valid values, see the Wikipedia article
-[Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework "https://en.wikipedia.org/wiki/Sender_Policy_Framework").
+Instead of an SPF record, we recommend that you create a TXT record that contains the applicable value. For more information about valid values, see the Wikipedia article [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework).
 
 **Example for the Amazon Route 53 console**
 
@@ -571,12 +466,9 @@ For more information about valid values, see the Wikipedia article
 ```
 
 ## SRV record type
+<a name="SRVFormat"></a>
 
-An SRV record `Value` element consists of four space-separated values. The first
-three values are decimal numbers representing priority, weight, and port. The fourth
-value is a domain name. SRV records are used for accessing services, such as a service
-for email or communications. For information about SRV record format, refer to the
-documentation for the service that you want to connect to.
+An SRV record `Value` element consists of four space-separated values. The first three values are decimal numbers representing priority, weight, and port. The fourth value is a domain name. SRV records are used for accessing services, such as a service for email or communications. For information about SRV record format, refer to the documentation for the service that you want to connect to.
 
 **Example for the Amazon Route 53 console**
 
@@ -591,39 +483,32 @@ documentation for the service that you want to connect to.
 ```
 
 ## SSHFP record type
+<a name="SSHFPFormat"></a>
 
-A Secure Shell fingerprint record (SSHFP) identifies SSH keys associated with the domain name.
-SSHFP records must be secured with DNSSEC for a chain of trust to be established. For more information about DNSSEC, see
-[Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md "dns-configuring-dnssec.md")
+A Secure Shell fingerprint record (SSHFP) identifies SSH keys associated with the domain name. SSHFP records must be secured with DNSSEC for a chain of trust to be established. For more information about DNSSEC, see [Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md)
 
 The format for an SSHFP resource record is:
 
 `[Key Algorithm] [Hash Type] Fingerprint`
 
-The following parameters are defined in [RFC 4255](https://datatracker.ietf.org/doc/html/rfc4255 "https://datatracker.ietf.org/doc/html/rfc4255").
+The following parameters are defined in [RFC 4255](https://datatracker.ietf.org/doc/html/rfc4255).
 
-**Key Algorithm**
+**Key Algorithm**  
+Algorithm type:  
++ `0` – Reserved and not used.
++ `1: RSA` – Rivest–Shamir–Adleman algorithm is one of the first public-key cryptosystems and is still in use for secure data transmission.
++ `2: DSA` – Digital Signature Algorithm is a Federal Information Processing Standard for digital signatures. DSA is based on modular exponentiation and the discrete logarithm mathematical models.
++ `3: ECDSA` – Elliptic Curve Digital Signature Algorithm is a variant of the DSA that uses elliptic curve cryptography.
++ `4: Ed25519` – Ed25519 algorithm is the EdDSA signature scheme that uses SHA-512 (SHA-2) and Curve25519.
++ `6: Ed448` – Ed448 is the EdDSA signature scheme that uses SHAKE256 and Curve448.
 
-Algorithm type:
+**Hash Type**  
+Algorithm used to create the public key hash:  
++ `0` –Reserved and not used.
++ `1: SHA-1`
++ `2: SHA-256`
 
-- `0` – Reserved and not used.
-- `1: RSA` – Rivest–Shamir–Adleman algorithm is one of the first public-key cryptosystems and is still in use for
-  secure data transmission.
-- `2: DSA` – Digital Signature Algorithm is a Federal Information Processing Standard for digital signatures.
-  DSA is based on modular exponentiation and the discrete logarithm mathematical models.
-- `3: ECDSA` – Elliptic Curve Digital Signature Algorithm is a variant of the
-  DSA that uses elliptic curve cryptography.
-- `4: Ed25519` – Ed25519 algorithm is the EdDSA signature scheme that uses SHA-512 (SHA-2) and Curve25519.
-- `6: Ed448` – Ed448 is the EdDSA signature scheme that uses SHAKE256 and Curve448.
-
-**Hash Type**
-Algorithm used to create the public key hash:
-
-- `0` –Reserved and not used.
-- `1: SHA-1`
-- `2: SHA-256`
-
-**Fingerprint**
+**Fingerprint**  
 Hexadecimal representation of the hash.
 
 **Example for the Amazon Route 53 console**
@@ -638,46 +523,35 @@ Hexadecimal representation of the hash.
 <Value>1 1 09F6A01D2175742B257C6B98B7C72C44C4040683</Value>
 ```
 
-For more information, see [RFC 4255: Using DNS to Securely Publish Secure Shell (SSH) Key Fingerprints](https://datatracker.ietf.org/doc/html/rfc4255 "https://datatracker.ietf.org/doc/html/rfc4255").
+For more information, see [RFC 4255: Using DNS to Securely Publish Secure Shell (SSH) Key Fingerprints](https://datatracker.ietf.org/doc/html/rfc4255).
 
 ## SVCB record type
+<a name="SVCBFormat"></a>
 
-You use an SVCB record to deliver configuration information for accessing service endpoints.
-The SVCB is a generic DNS record and can be used to negotiate parameters for a variety
-of application protocols.
+You use an SVCB record to deliver configuration information for accessing service endpoints. The SVCB is a generic DNS record and can be used to negotiate parameters for a variety of application protocols.
 
 The format for an SVCB resource record is:
 
 `SvcPriority TargetName SvcParams(optional)`
 
-The following parameters are described in [RFC 9460, section 2.3](https://www.rfc-editor.org/rfc/rfc9460.html#section-2.3 "https://www.rfc-editor.org/rfc/rfc9460.html#section-2.3").
+The following parameters are described in [RFC 9460, section 2.3](https://www.rfc-editor.org/rfc/rfc9460.html#section-2.3).
 
-**SvcPriority**
-An integer that represents the priority. 0 priority
-means alias mode, and is generally intended for aliasing at the zone apex.
-Lower the priority, higher the
-preference.
+**SvcPriority**  
+An integer that represents the priority. 0 priority means alias mode, and is generally intended for aliasing at the zone apex. Lower the priority, higher the preference. 
 
-**TargetName**
-The domain name of either the alias target (for alias mode) or the alternate endpoint (for
-ServiceMode).
+**TargetName**  
+The domain name of either the alias target (for alias mode) or the alternate endpoint (for ServiceMode).
 
-**SvcParams (optional)**
-A whitespace-separated list, with each parameter consisting of a Key=Value pair or a
-standalone key. If there is more than one value, they are presented as a
-comma-separated list. This value is an integer 0-32767 for Route 53 of which
-1-32767 are service mode records. The following are the defined
-SvcParams:
-
-- `1:alpn` – Application Layer Protocol Negotiation Protocol IDs. Default is HTTP/1.1, `h2` is HTTP/2 over TLS, and
-  `h3` is HTTP/3 (HTTP over QUIC protocol).
-- `2:no-default-alpn` – The default is not supported and you must provide an `alpn` parameter.
-- `3:port` – the port for the alternate endpoint where the service can be reached.
-- `4:ipv4hint` – IPv4 address hints.
-- `5:ech` – Encrypted Client Hello.
-- `6:ipv6hint` – IPv6 address hints.
-- `7:dohpath` – DNS over HTTPS template
-- `8:ohttp` – The service operates an Oblivious HTTP target
+**SvcParams (optional)**  
+ A whitespace-separated list, with each parameter consisting of a Key=Value pair or a standalone key. If there is more than one value, they are presented as a comma-separated list. This value is an integer 0-32767 for Route 53 of which 1-32767 are service mode records. The following are the defined SvcParams:  
++ `1:alpn` – Application Layer Protocol Negotiation Protocol IDs. Default is HTTP/1.1, `h2` is HTTP/2 over TLS, and `h3` is HTTP/3 (HTTP over QUIC protocol). 
++ `2:no-default-alpn` – The default is not supported and you must provide an `alpn` parameter.
++ `3:port` – the port for the alternate endpoint where the service can be reached. 
++ `4:ipv4hint` – IPv4 address hints.
++ `5:ech` – Encrypted Client Hello.
++ `6:ipv6hint` – IPv6 address hints.
++ `7:dohpath` – DNS over HTTPS template
++ `8:ohttp` – The service operates an Oblivious HTTP target
 
 **Example for the Amazon Route 53 console for alias mode**
 
@@ -703,58 +577,43 @@ SvcParams:
 <Value>16 example.com alpn="h2,h3" port=808</Value>
 ```
 
-For more information, see [RFC 9460, Service Binding and Parameter Specification via the DNS (SVCB and HTTPS Resource Records)](https://datatracker.ietf.org/doc/html/rfc9460 "https://datatracker.ietf.org/doc/html/rfc9460").
+For more information, see [RFC 9460, Service Binding and Parameter Specification via the DNS (SVCB and HTTPS Resource Records)](https://datatracker.ietf.org/doc/html/rfc9460).
 
-###### Note
-
+**Note**  
 Route 53 does not support the arbitrary unknown-key presentation format `keyNNNNN`
 
 ## TLSA record type
+<a name="TLSAFormat"></a>
 
-You use a TLSA record to use DNS-Based Authentication of Named Entities (DANE).
-A TLSA record associates a certificate/public key with a Transport Layer Security (TLS) endpoint,
-and clients can validate the certificate/public key using a TLSA record signed with DNSSEC.
+You use a TLSA record to use DNS-Based Authentication of Named Entities (DANE). A TLSA record associates a certificate/public key with a Transport Layer Security (TLS) endpoint, and clients can validate the certificate/public key using a TLSA record signed with DNSSEC.
 
-TLSA records can only be trusted if DNSSEC is enabled on your domain. For more information about DNSSEC, see
-[Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md "dns-configuring-dnssec.md")
+TLSA records can only be trusted if DNSSEC is enabled on your domain. For more information about DNSSEC, see [Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md)
 
 The format for a TLSA resource record is:
 
 `[Certificate usage] Selector [Matching type] [Certificate association data]`
 
-The following parameters are specified in [RFC 6698, section 3](https://datatracker.ietf.org/doc/html/rfc6698#section-3 "https://datatracker.ietf.org/doc/html/rfc6698#section-3").
+The following parameters are specified in [RFC 6698, section 3](https://datatracker.ietf.org/doc/html/rfc6698#section-3).
 
-**Certificate usage**
-Specifies the provided association that will be used to match the certificate presented in the TLS handshake:
+**Certificate usage**  
+Specifies the provided association that will be used to match the certificate presented in the TLS handshake:  
++ 0: CA Constraint – The certificate or public key must be found in any of the Public Key Infrastructure (PKIX) certification paths for the end entity certificate provided by the server in TLS. This constraint limits which CAs can be used to issue certificates for a specified service.
++ 1: Service Certificate Constraint – Specifies an end entity certificate (or the public key) that must match with the end entity certificate given by the server in TLS. This certification limits which end entity certificate can be used by a specified service on a host.
++ 2: A trust Anchor Assertion – Specifies a certificate (or the public key) that must be used as the “trust anchor” when validating the end entity certificate given by the server in TLS. Allows a domain administrator to specify a trust anchor.
++ 3: Domain-Issued Certification – Specifies a certificate (or the public key) that must match the end entity certificate given by the server in TLS. This certification allows for a domain administrator to issue certificates for a domain without involving a third-party CA. This certificate does not need to pass PKIX validation.
 
-- 0: CA Constraint – The certificate or public key must be found in any of the
-  Public Key Infrastructure (PKIX) certification paths for the end entity certificate provided by the server
-  in TLS. This constraint limits which CAs can be used to issue certificates for a specified service.
-- 1: Service Certificate Constraint – Specifies an end entity certificate (or the public key) that must
-  match with the end entity certificate given by the server in TLS.
-  This certification limits which end entity certificate can be used by a specified service on a host.
-- 2: A trust Anchor Assertion – Specifies a certificate (or the public key) that must be used as the “trust anchor”
-  when validating the end entity certificate given by the server in TLS.
-  Allows a domain administrator to specify a trust anchor.
-- 3: Domain-Issued Certification – Specifies a certificate (or the public key) that must match the end entity certificate
-  given by the server in TLS.
-  This certification allows for a domain administrator to issue certificates for a domain without
-  involving a third-party CA. This certificate does not need to pass PKIX validation.
+**Selector**  
+Specifies which part of the certificate presented by the server in the handshake is matched against the association value:  
++ 0: The entire certificate must be matched.
++ 1: The Subject Public Key, or the DER-encoded binary structure, must be matched.
 
-**Selector**
-Specifies which part of the certificate presented by the server in the handshake is matched against the association value:
+**Matching type**  
+Specifies the presentation (as determined by the Selector field) of the certificate match:  
++ 0: Exact match of the content.
++ 1: SHA-256 hash.
++ 2: SHA-512 hash.
 
-- 0: The entire certificate must be matched.
-- 1: The Subject Public Key, or the DER-encoded binary structure, must be matched.
-
-**Matching type**
-Specifies the presentation (as determined by the Selector field) of the certificate match:
-
-- 0: Exact match of the content.
-- 1: SHA-256 hash.
-- 2: SHA-512 hash.
-
-**Certificate association data**
+**Certificate association data**  
 The data to be matched based on the settings of the other fields.
 
 **Example for the Amazon Route 53 console**
@@ -769,34 +628,31 @@ The data to be matched based on the settings of the other fields.
 <Value>0 0 1 d2abde240d7cd3ee6b4b28c54df034b97983a1d16e8a410e4561cb106618e971</Value>
 ```
 
-For more information, see [RFC 6698, The DNS-Based Authentication of Named Entities (DANE) Transport Layer Security (TLS) Protocol: TLSA](https://datatracker.ietf.org/doc/html/rfc6698 "https://datatracker.ietf.org/doc/html/rfc6698").
+For more information, see [RFC 6698, The DNS-Based Authentication of Named Entities (DANE) Transport Layer Security (TLS) Protocol: TLSA](https://datatracker.ietf.org/doc/html/rfc6698).
 
 ## TXT record type
+<a name="TXTFormat"></a>
 
-A TXT record contains one or more strings that are enclosed in double quotation marks (`"`). When you use the simple
-[routing policy](routing-policy.md "routing-policy.md"), include all values for a domain (example.com) or
-subdomain (www.example.com) in the same TXT record.
+A TXT record contains one or more strings that are enclosed in double quotation marks (`"`). When you use the simple [routing policy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html), include all values for a domain (example.com) or subdomain (www.example.com) in the same TXT record.
 
-###### Topics
-
-- [Entering TXT record values](#TXTformat-limits "#TXTformat-limits")
-- [Special characters in a TXT record value](#TXTformat-special-characters "#TXTformat-special-characters")
-- [Uppercase and lowercase in a TXT record value](#TXTformat-case "#TXTformat-case")
-- [Examples](#TXTformat-examples "#TXTformat-examples")
+**Topics**
++ [Entering TXT record values](#TXTformat-limits)
++ [Special characters in a TXT record value](#TXTformat-special-characters)
++ [Uppercase and lowercase in a TXT record value](#TXTformat-case)
++ [Examples](#TXTformat-examples)
 
 ### Entering TXT record values
+<a name="TXTformat-limits"></a>
 
 A single string can include up to 255 characters, including the following:
++ a-z
++ A-Z
++ 0-9
++ Space
++ - (hyphen)
++ \! " \# $ % & ' ( ) \* \+ , - / : ; < = > ? @ [ \\ ] ^ \_ ` { \| } \~ . 
 
-- a-z
-- A-Z
-- 0-9
-- Space
-- - (hyphen)
-- ! " # $ % & ' ( ) \* + , - / : ; < = > ? @ [ \ ] ^ \_ ` { | } ~ .
-
-If you need to enter a value longer than 255 characters, break the value into strings of 255 characters or fewer, and enclose
-each string in double quotation marks (`"`). In the console, list all the strings on the same line:
+If you need to enter a value longer than 255 characters, break the value into strings of 255 characters or fewer, and enclose each string in double quotation marks (`"`). In the console, list all the strings on the same line:
 
 ```
 "String 1" "String 2" "String 3"
@@ -808,31 +664,30 @@ For the API, include all the strings in the same `Value` element:
 <Value>"String 1" "String 2" "String 3"</Value>
 ```
 
-The maximum length of a value in a TXT record is 4,000 characters.
+The maximum length of a value in a TXT record is 4,000 characters. 
 
 To enter more than one TXT value, enter one value per row.
 
 ### Special characters in a TXT record value
+<a name="TXTformat-special-characters"></a>
 
-If your TXT record contains any of the following characters, you must specify the characters by using escape codes in the
-format `\``three-digit octal code`:
-
-- Characters 000 to 040 octal (0 to 32 decimal, 0x00 to 0x20 hexadecimal)
-- Characters 177 to 377 octal (127 to 255 decimal, 0x7F to 0xFF hexadecimal)
+If your TXT record contains any of the following characters, you must specify the characters by using escape codes in the format `\`{{three-digit octal code}}:
++ Characters 000 to 040 octal (0 to 32 decimal, 0x00 to 0x20 hexadecimal)
++ Characters 177 to 377 octal (127 to 255 decimal, 0x7F to 0xFF hexadecimal)
 
 For example, if the value of your TXT record is `"exämple.com"`, you specify `"ex\344mple.com"`.
 
-For a mapping between ASCII characters and octal codes, perform an internet search for
-"ASCII octal codes." One useful reference is [ASCII Code - The extended ASCII table](https://www.ascii-code.com/ "https://www.ascii-code.com/").
+For a mapping between ASCII characters and octal codes, perform an internet search for "ASCII octal codes." One useful reference is [ASCII Code - The extended ASCII table](https://www.ascii-code.com/). 
 
-To include a quotation mark (`"`) in a string, put a backslash (`\`) character before the
-quotation mark: `\"`.
+To include a quotation mark (`"`) in a string, put a backslash (`\`) character before the quotation mark: `\"`. 
 
 ### Uppercase and lowercase in a TXT record value
+<a name="TXTformat-case"></a>
 
 Case is preserved, so `"Ab"` and `"aB"` are different values.
 
 ### Examples
+<a name="TXTformat-examples"></a>
 
 **Example for the Amazon Route 53 console**
 

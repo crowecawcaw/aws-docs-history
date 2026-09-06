@@ -1,126 +1,105 @@
+
+
 # Geoproximity routing
+<a name="routing-policy-geoproximity"></a>
 
-With geoproximity routing, Amazon Route 53 routes traffic to your resources based on the location of your users and
-your resources. It sends traffic to the closest available resource. You can also choose to send more or less traffic to a given resource by setting a value
-called a _bias_. A bias expands or shrinks the geographic region from which traffic goes
-to a resource.
+With geoproximity routing, Amazon Route 53 routes traffic to your resources based on the location of your users and your resources. It sends traffic to the closest available resource. You can also choose to send more or less traffic to a given resource by setting a value called a *bias*. A bias expands or shrinks the geographic region from which traffic goes to a resource.
 
-You create
-geoproximity rules for your resources and specify one of the following values for each rule:
+You create geoproximity rules for your resources and specify one of the following values for each rule:
++ If you're using AWS resources, specify the AWS Region or Local Zone Group that you created the resource in.
++ If you're using non-AWS resources, specify the latitude and longitude of the resource.
 
-- If you're using AWS resources, specify the AWS Region or Local Zone Group that you created the resource
-  in.
-- If you're using non-AWS resources, specify the latitude and longitude of the resource.
-  To use AWS Local Zones, you have to first enable them. For more information, see
-  [Getting started with Local Zones](../../../local-zones/latest/ug/getting-started.md "../../../local-zones/latest/ug/getting-started.md") in the
-  _AWS Local Zones User Guide_.
+To use AWS Local Zones, you have to first enable them. For more information, see [Getting started with Local Zones](https://docs.aws.amazon.com/local-zones/latest/ug/getting-started.html) in the *AWS Local Zones User Guide*.
 
-To learn about the difference between AWS Regions and Local Zones, see [Regions and
-Zones](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md") in the _Amazon EC2 User Guide_.
+To learn about the difference between AWS Regions and Local Zones, see [Regions and Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) in the *Amazon EC2 User Guide*.
 
-To optionally change the size of the geographic region from which Route 53 routes traffic to a resource, specify the
-applicable value for the bias:
+To optionally change the size of the geographic region from which Route 53 routes traffic to a resource, specify the applicable value for the bias:
++ To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from 1 to 99 for the bias. Route 53 shrinks the size of adjacent regions. 
++ To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of -1 to -99. Route 53 expands the size of adjacent regions. 
 
-- To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a
-  positive integer from 1 to 99 for the bias. Route 53 shrinks the size of adjacent regions.
-- To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a
-  negative bias of -1 to -99. Route 53 expands the size of adjacent regions.
-
-###### Note
-
-Route 53 is updating the Traffic Flow console. During the transition period, you can continue
-to use the old console.
+**Note**  
+Route 53 is updating the Traffic Flow console. During the transition period, you can continue to use the old console.
 
 Choose the tab for the console you are using.
++ [New console](#traffic-flow-geoprox-routing-map-new)
++ [Old console](#traffic-flow-geoprox-routing-map-old)
 
-- [New console](#traffic-flow-geoprox-routing-map-new "#traffic-flow-geoprox-routing-map-new")
-- [Old console](#traffic-flow-geoprox-routing-map-old "#traffic-flow-geoprox-routing-map-old")
+------
+#### [ New console ]
 
-New console
 The following map shows four AWS Regions (numbered 1 through 5):
 
 1. US West (Oregon)
-2. Europe (Frankfurt)
-3. Asia Pacific (Tokyo)
-4. Africa (Cape Town)
-5. Middle East (Bahrain)
 
-###### Note
+1. Europe (Frankfurt)
 
+1. Asia Pacific (Tokyo)
+
+1. Africa (Cape Town)
+
+1. Middle East (Bahrain)
+
+**Note**  
 The maps are available only with Traffic Flow.
 
-![A map of the world that shows how traffic is routed when you have geoproximity records for resources in the AWS Regions in US West (Oregon), Europe (Frankfurt), Asia Pacific (Tokyo), Africa (Cape Town) and Middle East (Bahrain).](images/traffic-flow-geoproximity-no-bias-new.png)
+![A map of the world that shows how traffic is routed when you have geoproximity records for resources in the AWS Regions in US West (Oregon), Europe (Frankfurt), Asia Pacific (Tokyo), Africa (Cape Town) and Middle East (Bahrain).](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-no-bias-new.png)
 
-The following map shows what happens if you add a bias of +25 for the US West (Oregon) Region
-(number **1** on the map). Traffic is routed to the resource in that Region from a larger portion of
-North America and from all of South America than previously.
 
-![A map of the world that shows how traffic is routed when you add a bias of +25 in the US East (Northern Virginia) Region.](images/traffic-flow-geoproximity-bias-plus25-new.png)
+The following map shows what happens if you add a bias of \+25 for the US West (Oregon) Region (number **1** on the map). Traffic is routed to the resource in that Region from a larger portion of North America and from all of South America than previously.
 
-The following map shows what happens if you change the bias to -25 for the
-US West (Oregon) Region. Traffic is routed to the resource in that
-Region from smaller portions of North and South America than previously,
-and more traffic is routed to resources in the adjacent regions
-**2**, **3**, and **4**.
+![A map of the world that shows how traffic is routed when you add a bias of +25 in the US East (Northern Virginia) Region.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-bias-plus25-new.png)
 
-![A map of the world that shows how traffic is routed when you add a bias of -25 in the US West (Oregon) Region.](images/traffic-flow-geoproximity-bias-minus25-new.png)
 
-Old console
-The following map shows four AWS Regions (numbered 1 through 4) and a location in Johannesburg, South Africa that is
-specified by latitude and longitude (5).
+The following map shows what happens if you change the bias to -25 for the US West (Oregon) Region. Traffic is routed to the resource in that Region from smaller portions of North and South America than previously, and more traffic is routed to resources in the adjacent regions **2**, **3**, and **4**. 
 
-###### Note
+![A map of the world that shows how traffic is routed when you add a bias of -25 in the US West (Oregon) Region.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-bias-minus25-new.png)
 
+
+------
+#### [ Old console ]
+
+The following map shows four AWS Regions (numbered 1 through 4) and a location in Johannesburg, South Africa that is specified by latitude and longitude (5).
+
+**Note**  
 The maps are available only with Traffic Flow.
 
-![A map of the world that shows how traffic is routed when you have geoproximity records for resources in the AWS Regions in US West (Oregon), US East (N. Virginia), Europe (Paris), and Asia Pacific (Tokyo), and you have a record for a non-AWS resource in Johannesburg, South Africa.](images/traffic-flow-geoproximity-map-example-no-bias.png)
+![A map of the world that shows how traffic is routed when you have geoproximity records for resources in the AWS Regions in US West (Oregon), US East (N. Virginia), Europe (Paris), and Asia Pacific (Tokyo), and you have a record for a non-AWS resource in Johannesburg, South Africa.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map-example-no-bias.png)
 
-The following map shows what happens if you add a bias of +25 for the US East (N. Virginia) Region
-(number **2** on the map). Traffic is routed to the resource in that Region from a larger portion of
-North America than previously, and from all of South America.
 
-![A map of the world that shows how traffic is routed when you add a bias of +25 in the US East (Northern Virginia) Region.](images/traffic-flow-geoproximity-map-example-bias-plus-25.png)
+The following map shows what happens if you add a bias of \+25 for the US East (N. Virginia) Region (number **2** on the map). Traffic is routed to the resource in that Region from a larger portion of North America than previously, and from all of South America.
 
-The following map shows what happens if you change the bias to -25 for the US East (N. Virginia) Region. Traffic is
-routed to the resource in that Region from smaller portions of North and South America than previously, and more traffic is routed
-to resources in the adjacent regions **1**, **3**, and
-**5**.
+![A map of the world that shows how traffic is routed when you add a bias of +25 in the US East (Northern Virginia) Region.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map-example-bias-plus-25.png)
 
-![A map of the world that shows how traffic is routed when you add a bias of -25 in the US East (N. Virginia) Region.](images/traffic-flow-geoproximity-map-example-bias-minus-25.png)
+
+The following map shows what happens if you change the bias to -25 for the US East (N. Virginia) Region. Traffic is routed to the resource in that Region from smaller portions of North and South America than previously, and more traffic is routed to resources in the adjacent regions **1**, **3**, and **5**. 
+
+![A map of the world that shows how traffic is routed when you add a bias of -25 in the US East (N. Virginia) Region.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map-example-bias-minus-25.png)
+
+
+------
 
 The effect of changing the bias for your resources depends on several factors, including the following:
++ The number of resources that you have.
++ How close the resources are to each other.
++ The number of users near the border between geographic regions. For example, suppose you have resources in the AWS Regions US East (N. Virginia) and US West (Oregon), and many users in Dallas, Austin, and San Antonio, Texas, USA. Those cities are about the same distance from both resources, so a small change in bias could shift a lot of traffic from one AWS Region to another.
 
-- The number of resources that you have.
-- How close the resources are to each other.
-- The number of users near the border between geographic regions. For example, suppose you have resources
-  in the AWS Regions US East (N. Virginia) and US West (Oregon), and many users in Dallas, Austin, and San Antonio,
-  Texas, USA. Those cities are about the same distance from both resources, so a small change in bias could shift a lot
-  of traffic from one AWS Region to another.
-  We suggest that you change the bias in small steps to avoid overwhelming your resources due to a sudden
-  shift in traffic.
+We suggest that you change the bias in small steps to avoid overwhelming your resources due to a sudden shift in traffic.
 
-For more information, see [How Amazon Route 53 uses EDNS0 to estimate the location of a user](routing-policy-edns0.md "routing-policy-edns0.md").
+For more information, see [How Amazon Route 53 uses EDNS0 to estimate the location of a user](routing-policy-edns0.md).
 
 ## How Amazon Route 53 uses bias to route traffic
+<a name="routing-policy-geoproximity-bias"></a>
 
 Here's the formula that Amazon Route 53 uses to determine how to route traffic:
 
-**Bias**
+**Bias**  
 `Biased distance = actual distance * [1 - (bias/100)]`
 
-When the value of the bias is positive, Route 53 treats the source of a DNS query and the resource in
-a geoproximity record (such as an EC2 instance in an AWS Region) as if they were closer together than they really are.
-For example, suppose you have these geoproximity records:
+When the value of the bias is positive, Route 53 treats the source of a DNS query and the resource in a geoproximity record (such as an EC2 instance in an AWS Region) as if they were closer together than they really are. For example, suppose you have these geoproximity records:
++ A record for web server A, which has a positive bias of 50
++ A record for web server B, which has no bias
 
-- A record for web server A, which has a positive bias of 50
-- A record for web server B, which has no bias
-
-When a geoproximity record has a positive bias of 50, Route 53 halves the distance between the source of a query
-and the resource for that record. Then Route 53 figures out which resource is closer to the source of the query.
-Suppose web server A is 150 km from the source of a query and web server B is 100 km from the
-source of the query. If neither record had a bias, Route 53 would route the query to web server B because it's closer.
-However, because the record for web server A has a positive bias of 50, Route 53 treats web server A as if it's
-75 km from the source of the query. As a result, Route 53 routes the query to web server A.
+When a geoproximity record has a positive bias of 50, Route 53 halves the distance between the source of a query and the resource for that record. Then Route 53 figures out which resource is closer to the source of the query. Suppose web server A is 150 km from the source of a query and web server B is 100 km from the source of the query. If neither record had a bias, Route 53 would route the query to web server B because it's closer. However, because the record for web server A has a positive bias of 50, Route 53 treats web server A as if it's 75 km from the source of the query. As a result, Route 53 routes the query to web server A. 
 
 Here's the calculation for a positive bias of 50:
 

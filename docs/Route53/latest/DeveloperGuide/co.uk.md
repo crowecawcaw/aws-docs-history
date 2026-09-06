@@ -1,59 +1,38 @@
+
+
 # .co.uk (United Kingdom)
+<a name="co.uk"></a>
 
-[Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
+[Return to index](registrar-tld-list.md#index)
 
-**Lease period for registration and renewal**
-
+**Lease period for registration and renewal**  
 One to ten years.
 
-**Restrictions**
+**Restrictions**  
+Open to the public, with no restrictions. 
 
-Open to the public, with no restrictions.
-
-**Privacy protection**
-
+**Privacy protection**  
 All information is hidden.
 
-**Domain locking to prevent unauthorized transfers**
-
+**Domain locking to prevent unauthorized transfers**  
 Supported
 
-**Internationalized domain names**
-
+**Internationalized domain names**  
 Not supported.
 
-**Authorization code required for transfers**
+**Authorization code required for transfers**  
+If you're transferring a .co.uk domain to Route 53, you don't need to get an authorization code. Instead, use the method provided by your current domain registrar to update the value of the IPS tag for the domain to **GANDI**, all uppercase. (An IPS tag is required by Nominet, the registry for .uk domain names.) If your registrar will not change the value of the IPS tag, [contact Nominet](http://www.nominet.org.uk/uk-domain-names/manage-your-domain/change-registrar).  
+When you register a .co.uk domain, Route 53 automatically sets the IPS tag for the domain to **GANDI**.
 
-If you're transferring a .co.uk domain to Route 53, you don't need to
-get an authorization code. Instead, use the method provided by your
-current domain registrar to update the value of the IPS tag for the
-domain to **GANDI**, all uppercase. (An IPS tag is
-required by Nominet, the registry for .uk domain names.) If your
-registrar will not change the value of the IPS tag, [contact Nominet](http://www.nominet.org.uk/uk-domain-names/manage-your-domain/change-registrar "http://www.nominet.org.uk/uk-domain-names/manage-your-domain/change-registrar").
+**DNSSEC**  
+Supported for domain registration. For more information, see [Configuring DNSSEC for a domain](domain-configure-dnssec.md).
 
-###### Note
+**Deadlines for renewing and restoring domains**  
++ Renewal is possible: Between 180 days before and 30 days after the expiration date
++ Late renewal with Route 53 is possible: Between 30 days and 90 days after expiration
++ Domain is deleted from Route 53: 90 days after expiration
++ Restoration with the registry is possible: No
++ Domain is deleted from the registry: 92 days after expiration
 
-When you register a .co.uk domain, Route 53 automatically sets
-the IPS tag for the domain to **GANDI**.
-
-**DNSSEC**
-
-Supported for domain registration. For more information, see [Configuring DNSSEC for a domain](domain-configure-dnssec.md "domain-configure-dnssec.md").
-
-**Deadlines for renewing and restoring domains**
-
-- Renewal is possible: Between 180 days before and 30 days
-  after the expiration date
-- Late renewal with Route 53 is possible: Between 30 days and
-  90 days after expiration
-- Domain is deleted from Route 53: 90 days after
-  expiration
-- Restoration with the registry is possible: No
-- Domain is deleted from the registry: 92 days after
-  expiration
-
-**Deletion of domain registration**
-
-The registry for .co.uk domains doesn't allow you to delete domain
-registrations. Instead, you must disable automatic renewal and wait
-for the domain to expire. For more information, see [Deleting a domain name registration](domain-delete.md "domain-delete.md").
+**Deletion of domain registration**  
+The registry for .co.uk domains doesn't allow you to delete domain registrations. Instead, you must disable automatic renewal and wait for the domain to expire. For more information, see [Deleting a domain name registration](domain-delete.md).

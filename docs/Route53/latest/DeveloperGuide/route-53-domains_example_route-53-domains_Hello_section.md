@@ -1,19 +1,17 @@
+
+
 # Hello Route 53 domain registration
+<a name="route-53-domains_example_route-53-domains_Hello_section"></a>
 
 The following code examples show how to get started using Route 53 domain registration.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples). 
 
 ```
-
 public static class HelloRoute53Domains
 {
     static async Task Main(string[] args)
@@ -39,23 +37,14 @@ public static class HelloRoute53Domains
         }
     }
 }
-
-
 ```
++  For API details, see [ListPrices](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/ListPrices) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListPrices](../../../goto/DotNetSDKV3/route53domains-2014-05-15/ListPrices.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/ListPrices.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -136,26 +125,16 @@ public class HelloRoute53 {
         }
     }
 }
+```
++  For API details, see [ListPrices](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/ListPrices) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples). 
 
 ```
-
-- For API details, see
-  [ListPrices](../../../goto/SdkForJavaV2/route53domains-2014-05-15/ListPrices.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/ListPrices.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples").
-
-```
-
 /**
  Before running this Kotlin code example, set up your development environment,
  including your credentials.
@@ -166,10 +145,10 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/k
 suspend fun main(args: Array<String>) {
     val usage = """
         Usage:
-           <domainType>
+           <domainType> 
 
        Where:
-           domainType - The domain type (for example, com).
+           domainType - The domain type (for example, com). 
     """
 
     if (args.size != 1) {
@@ -201,14 +180,9 @@ suspend fun listPricesPaginated(domainType: String) {
             }
     }
 }
-
-
 ```
++  For API details, see [ListPrices](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListPrices](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Route 53 with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Route 53 with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

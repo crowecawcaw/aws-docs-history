@@ -1,27 +1,33 @@
+
+
 # Viewing VPCs associated to an Amazon Route 53 Profile
+<a name="profiles-vpcs-editing"></a>
 
-Choose the console tab to view and edit Route 53 Profile to VPC associations. Choose the CLI tab to
-use AWS CLI to list Profile to VPC associations, or to get information about a specific
-association
+Choose the console tab to view and edit Route 53 Profile to VPC associations. Choose the CLI tab to use AWS CLI to list Profile to VPC associations, or to get information about a specific association
++ [Console](#profiles-vpcs-editing-console)
++ [CLI](#profiles-vpcs-editing-CLI)
 
-- [Console](#profiles-vpcs-editing-console "#profiles-vpcs-editing-console")
-- [CLI](#profiles-vpcs-editing-CLI "#profiles-vpcs-editing-CLI")
+------
+#### [ Console ]<a name="profiles-vpcs-editing-procedure"></a>
 
-Console
+**To view VPCs associated to a Profile**
 
-###### To view VPCs associated to a Profile
+1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
 
-1. Sign in to the AWS Management Console and open the Route 53 console at
-   [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
-2. In the navigation pane, choose **Profiles**.
-3. On the navigation bar, choose the Region where you created the Profile.
-4. Select the button next to the name of the Profile for which you want to view the associated VPCs.
-5. On the **<Profile name>** page choose the **VPCs** tab.
-6. On the tab page for VPCs you can view the names, ARN and status for the associated VPCs.
+1. In the navigation pane, choose **Profiles**.
 
-CLI
-You can list the VPCs the Profile is associated to by running an AWS CLI command like the
-following:
+1. On the navigation bar, choose the Region where you created the Profile.
+
+1. Select the button next to the name of the Profile for which you want to view the associated VPCs.
+
+1. On the **<Profile name>** page choose the **VPCs** tab.
+
+1. On the tab page for VPCs you can view the names, ARN and status for the associated VPCs. 
+
+------
+#### [ CLI ]
+
+You can list the VPCs the Profile is associated to by running an AWS CLI command like the following:
 
 `aws route53profiles list-profile-associations`
 
@@ -59,11 +65,9 @@ The following is an example output after you run the command:
 }
 ```
 
-You can get information about a particular VPS the Profile is associated to by running an
-AWS CLI command like the following and using your own value for
-`profile-association-id`:
+You can get information about a particular VPS the Profile is associated to by running an AWS CLI command like the following and using your own value for `profile-association-id`:
 
-`aws route53profiles get-profile-association --profile-association-id `rpassoc-489ce212fexample``
+`aws route53profiles get-profile-association --profile-association-id rpassoc-489ce212fexample`
 
 The following is an example output after you run the command:
 
@@ -82,31 +86,40 @@ The following is an example output after you run the command:
 }
 ```
 
+------
+
 ## Disassociating a VPC from an Amazon Route 53 Profile
+<a name="profiles-disassociate-vpc"></a>
 
 Choose a tab to dissociate a Route 53 Profile from a VPC by using the Route 53 console, or AWS CLI.
++ [Console](#profile-disassociating-vpc-console)
++ [CLI](#profile-disassociating-vpc-CLI)
 
-- [Console](#profile-disassociating-vpc-console "#profile-disassociating-vpc-console")
-- [CLI](#profile-disassociating-vpc-CLI "#profile-disassociating-vpc-CLI")
+------
+#### [ Console ]<a name="profile-disassociating-vpc-procedure"></a>
 
-Console
+**To disassociate a VPC associated to a Route 53 Profile**
 
-###### To disassociate a VPC associated to a Route 53 Profile
+1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
 
-1. Sign in to the AWS Management Console and open the Route 53 console at
-   [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
-2. In the navigation pane, choose **Profiles**.
-3. On the navigation bar, choose the Region where the Profile from which you want to disassociate a VPC was created.
-4. Select the button next to the name of the Profile from which you want to disassociate a VPC.
-5. On the **<Profile name>** page choose the **VPCs** tab.
-6. On the VPCs tab page for the resource, choose the VPC you want to disassociate and then **Disassociate**.
-7. In the **Disassociate resources** dialog, type in `confirm`, and then choose
-   **Disassociate**.
+1. In the navigation pane, choose **Profiles**.
 
-CLIYou can dissociate a Profile from a VPC by running an AWS CLI command like the following and using your own value for
-`profile-id` and `--resource-id`:
+1. On the navigation bar, choose the Region where the Profile from which you want to disassociate a VPC was created.
 
-`aws route53profiles disassociate-profile --profile-id `rp-4987774726example`--resource-id`vpc-0af3b96b3example``
+1. Select the button next to the name of the Profile from which you want to disassociate a VPC.
+
+1. On the **<Profile name>** page choose the **VPCs** tab.
+
+1. On the VPCs tab page for the resource, choose the VPC you want to disassociate and then **Disassociate**.
+
+1. In the **Disassociate resources** dialog, type in **confirm**, and then choose **Disassociate**.
+
+------
+#### [ CLI ]
+
+You can dissociate a Profile from a VPC by running an AWS CLI command like the following and using your own value for `profile-id` and `--resource-id`:
+
+`aws route53profiles disassociate-profile --profile-id rp-4987774726example --resource-id vpc-0af3b96b3example`
 
 he following is an example output after you run the command:
 
@@ -123,3 +136,5 @@ he following is an example output after you run the command:
         "StatusMessage": "Deleting Profile Association"
     }
 ```
+
+------

@@ -1,24 +1,20 @@
+
+
 # Use `ListOperations` with an AWS SDK or CLI
+<a name="route-53-domains_example_route-53-domains_ListOperations_section"></a>
 
 The following code examples show how to use `ListOperations`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md) 
 
-- [Learn the basics](route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md "route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples). 
 
 ```
-
     /// <summary>
     /// List operations for the account that are submitted after a specified date.
     /// </summary>
@@ -39,31 +35,22 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         }
         return results;
     }
+```
++  For API details, see [ListOperations](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/ListOperations) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To list the status of operations that return an operation ID**  
+Some domain registration operations run asynchronously and return a response before they finish. These operations return an operation ID that you can use to get the current status. The following `list-operations` command lists summary information, including the status, about the current domain-registration operations.  
+This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.  
 
 ```
-
-- For API details, see
-  [ListOperations](../../../goto/DotNetSDKV3/route53domains-2014-05-15/ListOperations.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/ListOperations.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list the status of operations that return an operation ID**
-
-Some domain registration operations run asynchronously and return a response before they finish. These operations return an operation ID that you can use to get the current status. The following `list-operations` command lists summary information, including the status, about the current domain-registration operations.
-
-This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.
-
+aws route53domains list-operations
+    --region {{us-east-1}}
 ```
-`aws route53domains list-operations
- --region `us-east-1``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -95,28 +82,19 @@ Output:
     ]
 }
 ```
-
-The output includes all the operations that return an operation ID and that you have performed on all the domains that you have ever registered using the current AWS account. If you want to get only the operations that you submitted after a specified date, you can include the `submitted-since` parameter and specify a date in Unix format and Coordinated Universal Time (UTC). The following command gets the status of all operations that were submitted after 12:00 am UTC on January 1, 2020.
-
-```
-`aws route53domains list-operations \
- --submitted-since `1577836800``
+The output includes all the operations that return an operation ID and that you have performed on all the domains that you have ever registered using the current AWS account. If you want to get only the operations that you submitted after a specified date, you can include the `submitted-since` parameter and specify a date in Unix format and Coordinated Universal Time (UTC). The following command gets the status of all operations that were submitted after 12:00 am UTC on January 1, 2020.  
 
 ```
+aws route53domains list-operations \
+    --submitted-since {{1577836800}}
+```
++  For API details, see [ListOperations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/list-operations.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListOperations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/list-operations.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/list-operations.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples). 
 
 ```
     public static void listOperations(Route53DomainsClient route53DomainsClient) {
@@ -143,23 +121,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [ListOperations](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/ListOperations) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListOperations](../../../goto/SdkForJavaV2/route53domains-2014-05-15/ListOperations.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/ListOperations.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples). 
 
 ```
 suspend fun listOperations() {
@@ -185,14 +154,9 @@ suspend fun listOperations() {
             }
     }
 }
-
-
 ```
++  For API details, see [ListOperations](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListOperations](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Route 53 with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Route 53 with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

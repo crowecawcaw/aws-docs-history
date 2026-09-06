@@ -1,24 +1,28 @@
+
+
 # Viewing and updating Amazon Route 53 Profiles
+<a name="profiles-editing"></a>
 
-Choose the console tab to view and edit Route 53 Profile. Choose the CLI tab to use AWS CLI to list Profiles you own,
-are shared by you, or shared to you.
+Choose the console tab to view and edit Route 53 Profile. Choose the CLI tab to use AWS CLI to list Profiles you own, are shared by you, or shared to you.
++ [Console](#profile-editing-console)
++ [CLI](#profile-editing-CLI)
 
-- [Console](#profile-editing-console "#profile-editing-console")
-- [CLI](#profile-editing-CLI "#profile-editing-CLI")
+------
+#### [ Console ]<a name="profile-editing-procedure"></a>
 
-Console
+**Viewing and updating Route 53 Profiles**
 
-###### Viewing and updating Route 53 Profiles
+1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
 
-1. Sign in to the AWS Management Console and open the Route 53 console at
-   [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
-2. In the navigation pane, choose **Profiles**.
-3. Select the button next to the name of the Profile you want to view or edit.
-4. On the **<Profile name>** page you can view the currently associated
-   DNS resources, associate new ones, and edit the tags and VPC
-   configurations.
+1. In the navigation pane, choose **Profiles**.
 
-CLI
+1. Select the button next to the name of the Profile you want to view or edit.
+
+1. On the **<Profile name>** page you can view the currently associated DNS resources, associate new ones, and edit the tags and VPC configurations.
+
+------
+#### [ CLI ]
+
 You can list the Profiles by running a AWS CLI command like the following:
 
 `aws route53profiles list-profiles`
@@ -38,11 +42,9 @@ The following is an example output after you run the command:
 }
 ```
 
-You can get information about a particular VPS the Profile is associated to by running an
-AWS CLI command like the following and using your own value for
-`profile-association-id`:
+You can get information about a particular VPS the Profile is associated to by running an AWS CLI command like the following and using your own value for `profile-association-id`:
 
-`aws route53profiles get-profile-association --profile-association-id `rpassoc-489ce212fexample``
+`aws route53profiles get-profile-association --profile-association-id rpassoc-489ce212fexample`
 
 The following is an example output after you run the command:
 
@@ -61,42 +63,39 @@ The following is an example output after you run the command:
 }
 ```
 
+------
+
 ## Deleting a Amazon Route 53 Profile
+<a name="profiles-deleting"></a>
 
 Choose a tab to delete a Route 53 Profile by using the Route 53 console, or AWS CLI.
++ [Console](#profile-delete-console)
++ [CLI](#profile-delete-CLI)
 
-- [Console](#profile-delete-console "#profile-delete-console")
-- [CLI](#profile-delete-CLI "#profile-delete-CLI")
+------
+#### [ Console ]<a name="profile-deleting-procedure"></a>
 
-Console
+**To delete a Route 53 Profile**
 
-###### To delete a Route 53 Profile
+1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
 
-1. Sign in to the AWS Management Console and open the Route 53 console at
-   [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
-2. In the navigation pane, choose **Profiles**.
-3. Select the button next to the name of the Profile you want to delete, and then choose **Delete**.
+1. In the navigation pane, choose **Profiles**.
 
-###### Important
+1. Select the button next to the name of the Profile you want to delete, and then choose **Delete**.
+**Important**  
+You can't delete a Profile if it is associated to VPCs. Additionally, if the Profile is shared to another AWS account, any VPCs that the Profile configurations are associated to, will lose those configurations.
 
-You can't delete a Profile if it is associated to VPCs. Additionally, if the Profile is
-shared to another AWS account, any VPCs that the Profile
-configurations are associated to, will lose those configurations. 4. On the **Delete <Profile name>** dialog, type in
-`confirm`, and then choose
-**Delete**.
+1. On the **Delete <Profile name>** dialog, type in **confirm**, and then choose **Delete**.
 
-CLI
+------
+#### [ CLI ]
 
-###### Important
+**Important**  
+You can't delete a Profile if it is associated to VPCs. Additionally, if the Profile is shared to another AWS account, any VPCs that the Profile configurations are associated to, will lose those configurations.
 
-You can't delete a Profile if it is associated to VPCs. Additionally, if the Profile is
-shared to another AWS account, any VPCs that the Profile
-configurations are associated to, will lose those configurations.
+You can delete a Profile by running an AWS CLI command like the following and using your own value for `profile-id`:
 
-You can delete a Profile by running an AWS CLI command like the following and using your
-own value for `profile-id`:
-
-`aws route53profiles delete-profile --profile-id `rp-6ffe47d5example``
+`aws route53profiles delete-profile --profile-id rp-6ffe47d5example`
 
 The following is an example output after you run the command:
 
@@ -116,3 +115,5 @@ The following is an example output after you run the command:
     }
 }
 ```
+
+------

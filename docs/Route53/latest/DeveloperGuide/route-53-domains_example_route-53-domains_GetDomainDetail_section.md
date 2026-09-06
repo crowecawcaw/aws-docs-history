@@ -1,24 +1,20 @@
+
+
 # Use `GetDomainDetail` with an AWS SDK or CLI
+<a name="route-53-domains_example_route-53-domains_GetDomainDetail_section"></a>
 
 The following code examples show how to use `GetDomainDetail`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md) 
 
-- [Learn the basics](route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md "route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples). 
 
 ```
-
     /// <summary>
     /// Get details for a domain.
     /// </summary>
@@ -44,32 +40,23 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return $"Domain {domainName} was not found in your account.";
         }
     }
+```
++  For API details, see [GetDomainDetail](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/GetDomainDetail) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To get detailed information about a specified domain**  
+The following `get-domain-detail` command displays detailed information about the specified domain.  
+This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.  
 
 ```
-
-- For API details, see
-  [GetDomainDetail](../../../goto/DotNetSDKV3/route53domains-2014-05-15/GetDomainDetail.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/GetDomainDetail.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To get detailed information about a specified domain**
-
-The following `get-domain-detail` command displays detailed information about the specified domain.
-
-This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.
-
+aws route53domains get-domain-detail \
+    --region {{us-east-1}} \
+    --domain-name {{example.com}}
 ```
-`aws route53domains get-domain-detail \
- --region `us-east-1` \
- --domain-name `example.com``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -150,20 +137,13 @@ Output:
     ]
 }
 ```
++  For API details, see [GetDomainDetail](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/get-domain-detail.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetDomainDetail](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/get-domain-detail.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/get-domain-detail.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples). 
 
 ```
     public static void getDomainDetails(Route53DomainsClient route53DomainsClient, String domainSuggestion) {
@@ -182,23 +162,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [GetDomainDetail](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/GetDomainDetail) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetDomainDetail](../../../goto/SdkForJavaV2/route53domains-2014-05-15/GetDomainDetail.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/GetDomainDetail.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples). 
 
 ```
 suspend fun getDomainDetails(domainSuggestion: String?) {
@@ -213,14 +184,9 @@ suspend fun getDomainDetails(domainSuggestion: String?) {
         println("The contact org name is ${response.registrantContact?.organizationName}")
     }
 }
-
-
 ```
++  For API details, see [GetDomainDetail](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [GetDomainDetail](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Route 53 with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Route 53 with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,42 +1,31 @@
+
+
 # Resolver DNS Firewall events detail reference
+<a name="events-detail-reference"></a>
 
-All events from AWS services have a common set of fields containing metadata about
-the event, such as the AWS service that is the source of the event, the time the event
-was generated, the account and region in which the event took place, and others. For
-definitions of these general fields, see [Event structure
-reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User Guide_.
+All events from AWS services have a common set of fields containing metadata about the event, such as the AWS service that is the source of the event, the time the event was generated, the account and region in which the event took place, and others. For definitions of these general fields, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*. 
 
-In addition, each event has a `detail` field that contains data specific to
-that particular event. The reference below defines the detail fields for the various
-DNS Firewall events.
+In addition, each event has a `detail` field that contains data specific to that particular event. The reference below defines the detail fields for the various DNS Firewall events.
 
-When using EventBridge to select and manage DNS Firewall events, it's useful to keep the
-following in mind:
+When using EventBridge to select and manage DNS Firewall events, it's useful to keep the following in mind:
++ The `source` field for all events from DNS Firewall is set to `aws.route53resolver`.
++ The `detail-type` field specifies the event type. 
 
-- The `source` field for all events from DNS Firewall is set to
-  `aws.route53resolver`.
-- The `detail-type` field specifies the event type.
+  For example, `DNS Firewall Block` or `DNS Firewall Alert`.
++ The `detail` field contains the data that is specific to that particular event. 
 
-For example, `DNS Firewall Block` or
-`DNS Firewall Alert`.
+For information on constructing event patterns that enable rules to match DNS Firewall events, see [Event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html) in the *Amazon EventBridge User Guide*.
 
-- The `detail` field contains the data that is specific to that
-  particular event.
-  For information on constructing event patterns that enable rules to match DNS Firewall
-  events, see [Event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") in the _Amazon EventBridge User Guide_.
+For more information on events and how EventBridge processes them, see [Amazon EventBridge events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) in the *Amazon EventBridge User Guide*.
 
-For more information on events and how EventBridge processes them, see [Amazon EventBridge
-events](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md") in the _Amazon EventBridge User Guide_.
-
-###### Topics
-
-- [DNS Firewall alert event detail](#dns-firewall-alert "#dns-firewall-alert")
-- [DNS Firewall block event detail](#dns-firewall-block "#dns-firewall-block")
+**Topics**
++ [DNS Firewall alert event detail](#dns-firewall-alert)
++ [DNS Firewall block event detail](#dns-firewall-block)
 
 ## DNS Firewall alert event detail
+<a name="dns-firewall-alert"></a>
 
-Below are the detail fields for Alert status event detail
-.
+Below are the detail fields for Alert status event detail .
 
 The `source` and `detail-type` fields are included because they contain specific values for Route 53 events.
 
@@ -62,7 +51,7 @@ The `source` and `detail-type` fields are included because they contain specific
              "id": "string",
        }
      },
-     {
+     { 
          "resource-type": "string",
          "resolver-endpoint-details": {
          "id": "string"
@@ -71,82 +60,45 @@ The `source` and `detail-type` fields are included because they contain specific
  ]
 ```
 
-`detail-type`
-
-Identifies the type of event.
-
+`detail-type`  
+Identifies the type of event.  
 For this event, this value is `DNS Firewall Alert`.
 
-`source`
+`source`  
+Identifies the service that generated the event. For DNS Firewall events, this value is `aws.route53resolver`.
 
-Identifies the service that generated the event. For DNS Firewall
-events, this value is `aws.route53resolver`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For this event, this data includes:
-
-`account-id`
-
-The ID of the AWS account that created the VPC.
-
-`last-observed-at`
-
-The timestamp of when the Alert/Block query was made in the VPC.
-
-`query-name`
-
-The domain name (example.com) or subdomain name (www.example.com) that was specified in the query.
-
-`query-type`
-
-Either the DNS record type that was specified in the request, or ANY. For information about the types that Route 53 supports, see [Supported DNS record types](ResourceRecordTypes.md "ResourceRecordTypes.md").
-
-`query-class`
-
-The class of the query.
-
-`transport`
-
-The protocol used to submit the DNS query.
-
-`firewall-rule-action`
-
-The action specified by the rule that matched the domain name in the query. Either `ALERT` or `BLOCK`.
-
-`firewall-rule-group-id`
-
-The ID of the DNS Firewall rule group that matched the domain name in the query.
-
-For more information about the firewall rule groups, see DNS Firewall [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
-
-`firewall-domain-list-id`
-
-The domain list used by the rule that matched the domain name in the query.
-
-`firewall-protection`
-
-The DNS Firewall Advanced protection: DGA, DICTIONARY\_DGA, or DNS\_TUNNELING.
-For more information, see DNS Firewall [DNS Firewall Advanced Rules](firewall-advanced.md "firewall-advanced.md").
-
-`resourcese`
-
-Contains resource types and additional details about them.
-
-`resource-type`
-
-Specifies the resource type, such as resolver endpoint or a VPC instance.
-
-``resource-type`-detail`
-
+`detail`  
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For this event, this data includes:    
+`account-id`  
+The ID of the AWS account that created the VPC.  
+`last-observed-at`  
+The timestamp of when the Alert/Block query was made in the VPC.  
+`query-name`  
+The domain name (example.com) or subdomain name (www.example.com) that was specified in the query.  
+`query-type`  
+Either the DNS record type that was specified in the request, or ANY. For information about the types that Route 53 supports, see [Supported DNS record types](ResourceRecordTypes.md).  
+`query-class`  
+The class of the query.  
+`transport`  
+The protocol used to submit the DNS query.  
+`firewall-rule-action`  
+The action specified by the rule that matched the domain name in the query. Either `ALERT` or `BLOCK`.  
+`firewall-rule-group-id`  
+The ID of the DNS Firewall rule group that matched the domain name in the query. For more information about the firewall rule groups, see DNS Firewall [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md).  
+`firewall-domain-list-id`  
+The domain list used by the rule that matched the domain name in the query.   
+`firewall-protection`  
+The DNS Firewall Advanced protection: DGA, DICTIONARY\_DGA, or DNS\_TUNNELING. For more information, see DNS Firewall [DNS Firewall Advanced Rules](firewall-advanced.md).   
+`resourcese`  
+Contains resource types and additional details about them.  
+`resource-type`  
+Specifies the resource type, such as resolver endpoint or a VPC instance.  
+`{{resource-type}}-detail`  
 Additional details about the resource.
 
-###### Example DNS Firewall alert event
-
-The following is an example alert event.
+**Example DNS Firewall alert event**  <a name="dns-firewall-alert.example"></a>
+The following is an example alert event.  
 
 ```
 {
@@ -175,7 +127,7 @@ The following is an example alert event.
          "id": "i-05746eb48123455e0",
        }
      },
-     {
+     { 
       "resource-type": "resolver-endpoint",
       "resolver-endpoint-details": {
          "id": "i-05746eb48123455e0"
@@ -190,8 +142,9 @@ The following is an example alert event.
 ```
 
 ## DNS Firewall block event detail
+<a name="dns-firewall-block"></a>
 
-Below are the detail fields for `event name`.
+Below are the detail fields for {{event name}}.
 
 The `source` and `detail-type` fields are included because they contain specific values for Route 53 events.
 
@@ -217,7 +170,7 @@ The `source` and `detail-type` fields are included because they contain specific
              "id": "string",
        }
      },
-     {
+     { 
          "resource-type": "string",
          "resolver-endpoint-details": {
          "id": "string"
@@ -226,82 +179,45 @@ The `source` and `detail-type` fields are included because they contain specific
  ]
 ```
 
-`detail-type`
-
-Identifies the type of event.
-
+`detail-type`  
+Identifies the type of event.  
 For this event, this value is `DNS Firewall Alert`.
 
-`source`
+`source`  
+Identifies the service that generated the event. For DNS Firewall events, this value is `aws.route53resolver`.
 
-Identifies the service that generated the event. For DNS Firewall
-events, this value is `aws.route53resolver`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For this event, this data includes:
-
-`account-id`
-
-The ID of the AWS account that created the VPC.
-
-`last-observed-at`
-
-The timestamp of when the Alert/Block query was made in the VPC.
-
-`query-name`
-
-The domain name (example.com) or subdomain name (www.example.com) that was specified in the query.
-
-`query-type`
-
-Either the DNS record type that was specified in the request, or ANY. For information about the types that Route 53 supports, see [Supported DNS record types](ResourceRecordTypes.md "ResourceRecordTypes.md").
-
-`query-class`
-
-The class of the query.
-
-`transport`
-
-The protocol used to submit the DNS query.
-
-`firewall-rule-action`
-
-The action specified by the rule that matched the domain name in the query. Either `ALERT` or `BLOCK`.
-
-`firewall-rule-group-id`
-
-The ID of the DNS Firewall rule group that matched the domain name in the query.
-
-For more information about the firewall rule groups, see DNS Firewall [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
-
-`firewall-domain-list-id`
-
-The domain list used by the rule that matched the domain name in the query.
-
-`firewall-protection`
-
-The DNS Firewall Advanced protection: DGA, DICTIONARY\_DGA, or DNS\_TUNNELING.
-For more information, see DNS Firewall [DNS Firewall Advanced Rules](firewall-advanced.md "firewall-advanced.md").
-
-`resourcese`
-
-Contains resource types and additional details about them.
-
-`resource-type`
-
-Specifies the resource type, such as resolver endpoint or a VPC instance.
-
-``resource-type`-detail`
-
+`detail`  
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For this event, this data includes:    
+`account-id`  
+The ID of the AWS account that created the VPC.  
+`last-observed-at`  
+The timestamp of when the Alert/Block query was made in the VPC.  
+`query-name`  
+The domain name (example.com) or subdomain name (www.example.com) that was specified in the query.  
+`query-type`  
+Either the DNS record type that was specified in the request, or ANY. For information about the types that Route 53 supports, see [Supported DNS record types](ResourceRecordTypes.md).  
+`query-class`  
+The class of the query.  
+`transport`  
+The protocol used to submit the DNS query.  
+`firewall-rule-action`  
+The action specified by the rule that matched the domain name in the query. Either `ALERT` or `BLOCK`.  
+`firewall-rule-group-id`  
+The ID of the DNS Firewall rule group that matched the domain name in the query. For more information about the firewall rule groups, see DNS Firewall [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md).  
+`firewall-domain-list-id`  
+The domain list used by the rule that matched the domain name in the query.   
+`firewall-protection`  
+The DNS Firewall Advanced protection: DGA, DICTIONARY\_DGA, or DNS\_TUNNELING. For more information, see DNS Firewall [DNS Firewall Advanced Rules](firewall-advanced.md).   
+`resourcese`  
+Contains resource types and additional details about them.  
+`resource-type`  
+Specifies the resource type, such as resolver endpoint or a VPC instance.  
+`{{resource-type}}-detail`  
 Additional details about the resource.
 
-###### Example event
-
-The following is an example block event.
+**Example event**  <a name="dns-firewall-block.example"></a>
+The following is an example block event.  
 
 ```
 {
@@ -330,7 +246,7 @@ The following is an example block event.
          "id": "i-05746eb48123455e0"
        }
      },
-     {
+     { 
       "resource-type": "resolver-endpoint",
       "resolver-endpoint-details": {
          "id": "i-05746eb48123455e0",

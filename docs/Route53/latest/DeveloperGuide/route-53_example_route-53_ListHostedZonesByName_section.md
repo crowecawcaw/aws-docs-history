@@ -1,19 +1,20 @@
+
+
 # Use `ListHostedZonesByName` with a CLI
+<a name="route-53_example_route-53_ListHostedZonesByName_section"></a>
 
 The following code examples show how to use `ListHostedZonesByName`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-The following command lists up to 100 hosted zones ordered by domain name:
-
-```
-`aws route53 list-hosted-zones-by-name`
+**AWS CLI**  
+The following command lists up to 100 hosted zones ordered by domain name:  
 
 ```
-
-Output:
+aws route53 list-hosted-zones-by-name
+```
+Output:  
 
 ```
 {
@@ -43,15 +44,12 @@ Output:
   "MaxItems": "100"
 }
 ```
-
-The following command lists hosted zones ordered by name, beginning with `www.example.com`:
-
-```
-`aws route53 list-hosted-zones-by-name --dns-name `www.example.com``
+The following command lists hosted zones ordered by name, beginning with `www.example.com`:  
 
 ```
-
-Output:
+aws route53 list-hosted-zones-by-name --dns-name {{www.example.com}}
+```
+Output:  
 
 ```
 {
@@ -72,53 +70,37 @@ Output:
   "MaxItems": "100"
 }
 ```
++  For API details, see [ListHostedZonesByName](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53/list-hosted-zones-by-name.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListHostedZonesByName](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53/list-hosted-zones-by-name.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53/list-hosted-zones-by-name.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns all of your public and private hosted zones in ASCII order by domain name.**
+**Tools for PowerShell V4**  
+**Example 1: Returns all of your public and private hosted zones in ASCII order by domain name.**  
 
 ```
 Get-R53HostedZonesByName
-
 ```
-
-**Example 2: Returns your public and private hosted zones, in ASCII order by domain name, starting at the specified DNS name.**
+**Example 2: Returns your public and private hosted zones, in ASCII order by domain name, starting at the specified DNS name.**  
 
 ```
 Get-R53HostedZonesByName -DnsName example2.com
-
 ```
++  For API details, see [ListHostedZonesByName](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListHostedZonesByName](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns all of your public and private hosted zones in ASCII order by domain name.**
+**Tools for PowerShell V5**  
+**Example 1: Returns all of your public and private hosted zones in ASCII order by domain name.**  
 
 ```
 Get-R53HostedZonesByName
-
 ```
-
-**Example 2: Returns your public and private hosted zones, in ASCII order by domain name, starting at the specified DNS name.**
+**Example 2: Returns your public and private hosted zones, in ASCII order by domain name, starting at the specified DNS name.**  
 
 ```
 Get-R53HostedZonesByName -DnsName example2.com
-
 ```
++  For API details, see [ListHostedZonesByName](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListHostedZonesByName](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Route 53 with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Route 53 with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

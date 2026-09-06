@@ -1,5 +1,8 @@
+
+
 # .ac
+<a name="ac-xref"></a>
 
-See [.ac (Ascension Island)](ac.md "ac.md").
+See [.ac (Ascension Island)](ac.md).
 
-[Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
+[Return to index](registrar-tld-list.md#index)

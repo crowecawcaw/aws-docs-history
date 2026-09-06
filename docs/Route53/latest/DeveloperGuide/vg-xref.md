@@ -1,5 +1,8 @@
+
+
 # .vg
+<a name="vg-xref"></a>
 
-See [.vg (British Virgin Islands)](vg.md "vg.md").
+See [.vg (British Virgin Islands)](vg.md).
 
-[Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
+[Return to index](registrar-tld-list.md#index)

@@ -1,24 +1,20 @@
+
+
 # Use `RegisterDomain` with an AWS SDK or CLI
+<a name="route-53-domains_example_route-53-domains_RegisterDomain_section"></a>
 
 The following code examples show how to use `RegisterDomain`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md) 
 
-- [Learn the basics](route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md "route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples). 
 
 ```
-
     /// <summary>
     /// Initiate a domain registration request.
     /// </summary>
@@ -54,32 +50,23 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return null;
         }
     }
+```
++  For API details, see [RegisterDomain](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/RegisterDomain) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To register a domain**  
+The following `register-domain` command registers a domain, retrieving all parameter values from a JSON-formatted file.  
+This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.  
 
 ```
-
-- For API details, see
-  [RegisterDomain](../../../goto/DotNetSDKV3/route53domains-2014-05-15/RegisterDomain.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/RegisterDomain.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To register a domain**
-
-The following `register-domain` command registers a domain, retrieving all parameter values from a JSON-formatted file.
-
-This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.
-
+aws route53domains register-domain \
+    --region {{us-east-1}} \
+    --cli-input-json {{file://register-domain.json}}
 ```
-`aws route53domains register-domain \
- --region `us-east-1` \
- --cli-input-json `file://register-domain.json``
-
-```
-
-Contents of `register-domain.json`:
+Contents of `register-domain.json`:  
 
 ```
 {
@@ -130,34 +117,23 @@ Contents of `register-domain.json`:
     "PrivacyProtectTechContact": true
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
     "OperationId": "b114c44a-9330-47d1-a6e8-a0b11example"
 }
 ```
+To confirm that the operation succeeded, you can run `get-operation-detail`. For more information, see [get-operation-detail](https://docs.aws.amazon.com/cli/latest/reference/route53domains/get-operation-detail.html) .  
+For more information, see [Registering a New Domain](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html) in the *Amazon Route 53 Developer Guide*.  
+For information about which top-level domains (TLDs) require values for `ExtraParams` and what the valid values are, see [ExtraParam](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ExtraParam.html) in the *Amazon Route 53 API Reference*.  
++  For API details, see [RegisterDomain](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/register-domain.html) in *AWS CLI Command Reference*. 
 
-To confirm that the operation succeeded, you can run `get-operation-detail`. For more information, see [get-operation-detail](../../../cli/latest/reference/route53domains/get-operation-detail.md "../../../cli/latest/reference/route53domains/get-operation-detail.md") .
+------
+#### [ Java ]
 
-For more information, see [Registering a New Domain](domain-register.md "domain-register.md") in the _Amazon Route 53 Developer Guide_.
-
-For information about which top-level domains (TLDs) require values for `ExtraParams` and what the valid values are, see [ExtraParam](../APIReference/API_domains_ExtraParam.md "../APIReference/API_domains_ExtraParam.md") in the _Amazon Route 53 API Reference_.
-
-- For API details, see
-  [RegisterDomain](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/register-domain.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/register-domain.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples). 
 
 ```
     public static String requestDomainRegistration(Route53DomainsClient route53DomainsClient,
@@ -202,23 +178,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         }
         return "";
     }
-
-
 ```
++  For API details, see [RegisterDomain](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/RegisterDomain) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [RegisterDomain](../../../goto/SdkForJavaV2/route53domains-2014-05-15/RegisterDomain.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/RegisterDomain.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples). 
 
 ```
 suspend fun requestDomainRegistration(
@@ -260,14 +227,9 @@ suspend fun requestDomainRegistration(
         return response.operationId
     }
 }
-
-
 ```
++  For API details, see [RegisterDomain](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [RegisterDomain](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Route 53 with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Route 53 with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,24 +1,20 @@
+
+
 # Use `CheckDomainTransferability` with an AWS SDK or CLI
+<a name="route-53-domains_example_route-53-domains_CheckDomainTransferability_section"></a>
 
 The following code examples show how to use `CheckDomainTransferability`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md) 
 
-- [Learn the basics](route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md "route-53-domains_example_route-53-domains_Scenario_GetStartedRoute53Domains_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Route53#code-examples). 
 
 ```
-
     /// <summary>
     /// Check the transferability of a domain name.
     /// </summary>
@@ -34,32 +30,23 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         );
         return result.Transferability.Transferable.Value;
     }
+```
++  For API details, see [CheckDomainTransferability](https://docs.aws.amazon.com/goto/DotNetSDKV3/route53domains-2014-05-15/CheckDomainTransferability) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To determine whether a domain can be transferred to Route 53**  
+The following `check-domain-transferability` command returns information about whether you can transfer the domain name `example.com` to Route 53.  
+This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.  
 
 ```
-
-- For API details, see
-  [CheckDomainTransferability](../../../goto/DotNetSDKV3/route53domains-2014-05-15/CheckDomainTransferability.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/CheckDomainTransferability.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To determine whether a domain can be transferred to Route 53**
-
-The following `check-domain-transferability` command returns information about whether you can transfer the domain name `example.com` to Route 53.
-
-This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.
-
+aws route53domains check-domain-transferability \
+    --region {{us-east-1}} \
+    --domain-name {{example.com}}
 ```
-`aws route53domains check-domain-transferability \
- --region `us-east-1` \
- --domain-name `example.com``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -68,22 +55,14 @@ Output:
     }
 }
 ```
+For more information, see [Transferring Registration for a Domain to Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html) in the *Amazon Route 53 Developer Guide*.  
++  For API details, see [CheckDomainTransferability](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/check-domain-transferability.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Transferring Registration for a Domain to Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md") in the _Amazon Route 53 Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [CheckDomainTransferability](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/check-domain-transferability.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/check-domain-transferability.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/route53#code-examples). 
 
 ```
     public static void checkDomainTransferability(Route53DomainsClient route53DomainsClient, String domainSuggestion) {
@@ -101,23 +80,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [CheckDomainTransferability](https://docs.aws.amazon.com/goto/SdkForJavaV2/route53domains-2014-05-15/CheckDomainTransferability) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CheckDomainTransferability](../../../goto/SdkForJavaV2/route53domains-2014-05-15/CheckDomainTransferability.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/CheckDomainTransferability.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/route53#code-examples). 
 
 ```
 suspend fun checkDomainTransferability(domainSuggestion: String?) {
@@ -130,14 +100,9 @@ suspend fun checkDomainTransferability(domainSuggestion: String?) {
         println("Transferability: ${response.transferability?.transferable}")
     }
 }
-
-
 ```
++  For API details, see [CheckDomainTransferability](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CheckDomainTransferability](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Route 53 with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Route 53 with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
