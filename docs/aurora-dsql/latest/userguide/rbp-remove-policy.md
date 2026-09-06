@@ -1,26 +1,44 @@
+
+
 # Removing resource-based policies
+<a name="rbp-remove-policy"></a>
 
 You can remove resource-based policies from clusters to change access controls.
 
-###### Important
-
+**Important**  
 When you remove all resource-based policies from a cluster, access will be controlled entirely by IAM identity-based policies.
 
-###### To remove a resource-based policy
+## AWS Management Console
+<a name="rbp-remove-console"></a>
 
-1. Sign in to the AWS Management Console and open the Aurora DSQL console at [https://console.aws.amazon.com/dsql/](https://console.aws.amazon.com/dsql "https://console.aws.amazon.com/dsql").
-2. Choose your cluster from the cluster list to open the cluster details page.
-3. Choose the **Permissions** tab.
-4. In the **Resource-based policy** section, choose **Delete**.
-5. In the confirmation dialog, type `confirm` to confirm the deletion.
-6. Choose **Delete**.
-   Use the `delete-cluster-policy` command to remove a policy from a cluster:
+**To remove a resource-based policy**
+
+1. Sign in to the AWS Management Console and open the Aurora DSQL console at [https://console.aws.amazon.com/dsql/](https://console.aws.amazon.com/dsql).
+
+1. Choose your cluster from the cluster list to open the cluster details page.
+
+1. Choose the **Permissions** tab.
+
+1. In the **Resource-based policy** section, choose **Delete**.
+
+1. In the confirmation dialog, type **confirm** to confirm the deletion.
+
+1. Choose **Delete**.
+
+## AWS CLI
+<a name="rbp-remove-cli"></a>
+
+Use the `delete-cluster-policy` command to remove a policy from a cluster:
 
 ```
-aws dsql delete-cluster-policy --identifier `your_cluster_id`
+aws dsql delete-cluster-policy --identifier {{your_cluster_id}}
 ```
 
-Python
+## AWS SDKs
+<a name="rbp-remove-sdk"></a>
+
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -34,7 +52,8 @@ response = client.delete_cluster_policy(
 print("Policy deleted successfully")
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 import software.amazon.awssdk.services.dsql.DsqlClient;
@@ -49,3 +68,5 @@ DeleteClusterPolicyRequest request = DeleteClusterPolicyRequest.builder()
 client.deleteClusterPolicy(request);
 System.out.println("Policy deleted successfully");
 ```
+
+------

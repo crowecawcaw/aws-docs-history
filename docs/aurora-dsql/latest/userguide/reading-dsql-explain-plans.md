@@ -1,20 +1,18 @@
+
+
 # Reading Aurora DSQL EXPLAIN plans
+<a name="reading-dsql-explain-plans"></a>
 
 Understanding how to read EXPLAIN plans is key to optimizing query performance. In this section, we’ll walk through real examples of Aurora DSQL query plans, show how different scan types behave, explain where filters are applied, and highlight opportunities for optimization.
 
 ## Sample tables used in these examples
+<a name="explain-plan-sample-tables"></a>
 
-The examples below reference two tables: `transaction` and
-`account`.
+The examples below reference two tables: `transaction` and `account`.
 
-The `transaction` table does not have a primary key, which causes Aurora DSQL
-to perform full table scans when querying it.
+The `transaction` table does not have a primary key, which causes Aurora DSQL to perform full table scans when querying it.
 
-The `account` table has an index on `customer_id`. This index
-includes `balance` and `status` as covering columns, which allows
-certain queries to be satisfied directly from the index without reading from the base table.
-However, the index does not include `created_at`, so queries that reference
-this column require additional table access.
+The `account` table has an index on `customer_id`. This index includes `balance` and `status` as covering columns, which allows certain queries to be satisfied directly from the index without reading from the base table. However, the index does not include `created_at`, so queries that reference this column require additional table access.
 
 ```
 CREATE TABLE transaction (
@@ -34,6 +32,7 @@ CREATE INDEX ASYNC idx1 ON account (customer_id) INCLUDE (balance, status);
 ```
 
 ## Full Scan example
+<a name="full-scan-example"></a>
 
 Aurora DSQL has both Sequential Scans, which is functionally identical to PostgreSQL, as well as Full Scans. The only difference between these two are that Full Scans can utilize extra filtering on storage. Due to this, it is almost always selected above Sequential Scans. Due to the similarity, we will only cover examples of the more interesting Full Scans.
 
@@ -54,19 +53,12 @@ EXPLAIN SELECT account_id FROM transaction WHERE transaction_date > '2025-01-01'
         -> B-Tree Scan on transaction (cost=12510.05..17793.38 rows=100000 width=30)
 ```
 
-This plan shows two filters applied at different stages. The `transaction_date >
- '2025-01-01'` condition is applied at the storage layer, reducing how much data is returned. The
-`description LIKE '%external%'` condition is applied later in the query processor, after data is
-transferred, making it less efficient. Pushing more selective filters into the storage or index
-layers generally improves performance.
+This plan shows two filters applied at different stages. The `transaction_date > '2025-01-01'` condition is applied at the storage layer, reducing how much data is returned. The `description LIKE '%external%'` condition is applied later in the query processor, after data is transferred, making it less efficient. Pushing more selective filters into the storage or index layers generally improves performance.
 
 ## Index Only Scan example
+<a name="index-only-scan-example"></a>
 
-Index Only Scans are the most optimal scan types in Aurora DSQL as they result in the fewest
-round trips to the storage layer and can do the most filtering. But just because you see Index
-Only Scan does not mean that you have the best plan. Because of all the different levels of
-filtering that can happen, it is essential to still pay attention to the different places
-filtering can happen.
+Index Only Scans are the most optimal scan types in Aurora DSQL as they result in the fewest round trips to the storage layer and can do the most filtering. But just because you see Index Only Scan does not mean that you have the best plan. Because of all the different levels of filtering that can happen, it is essential to still pay attention to the different places filtering can happen.
 
 ```
 EXPLAIN SELECT balance FROM account
@@ -91,10 +83,9 @@ AND status = 'pending';
 In this plan, the index condition, `customer_id = '4b18a761-5870-4d7c-95ce-0a48eca3fceb'`), is evaluated first during the index scan, which is the most efficient stage because it limits how much data is read from storage. The storage filter, `status = 'pending'`, is applied after data is read but before it’s sent to the compute layer, reducing the amount of data transferred. Finally, the query processor filter, `balance > 100`, runs last, after the data has been moved, making it the least efficient. Of these, the index condition provides the greatest performance because it directly controls how much data is scanned.
 
 ## Index Scan example
+<a name="index-scan-example"></a>
 
-Index Scans are similar to Index Only Scans, except they have the extra step of having to
-call into the base table. Because Aurora DSQL can specify storage filters, it is able to do so on both
-the index call as well as the lookup call.
+Index Scans are similar to Index Only Scans, except they have the extra step of having to call into the base table. Because Aurora DSQL can specify storage filters, it is able to do so on both the index call as well as the lookup call.
 
 To make this clear, Aurora DSQL presents the plan as two nodes. This way, you can clearly see how much adding an include column will help in terms of rows returned from storage.
 
@@ -122,28 +113,17 @@ AND created_at > '2025-01-01';
         -> B-Tree Lookup on transaction (cost=12510.05..17793.38 rows=8 width=30)
 ```
 
-This plan shows how filtering happens across multiple stages:
+ This plan shows how filtering happens across multiple stages: 
++  The index condition on `customer_id ` filters data early. 
++ The storage filter on `status` further narrows results before they’re sent to compute. 
++ The query processor filter on `balance` is applied later, after transfer.
++ The lookup filter on `created_at` is evaluated when fetching additional columns from the base table. 
 
-- The index condition on `customer_id` filters data early.
-- The storage filter on `status` further narrows results before they’re sent to
-  compute.
-- The query processor filter on `balance` is applied later, after
-  transfer.
-- The lookup filter on `created_at` is evaluated when fetching additional columns
-  from the base table.
-
-Adding frequently used columns as `INCLUDE` fields can often eliminate this lookup and improve
-performance.
+Adding frequently used columns as `INCLUDE` fields can often eliminate this lookup and improve performance. 
 
 ## Best Practices
-
-- **Align filters with indexed columns** to push filtering
-  earlier.
-- **Use INCLUDE columns** to allow Index-Only Scans and avoid
-  lookups.
-- **Validate row estimates** when investigating performance
-  issues. Aurora DSQL manages statistics automatically by running `ANALYZE` in the
-  background based on data change rates. If estimates appear inaccurate, you can run
-  `ANALYZE` manually to refresh statistics immediately.
-- **Avoid unindexed queries** on large tables to prevent
-  expensive Full Scans.
+<a name="best-practices"></a>
++ **Align filters with indexed columns** to push filtering earlier.
++ **Use INCLUDE columns** to allow Index-Only Scans and avoid lookups.
++ **Validate row estimates** when investigating performance issues. Aurora DSQL manages statistics automatically by running `ANALYZE` in the background based on data change rates. If estimates appear inaccurate, you can run `ANALYZE` manually to refresh statistics immediately.
++ **Avoid unindexed queries** on large tables to prevent expensive Full Scans.

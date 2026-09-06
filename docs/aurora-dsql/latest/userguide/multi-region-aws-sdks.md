@@ -1,12 +1,18 @@
+
+
 # Using AWS SDKs
+<a name="multi-region-aws-sdks"></a>
 
 The AWS SDKs provide programmatic access to Aurora DSQL in your preferred programming language. The following sections show how to perform common cluster operations using different programming languages.
 
 ## Create cluster
+<a name="multi-region-create-cluster-sdk"></a>
 
 The following examples show how to create a multi-Region cluster using different programming languages.
 
-Python
+------
+#### [ Python ]
+
 To create a multi-Region cluster, use the following example. Creating a multi-Region cluster might take some time.
 
 ```
@@ -80,10 +86,11 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 
-C++
+------
+#### [ C\+\+ ]
+
 To create a multi-Region cluster, use the following example. Creating a multi-Region cluster might take some time.
 
 ```
@@ -225,7 +232,9 @@ int main() {
 }
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
+
 To create a multi-Region cluster, use the following example. Creating a multi-Region cluster might take some time.
 
 ```
@@ -320,7 +329,9 @@ async function main() {
 main();
 ```
 
-Java
+------
+#### [ Java ]
+
 To create a multi-Region cluster, use the following example. Creating a multi-Region cluster might take some time.
 
 ```
@@ -410,10 +421,11 @@ public class CreateMultiRegionCluster {
         }
     }
 }
-
 ```
 
-Rust
+------
+#### [ Rust ]
+
 To create a multi-Region cluster, use the following example. Creating a multi-Region cluster might take some time.
 
 ```
@@ -546,10 +558,11 @@ pub async fn main() -> anyhow::Result<()> {
 
     Ok(())
 }
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
+
 To create a multi-Region cluster, use the following example. Creating a multi-Region cluster might take some time.
 
 ```
@@ -630,10 +643,11 @@ def main
 end
 
 main if $PROGRAM_NAME == __FILE__
-
 ```
 
-Golang
+------
+#### [ Golang ]
+
 To create a multi-Region cluster, use the following example. Creating a multi-Region cluster might take some time.
 
 ```
@@ -788,10 +802,11 @@ func main() {
 	}
 
 }
-
 ```
 
-.NET
+------
+#### [ .NET ]
+
 To create a multi-Region cluster, use the following example. Creating a multi-Region cluster might take some time.
 
 ```
@@ -900,14 +915,18 @@ namespace DSQLExamples.examples
         }
     }
 }
-
 ```
 
+------
+
 ## Get cluster
+<a name="multi-region-get-cluster-sdk"></a>
 
 The following examples show how to get information about a multi-Region cluster using different programming languages.
 
-Python
+------
+#### [ Python ]
+
 To get information about a multi-Region cluster, use the following example.
 
 ```
@@ -935,10 +954,11 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 
-C++
+------
+#### [ C\+\+ ]
+
 Use the following example to get information about a multi-Region cluster.
 
 ```
@@ -998,10 +1018,11 @@ int main() {
     Aws::ShutdownAPI(options);
     return 0;
 }
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
+
 To get information about a multi-Region cluster, use the following example.
 
 ```
@@ -1034,10 +1055,11 @@ async function main() {
 }
 
 main();
-
 ```
 
-Java
+------
+#### [ Java ]
+
 The following example lets you get information about a multi-Region cluster.
 
 ```
@@ -1068,10 +1090,11 @@ public class GetCluster {
         }
     }
 }
-
 ```
 
-Rust
+------
+#### [ Rust ]
+
 The following example lets you get information about a multi-Region cluster.
 
 ```
@@ -1120,10 +1143,11 @@ pub async fn main() -> anyhow::Result<()> {
 
     Ok(())
 }
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
+
 The following example lets you get information about a multi-Region cluster.
 
 ```
@@ -1145,10 +1169,11 @@ def main
 end
 
 main if $PROGRAM_NAME == __FILE__
-
 ```
 
-.NET
+------
+#### [ .NET ]
+
 The following example lets you get information about a multi-Region cluster.
 
 ```
@@ -1202,10 +1227,11 @@ namespace DSQLExamples.examples
         }
     }
 }
-
 ```
 
-Golang
+------
+#### [ Golang ]
+
 The following example lets you get information about a multi-Region cluster.
 
 ```
@@ -1260,11 +1286,16 @@ func main() {
 }
 ```
 
+------
+
 ## Update cluster
+<a name="multi-region-update-cluster-sdk"></a>
 
 The following examples show how to update a multi-Region cluster using different programming languages.
 
-Python
+------
+#### [ Python ]
+
 To update a multi-Region cluster, use the following example.
 
 ```
@@ -1290,10 +1321,11 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 
-C++
+------
+#### [ C\+\+ ]
+
 Use the following example to update a multi-Region cluster.
 
 ```
@@ -1368,10 +1400,11 @@ int main() {
     Aws::ShutdownAPI(options);
     return 0;
 }
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
+
 To update a multi-Region cluster, use the following example.
 
 ```
@@ -1406,7 +1439,9 @@ async function main() {
 main();
 ```
 
-Java
+------
+#### [ Java ]
+
 Use the following example to update a multi-Region cluster.
 
 ```
@@ -1441,7 +1476,9 @@ public class UpdateCluster {
 }
 ```
 
-Rust
+------
+#### [ Rust ]
+
 Use the following example to update a multi-Region cluster.
 
 ```
@@ -1496,7 +1533,9 @@ pub async fn main() -> anyhow::Result<()> {
 }
 ```
 
-Ruby
+------
+#### [ Ruby ]
+
 Use the following example to update a multi-Region cluster.
 
 ```
@@ -1520,10 +1559,11 @@ def main
 end
 
 main if $PROGRAM_NAME == __FILE__
-
 ```
 
-.NET
+------
+#### [ .NET ]
+
 Use the following example to update a multi-Region cluster.
 
 ```
@@ -1582,7 +1622,9 @@ namespace DSQLExamples.examples
 }
 ```
 
-Golang
+------
+#### [ Golang ]
+
 Use the following example to update a multi-Region cluster.
 
 ```
@@ -1638,13 +1680,17 @@ func main() {
 }
 ```
 
+------
+
 ## Delete cluster
+<a name="multi-region-delete-cluster-sdk"></a>
 
 The following examples show how to delete a multi-Region cluster using different programming languages.
 
-Python
-To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster
-might take some time.
+------
+#### [ Python ]
+
+To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster might take some time.
 
 ```
 import boto3
@@ -1703,9 +1749,10 @@ if __name__ == "__main__":
     main()
 ```
 
-C++
-To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster
-might take some time.
+------
+#### [ C\+\+ ]
+
+To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster might take some time.
 
 ```
 #include <aws/core/Aws.h>
@@ -1792,9 +1839,10 @@ int main() {
 }
 ```
 
-JavaScript
-To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster
-might take some time.
+------
+#### [ JavaScript ]
+
+To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster might take some time.
 
 ```
 import { DSQLClient, DeleteClusterCommand, waitUntilClusterNotExists } from "@aws-sdk/client-dsql";
@@ -1862,9 +1910,10 @@ async function main() {
 main();
 ```
 
-Java
-To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster
-might take some time.
+------
+#### [ Java ]
+
+To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster might take some time.
 
 ```
 package org.example;
@@ -1930,9 +1979,10 @@ public class DeleteMultiRegionClusters {
 }
 ```
 
-Rust
-To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster
-might take some time.
+------
+#### [ Rust ]
+
+To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster might take some time.
 
 ```
 use aws_config::{BehaviorVersion, Region, load_defaults};
@@ -2017,9 +2067,10 @@ pub async fn main() -> anyhow::Result<()> {
 }
 ```
 
-Ruby
-To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster
-might take some time.
+------
+#### [ Ruby ]
+
+To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster might take some time.
 
 ```
 require "aws-sdk-dsql"
@@ -2065,12 +2116,12 @@ def main
 end
 
 main if $PROGRAM_NAME == __FILE__
-
 ```
 
-.NET
-To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster
-might take some time.
+------
+#### [ .NET ]
+
+To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster might take some time.
 
 ```
 using System;
@@ -2142,9 +2193,10 @@ namespace DSQLExamples.examples
 }
 ```
 
-Golang
-To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster
-might take some time.
+------
+#### [ Golang ]
+
+To delete a multi-Region cluster, use the following example. Deleting a multi-Region cluster might take some time.
 
 ```
 package main
@@ -2249,4 +2301,6 @@ func main() {
 }
 ```
 
-For more code samples and examples, visit the [Aurora DSQL Samples GitHub repository](https://github.com/aws-samples/aurora-dsql-samples "https://github.com/aws-samples/aurora-dsql-samples").
+------
+
+For more code samples and examples, visit the [Aurora DSQL Samples GitHub repository](https://github.com/aws-samples/aurora-dsql-samples).

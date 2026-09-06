@@ -1,92 +1,61 @@
+
+
 # Aurora DSQL Connector for Postgres.js
+<a name="SECTION_program-with-dsql-connector-for-postgresjs"></a>
 
-The [Aurora DSQL Connector for Postgres.js](https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/postgres-js "https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/postgres-js") is a Node.js connector
-built on
-[Postgres.js](https://github.com/porsager/postgres "https://github.com/porsager/postgres")
-that integrates IAM Authentication for connecting JavaScript
-applications to Amazon Aurora DSQL clusters.
+ The [Aurora DSQL Connector for Postgres.js](https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/postgres-js) is a Node.js connector built on [Postgres.js](https://github.com/porsager/postgres) that integrates IAM Authentication for connecting JavaScript applications to Amazon Aurora DSQL clusters. 
 
-The Aurora DSQL Connector for Postgres.js is designed as an
-authentication plugin that extends the functionality of the
-Postgres.js client to enable applications to authenticate with
-Amazon Aurora DSQL using IAM credentials. The connector does not
-connect directly to the database, but provides seamless IAM
-authentication on top of the underlying Postgres.js driver.
+ The Aurora DSQL Connector for Postgres.js is designed as an authentication plugin that extends the functionality of the Postgres.js client to enable applications to authenticate with Amazon Aurora DSQL using IAM credentials. The connector does not connect directly to the database, but provides seamless IAM authentication on top of the underlying Postgres.js driver. 
 
 ## About the Connector
+<a name="about-the-connector"></a>
 
-Amazon Aurora DSQL is a distributed SQL database service that
-provides high availability and scalability for
-PostgreSQL-compatible applications. Aurora DSQL requires IAM-based
-authentication with time-limited tokens that existing Node.js
-drivers do not natively support.
+ Amazon Aurora DSQL is a distributed SQL database service that provides high availability and scalability for PostgreSQL-compatible applications. Aurora DSQL requires IAM-based authentication with time-limited tokens that existing Node.js drivers do not natively support. 
 
-The idea behind the Aurora DSQL Connector for Postgres.js is to
-add an authentication layer on top of the Postgres.js client that
-handles IAM token generation, allowing users to connect to Aurora
-DSQL without changing their existing Postgres.js workflows.
+ The idea behind the Aurora DSQL Connector for Postgres.js is to add an authentication layer on top of the Postgres.js client that handles IAM token generation, allowing users to connect to Aurora DSQL without changing their existing Postgres.js workflows. 
 
-The Aurora DSQL Connector for Postgres.js works with most versions
-of Postgres.js. Users provide their own version by installing
-Postgres.js directly.
+ The Aurora DSQL Connector for Postgres.js works with most versions of Postgres.js. Users provide their own version by installing Postgres.js directly. 
 
 ### What is Aurora DSQL Authentication?
+<a name="what-is-aurora-dsql-authentication"></a>
 
-In Aurora DSQL, authentication involves:
+ In Aurora DSQL, authentication involves: 
++  **IAM Authentication:** All connections use IAM-based authentication with time-limited tokens 
++  **Token Generation:** Authentication tokens are generated using AWS credentials and have configurable lifetimes 
 
-- **IAM Authentication:** All
-  connections use IAM-based authentication with time-limited
-  tokens
-- **Token Generation:**
-  Authentication tokens are generated using AWS credentials
-  and have configurable lifetimes
-
-The Aurora DSQL Connector for Postgres.js is designed to
-understand these requirements and automatically generate IAM
-authentication tokens when establishing connections.
+ The Aurora DSQL Connector for Postgres.js is designed to understand these requirements and automatically generate IAM authentication tokens when establishing connections. 
 
 ### Features
-
-- **Automatic IAM
-  Authentication** - Handles DSQL token generation
-  and refresh
-- **Built on Postgres.js** -
-  Leverages the fast PostgreSQL client for Node.js
-- **Seamless Integration** -
-  Works with existing Postgres.js connection patterns
-- **Region Auto-Discovery** -
-  Extracts AWS region from DSQL cluster hostname
-- **Full TypeScript Support** -
-  Provides full type safety
-- **AWS Credentials Support** -
-  Supports various AWS credential providers (default,
-  profile-based, custom)
-- **Connection Pooling
-  Compatibility** - Works seamlessly with
-  Postgres.js’ built-in connection pooling
+<a name="features"></a>
++  **Automatic IAM Authentication** - Handles DSQL token generation and refresh 
++  **Built on Postgres.js** - Leverages the fast PostgreSQL client for Node.js 
++  **Seamless Integration** - Works with existing Postgres.js connection patterns 
++  **Region Auto-Discovery** - Extracts AWS region from DSQL cluster hostname 
++  **Full TypeScript Support** - Provides full type safety 
++  **AWS Credentials Support** - Supports various AWS credential providers (default, profile-based, custom) 
++  **Connection Pooling Compatibility** - Works seamlessly with Postgres.js’ built-in connection pooling 
 
 ## Quick start guide
+<a name="quick-start-guide"></a>
 
 ### Requirements
-
-- Node.js 20+
-- [Access
-  to an Aurora DSQL cluster](getting-started.md "getting-started.md")
-- Set up appropriate IAM permissions to allow your application
-  to connect to Aurora DSQL.
-- AWS credentials configured (via AWS CLI, environment
-  variables, or IAM roles)
+<a name="requirements"></a>
++  Node.js 20\+ 
++  [Access to an Aurora DSQL cluster](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/getting-started.html) 
++  Set up appropriate IAM permissions to allow your application to connect to Aurora DSQL. 
++  AWS credentials configured (via AWS CLI, environment variables, or IAM roles) 
 
 ### Installation
+<a name="installation"></a>
 
 ```
 npm install @aws/aurora-dsql-postgresjs-connector
 # Postgres.js is a peer-dependency, so users must install it themselves
 npm install postgres
-
 ```
 
 ### Basic Usage
+<a name="basic-usage"></a>
 
 ```
 import { auroraDSQLPostgres } from '@aws/aurora-dsql-postgresjs-connector';
@@ -103,10 +72,10 @@ console.log(result);
 
 // Clean up
 await sql.end();
-
 ```
 
 #### Using cluster ID instead of host
+<a name="using-cluster-id-instead-of-host"></a>
 
 ```
 const sql = auroraDSQLPostgres({
@@ -115,10 +84,10 @@ const sql = auroraDSQLPostgres({
   username: 'admin',
 
 });
-
 ```
 
 ### Connection String
+<a name="connection-string"></a>
 
 ```
 const sql = AuroraDSQLPostgres(
@@ -126,10 +95,10 @@ const sql = AuroraDSQLPostgres(
 );
 
 const result = await sql`SELECT current_timestamp`;
-
 ```
 
 ### Advanced Configuration
+<a name="advanced-configuration"></a>
 
 ```
 import { fromNodeProviderChain } from '@aws-sdk/credential-providers';
@@ -145,51 +114,43 @@ const sql = AuroraDSQLPostgres({
   max: 20,                              // Connection pool size
   ssl: { rejectUnauthorized: false }    // SSL configuration
 });
-
 ```
 
 ## Configuration Options
+<a name="configuration-options"></a>
 
-| Option                      | Type                             | Required | Description                                              |
-| --------------------------- | -------------------------------- | -------- | -------------------------------------------------------- |
-| `host`                      | `string`                         | Yes      | DSQL cluster hostname or cluster ID                      |
-| `database`                  | `string?`                        | No       | Database name                                            |
-| `username`                  | `string?`                        | No       | Database username (uses admin if not provided)           |
-| `region`                    | `string?`                        | No       | AWS region (auto-detected from hostname if not provided) |
-| `customCredentialsProvider` | `AwsCredentialIdentityProvider?` | No       | Custom AWS credentials provider                          |
-| `tokenDurationSecs`         | `number?`                        | No       | Token expiration time in seconds                         |
 
-All standard
-[Postgres.js
-options](https://github.com/porsager/postgres?tab=readme-ov-file#connection-details "https://github.com/porsager/postgres?tab=readme-ov-file#connection-details") are also supported.
+|  Option  |  Type  |  Required  |  Description  | 
+| --- | --- | --- | --- | 
+|  host  |  string  |  Yes  |  DSQL cluster hostname or cluster ID  | 
+|  database  |  string?  |  No  |  Database name  | 
+|  username  |  string?  |  No  |  Database username (uses admin if not provided)  | 
+|  region  |  string?  |  No  |  AWS region (auto-detected from hostname if not provided)  | 
+|  customCredentialsProvider  |  AwsCredentialIdentityProvider?  |  No  |  Custom AWS credentials provider  | 
+|  tokenDurationSecs  |  number?  |  No  |  Token expiration time in seconds  | 
+
+ All standard [Postgres.js options](https://github.com/porsager/postgres?tab=readme-ov-file#connection-details) are also supported. 
 
 ## Authentication
+<a name="authentication"></a>
 
-The connector automatically handles DSQL authentication by
-generating tokens using the DSQL client token generator. If the
-AWS region is not provided, it will be automatically parsed from
-the hostname provided.
+ The connector automatically handles DSQL authentication by generating tokens using the DSQL client token generator. If the AWS region is not provided, it will be automatically parsed from the hostname provided. 
 
-For more information on authentication in Aurora DSQL, see the
-[user
-guide](authentication-authorization.md "authentication-authorization.md").
+ For more information on authentication in Aurora DSQL, see the [user guide](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/authentication-authorization.html). 
 
 ### Admin vs Regular Users
-
-- Users named "admin"
-  automatically use admin authentication tokens
-- All other users use regular authentication tokens
-- Tokens are generated dynamically for each connection
+<a name="admin-vs-regular-users"></a>
++  Users named "admin" automatically use admin authentication tokens 
++  All other users use regular authentication tokens 
++  Tokens are generated dynamically for each connection 
 
 ## Sample usage
+<a name="sample-usage"></a>
 
-JavaScript examples using the Aurora DSQL Connector for
-Postgres.js are available on GitHub. For instructions on how to run the examples,
-refer to the
-[examples
-directory](https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/postgres-js/example "https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/postgres-js/example").
+ JavaScript examples using the Aurora DSQL Connector for Postgres.js are available on GitHub. For instructions on how to run the examples, refer to the [examples directory](https://github.com/awslabs/aurora-dsql-connectors/tree/main/node/postgres-js/example). 
 
-| Description                                                                                                      | Example                                                                                                                                                                                                                                                                                                                                                         |
-| ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connection pooling with concurrent queries, including table creation, inserts, and reads across multiple workers | [Connection<br>pool example (preferred)](https://github.com/awslabs/aurora-dsql-connectors/blob/main/node/postgres-js/example/src/example_preferred.js "https://github.com/awslabs/aurora-dsql-connectors/blob/main/node/postgres-js/example/src/example_preferred.js")                                                                                         |
-| CRUD operations (create table, insert, select, delete) without connection pooling                                | [Example<br>without connection pool](https://github.com/awslabs/aurora-dsql-connectors/blob/main/node/postgres-js/example/src/alternatives/no_connection_pool/example_with_no_connection_pool.js "https://github.com/awslabs/aurora-dsql-connectors/blob/main/node/postgres-js/example/src/alternatives/no_connection_pool/example_with_no_connection_pool.js") |
+
+|  Description  |  Example  | 
+| --- | --- | 
+|  Connection pooling with concurrent queries, including table creation, inserts, and reads across multiple workers  |  [Connection pool example (preferred)](https://github.com/awslabs/aurora-dsql-connectors/blob/main/node/postgres-js/example/src/example_preferred.js)  | 
+|  CRUD operations (create table, insert, select, delete) without connection pooling  |  [Example without connection pool](https://github.com/awslabs/aurora-dsql-connectors/blob/main/node/postgres-js/example/src/alternatives/no_connection_pool/example_with_no_connection_pool.js)  | 

@@ -1,13 +1,14 @@
+
+
 # Configuring Aurora DSQL clusters using AWS CloudFormation
+<a name="mr-cluster-setup"></a>
 
-You can use the same CloudFormation resource `AWS::DSQL::Cluster` to deploy and manage
-single-Region and multi-Region Aurora DSQL clusters.
+ You can use the same CloudFormation resource `AWS::DSQL::Cluster` to deploy and manage single-Region and multi-Region Aurora DSQL clusters. 
 
-See the [Amazon Aurora DSQL resource type
-reference](../../../AWSCloudFormation/latest/TemplateReference/AWS_DSQL.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_DSQL.md") for more on how to create, modify, and manage clusters using the
-`AWS::DSQL::Cluster` resource.
+See the [Amazon Aurora DSQL resource type reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/AWS_DSQL.html) for more on how to create, modify, and manage clusters using the `AWS::DSQL::Cluster` resource.
 
 ## Creating the Initial Cluster Configuration
+<a name="mr-cluster-initial"></a>
 
 First, create an AWS CloudFormation template to define your multi-Region cluster:
 
@@ -37,6 +38,7 @@ aws cloudformation create-stack --region us-east-1 \
 ```
 
 ## Finding Cluster Identifiers
+<a name="mr-cluster-find"></a>
 
 Retrieve the physical resource IDs for your clusters:
 
@@ -59,6 +61,7 @@ aws cloudformation describe-stack-resources -region us-east-1 \
 ```
 
 ## Updating the Cluster Configuration
+<a name="mr-cluster-update"></a>
 
 Update your AWS CloudFormation template to include both cluster ARNs:
 

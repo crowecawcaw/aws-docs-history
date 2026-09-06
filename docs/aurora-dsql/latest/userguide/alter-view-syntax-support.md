@@ -1,8 +1,12 @@
+
+
 # `ALTER VIEW`
+<a name="alter-view-syntax-support"></a>
 
 The `ALTER VIEW` statement allows changing various properties of an existing view, and Aurora DSQL supports all the PostgreSQL syntax for this command.
 
 ## Supported syntax
+<a name="alter-view-supported-syntax"></a>
 
 ```
 ALTER VIEW [ IF EXISTS ] name ALTER [ COLUMN ] column_name SET DEFAULT expression
@@ -16,57 +20,45 @@ ALTER VIEW [ IF EXISTS ] name RESET ( view_option_name [, ... ] )
 ```
 
 ## Description
+<a name="alter-view-description"></a>
 
-`ALTER VIEW` changes various auxiliary properties of a view. (If you want
-to modify the view's defining query, use `CREATE OR REPLACE VIEW`.) You must
-own the view to use `ALTER VIEW`. To change a view's schema, you must also
-have `CREATE` privilege on the new schema. To alter the owner, you must be
-able to `SET ROLE` to the new owning role, and that role must have
-`CREATE` privilege on the view's schema.
+`ALTER VIEW` changes various auxiliary properties of a view. (If you want to modify the view's defining query, use `CREATE OR REPLACE VIEW`.) You must own the view to use `ALTER VIEW`. To change a view's schema, you must also have `CREATE` privilege on the new schema. To alter the owner, you must be able to `SET ROLE` to the new owning role, and that role must have `CREATE` privilege on the view's schema.
 
 ## Parameters
+<a name="alter-view-parameters"></a>
 
-**`name`**
+**`name`**  
+The name (optionally schema-qualified) of an existing view. 
 
-The name (optionally schema-qualified) of an existing view.
-
-**`column_name`**
-
+**`column_name`**  
 Name of an existing column, or new name for an existing column.
 
-**`IF EXISTS`**
-
+**`IF EXISTS`**  
 Don't throw an error if the view doesn't exist. A notice is issued in this case.
 
-**`SET/DROP DEFAULT`**
-
+**`SET/DROP DEFAULT`**  
 These forms set or remove the default value for a column. The default value for a view column is substituted into any `INSERT` or `UPDATE` command where the target is the view.
 
-**`new_owner`**
-
+**`new_owner`**  
 The user name of the new owner of the view.
 
-**`new_name`**
-
+**`new_name`**  
 The new name for the view.
 
-**`new_schema`**
-
+**`new_schema`**  
 The new schema for the view.
 
-**`SET ( view_option_name [= view_option_value] [, ... ] )`**
+**`SET ( view_option_name [= view_option_value] [, ... ] )`**  
+Sets a view option. The following are supported options:  
++ `check_option (enum)` - Changes the check option of the view. The value must be `local` or `cascaded`.
++ `security_barrier (boolean)` - Changes the security-barrier property of the view.
++ `security_invoker (boolean)` - Changes the security-invoker property of the view.
 
-Sets a view option. The following are supported options:
-
-- `check_option (enum)` - Changes the check option of the view. The value must be `local` or `cascaded`.
-- `security_barrier (boolean)` - Changes the security-barrier property of the view.
-- `security_invoker (boolean)` - Changes the security-invoker property of the view.
-
-**`RESET ( view_option_name [, ... ] )`**
-
+**`RESET ( view_option_name [, ... ] )`**  
 Resets a view option to its default value.
 
 ## Examples
+<a name="alter-view-examples"></a>
 
 Renaming the view `foo` to `bar`:
 
@@ -85,5 +77,6 @@ INSERT INTO a_view(id) VALUES(2);  -- ts will receive the current time
 ```
 
 ## Compatibility
+<a name="alter-view-compatibility"></a>
 
 `ALTER VIEW` is a PostgreSQL extension of the SQL standard that Aurora DSQL supports.

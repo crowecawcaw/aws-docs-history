@@ -1,27 +1,47 @@
+
+
 # Adding and editing resource-based policies for clusters
+<a name="rbp-attach-policy"></a>
 
-###### To add a resource-based policy to an existing cluster
+## AWS Management Console
+<a name="rbp-attach-console"></a>
 
-1. Sign in to the AWS Management Console and open the Aurora DSQL console at [https://console.aws.amazon.com/dsql/](https://console.aws.amazon.com/dsql "https://console.aws.amazon.com/dsql").
-2. Choose your cluster from the cluster list to open the cluster details page.
-3. Choose the **Permissions** tab.
-4. In the **Resource-based policy** section, choose **Add policy**.
-5. Enter your policy document in the JSON editor. You can use **Edit statement** or **Add new statement** to build your policy.
-6. Choose **Add policy**.
+**To add a resource-based policy to an existing cluster**
 
-###### To edit an existing resource-based policy
+1. Sign in to the AWS Management Console and open the Aurora DSQL console at [https://console.aws.amazon.com/dsql/](https://console.aws.amazon.com/dsql).
 
-1. Sign in to the AWS Management Console and open the Aurora DSQL console at [https://console.aws.amazon.com/dsql/](https://console.aws.amazon.com/dsql "https://console.aws.amazon.com/dsql").
-2. Choose your cluster from the cluster list to open the cluster details page.
-3. Choose the **Permissions** tab.
-4. In the **Resource-based policy** section, choose **Edit**.
-5. Modify the policy document in the JSON editor. You can use **Edit statement** or **Add new statement** to update your policy.
-6. Choose **Save changes**.
-   Use the `put-cluster-policy` command to attach a new policy or update an existing policy on a cluster:
+1. Choose your cluster from the cluster list to open the cluster details page.
+
+1. Choose the **Permissions** tab.
+
+1. In the **Resource-based policy** section, choose **Add policy**.
+
+1. Enter your policy document in the JSON editor. You can use **Edit statement** or **Add new statement** to build your policy.
+
+1. Choose **Add policy**.
+
+**To edit an existing resource-based policy**
+
+1. Sign in to the AWS Management Console and open the Aurora DSQL console at [https://console.aws.amazon.com/dsql/](https://console.aws.amazon.com/dsql).
+
+1. Choose your cluster from the cluster list to open the cluster details page.
+
+1. Choose the **Permissions** tab.
+
+1. In the **Resource-based policy** section, choose **Edit**.
+
+1. Modify the policy document in the JSON editor. You can use **Edit statement** or **Add new statement** to update your policy.
+
+1. Choose **Save changes**.
+
+## AWS CLI
+<a name="rbp-attach-cli"></a>
+
+Use the `put-cluster-policy` command to attach a new policy or update an existing policy on a cluster:
 
 ```
 aws dsql put-cluster-policy --identifier your_cluster_id --policy '{
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [{
         "Effect": "Deny",
         "Principal": {"AWS": "*"},
@@ -34,17 +54,20 @@ aws dsql put-cluster-policy --identifier your_cluster_id --policy '{
 }'
 ```
 
-Python
+## AWS SDKs
+<a name="rbp-attach-sdk"></a>
+
+------
+#### [ Python ]
 
 ```
-
 import boto3
 import json
 
 client = boto3.client('dsql')
 
 policy = {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [{
         "Effect": "Deny",
         "Principal": {"AWS": "*"},
@@ -60,13 +83,12 @@ response = client.put_cluster_policy(
     identifier='your_cluster_id',
     policy=json.dumps(policy)
 )
-
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
-
 import software.amazon.awssdk.services.dsql.DsqlClient;
 import software.amazon.awssdk.services.dsql.model.PutClusterPolicyRequest;
 
@@ -74,7 +96,7 @@ DsqlClient client = DsqlClient.create();
 
 String policy = """
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [{
     "Effect": "Deny",
     "Principal": {"AWS": "*"},
@@ -93,5 +115,6 @@ PutClusterPolicyRequest request = PutClusterPolicyRequest.builder()
     .build();
 
 client.putClusterPolicy(request);
-
 ```
+
+------

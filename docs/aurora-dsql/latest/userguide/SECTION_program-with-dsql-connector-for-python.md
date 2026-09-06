@@ -1,128 +1,85 @@
+
+
 # Aurora DSQL Connector for Python
+<a name="SECTION_program-with-dsql-connector-for-python"></a>
 
-The [Aurora DSQL Connector for Python](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector") integrates IAM Authentication
-for connecting Python applications to Amazon Aurora DSQL clusters.
-Internally, it utilizes
-[psycopg](https://github.com/psycopg/psycopg "https://github.com/psycopg/psycopg"),
-[psycopg2](https://github.com/psycopg/psycopg2 "https://github.com/psycopg/psycopg2"),
-and
-[asyncpg](https://github.com/MagicStack/asyncpg "https://github.com/MagicStack/asyncpg")
-client libraries.
+ The [Aurora DSQL Connector for Python](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector) integrates IAM Authentication for connecting Python applications to Amazon Aurora DSQL clusters. Internally, it utilizes [psycopg](https://github.com/psycopg/psycopg), [psycopg2](https://github.com/psycopg/psycopg2), and [asyncpg](https://github.com/MagicStack/asyncpg) client libraries. 
 
-The Aurora DSQL Connector for Python is designed as an
-authentication plugin that extends the functionality of the psycopg,
-psycopg2, and asyncpg client libraries to enable applications to
-authenticate with Amazon Aurora DSQL using IAM credentials. The
-connector does not connect directly to the database but provides
-seamless IAM authentication on top of the underlying client
-libraries.
+ The Aurora DSQL Connector for Python is designed as an authentication plugin that extends the functionality of the psycopg, psycopg2, and asyncpg client libraries to enable applications to authenticate with Amazon Aurora DSQL using IAM credentials. The connector does not connect directly to the database but provides seamless IAM authentication on top of the underlying client libraries. 
 
 ## About the Connector
+<a name="about-the-connector"></a>
 
-Amazon Aurora DSQL is a distributed SQL database service that
-provides high availability and scalability for
-PostgreSQL-compatible applications. Aurora DSQL requires IAM-based
-authentication with time-limited tokens that existing Python
-libraries do not natively support.
+ Amazon Aurora DSQL is a distributed SQL database service that provides high availability and scalability for PostgreSQL-compatible applications. Aurora DSQL requires IAM-based authentication with time-limited tokens that existing Python libraries do not natively support. 
 
-The idea behind the Aurora DSQL Connector for Python is to add an
-authentication layer on top of the psycopg, psycopg2, and asyncpg
-client libraries that handles IAM token generation, allowing users
-to connect to Aurora DSQL without changing their existing
-workflows.
+ The idea behind the Aurora DSQL Connector for Python is to add an authentication layer on top of the psycopg, psycopg2, and asyncpg client libraries that handles IAM token generation, allowing users to connect to Aurora DSQL without changing their existing workflows. 
 
 ### What is Aurora DSQL Authentication?
+<a name="what-is-aurora-dsql-authentication"></a>
 
-In Aurora DSQL, authentication involves:
+ In Aurora DSQL, authentication involves: 
++  **IAM Authentication:** All connections use IAM-based authentication with time-limited tokens 
++  **Token Generation:** Authentication tokens are generated using AWS credentials and have configurable lifetimes 
 
-- **IAM Authentication:** All
-  connections use IAM-based authentication with time-limited
-  tokens
-- **Token Generation:**
-  Authentication tokens are generated using AWS credentials
-  and have configurable lifetimes
-
-The Aurora DSQL Connector for Python is designed to understand
-these requirements and automatically generate IAM authentication
-tokens when establishing connections.
+ The Aurora DSQL Connector for Python is designed to understand these requirements and automatically generate IAM authentication tokens when establishing connections. 
 
 ### Features
-
-- **Automatic IAM
-  Authentication** - IAM tokens are generated
-  automatically using AWS credentials
-- **Built on psycopg, psycopg2, and
-  asyncpg** - Leverages the psycopg, psycopg2, and
-  asyncpg client libraries
-- **Seamless Integration** -
-  Works with existing psycopg, psycopg2, and asyncpg
-  connection patterns without requiring workflow changes
-- **Region Auto-Discovery** -
-  Extracts AWS region from DSQL cluster hostname
-- **AWS Credentials Support** -
-  Supports various AWS credential providers (default,
-  profile-based, custom)
-- **Connection Pooling
-  Compatibility** - Works with psycopg, psycopg2, and
-  asyncpg built-in connection pooling
+<a name="features"></a>
++  **Automatic IAM Authentication** - IAM tokens are generated automatically using AWS credentials 
++  **Built on psycopg, psycopg2, and asyncpg** - Leverages the psycopg, psycopg2, and asyncpg client libraries 
++  **Seamless Integration** - Works with existing psycopg, psycopg2, and asyncpg connection patterns without requiring workflow changes 
++  **Region Auto-Discovery** - Extracts AWS region from DSQL cluster hostname 
++  **AWS Credentials Support** - Supports various AWS credential providers (default, profile-based, custom) 
++  **Connection Pooling Compatibility** - Works with psycopg, psycopg2, and asyncpg built-in connection pooling 
 
 ## Quick start guide
+<a name="quick-start-guide"></a>
 
 ### Requirements
-
-- Python 3.10 or higher
-- [Access
-  to an Aurora DSQL cluster](getting-started.md "getting-started.md")
-- Set up appropriate IAM permissions to allow your application
-  to connect to Aurora DSQL.
-- AWS credentials configured (via AWS CLI, environment
-  variables, or IAM roles)
+<a name="requirements"></a>
++  Python 3.10 or higher 
++  [Access to an Aurora DSQL cluster](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/getting-started.html) 
++  Set up appropriate IAM permissions to allow your application to connect to Aurora DSQL. 
++  AWS credentials configured (via AWS CLI, environment variables, or IAM roles) 
 
 ### Installation
+<a name="installation"></a>
 
 ```
 pip install aurora-dsql-python-connector
-
 ```
 
 #### Install psycopg or psycopg2 or asyncpg separately
+<a name="install-psycopg-or-psycopg2-or-asyncpg-separately"></a>
 
-The Aurora DSQL Connector for Python installer does not
-install the underlying libraries. They need to be installed
-separately, e.g.:
+ The Aurora DSQL Connector for Python installer does not install the underlying libraries. They need to be installed separately, e.g.: 
 
 ```
 # Install psycopg and psycopg pool
 pip install "psycopg[binary,pool]"
-
 ```
 
 ```
 # Install psycopg2
 pip install psycopg2-binary
-
 ```
 
 ```
 # Install asyncpg
 pip install asyncpg
-
 ```
 
-**Note:**
+ **Note:** 
 
-Only the library that is needed must be installed. Therefore,
-if the client is going to use psycopg, then only psycopg needs
-to be installed. If the client is going to use psycopg2, then
-only psycopg2 needs to be installed. If the client is going to
-use asyncpg, then only asyncpg needs to be installed.
+ Only the library that is needed must be installed. Therefore, if the client is going to use psycopg, then only psycopg needs to be installed. If the client is going to use psycopg2, then only psycopg2 needs to be installed. If the client is going to use asyncpg, then only asyncpg needs to be installed. 
 
-If the client needs more than one, then all the needed
-libraries need to be installed.
+ If the client needs more than one, then all the needed libraries need to be installed. 
 
 ### Basic Usage
+<a name="basic-usage"></a>
 
 #### psycopg
+<a name="psycopg"></a>
 
 ```
     import aurora_dsql_psycopg as dsql
@@ -138,10 +95,10 @@ libraries need to be installed.
         cur.execute("SELECT 1")
         result = cur.fetchone()
         print(result)
-
 ```
 
 #### psycopg2
+<a name="psycopg2"></a>
 
 ```
     import aurora_dsql_psycopg2 as dsql
@@ -157,10 +114,10 @@ libraries need to be installed.
         cur.execute("SELECT 1")
         result = cur.fetchone()
         print(result)
-
 ```
 
 #### asyncpg
+<a name="asyncpg"></a>
 
 ```
     import asyncio
@@ -176,84 +133,82 @@ libraries need to be installed.
     result = await conn.fetchrow("SELECT 1")
     await conn.close()
     print(result)
-
 ```
 
 #### Using just host
+<a name="using-just-host"></a>
 
 ##### psycopg
+<a name="psycopg-1"></a>
 
 ```
     import aurora_dsql_psycopg as dsql
 
     conn = dsql.connect("your-cluster.dsql.us-east-1.on.aws")
-
 ```
 
 ##### psycopg2
+<a name="psycopg2-1"></a>
 
 ```
     import aurora_dsql_psycopg2 as dsql
 
     conn = dsql.connect("your-cluster.dsql.us-east-1.on.aws")
-
 ```
 
 ##### asyncpg
+<a name="asyncpg-1"></a>
 
 ```
     import asyncio
     import aurora_dsql_asyncpg as dsql
 
     conn = await dsql.connect("your-cluster.dsql.us-east-1.on.aws")
-
 ```
 
 #### Using just cluster ID
+<a name="using-just-cluster-id"></a>
 
 ##### psycopg
+<a name="psycopg-2"></a>
 
 ```
     import aurora_dsql_psycopg as dsql
 
     conn = dsql.connect("your-cluster")
-
 ```
 
 ##### psycopg2
+<a name="psycopg2-2"></a>
 
 ```
     import aurora_dsql_psycopg2 as dsql
 
     conn = dsql.connect("your-cluster")
-
 ```
 
 ##### asyncpg
+<a name="asyncpg-2"></a>
 
 ```
     import asyncio
     import aurora_dsql_asyncpg as dsql
 
     conn = await dsql.connect("your-cluster")
-
 ```
 
-**Note:**
+ **Note:** 
 
-In the "using just cluster ID" scenario, the
-region that was set previously on the machine is used, e.g.:
+ In the "using just cluster ID" scenario, the region that was set previously on the machine is used, e.g.: 
 
 ```
 aws configure set region us-east-1
-
 ```
 
-If the region has not been set, or the given cluster ID is
-in a different region, the connection will fail. To make it
-work, provide region as a parameter as in the example below:
+ If the region has not been set, or the given cluster ID is in a different region, the connection will fail. To make it work, provide region as a parameter as in the example below: 
 
 ##### psycopg
+<a name="psycopg-3"></a>
 
 ```
     import aurora_dsql_psycopg as dsql
@@ -263,10 +218,10 @@ work, provide region as a parameter as in the example below:
     }
 
     conn = dsql.connect("your-cluster", **config)
-
 ```
 
 ##### psycopg2
+<a name="psycopg2-3"></a>
 
 ```
     import aurora_dsql_psycopg2 as dsql
@@ -276,10 +231,10 @@ work, provide region as a parameter as in the example below:
     }
 
     conn = dsql.connect("your-cluster", **config)
-
 ```
 
 ##### asyncpg
+<a name="asyncpg-3"></a>
 
 ```
     import asyncio
@@ -290,42 +245,44 @@ work, provide region as a parameter as in the example below:
     }
 
     conn = await dsql.connect("your-cluster", **config)
-
 ```
 
 ### Connection String
+<a name="connection-string"></a>
 
 #### psycopg
+<a name="psycopg-4"></a>
 
 ```
     import aurora_dsql_psycopg as dsql
 
     conn = dsql.connect("postgresql://your-cluster.dsql.us-east-1.on.aws/postgres?user=admin&token_duration_secs=15")
-
 ```
 
 #### psycopg2
+<a name="psycopg2-4"></a>
 
 ```
     import aurora_dsql_psycopg2 as dsql
 
     conn = dsql.connect("postgresql://your-cluster.dsql.us-east-1.on.aws/postgres?user=admin&token_duration_secs=15")
-
 ```
 
 #### asyncpg
+<a name="asyncpg-4"></a>
 
 ```
     import asyncio
     import aurora_dsql_asyncpg as dsql
 
     conn = await dsql.connect("postgresql://your-cluster.dsql.us-east-1.on.aws/postgres?user=admin&token_duration_secs=15")
-
 ```
 
 ### Advanced Configuration
+<a name="advanced-configuration"></a>
 
 #### psycopg
+<a name="psycopg-5"></a>
 
 ```
     import aurora_dsql_psycopg as dsql
@@ -343,10 +300,10 @@ work, provide region as a parameter as in the example below:
         cur.execute("SELECT 1")
         result = cur.fetchone()
         print(result)
-
 ```
 
 #### psycopg2
+<a name="psycopg2-5"></a>
 
 ```
     import aurora_dsql_psycopg2 as dsql
@@ -364,10 +321,10 @@ work, provide region as a parameter as in the example below:
         cur.execute("SELECT 1")
         result = cur.fetchone()
         print(result)
-
 ```
 
 #### asyncpg
+<a name="asyncpg-5"></a>
 
 ```
     import asyncio
@@ -385,43 +342,34 @@ work, provide region as a parameter as in the example below:
     result = await conn.fetchrow("SELECT 1")
     await conn.close()
     print(result)
-
 ```
 
 ### Configuration Options
+<a name="configuration-options"></a>
 
-| Option                        | Type                 | Required | Description                                              |
-| ----------------------------- | -------------------- | -------- | -------------------------------------------------------- |
-| `host`                        | `string`             | Yes      | DSQL cluster hostname or cluster ID                      |
-| `user`                        | `string`             | No       | DSQL username. Default: admin                            |
-| `dbname`                      | `string`             | No       | Database name. Default: postgres                         |
-| `region`                      | `string`             | No       | AWS region (auto-detected from hostname if not provided) |
-| `port`                        | `int`                | No       | Default to 5432                                          |
-| `custom_credentials_provider` | `CredentialProvider` | No       | Custom AWS credentials provider                          |
-| `profile`                     | `string`             | No       | The IAM profile name. Default: default.                  |
-| `token_duration_secs`         | `int`                | No       | Token expiration time in seconds                         |
 
-All standard connection options of the underlying psycopg,
-psycopg2, and asyncpg libraries are also supported, with
-the exception of asyncpg parameters
-**krbsrvname** and
-**gsslib** which are
-not supported by DSQL.
+|  Option  |  Type  |  Required  |  Description  | 
+| --- | --- | --- | --- | 
+|  host  |  string  |  Yes  |  DSQL cluster hostname or cluster ID  | 
+|  user  |  string  |  No  |  DSQL username. Default: admin  | 
+|  dbname  |  string  |  No  |  Database name. Default: postgres  | 
+|  region  |  string  |  No  |  AWS region (auto-detected from hostname if not provided)  | 
+|  port  |  int  |  No  |  Default to 5432  | 
+|  custom\_credentials\_provider  |  CredentialProvider  |  No  |  Custom AWS credentials provider  | 
+|  profile  |  string  |  No  |  The IAM profile name. Default: default.  | 
+|  token\_duration\_secs  |  int  |  No  |  Token expiration time in seconds  | 
+
+ All standard connection options of the underlying psycopg, psycopg2, and asyncpg libraries are also supported, with the exception of asyncpg parameters **krbsrvname** and **gsslib** which are not supported by DSQL. 
 
 ### Using the Aurora DSQL connector for Python with connection pooling
+<a name="using-the-aurora-dsql-connector-for-python-with-connection-pooling"></a>
 
-The Aurora DSQL Connector for Python works with psycopg,
-psycopg2, and asyncpg built-in connection pooling. The connector
-handles IAM token generation during connection establishment,
-allowing connection pools to operate normally.
+ The Aurora DSQL Connector for Python works with psycopg, psycopg2, and asyncpg built-in connection pooling. The connector handles IAM token generation during connection establishment, allowing connection pools to operate normally. 
 
 #### psycopg
+<a name="psycopg-6"></a>
 
-For psycopg, the connector implements a connection class named
-DSQLConnection that can be passed directly to the
-psycopg\_pool.ConnectionPool constructor. For asynchronous
-operations, there is also an async version of the class named
-DSQLAsyncConnection.
+ For psycopg, the connector implements a connection class named DSQLConnection that can be passed directly to the psycopg\_pool.ConnectionPool constructor. For asynchronous operations, there is also an async version of the class named DSQLAsyncConnection. 
 
 ```
     from psycopg_pool import ConnectionPool as PsycopgPool
@@ -435,27 +383,16 @@ DSQLAsyncConnection.
         max_size=8,
         max_lifetime=3300
     )
-
 ```
 
-**Note: Connection max\_lifetime
-Configuration**
+ **Note: Connection max\_lifetime Configuration** 
 
-The max\_lifetime parameter should be set to less than 3600
-seconds (one hour), as this is the maximum connection duration
-allowed by Aurora DSQL database. Setting a lower max\_lifetime
-allows the connection pool to proactively manage connection
-recycling, which is more efficient than handling connection
-timeout errors from the database.
+ The max\_lifetime parameter should be set to less than 3600 seconds (one hour), as this is the maximum connection duration allowed by Aurora DSQL database. Setting a lower max\_lifetime allows the connection pool to proactively manage connection recycling, which is more efficient than handling connection timeout errors from the database. 
 
 #### psycopg2
+<a name="psycopg2-6"></a>
 
-For psycopg2, the connector provides a class named
-AuroraDSQLThreadedConnectionPool that inherits from
-psycopg2.pool.ThreadedConnectionPool. The
-AuroraDSQLThreadedConnectionPool class only overrides the
-internal \_connect method. The rest of the implementation is
-provided by psycopg2.pool.ThreadedConnectionPool unchanged.
+ For psycopg2, the connector provides a class named AuroraDSQLThreadedConnectionPool that inherits from psycopg2.pool.ThreadedConnectionPool. The AuroraDSQLThreadedConnectionPool class only overrides the internal \_connect method. The rest of the implementation is provided by psycopg2.pool.ThreadedConnectionPool unchanged. 
 
 ```
     import aurora_dsql_psycopg2 as dsql
@@ -465,13 +402,12 @@ provided by psycopg2.pool.ThreadedConnectionPool unchanged.
             maxconn=8,
             **conn_params,
     )
-
 ```
 
 #### asyncpg
+<a name="asyncpg-6"></a>
 
-For asyncpg, the connector provides a create\_pool function
-that returns an instance of asyncpg.Pool.
+ For asyncpg, the connector provides a create\_pool function that returns an instance of asyncpg.Pool. 
 
 ```
     import asyncio
@@ -487,64 +423,60 @@ that returns an instance of asyncpg.Pool.
     }
 
     pool = await dsql.create_pool(**pool_params)
-
 ```
 
 ## Authentication
+<a name="authentication"></a>
 
-The connector automatically handles DSQL authentication by
-generating tokens using the DSQL client token generator. If the
-AWS region is not provided, it will be automatically parsed from
-the hostname provided.
+ The connector automatically handles DSQL authentication by generating tokens using the DSQL client token generator. If the AWS region is not provided, it will be automatically parsed from the hostname provided. 
 
-For more information on authentication in Aurora DSQL, see the
-[user
-guide](authentication-authorization.md "authentication-authorization.md").
+ For more information on authentication in Aurora DSQL, see the [user guide](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/authentication-authorization.html). 
 
 ### Admin vs Regular Users
-
-- Users named `"admin"`
-  automatically use admin authentication tokens
-- All other users use non-admin authentication tokens
-- Tokens are generated dynamically for each connection
+<a name="admin-vs-regular-users"></a>
++  Users named `"admin"` automatically use admin authentication tokens 
++  All other users use non-admin authentication tokens 
++  Tokens are generated dynamically for each connection 
 
 ## Examples
+<a name="examples"></a>
 
-For full example code, refer to the examples as indicated in the
-sections below. For instructions how to run the examples please
-refer to the examples READMDE files.
+ For full example code, refer to the examples as indicated in the sections below. For instructions how to run the examples please refer to the examples READMDE files. 
 
 ### psycopg
+<a name="psycopg-7"></a>
 
-[Examples
-README](https://github.com/awslabs/aurora-dsql-connectors/blob/main/python/connector/examples/psycopg/README.md "https://github.com/awslabs/aurora-dsql-connectors/blob/main/python/connector/examples/psycopg/README.md")
+ [Examples README](https://github.com/awslabs/aurora-dsql-connectors/blob/main/python/connector/examples/psycopg/README.md) 
 
-| Description                                                                      | Examples                                                                                                                                                                                                                                                                                                                                                                                            |
-| -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Using the Aurora DSQL Connector for Python for basic<br>connections              | [Basic<br>Connection Example](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/example_preferred.py "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/example_preferred.py")                                                                                                                      |
-| Using the Aurora DSQL Connector for Python for basic<br>asynchronous connections | [Basic<br>Asynchronous Connection Example](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/alternatives/no_connection_pool/example_async_with_no_connection_pool.py "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/alternatives/no_connection_pool/example_async_with_no_connection_pool.py") |
-| Using the Aurora DSQL Connector for Python with<br>connection pool               | [Basic<br>Connection Example With Connection Pool](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/alternatives/pool/example_with_nonconcurrent_connection_pool.py "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/alternatives/pool/example_with_nonconcurrent_connection_pool.py")           |
-|                                                                                  | [Concurrent<br>Connections Example With Connection Pool](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/example_preferred.py "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/example_preferred.py")                                                                                           |
-| Using the Aurora DSQL Connector for Python with<br>asynchronous connection pool  | [Basic<br>Connection Example With Asynchronous Connection<br>Pool](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/alternatives/pool/example_with_async_connection_pool.py "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/alternatives/pool/example_with_async_connection_pool.py")           |
+
+|  Description  |  Examples  | 
+| --- | --- | 
+|  Using the Aurora DSQL Connector for Python for basic connections  |  [Basic Connection Example](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/example_preferred.py)  | 
+|  Using the Aurora DSQL Connector for Python for basic asynchronous connections  |  [Basic Asynchronous Connection Example](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/alternatives/no_connection_pool/example_async_with_no_connection_pool.py)  | 
+|  Using the Aurora DSQL Connector for Python with connection pool  |  [Basic Connection Example With Connection Pool](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/alternatives/pool/example_with_nonconcurrent_connection_pool.py)  | 
+|   |  [Concurrent Connections Example With Connection Pool](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/example_preferred.py)  | 
+|  Using the Aurora DSQL Connector for Python with asynchronous connection pool  |  [Basic Connection Example With Asynchronous Connection Pool](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg/src/alternatives/pool/example_with_async_connection_pool.py)  | 
 
 ### psycopg2
+<a name="psycopg2-7"></a>
 
-[Examples
-README](https://github.com/awslabs/aurora-dsql-connectors/blob/main/python/connector/examples/psycopg2/README.md "https://github.com/awslabs/aurora-dsql-connectors/blob/main/python/connector/examples/psycopg2/README.md")
+ [Examples README](https://github.com/awslabs/aurora-dsql-connectors/blob/main/python/connector/examples/psycopg2/README.md) 
 
-| Description                                                         | Examples                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Using the Aurora DSQL Connector for Python for basic<br>connections | [Basic<br>Connection Example](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg2/src/example_preferred.py "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg2/src/example_preferred.py")                                                                                                            |
-| Using the Aurora DSQL Connector for Python with<br>connection pool  | [Basic<br>Connection Example With Connection Pool](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg2/src/alternatives/pool/example_with_nonconcurrent_connection_pool.py "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg2/src/alternatives/pool/example_with_nonconcurrent_connection_pool.py") |
-|                                                                     | [Concurrent<br>Connections Example With Connection Pool](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg2/src/example_preferred.py "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg2/src/example_preferred.py")                                                                                 |
+
+|  Description  |  Examples  | 
+| --- | --- | 
+|  Using the Aurora DSQL Connector for Python for basic connections  |  [Basic Connection Example](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg2/src/example_preferred.py)  | 
+|  Using the Aurora DSQL Connector for Python with connection pool  |  [Basic Connection Example With Connection Pool](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg2/src/alternatives/pool/example_with_nonconcurrent_connection_pool.py)  | 
+|   |  [Concurrent Connections Example With Connection Pool](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/psycopg2/src/example_preferred.py)  | 
 
 ### asyncpg
+<a name="asyncpg-7"></a>
 
-[Examples
-README](https://github.com/awslabs/aurora-dsql-connectors/blob/main/python/connector/examples/asyncpg/README.md "https://github.com/awslabs/aurora-dsql-connectors/blob/main/python/connector/examples/asyncpg/README.md")
+ [Examples README](https://github.com/awslabs/aurora-dsql-connectors/blob/main/python/connector/examples/asyncpg/README.md) 
 
-| Description                                                         | Examples                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Using the Aurora DSQL Connector for Python for basic<br>connections | [Basic<br>Connection Example](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/asyncpg/src/example_preferred.py "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/asyncpg/src/example_preferred.py")                                                                                                            |
-| Using the Aurora DSQL Connector for Python with<br>connection pool  | [Basic<br>Connection Example With Connection Pool](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/asyncpg/src/alternatives/pool/example_with_nonconcurrent_connection_pool.py "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/asyncpg/src/alternatives/pool/example_with_nonconcurrent_connection_pool.py") |
-|                                                                     | [Concurrent<br>Connections Example With Connection Pool](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/asyncpg/src/example_preferred.py "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/asyncpg/src/example_preferred.py")                                                                                 |
+
+|  Description  |  Examples  | 
+| --- | --- | 
+|  Using the Aurora DSQL Connector for Python for basic connections  |  [Basic Connection Example](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/asyncpg/src/example_preferred.py)  | 
+|  Using the Aurora DSQL Connector for Python with connection pool  |  [Basic Connection Example With Connection Pool](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/asyncpg/src/alternatives/pool/example_with_nonconcurrent_connection_pool.py)  | 
+|   |  [Concurrent Connections Example With Connection Pool](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector/examples/asyncpg/src/example_preferred.py)  | 

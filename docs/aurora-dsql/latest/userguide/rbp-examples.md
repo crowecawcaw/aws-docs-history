@@ -1,14 +1,18 @@
+
+
 # Common resource-based policy examples
+<a name="rbp-examples"></a>
 
 These examples show common patterns for controlling access to your Aurora DSQL clusters. You can combine and modify these patterns to meet your specific access requirements.
 
 ## Block public internet access
+<a name="rbp-example-block-public"></a>
 
 This policy blocks connections to your Aurora DSQL clusters from the public internet (non-VPC). The policy doesn't specify which VPC customers can connect from—only that they must connect from a VPC. To limit access to a specific VPC, use `aws:SourceVpc` with the `StringEquals` condition operator.
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Deny",
@@ -30,15 +34,14 @@ This policy blocks connections to your Aurora DSQL clusters from the public inte
 }
 ```
 
-###### Note
-
+**Note**  
 This example uses only `aws:SourceVpc` to check for VPC connections. The `aws:VpcSourceIp` and `aws:SourceVpce` condition keys provide additional granularity but are not required for basic VPC-only access control.
 
 To provide an exception for specific roles, use this policy instead:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "DenyAccessFromOutsideVPC",
@@ -68,12 +71,13 @@ To provide an exception for specific roles, use this policy instead:
 ```
 
 ## Restrict access to AWS Organization
+<a name="rbp-example-org-access"></a>
 
 This policy restricts access to principals within an AWS Organization:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Deny",
@@ -96,12 +100,13 @@ This policy restricts access to principals within an AWS Organization:
 ```
 
 ## Restrict access to specific Organizational Unit
+<a name="rbp-example-ou-access"></a>
 
 This policy restricts access to principals within a specific Organizational Unit (OU) in an AWS Organization, providing more granular control than organization-wide access:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Deny",
@@ -123,14 +128,15 @@ This policy restricts access to principals within a specific Organizational Unit
 ```
 
 ## Multi-Region cluster policies
+<a name="rbp-example-multi-region"></a>
 
 For multi-Region clusters, each regional cluster maintains its own resource policy, allowing for Region-specific controls. Here's an example with different policies per region:
 
-_us-east-1 policy:_
+*us-east-1 policy:*
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Deny",
@@ -154,11 +160,11 @@ _us-east-1 policy:_
 }
 ```
 
-_us-east-2 policy:_
+*us-east-2 policy:*
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -179,6 +185,5 @@ _us-east-2 policy:_
 }
 ```
 
-###### Note
-
+**Note**  
 Condition context keys may vary between AWS Regions (such as VPC IDs).

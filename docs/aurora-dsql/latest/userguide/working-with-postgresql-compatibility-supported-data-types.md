@@ -1,102 +1,95 @@
+
+
 # Supported data types in Aurora DSQL
+<a name="working-with-postgresql-compatibility-supported-data-types"></a>
 
 Aurora DSQL supports a subset of the common PostgreSQL types.
 
-###### Topics
-
-- [Numeric data types](#numeric-data-types "#numeric-data-types")
-- [Character data types](#character-data-types "#character-data-types")
-- [Date and time data types](#date-time-data-types "#date-time-data-types")
-- [Miscellaneous data types](#miscellaneous-data-types "#miscellaneous-data-types")
-- [Query runtime data types](#working-with-postgresql-compatibility-query-runtime "#working-with-postgresql-compatibility-query-runtime")
+**Topics**
++ [Numeric data types](#numeric-data-types)
++ [Character data types](#character-data-types)
++ [Date and time data types](#date-time-data-types)
++ [Miscellaneous data types](#miscellaneous-data-types)
++ [Query runtime data types](#working-with-postgresql-compatibility-query-runtime)
 
 ## Numeric data types
+<a name="numeric-data-types"></a>
 
 Aurora DSQL supports the following PostgreSQL numeric data types.
 
-| Name                            | Aliases                                                     | Range and precision                                                                                                                                    | Storage size                                                                | Index support |
-| ------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- | ------------- |
-| `smallint`                      | `int2`                                                      | -32768 to +32767                                                                                                                                       | 2 bytes                                                                     | Yes           |
-| `integer`                       | `int`, `int4`                                               | -2147483648 to +2147483647                                                                                                                             | 4 bytes                                                                     | Yes           |
-| `bigint`                        | `int8`                                                      | -9223372036854775808 to +9223372036854775807                                                                                                           | 8 bytes                                                                     | Yes           |
-| `real`                          | `float4`                                                    | 6 decimal digits precision                                                                                                                             | 4 bytes                                                                     | Yes           |
-| `double precision`              | `float8`                                                    | 15 decimal digits precision                                                                                                                            | 8 bytes                                                                     | Yes           |
-| `numeric` [ `(``p`,<br>`s``)` ] | `decimal` [ `(``p`,<br>`s``)` ]<br>`dec`[<br>`(``p`,`s``)`] | Exact numeric of selectable precision. The maximum precision is 1000 and scale can be between -1000 and 1000.<br>1 The default is `numeric<br>(18,6)`. | 8 bytes + 2 bytes per group of 4 decimal digits. Maximum size is 510 bytes. | Yes           |
 
-1 – If you don't explicitly specify a size when you run
-`CREATE TABLE` or `ALTER TABLE ADD COLUMN`, Aurora DSQL enforces the
-defaults. Aurora DSQL applies limits when you run `INSERT` or `UPDATE`
-statements.
+| Name | Aliases | Range and precision | Storage size | Index support | 
+| --- | --- | --- | --- | --- | 
+| smallint | int2 | -32768 to \+32767 | 2 bytes | Yes | 
+| `integer` | `int`, `int4` | -2147483648 to \+2147483647 | 4 bytes | Yes | 
+| `bigint` | `int8` | -9223372036854775808 to \+9223372036854775807 | 8 bytes | Yes | 
+| `real` | `float4` | 6 decimal digits precision | 4 bytes | Yes | 
+| `double precision` | `float8` | 15 decimal digits precision | 8 bytes | Yes | 
+| `numeric` [ `(`{{p}}, {{s}}`)` ] | `decimal` [ `(`{{p}}, {{s}}`)` ]<br />`dec`[ `(`{{p}},{{s}}`)`] | Exact numeric of selectable precision. The maximum precision is 1000 and scale can be between -1000 and 1000. 1 The default is `numeric (18,6)`. | 8 bytes \+ 2 bytes per group of 4 decimal digits. Maximum size is 510 bytes. | Yes | 
+
+1 – If you don't explicitly specify a size when you run `CREATE TABLE` or `ALTER TABLE ADD COLUMN`, Aurora DSQL enforces the defaults. Aurora DSQL applies limits when you run `INSERT` or `UPDATE` statements.
 
 ## Character data types
+<a name="character-data-types"></a>
 
 Aurora DSQL supports the following PostgreSQL character data types.
 
-| Name                                 | Aliases                    | Description                                                                                                                                                   | Aurora DSQL limit | Storage size               | Index support |
-| ------------------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------------------------- | ------------- |
-| `character` [<br>`(``n``)` ]         | `char` [ `(``n``)`<br>]    | Fixed-length character string                                                                                                                                 | 4096 bytes1,2     | Variable up to 4100 bytes  | Yes           |
-| `character varying` [<br>`(``n``)` ] | `varchar` [<br>`(``n``)` ] | Variable-length character string                                                                                                                              | 65535 bytes1,2    | Variable up to 65539 bytes | Yes           |
-| `bpchar` [<br>`(``n``)` ]            |                            | If fixed length, this is an alias for `char`. If variable length,<br>this is an alias for `varchar`, where trailing spaces are<br>semantically insignificant. | 4096 bytes1,2     | Variable up to 4100 bytes  | Yes           |
-| `text`                               |                            | Variable-length character string                                                                                                                              | 1 MiB1,2          | Variable up to 1 MiB       | Yes           |
 
-1 – If you don't explicitly specify a size when you run
-`CREATE TABLE` or `ALTER TABLE ADD COLUMN`, then Aurora DSQL enforces
-the defaults. Aurora DSQL applies limits when you run `INSERT` or
-`UPDATE` statements.
+| Name | Aliases | Description | Aurora DSQL limit | Storage size | Index support | 
+| --- | --- | --- | --- | --- | --- | 
+| `character` [ `(`{{n}}`)` ] | `char` [ `(`{{n}}`)` ] | Fixed-length character string | 4096 bytes1,2  | Variable up to 4100 bytes | Yes | 
+| `character varying` [ `(`{{n}}`)` ] | `varchar` [ `(`{{n}}`)` ] | Variable-length character string | 65535 bytes1,2  | Variable up to 65539 bytes | Yes | 
+| `bpchar` [ `(`{{n}}`)` ] |  | If fixed length, this is an alias for `char`. If variable length, this is an alias for `varchar`, where trailing spaces are semantically insignificant. | 4096 bytes1,2  | Variable up to 4100 bytes | Yes | 
+| `text` |  | Variable-length character string | 1 MiB1,2  | Variable up to 1 MiB | Yes | 
 
-2 – Aurora DSQL automatically applies compression to large `text`, `varchar`,
-and `bpchar` values during `INSERT` and `UPDATE` operations.
-Aurora DSQL compresses these values only in columns that aren't part of a key. Values in primary key
-columns and in the key columns of a secondary index are always stored uncompressed.
+1 – If you don't explicitly specify a size when you run `CREATE TABLE` or `ALTER TABLE ADD COLUMN`, then Aurora DSQL enforces the defaults. Aurora DSQL applies limits when you run `INSERT` or `UPDATE` statements.
 
-To disable compression, use the `STORAGE` keyword. For more information, see [CREATE TABLE](create-table-syntax-support.md#create-table-storage "create-table-syntax-support.md#create-table-storage") and [ALTER TABLE](alter-table-syntax-support.md#alter-table-description "alter-table-syntax-support.md#alter-table-description").
+2 – Aurora DSQL automatically applies compression to large `text`, `varchar`, and `bpchar` values during `INSERT` and `UPDATE` operations. Aurora DSQL compresses these values only in columns that aren't part of a key. Values in primary key columns and in the key columns of a secondary index are always stored uncompressed.
+
+To disable compression, use the `STORAGE` keyword. For more information, see [`CREATE TABLE`](create-table-syntax-support.md#create-table-storage) and [`ALTER TABLE`](alter-table-syntax-support.md#alter-table-description).
 
 ## Date and time data types
+<a name="date-time-data-types"></a>
 
 Aurora DSQL supports the following PostgreSQL date and time data types.
 
-| Name                                                    | Aliases       | Description                        | Range                              | Resolution    | Storage size | Index support |
-| ------------------------------------------------------- | ------------- | ---------------------------------- | ---------------------------------- | ------------- | ------------ | ------------- |
-| `date`                                                  |               | Calendar date (year, month, day)   | 4713 BC – 5874897 AD               | 1 day         | 4 bytes      | Yes           |
-| `time` [ `(``p``)`<br>] [ `without time zone` ]         |               | Time of day, with no time zone     | 00:00:00 – 24:00:00                | 1 microsecond | 8 bytes      | Yes           |
-| `time` [ `(``p``)`<br>] `with time zone`                | `timetz`      | time of day, including time zone   | 00:00:00+1559 – 24:00:00 –1559     | 1 microsecond | 12 bytes     | No            |
-| `timestamp` [<br>`(``p``)` ] [ `without<br>time zone` ] |               | Date and time, with no time zone   | 4713 BC – 294276 AD                | 1 microsecond | 8 bytes      | Yes           |
-| `timestamp` [<br>`(``p``)` ] `with time<br>zone`        | `timestamptz` | Date and time, including time zone | 4713 BC – 294276 AD                | 1 microsecond | 8 bytes      | Yes           |
-| `interval` [ `fields` ] [<br>`(``p``)` ]                |               | Time span                          | -178000000 years – 178000000 years | 1 microsecond | 16 bytes     | No            |
+
+| Name | Aliases | Description | Range | Resolution | Storage size | Index support | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| `date` |  | Calendar date (year, month, day) | 4713 BC – 5874897 AD | 1 day | 4 bytes | Yes | 
+| `time` [ `(`{{p}}`)` ] [ `without time zone` ] |  | Time of day, with no time zone | 00:00:00 – 24:00:00 | 1 microsecond | 8 bytes | Yes | 
+| `time` [ `(`{{p}}`)` ] `with time zone` | `timetz` | time of day, including time zone | 00:00:00\+1559 – 24:00:00 –1559 | 1 microsecond | 12 bytes | No | 
+| `timestamp` [ `(`{{p}}`)` ] [ `without time zone` ] |  | Date and time, with no time zone | 4713 BC – 294276 AD | 1 microsecond | 8 bytes | Yes | 
+| `timestamp` [ `(`{{p}}`)` ] `with time zone` | `timestamptz` | Date and time, including time zone | 4713 BC – 294276 AD | 1 microsecond | 8 bytes | Yes | 
+| `interval` [ `fields` ] [ `(`{{p}}`)` ] |  | Time span | -178000000 years – 178000000 years | 1 microsecond | 16 bytes | No | 
 
 ## Miscellaneous data types
+<a name="miscellaneous-data-types"></a>
 
 Aurora DSQL supports the following miscellaneous PostgreSQL data types.
 
-| Name      | Aliases | Description                   | Aurora DSQL limit | Storage size                 | Index support |
-| --------- | ------- | ----------------------------- | ----------------- | ---------------------------- | ------------- |
-| `boolean` | `bool`  | Logical Boolean (true/false)  |                   | 1 byte                       | Yes           |
-| `bytea`   |         | Binary data ("byte array")    | 1 MiB1            | Variable up to 1 MiB limit   | No            |
-| `UUID`    |         | Universally unique identifier |                   | 16 bytes                     | Yes           |
-| `json`    |         | JSON data                     | 1 MiB2            | Variable up to 1 MiB limit.2 | No            |
-| `jsonb`   |         | Binary JSON data              | 1 MiB2            | Variable up to 1 MiB limit.2 | No            |
 
-1 – If you don't explicitly specify a size when you run
-`CREATE TABLE` or `ALTER TABLE ADD COLUMN`, then Aurora DSQL enforces
-the defaults. Aurora DSQL applies limits when you run `INSERT` or
-`UPDATE` statements.
+| Name | Aliases | Description | Aurora DSQL limit | Storage size | Index support | 
+| --- | --- | --- | --- | --- | --- | 
+| `boolean` | `bool` | Logical Boolean (true/false) |  | 1 byte | Yes | 
+| `bytea` |  | Binary data ("byte array") | 1 MiB1  | Variable up to 1 MiB limit | No | 
+| `UUID` |  | Universally unique identifier |  | 16 bytes | Yes | 
+| `json` |  | JSON data | 1 MiB2 | Variable up to 1 MiB limit.2 | No | 
+| `jsonb` |  | Binary JSON data | 1 MiB2 | Variable up to 1 MiB limit.2 | No | 
 
-2 – Aurora DSQL automatically applies compression to large `json` and
-`jsonb` values during `INSERT` and `UPDATE` operations.
-The 1 MiB limit applies to the compressed size, so you can store `json` and `jsonb` values
-significantly larger than 1 MiB as long as they compress below the limit.
+1 – If you don't explicitly specify a size when you run `CREATE TABLE` or `ALTER TABLE ADD COLUMN`, then Aurora DSQL enforces the defaults. Aurora DSQL applies limits when you run `INSERT` or `UPDATE` statements.
 
-To disable compression, use the `STORAGE` keyword. For more information, see [CREATE TABLE](create-table-syntax-support.md#create-table-storage "create-table-syntax-support.md#create-table-storage") and [ALTER TABLE](alter-table-syntax-support.md#alter-table-description "alter-table-syntax-support.md#alter-table-description").
+2 – Aurora DSQL automatically applies compression to large `json` and `jsonb` values during `INSERT` and `UPDATE` operations. The 1 MiB limit applies to the compressed size, so you can store `json` and `jsonb` values significantly larger than 1 MiB as long as they compress below the limit.
+
+To disable compression, use the `STORAGE` keyword. For more information, see [`CREATE TABLE`](create-table-syntax-support.md#create-table-storage) and [`ALTER TABLE`](alter-table-syntax-support.md#alter-table-description).
 
 ### JSON functions and operators
+<a name="json-functions-and-operators"></a>
 
-Aurora DSQL supports all PostgreSQL JSON functions and operators from [section 9.16 JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html "https://www.postgresql.org/docs/current/functions-json.html") with identical behavior.
+Aurora DSQL supports all PostgreSQL JSON functions and operators from [section 9.16 JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html) with identical behavior.
 
-###### Note
-
-The functions `json_populate_record`, `json_populate_recordset`,
-`jsonb_populate_record`, and `jsonb_populate_recordset` work with table and view row
-types, but not with custom composite types as Aurora DSQL doesn't currently support `CREATE TYPE`.
+**Note**  
+The functions `json_populate_record`, `json_populate_recordset`, `jsonb_populate_record`, and `jsonb_populate_recordset` work with table and view row types, but not with custom composite types as Aurora DSQL doesn't currently support `CREATE TYPE`. 
 
 The following examples show `json_populate_record` and `jsonb_populate_recordset` used with a table row type:
 
@@ -117,7 +110,7 @@ SELECT * FROM jsonb_populate_recordset(null::tt, '[{"c1":1,"c2":2}, {"c1":3,"c2"
 ```
 
 ```
- c1 | c2
+ c1 | c2 
 ----+----
   1 |  2
   3 |  4
@@ -125,27 +118,19 @@ SELECT * FROM jsonb_populate_recordset(null::tt, '[{"c1":1,"c2":2}, {"c1":3,"c2"
 ```
 
 ## Query runtime data types
+<a name="working-with-postgresql-compatibility-query-runtime"></a>
 
-Query runtime data types are internal data types used at query execution time. These
-types are distinct from the PostgreSQL-compatible types like `varchar` and
-`integer` that you define in your schema. Instead, these types are runtime
-representations that Aurora DSQL uses when processing a query.
+Query runtime data types are internal data types used at query execution time. These types are distinct from the PostgreSQL-compatible types like `varchar` and `integer` that you define in your schema. Instead, these types are runtime representations that Aurora DSQL uses when processing a query.
 
 The following data types are supported only during query runtime:
 
-**Array type**
-
-Aurora DSQL supports arrays of the supported data types. For example, you can have an
-array of integers. The function `string_to_array` splits a string into a
-PostgreSQL-style array with the comma delimiter (`,`) as shown in the following example.
-You can use arrays in expressions, function outputs, or temporary computations during query
-execution.
+**Array type**  
+Aurora DSQL supports arrays of the supported data types. For example, you can have an array of integers. The function `string_to_array` splits a string into a PostgreSQL-style array with the comma delimiter (`,`) as shown in the following example. You can use arrays in expressions, function outputs, or temporary computations during query execution.  
 
 ```
 SELECT string_to_array('1,2', ',');
 ```
-
-The function returns a response similar to the following:
+The function returns a response similar to the following:  
 
 ```
  string_to_array
@@ -154,8 +139,5 @@ The function returns a response similar to the following:
 (1 row)
 ```
 
-****inet type****
-
-The data type represents IPv4, IPv6 host addresses, and their subnets. This type
-is useful when parsing logs, filtering on IP subnets, or doing network calculations
-within a query. For more information, see [inet in the PostgreSQL documentation](https://www.PostgreSQL.org/docs/16/datatype-net-types.html#DATATYPE-INET "https://www.PostgreSQL.org/docs/16/datatype-net-types.html#DATATYPE-INET").
+****inet type****  
+The data type represents IPv4, IPv6 host addresses, and their subnets. This type is useful when parsing logs, filtering on IP subnets, or doing network calculations within a query. For more information, see [inet in the PostgreSQL documentation](https://www.PostgreSQL.org/docs/16/datatype-net-types.html#DATATYPE-INET).

@@ -1,23 +1,28 @@
+
+
 # Understanding DPUs in EXPLAIN ANALYZE
+<a name="understanding-dpus-explain-analyze"></a>
 
 Aurora DSQL provides **statement-level** Distributed Processing Unit (DPU) information in `EXPLAIN ANALYZE VERBOSE` plan output, giving you deeper visibility into query cost during development. This section explains what DPUs are and how to interpret them in the `EXPLAIN ANALYZE VERBOSE` output.
 
 ## What is a DPU?
+<a name="what-is-dpu"></a>
 
 A Distributed Processing Unit (DPU) is the normalized measure of work done by Aurora DSQL. It is composed of:
-
-- **ComputeDPU** – Time spent executing SQL queries
-- **ReadDPU** – Resources used to read data from storage
-- **WriteDPU** - Resources used to write data to storage
-- **MultiRegionWriteDPU** – Resources used to replicate writes to peered clusters in multi-Region configurations.
++ **ComputeDPU** – Time spent executing SQL queries
++ **ReadDPU** – Resources used to read data from storage
++ **WriteDPU** - Resources used to write data to storage
++ **MultiRegionWriteDPU** – Resources used to replicate writes to peered clusters in multi-Region configurations.
 
 ## DPU usage in EXPLAIN ANALYZE VERBOSE
+<a name="dpu-usage-explain-analyze"></a>
 
 Aurora DSQL extends `EXPLAIN ANALYZE VERBOSE` to include a statement-level DPU usage estimate to the end of the output. This provides immediate visibility into query cost, helping you identify workload cost drivers, tune query performance, and better forecast resource usage.
 
 The following examples show how to interpret the statement-level DPU estimates included in EXPLAIN ANALYZE VERBOSE output.
 
 ### Example 1: SELECT Query
+<a name="select-query-example"></a>
 
 ```
 EXPLAIN ANALYZE VERBOSE SELECT * FROM test_table;
@@ -41,9 +46,10 @@ Statement DPU Estimate:
   Total: 0.05919 DPU
 ```
 
-In this example, the SELECT statement performs an index-only scan, so most of the cost comes from Read DPU (0.04312), representing the data retrieved from storage and Compute DPU (0.01607), which reflects the compute resources used to process and return the results. There is no Write DPU since the query doesn't modify data. The total DPU (0.05919) is the sum of Compute + Read + Write.
+In this example, the SELECT statement performs an index-only scan, so most of the cost comes from Read DPU (0.04312), representing the data retrieved from storage and Compute DPU (0.01607), which reflects the compute resources used to process and return the results. There is no Write DPU since the query doesn't modify data. The total DPU (0.05919) is the sum of Compute \+ Read \+ Write.
 
 ### Example 2: INSERT Query
+<a name="insert-query-example"></a>
 
 ```
 EXPLAIN ANALYZE VERBOSE INSERT INTO test_table VALUES (1, 'name1'), (2, 'name2'), (3, 'name3');
@@ -67,22 +73,22 @@ Statement DPU Estimate:
 
 This statement primarily performs writes, so most of the cost is associated with Write DPU. The Compute DPU (0.01550) represents the work done to process and insert the values. The Read DPU (0.00307) reflects minor system reads (for catalog lookups or index checks).
 
-Notice the Transaction minimums shown next to Read and Write DPUs. These indicate the baseline per-transaction costs that apply _only when the operation includes reads or writes_. They do not mean that every transaction automatically incurs a 0.00375 Read DPU or 0.05 Write DPU charge. Instead, these minimums are applied at the transaction level during cost aggregation and only if reads or writes occur within that transaction. Because of this difference in scope, statement-level estimates in `EXPLAIN ANALYZE VERBOSE` may not exactly match the transaction-level metrics reported in CloudWatch or billing data.
+Notice the Transaction minimums shown next to Read and Write DPUs. These indicate the baseline per-transaction costs that apply *only when the operation includes reads or writes*. They do not mean that every transaction automatically incurs a 0.00375 Read DPU or 0.05 Write DPU charge. Instead, these minimums are applied at the transaction level during cost aggregation and only if reads or writes occur within that transaction. Because of this difference in scope, statement-level estimates in `EXPLAIN ANALYZE VERBOSE` may not exactly match the transaction-level metrics reported in CloudWatch or billing data.
 
 ## Using DPU Information for Optimization
+<a name="using-dpu-information-optimization"></a>
 
 Per-statement DPU estimates give you a powerful way to optimize queries beyond just execution time. Common use cases include:
-
-- **Cost Awareness:** Understand how expensive a query is relative to others.
-- **Schema Optimization:** Compare the impact of indexes or schema changes on both performance and resource efficiency.
-- **Budget Planning:** Estimate workload cost based on observed DPU usage.
-- **Query Comparison:** Evaluate alternative query approaches by their relative DPU consumption.
++ **Cost Awareness:** Understand how expensive a query is relative to others.
++ **Schema Optimization:** Compare the impact of indexes or schema changes on both performance and resource efficiency.
++ **Budget Planning:** Estimate workload cost based on observed DPU usage.
++ **Query Comparison:** Evaluate alternative query approaches by their relative DPU consumption.
 
 ## Interpreting DPU Information
+<a name="interpreting-dpu-information"></a>
 
 Keep the following best practices in mind when using DPU data from `EXPLAIN ANALYZE VERBOSE`:
-
-- **Use it directionally:** Treat the reported DPU as a way to understand the _relative_ cost of a query rather than an exact match with CloudWatch metrics or billing data. Differences are expected because `EXPLAIN ANALYZE VERBOSE` reports statement-level cost, while CloudWatch aggregates transaction-level activity. CloudWatch also includes background operations (such as ANALYZE or compactions) and transaction overhead (`BEGIN`/`COMMIT`) that `EXPLAIN ANALYZE VERBOSE` intentionally excludes.
-- **DPU variability across runs is normal** in distributed systems and does not indicate errors. Factors such as caching, execution plan changes, concurrency, or shifts in data distribution can all cause the same query to consume different resources from one run to the next.
-- **Batch small operations:** If your workload issues many small statements, consider batching them into larger operations (not to exceed 10MB). This reduces rounding overhead and produces more meaningful cost estimates.
-- **Use for tuning, not billing:** DPU data in `EXPLAIN ANALYZE VERBOSE` is designed for cost awareness, query tuning, and optimization. It is not a billing-grade metric. Always rely on CloudWatch metrics or monthly billing reports for authoritative cost and usage data.
++ **Use it directionally:** Treat the reported DPU as a way to understand the *relative* cost of a query rather than an exact match with CloudWatch metrics or billing data. Differences are expected because `EXPLAIN ANALYZE VERBOSE` reports statement-level cost, while CloudWatch aggregates transaction-level activity. CloudWatch also includes background operations (such as ANALYZE or compactions) and transaction overhead (`BEGIN`/`COMMIT`) that `EXPLAIN ANALYZE VERBOSE` intentionally excludes.
++ **DPU variability across runs is normal** in distributed systems and does not indicate errors. Factors such as caching, execution plan changes, concurrency, or shifts in data distribution can all cause the same query to consume different resources from one run to the next.
++ **Batch small operations:** If your workload issues many small statements, consider batching them into larger operations (not to exceed 10MB). This reduces rounding overhead and produces more meaningful cost estimates.
++ **Use for tuning, not billing:** DPU data in `EXPLAIN ANALYZE VERBOSE` is designed for cost awareness, query tuning, and optimization. It is not a billing-grade metric. Always rely on CloudWatch metrics or monthly billing reports for authoritative cost and usage data.

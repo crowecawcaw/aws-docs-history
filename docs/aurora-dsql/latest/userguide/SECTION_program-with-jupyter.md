@@ -1,86 +1,57 @@
+
+
 # Query Editors: Using JupyterLab with Aurora DSQL
+<a name="SECTION_program-with-jupyter"></a>
 
-This guide provides step-by-step instructions on how to connect and
-query Amazon Aurora DSQL using JupyterLab with Python. JupyterLab is
-a popular interactive computing environment that combines code,
-text, and visualizations in a single document. It’s widely used for
-data science and research applications.
+ This guide provides step-by-step instructions on how to connect and query Amazon Aurora DSQL using JupyterLab with Python. JupyterLab is a popular interactive computing environment that combines code, text, and visualizations in a single document. It’s widely used for data science and research applications. 
 
-The instructions below will cover the basics of Aurora DSQL usage in
-both a local installation of JupyterLab as well as using Amazon
-SageMaker AI, a fully-managed machine learning service that provides
-a hosted environment with a UI for data workflows.
+ The instructions below will cover the basics of Aurora DSQL usage in both a local installation of JupyterLab as well as using Amazon SageMaker AI, a fully-managed machine learning service that provides a hosted environment with a UI for data workflows. 
 
 ## Getting started
+<a name="SECTION_program-with-jupyter-getting-started"></a>
 
 ### Requirements
-
-- An Aurora DSQL cluster
-- AWS credentials configured (local installation only)
-- Python version 3.9 or greater (local installation only)
+<a name="SECTION_program-with-jupyter-requirements"></a>
++  An Aurora DSQL cluster 
++  AWS credentials configured (local installation only) 
++  Python version 3.9 or greater (local installation only) 
 
 ### Using local JupyterLab
+<a name="SECTION_program-with-jupyter-local"></a>
 
-To get started with JupyterLab, users must first install the
-application using Python’s **pip**:
+ To get started with JupyterLab, users must first install the application using Python’s **pip**:
 
 ```
 pip install jupyterlab
 ```
 
-JupyterLab can then be opened by running
-`jupyter lab`. This will open the JupyterLab
-application at localhost:8888, accessible in a browser. Ensure
-you have AWS credentials configured in your local environment
-before proceeding.
+ JupyterLab can then be opened by running **jupyter lab**. This will open the JupyterLab application at localhost:8888, accessible in a browser. Ensure you have AWS credentials configured in your local environment before proceeding. 
 
 ### Using Amazon SageMaker AI
+<a name="SECTION_program-with-jupyter-sagemaker"></a>
 
-In the AWS console, proceed to the Amazon SageMaker AI console
-page and then to the **Notebooks** section under **Applications and
-IDEs**. From there you can select **Create notebook instance** to
-begin creating a SageMaker environment. Select an instance type
-and platform before clicking **Create notebook instance**.
+ In the AWS console, proceed to the Amazon SageMaker AI console page and then to the **Notebooks** section under **Applications and IDEs**. From there you can select **Create notebook instance** to begin creating a SageMaker environment. Select an instance type and platform before clicking **Create notebook instance**. 
 
-See
-[Amazon
-SageMaker AI setup documentation](../../../sagemaker/latest/dg/gs-setup-working-env.md "../../../sagemaker/latest/dg/gs-setup-working-env.md") for more information on
-setup and instance options.
+ See [Amazon SageMaker AI setup documentation](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-setup-working-env.html) for more information on setup and instance options. 
 
-###### Note
-
+**Note**  
 Warning: Using Amazon SageMaker AI may result in charges to your AWS account.
 
-Once the SageMaker instance becomes active, you can open it from
-the **Notebook instances** section with **Open JupyterLab**. Before
-getting started with Aurora DSQL in your notebook you must
-provide access to your DSQL cluster in the SageMaker instance’s
-IAM role. The simplest way to do so is to follow the link to the
-IAM role in the notebook instance page. From there you can edit
-the Policies attached to your SageMaker IAM role. See
-[Authentication
-and authorization](authentication-authorization.md "authentication-authorization.md") for more information on configuring an
-IAM policy to allow access to Aurora DSQL.
+ Once the SageMaker instance becomes active, you can open it from the **Notebook instances** section with **Open JupyterLab**. Before getting started with Aurora DSQL in your notebook you must provide access to your DSQL cluster in the SageMaker instance’s IAM role. The simplest way to do so is to follow the link to the IAM role in the notebook instance page. From there you can edit the Policies attached to your SageMaker IAM role. See [Authentication and authorization](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/authentication-authorization.html) for more information on configuring an IAM policy to allow access to Aurora DSQL. 
 
 ### Connecting to Aurora DSQL using JupyterLab
+<a name="SECTION_program-with-jupyter-connecting"></a>
 
-After you have set up a JupyterLab instance, the steps to connect
-to Aurora DSQL are the same locally and in SageMaker AI. Create an
-empty Python 3 notebook, in which you can add cells with Python
-code.
+ After you have set up a JupyterLab instance, the steps to connect to Aurora DSQL are the same locally and in SageMaker AI. Create an empty Python 3 notebook, in which you can add cells with Python code. 
 
-In a Python cell, download the Amazon root certificate from the official trust store:
+ In a Python cell, download the Amazon root certificate from the official trust store: 
 
 ```
 import urllib.request
 urllib.request.urlretrieve('https://www.amazontrust.com/repository/AmazonRootCA1.pem', 'root.pem')
-
 ```
 
-To connect to Aurora DSQL, first install the
-[Aurora
-DSQL Connector for Python](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector") and the Psycopg driver in a Python
-cell, and then import it:
+ To connect to Aurora DSQL, first install the [Aurora DSQL Connector for Python](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector) and the Psycopg driver in a Python cell, and then import it: 
 
 ```
 pip install aurora_dsql_python_connector psycopg
@@ -90,10 +61,7 @@ pip install aurora_dsql_python_connector psycopg
 import aurora_dsql_psycopg as dsql
 ```
 
-With the connector imported, you can then create a DSQL
-configuration and connect. The Aurora DSQL Python Connector will
-automatically handle creation of an authentication token on each
-connection.
+ With the connector imported, you can then create a DSQL configuration and connect. The Aurora DSQL Python Connector will automatically handle creation of an authentication token on each connection. 
 
 ```
 config = {
@@ -105,13 +73,7 @@ config = {
 conn = dsql.connect(**config)
 ```
 
-Upon running your code you should now have a Psycopg connection
-to Aurora DSQL. You can then run queries using the Psycopg
-cursor and providing your SQL query. See the
-[Psycopg
-documentation](https://www.psycopg.org/psycopg3/docs/ "https://www.psycopg.org/psycopg3/docs/") for more information on using Psycopg with
-a Postgres-compatible database. This query will result in a list
-of tuples in `results_list`.
+ Upon running your code you should now have a Psycopg connection to Aurora DSQL. You can then run queries using the Psycopg cursor and providing your SQL query. See the [Psycopg documentation](https://www.psycopg.org/psycopg3/docs/) for more information on using Psycopg with a Postgres-compatible database. This query will result in a list of tuples in `results_list`. 
 
 ```
 with conn:
@@ -120,9 +82,7 @@ with conn:
         results_list = cur.fetchall()
 ```
 
-You can then use Python frameworks like
-[Pandas](https://pandas.pydata.org/ "https://pandas.pydata.org/") to
-analyze or visualize your query results, for example:
+ You can then use Python frameworks like [Pandas](https://pandas.pydata.org/) to analyze or visualize your query results, for example: 
 
 ```
 pip install pandas
@@ -135,16 +95,15 @@ print(f"Total records: {len(df)}")
 ```
 
 ## Example notebook
+<a name="SECTION_program-with-jupyter-example"></a>
 
-[A
-sample notebook using Aurora DSQL is available in the Aurora DSQL
-samples repository.](https://github.com/aws-samples/aurora-dsql-samples/tree/main/python/jupyter/sample.ipynb "https://github.com/aws-samples/aurora-dsql-samples/tree/main/python/jupyter/sample.ipynb")
+ [A sample notebook using Aurora DSQL is available in the Aurora DSQL samples repository.](https://github.com/aws-samples/aurora-dsql-samples/tree/main/python/jupyter/sample.ipynb) 
 
 ## Further reading
+<a name="SECTION_program-with-jupyter-reading"></a>
 
-[Amazon
-SageMaker AI setup documentation](../../../sagemaker/latest/dg/gs-setup-working-env.md "../../../sagemaker/latest/dg/gs-setup-working-env.md")
+ [Amazon SageMaker AI setup documentation](https://docs.aws.amazon.com/sagemaker/latest/dg/gs-setup-working-env.html) 
 
-[Aurora DSQL Connector for Python](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector "https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector")
+ [Aurora DSQL Connector for Python](https://github.com/awslabs/aurora-dsql-connectors/tree/main/python/connector) 
 
-[Pandas documentation](https://pandas.pydata.org/docs/user_guide/index.html "https://pandas.pydata.org/docs/user_guide/index.html")
+ [Pandas documentation](https://pandas.pydata.org/docs/user_guide/index.html) 
