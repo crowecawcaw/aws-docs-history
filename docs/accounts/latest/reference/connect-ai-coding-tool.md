@@ -33,9 +33,10 @@ aws login --profile `profile-name`
 ```
 
 Replace `profile-name` with the profile name you chose
-during initial setup. The command will automatically open your default browser, but you
-do not need to take any action. AWS can renew your credentials for 90 days. After 90
-days, you'll need to grant access in a browser window again.
+during initial setup. The command will automatically open your default browser. You'll
+need to choose your project name to finish the login process. AWS can renew your
+credentials for 90 days. After 90 days, you'll need to grant access in a browser window
+again.
 
 ## Connect your AI coding tool to your project
 
@@ -58,6 +59,9 @@ AWS Management Console
 This creates a prompt that shares a steering file with your AI coding agent.
 The steering file accesses a script from AWS that sets up the connection between
 your project credentials and your AI coding agent.
+
+You'll enter a profile name for your project. This profile name is how your AI
+coding tool accesses your resources.
 
 Use your terminal
 Run the following command to download and follow the setup instructions:
@@ -82,6 +86,59 @@ levels:
   provide a high level of support. It will suggest improvements or alternatives to your
   architecture.
 
-After you've made the connection between your AI coding tool and your project, make sure
-you always sign into your project before you log in using `aws login` with your
-agent.
+## Work with multiple projects
+
+Each project has its own set of credentials that AI coding tools can use to create
+and manage AWS resources on your behalf. You use profiles to access each project. A
+profile is a configuration setting and credential file maintained by the AWS CLI, and you
+give each profile a unique name.
+
+For example, if your first project was `MyFirstProject` and you chose the
+profile name `MyFirstProjectProfile` during setup, you can access that project by
+logging in to the AWS CLI with the following command:
+
+```
+aws login --profile MyFirstProjectProfile
+```
+
+If you create another project named `Bookstore`, you can access it by using
+the setup script and creating the profile `BookstoreProfile`. Then you can log
+in to the AWS CLI with the following command:
+
+```
+aws login --profile BookstoreProfile
+```
+
+However, when you run either of these commands, you'll need to choose a session for your
+AWS credentials on the **Choose AWS sessions** page.
+
+![Choose session page.](images/sign-up-sessions.png)
+
+This page shows the active sessions and sessions you can add. A session represents your
+authenticated state with your AWS credentials, and it provides the same credentials that
+your AI coding agent uses to create and manage resources.
+
+In this example, you've already logged in to `MyFirstProject` and have not
+logged in to `Bookstore`. On the **Choose AWS sessions** page,
+you can do the following:
+
+- To continue using AWS for `MyFirstProject`, choose
+  `MyFirstProject`.
+- To access `Bookstore`, choose `Bookstore`.
+- To remove any of the current sessions, choose the exit icon.
+- To access an AWS account using an IAM user, such as an account that you
+  created with [Sign up for AWS (advanced)](getting-started.md "getting-started.md"), choose
+  **Add session**.
+
+The credentials you choose will be the same credentials your AI coding agent uses to
+create and manage resources. For example, you might log in to the AWS CLI with the following
+command:
+
+```
+aws login --profile MyFirstProjectProfile
+```
+
+If you then choose the `Bookstore` session, your AI coding tool will
+create AWS resources in the `Bookstore` project.
+
+Always choose the session that matches the project associated with your profile.

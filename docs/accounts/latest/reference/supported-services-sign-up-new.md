@@ -152,6 +152,10 @@ The following AWS services are included in the Free Tier of Sign up for AWS (new
   - Cross-Region backup copies are not supported.
 
 - AWS Batch
+- AWS Billing and Cost Management
+
+Use AWS Settings to set up your billing, create spend limits to control your costs, and retrieve and pay invoices. You use Billing and Cost Management to create budgets, analyze, and optimize your costs. For more information, see [Using Billing and Cost Management console with our new AWS experience](../../../cost-management/latest/userguide/bcm-lite-cost-management.md "../../../cost-management/latest/userguide/bcm-lite-cost-management.md").
+
 - AWS Budgets
 - AWS Certificate Manager
 
@@ -191,6 +195,7 @@ The following AWS services are included in the Free Tier of Sign up for AWS (new
 
 - AWS Directory Service
 - AWS Elastic Beanstalk
+- AWS End User Messaging Social
 - AWS Entity Resolution
 
   - Cross-Region namespaces are not supported.
@@ -230,7 +235,6 @@ The following AWS services are included in the Free Tier of Sign up for AWS (new
   - Global network management across Regions is not supported.
 
 - AWS Payment Cryptography
-- AWS Pricing Calculator
 - AWS PrivateLink
 - AWS Resource Access Manager (RAM)
 - AWS Resource Explorer
@@ -268,6 +272,11 @@ The following AWS services are included in the Free Tier of Sign up for AWS (new
 - AWS CodeBuild
 - Elastic Load Balancing
 - AWS SQL Workbench
+- Amazon OpenSearch Service Serverless
+
+  - Cross-Region data access is not supported.
+
+- Amazon Timestream
 
 ## AWS services included in the Paid Plan of our new AWS experience
 
@@ -308,10 +317,6 @@ For more information, see [Upgrade your account in AWS Settings](upgrade-account
   - Multi-Region replication is not supported.
 
 - Amazon Neptune
-- Amazon OpenSearch Service Serverless
-
-  - Cross-Region data access is not supported.
-
 - Amazon Personalize
 
   - Not supported in Europe (Stockholm).
@@ -322,7 +327,6 @@ For more information, see [Upgrade your account in AWS Settings](upgrade-account
 
   - Not supported in Europe (Stockholm).
 
-- Amazon Timestream
 - Amazon Transcribe
 - Amazon Translate
 - AWS AppFabric
@@ -332,7 +336,6 @@ For more information, see [Upgrade your account in AWS Settings](upgrade-account
 
 - AWS Data Exchange
 - AWS End User Messaging SMS
-- AWS End User Messaging Social
 - AWS Fault Injection Service
 - AWS Firewall Manager
 - AWS Network Firewall
@@ -453,6 +456,7 @@ are automatically turned on for your account and managed by AWS. For more inform
 - AWS Panorama
 - AWS Parallel Computing Service
 - AWS Partner Network
+- AWS Pricing Calculator
 - AWS Private Certificate Authority
 - AWS Proton
 - AWS re:Post Private

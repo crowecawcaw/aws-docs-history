@@ -11,6 +11,9 @@ You will directly manage the security, governance, and team membership of your A
 environment. You have access to additional AWS services, multi-Region capabilities, and
 enhanced administrative and billing controls.
 
+You must upgrade your account before you activate advanced features. For more
+information, see [Upgrade your account in AWS Settings](upgrade-account.md "upgrade-account.md").
+
 ## What happens when you activate advanced features
 
 When you activate advanced features, the following changes will immediately be applied

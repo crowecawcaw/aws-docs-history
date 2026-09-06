@@ -31,6 +31,8 @@ The following are considerations for the selected AWS Region for your account:
   Region aren't available. This includes using AWS WAF with CloudFront.
 - Some CloudTrail events involving the global services are recorded in the Region where
   the global service operates. You have access to these events.
+- Amazon Simple Storage Service, Amazon Kinesis, AWS WAF, Amazon CloudWatch Logs, and Amazon CloudWatch metrics are available in
+  US East (N. Virginia) (`us-east-1`).
   You can find what is the selected Region for all projects in your account by using
   AWS Settings. In the
   AWS Management Console, most service consoles are hosted in the Region you are in, including Bedrock and

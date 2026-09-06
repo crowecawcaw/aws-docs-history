@@ -10,8 +10,8 @@ create a support ticket. For more information, see
 
 | Resource                                         | Quota | Adjustable |
 | ------------------------------------------------ | ----- | ---------- |
-| Number of projects that you own on the Free Plan | 29    | Yes        |
-| Number of projects you can own on the Paid Plan  | 299   | Yes        |
+| Number of projects that you own on the Free Plan | 29    | No         |
+| Number of projects you can own on the Paid Plan  | 299   | No         |
 | Number of people you can share a project with    | 500   | No         |
 | Number of projects invites you can accept        | 100   | No         |
 
