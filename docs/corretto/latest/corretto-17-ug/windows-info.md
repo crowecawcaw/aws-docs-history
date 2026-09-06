@@ -1,9 +1,9 @@
+
+
 # Amazon Corretto 17 Guide on Windows
+<a name="windows-info"></a>
 
-The topics in this section describe installation instructions for Amazon Corretto 17 on the Windows
-operating system. Windows builds are supported on versions 10 and later,
-Server 2016, Server 2019, Server 2022, and Server 2025.
+The topics in this section describe installation instructions for Amazon Corretto 17 on the Windows operating system. Windows builds are supported on versions 10 and later, Server 2016, Server 2019, Server 2022, and Server 2025.
 
-###### Topics
-
-- [Amazon Corretto 17 Installation Instructions for Windows 10 or Later](windows-install.md "windows-install.md")
+**Topics**
++ [Amazon Corretto 17 Installation Instructions for Windows 10 or Later](windows-install.md)
