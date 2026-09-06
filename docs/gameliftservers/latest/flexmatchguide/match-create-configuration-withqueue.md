@@ -1,113 +1,71 @@
+
+
 # Tutorial: Create a matchmaker for Amazon GameLift Servers hosting
+<a name="match-create-configuration-withqueue"></a>
 
-Before creating a matchmaking configuration, [create a rule set](match-create-ruleset.md "match-create-ruleset.md") and an Amazon GameLift Servers [game session queue](../developerguide/queues-creating.md "../developerguide/queues-creating.md")
-to use with the matchmaker.
+Before creating a matchmaking configuration, [create a rule set](match-create-ruleset.md) and an Amazon GameLift Servers [game session queue](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/queues-creating.html) to use with the matchmaker.
 
-Console
+------
+#### [ Console ]
 
-1. In the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift/ "https://console.aws.amazon.com/gamelift/"), in the navigation pane, choose
-   **Matchmaking configurations**.
-2. Switch to the AWS Region where you want to create your
-   matchmaker.
-3. On the **Matchmaking configurations** page,
-   choose **Create matchmaking configuration**.
-4. On the **Define configuration details** page,
-   under **Matchmaking configuration details**, do the
-   following:
+1. In the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift/), in the navigation pane, choose **Matchmaking configurations**.
 
-   1. For **Name**, enter a matchmaker name
-      that can help you identify it in a list and in metrics. The
-      matchmaker name must be unique within the Region.
-      Matchmaking requests identify which matchmaker to use by its
-      name and Region.
-   2. (Optional) For **Description**, add a
-      description to help identify the matchmaker.
-   3. For **Rule set**, choose a rule set from
-      the list to use with the matchmaker. The list contains all
-      rule sets that you've created in the current Region.
-   4. For **FlexMatch mode**, choose
-      **Managed** for Amazon GameLift Servers managed hosting.
-      This mode prompts FlexMatch to pass successful matches to the
-      specified game session queue.
-   5. For **AWS Region**, choose the Region
-      where you configured the game session queue that you want to
-      use with the matchmaker.
-   6. For **Queue**, choose the game session
-      queue that you want to use with the matchmaker.
+1. Switch to the AWS Region where you want to create your matchmaker.
 
-5. Choose **Next**.
-6. On the **Configure settings** page, under
-   **Matchmaking settings**, do the
-   following:
+1. On the **Matchmaking configurations** page, choose **Create matchmaking configuration**.
 
-   1. For **Request timeout**, set the maximum
-      amount of time, in seconds, for the matchmaker to complete a
-      match for each request. FlexMatch cancels matchmaking requests
-      that exceed this time.
-   2. For **Backfill mode**, choose a mode for
-      handling match backfills.
+1. On the **Define configuration details** page, under **Matchmaking configuration details**, do the following:
 
-      - To turn on the automatic backfill feature, choose
-        **Automatic**.
-      - To create your own backfill request management or
-        to not use the backfill feature, choose
-        **Manual**.
+   1. For **Name**, enter a matchmaker name that can help you identify it in a list and in metrics. The matchmaker name must be unique within the Region. Matchmaking requests identify which matchmaker to use by its name and Region.
 
-   3. (Optional) For **Additional player
-      count**, set the number of player slots to keep
-      open in a match. FlexMatch can fill these slots with players in
-      the future.
-   4. (Optional) Under **Match acceptance
-      options**, for **Acceptance
-      required**, if you want to require each player
-      in a proposed match to actively accept participation in the
-      match, select **Required**. If you select
-      this option, then for **Acceptance
-      timeout**, set how long, in seconds, you want
-      the matchmaker to wait for player acceptances before
-      canceling the match.
+   1. (Optional) For **Description**, add a description to help identify the matchmaker.
 
-7. (Optional) Under **Event notification settings**,
-   do the following:
+   1. For **Rule set**, choose a rule set from the list to use with the matchmaker. The list contains all rule sets that you've created in the current Region.
 
-   1. (Optional) For **SNS topic**, choose an
-      Amazon Simple Notification Service (Amazon SNS) topic for receiving matchmaking event
-      notifications. If you haven't yet set up an SNS topic, you
-      can choose this later by editing the matchmaking
-      configuration. For more information, see [Set up FlexMatch event notifications](match-notification.md "match-notification.md").
-   2. (Optional) For **Custom event data**,
-      enter any custom data that you want to associate with this
-      matchmaker in event messaging. FlexMatch includes this data in
-      every event associated with the matchmaker.
+   1. For **FlexMatch mode**, choose **Managed** for Amazon GameLift Servers managed hosting. This mode prompts FlexMatch to pass successful matches to the specified game session queue.
 
-8. (Optional) Expand **Additional game data**, and
-   then do the following:
+   1. For **AWS Region**, choose the Region where you configured the game session queue that you want to use with the matchmaker.
 
-   1. (Optional) For **Game session data**,
-      enter any additional game-related information that you want
-      FlexMatch to deliver to new game sessions started with matches
-      made using this matchmaking configuration.
-   2. (Optional) For **Game properties**, add
-      key-value pair properties that contain information about a
-      new game session.
+   1. For **Queue**, choose the game session queue that you want to use with the matchmaker.
 
-9. (Optional) Under **Tags**, add tags to help you
-   manage and track your AWS resources.
-10. Choose **Next**.
-11. On the **Review and create** page, review your
-    choices, and then choose **Create**. Upon
-    successful creation, the matchmaker is ready to accept matchmaking
-    requests.
+1. Choose **Next**.
 
-AWS CLI
-To create a matchmaking configuration with the AWS CLI, open a command line
-window and use the [create-matchmaking-configuration](../../../cli/latest/reference/gamelift/create-matchmaking-configuration.md "../../../cli/latest/reference/gamelift/create-matchmaking-configuration.md") command to define a new
-matchmaker.
+1. On the **Configure settings** page, under **Matchmaking settings**, do the following:
 
-This example command creates a new matchmaking configuration that requires
-player acceptance and enables automatic backfill. It also reserves two
-player slots for FlexMatch to add players later, and it provides some game
-session data.
+   1. For **Request timeout**, set the maximum amount of time, in seconds, for the matchmaker to complete a match for each request. FlexMatch cancels matchmaking requests that exceed this time.
+
+   1. For **Backfill mode**, choose a mode for handling match backfills. 
+      + To turn on the automatic backfill feature, choose **Automatic**.
+      + To create your own backfill request management or to not use the backfill feature, choose **Manual**.
+
+   1. (Optional) For **Additional player count**, set the number of player slots to keep open in a match. FlexMatch can fill these slots with players in the future.
+
+   1. (Optional) Under **Match acceptance options**, for **Acceptance required**, if you want to require each player in a proposed match to actively accept participation in the match, select **Required**. If you select this option, then for **Acceptance timeout**, set how long, in seconds, you want the matchmaker to wait for player acceptances before canceling the match.
+
+1. (Optional) Under **Event notification settings**, do the following:
+
+   1. (Optional) For **SNS topic**, choose an Amazon Simple Notification Service (Amazon SNS) topic for receiving matchmaking event notifications. If you haven't yet set up an SNS topic, you can choose this later by editing the matchmaking configuration. For more information, see [Set up FlexMatch event notifications](match-notification.md).
+
+   1. (Optional) For **Custom event data**, enter any custom data that you want to associate with this matchmaker in event messaging. FlexMatch includes this data in every event associated with the matchmaker.
+
+1. (Optional) Expand **Additional game data**, and then do the following:
+
+   1. (Optional) For **Game session data**, enter any additional game-related information that you want FlexMatch to deliver to new game sessions started with matches made using this matchmaking configuration.
+
+   1. (Optional) For **Game properties**, add key-value pair properties that contain information about a new game session.
+
+1. (Optional) Under **Tags**, add tags to help you manage and track your AWS resources.
+
+1. Choose **Next**.
+
+1. On the **Review and create** page, review your choices, and then choose **Create**. Upon successful creation, the matchmaker is ready to accept matchmaking requests.
+
+------
+#### [ AWS CLI ]
+
+To create a matchmaking configuration with the AWS CLI, open a command line window and use the [create-matchmaking-configuration](https://docs.aws.amazon.com/cli/latest/reference/gamelift/create-matchmaking-configuration.html) command to define a new matchmaker.
+
+This example command creates a new matchmaking configuration that requires player acceptance and enables automatic backfill. It also reserves two player slots for FlexMatch to add players later, and it provides some game session data.
 
 ```
 aws gamelift create-matchmaking-configuration \
@@ -125,7 +83,6 @@ aws gamelift create-matchmaking-configuration \
     --game-session-data "key=map,value=winter444"
 ```
 
-If the matchmaking configuration creation request is successful, Amazon GameLift Servers
-returns a [MatchmakingConfiguration](../apireference/API_MatchmakingConfiguration.md "../apireference/API_MatchmakingConfiguration.md") object with the settings that you
-requested for the matchmaker. The new matchmaker is ready to accept
-matchmaking requests.
+If the matchmaking configuration creation request is successful, Amazon GameLift Servers returns a [MatchmakingConfiguration](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_MatchmakingConfiguration.html) object with the settings that you requested for the matchmaker. The new matchmaker is ready to accept matchmaking requests.
+
+------

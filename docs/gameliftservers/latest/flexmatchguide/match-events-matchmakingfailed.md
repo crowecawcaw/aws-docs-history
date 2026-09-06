@@ -1,14 +1,16 @@
-# MatchmakingFailed
 
-Matchmaking ticket has encountered an error. This may be due to the game session queue not being
-accessible or to an internal error.
+
+# MatchmakingFailed
+<a name="match-events-matchmakingfailed"></a>
+
+Matchmaking ticket has encountered an error. This may be due to the game session queue not being accessible or to an internal error.
 
 **Resource:** ConfigurationArn
 
-**Detail:** type, tickets, ruleEvaluationMetrics, message,
-matchId, gameSessionInfo
+**Detail:** type, tickets, ruleEvaluationMetrics, message, matchId, gameSessionInfo
 
 ## Example
+<a name="match-events-matchmakingfailed-example"></a>
 
 ```
 {

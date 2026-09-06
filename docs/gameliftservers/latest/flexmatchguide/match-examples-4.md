@@ -1,45 +1,25 @@
+
+
 # Example: Use explicit sorting to find best matches
+<a name="match-examples-4"></a>
 
-This example sets up a simple match with two teams of three players. It illustrates
-how to use explicit sorting rules to help find the best possible matches as quickly as
-possible. These rules sort all active matchmaking tickets to create the best matches
-based on certain key requirements. This example is implemented with the following
-instructions:
+This example sets up a simple match with two teams of three players. It illustrates how to use explicit sorting rules to help find the best possible matches as quickly as possible. These rules sort all active matchmaking tickets to create the best matches based on certain key requirements. This example is implemented with the following instructions:
++ Create two teams of players.
++ Include exactly three players in each team.
++ Include the following player attributes:
+  + Experience level (if not provided, default to 50).
+  + Preferred game modes (can list multiple values) (if not provided, default to “coop” and “deathmatch”).
+  + Preferred game maps, including map name and preference weighting (if not provided, default to `"defaultMap"` with a weight of 100).
++ Set up presorting:
+  + Sort players based on their preference for the same game map as the anchor player. Players can have multiple favorite game maps, so this example uses a preference value. 
+  + Sort players based on how closely their experience level matches the anchor player. With this sort, all players in all teams will have experience levels that are as close as possible. 
++ All players across all teams must have selected at least one game mode in common.
++ All players across all teams must have selected at least one game map in common. 
 
-- Create two teams of players.
-- Include exactly three players in each team.
-- Include the following player attributes:
-
-  - Experience level (if not provided, default to 50).
-  - Preferred game modes (can list multiple values) (if not provided,
-    default to “coop” and “deathmatch”).
-  - Preferred game maps, including map name and preference weighting (if
-    not provided, default to `"defaultMap"` with a weight of
-    100).
-
-- Set up presorting:
-
-  - Sort players based on their preference for the same game map as the
-    anchor player. Players can have multiple favorite game maps, so this
-    example uses a preference value.
-  - Sort players based on how closely their experience level matches the
-    anchor player. With this sort, all players in all teams will have
-    experience levels that are as close as possible.
-
-- All players across all teams must have selected at least one game mode in
-  common.
-- All players across all teams must have selected at least one game map in
-  common.
-  Notes on using this rule set:
-
-- The game map sort uses an absolute sort that compares the mapPreference
-  attribute value. Because it is first in the rule set, this sort is performed
-  first.
-- The experience sort uses a distance sort to compare a prospective player's
-  skill level with the anchor player's skill.
-- Sorts are performed in the order they are listed in a rule set. In this
-  scenario, players are sorted by game map preference, and then by experience
-  level.
+Notes on using this rule set: 
++ The game map sort uses an absolute sort that compares the mapPreference attribute value. Because it is first in the rule set, this sort is performed first. 
++ The experience sort uses a distance sort to compare a prospective player's skill level with the anchor player's skill. 
++ Sorts are performed in the order they are listed in a rule set. In this scenario, players are sorted by game map preference, and then by experience level. 
 
 ```
 {

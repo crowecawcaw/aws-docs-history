@@ -1,13 +1,16 @@
+
+
 # MatchmakingTimedOut
+<a name="match-events-matchmakingtimedout"></a>
 
 Matchmaking ticket has failed by timing out.
 
 **Resource:** ConfigurationArn
 
-**Detail:** type, tickets, ruleEvaluationMetrics, message,
-matchId, gameSessionInfo
+**Detail:** type, tickets, ruleEvaluationMetrics, message, matchId, gameSessionInfo
 
 ## Example
+<a name="match-events-matchmakingtimedout-example"></a>
 
 ```
 {

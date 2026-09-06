@@ -1,14 +1,16 @@
-# AcceptMatchCompleted
 
-Match acceptance is complete due to player acceptance, player rejection, or acceptance
-timeout.
+
+# AcceptMatchCompleted
+<a name="match-events-acceptmatchcompleted"></a>
+
+Match acceptance is complete due to player acceptance, player rejection, or acceptance timeout.
 
 **Resource:** ConfigurationArn
 
-**Detail:** type, tickets, acceptance, matchId,
-gameSessionInfo
+**Detail:** type, tickets, acceptance, matchId, gameSessionInfo
 
 ## Example
+<a name="match-events-acceptmatchcompleted-example"></a>
 
 ```
 {

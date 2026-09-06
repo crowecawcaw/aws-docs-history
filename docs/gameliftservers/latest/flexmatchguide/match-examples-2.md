@@ -1,44 +1,27 @@
+
+
 # Example: Create uneven teams (Hunters vs Monster)
+<a name="match-examples-2"></a>
 
-This example describes a game mode in which a group of players hunt a single monster.
-People choose either a hunter or a monster role. Hunters specify the minimum skill level
-for the monster that they want to face. The minimum size of the hunter team can be
-relaxed over time to complete the match. This scenario sets out the following
-instructions:
+This example describes a game mode in which a group of players hunt a single monster. People choose either a hunter or a monster role. Hunters specify the minimum skill level for the monster that they want to face. The minimum size of the hunter team can be relaxed over time to complete the match. This scenario sets out the following instructions: 
++ Create one team of exactly five hunters. 
++ Create a separate team of exactly one monster. 
++ Include the following player attributes:
+  + A player’s skill level (if not provided, default to 10).
+  + A player’s preferred monster skill level (if not provided, default to 10).
+  + Whether the player wants to be the monster (if not provided, default to 0 or false).
++ Choose a player to be the monster based on the following criteria:
+  + Player must request the monster role.
+  + Player must meet or exceed the highest skill level preferred by the players who are already added to the hunter team. 
++ Choose players for the hunter team based on the following criteria:
+  + Players who request a monster role cannot join the hunter team.
+  + If the monster role is already filled, player must want a monster skill level that is lower than the skill of the proposed monster. 
++ If a match is not filled quickly, relax the hunter team's minimum size as follows:
+  + After 30 seconds, allow a game to start with only four players in the hunter team.
+  + After 60 seconds, allow a game to start with only three people in the hunter team.
 
-- Create one team of exactly five hunters.
-- Create a separate team of exactly one monster.
-- Include the following player attributes:
-
-  - A player’s skill level (if not provided, default to 10).
-  - A player’s preferred monster skill level (if not provided, default to
-    10).
-  - Whether the player wants to be the monster (if not provided, default
-    to 0 or false).
-
-- Choose a player to be the monster based on the following criteria:
-
-  - Player must request the monster role.
-  - Player must meet or exceed the highest skill level preferred by the
-    players who are already added to the hunter team.
-
-- Choose players for the hunter team based on the following criteria:
-
-  - Players who request a monster role cannot join the hunter team.
-  - If the monster role is already filled, player must want a monster
-    skill level that is lower than the skill of the proposed monster.
-
-- If a match is not filled quickly, relax the hunter team's minimum size as
-  follows:
-
-  - After 30 seconds, allow a game to start with only four players in the
-    hunter team.
-  - After 60 seconds, allow a game to start with only three people in the
-    hunter team.
-    Notes on using this rule set:
-
-- By using two separate teams for hunters and monster, you can evaluate
-  membership based on different sets of criteria.
+Notes on using this rule set: 
++ By using two separate teams for hunters and monster, you can evaluate membership based on different sets of criteria.
 
 ```
 {
@@ -64,14 +47,14 @@ instructions:
     }, {
         "name": "monster",
         "maxPlayers": 1,
-        "minPlayers": 1
+        "minPlayers": 1 
     }],
     "rules": [{
         "name": "MonsterSelection",
         "description": "Only users that request playing as monster are assigned to the monster team",
         "type": "comparison",
         "measurements": ["teams[monster].players.attributes[wantsToBeMonster]"],
-        "referenceValue": 1,
+        "referenceValue": 1, 
         "operation": "="
     },{
         "name": "PlayerSelection",
@@ -92,10 +75,10 @@ instructions:
         "target": "teams[players].minPlayers",
         "steps": [{
             "waitTimeSeconds": 30,
-            "value": 4
+            "value": 4 
         },{
             "waitTimeSeconds": 60,
-            "value": 3
+            "value": 3 
         }]
     }]
 }

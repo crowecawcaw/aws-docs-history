@@ -1,4 +1,7 @@
+
+
 # MatchmakingSucceeded
+<a name="match-events-matchmakingsucceeded"></a>
 
 Matchmaking has successfully completed and a game session has been created.
 
@@ -7,6 +10,7 @@ Matchmaking has successfully completed and a game session has been created.
 **Detail:** type, tickets, matchId, gameSessionInfo
 
 ## Example
+<a name="match-events-matchmakingsucceeded-example"></a>
 
 ```
 {

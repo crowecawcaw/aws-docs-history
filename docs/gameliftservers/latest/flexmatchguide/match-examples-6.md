@@ -1,34 +1,24 @@
+
+
 # Example: Compare attributes across all players
+<a name="match-examples-6"></a>
 
-This example illustrates how to compare player attributes across a group of players.
+This example illustrates how to compare player attributes across a group of players. 
 
-The example rule set describes a match with the following characteristics:
+The example rule set describes a match with the following characteristics: 
++ Team structure: Two single-player teams
++ Player attributes: 
+  + *gameMode*: Type of game chosen by the player (if not provided, default to "turn-based").
+  + *gameMap*: Game world chosen by the player (if not provided, default to 1).
+  + *character*: Character chosen by the player (no default value means that players must specify a character).
++ Match rules: Matched players must meet the following requirements: 
+  + Players must choose the same game mode.
+  + Players must choose the same game map.
+  + Players must choose different characters.
 
-- Team structure: Two single-player teams
-- Player attributes:
-
-  - _gameMode_: Type of game chosen by
-    the player (if not provided, default to "turn-based").
-  - _gameMap_: Game world chosen by the
-    player (if not provided, default to 1).
-  - _character_: Character chosen by the
-    player (no default value means that players must specify a
-    character).
-
-- Match rules: Matched players must meet the following requirements:
-
-  - Players must choose the same game mode.
-  - Players must choose the same game map.
-  - Players must choose different characters.
-    Notes on using this rule set:
-
-- To implement the match rule, this example uses comparison rules to check all
-  players' attribute values. For game mode and map, the rule verifies that the
-  values are the same. For character, the rule verifies that the values are
-  different.
-- This example uses one player definition with a quantity property to create
-  both player teams. The teams are assigned the following names: "player\_1" and
-  "player\_2".
+Notes on using this rule set: 
++ To implement the match rule, this example uses comparison rules to check all players' attribute values. For game mode and map, the rule verifies that the values are the same. For character, the rule verifies that the values are different. 
++ This example uses one player definition with a quantity property to create both player teams. The teams are assigned the following names: "player\_1" and "player\_2".
 
 ```
 {

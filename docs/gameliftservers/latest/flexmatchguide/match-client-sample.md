@@ -1,10 +1,9 @@
-# Sample matchmaking requests
 
-The following code snippets build matchmaking requests for several different
-matchmakers. As described, a request must provide the player attributes that are
-required by the matchmaker in use, as defined in the matchmaker's rule set. The
-attribute provided must use the same data type, number (N) or string (S) that is defined
-in the rule set.
+
+# Sample matchmaking requests
+<a name="match-client-sample"></a>
+
+The following code snippets build matchmaking requests for several different matchmakers. As described, a request must provide the player attributes that are required by the matchmaker in use, as defined in the matchmaker's rule set. The attribute provided must use the same data type, number (N) or string (S) that is defined in the rule set. 
 
 ```
 # Uses matchmaker for two-team game mode based on player skill level
@@ -61,5 +60,4 @@ def start_matchmaking_for_multi_map(config_name, ticket_id, player_id, skill, ma
             "PlayerId": player_id
         }],
         TicketId=ticket_id)
-
 ```

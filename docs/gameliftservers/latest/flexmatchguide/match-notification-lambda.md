@@ -1,20 +1,17 @@
+
+
 # Configure a topic subscription to invoke a Lambda function
+<a name="match-notification-lambda"></a>
 
-You can invoke a Lambda function using event notifications published to your Amazon SNS topic.
-When configuring the matchmaker, be sure to set the notification target to your SNS topic's
-ARN.
+You can invoke a Lambda function using event notifications published to your Amazon SNS topic. When configuring the matchmaker, be sure to set the notification target to your SNS topic's ARN.
 
-The following AWS CloudFormation template configures a subscription to an SNS topic named
-`MyFlexMatchEventTopic` to invoke a Lambda function named
-`FlexMatchEventHandlerLambdaFunction`. The template creates an IAM permissions
-policy that allows Amazon GameLift Servers to write to the SNS topic. The template then adds permissions for the
-SNS topic to invoke the Lambda function.
+The following AWS CloudFormation template configures a subscription to an SNS topic named `MyFlexMatchEventTopic` to invoke a Lambda function named `FlexMatchEventHandlerLambdaFunction`. The template creates an IAM permissions policy that allows Amazon GameLift Servers to write to the SNS topic. The template then adds permissions for the SNS topic to invoke the Lambda function.
 
 ```
 FlexMatchEventTopic:
   Type: "AWS::SNS::Topic"
   Properties:
-    KmsMasterKeyId: alias/aws/sns #Enables server-side encryption on the topic using an AWS managed key
+    KmsMasterKeyId: alias/aws/sns #Enables server-side encryption on the topic using an AWS managed key 
     Subscription:
       - Endpoint: !GetAtt FlexMatchEventHandlerLambdaFunction.Arn
         Protocol: lambda

@@ -1,13 +1,16 @@
+
+
 # MatchmakingCancelled
+<a name="match-events-matchmakingcancelled"></a>
 
 Matchmaking ticket has been canceled due to StopMatchmaking API call.
 
 **Resource:** ConfigurationArn
 
-**Detail:** type, tickets, ruleEvaluationMetrics, message,
-matchId, gameSessionInfo
+**Detail:** type, tickets, ruleEvaluationMetrics, message, matchId, gameSessionInfo
 
 ## Example
+<a name="match-events-matchmakingcancelled-example"></a>
 
 ```
 {

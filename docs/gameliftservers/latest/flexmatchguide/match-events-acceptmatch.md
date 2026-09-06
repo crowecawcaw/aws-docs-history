@@ -1,14 +1,16 @@
-# AcceptMatch
 
-Players have accepted a potential match. This event contains the current acceptance status
-of each player in the match. Missing data means that AcceptMatch hasn't been called for that
-player.
+
+# AcceptMatch
+<a name="match-events-acceptmatch"></a>
+
+Players have accepted a potential match. This event contains the current acceptance status of each player in the match. Missing data means that AcceptMatch hasn't been called for that player.
 
 **Resource:** ConfigurationArn
 
 **Detail:** type, tickets, matchId, gameSessionInfo
 
 ## Example
+<a name="match-events-acceptmatch-example"></a>
 
 ```
 {

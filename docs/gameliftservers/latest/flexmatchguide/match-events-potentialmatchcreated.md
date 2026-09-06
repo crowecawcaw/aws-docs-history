@@ -1,14 +1,16 @@
-# PotentialMatchCreated
 
-A potential match has been created. This is emitted for all new potential matches,
-regardless of whether acceptance is required.
+
+# PotentialMatchCreated
+<a name="match-events-potentialmatchcreated"></a>
+
+A potential match has been created. This is emitted for all new potential matches, regardless of whether acceptance is required.
 
 **Resource:** ConfigurationArn
 
-**Detail:** type, tickets, acceptanceTimeout,
-acceptanceRequired, ruleEvaluationMetrics, gameSessionInfo, matchId
+**Detail:** type, tickets, acceptanceTimeout, acceptanceRequired, ruleEvaluationMetrics, gameSessionInfo, matchId
 
 ## Example
+<a name="match-events-potentialmatchcreated-example"></a>
 
 ```
 {

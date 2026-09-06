@@ -1,25 +1,16 @@
+
+
 # Example: Use a compound rule to create a match with players with similar attributes or similar selections
+<a name="match-examples-10"></a>
 
-This example illustrates how to set up a rule set for matches with two teams using
-`compound`. In the example:
-
-- The `SimilarLeagueDistance` rule ensures all players in a match
-  have a `league` within 2 of other players.
-- The `SimilarSkillDistance` rule ensures all players in a match have
-  a `skill` within 10 of other players. If a player has been waiting 10
-  seconds, the distance is expanded to 20. If a player has been waiting 20
-  seconds, the distance is expanded to 40.
-- The `SameMapComparison` rule ensures all players in a match have
-  requested the same `map`.
-- The `SameModeComparison` rule ensures all players in a match have
-  requested the same `mode`.
-- The `CompoundRuleMatchmaker` rule ensures a match if at least one
-  of the following conditions is true:
-
-  - Players in a match have requested the same `map` and the
-    same `mode`.
-  - Players in a match have comparable `skill` and
-    `league` attributes.
+This example illustrates how to set up a rule set for matches with two teams using `compound`. In the example: 
++ The `SimilarLeagueDistance` rule ensures all players in a match have a `league` within 2 of other players. 
++ The `SimilarSkillDistance` rule ensures all players in a match have a `skill` within 10 of other players. If a player has been waiting 10 seconds, the distance is expanded to 20. If a player has been waiting 20 seconds, the distance is expanded to 40. 
++ The `SameMapComparison` rule ensures all players in a match have requested the same `map`. 
++ The `SameModeComparison` rule ensures all players in a match have requested the same `mode`. 
++ The `CompoundRuleMatchmaker` rule ensures a match if at least one of the following conditions is true: 
+  + Players in a match have requested the same `map` and the same `mode`.
+  + Players in a match have comparable `skill` and `league` attributes.
 
 ```
 {

@@ -1,49 +1,34 @@
+
+
 # Add FlexMatch to an Amazon GameLift Servers-hosted game server
+<a name="match-server"></a>
 
-When Amazon GameLift Servers creates a match, it generates a set of match result data that describes key
-matchmaking details, including team assignments. A game server uses this data, as well as
-other game session information, when starting a new game session to host the match.
+When Amazon GameLift Servers creates a match, it generates a set of match result data that describes key matchmaking details, including team assignments. A game server uses this data, as well as other game session information, when starting a new game session to host the match. 
 
-###### For game servers that are hosted with Amazon GameLift Servers
+**For game servers that are hosted with Amazon GameLift Servers**  
+The Amazon GameLift Servers prompts a game server process to start a game session. It delivers a [GameSession](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_GameSession.html) object that describes the type of game session to create and includes player-specific information, including match data. 
 
-The Amazon GameLift Servers prompts a game server process to start a game session. It delivers a [GameSession](../apireference/API_GameSession.md "../apireference/API_GameSession.md") object that describes the type of game session to create and
-includes player-specific information, including match data.
+**For game servers that are hosted on other solutions**  
+After successfully fulfilling a matchmaking request, Amazon GameLift Servers emits an event that includes the match results. You can use this data with your own hosting solution to start a game session for the match. 
 
-###### For game servers that are hosted on other solutions
 
-After successfully fulfilling a matchmaking request, Amazon GameLift Servers emits an event that
-includes the match results. You can use this data with your own hosting solution to
-start a game session for the match.
 
 ## About matchmaker data
+<a name="match-server-data"></a>
 
-Match data includes the following information:
+Match data includes the following information: 
++ A unique match ID
++ The ID of the matchmaking configuration that was used to create the match
++ The players selected for the match
++ Team names and team assignments
++ Player attribute values that were used to form the match. Attributes might also provide information that directs how a game session is set up. For example, the game server might assign characters to players based on player attributes, or choose a game map preference that is common to all players. Or your game might unlock certain features or levels based on the average player skill level. 
 
-- A unique match ID
-- The ID of the matchmaking configuration that was used to create the match
-- The players selected for the match
-- Team names and team assignments
-- Player attribute values that were used to form the match. Attributes might
-  also provide information that directs how a game session is set up. For example,
-  the game server might assign characters to players based on player attributes,
-  or choose a game map preference that is common to all players.
-  Or your game might unlock certain features or levels based on the
-  average player skill level.
+Match data doesn't include the player latency. If you need latency data on current players, such as for match backfill, we recommend getting fresh data.
 
-Match data doesn't include the player latency. If you need latency data on current
-players, such as for match backfill, we recommend getting fresh data.
+**Note**  
+Matchmaker data specifies the full matchmaking configuration ARN, which identifies the configuration name, AWS account, and Region. For games hosted with Amazon GameLift Servers, if you're using match backfill, you need the configuration name only. The configuration name is the string that follows ":matchmakingconfiguration/". In the following example, the matchmaking configuration name is "MyMatchmakerConfig".
 
-###### Note
-
-Matchmaker data specifies the full matchmaking configuration ARN, which identifies
-the configuration name, AWS account, and Region. For games hosted with Amazon GameLift Servers, if
-you're using match backfill, you need the configuration name only. The
-configuration name is the string that follows ":matchmakingconfiguration/". In the
-following example, the matchmaking configuration name is
-"MyMatchmakerConfig".
-
-This JSON example shows a typical matchmaker data set. It describes a two-player game,
-with players matched based on skill ratings and highest level attained.
+This JSON example shows a typical matchmaker data set. It describes a two-player game, with players matched based on skill ratings and highest level attained. 
 
 ```
 {
