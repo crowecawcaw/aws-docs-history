@@ -1,9 +1,12 @@
-# cancel-export-task
 
-The `cancel-export-task` command allows you to cancel an ongoing export task that was started using the
-`start-export-task` command.
+
+# cancel-export-task
+<a name="cancel-export-task"></a>
+
+ The `cancel-export-task` command allows you to cancel an ongoing export task that was started using the `start-export-task` command. 
 
 ## cancel-export-task syntax
+<a name="cancel-export-task-syntax"></a>
 
 ```
 aws neptune-graph cancel-export-task \
@@ -12,11 +15,12 @@ aws neptune-graph cancel-export-task \
 ```
 
 ## cancel-export-task inputs
-
-- `--task-identifier <taskId>` - The unique identifier of the export task you want to cancel.
-- `--region <region>` - The AWS region where the Neptune Analytics graph is located.
+<a name="cancel-export-task-inputs"></a>
++  `--task-identifier <taskId>` - The unique identifier of the export task you want to cancel. 
++  `--region <region>` - The AWS region where the Neptune Analytics graph is located. 
 
 ## cancel-export-task output
+<a name="cancel-export-task-output"></a>
 
 ```
 {
@@ -29,7 +33,7 @@ aws neptune-graph cancel-export-task \
     // The unique identifier of the export task
     "taskId": "$taskId",
 
-    // The current status of the export task,
+    // The current status of the export task, 
     // which is one of "SUCCEEDED"/"FAILED" etc.
     "status": "SUCCEEDED",
 
@@ -44,7 +48,7 @@ aws neptune-graph cancel-export-task \
 
     // The type of Parquet file generated, which is "COLUMNAR".
     "parquetType": "COLUMNAR",
-
+    
     // If there is an error, a reason will be provided.
     "statusReason"
 }

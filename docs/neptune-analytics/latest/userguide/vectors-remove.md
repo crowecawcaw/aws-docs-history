@@ -1,44 +1,39 @@
+
+
 # .vectors.remove algorithm
+<a name="vectors-remove"></a>
 
-The `.vectors.remove` algorithm is used to remove the embedding from
-a node.
+The `.vectors.remove` algorithm is used to remove the embedding from a node.
 
-###### Important
-
-Updates to vector embeddings are not ACID compliant. For details and best practices
-to minimize inconsistencies, see [Vector
-index transaction support](vector-index.md#vector-index-transaction-support "vector-index.md#vector-index-transaction-support").
+**Important**  
+Updates to vector embeddings are not ACID compliant. For details and best practices to minimize inconsistencies, see [Vector index transaction support](vector-index.md#vector-index-transaction-support).
 
 ## `.vectors.remove`  syntax
+<a name="vectors-remove-syntax"></a>
 
 ```
 CALL neptune.algo.vectors.remove(
-  [`a list of one or more nodes`]
+  [{{a list of one or more nodes}}]
 )
 YIELD node, success
 RETURN node, success
 ```
 
 ## `.vectors.remove`  input
+<a name="vectors-remove-inputs"></a>
++ **a target node list**   *(required)*   –   *type:* `Node[]` or `NodeId[]`.
 
-- **a target node list**   _(required)_   –  
-  _type:_ `Node[]` or `NodeId[]`.
-
-The node(s) from which you want to remove the embedding. If an empty list is
-supplied, the result will be empty.
+  The node(s) from which you want to remove the embedding. If an empty list is supplied, the result will be empty.
 
 ## `.vectors.remove`  outputs
+<a name="vectors-remove-outputs"></a>
 
-The following outputs are returned for each target node, and if the node has an
-embedding, the embedding is removed:
-
-- **node**   –  
-  The target node.
-- **success**   –  
-  A Boolean value: `true` indicates that the removal succeded for the
-  node, and `false` indicates that it failed.
+The following outputs are returned for each target node, and if the node has an embedding, the embedding is removed:
++ **node**   –   The target node.
++ **success**   –   A Boolean value: `true` indicates that the removal succeded for the node, and `false` indicates that it failed.
 
 ## `.vectors.remove`  query examples
+<a name="vectors-remove-query-example"></a>
 
 ```
 CALL neptune.algo.vectors.remove( ["person933"] )
@@ -54,10 +49,9 @@ RETURN n, success
 ```
 
 ## Sample  `.vectors.remove`  output
+<a name="vectors-remove-sample-output"></a>
 
-Here is an example of the output returned by `.vectors.remove` when run against
-the sample
-Wikipedia dataset using the following query:
+Here is an example of the output returned by `.vectors.remove` when run against the sample Wikipedia dataset using the following query:
 
 ```
 aws neptune-graph execute-query \

@@ -1,6 +1,9 @@
-# Sample CSV output
 
-Given the following CSV file:
+
+# Sample CSV output
+<a name="csv-output"></a>
+
+ Given the following CSV file: 
 
 ```
 <s3 path>
@@ -11,17 +14,17 @@ colA:byte,colB:short,colC:int,colD:long,colE:float,colF:double,colG:string
 0,0,0,0,inf,inf,fourth
 ```
 
-This example shows the output returned by `neptune.read` using the following query:
+ This example shows the output returned by `neptune.read` using the following query: 
 
 ```
-aws neptune-graph execute-query \
---graph-identifier ${graphIdentifier} \
---query-string "CALL neptune.read({source: '<s3 path>', format: 'csv'}) YIELD row RETURN row" \
+aws neptune-graph execute-query \ 
+--graph-identifier ${graphIdentifier} \ 
+--query-string "CALL neptune.read({source: '<s3 path>', format: 'csv'}) YIELD row RETURN row" \ 
 --language open_cypher \
- /tmp/out.txt
-
-
-cat /tmp/out.txt
+ /tmp/out.txt 
+ 
+ 
+cat /tmp/out.txt 
 {
   "results": [{
       "row": {
@@ -67,17 +70,16 @@ cat /tmp/out.txt
 }%
 ```
 
-Currently, there is no way to set a node or edge label to a data field coming from a csv file. It is recommended
-that you partition the queries into multiple queries, one for each label/type.
+ Currently, there is no way to set a node or edge label to a data field coming from a csv file. It is recommended that you partition the queries into multiple queries, one for each label/type. 
 
 ```
 CALL neptune.read({source: '<s3 path>', format: 'csv'})
- YIELD row
+ YIELD row 
 WHERE row.`~label` = 'airport'
 CREATE (n:airport)
 
 CALL neptune.read({source: '<s3 path>', format: 'csv'})
-YIELD row
+YIELD row 
 WHERE row.`~label` = 'country'
 CREATE (n:country)
 ```

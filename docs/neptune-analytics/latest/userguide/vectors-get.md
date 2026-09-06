@@ -1,42 +1,38 @@
+
+
 # The  `.vectors.get`  algorithm
+<a name="vectors-get"></a>
 
 The `.vectors.get` algorithm retrieves the embedding for a node.
 
 ## `.vectors.get`  syntax
+<a name="vectors-get-syntax"></a>
 
 ```
-MATCH( n {`~id`: "`the ID of the node`"} )
+MATCH( n {`~id`: "{{the ID of the node}}"} )
 CALL neptune.algo.vectors.get(n)
 YIELD embedding
 RETURN n, embedding
 ```
 
 ## `.vectors.get`  input
+<a name="vectors-get-inputs"></a>
++ **a source node or nodes**   *(required)*   –   *type:* `Node[]` or `NodeId[]`;   *default: none*.
 
-- **a source node or nodes**   _(required)_   –  
-  _type:_ `Node[]` or `NodeId[]`;   _default: none_.
+  The result of a `MATCH` statement that produces the node(s) for which you want to retrieve the embedding.
 
-The result of a `MATCH` statement that produces the node(s) for
-which you want to retrieve the embedding.
-
-###### Warning
-
-Be careful to limit `MATCH(n)` so that it doesn't return a
-large number of nodes. Keep in mind that every source node in the `n`
-result invokes `.vectors.get` once. Too many inputs can therefore result
-in very long runtimes. Use `LIMIT` or put conditions on the `MATCH`
-clause to restrict its output appropriately.
+**Warning**  
+Be careful to limit `MATCH(n)` so that it doesn't return a large number of nodes. Keep in mind that every source node in the `n` result invokes `.vectors.get` once. Too many inputs can therefore result in very long runtimes. Use `LIMIT` or put conditions on the `MATCH` clause to restrict its output appropriately.
 
 ## `.vectors.get`  outputs
+<a name="vectors-get-outputs"></a>
 
 For each source node provided:
-
-- **node**   –  
-  The source node.
-- **embedding**   –  
-  The embedding of that source node.
++ **node**   –   The source node.
++ **embedding**   –   The embedding of that source node.
 
 ## `.vectors.get`  query example
+<a name="vectors-get-query-example"></a>
 
 ```
 MATCH ( n {`~id`: "0"} )
@@ -46,10 +42,9 @@ RETURN n, embedding
 ```
 
 ## Sample  `.vectors.get`  output
+<a name="vectors-get-sample-output"></a>
 
-Here is an example of the output returned by `.vectors.get` when run against
-the sample
-Wikipedia dataset using the following query:
+Here is an example of the output returned by `.vectors.get` when run against the sample Wikipedia dataset using the following query:
 
 ```
 aws neptune-graph execute-query \

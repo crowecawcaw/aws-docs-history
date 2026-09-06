@@ -1,13 +1,16 @@
-# Accessing Neptune Analytics graph from Neptune Analytics interface endpoints
 
-You can use the AWS CLI or AWS SDKs to access Neptune Analytics graph API operations through Neptune Analytics interface endpoints.
+
+# Accessing Neptune Analytics graph from Neptune Analytics interface endpoints
+<a name="gettingStarted-connecting-private-link-access-interface"></a>
+
+ You can use the AWS CLI or AWS SDKs to access Neptune Analytics graph API operations through Neptune Analytics interface endpoints. 
 
 ## AWS CLI examples
+<a name="gettingStarted-connecting-private-link-access-interface-cli"></a>
 
-To access Neptune Analytics API operations through Neptune Analytics interface endpoints in AWS CLI
-commands, use the `--region` parameter.
+ To access Neptune Analytics API operations through Neptune Analytics interface endpoints in AWS CLI commands, use the `--region` parameter. 
 
-**Example: Create a VPC endpoint**
+ **Example: Create a VPC endpoint** 
 
 ```
 aws ec2 create-vpc-endpoint \
@@ -19,10 +22,9 @@ aws ec2 create-vpc-endpoint \
 --security-group-ids client-sg-id
 ```
 
-**Example: Modify a VPC endpoint**
+ **Example: Modify a VPC endpoint** 
 
-Neptune Analytics VPC endpoint service uses private hosted zone to route requests to your Neptune Analytics graph. Ensure that
-you have enabled private dns on your VPC interface endpoint.
+ Neptune Analytics VPC endpoint service uses private hosted zone to route requests to your Neptune Analytics graph. Ensure that you have enabled private dns on your VPC interface endpoint. 
 
 ```
 aws ec2 modify-vpc-endpoint \
@@ -31,18 +33,16 @@ aws ec2 modify-vpc-endpoint \
 --private-dns-enabled
 ```
 
-###### Note
+**Note**  
+ Ensure that the private dns is always enabled on your VPC interface endpoint otherwise you might see errors in routing requests to your Neptune Analytics graph. 
 
-Ensure that the private dns is always enabled on your VPC interface endpoint otherwise you might
-see errors in routing requests to your Neptune Analytics graph.
-
-**Example: List graphs using the region parameter**
+ **Example: List graphs using the region parameter** 
 
 ```
 aws neptune-graph list-graphs --region us-east-1
 ```
 
-**Example: Execute a query using the region parameter**
+ **Example: Execute a query using the region parameter** 
 
 ```
 aws neptune-graph execute-query \
@@ -54,14 +54,13 @@ out.txt
 ```
 
 ## AWS SDK examples
+<a name="gettingStarted-connecting-private-link-access-interface-sdk"></a>
 
-To access Neptune Analytics API operations through Neptune Analytics interface endpoints when using the AWS SDKs, update your
-SDKs to the latest version. Then, configure your clients to use the AWS region for accessing a
-Neptune Analytics API operation through Neptune Analytics interface endpoints.
+ To access Neptune Analytics API operations through Neptune Analytics interface endpoints when using the AWS SDKs, update your SDKs to the latest version. Then, configure your clients to use the AWS region for accessing a Neptune Analytics API operation through Neptune Analytics interface endpoints. 
 
-**SDK for Python (Boto3)**
+ **SDK for Python (Boto3)** 
 
-In this example, you will use an endpoint URL to access a Neptune Analytics graph.
+ In this example, you will use an endpoint URL to access a Neptune Analytics graph. 
 
 ```
 neptune_graph_client = session.client(
@@ -70,9 +69,9 @@ region_name='us-east-1'
 )
 ```
 
-**SDK for Java 2.x**
+ **SDK for Java 2.x** 
 
-In this example, you will use an endpoint URL to access a Neptune Analytics graph.
+ In this example, you will use an endpoint URL to access a Neptune Analytics graph. 
 
 ```
 //client build with endpoint config

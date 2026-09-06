@@ -1,15 +1,15 @@
+
+
 # get-export-task
+<a name="get-export-task"></a>
 
-This command queries the status of an export task that was started using the `start-export-task` command. This
-gives information such as the current state of the export, the approximate progress of the export, how long the export has
-been running etc.
+ This command queries the status of an export task that was started using the `start-export-task` command. This gives information such as the current state of the export, the approximate progress of the export, how long the export has been running etc. 
 
-###### Note
-
-When exporting a graph in which the vertices have no vertex labels or vertex properties, the
-`numVerticesWritten` is expected to be 0 in the response of get-export-task.
+**Note**  
+ When exporting a graph in which the vertices have no vertex labels or vertex properties, the `numVerticesWritten` is expected to be 0 in the response of get-export-task. 
 
 ## get-export-task syntax
+<a name="get-export-task-syntax"></a>
 
 ```
 aws neptune-graph get-export-task \
@@ -18,12 +18,12 @@ aws neptune-graph get-export-task \
 ```
 
 ## get-export-task inputs
-
-- `--task-identifier <taskId>` - The unique identifier of the export task for which you want to retrieve
-  the status.
-- `--region <region>` - The AWS region where the Neptune Analytics graph is located.
+<a name="get-export-task-inputs"></a>
++  `--task-identifier <taskId>` - The unique identifier of the export task for which you want to retrieve the status. 
++  `--region <region>` - The AWS region where the Neptune Analytics graph is located. 
 
 ## get-export-task output
+<a name="get-export-task-output"></a>
 
 ```
 {
@@ -36,7 +36,7 @@ aws neptune-graph get-export-task \
     // The unique identifier of the export task
     "taskId": "$taskId",
 
-    // The current status of the export task,
+    // The current status of the export task, 
     // which is one of INITIALIZING, EXPORTING, SUCCEEDED, FAILED, CANCELLING, CANCELLED
     "status": "SUCCEEDED",
 
@@ -51,24 +51,24 @@ aws neptune-graph get-export-task \
 
     // The type of Parquet file generated, which is "COLUMNAR".
     "parquetType": "COLUMNAR",
-
+    
     // If provided, the exportFilter being used with the export task.
     "exportFilter": "$export_json"
-
+    
     // Details of export progress.
     "exportTaskDetails": {
     // The time when the export began
      "startTime": "2024-10-07T17:14:03.502000-04:00",
-
+     
      // The amount of time that has been spent executing the export request.
      "timeElapsedSeconds": 360,
-
-    // The percentage of relevant data in the database that has been scanned for export.
+     
+    // The percentage of relevant data in the database that has been scanned for export. 
      "progressPercentage": 100,
-
+     
     // The number of total vertices which are included in the exported files.
      "numVerticesWritten": 30090921,
-
+     
     // The number of total edges which are included in the exported files.
      "numEdgesWritten": 177654205
 }

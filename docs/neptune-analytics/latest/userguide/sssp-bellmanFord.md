@@ -1,94 +1,76 @@
-# Bellman-Ford single source shortest path (SSSP) algorithm
 
-The `.sssp.bellmanFord` algorithm computes the shortest path distances
-from a single source vertex to all other vertices in the graph using the [Bellman-Ford](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm "https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm")
-algorithm.
+
+# Bellman-Ford single source shortest path (SSSP) algorithm
+<a name="sssp-bellmanFord"></a>
+
+The `.sssp.bellmanFord` algorithm computes the shortest path distances from a single source vertex to all other vertices in the graph using the [Bellman-Ford](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) algorithm.
 
 Neptune Analytics implements the algorithm such that:
-
-- Positive edge weights must be provided using the `edgeWeightProperty` field
-- Negative edge weights are not supported.
-- The traversal direction cannot be set to `both`.
++ Positive edge weights must be provided using the `edgeWeightProperty` field
++ Negative edge weights are not supported.
++ The traversal direction cannot be set to `both`.
 
 ## `.sssp.bellmanFord`   syntax
+<a name="sssp-bellmanFord-syntax"></a>
 
 ```
 CALL neptune.algo.sssp.bellmanFord(
-  [`source-node list (required)`],
+  [{{source-node list (required)}}],
   {
-    edgeWeightProperty: `edge weight predicate for traversal (required)`
-    edgeWeightType: `numeric type of the edge weight property (required)`
-    edgeLabels: [`list of edge labels for filtering (optional)`],
-    vertexLabel: `a node label for filtering (optional)`,
-    traversalDirection: `traversal direction (optional)`,
-    concurrency: `number of threads to use (optional)`
+    edgeWeightProperty: {{edge weight predicate for traversal (required)}}
+    edgeWeightType: {{numeric type of the edge weight property (required)}}
+    edgeLabels: [{{list of edge labels for filtering (optional)}}],
+    vertexLabel: {{a node label for filtering (optional)}},
+    traversalDirection: {{traversal direction (optional)}},
+    concurrency: {{number of threads to use (optional)}}
   }
 )
-YIELD `the outputs to generate (source and/or node)`
-RETURN `the outputs to return`
+YIELD {{the outputs to generate (source and/or node)}}
+RETURN {{the outputs to return}}
 ```
 
 ## `.sssp.bellmanFord`   inputs
+<a name="sssp-bellmanFord-inputs"></a>
++ **a source node list**   *(required)*   –   *type:* `Node[]` or `NodeId[]`;   *default: none*.
 
-- **a source node list**   _(required)_   –  
-  _type:_ `Node[]` or `NodeId[]`;   _default: none_.
+  The node or nodes to use as the starting location(s) for the algorithm.
+  + Each starting node triggers its own execution of the algorithm.
+  + If the source-node list is empty then the query result is also empty.
+  + If the algorithm is called following a `MATCH` clause (this is known as query-algorithm integration), the output of the `MATCH` clause is used as the source-node list for the algorithm.
++ 
 
-The node or nodes to use as the starting location(s) for the algorithm.
+**a configuration object that contains:**
+  + **edgeWeightProperty** *(required)*   –   *type:* `string`;   *default: none*.
 
-    + Each starting node triggers its own execution of the algorithm.
-    + If the source-node list is empty then the query result is also empty.
-    + If the algorithm is called following a `MATCH` clause
-     (this is known as query-algorithm integration), the output of the `MATCH` clause is
-     used as the source-node list for the algorithm.
+    The edge weight predicate for traversal.
+  + **edgeWeightType** *(required)*   –   *type:* `string`;   *valid values:* `"int"`, `"long"`, `"float"`, `"double"`.
 
-- ###### a configuration object that contains:
-  - **edgeWeightProperty** _(required)_   –  
-    _type:_ `string`;   _default: none_.
+    The numeric data type of the values in the property specified by `edgeWeightProperty`.
+  + **edgeLabels**   *(optional)*   –   *type:* a list of edge label strings;   *example:* `["route", {{...}}]`;   *default:* no edge filtering.
 
-  The edge weight predicate for traversal.
-  - **edgeWeightType** _(required)_   –  
-    _type:_ `string`;   _valid values:_ `"int"`,
-    `"long"`, `"float"`, `"double"`.
+    To filter on one more edge labels, provide a list of the ones to filter on. If no `edgeLabels` field is provided then all edge labels are processed during traversal.
+  + **vertexLabel**   *(optional)*   –   *type:* `string`;   *example:* `"airport"`;  *default:* no node filtering.
 
-  The numeric data type of the values in the property specified by `edgeWeightProperty`.
-  - **edgeLabels**   _(optional)_   –  
-    _type:_ a list of edge label strings;   _example:_
-    `["route", `...`]`;   _default:_ no edge filtering.
+    A node label for node filtering. If a node label is provided, vertices matching the label are the only vertices that are included, including vertices in the input list.
+  + **traversalDirection** *(optional)*   –   *type:* `string`;   *default:*` "outbound"`.
 
-  To filter on one more edge labels, provide a list of the ones to filter on. If no `edgeLabels` field is
-  provided then all edge labels are processed during traversal.
-  - **vertexLabel**   _(optional)_   –  
-    _type:_ `string`;   _example:_
-    `"airport"`;  _default:_ no node filtering.
+    The direction of edge to follow. Must be one of: `"inbound"` or `"outbound"`.
+  + **concurrency**   *(optional)*   –   *type:* 0 or 1;   *default:* 0.
 
-  A node label for node filtering. If a node label is provided, vertices matching the label are the only
-  vertices that are included, including vertices in the input list.
-  - **traversalDirection** _(optional)_   –  
-    _type:_ `string`;   _default:_ `"outbound"`.
+    Controls the number of concurrent threads used to run the algorithm.
 
-  The direction of edge to follow. Must be one of: `"inbound"` or `"outbound"`.
-  - **concurrency**   _(optional)_   –  
-    _type:_ 0 or 1;   _default:_ 0.
-
-  Controls the number of concurrent threads used to run the algorithm.
-
-  If set to `0`, uses all available threads to complete execution of the individual algorithm
-  invocation. If set to `1`, uses a single thread. This can be useful when requiring the invocation
-  of many algorithms concurrently.
+     If set to `0`, uses all available threads to complete execution of the individual algorithm invocation. If set to `1`, uses a single thread. This can be useful when requiring the invocation of many algorithms concurrently.
 
 ## Outputs for the `.sssp.bellmanFord` algorithm
+<a name="sssp-bellmanFord-outputs"></a>
 
-For every node that can be reached from the specified source list, the algorithm
-returns:
-
-- **source**   –  
-  The source node.
-- **node**   –  
-  A node found traversing from the source.
-- **distance**   –  
-  The distance between the source node and the found node.
+For every node that can be reached from the specified source list, the algorithm returns:
++ **source**   –   The source node.
++ **node**   –   A node found traversing from the source.
++ **distance**   –   The distance between the source node and the found node.
 
 ## `.sssp.bellmanFord`   query examples
+<a name="sssp-bellmanFord-query-examples"></a>
 
 This is a standalone query, where a source node (or nodes) is explicitly provided:
 
@@ -103,9 +85,7 @@ CALL neptune.algo.sssp.bellmanFord(
 )
 ```
 
-This is a query integration example, where `.sssp.bellmanFord` follows a
-`MATCH` clause and uses the output of the `MATCH` clause as
-its source node list:
+This is a query integration example, where `.sssp.bellmanFord` follows a `MATCH` clause and uses the output of the `MATCH` clause as its source node list:
 
 ```
 MATCH (source:airport {code: 'ANC'})
@@ -124,19 +104,13 @@ YIELD node, parent, distance
 RETURN source, node, parent, distance
 ```
 
-###### Warning
-
-It is not good practice to use `MATCH(n)` without restriction
-in query integrations. Keep in mind that every node returned by the `MATCH(n)`
-clause invokes the algorithm once, which can result in a very long-running query if
-a large number of nodes is returned. Use `LIMIT` or put conditions on the
-`MATCH` clause to restrict its output appropriately.
+**Warning**  
+It is not good practice to use `MATCH(n)` without restriction in query integrations. Keep in mind that every node returned by the `MATCH(n)` clause invokes the algorithm once, which can result in a very long-running query if a large number of nodes is returned. Use `LIMIT` or put conditions on the `MATCH` clause to restrict its output appropriately.
 
 ## Sample `.sssp.bellmanFord` output
+<a name="sssp-bellmanFord-sample-output"></a>
 
-Here is an example of the output returned by .sssp.bellmanFord when run against the
-[sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv "https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv"), and
-[sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv "https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv"), when using the following query:
+Here is an example of the output returned by .sssp.bellmanFord when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
 ```
 aws neptune-graph execute-query \
@@ -148,8 +122,8 @@ aws neptune-graph execute-query \
      LIMIT 2" \
   --language open_cypher \
   /tmp/out.txt
-
-cat /tmp/out.txt
+  
+cat /tmp/out.txt  
 {
   "results": [
     {

@@ -1,16 +1,19 @@
-# .vectors.topKByNode algorithm (deprecated)
 
-The `.vectors.topKByNode` algorithm finds the `topK` nearest
-neighbors of a node based on the distance of their vector embeddings from the node.
+
+# .vectors.topKByNode algorithm (deprecated)
+<a name="vectors-topKByNode"></a>
+
+The `.vectors.topKByNode` algorithm finds the `topK` nearest neighbors of a node based on the distance of their vector embeddings from the node.
 
 ## `.vectors.topKByNode`  syntax
+<a name="vectors-topKByNode-syntax"></a>
 
 ```
 CALL neptune.algo.vectors.topKByNode(
-  [`a list of one or more nodes (required`)],
+  [{{a list of one or more nodes (required}})],
   {
-    topK: `the number of result nodes to return (optional, default: 10)`,
-    concurrency: `the number of cores to use to run the algorithm (optional)`
+    topK: {{the number of result nodes to return (optional, default: 10)}},
+    concurrency: {{the number of cores to use to run the algorithm (optional)}}
   }
 )
 YIELD node, score
@@ -18,42 +21,32 @@ RETURN node, score
 ```
 
 ## `.vectors.topKByNode`  input
+<a name="vectors-topKByNode-inputs"></a>
++ **a list of one or more source nodes**   *(required)*   –   *type:* `Node[]` or `NodeId[]`.
 
-- **a list of one or more source nodes**   _(required)_   –  
-  _type:_ `Node[]` or `NodeId[]`.
+  If the source-node list is empty then the query result is also empty.
++ **topK**   *(optional)*   *type:* a positive integer;   *default:* 10.
 
-If the source-node list is empty then the query result is also empty.
+  The number of result nodes to return. 
++ **concurrency**   *(optional)*   –   *type:* 0 or 1;   *default:* 0.
 
-- **topK**   _(optional)_  
-  _type:_ a positive integer;   _default:_ 10.
+  Controls the number of concurrent threads used to run the algorithm.
 
-The number of result nodes to return.
-
-- **concurrency**   _(optional)_   –  
-  _type:_ 0 or 1;   _default:_ 0.
-
-Controls the number of concurrent threads used to run the algorithm.
-
-If set to `0`, uses all available threads to complete execution of the individual algorithm
-invocation. If set to `1`, uses a single thread. This can be useful when requiring the invocation
-of many algorithms concurrently.
+   If set to `0`, uses all available threads to complete execution of the individual algorithm invocation. If set to `1`, uses a single thread. This can be useful when requiring the invocation of many algorithms concurrently.
 
 ## `.vectors.topKByNode`  outputs
+<a name="vectors-topKByNode-outputs"></a>
 
 For each source node:
-
-- **source**   –  
-  The source node.
-- **node**   –  
-  A node whose embedding is at one of the `topK` nearest distances from
-  the source node's embedding.
-- **score**   –  
-  The distance between the source node's embedding and the embedding of the close node.
++ **source**   –   The source node.
++ **node**   –   A node whose embedding is at one of the `topK` nearest distances from the source node's embedding.
++ **score**   –   The distance between the source node's embedding and the embedding of the close node.
 
 ## `.vectors.topKByNode`  query example
+<a name="vectors-topKByNode-query-example"></a>
 
 ```
-MATCH ( n:airport {code: 'ANC'} )
+MATCH ( n:airport {code: 'ANC'} ) 
 CALL neptune.algo.vectors.topKByNode(
   n,
   {
@@ -65,19 +58,13 @@ YIELD node, score
 RETURN n, node, score
 ```
 
-###### Warning
-
-In queries like the one above, be careful to limit `MATCH(n)`
-so that it doesn't return a large number of nodes. Keep in mind that every node in `n`
-invokes a separate run of `.vectors.topKByNode`.
-Too many inputs can therefore result in very long runtimes. Use `LIMIT` or
-put conditions on the `MATCH` clause to restrict its output appropriately.
+**Warning**  
+In queries like the one above, be careful to limit `MATCH(n)` so that it doesn't return a large number of nodes. Keep in mind that every node in `n` invokes a separate run of `.vectors.topKByNode`. Too many inputs can therefore result in very long runtimes. Use `LIMIT` or put conditions on the `MATCH` clause to restrict its output appropriately.
 
 ## Sample  `.vectors.topKByNode`  output
+<a name="vectors-topKByNode-sample-output"></a>
 
-Here is an example of the output returned by `.vectors.topKByNode` when run against
-the sample
-Wikipedia dataset using the following query:
+Here is an example of the output returned by `.vectors.topKByNode` when run against the sample Wikipedia dataset using the following query:
 
 ```
 aws neptune-graph execute-query \

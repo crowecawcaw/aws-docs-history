@@ -1,6 +1,10 @@
+
+
 # Sample filters
+<a name="export-filter-samples"></a>
 
 ## Sample filter: Specifying vertex and edge properties for export
+<a name="export-filter-samples-1"></a>
 
 ```
 {
@@ -28,39 +32,38 @@
 }
 ```
 
-###### Vertex files:
+**Vertex files:**
++  Only vertices with the "Professor" label will be exported. 
++  For each "Professor" vertex, the exported data will have the following columns: 
+  +  `~id` - The unique identifier of the vertex. 
+  +  `~label` - The label of the vertex, which will be "Professor". 
+  +  `name` - The "name" property of the vertex, exported as a String type. 
+  +  `val` - The "val" property of the vertex, exported as an Integer type. 
 
-- Only vertices with the "Professor" label will be exported.
-- For each "Professor" vertex, the exported data will have the following columns:
 
-  - `~id` - The unique identifier of the vertex.
-  - `~label` - The label of the vertex, which will be "Professor".
-  - `name` - The "name" property of the vertex, exported as a String type.
-  - `val` - The "val" property of the vertex, exported as an Integer type.
+| "\~id" | "\~label" | "name:String" | "val:Int" | 
+| --- | --- | --- | --- | 
+| "p5" | "Professor" | "Professor 5" | 11 | 
+| "p2" | "Professor" | "Professor 2" | 2 | 
+| "p1" | "Professor" | "Professor 1" | 1 | 
 
-| "~id" | "~label"    | "name:String" | "val:Int" |
-| ----- | ----------- | ------------- | --------- |
-| "p5"  | "Professor" | "Professor 5" | 11        |
-| "p2"  | "Professor" | "Professor 2" | 2         |
-| "p1"  | "Professor" | "Professor 1" | 1         |
+**Edge files:**
++  Only edges with the "knows" label will be exported. 
++  For each "knows" edge, the exported data will have the following columns: 
+  +  `~from` - The unique identifier of the source vertex of the edge. 
+  +  `~to` - The unique identifier of the target vertex of the edge. 
+  +  `~label` - The label of the edge, which will be "knows". 
+  +  `weight` - The "weight" property of the edge, exported as a Float type. 
 
-###### Edge files:
 
-- Only edges with the "knows" label will be exported.
-- For each "knows" edge, the exported data will have the following columns:
-
-  - `~from` - The unique identifier of the source vertex of the edge.
-  - `~to` - The unique identifier of the target vertex of the edge.
-  - `~label` - The label of the edge, which will be "knows".
-  - `weight` - The "weight" property of the edge, exported as a Float type.
-
-| "~from" | "~to"   | "~label"  | "weight:Float" |
-| ------- | ------- | --------- | -------------- |
-| "p1"    | "p5"    | "reports" | 1              |
-| "p1"    | "p2"    | "knows"   | 0.5            |
-| "p2"    | "s2\_2" | "knows"   | 0.6            |
+| "\~from" | "\~to" | "\~label" | "weight:Float" | 
+| --- | --- | --- | --- | 
+| "p1" | "p5" | "reports" | 1 | 
+| "p1" | "p2" | "knows" | 0.5 | 
+| "p2" | "s2\_2" | "knows" | 0.6 | 
 
 ## Sample filter: Exporting vertices and edges to a single schema
+<a name="export-filter-samples-2"></a>
 
 ```
 {
@@ -88,27 +91,26 @@
 }
 ```
 
-This filter will export the `“name”` and `“val”` vertex properties for all vertices (regardless of label)
-into vertex files with a unified schema. A Parquet export have columns `~id`, `~label`, `val`,
-and `name`, with `val` as an Integer type column, and name a String column. For CSV exports, the last two
-columns will have their types appended to be `val:Int`, and `name:String`. Unlike the case where a
-[specific label is specified](export-filter-samples.md#export-filter-samples-1 "export-filter-samples.md#export-filter-samples-1"), the label column here will vary based on the labels of the vertices.
-Similarly, this filter will export the `“weight”` property as a Float column for all edges regardless of the edge
-label.
+ This filter will export the `“name”` and `“val”` vertex properties for all vertices (regardless of label) into vertex files with a unified schema. A Parquet export have columns `~id`, `~label`, `val`, and `name`, with `val` as an Integer type column, and name a String column. For CSV exports, the last two columns will have their types appended to be `val:Int`, and `name:String`. Unlike the case where a [ specific label is specified](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/export-filter-samples.html#export-filter-samples-1), the label column here will vary based on the labels of the vertices. Similarly, this filter will export the `“weight”` property as a Float column for all edges regardless of the edge label. 
 
-| "~id" | "~label"    | "name:String" | "val:Int" |
-| ----- | ----------- | ------------- | --------- |
-| "p5"  | "Professor" | "Professor 5" | 11        |
-| "p2"  | "Professor" | "Professor 2" | 2         |
-| "p1"  | "Professor" | "Professor 1" | 1         |
 
-| "~from" | "~to"   | "~label"  | "weight:Float" |
-| ------- | ------- | --------- | -------------- |
-| "p1"    | "p5"    | "reports" | 1              |
-| "p1"    | "p2"    | "knows"   | 0.5            |
-| "p2"    | "s2\_2" | "knows"   | 0.6            |
+| "\~id" | "\~label" | "name:String" | "val:Int" | 
+| --- | --- | --- | --- | 
+| "p5" | "Professor" | "Professor 5" | 11 | 
+| "p2" | "Professor" | "Professor 2" | 2 | 
+| "p1" | "Professor" | "Professor 1" | 1 | 
+
+ 
+
+
+| "\~from" | "\~to" | "\~label" | "weight:Float" | 
+| --- | --- | --- | --- | 
+| "p1" | "p5" | "reports" | 1 | 
+| "p1" | "p2" | "knows" | 0.5 | 
+| "p2" | "s2\_2" | "knows" | 0.6 | 
 
 ## Sample filter: Exporting all vertices but no edges
+<a name="export-filter-samples-3"></a>
 
 ```
 {
@@ -116,10 +118,10 @@ label.
 }
 ```
 
-This exports all vertices because there are no vertexFilters, and exports no edges because the edgeFilter is provided,
-but empty.
+ This exports all vertices because there are no vertexFilters, and exports no edges because the edgeFilter is provided, but empty. 
 
 ## Sample filter: Exporting all properties of specific labels
+<a name="export-filter-samples-4"></a>
 
 ```
 {
@@ -130,23 +132,26 @@ but empty.
 }
 ```
 
-This filter will export all properties of vertices with the label `“Professor”` or `“Student”` into files
-with schemas defined by the `“Professor”` and `"Student”` vertex property sets, respectively, along
-with all edges.
+ This filter will export all properties of vertices with the label `“Professor”` or `“Student”` into files with schemas defined by the `“Professor”` and `"Student”` vertex property sets, respectively, along with all edges. 
 
-| "~id" | "~label"    | "Income:Int" | "name:String" |
-| ----- | ----------- | ------------ | ------------- |
-| "p5"  | "Professor" | 80000        | "Professor 5" |
-| "p2"  | "Professor" | 90000        | "Professor 2" |
-| "p1"  | "Professor" | 75000        | "Professor 1" |
 
-| "~id" | "~label"  | "GraduationYear:Int" | "name:String" |
-| ----- | --------- | -------------------- | ------------- |
-| "s1"  | "Student" | 2021                 | "Bob"         |
-| "s2"  | "Student" | 2024                 | "Sam"         |
-| "s3"  | "Student" | 2008                 | "Jose"        |
+| "\~id" | "\~label" | "Income:Int" | "name:String" | 
+| --- | --- | --- | --- | 
+| "p5" | "Professor" | 80000 | "Professor 5" | 
+| "p2" | "Professor" | 90000 | "Professor 2" | 
+| "p1" | "Professor" | 75000 | "Professor 1" | 
+
+ 
+
+
+| "\~id" | "\~label" | "GraduationYear:Int" | "name:String" | 
+| --- | --- | --- | --- | 
+| "s1" | "Student" | 2021 | "Bob" | 
+| "s2" | "Student" | 2024 | "Sam" | 
+| "s3" | "Student" | 2008 | "Jose" | 
 
 ## Sample filter: Exporting edge topology without properties
+<a name="export-filter-samples-5"></a>
 
 ```
 {
@@ -158,18 +163,19 @@ with all edges.
 }
 ```
 
-By specifying properties as an empty object, only the `~from`, `~to`, and `~label` columns will
-be exported for all edges.
+ By specifying properties as an empty object, only the `~from`, `~to`, and `~label` columns will be exported for all edges. 
 
-| "~from" | "~to"   | "~label"  |
-| ------- | ------- | --------- |
-| "p1"    | "p5"    | "reports" |
-| "p1"    | "p2"    | "knows"   |
-| "p2"    | "s2\_2" | "knows"   |
+
+| "\~from" | "\~to" | "\~label" | 
+| --- | --- | --- | 
+| "p1" | "p5" | "reports" | 
+| "p1" | "p2" | "knows" | 
+| "p2" | "s2\_2" | "knows" | 
 
 ## Run a mutation algorithm then export the results
+<a name="export-filter-samples-6"></a>
 
-Run the following query:
+ Run the following query: 
 
 ```
 CALL neptune.algo.pageRank.mutate(
@@ -182,7 +188,7 @@ CALL neptune.algo.pageRank.mutate(
 )
 ```
 
-Followed by an export with a filter:
+ Followed by an export with a filter: 
 
 ```
 {
@@ -198,10 +204,11 @@ Followed by an export with a filter:
 }
 ```
 
-The result would be:
+ The result would be: 
 
-| "~id" | "~label"  | "P\_RANK:Float" |
-| ----- | --------- | --------------- |
-| "SYD" | "Airport" | 0.005           |
-| "JFK" | "Airport" | 0.008           |
-| "LGA" | "Airport" | 0.002           |
+
+| "\~id" | "\~label" | "P\_RANK:Float" | 
+| --- | --- | --- | 
+| "SYD" | "Airport" | 0.005 | 
+| "JFK" | "Airport" | 0.008 | 
+| "LGA" | "Airport" | 0.002 | 

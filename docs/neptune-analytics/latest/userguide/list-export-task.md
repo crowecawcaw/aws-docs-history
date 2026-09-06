@@ -1,10 +1,12 @@
-# list-export-task
 
-Since you may have many graphs in your account, and the export functionality includes the ability to specify filters and
-different filetypes, you may execute multiple exports against your graph over time. The `list-export-tasks` CLI
-gives returns all Neptune Analytics exports that have been triggered in your account.
+
+# list-export-task
+<a name="list-export-task"></a>
+
+ Since you may have many graphs in your account, and the export functionality includes the ability to specify filters and different filetypes, you may execute multiple exports against your graph over time. The `list-export-tasks` CLI gives returns all Neptune Analytics exports that have been triggered in your account. 
 
 ## list-export-task syntax
+<a name="list-export-task-syntax"></a>
 
 ```
 aws neptune-graph list-export-tasks
@@ -12,10 +14,11 @@ aws neptune-graph list-export-tasks
 ```
 
 ## list-export-task inputs
-
-- `--region <region>` - The AWS region where the Neptune Analytics graph is located.
+<a name="list-export-task-inputs"></a>
++  `--region <region>` - The AWS region where the Neptune Analytics graph is located. 
 
 ## list-export-task output
+<a name="list-export-task-output"></a>
 
 ```
 {
@@ -28,7 +31,7 @@ aws neptune-graph list-export-tasks
     // The unique identifier of the export task
     "taskId": "$taskId",
 
-    // The current status of the export task,
+    // The current status of the export task, 
     // which is one of "SUCCEEDED"/"FAILED" etc.
     "status": "SUCCEEDED",
 
@@ -43,7 +46,7 @@ aws neptune-graph list-export-tasks
 
     // The type of Parquet file generated, which is "COLUMNAR".
     "parquetType": "COLUMNAR",
-
+    
     // If there is an error, a reason will be provided.
     "statusReason": "$failureReason"
 }

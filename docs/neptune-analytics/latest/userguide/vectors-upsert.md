@@ -1,55 +1,46 @@
+
+
 # .vectors.upsert algorithm
+<a name="vectors-upsert"></a>
 
-The `.vectors.upsert` algorithm is used to add a new embedding or
-update an existing one for a node.
+The `.vectors.upsert` algorithm is used to add a new embedding or update an existing one for a node.
 
-###### Important
-
-Updates to vector embeddings are not ACID compliant. For details and best practices
-to minimize inconsistencies, see [Vector
-index transaction support](vector-index.md#vector-index-transaction-support "vector-index.md#vector-index-transaction-support").
+**Important**  
+Updates to vector embeddings are not ACID compliant. For details and best practices to minimize inconsistencies, see [Vector index transaction support](vector-index.md#vector-index-transaction-support).
 
 ## `.vectors.upsert`  syntax
+<a name="vectors-upsert-syntax"></a>
 
 ```
 CALL neptune.algo.vectors.upsert(
-  "`a target node (required)`",
-  [`the embedding to upsert for the target node (required)]`
+  "{{a target node (required)}}",
+  [{{the embedding to upsert for the target node (required)]}}
 )
 YIELD node, embedding, success
 RETURN node, embedding, success
 ```
 
 ## `.vectors.upsert`  input
+<a name="vectors-upsert-inputs"></a>
++ **a target node**   *(required)*   –   *type:* `Node` or `NodeId`.
 
-- **a target node**   _(required)_   –  
-  _type:_ `Node` or `NodeId`.
+  The node for which you want to upsert an embedding.
++ **an embedding**   *(required)*   –   *type:* a list of floating-point values.
 
-The node for which you want to upsert an embedding.
+  The embedding that you want to upsert for the target node.
 
-- **an embedding**   _(required)_   –  
-  _type:_ a list of floating-point values.
-
-The embedding that you want to upsert for the target node.
-
-If the node has an existing embedding, this must match the dimension of the
-existing one or an exception is thrown.
+  If the node has an existing embedding, this must match the dimension of the existing one or an exception is thrown.
 
 ## `.vectors.upsert`  outputs
+<a name="vectors-upsert-outputs"></a>
 
-If the target node already has an existing embedding then `.vectors.upsert`
-replaces it with the one supplied. Otherwise `.vectors.upsert` adds the
-supplied embedding for the target node.
-
-- **node**   –  
-  The target node.
-- **embedding**   –  
-  The embedding that was supplied to be upserted.
-- **success**   –  
-  A Boolean value: `true` indicates that the upsert succeded, and
-  `false` that it failed.
+If the target node already has an existing embedding then `.vectors.upsert` replaces it with the one supplied. Otherwise `.vectors.upsert` adds the supplied embedding for the target node.
++ **node**   –   The target node.
++ **embedding**   –   The embedding that was supplied to be upserted.
++ **success**   –   A Boolean value: `true` indicates that the upsert succeded, and `false` that it failed.
 
 ## `.vectors.upsert`  query examples
+<a name="vectors-upsert-query-example"></a>
 
 ```
 CALL neptune.algo.vectors.upsert(
@@ -62,20 +53,19 @@ RETURN node, embedding, success
 
 ```
 UNWIND [
-  {id: "933", embedding: [1,2,3,4]},
+  {id: "933", embedding: [1,2,3,4]}, 
   {id: "934", embedding: [-1,-2,-3,-4]}
-] as entry
+] as entry 
 MATCH (n:person) WHERE id(n)=entry.id WITH n, entry.embedding as embedding
-CALL neptune.algo.vectors.upsert(n, embedding)
+CALL neptune.algo.vectors.upsert(n, embedding) 
 YIELD success
 RETURN n, embedding, success
 ```
 
 ## Sample  `.vectors.upsert`  output
+<a name="vectors-upsert-sample-output"></a>
 
-Here is an example of the output returned by `.vectors.upsert` when run against
-the sample
-Wikipedia dataset using the following query:
+Here is an example of the output returned by `.vectors.upsert` when run against the sample Wikipedia dataset using the following query:
 
 ```
 aws neptune-graph execute-query \

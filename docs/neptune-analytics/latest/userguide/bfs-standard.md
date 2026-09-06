@@ -1,95 +1,77 @@
-# Standard breadth-first search (BFS) algorithm
 
-Standard breadth-first search (BFS) is an algorithm for finding nodes from
-a starting node or nodes in a graph in breadth-first order.
+
+# Standard breadth-first search (BFS) algorithm
+<a name="bfs-standard"></a>
+
+Standard breadth-first search (BFS) is an algorithm for finding nodes from a starting node or nodes in a graph in breadth-first order.
 
 It returns the source node or nodes that it started from, and all of the nodes visited by each search.
 
-###### Note
-
-Because every source node passed in leads to its own execution of the algorithm,
-your queries should limit the number of source nodes as much as possible.
+**Note**  
+Because every source node passed in leads to its own execution of the algorithm, your queries should limit the number of source nodes as much as possible.
 
 ## `.bfs`   syntax
+<a name="bfs-standard-syntax"></a>
 
 ```
 CALL neptune.algo.bfs(
-  [`source-node list (required)`],
+  [{{source-node list (required)}}],
   {
-    edgeLabels: [`list of edge labels for filtering (optional)`],
-    vertexLabel: `a node label for filtering (optional)`,
-    maxDepth: `maximum number of hops to traverse from a source node (optional)`,
-    traversalDirection: `traversal direction (optional)`,
-    concurrency: `number of threads to use (optional)`
+    edgeLabels: [{{list of edge labels for filtering (optional)}}],
+    vertexLabel: {{a node label for filtering (optional)}},
+    maxDepth: {{maximum number of hops to traverse from a source node (optional)}},
+    traversalDirection: {{traversal direction (optional)}},
+    concurrency: {{number of threads to use (optional)}}
   }
 )
-YIELD `the outputs to generate (source and/or node)`
-RETURN `the outputs to return`
+YIELD {{the outputs to generate (source and/or node)}}
+RETURN {{the outputs to return}}
 ```
 
 ## `.bfs`   inputs
+<a name="bfs-standard-inputs"></a>
++ **a source node list**   *(required)*   –   *type:* `Node[]` or `NodeId[]`;   *default: none*.
 
-- **a source node list**   _(required)_   –  
-  _type:_ `Node[]` or `NodeId[]`;   _default: none_.
+  The source-node list contains the node or nodes used as the starting locations for the algorithm.
+  + Each starting node triggers its own execution of the algorithm.
+  + If the source-node list is empty then the query result is also empty.
+  + If the algorithm is called following a `MATCH` clause (this is known as query-algorithm integration), the output of the `MATCH` clause is used as the source-node list for the algorithm.
++ 
 
-The source-node list contains the node or nodes used as the starting locations
-for the algorithm.
+**a configuration object that contains:**
+  + **edgeLabels**   *(optional)*   –   *type:* a list of edge label strings;   *example:* `["route", {{...}}]`;   *default:* no edge filtering.
 
-    + Each starting node triggers its own execution of the algorithm.
-    + If the source-node list is empty then the query result is also empty.
-    + If the algorithm is called following a `MATCH` clause
-     (this is known as query-algorithm integration), the output of the `MATCH` clause is
-     used as the source-node list for the algorithm.
+    To filter on one more edge labels, provide a list of the ones to filter on. If no `edgeLabels` field is provided then all edge labels are processed during traversal.
+  + **vertexLabel**   *(optional)*   –   *type:* `string`;   *example:* `"airport"`;  *default:* no node filtering.
 
-- ###### a configuration object that contains:
-  - **edgeLabels**   _(optional)_   –  
-    _type:_ a list of edge label strings;   _example:_
-    `["route", `...`]`;   _default:_ no edge filtering.
+    If you provide a node label to filter on then only nodes matching that label will be traversed. This does not, however, filter out any nodes in the source node list.
+  + **maxDepth**   *(optional)*   –   *type:* positive integer or 0 or -1;   *default:* -1.
 
-  To filter on one more edge labels, provide a list of the ones to filter on. If no `edgeLabels` field is
-  provided then all edge labels are processed during traversal.
-  - **vertexLabel**   _(optional)_   –  
-    _type:_ `string`;   _example:_
-    `"airport"`;  _default:_ no node filtering.
+    The maximum number of hops to traverse from a source node. If set at `-1` then there's no maximum depth limit. If set to `0`, only the nodes in the source node list are returned.
+  + **traversalDirection**   *(optional)*   –   *type:* `string`;   *default:*` "outbound"`.
 
-  If you provide a node label to filter on then only nodes matching that label
-  will be traversed. This does not, however, filter out any nodes in the source node list.
-  - **maxDepth**   _(optional)_   –  
-    _type:_ positive integer or 0 or -1;   _default:_ -1.
+    The direction of edge to follow. Must be one of: `"inbound"`, `"outbound"`, or `"both"`.
+  + **concurrency**   *(optional)*   –   *type:* 0 or 1;   *default:* 0.
 
-  The maximum number of hops to traverse from a source node. If set at `-1` then there's
-  no maximum depth limit. If set to `0`, only the nodes in the source node list are returned.
-  - **traversalDirection**   _(optional)_   –  
-    _type:_ `string`;   _default:_ `"outbound"`.
+    Controls the number of concurrent threads used to run the algorithm.
 
-  The direction of edge to follow. Must be one of: `"inbound"`, `"outbound"`, or `"both"`.
-  - **concurrency**   _(optional)_   –  
-    _type:_ 0 or 1;   _default:_ 0.
-
-  Controls the number of concurrent threads used to run the algorithm.
-
-  If set to `0`, uses all available threads to complete execution of the individual algorithm
-  invocation. If set to `1`, uses a single thread. This can be useful when requiring the invocation
-  of many algorithms concurrently.
+     If set to `0`, uses all available threads to complete execution of the individual algorithm invocation. If set to `1`, uses a single thread. This can be useful when requiring the invocation of many algorithms concurrently.
 
 ## `.bfs`   outputs
+<a name="bfs-standard-outputs"></a>
 
 The `.bfs` algorithm returns:
++ **source**   –   *type:* `Node[]`.
 
-- **source**   –  
-  _type:_ `Node[]`.
+  The source nodes.
++ **node**   –   *type:* `Node[]`.
 
-The source nodes.
-
-- **node**   –  
-  _type:_ `Node[]`.
-
-The nodes that the algorithm traversed from each source node.
+  The nodes that the algorithm traversed from each source node.
 
 ## `.bfs`   query examples
+<a name="bfs-standard-query-examples"></a>
 
-This is a standalone example, where the query provides an explicit
-source node list.
+This is a standalone example, where the query provides an explicit source node list.
 
 ```
 CALL neptune.algo.bfs(
@@ -105,8 +87,7 @@ CALL neptune.algo.bfs(
 YIELD node
 ```
 
-You can run that query using the `execute-query` operation
-in the AWS CLI like this:
+You can run that query using the `execute-query` operation in the AWS CLI like this:
 
 ```
 aws neptune-graph execute-query \
@@ -124,17 +105,13 @@ A query like this one would return an empty result because the source list is em
 CALL neptune.algo.bfs([], {edgeLabels: ["route"]})
 ```
 
-By default, both the source nodes (`"source"` output) and the visited nodes
-(`"node"` output) are returned. You can use `YIELD` to specify which of
-those outputs you would like to see. For example, to see only the `"node"` outputs:
+By default, both the source nodes (`"source"` output) and the visited nodes (`"node"` output) are returned. You can use `YIELD` to specify which of those outputs you would like to see. For example, to see only the `"node"` outputs:
 
 ```
 CALL neptune.algo.bfs(["101"], {edgeLabels: ["route"]}) YIELD node
 ```
 
-The examples below are query integration examples, where `.bfs` follows a
-`MATCH` clause and uses the output of the `MATCH` clause as
-its source node list:
+The examples below are query integration examples, where `.bfs` follows a `MATCH` clause and uses the output of the `MATCH` clause as its source node list:
 
 ```
 MATCH (n) WITH n LIMIT 5
@@ -143,8 +120,7 @@ YIELD node
 RETURN node
 ```
 
-The `MATCH` clause can also explicitly specify a starting node list
-using the `id()` function, like this:
+The `MATCH` clause can also explicitly specify a starting node list using the `id()` function, like this:
 
 ```
 MATCH (n) WHERE id(n)="101"
@@ -162,19 +138,13 @@ YIELD node
 RETURN COUNT(node)
 ```
 
-###### Warning
-
-It is not good practice to use `MATCH(n)` without restriction
-in query integrations. Keep in mind that every node returned by the `MATCH(n)`
-clause invokes the algorithm once, which can result in a very long-running query if
-a large number of nodes is returned. Use `LIMIT` or put conditions on the
-`MATCH` clause to restrict its output appropriately.
+**Warning**  
+It is not good practice to use `MATCH(n)` without restriction in query integrations. Keep in mind that every node returned by the `MATCH(n)` clause invokes the algorithm once, which can result in a very long-running query if a large number of nodes is returned. Use `LIMIT` or put conditions on the `MATCH` clause to restrict its output appropriately.
 
 ## Sample `.bfs` output
+<a name="bfs-standard-sample-output"></a>
 
-Here is an example of the output returned by .bfs when run against the
-[sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv "https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv"), and
-[sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv "https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv"), when using the following query:
+Here is an example of the output returned by .bfs when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
 ```
 aws neptune-graph execute-query \
@@ -182,8 +152,8 @@ aws neptune-graph execute-query \
   --query-string "CALL neptune.algo.bfs(['101'], {maxDepth: 1}) YIELD source, node RETURN source, node LIMIT 2" \
   --language open_cypher \
   /tmp/out.txt
-
-cat /tmp/out.txt
+  
+cat /tmp/out.txt  
 {
   "results": [{
       "source": {

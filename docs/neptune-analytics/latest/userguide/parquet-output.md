@@ -1,6 +1,9 @@
-# Sample Parquet output
 
-Given a Parquet file like this:
+
+# Sample Parquet output
+<a name="parquet-output"></a>
+
+ Given a Parquet file like this: 
 
 ```
 <s3 path>
@@ -17,17 +20,17 @@ Parquet Type:
 +--------+---------+-------------+----------------------+------------+------------+----------+
 ```
 
-Here is an example of the output returned by `neptune.read` using the following query:
+ Here is an example of the output returned by `neptune.read` using the following query: 
 
 ```
-aws neptune-graph execute-query \
---graph-identifier ${graphIdentifier} \
---query-string "CALL neptune.read({source: '<s3 path>', format: 'parquet'}) YIELD row RETURN row" \
+aws neptune-graph execute-query \ 
+--graph-identifier ${graphIdentifier} \ 
+--query-string "CALL neptune.read({source: '<s3 path>', format: 'parquet'}) YIELD row RETURN row" \ 
 --language open_cypher \
- /tmp/out.txt
-
-
-cat /tmp/out.txt
+ /tmp/out.txt 
+ 
+ 
+cat /tmp/out.txt 
 
 {
  "results": [{
@@ -74,17 +77,16 @@ cat /tmp/out.txt
 }%
 ```
 
-Currently, there is no way to set a node or edge label to a data field coming from a Parquet file. It is recommended that
-you partition the queries into multiple queries, one for each label/Type.
+ Currently, there is no way to set a node or edge label to a data field coming from a Parquet file. It is recommended that you partition the queries into multiple queries, one for each label/Type. 
 
 ```
 CALL neptune.read({source: '<s3 path>', format: 'parquet'})
- YIELD row
+ YIELD row 
 WHERE row.`~label` = 'airport'
 CREATE (n:airport)
 
 CALL neptune.read({source: '<s3 path>', format: 'parquet'})
-YIELD row
+YIELD row 
 WHERE row.`~label` = 'country'
 CREATE (n:country)
 ```

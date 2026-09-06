@@ -1,34 +1,35 @@
+
+
 # GetQuery
+<a name="query-APIs-get-query"></a>
 
 The GetQuery API can be used to get the status of a specific query request.
 
 ## GetQuery inputs
+<a name="query-APIs-get-query-inputs"></a>
++ graph-identifier (required)
 
-- graph-identifier (required)
+  Type: `String`
 
-Type: `String`
+  The identifier representing a graph.
++ region (required)
 
-The identifier representing a graph.
+  Type: `String`
 
-- region (required)
+  The region where the graph is present.
++ query-id (required)
 
-Type: `String`
+  Type: `String`
 
-The region where the graph is present.
-
-- query-id (required)
-
-Type: `String`
-
-The id of the query request for which you want to get information.
+  The id of the query request for which you want to get information.
 
 ## GetQuery outputs
-
-- id: The same id used in this request.
-- queryString: Non-truncated query string associated to this `query-id`.
-- waited: Time in milliseconds this query request had to wait to be executed.
-- elapsed: Time in milliseconds the query spent while in execution.
-- state: Current state of the query - running | waiting | cancelling.
+<a name="query-APIs-get-query-outputs"></a>
++ id: The same id used in this request.
++ queryString: Non-truncated query string associated to this `query-id`.
++ waited: Time in milliseconds this query request had to wait to be executed.
++ elapsed: Time in milliseconds the query spent while in execution.
++ state: Current state of the query - running \| waiting \| cancelling.
 
 ```
 {
@@ -41,8 +42,10 @@ The id of the query request for which you want to get information.
 ```
 
 ## GetQuery examples
+<a name="query-APIs-get-query-examples"></a>
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws neptune-graph get-query \
@@ -51,7 +54,8 @@ aws neptune-graph get-query \
     --query-id <query-id>
 ```
 
-AWSCURL
+------
+#### [ AWSCURL ]
 
 ```
 awscurl -X GET "https://<graph-id>.<endpoint>/queries/<query-id>" \
@@ -59,3 +63,5 @@ awscurl -X GET "https://<graph-id>.<endpoint>/queries/<query-id>" \
    --region us-east-1 \
    --service neptune-graph
 ```
+
+------

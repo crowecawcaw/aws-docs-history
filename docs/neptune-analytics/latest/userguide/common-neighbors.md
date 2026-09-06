@@ -1,68 +1,57 @@
-# Common neighbors algorithm
 
-Common neighbors is an algorithm that counts the number of common neighbors of two
-input nodes, which is the intersection of their neighborhoods. This provides a measure
-of their potential interaction or similarity within the network. The common neighbors
-algorithm is used in social network analysis to identify individuals with mutual
-connections, in citation networks to find influential papers referenced by multiple
-sources, and in transportation networks to locate critical hubs with many direct
-connections to other nodes.
+
+# Common neighbors algorithm
+<a name="common-neighbors"></a>
+
+Common neighbors is an algorithm that counts the number of common neighbors of two input nodes, which is the intersection of their neighborhoods. This provides a measure of their potential interaction or similarity within the network. The common neighbors algorithm is used in social network analysis to identify individuals with mutual connections, in citation networks to find influential papers referenced by multiple sources, and in transportation networks to locate critical hubs with many direct connections to other nodes.
 
 ## `.neighbors.common`  syntax
+<a name="common-neighbors-syntax"></a>
 
 ```
 CALL neptune.algo.neighbors.common(
-  [`first node(s)`],
-  [`second node(s)`],
+  [{{first node(s)}}],
+  [{{second node(s)}}],
   {
-    edgeLabels: [`a list of edge labels for filtering (optional)`],
-    vertexLabel: `a node label for filtering (optional)`,
-    traversalDirection: `traversal direction (optional)`
+    edgeLabels: [{{a list of edge labels for filtering (optional)}}],
+    vertexLabel: {{a node label for filtering (optional)}},
+    traversalDirection: {{traversal direction (optional)}}
   }
 )
 YIELD common
-RETURN `firstNodes`, `secondNodes`, common
+RETURN {{firstNodes}}, {{secondNodes}}, common
 ```
 
 ## `.neighbors.common`  inputs
+<a name="common-neighbors-inputs"></a>
++ **first node(s)** *(required)*   –   *type:* `Node[]` or `NodeId[]`;   *default: none*.
 
-- **first node(s)** _(required)_   –  
-  _type:_ `Node[]` or `NodeId[]`;   _default: none_.
+  One or more nodes of which to find the common neighbors with the corresponding second node(s).
++ **second node(s)** *(required)*   –   *type:* `Node[]` or `NodeId[]`;   *default: none*.
 
-One or more nodes of which to find the common neighbors with the corresponding second node(s).
+  One or more nodes of which to find the common neighbors with the corresponding first node(s).
++ 
 
-- **second node(s)** _(required)_   –  
-  _type:_ `Node[]` or `NodeId[]`;   _default: none_.
+**a configuration object that contains:**
+  + **edgeLabels**   *(optional)*   –   *type:* a list of edge label strings;   *example:* `["route", {{...}}]`;   *default:* no edge filtering.
 
-One or more nodes of which to find the common neighbors with the corresponding first node(s).
+    To filter on one more edge labels, provide a list of the ones to filter on. If no `edgeLabels` field is provided then all edge labels are processed during traversal.
+  + **vertexLabel** *(optional)*   –   *type:* `string`;   *default: none*.
 
-- ###### a configuration object that contains:
-  - **edgeLabels**   _(optional)_   –  
-    _type:_ a list of edge label strings;   _example:_
-    `["route", `...`]`;   _default:_ no edge filtering.
+    A node label for node filtering. If a node label is provided, nodes matching the label are the only nodes that are considered neighbors. This does not filter the nodes in the first or second node lists.
+  + **traversalDirection** *(optional)*   –   *type:* `string`;   *default: outbound*.
 
-  To filter on one more edge labels, provide a list of the ones to filter on. If no `edgeLabels` field is
-  provided then all edge labels are processed during traversal.
-  - **vertexLabel** _(optional)_   –  
-    _type:_ `string`;   _default: none_.
-
-  A node label for node filtering. If a node label is provided, nodes matching the label
-  are the only nodes that are considered neighbors. This does not filter the nodes in the first
-  or second node lists.
-  - **traversalDirection** _(optional)_   –  
-    _type:_ `string`;   _default: outbound_.
-
-  The direction of edge to follow. Must be one of: "inbound", "outbound", or "both".
+     The direction of edge to follow. Must be one of: "inbound", "outbound", or "both". 
 
 ## `.neighbors.common`  outputs
+<a name="common-neighbors-outputs"></a>
 
-**common**: A row for each node in the first node list and
-corresponding node in the second node list, and the number of neighboring nodes they have in
-common.
+**common**: A row for each node in the first node list and corresponding node in the second node list, and the number of neighboring nodes they have in common.
 
 If either input node list is empty, the output is empty.
 
 ## `.neighbors.common`  query examples
+<a name="common-neighbors-query-examples"></a>
 
 This example specifies only two nodes:
 
@@ -74,31 +63,23 @@ YIELD common
 RETURN sydairport, jfkairport, common
 ```
 
-This example specifies multiple nodes. It returns a row for each combination
-of a US airport and a UK airport, and the number of destinations we could reach
-from both of those two airports:
+This example specifies multiple nodes. It returns a row for each combination of a US airport and a UK airport, and the number of destinations we could reach from both of those two airports:
 
 ```
 MATCH (usairports:airport {country: 'US'})
-MATCH (ukairports:airport {country: 'UK'})
+MATCH (ukairports:airport {country: 'UK'}) 
 CALL neptune.algo.neighbors.common(usairports, ukairports, {edgeLabels: ['route']})
 YIELD common
 RETURN usairports, ukairports, common
 ```
 
-###### Warning
-
-It is not good practice to use `MATCH(n)` without restriction
-in query integrations. Keep in mind that every node returned by the `MATCH(n)`
-clause invokes the algorithm once, which can result in a very long-running query if
-a large number of nodes is returned. Use `LIMIT` or put conditions on the
-`MATCH` clause to restrict its output appropriately.
+**Warning**  
+It is not good practice to use `MATCH(n)` without restriction in query integrations. Keep in mind that every node returned by the `MATCH(n)` clause invokes the algorithm once, which can result in a very long-running query if a large number of nodes is returned. Use `LIMIT` or put conditions on the `MATCH` clause to restrict its output appropriately.
 
 ## Sample   `.neighbors.common`   output
+<a name="common-neighbors-sample-output"></a>
 
-Here is an example of the output returned by .neighbors.common when run against the
-[sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv "https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv"), and
-[sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv "https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv"), when using the following query:
+Here is an example of the output returned by .neighbors.common when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
 ```
 aws neptune-graph execute-query \
@@ -110,7 +91,7 @@ aws neptune-graph execute-query \
                        RETURN sydairport, jfkairport, common" \
   --language open_cypher \
   /tmp/out.txt
-
+  
 cat /tmp/out.txt
 {
   "results": [

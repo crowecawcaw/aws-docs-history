@@ -1,13 +1,16 @@
-# The  `.vectors.distance.byNode`  algorithm
 
-The `.vectors.distance.byNode` algorithm computes the distance between two
-nodes based on their embeddings. The default distance is the squared L2 norm.
+
+# The  `.vectors.distance.byNode`  algorithm
+<a name="vectors.distance.byNode"></a>
+
+The `.vectors.distance.byNode` algorithm computes the distance between two nodes based on their embeddings. The default distance is the squared L2 norm.
 
 ## `.vectors.distance.byNode`  syntax
+<a name="vectors.distance.byNode-syntax"></a>
 
 ```
-MATCH( n {`~id`: "`the ID of the source node(s)`"} )
-MATCH( m {`~id`: "`the ID of the target node(s)`"} )
+MATCH( n {`~id`: "{{the ID of the source node(s)}}"} )
+MATCH( m {`~id`: "{{the ID of the target node(s)}}"} )
 CALL neptune.algo.vectors.distance.byNode(n, m,
    {
        metric: The distance computation metric (optional)
@@ -18,115 +21,57 @@ RETURN n, m, distance
 ```
 
 ## `.vectors.distance.byNode`  inputs
+<a name="vectors.distance.byNode-inputs"></a>
++ **a source node list**   *(required)*   –   *type:* `Node[]` or `NodeId[]`;   *default: none*.
 
-- **a source node list**   _(required)_   –  
-  _type:_ `Node[]` or `NodeId[]`;   _default: none_.
+  The result of a `MATCH` statement from which you want to get the source for the distance computations.
++ **target node list**   *(required)*   –   *type:* `Node[]` or `NodeId[]`;   *default: none*.
 
-The result of a `MATCH` statement from which you want to get the source for the
-distance computations.
+  The result of a `MATCH` statement from which you want to get the targets of the distance computations.
++  **metric**   *(optional)*   –   *type:* `string`   *default: L2Squared*. 
 
-- **target node list**   _(required)_   –  
-  _type:_ `Node[]` or `NodeId[]`;   _default: none_.
+   The distance metric to use for distance computation. 
+  +  Must be one of [L2Squared, L2, CosineSimilarity, CosineDistance, DotProduct]. 
+  +  Case-insensitive. 
+  +  The descriptions for the metrics, where x and y are vectors, x\_i and y\_i are the components of x and y vectors, θ is the angle between the x and y vectors, \|\|x\|\| denotes the magnitude (length, l2-norm, norm2) of vector x, ∑ denotes summation: 
+    +  L2-Squared: Squared Euclidean distance between two vectors:   
+![L2-Squared: Squared Euclidean distance between two vectors.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/L2Squared.png)
 
-The result of a `MATCH` statement from which you want to get the targets of the
-distance computations.
+       For more information on L2-Squared, see [ https://en.wikipedia.org/wiki/Euclidean\_distance\#Squared\_Euclidean\_distance](https://en.wikipedia.org/wiki/Euclidean_distance#Squared_Euclidean_distance). 
+    +  L2: Euclidean distance (L2 norm) between two vectors:   
+![L2: Euclidean distance (L2 norm) between two vectors.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/L2.png)
 
-- **metric**   _(optional)_   –  
-  _type:_ `string`   _default: L2Squared_.
+       For more information on L2, see [ https://en.wikipedia.org/wiki/Euclidean\_distance](https://en.wikipedia.org/wiki/Euclidean_distance). 
+    +  Dot Product: Inner dot product of two vectors:   
+![Dot Product: Inner dot product of two vectors.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/dot1.png)
 
-The distance metric to use for distance computation.
+       For more information on Dot Product, see [ https://en.wikipedia.org/wiki/Dot\_product](https://en.wikipedia.org/wiki/Dot_product). 
+    +  Cosine Similarity: Measures the cosine of the angle between two vectors (higher value means more similar):   
+![Cosine Similarity: Measures the cosine of the angle between two vectors (higher value means more similar).](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/cossimi4.png)
 
-    + Must be one of [L2Squared, L2, CosineSimilarity, CosineDistance, DotProduct].
-    + Case-insensitive.
-    + The descriptions for the metrics, where x and y are vectors, x\_i and y\_i are the components of x and y vectors,
-     θ is the angle between the x and y vectors, ||x|| denotes the magnitude (length, l2-norm, norm2) of vector x,
-     ∑ denotes summation:
+       Range: [-1, 1] 
 
+       For more information on Cosine Similarity, see [ https://en.wikipedia.org/wiki/Cosine\_similarity](https://en.wikipedia.org/wiki/Cosine_similarity). 
+    +  Cosine Distance: Opposite of cosine similarity (lower value means more similar):   
+![Cosine Distance: Opposite of cosine similarity (lower value means more similar).](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/cosdist1.png)
 
+       Range: [0, 2] 
 
+       For more information on Cosine Distance, see [ https://en.wikipedia.org/wiki/Cosine\_similarity\#Cosine\_distance](https://en.wikipedia.org/wiki/Cosine_similarity#Cosine_distance). 
 
-
-    	- L2-Squared: Squared Euclidean distance between two vectors:
-
-
-
-
-    	![L2-Squared: Squared Euclidean distance between two vectors.](images/vectors-distance/L2Squared.png)
-
-
-    	 For more information on L2-Squared, see
-    	 [https://en.wikipedia.org/wiki/Euclidean\_distance#Squared\_Euclidean\_distance](https://en.wikipedia.org/wiki/Euclidean_distance#Squared_Euclidean_distance "https://en.wikipedia.org/wiki/Euclidean_distance#Squared_Euclidean_distance").
-    	- L2: Euclidean distance (L2 norm) between two vectors:
-
-
-
-
-    	![L2: Euclidean distance (L2 norm) between two vectors.](images/vectors-distance/L2.png)
-
-
-    	 For more information on L2, see
-    	 [https://en.wikipedia.org/wiki/Euclidean\_distance](https://en.wikipedia.org/wiki/Euclidean_distance "https://en.wikipedia.org/wiki/Euclidean_distance").
-    	- Dot Product: Inner dot product of two vectors:
-
-
-
-
-    	![Dot Product: Inner dot product of two vectors.](images/vectors-distance/dot1.png)
-
-
-    	 For more information on Dot Product, see
-    	 [https://en.wikipedia.org/wiki/Dot\_product](https://en.wikipedia.org/wiki/Dot_product "https://en.wikipedia.org/wiki/Dot_product").
-    	- Cosine Similarity: Measures the cosine of the angle between two vectors (higher value means more similar):
-
-
-
-
-    	![Cosine Similarity: Measures the cosine of the angle between two vectors (higher value means more similar).](images/vectors-distance/cossimi4.png)
-
-
-    	 Range: [-1, 1]
-
-
-
-
-    	 For more information on Cosine Similarity, see
-    	 [https://en.wikipedia.org/wiki/Cosine\_similarity](https://en.wikipedia.org/wiki/Cosine_similarity "https://en.wikipedia.org/wiki/Cosine_similarity").
-    	- Cosine Distance: Opposite of cosine similarity (lower value means more similar):
-
-
-
-
-    	![Cosine Distance: Opposite of cosine similarity (lower value means more similar).](images/vectors-distance/cosdist1.png)
-
-
-    	 Range: [0, 2]
-
-
-
-
-    	 For more information on Cosine Distance, see
-    	 [https://en.wikipedia.org/wiki/Cosine\_similarity#Cosine\_distance](https://en.wikipedia.org/wiki/Cosine_similarity#Cosine_distance "https://en.wikipedia.org/wiki/Cosine_similarity#Cosine_distance").
-
-###### Warning
-
-Be careful to limit `MATCH(n)` and `MATCH(m)` so that
-they don't return a large number of nodes. Keep in mind that every pair of `n`
-and `m` in the join result invokes `.vectors.distance.byNode` once. Too
-many inputs can therefore result in very long runtimes. Use `LIMIT` or put
-conditions on the `MATCH` clause to restrict its output appropriately.
+**Warning**  
+Be careful to limit `MATCH(n)` and `MATCH(m)` so that they don't return a large number of nodes. Keep in mind that every pair of `n` and `m` in the join result invokes `.vectors.distance.byNode` once. Too many inputs can therefore result in very long runtimes. Use `LIMIT` or put conditions on the `MATCH` clause to restrict its output appropriately.
 
 ## `.vectors.distance.byNode`  outputs
+<a name="vectors.distance.byNode-outputs"></a>
 
 For every pair of source node and target node:
-
-- **source**   –  
-  The source node.
-- **target**   –  
-  The target node.
-- **distance**   –  
-  The distance between source and target nodes.
++ **source**   –   The source node.
++ **target**   –   The target node.
++ **distance**   –   The distance between source and target nodes.
 
 ## `.vectors.distance.byNode`  query examples
+<a name="vectors.distance.byNode-query-example"></a>
 
 ```
 MATCH ( n {`~id`: "106"} )
@@ -145,9 +90,9 @@ RETURN n, m, distance
 ```
 
 ## Sample  `.vectors.distance.byNode`  output
+<a name="vectors.distance.byNode-sample-output"></a>
 
-Here is an example of the output returned by `.vectors.distance.byNode` when run against
-a sample Wikipedia dataset using the following query:
+Here is an example of the output returned by `.vectors.distance.byNode` when run against a sample Wikipedia dataset using the following query:
 
 ```
 aws neptune-graph execute-query \
@@ -159,7 +104,7 @@ aws neptune-graph execute-query \
                        RETURN n, m, distance" \
   --language open_cypher \
   /tmp/out.txt
-
+  
 {
   "results": [
     {
