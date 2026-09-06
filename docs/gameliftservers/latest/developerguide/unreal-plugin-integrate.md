@@ -1,124 +1,111 @@
+
+
 # Plugin for Unreal: Integrate your game code
+<a name="unreal-plugin-integrate"></a>
 
-Before you can deploy your game server to a fleet, you need to make a series of
-updates to game code and package game components for use with the Amazon GameLift Servers service.
+Before you can deploy your game server to a fleet, you need to make a series of updates to game code and package game components for use with the Amazon GameLift Servers service.
 
-This topic walks through the steps for doing a minimal integration. For server
-integration, use the provided code sample to update your project's game mode.
-
-- [Set up build targets and module rules](#unreal-plugin-anywhere-integrate-setup "#unreal-plugin-anywhere-integrate-setup")
-- [Update your game server code](#unreal-plugin-anywhere-integrate-simple-server "#unreal-plugin-anywhere-integrate-simple-server")
-- [Integrate your client game map](#unreal-plugin-anywhere-integrate-simple-client "#unreal-plugin-anywhere-integrate-simple-client")
-- [Package your game components](#unreal-plugin-anywhere-integrate-build "#unreal-plugin-anywhere-integrate-build")
+This topic walks through the steps for doing a minimal integration. For server integration, use the provided code sample to update your project's game mode. 
++ [Set up build targets and module rules](#unreal-plugin-anywhere-integrate-setup)
++ [Update your game server code](#unreal-plugin-anywhere-integrate-simple-server)
++ [Integrate your client game map](#unreal-plugin-anywhere-integrate-simple-client)
++ [Package your game components](#unreal-plugin-anywhere-integrate-build)
 
 ## Set up build targets and module rules
+<a name="unreal-plugin-anywhere-integrate-setup"></a>
 
-Modify your game project files to properly generate build components for use with
-Amazon GameLift Servers.
+Modify your game project files to properly generate build components for use with Amazon GameLift Servers.
 
-###### To add client and server build targets:
+**To add client and server build targets:**
 
-1. Open your game project's code files and locate the file
-   `.../Games/`[your application name]`Source/`[your application name]`Target.cs`
-   file. Example: `.../Source/GameLiftUnrealAppTarget.cs`.
-   (If you use Visual Studio, open the project's `.sln` file.)
-2. Copy this file to create two new target files in the `Source/` directory.
+1. Open your game project's code files and locate the file `.../Games/{{[your application name]}}Source/{{[your application name]}}Target.cs` file. Example: `.../Source/GameLiftUnrealAppTarget.cs`. (If you use Visual Studio, open the project's `.sln` file.)
 
-   - Client target – Rename the new file to ``[your application name]`Client.Target.cs`.
-     Edit the contents to update the class name and target type values, as illustrated in the following sample code:
+1. Copy this file to create two new target files in the `Source/` directory. 
+   + Client target – Rename the new file to `{{[your application name]}}Client.Target.cs`. Edit the contents to update the class name and target type values, as illustrated in the following sample code: 
 
-   ```
-   using UnrealBuildTool;
-     using System.Collections.Generic;
+     ```
+     using UnrealBuildTool;
+       using System.Collections.Generic;
+     
+       public class GameLiftUnrealAppClientTarget :  TargetRules
+      {
+          public GameLiftUnrealAppClientTarget ( TargetInfo Target ) :  base ( Target )
+          {
+              Type = TargetType.Client;
+              DefaultBuildSettings = BuildSettingsVersion.V2;
+              IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_1;
+              ExtraModuleNames.Add( "GameLiftUnrealApp");
+          }
+      }
+     ```
+   + Server target – Rename the new file to `{{[your application name]}}Server.Target.cs`. Edit the contents to update the class name and target type values, as illustrated in the following sample code: 
 
-     public class GameLiftUnrealAppClientTarget :  TargetRules
-    {
-        public GameLiftUnrealAppClientTarget ( TargetInfo Target ) :  base ( Target )
-        {
-            Type = TargetType.Client;
-            DefaultBuildSettings = BuildSettingsVersion.V2;
-            IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_1;
-            ExtraModuleNames.Add( "GameLiftUnrealApp");
-        }
-    }
-   ```
-   - Server target – Rename the new file to ``[your application name]`Server.Target.cs`.
-     Edit the contents to update the class name and target type values, as illustrated in the following sample code:
+     ```
+     using UnrealBuildTool;
+       using System.Collections.Generic;
+     
+       public class GameLiftUnrealAppServerTarget :  TargetRules
+      {
+          public GameLiftUnrealAppServerTarget ( TargetInfo Target ) :  base ( Target )
+          {
+              Type = TargetType.Server;
+              DefaultBuildSettings = BuildSettingsVersion.V2;
+              IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_1;
+              ExtraModuleNames.Add( "GameLiftUnrealApp");
+          }
+      }
+     ```
 
-   ```
-   using UnrealBuildTool;
-     using System.Collections.Generic;
+1. Regenerate your project files. If you're using Visual Studio, you can right-click your game project's `.uproject` file and select **Generate Visual Studio Project Files**.
 
-     public class GameLiftUnrealAppServerTarget :  TargetRules
-    {
-        public GameLiftUnrealAppServerTarget ( TargetInfo Target ) :  base ( Target )
-        {
-            Type = TargetType.Server;
-            DefaultBuildSettings = BuildSettingsVersion.V2;
-            IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_1;
-            ExtraModuleNames.Add( "GameLiftUnrealApp");
-        }
-    }
-   ```
-
-3. Regenerate your project files. If you're using Visual Studio, you can right-click your game project's `.uproject`
-   file and select **Generate Visual Studio Project Files**.
-
-###### To update the game project module rules:
+**To update the game project module rules:**
 
 Update the game project's module rules to take a dependency on the plugin.
 
-1. Open your game project's code files and locate the file
-   `.../Games/`[your application name]`Source/`[your application name]`.Build.cs`
-   file. Example: `.../Source/GameLiftUnrealApp.Build.cs`.
-   (If you use Visual Studio, open the project's `.sln` file.)
-2. Locate the `ModuleRules` class and update as illustrated in the following sample code:
+1. Open your game project's code files and locate the file `.../Games/{{[your application name]}}Source/{{[your application name]}}.Build.cs` file. Example: `.../Source/GameLiftUnrealApp.Build.cs`. (If you use Visual Studio, open the project's `.sln` file.)
 
-```
-using UnrealBuildTool;
+1. Locate the `ModuleRules` class and update as illustrated in the following sample code: 
 
-  public class GameLiftUnrealApp :  ModuleRules
- {
-     public GameLiftUnrealApp ( ReadOnlyTargetRules Target ) :  base ( Target )
-     {
-         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-         PublicDependencyModuleNames.AddRange( new string[] {  "Core",  "CoreUObject",  "Engine",  "InputCore",  "HeadMountedDisplay",  "EnhancedInput" });
-     // Add the following section
-	   if (Target.Type == TargetType.Server)
-	   {
-               PublicDependencyModuleNames.Add("GameLiftServerSDK");
-          }
-          else
-          {
-               PublicDefinitions.Add("WITH_GAMELIFT=0");
-          }
-         bEnableExceptions =  true;
-     }
- }
-```
+   ```
+   using UnrealBuildTool;
+   
+     public class GameLiftUnrealApp :  ModuleRules
+    {
+        public GameLiftUnrealApp ( ReadOnlyTargetRules Target ) :  base ( Target )
+        {
+            PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+            PublicDependencyModuleNames.AddRange( new string[] {  "Core",  "CoreUObject",  "Engine",  "InputCore",  "HeadMountedDisplay",  "EnhancedInput" });
+        // Add the following section
+   	   if (Target.Type == TargetType.Server)
+   	   {
+                  PublicDependencyModuleNames.Add("GameLiftServerSDK");
+             }
+             else
+             {
+                  PublicDefinitions.Add("WITH_GAMELIFT=0");
+             }
+            bEnableExceptions =  true;
+        }
+    }
+   ```
 
-3. After creating the new target files and modifying the module rules, rebuild your game
-   project.
+1. After creating the new target files and modifying the module rules, rebuild your game project.
 
 ## Update your game server code
+<a name="unreal-plugin-anywhere-integrate-simple-server"></a>
 
-Update your game server code to enable communication between a game server
-process and the Amazon GameLift Servers service. Your game server must be able to respond to requests
-from Amazon GameLift Servers, such as to start and stop new game sessions.
+Update your game server code to enable communication between a game server process and the Amazon GameLift Servers service. Your game server must be able to respond to requests from Amazon GameLift Servers, such as to start and stop new game sessions.
 
-###### To add server code for Amazon GameLift Servers
+**To add server code for Amazon GameLift Servers**
 
-1. In your code editor, open the solution (`.sln`) file for your game project, usually
-   found in the project root folder. For example:
-   `GameLiftUnrealApp.sln`.
-2. With the solution open, locate the project game mode header file:
-   `[project-name]GameMode.h` file. For example:
-   `GameLiftUnrealAppGameMode.h`.
-3. Change the header file to align with the following code. Be sure to replace
-   "GameLiftServer" with your own project name. These updates are
-   specific to the game server; we recommend that you make a backup
-   copy of the original game mode files for use with your
-   client.
+1. In your code editor, open the solution (`.sln`) file for your game project, usually found in the project root folder. For example: `GameLiftUnrealApp.sln`.
+
+1. With the solution open, locate the project game mode header file: `[project-name]GameMode.h` file. For example: `GameLiftUnrealAppGameMode.h`. 
+
+1. Change the header file to align with the following code. Be sure to replace "GameLiftServer" with your own project name. These updates are specific to the game server; we recommend that you make a backup copy of the original game mode files for use with your client.
+
+### Example gameMode.h code
+<a name="w2aab9c11b9c19c27c11b7b1"></a>
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -152,27 +139,15 @@ private:
     TSharedPtr<FProcessParameters> ProcessParameters;
 };
 ```
++ Open the related source file `[project-name]GameMode.cpp` file (for example `GameLiftUnrealAppGameMode.cpp`). Change the code to align with the following example code. Be sure to replace "GameLiftUnrealApp" with your own project name. These updates are specific to the game server; we recommend that you make a backup copy of the original file for use with your client.
 
-- Open the related source file `[project-name]GameMode.cpp` file (for example
-  `GameLiftUnrealAppGameMode.cpp`). Change the code to
-  align with the following example code. Be sure to replace
-  "GameLiftUnrealApp" with your own project name. These updates are
-  specific to the game server; we recommend that you make a backup
-  copy of the original file for use with your client.
+  The following example code shows how to add the minimum required elements for server integration with Amazon GameLift Servers:
+  + Initialize an Amazon GameLift Servers API client. The `InitSDK()` call with server parameters is required for an Amazon GameLift Servers Anywhere fleet. When you connect to an Anywhere fleet, the plugin stores the server parameters as console arguments. The sample code can access the values at runtime. 
+  + Implement required callback functions to respond to requests from the Amazon GameLift Servers service, including `OnStartGameSession`, `OnProcessTerminate`, and `onHealthCheck`.
+  + Call `ProcessReady()` with a designated port to notify the Amazon GameLift Servers service when ready to host game sessions.
 
-The following example code shows how to add the minimum required elements for server integration with Amazon GameLift Servers:
-
-    + Initialize an Amazon GameLift Servers API client. The `InitSDK()` call with server
-     parameters is required for an Amazon GameLift Servers Anywhere
-     fleet. When you connect to an Anywhere fleet, the plugin
-     stores the server parameters as console arguments. The sample
-     code can access the values at runtime.
-    + Implement required callback functions to respond to requests from the Amazon GameLift Servers service,
-     including `OnStartGameSession`,
-     `OnProcessTerminate`, and
-     `onHealthCheck`.
-    + Call `ProcessReady()` with a designated port to notify the Amazon GameLift Servers service
-     when ready to host game sessions.
+### Example game server code
+<a name="w2aab9c11b9c19c27c11c11b1"></a>
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -405,7 +380,7 @@ void AGameLiftUnrealAppGameMode::InitGameLift()
     }
 
     //Here, the game server tells Amazon GameLift Servers where to find game session log files.
-    //At the end of a game session, Amazon GameLift Servers uploads everything in the specified
+    //At the end of a game session, Amazon GameLift Servers uploads everything in the specified 
     //location and stores it in the cloud for access later.
     TArray<FString> Logfiles;
     Logfiles.Add(TEXT("GameLiftUnrealApp/Saved/Logs/server.log"));
@@ -436,75 +411,56 @@ void AGameLiftUnrealAppGameMode::InitGameLift()
 ```
 
 ## Integrate your client game map
+<a name="unreal-plugin-anywhere-integrate-simple-client"></a>
 
-The startup game map contains blueprint logic and UI elements that already
-include basic code to request game sessions and use connection information
-to connect to a game session. You can use the map as is or modify these as
-needed. Use the startup game map with other game assets, such as the Third Person
-template project provided by Unreal Engine. These assets are available in
-Content Browser. You can use them to test the plugin's deployment workflows,
-or as a guide to create a custom backend service for your game.
+The startup game map contains blueprint logic and UI elements that already include basic code to request game sessions and use connection information to connect to a game session. You can use the map as is or modify these as needed. Use the startup game map with other game assets, such as the Third Person template project provided by Unreal Engine. These assets are available in Content Browser. You can use them to test the plugin's deployment workflows, or as a guide to create a custom backend service for your game.
 
-The startup map has the following characteristics:
+The startup map has the following characteristics: 
++ It includes logic for both an Anywhere fleet and a managed EC2 fleet. When you run your client, you can choose to connect to either fleet.
++ Client functionality includes find a game session (`SearchGameSessions()`), create a new game session (`CreateGameSession()`), and join a game session directly.
++ It gets a unique player ID from your project's Amazon Cognito user pool (this is part of a deployed Anywhere solution). 
 
-- It includes logic for both an Anywhere fleet and a managed EC2 fleet. When you run your
-  client, you can choose to connect to either fleet.
-- Client functionality includes find a game session (`SearchGameSessions()`), create
-  a new game session (`CreateGameSession()`), and join a game
-  session directly.
-- It gets a unique player ID from your project's Amazon Cognito user pool (this is part of a
-  deployed Anywhere solution).
+**To use the startup game map**
 
-###### To use the startup game map
+1. In the UE editor, open the **Project Settings, Maps & Modes** page, and expand the **Default Maps** section.
 
-1. In the UE editor, open the **Project Settings, Maps & Modes** page, and
-   expand the **Default Maps** section.
-2. For **Editor Startup Map**, select "StartupMap" from the dropdown list. You
-   might need to search for the file, which is located in `... >
- Unreal Projects/[project-name]/Plugins/Amazon GameLift Servers Plugin
- Content/Maps`.
+1. For **Editor Startup Map**, select "StartupMap" from the dropdown list. You might need to search for the file, which is located in `... > Unreal Projects/[project-name]/Plugins/Amazon GameLift Servers Plugin Content/Maps`.
+**Note**  
+To find the sample startup map, select the settings icon and choose **Show Plugin Content**.
 
-###### Note
+1. For **Game Default Map**, select the same "StartupMap" from the dropdown list.
 
-To find the sample startup map, select the settings icon and choose
-**Show Plugin Content**. 3. For **Game Default Map**, select the same "StartupMap" from the dropdown
-list. 4. For **Server Default Map**, select "Lv1\_ThirdPerson" for Unreal Engine 5.6
-or later, or "ThirdPersonMap" for earlier versions. This is a default map
-included in your game project. This map is designed for two players
-in the game. 5. Open the details panel for the server default map. Set **GameMode Override**
-to "None". 6. Expand the **Default Modes** section, and set **Global Default Server
-Game Mode** to the game mode you updated for your
-server integration.
+1. For **Server Default Map**, select "Lv1\_ThirdPerson" for Unreal Engine 5.6 or later, or "ThirdPersonMap" for earlier versions. This is a default map included in your game project. This map is designed for two players in the game.
+
+1. Open the details panel for the server default map. Set **GameMode Override** to "None".
+
+1. Expand the **Default Modes** section, and set **Global Default Server Game Mode** to the game mode you updated for your server integration. 
 
 After you've made these changes to your project, you're ready to build your game components.
 
-###### Note
+**Note**  
+For Unreal Engine 5.6 or later, if you cannot move the character after connecting to the game server, update the BP\_ThirdPersonCharacter blueprint to add input mapping context for `IMC_Default` and `IMC_MouseLook` as shown below:  
 
-For Unreal Engine 5.6 or later, if you cannot move the character after connecting to the game
-server, update the BP\_ThirdPersonCharacter blueprint to add input mapping context for
-`IMC_Default` and `IMC_MouseLook` as shown below:
+![Blueprint nodes showing Event BeginPlay connected to Cast To PlayerController and Add Mapping Context nodes for IMC_Default and IMC_MouseLook.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unreal-enhanced-input-blueprint.png)
 
-![Blueprint nodes showing Event BeginPlay connected to Cast To PlayerController and Add Mapping Context nodes for IMC_Default and IMC_MouseLook.](images/unreal-enhanced-input-blueprint.png)
 
 ## Package your game components
+<a name="unreal-plugin-anywhere-integrate-build"></a>
 
-###### To package your game server and game client builds
+**To package your game server and game client builds**
 
 1. Open your game project in a source-built version of the Unreal Engine editor.
-2. If using Unreal Engine 5.6 or later, go to **Edit, Project Settings, Packaging**.
-   Find **Cook everything in the project content directory** and enable it.
-3. Use the editor to package your game client and server builds.
 
-   1. Choose a target. Go to **Platforms, Windows** and select one of the
-      following:
+1. If using Unreal Engine 5.6 or later, go to **Edit, Project Settings, Packaging**. Find **Cook everything in the project content directory** and enable it.
 
-      - Server: `[your-application-name]Server`
-      - Client: `[your-application-name]Client`
+1. Use the editor to package your game client and server builds. 
 
-   2. Start the build. Go to **Platform, Windows, Package Project**.
+   1. Choose a target. Go to **Platforms, Windows** and select one of the following:
+      + Server: `[your-application-name]Server`
+      + Client: `[your-application-name]Client`
 
-Each packaging process generates an executable:
-`[your-application-name]Client.exe` or
-`[your-application-name]Server.exe`.
+   1. Start the build. Go to **Platform, Windows, Package Project**.
+
+Each packaging process generates an executable: `[your-application-name]Client.exe` or `[your-application-name]Server.exe`.
 
 In the plugin, set the paths to the client and server build executables on your local workstation.

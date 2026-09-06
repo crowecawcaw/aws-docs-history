@@ -1,131 +1,93 @@
+
+
 # Game session placement events
+<a name="queue-events"></a>
 
-Amazon GameLift Servers emits events for each game session placement request as it is processed. You can
-publish these events to an Amazon SNS topic, as described in [Set up event notification for game session placement](queue-notification.md "queue-notification.md"). These events are also emitted to Amazon CloudWatch Events in near real
-time and on a best-effort basis.
+Amazon GameLift Servers emits events for each game session placement request as it is processed. You can publish these events to an Amazon SNS topic, as described in [Set up event notification for game session placement](queue-notification.md). These events are also emitted to Amazon CloudWatch Events in near real time and on a best-effort basis.
 
-This topic describes the structure of game session placement events and provides an example
-for each event type. For more information on the status of game session placement requests, see
-[GameSessionPlacement](../../../gamelift/latest/apireference/API_GameSessionPlacement.md "../../../gamelift/latest/apireference/API_GameSessionPlacement.md") in the
-_Amazon GameLift Servers API Reference_.
+This topic describes the structure of game session placement events and provides an example for each event type. For more information on the status of game session placement requests, see [GameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_GameSessionPlacement.html) in the *Amazon GameLift Servers API Reference*.
 
 ## Placement event syntax
+<a name="queue-events-header"></a>
 
-Events are represented as JSON objects. Event structure conforms to the CloudWatch Events pattern,
-with similar top-level fields and service-specific details.
+Events are represented as JSON objects. Event structure conforms to the CloudWatch Events pattern, with similar top-level fields and service-specific details. 
 
-Top-level fields include the following (see [event pattern](../../../AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.md "../../../AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.md") for more
-detail):
+Top-level fields include the following (see [ event pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html) for more detail): 
 
-version
-
+version  
 This field is always set to 0 (zero).
 
-id
-
+id  
 Unique tracking identifier for the event.
 
-detail-type
-
+detail-type  
 Value is always `GameLift Queue Placement Event`.
 
-source
-
+source  
 Value is always `aws.gamelift`.
 
-account
-
+account  
 The AWS account that is being used to manage Amazon GameLift Servers.
 
-time
-
+time  
 Event timestamp in ISO 8601 format.
 
-region
+region  
+The AWS Region where the placement request is being processed. This is the Region where the game session queue in use resides.
 
-The AWS Region where the placement request is being processed. This is the Region
-where the game session queue in use resides.
-
-resources
-
+resources  
 ARN value of the game session queue that is processing the placement request.
 
 ## PlacementFulfilled
+<a name="queue-events-placementfulfilled"></a>
 
-The placement request has been successfully fulfilled. A new game session has been started
-and new player sessions have been created for each player listed in the game session placement
-request. Player connection information is available.
+The placement request has been successfully fulfilled. A new game session has been started and new player sessions have been created for each player listed in the game session placement request. Player connection information is available.
 
-**Detail syntax:**
+**Detail syntax: **
 
-placementId
-
+placementId  
 A unique identifier assigned to the game session placement request.
 
-port
+port  
+The port number for the new game session. 
 
-The port number for the new game session.
+gameSessionArn  
+The ARN identifier for the new game session. 
 
-gameSessionArn
-
-The ARN identifier for the new game session.
-
-ipAddress
-
+ipAddress  
 The IP address of the game session.
 
-dnsName
+dnsName  
+The DNS identifier assigned to the instance that is running the new game session. The value format is different depending on whether the instance running the game session is TLS-enabled. When connecting to a game session on a TLS-enabled fleet, players must use the DNS name, not the IP address.  
+TLS-enabled fleets: `<unique identifier>.<region identifier>.amazongamelift.com`.   
+Non-TLS-enabled fleets: `ec2-<unique identifier>.compute.amazonaws.com`. 
 
-The DNS identifier assigned to the instance that is running the new game session.
-The value format is different depending on whether the instance running the game session
-is TLS-enabled. When connecting to a game session on a TLS-enabled fleet, players must
-use the DNS name, not the IP address.
-
-TLS-enabled fleets: `<unique identifier>.<region
- identifier>.amazongamelift.com`.
-
-Non-TLS-enabled fleets: `ec2-<unique
- identifier>.compute.amazonaws.com`.
-
-startTime
-
+startTime  
 Time stamp indicating when this request was placed in the queue, in ISO 8601 format.
 
-endTime
-
+endTime  
 Time stamp indicating when this request was fulfilled, in ISO 8601 format.
 
-gameSessionRegion
+gameSessionRegion  
+AWS Home region of the fleet that is hosting the game session. 
 
-AWS Home region of the fleet that is hosting the game session.
+gameSessionLocation  
+The fleet location where the game session is running. This value might specify the fleet's home region or a remote location. 
 
-gameSessionLocation
+playerGatewayStatus  
+The state of the player gateway at the fleet location running this game session.  
+Possible values include:  
++ `ENABLED` – Player gateway is available for routing player connections for this game session.
++ `DISABLED` – Player gateway is not available for this game session.
 
-The fleet location where the game session is running. This value might specify the
-fleet's home region or a remote location.
+computeName  
+A descriptive label for the compute resource that is hosting the game session. For EC2 fleets, this is the EC2 instance ID. For Container fleets, each game server container group on a fleet instance is assigned a compute name. For Anywhere fleets, this is the custom compute name.
 
-playerGatewayStatus
-
-The state of the player gateway at the fleet location running this game session.
-
-Possible values include:
-
-- `ENABLED` – Player gateway is available for routing player connections for this game session.
-- `DISABLED` – Player gateway is not available for this game session.
-
-computeName
-
-A descriptive label for the compute resource that is hosting the game session.
-For EC2 fleets, this is the EC2 instance ID. For Container fleets, each game server
-container group on a fleet instance is assigned a compute name. For Anywhere fleets,
-this is the custom compute name.
-
-placedPlayerSessions
-
-The collection of player sessions that have been created for each player in the game
-session placement request.
+placedPlayerSessions  
+The collection of player sessions that have been created for each player in the game session placement request. 
 
 ### Example
+<a name="queue-events-placementfulfilled-example"></a>
 
 ```
 {
@@ -163,24 +125,23 @@ session placement request.
 ```
 
 ## PlacementCancelled
+<a name="queue-events-placementcancelled"></a>
 
-The placement request was canceled with a call to the GameLift service [StopGameSessionPlacement](../../../gamelift/latest/apireference/API_StopGameSessionPlacement.md "../../../gamelift/latest/apireference/API_StopGameSessionPlacement.md").
+The placement request was canceled with a call to the GameLift service [StopGameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopGameSessionPlacement.html).
 
 **Detail:**
 
-placementId
-
+placementId  
 A unique identifier assigned to the game session placement request.
 
-startTime
-
+startTime  
 Time stamp indicating when this request was placed in the queue, in ISO 8601 format.
 
-endTime
-
+endTime  
 Time stamp indicating when this request was cancelled, in ISO 8601 format.
 
 ### Example
+<a name="queue-events-placementcancelled-example"></a>
 
 ```
 {
@@ -205,25 +166,23 @@ Time stamp indicating when this request was cancelled, in ISO 8601 format.
 ```
 
 ## PlacementTimedOut
+<a name="queue-events-placementtimedout"></a>
 
-Game session placement did not successfully complete before the queue's time limit
-expired. The placement request can be resubmitted as needed.
+Game session placement did not successfully complete before the queue's time limit expired. The placement request can be resubmitted as needed.
 
-**Detail:**
+**Detail:** 
 
-placementId
-
+placementId  
 A unique identifier assigned to the game session placement request.
 
-startTime
-
+startTime  
 Time stamp indicating when this request was placed in the queue, in ISO 8601 format.
 
-endTime
-
+endTime  
 Time stamp indicating when this request was cancelled, in ISO 8601 format.
 
 ### Example
+<a name="queue-events-placementtimedout-example"></a>
 
 ```
 {
@@ -248,25 +207,23 @@ Time stamp indicating when this request was cancelled, in ISO 8601 format.
 ```
 
 ## PlacementFailed
+<a name="queue-events-placementfailed"></a>
 
-Amazon GameLift Servers was not able to fulfill the game session request. This is generally caused by an
-unexpected internal error. The placement request can be resubmitted as needed.
+Amazon GameLift Servers was not able to fulfill the game session request. This is generally caused by an unexpected internal error. The placement request can be resubmitted as needed.
 
 **Detail:**
 
-placementId
-
+placementId  
 A unique identifier assigned to the game session placement request.
 
-startTime
-
+startTime  
 Time stamp indicating when this request was placed in the queue, in ISO 8601 format.
 
-endTime
-
+endTime  
 Time stamp indicating when this request failed, in ISO 8601 format.
 
 ### Example
+<a name="queue-events-placementfailed-example"></a>
 
 ```
 {

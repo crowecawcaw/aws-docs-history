@@ -1,18 +1,25 @@
+
+
 # Troubleshooting guide
+<a name="gamelift-servers-metrics-troubleshooting"></a>
 
 ## Common issues and resolution steps
+<a name="common-issues-resolution"></a>
 
 ### Missing or incomplete metrics
+<a name="troubleshooting-missing-metrics"></a>
 
 #### Symptoms
-
-- No metrics appearing in dashboards.
-- Partial metric collection.
-- Delayed metric updates.
+<a name="missing-metrics-symptoms"></a>
++ No metrics appearing in dashboards.
++ Partial metric collection.
++ Delayed metric updates.
 
 #### Resolution steps
+<a name="missing-metrics-resolution"></a>
 
 ##### A. Verify collector status
+<a name="verify-collector-status"></a>
 
 Check systemd service:
 
@@ -25,80 +32,82 @@ Review collector logs:
 ```
 sudo journalctl -u gamelift-telemetry-collector
 ```
-
-- Confirm collector configuration.
++ Confirm collector configuration.
 
 ##### B. IAM permission verification
-
-- Check instance role permissions.
-- Verify required policies:
-
-  - `aps:RemoteWrite`
-  - `cloudwatch:PutMetricData`
-
-- Validate role trust relationships.
+<a name="iam-permission-verification"></a>
++ Check instance role permissions.
++ Verify required policies:
+  + `aps:RemoteWrite`
+  + `cloudwatch:PutMetricData`
++ Validate role trust relationships.
 
 ##### C. Network connectivity
-
-- Verify endpoint access.
-- Check security group rules.
-- Review network ACLs.
+<a name="network-connectivity"></a>
++ Verify endpoint access.
++ Check security group rules.
++ Review network ACLs.
 
 ### Authentication errors
+<a name="troubleshooting-authentication-errors"></a>
 
 #### Symptoms
-
-- SigV4 authentication failures.
-- Access denied messages.
-- Credential refresh issues.
+<a name="auth-errors-symptoms"></a>
++ SigV4 authentication failures.
++ Access denied messages.
++ Credential refresh issues.
 
 #### Resolution steps
+<a name="auth-errors-resolution"></a>
 
 ##### A. SigV4 authentication
-
-- Verify temporary credentials.
-- Check credential rotation.
-- Validate instance profile.
+<a name="sigv4-authentication"></a>
++ Verify temporary credentials.
++ Check credential rotation.
++ Validate instance profile.
 
 ##### B. AMP access
-
-- Review workspace configuration.
-- Verify remote write URL.
-- Check IAM role bindings.
+<a name="amp-access"></a>
++ Review workspace configuration.
++ Verify remote write URL.
++ Check IAM role bindings.
 
 ### Dashboard issues
+<a name="troubleshooting-dashboard-issues"></a>
 
 #### Symptoms
-
-- Empty dashboards.
-- Missing data points.
-- Authentication failures.
+<a name="dashboard-issues-symptoms"></a>
++ Empty dashboards.
++ Missing data points.
++ Authentication failures.
 
 #### Resolution steps
+<a name="dashboard-issues-resolution"></a>
 
 ##### A. Data source configuration
-
-- Verify Prometheus connection.
-- Check Amazon CloudWatch integration.
-- Test data source permissions.
+<a name="data-source-configuration"></a>
++ Verify Prometheus connection.
++ Check Amazon CloudWatch integration.
++ Test data source permissions.
 
 ##### B. Grafana access
-
-- Confirm SSO configuration.
-- Verify 2FA setup if required.
-- Check user permissions.
+<a name="grafana-access"></a>
++ Confirm SSO configuration.
++ Verify 2FA setup if required.
++ Check user permissions.
 
 ### Windows-specific issues
+<a name="troubleshooting-windows-issues"></a>
 
 #### Symptoms
-
-- Service startup failures.
-- Metric collection gaps.
-- Permission errors.
+<a name="windows-issues-symptoms"></a>
++ Service startup failures.
++ Metric collection gaps.
++ Permission errors.
 
 #### Resolution steps
-
-- Verify Windows service status.
-- Check Windows Event Logs.
-- Review collector configuration.
-- Validate Windows-specific paths.
+<a name="windows-issues-resolution"></a>
++ Verify Windows service status.
++ Check Windows Event Logs.
++ Review collector configuration.
++ Validate Windows-specific paths.

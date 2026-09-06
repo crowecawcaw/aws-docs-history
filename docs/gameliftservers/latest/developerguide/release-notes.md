@@ -1,1985 +1,1324 @@
-# Amazon GameLift Servers release notes
 
-The Amazon GameLift Servers release notes provide details about new features, updates, and fixes related to
-the service.
+
+# Amazon GameLift Servers release notes
+<a name="release-notes"></a>
+
+The Amazon GameLift Servers release notes provide details about new features, updates, and fixes related to the service.
 
 ## SDK versions
+<a name="release-notes-history"></a>
 
-The following tables list all Amazon GameLift Servers releases with SDK version information. There is no
-requirement to use comparable SDKs for your game server and client integrations.
-However, earlier versions of one SDK may not fully support the latest features in
-another.
+The following tables list all Amazon GameLift Servers releases with SDK version information. There is no requirement to use comparable SDKs for your game server and client integrations. However, earlier versions of one SDK may not fully support the latest features in another. 
 
-Amazon GameLift Servers SDKs and plugins are open source. See [Get Amazon GameLift Servers development tools](gamelift-supported.md "gamelift-supported.md"). To get the latest versions, see the [Amazon GameLift Servers
-GitHub organization.](https://github.com/amazon-gamelift/ "https://github.com/amazon-gamelift/")
+Amazon GameLift Servers SDKs and plugins are open source. See [Get Amazon GameLift Servers development tools](gamelift-supported.md). To get the latest versions, see the [Amazon GameLift Servers GitHub organization.](https://github.com/amazon-gamelift/)
 
 **Current version**
 
-Current SDK versions| Service release | AWS SDK for C++ | Server SDK for C# | Server SDK for Unity (C#) | Server SDK for C++ | Server SDK for Unreal (C++) | Server SDK for Go | Plugin for Unreal | Plugin for Unity | Client SDK for C++ | Client SDK for Unreal (C++) | Client SDK for C# | Client SDK for Unity (C#) | Realtime client SDK |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [August 4, 2026 release notes](#release-notes-08042026 "#release-notes-08042026") | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762") or later on GitHub | 5.5.1 | 5.5.1 | 5.6.0 | 5.6.0 | 5.6.0 | 3.4.0 | 3.3.1 | 1.0.1 | 1.0.1 | 1.0.0 | 1.0.0 | 1.2.0 |
 
-Previous SDK versions| Service release | AWS SDK for C++ | Server SDK for C# | Server SDK for Unity (C#) | Server SDK for C++ | Server SDK for Unreal (C++) | Server SDK for Go | Plugin for Unreal | Plugin for Unity | Client SDK for C++ | Client SDK for Unreal (C++) | Client SDK for C# | Client SDK for Unity (C#) | Realtime client SDK |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [June 30, 2026 release notes](#release-notes-06302026 "#release-notes-06302026") | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762") or later on GitHub | 5.5.0 | 5.5.0 | 5.5.0 | 5.5.0 | 5.5.0 | 3.3.0 | 3.3.0 | 1.0.1 | 1.0.0 | 1.0.0 | 1.0.0 | 1.2.0 |
-| [June 18, 2026 release notes](#release-notes-06182026 "#release-notes-06182026") | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762") or later on GitHub | 5.5.0 | 5.5.0 | 5.5.0 | 5.5.0 | 5.5.0 | 3.3.0 | 3.3.0 | 1.0.1 | 1.0.0 | | | 1.2.0 |
-| [April 29, 2026 release notes](#release-notes-04292026 "#release-notes-04292026") | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762") or later on GitHub | 5.4.0 | 5.4.0 | 5.4.1 | 5.4.1 | 5.4.0 | 3.2.1 | 3.2.1 | 1.0.1 | 1.0.0 | | | 1.2.0 |
-| [March 4, 2026 release notes](#release-notes-03042026 "#release-notes-03042026") | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762") or later on GitHub | 5.4.0 | 5.4.0 | 5.4.0 | 5.4.0 | 5.4.0 | 3.2.0 | 3.2.1 | 1.0.1 | 1.0.0 | | | 1.2.0 |
-| [February 24, 2026 release notes](#release-notes-02242026 "#release-notes-02242026") | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later on GitHub | 5.4.0 | 5.4.0 | 5.4.0 | 5.4.0 | 5.4.0 | 3.1.1 | 3.2.1 | | | | | 1.2.0 |
-| [October 28, 2025 release notes](#release-notes-10282025 "#release-notes-10282025") | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later on GitHub | 5.4.0 | 5.4.0 | 5.4.0 | 5.4.0 | 5.4.0 | 3.1.0 | 3.2.0 | | | | | 1.2.0 |
-| 2025-10-03 | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later on GitHub | 5.3.0 | 5.3.0 | 5.3.0 | 5.3.2 | 5.3.0 | 3.0.2 | 3.1.0 | | | | | 1.2.0 |
-| [August 12, 2025 release notes](#release-notes-08122025 "#release-notes-08122025") | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later on GitHub | 5.3.0 | 5.3.0 | 5.3.0 | 5.3.1 | 5.3.0 | 3.0.1 | 3.1.0 | | | | | 1.2.0 |
-| [June 24, 2025 release notes](#release-notes-06242025-2 "#release-notes-06242025-2") | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later on GitHub | 5.3.0 | 5.3.0 | 5.3.0 | 5.3.0 | 5.3.0 | 3.0.0 | 3.1.0 | | | | | 1.2.0 |
-| [May 29, 2025 release notes](#release-notes-05292025 "#release-notes-05292025") | [1.11.535](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.535 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.535") or later on GitHub | 5.3.0 | 5.3.0 | 5.3.0 | 5.3.0 | 5.3.0 | 3.0.0 | 3.1.0 | | | | | 1.2.0 |
-| [April 24, 2025 release notes](#release-notes-04242025 "#release-notes-04242025") | [1.11.535](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.535 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.535") or later on GitHub | 5.2.1 (.NET 8) | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 2.0.0 | 3.0.1 | | | | | 1.2.0 |
-| [March 27, 2025 release notes](#release-notes-03272025 "#release-notes-03272025") | [1.11.535](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.535 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.535") or later on GitHub | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 2.0.0 | 3.0.1 | | | | | 1.2.0 |
-| 2025-03-13 | [1.11.485](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.485 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.485") or later on GitHub | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 2.0.0 | 3.0.1 | | | | | 1.2.0 |
-| [January 14, 2025 release notes](#release-notes-01142025 "#release-notes-01142025") | [1.11.485](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.485 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.485") or later on GitHub | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 2.0.0 | 3.0.0 | | | | | 1.2.0 |
-| [January 2, 2025 release notes](#release-notes-01022025 "#release-notes-01022025") | [1.11.477](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.477 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.477") or later on GitHub | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 2.0.0 | 3.0.0 | | | | | 1.2.0 |
-| [December 19, 2024 release notes](#release-notes-12192024 "#release-notes-12192024") | [1.11.445](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.445 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.445") or later on GitHub | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 2.0.0 | 3.0.0 | | | | | 1.2.0 |
-| [November 12, 2024 release notes](#release-notes-11122024 "#release-notes-11122024") | [1.11.445](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.445 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.445") or later on GitHub | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 1.1.2 | 2.1.0 | | | | | 1.2.0 |
-| [September 19, 2024 release notes](#release-notes-09192024 "#release-notes-09192024") | [1.11.225](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.225 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.225") or later on GitHub | 5.1.2 | 5.1.2 | 5.1.3 | 5.1.2 | 5.1.0 | 1.1.2 | 2.1.0 | | | | | 1.2.0 |
-| [February 13, 2024 release notes](#release-notes-02132024 "#release-notes-02132024") | [1.11.225](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.225 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.225") or later on GitHub | 5.1.2 | 5.1.2 | 5.1.2 | 5.1.1 | 5.1.0 | 1.1.0 | 2.1.0 | | | | | 1.2.0 |
-| [December 14, 2023 release notes](#release-notes-12142023 "#release-notes-12142023") | [1.11.225](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.225 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.225") or later on GitHub | 5.1.1 | 5.1.0 | 5.1.1 | 5.1.0 | 5.0.0 | 1.1.0 | 2.0.0 | | | | | 1.2.0 |
-| [November 16, 2023 release notes](#release-notes-11162023 "#release-notes-11162023") | [1.11.193](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.193 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.193") or later on GitHub | 5.1.1 | 5.1.0 | 5.1.1 | 5.1.0 | 5.0.0 | 1.1.0 | 2.0.0 | | | | | 1.2.0 |
-| [November 2, 2023 release notes](#release-notes-11022023 "#release-notes-11022023") | [1.11.193](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.193 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.193") or later on GitHub | 5.1.1 | 5.1.0 | 5.1.1 | 5.1.0 | 5.0.0 | 1.1.0 | 1.3.1 | | | | | 1.2.0 |
-| [September 28, 2023 release notes](#release-notes-09282023 "#release-notes-09282023") | [1.11.144](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.144 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.144") or later on GitHub | 5.1.1 | 5.1.0 | 5.1.1 | 5.1.0 | 5.0.0 | 1.0.0 | 1.3.1 | | | | | 1.2.0 |
-| [August 17, 2023 release notes](#release-notes-08172023 "#release-notes-08172023") | [1.11.144](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.144 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.144") or later on GitHub | 5.1.1 | 5.1.0 | 5.1.1 | 5.1.0 | 5.0.0 | | 1.3.1 | | | | | 1.2.0 |
-| [July 27, 2023 release notes](#release-notes-07272023 "#release-notes-07272023") | [1.11.111](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.111 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.111") or later on GitHub | 5.1.0 | 5.1.0 | 5.1.0 | 5.0.2 | 5.0.0 | | 1.3.1 | | | | | 1.2.0 |
-| [June 29, 2023 release notes](#release-notes-06292023 "#release-notes-06292023") | [1.11.111](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.111 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.111") or later on GitHub | 5.0.0 | | 5.0.4 | 5.0.2 | 5.0.0 | | 1.3.0 | | | | | 1.2.0 |
-| 2023-06-15 | [1.11.87](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.87 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.87") or later on GitHub | 5.0.0 | | 5.0.4 | 5.0.2 | 5.0.0 | | 1.3.0 | | | | | 1.2.0 |
-| [May 25, 2023 release notes](#release-notes-05252023 "#release-notes-05252023") | [1.11.87](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.87 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.87") or later on GitHub | 5.0.0 | | 5.0.3 | 5.0.2 | 5.0.0 | | 1.3.0 | | | | | 1.2.0 |
-| [April 20, 2023 release notes](#release-notes-04202023 "#release-notes-04202023") | [1.11.63](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.63 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.63") or later on GitHub | 5.0.0 | | 5.0.3 | 5.0.2 | 5.0.0 | | 1.3.0 | | | | | 1.2.0 |
-| [April 13, 2023 release notes](#release-notes-04132023 "#release-notes-04132023") | [1.10.21](https://github.com/aws/aws-sdk-cpp/releases/tag/1.10.21 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.10.21") or later on GitHub | 5.0.0 | | 5.0.0 | 5.0.0 | 5.0.0 | | 1.2.1 | | | | | 1.2.0 |
-| [February 9, 2023 release notes](#release-notes-02092023 "#release-notes-02092023") | [1.10.21](https://github.com/aws/aws-sdk-cpp/releases/tag/1.10.21 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.10.21") or later on GitHub | 5.0.0 | | 5.0.0 | 3.4.0 | 5.0.0 | | 1.2.1 | | | | | 1.2.0 |
-| [January 31, 2023 release notes](#release-notes-01312023 "#release-notes-01312023") | [1.10.21](https://github.com/aws/aws-sdk-cpp/releases/tag/1.10.21 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.10.21") or later on GitHub | | 5.0.0 | | 3.4.0 | 5.0.0 | | 1.2.1 | | | | | 1.2.0 |
-| [December 1, 2022 release notes](#release-notes-12012022 "#release-notes-12012022") | [1.10.21](https://github.com/aws/aws-sdk-cpp/releases/tag/1.10.21 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.10.21") or later on GitHub | 5.0.0 (.NET 4 .NET 6) | | 5.0.0 | 3.4.0 | | | 1.2.1 | | | | | 1.2.0 |
-| [August 25, 2022 release notes](#release-notes-08252022 "#release-notes-08252022") | [1.9.333](https://github.com/aws/aws-sdk-cpp/releases/tag/1.9.333 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.9.333") or later on GitHub | 4.0.2 | | 3.4.2 | 3.4.0 | | | 1.2.0 | | | | | 1.2.0 |
-| [October 28, 2021 release notes](#release-notes-10282021 "#release-notes-10282021") | [1.9.133](https://github.com/aws/aws-sdk-cpp/releases/tag/1.9.133 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.9.133") or later on GitHub | 4.0.2 | | 3.4.2 | 3.4.0 | | | 1.2.0 | | | | | 1.2.0 |
-| [June 3, 2021 release notes](#release-notes-06032021 "#release-notes-06032021") | [1.8.168](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.168 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.168") or later on GitHub | 4.0.2 | | 3.4.2 | 3.4.0 | | | | | | | | 1.2.0 |
-| [March 23, 2021 release notes](#release-notes-03232021 "#release-notes-03232021") | [1.8.168](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.168 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.168") or later on GitHub | 4.0.2 | | 3.4.1 | 3.3.3 | | | | | | | | 1.1.0 |
-| [March 16, 2021 release notes](#release-notes-03162021 "#release-notes-03162021") | [1.8.163](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.163 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.163") or later on GitHub | 4.0.2 | | 3.4.1 | 3.3.3 | | | | | | | | 1.1.0 |
-| [February 9, 2021 release notes](#release-notes-02092021 "#release-notes-02092021") | [1.8.139](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.139 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.139") or later on GitHub | 4.0.2 | | 3.4.1 | 3.3.3 | | | | | | | | 1.1.0 |
-| [December 22, 2020 release notes](#release-notes-12222020 "#release-notes-12222020") | [1.8.95](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.95 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.95") or later on GitHub | 4.0.2 | | 3.4.1 | 3.3.3 | | | | | | | | 1.1.0 |
-| [November 24, 2020 release notes](#release-notes-11242020 "#release-notes-11242020") | [1.8.95](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.95 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.95") or later on GitHub | 4.0.2 | | 3.4.1 | 3.3.2 | | | | | | | | 1.1.0 |
-| [November 11, 2020 release notes](#release-notes-11112020 "#release-notes-11112020") | [1.8.36](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.36 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.36") or later on GitHub | 4.0.2 | | 3.4.1 | 3.3.2 | | | | | | | | 1.1.0 |
-| [September 17, 2020 release notes](#release-notes-09172020 "#release-notes-09172020") | [1.8.36](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.36 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.36") or later on GitHub | 4.0.1 | | 3.4.1 | 3.3.2 | | | | | | | | 1.1.0 |
-| [August 27, 2020 release notes](#release-notes-08272020 "#release-notes-08272020") | [1.7.310](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.310 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.310") or later on GitHub | 4.0.0 | | 3.4.0 | 3.3.1 | | | | | | | | 1.1.0 |
-| [April 16, 2020 release notes](#release-notes-04162020 "#release-notes-04162020") | [1.7.310](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.310 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.310") or later on GitHub | 4.0.0 | | 3.4.0 | 3.3.1 | | | | | | | | 1.1.0 |
-| [April 2, 2020 release notes](#release-notes-04022020 "#release-notes-04022020") | [1.7.310](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.310 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.310") or later on GitHub | 3.4.0 | | 3.4.0 | | | | | | | | | 1.1.0 |
-| [December 19, 2019 release notes](#release-notes-12192019 "#release-notes-12192019") | [1.7.249](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.249 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.249") or later on GitHub | 3.4.0 | | 3.4.0 | | | | | | | | | 1.1.0 |
-| [November 14, 2019 release notes](#release-notes-11142019 "#release-notes-11142019") | [1.7.210](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.210 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.210") or later on GitHub | 3.4.0 | | 3.4.0 | | | | | | | | | 1.1.0 |
-| [October 24, 2019 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-10-24/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-10-24/") | [1.7.210](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.210 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.210") or later on GitHub | 3.4.0 | | 3.4.0 | | | | | | | | | 1.1.0 |
-| [September 3, 2019 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-09-03/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-09-03/") | [1.7.175](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.175 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.175") or later on GitHub | 3.4.0 | | 3.4.0 | | | | | | | | | 1.1.0 |
-| [July 9, 2019 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-07-09/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-07-09/") | [1.7.140](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.140 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.140") or later on GitHub | 3.3.0 | | 3.3.0 | | | | | | | | | 1.0.0 |
-| [April 25, 2019 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-04-25/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-04-25/") | [1.7.91](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.91 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.91") or later on GitHub | 3.3.0 | | 3.3.0 | | | | | | | | | 1.0.0 |
-| [March 7, 2019 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-03-07/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-03-07/") | [1.7.65](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.65 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.65") or later on GitHub | 3.3.0 | | 3.3.0 | | | | | | | | | |
-| [February 7, 2019 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-02-07/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-02-07/") | [1.7.45](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.45 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.45") or later on GitHub | 3.3.0 | | 3.3.0 | | | | | | | | | |
-| [December 14, 2018 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-12-14/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-12-14/") | [1.6.20](https://github.com/aws/aws-sdk-cpp/releases/tag/1.6.20 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.6.20") or later on GitHub | 3.3.0 | | 3.3.0 | | | | | | | | | |
-| [September 27, 2018 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-09-27/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-09-27/") | [1.6.20](https://github.com/aws/aws-sdk-cpp/releases/tag/1.6.20 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.6.20") or later on GitHub | 3.2.1 | | 3.2.1 | | | | | | | | | |
-| [June 14, 2018 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-06-14/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-06-14/") | [1.4.47](https://github.com/aws/aws-sdk-cpp/releases/tag/1.4.47 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.4.47") or later on GitHub | 3.2.1 | | 3.2.1 | | | | | | | | | |
-| [May 10, 2018 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-05-10/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-05-10/") | [1.4.47](https://github.com/aws/aws-sdk-cpp/releases/tag/1.4.47 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.4.47") or later on GitHub | 3.2.1 | | 3.2.1 | | | | | | | | | |
-| [February 15, 2018 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-02-15/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-02-15/") | [1.3.58](https://github.com/aws/aws-sdk-cpp/releases/tag/1.3.58 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.3.58") or later on GitHub | 3.2.1 | | 3.2.1 | | | | | | | | | |
-| [February 8, 2018 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-02-08/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-02-08/") | [1.3.52](https://github.com/aws/aws-sdk-cpp/releases/tag/1.3.52 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.3.52") or later on GitHub | 3.2.0 | | 3.2.0 | | | | | | | | | |
-| [September 1, 2017 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-08-31/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-08-31/") | [1.1.43](https://github.com/aws/aws-sdk-cpp/releases/tag/1.1.43 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.1.43") or later on GitHub | 3.1.7 | | 3.1.7 | | | | | | | | | |
-| [August 16, 2017 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-08-16/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-08-16/") | [1.1.31](https://github.com/aws/aws-sdk-cpp/releases/tag/1.1.31 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.1.31") or later on GitHub | 3.1.7 | | 3.1.7 | | | | | | | | | |
-| [May 16, 2017 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-05-16/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-05-16/") | [1.0.122](https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.122 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.122") or later on GitHub | 3.1.5 | | 3.1.5 | | | | | | | | | |
-| [April 11, 2017 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-04-11/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-04-11/") | [1.0.103](https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.103 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.103") or later on GitHub | 3.1.5 | | 3.1.5 | | | | | | | | | |
-| [February 21, 2017 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-02-21/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-02-21/") | [1.0.72](https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.72 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.72") or later on GitHub | 3.1.5 | | 3.1.5 | | | | | | | | | |
-| [November 18, 2016 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2016-11-18/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2016-11-18/") | [1.0.31](https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.31 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.31") or later on GitHub | | | 3.1.0 | | | | | | | | | |
-| [October 13, 2016 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2016-10-13/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2016-10-13/") | [1.0.17](https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.17 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.17") or later on GitHub | | | 3.1.0 | | | | | | | | | |
-| [September 1, 2016 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2016-09-01/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2016-09-01/") | [0.14.9](https://github.com/aws/aws-sdk-cpp/releases/tag/0.14.9 "https://github.com/aws/aws-sdk-cpp/releases/tag/0.14.9") or later on GitHub | | | 3.1.0 | | | | | | | | | |
-| [August 4, 2016 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2016-08-04/ "https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2016-08-04/") | [0.12.16](https://github.com/aws/aws-sdk-cpp/releases/tag/0.12.16 "https://github.com/aws/aws-sdk-cpp/releases/tag/0.12.16") or later on GitHub | | | 3.0.7 | | | | | | | | | |
+**Current SDK versions**  
+
+| Service release | AWS SDK for C\+\+ | Server SDK for C\# | Server SDK for Unity (C\#) | Server SDK for C\+\+ | Server SDK for Unreal (C\+\+) | Server SDK for Go | Plugin for Unreal | Plugin for Unity | Client SDK for C\+\+ | Client SDK for Unreal (C\+\+) | Client SDK for C\# | Client SDK for Unity (C\#) | Realtime client SDK | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| [August 4, 2026 release notes](#release-notes-08042026) | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762) or later on GitHub | 5.5.1 | 5.5.1 | 5.6.0 | 5.6.0 | 5.6.0 | 3.4.0 | 3.3.1 | 1.0.1 | 1.0.1 | 1.0.0 | 1.0.0 | 1.2.0 | 
+
+### Previous versions
+<a name="release-notes-earlier"></a>
+
+
+**Previous SDK versions**  
+
+| Service release | AWS SDK for C\+\+ | Server SDK for C\# | Server SDK for Unity (C\#) | Server SDK for C\+\+ | Server SDK for Unreal (C\+\+) | Server SDK for Go | Plugin for Unreal | Plugin for Unity | Client SDK for C\+\+ | Client SDK for Unreal (C\+\+) | Client SDK for C\# | Client SDK for Unity (C\#) | Realtime client SDK | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| [June 30, 2026 release notes](#release-notes-06302026) | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762) or later on GitHub | 5.5.0 | 5.5.0 | 5.5.0 | 5.5.0 | 5.5.0 | 3.3.0 | 3.3.0 | 1.0.1 | 1.0.0 | 1.0.0 | 1.0.0 | 1.2.0 | 
+| [June 18, 2026 release notes](#release-notes-06182026) | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762) or later on GitHub | 5.5.0 | 5.5.0 | 5.5.0 | 5.5.0 | 5.5.0 | 3.3.0 | 3.3.0 | 1.0.1 | 1.0.0 |  |  | 1.2.0 | 
+| [April 29, 2026 release notes](#release-notes-04292026) | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762) or later on GitHub | 5.4.0 | 5.4.0 | 5.4.1 | 5.4.1 | 5.4.0 | 3.2.1 | 3.2.1 | 1.0.1 | 1.0.0 |  |  | 1.2.0 | 
+| [March 4, 2026 release notes](#release-notes-03042026) | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762) or later on GitHub | 5.4.0 | 5.4.0 | 5.4.0 | 5.4.0 | 5.4.0 | 3.2.0 | 3.2.1 | 1.0.1 | 1.0.0 |  |  | 1.2.0 | 
+| [February 24, 2026 release notes](#release-notes-02242026) | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595) or later on GitHub | 5.4.0 | 5.4.0 | 5.4.0 | 5.4.0 | 5.4.0 | 3.1.1 | 3.2.1 |  |  |  |  | 1.2.0 | 
+| [October 28, 2025 release notes](#release-notes-10282025) | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595) or later on GitHub | 5.4.0 | 5.4.0 | 5.4.0 | 5.4.0 | 5.4.0 | 3.1.0 | 3.2.0 |  |  |  |  | 1.2.0 | 
+| 2025-10-03 | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595) or later on GitHub | 5.3.0 | 5.3.0 | 5.3.0 | 5.3.2 | 5.3.0 | 3.0.2 | 3.1.0 |  |  |  |  | 1.2.0 | 
+| [August 12, 2025 release notes](#release-notes-08122025) | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595) or later on GitHub | 5.3.0 | 5.3.0 | 5.3.0 | 5.3.1 | 5.3.0 | 3.0.1 | 3.1.0 |  |  |  |  | 1.2.0 | 
+| [June 24, 2025 release notes](#release-notes-06242025-2) | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595) or later on GitHub | 5.3.0 | 5.3.0 | 5.3.0 | 5.3.0 | 5.3.0 | 3.0.0 | 3.1.0 |  |  |  |  | 1.2.0 | 
+| [May 29, 2025 release notes](#release-notes-05292025) | [1.11.535](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.535) or later on GitHub | 5.3.0 | 5.3.0 | 5.3.0 | 5.3.0 | 5.3.0 | 3.0.0 | 3.1.0 |  |  |  |  | 1.2.0 | 
+| [April 24, 2025 release notes](#release-notes-04242025) | [1.11.535](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.535) or later on GitHub | 5.2.1 (.NET 8) | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 2.0.0 | 3.0.1 |  |  |  |  | 1.2.0 | 
+| [March 27, 2025 release notes](#release-notes-03272025) | [1.11.535](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.535) or later on GitHub | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 2.0.0 | 3.0.1 |  |  |  |  | 1.2.0 | 
+| 2025-03-13 | [1.11.485](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.485) or later on GitHub | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 2.0.0 | 3.0.1 |  |  |  |  | 1.2.0 | 
+| [January 14, 2025 release notes](#release-notes-01142025) | [1.11.485](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.485) or later on GitHub | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 2.0.0 | 3.0.0 |  |  |  |  | 1.2.0 | 
+| [January 2, 2025 release notes](#release-notes-01022025) | [1.11.477](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.477) or later on GitHub | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 2.0.0 | 3.0.0 |  |  |  |  | 1.2.0 | 
+| [December 19, 2024 release notes](#release-notes-12192024) | [1.11.445](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.445) or later on GitHub | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 2.0.0 | 3.0.0 |  |  |  |  | 1.2.0 | 
+| [November 12, 2024 release notes](#release-notes-11122024) | [1.11.445](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.445) or later on GitHub | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 5.2.0 | 1.1.2 | 2.1.0 |  |  |  |  | 1.2.0 | 
+| [September 19, 2024 release notes](#release-notes-09192024) | [1.11.225](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.225) or later on GitHub | 5.1.2 | 5.1.2 | 5.1.3 | 5.1.2 | 5.1.0 | 1.1.2 | 2.1.0 |  |  |  |  | 1.2.0 | 
+| [February 13, 2024 release notes](#release-notes-02132024) | [1.11.225](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.225) or later on GitHub | 5.1.2 | 5.1.2 | 5.1.2 | 5.1.1 | 5.1.0 | 1.1.0 | 2.1.0 |  |  |  |  | 1.2.0 | 
+| [December 14, 2023 release notes](#release-notes-12142023) | [1.11.225](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.225) or later on GitHub | 5.1.1 | 5.1.0 | 5.1.1 | 5.1.0 | 5.0.0 | 1.1.0 | 2.0.0 |  |  |  |  | 1.2.0 | 
+| [November 16, 2023 release notes](#release-notes-11162023) | [1.11.193](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.193) or later on GitHub | 5.1.1 | 5.1.0 | 5.1.1 | 5.1.0 | 5.0.0 | 1.1.0 | 2.0.0 |  |  |  |  | 1.2.0 | 
+| [November 2, 2023 release notes](#release-notes-11022023) | [1.11.193](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.193) or later on GitHub | 5.1.1 | 5.1.0 | 5.1.1 | 5.1.0 | 5.0.0 | 1.1.0 | 1.3.1 |  |  |  |  | 1.2.0 | 
+| [September 28, 2023 release notes](#release-notes-09282023) | [1.11.144](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.144) or later on GitHub | 5.1.1 | 5.1.0 | 5.1.1 | 5.1.0 | 5.0.0 | 1.0.0 | 1.3.1 |  |  |  |  | 1.2.0 | 
+| [August 17, 2023 release notes](#release-notes-08172023) | [1.11.144](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.144) or later on GitHub | 5.1.1 | 5.1.0 | 5.1.1 | 5.1.0 | 5.0.0 |  | 1.3.1 |  |  |  |  | 1.2.0 | 
+| [July 27, 2023 release notes](#release-notes-07272023) | [1.11.111](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.111) or later on GitHub | 5.1.0 | 5.1.0 | 5.1.0 | 5.0.2 | 5.0.0 |  | 1.3.1 |  |  |  |  | 1.2.0 | 
+| [June 29, 2023 release notes](#release-notes-06292023) | [1.11.111](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.111) or later on GitHub |  5.0.0  |  | 5.0.4 | 5.0.2 | 5.0.0 |  | 1.3.0 |  |  |  |  | 1.2.0 | 
+| 2023-06-15 | [1.11.87](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.87) or later on GitHub |  5.0.0  |  | 5.0.4 | 5.0.2 | 5.0.0 |  | 1.3.0 |  |  |  |  | 1.2.0 | 
+| [May 25, 2023 release notes](#release-notes-05252023) | [1.11.87](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.87) or later on GitHub |  5.0.0  |  | 5.0.3 | 5.0.2 | 5.0.0 |  | 1.3.0 |  |  |  |  | 1.2.0 | 
+| [April 20, 2023 release notes](#release-notes-04202023) | [1.11.63](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.63) or later on GitHub |  5.0.0  |  | 5.0.3 | 5.0.2 | 5.0.0 |  | 1.3.0 |  |  |  |  | 1.2.0 | 
+| [April 13, 2023 release notes](#release-notes-04132023) | [1.10.21](https://github.com/aws/aws-sdk-cpp/releases/tag/1.10.21) or later on GitHub |  5.0.0  |  | 5.0.0 | 5.0.0 | 5.0.0 |  | 1.2.1 |  |  |  |  | 1.2.0 | 
+| [February 9, 2023 release notes](#release-notes-02092023) | [1.10.21](https://github.com/aws/aws-sdk-cpp/releases/tag/1.10.21) or later on GitHub |  5.0.0  |  | 5.0.0 | 3.4.0 | 5.0.0 |  | 1.2.1 |  |  |  |  | 1.2.0 | 
+| [January 31, 2023 release notes](#release-notes-01312023) | [1.10.21](https://github.com/aws/aws-sdk-cpp/releases/tag/1.10.21) or later on GitHub |  |  5.0.0  |  | 3.4.0 | 5.0.0 |  | 1.2.1 |  |  |  |  | 1.2.0 | 
+| [December 1, 2022 release notes](#release-notes-12012022) | [1.10.21](https://github.com/aws/aws-sdk-cpp/releases/tag/1.10.21) or later on GitHub | 5.0.0 (.NET 4 .NET 6) |  | 5.0.0 | 3.4.0 |  |  | 1.2.1 |  |  |  |  | 1.2.0 | 
+| [August 25, 2022 release notes](#release-notes-08252022) | [1.9.333](https://github.com/aws/aws-sdk-cpp/releases/tag/1.9.333) or later on GitHub | 4.0.2 |  | 3.4.2 | 3.4.0 |  |  | 1.2.0 |  |  |  |  | 1.2.0 | 
+| [October 28, 2021 release notes](#release-notes-10282021) | [1.9.133](https://github.com/aws/aws-sdk-cpp/releases/tag/1.9.133) or later on GitHub | 4.0.2 |  | 3.4.2 | 3.4.0 |  |  | 1.2.0 |  |  |  |  | 1.2.0 | 
+| [June 3, 2021 release notes](#release-notes-06032021) | [1.8.168](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.168) or later on GitHub | 4.0.2 |  | 3.4.2 | 3.4.0 |  |  |  |  |  |  |  | 1.2.0 | 
+| [March 23, 2021 release notes](#release-notes-03232021) | [1.8.168](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.168) or later on GitHub | 4.0.2 |  | 3.4.1 | 3.3.3 |  |  |  |  |  |  |  | 1.1.0 | 
+| [March 16, 2021 release notes](#release-notes-03162021) | [1.8.163](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.163) or later on GitHub | 4.0.2 |  | 3.4.1 | 3.3.3 |  |  |  |  |  |  |  | 1.1.0 | 
+| [February 9, 2021 release notes](#release-notes-02092021) | [1.8.139](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.139) or later on GitHub | 4.0.2 |  | 3.4.1 | 3.3.3 |  |  |  |  |  |  |  | 1.1.0 | 
+| [December 22, 2020 release notes](#release-notes-12222020) | [1.8.95](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.95) or later on GitHub | 4.0.2 |  | 3.4.1 | 3.3.3 |  |  |  |  |  |  |  | 1.1.0 | 
+| [November 24, 2020 release notes](#release-notes-11242020) | [1.8.95](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.95) or later on GitHub | 4.0.2 |  | 3.4.1 | 3.3.2 |  |  |  |  |  |  |  | 1.1.0 | 
+| [November 11, 2020 release notes](#release-notes-11112020) | [1.8.36](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.36) or later on GitHub | 4.0.2 |  | 3.4.1 | 3.3.2 |  |  |  |  |  |  |  | 1.1.0 | 
+| [September 17, 2020 release notes](#release-notes-09172020) | [1.8.36](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.36) or later on GitHub | 4.0.1 |  | 3.4.1 | 3.3.2 |  |  |  |  |  |  |  | 1.1.0 | 
+| [August 27, 2020 release notes](#release-notes-08272020) | [1.7.310](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.310) or later on GitHub | 4.0.0 |  | 3.4.0 | 3.3.1 |  |  |  |  |  |  |  | 1.1.0 | 
+| [April 16, 2020 release notes](#release-notes-04162020) | [1.7.310](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.310) or later on GitHub | 4.0.0 |  | 3.4.0 | 3.3.1 |  |  |  |  |  |  |  | 1.1.0 | 
+| [April 2, 2020 release notes](#release-notes-04022020) | [1.7.310](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.310) or later on GitHub | 3.4.0 |  | 3.4.0 |  |  |  |  |  |  |  |  | 1.1.0 | 
+| [December 19, 2019 release notes](#release-notes-12192019) | [1.7.249](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.249) or later on GitHub | 3.4.0 |  | 3.4.0 |  |  |  |  |  |  |  |  | 1.1.0 | 
+| [November 14, 2019 release notes](#release-notes-11142019) | [1.7.210](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.210) or later on GitHub | 3.4.0 |  | 3.4.0 |  |  |  |  |  |  |  |  | 1.1.0 | 
+| [October 24, 2019 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-10-24/) | [1.7.210](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.210) or later on GitHub | 3.4.0 |  | 3.4.0 |  |  |  |  |  |  |  |  | 1.1.0 | 
+| [September 3, 2019 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-09-03/) | [1.7.175](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.175) or later on GitHub | 3.4.0 |  | 3.4.0 |  |  |  |  |  |  |  |  | 1.1.0 | 
+| [July 9, 2019 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-07-09/) | [1.7.140](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.140) or later on GitHub  | 3.3.0 |  | 3.3.0 |  |  |  |  |  |  |  |  | 1.0.0 | 
+| [April 25, 2019 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-04-25/) | [1.7.91](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.91) or later on GitHub | 3.3.0 |  | 3.3.0 |  |  |  |  |  |  |  |  | 1.0.0 | 
+| [March 7, 2019 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-03-07/) | [1.7.65](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.65) or later on GitHub | 3.3.0 |  | 3.3.0 |  |  |  |  |  |  |  |  |  | 
+| [February 7, 2019 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2019-02-07/) | [1.7.45](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.45) or later on GitHub | 3.3.0 |  | 3.3.0 |  |  |  |  |  |  |  |  |  | 
+| [December 14, 2018 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-12-14/) | [1.6.20](https://github.com/aws/aws-sdk-cpp/releases/tag/1.6.20) or later on GitHub | 3.3.0 |  | 3.3.0 |  |  |  |  |  |  |  |  |  | 
+| [September 27, 2018 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-09-27/) | [1.6.20](https://github.com/aws/aws-sdk-cpp/releases/tag/1.6.20) or later on GitHub | 3.2.1 |  | 3.2.1 |  |  |  |  |  |  |  |  |  | 
+| [June 14, 2018 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-06-14/) | [1.4.47](https://github.com/aws/aws-sdk-cpp/releases/tag/1.4.47) or later on GitHub | 3.2.1 |  | 3.2.1 |  |  |  |  |  |  |  |  |  | 
+| [May 10, 2018 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-05-10/) | [1.4.47](https://github.com/aws/aws-sdk-cpp/releases/tag/1.4.47) or later on GitHub | 3.2.1 |  | 3.2.1 |  |  |  |  |  |  |  |  |  | 
+| [February 15, 2018 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-02-15/) | [1.3.58](https://github.com/aws/aws-sdk-cpp/releases/tag/1.3.58) or later on GitHub | 3.2.1 |  | 3.2.1 |  |  |  |  |  |  |  |  |  | 
+| [February 8, 2018 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2018-02-08/) | [1.3.52](https://github.com/aws/aws-sdk-cpp/releases/tag/1.3.52) or later on GitHub | 3.2.0 |  | 3.2.0 |  |  |  |  |  |  |  |  |  | 
+| [September 1, 2017 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-08-31/) | [1.1.43](https://github.com/aws/aws-sdk-cpp/releases/tag/1.1.43) or later on GitHub | 3.1.7 |  | 3.1.7 |  |  |  |  |  |  |  |  |  | 
+| [August 16, 2017 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-08-16/) | [1.1.31](https://github.com/aws/aws-sdk-cpp/releases/tag/1.1.31) or later on GitHub | 3.1.7 |  | 3.1.7 |  |  |  |  |  |  |  |  |  | 
+| [May 16, 2017 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-05-16/) | [1.0.122](https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.122) or later on GitHub | 3.1.5 |  | 3.1.5 |  |  |  |  |  |  |  |  |  | 
+| [April 11, 2017 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-04-11/) | [1.0.103](https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.103) or later on GitHub | 3.1.5 |  | 3.1.5 |  |  |  |  |  |  |  |  |  | 
+| [February 21, 2017 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2017-02-21/) | [1.0.72](https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.72) or later on GitHub | 3.1.5  |  | 3.1.5  |  |  |  |  |  |  |  |  |  | 
+| [November 18, 2016 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2016-11-18/) | [1.0.31](https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.31) or later on GitHub |  |  | 3.1.0 |  |  |  |  |  |  |  |  |  | 
+| [October 13, 2016 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2016-10-13/) | [1.0.17](https://github.com/aws/aws-sdk-cpp/releases/tag/1.0.17) or later on GitHub |  |  | 3.1.0 |  |  |  |  |  |  |  |  |  | 
+| [September 1, 2016 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2016-09-01/) |  [0.14.9](https://github.com/aws/aws-sdk-cpp/releases/tag/0.14.9) or later on GitHub |  |  | 3.1.0  |  |  |  |  |  |  |  |  |  | 
+| [August 4, 2016 release notes](https://aws.amazon.com/releasenotes/release-amazon-gamelift-on-2016-08-04/) |  [0.12.16](https://github.com/aws/aws-sdk-cpp/releases/tag/0.12.16) or later on GitHub  |  |  | 3.0.7  |  |  |  |  |  |  |  |  |  | 
 
 ## Release notes
+<a name="release-notes-summary"></a>
 
-The following release notes are in chronological order, with the latest updates listed
-first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those
-listed here, see the release date links in [SDK versions](#release-notes-history "#release-notes-history").
+The following release notes are in chronological order, with the latest updates listed first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those listed here, see the release date links in [SDK versions](#release-notes-history).
 
-Amazon GameLift Servers now offers an additional layer of distributed-denial-of-service
-(DDoS) protection for Linux-based EC2 and Container Fleets on SDKv5. Amazon GameLift Servers
-Enhanced DDoS Protection leverages the resiliency of the AWS network and
-provides automatic protections that we have tuned and proven effective for
-protecting gaming workloads from common network and transport layer attacks.
-This feature is enabled by default with no configuration required and no
-additional cost.
+### August 25, 2026: Amazon GameLift Servers Enhanced DDoS Protection
+<a name="release-notes-08252026"></a>
 
-###### **Learn more:**
+Amazon GameLift Servers now offers an additional layer of distributed-denial-of-service (DDoS) protection for Linux-based EC2 and Container Fleets on SDKv5. Amazon GameLift Servers Enhanced DDoS Protection leverages the resiliency of the AWS network and provides automatic protections that we have tuned and proven effective for protecting gaming workloads from common network and transport layer attacks. This feature is enabled by default with no configuration required and no additional cost.
 
-- [DDoS protection with Amazon GameLift Servers](ddos-protection-intro.md "ddos-protection-intro.md"), _Amazon GameLift Servers Developer Guide_
-  With Amazon GameLift Servers, you can now deploy 21 additional Amazon EC2 instance types for
-  managed EC2 fleets and managed container fleets. The new types include
-  compute-optimized C-series instances and general-purpose M-series instances:
+****Learn more:****
++ [DDoS protection with Amazon GameLift Servers](ddos-protection-intro.md), *Amazon GameLift Servers Developer Guide*
 
-- **C8a:**
-  `c8a.medium`, `c8a.large`,
-  `c8a.xlarge`, and `c8a.2xlarge`
-- **C8i:**
-  `c8i.large`, `c8i.xlarge`, and
-  `c8i.2xlarge`
-- **C9g:**
-  `c9g.medium`, `c9g.large`,
-  `c9g.xlarge`, and `c9g.2xlarge`
-- **M8a:**
-  `m8a.medium`, `m8a.large`,
-  `m8a.xlarge`, and `m8a.2xlarge`
-- **M8i:**
-  `m8i.large`, `m8i.xlarge`, and
-  `m8i.2xlarge`
-- **M9g:**
-  `m9g.large`, `m9g.xlarge`, and
-  `m9g.2xlarge`
-  The C8a and M8a families use the x86 architecture and
-  fifth-generation AMD EPYC server processors. The C8i and M8i
-  families use the x86 architecture and custom
-  Intel Xeon 6 processors. The C9g and M9g families use the
-  Arm architecture and AWS Graviton5 processors.
-  Instance type availability varies by operating system and fleet location. Use
-  the Amazon GameLift Servers console to find instance types that are available in your selected
-  locations.
+### August 6, 2026: Amazon GameLift Servers adds 21 latest-generation EC2 instance types
+<a name="release-notes-08062026"></a>
+
+With Amazon GameLift Servers, you can now deploy 21 additional Amazon EC2 instance types for managed EC2 fleets and managed container fleets. The new types include compute-optimized C-series instances and general-purpose M-series instances:
++ **C8a:** `c8a.medium`, `c8a.large`, `c8a.xlarge`, and `c8a.2xlarge`
++ **C8i:** `c8i.large`, `c8i.xlarge`, and `c8i.2xlarge`
++ **C9g:** `c9g.medium`, `c9g.large`, `c9g.xlarge`, and `c9g.2xlarge`
++ **M8a:** `m8a.medium`, `m8a.large`, `m8a.xlarge`, and `m8a.2xlarge`
++ **M8i:** `m8i.large`, `m8i.xlarge`, and `m8i.2xlarge`
++ **M9g:** `m9g.large`, `m9g.xlarge`, and `m9g.2xlarge`
+
+The C8a and M8a families use the x86 architecture and fifth-generation AMD EPYC server processors. The C8i and M8i families use the x86 architecture and custom Intel Xeon 6 processors. The C9g and M9g families use the Arm architecture and AWS Graviton5 processors. Instance type availability varies by operating system and fleet location. Use the Amazon GameLift Servers console to find instance types that are available in your selected locations.
 
 For more information, see the following resources:
++ [Amazon GameLift Servers Instance Pricing](https://aws.amazon.com/gamelift/pricing/instance-pricing/)
++ [Amazon EC2 instance types](https://aws.amazon.com/ec2/instance-types/)
++ [Amazon GameLift Servers service locations](gamelift-regions.md), *Amazon GameLift Servers Developer Guide*
++ [CreateFleet](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateFleet.html), *Amazon GameLift Servers API Reference*
++ [CreateContainerFleet](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateContainerFleet.html), *Amazon GameLift Servers API Reference*
 
-- [Amazon GameLift Servers Instance Pricing](https://aws.amazon.com/gamelift/pricing/instance-pricing/ "https://aws.amazon.com/gamelift/pricing/instance-pricing/")
-- [Amazon EC2 instance types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/")
-- [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md"), _Amazon GameLift Servers Developer Guide_
-- [CreateFleet](../apireference/API_CreateFleet.md "../apireference/API_CreateFleet.md"), _Amazon GameLift Servers API Reference_
-- [CreateContainerFleet](../apireference/API_CreateContainerFleet.md "../apireference/API_CreateContainerFleet.md"), _Amazon GameLift Servers API Reference_
+### August 4, 2026: Amazon GameLift Servers plugin for Unreal supports Unreal Engine 5.8
+<a name="release-notes-08042026"></a>
++ [Plugin for Unreal](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal) on the GitHub website, version 3.4.0 (includes the server SDK for Unreal, version 5.6.0)
++ [Client SDK for Unreal](https://github.com/amazon-gamelift-for-unreal/amazon-gamelift-servers-client-sdk-for-unreal) on the GitHub website, version 1.0.1. To access this SDK, you must be a member of the Epic Games organization on GitHub. For details, see [Unreal Engine on GitHub](https://www.unrealengine.com/en-US/ue-on-github) on the Unreal Engine website.
 
-###### Updated plugin and SDK versions
+These versions include the following updates:
++ The plugin, server SDK, and client SDK now support Unreal Engine 5.8.
++ The server SDK logs stream through the Unreal Engine logging system by default, so they appear in your game server logs automatically.
++ The server SDK for Unreal Engine can now compile in non-unity mode with precompiled headers (PCH) files disabled.
 
-- [Plugin for
-  Unreal](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal") on the GitHub website, version 3.4.0 (includes the server SDK for Unreal,
-  version 5.6.0)
-- [Client SDK
-  for Unreal](https://github.com/amazon-gamelift-for-unreal/amazon-gamelift-servers-client-sdk-for-unreal "https://github.com/amazon-gamelift-for-unreal/amazon-gamelift-servers-client-sdk-for-unreal") on the GitHub website, version 1.0.1. To access this SDK, you must be a member of the Epic Games
-  organization on GitHub. For details, see [Unreal
-  Engine on GitHub](https://www.unrealengine.com/en-US/ue-on-github "https://www.unrealengine.com/en-US/ue-on-github") on the Unreal Engine website.
-  These versions include the following updates:
+C\+\+ server SDK, version 5.6.0
++ New custom logging capability. You can now route the server SDK's log output to a custom logging callback by calling the new `InitCustomLogger()` action—for example, to integrate the server SDK logs with your game server's own logging system.
 
-- The plugin, server SDK, and client SDK now support Unreal Engine 5.8.
-- The server SDK logs stream through the Unreal Engine logging system by default, so they appear in your game server logs automatically.
-- The server SDK for Unreal Engine can now compile in non-unity mode with precompiled headers (PCH) files disabled.
+Learn more:
++ [Integrating games with the Amazon GameLift Servers plugin for Unreal Engine](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/unreal-plugin.html), *Amazon GameLift Servers Developer Guide* 
++ [Integrating Amazon GameLift Servers with an Unreal Engine project](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/integration-engines-setup-unreal.html), *Amazon GameLift Servers Developer Guide*
 
-###### Updated C++ server SDK
+### June 30, 2026: Amazon GameLift Servers releases C\# and Unity client SDKs for game clients
+<a name="release-notes-06302026"></a>
 
-C++ server SDK, version 5.6.0
+Amazon GameLift Servers now provides client SDKs for C\# and Unity that integrate game clients with player gateway and UDP ping beacons.
 
-- New custom logging capability. You can now route the server SDK's
-  log output to a custom logging callback by calling the new
-  `InitCustomLogger()` action—for example, to
-  integrate the server SDK logs with your game server's own logging
-  system.
-  Learn more:
+****Learn more:****
++ [DDoS protection with Amazon GameLift Servers](ddos-protection-intro.md), *Amazon GameLift Servers Developer Guide*
++ [Integrate player gateway into a game](ddos-protection-integrate.md), *Amazon GameLift Servers Developer Guide*
++ [Client SDK for C\#](https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-csharp)
++ [Client SDK for Unity](https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-unity)
 
-- [Integrating
-  games with the Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md "unreal-plugin.md"), _Amazon GameLift Servers Developer
-  Guide_
-- [Integrating
-  Amazon GameLift Servers with an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md"), _Amazon GameLift Servers Developer Guide_
-  Amazon GameLift Servers now provides client SDKs for C# and Unity that integrate game clients
-  with player gateway and UDP ping beacons.
+### June 18, 2026: Amazon GameLift Servers container fleet improvements: Linux capabilities and network discovery
+<a name="release-notes-06182026"></a>
 
-###### **Learn more:**
-
-- [DDoS protection with Amazon GameLift Servers](ddos-protection-intro.md "ddos-protection-intro.md"), _Amazon GameLift Servers Developer Guide_
-- [Integrate player gateway into a game](ddos-protection-integrate.md "ddos-protection-integrate.md"), _Amazon GameLift Servers Developer Guide_
-- [Client SDK for C#](https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-csharp "https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-csharp")
-- [Client SDK for Unity](https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-unity "https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-unity")
-  This release adds two improvements for container fleets: support for
-  customizing Linux capabilities for containers, and a new server SDK action for
-  discovering container network information.
+This release adds two improvements for container fleets: support for customizing Linux capabilities for containers, and a new server SDK action for discovering container network information.
 
 **Customize Linux capabilities**
 
-You can now specify additional Linux capabilities in a container group
-definition, giving you finer control over the default Docker capabilities. This
-is useful for game server or support containers that require capabilities beyond
-the default set, such as `NET_RAW` for custom networking or
-`SYS_PTRACE` for debugging. You can add Linux capabilities when you
-create a container group definition with
-`CreateContainerGroupDefinition`, or update an existing one with
-`UpdateContainerGroupDefinition`. This feature is available through
-the Amazon GameLift Servers console, AWS CLI, AWS SDK, and AWS CloudFormation.
+You can now specify additional Linux capabilities in a container group definition, giving you finer control over the default Docker capabilities. This is useful for game server or support containers that require capabilities beyond the default set, such as `NET_RAW` for custom networking or `SYS_PTRACE` for debugging. You can add Linux capabilities when you create a container group definition with `CreateContainerGroupDefinition`, or update an existing one with `UpdateContainerGroupDefinition`. This feature is available through the Amazon GameLift Servers console, AWS CLI, AWS SDK, and AWS CloudFormation.
 
 **Discover container network information**
 
-Game servers running on container fleets can now call the new
-`ListContainersNetworkInfo()` server SDK action to retrieve network
-information (including the name, ID, local IP address, and container
-group type) for all containers running on the same instance. With this
-information, containers can discover one another and establish network
-communication across different container group definitions on the same
-instance. For example, a container in the game server container group can now
-emit metrics to a container in the per-instance container group over the
-instance's local network. This action is available in the Amazon GameLift Servers server SDK 5.5
-or later for Go, C++, and C#, and in the Amazon GameLift Servers plugins for Unreal Engine and
-Unity.
+Game servers running on container fleets can now call the new `ListContainersNetworkInfo()` server SDK action to retrieve network information (including the name, ID, local IP address, and container group type) for all containers running on the same instance. With this information, containers can discover one another and establish network communication across different container group definitions on the same instance. For example, a container in the game server container group can now emit metrics to a container in the per-instance container group over the instance's local network. This action is available in the Amazon GameLift Servers server SDK 5.5 or later for Go, C\+\+, and C\#, and in the Amazon GameLift Servers plugins for Unreal Engine and Unity.
 
-###### **Learn more:**
+****Learn more:****
++ [CreateContainerGroupDefinition](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateContainerGroupDefinition.html), *Amazon GameLift Servers API Reference*
++ [UpdateContainerGroupDefinition](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_UpdateContainerGroupDefinition.html), *Amazon GameLift Servers API Reference*
++ [Discover containers on a container fleet](containers-discovery.md), *Amazon GameLift Servers Developer Guide*
++ [Go server SDK for Amazon GameLift Servers -- Actions](integration-server-sdk-go-actions.md), *Amazon GameLift Servers Developer Guide*
++ [C\# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md), *Amazon GameLift Servers Developer Guide*
++ [C\+\+ server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-cpp-actions.md), *Amazon GameLift Servers Developer Guide*
++ [C\+\+ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md), *Amazon GameLift Servers Developer Guide*
 
-- [CreateContainerGroupDefinition](../apireference/API_CreateContainerGroupDefinition.md "../apireference/API_CreateContainerGroupDefinition.md"), _Amazon GameLift Servers API Reference_
-- [UpdateContainerGroupDefinition](../apireference/API_UpdateContainerGroupDefinition.md "../apireference/API_UpdateContainerGroupDefinition.md"), _Amazon GameLift Servers API Reference_
-- [Discover containers on a container fleet](containers-discovery.md "containers-discovery.md"), _Amazon GameLift Servers Developer Guide_
-- [Go server SDK for Amazon GameLift Servers -- Actions](integration-server-sdk-go-actions.md "integration-server-sdk-go-actions.md"), _Amazon GameLift Servers Developer Guide_
-- [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md"), _Amazon GameLift Servers Developer Guide_
-- [C++ server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md"), _Amazon GameLift Servers Developer Guide_
-- [C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md"), _Amazon GameLift Servers Developer Guide_
-  Starting today, Amazon GameLift Servers provides network bandwidth in and out of AWS at no
-  additional charge for all instance types from generation 6 and later, including
-  On-Demand and Spot, with no commitment required. You now pay only for your Amazon GameLift Servers
-  instance hours; all network bandwidth is free.
+### June 15, 2026: Amazon GameLift Servers introduces free network bandwidth
+<a name="release-notes-06152026"></a>
 
-Multiplayer game servers generate continuous network traffic to connected
-players, making bandwidth one of the most unpredictable cost components for game
-studio customers. With free network bandwidth included, Amazon GameLift Servers eliminates this
-cost, giving you the simplicity of bare-metal hosting with the global reach of
-AWS.
+Starting today, Amazon GameLift Servers provides network bandwidth in and out of AWS at no additional charge for all instance types from generation 6 and later, including On-Demand and Spot, with no commitment required. You now pay only for your Amazon GameLift Servers instance hours; all network bandwidth is free.
 
-Free network bandwidth applies with no enrollment, pricing agreement, or
-configuration change required. Existing customers on eligible fleets receive the
-benefit immediately.
+Multiplayer game servers generate continuous network traffic to connected players, making bandwidth one of the most unpredictable cost components for game studio customers. With free network bandwidth included, Amazon GameLift Servers eliminates this cost, giving you the simplicity of bare-metal hosting with the global reach of AWS.
 
-Amazon GameLift Servers has launched a new public API for container fleets,
-`DescribeContainerGroupPortMappings`. This operation retrieves the
-port mappings for all containers in a container group, listing how each
-container port maps to a connection port on the fleet instance. It supports
-retrieving port mappings for both game server and per-instance container
-groups.
+Free network bandwidth applies with no enrollment, pricing agreement, or configuration change required. Existing customers on eligible fleets receive the benefit immediately.
 
-This new feature addresses the need to discover port mappings for containers
-beyond the game server port. Previously, customers were required to remotely
-access their compute to retrieve all other port mappings. The new API is
-available through the Amazon GameLift Servers console, AWS CLI, and AWS SDK.
+### April 29, 2026: Amazon GameLift Servers adds new support for viewing container port mappings
+<a name="release-notes-04292026"></a>
 
-###### **Learn more:**
+Amazon GameLift Servers has launched a new public API for container fleets, `DescribeContainerGroupPortMappings`. This operation retrieves the port mappings for all containers in a container group, listing how each container port maps to a connection port on the fleet instance. It supports retrieving port mappings for both game server and per-instance container groups.
 
-- [View container port mappings](containers-remote-access.md#containers-remote-access-port-mappings "containers-remote-access.md#containers-remote-access-port-mappings"), _Amazon GameLift Servers Developer Guide_
-- [DescribeContainerGroupPortMappings](../apireference/API_DescribeContainerGroupPortMappings.md "../apireference/API_DescribeContainerGroupPortMappings.md"), _Amazon GameLift Servers API Reference_
-  This release makes it simpler to onboard games and integrate with Amazon GameLift Servers, based on customer
-  feedback. These updates help customers get started and manage game sessions within fleets more easily.
+This new feature addresses the need to discover port mappings for containers beyond the game server port. Previously, customers were required to remotely access their compute to retrieve all other port mappings. The new API is available through the Amazon GameLift Servers console, AWS CLI, and AWS SDK.
 
-Amazon GameLift Servers now returns a `ComputeName` field in game session API
-responses. You can use this field to identify which compute is hosting a game
-session, without cross-referencing IP addresses. This field is available
-for managed EC2 fleets, managed container fleets,
-and Anywhere fleets. The `ComputeName` and
-`GameSessionLocation` fields are also now included in [PlacementFulfilled](queue-events.md#queue-events-placementfulfilled "queue-events.md#queue-events-placementfulfilled") and [MatchmakingSucceeded](../flexmatchguide/match-events-matchmakingsucceeded.md "../flexmatchguide/match-events-matchmakingsucceeded.md") events.
+****Learn more:****
++ [View container port mappings](containers-remote-access.md#containers-remote-access-port-mappings), *Amazon GameLift Servers Developer Guide*
++ [DescribeContainerGroupPortMappings](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_DescribeContainerGroupPortMappings.html), *Amazon GameLift Servers API Reference*
+
+### April 2, 2026: Amazon GameLift Servers adds compute name to game session data, new event fields, and console improvements
+<a name="release-notes-04022026"></a>
+
+This release makes it simpler to onboard games and integrate with Amazon GameLift Servers, based on customer feedback. These updates help customers get started and manage game sessions within fleets more easily.
+
+Amazon GameLift Servers now returns a `ComputeName` field in game session API responses. You can use this field to identify which compute is hosting a game session, without cross-referencing IP addresses. This field is available for managed EC2 fleets, managed container fleets, and Anywhere fleets. The `ComputeName` and `GameSessionLocation` fields are also now included in [PlacementFulfilled](queue-events.md#queue-events-placementfulfilled) and [MatchmakingSucceeded](https://docs.aws.amazon.com/gameliftservers/latest/flexmatchguide/match-events-matchmakingsucceeded.html) events.
 
 Amazon GameLift Servers API Reference links:
++  [GameSession](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_GameSession.html)
 
-- [GameSession](../apireference/API_GameSession.md "../apireference/API_GameSession.md")
-  This release also includes several Amazon GameLift Servers console improvements. With
-  these updates, you can now:
+This release also includes several Amazon GameLift Servers console improvements. With these updates, you can now:
++ **Upload builds directly** – In addition to the Amazon S3 import method, you can select a build file and upload it directly to Amazon GameLift Servers from the console.
++ **Clone fleet configurations** – Clone an existing managed EC2 fleet configuration to create a new fleet.
++ **Connect to instances and containers** – Use SSM to connect directly from game session, player session, and compute details pages, including new access commands for containers.
++ **View compute and instance data** – Game session tables now display `ComputeName` and `InstanceId` columns for managed EC2 and container fleets.
++ **View container fleet compute details** – Container fleets now include compute tables and compute detail views.
++ **View game session log locations** – The game session details page now displays Amazon S3 URIs and Amazon CloudWatch log group ARNs for container fleets.
++ **Refresh data** – Refresh buttons are now available on all list pages and detail views.
 
-- **Upload builds directly**
-  – In addition to the Amazon S3 import method, you can select a build
-  file and upload it directly to Amazon GameLift Servers from the
-  console.
-- **Clone fleet configurations**
-  – Clone an existing managed EC2 fleet configuration to create a
-  new fleet.
-- **Connect to instances and
-  containers** – Use SSM to connect directly from game
-  session, player session, and compute details pages, including new access
-  commands for containers.
-- **View compute and instance
-  data** – Game session tables now display
-  `ComputeName` and `InstanceId` columns for
-  managed EC2 and container fleets.
-- **View container fleet compute
-  details** – Container fleets now include compute tables
-  and compute detail views.
-- **View game session log
-  locations** – The game session details page now displays
-  Amazon S3 URIs and Amazon CloudWatch log group ARNs for container
-  fleets.
-- **Refresh data** – Refresh
-  buttons are now available on all list pages and detail
-  views.
+****Learn more:****
++ [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift)
++ [PlacementFulfilled](queue-events.md#queue-events-placementfulfilled), *Amazon GameLift Servers Developer Guide*
++ [MatchmakingSucceeded](https://docs.aws.amazon.com/gameliftservers/latest/flexmatchguide/match-events-matchmakingsucceeded.html), *Amazon GameLift Servers FlexMatch Developer Guide*
++ [Connecting to a container fleet instance](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/containers-remote-access.html), *Amazon GameLift Servers Developer Guide*
 
-###### **Learn more:**
+### March 27, 2026: Amazon GameLift Servers now supports next-generation EC2 instances in additional AWS Regions
+<a name="release-notes-03272026"></a>
 
-- [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift "https://console.aws.amazon.com/gamelift")
-- [PlacementFulfilled](queue-events.md#queue-events-placementfulfilled "queue-events.md#queue-events-placementfulfilled"),
-  _Amazon GameLift Servers Developer Guide_
-- [MatchmakingSucceeded](../flexmatchguide/match-events-matchmakingsucceeded.md "../flexmatchguide/match-events-matchmakingsucceeded.md"),
-  _Amazon GameLift Servers FlexMatch Developer Guide_
-- [Connecting to a container fleet instance](containers-remote-access.md "containers-remote-access.md"),
-  _Amazon GameLift Servers Developer Guide_
-  Amazon GameLift Servers now supports its existing selection of Amazon EC2 instances in additional
-  AWS Regions, giving you more flexibility to host game servers closer to your
-  players. This expansion covers instances across the following families:
+Amazon GameLift Servers now supports its existing selection of Amazon EC2 instances in additional AWS Regions, giving you more flexibility to host game servers closer to your players. This expansion covers instances across the following families:
++ [General purpose](https://aws.amazon.com/ec2/instance-types/#General_Purpose) (M-series)
++ [Compute optimized](https://aws.amazon.com/ec2/instance-types/#Compute_Optimized) (C-series)
++ [Memory optimized](https://aws.amazon.com/ec2/instance-types/#Memory_Optimized) (R-series)
 
-- [General purpose](https://aws.amazon.com/ec2/instance-types/#General_Purpose "https://aws.amazon.com/ec2/instance-types/#General_Purpose") (M-series)
-- [Compute optimized](https://aws.amazon.com/ec2/instance-types/#Compute_Optimized "https://aws.amazon.com/ec2/instance-types/#Compute_Optimized") (C-series)
-- [Memory optimized](https://aws.amazon.com/ec2/instance-types/#Memory_Optimized "https://aws.amazon.com/ec2/instance-types/#Memory_Optimized") (R-series)
-  These instance types are now available for use with Amazon GameLift Servers managed EC2 fleets
-  and managed container fleets. No changes to your fleet configuration are
-  required – simply deploy fleets in the newly supported Regions using the
-  same instance types and settings you use today. They are available in all
-  AWS Regions that are supported by Amazon GameLift Servers, with the exception of the AWS China
-  Regions.
+These instance types are now available for use with Amazon GameLift Servers managed EC2 fleets and managed container fleets. No changes to your fleet configuration are required – simply deploy fleets in the newly supported Regions using the same instance types and settings you use today. They are available in all AWS Regions that are supported by Amazon GameLift Servers, with the exception of the AWS China Regions.
 
-###### **Learn more:**
+****Learn more:****
++ [Amazon GameLift Servers Instance Pricing](https://aws.amazon.com/gamelift/pricing/instance-pricing/)
++ [Amazon GameLift Servers service locations](gamelift-regions.md), *Amazon GameLift Servers Developer Guide*
++ [CreateFleet](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateFleet.html), *Amazon GameLift Servers API Reference*
++ [CreateContainerFleet](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateContainerFleet.html), *Amazon GameLift Servers API Reference*
 
-- [Amazon GameLift Servers Instance Pricing](https://aws.amazon.com/gamelift/pricing/instance-pricing/ "https://aws.amazon.com/gamelift/pricing/instance-pricing/")
-- [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md"), _Amazon GameLift Servers Developer Guide_
-- [CreateFleet](../apireference/API_CreateFleet.md "../apireference/API_CreateFleet.md"), _Amazon GameLift Servers API Reference_
-- [CreateContainerFleet](../apireference/API_CreateContainerFleet.md "../apireference/API_CreateContainerFleet.md"), _Amazon GameLift Servers API Reference_
-  Amazon GameLift Servers now offers distributed-denial-of-service (DDoS) protection for
-  Linux-based EC2 and Container Fleets on SDKv5. The player gateway proxy relay
-  network is co-located with your game server instances, providing traffic validation,
-  per-player rate limiting and game server IP address obfuscation all with negligible
-  added latency and no additional cost. This feature is initially available in the
-  following regions: US East (N. Virginia), US West (Oregon), Europe (Frankfurt),
-  Europe (Ireland), Asia Pacific (Sydney), Asia Pacific (Tokyo), Asia Pacific (Seoul).
-  For more information about service locations, see [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md").
+### March 4, 2026: Amazon GameLift Servers now offers DDoS protection for Linux-based EC2 and Container Fleets on SDKv5
+<a name="release-notes-03042026"></a>
 
-###### **Learn more:**
+Amazon GameLift Servers now offers distributed-denial-of-service (DDoS) protection for Linux-based EC2 and Container Fleets on SDKv5. The player gateway proxy relay network is co-located with your game server instances, providing traffic validation, per-player rate limiting and game server IP address obfuscation all with negligible added latency and no additional cost. This feature is initially available in the following regions: US East (N. Virginia), US West (Oregon), Europe (Frankfurt), Europe (Ireland), Asia Pacific (Sydney), Asia Pacific (Tokyo), Asia Pacific (Seoul). For more information about service locations, see [Amazon GameLift Servers service locations](gamelift-regions.md).
 
-- [Blog post: Introducing Amazon GameLift Servers DDoS protection](https://aws.amazon.com/blogs/gametech/introducing-amazon-gamelift-servers-ddos-protection/ "https://aws.amazon.com/blogs/gametech/introducing-amazon-gamelift-servers-ddos-protection/")
-- [DDoS protection with Amazon GameLift Servers](ddos-protection-intro.md "ddos-protection-intro.md"), _Amazon GameLift Servers Developer Guide_
-- [How player gateway works](ddos-protection-howitworks.md "ddos-protection-howitworks.md"), _Amazon GameLift Servers Developer Guide_
-- [Integrate player gateway into a game](ddos-protection-integrate.md "ddos-protection-integrate.md"), _Amazon GameLift Servers Developer Guide_
-- [Client SDK for C++](https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-cpp "https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-cpp")
-- [Client SDK for Unreal](https://github.com/amazon-gamelift-for-unreal/amazon-gamelift-servers-client-sdk-for-unreal "https://github.com/amazon-gamelift-for-unreal/amazon-gamelift-servers-client-sdk-for-unreal"). Access requires membership in the Epic Games
-  organization on GitHub. See [Unreal
-  Engine on GitHub](https://www.unrealengine.com/en-US/ue-on-github "https://www.unrealengine.com/en-US/ue-on-github") for details.
-  **Updated plugin versions:**
+****Learn more:****
++ [Blog post: Introducing Amazon GameLift Servers DDoS protection](https://aws.amazon.com/blogs/gametech/introducing-amazon-gamelift-servers-ddos-protection/)
++ [DDoS protection with Amazon GameLift Servers](ddos-protection-intro.md), *Amazon GameLift Servers Developer Guide*
++ [How player gateway works](ddos-protection-howitworks.md), *Amazon GameLift Servers Developer Guide*
++ [Integrate player gateway into a game](ddos-protection-integrate.md), *Amazon GameLift Servers Developer Guide*
++ [Client SDK for C\+\+](https://github.com/amazon-gamelift/amazon-gamelift-servers-client-sdk-for-cpp)
++ [Client SDK for Unreal](https://github.com/amazon-gamelift-for-unreal/amazon-gamelift-servers-client-sdk-for-unreal). Access requires membership in the Epic Games organization on GitHub. See [Unreal Engine on GitHub](https://www.unrealengine.com/en-US/ue-on-github) for details.
 
-- [Plugin for
-  Unity](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity"), version 3.2.1 (includes the server SDK for Unity,
-  version 5.4.0)
-- [Plugin for
-  Unreal](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal"), version 3.1.1 (includes the server SDK for Unreal,
-  version 5.4.0)
-  Amazon GameLift Servers releases new versions of the plugin and server SDK for Unreal Engine and Unity. These latest versions include the following updates:
+### February 24, 2026: Amazon GameLift Servers plugins now support Unity 6.3 and Unreal Engine 5.7
+<a name="release-notes-02242026"></a>
 
-- They now support use with Unreal Engine 5.7 and Unity 6.3.
+**Updated plugin versions:**
++ [Plugin for Unity](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity), version 3.2.1 (includes the server SDK for Unity, version 5.4.0)
++ [Plugin for Unreal](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal), version 3.1.1 (includes the server SDK for Unreal, version 5.4.0)
 
-###### **Learn more:**
+Amazon GameLift Servers releases new versions of the plugin and server SDK for Unreal Engine and Unity. These latest versions include the following updates: 
++ They now support use with Unreal Engine 5.7 and Unity 6.3. 
 
-- [Integrating
-  games with the Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md "unreal-plugin.md"), _Amazon GameLift Servers Developer
-  Guide_
-- [Integrate
-  Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md"), _Amazon GameLift Servers Developer Guide_
-- [Integrating
-  games with the Amazon GameLift Servers plugin for Unity](unity-plug-in.md "unity-plug-in.md"), _Amazon GameLift Servers Developer
-  Guide_
-- [Integrate
-  Amazon GameLift Servers into a Unity Engine project](integration-engines-unity-using.md "integration-engines-unity-using.md"), _Amazon GameLift Servers Developer Guide_
-  Amazon GameLift Servers now supports automatic scaling to and from zero instances based on game session activity.
-  Fleets scale down to zero following a defined period of no game session activity and scale up from
-  zero when game sessions are requested, providing an option for cost optimization.
+****Learn more:****
++ [Integrating games with the Amazon GameLift Servers plugin for Unreal Engine](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/unreal-plugin.html), *Amazon GameLift Servers Developer Guide* 
++ [Integrate Amazon GameLift Servers into an Unreal Engine project](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/integration-engines-setup-unreal.html), *Amazon GameLift Servers Developer Guide*
++ [Integrating games with the Amazon GameLift Servers plugin for Unity](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/unity-plug-in.html), *Amazon GameLift Servers Developer Guide* 
++ [Integrate Amazon GameLift Servers into a Unity Engine project](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/integration-engines-unity-using.html), *Amazon GameLift Servers Developer Guide*
+
+### January 29, 2026: Amazon GameLift Servers now supports scaling Fleets to/from zero instances
+<a name="release-notes-01292026"></a>
+
+Amazon GameLift Servers now supports automatic scaling to and from zero instances based on game session activity. Fleets scale down to zero following a defined period of no game session activity and scale up from zero when game sessions are requested, providing an option for cost optimization.
 
 Amazon GameLift Servers API Reference links:
++  [AWS SDK action `UpdateFleetCapacity`](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_UpdateFleetCapacity.html)
 
-- [AWS SDK
-  action `UpdateFleetCapacity`](../apireference/API_UpdateFleetCapacity.md "../apireference/API_UpdateFleetCapacity.md")
+****Learn more:****
++ [Manage Scaling an Amazon GameLift Servers Fleet To/From Zero](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/fleets_scale-to-from-zero.html)
 
-###### **Learn more:**
+### January 22, 2026: Amazon GameLift Servers Realtime now supports Node.js 24.x on Amazon Linux 2023
+<a name="release-notes-01222026"></a>
 
-- [Manage Scaling an Amazon GameLift Servers Fleet To/From Zero](fleets_scale-to-from-zero.md "fleets_scale-to-from-zero.md")
-  Amazon GameLift Servers Realtime now supports Node.js 24.x on Amazon Linux 2023. This update provides access to the latest Node.js features and security improvements while running on the modern Amazon Linux 2023 operating system.
+Amazon GameLift Servers Realtime now supports Node.js 24.x on Amazon Linux 2023. This update provides access to the latest Node.js features and security improvements while running on the modern Amazon Linux 2023 operating system.
 
 You can now also include an optional install script when creating a Realtime fleet, allowing the installation of software during instance startup for your specific requirements. To use the new runtime version, specify Node.js 24.x when creating Realtime scripts.
 
 Amazon GameLift Servers API Reference links:
++  [AWS SDK action `CreateScript`](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateScript.html)
 
-- [AWS SDK
-  action `CreateScript`](../apireference/API_CreateScript.md "../apireference/API_CreateScript.md")
+****Learn more:****
++ [Node.js runtime versions](https://docs.aws.amazon.com/gameliftservers/latest/realtimeguide/realtime-script.html#realtime-script-nodejs)
++ [Add an install script](https://docs.aws.amazon.com/gameliftservers/latest/realtimeguide/realtime-script-uploading.html)
 
-###### **Learn more:**
+### December 9, 2025: Amazon GameLift Servers now provides AI-powered assistance in the web console
+<a name="release-notes-12092025"></a>
 
-- [Node.js runtime versions](../realtimeguide/realtime-script.md#realtime-script-nodejs "../realtimeguide/realtime-script.md#realtime-script-nodejs")
-- [Add an install script](../realtimeguide/realtime-script-uploading.md "../realtimeguide/realtime-script-uploading.md")
-  Amazon GameLift Servers now provides AI-powered assistance in the web console, leveraging Amazon Q Developer to provide tailored guidance for game developers. This new feature integrates specialized Amazon GameLift Servers knowledge to help customers navigate complex workflows, troubleshoot issues, and optimize their game server deployments more efficiently.
+Amazon GameLift Servers now provides AI-powered assistance in the web console, leveraging Amazon Q Developer to provide tailored guidance for game developers. This new feature integrates specialized Amazon GameLift Servers knowledge to help customers navigate complex workflows, troubleshoot issues, and optimize their game server deployments more efficiently.
 
 This new feature provides AI-assisted recommendations for game server integration, fleet configuration, and performance optimization directly within the Amazon GameLift Servers console. This enhancement aims to streamline decision making processes, reduce troubleshooting time, and improve overall resource utilization, leading to cost savings and better player experiences.
 
-###### **Learn more:**
+****Learn more:****
++ [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift)
 
-- [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift "https://console.aws.amazon.com/gamelift")
-  Amazon GameLift Servers customers can now use the Windows Server 2022 operating system to host their game servers. Windows Server 2022 offers several improvements over Windows Server 2016 including security. This operating system is available in all AWS Regions with the exception of the China Regions.
+### November 6, 2025: Amazon GameLift Servers now supports game builds that use the Windows Server 2022 operating system
+<a name="release-notes-11062025"></a>
+
+Amazon GameLift Servers customers can now use the Windows Server 2022 operating system to host their game servers. Windows Server 2022 offers several improvements over Windows Server 2016 including security. This operating system is available in all AWS Regions with the exception of the China Regions.
 
 Customers can use the newer Windows operating systems and continue to receive critical security updates when support ends for Windows Server 2016 in January 2027. Support for Windows Server 2022 continues through October 13, 2031.
 
 Amazon GameLift Servers API Reference links:
++  [AWS SDK action `CreateBuild`](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateBuild.html)
++  [CLI command `upload-build`](https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html)
++  [CLI command `create-build`](https://docs.aws.amazon.com/cli/latest/reference/gamelift/create-build.html)
 
-- [AWS SDK
-  action `CreateBuild`](../apireference/API_CreateBuild.md "../apireference/API_CreateBuild.md")
-- [CLI command
-  `upload-build`](../../../cli/latest/reference/gamelift/upload-build.md "../../../cli/latest/reference/gamelift/upload-build.md")
-- [CLI command
-  `create-build`](../../../cli/latest/reference/gamelift/create-build.md "../../../cli/latest/reference/gamelift/create-build.md")
-  Amazon GameLift Servers now includes built-in OpenTelemetry (OTel) metrics collection in all server SDKs and plugins, providing standardized observability for game server performance monitoring. This integration brings industry-standard telemetry capabilities directly to your game servers, enabling comprehensive monitoring and troubleshooting without requiring additional instrumentation or configuration.
+### October 28, 2025: Amazon GameLift Servers adds OpenTelemetry (OTel) metrics collector to all server SDKs and plugins
+<a name="release-notes-10282025"></a>
+
+Amazon GameLift Servers now includes built-in OpenTelemetry (OTel) metrics collection in all server SDKs and plugins, providing standardized observability for game server performance monitoring. This integration brings industry-standard telemetry capabilities directly to your game servers, enabling comprehensive monitoring and troubleshooting without requiring additional instrumentation or configuration.
 
 With OpenTelemetry integration, you can now:
++ Automatically capture essential game server metrics, logs, and traces using standardized protocols
++ Integrate seamlessly with existing monitoring platforms and observability tools
++ Monitor game server performance and health in real-time across all fleet instances
++ Troubleshoot issues faster with telemetry data that works across different monitoring solutions
 
-- Automatically capture essential game server metrics, logs, and traces using standardized protocols
-- Integrate seamlessly with existing monitoring platforms and observability tools
-- Monitor game server performance and health in real-time across all fleet instances
-- Troubleshoot issues faster with telemetry data that works across different monitoring solutions
-  OpenTelemetry is an open-source observability framework that provides a standardized way to collect, process, and export telemetry data.
+OpenTelemetry is an open-source observability framework that provides a standardized way to collect, process, and export telemetry data. 
 
-###### **Learn more:**
+****Learn more:****
++ [Monitor with server telemetry metrics](monitoring-gamelift-servers-metrics.md), *Amazon GameLift Servers Developer Guide*
 
-- [Monitor with server telemetry metrics](monitoring-gamelift-servers-metrics.md "monitoring-gamelift-servers-metrics.md"), _Amazon GameLift Servers Developer Guide_
-  Amazon GameLift Servers now provides direct remote access to managed EC2 and container fleet instances through the Amazon GameLift Servers console, eliminating the need for authentication management. This new feature uses Amazon EC2 Systems Manager (SSM) to provide secure, browser-based terminal access without requiring additional setup or credential management.
+### October 2, 2025: Amazon GameLift Servers adds console-based remote access to fleet instances
+<a name="release-notes-10022025"></a>
+
+Amazon GameLift Servers now provides direct remote access to managed EC2 and container fleet instances through the Amazon GameLift Servers console, eliminating the need for authentication management. This new feature uses Amazon EC2 Systems Manager (SSM) to provide secure, browser-based terminal access without requiring additional setup or credential management.
 
 With console-based remote access, you can now:
++ Troubleshoot game server integration issues in real-time
++ Monitor game server activity and access log files during active game sessions
++ Run diagnostics and benchmarking tools using actual player traffic
 
-- Troubleshoot game server integration issues in real-time
-- Monitor game server activity and access log files during active game sessions
-- Run diagnostics and benchmarking tools using actual player traffic
-  This feature is available for fleets running server SDK version 5.x. For fleets running earlier SDK versions, you can continue to use the existing AWS CLI method for remote access.
+This feature is available for fleets running server SDK version 5.x. For fleets running earlier SDK versions, you can continue to use the existing AWS CLI method for remote access.
 
 To remotely connect to a fleet instance, open the Amazon GameLift Servers console and find the managed EC2 or container fleet you want to access. In the fleet's details, open the **Instances** tab, select an instance from the list, and choose **Connect**.
 
-###### **Learn more:**
+****Learn more:****
++ [Connect to fleet instances](fleets-remote-access.md), *Amazon GameLift Servers Developer Guide*
 
-- [Connect to fleet instances](fleets-remote-access.md "fleets-remote-access.md"), _Amazon GameLift Servers Developer Guide_
-  With Amazon GameLift Servers managed hosting, you can now deploy game server resources in a new
-  Dallas, TX, Local Zone (`us-east-1-dfw-2`). Local Zones give you the ability to
-  place your game servers geographically closer to your players to reduce latency
-  and significantly improve gameplay. In this new Local Zone, you can use the following
-  EC2 instance types: C6gn, C6i, C6in, M6g, M6i, M6in, M8g, and R6i. For detailed
-  descriptions of each instance type, see [AWS EC2 instance types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
+### September 23, 2025: Amazon GameLift Servers adds support for new Local Zone in Dallas, Texas
+<a name="release-notes-09232025"></a>
 
-To start hosting game sessions in the new Dallas Local Zone, first opt in to the Local Zone for your
-AWS account. Then you can add it
-as a remote location to a new or existing multi-location fleet. If
-your game uses Amazon GameLift Servers FlexMatch, update any of the fleets in your matchmaking queue to include
-the new Local Zone. With multi-location fleets, you can directly manage hosting
-capacity in each location.
+With Amazon GameLift Servers managed hosting, you can now deploy game server resources in a new Dallas, TX, Local Zone (`us-east-1-dfw-2`). Local Zones give you the ability to place your game servers geographically closer to your players to reduce latency and significantly improve gameplay. In this new Local Zone, you can use the following EC2 instance types: C6gn, C6i, C6in, M6g, M6i, M6in, M8g, and R6i. For detailed descriptions of each instance type, see [AWS EC2 instance types](https://aws.amazon.com/ec2/instance-types/).
 
-The parent AWS Region for the new Dallas, TX, Local Zone is
-`us-east-1` (Virginia). The original Dallas, TX, Local Zone
-(`us-east-1-dfw-1`) is no longer accepting new opt-in
-requests.
+To start hosting game sessions in the new Dallas Local Zone, first opt in to the Local Zone for your AWS account. Then you can add it as a remote location to a new or existing multi-location fleet. If your game uses Amazon GameLift Servers FlexMatch, update any of the fleets in your matchmaking queue to include the new Local Zone. With multi-location fleets, you can directly manage hosting capacity in each location. 
 
-###### **Learn more:**
+The parent AWS Region for the new Dallas, TX, Local Zone is `us-east-1` (Virginia). The original Dallas, TX, Local Zone (`us-east-1-dfw-1`) is no longer accepting new opt-in requests.
 
-- [Getting started
-  with AWS Local Zones](../../../local-zones/latest/ug/getting-started.md "../../../local-zones/latest/ug/getting-started.md"), _AWS Local Zones User
-  Guide_
-- [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md"), _Amazon GameLift Servers Developer
-  Guide_
-- [Update fleet locations](fleets-update-locations.md "fleets-update-locations.md"),
-  _Amazon GameLift Servers Developer Guide_
-  **Updated plugin version:**
+****Learn more:****
++ [Getting started with AWS Local Zones](https://docs.aws.amazon.com/local-zones/latest/ug/getting-started.html), *AWS Local Zones User Guide*
++ [Amazon GameLift Servers service locations](gamelift-regions.md), *Amazon GameLift Servers Developer Guide* 
++ [Update fleet locations](fleets-update-locations.md), *Amazon GameLift Servers Developer Guide* 
 
-- [Plugin for
-  Unreal](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal"), version 3.0.1 (includes the server SDK for Unreal,
-  version 5.3.1)
-  Amazon GameLift Servers releases new versions of the plugin for Unreal Engine and the server SDK for Unreal Engine. These latest versions include the following updates:
+### August 12, 2025: Amazon GameLift Servers plugin for Unreal Engine now supports UE version 5.6
+<a name="release-notes-08122025"></a>
 
-- They now support use with Unreal Engine 5.6.
-- Compilation issues when packaging Android client targets are resolved.
+**Updated plugin version:**
++ [Plugin for Unreal](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal), version 3.0.1 (includes the server SDK for Unreal, version 5.3.1)
 
-###### **Learn more:**
+Amazon GameLift Servers releases new versions of the plugin for Unreal Engine and the server SDK for Unreal Engine. These latest versions include the following updates: 
++ They now support use with Unreal Engine 5.6. 
++ Compilation issues when packaging Android client targets are resolved.
 
-- [Integrating
-  games with the Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md "unreal-plugin.md"), _Amazon GameLift Servers Developer
-  Guide_
-- [Integrate
-  Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md"), _Amazon GameLift Servers Developer Guide_
-  **Updated SDK versions:**
+****Learn more:****
++ [Integrating games with the Amazon GameLift Servers plugin for Unreal Engine](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/unreal-plugin.html), *Amazon GameLift Servers Developer Guide* 
++ [Integrate Amazon GameLift Servers into an Unreal Engine project](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/integration-engines-setup-unreal.html), *Amazon GameLift Servers Developer Guide*
 
-- AWS SDK 1.11.595
-  Amazon GameLift Servers releases for general availability a set of fixed endpoints called UDP
-  ping beacons to help you accurately measure latency between player devices and
-  game server locations. The UDP ping beacon endpoints are available in all AWS
-  Global Regions and Local Zones supported by Amazon GameLift Servers, with the exception of the
-  AWS China Regions.
-
-Most multiplayer games use UDP (User Datagram Protocol) as their primary
-packet transmission protocol due to its performance benefits for real-time
-gaming. Understanding and optimizing network latency is crucial for delivering
-the best possible player experience. UDP ping beacons provide a consistent and
-reliable way to measure actual UDP packet latency between players and game
-servers, helping you make better decisions about player-to-server matching and
-game session placement.
-
-The [ListLocations](../apireference/API_ListLocations.md "../apireference/API_ListLocations.md") API has been extended to include endpoint domain and
-port information as part of the list of locations it returns, making it easy to
-programmatically access the endpoints.
-
-Your game client can send UDP messages to these endpoints and receive
-asynchronous responses with the same data, giving you latency measurements that
-better represent actual game traffic conditions between a player's device and
-potential hosting locations. These endpoints are permanent and remain available
-as long as Amazon GameLift Servers supports game hosting in that location.
-
-**Learn more:**
-
-- [UDP ping beacons](reference-udp-ping-beacons.md "reference-udp-ping-beacons.md"), _Amazon GameLift Servers Developer Guide_
-- [ListLocations](../apireference/API_ListLocations.md "../apireference/API_ListLocations.md"), _Amazon GameLift Servers API Reference_
-  With Amazon GameLift Servers managed hosting, you can now deploy game server resources in
-  Bangkok, Thailand, and Kuala Lumpur, Malaysia, extending the reach of your games
-  to players throughout Southeast Asia. These new Regions help reduce latency and
-  improve gameplay experience for players in those areas.
-
-The following AWS Regions are available as remote locations for
-multi-location fleets. To begin hosting game sessions in these locations, add
-them as remote locations to a new or existing multi-location fleet. With
-multi-location fleets, you can directly manage hosting capacity in each
-location.
-
-- Asia Pacific (Thailand) (`ap-southeast-7`)
-- Asia Pacific (Malaysia) (`ap-southeast-5`)
-  These AWS Regions are not enabled by default for an AWS account. You must
-  opt in to each Region before you can deploy Amazon GameLift Servers resources there.
-
-###### **Learn more:**
-
-- [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md"),
-  _Amazon GameLift Servers Hosting Developer Guide_
-- [Update fleet locations](fleets-update-locations.md "fleets-update-locations.md"), _Amazon GameLift Servers Hosting
-  Developer Guide_
-- [Enable or
-  disable AWS Regions in your account](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md"), _AWS
-  Account Management Reference Guide_.
-  **Updated SDK versions:**
-
-- [C++ server SDK](https://github.com/amazon-gamelift/amazon-gamelift-servers-cpp-server-sdk "https://github.com/amazon-gamelift/amazon-gamelift-servers-cpp-server-sdk"), version 5.3.0
-- [C# server SDK](https://github.com/amazon-gamelift/amazon-gamelift-servers-csharp-server-sdk "https://github.com/amazon-gamelift/amazon-gamelift-servers-csharp-server-sdk"), version 5.3.0
-- [Go server SDK](https://github.com/amazon-gamelift/amazon-gamelift-servers-go-server-sdk "https://github.com/amazon-gamelift/amazon-gamelift-servers-go-server-sdk"), version 5.3.0
-- [Server SDK for Unreal](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal"), version 5.3.0
-- [Server SDK for Unity](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity"), version 5.3.0
-  **Updated plugin versions:**
-
-- [Plugin for Unreal](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal"), version 3.0.0
-- [Plugin for Unity](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity"), version 3.1.0
-  New versions of the server SDK for C++, C#, Go, Unreal and Unity, as well as
-  new plugin versions for Unreal Engine and Unity, are now open source. They are
-  all available in the [Amazon GameLift Servers
-  GitHub organization](https://github.com/amazon-gamelift "https://github.com/amazon-gamelift"). For detailed update information, see the
-  release notes and readmes in each repository.
-
-**Key server SDK updates:**
-
-- Improved client-side validation and error responses in all server SDKs.
-- The [OnProcessTerminate](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-process "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-process")
-  callback function now has default logic to end the game server
-  process.
-- The function [InitSDK()](integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-initsdk "integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-initsdk") now uses an idempotency token to support multiple retries.
-- The [OnUpdateGameSession](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-process "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-process") callback can now pass data for autoBackfillMode.
-  **Key plugin updates:**
-
-- The plugin for Unreal Engine now has a more streamlined install and setup process, with more
-  automation and fewer prerequisites (CMake, OpenSSL, and the Unreal
-  cross-compile tool chain).
-- The plugin for Unreal Engine has improved UI experience
-  for the Managed EC2 workflow, including support for spaces in the game
-  client and server build paths. In addition, you can now add command-line
-  arguments when launching a game client from the Editor.
-- The plugin for Unreal Engine now supports ARM server builds in UE5.
-  **Learn more:**
-
-- [Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md "unreal-plugin.md"), _Amazon GameLift Servers Developer Guide_
-- [Amazon GameLift Servers plugin for Unity (server SDK 5.x)](unity-plug-in.md "unity-plug-in.md"), _Amazon GameLift Servers Developer Guide_
-- [Server SDK 5.x for Amazon GameLift Servers](reference-serversdk.md "reference-serversdk.md"), _Amazon GameLift Servers Developer Guide_
-- [Integrate Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md"), _Amazon GameLift Servers Developer Guide_
-- [Integrate Amazon GameLift Servers into a Unity project](integration-engines-unity-using.md "integration-engines-unity-using.md"), _Amazon GameLift Servers Developer Guide_
-  **Updated SDK versions:**
-
-- C# Server SDK, version 5.2.1
-  For game developers using C#, you can now use .NET 8 as a target framework for
-  your Amazon GameLift Servers projects. With .NET 8, you can take advantage of performance
-  improvements, including improved just-in-time (JIT) compilation, memory usage
-  optimization, and faster startup times. If you're currently using .NET 6, we
-  recommend that you plan a migration to .NET 8, including updating your C# server
-  SDK to the latest version. Microsoft announced .NET 8 support, with security
-  patches and technical updates, through November 2026.
-
-**[Download the latest
-version of the C# server SDK for Amazon GameLift Servers](https://aws.amazon.com/gamelift/servers/getting-started/#custom "https://aws.amazon.com/gamelift/servers/getting-started/#custom")**
-
-**Learn more:**
-
-- [Get Amazon GameLift Servers development tools](gamelift-supported.md "gamelift-supported.md"), _Amazon GameLift Servers Developer Guide_
-  **Updated SDK versions:**
-
-- AWS SDK 1.11.535
-  You can now fine-tune your game server hosting with Amazon GameLift Servers by selecting from a
-  larger selection of Amazon EC2 instances across the 5th through 8th generation
-  instance families. Each new EC2 generation offers advancements in EC2 compute,
-  memory and networking, with the 8th generation instances delivering cutting-edge
-  AWS Graviton4 and Intel Xeon-based instances. Next generation instances are
-  available in the following instance families:
-
-- [General purpose](https://aws.amazon.com/ec2/instance-types/#General_Purpose "https://aws.amazon.com/ec2/instance-types/#General_Purpose") (M-series)
-- [Compute optimized](https://aws.amazon.com/ec2/instance-types/#Compute_Optimized "https://aws.amazon.com/ec2/instance-types/#Compute_Optimized") (C-series)
-- [Memory optimized](https://aws.amazon.com/ec2/instance-types/#Memory_Optimized "https://aws.amazon.com/ec2/instance-types/#Memory_Optimized") (R-series)
-  You can also choose variants that offer local storage (d), enhanced
-  networking (n), and specific processor architectures (Intel/AMD/Graviton
-  – i/a/g). The next-generation instances are available in all
-  AWS Regions that are supported by Amazon GameLift Servers, with the exception of the AWS China
-  Regions. For more details, see [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md").
-
-Use these new instance types with Amazon GameLift Servers managed EC2 fleets and managed
-container fleets. When switching your existing game hosting to a new instance
-type (same architecture), simply deploy new fleets with all configuration
-settings unchanged except the instance type.
-
-**Learn more:**
-
-- [Amazon GameLift Servers Instance Pricing](https://aws.amazon.com/gamelift/pricing/instance-pricing/ "https://aws.amazon.com/gamelift/pricing/instance-pricing/")
-- [CreateFleet](../apireference/API_CreateFleet.md "../apireference/API_CreateFleet.md")
-  _Amazon GameLift Servers API Reference_
-- [CreateContainerFleet](../apireference/API_CreateContainerFleet.md "../apireference/API_CreateContainerFleet.md"),
-  _Amazon GameLift Servers API Reference_
-  The new game server wrapper for Amazon GameLift Servers significantly reduces the time required
-  to get a game server hosted on Amazon GameLift Servers. With no code changes required, you can use
-  the wrapper to add basic game session management functionality to your game and
-  deploy it to an Amazon GameLift Servers Anywhere fleet, managed EC2 fleet, or managed container
-  fleet. This tool is ideal for doing a hands-on evaluation of Amazon GameLift Servers features,
-  using your own game server or one from a sample game. It is also useful for
-  quickly deploying game server iterations, such as for rapid prototyping or
-  testing.
-
-With the basic game session management features, your game server can
-initialize a connection with the Amazon GameLift Servers service, respond to prompts to start and
-stop game sessions, and shut down when a game session is complete.
-
-**[Download the game server wrapper from GitHub.](https://github.com/amazon-gamelift/amazon-gamelift-servers-game-server-wrapper "https://github.com/amazon-gamelift/amazon-gamelift-servers-game-server-wrapper")** See
-the readme on GitHub for how to install and use the wrapper with your game
-projects.
-
-Amazon GameLift is a fully-managed service that's dedicated to helping developers
-build, scale, and deliver the world's most demanding games. With the general
-availability release of Amazon GameLift Streams, Amazon GameLift now offers both
-high-scaling game server and smooth-gameplay streaming capabilities.
-
-**[Amazon GameLift Servers](../../../gamelift.md "../../../gamelift.md")** gives game developers the capability to
-deploy, operate, and scale dedicated game servers. You can deploy
-high-performance game servers in the cloud in minutes and scale up and down to
-meet player demand. Built on AWS proven computing environment, Amazon GameLift Servers supports
-100 million concurrent players in a single game, 100 thousand player adds per
-second, and 9 thousand new compute instances per minute. And with
-enterprise-grade security, matchmaking for the largest crowds, and pay-as-you-go
-flexibility, it helps you get started whether you’re working on a new game idea
-or running a game with millions of players.
-
-**[Amazon GameLift Streams](../../../gameliftstreams.md "../../../gameliftstreams.md")** helps game developers deliver
-game streaming experiences at up to 1080p resolution and 60 frames-per-second
-(fps) with no perceivable lag across devices including iOS, Android, FireOS, and
-PCs for gamers. Using a single AWS offering, publishers can deploy their game
-content in minutes, without modifications, onto fully-managed cloud-based GPU
-instances and deliver them through the AWS Network Backbone directly to any
-end-player device with a web browser. Players can start gaming in just a few
-seconds, without waiting for a download or an install and it delivers a gameplay
-experience that is nearly indistinguishable from playing the game locally on a
-PC or gaming console.
+### June 24, 2025: Amazon GameLift Servers launches UDP ping beacons to help measure real-time network latency for multiplayer games
+<a name="release-notes-06242025-2"></a>
 
 **Updated SDK versions:**
++ AWS SDK 1.11.595
 
-- AWS SDK 1.11.485
-  In response to customer feedback, we're releasing new functionality that lets you prioritize
-  locations for individual game session placement requests. For your queues that are configured to
-  prioritize placement by location, you can now provide a customized list of priority locations
-  with each placement request.
+Amazon GameLift Servers releases for general availability a set of fixed endpoints called UDP ping beacons to help you accurately measure latency between player devices and game server locations. The UDP ping beacon endpoints are available in all AWS Global Regions and Local Zones supported by Amazon GameLift Servers, with the exception of the AWS China Regions.
 
-This new feature lets customers dynamically change location priorities for each placement request as needed.
-The additional flexibility means that you can better respond to changing conditions,
-such as player locations, fleet load, or server health. It can also support customers who want to
-further customize how placement locations are selected.
+Most multiplayer games use UDP (User Datagram Protocol) as their primary packet transmission protocol due to its performance benefits for real-time gaming. Understanding and optimizing network latency is crucial for delivering the best possible player experience. UDP ping beacons provide a consistent and reliable way to measure actual UDP packet latency between players and game servers, helping you make better decisions about player-to-server matching and game session placement.
 
-###### **Learn more:**
+The [ListLocations](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_ListLocations.html) API has been extended to include endpoint domain and port information as part of the list of locations it returns, making it easy to programmatically access the endpoints.
 
-- [Prioritize game session placement](queues-design-priority.md "queues-design-priority.md"), _Amazon GameLift Servers Developer Guide_
-- [StartGameSessionPlacement](../apireference/API_StartGameSessionPlacement.md "../apireference/API_StartGameSessionPlacement.md"), _Amazon GameLift Servers API Reference_
-  **Updated SDK versions:**
+Your game client can send UDP messages to these endpoints and receive asynchronous responses with the same data, giving you latency measurements that better represent actual game traffic conditions between a player's device and potential hosting locations. These endpoints are permanent and remain available as long as Amazon GameLift Servers supports game hosting in that location.
 
-- AWS SDK 1.11.477
-  In response to customer feedback, we're releasing new functionality that lets you more easily
-  terminate individual game sessions. With this release, you can now terminate a game session directly in
-  the Amazon GameLift Servers console or by using the AWS CLI or AWS SDK for Amazon GameLift Servers.
+**Learn more:**
++ [UDP ping beacons](reference-udp-ping-beacons.md), *Amazon GameLift Servers Developer Guide*
++ [ListLocations](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_ListLocations.html), *Amazon GameLift Servers API Reference*
 
-This new feature addresses the need to resolve game sessions that remain active but in a
-bad state, which prevents compute resources from hosting new game sessions. Previously, customers
-were required to remotely access the compute to manually terminate a game session.
+### June 24, 2025: Amazon GameLift Servers adds location support for Thailand and Malaysia
+<a name="release-notes-06242025"></a>
 
-You have two termination methods to choose from. The first method attempts to gracefully terminate
-a game session using its custom shutdown sequence, which might include actions to notify players and resolve game data.
-The second method forces the server process to stop, which terminates the game session immediately. This second method
-ensures that the game session ends even when the server process is not responding.
+With Amazon GameLift Servers managed hosting, you can now deploy game server resources in Bangkok, Thailand, and Kuala Lumpur, Malaysia, extending the reach of your games to players throughout Southeast Asia. These new Regions help reduce latency and improve gameplay experience for players in those areas.
 
-###### **Learn more:**
+The following AWS Regions are available as remote locations for multi-location fleets. To begin hosting game sessions in these locations, add them as remote locations to a new or existing multi-location fleet. With multi-location fleets, you can directly manage hosting capacity in each location. 
++ Asia Pacific (Thailand) (`ap-southeast-7`) 
++ Asia Pacific (Malaysia) (`ap-southeast-5`) 
 
-- [Shut down a game session using the Amazon GameLift Servers console](terminate-sessions.md "terminate-sessions.md"), _Amazon GameLift Servers Developer Guide_
-- [TerminateGameSession](../apireference/API_TerminateGameSession.md "../apireference/API_TerminateGameSession.md"), _Amazon GameLift Servers API Reference_
-  **Updated plugin versions:**
+These AWS Regions are not enabled by default for an AWS account. You must opt in to each Region before you can deploy Amazon GameLift Servers resources there.
+
+****Learn more:****
++ [Amazon GameLift Servers service locations](gamelift-regions.md), *Amazon GameLift Servers Hosting Developer Guide* 
++ [Update fleet locations](fleets-update-locations.md), *Amazon GameLift Servers Hosting Developer Guide* 
++ [ Enable or disable AWS Regions in your account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html), *AWS Account Management Reference Guide*.
+
+### May 29, 2025: Amazon GameLift Servers releases new versions of the server SDK and plugins for Unreal Engine and Unity
+<a name="release-notes-05292025"></a>
+
+**Updated SDK versions:**
++ [C\+\+ server SDK](https://github.com/amazon-gamelift/amazon-gamelift-servers-cpp-server-sdk), version 5.3.0
++ [C\# server SDK](https://github.com/amazon-gamelift/amazon-gamelift-servers-csharp-server-sdk), version 5.3.0
++ [Go server SDK](https://github.com/amazon-gamelift/amazon-gamelift-servers-go-server-sdk), version 5.3.0
++ [Server SDK for Unreal](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal), version 5.3.0
++ [Server SDK for Unity](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity), version 5.3.0
+
+**Updated plugin versions:**
++ [Plugin for Unreal](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal), version 3.0.0
++ [Plugin for Unity](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity), version 3.1.0
+
+New versions of the server SDK for C\+\+, C\#, Go, Unreal and Unity, as well as new plugin versions for Unreal Engine and Unity, are now open source. They are all available in the [Amazon GameLift Servers GitHub organization](https://github.com/amazon-gamelift). For detailed update information, see the release notes and readmes in each repository.
+
+**Key server SDK updates:**
++ Improved client-side validation and error responses in all server SDKs.
++ The [OnProcessTerminate](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-process) callback function now has default logic to end the game server process.
++ The function [InitSDK()](integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-initsdk) now uses an idempotency token to support multiple retries.
++ The [OnUpdateGameSession](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-process) callback can now pass data for autoBackfillMode.
+
+**Key plugin updates:**
++ The plugin for Unreal Engine now has a more streamlined install and setup process, with more automation and fewer prerequisites (CMake, OpenSSL, and the Unreal cross-compile tool chain). 
++ The plugin for Unreal Engine has improved UI experience for the Managed EC2 workflow, including support for spaces in the game client and server build paths. In addition, you can now add command-line arguments when launching a game client from the Editor.
++ The plugin for Unreal Engine now supports ARM server builds in UE5.
+
+**Learn more:**
++ [Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md), *Amazon GameLift Servers Developer Guide*
++ [Amazon GameLift Servers plugin for Unity (server SDK 5.x)](unity-plug-in.md), *Amazon GameLift Servers Developer Guide*
++ [Server SDK 5.x for Amazon GameLift Servers](reference-serversdk.md), *Amazon GameLift Servers Developer Guide*
++ [Integrate Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md), *Amazon GameLift Servers Developer Guide*
++ [Integrate Amazon GameLift Servers into a Unity project](integration-engines-unity-using.md), *Amazon GameLift Servers Developer Guide*
+
+### April 24, 2025: C\# server SDK 5 for Amazon GameLift Servers now supports .NET 8
+<a name="release-notes-04242025"></a>
+
+**Updated SDK versions:** 
++ C\# Server SDK, version 5.2.1
+
+For game developers using C\#, you can now use .NET 8 as a target framework for your Amazon GameLift Servers projects. With .NET 8, you can take advantage of performance improvements, including improved just-in-time (JIT) compilation, memory usage optimization, and faster startup times. If you're currently using .NET 6, we recommend that you plan a migration to .NET 8, including updating your C\# server SDK to the latest version. Microsoft announced .NET 8 support, with security patches and technical updates, through November 2026.
+
+**[Download the latest version of the C\# server SDK for Amazon GameLift Servers](https://aws.amazon.com/gamelift/servers/getting-started/#custom)**
+
+**Learn more:**
++ [Get Amazon GameLift Servers development tools](gamelift-supported.md), *Amazon GameLift Servers Developer Guide*
+
+### March 27, 2025: Amazon GameLift Servers expands support for next-generation EC2 instance families
+<a name="release-notes-03272025"></a>
+
+**Updated SDK versions:** 
++ AWS SDK 1.11.535
+
+You can now fine-tune your game server hosting with Amazon GameLift Servers by selecting from a larger selection of Amazon EC2 instances across the 5th through 8th generation instance families. Each new EC2 generation offers advancements in EC2 compute, memory and networking, with the 8th generation instances delivering cutting-edge AWS Graviton4 and Intel Xeon-based instances. Next generation instances are available in the following instance families: 
++ [General purpose](https://aws.amazon.com/ec2/instance-types/#General_Purpose) (M-series)
++ [Compute optimized](https://aws.amazon.com/ec2/instance-types/#Compute_Optimized) (C-series)
++ [Memory optimized](https://aws.amazon.com/ec2/instance-types/#Memory_Optimized) (R-series)
+
+ You can also choose variants that offer local storage (d), enhanced networking (n), and specific processor architectures (Intel/AMD/Graviton – i/a/g). The next-generation instances are available in all AWS Regions that are supported by Amazon GameLift Servers, with the exception of the AWS China Regions. For more details, see [Amazon GameLift Servers service locations](gamelift-regions.md). 
+
+Use these new instance types with Amazon GameLift Servers managed EC2 fleets and managed container fleets. When switching your existing game hosting to a new instance type (same architecture), simply deploy new fleets with all configuration settings unchanged except the instance type.
+
+**Learn more:**
++ [Amazon GameLift Servers Instance Pricing](https://aws.amazon.com/gamelift/pricing/instance-pricing/)
++ [CreateFleet](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateFleet.html) *Amazon GameLift Servers API Reference*
++ [CreateContainerFleet](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateContainerFleet.html), *Amazon GameLift Servers API Reference*
+
+### March 11, 2025: Amazon GameLift Servers launches new Game Server Wrapper for rapid onboarding
+<a name="release-notes-03112025"></a>
+
+The new game server wrapper for Amazon GameLift Servers significantly reduces the time required to get a game server hosted on Amazon GameLift Servers. With no code changes required, you can use the wrapper to add basic game session management functionality to your game and deploy it to an Amazon GameLift Servers Anywhere fleet, managed EC2 fleet, or managed container fleet. This tool is ideal for doing a hands-on evaluation of Amazon GameLift Servers features, using your own game server or one from a sample game. It is also useful for quickly deploying game server iterations, such as for rapid prototyping or testing.
+
+With the basic game session management features, your game server can initialize a connection with the Amazon GameLift Servers service, respond to prompts to start and stop game sessions, and shut down when a game session is complete. 
+
+**[Download the game server wrapper from GitHub.](https://github.com/amazon-gamelift/amazon-gamelift-servers-game-server-wrapper)** See the readme on GitHub for how to install and use the wrapper with your game projects.
+
+### March 6, 2025: Amazon GameLift is now Amazon GameLift Servers and Amazon GameLift Streams
+<a name="release-notes-03062025"></a>
+
+Amazon GameLift is a fully-managed service that's dedicated to helping developers build, scale, and deliver the world's most demanding games. With the general availability release of Amazon GameLift Streams, Amazon GameLift now offers both high-scaling game server and smooth-gameplay streaming capabilities. 
+
+**[Amazon GameLift Servers](https://docs.aws.amazon.com/gamelift/)** gives game developers the capability to deploy, operate, and scale dedicated game servers. You can deploy high-performance game servers in the cloud in minutes and scale up and down to meet player demand. Built on AWS proven computing environment, Amazon GameLift Servers supports 100 million concurrent players in a single game, 100 thousand player adds per second, and 9 thousand new compute instances per minute. And with enterprise-grade security, matchmaking for the largest crowds, and pay-as-you-go flexibility, it helps you get started whether you’re working on a new game idea or running a game with millions of players. 
+
+**[Amazon GameLift Streams](https://docs.aws.amazon.com/gameliftstreams)** helps game developers deliver game streaming experiences at up to 1080p resolution and 60 frames-per-second (fps) with no perceivable lag across devices including iOS, Android, FireOS, and PCs for gamers. Using a single AWS offering, publishers can deploy their game content in minutes, without modifications, onto fully-managed cloud-based GPU instances and deliver them through the AWS Network Backbone directly to any end-player device with a web browser. Players can start gaming in just a few seconds, without waiting for a download or an install and it delivers a gameplay experience that is nearly indistinguishable from playing the game locally on a PC or gaming console.
+
+### January 14, 2025: Amazon GameLift Servers releases expanded support for game session placement prioritization
+<a name="release-notes-01142025"></a>
+
+**Updated SDK versions:** 
++ AWS SDK 1.11.485
+
+In response to customer feedback, we're releasing new functionality that lets you prioritize locations for individual game session placement requests. For your queues that are configured to prioritize placement by location, you can now provide a customized list of priority locations with each placement request.
+
+This new feature lets customers dynamically change location priorities for each placement request as needed. The additional flexibility means that you can better respond to changing conditions, such as player locations, fleet load, or server health. It can also support customers who want to further customize how placement locations are selected. 
+
+****Learn more:****
++ [Prioritize game session placement](queues-design-priority.md), *Amazon GameLift Servers Developer Guide*
++  [StartGameSessionPlacement](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_StartGameSessionPlacement.html), *Amazon GameLift Servers API Reference*
+
+### January 2, 2025: Amazon GameLift Servers releases new support for terminating game sessions
+<a name="release-notes-01022025"></a>
+
+**Updated SDK versions:** 
++ AWS SDK 1.11.477
+
+In response to customer feedback, we're releasing new functionality that lets you more easily terminate individual game sessions. With this release, you can now terminate a game session directly in the Amazon GameLift Servers console or by using the AWS CLI or AWS SDK for Amazon GameLift Servers. 
+
+This new feature addresses the need to resolve game sessions that remain active but in a bad state, which prevents compute resources from hosting new game sessions. Previously, customers were required to remotely access the compute to manually terminate a game session. 
+
+You have two termination methods to choose from. The first method attempts to gracefully terminate a game session using its custom shutdown sequence, which might include actions to notify players and resolve game data. The second method forces the server process to stop, which terminates the game session immediately. This second method ensures that the game session ends even when the server process is not responding.
+
+****Learn more:****
++ [Shut down a game session using the Amazon GameLift Servers console](terminate-sessions.md), *Amazon GameLift Servers Developer Guide*
++  [TerminateGameSession](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_TerminateGameSession.html), *Amazon GameLift Servers API Reference*
+
+### December 19, 2024: Amazon GameLift Servers releases game engine plugin support for Managed Containers
+<a name="release-notes-12192024"></a>
+
+**Updated plugin versions:** 
 
 Amazon GameLift Servers plugin for Unreal Engine, version 2.0.0
++ Upgraded to support C\+\+ server SDK 5.2.0 with managed containers support.
++ Added support for Unreal Engine 5.4 and 5.5.
 
-- Upgraded to support C++ server SDK 5.2.0 with managed containers
-  support.
-- Added support for Unreal Engine 5.4 and 5.5.
-  Amazon GameLift Servers plugin for Unity, version 3.0.0
+Amazon GameLift Servers plugin for Unity, version 3.0.0
++ Upgraded to support C\+\+ server SDK 5.2.0 with managed containers support.
++ Support for Unity 2021.3 LTS and 2022.3 LTS for Windows and Mac OS.
 
-- Upgraded to support C++ server SDK 5.2.0 with managed containers
-  support.
-- Support for Unity 2021.3 LTS and 2022.3 LTS for Windows and Mac
-  OS.
-  The Amazon GameLift Servers plugin for the Unreal and Unity game engines provides tools and
-  workflows that streamline your steps to getting a game up and running with
-  Amazon GameLift Servers. Amazon GameLift Servers is a fully managed cloud hosting service that game developers can
-  use to manage and scale dedicated game servers for session-based multiplayer
-  games.
+The Amazon GameLift Servers plugin for the Unreal and Unity game engines provides tools and workflows that streamline your steps to getting a game up and running with Amazon GameLift Servers. Amazon GameLift Servers is a fully managed cloud hosting service that game developers can use to manage and scale dedicated game servers for session-based multiplayer games. 
 
-The latest plugin versions offer the following enhancements:
+The latest plugin versions offer the following enhancements: 
++ **Guided workflow for hosting with Managed Containers.** This workflow walks you through the steps to set up a container image with your game server software, and deploy a cloud-based hosting solution for your game server. The workflow offers two different deployment scenarios: a simple deployment and a more complete deployment with a game session placement queue and a FlexMatch matchmaker. Each scenario generates Amazon GameLift Servers container fleets and supporting AWS resources.
++ **Improved process for setting up AWS user profiles and managing AWS access credentials for plugin use.** You can maintain multiple profiles to work with different AWS accounts, account users, and regions.
++ **Additional functionality to update existing container fleets.** You can deploy new container images (such as for game server version updates) and change fleet configuration settings without having to start from the beginning. 
++ **Improved workflows for hosting with Amazon GameLift Servers Anywhere fleets and Managed EC2.** Improvements based on customer feedback include better guidance with tips and links to helpful resources. 
 
-- **Guided workflow for hosting with Managed
-  Containers.** This workflow walks you through the steps to
-  set up a container image with your game server software, and deploy a
-  cloud-based hosting solution for your game server. The workflow offers
-  two different deployment scenarios: a simple deployment and a more
-  complete deployment with a game session placement queue and a FlexMatch
-  matchmaker. Each scenario generates Amazon GameLift Servers container fleets and
-  supporting AWS resources.
-- **Improved process for setting up AWS user
-  profiles and managing AWS access credentials for plugin
-  use.** You can maintain multiple profiles to work with
-  different AWS accounts, account users, and regions.
-- **Additional functionality to update existing
-  container fleets.** You can deploy new container images
-  (such as for game server version updates) and change fleet configuration
-  settings without having to start from the beginning.
-- **Improved workflows for hosting with Amazon GameLift Servers
-  Anywhere fleets and Managed EC2.** Improvements based on
-  customer feedback include better guidance with tips and links to helpful
-  resources.
-  The deployment scenarios for Managed Containers and Managed EC2 solutions use
-  AWS CloudFormation templates to create and deploy the AWS resources for each
-  scenario. These templates are included in the Amazon GameLift Servers plugin download and are
-  editable. You can use them as is or modify them for your game.
+The deployment scenarios for Managed Containers and Managed EC2 solutions use AWS CloudFormation templates to create and deploy the AWS resources for each scenario. These templates are included in the Amazon GameLift Servers plugin download and are editable. You can use them as is or modify them for your game.
 
-###### **Learn more:**
+****Learn more:****
++ [Plugin for Unreal: Deploy your game to a managed container fleet](unreal-plugin-container.md), *Amazon GameLift Servers Developer Guide*
++ [Plugin for Unity: Deploy your game to a managed container fleet](unity-plug-in-container.md), *Amazon GameLift Servers Developer Guide*
++ [Download the plugin for Unreal from GitHub](https://github.com/aws/amazon-gamelift-plugin-unreal)
++ [Download the plugin for Unity from GitHub](https://github.com/aws/amazon-gamelift-plugin-unity)
++ [Game hosting with Amazon GameLift Servers](https://aws.amazon.com/gamelift/servers/)
++ [Amazon GameLift Servers forum](https://forums.awsgametech.com/c/amazon-gamelift/)
 
-- [Plugin for Unreal: Deploy your game to a
-  managed container fleet](unreal-plugin-container.md "unreal-plugin-container.md"), _Amazon GameLift Servers Developer Guide_
-- [Plugin for Unity: Deploy your game to a
-  managed container fleet](unity-plug-in-container.md "unity-plug-in-container.md"), _Amazon GameLift Servers Developer Guide_
-- [Download the plugin for
-  Unreal from GitHub](https://github.com/aws/amazon-gamelift-plugin-unreal "https://github.com/aws/amazon-gamelift-plugin-unreal")
-- [Download the plugin for
-  Unity from GitHub](https://github.com/aws/amazon-gamelift-plugin-unity "https://github.com/aws/amazon-gamelift-plugin-unity")
-- [Game hosting with Amazon GameLift Servers](https://aws.amazon.com/gamelift/servers/ "https://aws.amazon.com/gamelift/servers/")
-- [Amazon GameLift Servers forum](https://forums.awsgametech.com/c/amazon-gamelift/ "https://forums.awsgametech.com/c/amazon-gamelift/")
-  **Updated SDK versions:**
+### November 12, 2024: Amazon GameLift Servers launches multiplayer game hosting with Managed Containers
+<a name="release-notes-11122024"></a>
 
-- AWS SDK 1.11.445
-- Server SDK, version 5.2.0 (all languages)
-  Amazon GameLift Servers releases for general availability a new hosting solution for
-  containerized game server workloads. With this release, game developers can now
-  take advantage of the benefits of containerization including consistent, secure
-  environments, a simplified deployment process, and optimized resource
-  utilization.
+**Updated SDK versions:** 
++ AWS SDK 1.11.445
++ Server SDK, version 5.2.0 (all languages)
 
-Managed container fleets use Amazon EC2 instances that are managed by Amazon GameLift Servers on your
-behalf and based on your configurations. You build a custom container
-architecture for your game and provide container images by storing them in a
-Amazon Elastic Container Registry (Amazon ECR) repository. Container fleets are available for Linux-based
-game servers only. Game servers must be integrated with Server SDK 5.2.0 or
-greater.
+Amazon GameLift Servers releases for general availability a new hosting solution for containerized game server workloads. With this release, game developers can now take advantage of the benefits of containerization including consistent, secure environments, a simplified deployment process, and optimized resource utilization. 
 
-With managed container fleets, you get the same benefits as with managed EC2
-fleets. This includes support for On-Demand and Spot instance types, intelligent
-capacity scaling, game session placement with queues, and matchmaking. You also
-get the same metrics as other fleet types along with some new ones for
-containers. Other features for container fleets include:
+Managed container fleets use Amazon EC2 instances that are managed by Amazon GameLift Servers on your behalf and based on your configurations. You build a custom container architecture for your game and provide container images by storing them in a Amazon Elastic Container Registry (Amazon ECR) repository. Container fleets are available for Linux-based game servers only. Game servers must be integrated with Server SDK 5.2.0 or greater.
 
-- **Alignment with serverless experience for
-  containerized workloads.** Run one game server process
-  per container and pack many containers onto each fleet instance for
-  optimal resource usage. If you prefer to have containers with
-  multiple game server processes, you can use the Amazon GameLift Servers Agent for
-  automated host management.
-- **Streamlined fleet creation.**
-  Container fleets are designed to require minimal deployment
-  configuration settings, with sensible suggested/default values. You
-  can quickly deploy a working fleet, and then customize individual
-  settings as needed.
+With managed container fleets, you get the same benefits as with managed EC2 fleets. This includes support for On-Demand and Spot instance types, intelligent capacity scaling, game session placement with queues, and matchmaking. You also get the same metrics as other fleet types along with some new ones for containers. Other features for container fleets include: 
++ **Alignment with serverless experience for containerized workloads.** Run one game server process per container and pack many containers onto each fleet instance for optimal resource usage. If you prefer to have containers with multiple game server processes, you can use the Amazon GameLift Servers Agent for automated host management.
++ **Streamlined fleet creation.** Container fleets are designed to require minimal deployment configuration settings, with sensible suggested/default values. You can quickly deploy a working fleet, and then customize individual settings as needed.
++ **Versioning tools for container architecture.** You can now update a container group definition (which is similar to a container "task"), maintain multiple versions, and specify which version to deploy to a fleet.
++ **Fleet update tools.** With container fleets, you no longer need to create a new fleet when you want to release a game server version update. Instead, you can now update your container image and deploy the updates to existing fleets.
 
-- **Versioning tools for container
-  architecture.** You can now update a container group
-  definition (which is similar to a container "task"), maintain multiple
-  versions, and specify which version to deploy to a fleet.
-- **Fleet update tools.** With container
-  fleets, you no longer need to create a new fleet when you want to
-  release a game server version update. Instead, you can now update your
-  container image and deploy the updates to existing fleets.
-  You can build Amazon GameLift Servers container fleets in any AWS Region where Amazon GameLift Servers supports
-  multi-location fleets, and you can deploy container fleet instances to any
-  supported remote location. For more details, see [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md"). Managed containers is not currently
-  available in AWS China Regions.
+You can build Amazon GameLift Servers container fleets in any AWS Region where Amazon GameLift Servers supports multi-location fleets, and you can deploy container fleet instances to any supported remote location. For more details, see [Amazon GameLift Servers service locations](gamelift-regions.md). Managed containers is not currently available in AWS China Regions.
 
-###### **Learn more:**
+****Learn more:****
++ Blog post: [Leverage fully managed containers to host multiplayer games at global scale on Amazon GameLift Servers](https://aws.amazon.com/blogs/gametech/leverage-fully-managed-containers-to-host-multiplayer-games-at-global-scale-on-amazon-gamelift/)
++ [Managed containers](gamelift-intro-flavors.md#gamelift-intro-flavors-hosting-managed-containers) overview, *Amazon GameLift Servers Developer Guide*
++ [How containers work in Amazon GameLift Servers](containers-howitworks.md), *Amazon GameLift Servers Developer Guide*
++ [Development roadmap for hosting with Amazon GameLift Servers managed containers](gamelift-roadmap-containers.md), *Amazon GameLift Servers Developer Guide*
++ [CreateContainerFleet](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateContainerFleet.html), *Amazon GameLift Servers API Reference* 
 
-- Blog post: [Leverage fully managed containers to host multiplayer games at global scale on Amazon GameLift Servers](https://aws.amazon.com/blogs/gametech/leverage-fully-managed-containers-to-host-multiplayer-games-at-global-scale-on-amazon-gamelift/ "https://aws.amazon.com/blogs/gametech/leverage-fully-managed-containers-to-host-multiplayer-games-at-global-scale-on-amazon-gamelift/")
-- [Managed containers](gamelift-intro-flavors.md#gamelift-intro-flavors-hosting-managed-containers "gamelift-intro-flavors.md#gamelift-intro-flavors-hosting-managed-containers")
-  overview, _Amazon GameLift Servers Developer
-  Guide_
-- [How containers work in Amazon GameLift Servers](containers-howitworks.md "containers-howitworks.md"), _Amazon GameLift Servers Developer Guide_
-- [Development roadmap for hosting with Amazon GameLift Servers managed containers](gamelift-roadmap-containers.md "gamelift-roadmap-containers.md"),
-  _Amazon GameLift Servers Developer Guide_
-- [CreateContainerFleet](../apireference/API_CreateContainerFleet.md "../apireference/API_CreateContainerFleet.md"), _Amazon GameLift Servers API Reference_
-  **Updated SDK versions:**
+### September 19, 2024: Amazon GameLift Servers releases update to the C\+\+ server SDK and plugins for Unreal Engine
+<a name="release-notes-09192024"></a>
 
-C++ Server SDK, version 5.1.3
+**Updated SDK versions:** 
 
-- New logging capabilities. You can now access SDK request logs.
-- Improved SDK message transmission reliability. The SDK now uses more
-  robust reconnection mechanisms to recover in the event of network
-  interruptions or random message drops.
-  **Updated plugin versions:**
+C\+\+ Server SDK, version 5.1.3
++ New logging capabilities. You can now access SDK request logs. 
++ Improved SDK message transmission reliability. The SDK now uses more robust reconnection mechanisms to recover in the event of network interruptions or random message drops.
+
+**Updated plugin versions:** 
 
 Amazon GameLift Servers plugin for Unreal Engine, version 1.1.2
++ Upgraded to support the latest version of the C\+\+ server SDK 5.1.3.
++ In the Amazon GameLift Servers plugin for Unreal Engine, when browsing for a server build executable for a fleet, you now have the option to browse **All Files**.
 
-- Upgraded to support the latest version of the C++ server SDK
-  5.1.3.
-- In the Amazon GameLift Servers plugin for Unreal Engine, when browsing for a server build executable for
-  a fleet, you now have the option to browse **All
-  Files**.
-  C++ Server SDK Plugin for Unreal, version 5.1.2
-
-- Upgraded to support the latest version of the C++ server SDK
-  5.1.3.
-
-###### **Learn more:**
-
-- [Integrating
-  games with the Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md "unreal-plugin.md"), _Amazon GameLift Servers Developer
-  Guide_
-- [Amazon GameLift Servers plugin and SDK downloads](https://aws.amazon.com/gamelift/servers/getting-started/#Amazon_GameLift_Plugins_for_Game_Engines "https://aws.amazon.com/gamelift/servers/getting-started/#Amazon_GameLift_Plugins_for_Game_Engines")
-  Based on customer feedback, we've clarified the Amazon GameLift Servers workflow for creating a
-  managed EC2 fleet and getting it ready to host game sessions. Improvements
-  include:
-
-- We've provided more specific and accurate descriptions of each phase
-  of the fleet creation process. This improved visibility makes it easier
-  to pinpoint and resolve issues faster.
-- The Building and Activating phases better separate instance deployment
-  tasks (building) from tasks to start game server processes and connect
-  to the Amazon GameLift Servers service (activating). This change makes it easier to
-  recognize the likely cause of issues. In addition, you can now remotely
-  connect to fleets when they're in the Activating phase.
-- Two new fleet creation events communicate the success or failure of
-  game server install scripts. If your game server build includes an
-  install script, Amazon GameLift Servers attempts to run the script and emits one of the
-  following new events:
-
-  - `FLEET_CREATION_COMPLETED_INSTALLER`
-  - `FLEET_CREATION_FAILED_INSTALLER`
-
-###### **Learn more:**
-
-- [Debug Amazon GameLift Servers fleet issues](fleets-creating-debug.md "fleets-creating-debug.md"), _Amazon GameLift Servers Developer
-  Guide_
-- [Event data type](../apireference/API_Event.md "../apireference/API_Event.md"), _Amazon GameLift Servers API Reference_
-  Based on customer feedback, we've made the following updates to the
-  [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift "https://console.aws.amazon.com/gamelift") experience:
-
-- Your display preferences for pages are now automatically saved to your AWS account user and
-  applied whenever you return to the page. Display preferences let you
-  choose what information to include in a table display, such as on the
-  Fleets listing page. Customize your display preferences by using the
-  ![Gear icon representing settings or configuration options.](images/settings.png)
-  icon in the upper right corner of a table.
-- The Create Fleet workflow for managed EC2 fleets has been streamlined to combine the selection
-  of fleet locations and instance types. We've made it easier for you to
-  find the right instance type for your fleet, even when you change your
-  locations selections.
-
-###### **Learn more:**
-
-- [Create an Amazon GameLift Servers managed EC2 fleet](fleets-creating.md "fleets-creating.md"), _Amazon GameLift Servers Developer
-  Guide_
-  With Amazon GameLift Servers managed hosting, you can now deploy game server resources in
-  Nigeria, West Africa, and extend the reach of your games to players throughout
-  Africa. Use AWS Local Zones to place game servers geographically closer to
-  your players to reduce latency and significantly improve gameplay.
-
-To immediately begin hosting game sessions in Nigeria, add the new Nigeria
-Local Zone as a remote location to a new or existing multi-location fleet. If
-your game uses Amazon GameLift Servers FlexMatch, update fleets in your matchmaking queue to include
-the new Local Zone. With multi-location fleets, you can directly manage hosting
-capacity in each location.
-
-The parent AWS Region for the Lagos, Nigeria Local Zone is the Africa (Cape Town) Region (`af-south-1`),
-which Amazon GameLift Servers also supports as a remote location. The Nigeria Local Zone name is `af-south-1-los-1`.
-
-###### **Learn more:**
-
-- [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md"), _Amazon GameLift Servers Developer
-  Guide_
-- [Update fleet locations](fleets-update-locations.md "fleets-update-locations.md"),
-  _Amazon GameLift Servers Developer Guide_
-  The Amazon GameLift Servers console now offers a player session lookup tool that lets you
-  retrieve player session information by game session ID, player session ID, or
-  player ID. Games that use FlexMatch matchmaking automatically generate player
-  sessions for every matched player. For all other games, player sessions are an
-  optional feature.
-
-You can find the player session lookup tool in the main navigation for the
-Amazon GameLift Servers console. View individual player sessions or compare data across multiple
-player sessions. You can also open player session data when viewing a game
-session detail page.
-
-###### **Learn more:**
-
-- [Game and player sessions in the Amazon GameLift Servers console](gamelift-console-game-player-sessions-metrics.md "gamelift-console-game-player-sessions-metrics.md"),
-  _Amazon GameLift Servers Developer Guide_
-  Amazon GameLift Servers is now offering a preview of container fleets, which give you improved portability, scalability, fault tolerance, and agility.
-
-In container fleets, Amazon EC2 instances host one or more of your containers.
-These containers include your game server along with whatever it requires, including dependencies and configurations.
-Examples of dependencies include SDKs and software packages.
-After you upload your container to your private Amazon Elastic Container Registry, Amazon GameLift Servers populates your fleet with the container.
+C\+\+ Server SDK Plugin for Unreal, version 5.1.2
++ Upgraded to support the latest version of the C\+\+ server SDK 5.1.3.
 
-To function in a container fleet, your game server must run in Linux and be integrated with Server SDK 5.x.
-In a container fleet, you have fine-tuned control of hosting resources so that you can optimize consumption of resources such as CPU units and memory.
-You can also host multiple game servers in a container to reduce the use of resources.
+****Learn more:****
++ [Integrating games with the Amazon GameLift Servers plugin for Unreal Engine](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/unreal-plugin.html), *Amazon GameLift Servers Developer Guide* 
++ [Amazon GameLift Servers plugin and SDK downloads](https://aws.amazon.com/gamelift/servers/getting-started/#Amazon_GameLift_Plugins_for_Game_Engines)
 
-In a container fleet you get many of the same benefits that other types of fleets have such as On-Demand instance types, scaling (automatic and manual), queues, and matchmaking.
-You also get the same metrics as other fleet types along with some new ones for containers. Container fleets give you global reach to players in these locations regions:
+### September 5, 2024: Amazon GameLift Servers improves observability of the fleet creation process
+<a name="release-notes-09052024"></a>
 
-- ap-northeast-1
-- ap-northeast-2
-- ap-southeast-2
-- eu-central-1
-- eu-west-1
-- us-east-1
-- us-west-2
-  To reach even more regions and local zones, create multi-location containers fleets.
-
-###### **Learn more:**
+Based on customer feedback, we've clarified the Amazon GameLift Servers workflow for creating a managed EC2 fleet and getting it ready to host game sessions. Improvements include: 
++ We've provided more specific and accurate descriptions of each phase of the fleet creation process. This improved visibility makes it easier to pinpoint and resolve issues faster.
++ The Building and Activating phases better separate instance deployment tasks (building) from tasks to start game server processes and connect to the Amazon GameLift Servers service (activating). This change makes it easier to recognize the likely cause of issues. In addition, you can now remotely connect to fleets when they're in the Activating phase.
++ Two new fleet creation events communicate the success or failure of game server install scripts. If your game server build includes an install script, Amazon GameLift Servers attempts to run the script and emits one of the following new events:
+  + `FLEET_CREATION_COMPLETED_INSTALLER`
+  + `FLEET_CREATION_FAILED_INSTALLER`
 
-- [Managing hosting with Amazon GameLift Servers containers](containers-intro.md "containers-intro.md"), _Amazon GameLift Servers Developer Guide_
-- [CreateContainerGroupDefinition](../apireference/API_CreateContainerGroupDefinition.md "../apireference/API_CreateContainerGroupDefinition.md"), _Amazon GameLift Servers API Reference_
-  **Updated SDK versions:**
-
-- Go Server SDK, version 5.1.0
-- C# Server SDK, version 5.1.2
-- C++ Server SDK, version 5.1.2
-  We made the following improvements:
-
-- Improved the reliability of the SDK by adding automatic reconnection in the event of network interruption.
-- [Go] You can now call `InitSDK()` with or without server parameters.
-  Game servers that run on Amazon GameLift Servers managed EC2 fleets read the server parameters directly from environment variables.
-  Game servers on Amazon GameLift Servers Anywhere fleets must call `InitSDK()` with server parameters.
-  **Updated plugin versions:**
-
-- Amazon GameLift Servers plugin for Unreal Engine, version 1.1.0
-- Amazon GameLift Servers plugin for Unity, version 2.1.0
-- C++ Server SDK Plugin for Unreal, version 5.1.1
-- C# Server SDK Plugin for Unity, version 5.1.2
-  We made the following improvements:
-
-- [Amazon GameLift Servers plugin for Unreal Engine] Updated the installation instructions and simplified the packaging.
-  This plugin now includes the latest version of the C++ Server SDK for Unreal.
-- Upgraded the plugins to support the latest version of the server SDK for Amazon GameLift Servers.
-
-###### **Learn more:**
-
-- [Integrating games with the Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md "unreal-plugin.md"), _Amazon GameLift Servers Developer Guide_
-- [Amazon GameLift Servers plugin and SDK downloads](https://aws.amazon.com/gamelift/servers/getting-started/#Amazon_GameLift_Plugins_for_Game_Engines "https://aws.amazon.com/gamelift/servers/getting-started/#Amazon_GameLift_Plugins_for_Game_Engines")
-  You've already been able to set game properties when creating game sessions, and to search game sessions for specified properties.
-  Now you can also add and update these properties in an active game session.
-
-For example, your players vote on a map that they want to play on.
-Your game client calls `UpdateGameSession` to modify a `GameProperty` value to `{"Key": "map", "Value":"jungle"}`.
-Your game then implements the new map for the players in the game session.
-
-Game administrators can also retrieve useful data from game properties by using the `SearchGameSessions` operation.
-For example, administrators can list game sessions that have a `Status` value of `ACTIVE` and this game property: `{"Key": "map", "Value":"desert"}`.
-
-###### **Learn more:**
-
-- [Integrate Amazon GameLift Servers game client functionality](gamelift-sdk-client-api.md "gamelift-sdk-client-api.md"), _Amazon GameLift Servers Developer Guide_
-- [GameProperty](../apireference/API_GameProperty.md "../apireference/API_GameProperty.md"), _Amazon GameLift Servers API Reference_
-- [UpdateGameSession](../apireference/API_UpdateGameSession.md "../apireference/API_UpdateGameSession.md"), _Amazon GameLift Servers API Reference_
-- [SearchGameSessions](../apireference/API_SearchGameSessions.md "../apireference/API_SearchGameSessions.md"), _Amazon GameLift Servers API Reference_
-
-You can now manage your entire Amazon GameLift Servers resource stack using Infrastructure as Code (IaC) tools. These tools include AWS CloudFormation, and also third-party tools such as Terraform and Pulumi. With this added support, you can now focus on building your game, and leverage DevOps strategies to take care of resource management, CI/CD, and deployment to your customers.
-
-You can also now provision and configure all Amazon GameLift Servers resources types by using the AWS Cloud Control API. You can continue to work with resources using the Amazon GameLift Servers APIs or the AWS CloudFormation templates for Amazon GameLift Servers.
-
-For details about the Amazon GameLift Servers resources available through IaC, see the [Amazon GameLift Servers resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_GameLift.md "../../../AWSCloudFormation/latest/UserGuide/AWS_GameLift.md") Amazon GameLift Servers resource type reference.
-
-In addition, you can now automatically scale your fleets using AWS CloudFormation templates or the AWS Cloud Control API by using the new [Fleet](../../../AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.md") property: `ScalingPolicies`.
-
-The Cloud Control API gives developers a standard set of APIs to create, read, update, delete, and list resources (CRUDL) across hundreds of AWS services and multiple third-party tools like Terraform and Pulumi.
-
-###### **Learn more:**
-
-- [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
-- [AWS Cloud Control API](../../../cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.md "../../../cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.md")
-- [AWS CC Terraform Provider](https://registry.terraform.io/providers/hashicorp/awscc/latest "https://registry.terraform.io/providers/hashicorp/awscc/latest")
-- [Pulumi](https://www.pulumi.com/ "https://www.pulumi.com/")
-  **Updated SDK versions:** Amazon GameLift Servers plugin for Unity, version 2.0.0
-
-The Amazon GameLift Servers plugin for Unity provides tools and workflows that
-streamline the steps to getting your Unity game up and running for cloud
-hosting with Amazon GameLift Servers. Amazon GameLift Servers is a fully managed service that lets game developers manage and
-scale dedicated game servers for session-based multiplayer games.
-
-With this version, the plugin for Unity is updated to use the latest Amazon GameLift Servers features,
-including server SDK version 5.x and support for local testing with Amazon GameLift Servers Anywhere.
-The plugin is compatible with Unity versions Unity 2021.3 LTS and 2022.3 LTS.
-
-Key plugin features include:
-
-- Guided UI workflows in the Unity editor for the following scenarios:
-
-  - Test your game integration with Amazon GameLift Servers using your local
-    workstation as a host. This workflow helps you set up an Amazon GameLift Servers
-    Anywhere fleet for your local machine, launch instances of your
-    game server and client, request a game session through Amazon GameLift Servers,
-    and join the game.
-  - Deploy cloud hosting solution for your integrated
-    game server with Amazon GameLift Servers managed EC2 and supporting AWS resources.
-    This workflow helps you configure your game for
-    cloud hosting, and provides three deployment
-    scenarios:
-
-    - Deploy the game server to a single fleet.
-    - Deploy the game server to a set of low-cost Spot fleets in multiple AWS Regions.
-    - Deploy the game server with a FlexMatch matchmaker.
-
-- Ability to set up user profiles that link to an AWS account user
-  and set a default AWS Region. You can maintain multiple
-  profiles to work in different AWS accounts, account users, and
-  regions.
-- Special conveniences that help streamline the Amazon GameLift Servers integration
-  and deployment processes, including:
-
-  - Each hosting solution includes supporting AWS resources,
-    including an Amazon Cognito user pool that provides unique player IDs and
-    player validation. The solutions also include an Amazon S3 bucket for
-    storage, Amazon SNS event notification, AWS Lambda functions, and
-    other resources.
-  - For the Anywhere workflow, the plugin automates the required
-    server parameter settings.
-  - For the Amazon EC2 workflow, each deployment solution provides a
-    built-in client backend service using Lambda functions. The
-    backend service sits between the game client and the Amazon GameLift Servers
-    service and manages all direct calls to the Amazon GameLift Servers
-    service.
-
-- Content for integration testing, including assets and code for a simple sample multiplayer game to illustrate game server and game client integration.
-- Plugin documentation with detailed integration guidance and sample
-  code.
-  All deployment scenarios, including for Anywhere and Amazon EC2 fleets, use
-  AWS CloudFormation templates to describe and deploy the AWS resources for your game's
-  solution. These templates are included in the Amazon GameLift Servers plugin download. You can use
-  them as is or customize them for your game.
-
-###### **Learn more:**
-
-- [Amazon GameLift Servers plugin for Unity (server SDK 5.x)](unity-plug-in.md "unity-plug-in.md"), _Amazon GameLift Servers Developer Guide_
-- [Download the plugin from GitHub](https://github.com/aws/amazon-gamelift-plugin-unity "https://github.com/aws/amazon-gamelift-plugin-unity")
-- [About Amazon GameLift Servers hosting](https://aws.amazon.com/gamelift/servers/ "https://aws.amazon.com/gamelift/servers/")
-- [Amazon GameLift Servers forum](https://forums.awsgametech.com/c/amazon-gamelift/ "https://forums.awsgametech.com/c/amazon-gamelift/")
-  **Updated SDK versions:** AWS SDK 1.11.193
-
-The new Amazon GameLift Servers shared credentials feature allows applications that are
-deployed on managed EC2 fleets to interact with other AWS resources. This
-update affects applications that you bundle and deploy along with game server
-binaries integrated with server SDK version 5.x or later. (Game server
-executables can already request credentials using the server SDK 5.x
-`GetFleetRoleCredentials()` action.)
-
-For example, if you want to deploy your game server build with an Amazon CloudWatch agent to collect EC2 instance metrics and other data,
-the agent needs permission to interact with your CloudWatch resources. To do this, you must first set up an AWS Identity and Access Management IAM) role with
-permissions to use the CloudWatch resources, and then configure a fleet with the IAM role and shared credentials enabled.
-When Amazon GameLift Servers deploys your game server build to each EC2 instance, it generates a shared credentials file and stores it on the instance.
-All applications on the instance can use the shared credentials.
-Amazon GameLift Servers automatically refreshes the temporary credentials throughout the life of the instance.
-
-You can enable shared credentials when you create a managed EC2 fleet using the following methods:
-
-- In the Amazon GameLift Servers console fleet creation workflow.
-- When calling the service API operation `CreateFleet` using the new parameter `InstanceRoleCredentialsProvider`.
-- When calling the AWS CLI operation `aws gamelift create-fleet` with the parameter `instance-role-credentials-provider`.
-
-###### **Learn more:**
-
-- [Communicate with other AWS resources from your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md"), _Amazon GameLift Servers Developer Guide_
-- [CreateFleet, InstanceRoleCredentialsProvider](../apireference/API_CreateFleet.md#gamelift-CreateFleet-request-InstanceRoleCredentialsProvider "../apireference/API_CreateFleet.md#gamelift-CreateFleet-request-InstanceRoleCredentialsProvider"), _Amazon GameLift Servers API Reference_
-- [Set up an IAM service role](setting-up-role.md "setting-up-role.md"), _Amazon GameLift Servers Developer Guide_
-  **Updated SDK versions:** Amazon GameLift Servers plugin for Unreal Engine version 1.0.0
-
-The Amazon GameLift Servers plugin for Unreal Engine provides tools and workflows that
-streamline your steps to getting a game up and running with Amazon GameLift Servers for cloud
-hosting. Amazon GameLift Servers is a fully managed service that lets game developers manage and
-scale dedicated game servers for session-based multiplayer games. The plugin
-supports UE versions 5.0, 5.1, and 5.2. Key features include:
-
-- Guided UI workflows in the Unreal editor ]step through the
-  following paths:
-
-  - Test your game integration with Amazon GameLift Servers using your local
-    workstation as a host. This workflow helps you set up an Amazon GameLift Servers
-    Anywhere fleet for your local machine, launch instances of your
-    game server and client, request a game session through Amazon GameLift Servers,
-    and get connection information for the new game session.
-  - Deploy an Amazon EC2 cloud hosting solution for your integrated
-    game server. This workflow helps you configure your game for
-    cloud hosting, and provides three different deployment
-    scenarios: deploy to a single fleet, deploy to a set of spot
-    fleets in multiple regions, or deploy to a set of fleets with a
-    FlexMatch matchmaker. The solution for each deployment scenario
-    includes Amazon GameLift Servers resources and supporting AWS resources.
-
-- Ability to set up user profiles that link to an AWS account user
-  and define a default AWS Region. You can maintain multiple
-  profiles to work in different AWS accounts, account users, and
-  regions.
-- Special conveniences that help streamline the Amazon GameLift Servers integration
-  and deployment processes, including:
-
-  - Each hosting solution includes supporting AWS resources,
-    including a basic Amazon Cognito user pool that provides unique player
-    IDs, an Amazon S3 bucket for storage, Amazon SNS event notification, and
-    AWS Lambda functions.
-  - For the Anywhere workflow, the plugin automates the required
-    server parameter settings using command line arguments.
-  - For the Amazon EC2 workflow, each deployment solution provides a
-    built-in client backend service using Lambda functions. The
-    backend service receives requests from game clients and passes
-    them on to the Amazon GameLift Servers service.
-
-- Content for integration testing, including a starter game map and
-  two testing maps with basic blueprints and UI elements.
-- Plugin documentation with detailed integration guidance and sample
-  code.
-  All deployment scenarios, including for Anywhere and Amazon EC2 fleets, use AWS
-  CloudFormation templates to describe the solutions. The plugin uses these
-  templates when deploying Amazon GameLift Servers resources for your game. These templates are
-  included in the Amazon GameLift Servers plugin download and are editable. You can use them as is
-  or modify them for your game.
-
-###### **Learn more:**
-
-- [Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md "unreal-plugin.md"), _Amazon GameLift Servers Developer Guide_
-- [Download the plugin from GitHub](https://github.com/aws/amazon-gamelift-plugin-unreal "https://github.com/aws/amazon-gamelift-plugin-unreal")
-- [About Amazon GameLift Servers hosting](https://aws.amazon.com/gamelift/servers/ "https://aws.amazon.com/gamelift/servers/")
-- [Amazon GameLift Servers forum](https://forums.awsgametech.com/c/amazon-gamelift/ "https://forums.awsgametech.com/c/amazon-gamelift/")
-  **Updated SDK versions:** AWS SDK
-  1.11.144
-
-With Amazon GameLift Servers you can now host your games in the cloud using EC2 instances with AWS Graviton processors.
-Designed by AWS with Arm64-based processors, Graviton instances
-deliver the best price performance for cloud workloads using EC2, with up to 40% improvement over
-comparable x86-based instances. The latest Graviton3 processors offer up to 25% better compute performance over
-earlier versions.
-
-With Amazon GameLift Servers, you can now select from these new instances in the AWS Graviton
-family:
-
-- Graviton2-based instances: c6g, c6gn, r6g, m6g, g5g
-- Graviton3-based instances: c7g, r7g, m7g
-
-###### **Learn more:**
-
-- [AWS Graviton Processor](https://aws.amazon.com/ec2/graviton/ "https://aws.amazon.com/ec2/graviton/"): Learn about the benefits and practical uses of Graviton-based EC2 instances.
-- [Getting started with
-  Graviton](https://aws.amazon.com/ec2/graviton/getting-started/ "https://aws.amazon.com/ec2/graviton/getting-started/"): Get an overview of the Graviton-based instances
-  and insights on how applications run on them depending on their
-  operating system, languages, and run times.
-
-###### Note
-
-Graviton Arm instances require a server build for a Linux AMI.
-Server SDK 5.1.1 or newer is required for C++ and C#. Server SDK 5.0 or newer is required for Go.
-These instances do not provide out-of-the-box support for Mono installation on Amazon Linux 2023 (AL2023) or Amazon Linux 2 (AL2).
-
-**Updated SDK versions:** Server SDK for C++,
-C#/Unity, Unreal 5.1.0
-
-The newest release of the Amazon GameLift Servers server SDK delivers updates for C++, C#, and
-the Unreal plugin, and a new plugin for use with the Unity game engine. Game
-developers integrate the Amazon GameLift Servers server SDK into game servers that they deploy for
-hosting on Amazon GameLift Servers.
-
-The latest server SDK version contains the following updates, which include a
-number of customer requests:
-
-- **Download language-specific SDK
-  packages** – The updated [Amazon GameLift Servers
-  download site](https://aws.amazon.com/gamelift/servers/getting-started/#Amazon_GameLift_Server_SDKs "https://aws.amazon.com/gamelift/servers/getting-started/#Amazon_GameLift_Server_SDKs") contains SDK packages for each language. You
-  can download current or previous versions.
-- **New C# server SDK plugin for Unity**
-  – The new server SDK package for Unity contains built C#
-  libraries that you can install using the package manager in Unity Editor
-  (see the new [Unity
-  integration guide](integration-engines-unity-using.md "integration-engines-unity-using.md")). These libraries include the required
-  dependencies through UnityNuGet. You can use this plugin with Unity
-  2020.3 LTS, 2021.3 LTS and 2022.3 LTS for Windows and Mac OS. It
-  supports Unity's .NET Framework and .NET Standard profiles, with .NET
-  Standard 2.1 and .NET 4.x.
-- **Consolidated .NET solution for C#**
-  – The server SDK for C# now supports .NET Framework 4.6.2
-  (upgraded from 4.6.1) and .NET 6.0 in a single solution. .NET Standard
-  2.1 is available with the Unity-built libraries.
-- **Server SDK 5.1.0 updates**
-
-  - [C++, C#, Unreal] You can now call `InitSDK()` with
-    or without server parameters. Game servers that run on Amazon GameLift Servers
-    managed EC2 fleets read the server parameters directly from
-    environment variables. Game servers on Amazon GameLift Servers Anywhere fleets
-    must call `InitSDK()` with server parameters.
-  - [C++, C#, Unreal] Server SDK calls have improved error
-    messaging.
-  - [C++ SDK] To improve Server SDK build times, the build flag
-    `-DRUN_CLANG_FORMAT` is disabled by default. You
-    can enable it with `-DRUN_CLANG_FORMAT=1`.
-  - [C++ SDK] When building the libraries without the standard
-    libraries (`-DGAMELIFT_USE_STD=0`),
-    `InitSDK()` no longer uses `std::`
-    data types.
-
-- **Expanded server SDK 5.x documentation**
-
-  - Updated server SDK reference guides for C++, C#/Unity, and
-    Unreal including expanded coverage of all data types.
-
-    - [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
-    - [C++ server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md")
-    - [C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
-
-  - New versions of the server SDK 5 integration guides for Unity
-    and Unreal plugins
-
-    - [Integrate Amazon GameLift Servers into a Unity project](integration-engines-unity-using.md "integration-engines-unity-using.md")
-    - [Integrate Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md")
-
-- **Additional documentation
-  updates**
-
-  - Revised documentation for Amazon GameLift Servers service API operations [GetComputeAccess](../apireference/API_GetComputeAccess.md "../apireference/API_GetComputeAccess.md") and [GetInstanceAccess](../apireference/API_GetInstanceAccess.md "../apireference/API_GetInstanceAccess.md") to clarify remote access
-    procedures based on the Amazon GameLift Servers server SDK version in use.
-  - Revised descriptions for [GameSessionPlacement](../apireference/API_GameSessionPlacement.md "../apireference/API_GameSessionPlacement.md") to document how game session
-    information is transient when a placement is in "pending"
-    status.
-    You can now track hardware performance metrics for your Amazon GameLift Servers managed EC2
-    fleets. Metrics include EC2 instance metrics for CPU utilization, network
-    traffic volume, and disk read/write activity. For Amazon GameLift Servers, these metrics describe
-    all active instances in a fleet location. You can view these fleet hardware metrics
-    using an Amazon CloudWatch dashboard in the AWS Management Console. You can also view them in the Amazon GameLift Servers
-    console in fleet details.
-
-###### Learn more:
-
-- [Monitor Amazon GameLift Servers with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md") (Metrics for
-  fleets), _Amazon GameLift Servers Developer Guide_
-  **Updated SDK versions:** AWS SDK
-  1.11.111
-
-Amazon GameLift Servers customers can now use the Amazon Linux 2023 operating system to host
-their game servers. AL2023 offers several improvements over AL2 including
-security. This operating system is available in all AWS Regions with the
-exception of the China Regions.
-
-Customers can use the newer Linux operating systems and continue to receive
-critical security updates when support ends for Amazon Linux (AL1) in December 2023. Support for Amazon Linux 2 continues through June 30, 2026.
-
-###### Learn more:
-
-- [Amazon GameLift Servers Linux Server FAQ](https://aws.amazon.com/gamelift/servers/faq/al1/ "https://aws.amazon.com/gamelift/servers/faq/al1/")
-- [Comparing Amazon Linux 2 and Amazon Linux 2023](../../../linux/al2023/ug/compare-with-al2.md "../../../linux/al2023/ug/compare-with-al2.md")
-- Amazon GameLift Servers API Reference links:
-
-  - [AWS SDK
-    action `CreateBuild`](../apireference/API_CreateBuild.md "../apireference/API_CreateBuild.md")
-  - [CLI command
-    `upload-build`](../../../cli/latest/reference/gamelift/upload-build.md "../../../cli/latest/reference/gamelift/upload-build.md")
-  - [CLI command
-    `create-build`](../../../cli/latest/reference/gamelift/create-build.md "../../../cli/latest/reference/gamelift/create-build.md")
-    **Updated SDK versions:** AWS SDK 1.11.87
-
-If you use Amazon GameLift Servers FleetIQ for game hosting, you can now prevent game session
-placements on instances that are currently draining. Draining instances are
-flagged for shutdown, but they can still be selected to host new game sessions
-if no other hosting resources are available. With this new feature, you can
-exclude the use of draining instances entirely.
-
-Use this feature when calling `ClaimGameServer` to find available
-game servers. Add the new `FilterOption` parameter and set allowed
-instance statuses to ACTIVE only. In response, Amazon GameLift Servers FleetIQ looks only at active
-instances when searching for and claiming an available game server.
-
-###### **Learn more:**
-
-- [ClaimGameServer](../apireference/API_ClaimGameServer.md "../apireference/API_ClaimGameServer.md") in the _Amazon GameLift Servers API
-  Reference_
-- [How FleetIQ works](../fleetiqguide/gsg-howitworks.md "../fleetiqguide/gsg-howitworks.md") in the _Amazon GameLift Servers FleetIQ
-  Developer Guide_
-  Amazon GameLift Servers customers can now use AWS Billing cost allocation tags to organize
-  their game hosting costs. You can assign cost allocation tags to individual
-  Amazon GameLift Servers EC2 fleet resources to track how your fleets are contributing to the
-  overall hosting costs.
-
-###### **Learn more:**
-
-- [Resource cost and utilization tools](gamelift-pricing-cost-optimization.md#gamelift-pricing-cost-optimization-tools "gamelift-pricing-cost-optimization.md#gamelift-pricing-cost-optimization-tools")
-- [Using
-  AWS cost allocation tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md"), _AWS Billing User Guide_
-  **Updated SDK versions:** AWS SDK 1.11.63
-
-Amazon GameLift Servers customers can now use the Windows Server 2016 operating system to host their game servers.
-This operating system is available in all AWS Regions. Customers can use the newer Windows
-operating system and continue to receive critical security updates as Microsoft ends its support
-for Windows Server 2012 in October 2023.
-
-Starting today, new customers who require a Windows runtime environment
-must specify Windows Server 2016 when creating new game server builds for
-hosting. Existing customers can continue to create new builds and fleets with
-Windows Server 2012 but must complete migration with Windows Server 2016 before
-the Microsoft end of support date on October 10, 2023.
+****Learn more:****
++ [Debug Amazon GameLift Servers fleet issues](fleets-creating-debug.md), *Amazon GameLift Servers Developer Guide* 
++ [Event data type](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_Event.html), *Amazon GameLift Servers API Reference* 
+
+### August 15, 2024: Amazon GameLift Servers improves console experience
+<a name="release-notes-08152024"></a>
+
+Based on customer feedback, we've made the following updates to the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift) experience: 
++ Your display preferences for pages are now automatically saved to your AWS account user and applied whenever you return to the page. Display preferences let you choose what information to include in a table display, such as on the Fleets listing page. Customize your display preferences by using the ![Gear icon representing settings or configuration options.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/settings.png) icon in the upper right corner of a table. 
++ The Create Fleet workflow for managed EC2 fleets has been streamlined to combine the selection of fleet locations and instance types. We've made it easier for you to find the right instance type for your fleet, even when you change your locations selections. 
+
+****Learn more:****
++ [Create an Amazon GameLift Servers managed EC2 fleet](fleets-creating.md), *Amazon GameLift Servers Developer Guide* 
+
+### July 25, 2024: Amazon GameLift Servers adds support for AWS Nigeria Local Zone
+<a name="release-notes-07252024"></a>
+
+With Amazon GameLift Servers managed hosting, you can now deploy game server resources in Nigeria, West Africa, and extend the reach of your games to players throughout Africa. Use AWS Local Zones to place game servers geographically closer to your players to reduce latency and significantly improve gameplay. 
+
+To immediately begin hosting game sessions in Nigeria, add the new Nigeria Local Zone as a remote location to a new or existing multi-location fleet. If your game uses Amazon GameLift Servers FlexMatch, update fleets in your matchmaking queue to include the new Local Zone. With multi-location fleets, you can directly manage hosting capacity in each location. 
+
+The parent AWS Region for the Lagos, Nigeria Local Zone is the Africa (Cape Town) Region (`af-south-1`), which Amazon GameLift Servers also supports as a remote location. The Nigeria Local Zone name is `af-south-1-los-1`. 
+
+****Learn more:****
++ [Amazon GameLift Servers service locations](gamelift-regions.md), *Amazon GameLift Servers Developer Guide* 
++ [Update fleet locations](fleets-update-locations.md), *Amazon GameLift Servers Developer Guide* 
+
+### July 02, 2024: Amazon GameLift Servers releases new console tool to view player session data
+<a name="release-notes-07022024"></a>
+
+The Amazon GameLift Servers console now offers a player session lookup tool that lets you retrieve player session information by game session ID, player session ID, or player ID. Games that use FlexMatch matchmaking automatically generate player sessions for every matched player. For all other games, player sessions are an optional feature. 
+
+You can find the player session lookup tool in the main navigation for the Amazon GameLift Servers console. View individual player sessions or compare data across multiple player sessions. You can also open player session data when viewing a game session detail page.
+
+****Learn more:****
++ [Game and player sessions in the Amazon GameLift Servers console](gamelift-console-game-player-sessions-metrics.md), *Amazon GameLift Servers Developer Guide* 
+
+### April 24, 2024: Amazon GameLift Servers releases container fleets preview
+<a name="release-notes-04242024"></a>
+
+Amazon GameLift Servers is now offering a preview of container fleets, which give you improved portability, scalability, fault tolerance, and agility. 
+
+In container fleets, Amazon EC2 instances host one or more of your containers. These containers include your game server along with whatever it requires, including dependencies and configurations. Examples of dependencies include SDKs and software packages. After you upload your container to your private Amazon Elastic Container Registry, Amazon GameLift Servers populates your fleet with the container. 
+
+To function in a container fleet, your game server must run in Linux and be integrated with Server SDK 5.x. In a container fleet, you have fine-tuned control of hosting resources so that you can optimize consumption of resources such as CPU units and memory. You can also host multiple game servers in a container to reduce the use of resources. 
+
+In a container fleet you get many of the same benefits that other types of fleets have such as On-Demand instance types, scaling (automatic and manual), queues, and matchmaking. You also get the same metrics as other fleet types along with some new ones for containers. Container fleets give you global reach to players in these locations regions: 
++ ap-northeast-1
++ ap-northeast-2
++ ap-southeast-2
++ eu-central-1
++ eu-west-1
++ us-east-1
++ us-west-2
+
+To reach even more regions and local zones, create multi-location containers fleets. 
+
+****Learn more:****
++ [Managing hosting with Amazon GameLift Servers containers](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/containers-intro.html), *Amazon GameLift Servers Developer Guide* 
++ [CreateContainerGroupDefinition](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateContainerGroupDefinition.html), *Amazon GameLift Servers API Reference* 
+
+### February 13, 2024: Amazon GameLift Servers launches improvements to SDKs, and simplifies installation of the Amazon GameLift Servers plugin for Unreal Engine
+<a name="release-notes-02132024"></a>
+
+**Updated SDK versions:** 
++ Go Server SDK, version 5.1.0
++ C\# Server SDK, version 5.1.2
++ C\+\+ Server SDK, version 5.1.2
+
+We made the following improvements:
++ Improved the reliability of the SDK by adding automatic reconnection in the event of network interruption. 
++ [Go] You can now call `InitSDK()` with or without server parameters. Game servers that run on Amazon GameLift Servers managed EC2 fleets read the server parameters directly from environment variables. Game servers on Amazon GameLift Servers Anywhere fleets must call `InitSDK()` with server parameters. 
+
+**Updated plugin versions:** 
++ Amazon GameLift Servers plugin for Unreal Engine, version 1.1.0
++ Amazon GameLift Servers plugin for Unity, version 2.1.0
++ C\+\+ Server SDK Plugin for Unreal, version 5.1.1
++ C\# Server SDK Plugin for Unity, version 5.1.2
+
+We made the following improvements:
++ [Amazon GameLift Servers plugin for Unreal Engine] Updated the installation instructions and simplified the packaging. This plugin now includes the latest version of the C\+\+ Server SDK for Unreal.
++ Upgraded the plugins to support the latest version of the server SDK for Amazon GameLift Servers. 
+
+****Learn more:****
++ [Integrating games with the Amazon GameLift Servers plugin for Unreal Engine](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/unreal-plugin.html), *Amazon GameLift Servers Developer Guide* 
++ [Amazon GameLift Servers plugin and SDK downloads](https://aws.amazon.com/gamelift/servers/getting-started/#Amazon_GameLift_Plugins_for_Game_Engines)
+
+### December 14, 2023: Amazon GameLift Servers adds ability to update the game properties of active game sessions
+<a name="release-notes-12142023"></a>
+
+You've already been able to set game properties when creating game sessions, and to search game sessions for specified properties. Now you can also add and update these properties in an active game session. 
+
+For example, your players vote on a map that they want to play on. Your game client calls `UpdateGameSession` to modify a `GameProperty` value to `{"Key": "map", "Value":"jungle"}`. Your game then implements the new map for the players in the game session. 
+
+ Game administrators can also retrieve useful data from game properties by using the `SearchGameSessions` operation. For example, administrators can list game sessions that have a `Status` value of `ACTIVE` and this game property: `{"Key": "map", "Value":"desert"}`. 
+
+****Learn more:****
++ [Integrate Amazon GameLift Servers game client functionality](gamelift-sdk-client-api.md), *Amazon GameLift Servers Developer Guide* 
++ [GameProperty](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_GameProperty.html), *Amazon GameLift Servers API Reference* 
++ [UpdateGameSession](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_UpdateGameSession.html), *Amazon GameLift Servers API Reference* 
++ [SearchGameSessions](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_SearchGameSessions.html), *Amazon GameLift Servers API Reference* 
+
+### November 21, 2023: Amazon GameLift Servers launches support for Infrastructure as Code tools like Terraform and Pulumi powered by AWS Cloud Control API
+<a name="release-notes-11212023"></a>
+
+ You can now manage your entire Amazon GameLift Servers resource stack using Infrastructure as Code (IaC) tools. These tools include AWS CloudFormation, and also third-party tools such as Terraform and Pulumi. With this added support, you can now focus on building your game, and leverage DevOps strategies to take care of resource management, CI/CD, and deployment to your customers. 
+
+ You can also now provision and configure all Amazon GameLift Servers resources types by using the AWS Cloud Control API. You can continue to work with resources using the Amazon GameLift Servers APIs or the AWS CloudFormation templates for Amazon GameLift Servers. 
+
+ For details about the Amazon GameLift Servers resources available through IaC, see the [Amazon GameLift Servers resource type reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GameLift.html) Amazon GameLift Servers resource type reference. 
+
+ In addition, you can now automatically scale your fleets using AWS CloudFormation templates or the AWS Cloud Control API by using the new [Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html) property: `ScalingPolicies`. 
+
+ The Cloud Control API gives developers a standard set of APIs to create, read, update, delete, and list resources (CRUDL) across hundreds of AWS services and multiple third-party tools like Terraform and Pulumi. 
+
+****Learn more:****
++ [AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) 
++ [AWS Cloud Control API](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html) 
++ [AWS CC Terraform Provider](https://registry.terraform.io/providers/hashicorp/awscc/latest) 
++ [Pulumi](https://www.pulumi.com/) 
+
+### November 16, 2023: Amazon GameLift Servers updates standalone plugin for Unity
+<a name="release-notes-11162023"></a>
+
+**Updated SDK versions:** Amazon GameLift Servers plugin for Unity, version 2.0.0 
+
+The Amazon GameLift Servers plugin for Unity provides tools and workflows that streamline the steps to getting your Unity game up and running for cloud hosting with Amazon GameLift Servers. Amazon GameLift Servers is a fully managed service that lets game developers manage and scale dedicated game servers for session-based multiplayer games. 
+
+With this version, the plugin for Unity is updated to use the latest Amazon GameLift Servers features, including server SDK version 5.x and support for local testing with Amazon GameLift Servers Anywhere. The plugin is compatible with Unity versions Unity 2021.3 LTS and 2022.3 LTS. 
+
+Key plugin features include: 
++ Guided UI workflows in the Unity editor for the following scenarios: 
+  + Test your game integration with Amazon GameLift Servers using your local workstation as a host. This workflow helps you set up an Amazon GameLift Servers Anywhere fleet for your local machine, launch instances of your game server and client, request a game session through Amazon GameLift Servers, and join the game. 
+  + Deploy cloud hosting solution for your integrated game server with Amazon GameLift Servers managed EC2 and supporting AWS resources. This workflow helps you configure your game for cloud hosting, and provides three deployment scenarios: 
+    + Deploy the game server to a single fleet.
+    + Deploy the game server to a set of low-cost Spot fleets in multiple AWS Regions.
+    + Deploy the game server with a FlexMatch matchmaker.
++ Ability to set up user profiles that link to an AWS account user and set a default AWS Region. You can maintain multiple profiles to work in different AWS accounts, account users, and regions.
++ Special conveniences that help streamline the Amazon GameLift Servers integration and deployment processes, including:
+  + Each hosting solution includes supporting AWS resources, including an Amazon Cognito user pool that provides unique player IDs and player validation. The solutions also include an Amazon S3 bucket for storage, Amazon SNS event notification, AWS Lambda functions, and other resources.
+  + For the Anywhere workflow, the plugin automates the required server parameter settings. 
+  + For the Amazon EC2 workflow, each deployment solution provides a built-in client backend service using Lambda functions. The backend service sits between the game client and the Amazon GameLift Servers service and manages all direct calls to the Amazon GameLift Servers service.
++ Content for integration testing, including assets and code for a simple sample multiplayer game to illustrate game server and game client integration.
++ Plugin documentation with detailed integration guidance and sample code.
+
+All deployment scenarios, including for Anywhere and Amazon EC2 fleets, use AWS CloudFormation templates to describe and deploy the AWS resources for your game's solution. These templates are included in the Amazon GameLift Servers plugin download. You can use them as is or customize them for your game.
+
+****Learn more:****
++ [Amazon GameLift Servers plugin for Unity (server SDK 5.x)](unity-plug-in.md), *Amazon GameLift Servers Developer Guide*
++ [Download the plugin from GitHub](https://github.com/aws/amazon-gamelift-plugin-unity)
++ [About Amazon GameLift Servers hosting](https://aws.amazon.com/gamelift/servers/)
++ [Amazon GameLift Servers forum](https://forums.awsgametech.com/c/amazon-gamelift/)
+
+### November 2, 2023: Amazon GameLift Servers adds support for shared credentials
+<a name="release-notes-11022023"></a>
+
+**Updated SDK versions:** AWS SDK 1.11.193 
+
+The new Amazon GameLift Servers shared credentials feature allows applications that are deployed on managed EC2 fleets to interact with other AWS resources. This update affects applications that you bundle and deploy along with game server binaries integrated with server SDK version 5.x or later. (Game server executables can already request credentials using the server SDK 5.x `GetFleetRoleCredentials()` action.) 
+
+For example, if you want to deploy your game server build with an Amazon CloudWatch agent to collect EC2 instance metrics and other data, the agent needs permission to interact with your CloudWatch resources. To do this, you must first set up an AWS Identity and Access Management IAM) role with permissions to use the CloudWatch resources, and then configure a fleet with the IAM role and shared credentials enabled. When Amazon GameLift Servers deploys your game server build to each EC2 instance, it generates a shared credentials file and stores it on the instance. All applications on the instance can use the shared credentials. Amazon GameLift Servers automatically refreshes the temporary credentials throughout the life of the instance. 
+
+You can enable shared credentials when you create a managed EC2 fleet using the following methods: 
++ In the Amazon GameLift Servers console fleet creation workflow. 
++ When calling the service API operation `CreateFleet` using the new parameter `InstanceRoleCredentialsProvider`. 
++ When calling the AWS CLI operation `aws gamelift create-fleet` with the parameter `instance-role-credentials-provider`. 
+
+****Learn more:****
++ [ Communicate with other AWS resources from your fleets](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-sdk-server-resources.html), *Amazon GameLift Servers Developer Guide* 
++ [CreateFleet, InstanceRoleCredentialsProvider](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateFleet.html#gamelift-CreateFleet-request-InstanceRoleCredentialsProvider), *Amazon GameLift Servers API Reference* 
++ [ Set up an IAM service role](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/setting-up-role.html), *Amazon GameLift Servers Developer Guide* 
+
+### September 28, 2023: Amazon GameLift Servers releases new standalone plugin for Unreal Engine Engine
+<a name="release-notes-09282023"></a>
+
+**Updated SDK versions:** Amazon GameLift Servers plugin for Unreal Engine version 1.0.0 
+
+The Amazon GameLift Servers plugin for Unreal Engine provides tools and workflows that streamline your steps to getting a game up and running with Amazon GameLift Servers for cloud hosting. Amazon GameLift Servers is a fully managed service that lets game developers manage and scale dedicated game servers for session-based multiplayer games. The plugin supports UE versions 5.0, 5.1, and 5.2. Key features include: 
++ Guided UI workflows in the Unreal editor ]step through the following paths: 
+  + Test your game integration with Amazon GameLift Servers using your local workstation as a host. This workflow helps you set up an Amazon GameLift Servers Anywhere fleet for your local machine, launch instances of your game server and client, request a game session through Amazon GameLift Servers, and get connection information for the new game session. 
+  + Deploy an Amazon EC2 cloud hosting solution for your integrated game server. This workflow helps you configure your game for cloud hosting, and provides three different deployment scenarios: deploy to a single fleet, deploy to a set of spot fleets in multiple regions, or deploy to a set of fleets with a FlexMatch matchmaker. The solution for each deployment scenario includes Amazon GameLift Servers resources and supporting AWS resources.
++ Ability to set up user profiles that link to an AWS account user and define a default AWS Region. You can maintain multiple profiles to work in different AWS accounts, account users, and regions.
++ Special conveniences that help streamline the Amazon GameLift Servers integration and deployment processes, including:
+  + Each hosting solution includes supporting AWS resources, including a basic Amazon Cognito user pool that provides unique player IDs, an Amazon S3 bucket for storage, Amazon SNS event notification, and AWS Lambda functions.
+  + For the Anywhere workflow, the plugin automates the required server parameter settings using command line arguments. 
+  + For the Amazon EC2 workflow, each deployment solution provides a built-in client backend service using Lambda functions. The backend service receives requests from game clients and passes them on to the Amazon GameLift Servers service.
++ Content for integration testing, including a starter game map and two testing maps with basic blueprints and UI elements.
++ Plugin documentation with detailed integration guidance and sample code.
+
+All deployment scenarios, including for Anywhere and Amazon EC2 fleets, use AWS CloudFormation templates to describe the solutions. The plugin uses these templates when deploying Amazon GameLift Servers resources for your game. These templates are included in the Amazon GameLift Servers plugin download and are editable. You can use them as is or modify them for your game.
+
+****Learn more:****
++ [Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md), *Amazon GameLift Servers Developer Guide*
++ [Download the plugin from GitHub](https://github.com/aws/amazon-gamelift-plugin-unreal)
++ [About Amazon GameLift Servers hosting](https://aws.amazon.com/gamelift/servers/)
++ [Amazon GameLift Servers forum](https://forums.awsgametech.com/c/amazon-gamelift/)
+
+### August 17, 2023: Amazon GameLift Servers offers game server hosting with AWS Graviton processors
+<a name="release-notes-08172023"></a>
+
+**Updated SDK versions:** AWS SDK 1.11.144
+
+With Amazon GameLift Servers you can now host your games in the cloud using EC2 instances with AWS Graviton processors. Designed by AWS with Arm64-based processors, Graviton instances deliver the best price performance for cloud workloads using EC2, with up to 40% improvement over comparable x86-based instances. The latest Graviton3 processors offer up to 25% better compute performance over earlier versions.
+
+With Amazon GameLift Servers, you can now select from these new instances in the AWS Graviton family: 
++ Graviton2-based instances: c6g, c6gn, r6g, m6g, g5g
++ Graviton3-based instances: c7g, r7g, m7g 
+
+****Learn more:****
++ [AWS Graviton Processor](https://aws.amazon.com/ec2/graviton/): Learn about the benefits and practical uses of Graviton-based EC2 instances.
++ [Getting started with Graviton](https://aws.amazon.com/ec2/graviton/getting-started/): Get an overview of the Graviton-based instances and insights on how applications run on them depending on their operating system, languages, and run times.
+
+**Note**  
+Graviton Arm instances require a server build for a Linux AMI. Server SDK 5.1.1 or newer is required for C\+\+ and C\#. Server SDK 5.0 or newer is required for Go. These instances do not provide out-of-the-box support for Mono installation on Amazon Linux 2023 (AL2023) or Amazon Linux 2 (AL2). 
+
+### July 27, 2023: Amazon GameLift Servers releases server SDK 5.1.0 with added support for Unity development
+<a name="release-notes-07272023"></a>
+
+**Updated SDK versions:** Server SDK for C\+\+, C\#/Unity, Unreal 5.1.0
+
+The newest release of the Amazon GameLift Servers server SDK delivers updates for C\+\+, C\#, and the Unreal plugin, and a new plugin for use with the Unity game engine. Game developers integrate the Amazon GameLift Servers server SDK into game servers that they deploy for hosting on Amazon GameLift Servers. 
+
+The latest server SDK version contains the following updates, which include a number of customer requests: 
++ **Download language-specific SDK packages** – The updated [Amazon GameLift Servers download site](https://aws.amazon.com/gamelift/servers/getting-started/#Amazon_GameLift_Server_SDKs) contains SDK packages for each language. You can download current or previous versions.
++ **New C\# server SDK plugin for Unity** – The new server SDK package for Unity contains built C\# libraries that you can install using the package manager in Unity Editor (see the new [ Unity integration guide](integration-engines-unity-using.md)). These libraries include the required dependencies through UnityNuGet. You can use this plugin with Unity 2020.3 LTS, 2021.3 LTS and 2022.3 LTS for Windows and Mac OS. It supports Unity's .NET Framework and .NET Standard profiles, with .NET Standard 2.1 and .NET 4.x.
++ **Consolidated .NET solution for C\#** – The server SDK for C\# now supports .NET Framework 4.6.2 (upgraded from 4.6.1) and .NET 6.0 in a single solution. .NET Standard 2.1 is available with the Unity-built libraries.
++ **Server SDK 5.1.0 updates** 
+  + [C\+\+, C\#, Unreal] You can now call `InitSDK()` with or without server parameters. Game servers that run on Amazon GameLift Servers managed EC2 fleets read the server parameters directly from environment variables. Game servers on Amazon GameLift Servers Anywhere fleets must call `InitSDK()` with server parameters.
+  + [C\+\+, C\#, Unreal] Server SDK calls have improved error messaging.
+  + [C\+\+ SDK] To improve Server SDK build times, the build flag `-DRUN_CLANG_FORMAT` is disabled by default. You can enable it with `-DRUN_CLANG_FORMAT=1`.
+  + [C\+\+ SDK] When building the libraries without the standard libraries (`-DGAMELIFT_USE_STD=0`), `InitSDK()` no longer uses `std::` data types.
++ **Expanded server SDK 5.x documentation** 
+  + Updated server SDK reference guides for C\+\+, C\#/Unity, and Unreal including expanded coverage of all data types.
+    + [C\# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md)
+    + [C\+\+ server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-cpp-actions.md)
+    + [C\+\+ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md)
+  + New versions of the server SDK 5 integration guides for Unity and Unreal plugins
+    + [Integrate Amazon GameLift Servers into a Unity project](integration-engines-unity-using.md)
+    + [Integrate Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md)
++ **Additional documentation updates**
+  + Revised documentation for Amazon GameLift Servers service API operations [GetComputeAccess](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_GetComputeAccess.html) and [GetInstanceAccess](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_GetInstanceAccess.html) to clarify remote access procedures based on the Amazon GameLift Servers server SDK version in use.
+  + Revised descriptions for [GameSessionPlacement](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_GameSessionPlacement.html) to document how game session information is transient when a placement is in "pending" status.
+
+### July 13, 2023: Amazon GameLift Servers adds fleet hardware metrics
+<a name="release-notes-07132023"></a>
+
+You can now track hardware performance metrics for your Amazon GameLift Servers managed EC2 fleets. Metrics include EC2 instance metrics for CPU utilization, network traffic volume, and disk read/write activity. For Amazon GameLift Servers, these metrics describe all active instances in a fleet location. You can view these fleet hardware metrics using an Amazon CloudWatch dashboard in the AWS Management Console. You can also view them in the Amazon GameLift Servers console in fleet details.
+
+**Learn more:**
++ [Monitor Amazon GameLift Servers with Amazon CloudWatch](monitoring-cloudwatch.md) (Metrics for fleets), *Amazon GameLift Servers Developer Guide*
+
+### June 29, 2023: Amazon GameLift Servers launches support for Amazon Linux 2023
+<a name="release-notes-06292023"></a>
+
+**Updated SDK versions:** AWS SDK 1.11.111
+
+Amazon GameLift Servers customers can now use the Amazon Linux 2023 operating system to host their game servers. AL2023 offers several improvements over AL2 including security. This operating system is available in all AWS Regions with the exception of the China Regions. 
+
+Customers can use the newer Linux operating systems and continue to receive critical security updates when support ends for Amazon Linux (AL1) in December 2023. Support for Amazon Linux 2 continues through June 30, 2026.
+
+**Learn more:**
++ [Amazon GameLift Servers Linux Server FAQ](https://aws.amazon.com/gamelift/servers/faq/al1/)
++ [Comparing Amazon Linux 2 and Amazon Linux 2023](https://docs.aws.amazon.com/linux/al2023/ug/compare-with-al2.html)
++ Amazon GameLift Servers API Reference links:
+  +  [AWS SDK action `CreateBuild`](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateBuild.html)
+  +  [CLI command `upload-build`](https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html)
+  +  [CLI command `create-build`](https://docs.aws.amazon.com/cli/latest/reference/gamelift/create-build.html)
+
+### May 25, 2023: Amazon GameLift Servers FleetIQ adds filter to exclude game session placements on draining instances
+<a name="release-notes-05252023"></a>
+
+**Updated SDK versions:** AWS SDK 1.11.87 
+
+If you use Amazon GameLift Servers FleetIQ for game hosting, you can now prevent game session placements on instances that are currently draining. Draining instances are flagged for shutdown, but they can still be selected to host new game sessions if no other hosting resources are available. With this new feature, you can exclude the use of draining instances entirely.
+
+Use this feature when calling `ClaimGameServer` to find available game servers. Add the new `FilterOption` parameter and set allowed instance statuses to ACTIVE only. In response, Amazon GameLift Servers FleetIQ looks only at active instances when searching for and claiming an available game server.
+
+****Learn more:****
++ [ClaimGameServer](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_ClaimGameServer.html) in the *Amazon GameLift Servers API Reference*
++ [How FleetIQ works](https://docs.aws.amazon.com/gameliftservers/latest/fleetiqguide/gsg-howitworks.html) in the *Amazon GameLift Servers FleetIQ Developer Guide*
+
+### May 16, 2023: Amazon GameLift Servers supports cost allocation tagging for fleets
+<a name="release-notes-05182023"></a>
+
+Amazon GameLift Servers customers can now use AWS Billing cost allocation tags to organize their game hosting costs. You can assign cost allocation tags to individual Amazon GameLift Servers EC2 fleet resources to track how your fleets are contributing to the overall hosting costs. 
+
+****Learn more:****
++ [Resource cost and utilization tools](gamelift-pricing-cost-optimization.md#gamelift-pricing-cost-optimization-tools)
++ [Using AWS cost allocation tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html), *AWS Billing User Guide* 
+
+### April 20, 2023: Amazon GameLift Servers launches support for Windows Server 2016
+<a name="release-notes-04202023"></a>
+
+**Updated SDK versions:** AWS SDK 1.11.63 
+
+Amazon GameLift Servers customers can now use the Windows Server 2016 operating system to host their game servers. This operating system is available in all AWS Regions. Customers can use the newer Windows operating system and continue to receive critical security updates as Microsoft ends its support for Windows Server 2012 in October 2023.
+
+Starting today, new customers who require a Windows runtime environment must specify Windows Server 2016 when creating new game server builds for hosting. Existing customers can continue to create new builds and fleets with Windows Server 2012 but must complete migration with Windows Server 2016 before the Microsoft end of support date on October 10, 2023.
 
 This update includes the following service changes:
++ When creating a game server build using Amazon GameLift Servers SDK or CLI commands, you must now explicitly set the operating system. There is no longer a default value. To deploy your game server on Windows Server 2016, use the value `WINDOWS_2016`.
++ When creating a game server build using the Amazon GameLift Servers console, you must select an operating system from the available values. If you're an existing customer with active Windows Server 2012 fleets, you can choose either `WINDOWS_2012` or `WINDOWS_2016`.
 
-- When creating a game server build using Amazon GameLift Servers SDK or CLI commands, you must now explicitly set
-  the operating system. There is no longer a default value. To deploy your
-  game server on Windows Server 2016, use the value
-  `WINDOWS_2016`.
-- When creating a game server build using the Amazon GameLift Servers console, you must select an operating system
-  from the available values. If you're an existing customer with active
-  Windows Server 2012 fleets, you can choose either
-  `WINDOWS_2012` or `WINDOWS_2016`.
+****Learn more:****
++ Amazon GameLift Servers API Reference links:
+  +  [CLI command `upload-build`](https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html)
+  +  [CLI command `create-build`](https://docs.aws.amazon.com/cli/latest/reference/gamelift/create-build.html)
+  +  [AWS SDK action `CreateBuild`](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateBuild.html)
++ [Amazon GameLift Servers FAQ for Windows 2012](https://aws.amazon.com/gamelift/servers/faq/win2012/)
 
-###### **Learn more:**
+### April 13, 2023: Amazon GameLift Servers launches server SDK 5.x for Unreal
+<a name="release-notes-04132023"></a>
 
-- Amazon GameLift Servers API Reference links:
+**Updated SDK versions:** Server SDK 5.0.0 for Unreal
 
-  - [CLI command
-    `upload-build`](../../../cli/latest/reference/gamelift/upload-build.md "../../../cli/latest/reference/gamelift/upload-build.md")
-  - [CLI command
-    `create-build`](../../../cli/latest/reference/gamelift/create-build.md "../../../cli/latest/reference/gamelift/create-build.md")
-  - [AWS SDK
-    action `CreateBuild`](../apireference/API_CreateBuild.md "../apireference/API_CreateBuild.md")
+The latest version of the Amazon GameLift Servers lightweight plugin for Unreal Engine is now based on the Amazon GameLift Servers server SDK 5.x. To start integrating your Unreal Engine environment with Amazon GameLift Servers see the following links.
 
-- [Amazon GameLift Servers FAQ for Windows 2012](https://aws.amazon.com/gamelift/servers/faq/win2012/ "https://aws.amazon.com/gamelift/servers/faq/win2012/")
-  **Updated SDK versions:** Server SDK 5.0.0 for
-  Unreal
+****Learn more:****
++ [Integrate Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md)
++ [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md)
++ [C\+\+ server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-cpp-actions.md)
 
-The latest version of the Amazon GameLift Servers lightweight plugin for Unreal Engine is now
-based on the Amazon GameLift Servers server SDK 5.x. To start integrating your Unreal Engine
-environment with Amazon GameLift Servers see the following links.
+### March 14, 2023: Amazon GameLift Servers launches a new console experience
+<a name="release-notes-03142023"></a>
 
-###### **Learn more:**
+The new Amazon GameLift Servers console includes these improvements:
++ **Improved navigation** – The new navigation pane facilitates navigation between Amazon GameLift Servers resources.
++ **Amazon GameLift Servers landing page** – The new landing page provides links to helpful documentation, displays a high-level overview of Amazon GameLift Servers, and provides support through links to documentation, frequently asked questions, and AWS re:Post.
++ **Improved Amazon CloudWatch metrics** – Amazon GameLift Servers metrics are now available in both the Amazon GameLift Servers console and your CloudWatch dashboards. This update also includes new metrics for performance, utilization, and player sessions.
 
-- [Integrate Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md")
-- [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
-- [C++ server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md")
-  The new Amazon GameLift Servers console includes these improvements:
+****Learn more:****
++ [Manage game hosting resources with Amazon GameLift Servers](gamelift-console-intro.md)
++ [Building a FlexMatch matchmaker](https://docs.aws.amazon.com/gameliftservers/latest/flexmatchguide/matchmaker-build.html)
 
-- **Improved navigation** – The new
-  navigation pane facilitates navigation between Amazon GameLift Servers resources.
-- **Amazon GameLift Servers landing page** – The new
-  landing page provides links to helpful documentation, displays a
-  high-level overview of Amazon GameLift Servers, and provides support through links to
-  documentation, frequently asked questions, and AWS re:Post.
-- **Improved Amazon CloudWatch metrics** –
-  Amazon GameLift Servers metrics are now available in both the Amazon GameLift Servers console and your CloudWatch
-  dashboards. This update also includes new metrics for performance,
-  utilization, and player sessions.
+### February 14, 2023: Amazon GameLift Servers now supports server side encryption for Amazon SNS topics
+<a name="release-notes-02142023"></a>
 
-###### **Learn more:**
-
-- [Manage game hosting resources with Amazon GameLift Servers](gamelift-console-intro.md "gamelift-console-intro.md")
-- [Building
-  a FlexMatch matchmaker](../flexmatchguide/matchmaker-build.md "../flexmatchguide/matchmaker-build.md")
-  **Server Side Encryption (SSE) for SNS topics**
-  encrypts your sensitive data at rest. SSE uses AWS Key Management Service (AWS KMS) keys to protect
-  the contents of your SNS topics.
+**Server Side Encryption (SSE) for SNS topics** encrypts your sensitive data at rest. SSE uses AWS Key Management Service (AWS KMS) keys to protect the contents of your SNS topics.
 
 **Learn more:**
++ [Set up event notification for game session placement](queue-notification.md)
++ [FlexMatch matchmaking events](https://docs.aws.amazon.com/gameliftservers/latest/flexmatchguide/match-notification.html)
++ [Encryption at rest](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html)
 
-- [Set up event notification for game session placement](queue-notification.md "queue-notification.md")
-- [FlexMatch
-  matchmaking events](../flexmatchguide/match-notification.md "../flexmatchguide/match-notification.md")
-- [Encryption at rest](../../../sns/latest/dg/sns-server-side-encryption.md "../../../sns/latest/dg/sns-server-side-encryption.md")
-  **Updated SDK versions:** Server SDK 5.0.0 for
-  .NET 6. No SDK updates are required.
+### February 9, 2023: Amazon GameLift Servers server SDK supports .NET 6 with C\#10
+<a name="release-notes-02092023"></a>
 
-If you use the Unity Real-Time Development Platform, continue to use the Amazon GameLift Servers
-server SDK 5.0.0 with .NET 4.6. Unity doesn't support .NET 6.
+**Updated SDK versions:** Server SDK 5.0.0 for .NET 6. No SDK updates are required.
 
-###### **Learn more:**
+If you use the Unity Real-Time Development Platform, continue to use the Amazon GameLift Servers server SDK 5.0.0 with .NET 4.6. Unity doesn't support .NET 6.
 
-- Download the latest version of the Amazon GameLift Servers server SDK at [Amazon GameLift Servers getting
-  started](https://aws.amazon.com/gamelift/getting-started "https://aws.amazon.com/gamelift/getting-started")
-- [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
-  **Updated SDK versions:** Server SDK 5.0.0 for
-  Go
+****Learn more:****
++ Download the latest version of the Amazon GameLift Servers server SDK at [Amazon GameLift Servers getting started](https://aws.amazon.com/gamelift/getting-started)
++ [C\# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md)
 
-###### **Learn more:**
+### January 31, 2023: Amazon GameLift Servers server SDK supports the Go language
+<a name="release-notes-01312023"></a>
 
-- Download the latest version of the Amazon GameLift Servers server SDK at [Amazon GameLift Servers getting
-  started](https://aws.amazon.com/gamelift/getting-started "https://aws.amazon.com/gamelift/getting-started")
-- [Go server SDK for Amazon GameLift Servers -- Actions](integration-server-sdk-go-actions.md "integration-server-sdk-go-actions.md")
-  **Updated SDK versions:** AWS SDK 1.10.21,
-  Server SDK 5.0.0 for C++ and C#
+**Updated SDK versions:** Server SDK 5.0.0 for Go
 
-**Amazon GameLift Servers Anywhere** uses your game server
-resources to host Amazon GameLift Servers game servers. You can use Amazon GameLift Servers Anywhere to integrate
-your own compute resources with Amazon GameLift Servers managed EC2 compute to distribute your
-game servers across multiple compute types. You can also use Amazon GameLift Servers Anywhere to
-iteratively test your game servers without uploading the build to Amazon GameLift Servers for
-every iteration.
+****Learn more:****
++ Download the latest version of the Amazon GameLift Servers server SDK at [Amazon GameLift Servers getting started](https://aws.amazon.com/gamelift/getting-started)
++ [Go server SDK for Amazon GameLift Servers -- Actions](integration-server-sdk-go-actions.md)
+
+### December 1, 2022: Amazon GameLift Servers launches Amazon GameLift Servers Anywhere and Amazon GameLift Servers Server SDK 5.0
+<a name="release-notes-12012022"></a>
+
+**Updated SDK versions:** AWS SDK 1.10.21, Server SDK 5.0.0 for C\+\+ and C\#
+
+**Amazon GameLift Servers Anywhere** uses your game server resources to host Amazon GameLift Servers game servers. You can use Amazon GameLift Servers Anywhere to integrate your own compute resources with Amazon GameLift Servers managed EC2 compute to distribute your game servers across multiple compute types. You can also use Amazon GameLift Servers Anywhere to iteratively test your game servers without uploading the build to Amazon GameLift Servers for every iteration.
 
 Highlights:
++ New Amazon GameLift Servers Anywhere fleet and compute types
++ Amazon GameLift Servers Anywhere compute resource registration
++ Improved testing iteration cycle
 
-- New Amazon GameLift Servers Anywhere fleet and compute types
-- Amazon GameLift Servers Anywhere compute resource registration
-- Improved testing iteration cycle
-  **Amazon GameLift Servers Server SDK 5.0.0** introduces
-  improvements to the existing server SDK and a new resource type, compute. Server
-  SDK 5.0.0 supports Amazon GameLift Servers Anywhere and the use of your own compute resources for
-  game server hosting.
+**Amazon GameLift Servers Server SDK 5.0.0** introduces improvements to the existing server SDK and a new resource type, compute. Server SDK 5.0.0 supports Amazon GameLift Servers Anywhere and the use of your own compute resources for game server hosting. 
 
-###### **Learn more:**
+****Learn more:****
++ [Server SDK 5.x for Amazon GameLift Servers](reference-serversdk.md)
++ [Geographic locations](gamelift-compute.md#gamelift-compute-location)
++ [Choose compute resources for a managed fleet](gamelift-compute.md)
++ [Create an Amazon GameLift Servers Anywhere fleet](fleets-creating-anywhere.md)
 
-- [Server SDK 5.x for Amazon GameLift Servers](reference-serversdk.md "reference-serversdk.md")
-- [Geographic locations](gamelift-compute.md#gamelift-compute-location "gamelift-compute.md#gamelift-compute-location")
-- [Choose compute resources for a managed fleet](gamelift-compute.md "gamelift-compute.md")
-- [Create an Amazon GameLift Servers Anywhere fleet](fleets-creating-anywhere.md "fleets-creating-anywhere.md")
-  **Updated SDK versions:** AWS SDK
-  1.9.333
+### August 25, 2022: Amazon GameLift Servers launches support for Local Zones
+<a name="release-notes-08252022"></a>
 
-Amazon GameLift Servers is now available in eight Local Zones in the United States, so you can
-deploy your fleets closer to players. You can use all managed Amazon GameLift Servers features
-with Local Zones by adding the Local Zones to your fleets.
+**Updated SDK versions:** AWS SDK 1.9.333
 
-Local Zones extend AWS resources and services to the edge of the cloud, near
-large population, industry, and information technology (IT) centers. This means
-that you can deploy applications that require single-digit millisecond latency
-closer to end users or to on-premises data centers.
+Amazon GameLift Servers is now available in eight Local Zones in the United States, so you can deploy your fleets closer to players. You can use all managed Amazon GameLift Servers features with Local Zones by adding the Local Zones to your fleets.
 
-###### **Learn more:**
+Local Zones extend AWS resources and services to the edge of the cloud, near large population, industry, and information technology (IT) centers. This means that you can deploy applications that require single-digit millisecond latency closer to end users or to on-premises data centers.
 
-- Amazon GameLift Servers local zones
-- [Geographic locations](gamelift-compute.md#gamelift-compute-location "gamelift-compute.md#gamelift-compute-location")
-- [Create an Amazon GameLift Servers managed EC2 fleet](fleets-creating.md "fleets-creating.md")
-  The new Amazon GameLift Servers console includes these improvements:
+****Learn more:****
++ [Amazon GameLift Servers local zones]()
++ [Geographic locations](gamelift-compute.md#gamelift-compute-location)
++ [Create an Amazon GameLift Servers managed EC2 fleet](fleets-creating.md)
 
-- **Improved navigation** – The new
-  navigation pane facilitates navigation between Amazon GameLift Servers resources.
-- **Amazon GameLift Servers landing page** – The new
-  landing page provides links to helpful documentation, displays a
-  high-level overview of Amazon GameLift Servers, and provides support through links to
-  documentation, frequently asked questions, and AWS re:Post.
-- **Improved Amazon CloudWatch metrics** –
-  Amazon GameLift Servers metrics are now available in both the Amazon GameLift Servers console and your CloudWatch
-  dashboards. This update also includes new metrics for performance,
-  utilization, and player sessions.
+### June 28, 2022: Amazon GameLift Servers launches a new opt-in console experience
+<a name="release-notes-06302022"></a>
 
-###### **Learn more:**
+The new Amazon GameLift Servers console includes these improvements:
++ **Improved navigation** – The new navigation pane facilitates navigation between Amazon GameLift Servers resources.
++ **Amazon GameLift Servers landing page** – The new landing page provides links to helpful documentation, displays a high-level overview of Amazon GameLift Servers, and provides support through links to documentation, frequently asked questions, and AWS re:Post.
++ **Improved Amazon CloudWatch metrics** – Amazon GameLift Servers metrics are now available in both the Amazon GameLift Servers console and your CloudWatch dashboards. This update also includes new metrics for performance, utilization, and player sessions.
 
-- [Manage game hosting resources with Amazon GameLift Servers](gamelift-console-intro.md "gamelift-console-intro.md")
-- [Building
-  a FlexMatch matchmaker](../flexmatchguide/matchmaker-build.md "../flexmatchguide/matchmaker-build.md")
-  FlexMatch users now have access to the following features:
+****Learn more:****
++ [Manage game hosting resources with Amazon GameLift Servers](gamelift-console-intro.md)
++ [Building a FlexMatch matchmaker](https://docs.aws.amazon.com/gameliftservers/latest/flexmatchguide/matchmaker-build.html)
 
-- **Compound rule** – Added support
-  for compound matchmaking rules for matches of 40 or fewer players. You
-  can now use logical statements to create a compound rule to form a
-  match. Without a compound rule in your rule set, to form a match, all
-  the rules in the rule set must be true. With compound rules, you can
-  choose which rules to apply using the following logical operators:
-  `and`, `or`, `not`, and
-  `xor`.
-- **Flexible team selection** –
-  Updated matchmaking property expressions to support selecting a subset
-  of all available teams.
-- **Longer string lists** –
-  Increased the maximum number of strings from 10 to 100 in a list of
-  strings of player attribute values.
+### February 15, 2022: FlexMatch adds compound rule and additional improvements
+<a name="release-notes-02152022"></a>
+
+FlexMatch users now have access to the following features:
++ **Compound rule** – Added support for compound matchmaking rules for matches of 40 or fewer players. You can now use logical statements to create a compound rule to form a match. Without a compound rule in your rule set, to form a match, all the rules in the rule set must be true. With compound rules, you can choose which rules to apply using the following logical operators: `and`, `or`, `not`, and `xor`.
++ **Flexible team selection** – Updated matchmaking property expressions to support selecting a subset of all available teams.
++ **Longer string lists** – Increased the maximum number of strings from 10 to 100 in a list of strings of player attribute values.
 
 **Learn more:**
++ [Amazon GameLift Servers FlexMatch developer guide](https://docs.aws.amazon.com/gameliftservers/latest/flexmatchguide):
+  + [FlexMatch rule types](https://docs.aws.amazon.com/gameliftservers/latest/flexmatchguide/match-rules-reference-ruletype.html)
+  + [FlexMatch property expressions](https://docs.aws.amazon.com/gameliftservers/latest/flexmatchguide/match-rules-reference-property-expression.html)
++ [AttributeValue: SL](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_AttributeValue.html#gamelift-Type-AttributeValue-SL)
 
-- [Amazon GameLift Servers FlexMatch
-  developer guide](../flexmatchguide.md "../flexmatchguide.md"):
+### October 28, 2021: Amazon GameLift Servers adds support for multi-Region fleets in the Asia Pacific (Osaka) Region; Amazon GameLift Servers FleetIQ adds support for AWS Graviton2 processors
+<a name="release-notes-10282021"></a>
 
-  - [FlexMatch rule types](../flexmatchguide/match-rules-reference-ruletype.md "../flexmatchguide/match-rules-reference-ruletype.md")
-  - [FlexMatch property expressions](../flexmatchguide/match-rules-reference-property-expression.md "../flexmatchguide/match-rules-reference-property-expression.md")
+**Updated SDK versions:** AWS SDK [1.9.133](https://github.com/aws/aws-sdk-cpp/releases/tag/1.9.133) on GitHub
 
-- [AttributeValue: SL](../apireference/API_AttributeValue.md#gamelift-Type-AttributeValue-SL "../apireference/API_AttributeValue.md#gamelift-Type-AttributeValue-SL")
-  **Updated SDK versions:** AWS SDK [1.9.133](https://github.com/aws/aws-sdk-cpp/releases/tag/1.9.133 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.9.133") on GitHub
+Amazon GameLift Servers is now available in the Asia Pacific (Osaka) Region. Game developers can now deploy instances in Osaka using GameLift multi-Region fleet. 
 
-Amazon GameLift Servers is now available in the Asia Pacific (Osaka) Region. Game developers can now
-deploy instances in Osaka using GameLift multi-Region fleet.
+You can now use Graviton2-hosted game servers, based on the Arm-based processor architecture, to achieve increased performance at a lower cost when compared to the equivalent Intel-based compute options.
 
-You can now use Graviton2-hosted game servers, based on the Arm-based
-processor architecture, to achieve increased performance at a lower cost when
-compared to the equivalent Intel-based compute options.
+**Highlights:**
++ Amazon GameLift Servers is now available in the Asia Pacific (Osaka) Region.
++ Amazon GameLift Servers FleetIQ game server groups can now be configured to manage the Graviton2 instance families c6g, m6g, and r6g.
 
-###### Highlights:
+**Learn more:**
++ [Amazon GameLift Servers multi-Region fleet](https://aws.amazon.com/blogs/gametech/amazon-gamelift-is-now-easier-to-manage-fleets-across-regions)
++ [CreateGameServerGroup](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameServerGroup.html)
++ [AWS graviton processor](https://aws.amazon.com/ec2/graviton/)
 
-- Amazon GameLift Servers is now available in the Asia Pacific (Osaka) Region.
-- Amazon GameLift Servers FleetIQ game server groups can now be configured to manage the
-  Graviton2 instance families c6g, m6g, and r6g.
-  **Learn more:**
+### September 20, 2021: Amazon GameLift Servers releases plugin for Unity
+<a name="release-notes-09202021"></a>
 
-- [Amazon GameLift Servers multi-Region fleet](https://aws.amazon.com/blogs/gametech/amazon-gamelift-is-now-easier-to-manage-fleets-across-regions "https://aws.amazon.com/blogs/gametech/amazon-gamelift-is-now-easier-to-manage-fleets-across-regions")
-- [CreateGameServerGroup](../../../gamelift/latest/apireference/API_CreateGameServerGroup.md "../../../gamelift/latest/apireference/API_CreateGameServerGroup.md")
-- [AWS graviton
-  processor](https://aws.amazon.com/ec2/graviton/ "https://aws.amazon.com/ec2/graviton/")
-  The Amazon GameLift Servers plugin for Unity version 1.0.0 contains libraries and native UI that makes it easier to
-  access Amazon GameLift Servers resources and integrate Amazon GameLift Servers into your Unity game. You can use the
-  Amazon GameLift Servers plugin for Unity to access Amazon GameLift Servers APIs and deploy CloudFormation templates for common gaming
-  scenarios. The plugin also includes a sample game that works with the sample
-  scenarios. You can use Amazon GameLift Servers Local to see messages passed between the game
-  client and the game server to learn how a typical game interacts with
-  Amazon GameLift Servers.
+The Amazon GameLift Servers plugin for Unity version 1.0.0 contains libraries and native UI that makes it easier to access Amazon GameLift Servers resources and integrate Amazon GameLift Servers into your Unity game. You can use the Amazon GameLift Servers plugin for Unity to access Amazon GameLift Servers APIs and deploy CloudFormation templates for common gaming scenarios. The plugin also includes a sample game that works with the sample scenarios. You can use Amazon GameLift Servers Local to see messages passed between the game client and the game server to learn how a typical game interacts with Amazon GameLift Servers.
 
 The plugin for Unity supports Unity 2019.4 LTS and 2020.3 LTS.
 
 Highlights:
++ Build, run, and modify a sample game with different scenarios, or create your own. 
++ Deploy sample AWS CloudFormation scenarios for typical game scenarios including auth only, single-Region fleet, multi-Region fleets with queue and custom matchmaker, Spot Fleets with queue and custom matchmaker, and FlexMatch.
 
-- Build, run, and modify a sample game with different scenarios, or
-  create your own.
-- Deploy sample AWS CloudFormation scenarios for typical game scenarios including
-  auth only, single-Region fleet, multi-Region fleets with queue and
-  custom matchmaker, Spot Fleets with queue and custom matchmaker, and
-  FlexMatch.
-  **Learn more:**
+**Learn more:**
++ [Integrating games with the Amazon GameLift Servers plugin for Unity](https://docs.aws.amazon.com/gamelift/latest/developerguide/unity-plugin.html)
 
-- [Integrating games with the
-  Amazon GameLift Servers plugin for Unity](../../../gamelift/latest/developerguide/unity-plugin.md "../../../gamelift/latest/developerguide/unity-plugin.md")
-  You can use the batchDistance rule type to specify a string or numeric
-  attribute, bringing a host of benefits to each segment.
+### June 30, 2021: FlexMatch adds batchDistance rule
+<a name="release-notes-06302021"></a>
+
+You can use the batchDistance rule type to specify a string or numeric attribute, bringing a host of benefits to each segment.
 
 Highlights:
++ For large matches (>40 players), instead of evenly balancing players by skill only, you can now get that same balance based on skill, modes, and maps. Ensure that everyone in the match is in a skill band, band multiple numeric attributes such as league or play style, and group according to string attributes such as map or game mode. You can also create expansions over time. For example, you can create an expansion to allow a greater skill level range to enter the match the longer the player is waiting. 
 
-- For large matches (>40 players), instead of evenly balancing players
-  by skill only, you can now get that same balance based on skill, modes,
-  and maps. Ensure that everyone in the match is in a skill band, band
-  multiple numeric attributes such as league or play style, and group
-  according to string attributes such as map or game mode. You can also
-  create expansions over time. For example, you can create an expansion to
-  allow a greater skill level range to enter the match the longer the
-  player is waiting.
+  For matches under 40 players, you can use a new simplified rules expression.
 
-For matches under 40 players, you can use a new simplified rules
-expression.
-**Updated SDK versions:** Realtime Client SDK
-1.2.0, Server SDK 3.4.0 for Unreal
+### June 3, 2021: Amazon GameLift Servers realtime client SDK and server SDK updates
+<a name="release-notes-06032021"></a>
 
-With this latest SDK update, you can now integrate IL2CPP into your mobile
-applications that use the RTS Client SDK and follow best practices with
-frameworks. You can also now build the Amazon GameLift Servers Server SDK for Unreal Version
-4.26. This update contains components that integrate with your Windows or Linux
-game server, including C++ and C# versions of the Amazon GameLift Servers Server SDK, Amazon GameLift Servers
-Local, and an Unreal Engine plugin.
+**Updated SDK versions:** Realtime Client SDK 1.2.0, Server SDK 3.4.0 for Unreal
+
+With this latest SDK update, you can now integrate IL2CPP into your mobile applications that use the RTS Client SDK and follow best practices with frameworks. You can also now build the Amazon GameLift Servers Server SDK for Unreal Version 4.26. This update contains components that integrate with your Windows or Linux game server, including C\+\+ and C\# versions of the Amazon GameLift Servers Server SDK, Amazon GameLift Servers Local, and an Unreal Engine plugin.
 
 Highlights:
++ Added support for IL2CPP in the RTS Client SDK and for building the native libraries as frameworks, so you can build RTS clients for the latest mobile devices.
++ You can use [DescribePlayerSessions()](integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-describeplayersessions) to get information for a single player session, for all player sessions in a game session, or for all player sessions associated with a single player ID.
++ You can use [GetInstanceCertificate()](integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-getinstancecertificate) to retrieve the file location of a PEM-encoded TLS certificate that is associated with the fleet and its instances. 
++ Created Server SDK support for Unreal version 4.26.
++ The existing C\# SDK, version 4.0.2, has been verified compatible with Unity 2020.3. No SDK updates were required.
 
-- Added support for IL2CPP in the RTS Client SDK and for building the
-  native libraries as frameworks, so you can build RTS clients for the
-  latest mobile devices.
-- You can use [DescribePlayerSessions()](integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-describeplayersessions "integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-describeplayersessions") to get information for a single player session, for all player
-  sessions in a game session, or for all player sessions associated with a
-  single player ID.
-- You can use [GetInstanceCertificate()](integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-getinstancecertificate "integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-getinstancecertificate") to retrieve the file location of a PEM-encoded TLS certificate that
-  is associated with the fleet and its instances.
-- Created Server SDK support for Unreal version 4.26.
-- The existing C# SDK, version 4.0.2, has been verified compatible with
-  Unity 2020.3. No SDK updates were required.
-  **Learn more:**
+**Learn more:**
++ [Amazon GameLift Servers Developer Guide](https://docs.aws.amazon.com/gamelift/latest/developerguide/):
+  + [DescribePlayerSessions()](integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-describeplayersessions) 
+  + [GetInstanceCertificate()](integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-getinstancecertificate)
 
-- [Amazon GameLift Servers Developer Guide](../../../gamelift/latest/developerguide.md "../../../gamelift/latest/developerguide.md"):
+### March 23, 2021: Amazon GameLift Servers adds notifications to game session placement
+<a name="release-notes-03232021"></a>
 
-  - [DescribePlayerSessions()](integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-describeplayersessions "integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-describeplayersessions")
-  - [GetInstanceCertificate()](integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-getinstancecertificate "integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-getinstancecertificate")
-    **Updated SDK versions:** AWS SDK [1.8.168](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.168 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.168") on GitHub
+**Updated SDK versions:** AWS SDK [1.8.168](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.168) on GitHub
 
-You can now use events to monitor game session placement activity for a game
-session queue. Create an Amazon Simple Notification Service (Amazon SNS) topic to publish event notifications,
-or set up event tracking using CloudWatch Events.
+You can now use events to monitor game session placement activity for a game session queue. Create an Amazon Simple Notification Service (Amazon SNS) topic to publish event notifications, or set up event tracking using CloudWatch Events.
 
 Highlights:
++ For each queue, you can set a custom text string to be included in all event messaging.
++ When using an Amazon SNS topic, you can set additional access conditions that limit publishing to specific queues.
 
-- For each queue, you can set a custom text string to be included in all
-  event messaging.
-- When using an Amazon SNS topic, you can set additional access conditions
-  that limit publishing to specific queues.
-  **Learn more:**
+**Learn more:**
++ Amazon GameLift Servers Developer Guide:
+  + [Set up event notification for game session placement](queue-notification.md) (new)
+  + [Game session placement events](queue-events.md) (new)
++ [API reference (AWS SDK)](https://docs.aws.amazon.com/gamelift/latest/developerguide/;reference-awssdk.html)
+  + New game session queue parameters `NotificationTarget` and `CustomEventData`: [GameSessionQueue](https://docs.aws.amazon.com/gamelift/latest/apireference/API_GameSessionQueue.html), [CreateGameSessionQueue](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html), [UpdateGameSessionQueue](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html)
++ [Amazon GameLift Servers forum](https://forums.awsgametech.com/c/amazon-gamelift/7)
 
-- Amazon GameLift Servers Developer Guide:
+### March 16, 2021: Amazon GameLift Servers adds multi-region fleets, six new regions
+<a name="release-notes-03162021"></a>
 
-  - [Set up event notification for game session placement](queue-notification.md "queue-notification.md") (new)
-  - [Game session placement events](queue-events.md "queue-events.md")
-    (new)
+**Updated SDK versions:** AWS SDK [1.8.163](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.163) on GitHub
 
-- [API reference (AWS
-  SDK)](../../../gamelift/latest/developerguide.md "../../../gamelift/latest/developerguide.md")
+Amazon GameLift Servers managed hosting is now available in 21 AWS Regions. The new Regions are Cape Town (`af-south-1`), Bahrain (`me-south-1`), Hong Kong (`ap-east-1`), Milan (`eu-south-1`), Paris (`eu-west-3`), and Stockholm (`eu-north-1`).
 
-  - New game session queue parameters
-    `NotificationTarget` and
-    `CustomEventData`: [GameSessionQueue](../../../gamelift/latest/apireference/API_GameSessionQueue.md "../../../gamelift/latest/apireference/API_GameSessionQueue.md"), [CreateGameSessionQueue](../../../gamelift/latest/apireference/API_CreateGameSessionQueue.md "../../../gamelift/latest/apireference/API_CreateGameSessionQueue.md"), [UpdateGameSessionQueue](../../../gamelift/latest/apireference/API_UpdateGameSessionQueue.md "../../../gamelift/latest/apireference/API_UpdateGameSessionQueue.md")
+With the new Amazon GameLift Servers multi-location fleets feature, you can now set up a single fleet to host your game servers in any or all of 20 Amazon GameLift Servers-supported Regions (Beijing Region excepted). This feature aims to significantly reduce the work required to set up and maintain Amazon GameLift Servers hosting resources globally. Multi-location fleets can be created in the following AWS Regions: `us-east-1` (N. Virginia), `us-west-2` (Oregon), `eu-central-1` (Frankfurt), `eu-west-1` (Ireland), `ap-southeast-2` (Sydney), `ap-northeast-1` (Tokyo), and `ap-northeast-2` (Seoul). In all other Regions, you can continue to set up single-location fleets as needed. All fleets that were created before this release are single-location fleets. Using multi-location fleets does not affect your hosting costs. Amazon GameLift Servers pricing is based on the type, location, and volume of instances that you use. (For more information, see [Amazon GameLift Servers pricing](https://aws.amazon.com/gamelift/servers/pricing/).) CloudFormation support for multi-location fleets will be available soon.
 
-- [Amazon GameLift Servers
-  forum](https://forums.awsgametech.com/c/amazon-gamelift/7 "https://forums.awsgametech.com/c/amazon-gamelift/7")
-  **Updated SDK versions:** AWS SDK [1.8.163](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.163 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.163") on GitHub
+**Note**  
+Multi-location fleets are not available in the China Regions. Amazon GameLift Servers resources that reside in China Regions cannot interact with or be used by resources in other Amazon GameLift Servers Regions.
 
-Amazon GameLift Servers managed hosting is now available in 21 AWS Regions. The new Regions
-are Cape Town (`af-south-1`), Bahrain (`me-south-1`), Hong
-Kong (`ap-east-1`), Milan (`eu-south-1`), Paris
-(`eu-west-3`), and Stockholm (`eu-north-1`).
+Highlights: 
++ With a multi-location fleet, explicitly add a list of remote locations. Amazon GameLift Servers deploys instances of the same type and configuration, including the build and runtime configuration, to the fleet's home Region and all added locations. 
++ Adjust capacity settings and scaling for each location independently. Auto scaling policies apply to an entire fleet, but you can turn them on or off by location.
++ Start new game sessions at specific fleet locations. When using game session queues or matchmaking to place game sessions, you can now prioritize where new game sessions start by location, hosting cost, and player latency.
++ Get hosting metrics in the Amazon GameLift Servers console, aggregated for all locations in a fleet or broken out by each fleet location. 
 
-With the new Amazon GameLift Servers multi-location fleets feature, you can now set up a single
-fleet to host your game servers in any or all of 20 Amazon GameLift Servers-supported Regions
-(Beijing Region excepted). This feature aims to significantly reduce the work
-required to set up and maintain Amazon GameLift Servers hosting resources globally. Multi-location
-fleets can be created in the following AWS Regions: `us-east-1` (N.
-Virginia), `us-west-2` (Oregon), `eu-central-1`
-(Frankfurt), `eu-west-1` (Ireland), `ap-southeast-2`
-(Sydney), `ap-northeast-1` (Tokyo), and `ap-northeast-2`
-(Seoul). In all other Regions, you can continue to set up single-location fleets
-as needed. All fleets that were created before this release are single-location
-fleets. Using multi-location fleets does not affect your hosting costs. Amazon GameLift Servers
-pricing is based on the type, location, and volume of instances that you use.
-(For more information, see [Amazon GameLift Servers
-pricing](https://aws.amazon.com/gamelift/servers/pricing/ "https://aws.amazon.com/gamelift/servers/pricing/").) CloudFormation support for multi-location fleets will be available
-soon.
+**Learn more:**
++ [Amazon game tech blog](https://aws.amazon.com/blogs/gametech/)
++ [API reference (AWS SDK)](https://docs.aws.amazon.com/gamelift/latest/developerguide/;reference-awssdk.html)
+  + New fleet location operations: [CreateFleetLocations](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateFleetLocations.html), [DescribeFleetLocationAttributes](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationAttributes.html), [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html), [DescribeFleetLocationUtilization](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationUtilization.html), [DeleteFleetLocations](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteFleetLocations.html)
+  + Updated fleet operations, with new multi-location support: [CreateFleet](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateFleet.html), [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html), [DescribeEC2InstanceLimits](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeEC2InstanceLimits.html), [DescribeInstances](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html), [StopFleetActions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html), [StartFleetActions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartFleetActions.html)
+  + Updated game session placement operations, with new priority and filtering capability: [CreateGameSessionQueue](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html), [DescribeGameSessionQueues](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html), [UpdateGameSessionQueue](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html)
+  + Updated game session creation operations, with new location support: [CreateGameSession](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSession.html), [DescribeGameSessions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessions.html), [DescribeGameSessionDetails](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionDetails.html), [SearchGameSessions](https://docs.aws.amazon.com/gamelift/latest/apireference/API_SearchGameSessions.html)
++ [Amazon GameLift Servers Developer Guide](https://docs.aws.amazon.com/gamelift/latest/developerguide/;):
+  + [Amazon GameLift Servers service locations](gamelift-regions.md) (updated)
+  + [Hosting resource customizations](fleets-design.md) (new)
 
-###### Note
+    [Scaling game hosting capacity with Amazon GameLift Servers](fleets-manage-capacity.md) (updated)
+  + [Customize a game session queue](queues-design.md) (new)
+  + [Fleet details in the Amazon GameLift Servers console](gamelift-console-fleets-metrics.md) (updated)
++ [Amazon GameLift Servers forum](https://forums.awsgametech.com/c/amazon-gamelift/7)
 
-Multi-location fleets are not available in the China Regions. Amazon GameLift Servers
-resources that reside in China Regions cannot interact with or be used by
-resources in other Amazon GameLift Servers Regions.
+### February 9, 2021: Amazon GameLift Servers extends support for AMD instances, standalone FlexMatch
+<a name="release-notes-02092021"></a>
 
-Highlights:
-
-- With a multi-location fleet, explicitly add a list of remote
-  locations. Amazon GameLift Servers deploys instances of the same type and configuration,
-  including the build and runtime configuration, to the fleet's home
-  Region and all added locations.
-- Adjust capacity settings and scaling for each location independently.
-  Auto scaling policies apply to an entire fleet, but you can turn them on
-  or off by location.
-- Start new game sessions at specific fleet locations. When using game
-  session queues or matchmaking to place game sessions, you can now
-  prioritize where new game sessions start by location, hosting cost, and
-  player latency.
-- Get hosting metrics in the Amazon GameLift Servers console, aggregated for all locations
-  in a fleet or broken out by each fleet location.
-  **Learn more:**
-
-- [Amazon game tech
-  blog](https://aws.amazon.com/blogs/gametech/ "https://aws.amazon.com/blogs/gametech/")
-- [API reference (AWS
-  SDK)](../../../gamelift/latest/developerguide.md "../../../gamelift/latest/developerguide.md")
-
-  - New fleet location operations: [CreateFleetLocations](../../../gamelift/latest/apireference/API_CreateFleetLocations.md "../../../gamelift/latest/apireference/API_CreateFleetLocations.md"), [DescribeFleetLocationAttributes](../../../gamelift/latest/apireference/API_DescribeFleetLocationAttributes.md "../../../gamelift/latest/apireference/API_DescribeFleetLocationAttributes.md"), [DescribeFleetLocationCapacity](../../../gamelift/latest/apireference/API_DescribeFleetLocationCapacity.md "../../../gamelift/latest/apireference/API_DescribeFleetLocationCapacity.md"), [DescribeFleetLocationUtilization](../../../gamelift/latest/apireference/API_DescribeFleetLocationUtilization.md "../../../gamelift/latest/apireference/API_DescribeFleetLocationUtilization.md"), [DeleteFleetLocations](../../../gamelift/latest/apireference/API_DeleteFleetLocations.md "../../../gamelift/latest/apireference/API_DeleteFleetLocations.md")
-  - Updated fleet operations, with new multi-location support:
-    [CreateFleet](../../../gamelift/latest/apireference/API_CreateFleet.md "../../../gamelift/latest/apireference/API_CreateFleet.md"), [UpdateFleetCapacity](../../../gamelift/latest/apireference/API_UpdateFleetCapacity.md "../../../gamelift/latest/apireference/API_UpdateFleetCapacity.md"), [DescribeEC2InstanceLimits](../../../gamelift/latest/apireference/API_DescribeEC2InstanceLimits.md "../../../gamelift/latest/apireference/API_DescribeEC2InstanceLimits.md"), [DescribeInstances](../../../gamelift/latest/apireference/API_DescribeInstances.md "../../../gamelift/latest/apireference/API_DescribeInstances.md"), [StopFleetActions](../../../gamelift/latest/apireference/API_StopFleetActions.md "../../../gamelift/latest/apireference/API_StopFleetActions.md"), [StartFleetActions](../../../gamelift/latest/apireference/API_StartFleetActions.md "../../../gamelift/latest/apireference/API_StartFleetActions.md")
-  - Updated game session placement operations, with new priority
-    and filtering capability: [CreateGameSessionQueue](../../../gamelift/latest/apireference/API_CreateGameSessionQueue.md "../../../gamelift/latest/apireference/API_CreateGameSessionQueue.md"), [DescribeGameSessionQueues](../../../gamelift/latest/apireference/API_DescribeGameSessionQueues.md "../../../gamelift/latest/apireference/API_DescribeGameSessionQueues.md"), [UpdateGameSessionQueue](../../../gamelift/latest/apireference/API_UpdateGameSessionQueue.md "../../../gamelift/latest/apireference/API_UpdateGameSessionQueue.md")
-  - Updated game session creation operations, with new location
-    support: [CreateGameSession](../../../gamelift/latest/apireference/API_CreateGameSession.md "../../../gamelift/latest/apireference/API_CreateGameSession.md"), [DescribeGameSessions](../../../gamelift/latest/apireference/API_DescribeGameSessions.md "../../../gamelift/latest/apireference/API_DescribeGameSessions.md"), [DescribeGameSessionDetails](../../../gamelift/latest/apireference/API_DescribeGameSessionDetails.md "../../../gamelift/latest/apireference/API_DescribeGameSessionDetails.md"), [SearchGameSessions](../../../gamelift/latest/apireference/API_SearchGameSessions.md "../../../gamelift/latest/apireference/API_SearchGameSessions.md")
-
-- [Amazon GameLift Servers Developer Guide](../../../gamelift/latest/developerguide.md "../../../gamelift/latest/developerguide.md"):
-
-  - [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md") (updated)
-  - [Hosting resource customizations](fleets-design.md "fleets-design.md")
-    (new)
-
-  [Scaling game hosting capacity with Amazon GameLift Servers](fleets-manage-capacity.md "fleets-manage-capacity.md") (updated)
-  - [Customize a game session queue](queues-design.md "queues-design.md")
-    (new)
-  - [Fleet details in the Amazon GameLift Servers console](gamelift-console-fleets-metrics.md "gamelift-console-fleets-metrics.md") (updated)
-
-- [Amazon GameLift Servers
-  forum](https://forums.awsgametech.com/c/amazon-gamelift/7 "https://forums.awsgametech.com/c/amazon-gamelift/7")
-  **Updated SDK versions:** AWS SDK [1.8.139](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.139 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.139") on GitHub
+**Updated SDK versions:** AWS SDK [1.8.139](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.139) on GitHub
 
 This release includes the following updates:
++  Amazon GameLift Servers FleetIQ game server groups can now be configured to manage the AMD instance families C5a, M5a, and R5a. The supported Amazon EC2 instance types, as listed for the GameServerGroup [InstanceDefinition](https://docs.aws.amazon.com/gamelift/latest/apireference/API_InstanceDefinition.html), now include the following:
+  + c5a.large, c5a.xlarge, c5a.2xlarge, c5a.4xlarge, c5a.8xlarge, c5a.12xlarge, c5a.16xlarge, c5a.24xlarge 
+  + m5a.large, m5a.xlarge, m5a.2xlarge, m5a.4xlarge, m5a.8xlarge, m5a.12xlarge, m5a.16xlarge, m5a.24xlarge 
+  + r5a.large, r5a.xlarge, r5a.2xlarge, r5a.4xlarge, r5a.8xlarge, r5a.12xlarge, r5a.16xlarge, r5a.24xlarge 
 
-- Amazon GameLift Servers FleetIQ game server groups can now be configured to manage the
-  AMD instance families C5a, M5a, and R5a. The supported Amazon EC2 instance
-  types, as listed for the GameServerGroup [InstanceDefinition](../../../gamelift/latest/apireference/API_InstanceDefinition.md "../../../gamelift/latest/apireference/API_InstanceDefinition.md"), now include the following:
+  Note: AMD instances for FleetIQ are currently not available for use in the China (Beijing) AWS Region. See [Feature availability and implementation differences](https://docs.amazonaws.cn/en_us/aws/latest/userguide/gamelift.html) in China.
++ Amazon GameLift Servers managed game hosting now supports AMD instances in the China (Beijing) Region, operated by Sinnet. The new AMD instance families include M5a and R5a. Supported EC2 instance types, as listed for fleet [InstanceType](https://docs.aws.amazon.com/gamelift/latest/apireference/API_FleetAttributes.html), now include the following:
+  + m5a.large, m5a.xlarge, m5a.2xlarge, m5a.4xlarge, m5a.8xlarge, m5a.12xlarge, m5a.16xlarge, m5a.24xlarge 
+  + r5a.large, r5a.xlarge, r5a.2xlarge, r5a.4xlarge, r5a.8xlarge, r5a.12xlarge, r5a.16xlarge, r5a.24xlarge 
++ Amazon GameLift Servers FlexMatch can now be used as a standalone matchmaking solution in the China (Beijing) Region, operated by Sinnet. Customers can create a FlexMatch matchmaker in the Beijing Region and configure the [FlexMatchMode](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateMatchmakingConfiguration.html#gamelift-CreateMatchmakingConfiguration-request-FlexMatchMode) parameter to STANDALONE. For more information about FlexMatch, either with Amazon GameLift Servers managed hosting or with a non-Amazon GameLift Servers hosting solution, in the [Amazon GameLift Servers FlexMatch Developer Guide](https://docs.amazonaws.cn/en_us/gameliftservers/latest/flexmatchguide/match-intro.html).
++ When setting up event notifications for Amazon GameLift Servers FlexMatch, you can now designate an Amazon SNS FIFO topic as the notification target. For more information, see:
+  + [MatchmakingConfiguration NotificationTarget](https://docs.aws.amazon.com/gamelift/latest/apireference/API_MatchmakingConfiguration.html), *Amazon GameLift Servers API Reference*
+  + [ Set up FlexMatch event notification ](https://docs.aws.amazon.com/gameliftservers/latest/flexmatchguide/match-notification.html), *Amazon GameLift Servers FlexMatch Developer Guide*
+  + [ Introducing Amazon SNS FIFO – First-in-first-out Pub/Sub messaging](https://aws.amazon.com/blogs/aws/introducing-amazon-sns-fifo-first-in-first-out-pub-sub-messaging/), *AWS News Blog*
 
-  - c5a.large, c5a.xlarge, c5a.2xlarge, c5a.4xlarge, c5a.8xlarge,
-    c5a.12xlarge, c5a.16xlarge, c5a.24xlarge
-  - m5a.large, m5a.xlarge, m5a.2xlarge, m5a.4xlarge, m5a.8xlarge,
-    m5a.12xlarge, m5a.16xlarge, m5a.24xlarge
-  - r5a.large, r5a.xlarge, r5a.2xlarge, r5a.4xlarge, r5a.8xlarge,
-    r5a.12xlarge, r5a.16xlarge, r5a.24xlarge
-    Note: AMD instances for FleetIQ are currently not available for use in
-    the China (Beijing) AWS Region. See [Feature availability and implementation differences](https://docs.amazonaws.cn/en_us/aws/latest/userguide/gamelift.html "https://docs.amazonaws.cn/en_us/aws/latest/userguide/gamelift.html") in
-    China.
+### December 22, 2020: Amazon GameLift Servers server SDK supports Unreal Engine 4.25 and Unity 2020
+<a name="release-notes-12222020"></a>
 
-- Amazon GameLift Servers managed game hosting now supports AMD instances in the China
-  (Beijing) Region, operated by Sinnet. The new AMD instance families
-  include M5a and R5a. Supported EC2 instance types, as listed for fleet
-  [InstanceType](../../../gamelift/latest/apireference/API_FleetAttributes.md "../../../gamelift/latest/apireference/API_FleetAttributes.md"), now include the following:
+**Updated SDK versions:** Amazon GameLift Servers Server SDK 4.0.2, Unreal plugin version 3.3.3
 
-  - m5a.large, m5a.xlarge, m5a.2xlarge, m5a.4xlarge, m5a.8xlarge,
-    m5a.12xlarge, m5a.16xlarge, m5a.24xlarge
-  - r5a.large, r5a.xlarge, r5a.2xlarge, r5a.4xlarge, r5a.8xlarge,
-    r5a.12xlarge, r5a.16xlarge, r5a.24xlarge
+The latest version of the Amazon GameLift Servers Server SDK contains the following components:
++ The updated Unreal plugin has been updated for compatibility with Unreal Engine 4.25. The API was not changed.
++ The existing C\# SDK, version 4.0.2, has been verified compatible with Unity 2020. No SDK updates were required.
 
-- Amazon GameLift Servers FlexMatch can now be used as a standalone matchmaking solution in
-  the China (Beijing) Region, operated by Sinnet. Customers can create a
-  FlexMatch matchmaker in the Beijing Region and configure the [FlexMatchMode](../../../gamelift/latest/apireference/API_CreateMatchmakingConfiguration.md#gamelift-CreateMatchmakingConfiguration-request-FlexMatchMode "../../../gamelift/latest/apireference/API_CreateMatchmakingConfiguration.md#gamelift-CreateMatchmakingConfiguration-request-FlexMatchMode") parameter to STANDALONE. For more information
-  about FlexMatch, either with Amazon GameLift Servers managed hosting or with a non-Amazon GameLift Servers
-  hosting solution, in the [Amazon GameLift Servers FlexMatch Developer Guide](https://docs.amazonaws.cn/en_us/gameliftservers/latest/flexmatchguide/match-intro.html "https://docs.amazonaws.cn/en_us/gameliftservers/latest/flexmatchguide/match-intro.html").
-- When setting up event notifications for Amazon GameLift Servers FlexMatch, you can now
-  designate an Amazon SNS FIFO topic as the notification target. For more
-  information, see:
+Download the latest version of the Amazon GameLift Servers Server SDK at [Amazon GameLift Servers getting started](https://aws.amazon.com/gamelift/getting-started).
 
-  - [MatchmakingConfiguration NotificationTarget](../../../gamelift/latest/apireference/API_MatchmakingConfiguration.md "../../../gamelift/latest/apireference/API_MatchmakingConfiguration.md"),
-    _Amazon GameLift Servers API Reference_
-  - [Set up FlexMatch event notification](../flexmatchguide/match-notification.md "../flexmatchguide/match-notification.md") , _Amazon GameLift Servers FlexMatch Developer Guide_
-  - [Introducing Amazon SNS FIFO – First-in-first-out
-    Pub/Sub messaging](https://aws.amazon.com/blogs/aws/introducing-amazon-sns-fifo-first-in-first-out-pub-sub-messaging/ "https://aws.amazon.com/blogs/aws/introducing-amazon-sns-fifo-first-in-first-out-pub-sub-messaging/"), _AWS
-    News Blog_
-    **Updated SDK versions:** Amazon GameLift Servers Server SDK 4.0.2,
-    Unreal plugin version 3.3.3
+### November 24, 2020: Amazon GameLift Servers FlexMatch now available for games hosted anywhere
+<a name="release-notes-11242020"></a>
 
-The latest version of the Amazon GameLift Servers Server SDK contains the following
-components:
+**Updated SDK versions:** AWS SDK [1.8.95](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.95) on GitHub
 
-- The updated Unreal plugin has been updated for compatibility with
-  Unreal Engine 4.25. The API was not changed.
-- The existing C# SDK, version 4.0.2, has been verified compatible with
-  Unity 2020. No SDK updates were required.
-  Download the latest version of the Amazon GameLift Servers Server SDK at [Amazon GameLift Servers getting
-  started](https://aws.amazon.com/gamelift/getting-started "https://aws.amazon.com/gamelift/getting-started").
+Amazon GameLift Servers FlexMatch is a customizable matchmaking service for multiplayer games. Initially designed for users of Amazon GameLift Servers managed hosting, FlexMatch can now be integrated into games that use other hosting systems, including peer-to-peer, proprietary on-premises computing, and cloud compute primitive types. Games that use Amazon GameLift Servers FleetIQ for game hosting on Amazon EC2 can now implement matchmaking with FlexMatch.
 
-**Updated SDK versions:** AWS SDK [1.8.95](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.95 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.95") on GitHub
+FlexMatch provides a robust matchmaking algorithm and rules language that gives you wide latitude to customize the matchmaking process so that players are matched together based on key player characteristics and reported latency. In addition, FlexMatch offers a matchmaking request workflow that supports features such as player parties, player acceptance, and match backfill. When you use FlexMatch with Amazon GameLift Servers managed hosting or Amazon GameLift Servers Realtime, the matchmaker automatically uses Amazon GameLift Servers to find hosting resources and start a new game session for newly formed matches. When using FlexMatch as a standalone service, the matchmaker delivers match results back to your game, which can then start a new game session using your hosting solution.
 
-Amazon GameLift Servers FlexMatch is a customizable matchmaking service for multiplayer games.
-Initially designed for users of Amazon GameLift Servers managed hosting, FlexMatch can now be
-integrated into games that use other hosting systems, including peer-to-peer,
-proprietary on-premises computing, and cloud compute primitive types. Games that
-use Amazon GameLift Servers FleetIQ for game hosting on Amazon EC2 can now implement matchmaking with
-FlexMatch.
+API operations for FlexMatch are part of the Amazon GameLift Servers service API, which is included in the AWS SDK and the AWS Command Line Interface (AWS CLI). This release includes these updates to support standalone matchmaking:
++ The API resource `MatchmakingConfiguration` has the following changes: 
+  + New property, `FlexMatchMode` indicates whether the matchmaker is being used with Amazon GameLift Servers managed hosting or as standalone matchmaking.
+  + Property `GameSessionQueueArns` is not required when `FlexMatchMode` is set to standalone.
+  + These properties are not used with standalone matchmaking: `AdditionalPlayerCount`, `BackfillMode`, `GameProperties`, `GameSessionData`.
++ The automatic backfill feature is not available with standalone matchmaking.
 
-FlexMatch provides a robust matchmaking algorithm and rules language that gives
-you wide latitude to customize the matchmaking process so that players are
-matched together based on key player characteristics and reported latency. In
-addition, FlexMatch offers a matchmaking request workflow that supports features
-such as player parties, player acceptance, and match backfill. When you use
-FlexMatch with Amazon GameLift Servers managed hosting or Amazon GameLift Servers Realtime, the matchmaker automatically uses
-Amazon GameLift Servers to find hosting resources and start a new game session for newly formed
-matches. When using FlexMatch as a standalone service, the matchmaker delivers
-match results back to your game, which can then start a new game session using
-your hosting solution.
+### November 24, 2020: AMD instances now available on Amazon GameLift Servers
+<a name="release-notes-11242020-2"></a>
 
-API operations for FlexMatch are part of the Amazon GameLift Servers service API, which is included
-in the AWS SDK and the AWS Command Line Interface (AWS CLI). This release includes these updates
-to support standalone matchmaking:
+**Updated SDK versions:** AWS SDK [1.8.95](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.95) on GitHub
 
-- The API resource `MatchmakingConfiguration` has the
-  following changes:
+The list of Amazon EC2 instance types supported by Amazon GameLift Servers now includes three new instance families: C5a, M5a, and R5a. These families consist of AMD compute-optimized instances that are powered by AMD EPYC processors running at frequencies up to 3.3 GHz. The AMD instances are x86 compatible; games that are currently running on Amazon GameLift Servers can be deployed to AMD instance types without alteration. The new instances are available in the following AWS Regions: US East (N. Virginia and Ohio), US West (Oregon and N. California), Central Canada (Montreal), South America (Sao Paulo), EU Central (Frankfurt), EU West (London and Ireland), Asia Pacific South (Mumbai), Asia Pacific Northeast (Seoul and Tokyo), and Asia Pacific Southeast (Singapore and Sydney).
 
-  - New property, `FlexMatchMode` indicates whether the
-    matchmaker is being used with Amazon GameLift Servers managed hosting or as
-    standalone matchmaking.
-  - Property `GameSessionQueueArns` is not required
-    when `FlexMatchMode` is set to standalone.
-  - These properties are not used with standalone matchmaking:
-    `AdditionalPlayerCount`,
-    `BackfillMode`, `GameProperties`,
-    `GameSessionData`.
+The new AMD instances include: 
++ c5a.large, c5a.xlarge, c5a.2xlarge, c5a.4xlarge, c5a.8xlarge, c5a.12xlarge, c5a.16xlarge, c5a.24xlarge
++ m5a.large, m5a.xlarge, m5a.2xlarge, m5a.4xlarge, m5a.8xlarge, m5a.12xlarge, m5a.16xlarge, m5a.24xlarge
++ r5a.large, r5a.xlarge, r5a.2xlarge, r5a.4xlarge, r5a.8xlarge, r5a.12xlarge, r5a.16xlarge, r5a.24xlarge
 
-- The automatic backfill feature is not available with standalone
-  matchmaking.
-  **Updated SDK versions:** AWS SDK [1.8.95](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.95 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.95") on GitHub
+**Learn more:**
++ [Amazon game tech blog](https://aws.amazon.com/blogs/gametech/)
++ [Amazon GameLift Servers instance pricing](https://aws.amazon.com/gamelift/servers/pricing)
++ [Amazon EC2 instances featuring AMD EPYC processors](https://aws.amazon.com/ec2/amd/)
++ [Amazon GameLift Servers forum](https://forums.awsgametech.com/c/amazon-gamelift/7)
 
-The list of Amazon EC2 instance types supported by Amazon GameLift Servers now includes three new
-instance families: C5a, M5a, and R5a. These families consist of AMD
-compute-optimized instances that are powered by AMD EPYC processors running at
-frequencies up to 3.3 GHz. The AMD instances are x86 compatible; games that are
-currently running on Amazon GameLift Servers can be deployed to AMD instance types without
-alteration. The new instances are available in the following AWS Regions: US
-East (N. Virginia and Ohio), US West (Oregon and N. California), Central Canada
-(Montreal), South America (Sao Paulo), EU Central (Frankfurt), EU West (London
-and Ireland), Asia Pacific South (Mumbai), Asia Pacific Northeast (Seoul and
-Tokyo), and Asia Pacific Southeast (Singapore and Sydney).
+### November 11, 2020: Version update to Amazon GameLift Servers server SDK
+<a name="release-notes-11112020"></a>
 
-The new AMD instances include:
+**Updated SDK versions:** Amazon GameLift Servers Server SDK 4.0.2
 
-- c5a.large, c5a.xlarge, c5a.2xlarge, c5a.4xlarge, c5a.8xlarge,
-  c5a.12xlarge, c5a.16xlarge, c5a.24xlarge
-- m5a.large, m5a.xlarge, m5a.2xlarge, m5a.4xlarge, m5a.8xlarge,
-  m5a.12xlarge, m5a.16xlarge, m5a.24xlarge
-- r5a.large, r5a.xlarge, r5a.2xlarge, r5a.4xlarge, r5a.8xlarge,
-  r5a.12xlarge, r5a.16xlarge, r5a.24xlarge
-  **Learn more:**
+The new Server SDK version 4.0.2 fixes a known issue with the API operation `StartMatchBackfill()`. This operation now returns a correct response to a match backfill request. 
 
-- [Amazon game tech
-  blog](https://aws.amazon.com/blogs/gametech/ "https://aws.amazon.com/blogs/gametech/")
-- [Amazon GameLift Servers instance
-  pricing](https://aws.amazon.com/gamelift/servers/pricing "https://aws.amazon.com/gamelift/servers/pricing")
-- [Amazon EC2 instances featuring AMD
-  EPYC processors](https://aws.amazon.com/ec2/amd/ "https://aws.amazon.com/ec2/amd/")
-- [Amazon GameLift Servers
-  forum](https://forums.awsgametech.com/c/amazon-gamelift/7 "https://forums.awsgametech.com/c/amazon-gamelift/7")
-  **Updated SDK versions:** Amazon GameLift Servers Server SDK
-  4.0.2
+The issue did not affect the match backfill process, and there is no change to how this feature works. The issue may have impacted log messaging and error handling for match backfill requests.
 
-The new Server SDK version 4.0.2 fixes a known issue with the API operation
-`StartMatchBackfill()`. This operation now returns a correct
-response to a match backfill request.
+Download the latest version of the Amazon GameLift Servers Server SDK at [Amazon GameLift Servers getting started](https://aws.amazon.com/gamelift/getting-started).
 
-The issue did not affect the match backfill process, and there is no change to
-how this feature works. The issue may have impacted log messaging and error
-handling for match backfill requests.
+### November 5, 2020: New FlexMatch algorithm customizations
+<a name="release-notes-11052020"></a>
 
-Download the latest version of the Amazon GameLift Servers Server SDK at [Amazon GameLift Servers getting
-started](https://aws.amazon.com/gamelift/getting-started "https://aws.amazon.com/gamelift/getting-started").
+FlexMatch users can now adjust the following default behaviors for the matchmaking process. These customizations are set in a matchmaking rule set. There are no changes to the Amazon GameLift Servers SDKs.
++ Prioritize backfill tickets: You can choose to raise or lower how match backfill tickets are prioritized when searching for acceptable matches. Prioritizing backfill tickets is useful when the auto-backfill feature is enabled. Use the algorithm property `backfillPriority`.
++ Pre-sort to optimize match consistency and efficiency: Configure your matchmaker to pre-sort the ticket pool before batching tickets for evaluation. By pre-sorting tickets based on key player attributes, your resulting matches tend to have players who are more similar in those attributes. You can also boost efficiency in the evaluation process by pre-sorting on the same attributes that are used in match rules. Use the algorithm property `sortByAttributes` with the `strategy` property set to "sorted". 
++ Adjust how expansion wait times are triggered: Choose between triggering expansions based on the age of the newest (default) or oldest ticket in an incomplete match. Triggering on the oldest ticket tends to complete matches faster, while triggering on the newest ticket leads to higher match quality. Use the algorithm property `expansionAgeSelection`.
 
-FlexMatch users can now adjust the following default behaviors for the
-matchmaking process. These customizations are set in a matchmaking rule set.
-There are no changes to the Amazon GameLift Servers SDKs.
+### September 17, 2020: Amazon GameLift Servers updates server SDK
+<a name="release-notes-09172020"></a>
 
-- Prioritize backfill tickets: You can choose to raise or lower how
-  match backfill tickets are prioritized when searching for acceptable
-  matches. Prioritizing backfill tickets is useful when the auto-backfill
-  feature is enabled. Use the algorithm property
-  `backfillPriority`.
-- Pre-sort to optimize match consistency and efficiency: Configure your
-  matchmaker to pre-sort the ticket pool before batching tickets for
-  evaluation. By pre-sorting tickets based on key player attributes, your
-  resulting matches tend to have players who are more similar in those
-  attributes. You can also boost efficiency in the evaluation process by
-  pre-sorting on the same attributes that are used in match rules. Use the
-  algorithm property `sortByAttributes` with the
-  `strategy` property set to "sorted".
-- Adjust how expansion wait times are triggered: Choose between
-  triggering expansions based on the age of the newest (default) or oldest
-  ticket in an incomplete match. Triggering on the oldest ticket tends to
-  complete matches faster, while triggering on the newest ticket leads to
-  higher match quality. Use the algorithm property
-  `expansionAgeSelection`.
-  **Updated SDK versions:** Amazon GameLift Servers Server SDK
-  4.0.1
+**Updated SDK versions:** Amazon GameLift Servers Server SDK 4.0.1
 
 The new Server SDK contains the following updates:
++ C\# API version 4.0.1
+  + The API operation [TerminateGameSession()](integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-terminategamesession) is no longer supported. Replace with a call to [ProcessEnding()](integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-processending) to end both a game session and the server process.
+  + A known issue with the operation [GetInstanceCertificate()](integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-getinstancecertificate) is fixed.
+  + The operation [GetTerminationTime()](integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-getterm) now returns a value of data type AwsDateTimeOutcome.
++ C\+\+ API version 3.4.1
+  + The operation [TerminateGameSession()](integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-terminategamesession) is no longer supported. Replace it with a call to [ProcessEnding()](integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-processending) to end both a game session and the server process.
++ Unreal Engine plugin version 3.3.2
+  + The operation [TerminateGameSession()](integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-terminategamesession) is no longer supported. Replace it with a call to [ProcessEnding()](integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-processending) to end both a game session and the server process.
+  + The callback operation `OnUpdateGameSession` is added to [FProcessParameters](integration-server-sdk-unreal-ref-datatypes.md#integration-server-sdk-unreal-ref-dataypes-process) to support match backfill.
 
-- C# API version 4.0.1
+Download the latest version of the Amazon GameLift Servers Server SDK at [Amazon GameLift Servers getting started](https://aws.amazon.com/gamelift/getting-started).
 
-  - The API operation [TerminateGameSession()](integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-terminategamesession "integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-terminategamesession") is no longer supported. Replace with a call to [ProcessEnding()](integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-processending "integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-processending") to end both a game session and the server process.
-  - A known issue with the operation [GetInstanceCertificate()](integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-getinstancecertificate "integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-getinstancecertificate") is fixed.
-  - The operation [GetTerminationTime()](integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-getterm "integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-getterm")
-    now returns a value of data type AwsDateTimeOutcome.
+### August 27, 2020: Amazon GameLift Servers FleetIQ for game hosting with Amazon EC2 (general availability)
+<a name="release-notes-08272020"></a>
 
-- C++ API version 3.4.1
+**Updated SDK versions:** AWS SDK [1.8.36](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.36) on GitHub
 
-  - The operation [TerminateGameSession()](integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-terminategamesession "integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-terminategamesession") is no longer supported. Replace it with a call to [ProcessEnding()](integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-processending "integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-processending") to end both a game session and the server process.
+The Amazon GameLift Servers FleetIQ solution for low-cost, cloud-based game hosting on Amazon EC2 is now generally available. Amazon GameLift Servers FleetIQ gives developers the ability to host game servers directly on Amazon EC2 Spot Instances by optimizing their viability for game hosting. Game developers can use Amazon GameLift Servers FleetIQ with new games or to supplement capacity for existing games. This solution supports the use of containers or other AWS services such as AWS Shield and Amazon Elastic Container Service (Amazon ECS). 
 
-- Unreal Engine plugin version 3.3.2
+This general availability release includes the following updates to the Amazon GameLift Servers FleetIQ solution:
++ New API operation `DescribeGameServerInstances` returns information, including status, on all active instances for an Amazon GameLift Servers FleetIQ game server group.
++ New balancing strategy, `ON_DEMAND_ONLY`, configures a game server group to use On-Demand Instances only. You can update a game server group's balancing strategy at any time, making it possible to switch between using Spot Instances and On-Demand Instances as needed.
++ The following preview elements have been dropped for general availability:
+  + Use of custom sort keys for game server resources. Game servers can be sorted based on registration timestamp.
+  + Tagging for game server resources.
 
-  - The operation [TerminateGameSession()](integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-terminategamesession "integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-terminategamesession") is no longer supported. Replace it with a call to [ProcessEnding()](integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-processending "integration-server-sdk-unreal-ref-actions.md#integration-server-sdk-unreal-ref-processending") to end both a game session and the server process.
-  - The callback operation `OnUpdateGameSession` is
-    added to [FProcessParameters](integration-server-sdk-unreal-ref-datatypes.md#integration-server-sdk-unreal-ref-dataypes-process "integration-server-sdk-unreal-ref-datatypes.md#integration-server-sdk-unreal-ref-dataypes-process") to support match backfill.
-    Download the latest version of the Amazon GameLift Servers Server SDK at [Amazon GameLift Servers getting
-    started](https://aws.amazon.com/gamelift/getting-started "https://aws.amazon.com/gamelift/getting-started").
+### April 16, 2020: Amazon GameLift Servers updates server SDK for Unity and Unreal Engine
+<a name="release-notes-04162020"></a>
 
-**Updated SDK versions:** AWS SDK [1.8.36](https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.36 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.8.36") on GitHub
+**Updated SDK versions:** Amazon GameLift Servers Server SDK 4.0.0, Amazon GameLift Servers Local 1.0.5
 
-The Amazon GameLift Servers FleetIQ solution for low-cost, cloud-based game hosting on Amazon EC2 is
-now generally available. Amazon GameLift Servers FleetIQ gives developers the ability to host game
-servers directly on Amazon EC2 Spot Instances by optimizing their viability for game
-hosting. Game developers can use Amazon GameLift Servers FleetIQ with new games or to supplement
-capacity for existing games. This solution supports the use of containers or
-other AWS services such as AWS Shield and Amazon Elastic Container Service (Amazon ECS).
+The latest version of the Amazon GameLift Servers Server SDK contains the following updated components:
++ C\# SDK version 4.0.0 updated for Unity 2019.
++ Unreal plugin version 3.3.1 updated for Unreal Engine versions 4.22, 4.23, and 4.24.
++ Amazon GameLift Servers Local version 1.0.5 updated to test integrations that use the C\# server SDK version 4.0.0.
 
-This general availability release includes the following updates to the Amazon GameLift Servers
-FleetIQ solution:
+Download the latest version of the Amazon GameLift Servers Server SDK at [Amazon GameLift Servers getting started](https://aws.amazon.com/gamelift/getting-started).
 
-- New API operation `DescribeGameServerInstances` returns
-  information, including status, on all active instances for an Amazon GameLift Servers FleetIQ
-  game server group.
-- New balancing strategy, `ON_DEMAND_ONLY`, configures a game
-  server group to use On-Demand Instances only. You can update a game
-  server group's balancing strategy at any time, making it possible to
-  switch between using Spot Instances and On-Demand Instances as
-  needed.
-- The following preview elements have been dropped for general
-  availability:
+### April 2, 2020: Amazon GameLift Servers FleetIQ available for game hosting on EC2 (public preview)
+<a name="release-notes-04022020"></a>
 
-  - Use of custom sort keys for game server resources. Game
-    servers can be sorted based on registration timestamp.
-  - Tagging for game server resources.
-    **Updated SDK versions:** Amazon GameLift Servers Server SDK 4.0.0,
-    Amazon GameLift Servers Local 1.0.5
+**Updated SDK versions:** AWS SDK [1.7.310](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.310) on GitHub
 
-The latest version of the Amazon GameLift Servers Server SDK contains the following updated
-components:
-
-- C# SDK version 4.0.0 updated for Unity 2019.
-- Unreal plugin version 3.3.1 updated for Unreal Engine versions 4.22,
-  4.23, and 4.24.
-- Amazon GameLift Servers Local version 1.0.5 updated to test integrations that use the C#
-  server SDK version 4.0.0.
-  Download the latest version of the Amazon GameLift Servers Server SDK at [Amazon GameLift Servers getting
-  started](https://aws.amazon.com/gamelift/getting-started "https://aws.amazon.com/gamelift/getting-started").
-
-**Updated SDK versions:** AWS SDK [1.7.310](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.310 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.310") on GitHub
-
-The Amazon GameLift Servers FleetIQ feature optimizes the viability of low-cost Spot Instances for
-use with game hosting. This feature is now extended for customers who want to
-manage their hosting resources directly rather than through the managed Amazon GameLift Servers
-service. This solution supports the use of containers or other AWS services
-such as AWS Shield and Amazon Elastic Container Service (Amazon ECS).
+The Amazon GameLift Servers FleetIQ feature optimizes the viability of low-cost Spot Instances for use with game hosting. This feature is now extended for customers who want to manage their hosting resources directly rather than through the managed Amazon GameLift Servers service. This solution supports the use of containers or other AWS services such as AWS Shield and Amazon Elastic Container Service (Amazon ECS).
 
 **Learn more:**
 
-[GameTech blog post](https://aws.amazon.com/blogs/gametech/gamelift-in-2020-major-update-now-available-in-preview/ "https://aws.amazon.com/blogs/gametech/gamelift-in-2020-major-update-now-available-in-preview/") on Amazon GameLift Servers FleetIQ
+[GameTech blog post](https://aws.amazon.com/blogs/gametech/gamelift-in-2020-major-update-now-available-in-preview/) on Amazon GameLift Servers FleetIQ
 
-**Updated SDK versions:** AWS SDK [1.7.249](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.249 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.249") on GitHub
+### December 19, 2019: Improved AWS resource management for Amazon GameLift Servers resources
+<a name="release-notes-12192019"></a>
 
-You can now take advantage of AWS resource management tools with Amazon GameLift Servers
-resources. In particular, all key Amazon GameLift Servers resources—builds, scripts,
-fleets, game session queues, matchmaking configurations, and matchmaking rule
-sets—are now assigned Amazon Resource Name (ARN) values. A resource ARN
-provides a consistent identifier that is unique across all AWS Regions. They
-can be used to create resource-specific AWS Identity and Access Management (IAM) permissions policies.
-Resources are now assigned an ARN and also the pre-existing resource identifier,
-which is not Region-specific.
+**Updated SDK versions:** AWS SDK [1.7.249](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.249) on GitHub
 
-In addition, Amazon GameLift Servers resources now support tagging. You can use tags to organize
-resources, create IAM permissions policies to manage access to groups of
-resources, customize AWS cost breakdowns, etc. When managing tags for Amazon GameLift Servers
-resources, use the Amazon GameLift Servers API actions `TagResource()`,
-`UntagResource()`, and `ListTagsForResource()`.
+You can now take advantage of AWS resource management tools with Amazon GameLift Servers resources. In particular, all key Amazon GameLift Servers resources—builds, scripts, fleets, game session queues, matchmaking configurations, and matchmaking rule sets—are now assigned Amazon Resource Name (ARN) values. A resource ARN provides a consistent identifier that is unique across all AWS Regions. They can be used to create resource-specific AWS Identity and Access Management (IAM) permissions policies. Resources are now assigned an ARN and also the pre-existing resource identifier, which is not Region-specific. 
+
+In addition, Amazon GameLift Servers resources now support tagging. You can use tags to organize resources, create IAM permissions policies to manage access to groups of resources, customize AWS cost breakdowns, etc. When managing tags for Amazon GameLift Servers resources, use the Amazon GameLift Servers API actions `TagResource()`, `UntagResource()`, and `ListTagsForResource()`.
 
 **Learn more:**
++ [TagResource](https://docs.aws.amazon.com/gamelift/latest/apireference/API_TagResource.html) in the *Amazon GameLift Servers API Reference* 
++ [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference*
++ [ Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference*
 
-- [TagResource](../../../gamelift/latest/apireference/API_TagResource.md "../../../gamelift/latest/apireference/API_TagResource.md") in
-  the _Amazon GameLift Servers API Reference_
-- [Tagging AWS
-  resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the _AWS General
-  Reference_
-- [Amazon
-  resource names](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") in the _AWS General
-  Reference_
-  **Updated SDK versions:** AWS SDK [1.7.210](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.210 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.210") on GitHub
+### November 14, 2019: New CloudFormation templates, updates in China (Beijing) Region
+<a name="release-notes-11142019"></a>
+
+**Updated SDK versions:** AWS SDK [1.7.210](https://github.com/aws/aws-sdk-cpp/releases/tag/1.7.210) on GitHub
 
 CloudFormation templates for Amazon GameLift Servers
 
-Amazon GameLift Servers resources can now be created and managed through CloudFormation. The existing
-CloudFormation build and fleet templates have been updated to align with the current
-resources, and new templates are now available for scripts, queues, matchmaking
-configurations, and matchmaking rule sets. CloudFormation templates greatly simplify the
-task of managing groups of related AWS resources, particularly when deploying
-games across multiple Regions.
+Amazon GameLift Servers resources can now be created and managed through CloudFormation. The existing CloudFormation build and fleet templates have been updated to align with the current resources, and new templates are now available for scripts, queues, matchmaking configurations, and matchmaking rule sets. CloudFormation templates greatly simplify the task of managing groups of related AWS resources, particularly when deploying games across multiple Regions. 
 
 **Learn more:**
-
-- [Amazon GameLift Servers resource type
-  reference](../../../AWSCloudFormation/latest/UserGuide/AWS_GameLift.md "../../../AWSCloudFormation/latest/UserGuide/AWS_GameLift.md") in the _AWS CloudFormation User Guide_
-- [Manage Amazon GameLift Servers hosting resources using CloudFormation](resources-cloudformation.md "resources-cloudformation.md") in the _Amazon GameLift Servers Developer Guide_
++ [Amazon GameLift Servers resource type reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GameLift.html) in the *AWS CloudFormation User Guide*
++ [Manage Amazon GameLift Servers hosting resources using CloudFormation](resources-cloudformation.md) in the *Amazon GameLift Servers Developer Guide*

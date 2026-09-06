@@ -1,494 +1,372 @@
+
+
 # Amazon GameLift Servers plugin for Unity for server SDK 4
+<a name="unity-plug-in-sdk4"></a>
 
-###### Note
+**Note**  
+This topic provides information for an earlier version of the Amazon GameLift Servers plugin for Unity. Version 1.x uses the server SDK for Amazon GameLift Servers 4.x or earlier. For documentation on the latest plugin version, which uses server SDK 5.x and supports newer features such as Amazon GameLift Servers Anywhere and managed container hosting, see [Amazon GameLift Servers plugin for Unity (server SDK 5.x)](unity-plug-in.md).
 
-This topic provides information for an earlier version of the Amazon GameLift Servers plugin for Unity. Version 1.x
-uses the server SDK for Amazon GameLift Servers 4.x or earlier. For documentation on the
-latest plugin version, which uses server SDK 5.x and supports newer features such as Amazon GameLift Servers Anywhere and managed container hosting, see
-[Amazon GameLift Servers plugin for Unity (server SDK 5.x)](unity-plug-in.md "unity-plug-in.md").
+Amazon GameLift Servers provides tools for preparing your multiplayer game servers to run on Amazon GameLift Servers. The Amazon GameLift Servers plugin for Unity makes it easier to integrate Amazon GameLift Servers into your Unity game projects and deploy Amazon GameLift Servers resources for cloud hosting. Use the plugin for Unity to access Amazon GameLift Servers APIs and deploy AWS CloudFormation templates for common gaming scenarios.
 
-Amazon GameLift Servers provides tools for preparing your multiplayer game servers to run on
-Amazon GameLift Servers. The Amazon GameLift Servers plugin for Unity makes it easier to integrate Amazon GameLift Servers into
-your Unity game projects and deploy Amazon GameLift Servers resources for cloud hosting.
-Use the plugin for Unity to access Amazon GameLift Servers APIs and deploy AWS CloudFormation
-templates for common gaming scenarios.
+After you've set up the plugin, you can try out the [Amazon GameLift Servers Unity sample](https://github.com/aws-samples/amazon-gamelift-unity) on GitHub.
 
-After you've set up the plugin, you can try out the [Amazon GameLift Servers Unity sample](https://github.com/aws-samples/amazon-gamelift-unity "https://github.com/aws-samples/amazon-gamelift-unity") on
-GitHub.
-
-###### Topics
-
-- [Integrate Amazon GameLift Servers with a Unity game server project](integration-unity-server-sdk4.md "integration-unity-server-sdk4.md")
-- [Integrate Amazon GameLift Servers with a Unity game client project](integration-unity-client-sdk4.md "integration-unity-client-sdk4.md")
-- [Install and set up the plugin](#unity-plug-in-sdk4-install "#unity-plug-in-sdk4-install")
-- [Test your game locally](#unity-plug-in-sdk4-test "#unity-plug-in-sdk4-test")
-- [Deploy a scenario](#unity-plug-in-sdk4-scenario "#unity-plug-in-sdk4-scenario")
-- [Integrate games with Amazon GameLift Servers in Unity](#unity-plug-in-sdk4-integration-intro "#unity-plug-in-sdk4-integration-intro")
-- [Import and run a sample game](#unity-plug-in-sdk4-sample-game "#unity-plug-in-sdk4-sample-game")
+**Topics**
++ [Integrate Amazon GameLift Servers with a Unity game server project](integration-unity-server-sdk4.md)
++ [Integrate Amazon GameLift Servers with a Unity game client project](integration-unity-client-sdk4.md)
++ [Install and set up the plugin](#unity-plug-in-sdk4-install)
++ [Test your game locally](#unity-plug-in-sdk4-test)
++ [Deploy a scenario](#unity-plug-in-sdk4-scenario)
++ [Integrate games with Amazon GameLift Servers in Unity](#unity-plug-in-sdk4-integration-intro)
++ [Import and run a sample game](#unity-plug-in-sdk4-sample-game)
 
 ## Install and set up the plugin
+<a name="unity-plug-in-sdk4-install"></a>
 
-###### Note
+**Note**  
+This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0, which uses server SDK 4.x or earlier.
 
-This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
-which uses server SDK 4.x or earlier.
+This section describes how to download, install, and set up the Amazon GameLift Servers plugin for Unity, version 1.0.0. 
 
-This section describes how to download, install, and set up the Amazon GameLift Servers plugin for Unity, version
-1.0.0.
+**Prerequisites**
++ Unity for Windows 2019.4 LTS, Windows 2020.3 LTS, or Unity for MacOS
++ Current version of Java
++ Current version of .NET 4.x
 
-###### Prerequisites
+**To download and install the plugin for Unity**
 
-- Unity for Windows 2019.4 LTS, Windows 2020.3 LTS, or Unity for MacOS
-- Current version of Java
-- Current version of .NET 4.x
+1. Download the Amazon GameLift Servers plugin for Unity. You can find the latest version on the [Amazon GameLift Servers plugin for Unity repository](https://github.com/aws/amazon-gamelift-plugin-unity/releases) page. Under the [latest release](https://github.com/aws/amazon-gamelift-plugin-unity/releases), choose **Assets**, and then download the `com.amazonaws.gamelift-version.tgz` file. 
 
-###### To download and install the plugin for Unity
+1. Launch Unity and choose a project.
 
-1. Download the Amazon GameLift Servers plugin for Unity. You can find the latest version on the [Amazon GameLift Servers plugin for Unity repository](https://github.com/aws/amazon-gamelift-plugin-unity/releases "https://github.com/aws/amazon-gamelift-plugin-unity/releases") page. Under the [latest
-   release](https://github.com/aws/amazon-gamelift-plugin-unity/releases "https://github.com/aws/amazon-gamelift-plugin-unity/releases"), choose **Assets**, and then download the
-   `com.amazonaws.gamelift-*version*.tgz`
-   file.
-2. Launch Unity and choose a project.
-3. In the top navigation bar, under **Window** choose
-   **Package Manager**:
+1. In the top navigation bar, under **Window** choose **Package Manager**:  
+![Unity menu under Window with package manager selected.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_install_pkgmgr.png)
 
-![Unity menu under Window with package manager selected.](images/unitypi_install_pkgmgr.png) 4. Under the **Package Manager** tab choose
-**+**, and then choose **Add package from
-tarball...**:
+1. Under the **Package Manager** tab choose **\+**, and then choose **Add package from tarball...**:  
+![Add package from tarball highlighted under the + icon in the Package Manager tab.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_install_tarball.png)
 
-![Add package from tarball highlighted under the + icon in the Package Manager tab.](images/unitypi_install_tarball.png) 5. In the **Select packages on disk** window, navigate to the
-`com.amazonaws.gamelift` folder, choose the file
-`com.amazonaws.gamelift-*version*.tgz` , and then choose **Open**:
+1. In the **Select packages on disk** window, navigate to the `com.amazonaws.gamelift` folder, choose the file `com.amazonaws.gamelift-version.tgz `, and then choose **Open**:  
+![Choosing the tarball file in the select package on disk window.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_install_tarballselect.png)
 
-![Choosing the tarball file in the select package on disk window.](images/unitypi_install_tarballselect.png) 6. After Unity has loaded the plug-in, **Amazon GameLift Servers** appears as a
-new item in the Unity menu. It may take a few minutes to install and recompile
-scripts. The **Amazon GameLift Servers Plugin Settings** tab automatically
-opens.
+1. After Unity has loaded the plug-in, **Amazon GameLift Servers** appears as a new item in the Unity menu. It may take a few minutes to install and recompile scripts. The **Amazon GameLift Servers Plugin Settings** tab automatically opens.  
+![Amazon GameLift Servers plugin for Unity plugin settings menu.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_install_done_ui.png)
 
-![Amazon GameLift Servers plugin for Unity plugin settings menu.](images/unitypi_install_done_ui.png) 7. In the **SDK** pane, choose **Use .NET
-4.x**.
+1. In the **SDK** pane, choose **Use .NET 4.x**.
 
-When configured, the status changes from **Not Configured**
-to **Configured**.
+   When configured, the status changes from **Not Configured** to **Configured**. 
 
 ## Test your game locally
+<a name="unity-plug-in-sdk4-test"></a>
 
-###### Note
+**Note**  
+This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0, which uses server SDK 4.x or earlier.
 
-This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
-which uses server SDK 4.x or earlier.
-
-Use Amazon GameLift Servers Local to run Amazon GameLift Servers on your local device. You can use Amazon GameLift Servers Local to
-verify code changes in seconds, without a network connection.
+Use Amazon GameLift Servers Local to run Amazon GameLift Servers on your local device. You can use Amazon GameLift Servers Local to verify code changes in seconds, without a network connection.
 
 ### Configure local testing
+<a name="unity-plug-in-sdk4-test-cfgtesting"></a>
 
 1. In the plugin for Unity window, choose the **Test** tab.
-2. In the **Test** pane, choose **Download Amazon GameLift Servers
-   Local**. The plugin for Unity opens a browser window and downloads the
-   `GameLift_06_03_2021.zip` file to your downloads
-   folder.
 
-The download includes the C# Server SDK, .NET source files, and a .NET
-component compatible with Unity. 3. Unzip the downloaded file `GameLift_06_03_2021.zip`. 4. In the **Amazon GameLift Servers Plugin Settings** window, choose
-**Amazon GameLift Servers Local Path**, navigate to the unzipped folder,
-choose the file `GameLiftLocal.jar`, and then choose
-**Open**.
+1. In the **Test** pane, choose **Download Amazon GameLift Servers Local**. The plugin for Unity opens a browser window and downloads the `GameLift_06_03_2021.zip` file to your downloads folder.
 
-When configured, local testing status changes from **Not
-Configured** to **Configured**. 5. Verify the status of the JRE. If the status is **Not
-Configured**, choose **Download JRE** and
-install the recommended Java version.
+   The download includes the C\# Server SDK, .NET source files, and a .NET component compatible with Unity.
 
-After you install and configure the Java environment, the status changes
-to **Configured**.
+1. Unzip the downloaded file `GameLift_06_03_2021.zip`. 
+
+1. In the **Amazon GameLift Servers Plugin Settings** window, choose **Amazon GameLift Servers Local Path**, navigate to the unzipped folder, choose the file `GameLiftLocal.jar`, and then choose **Open**.
+
+   When configured, local testing status changes from **Not Configured** to **Configured**.
+
+1. Verify the status of the JRE. If the status is **Not Configured**, choose **Download JRE** and install the recommended Java version.
+
+   After you install and configure the Java environment, the status changes to **Configured**.
 
 ### Run your local game
+<a name="unity-plug-in-sdk4-test-cfgrunning"></a>
 
 1. In the plugin for Unity tab, choose the **Test** tab.
-2. In the **Test** pane, choose **Open Local Test
-   UI**.
-3. In the **Local Testing** window, specify a
-   **Server executable path**. Select
-   **...** to select the path and executable name of your
-   server application.
-4. In the **Local Testing** window, specify a **GL
-   Local port**.
-5. Choose **Deploy & Run** to deploy and run the
-   server.
-6. To stop your game server, choose **Stop** or close the
-   game server windows.
+
+1. In the **Test** pane, choose **Open Local Test UI**.
+
+1. In the **Local Testing** window, specify a **Server executable path**. Select **...** to select the path and executable name of your server application.
+
+1. In the **Local Testing** window, specify a **GL Local port**.
+
+1. Choose **Deploy & Run** to deploy and run the server.
+
+1. To stop your game server, choose **Stop** or close the game server windows.
 
 ## Deploy a scenario
+<a name="unity-plug-in-sdk4-scenario"></a>
 
-###### Note
+**Note**  
+This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0, which uses server SDK 4.x or earlier.
 
-This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
-which uses server SDK 4.x or earlier.
+A scenario uses an CloudFormation template to create the resources you need to deploy a cloud hosting solution for your game. This section describes the scenarios Amazon GameLift Servers provides and how to use them. 
 
-A scenario uses an CloudFormation template to create the resources you need to deploy a cloud
-hosting solution for your game. This section describes the scenarios Amazon GameLift Servers provides and
-how to use them.
-
-###### Prerequisites
-
-To deploy the scenario, you need an IAM role for the Amazon GameLift Servers service. For
-information on how to create a role for Amazon GameLift Servers, see [Set up an AWS user account](setting-up-aws-login.md "setting-up-aws-login.md").
+**Prerequisites**  
+To deploy the scenario, you need an IAM role for the Amazon GameLift Servers service. For information on how to create a role for Amazon GameLift Servers, see [Set up an AWS user account](setting-up-aws-login.md). 
 
 Each scenario requires permissions to the following resources:
-
-- Amazon GameLift Servers
-- Amazon S3
-- CloudFormation
-- API Gateway
-- AWS Lambda
-- AWS WAFV2
-- Amazon Cognito
++ Amazon GameLift Servers
++ Amazon S3
++ CloudFormation
++ API Gateway
++ AWS Lambda
++ AWS WAFV2
++ Amazon Cognito
 
 ### Scenarios
+<a name="unity-plug-in-sdk4-scenario-examples"></a>
 
-###### Note
+**Note**  
+This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0, which uses server SDK 4.x or earlier.
 
-This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
-which uses server SDK 4.x or earlier.
+The Amazon GameLift Servers Plug-in for Unity includes the following scenarios: 
 
-The Amazon GameLift Servers Plug-in for Unity includes the following scenarios:
+**Auth only**  
+This scenario creates a game backend service that performs player authentication without game server capability. The template creates the following resources in your account:
++ An Amazon Cognito user pool to store player authentication information.
++ An Amazon API Gateway REST endpoint-backed AWS Lambda handler that starts games and views game connection information.
 
-###### Auth only
+**Single-Region fleet**  
+This scenario creates a game backend service with a single Amazon GameLift Servers fleet. It creates the following resources: 
++ An Amazon Cognito user pool for a player to authenticate and start a game. 
++ An AWS Lambda handler to search for an existing game session with an open player slot on the fleet. If it can't find an open slot, it creates a new game session. 
 
-This scenario creates a game backend service that performs player authentication
-without game server capability. The template creates the following resources in your
-account:
+**Multi-Region fleet with a queue and custom matchmaker**  
+This scenario forms matches by using Amazon GameLift Servers queues and a custom matchmaker to group together the oldest players in the waiting pool. It creates the following resources:
++ An Amazon Simple Notification Service topic that Amazon GameLift Servers publishes messages to. For more information on SNS topics and notifications, see [Set up event notification for game session placement](queue-notification.md). 
++ A Lambda function that's invoked by the message that communicates placement and game connection details.
++ An Amazon DynamoDB table to store placement and game connection details. `GetGameConnection` calls read from this table and return the connection information to the game client. 
 
-- An Amazon Cognito user pool to store player authentication information.
-- An Amazon API Gateway REST endpoint-backed AWS Lambda handler that starts games and
-  views game connection information.
+**Spot fleets with a queue and custom matchmaker**  
+This scenario forms matches by using Amazon GameLift Servers queues and a custom matchmaker and configures three fleets. It creates the following resources:
++ Two Spot fleets that contain different instance types to provide durability for Spot unavailability.
++ An On-Demand fleet that acts as a backup for the other Spot fleets. For more information on designing your fleets, see [Hosting resource customizations](fleets-design.md).
++ An Amazon GameLift Servers queue to keep server availability high and cost low. For more information and best practices about queues, see [Customize a game session queue](queues-design.md). 
 
-###### Single-Region fleet
+**FlexMatch**  
+This scenario uses FlexMatch, a managed matchmaking service, to match game players together. For more information about FlexMatch, see [What is Amazon GameLift Servers FlexMatch](https://docs.aws.amazon.com/gameliftservers/latest/flexmatchguide/match-intro.html). This scenario creates the following resources:
++ A Lambda function to create a matchmaking ticket after it receives `StartGame` requests. 
++ A separate Lambda function to listen to FlexMatch match events.
 
-This scenario creates a game backend service with a single Amazon GameLift Servers fleet. It creates
-the following resources:
-
-- An Amazon Cognito user pool for a player to authenticate and start a game.
-- An AWS Lambda handler to search for an existing game session with an open
-  player slot on the fleet. If it can't find an open slot, it creates a new game
-  session.
-
-###### Multi-Region fleet with a queue and custom matchmaker
-
-This scenario forms matches by using Amazon GameLift Servers queues and a custom matchmaker to group
-together the oldest players in the waiting pool. It creates the following
-resources:
-
-- An Amazon Simple Notification Service topic that Amazon GameLift Servers publishes messages to. For more information on
-  SNS topics and notifications, see [Set up event notification for game session placement](queue-notification.md "queue-notification.md").
-- A Lambda function that's invoked by the message that communicates placement and
-  game connection details.
-- An Amazon DynamoDB table to store placement and game connection details.
-  `GetGameConnection` calls read from this table and return the
-  connection information to the game client.
-
-###### Spot fleets with a queue and custom matchmaker
-
-This scenario forms matches by using Amazon GameLift Servers queues and a custom matchmaker and
-configures three fleets. It creates the following resources:
-
-- Two Spot fleets that contain different instance types to provide durability
-  for Spot unavailability.
-- An On-Demand fleet that acts as a backup for the other Spot fleets. For more
-  information on designing your fleets, see [Hosting resource customizations](fleets-design.md "fleets-design.md").
-- An Amazon GameLift Servers queue to keep server availability high and cost low. For more
-  information and best practices about queues, see [Customize a game session queue](queues-design.md "queues-design.md").
-
-###### FlexMatch
-
-This scenario uses FlexMatch, a managed matchmaking service, to match game players
-together. For more information about FlexMatch, see [What is Amazon GameLift Servers FlexMatch](../flexmatchguide/match-intro.md "../flexmatchguide/match-intro.md"). This scenario creates the following
-resources:
-
-- A Lambda function to create a matchmaking ticket after it receives
-  `StartGame` requests.
-- A separate Lambda function to listen to FlexMatch match events.
-
-To avoid unnecessary charges on your AWS account, remove the resources created by
-each scenario after you are done using them. Delete the corresponding CloudFormation stack.
+To avoid unnecessary charges on your AWS account, remove the resources created by each scenario after you are done using them. Delete the corresponding CloudFormation stack. 
 
 ### Update AWS credentials
+<a name="unity-plug-in-sdk4-configure-creds"></a>
 
-###### Note
+**Note**  
+This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0, which uses server SDK 4.x or earlier.
 
-This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
-which uses server SDK 4.x or earlier.
+The Amazon GameLift Servers plugin for Unity requires security credentials to deploy a scenario. You can either create new credentials or use existing credentials.
 
-The Amazon GameLift Servers plugin for Unity requires security credentials to deploy a scenario. You can
-either create new credentials or use existing credentials.
+For more information about configuring credentials, see [Understanding and getting your AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html). 
 
-For more information about configuring credentials, see [Understanding and getting your AWS credentials](../../../general/latest/gr/aws-sec-cred-types.md "../../../general/latest/gr/aws-sec-cred-types.md").
+**To update AWS credentials**
 
-###### To update AWS credentials
+1. In Unity, in the plugin for Unity tab, choose the **Deploy** tab.
 
-1. In Unity, in the plugin for Unity tab, choose the **Deploy**
-   tab.
-2. In the **Deploy** pane, choose **AWS
-   Credentials**.
-3. You can create new AWS credentials or choose existing
-   credentials.
+1. In the **Deploy** pane, choose **AWS Credentials**.
 
-   - To create credentials, choose **Create new credentials
-     profile**, and then specify the **New Profile
-     Name**, **AWS Access Key ID**,
-     **AWS Secret Key**, and
-     **AWS Region**.
-   - To choose existing credentials, choose **Choose existing
-     credentials profile** and then select a profile name
-     and **AWS Region**.
+1. You can create new AWS credentials or choose existing credentials. 
+   + To create credentials, choose **Create new credentials profile**, and then specify the **New Profile Name**, **AWS Access Key ID**, **AWS Secret Key**, and **AWS Region**.
+   + To choose existing credentials, choose **Choose existing credentials profile** and then select a profile name and **AWS Region**.
 
-4. In the **Update AWS Credentials** window, choose
-   **Update Credentials Profile**.
+1. In the **Update AWS Credentials** window, choose **Update Credentials Profile**. 
 
 ### Update account bootstrap
+<a name="unity-plug-in-sdk4-scenario-boot"></a>
 
-###### Note
+**Note**  
+This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0, which uses server SDK 4.x or earlier.
 
-This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
-which uses server SDK 4.x or earlier.
+The bootstrap location is an Amazon S3 bucket used during deployment. It's used to store game server assets and other dependencies. The AWS Region you choose for the bucket must be the same Region you will use for the scenario deployment.
 
-The bootstrap location is an Amazon S3 bucket used during deployment. It's used to
-store game server assets and other dependencies. The AWS Region you choose for the
-bucket must be the same Region you will use for the scenario deployment.
+For more information about Amazon S3 buckets, see [Creating, configuring, and working with Amazon Simple Storage Service buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html).
 
-For more information about Amazon S3 buckets, see [Creating, configuring, and working with Amazon Simple Storage Service buckets](../../../AmazonS3/latest/userguide/creating-buckets-s3.md "../../../AmazonS3/latest/userguide/creating-buckets-s3.md").
+**To update the account bootstrap location**
 
-###### To update the account bootstrap location
+1. In Unity, in the plugin for Unity tab, choose the **Deploy** tab.
 
-1. In Unity, in the plugin for Unity tab, choose the **Deploy**
-   tab.
-2. In the **Deploy** pane, choose **Update Account
-   Bootstrap**.
-3. In the **Account Bootstrapping** window, you choose an
-   existing Amazon S3 bucket or create a new Amazon S3 bucket:
+1. In the **Deploy** pane, choose **Update Account Bootstrap**.
 
-   - To choose an existing bucket, choose **Choose existing
-     Amazon S3 bucket** and **Update** to save
-     your selection.
-   - Choose **Create new Amazon S3 bucket** to create a new
-     Amazon Simple Storage Service bucket, then choose a **Policy**. The
-     policy specifies when the Amazon S3 bucket will expire. Choose
-     **Create** to create the bucket.
+1. In the **Account Bootstrapping** window, you choose an existing Amazon S3 bucket or create a new Amazon S3 bucket:
+   + To choose an existing bucket, choose **Choose existing Amazon S3 bucket** and **Update** to save your selection.
+   + Choose **Create new Amazon S3 bucket** to create a new Amazon Simple Storage Service bucket, then choose a **Policy**. The policy specifies when the Amazon S3 bucket will expire. Choose **Create** to create the bucket. 
 
 ### Deploy a game scenario
+<a name="unity-plug-in-sdk4-scenario-deploy"></a>
 
-###### Note
+**Note**  
+This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0, which uses server SDK 4.x or earlier.
 
-This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
-which uses server SDK 4.x or earlier.
+You can use a scenario to test your game with Amazon GameLift Servers. Each scenario uses a CloudFormation template to create a stack with the required resources. Most of the scenarios require a game server executable and build path. When you deploy the scenario, Amazon GameLift Servers copies game assets to the bootstrap location as part of deployment.
 
-You can use a scenario to test your game with Amazon GameLift Servers. Each scenario uses a CloudFormation
-template to create a stack with the required resources. Most of the scenarios
-require a game server executable and build path. When you deploy the scenario, Amazon GameLift Servers
-copies game assets to the bootstrap location as part of deployment.
+You must configure AWS credentials and an AWS account bootstrap to deploy a scenario.
 
-You must configure AWS credentials and an AWS account bootstrap to deploy a
-scenario.
+**To deploy a scenario**
 
-###### To deploy a scenario
+1. In Unity, in the plugin for Unity tab, choose the **Deploy** tab.
 
-1. In Unity, in the plugin for Unity tab, choose the **Deploy**
-   tab.
-2. In the **Deploy** pane, choose **Open Deployment
-   UI**.
-3. In the **Deployment** window, choose a scenario.
-4. Enter a **Game Name**. It must be unique. The game name
-   is part of the CloudFormation stack name when you deploy the scenario.
-5. Choose the **Game Server Build Folder Path**. The build
-   folder path points to the folder containing the server executable and
-   dependencies.
-6. Choose the **Game Server Build .exe File Path**. The
-   build executable file path points to the game server executable.
-7. Choose **Start Deployment** to begin deploying a
-   scenario. You can follow the status of the update in the
-   **Deployment** window under **Current
-   State**.Scenarios can take several minutes to deploy.
+1. In the **Deploy** pane, choose **Open Deployment UI**.
 
-![Scenario deployment status update](images/unitypi_deploy_statex.png) 8. When the scenario completes deployment, the **Current
-State** updates to include the **Cognito Client
-ID** and **API Gateway Endpoint** that you can
-copy and paste into the game.
+1. In the **Deployment** window, choose a scenario.
 
-![Scenario deployment status update](images/unitypi_deploy_statedone.png) 9. To update game settings, on the Unity menu, choose **Go To Client
-Connection Settings**. This displays an
-**Inspector** tab on the right side of the Unity
-screen. 10. Deselect **Local Testing Mode**. 11. Enter the **API Gateway Endpoint** and the **Cognito
-Client ID**. Choose the same AWS Region you used for the
-scenario deployment. You can then rebuild and run the game client using the
-deployed scenario resources.
+1. Enter a **Game Name**. It must be unique. The game name is part of the CloudFormation stack name when you deploy the scenario. 
+
+1. Choose the **Game Server Build Folder Path**. The build folder path points to the folder containing the server executable and dependencies.
+
+1. Choose the **Game Server Build .exe File Path**. The build executable file path points to the game server executable.
+
+1. Choose **Start Deployment** to begin deploying a scenario. You can follow the status of the update in the **Deployment** window under **Current State**.Scenarios can take several minutes to deploy.  
+![Scenario deployment status update](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_deploy_statex.png)
+
+1. When the scenario completes deployment, the **Current State** updates to include the **Cognito Client ID** and **API Gateway Endpoint** that you can copy and paste into the game.  
+![Scenario deployment status update](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_deploy_statedone.png)
+
+1. To update game settings, on the Unity menu, choose **Go To Client Connection Settings**. This displays an **Inspector** tab on the right side of the Unity screen.
+
+1. Deselect **Local Testing Mode**.
+
+1. Enter the **API Gateway Endpoint** and the **Cognito Client ID**. Choose the same AWS Region you used for the scenario deployment. You can then rebuild and run the game client using the deployed scenario resources. 
 
 ### Deleting resources created by the scenario
+<a name="unity-plug-in-sdk4-scenario-delete"></a>
 
-###### Note
+**Note**  
+This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0, which uses server SDK 4.x or earlier.
 
-This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
-which uses server SDK 4.x or earlier.
+To delete the resources created for the scenario, delete the corresponding CloudFormation stack. 
 
-To delete the resources created for the scenario, delete the corresponding CloudFormation
-stack.
+**To delete resources created by the scenario**
 
-###### To delete resources created by the scenario
+1. In the Amazon GameLift Servers plugin for Unity **Deployment** window, select **View AWS CloudFormation Console** to open the CloudFormation console. 
 
-1. In the Amazon GameLift Servers plugin for Unity **Deployment** window, select
-   **View AWS CloudFormation Console** to open the CloudFormation console.
-2. In the CloudFormation console, choose **Stacks**, and then choose
-   the stack that includes the game name specified during deployment.
-3. Choose **Delete** to delete the stack. It may take a few
-   minutes to delete a stack. After CloudFormation deletes the stack used by the
-   scenario, its status changes to `ROLLBACK_COMPLETE`.
+1. In the CloudFormation console, choose **Stacks**, and then choose the stack that includes the game name specified during deployment.
+
+1. Choose **Delete** to delete the stack. It may take a few minutes to delete a stack. After CloudFormation deletes the stack used by the scenario, its status changes to `ROLLBACK_COMPLETE`. 
 
 ## Integrate games with Amazon GameLift Servers in Unity
+<a name="unity-plug-in-sdk4-integration-intro"></a>
 
-###### Note
+**Note**  
+This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0, which uses server SDK 4.x or earlier.
 
-This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
-which uses server SDK 4.x or earlier.
+Integrate your Unity game with Amazon GameLift Servers by completing the following tasks: 
++ [Integrate Amazon GameLift Servers with a Unity game server project](integration-unity-server-sdk4.md)
++ [Integrate Amazon GameLift Servers with a Unity game client project](integration-unity-client-sdk4.md)
 
-Integrate your Unity game with Amazon GameLift Servers by completing the following
-tasks:
+The following diagram shows an example flow of integrating a game. In the diagram, a fleet with the game server is deployed to Amazon GameLift Servers. The game client communicates with the game server, which communicates with Amazon GameLift Servers. 
 
-- [Integrate Amazon GameLift Servers with a Unity game server project](integration-unity-server-sdk4.md "integration-unity-server-sdk4.md")
-- [Integrate Amazon GameLift Servers with a Unity game client project](integration-unity-client-sdk4.md "integration-unity-client-sdk4.md")
+![Architecture diagram of integrating Unity with Amazon GameLift Servers.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unity_diagram.png)
 
-The following diagram shows an example flow of integrating a game. In the diagram, a
-fleet with the game server is deployed to Amazon GameLift Servers. The game client communicates with the
-game server, which communicates with Amazon GameLift Servers.
-
-![Architecture diagram of integrating Unity with Amazon GameLift Servers.](images/unity_diagram.png)
 
 ## Import and run a sample game
+<a name="unity-plug-in-sdk4-sample-game"></a>
 
-###### Note
+**Note**  
+This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0, which uses server SDK 4.x or earlier.
 
-This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
-which uses server SDK 4.x or earlier.
-
-The Amazon GameLift Servers plugin for Unity includes a sample game you can use to explore the basics of
-integrating your game with Amazon GameLift Servers. In this section, you build the game client and game
-server and then test locally using Amazon GameLift Servers Local.
+The Amazon GameLift Servers plugin for Unity includes a sample game you can use to explore the basics of integrating your game with Amazon GameLift Servers. In this section, you build the game client and game server and then test locally using Amazon GameLift Servers Local. 
 
 ### Prerequisites
-
-- [Set up an AWS user account](setting-up-aws-login.md "setting-up-aws-login.md")
-- [Install and set up the plugin](#unity-plug-in-sdk4-install "#unity-plug-in-sdk4-install")
+<a name="unity-plug-in-sdk4-sample-game-prereq"></a>
++ [Set up an AWS user account](setting-up-aws-login.md)
++ [Install and set up the plugin](#unity-plug-in-sdk4-install)
 
 ### Build and run the sample game server
+<a name="unity-plug-in-sdk4-sample-game-build"></a>
 
-###### Note
-
-This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
-which uses server SDK 4.x or earlier.
+**Note**  
+This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0, which uses server SDK 4.x or earlier.
 
 Set up the game server files of the sample game.
 
-1. In Unity, on the menu, choose **Amazon GameLift Servers**, and then choose
-   **Import Sample Game**.
-2. In the **Import Sample Game** window, choose
-   **Import** to import the game, its assets and
-   dependencies.
-3. Build the game server. In Unity, on the menu, choose
-   **Amazon GameLift Servers**, and then choose **Apply Windows
-   Sample Server Build Settings** or **Apply MacOS Sample
-   Server Build Settings**. After you configure the game server
-   settings, Unity recompiles the assets.
-4. In Unity, on the menu, choose **File**, and then choose
-   **Build**. Choose **Server Build**,
-   choose **Build**, and then choose a build folder
-   specifically for server files.
+1. In Unity, on the menu, choose **Amazon GameLift Servers**, and then choose **Import Sample Game**.
 
-Unity builds the sample game server, placing the executable and required
-assets in the specified build folder.
+1. In the **Import Sample Game** window, choose **Import** to import the game, its assets and dependencies.
+
+1. Build the game server. In Unity, on the menu, choose **Amazon GameLift Servers**, and then choose **Apply Windows Sample Server Build Settings** or **Apply MacOS Sample Server Build Settings**. After you configure the game server settings, Unity recompiles the assets. 
+
+1. In Unity, on the menu, choose **File**, and then choose **Build**. Choose **Server Build**, choose **Build**, and then choose a build folder specifically for server files. 
+
+   Unity builds the sample game server, placing the executable and required assets in the specified build folder.
 
 ### Build and run the sample game client
+<a name="unity-plug-in-sdk4-sample-game-client"></a>
 
-###### Note
-
-This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
-which uses server SDK 4.x or earlier.
+**Note**  
+This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0, which uses server SDK 4.x or earlier.
 
 Set up the game client files of the sample game.
 
-1. In Unity, on the menu, choose **Amazon GameLift Servers**, and then choose
-   **Apply Windows Sample Client Build Settings** or
-   **Apply MacOS Sample Client Build Settings**. After the
-   game client settings are configured, Unity will recompile assets.
-2. In Unity, on the menu, select **Go To Client Settings**.
-   This will display an **Inspector** tab on the right side of
-   the Unity screen. In the **Amazon GameLift Servers Client Settings** tab,
-   select **Local Testing Mode**.
-3. Build the game client. In Unity, on the menu, choose
-   **File**. Confirm **Server Build** is
-   not checked, choose **Build**, and then select a build
-   folder specifically for client files.
+1. In Unity, on the menu, choose **Amazon GameLift Servers**, and then choose **Apply Windows Sample Client Build Settings** or **Apply MacOS Sample Client Build Settings**. After the game client settings are configured, Unity will recompile assets. 
 
-Unity builds the sample game client, placing the executable and required
-assets in the specified client build folder. 4. You've now built the game server and client. In the next steps, you run the
-game and see how it interacts with Amazon GameLift Servers.
+1. In Unity, on the menu, select **Go To Client Settings**. This will display an **Inspector** tab on the right side of the Unity screen. In the **Amazon GameLift Servers Client Settings** tab, select **Local Testing Mode**. 
+
+1. Build the game client. In Unity, on the menu, choose **File**. Confirm **Server Build** is not checked, choose **Build**, and then select a build folder specifically for client files. 
+
+   Unity builds the sample game client, placing the executable and required assets in the specified client build folder.
+
+1. You've now built the game server and client. In the next steps, you run the game and see how it interacts with Amazon GameLift Servers.
 
 ### Test the sample game locally
+<a name="unity-plug-in-sdk4-sample-game-test"></a>
 
-###### Note
-
-This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
-which uses server SDK 4.x or earlier.
+**Note**  
+This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0, which uses server SDK 4.x or earlier.
 
 Run the sample game you imported using Amazon GameLift Servers Local.
 
-1. Launch the game server. In Unity, in the plugin for Unity tab, choose the
-   **Deploy** tab.
-2. In the **Test** pane, choose **Open Local Test
-   UI**.
-3. In the **Local Testing** window, specify a **Game
-   Server .exe File Path**. The path must include the executable
-   name. For example,
-   `C:/MyGame/GameServer/MyGameServer.exe`.
-4. Choose **Deploy and Run**. The plugin for Unity launches the
-   game server and opens an Amazon GameLift Servers Local log window. The window contains log
-   messages including messages sent between the game server and Amazon GameLift Servers Local.
-5. Launch the game client. Find the build location with the sample game
-   client and choose the executable file .
-6. In the **Amazon GameLift Servers Sample Game**, provide an email and
-   password and then choose **Log In**. The email and password
-   aren't validated or used.
-7. In the **Amazon GameLift Servers Sample Game**, choose
-   **Start**. The game client looks for a game session. If
-   it can't find a session, it creates one. The game client then starts the
-   game session. You can see game activity in the logs.
+1. Launch the game server. In Unity, in the plugin for Unity tab, choose the **Deploy** tab.
+
+1. In the **Test** pane, choose **Open Local Test UI**. 
+
+1. In the **Local Testing** window, specify a **Game Server .exe File Path**. The path must include the executable name. For example, `C:/MyGame/GameServer/MyGameServer.exe`. 
+
+1. Choose **Deploy and Run**. The plugin for Unity launches the game server and opens an Amazon GameLift Servers Local log window. The window contains log messages including messages sent between the game server and Amazon GameLift Servers Local. 
+
+1. Launch the game client. Find the build location with the sample game client and choose the executable file .
+
+1. In the **Amazon GameLift Servers Sample Game**, provide an email and password and then choose **Log In**. The email and password aren't validated or used.
+
+1. In the **Amazon GameLift Servers Sample Game**, choose **Start**. The game client looks for a game session. If it can't find a session, it creates one. The game client then starts the game session. You can see game activity in the logs.
+
+#### Sample game server logs
+<a name="unity-plug-in-sdk4-example-logs"></a>
 
 ```
 ...
-2021-09-15T19:55:3495 PID:20728 Log :) GAMELIFT AWAKE
-2021-09-15T19:55:3512 PID:20728 Log :) I AM SERVER
-2021-09-15T19:55:3514 PID:20728 Log :) GAMELIFT StartServer at port 33430.
-2021-09-15T19:55:3514 PID:20728 Log :) SDK VERSION: 4.0.2
-2021-09-15T19:55:3556 PID:20728 Log :) SERVER IS IN A GAMELIFT FLEET
-2021-09-15T19:55:3577 PID:20728 Log :) PROCESSREADY SUCCESS.
+2021-09-15T19:55:3495 PID:20728 Log :) GAMELIFT AWAKE 
+2021-09-15T19:55:3512 PID:20728 Log :) I AM SERVER 
+2021-09-15T19:55:3514 PID:20728 Log :) GAMELIFT StartServer at port 33430. 
+2021-09-15T19:55:3514 PID:20728 Log :) SDK VERSION: 4.0.2 
+2021-09-15T19:55:3556 PID:20728 Log :) SERVER IS IN A GAMELIFT FLEET 
+2021-09-15T19:55:3577 PID:20728 Log :) PROCESSREADY SUCCESS. 
 2021-09-15T19:55:3577 PID:20728 Log :) GAMELIFT HEALTH CHECK REQUESTED (HEALTHY)
 ...
-2021-09-15T19:55:3634 PID:20728 Log :) GAMELOGIC AWAKE
-2021-09-15T19:55:3635 PID:20728 Log :) GAMELOGIC START
-2021-09-15T19:55:3636 PID:20728 Log :) LISTENING ON PORT 33430
-2021-09-15T19:55:3636 PID:20728 Log SERVER: Frame: 0 HELLO WORLD!
+2021-09-15T19:55:3634 PID:20728 Log :) GAMELOGIC AWAKE 
+2021-09-15T19:55:3635 PID:20728 Log :) GAMELOGIC START 
+2021-09-15T19:55:3636 PID:20728 Log :) LISTENING ON PORT 33430 
+2021-09-15T19:55:3636 PID:20728 Log SERVER: Frame: 0 HELLO WORLD! 
 ...
 2021-09-15T19:56:2464 PID:20728 Log :) GAMELIFT SESSION REQUESTED
 2021-09-15T19:56:2468 PID:20728 Log :) GAME SESSION ACTIVATED
 2021-09-15T19:56:3578 PID:20728 Log :) GAMELIFT HEALTH CHECK REQUESTED (HEALTHY)
 2021-09-15T19:57:3584 PID:20728 Log :) GAMELIFT HEALTH CHECK REQUESTED (HEALTHY)
 2021-09-15T19:58:0334 PID:20728 Log SERVER: Frame: 8695 Connection accepted: playerIdx 0 joined
-2021-09-15T19:58:0335 PID:20728 Log SERVER: Frame: 8696 Connection accepted: playerIdx 1 joined
-2021-09-15T19:58:0338 PID:20728 Log SERVER: Frame: 8697 Msg rcvd from playerIdx 0 Msg: CONNECT: server IP localhost
-2021-09-15T19:58:0338 PID:20728 Log SERVER: Frame: 8697 Msg rcvd from player 0:CONNECT: server IP localhost
-2021-09-15T19:58:0339 PID:20728 Log SERVER: Frame: 8697 CONNECT: player index 0
-2021-09-15T19:58:0339 PID:20728 Log SERVER: Frame: 8697 Msg rcvd from playerIdx 1 Msg: CONNECT: server IP localhost
-2021-09-15T19:58:0339 PID:20728 Log SERVER: Frame: 8697 Msg rcvd from player 1:CONNECT: server IP localhost
+2021-09-15T19:58:0335 PID:20728 Log SERVER: Frame: 8696 Connection accepted: playerIdx 1 joined 
+2021-09-15T19:58:0338 PID:20728 Log SERVER: Frame: 8697 Msg rcvd from playerIdx 0 Msg: CONNECT: server IP localhost 
+2021-09-15T19:58:0338 PID:20728 Log SERVER: Frame: 8697 Msg rcvd from player 0:CONNECT: server IP localhost 
+2021-09-15T19:58:0339 PID:20728 Log SERVER: Frame: 8697 CONNECT: player index 0 
+2021-09-15T19:58:0339 PID:20728 Log SERVER: Frame: 8697 Msg rcvd from playerIdx 1 Msg: CONNECT: server IP localhost 
+2021-09-15T19:58:0339 PID:20728 Log SERVER: Frame: 8697 Msg rcvd from player 1:CONNECT: server IP localhost 
 2021-09-15T19:58:0339 PID:20728 Log SERVER: Frame: 8697 CONNECT: player index 1
 ```
+
+#### Sample Amazon GameLift Servers Local logs
+<a name="unity-plug-in-sdk4-example-locallogs"></a>
 
 ```
 12:55:26,000  INFO || - [SocketIOServer] main - Session store / pubsub factory used: MemoryStoreFactory (local session store only)
@@ -522,16 +400,13 @@ Run the sample game you imported using Amazon GameLift Servers Local.
 ```
 
 ### Shut down server process
+<a name="unity-plug-in-sdk4-shut-down"></a>
 
-###### Note
-
-This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0,
-which uses server SDK 4.x or earlier.
+**Note**  
+This topic refers to Amazon GameLift Servers plugin for Unity version 1.0.0, which uses server SDK 4.x or earlier.
 
 After you're done with your sample game, shut down the server in Unity.
 
-1. In the game client, choose **Quit** or close the window
-   to stop the game client.
-2. In Unity, in the **Local Testing** window, choose
-   **Stop** or close the game server windows to stop the
-   server.
+1. In the game client, choose **Quit** or close the window to stop the game client. 
+
+1. In Unity, in the **Local Testing** window, choose **Stop** or close the game server windows to stop the server. 

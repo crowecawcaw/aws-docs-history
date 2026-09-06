@@ -1,74 +1,46 @@
-# Amazon GameLift Servers UDP ping beacons
 
-UDP ping beacons provide a way to measure network latency between player devices and Amazon GameLift Servers
-hosting locations. With ping beacons, you can collect accurate latency data to make informed
-decisions about game server placement and improve player matchmaking based on latency
-requirements.
+
+# Amazon GameLift Servers UDP ping beacons
+<a name="reference-udp-ping-beacons"></a>
+
+UDP ping beacons provide a way to measure network latency between player devices and Amazon GameLift Servers hosting locations. With ping beacons, you can collect accurate latency data to make informed decisions about game server placement and improve player matchmaking based on latency requirements.
 
 ## How UDP ping beacons work
+<a name="reference-how-beacons-work"></a>
 
-Amazon GameLift Servers provides fixed UDP endpoints (ping beacons) in each hosting location where you
-can deploy game servers. Because most game servers communicate using UDP, measuring
-latency with UDP ping beacons provides more accurate results than using ICMP pings. Network
-devices often handle ICMP packets differently from UDP packets, which can lead to
-latency measurements that don't reflect the true performance your players will
-experience.
+Amazon GameLift Servers provides fixed UDP endpoints (ping beacons) in each hosting location where you can deploy game servers. Because most game servers communicate using UDP, measuring latency with UDP ping beacons provides more accurate results than using ICMP pings. Network devices often handle ICMP packets differently from UDP packets, which can lead to latency measurements that don't reflect the true performance your players will experience.
 
-With UDP ping beacons, your game client can send UDP messages to these endpoints and receive
-asynchronous responses, giving you latency measurements that better represent actual
-game traffic conditions between a player's device and potential hosting locations. The
-endpoints are permanent and remain available as long as Amazon GameLift Servers supports game hosting in
-that location.
+With UDP ping beacons, your game client can send UDP messages to these endpoints and receive asynchronous responses, giving you latency measurements that better represent actual game traffic conditions between a player's device and potential hosting locations. The endpoints are permanent and remain available as long as Amazon GameLift Servers supports game hosting in that location.
 
 ## Common use cases for UDP ping beacons
+<a name="reference-beacons-common-use-cases"></a>
 
-You can use UDP ping beacons in several ways to optimize your game's networking
-experience.
+You can use UDP ping beacons in several ways to optimize your game's networking experience.
 
-###### Choosing optimal hosting locations
+**Choosing optimal hosting locations**  
+Collect latency data across different geographic regions to identify the best primary and backup locations for hosting game servers for your player base.
 
-Collect latency data across different geographic regions to identify the best
-primary and backup locations for hosting game servers for your player base.
+**Placing game sessions based on player latency**  
+Include player latency data when requesting new game sessions to help pick locations that provide the lowest latency experience.
 
-###### Placing game sessions based on player latency
+**Optimizing matchmaking based on latency**  
+Provide player latency data when requesting matchmaking to help match players with similar latency profiles and place game sessions in optimal locations for matched players.
 
-Include player latency data when requesting new game sessions to help pick
-locations that provide the lowest latency experience.
-
-###### Optimizing matchmaking based on latency
-
-Provide player latency data when requesting matchmaking to help match players with
-similar latency profiles and place game sessions in optimal locations for matched
-players.
-
-###### Note
-
-When creating matchmaking requests, you should not provide latency information to
-locations where you don't have fleets. If you do, Amazon GameLift Servers might try to place the
-game session in locations where there's no fleet capacity, resulting in matchmaking
-request failures.
+**Note**  
+When creating matchmaking requests, you should not provide latency information to locations where you don't have fleets. If you do, Amazon GameLift Servers might try to place the game session in locations where there's no fleet capacity, resulting in matchmaking request failures.
 
 ## Getting beacon endpoints
+<a name="reference-beacons-getting-endpoints"></a>
 
-To retrieve ping beacon domain and port information for Amazon GameLift Servers locations, use the
-[ListLocations](../apireference/API_ListLocations.md "../apireference/API_ListLocations.md") API
-operation. The set of locations returned by this API depends on the AWS Region you
-specify when calling it (or your default Region if you don't specify one).
+To retrieve ping beacon domain and port information for Amazon GameLift Servers locations, use the [ListLocations](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_ListLocations.html) API operation. The set of locations returned by this API depends on the AWS Region you specify when calling it (or your default Region if you don't specify one).
 
 When you call from:
++ **A home Region of a fleet that supports multi-locations**: API returns information for *all* hosting locations
++ **A home Region of a fleet that supports a single location**: API returns information for that location
 
-- **A home Region of a fleet that supports
-  multi-locations**: API returns information for
-  _all_ hosting locations
-- **A home Region of a fleet that supports a single
-  location**: API returns information for that location
+Note that if you call this API using a location that can only be a remote location in a multi-location fleet, the API will return an error because that type of location doesn't have a service endpoint.
 
-Note that if you call this API using a location that can only be a remote location in
-a multi-location fleet, the API will return an error because that type of location doesn't
-have a service endpoint.
-
-Consult the table of supported locations in [Supported AWS locations](gamelift-regions.md#gamelift-regions-hosting-home "gamelift-regions.md#gamelift-regions-hosting-home") to identify home Regions that
-support single and multi-location fleets.
+Consult the table of supported locations in [Supported AWS locations](gamelift-regions.md#gamelift-regions-hosting-home) to identify home Regions that support single and multi-location fleets.
 
 **Example**
 
@@ -76,8 +48,7 @@ support single and multi-location fleets.
 aws gamelift list-locations --region ap-northeast-2
 ```
 
-This AWS Region supports multi-location fleets, therefore multiple locations will be
-returned. Here is an example of one of the return values:
+This AWS Region supports multi-location fleets, therefore multiple locations will be returned. Here is an example of one of the return values:
 
 ```
 [...]
@@ -92,62 +63,42 @@ returned. Here is an example of one of the return values:
 }
 ```
 
-###### Important
-
-Cache the ping beacon information rather than calling `ListLocations`
-before each latency measurement. The domain and port information are static and
-the API isn't designed for high-volume requests.
+**Important**  
+Cache the ping beacon information rather than calling `ListLocations` before each latency measurement. The domain and port information are static and the API isn't designed for high-volume requests.
 
 ## Implementing latency measurements
+<a name="reference-beacons-measuring-latency"></a>
 
-Follow these best practices when implementing latency measurements using
-UDP ping beacons:
+Follow these best practices when implementing latency measurements using UDP ping beacons:
 
 1. Store ping beacon information using one of these approaches:
+   + Hardcode the endpoints in your game client.
+   + Cache the information in your game backend.
+   + Implement a periodic update mechanism (daily/weekly) to refresh the information.
 
-   - Hardcode the endpoints in your game client.
-   - Cache the information in your game backend.
-   - Implement a periodic update mechanism (daily/weekly) to refresh the
-     information.
+1. Send UDP ping messages:
+   + Put whatever you want in the message body, as long as it is not empty, and you keep messages under the maximum size of 300 bytes.
+   + Observe the following rate limits for each location:
+     + 3 transactions per second (TPS) per unique sender IP address and port combination
+     + 1000 TPS per unique sender IP address
 
-2. Send UDP ping messages:
+1. Calculate latency:
+   + Send multiple pings to each location to calculate an average latency.
+   + Consider sending concurrent pings to multiple locations for faster results.
+   + Use retry logic as needed to send new packets for any packet that wasn’t returned within a short time (typically 1 - 3 seconds), since UDP does not have 100% guaranteed delivery.
+   + Calculate the time difference between sending a message and receiving the response.
+   + If a large portion of UDP pings to a location consistently do not get a response back, calculate latency using ICMP pings to our standard [Amazon GameLift Servers service endpoints](https://docs.aws.amazon.com/general/latest/gr/gamelift.html#gamelift_region) as a fallback.
 
-   - Put whatever you want in the message body, as long as it is not empty,
-     and you keep messages under the maximum size of 300 bytes.
-   - Observe the following rate limits for each location:
-
-     - 3 transactions per second (TPS) per unique sender IP address
-       and port combination
-     - 1000 TPS per unique sender IP address
-
-3. Calculate latency:
-
-   - Send multiple pings to each location to calculate an average
-     latency.
-   - Consider sending concurrent pings to multiple locations for faster
-     results.
-   - Use retry logic as needed to send new packets for any packet that
-     wasn’t returned within a short time (typically 1 - 3 seconds), since UDP
-     does not have 100% guaranteed delivery.
-   - Calculate the time difference between sending a message and receiving
-     the response.
-   - If a large portion of UDP pings to a location consistently do not get
-     a response back, calculate latency using ICMP pings to our standard
-     [Amazon GameLift Servers service
-     endpoints](../../../general/latest/gr/gamelift.md#gamelift_region "../../../general/latest/gr/gamelift.md#gamelift_region") as a fallback.
-
-###### Tip
-
-We recommend that you include port 7770 wherever you document the list of ports
-that your players must have open on their local network. This is another reason why
-you should have a fallback for measuring latency (using ICMP, for example) in case
-this port is blocked.
+**Tip**  
+We recommend that you include port 7770 wherever you document the list of ports that your players must have open on their local network. This is another reason why you should have a fallback for measuring latency (using ICMP, for example) in case this port is blocked.
 
 ## Code examples
+<a name="reference-beacons-code-examples"></a>
 
 Here are some simple examples showing how to send UDP pings and calculate latency.
 
-C++
+------
+#### [ C\+\+ ]
 
 ```
 #include <iostream>
@@ -161,8 +112,8 @@ C++
 
 int main() {
     // Replace with Amazon GameLift Servers UDP ping beacon domain for your desired location
-    const char* domain = "gamelift-ping.ap-south-1.api.aws";
-    const int port = 7770;
+    const char* domain = "gamelift-ping.ap-south-1.api.aws";  
+    const int port = 7770;              
     const char* message = "Ping";        // Your message
     const int num_pings = 3;             // Number of pings to send
 
@@ -249,7 +200,8 @@ int main() {
 }
 ```
 
-C#
+------
+#### [ C\# ]
 
 ```
 using System;
@@ -264,8 +216,8 @@ class UdpLatencyTest
     static async Task Main()
     {
         // Replace with Amazon GameLift Servers UDP ping beacon domain for your desired location
-        string domain = "gamelift-ping.ap-south-1.api.aws";
-        int port = 7770;
+        string domain = "gamelift-ping.ap-south-1.api.aws";  
+        int port = 7770;                
         string message = "Ping";         // Your message
         int numPings = 3;                // Number of pings to send
         int timeoutMs = 1000;            // Timeout in milliseconds
@@ -308,10 +260,10 @@ class UdpLatencyTest
 
                         // Wait for response
                         UdpReceiveResult result = await ReceiveWithTimeoutAsync(udpClient, timeoutMs);
-
+                        
                         stopwatch.Stop();
                         double latency = stopwatch.Elapsed.TotalMilliseconds;
-
+                        
                         totalLatency += latency;
                         successfulPings++;
 
@@ -365,7 +317,8 @@ class UdpLatencyTest
 }
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import socket
@@ -451,3 +404,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

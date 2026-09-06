@@ -1,21 +1,18 @@
+
+
 # Let your game server access Amazon GameLift Servers fleet data
+<a name="gamelift-sdk-server-fleetinfo"></a>
 
-There are some situations where your custom game build or Amazon GameLift Servers Realtime script may require
-information about the Amazon GameLift Servers fleet. For example, your game build or script might include code
-to:
+There are some situations where your custom game build or Amazon GameLift Servers Realtime script may require information about the Amazon GameLift Servers fleet. For example, your game build or script might include code to:
++ Monitor activity based on fleet data.
++ Roll up metrics to track activity by fleet data. (Many games use this data for LiveOps activities.)
++ Provide relevant data to custom game services, such as for matchmaking, additional capacity scaling, or testing.
 
-- Monitor activity based on fleet data.
-- Roll up metrics to track activity by fleet data. (Many games use this data for
-  LiveOps activities.)
-- Provide relevant data to custom game services, such as for matchmaking, additional
-  capacity scaling, or testing.
-  Fleet information is available as a JSON file on each instance in the following
-  locations:
+Fleet information is available as a JSON file on each instance in the following locations:
++ Windows: `C:\GameMetadata\gamelift-metadata.json`
++ Linux: `/local/gamemetadata/gamelift-metadata.json`
 
-- Windows: `C:\GameMetadata\gamelift-metadata.json`
-- Linux: `/local/gamemetadata/gamelift-metadata.json`
-  The `gamelift-metadata.json` file includes the [attributes of an Amazon GameLift Servers fleet
-  resource](../../../gamelift/latest/apireference/API_FleetAttributes.md "../../../gamelift/latest/apireference/API_FleetAttributes.md").
+The `gamelift-metadata.json` file includes the [attributes of an Amazon GameLift Servers fleet resource](https://docs.aws.amazon.com/gamelift/latest/apireference/API_FleetAttributes.html).
 
 Example JSON file:
 

@@ -1,79 +1,79 @@
-# C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions
 
-Use the Amazon GameLift Servers Unreal server SDK 5.x reference to help you prepare your multiplayer
-game for use with Amazon GameLift Servers. For details about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md"). If you're
-using the Amazon GameLift Servers plugin for Unreal, see also [Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md "unreal-plugin.md").
 
-###### Note
+# C\+\+ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions
+<a name="integration-server-sdk5-unreal-actions"></a>
 
-This topic describes the Amazon GameLift Servers C++ API that you can use when you build for the Unreal Engine.
-Specifically, this documentation applies to code that you compile with the `-DBUILD_FOR_UNREAL=1` option.
+Use the Amazon GameLift Servers Unreal server SDK 5.x reference to help you prepare your multiplayer game for use with Amazon GameLift Servers. For details about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md). If you're using the Amazon GameLift Servers plugin for Unreal, see also [Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md).
 
-[C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Data types](integration-server-sdk5-unreal-datatypes.md "integration-server-sdk5-unreal-datatypes.md")
+**Note**  
+This topic describes the Amazon GameLift Servers C\+\+ API that you can use when you build for the Unreal Engine. Specifically, this documentation applies to code that you compile with the `-DBUILD_FOR_UNREAL=1` option. 
 
-###### Topics
+[C\+\+ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Data types](integration-server-sdk5-unreal-datatypes.md)
 
-- [GetSdkVersion()](#integration-server-sdk5-unreal-getsdkversion "#integration-server-sdk5-unreal-getsdkversion")
-- [InitSDK()](#integration-server-sdk5-unreal-initsdk "#integration-server-sdk5-unreal-initsdk")
-- [InitSDK()](#integration-server-sdk5-unreal-initsdk-anywhere "#integration-server-sdk5-unreal-initsdk-anywhere")
-- [ProcessReady()](#integration-server-sdk5-unreal-processready "#integration-server-sdk5-unreal-processready")
-- [ProcessEnding()](#integration-server-sdk5-unreal-processending "#integration-server-sdk5-unreal-processending")
-- [ActivateGameSession()](#integration-server-sdk5-unreal-activategamesession "#integration-server-sdk5-unreal-activategamesession")
-- [UpdatePlayerSessionCreationPolicy()](#integration-server-sdk5-unreal-updateplayersessioncreationpolicy "#integration-server-sdk5-unreal-updateplayersessioncreationpolicy")
-- [GetGameSessionId()](#integration-server-sdk5-unreal-getgamesessionid "#integration-server-sdk5-unreal-getgamesessionid")
-- [GetTerminationTime()](#integration-server-sdk5-unreal-getterm "#integration-server-sdk5-unreal-getterm")
-- [AcceptPlayerSession()](#integration-server-sdk5-unreal-acceptplayersession "#integration-server-sdk5-unreal-acceptplayersession")
-- [RemovePlayerSession()](#integration-server-sdk5-unreal-removeplayersession "#integration-server-sdk5-unreal-removeplayersession")
-- [DescribePlayerSessions()](#integration-server-sdk5-unreal-describeplayersessions "#integration-server-sdk5-unreal-describeplayersessions")
-- [StartMatchBackfill()](#integration-server-sdk5-unreal-startmatchbackfill "#integration-server-sdk5-unreal-startmatchbackfill")
-- [StopMatchBackfill()](#integration-server-sdk5-unreal-stopmatchbackfill "#integration-server-sdk5-unreal-stopmatchbackfill")
-- [GetComputeCertificate()](#integration-server-sdk5-unreal-getcomputecertificate "#integration-server-sdk5-unreal-getcomputecertificate")
-- [GetFleetRoleCredentials()](#integration-server-sdk5-unreal-getfleetrolecredentials "#integration-server-sdk5-unreal-getfleetrolecredentials")
-- [ListContainersNetworkInfo()](#integration-server-sdk5-unreal-listcontainersnetworkinfo "#integration-server-sdk5-unreal-listcontainersnetworkinfo")
-- [Destroy()](#integration-server-sdk5-unreal-ref-destroy "#integration-server-sdk5-unreal-ref-destroy")
+**Topics**
++ [C\+\+ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Data types](integration-server-sdk5-unreal-datatypes.md)
++ [GetSdkVersion()](#integration-server-sdk5-unreal-getsdkversion)
++ [InitSDK()](#integration-server-sdk5-unreal-initsdk)
++ [InitSDK()](#integration-server-sdk5-unreal-initsdk-anywhere)
++ [ProcessReady()](#integration-server-sdk5-unreal-processready)
++ [ProcessEnding()](#integration-server-sdk5-unreal-processending)
++ [ActivateGameSession()](#integration-server-sdk5-unreal-activategamesession)
++ [UpdatePlayerSessionCreationPolicy()](#integration-server-sdk5-unreal-updateplayersessioncreationpolicy)
++ [GetGameSessionId()](#integration-server-sdk5-unreal-getgamesessionid)
++ [GetTerminationTime()](#integration-server-sdk5-unreal-getterm)
++ [AcceptPlayerSession()](#integration-server-sdk5-unreal-acceptplayersession)
++ [RemovePlayerSession()](#integration-server-sdk5-unreal-removeplayersession)
++ [DescribePlayerSessions()](#integration-server-sdk5-unreal-describeplayersessions)
++ [StartMatchBackfill()](#integration-server-sdk5-unreal-startmatchbackfill)
++ [StopMatchBackfill()](#integration-server-sdk5-unreal-stopmatchbackfill)
++ [GetComputeCertificate()](#integration-server-sdk5-unreal-getcomputecertificate)
++ [GetFleetRoleCredentials()](#integration-server-sdk5-unreal-getfleetrolecredentials)
++ [ListContainersNetworkInfo()](#integration-server-sdk5-unreal-listcontainersnetworkinfo)
++ [Destroy()](#integration-server-sdk5-unreal-ref-destroy)
 
 ## GetSdkVersion()
+<a name="integration-server-sdk5-unreal-getsdkversion"></a>
 
 Returns the current version number of the SDK built into the server process.
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-getsdkversion-syntax"></a>
 
 ```
 FGameLiftStringOutcome GetSdkVersion();
 ```
 
 ### Return value
+<a name="integration-server-sdk5-unreal-getsdkversion-return"></a>
 
-If successful, returns the current SDK version as an [FGameLiftStringOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-awsstringoutcome "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-awsstringoutcome")
-object. The returned object includes the version number (example
-`5.0.0`). If not successful, returns an error message.
+If successful, returns the current SDK version as an [FGameLiftStringOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-awsstringoutcome) object. The returned object includes the version number (example `5.0.0`). If not successful, returns an error message.
 
 ### Example
+<a name="integration-server-sdk5-unreal-getsdkversion-example"></a>
 
 ```
-Aws::GameLift::AwsStringOutcome SdkVersionOutcome = Aws::GameLift::Server::GetSdkVersion();
+Aws::GameLift::AwsStringOutcome SdkVersionOutcome = Aws::GameLift::Server::GetSdkVersion();  
 ```
 
 ## InitSDK()
+<a name="integration-server-sdk5-unreal-initsdk"></a>
 
-Initializes the Amazon GameLift Servers SDK for a managed EC2 fleet. Call this method on launch, before
-any other initialization related to Amazon GameLift Servers occurs. This method reads server parameters
-from the host environment to set up communication between the server and the Amazon GameLift Servers
-service. It uses an idempotency token, so you safely retry this call when it
-fails.
+Initializes the Amazon GameLift Servers SDK for a managed EC2 fleet. Call this method on launch, before any other initialization related to Amazon GameLift Servers occurs. This method reads server parameters from the host environment to set up communication between the server and the Amazon GameLift Servers service. It uses an idempotency token, so you safely retry this call when it fails.
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-initsdk-syntax"></a>
 
 ```
 FGameLiftGenericOutcome InitSDK()
 ```
 
 ### Return value
+<a name="integration-server-sdk5-unreal-initsdk-return"></a>
 
-If successful, returns an `InitSdkOutcome` object indicating that the
-server process is ready to call [ProcessReady()](#integration-server-sdk5-unreal-processready "#integration-server-sdk5-unreal-processready").
+If successful, returns an `InitSdkOutcome` object indicating that the server process is ready to call [ProcessReady()](#integration-server-sdk5-unreal-processready). 
 
 ### Example
+<a name="integration-server-sdk5-unreal-initsdk-example"></a>
 
 ```
 //Call InitSDK to establish a local connection with the Amazon GameLift Servers Agent to enable further communication.
@@ -81,96 +81,80 @@ FGameLiftGenericOutcome initSdkOutcome = GameLiftSdkModule->InitSDK();
 ```
 
 ## InitSDK()
+<a name="integration-server-sdk5-unreal-initsdk-anywhere"></a>
 
-Initializes the Amazon GameLift Servers SDK for an Anywhere fleet or managed container fleet. Call
-this method on launch, before any other initialization related to Amazon GameLift Servers occurs. This
-method requires explicit server parameters to set up communication between the server
-and the Amazon GameLift Servers service. It uses an idempotency token, so you safely retry this call when it
-fails.
+Initializes the Amazon GameLift Servers SDK for an Anywhere fleet or managed container fleet. Call this method on launch, before any other initialization related to Amazon GameLift Servers occurs. This method requires explicit server parameters to set up communication between the server and the Amazon GameLift Servers service. It uses an idempotency token, so you safely retry this call when it fails.
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-initsdk-anywhere-syntax"></a>
 
 ```
 FGameLiftGenericOutcome InitSDK(serverParameters)
 ```
 
 ### Parameters
+<a name="integration-server-sdk5-unreal-initsdk-anywhere-parameter"></a>
 
-[FServerParameters](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-serverparameters "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-serverparameters")
-
-To initialize a game server on an Amazon GameLift Servers Anywhere fleet, construct a
-`ServerParameters` object with the following
-information:
-
-- The URL of the WebSocket used to connect to your game server.
-- The ID of the process used to host your game server.
-- The ID of the compute hosting your game server processes.
-- The ID of the Amazon GameLift Servers fleet containing your Amazon GameLift Servers Anywhere
-  compute.
-- The authorization token generated by the Amazon GameLift Servers operation.
+[FServerParameters](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-serverparameters)  
+To initialize a game server on an Amazon GameLift Servers Anywhere fleet, construct a `ServerParameters` object with the following information:  
++ The URL of the WebSocket used to connect to your game server. 
++ The ID of the process used to host your game server. 
++ The ID of the compute hosting your game server processes. 
++ The ID of the Amazon GameLift Servers fleet containing your Amazon GameLift Servers Anywhere compute.
++ The authorization token generated by the Amazon GameLift Servers operation. 
 
 ### Return value
+<a name="integration-server-sdk5-unreal-initsdk-anywhere-return"></a>
 
-If successful, returns an `InitSdkOutcome` object indicating that the
-server process is ready to call [ProcessReady()](#integration-server-sdk5-unreal-processready "#integration-server-sdk5-unreal-processready").
+If successful, returns an `InitSdkOutcome` object indicating that the server process is ready to call [ProcessReady()](#integration-server-sdk5-unreal-processready). 
 
-###### Note
-
-If calls to `InitSDK()` are failing for game builds deployed to
-Anywhere fleets, check the `ServerSdkVersion` parameter used
-when creating the build resource.
-You must explicitly set this value to the server SDK version in use. The default value for this
-parameter is 4.x, which is not compatible. To resolve this issue, create a new build and deploy it to a new fleet.
+**Note**  
+If calls to `InitSDK()` are failing for game builds deployed to Anywhere fleets, check the `ServerSdkVersion` parameter used when creating the build resource. You must explicitly set this value to the server SDK version in use. The default value for this parameter is 4.x, which is not compatible. To resolve this issue, create a new build and deploy it to a new fleet.
 
 ### Example
+<a name="integration-server-sdk5-unreal-initsdk-anywhere-example"></a>
 
 ```
 //Define the server parameters
 FServerParameters serverParameters;
-serverParameters.m_authToken = "`1111aaaa-22bb-33cc-44dd-5555eeee66ff`";
-serverParameters.m_fleetId = "`arn:aws:gamelift:us-west-1:111122223333:fleet/fleet-9999ffff-88ee-77dd-66cc-5555bbbb44aa`";
-serverParameters.m_hostId = "`HardwareAnywhere`";
-serverParameters.m_processId = "`PID1234`";
-serverParameters.m_webSocketUrl = "`wss://us-west-1.api.amazongamelift.com`";
+serverParameters.m_authToken = "1111aaaa-22bb-33cc-44dd-5555eeee66ff";
+serverParameters.m_fleetId = "arn:aws:gamelift:us-west-1:111122223333:fleet/fleet-9999ffff-88ee-77dd-66cc-5555bbbb44aa";
+serverParameters.m_hostId = "HardwareAnywhere";
+serverParameters.m_processId = "PID1234";
+serverParameters.m_webSocketUrl = "wss://us-west-1.api.amazongamelift.com";
 
 //Call InitSDK to establish a local connection with the Amazon GameLift Servers Agent to enable further communication.
 FGameLiftGenericOutcome initSdkOutcome = GameLiftSdkModule->InitSDK(serverParameters);
 ```
 
 ## ProcessReady()
+<a name="integration-server-sdk5-unreal-processready"></a>
 
-Notifies Amazon GameLift Servers that the server process is ready to host game sessions. Call this
-method after invoking [InitSDK()](#integration-server-sdk5-unreal-initsdk "#integration-server-sdk5-unreal-initsdk"). This method should be called
-only once per process.
+Notifies Amazon GameLift Servers that the server process is ready to host game sessions. Call this method after invoking [InitSDK()](#integration-server-sdk5-unreal-initsdk). This method should be called only once per process.
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-processready-syntax"></a>
 
-`GenericOutcome ProcessReady(const Aws::GameLift::Server::ProcessParameters
- &processParameters);`
+`GenericOutcome ProcessReady(const Aws::GameLift::Server::ProcessParameters &processParameters);`
 
 ### Parameters
+<a name="integration-server-sdk5-unreal-processready-parameter"></a>
 
-**processParameters**
-
-An [FProcessParameters](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-process "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-process")
-object communicating the following information about the server
-process:
-
-- Names of callback methods implemented in the game server code
-  that the Amazon GameLift Servers service invokes to communicate with the server
-  process.
-- Port number that the server process is listening on.
-- Path to any game session-specific files that you want Amazon GameLift Servers to
-  capture and store.
+**processParameters**  
+An [FProcessParameters](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-process) object communicating the following information about the server process:  
++ Names of callback methods implemented in the game server code that the Amazon GameLift Servers service invokes to communicate with the server process.
++ Port number that the server process is listening on.
++ Path to any game session-specific files that you want Amazon GameLift Servers to capture and store.
 
 ### Return value
+<a name="integration-server-sdk5-unreal-processready-return"></a>
 
 Returns a generic outcome consisting of success or failure with an error message.
 
 ### Example
+<a name="integration-server-sdk5-unreal-processready-example"></a>
 
-This example illustrates both the [ProcessReady()](#integration-server-sdk5-unreal-processready "#integration-server-sdk5-unreal-processready") call and delegate
-function implementations.
+This example illustrates both the [ProcessReady()](#integration-server-sdk5-unreal-processready) call and delegate function implementations.
 
 ```
 //Calling ProcessReady tells Amazon GameLift Servers this game server is ready to receive incoming game sessions!
@@ -179,25 +163,24 @@ FGameLiftGenericOutcome processReadyOutcome = GameLiftSdkModule->ProcessReady(*p
 ```
 
 ## ProcessEnding()
+<a name="integration-server-sdk5-unreal-processending"></a>
 
-Notifies Amazon GameLift Servers that the server process is terminating. Call this method after all
-other cleanup tasks (including shutting down the active game session) and before
-terminating the process. Depending on the result of `ProcessEnding()`, the
-process exits with success (0) or error (-1) and generates a fleet event. If the process
-terminates with an error, the fleet event generated is
-`SERVER_PROCESS_TERMINATED_UNHEALTHY`.
+Notifies Amazon GameLift Servers that the server process is terminating. Call this method after all other cleanup tasks (including shutting down the active game session) and before terminating the process. Depending on the result of `ProcessEnding()`, the process exits with success (0) or error (-1) and generates a fleet event. If the process terminates with an error, the fleet event generated is `SERVER_PROCESS_TERMINATED_UNHEALTHY`.
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-processending-syntax"></a>
 
 ```
 FGameLiftGenericOutcome ProcessEnding()
 ```
 
 ### Return value
+<a name="integration-server-sdk5-unreal-processending-return"></a>
 
 Returns a generic outcome consisting of success or failure with an error message.
 
 ### Example
+<a name="integration-server-sdk5-unreal-processending-example"></a>
 
 ```
 //OnProcessTerminate callback. Amazon GameLift Servers will invoke this callback before shutting down an instance hosting this game server.
@@ -210,26 +193,26 @@ params->OnTerminate.BindLambda([=]() {
 ```
 
 ## ActivateGameSession()
+<a name="integration-server-sdk5-unreal-activategamesession"></a>
 
-Notifies Amazon GameLift Servers that the server process has activated a game session and is now ready
-to receive player connections. This action should be called as part of the
-`onStartGameSession()` callback function, after all game session
-initialization.
+Notifies Amazon GameLift Servers that the server process has activated a game session and is now ready to receive player connections. This action should be called as part of the `onStartGameSession()` callback function, after all game session initialization.
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-activategamesession-syntax"></a>
 
 ```
 FGameLiftGenericOutcome ActivateGameSession()
 ```
 
 ### Return value
+<a name="integration-server-sdk5-unreal-activategamesession-return"></a>
 
 Returns a generic outcome consisting of success or failure with an error message.
 
 ### Example
+<a name="integration-server-sdk5-unreal-activategamesession-example"></a>
 
-This example shows `ActivateGameSession()` called as part of the
-`onStartGameSession()` delegate function.
+This example shows `ActivateGameSession()` called as part of the `onStartGameSession()` delegate function. 
 
 ```
 //When a game session is created, Amazon GameLift Servers sends an activation request to the game server and passes along the game session object containing game properties and other settings.
@@ -244,69 +227,68 @@ auto onGameSession = [=](Aws::GameLift::Server::Model::GameSession gameSession)
 ```
 
 ## UpdatePlayerSessionCreationPolicy()
+<a name="integration-server-sdk5-unreal-updateplayersessioncreationpolicy"></a>
 
-Updates the current game session's ability to accept new player sessions. A game
-session can be set to either accept or deny all new player sessions.
+Updates the current game session's ability to accept new player sessions. A game session can be set to either accept or deny all new player sessions.
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-updateplayersessioncreationpolicy-syntax"></a>
 
 ```
 FGameLiftGenericOutcome UpdatePlayerSessionCreationPolicy(EPlayerSessionCreationPolicy policy)
 ```
 
 ### Parameters
+<a name="integration-server-sdk5-unreal-updateplayersessioncreationpolicy-parameter"></a>
 
-**playerCreationSessionPolicy**
-
-String value indicating whether the game session accepts new players.
-
-Valid values include:
-
-- **ACCEPT\_ALL** – Accept all
-  new player sessions.
-- **DENY\_ALL** – Deny all new
-  player sessions.
+**playerCreationSessionPolicy**  
+String value indicating whether the game session accepts new players.   
+Valid values include:  
++ **ACCEPT\_ALL** – Accept all new player sessions.
++ **DENY\_ALL** – Deny all new player sessions.
 
 ### Return value
+<a name="integration-server-sdk5-unreal-updateplayersessioncreationpolicy-return"></a>
 
 Returns a generic outcome consisting of success or failure with an error message.
 
 ### Example
+<a name="integration-server-sdk5-unreal-updateplayersessioncreationpolicy-example"></a>
 
-This example sets the current game session's join policy to accept all
-players.
+This example sets the current game session's join policy to accept all players.
 
 ```
-FGameLiftGenericOutcome outcome = GameLiftSdkModule->UpdatePlayerSessionCreationPolicy(Aws::GameLift::Model::EPlayerSessionCreationPolicy::`ACCEPT_ALL`);
+FGameLiftGenericOutcome outcome = GameLiftSdkModule->UpdatePlayerSessionCreationPolicy(Aws::GameLift::Model::EPlayerSessionCreationPolicy::ACCEPT_ALL);
 ```
 
 ## GetGameSessionId()
+<a name="integration-server-sdk5-unreal-getgamesessionid"></a>
 
-Retrieves the ID of the game session hosted by the active server process.
+Retrieves the ID of the game session hosted by the active server process. 
 
-For idle processes that aren't activated with a game session, the call returns a
-[FGameLiftError](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-gamelifterror "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-gamelifterror").
+For idle processes that aren't activated with a game session, the call returns a [FGameLiftError](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-gamelifterror).
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-getgamesessionid-syntax"></a>
 
 ```
 FGameLiftStringOutcome GetGameSessionId()
 ```
 
 ### Parameters
+<a name="integration-server-sdk5-unreal-getgamesessionid-parameter"></a>
 
 This action has no parameters.
 
 ### Return value
+<a name="integration-server-sdk5-unreal-getgamesessionid-return"></a>
 
-If successful, returns the game session ID as an [FGameLiftStringOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-awsstringoutcome "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-awsstringoutcome") object.
-If not successful, returns an error message.
+If successful, returns the game session ID as an [FGameLiftStringOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-awsstringoutcome) object. If not successful, returns an error message.
 
-For idle processes that aren't activated with a game session, the call returns
-`Success`=`True` and
-`GameSessionId`=`""`.
+For idle processes that aren't activated with a game session, the call returns `Success`=`True` and `GameSessionId`=`""`.
 
 ### Example
+<a name="integration-server-sdk5-unreal-getgamesessionid-example"></a>
 
 ```
 //When a game session is created, Amazon GameLift Servers sends an activation request to the game server and passes along the game session object containing game properties and other settings.
@@ -321,67 +303,61 @@ auto onGameSession = [=](Aws::GameLift::Server::Model::GameSession gameSession)
 ```
 
 ## GetTerminationTime()
+<a name="integration-server-sdk5-unreal-getterm"></a>
 
-Returns the time that a server process is scheduled to be shut down, if a termination
-time is available. A server process takes action after receiving an
-`onProcessTerminate()` callback from Amazon GameLift Servers. Amazon GameLift Servers calls
-`onProcessTerminate()` for the following reasons:
-
-- When the server process has reported poor health or has not responded to
-  Amazon GameLift Servers.
-- When terminating the instance during a scale-down event.
-- When an instance is terminated due to a [spot-instance interruption](spot-tasks.md "spot-tasks.md").
+Returns the time that a server process is scheduled to be shut down, if a termination time is available. A server process takes action after receiving an `onProcessTerminate()` callback from Amazon GameLift Servers. Amazon GameLift Servers calls `onProcessTerminate()` for the following reasons: 
++ When the server process has reported poor health or has not responded to Amazon GameLift Servers.
++ When terminating the instance during a scale-down event.
++ When an instance is terminated due to a [spot-instance interruption](spot-tasks.md).
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-getterm-syntax"></a>
 
 ```
 AwsDateTimeOutcome GetTerminationTime()
 ```
 
 ### Return value
+<a name="integration-server-sdk5-unreal-getterm-return"></a>
 
-If successful, returns the termination time as an `AwsDateTimeOutcome`
-object. The value is the termination time, expressed in elapsed ticks since
-`0001 00:00:00`. For example, the date time value `2020-09-13
- 12:26:40 -000Z` is equal to `637355968000000000` ticks. If no
-termination time is available, returns an error message.
+If successful, returns the termination time as an `AwsDateTimeOutcome` object. The value is the termination time, expressed in elapsed ticks since `0001 00:00:00`. For example, the date time value `2020-09-13 12:26:40 -000Z` is equal to `637355968000000000` ticks. If no termination time is available, returns an error message.
 
-If the process hasn't received a`ProcessParameters.OnProcessTerminate()` callback, an error message is
-returned. For more information about shutting down a server process, see [Respond to a server process shutdown notification](gamelift-sdk-server-api.md#gamelift-sdk-server-terminate "gamelift-sdk-server-api.md#gamelift-sdk-server-terminate").
+If the process hasn't received a` ProcessParameters.OnProcessTerminate()` callback, an error message is returned. For more information about shutting down a server process, see [Respond to a server process shutdown notification](gamelift-sdk-server-api.md#gamelift-sdk-server-terminate).
 
 ### Example
+<a name="integration-server-sdk5-unreal-getterm-example"></a>
 
 ```
 AwsDateTimeOutcome TermTimeOutcome = GameLiftSdkModule->GetTerminationTime();
 ```
 
 ## AcceptPlayerSession()
+<a name="integration-server-sdk5-unreal-acceptplayersession"></a>
 
-Notifies Amazon GameLift Servers that a player with the specified player session ID has connected to the
-server process and needs validation. Amazon GameLift Servers verifies that the player session ID is valid.
-After the player session is validated, Amazon GameLift Servers changes the status of the player slot from
-RESERVED to ACTIVE.
+Notifies Amazon GameLift Servers that a player with the specified player session ID has connected to the server process and needs validation. Amazon GameLift Servers verifies that the player session ID is valid. After the player session is validated, Amazon GameLift Servers changes the status of the player slot from RESERVED to ACTIVE. 
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-acceptplayersession-syntax"></a>
 
 ```
 FGameLiftGenericOutcome AcceptPlayerSession(const FString& playerSessionId)
 ```
 
 ### Parameters
+<a name="integration-server-sdk5-unreal-acceptplayersession-parameter"></a>
 
-playerSessionId
-
+playerSessionId  
 Unique ID issued by Amazon GameLift Servers when a new player session is created.
 
 ### Return value
+<a name="integration-server-sdk5-unreal-acceptplayersession-return"></a>
 
-Returns a generic outcome consisting of success or failure with an error message.
+Returns a generic outcome consisting of success or failure with an error message. 
 
 ### Example
+<a name="integration-server-sdk5-unreal-acceptplayersession-example"></a>
 
-This example handles a connection request that includes validating and rejecting
-non-valid player session IDs.
+This example handles a connection request that includes validating and rejecting non-valid player session IDs.
 
 ```
 bool GameLiftManager::AcceptPlayerSession(const FString& playerSessionId, const FString& playerId)
@@ -393,7 +369,7 @@ bool GameLiftManager::AcceptPlayerSession(const FString& playerSessionId, const 
     UE_LOG(GameServerLog, Log, TEXT("No GameLift GameSessionId. Returning early!"));
     return false;
   }
-
+  
   if (!GameLiftSdkModule->AcceptPlayerSession(playerSessionId).IsSuccess()) {
     UE_LOG(GameServerLog, Log, TEXT("PlayerSession not Accepted."));
     return false;
@@ -410,27 +386,30 @@ bool GameLiftManager::AcceptPlayerSession(const FString& playerSessionId, const 
 ```
 
 ## RemovePlayerSession()
+<a name="integration-server-sdk5-unreal-removeplayersession"></a>
 
-Notifies Amazon GameLift Servers that a player has disconnected from the server process. In response,
-Amazon GameLift Servers changes the player slot to available.
+Notifies Amazon GameLift Servers that a player has disconnected from the server process. In response, Amazon GameLift Servers changes the player slot to available. 
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-removeplayersession-syntax"></a>
 
 ```
 FGameLiftGenericOutcome RemovePlayerSession(const FString& playerSessionId)
 ```
 
 ### Parameters
+<a name="integration-server-sdk5-unreal-removeplayersession-parameter"></a>
 
-**`playerSessionId`**
-
+**`playerSessionId`**  
 Unique ID issued by Amazon GameLift Servers when a new player session is created.
 
 ### Return value
+<a name="integration-server-sdk5-unreal-removeplayersession-return"></a>
 
 Returns a generic outcome consisting of success or failure with an error message.
 
 ### Example
+<a name="integration-server-sdk5-unreal-removeplayersession-example"></a>
 
 ```
 bool GameLiftManager::RemovePlayerSession(const FString& playerSessionId)
@@ -460,38 +439,35 @@ bool GameLiftManager::RemovePlayerSession(const FString& playerSessionId)
 ```
 
 ## DescribePlayerSessions()
+<a name="integration-server-sdk5-unreal-describeplayersessions"></a>
 
-Retrieves player session data which includes settings, session metadata, and player
-data. Use this method to get information about the following:
-
-- A single player session
-- All player sessions in a game session
-- All player sessions associated with a single player ID
+Retrieves player session data which includes settings, session metadata, and player data. Use this method to get information about the following:
++ A single player session
++ All player sessions in a game session
++ All player sessions associated with a single player ID
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-describeplayersessions-syntax"></a>
 
 ```
 FGameLiftDescribePlayerSessionsOutcome DescribePlayerSessions(const FGameLiftDescribePlayerSessionsRequest &describePlayerSessionsRequest)
 ```
 
 ### Parameters
+<a name="integration-server-sdk5-unreal-describeplayersessions-parameter"></a>
 
-**[FGameLiftDescribePlayerSessionsRequest](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-playersessions "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-playersessions")**
-
-A [FGameLiftDescribePlayerSessionsRequest](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-playersessions "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-playersessions") object that describes which player
-sessions to retrieve.
+**[FGameLiftDescribePlayerSessionsRequest](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-playersessions)**  
+A [FGameLiftDescribePlayerSessionsRequest](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-playersessions) object that describes which player sessions to retrieve.
 
 ### Return value
+<a name="integration-server-sdk5-unreal-describeplayersessions-return"></a>
 
-If successful, returns a [FGameLiftDescribePlayerSessionsOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-describeplayersessionsoutcome "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-describeplayersessionsoutcome") object
-containing a set of player session objects that fit the request parameters.
+If successful, returns a [FGameLiftDescribePlayerSessionsOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-describeplayersessionsoutcome) object containing a set of player session objects that fit the request parameters.
 
 ### Example
+<a name="integration-server-sdk5-unreal-describeplayersessions-example"></a>
 
-This example requests all player sessions actively connected to a specified game
-session. By omitting _NextToken_ and setting the
-_Limit_ value to 10, Amazon GameLift Servers returns the first 10
-player session records matching the request.
+This example requests all player sessions actively connected to a specified game session. By omitting *NextToken* and setting the *Limit* value to 10, Amazon GameLift Servers returns the first 10 player session records matching the request.
 
 ```
 void GameLiftManager::DescribePlayerSessions()
@@ -516,50 +492,41 @@ void GameLiftManager::DescribePlayerSessions()
 ```
 
 ## StartMatchBackfill()
+<a name="integration-server-sdk5-unreal-startmatchbackfill"></a>
 
-Sends a request to find new players for open slots in a game session created with
-FlexMatch. For more information, see [FlexMatch backfill
-feature](../flexmatchguide/match-backfill.md "../flexmatchguide/match-backfill.md").
+Sends a request to find new players for open slots in a game session created with FlexMatch. For more information, see [FlexMatch backfill feature](https://docs.aws.amazon.com/gameliftservers/latest/flexmatchguide/match-backfill.html).
 
-This action is asynchronous. If new players are matched, Amazon GameLift Servers delivers updated
-matchmaker data using the callback function `OnUpdateGameSession()`.
+This action is asynchronous. If new players are matched, Amazon GameLift Servers delivers updated matchmaker data using the callback function `OnUpdateGameSession()`.
 
-A server process can have only one active match backfill request at a time. To send a
-new request, first call [StopMatchBackfill()](#integration-server-sdk5-unreal-stopmatchbackfill "#integration-server-sdk5-unreal-stopmatchbackfill") to cancel the
-original request.
+A server process can have only one active match backfill request at a time. To send a new request, first call [StopMatchBackfill()](#integration-server-sdk5-unreal-stopmatchbackfill) to cancel the original request.
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-startmatchbackfill-syntax"></a>
 
 ```
 FGameLiftStringOutcome StartMatchBackfill (FStartMatchBackfillRequest &startBackfillRequest);
 ```
 
 ### Parameters
+<a name="integration-server-sdk5-unreal-startmatchbackfill-parameter"></a>
 
-**[FStartMatchBackfillRequest](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-startmatchbackfillrequest "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-startmatchbackfillrequest")**
-
-A StartMatchBackfillRequest object that communicates the following
-information:
-
-- A ticket ID to assign to the backfill request. This
-  information is optional; if no ID is provided, Amazon GameLift Servers will
-  generate one.
-- The matchmaker to send the request to. The full configuration
-  ARN is required. This value is in the game session's matchmaker
-  data.
-- The ID of the game session to backfill.
-- The available matchmaking data for the game session's current
-  players.
+**[FStartMatchBackfillRequest](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-startmatchbackfillrequest)**  
+A StartMatchBackfillRequest object that communicates the following information:  
++ A ticket ID to assign to the backfill request. This information is optional; if no ID is provided, Amazon GameLift Servers will generate one.
++ The matchmaker to send the request to. The full configuration ARN is required. This value is in the game session's matchmaker data.
++ The ID of the game session to backfill.
++ The available matchmaking data for the game session's current players.
 
 ### Return value
+<a name="integration-server-sdk5-unreal-startmatchbackfill-return"></a>
 
-Returns a `StartMatchBackfillOutcome` object with the match backfill
-ticket ID, or failure with an error message.
+Returns a `StartMatchBackfillOutcome` object with the match backfill ticket ID, or failure with an error message. 
 
 ### Example
+<a name="integration-server-sdk5-unreal-startmatchbackfill-example"></a>
 
 ```
-FGameLiftStringOutcome FGameLiftServerSDKModule::StartMatchBackfill(const FStartMatchBackfillRequest& request)
+FGameLiftStringOutcome FGameLiftServerSDKModule::StartMatchBackfill(const FStartMatchBackfillRequest& request) 
 {
   #if WITH_GAMELIFT
   Aws::GameLift::Server::Model::StartMatchBackfillRequest sdkRequest;
@@ -616,32 +583,33 @@ FGameLiftStringOutcome FGameLiftServerSDKModule::StartMatchBackfill(const FStart
 ```
 
 ## StopMatchBackfill()
+<a name="integration-server-sdk5-unreal-stopmatchbackfill"></a>
 
-Cancels an active match backfill request. For more information, see [FlexMatch
-backfill feature](../flexmatchguide/match-backfill.md "../flexmatchguide/match-backfill.md").
+Cancels an active match backfill request. For more information, see [FlexMatch backfill feature](https://docs.aws.amazon.com/gameliftservers/latest/flexmatchguide/match-backfill.html).
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-stopmatchbackfill-syntax"></a>
 
 ```
 FGameLiftGenericOutcome StopMatchBackfill (FStopMatchBackfillRequest &stopBackfillRequest);
 ```
 
 ### Parameters
+<a name="integration-server-sdk5-unreal-stopmatchbackfill-parameter"></a>
 
-**[FStopMatchBackfillRequest](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-stopmatchbackfillrequest "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-stopmatchbackfillrequest")**
-
-A StopMatchBackfillRequest object identifying the matchmaking ticket
-to cancel:
-
-- The ticket ID assigned to the backfill request.
-- The matchmaker the backfill request was sent to.
-- The game session associated with the backfill request.
+**[FStopMatchBackfillRequest](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-stopmatchbackfillrequest)**  
+A StopMatchBackfillRequest object identifying the matchmaking ticket to cancel:   
++ The ticket ID assigned to the backfill request.
++ The matchmaker the backfill request was sent to.
++ The game session associated with the backfill request.
 
 ### Return value
+<a name="integration-server-sdk5-unreal-stopmatchbackfill-return"></a>
 
 Returns a generic outcome consisting of success or failure with an error message.
 
 ### Example
+<a name="integration-server-sdk5-unreal-stopmatchbackfill-example"></a>
 
 ```
 FGameLiftGenericOutcome FGameLiftServerSDKModule::StopMatchBackfill(const FStopMatchBackfillRequest& request)
@@ -665,27 +633,26 @@ FGameLiftGenericOutcome FGameLiftServerSDKModule::StopMatchBackfill(const FStopM
 ```
 
 ## GetComputeCertificate()
+<a name="integration-server-sdk5-unreal-getcomputecertificate"></a>
 
-Retrieves the path to the TLS certificate used to encrypt the network connection
-between your Amazon GameLift Servers Anywhere compute resource and Amazon GameLift Servers. You can use the certificate path
-when you register your compute device to a Amazon GameLift Servers Anywhere fleet. For more information
-see, [RegisterCompute](../apireference/API_RegisterCompute.md "../apireference/API_RegisterCompute.md").
+Retrieves the path to the TLS certificate used to encrypt the network connection between your Amazon GameLift Servers Anywhere compute resource and Amazon GameLift Servers. You can use the certificate path when you register your compute device to a Amazon GameLift Servers Anywhere fleet. For more information see, [RegisterCompute](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_RegisterCompute.html).
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-getcomputecertificate-syntax"></a>
 
 ```
 FGameLiftGetComputeCertificateOutcome FGameLiftServerSDKModule::GetComputeCertificate()
 ```
 
 ### Return value
+<a name="integration-server-sdk5-unreal-getcomputecertificate-return"></a>
 
-Returns a `GetComputeCertificateResponse` object containing the
-following:
-
-- CertificatePath: The path to the TLS certificate on your compute resource.
-- HostName: The host name of your compute resource.
+Returns a `GetComputeCertificateResponse` object containing the following: 
++ CertificatePath: The path to the TLS certificate on your compute resource. 
++ HostName: The host name of your compute resource.
 
 ### Example
+<a name="integration-server-sdk5-unreal-getcomputecertificate-example"></a>
 
 ```
 FGameLiftGetComputeCertificateOutcome FGameLiftServerSDKModule::GetComputeCertificate()
@@ -709,25 +676,29 @@ FGameLiftGetComputeCertificateOutcome FGameLiftServerSDKModule::GetComputeCertif
 ```
 
 ## GetFleetRoleCredentials()
+<a name="integration-server-sdk5-unreal-getfleetrolecredentials"></a>
 
-Retrieves IAM role credentials that authorize Amazon GameLift Servers to interact with other
-AWS services. For more information, see [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
+Retrieves IAM role credentials that authorize Amazon GameLift Servers to interact with other AWS services. For more information, see [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md).
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-getfleetrolecredentials-syntax"></a>
 
 ```
 FGameLiftGetFleetRoleCredentialsOutcome FGameLiftServerSDKModule::GetFleetRoleCredentials(const FGameLiftGetFleetRoleCredentialsRequest &request)
 ```
 
 ### Parameters
+<a name="integration-server-sdk5-unreal-getfleetrolecredentials-parameters"></a>
 
-[FGameLiftGetFleetRoleCredentialsRequest](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-getfleetrolecredentialsrequest "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-getfleetrolecredentialsrequest")
+[FGameLiftGetFleetRoleCredentialsRequest](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-getfleetrolecredentialsrequest)
 
 ### Return value
+<a name="integration-server-sdk5-unreal-getfleetrolecredentials-return"></a>
 
-Returns a [FGameLiftGetFleetRoleCredentialsOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-getfleetrolecredentialsoutcome "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-getfleetrolecredentialsoutcome") object.
+Returns a [FGameLiftGetFleetRoleCredentialsOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-getfleetrolecredentialsoutcome) object.
 
 ### Example
+<a name="integration-server-sdk5-unreal-getfleetrolecredentials-example"></a>
 
 ```
 FGameLiftGetFleetRoleCredentialsOutcome FGameLiftServerSDKModule::GetFleetRoleCredentials(const FGameLiftGetFleetRoleCredentialsRequest &request)
@@ -760,27 +731,26 @@ FGameLiftGetFleetRoleCredentialsOutcome FGameLiftServerSDKModule::GetFleetRoleCr
 ```
 
 ## ListContainersNetworkInfo()
+<a name="integration-server-sdk5-unreal-listcontainersnetworkinfo"></a>
 
-Retrieves network information for all containers running on the same instance,
-including each container's name, ID, local IP address, and container group type. Use this
-information to enable game server processes to discover and communicate with other
-containers that are running on the same instance.
+Retrieves network information for all containers running on the same instance, including each container's name, ID, local IP address, and container group type. Use this information to enable game server processes to discover and communicate with other containers that are running on the same instance.
 
-This action is supported only on container fleets. When called from any other compute
-type, it returns an `UNSUPPORTED_COMPUTE_TYPE_EXCEPTION` error. Amazon GameLift Servers obtains
-the network information from a discovery server that runs locally on the instance.
+This action is supported only on container fleets. When called from any other compute type, it returns an `UNSUPPORTED_COMPUTE_TYPE_EXCEPTION` error. Amazon GameLift Servers obtains the network information from a discovery server that runs locally on the instance.
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-listcontainersnetworkinfo-syntax"></a>
 
 ```
 FGameLiftListContainersNetworkInfoOutcome FGameLiftServerSDKModule::ListContainersNetworkInfo()
 ```
 
 ### Return value
+<a name="integration-server-sdk5-unreal-listcontainersnetworkinfo-return"></a>
 
-Returns a [FGameLiftListContainersNetworkInfoOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinfooutcome "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinfooutcome") object.
+Returns a [FGameLiftListContainersNetworkInfoOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinfooutcome) object.
 
 ### Example
+<a name="integration-server-sdk5-unreal-listcontainersnetworkinfo-example"></a>
 
 ```
 FGameLiftListContainersNetworkInfoOutcome FGameLiftServerSDKModule::ListContainersNetworkInfo()
@@ -828,44 +798,39 @@ FGameLiftListContainersNetworkInfoOutcome FGameLiftServerSDKModule::ListContaine
 ```
 
 ## Destroy()
+<a name="integration-server-sdk5-unreal-ref-destroy"></a>
 
-Frees the Amazon GameLift Servers game server SDK from memory. As a best practice, call this method
-
-after `ProcessEnding()` and before terminating the process. If you're using
-
-an Anywhere fleet and you're not terminating server processes after every game session,
-
-call `Destroy()` and then `InitSDK()` to reinitialize before
-
-notifying Amazon GameLift Servers that the process is ready to host a game session with
-
-`ProcessReady()`.
+Frees the Amazon GameLift Servers game server SDK from memory. As a best practice, call this method after `ProcessEnding()` and before terminating the process. If you're using an Anywhere fleet and you're not terminating server processes after every game session, call `Destroy()` and then `InitSDK()` to reinitialize before notifying Amazon GameLift Servers that the process is ready to host a game session with `ProcessReady()`.
 
 ### Syntax
+<a name="integration-server-sdk5-unreal-ref-destroy-syntax"></a>
 
 ```
 FGameLiftGenericOutcome Destroy();
 ```
 
 ### Parameters
+<a name="integration-server-sdk5-unreal-ref-destroy-parameter"></a>
 
 There are no parameters.
 
 ### Return value
+<a name="integration-server-sdk5-unreal-ref-destroy-return"></a>
 
 Returns a generic outcome consisting of success or failure with an error message.
 
 ### Example
+<a name="integration-server-sdk5-unreal-ref-destroy-example"></a>
 
 ```
 // First call ProcessEnding()
 FGameLiftGenericOutcome processEndingOutcome = GameLiftSdkModule->ProcessEnding();
-
+  
 // Then call Destroy() to free the SDK from memory
 FGameLiftGenericOutcome destroyOutcome = GameLiftSdkModule->Destroy();
-
+  
 // Exit the process with success or failure
-if (processEndingOutcome.IsSuccess() && destroyOutcome.IsSuccess())
+if (processEndingOutcome.IsSuccess() && destroyOutcome.IsSuccess()) 
     {
     UE_LOG(GameServerLog, Log, TEXT("Server process ending successfully"));
 }

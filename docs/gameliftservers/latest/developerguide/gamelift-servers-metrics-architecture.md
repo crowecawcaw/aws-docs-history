@@ -1,4 +1,7 @@
+
+
 # How it works
+<a name="gamelift-servers-metrics-architecture"></a>
 
 The telemetry metrics system follows a simple four-stage data flow from your game servers to visualization dashboards.
 
@@ -6,10 +9,9 @@ The telemetry metrics system follows a simple four-stage data flow from your gam
 
 **Processing:** The telemetry collector aggregates metrics from your game server and combines them with instance-level performance data (CPU, memory, network, disk usage). This provides a complete picture of both your game's performance and the underlying infrastructure.
 
-**Storage:** Processed metrics are exported to your choice of metrics warehouse - [Amazon Managed Service for Prometheus](../../../prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.md "../../../prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.md") for high-performance time-series storage, Amazon CloudWatch for AWS service integration, or both. All data transmission is authenticated and encrypted.
+**Storage:** Processed metrics are exported to your choice of metrics warehouse - [Amazon Managed Service for Prometheus](https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html) for high-performance time-series storage, Amazon CloudWatch for AWS service integration, or both. All data transmission is authenticated and encrypted.
 
-**Visualization:** [Amazon Managed Grafana](../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md "../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md") connects to your metrics warehouse to display pre-built GameLift dashboards. These dashboards provide fleet overviews, server performance details, and container monitoring views that help you monitor and troubleshoot your game hosting infrastructure.
+**Visualization:** [Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.html) connects to your metrics warehouse to display pre-built GameLift dashboards. These dashboards provide fleet overviews, server performance details, and container monitoring views that help you monitor and troubleshoot your game hosting infrastructure.
 
-###### Note
-
+**Note**  
 All metric transmission between your game server and the telemetry collector occurs locally on the instance for security. Only the collector communicates with AWS services using proper authentication.

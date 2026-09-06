@@ -1,123 +1,58 @@
+
+
 # Data protection in Amazon GameLift Servers
+<a name="data-protection"></a>
 
-If you're using Amazon GameLift Servers FleetIQ as a standalone feature with Amazon EC2, see [Security in Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-security.md "../../../AWSEC2/latest/UserGuide/ec2-security.md") in the
-_Amazon EC2 User Guide_.
+If you're using Amazon GameLift Servers FleetIQ as a standalone feature with Amazon EC2, see [Security in Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security.html) in the *Amazon EC2 User Guide*.
 
-The AWS
-[shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
+The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in Amazon GameLift Servers. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
-applies to data protection in Amazon GameLift Servers.
+For data protection purposes, we recommend that you protect AWS account credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
++ Use multi-factor authentication (MFA) with each account.
++ Use SSL/TLS to communicate with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
++ Set up API and user activity logging with AWS CloudTrail. For information about using CloudTrail trails to capture AWS activities, see [Working with CloudTrail trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trails.html) in the *AWS CloudTrail User Guide*.
++ Use AWS encryption solutions, along with all default security controls within AWS services.
++ Use advanced managed security services such as Amazon Macie, which assists in discovering and securing sensitive data that is stored in Amazon S3.
++ If you require FIPS 140-3 validated cryptographic modules when accessing AWS through a command line interface or an API, use a FIPS endpoint. For more information about the available FIPS endpoints, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/).
 
-As described in this model, AWS is
-responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are
-responsible for maintaining control over your content that is hosted on this infrastructure.
-You are also responsible for the security configuration and management tasks for the AWS services
-that you use.
+We strongly recommend that you never put confidential or sensitive information, such as your customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with Amazon GameLift Servers or other AWS services using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into tags or free-form text fields used for names may be used for billing or diagnostic logs. If you provide a URL to an external server, we strongly recommend that you do not include credentials information in the URL to validate your request to that server.
 
-For more information about data privacy, see
-[Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/").
+Amazon GameLift Servers-specific data is handled as follows:
++ Game server builds and scripts that you upload to Amazon GameLift Servers are stored in Amazon S3. There is no direct customer access to this data once it is uploaded. An authorized user can get temporary access to upload files, but can't view or update the files in Amazon S3 directly. To delete scripts and builds, use the Amazon GameLift Servers console or the service API.
++ Game session log data is stored in Amazon S3 for a limited period of time after the game session is completed. Authorized users can access the log data by downloading it via a link in the Amazon GameLift Servers console or by calls to the service API. 
++ Metric and event data is stored in Amazon GameLift Servers and can be accessed through the Amazon GameLift Servers console or by calls to the service API. Data can be retrieved on fleets, instances, game session placements, matchmaking tickets, game sessions, and player sessions. Data can also be accessed through Amazon CloudWatch and CloudWatch Events.
++ Customer-supplied data is stored in Amazon GameLift Servers . Authorized users can access it by calls to the service API. Potentially sensitive data might include player data, player session and game session data (including connection info), matchmaker data, and so on. 
+**Note**  
+If you provide custom player IDs in your requests, it is expected that these values are anonymized UUIDs and contain no identifying player information.
 
-For information about data protection in Europe, see the
-[General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/ "https://aws.amazon.com/compliance/gdpr-center/").
-
-For data protection purposes, we recommend that you protect AWS account
-credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
-
-- Use multi-factor authentication (MFA) with each account.
-- Use SSL/TLS to communicate with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
-- Set up API and user activity logging with AWS CloudTrail. For information about using CloudTrail trails to capture AWS activities, see [Working with CloudTrail trails](../../../awscloudtrail/latest/userguide/cloudtrail-trails.md "../../../awscloudtrail/latest/userguide/cloudtrail-trails.md") in the _AWS CloudTrail User Guide_.
-- Use AWS encryption solutions, along with all default security controls within AWS services.
-- Use advanced managed security services such as Amazon Macie, which assists in discovering
-  and securing sensitive data that is stored in Amazon S3.
-- If you require FIPS 140-3 validated cryptographic modules when accessing AWS through
-  a command line interface or an API, use a FIPS endpoint. For more information about the
-  available FIPS endpoints, see [Federal
-  Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
-  We strongly recommend that you never put confidential or sensitive information, such as your
-  customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with Amazon GameLift Servers or other AWS services
-  using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into
-  tags or free-form text fields used for names may be used for billing or diagnostic logs. If you
-  provide a URL to an external server, we strongly recommend that you do not include credentials
-  information in the URL to validate your request to that server.
-
-Amazon GameLift Servers-specific data is handled
-as follows:
-
-- Game server builds and scripts that you upload to Amazon GameLift Servers are stored in Amazon S3.
-  There is no direct customer access to this data once it is uploaded. An authorized
-  user can get temporary access to upload files, but can't view or update the files in
-  Amazon S3 directly. To delete scripts and builds, use the Amazon GameLift Servers console or the
-  service API.
-- Game session log data is stored in Amazon S3 for a limited period of time after the
-  game session is completed. Authorized users can access the log data by downloading
-  it via a link in the Amazon GameLift Servers console or by calls to the service API.
-- Metric and event data is stored in Amazon GameLift Servers and can be accessed through the
-  Amazon GameLift Servers console or by calls to the service API. Data can be retrieved on fleets,
-  instances, game session placements, matchmaking tickets, game sessions, and player
-  sessions. Data can also be accessed through Amazon CloudWatch and CloudWatch Events.
-- Customer-supplied data is stored in Amazon GameLift Servers . Authorized users can access it by
-  calls to the service API. Potentially sensitive data might include player data,
-  player session and game session data (including connection info), matchmaker data,
-  and so on.
-
-###### Note
-
-If you provide custom player IDs in your requests, it is expected that these
-values are anonymized UUIDs and contain no identifying player
-information.
-For more information about data protection, see the [AWS shared
-responsibility model and GDPR](https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/ "https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/") blog post on the _AWS Security
-Blog_.
+For more information about data protection, see the [AWS shared responsibility model and GDPR](https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/) blog post on the *AWS Security Blog*.
 
 ## Encryption at rest
+<a name="encryption-at-rest"></a>
 
 At-rest encryption of Amazon GameLift Servers-specific data is handled as follows:
-
-- Game server builds and
-  scripts
-  are stored in Amazon S3 buckets with server-side encryption.
-- Customer-supplied data is stored in Amazon GameLift Servers in an encrypted format.
++ Game server builds and scripts are stored in Amazon S3 buckets with server-side encryption.
++ Customer-supplied data is stored in Amazon GameLift Servers in an encrypted format.
 
 ## Encryption in transit
+<a name="encryption-in-transit"></a>
 
-Connections to the Amazon GameLift Servers APIs are made over a secure (SSL) connection and authenticated
-using [AWS Signature Version 4](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md")
-(when connecting through the AWS CLI or AWS SDK, signing is handled automatically).
-Authentication is managed using the IAM-defined access policies for the security credentials
-that are used to make the connection.
+Connections to the Amazon GameLift Servers APIs are made over a secure (SSL) connection and authenticated using [AWS Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) (when connecting through the AWS CLI or AWS SDK, signing is handled automatically). Authentication is managed using the IAM-defined access policies for the security credentials that are used to make the connection.
 
-Direct communication between game clients and game servers is as follows:
+Direct communication between game clients and game servers is as follows: 
++ For custom game servers being hosted on Amazon GameLift Servers resources, communication does not involve the Amazon GameLift Servers service. Encryption of this communication is the responsibility of the customer. You can use TLS-enabled fleets to have your game clients authenticate the game server on connection and to encrypt all communication between your game client and game server.
++ Certificates for TLS-enabled fleets are created at the same time as the fleet, and their expiration dates are based on the fleet creation date.
++ For Amazon GameLift Servers Realtime with TLS certificate generation enabled, traffic between game client and Realtime servers using the client SDK for Realtime is encrypted in flight. TCP traffic is encrypted using TLS 1.2, and UDP traffic is encrypted using DTLS 1.2.
 
-- For custom game servers being hosted on Amazon GameLift Servers resources, communication does not
-  involve the Amazon GameLift Servers service. Encryption of this communication is the responsibility of
-  the customer. You can use TLS-enabled fleets to have your game clients authenticate
-  the game server on connection and to encrypt all communication between your game
-  client and game server.
-- Certificates for TLS-enabled fleets are created at the same time as the fleet,
-  and their expiration dates are based on the fleet creation date.
-- For Amazon GameLift Servers Realtime with TLS certificate generation enabled, traffic between game client and
-  Realtime servers using the client SDK for Realtime is encrypted in flight. TCP
-  traffic is encrypted using TLS 1.2, and UDP traffic is encrypted using DTLS
-  1.2.
-
-###### Note
-
-To meet Certificate Authority requirements for TLS certificates, Amazon GameLift Servers will
-adjust the maximum certificate lifetimes for fleets configured to generate a certificate.
-Certificate lifetimes begin on fleet creation and change on the following schedule:
-
-- Until March 11, 2026, the maximum lifetime for a TLS certificate issued is 398 days.
-- As of March 1, 2026, the maximum lifetime for a TLS certificate issued will be 200 days.
-- As of March 1, 2027, the maximum lifetime for a TLS certificate issued will be 100 days.
-- As of March 1, 2029, the maximum lifetime for a TLS certificate issued will be 47 days.
-  To ensure that your certificates are renewed, and to maintain up-to-date game server runtime
-  environments, Amazon GameLift Servers recommends regularly replacing your game server fleets.
+**Note**  
+To meet Certificate Authority requirements for TLS certificates, Amazon GameLift Servers will adjust the maximum certificate lifetimes for fleets configured to generate a certificate. Certificate lifetimes begin on fleet creation and change on the following schedule:  
+Until March 11, 2026, the maximum lifetime for a TLS certificate issued is 398 days.
+As of March 1, 2026, the maximum lifetime for a TLS certificate issued will be 200 days.
+As of March 1, 2027, the maximum lifetime for a TLS certificate issued will be 100 days.
+As of March 1, 2029, the maximum lifetime for a TLS certificate issued will be 47 days.
+To ensure that your certificates are renewed, and to maintain up-to-date game server runtime environments, Amazon GameLift Servers recommends regularly replacing your game server fleets.
 
 ## Internetwork traffic privacy
+<a name="inter-network-traffic-privacy"></a>
 
-You can remotely access your Amazon GameLift Servers instances securely. For instances that use Linux, SSH
-provides a secure communications channel for remote access. For instances that are running
-Windows, use a remote desktop protocol (RDP) client. With Amazon GameLift Servers FleetIQ, remote access to your
-instances using AWS Systems Manager Session Manager and Run Command is encrypted using TLS
-1.2, and requests to create a connection are signed using SigV4. For help with connecting to
-a managed Amazon GameLift Servers instance, see [Connect to fleet instances](fleets-remote-access.md "fleets-remote-access.md").
+You can remotely access your Amazon GameLift Servers instances securely. For instances that use Linux, SSH provides a secure communications channel for remote access. For instances that are running Windows, use a remote desktop protocol (RDP) client. With Amazon GameLift Servers FleetIQ, remote access to your instances using AWS Systems Manager Session Manager and Run Command is encrypted using TLS 1.2, and requests to create a connection are signed using SigV4. For help with connecting to a managed Amazon GameLift Servers instance, see [Connect to fleet instances](fleets-remote-access.md).
