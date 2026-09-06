@@ -1,23 +1,24 @@
+
+
 # get-dns
+<a name="oct-get-dns"></a>
 
-The **get-dns** command returns the DNS (Domain Name Server) IP
-address.
+The **get-dns** command returns the DNS (Domain Name Server) IP address.
 
-**Syntax**
+**Syntax**  
 
 ```
-`Outpost>`get-dns
+Outpost>get-dns
 ```
 
-**Parameters**
-
+**Parameters**  
 This command has no parameters.
 
-###### Example output: Success
+**Example output: Success**  
 
 ```
 Outpost> get-dns
 ---
-dns_address: `8.8.8.8`
+dns_address: {{8.8.8.8}}
 success: true
 ```

@@ -1,19 +1,20 @@
+
+
 # clear-dns
+<a name="oct-clear-dns"></a>
 
-The **clear-dns** command deletes the DNS (Domain Name Server) IP address.
-You must reboot the Outposts server for the configuration to apply.
+The **clear-dns** command deletes the DNS (Domain Name Server) IP address. You must reboot the Outposts server for the configuration to apply.
 
-**Syntax**
+**Syntax**  
 
 ```
-`Outpost>`clear-dns
+Outpost>clear-dns
 ```
 
-**Parameters**
-
+**Parameters**  
 This command has no parameters.
 
-###### Example output: Success
+**Example output: Success**  
 
 ```
 Outpost> clear-dns

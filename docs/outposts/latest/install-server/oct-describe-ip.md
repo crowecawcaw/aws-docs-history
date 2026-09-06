@@ -1,14 +1,15 @@
+
+
 # describe-ip
+<a name="oct-describe-ip"></a>
 
-The **describe-ip** command returns the IP assignment status and
-configuration of each connected link.
+The **describe-ip** command returns the IP assignment status and configuration of each connected link.
 
-**Syntax**
+**Syntax**  
 
 ```
-`Outpost>`describe-ip
+Outpost>describe-ip
 ```
 
-**Parameters**
-
+**Parameters**  
 This command has no parameters.

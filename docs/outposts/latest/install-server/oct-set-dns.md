@@ -1,21 +1,21 @@
+
+
 # set-dns
+<a name="oct-set-dns"></a>
 
-The **set-dns** command sets the DNS (Domain Name Server) IP
-address.
+The **set-dns** command sets the DNS (Domain Name Server) IP address.
 
-**Syntax**
+**Syntax**  
 
 ```
-`Outpost>`set-dns `dns`
+Outpost>set-dns {{dns}}
 ```
+For example: `set-dns {{8.8.8.8}}`
 
-For example: `set-dns `8.8.8.8``
-
-**Parameters**
-
+**Parameters**  
 This command requires the DNS address.
 
-###### Example output: Success
+**Example output: Success**  
 
 ```
 Outpost> set-dns
