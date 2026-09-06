@@ -1,11 +1,12 @@
-# Using Neptune full-text search in Gremlin queries
 
-`NeptuneSearchStep` enables full-text search queries for the part of a Gremlin
-traversal that is not converted into Neptune steps. For example, consider a query like the
-following.
+
+# Using Neptune full-text search in Gremlin queries
+<a name="full-text-search-gremlin"></a>
+
+`NeptuneSearchStep` enables full-text search queries for the part of a Gremlin traversal that is not converted into Neptune steps. For example, consider a query like the following.
 
 ```
-g.withSideEffect("Neptune#fts.endpoint", "`your-es-endpoint-URL`")
+g.withSideEffect("Neptune#fts.endpoint", "{{your-es-endpoint-URL}}")
   .V()
       .tail(100)
       .has("name", "Neptune#fts mark*")            <== # Limit the search on name
@@ -36,10 +37,11 @@ Neptune steps:
 The following examples are of Gremlin queries against air-routes data:
 
 ## Gremlin basic case-insensitive `match` query
+<a name="full-text-search-gremlin-basic-match"></a>
 
 ```
 g.withSideEffect("Neptune#fts.endpoint",
-                 "`your-OpenSearch-endpoint-URL`")
+                 "{{your-OpenSearch-endpoint-URL}}")
   .withSideEffect('Neptune#fts.queryType', 'match')
   .V().has("city","Neptune#fts dallas")
 
@@ -48,10 +50,11 @@ g.withSideEffect("Neptune#fts.endpoint",
 ```
 
 ## Gremlin `match` query
+<a name="full-text-search-gremlin-match"></a>
 
 ```
 g.withSideEffect("Neptune#fts.endpoint",
-                 "`your-OpenSearch-endpoint-URL`")
+                 "{{your-OpenSearch-endpoint-URL}}")
   .withSideEffect('Neptune#fts.queryType', 'match')
   .V().has("city","Neptune#fts southampton")
      .local(values('code','city').fold())
@@ -61,10 +64,11 @@ g.withSideEffect("Neptune#fts.endpoint",
 ```
 
 ## Gremlin `fuzzy` query
+<a name="full-text-search-gremlin-fuzzy"></a>
 
 ```
 g.withSideEffect("Neptune#fts.endpoint",
-                 "`your-OpenSearch-endpoint-URL`")
+                 "{{your-OpenSearch-endpoint-URL}}")
   .V().has("city","Neptune#fts allas~").values('city').limit(5)
 
 ==>Dallas
@@ -75,10 +79,11 @@ g.withSideEffect("Neptune#fts.endpoint",
 ```
 
 ## Gremlin `query_string` fuzzy query
+<a name="full-text-search-gremlin-query_string-fuzzy"></a>
 
 ```
 g.withSideEffect("Neptune#fts.endpoint",
-                 "`your-OpenSearch-endpoint-URL`")
+                 "{{your-OpenSearch-endpoint-URL}}")
   .withSideEffect('Neptune#fts.queryType', 'query_string')
   .V().has("city","Neptune#fts allas~").values('city').limit(5)
 
@@ -87,10 +92,11 @@ g.withSideEffect("Neptune#fts.endpoint",
 ```
 
 ## Gremlin `query_string` regular expression query
+<a name="full-text-search-gremlin-query_string-regex"></a>
 
 ```
 g.withSideEffect("Neptune#fts.endpoint",
-                 "`your-OpenSearch-endpoint-URL`")
+                 "{{your-OpenSearch-endpoint-URL}}")
   .withSideEffect('Neptune#fts.queryType', 'query_string')
   .V().has("city","Neptune#fts /[dp]allas/").values('city').limit(5)
 
@@ -99,13 +105,13 @@ g.withSideEffect("Neptune#fts.endpoint",
 ```
 
 ## Gremlin hybrid query
+<a name="full-text-search-gremlin-hybrid"></a>
 
-This query uses a Neptune internal index and the OpenSearch index in
-the same query.
+This query uses a Neptune internal index and the OpenSearch index in the same query.
 
 ```
 g.withSideEffect("Neptune#fts.endpoint",
-                 "`your-OpenSearch-endpoint-URL`")
+                 "{{your-OpenSearch-endpoint-URL}}")
   .V().has("region","GB-ENG")
       .has('city','Neptune#fts L*')
       .values('city')
@@ -119,10 +125,11 @@ g.withSideEffect("Neptune#fts.endpoint",
 ```
 
 ## Simple Gremlin full-text search example
+<a name="full-text-search-gremlin-example"></a>
 
 ```
 g.withSideEffect("Neptune#fts.endpoint",
-                 "`your-OpenSearch-endpoint-URL`")
+                 "{{your-OpenSearch-endpoint-URL}}")
   .V().has('desc','Neptune#fts regional municipal')
       .local(values('code','desc').fold())
       .limit(100)
@@ -152,16 +159,14 @@ g.withSideEffect("Neptune#fts.endpoint",
 ==>[PKB, Mid Ohio Valley Regional Airport]
 ```
 
-## Gremlin query using `query_string` With '+' and '-' Operators
+## Gremlin query using `query_string` With '\+' and '-' Operators
+<a name="full-text-search-gremlin-query_string-plus-minus"></a>
 
-Although the `query_string` query type is much less forgiving than
-the default `simple_query_string` type, it does allow for more precise
-queries. The first query below uses `query_string`, while the second use
-the default `simple_query_string`:
+Although the `query_string` query type is much less forgiving than the default `simple_query_string` type, it does allow for more precise queries. The first query below uses `query_string`, while the second use the default `simple_query_string`:
 
 ```
 g.withSideEffect("Neptune#fts.endpoint",
-                 "`your-OpenSearch-endpoint-URL`")
+                 "{{your-OpenSearch-endpoint-URL}}")
   .withSideEffect('Neptune#fts.queryType', 'query_string')
  . V().has('desc','Neptune#fts +London -(Stansted|Gatwick)')
       .local(values('code','desc').fold())
@@ -174,12 +179,11 @@ g.withSideEffect("Neptune#fts.endpoint",
 ==>[LCY, London City Airport]
 ```
 
-Notice how `simple_query_string` in the examples below
-quietly ignores the '+' and '-' operators:
+Notice how `simple_query_string` in the examples below quietly ignores the '\+' and '-' operators:
 
 ```
 g.withSideEffect("Neptune#fts.endpoint",
-                 "`your-OpenSearch-endpoint-URL`")
+                 "{{your-OpenSearch-endpoint-URL}}")
   .V().has('desc','Neptune#fts +London -(Stansted|Gatwick)')
       .local(values('code','desc').fold())
       .limit(10)
@@ -198,7 +202,7 @@ g.withSideEffect("Neptune#fts.endpoint",
 
 ```
 g.withSideEffect("Neptune#fts.endpoint",
-                 "`your-OpenSearch-endpoint-URL`")
+                 "{{your-OpenSearch-endpoint-URL}}")
   .withSideEffect('Neptune#fts.queryType', 'query_string')
   .V().has('desc','Neptune#fts +(regional|municipal) -(international|bradford)')
       .local(values('code','desc').fold())
@@ -217,10 +221,11 @@ g.withSideEffect("Neptune#fts.endpoint",
 ```
 
 ## Gremlin `query_string` query with `AND` and `OR` operators
+<a name="full-text-search-gremlin-query_string-AND-OR"></a>
 
 ```
 g.withSideEffect("Neptune#fts.endpoint",
-                 "`your-OpenSearch-endpoint-URL`")
+                 "{{your-OpenSearch-endpoint-URL}}")
   .withSideEffect('Neptune#fts.queryType', 'query_string')
   .V().has('desc','Neptune#fts (St AND George) OR (St AND Augustin)')
       .local(values('code','desc').fold())
@@ -233,10 +238,11 @@ g.withSideEffect("Neptune#fts.endpoint",
 ```
 
 ## Gremlin `term` query
+<a name="full-text-search-gremlin-term"></a>
 
 ```
 g.withSideEffect("Neptune#fts.endpoint",
-                 "`your-OpenSearch-endpoint-URL`")
+                 "{{your-OpenSearch-endpoint-URL}}")
   .withSideEffect('Neptune#fts.queryType', 'term')
   .V().has("SKU","Neptune#fts ABC123DEF9")
       .local(values('code','city').fold())
@@ -246,10 +252,11 @@ g.withSideEffect("Neptune#fts.endpoint",
 ```
 
 ## Gremlin `prefix` query
+<a name="full-text-search-gremlin-prefix"></a>
 
 ```
 g.withSideEffect("Neptune#fts.endpoint",
-                 "`your-OpenSearch-endpoint-URL`")
+                 "{{your-OpenSearch-endpoint-URL}}")
   .withSideEffect('Neptune#fts.queryType', 'prefix')
   .V().has("icao","Neptune#fts ka")
       .local(values('code','icao','city').fold())
@@ -263,10 +270,9 @@ g.withSideEffect("Neptune#fts.endpoint",
 ```
 
 ## Using Lucene syntax in Neptune Gremlin
+<a name="full-text-search-gremlin-lucene"></a>
 
-In Neptune Gremlin, you can also write very powerful queries using the Lucene query
-syntax. Note that Lucene syntax is only supported for `query_string` queries
-in OpenSearch.
+In Neptune Gremlin, you can also write very powerful queries using the Lucene query syntax. Note that Lucene syntax is only supported for `query_string` queries in OpenSearch.
 
 Assume the following data:
 
@@ -287,8 +293,7 @@ g.addV("developer")
         .property("surname", "rondelli")
 ```
 
-Using Lucene syntax, which is invoked when the `queryType` is
-`query_string`, you can search this data by name and surname as follows:
+Using Lucene syntax, which is invoked when the `queryType` is `query_string`, you can search this data by name and surname as follows:
 
 ```
 g.withSideEffect("Neptune#fts.endpoint", "es_endpoint")
@@ -299,11 +304,7 @@ g.withSideEffect("Neptune#fts.endpoint", "es_endpoint")
 ==> v[p1], v[p3]
 ```
 
-Note that in the `has()` step above, the field is replaced by
-`"*"`). Actually, any value placed there is overridden by the fields
-that you access within the query. You access the name field using
-`predicates.name.value,` because that is how the data model is
-structured.
+Note that in the `has()` step above, the field is replaced by `"*"`). Actually, any value placed there is overridden by the fields that you access within the query. You access the name field using `predicates.name.value,` because that is how the data model is structured.
 
 You can search by name, surname and label, as follows:
 
@@ -316,8 +317,7 @@ g.withSideEffect("Neptune#fts.endpoint", getEsEndpoint())
 ==> v[p1]
 ```
 
-The label is accessed using `entity_type`, again because that is how
-the data model is structured.
+The label is accessed using `entity_type`, again because that is how the data model is structured.
 
 You can also include nesting conditions:
 
@@ -331,6 +331,7 @@ g.withSideEffect("Neptune#fts.endpoint", getEsEndpoint())
 ```
 
 ## Inserting a modern TinkerPop graph
+<a name="full-text-search-gremlin-modern-tinkerpop-graph"></a>
 
 ```
 g.addV('person').property(T.id, '1').property('name', 'marko').property('age', 29)
@@ -349,9 +350,10 @@ g.V('1').as('a').V('2').as('b').addE('knows').from('a').to('b').property('weight
 ```
 
 ## Sort by string field value example
+<a name="full-text-search-gremlin-sort-by-string"></a>
 
 ```
-g.withSideEffect("Neptune#fts.endpoint", "`your-OpenSearch-endpoint-URL`")
+g.withSideEffect("Neptune#fts.endpoint", "{{your-OpenSearch-endpoint-URL}}")
  .withSideEffect('Neptune#fts.queryType', 'query_string')
  .withSideEffect('Neptune#fts.sortOrder', 'asc')
  .withSideEffect('Neptune#fts.sortBy', 'name')
@@ -359,9 +361,10 @@ g.withSideEffect("Neptune#fts.endpoint", "`your-OpenSearch-endpoint-URL`")
 ```
 
 ## Sort by non-string field value example
+<a name="full-text-search-gremlin-sort-by-non-string"></a>
 
 ```
-g.withSideEffect("Neptune#fts.endpoint", "`your-OpenSearch-endpoint-URL`")
+g.withSideEffect("Neptune#fts.endpoint", "{{your-OpenSearch-endpoint-URL}}")
  .withSideEffect('Neptune#fts.queryType', 'query_string')
  .withSideEffect('Neptune#fts.sortOrder', 'asc')
  .withSideEffect('Neptune#fts.sortBy', 'age.value')
@@ -369,9 +372,10 @@ g.withSideEffect("Neptune#fts.endpoint", "`your-OpenSearch-endpoint-URL`")
 ```
 
 ## Sort by ID field value example
+<a name="full-text-search-gremlin-sort-by-id"></a>
 
 ```
-g.withSideEffect("Neptune#fts.endpoint", "`your-OpenSearch-endpoint-URL`")
+g.withSideEffect("Neptune#fts.endpoint", "{{your-OpenSearch-endpoint-URL}}")
 .withSideEffect('Neptune#fts.queryType', 'query_string')
 .withSideEffect('Neptune#fts.sortOrder', 'asc')
 .withSideEffect('Neptune#fts.sortBy', 'Neptune#fts.entity_id')
@@ -379,9 +383,10 @@ g.withSideEffect("Neptune#fts.endpoint", "`your-OpenSearch-endpoint-URL`")
 ```
 
 ## Sort by label field value example
+<a name="full-text-search-gremlin-sort-by-label"></a>
 
 ```
-g.withSideEffect("Neptune#fts.endpoint", "`your-OpenSearch-endpoint-URL`")
+g.withSideEffect("Neptune#fts.endpoint", "{{your-OpenSearch-endpoint-URL}}")
  .withSideEffect('Neptune#fts.queryType', 'query_string')
  .withSideEffect('Neptune#fts.sortOrder', 'asc')
  .withSideEffect('Neptune#fts.sortBy', 'Neptune#fts.entity_type')
@@ -389,9 +394,10 @@ g.withSideEffect("Neptune#fts.endpoint", "`your-OpenSearch-endpoint-URL`")
 ```
 
 ## Sort by `document_type` field value example
+<a name="full-text-search-gremlin-sort-by-document_type"></a>
 
 ```
-g.withSideEffect("Neptune#fts.endpoint", "`your-OpenSearch-endpoint-URL`")
+g.withSideEffect("Neptune#fts.endpoint", "{{your-OpenSearch-endpoint-URL}}")
  .withSideEffect('Neptune#fts.queryType', 'query_string')
  .withSideEffect('Neptune#fts.sortOrder', 'asc')
  .withSideEffect('Neptune#fts.sortBy', 'Neptune#fts.document_type')

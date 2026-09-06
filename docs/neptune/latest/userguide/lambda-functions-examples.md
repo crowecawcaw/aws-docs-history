@@ -1,75 +1,38 @@
+
+
 # AWS Lambda function examples for Amazon Neptune
+<a name="lambda-functions-examples"></a>
 
-The following example AWS Lambda functions, written in Java, JavaScript and Python,
-illustrate upserting a single vertex with a randomly generated ID using the
-`mergeV()` step (see [Making efficient upserts with Gremlin mergeV() and mergeE() steps](gremlin-efficient-upserts.md "gremlin-efficient-upserts.md")).
+The following example AWS Lambda functions, written in Java, JavaScript and Python, illustrate upserting a single vertex with a randomly generated ID using the `mergeV()` step (see [Making efficient upserts with Gremlin `mergeV()` and `mergeE()` steps](gremlin-efficient-upserts.md)).
 
-Much of the code in each function is boilerplate code, responsible for managing
-connections and retrying connections and queries if an error occurs. The real application
-logic and the Gremlin query are implemented in `doQuery()` and
-`query()` methods respectively. If you use these examples as a basis for
-your own Lambda functions, you can concentrate on modifying `doQuery()`
-and `query()`.
+Much of the code in each function is boilerplate code, responsible for managing connections and retrying connections and queries if an error occurs. The real application logic and the Gremlin query are implemented in `doQuery()` and `query()` methods respectively. If you use these examples as a basis for your own Lambda functions, you can concentrate on modifying `doQuery()` and `query()`.
 
-The functions are configured to retry failed queries 5 times, waiting 1 second
-between retries. In a production application, consider use of exponential backoff with
-jitter rather than a fixed interval. For detailed guidance, see
-[Exception Handling and Retries](transactions-exceptions.md "transactions-exceptions.md").
+The functions are configured to retry failed queries 5 times, waiting 1 second between retries. In a production application, consider use of exponential backoff with jitter rather than a fixed interval. For detailed guidance, see [Exception Handling and Retries](transactions-exceptions.md).
 
-The functions require values to be present in the following Lambda environment
-variables:
-
-- **`NEPTUNE_ENDPOINT`**   –  
-  Your Neptune DB cluster endpoint. For Python, this should be `neptuneEndpoint`.
-- **`NEPTUNE_PORT`**   –  
-  The Neptune port. For Python, this should be `neptunePort`.
-- **`USE_IAM`**   –  
-  (`true` or `false`) If your database has AWS Identity and Access Management (IAM)
-  database authentication enabled, set the `USE_IAM` environment variable
-  to `true`. This causes the Lambda function to Sigv4-sign connection
-  requests to Neptune. For such IAM DB auth requests, ensure that the Lambda function's
-  execution role has an appropriate IAM policy attached that allows the function to
-  connect to your Neptune DB cluster (see [Types of IAM policies](security-iam-access-manage.md#iam-auth-policy "security-iam-access-manage.md#iam-auth-policy")).
+The functions require values to be present in the following Lambda environment variables:
++ **`NEPTUNE_ENDPOINT`**   –   Your Neptune DB cluster endpoint. For Python, this should be `neptuneEndpoint`.
++ **`NEPTUNE_PORT`**   –   The Neptune port. For Python, this should be `neptunePort`.
++ **`USE_IAM `**   –   (`true` or `false`) If your database has AWS Identity and Access Management (IAM) database authentication enabled, set the `USE_IAM` environment variable to `true`. This causes the Lambda function to Sigv4-sign connection requests to Neptune. For such IAM DB auth requests, ensure that the Lambda function's execution role has an appropriate IAM policy attached that allows the function to connect to your Neptune DB cluster (see [Types of IAM policies](security-iam-access-manage.md#iam-auth-policy)).
 
 ## Java Lambda function example for Amazon Neptune
+<a name="lambda-functions-examples-java"></a>
 
 Here are some things to keep in mind about Java AWS Lambda functions:
++ The Java driver maintains its own connection pool, which you do not need, so configure your `Cluster` object with `minConnectionPoolSize(1)` and `maxConnectionPoolSize(1)`.
++ The `Cluster` object can be slow to build because it creates one or more serializers (Gyro by default, plus another if you’ve configured it for additional output formats such as `binary`). These can take a while to instantiate.
++ The connection pool is initialized with the first request. At this point, the driver sets up the `Netty` stack, allocates byte buffers, and creates a signing key if you are using IAM DB auth. All of which can add to the cold-start latency.
++ The Java driver's connection pool monitors the availability of server hosts and automatically attempts to reconnect if a connection fails. It starts a background task to try to re-establish the connection. Use `reconnectInterval( )` to configure the interval between reconnection attempts. While the driver is attempting to reconnect, your Lambda function can simply retry the query.
 
-- The Java driver maintains its own connection pool, which you do not
-  need, so configure your `Cluster` object with `minConnectionPoolSize(1)`
-  and `maxConnectionPoolSize(1)`.
-- The `Cluster` object can be slow to build because it creates one
-  or more serializers (Gyro by default, plus another if you’ve configured it for additional
-  output formats such as `binary`). These can take a while to instantiate.
-- The connection pool is initialized with the first request. At this point, the
-  driver sets up the `Netty` stack, allocates byte buffers, and creates a signing
-  key if you are using IAM DB auth. All of which can add to the cold-start latency.
-- The Java driver's connection pool monitors the availability of server hosts
-  and automatically attempts to reconnect if a connection fails. It starts a background
-  task to try to re-establish the connection. Use `reconnectInterval( )` to
-  configure the interval between reconnection attempts. While the driver is attempting
-  to reconnect, your Lambda function can simply retry the query.
+  If the interval between retries is smaller than the interval between reconnect attempts, retries on a failed connection fail again because the host is considered unavailable. This does not apply to retries for a `ConcurrentModificationException`.
++ Use Java 8 rather than Java 11. `Netty` optimizations are not enabled by default in Java 11.
++ This example uses [Retry4j](https://github.com/elennick/retry4j) for retries.
++ To use the `Sigv4` signing driver in your Java Lambda function, see the dependency requirements in [Connecting to Amazon Neptune databases using IAM with Gremlin Java](iam-auth-connecting-gremlin-java.md).
 
-If the interval between retries is smaller than the interval between reconnect attempts,
-retries on a failed connection fail again because the host is considered unavailable. This
-does not apply to retries for a `ConcurrentModificationException`.
+**Warning**  
+The `CallExecutor` from Retry4j may not be thread-safe. Consider having each thread use its own `CallExecutor` instance.
 
-- Use Java 8 rather than Java 11. `Netty` optimizations are not
-  enabled by default in Java 11.
-- This example uses [Retry4j](https://github.com/elennick/retry4j "https://github.com/elennick/retry4j")
-  for retries.
-- To use the `Sigv4` signing driver in your Java Lambda function,
-  see the dependency requirements in [Connecting to Amazon Neptune databases using IAM with Gremlin Java](iam-auth-connecting-gremlin-java.md "iam-auth-connecting-gremlin-java.md").
-
-###### Warning
-
-The `CallExecutor` from Retry4j may not be thread-safe. Consider
-having each thread use its own `CallExecutor` instance.
-
-###### Note
-
-The following example has been updated to include the use of requestInterceptor(). This was added in TinkerPop 3.6.6.
-Prior to TinkerPop version 3.6.6, the code example used handshakeInterceptor(), which was deprecated with that release.
+**Note**  
+ The following example has been updated to include the use of requestInterceptor(). This was added in TinkerPop 3.6.6. Prior to TinkerPop version 3.6.6, the code example used handshakeInterceptor(), which was deprecated with that release. 
 
 ```
 package com.amazonaws.examples.social;
@@ -180,7 +143,7 @@ public class MyHandler implements RequestStreamHandler {
         return r;
       }
     )
-
+    
     return builder.create();
   }
 
@@ -239,68 +202,32 @@ public class MyHandler implements RequestStreamHandler {
 }
 ```
 
-If you want to include reconnect logic in your function, see [Java reconnect sample](access-graph-gremlin-java-reconnect-example.md "access-graph-gremlin-java-reconnect-example.md").
+If you want to include reconnect logic in your function, see [Java reconnect sample](access-graph-gremlin-java-reconnect-example.md).
 
 ## JavaScript Lambda function example for Amazon Neptune
+<a name="lambda-functions-examples-javascript"></a>
 
-###### Notes about this example
+**Notes about this example**
++ The JavaScript driver doesn't maintain a connection pool. It always opens a single connection.
++ The example function uses the Sigv4 signing utilities from [gremlin-aws-sigv4](https://github.com/shutterstock/gremlin-aws-sigv4) for signing requests to an IAM authentication-enabled database.
++ It uses the [retry( )](https://caolan.github.io/async/v3/docs.html#retry) function from the open-source [async utility module](https://github.com/caolan/async) to handle backoff-and-retry attempts.
++ Gremlin terminal steps return a JavaScript `promise` (see the [TinkerPop documentation](https://tinkerpop.apache.org/docs/current/reference/#gremlin-javascript-connecting)). For `next()`, this is a `{value, done}` tuple.
++ Connection errors are raised inside the handler, and dealt with using some backoff-and-retry logic in line with the recommendations outlined here, with one exception. There is one kind of connection issue that the driver does not treat as an exception, and which cannot therefore be accommodated by this backoff-and-retry logic.
 
-- The JavaScript driver doesn't maintain a connection pool. It always
-  opens a single connection.
-- The example function uses the Sigv4 signing utilities from
-  [gremlin-aws-sigv4](https://github.com/shutterstock/gremlin-aws-sigv4 "https://github.com/shutterstock/gremlin-aws-sigv4")
-  for signing requests to an IAM authentication-enabled database.
-- It uses the [retry( )](https://caolan.github.io/async/v3/docs.html#retry "https://caolan.github.io/async/v3/docs.html#retry") function from the open-source [async
-  utility module](https://github.com/caolan/async "https://github.com/caolan/async") to handle backoff-and-retry attempts.
-- Gremlin terminal steps return a JavaScript `promise` (see the [TinkerPop documentation](https://tinkerpop.apache.org/docs/current/reference/#gremlin-javascript-connecting "https://tinkerpop.apache.org/docs/current/reference/#gremlin-javascript-connecting")). For `next()`, this is a
-  `{value, done}` tuple.
-- Connection errors are raised inside the handler, and dealt with
-  using some backoff-and-retry logic in line with the recommendations outlined
-  here, with one exception. There is one kind of connection issue that the driver
-  does not treat as an exception, and which cannot therefore be accommodated by
-  this backoff-and-retry logic.
+  The problem is that if a connection is closed after a driver sends a request but before the driver receives a response, the query appears to complete but returns a null value. As far as the lambda function client is concerned, the function appears to complete successfully, but with an empty response.
 
-The problem is that if a connection is closed after a driver sends a request
-but before the driver receives a response, the query appears to complete but returns
-a null value. As far as the lambda function client is concerned, the function
-appears to complete successfully, but with an empty response.
+  The impact of this issue depends on how your application treats an empty response. Some applications may treat an empty response from a read request as an error, but others may mistakenly treat it as an empty result.
 
-The impact of this issue depends on how your application treats an empty
-response. Some applications may treat an empty response from a read request
-as an error, but others may mistakenly treat it as an empty result.
+  Write requests that encounter this connection issue will also return an empty response. Does a successful invocation with an empty response signal success or failure? If the client invoking a write function simply treats the successful invocation of the function to mean the write to the database has been committed, rather than inspecting the body of the response, the system may appear to lose data.
 
-Write requests that encounter this connection issue will also return
-an empty response. Does a successful invocation with an empty response signal
-success or failure? If the client invoking a write function simply treats the
-successful invocation of the function to mean the write to the database has
-been committed, rather than inspecting the body of the response, the system
-may appear to lose data.
+  This issue results from how the driver treats events emitted by the underlying socket. When the underlying network socket is closed with an `ECONNRESET` error, the WebSocket used by the driver is closed and emits a `'ws close'` event. There's nothing in the driver, however, to handle that event in a way that could be used to raise an exception. As a result, the query simply disappears.
 
-This issue results from how the driver treats events emitted by the
-underlying socket. When the underlying network socket is closed with an
-`ECONNRESET` error, the WebSocket used by the driver is closed
-and emits a `'ws close'` event. There's nothing in the driver,
-however, to handle that event in a way that could be used to raise an
-exception. As a result, the query simply disappears.
+  To work around this issue, the example lambda function here adds a `'ws close'` event handler that throws an exception to the driver when creating a remote connection. This exception is not, however, raised along the Gremlin query's request-response path, and can't therefore be used to trigger any backoff-and-retry logic within the lambda function itself. Instead, the exception thrown by the `'ws close'` event handler results in an unhandled exception that causes the lambda invocation to fail. This allows the client that invokes the function to handle the error and retry the lambda invocation if appropriate.
 
-To work around this issue, the example lambda function here adds a
-`'ws close'` event handler that throws an exception to the
-driver when creating a remote connection. This exception is not, however,
-raised along the Gremlin query's request-response path, and can't
-therefore be used to trigger any backoff-and-retry logic within the
-lambda function itself. Instead, the exception thrown by the
-`'ws close'` event handler results in an unhandled exception
-that causes the lambda invocation to fail. This allows the client that
-invokes the function to handle the error and retry the lambda invocation
-if appropriate.
-
-We recommend that you implement backoff-and-retry logic in the
-lambda function itself to protect your clients from intermittent
-connection issues. However, the workaround for the above issue
-requires the client to implement retry logic too, to handle failures
-that result from this particular connection issue.
+  We recommend that you implement backoff-and-retry logic in the lambda function itself to protect your clients from intermittent connection issues. However, the workaround for the above issue requires the client to implement retry logic too, to handle failures that result from this particular connection issue.
 
 ### Javascript code
+<a name="lambda-functions-examples-javascript-code"></a>
 
 ```
 const gremlin = require('gremlin');
@@ -327,7 +254,7 @@ async function query(context) {
 async function doQuery() {
   const id = Math.floor(Math.random() * 10000).toString();
 
-  let result = await query({id: id});
+  let result = await query({id: id}); 
   return result['value'];
 }
 
@@ -340,11 +267,11 @@ exports.handler = async (event, context) => {
          process.env['NEPTUNE_PORT'],
          {},
          '/gremlin',
-         'wss');
+         'wss'); 
     } else {
       const database_url = 'wss://' + process.env['NEPTUNE_ENDPOINT'] + ':' + process.env['NEPTUNE_PORT'] + '/gremlin';
       return { url: database_url, headers: {}};
-    }
+    }    
   };
 
 
@@ -352,10 +279,10 @@ exports.handler = async (event, context) => {
     const { url, headers } = getConnectionDetails();
 
     const c = new DriverRemoteConnection(
-      url,
-      {
-        headers: headers
-      });
+      url, 
+      {          
+        headers: headers 
+      });  
 
      c._client._connection.on('close', (code, message) => {
          console.info(`close - ${code} ${message}`);
@@ -363,9 +290,9 @@ exports.handler = async (event, context) => {
            console.error('Connection closed prematurely');
            throw new Error('Connection closed prematurely');
          }
-       });
+       });  
 
-     return c;
+     return c;     
   };
 
   const createGraphTraversalSource = (conn) => {
@@ -381,10 +308,10 @@ exports.handler = async (event, context) => {
   // NOTE: This example uses a fixed interval for simplicity.
   // In a production application consider use of exponential backoff with jitter.
   return async.retry(
-    {
+    { 
       times: 5,
       interval: 1000,
-      errorFilter: function (err) {
+      errorFilter: function (err) { 
 
         // Add filters here to determine whether error can be retried
         console.warn('Determining whether retriable error: ' + err.message);
@@ -410,22 +337,20 @@ exports.handler = async (event, context) => {
           return true;
         }
 
-        return false;
+        return false; 
       }
 
-    },
+    }, 
     doQuery);
 };
 ```
 
 ## Python Lambda function example for Amazon Neptune
+<a name="lambda-functions-examples-python"></a>
 
-Here are some things to notice about the following Python AWS Lambda
-example function:
-
-- It uses the [backoff module](https://pypi.org/project/backoff/ "https://pypi.org/project/backoff/").
-- It sets `pool_size=1` to keep from creating an unnecessary
-  connection pool.
+Here are some things to notice about the following Python AWS Lambda example function:
++ It uses the [backoff module](https://pypi.org/project/backoff/).
++ It sets `pool_size=1` to keep from creating an unnecessary connection pool.
 
 ```
 import os, sys, backoff, math
@@ -578,4 +503,4 @@ g = create_graph_traversal_source(conn)
 
 Here are sample results, showing alternating periods of heavy and light load:
 
-![Diagram showing sample results from the example Python Lambda function.](images/python-lambda-results.png)
+![Diagram showing sample results from the example Python Lambda function.](http://docs.aws.amazon.com/neptune/latest/userguide/images/python-lambda-results.png)

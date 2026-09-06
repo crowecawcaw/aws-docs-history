@@ -1,639 +1,606 @@
+
+
 # IAM actions for administering Amazon Neptune
+<a name="neptune-iam-admin-actions"></a>
 
-You can use the administrative actions listed below in the `Action`
-element of an IAM policy statement to control access to the [Neptune
-management APIs](api.md "api.md"). When you use an action in a policy, you usually allow or deny
-access to the API operation or CLI command with the same name. However, in some cases,
-a single action controls access to more than one operation. Alternatively, some
-operations require several different actions.
+You can use the administrative actions listed below in the `Action` element of an IAM policy statement to control access to the [Neptune management APIs](api.md). When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-The `Resource type` field in the list below indicates whether
-each action supports resource-level permissions. If there is no value in this field,
-you must specify all resources ("\*") in the `Resource` element of your policy
-statement. If the column includes a resource type, then you can specify a resource ARN
-of that type in a statement with that action. Neptune administrative resource
-types are listed on [this page](iam-admin-resources.md "iam-admin-resources.md").
+The `Resource type` field in the list below indicates whether each action supports resource-level permissions. If there is no value in this field, you must specify all resources ("\*") in the `Resource` element of your policy statement. If the column includes a resource type, then you can specify a resource ARN of that type in a statement with that action. Neptune administrative resource types are listed on [this page](iam-admin-resources.md).
 
-Required resources are indicated in the list below with an asterisk (\*).
-If you specify a resource-level permission ARN in a statement using this action,
-then it must be of this type. Some actions support multiple resource types.
-If a resource types is optional (in other words, is not marked with an asterisk),
-then you do not have to include it.
+Required resources are indicated in the list below with an asterisk (\*). If you specify a resource-level permission ARN in a statement using this action, then it must be of this type. Some actions support multiple resource types. If a resource types is optional (in other words, is not marked with an asterisk), then you do not have to include it.
 
-For more information about the fields listed here, see [action table](../../../IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.md#actions_table "../../../IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.md#actions_table") in the [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
+For more information about the fields listed here, see [action table](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html#actions_table) in the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/).
 
 ## rds:AddRoleToDBCluster
+<a name="neptune-iam-admin-actions-AddRoleToDBCluster"></a>
 
-`AddRoleToDBCluster`
-associates an IAM role with a Neptune DB cluster.
+`AddRoleToDBCluster` associates an IAM role with a Neptune DB cluster.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Dependent actions:_ `iam:PassRole`.
+*Dependent actions:* `iam:PassRole`.
 
-_Resource type:_ [cluster](iam-admin-resources.md#neptune-cluster-resource "iam-admin-resources.md#neptune-cluster-resource") (required).
+*Resource type:* [cluster](iam-admin-resources.md#neptune-cluster-resource) (required).
 
 ## rds:AddSourceIdentifierToSubscription
+<a name="neptune-iam-admin-actions-AddSourceIdentifierToSubscription"></a>
 
-`AddSourceIdentifierToSubscription`
-adds a source identifier to an existing Neptune event notification subscription.
+`AddSourceIdentifierToSubscription` adds a source identifier to an existing Neptune event notification subscription.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [es](iam-admin-resources.md#neptune-es-resource "iam-admin-resources.md#neptune-es-resource") (required).
+*Resource type:* [es](iam-admin-resources.md#neptune-es-resource) (required).
 
 ## rds:AddTagsToResource
+<a name="neptune-iam-admin-actions-AddTagsToResource"></a>
 
-`AddTagsToResource`
-associates an IAM role with a Neptune DB cluster.
+`AddTagsToResource` associates an IAM role with a Neptune DB cluster.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource types:_
+*Resource types:*
++ [db](iam-admin-resources.md#neptune-db-resource)
++ [es](iam-admin-resources.md#neptune-es-resource)
++ [pg](iam-admin-resources.md#neptune-pg-resource)
++ [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource)
++ [subgrp](iam-admin-resources.md#neptune-subgrp-resource)
 
-- [db](iam-admin-resources.md#neptune-db-resource "iam-admin-resources.md#neptune-db-resource")
-- [es](iam-admin-resources.md#neptune-es-resource "iam-admin-resources.md#neptune-es-resource")
-- [pg](iam-admin-resources.md#neptune-pg-resource "iam-admin-resources.md#neptune-pg-resource")
-- [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource "iam-admin-resources.md#neptune-cluster-snapshot-resource")
-- [subgrp](iam-admin-resources.md#neptune-subgrp-resource "iam-admin-resources.md#neptune-subgrp-resource")
-
-_Condition Keys:_
-
-- [aws:RequestTag/tag-key](iam-admin-condition-keys.md#admin-aws_RequestTag "iam-admin-condition-keys.md#admin-aws_RequestTag")
-- [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys "iam-admin-condition-keys.md#admin-aws_TagKeys")
+*Condition Keys:*
++ [aws:RequestTag/{{tag-key}}](iam-admin-condition-keys.md#admin-aws_RequestTag)
++ [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys)
 
 ## rds:ApplyPendingMaintenanceAction
+<a name="neptune-iam-admin-actions-ApplyPendingMaintenanceAction"></a>
 
-`ApplyPendingMaintenanceAction`
-applies a pending maintenance action to a resource.
+`ApplyPendingMaintenanceAction` applies a pending maintenance action to a resource.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [db](iam-admin-resources.md#neptune-db-resource "iam-admin-resources.md#neptune-db-resource") (required).
+*Resource type:* [db](iam-admin-resources.md#neptune-db-resource) (required).
 
 ## rds:CopyDBClusterParameterGroup
+<a name="neptune-iam-admin-actions-CopyDBClusterParameterGroup"></a>
 
-`CopyDBClusterParameterGroup`
-copies the specified DB cluster parameter group.
+`CopyDBClusterParameterGroup` copies the specified DB cluster parameter group.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource "iam-admin-resources.md#neptune-cluster-pg-resource") (required).
+*Resource type:* [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource) (required).
 
 ## rds:CopyDBClusterSnapshot
+<a name="neptune-iam-admin-actions-CopyDBClusterSnapshot"></a>
 
-`CopyDBClusterSnapshot`
-copies a snapshot of a DB cluster.
+`CopyDBClusterSnapshot` copies a snapshot of a DB cluster.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource "iam-admin-resources.md#neptune-cluster-snapshot-resource") (required).
+*Resource type:* [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource) (required).
 
 ## rds:CopyDBParameterGroup
+<a name="neptune-iam-admin-actions-CopyDBParameterGroup"></a>
 
-`CopyDBParameterGroup`
-copies the specified DB parameter group.
+`CopyDBParameterGroup` copies the specified DB parameter group.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [pg](iam-admin-resources.md#neptune-pg-resource "iam-admin-resources.md#neptune-pg-resource") (required).
+*Resource type:* [pg](iam-admin-resources.md#neptune-pg-resource) (required).
 
 ## rds:CreateDBCluster
+<a name="neptune-iam-admin-actions-CreateDBCluster"></a>
 
-`CreateDBCluster`
-creates a new Neptune DB cluster.
+`CreateDBCluster` creates a new Neptune DB cluster.
 
-_Access level:_ `Tagging`.
+*Access level:* `Tagging`.
 
-_Dependent actions:_ `iam:PassRole`.
+*Dependent actions:* `iam:PassRole`.
 
-_Resource types:_
+*Resource types:*
++ [cluster](iam-admin-resources.md#neptune-cluster-resource) (required).
++ [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource) (required).
++ [subgrp](iam-admin-resources.md#neptune-subgrp-resource) (required).
 
-- [cluster](iam-admin-resources.md#neptune-cluster-resource "iam-admin-resources.md#neptune-cluster-resource") (required).
-- [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource "iam-admin-resources.md#neptune-cluster-pg-resource") (required).
-- [subgrp](iam-admin-resources.md#neptune-subgrp-resource "iam-admin-resources.md#neptune-subgrp-resource") (required).
-
-_Condition Keys:_
-
-- [aws:RequestTag/tag-key](iam-admin-condition-keys.md#admin-aws_RequestTag "iam-admin-condition-keys.md#admin-aws_RequestTag")
-- [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys "iam-admin-condition-keys.md#admin-aws_TagKeys")
-- [neptune-rds\_DatabaseEngine](iam-admin-condition-keys.md#admin-rds_DatabaseEngine "iam-admin-condition-keys.md#admin-rds_DatabaseEngine")
+*Condition Keys:*
++ [aws:RequestTag/{{tag-key}}](iam-admin-condition-keys.md#admin-aws_RequestTag)
++ [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys)
++ [neptune-rds\_DatabaseEngine](iam-admin-condition-keys.md#admin-rds_DatabaseEngine)
 
 ## rds:CreateDBClusterParameterGroup
+<a name="neptune-iam-admin-actions-CreateDBClusterParameterGroup"></a>
 
-`CreateDBClusterParameterGroup`
-creates a new DB cluster parameter group.
+`CreateDBClusterParameterGroup` creates a new DB cluster parameter group.
 
-_Access level:_ `Tagging`.
+*Access level:* `Tagging`.
 
-_Resource type:_ [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource "iam-admin-resources.md#neptune-cluster-pg-resource") (required).
+*Resource type:* [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource) (required).
 
-_Condition Keys:_
-
-- [aws:RequestTag/tag-key](iam-admin-condition-keys.md#admin-aws_RequestTag "iam-admin-condition-keys.md#admin-aws_RequestTag")
-- [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys "iam-admin-condition-keys.md#admin-aws_TagKeys")
+*Condition Keys:*
++ [aws:RequestTag/{{tag-key}}](iam-admin-condition-keys.md#admin-aws_RequestTag)
++ [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys)
 
 ## rds:CreateDBClusterSnapshot
+<a name="neptune-iam-admin-actions-CreateDBClusterSnapshot"></a>
 
-`CreateDBClusterSnapshot`
-creates a snapshot of a DB cluster.
+`CreateDBClusterSnapshot` creates a snapshot of a DB cluster.
 
-_Access level:_ `Tagging`.
+*Access level:* `Tagging`.
 
-_Resource types:_
+*Resource types:*
++ [cluster](iam-admin-resources.md#neptune-cluster-resource) (required).
++ [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource) (required).
 
-- [cluster](iam-admin-resources.md#neptune-cluster-resource "iam-admin-resources.md#neptune-cluster-resource") (required).
-- [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource "iam-admin-resources.md#neptune-cluster-snapshot-resource") (required).
-
-_Condition Keys:_
-
-- [aws:RequestTag/tag-key](iam-admin-condition-keys.md#admin-aws_RequestTag "iam-admin-condition-keys.md#admin-aws_RequestTag")
-- [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys "iam-admin-condition-keys.md#admin-aws_TagKeys")
+*Condition Keys:*
++ [aws:RequestTag/{{tag-key}}](iam-admin-condition-keys.md#admin-aws_RequestTag)
++ [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys)
 
 ## rds:CreateDBInstance
+<a name="neptune-iam-admin-actions-CreateDBInstance"></a>
 
-`CreateDBInstance`
-creates a new DB instance.
+`CreateDBInstance` creates a new DB instance.
 
-_Access level:_ `Tagging`.
+*Access level:* `Tagging`.
 
-_Dependent actions:_ `iam:PassRole`.
+*Dependent actions:* `iam:PassRole`.
 
-_Resource types:_
+*Resource types:*
++ [db](iam-admin-resources.md#neptune-db-resource) (required).
++ [pg](iam-admin-resources.md#neptune-pg-resource) (required).
++ [subgrp](iam-admin-resources.md#neptune-subgrp-resource) (required).
 
-- [db](iam-admin-resources.md#neptune-db-resource "iam-admin-resources.md#neptune-db-resource") (required).
-- [pg](iam-admin-resources.md#neptune-pg-resource "iam-admin-resources.md#neptune-pg-resource") (required).
-- [subgrp](iam-admin-resources.md#neptune-subgrp-resource "iam-admin-resources.md#neptune-subgrp-resource") (required).
-
-_Condition Keys:_
-
-- [aws:RequestTag/tag-key](iam-admin-condition-keys.md#admin-aws_RequestTag "iam-admin-condition-keys.md#admin-aws_RequestTag")
-- [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys "iam-admin-condition-keys.md#admin-aws_TagKeys")
+*Condition Keys:*
++ [aws:RequestTag/{{tag-key}}](iam-admin-condition-keys.md#admin-aws_RequestTag)
++ [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys)
 
 ## rds:CreateDBParameterGroup
+<a name="neptune-iam-admin-actions-CreateDBParameterGroup"></a>
 
-`CreateDBParameterGroup`
-creates a new DB parameter group.
+`CreateDBParameterGroup` creates a new DB parameter group.
 
-_Access level:_ `Tagging`.
+*Access level:* `Tagging`.
 
-_Resource type:_ [pg](iam-admin-resources.md#neptune-pg-resource "iam-admin-resources.md#neptune-pg-resource") (required).
+*Resource type:* [pg](iam-admin-resources.md#neptune-pg-resource) (required).
 
-_Condition Keys:_
-
-- [aws:RequestTag/tag-key](iam-admin-condition-keys.md#admin-aws_RequestTag "iam-admin-condition-keys.md#admin-aws_RequestTag")
-- [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys "iam-admin-condition-keys.md#admin-aws_TagKeys")
+*Condition Keys:*
++ [aws:RequestTag/{{tag-key}}](iam-admin-condition-keys.md#admin-aws_RequestTag)
++ [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys)
 
 ## rds:CreateDBSubnetGroup
+<a name="neptune-iam-admin-actions-CreateDBSubnetGroup"></a>
 
-`CreateDBSubnetGroup`
-creates a new DB subnet group.
+`CreateDBSubnetGroup` creates a new DB subnet group.
 
-_Access level:_ `Tagging`.
+*Access level:* `Tagging`.
 
-_Resource type:_ [subgrp](iam-admin-resources.md#neptune-subgrp-resource "iam-admin-resources.md#neptune-subgrp-resource") (required).
+*Resource type:* [subgrp](iam-admin-resources.md#neptune-subgrp-resource) (required).
 
-_Condition Keys:_
-
-- [aws:RequestTag/tag-key](iam-admin-condition-keys.md#admin-aws_RequestTag "iam-admin-condition-keys.md#admin-aws_RequestTag")
-- [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys "iam-admin-condition-keys.md#admin-aws_TagKeys")
+*Condition Keys:*
++ [aws:RequestTag/{{tag-key}}](iam-admin-condition-keys.md#admin-aws_RequestTag)
++ [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys)
 
 ## rds:CreateEventSubscription
+<a name="neptune-iam-admin-actions-CreateEventSubscription"></a>
 
-`CreateEventSubscription`
-creates a Neptune event notification subscription.
+`CreateEventSubscription` creates a Neptune event notification subscription.
 
-_Access level:_ `Tagging`.
+*Access level:* `Tagging`.
 
-_Resource type:_ [es](iam-admin-resources.md#neptune-es-resource "iam-admin-resources.md#neptune-es-resource") (required).
+*Resource type:* [es](iam-admin-resources.md#neptune-es-resource) (required).
 
-_Condition Keys:_
-
-- [aws:RequestTag/tag-key](iam-admin-condition-keys.md#admin-aws_RequestTag "iam-admin-condition-keys.md#admin-aws_RequestTag")
-- [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys "iam-admin-condition-keys.md#admin-aws_TagKeys")
+*Condition Keys:*
++ [aws:RequestTag/{{tag-key}}](iam-admin-condition-keys.md#admin-aws_RequestTag)
++ [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys)
 
 ## rds:DeleteDBCluster
+<a name="neptune-iam-admin-actions-DeleteDBCluster"></a>
 
-`DeleteDBCluster`
-deletes an existing Neptune DB cluster.
+`DeleteDBCluster` deletes an existing Neptune DB cluster.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource types:_
-
-- [cluster](iam-admin-resources.md#neptune-cluster-resource "iam-admin-resources.md#neptune-cluster-resource") (required).
-- [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource "iam-admin-resources.md#neptune-cluster-snapshot-resource") (required).
+*Resource types:*
++ [cluster](iam-admin-resources.md#neptune-cluster-resource) (required).
++ [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource) (required).
 
 ## rds:DeleteDBClusterParameterGroup
+<a name="neptune-iam-admin-actions-DeleteDBClusterParameterGroup"></a>
 
-`DeleteDBClusterParameterGroup`
-deletes a specified DB cluster parameter group.
+`DeleteDBClusterParameterGroup` deletes a specified DB cluster parameter group.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource "iam-admin-resources.md#neptune-cluster-pg-resource") (required).
+*Resource type:* [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource) (required).
 
 ## rds:DeleteDBClusterSnapshot
+<a name="neptune-iam-admin-actions-DeleteDBClusterSnapshot"></a>
 
-`DeleteDBClusterSnapshot`
-deletes a DB cluster snapshot.
+`DeleteDBClusterSnapshot` deletes a DB cluster snapshot.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource "iam-admin-resources.md#neptune-cluster-snapshot-resource") (required).
+*Resource type:* [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource) (required).
 
 ## rds:DeleteDBInstance
+<a name="neptune-iam-admin-actions-DeleteDBInstance"></a>
 
-`DeleteDBInstance`
-deletes a specified DB instance.
+`DeleteDBInstance` deletes a specified DB instance.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [db](iam-admin-resources.md#neptune-db-resource "iam-admin-resources.md#neptune-db-resource") (required).
+*Resource type:* [db](iam-admin-resources.md#neptune-db-resource) (required).
 
 ## rds:DeleteDBParameterGroup
+<a name="neptune-iam-admin-actions-DeleteDBParameterGroup"></a>
 
-`DeleteDBParameterGroup`
-deletes a specified DBParameterGroup.
+`DeleteDBParameterGroup` deletes a specified DBParameterGroup.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [pg](iam-admin-resources.md#neptune-pg-resource "iam-admin-resources.md#neptune-pg-resource") (required).
+*Resource type:* [pg](iam-admin-resources.md#neptune-pg-resource) (required).
 
 ## rds:DeleteDBSubnetGroup
+<a name="neptune-iam-admin-actions-DeleteDBSubnetGroup"></a>
 
-`DeleteDBSubnetGroup`
-deletes a DB subnet group.
+`DeleteDBSubnetGroup` deletes a DB subnet group.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [subgrp](iam-admin-resources.md#neptune-subgrp-resource "iam-admin-resources.md#neptune-subgrp-resource") (required).
+*Resource type:* [subgrp](iam-admin-resources.md#neptune-subgrp-resource) (required).
 
 ## rds:DeleteEventSubscription
+<a name="neptune-iam-admin-actions-DeleteEventSubscription"></a>
 
-`DeleteEventSubscription`
-deletes an event notification subscription.
+`DeleteEventSubscription` deletes an event notification subscription.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [es](iam-admin-resources.md#neptune-es-resource "iam-admin-resources.md#neptune-es-resource") (required).
+*Resource type:* [es](iam-admin-resources.md#neptune-es-resource) (required).
 
 ## rds:DescribeDBClusterParameterGroups
+<a name="neptune-iam-admin-actions-DescribeDBClusterParameterGroups"></a>
 
-`DescribeDBClusterParameterGroups`
-returns a list of DBClusterParameterGroup descriptions.
+`DescribeDBClusterParameterGroups` returns a list of DBClusterParameterGroup descriptions.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
-_Resource type:_ [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource "iam-admin-resources.md#neptune-cluster-pg-resource") (required).
+*Resource type:* [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource) (required).
 
 ## rds:DescribeDBClusterParameters
+<a name="neptune-iam-admin-actions-DescribeDBClusterParameters"></a>
 
-`DescribeDBClusterParameters`
-returns the detailed parameter list for a particular DB cluster parameter group.
+`DescribeDBClusterParameters` returns the detailed parameter list for a particular DB cluster parameter group.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
-_Resource type:_ [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource "iam-admin-resources.md#neptune-cluster-pg-resource") (required).
+*Resource type:* [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource) (required).
 
 ## rds:DescribeDBClusterSnapshotAttributes
+<a name="neptune-iam-admin-actions-DescribeDBClusterSnapshotAttributes"></a>
 
-`DescribeDBClusterSnapshotAttributes`
-returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.
+`DescribeDBClusterSnapshotAttributes` returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
-_Resource type:_ [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource "iam-admin-resources.md#neptune-cluster-snapshot-resource") (required).
+*Resource type:* [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource) (required).
 
 ## rds:DescribeDBClusterSnapshots
+<a name="neptune-iam-admin-actions-DescribeDBClusterSnapshots"></a>
 
-`DescribeDBClusterSnapshots`
-returns information about DB cluster snapshots.
+`DescribeDBClusterSnapshots` returns information about DB cluster snapshots.
 
-_Access level:_ `Read`.
+*Access level:* `Read`.
 
 ## rds:DescribeDBClusters
+<a name="neptune-iam-admin-actions-DescribeDBClusters"></a>
 
-`DescribeDBClusters`
-returns information about a provisioned Neptune DB cluster.
+`DescribeDBClusters` returns information about a provisioned Neptune DB cluster.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
-_Resource type:_ [cluster](iam-admin-resources.md#neptune-cluster-resource "iam-admin-resources.md#neptune-cluster-resource") (required).
+*Resource type:* [cluster](iam-admin-resources.md#neptune-cluster-resource) (required).
 
 ## rds:DescribeDBEngineVersions
+<a name="neptune-iam-admin-actions-DescribeDBEngineVersions"></a>
 
-`DescribeDBEngineVersions`
-returns a list of the available DB engines.
+`DescribeDBEngineVersions` returns a list of the available DB engines.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
-_Resource type:_ [pg](iam-admin-resources.md#neptune-pg-resource "iam-admin-resources.md#neptune-pg-resource") (required).
+*Resource type:* [pg](iam-admin-resources.md#neptune-pg-resource) (required).
 
 ## rds:DescribeDBInstances
+<a name="neptune-iam-admin-actions-DescribeDBInstances"></a>
 
-`DescribeDBInstances`
-returns information about DB instances.
+`DescribeDBInstances` returns information about DB instances.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
-_Resource type:_ [es](iam-admin-resources.md#neptune-es-resource "iam-admin-resources.md#neptune-es-resource") (required).
+*Resource type:* [es](iam-admin-resources.md#neptune-es-resource) (required).
 
 ## rds:DescribeDBParameterGroups
+<a name="neptune-iam-admin-actions-DescribeDBParameterGroups"></a>
 
-`DescribeDBParameterGroups`
-returns a list of DBParameterGroup descriptions.
+`DescribeDBParameterGroups` returns a list of DBParameterGroup descriptions.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
-_Resource type:_ [pg](iam-admin-resources.md#neptune-pg-resource "iam-admin-resources.md#neptune-pg-resource") (required).
+*Resource type:* [pg](iam-admin-resources.md#neptune-pg-resource) (required).
 
 ## rds:DescribeDBParameters
+<a name="neptune-iam-admin-actions-DescribeDBParameters"></a>
 
-`DescribeDBParameters`
-returns a detailed parameter list for a particular DB parameter group.
+`DescribeDBParameters` returns a detailed parameter list for a particular DB parameter group.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
-_Resource type:_ [pg](iam-admin-resources.md#neptune-pg-resource "iam-admin-resources.md#neptune-pg-resource") (required).
+*Resource type:* [pg](iam-admin-resources.md#neptune-pg-resource) (required).
 
 ## rds:DescribeDBSubnetGroups
+<a name="neptune-iam-admin-actions-DescribeDBSubnetGroups"></a>
 
-`DescribeDBSubnetGroups`
-returns a list of DBSubnetGroup descriptions.
+`DescribeDBSubnetGroups` returns a list of DBSubnetGroup descriptions.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
-_Resource type:_ [subgrp](iam-admin-resources.md#neptune-subgrp-resource "iam-admin-resources.md#neptune-subgrp-resource") (required).
+*Resource type:* [subgrp](iam-admin-resources.md#neptune-subgrp-resource) (required).
 
 ## rds:DescribeEventCategories
+<a name="neptune-iam-admin-actions-DescribeEventCategories"></a>
 
-`DescribeEventCategories`
-returns a list of categories for all event source types, or, if specified, for a specified source type.
+`DescribeEventCategories` returns a list of categories for all event source types, or, if specified, for a specified source type.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
 ## rds:DescribeEventSubscriptions
+<a name="neptune-iam-admin-actions-DescribeEventSubscriptions"></a>
 
-`DescribeEventSubscriptions`
-lists all the subscription descriptions for a customer account.
+`DescribeEventSubscriptions` lists all the subscription descriptions for a customer account.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
-_Resource type:_ [es](iam-admin-resources.md#neptune-es-resource "iam-admin-resources.md#neptune-es-resource") (required).
+*Resource type:* [es](iam-admin-resources.md#neptune-es-resource) (required).
 
 ## rds:DescribeEvents
+<a name="neptune-iam-admin-actions-DescribeEvents"></a>
 
-`DescribeEvents`
-returns events related to DB instances, DB security groups, and DB
-parameter groups for the past 14 days.
+`DescribeEvents` returns events related to DB instances, DB security groups, and DB parameter groups for the past 14 days.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
-_Resource type:_ [es](iam-admin-resources.md#neptune-es-resource "iam-admin-resources.md#neptune-es-resource") (required).
+*Resource type:* [es](iam-admin-resources.md#neptune-es-resource) (required).
 
 ## rds:DescribeOrderableDBInstanceOptions
+<a name="neptune-iam-admin-actions-DescribeOrderableDBInstanceOptions"></a>
 
-`DescribeOrderableDBInstanceOptions`
-returns a list of orderable DB instance options for the specified engine.
+`DescribeOrderableDBInstanceOptions` returns a list of orderable DB instance options for the specified engine.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
 ## rds:DescribePendingMaintenanceActions
+<a name="neptune-iam-admin-actions-DescribePendingMaintenanceActions"></a>
 
-`DescribePendingMaintenanceActions`
-returns a list of resources (for example, DB instances) that have at least one pending maintenance action.
+`DescribePendingMaintenanceActions` returns a list of resources (for example, DB instances) that have at least one pending maintenance action.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
-_Resource type:_ [db](iam-admin-resources.md#neptune-db-resource "iam-admin-resources.md#neptune-db-resource") (required).
+*Resource type:* [db](iam-admin-resources.md#neptune-db-resource) (required).
 
 ## rds:DescribeValidDBInstanceModifications
+<a name="neptune-iam-admin-actions-DescribeValidDBInstanceModifications"></a>
 
-`DescribeValidDBInstanceModifications`
-lists available modifications you can make to your DB instance.
+`DescribeValidDBInstanceModifications` lists available modifications you can make to your DB instance.
 
-_Access level:_ `List`.
+*Access level:* `List`.
 
-_Resource type:_ [db](iam-admin-resources.md#neptune-db-resource "iam-admin-resources.md#neptune-db-resource") (required).
+*Resource type:* [db](iam-admin-resources.md#neptune-db-resource) (required).
 
 ## rds:FailoverDBCluster
+<a name="neptune-iam-admin-actions-FailoverDBCluster"></a>
 
-`FailoverDBCluster`
-forces a failover for a DB cluster.
+`FailoverDBCluster` forces a failover for a DB cluster.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [cluster](iam-admin-resources.md#neptune-cluster-resource "iam-admin-resources.md#neptune-cluster-resource") (required).
+*Resource type:* [cluster](iam-admin-resources.md#neptune-cluster-resource) (required).
 
 ## rds:ListTagsForResource
+<a name="neptune-iam-admin-actions-ListTagsForResource"></a>
 
-`ListTagsForResource`
-lists all tags on a Neptune resource.
+`ListTagsForResource` lists all tags on a Neptune resource.
 
-_Access level:_ `Read`.
+*Access level:* `Read`.
 
-_Resource types:_
-
-- [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource "iam-admin-resources.md#neptune-cluster-snapshot-resource")
-- [db](iam-admin-resources.md#neptune-db-resource "iam-admin-resources.md#neptune-db-resource")
-- [es](iam-admin-resources.md#neptune-es-resource "iam-admin-resources.md#neptune-es-resource")
-- [pg](iam-admin-resources.md#neptune-pg-resource "iam-admin-resources.md#neptune-pg-resource")
-- [subgrp](iam-admin-resources.md#neptune-subgrp-resource "iam-admin-resources.md#neptune-subgrp-resource")
+*Resource types:*
++ [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource)
++ [db](iam-admin-resources.md#neptune-db-resource)
++ [es](iam-admin-resources.md#neptune-es-resource)
++ [pg](iam-admin-resources.md#neptune-pg-resource)
++ [subgrp](iam-admin-resources.md#neptune-subgrp-resource)
 
 ## rds:ModifyDBCluster
+<a name="neptune-iam-admin-actions-ModifyDBCluster"></a>
 
 `ModifyDBCluster`
 
 Modifies a setting for a Neptune DB cluster.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Dependent actions:_ `iam:PassRole`.
+*Dependent actions:* `iam:PassRole`.
 
-_Resource types:_
-
-- [cluster](iam-admin-resources.md#neptune-cluster-resource "iam-admin-resources.md#neptune-cluster-resource") (required).
-- [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource "iam-admin-resources.md#neptune-cluster-pg-resource") (required).
+*Resource types:*
++ [cluster](iam-admin-resources.md#neptune-cluster-resource) (required).
++ [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource) (required).
 
 ## rds:ModifyDBClusterParameterGroup
+<a name="neptune-iam-admin-actions-ModifyDBClusterParameterGroup"></a>
 
-`ModifyDBClusterParameterGroup`
-modifies the parameters of a DB cluster parameter group.
+`ModifyDBClusterParameterGroup` modifies the parameters of a DB cluster parameter group.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource "iam-admin-resources.md#neptune-cluster-pg-resource") (required).
+*Resource type:* [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource) (required).
 
 ## rds:ModifyDBClusterSnapshotAttribute
+<a name="neptune-iam-admin-actions-ModifyDBClusterSnapshotAttribute"></a>
 
-`ModifyDBClusterSnapshotAttribute`
-adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.
+`ModifyDBClusterSnapshotAttribute` adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource "iam-admin-resources.md#neptune-cluster-snapshot-resource") (required).
+*Resource type:* [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource) (required).
 
 ## rds:ModifyDBInstance
+<a name="neptune-iam-admin-actions-ModifyDBInstance"></a>
 
-`ModifyDBInstance`
-modifies settings for a DB instance.
+`ModifyDBInstance` modifies settings for a DB instance.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Dependent actions:_ `iam:PassRole`.
+*Dependent actions:* `iam:PassRole`.
 
-_Resource types:_
-
-- [db](iam-admin-resources.md#neptune-db-resource "iam-admin-resources.md#neptune-db-resource") (required).
-- [pg](iam-admin-resources.md#neptune-pg-resource "iam-admin-resources.md#neptune-pg-resource") (required).
+*Resource types:*
++ [db](iam-admin-resources.md#neptune-db-resource) (required).
++ [pg](iam-admin-resources.md#neptune-pg-resource) (required).
 
 ## rds:ModifyDBParameterGroup
+<a name="neptune-iam-admin-actions-ModifyDBParameterGroup"></a>
 
-`ModifyDBParameterGroup`
-modifies the parameters of a DB parameter group.
+`ModifyDBParameterGroup` modifies the parameters of a DB parameter group.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [pg](iam-admin-resources.md#neptune-pg-resource "iam-admin-resources.md#neptune-pg-resource") (required).
+*Resource type:* [pg](iam-admin-resources.md#neptune-pg-resource) (required).
 
 ## rds:ModifyDBSubnetGroup
+<a name="neptune-iam-admin-actions-ModifyDBSubnetGroup"></a>
 
-`ModifyDBSubnetGroup`
-modifies an existing DB subnet group.
+`ModifyDBSubnetGroup` modifies an existing DB subnet group.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [subgrp](iam-admin-resources.md#neptune-subgrp-resource "iam-admin-resources.md#neptune-subgrp-resource") (required).
+*Resource type:* [subgrp](iam-admin-resources.md#neptune-subgrp-resource) (required).
 
 ## rds:ModifyEventSubscription
+<a name="neptune-iam-admin-actions-ModifyEventSubscription"></a>
 
-`ModifyEventSubscription`
-modifies an existing Neptune event notification subscription.
+`ModifyEventSubscription` modifies an existing Neptune event notification subscription.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [es](iam-admin-resources.md#neptune-es-resource "iam-admin-resources.md#neptune-es-resource") (required).
+*Resource type:* [es](iam-admin-resources.md#neptune-es-resource) (required).
 
 ## rds:RebootDBInstance
+<a name="neptune-iam-admin-actions-RebootDBInstance"></a>
 
-`RebootDBInstance`
-restarts the database engine service for the instance.
+`RebootDBInstance` restarts the database engine service for the instance.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [db](iam-admin-resources.md#neptune-db-resource "iam-admin-resources.md#neptune-db-resource") (required).
+*Resource type:* [db](iam-admin-resources.md#neptune-db-resource) (required).
 
 ## rds:RemoveRoleFromDBCluster
+<a name="neptune-iam-admin-actions-RemoveRoleFromDBCluster"></a>
 
-`RemoveRoleFromDBCluster`
-disassociates an AWS Identity and Access Management (IAM) role from an Amazon Neptune DB cluster.
+`RemoveRoleFromDBCluster` disassociates an AWS Identity and Access Management (IAM) role from an Amazon Neptune DB cluster.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Dependent actions:_ `iam:PassRole`.
+*Dependent actions:* `iam:PassRole`.
 
-_Resource type:_ [cluster](iam-admin-resources.md#neptune-cluster-resource "iam-admin-resources.md#neptune-cluster-resource") (required).
+*Resource type:* [cluster](iam-admin-resources.md#neptune-cluster-resource) (required).
 
 ## rds:RemoveSourceIdentifierFromSubscription
+<a name="neptune-iam-admin-actions-RemoveSourceIdentifierFromSubscription"></a>
 
-`RemoveSourceIdentifierFromSubscription`
-removes a source identifier from an existing Neptune event notification subscription.
+`RemoveSourceIdentifierFromSubscription` removes a source identifier from an existing Neptune event notification subscription.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [es](iam-admin-resources.md#neptune-es-resource "iam-admin-resources.md#neptune-es-resource") (required).
+*Resource type:* [es](iam-admin-resources.md#neptune-es-resource) (required).
 
 ## rds:RemoveTagsFromResource
+<a name="neptune-iam-admin-actions-RemoveTagsFromResource"></a>
 
-`RemoveTagsFromResource`
-removes metadata tags from a Neptune resource.
+`RemoveTagsFromResource` removes metadata tags from a Neptune resource.
 
-_Access level:_ `Tagging`.
+*Access level:* `Tagging`.
 
-_Resource types:_
+*Resource types:*
++ [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource)
++ [db](iam-admin-resources.md#neptune-db-resource)
++ [es](iam-admin-resources.md#neptune-es-resource)
++ [pg](iam-admin-resources.md#neptune-pg-resource)
++ [subgrp](iam-admin-resources.md#neptune-subgrp-resource)
 
-- [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource "iam-admin-resources.md#neptune-cluster-snapshot-resource")
-- [db](iam-admin-resources.md#neptune-db-resource "iam-admin-resources.md#neptune-db-resource")
-- [es](iam-admin-resources.md#neptune-es-resource "iam-admin-resources.md#neptune-es-resource")
-- [pg](iam-admin-resources.md#neptune-pg-resource "iam-admin-resources.md#neptune-pg-resource")
-- [subgrp](iam-admin-resources.md#neptune-subgrp-resource "iam-admin-resources.md#neptune-subgrp-resource")
-
-_Condition Keys:_
-
-- [aws:RequestTag/tag-key](iam-admin-condition-keys.md#admin-aws_RequestTag "iam-admin-condition-keys.md#admin-aws_RequestTag")
-- [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys "iam-admin-condition-keys.md#admin-aws_TagKeys")
+*Condition Keys:*
++ [aws:RequestTag/{{tag-key}}](iam-admin-condition-keys.md#admin-aws_RequestTag)
++ [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys)
 
 ## rds:ResetDBClusterParameterGroup
+<a name="neptune-iam-admin-actions-ResetDBClusterParameterGroup"></a>
 
-`ResetDBClusterParameterGroup`
-modifies the parameters of a DB cluster parameter group to the default value.
+`ResetDBClusterParameterGroup` modifies the parameters of a DB cluster parameter group to the default value.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource "iam-admin-resources.md#neptune-cluster-pg-resource") (required).
+*Resource type:* [cluster-pg](iam-admin-resources.md#neptune-cluster-pg-resource) (required).
 
 ## rds:ResetDBParameterGroup
+<a name="neptune-iam-admin-actions-ResetDBParameterGroup"></a>
 
-`ResetDBParameterGroup`
-modifies the parameters of a DB parameter group to the engine/system default value.
+`ResetDBParameterGroup` modifies the parameters of a DB parameter group to the engine/system default value.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [pg](iam-admin-resources.md#neptune-pg-resource "iam-admin-resources.md#neptune-pg-resource") (required).
+*Resource type:* [pg](iam-admin-resources.md#neptune-pg-resource) (required).
 
 ## rds:RestoreDBClusterFromSnapshot
+<a name="neptune-iam-admin-actions-RestoreDBClusterFromSnapshot"></a>
 
-`RestoreDBClusterFromSnapshot`
-creates a new DB cluster from a DB cluster snapshot.
+`RestoreDBClusterFromSnapshot` creates a new DB cluster from a DB cluster snapshot.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Dependent actions:_ `iam:PassRole`.
+*Dependent actions:* `iam:PassRole`.
 
-_Resource types:_
+*Resource types:*
++ [cluster](iam-admin-resources.md#neptune-cluster-resource) (required).
++ [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource) (required).
 
-- [cluster](iam-admin-resources.md#neptune-cluster-resource "iam-admin-resources.md#neptune-cluster-resource") (required).
-- [cluster-snapshot](iam-admin-resources.md#neptune-cluster-snapshot-resource "iam-admin-resources.md#neptune-cluster-snapshot-resource") (required).
-
-_Condition Keys:_
-
-- [aws:RequestTag/tag-key](iam-admin-condition-keys.md#admin-aws_RequestTag "iam-admin-condition-keys.md#admin-aws_RequestTag")
-- [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys "iam-admin-condition-keys.md#admin-aws_TagKeys")
+*Condition Keys:*
++ [aws:RequestTag/{{tag-key}}](iam-admin-condition-keys.md#admin-aws_RequestTag)
++ [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys)
 
 ## rds:RestoreDBClusterToPointInTime
+<a name="neptune-iam-admin-actions-RestoreDBClusterToPointInTime"></a>
 
-`RestoreDBClusterToPointInTime`
-restores a DB cluster to an arbitrary point in time.
+`RestoreDBClusterToPointInTime` restores a DB cluster to an arbitrary point in time.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Dependent actions:_ `iam:PassRole`.
+*Dependent actions:* `iam:PassRole`.
 
-_Resource types:_
+*Resource types:*
++ [cluster](iam-admin-resources.md#neptune-cluster-resource) (required).
++ [subgrp](iam-admin-resources.md#neptune-subgrp-resource) (required).
 
-- [cluster](iam-admin-resources.md#neptune-cluster-resource "iam-admin-resources.md#neptune-cluster-resource") (required).
-- [subgrp](iam-admin-resources.md#neptune-subgrp-resource "iam-admin-resources.md#neptune-subgrp-resource") (required).
-
-_Condition Keys:_
-
-- [aws:RequestTag/tag-key](iam-admin-condition-keys.md#admin-aws_RequestTag "iam-admin-condition-keys.md#admin-aws_RequestTag")
-- [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys "iam-admin-condition-keys.md#admin-aws_TagKeys")
+*Condition Keys:*
++ [aws:RequestTag/{{tag-key}}](iam-admin-condition-keys.md#admin-aws_RequestTag)
++ [aws:TagKeys](iam-admin-condition-keys.md#admin-aws_TagKeys)
 
 ## rds:StartDBCluster
+<a name="neptune-iam-admin-actions-StartDBCluster"></a>
 
-`StartDBCluster`
-starts the specified DB cluster.
+`StartDBCluster` starts the specified DB cluster.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [cluster](iam-admin-resources.md#neptune-cluster-resource "iam-admin-resources.md#neptune-cluster-resource") (required).
+*Resource type:* [cluster](iam-admin-resources.md#neptune-cluster-resource) (required).
 
 ## rds:StopDBCluster
+<a name="neptune-iam-admin-actions-StopDBCluster"></a>
 
-`StopDBCluster`
-stops the specified DB cluster.
+`StopDBCluster` stops the specified DB cluster.
 
-_Access level:_ `Write`.
+*Access level:* `Write`.
 
-_Resource type:_ [cluster](iam-admin-resources.md#neptune-cluster-resource "iam-admin-resources.md#neptune-cluster-resource") (required).
+*Resource type:* [cluster](iam-admin-resources.md#neptune-cluster-resource) (required).

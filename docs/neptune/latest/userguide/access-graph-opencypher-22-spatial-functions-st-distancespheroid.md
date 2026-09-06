@@ -1,4 +1,7 @@
+
+
 # ST\_DistanceSpheroid
+<a name="access-graph-opencypher-22-spatial-functions-st-distancespheroid"></a>
 
 Returns the minimum distance in meters between two lon/lat geometries. The spheroid is WGS84/SRID 4326.
 
@@ -9,10 +12,10 @@ ST_DistanceSpheroid(geom1, geom2);
 ```
 
 **Arguments**
++ `geom1` - A value of data type GEOMETRY or an expression that evaluates to a GEOMETRY type.
++ `geom2` - A value of data type GEOMETRY or an expression that evaluates to a GEOMETRY type.
 
-- `geom1` - A value of data type GEOMETRY or an expression that evaluates to a GEOMETRY type.
-- `geom2` - A value of data type GEOMETRY or an expression that evaluates to a GEOMETRY type.
-  **Return type**
+**Return type**
 
 FLOAT
 

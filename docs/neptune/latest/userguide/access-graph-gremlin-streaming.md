@@ -1,42 +1,25 @@
+
+
 # Streaming query results with Gremlin
+<a name="access-graph-gremlin-streaming"></a>
 
-When you run a Gremlin traversal that returns a large number of results, Neptune streams them back
-to the client in batches over the WebSocket connection. Neptune sends result batches as they are produced,
-without waiting for the client to request more. This can be advantageous if you want to process results
-as they are being returned from the server, but requires using lazy iteration patterns to avoid
-collecting the full result set into memory.
+When you run a Gremlin traversal that returns a large number of results, Neptune streams them back to the client in batches over the WebSocket connection. Neptune sends result batches as they are produced, without waiting for the client to request more. This can be advantageous if you want to process results as they are being returned from the server, but requires using lazy iteration patterns to avoid collecting the full result set into memory.
 
-Neptune sends results in batches of 64 per WebSocket frame by default. You cannot change
-this server-side default, but the batch size can be overridden on a per-request basis from the client
-using the [`batchSize`](https://tinkerpop.apache.org/docs/current/reference/#gremlin-java-configuration "https://tinkerpop.apache.org/docs/current/reference/#gremlin-java-configuration")
-request option (called `Tokens.ARGS_BATCH_SIZE` in the Java driver, or
-`connectionPool.resultIterationBatchSize` as a driver-level default).
+Neptune sends results in batches of 64 per WebSocket frame by default. You cannot change this server-side default, but the batch size can be overridden on a per-request basis from the client using the [`batchSize`](https://tinkerpop.apache.org/docs/current/reference/#gremlin-java-configuration) request option (called `Tokens.ARGS_BATCH_SIZE` in the Java driver, or `connectionPool.resultIterationBatchSize` as a driver-level default).
 
-For details on configuring `batchSize` in other language drivers, see the
-Configuration section for each driver in the
-[Apache
-TinkerPop Gremlin Drivers and Variants](https://tinkerpop.apache.org/docs/current/reference/#gremlin-drivers-variants "https://tinkerpop.apache.org/docs/current/reference/#gremlin-drivers-variants") documentation.
+For details on configuring `batchSize` in other language drivers, see the Configuration section for each driver in the [Apache TinkerPop Gremlin Drivers and Variants](https://tinkerpop.apache.org/docs/current/reference/#gremlin-drivers-variants) documentation.
 
-Because the server pushes results automatically, client-side backpressure is handled implicitly through
-TCP and WebSocket flow control. If the client is slow to read from the socket, the server's writes will
-eventually block until the client catches up.
+Because the server pushes results automatically, client-side backpressure is handled implicitly through TCP and WebSocket flow control. If the client is slow to read from the socket, the server's writes will eventually block until the client catches up.
 
-###### Important
-
-Streaming is most effective with traversals that can produce results incrementally. Traversals that
-include `order()`, `groupCount()`, `group()`, `dedup()`, or
-other steps that require the full traversal to complete before emitting results will cause Neptune to
-materialize the entire result set in memory before streaming begins. In these cases, batching still
-reduces per-frame serialization overhead, but does not reduce server-side memory usage.
+**Important**  
+Streaming is most effective with traversals that can produce results incrementally. Traversals that include `order()`, `groupCount()`, `group()`, `dedup()`, or other steps that require the full traversal to complete before emitting results will cause Neptune to materialize the entire result set in memory before streaming begins. In these cases, batching still reduces per-frame serialization overhead, but does not reduce server-side memory usage.
 
 ## Consuming results incrementally
+<a name="access-graph-gremlin-streaming-usage"></a>
 
-To process results as they arrive, iterate lazily using `hasNext()` / `next()`
-or equivalent APIs rather than collecting all results into a list. You can use
-`next(batchSize)` to pull results in application-level batches, allowing you to perform
-intermediate work between batches while the server continues producing results.
+To process results as they arrive, iterate lazily using `hasNext()` / `next()` or equivalent APIs rather than collecting all results into a list. You can use `next(batchSize)` to pull results in application-level batches, allowing you to perform intermediate work between batches while the server continues producing results.
 
-###### Example Java (GLV bytecode)
+**Example Java (GLV bytecode)**  
 
 ```
 GraphTraversalSource g = traversal().withRemote(connection);
@@ -56,7 +39,7 @@ while (traversal.hasNext()) {
 }
 ```
 
-###### Example Python
+**Example Python**  
 
 ```
 g = traversal().with_remote(connection)
@@ -74,7 +57,7 @@ while t.has_next():
     print(f"Batch {batch_num} processing complete\n")
 ```
 
-###### Example Go
+**Example Go**  
 
 ```
 // The Go driver does not support next(n), so batches are accumulated manually.
@@ -112,7 +95,7 @@ for {
 }
 ```
 
-###### Example.NET
+**Example .NET**  
 
 ```
 var g = Traversal().WithRemote(connection);
@@ -134,7 +117,7 @@ while (traversal.HasNext())
 }
 ```
 
-###### Example Node.js
+**Example Node.js**  
 
 ```
 // The Node.js driver does not support next(n), so batches are accumulated manually.
@@ -162,21 +145,14 @@ while (true) {
 ```
 
 ## Eager vs. incremental consumption
+<a name="access-graph-gremlin-streaming-avoid"></a>
 
-Streaming allows you to process results incrementally as additional data is being fetched and
-returned. The following methods block until the entire result set is collected into memory, preventing
-your application from acting on results as they arrive:
+Streaming allows you to process results incrementally as additional data is being fetched and returned. The following methods block until the entire result set is collected into memory, preventing your application from acting on results as they arrive:
++ **Java:** `toList()` or `toSet()`
++ **Python:** `toList()` or `toSet()`
++ **Go:** `ToList()`, `ToSet()`, or `GetResultSet().GetAll()`
++ **.NET:** `ToList()` or `Promise()`
++ **Node.js:** `toList()`
 
-- **Java:** `toList()` or `toSet()`
-- **Python:** `toList()` or `toSet()`
-- **Go:** `ToList()`, `ToSet()`, or
-  `GetResultSet().GetAll()`
-- **.NET:** `ToList()` or `Promise()`
-- **Node.js:** `toList()`
-
-###### Note
-
-Data still flows incrementally over the WebSocket connection even when using these methods.
-The difference is that your application cannot process individual results until the entire collection
-is complete. To process results as they arrive, use the lazy iteration or batch patterns shown in the
-examples above.
+**Note**  
+Data still flows incrementally over the WebSocket connection even when using these methods. The difference is that your application cannot process individual results until the entire collection is complete. To process results as they arrive, use the lazy iteration or batch patterns shown in the examples above.

@@ -1,21 +1,24 @@
+
+
 # Neptune Streams Examples
+<a name="streams-examples"></a>
 
 The following examples show how to access change-log stream data in Amazon Neptune.
 
-###### Topics
-
-- [AT\_SEQUENCE\_NUMBER Change Log](#streams-examples-at_seq "#streams-examples-at_seq")
-- [AFTER\_SEQUENCE\_NUMBER Change Log](#streams-examples-after_seq "#streams-examples-after_seq")
-- [TRIM\_HORIZON Change Log](#streams-examples-trim "#streams-examples-trim")
-- [LATEST Change Log](#streams-examples-trim "#streams-examples-trim")
-- [Compression Change Log](#streams-examples-compress "#streams-examples-compress")
+**Topics**
++ [`AT_SEQUENCE_NUMBER` Change Log](#streams-examples-at_seq)
++ [`AFTER_SEQUENCE_NUMBER` Change Log](#streams-examples-after_seq)
++ [`TRIM_HORIZON` Change Log](#streams-examples-trim)
++ [`LATEST` Change Log](#streams-examples-trim)
++ [Compression Change Log](#streams-examples-compress)
 
 ## `AT_SEQUENCE_NUMBER` Change Log
+<a name="streams-examples-at_seq"></a>
 
 The following example shows a Gremlin or openCypher `AT_SEQUENCE_NUMBER` change log.
 
 ```
-curl -s "https://`Neptune-DNS`:8182/propertygraph/stream?limit=1&commitNum=1&opNum=1&iteratorType=AT_SEQUENCE_NUMBER" |jq
+curl -s "https://{{Neptune-DNS}}:8182/propertygraph/stream?limit=1&commitNum=1&opNum=1&iteratorType=AT_SEQUENCE_NUMBER" |jq
 {
   "lastEventId": {
     "commitNum": 1,
@@ -77,11 +80,12 @@ curl -s "https://localhost:8182/sparql/stream?limit=1&commitNum=1&opNum=1&iterat
 ```
 
 ## `AFTER_SEQUENCE_NUMBER` Change Log
+<a name="streams-examples-after_seq"></a>
 
 The following example shows a Gremlin or openCypher `AFTER_SEQUENCE_NUMBER` change log.
 
 ```
-curl -s "https://`Neptune-DNS`:8182/propertygraph/stream?limit=1&commitNum=1&opNum=1&iteratorType=AFTER_SEQUENCE_NUMBER" |jq
+curl -s "https://{{Neptune-DNS}}:8182/propertygraph/stream?limit=1&commitNum=1&opNum=1&iteratorType=AFTER_SEQUENCE_NUMBER" |jq
 {
   "lastEventId": {
     "commitNum": 2,
@@ -114,11 +118,12 @@ curl -s "https://`Neptune-DNS`:8182/propertygraph/stream?limit=1&commitNum=1&opN
 ```
 
 ## `TRIM_HORIZON` Change Log
+<a name="streams-examples-trim"></a>
 
 The following example shows a Gremlin or openCypher `TRIM_HORIZON` change log.
 
 ```
-curl -s "https://`Neptune-DNS`:8182/propertygraph/stream?limit=1&iteratorType=TRIM_HORIZON" |jq
+curl -s "https://{{Neptune-DNS}}:8182/propertygraph/stream?limit=1&iteratorType=TRIM_HORIZON" |jq
 {
   "lastEventId": {
     "commitNum": 1,
@@ -151,13 +156,12 @@ curl -s "https://`Neptune-DNS`:8182/propertygraph/stream?limit=1&iteratorType=TR
 ```
 
 ## `LATEST` Change Log
+<a name="streams-examples-trim"></a>
 
-The following example shows a Gremlin or openCypher `LATEST` change log.
-Note that the API parameters `limit`, `commitNum`, and
-`opNum` are completely optional.
+The following example shows a Gremlin or openCypher `LATEST` change log. Note that the API parameters `limit`, `commitNum`, and `opNum` are completely optional.
 
 ```
-curl -s "https://`Neptune-DNS`:8182/propertygraph/stream?iteratorType=LATEST" | jq
+curl -s "https://{{Neptune-DNS}}:8182/propertygraph/stream?iteratorType=LATEST" | jq
 {
   "lastEventId": {
     "commitNum": 21,
@@ -192,13 +196,14 @@ curl -s "https://`Neptune-DNS`:8182/propertygraph/stream?iteratorType=LATEST" | 
 ```
 
 ## Compression Change Log
+<a name="streams-examples-compress"></a>
 
 The following example shows a Gremlin or openCypher compression change log.
 
 ```
 curl -sH \
   "Accept-Encoding: gzip" \
-  "https://`Neptune-DNS`:8182/propertygraph/stream?limit=1&commitNum=1" \
+  "https://{{Neptune-DNS}}:8182/propertygraph/stream?limit=1&commitNum=1" \
   -H "Accept-Encoding: gzip" \
   -v |gunzip -|jq
 > GET /propertygraph/stream?limit=1 HTTP/1.1

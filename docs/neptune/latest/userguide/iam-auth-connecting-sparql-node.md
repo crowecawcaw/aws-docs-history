@@ -1,9 +1,12 @@
+
+
 # Connecting to Amazon Neptune databases using IAM authentication with SPARQL and Node.js
+<a name="iam-auth-connecting-sparql-node"></a>
 
 ## Querying using Signature V4 signing and the AWS SDK for Javascript V3
+<a name="iam-auth-querying-sparql-js-sdk-v3"></a>
 
-Here is an example of how to connect to Neptune SPARQL using Node.js with
-Signature Version 4 authentication and the AWS SDK for Javascript V3:
+Here is an example of how to connect to Neptune SPARQL using Node.js with Signature Version 4 authentication and the AWS SDK for Javascript V3:
 
 ```
 const { HttpRequest }  = require('@smithy/protocol-http');
@@ -76,15 +79,15 @@ function runQuery(q) {
 ```
 
 ## Querying using Signature V4 signing and the AWS SDK for Javascript V2
+<a name="iam-auth-querying-sparql-js-sdk-v2"></a>
 
-Here is an example of how to connect to Neptune SPARQL using Node.js with
-Signature Version 4 authentication and the AWS SDK for Javascript V2:
+Here is an example of how to connect to Neptune SPARQL using Node.js with Signature Version 4 authentication and the AWS SDK for Javascript V2:
 
 ```
 var AWS = require('aws-sdk');
 
 var region = 'us-west-2'; // e.g. us-west-1
-var neptune_endpoint = '`your-Neptune-cluster-endpoint`';  // like: '`cluster-id`.`region`.neptune.amazonaws.com'
+var neptune_endpoint = '{{your-Neptune-cluster-endpoint}}';  // like: '{{cluster-id}}.{{region}}.neptune.amazonaws.com'
 var query = `query=PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX class: <http://aws.amazon.com/neptune/csv2rdf/class/>
 PREFIX resource: <http://aws.amazon.com/neptune/csv2rdf/resource/>

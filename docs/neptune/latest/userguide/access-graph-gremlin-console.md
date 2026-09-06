@@ -1,162 +1,136 @@
-# Set up the Gremlin console to connect to a Neptune DB instance
 
-The Gremlin Console allows you to experiment with TinkerPop graphs and queries in a REPL
-(read-eval-print loop) environment.
+
+# Set up the Gremlin console to connect to a Neptune DB instance
+<a name="access-graph-gremlin-console"></a>
+
+The Gremlin Console allows you to experiment with TinkerPop graphs and queries in a REPL (read-eval-print loop) environment.
 
 ## Installing the Gremlin console and connecting to it in the usual way
+<a name="access-graph-gremlin-console-usual-connect"></a>
 
-You can use the Gremlin Console to connect to a remote graph database. The following
-section walks you through installing and configuring the Gremlin Console to connect remotely to a
-Neptune DB instance. You must follow these instructions from an Amazon EC2 instance in the same virtual
-private cloud (VPC) as your Neptune DB instance.
+You can use the Gremlin Console to connect to a remote graph database. The following section walks you through installing and configuring the Gremlin Console to connect remotely to a Neptune DB instance. You must follow these instructions from an Amazon EC2 instance in the same virtual private cloud (VPC) as your Neptune DB instance.
 
-For help connecting to Neptune with SSL/TLS (which is required), see [SSL/TLS configuration](access-graph-gremlin-java.md#access-graph-gremlin-java-ssl "access-graph-gremlin-java.md#access-graph-gremlin-java-ssl").
+For help connecting to Neptune with SSL/TLS (which is required), see [SSL/TLS configuration](access-graph-gremlin-java.md#access-graph-gremlin-java-ssl).
 
-###### Note
+**Note**  
+If you have [IAM authentication enabled](iam-auth-enable.md) on your Neptune DB cluster, follow the instructions in [Connecting to Amazon Neptune databases using IAM authentication with Gremlin console](iam-auth-connecting-gremlin-console.md) to install the Gremlin console rather than the instructions here.
 
-If you have [IAM authentication enabled](iam-auth-enable.md "iam-auth-enable.md") on
-your Neptune DB cluster, follow the instructions in [Connecting to Amazon Neptune databases using IAM authentication with Gremlin console](iam-auth-connecting-gremlin-console.md "iam-auth-connecting-gremlin-console.md") to install the Gremlin console rather
-than the instructions here.
+**To install the Gremlin Console and connect to Neptune**
 
-###### To install the Gremlin Console and connect to Neptune
+1. The Gremlin Console binaries require Java 8 or Java 11. These instructions assume usage of Java 11. You can install Java 11 on your EC2 instance as follows:
+   + If you're using [Amazon Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2):
 
-1. The Gremlin Console binaries require Java 8 or Java 11. These instructions assume
-   usage of Java 11. You can install Java 11 on your EC2 instance as follows:
+     ```
+     sudo amazon-linux-extras install java-openjdk11
+     ```
+   + If you're using [Amazon Linux 2023 (AL2023)](https://docs.aws.amazon.com/linux/al2023/ug/what-is-amazon-linux.html):
 
-   - If you're using [Amazon
-     Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2 "https://aws.amazon.com/amazon-linux-2"):
+     ```
+     sudo yum install java-11-amazon-corretto-devel
+     ```
+   + For other distributions, use whichever of the following is appropriate:
 
-   ```
-   sudo amazon-linux-extras install java-openjdk11
-   ```
-   - If you're using [Amazon
-     Linux 2023 (AL2023)](../../../linux/al2023/ug/what-is-amazon-linux.md "../../../linux/al2023/ug/what-is-amazon-linux.md"):
+     ```
+     sudo yum install java-11-openjdk-devel
+     ```
 
-   ```
-   sudo yum install java-11-amazon-corretto-devel
-   ```
-   - For other distributions, use whichever of the following is appropriate:
+     or:
 
-   ```
-   sudo yum install java-11-openjdk-devel
-   ```
+     ```
+     sudo apt-get install openjdk-11-jdk
+     ```
 
-   or:
+1. Enter the following to set Java 11 as the default runtime on your EC2 instance.
 
    ```
-   sudo apt-get install openjdk-11-jdk
+   sudo /usr/sbin/alternatives --config java
    ```
 
-2. Enter the following to set Java 11 as the default runtime on your EC2 instance.
+   When prompted, enter the number for Java 11.
 
-```
-sudo /usr/sbin/alternatives --config java
-```
+1. Download the appropriate version of the Gremlin Console from the Apache web site. You can check the [Accessing a Neptune graph with Gremlin](access-graph-gremlin.md) to determine which Gremlin version your version of Neptune supports. For example, if you need version 3.7.2, you can download the [Gremlin console](https://archive.apache.org/dist/tinkerpop/3.7.2/apache-tinkerpop-gremlin-console-3.7.2-bin.zip) from the [Apache Tinkerpop](https://tinkerpop.apache.org/download.html) website onto your EC2 instance like this:
 
-When prompted, enter the number for Java 11. 3. Download the appropriate version of the Gremlin Console from the Apache
-web site. You can check the
-[Accessing a Neptune graph with Gremlin](access-graph-gremlin.md "access-graph-gremlin.md")
-to determine which Gremlin version your version of Neptune supports. For example, if you need version
-3.7.2, you can download the [Gremlin console](https://archive.apache.org/dist/tinkerpop/3.7.2/apache-tinkerpop-gremlin-console-3.7.2-bin.zip "https://archive.apache.org/dist/tinkerpop/3.7.2/apache-tinkerpop-gremlin-console-3.7.2-bin.zip") from the [Apache Tinkerpop](https://tinkerpop.apache.org/download.html "https://tinkerpop.apache.org/download.html") website onto your EC2 instance like this:
+   ```
+   wget https://archive.apache.org/dist/tinkerpop/3.7.2/apache-tinkerpop-gremlin-console-3.7.2-bin.zip
+   ```
 
-```
-wget https://archive.apache.org/dist/tinkerpop/3.7.2/apache-tinkerpop-gremlin-console-3.7.2-bin.zip
-```
+1. Unzip the Gremlin Console zip file.
 
-4. Unzip the Gremlin Console zip file.
+   ```
+   unzip apache-tinkerpop-gremlin-console-3.7.2-bin.zip
+   ```
 
-```
-unzip apache-tinkerpop-gremlin-console-3.7.2-bin.zip
-```
+1. Change directories into the unzipped directory.
 
-5. Change directories into the unzipped directory.
+   ```
+   cd apache-tinkerpop-gremlin-console-3.7.2
+   ```
 
-```
-cd apache-tinkerpop-gremlin-console-3.7.2
-```
+1. In the `conf` subdirectory of the extracted directory, create a file named `neptune-remote.yaml` with the following text. Replace {{your-neptune-endpoint}} with the hostname or IP address of your Neptune DB instance. The square brackets (`[ ]`) are required.
+**Note**  
+For information about finding the hostname of your Neptune DB instance, see the [Connecting to Amazon Neptune Endpoints](feature-overview-endpoints.md) section.
 
-6. In the `conf` subdirectory of the extracted directory, create a
-   file named `neptune-remote.yaml` with the following text. Replace
-   `your-neptune-endpoint` with the hostname or IP address of your
-   Neptune DB instance. The square brackets (`[ ]`) are required.
+   ```
+   hosts: [{{your-neptune-endpoint}}]
+   port: 8182
+   connectionPool: { enableSsl: true }
+   serializer: { className: org.apache.tinkerpop.gremlin.util.ser.GraphBinaryMessageSerializerV1,
+                 config: { serializeResultToString: true }}
+   ```
+**Note**  
+ Serializers were moved from the `gremlin-driver` module to the new `gremlin-util` module in version 3.7.0. The package changed from org.apache.tinkerpop.gremlin.driver.ser to org.apache.tinkerpop.gremlin.util.ser. 
 
-###### Note
+1. In a terminal, navigate to the Gremlin Console directory (`apache-tinkerpop-gremlin-console-3.7.2`), and then enter the following command to run the Gremlin Console.
 
-For information about finding the hostname of your Neptune DB instance, see the [Connecting to Amazon Neptune Endpoints](feature-overview-endpoints.md "feature-overview-endpoints.md") section.
+   ```
+   bin/gremlin.sh
+   ```
 
-```
-hosts: [`your-neptune-endpoint`]
-port: 8182
-connectionPool: { enableSsl: true }
-serializer: { className: org.apache.tinkerpop.gremlin.util.ser.GraphBinaryMessageSerializerV1,
-              config: { serializeResultToString: true }}
-```
+   You should see the following output:
 
-###### Note
+   ```
+            \,,,/
+            (o o)
+   -----oOOo-(3)-oOOo-----
+   plugin activated: tinkerpop.server
+   plugin activated: tinkerpop.utilities
+   plugin activated: tinkerpop.tinkergraph
+   gremlin>
+   ```
 
-Serializers were moved from the `gremlin-driver` module to the new `gremlin-util` module in
-version 3.7.0. The package changed from org.apache.tinkerpop.gremlin.driver.ser to
-org.apache.tinkerpop.gremlin.util.ser. 7. In a terminal, navigate to the Gremlin Console directory
-(`apache-tinkerpop-gremlin-console-3.7.2`), and then enter
-the following command to run the Gremlin Console.
+   You are now at the `gremlin>` prompt. You will enter the remaining steps at this prompt.
 
-```
-bin/gremlin.sh
-```
+1. At the `gremlin>` prompt, enter the following to connect to the Neptune DB instance.
 
-You should see the following output:
+   ```
+   :remote connect tinkerpop.server conf/neptune-remote.yaml
+   ```
 
-```
-         \,,,/
-         (o o)
------oOOo-(3)-oOOo-----
-plugin activated: tinkerpop.server
-plugin activated: tinkerpop.utilities
-plugin activated: tinkerpop.tinkergraph
-gremlin>
-```
+1. At the `gremlin>` prompt, enter the following to switch to remote mode. This sends all Gremlin queries to the remote connection.
 
-You are now at the `gremlin>` prompt. You will enter the remaining steps
-at this prompt. 8. At the `gremlin>` prompt, enter the following to connect to the
-Neptune DB instance.
+   ```
+   :remote console
+   ```
 
-```
-:remote connect tinkerpop.server conf/neptune-remote.yaml
-```
+1. Enter the following to send a query to the Gremlin Graph.
 
-9. At the `gremlin>` prompt, enter the following to switch to remote mode.
-   This sends all Gremlin queries to the remote connection.
+   ```
+   g.V().limit(1)
+   ```
 
-```
-:remote console
-```
+1. When you are finished, enter the following to exit the Gremlin Console.
 
-10. Enter the following to send a query to the Gremlin Graph.
+   ```
+   :exit
+   ```
 
-```
-g.V().limit(1)
-```
+**Note**  
+Use a semicolon (`;`) or a newline character (`\n`) to separate each statement.   
+Each traversal preceding the final traversal must end in `next()` to be executed. Only the data from the final traversal is returned.
 
-11. When you are finished, enter the following to exit the Gremlin Console.
-
-```
-:exit
-```
-
-###### Note
-
-Use a semicolon (`;`) or a newline character (`\n`) to separate
-each statement.
-
-Each traversal preceding the final traversal must end in `next()` to be
-executed. Only the data from the final traversal is returned.
-
-For more information on the Neptune implementation of Gremlin, see [Gremlin standards compliance in Amazon Neptune](access-graph-gremlin-differences.md "access-graph-gremlin-differences.md").
+For more information on the Neptune implementation of Gremlin, see [Gremlin standards compliance in Amazon Neptune](access-graph-gremlin-differences.md).
 
 ## IAM authentication
+<a name="access-graph-gremlin-console-iam"></a>
 
-Neptune supports [IAM authentication](iam-auth-enable.md "iam-auth-enable.md")
-to control access to your DB cluster. If you have IAM authentication enabled, you
-need to use Signature Version 4 signing to authenticate your requests. For detailed
-instructions and code examples for connecting from the Gremlin console, see
-[Connecting to Amazon Neptune databases using IAM authentication with Gremlin console](iam-auth-connecting-gremlin-console.md "iam-auth-connecting-gremlin-console.md").
+Neptune supports [IAM authentication](iam-auth-enable.md) to control access to your DB cluster. If you have IAM authentication enabled, you need to use Signature Version 4 signing to authenticate your requests. For detailed instructions and code examples for connecting from the Gremlin console, see [Connecting to Amazon Neptune databases using IAM authentication with Gremlin console](iam-auth-connecting-gremlin-console.md).

@@ -1,305 +1,226 @@
+
+
 # Neptune ML model transform API
+<a name="data-api-dp-ml-transform"></a>
 
 **Model transform actions:**
++ [StartMLModelTransformJob (action)](#StartMLModelTransformJob)
++ [ListMLModelTransformJobs (action)](#ListMLModelTransformJobs)
++ [GetMLModelTransformJob (action)](#GetMLModelTransformJob)
++ [CancelMLModelTransformJob (action)](#CancelMLModelTransformJob)
 
-- [StartMLModelTransformJob (action)](#StartMLModelTransformJob "#StartMLModelTransformJob")
-- [ListMLModelTransformJobs (action)](#ListMLModelTransformJobs "#ListMLModelTransformJobs")
-- [GetMLModelTransformJob (action)](#GetMLModelTransformJob "#GetMLModelTransformJob")
-- [CancelMLModelTransformJob (action)](#CancelMLModelTransformJob "#CancelMLModelTransformJob")
-  **Model transform structures:**
-
-- [CustomModelTransformParameters (structure)](#CustomModelTransformParameters "#CustomModelTransformParameters")
+**Model transform structures:**
++ [CustomModelTransformParameters (structure)](#CustomModelTransformParameters)
 
 ## StartMLModelTransformJob (action)
+<a name="StartMLModelTransformJob"></a>
 
-        The AWS CLI name for this API is: `start-ml-model-transform-job`.
+         The AWS CLI name for this API is: `start-ml-model-transform-job`.
 
-Creates a new model transform job. See [Use
-a trained model to generate new model artifacts](machine-learning-model-transform.md "machine-learning-model-transform.md").
+Creates a new model transform job. See [Use a trained model to generate new model artifacts](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html).
 
-When invoking this operation in a Neptune cluster that has IAM authentication
-enabled, the IAM user or role making the request must have a policy attached that
-allows the [neptune-db:StartMLModelTransformJob](iam-dp-actions.md#startmlmodeltransformjob "iam-dp-actions.md#startmlmodeltransformjob")
-IAM action in that cluster.
+When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the [neptune-db:StartMLModelTransformJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startmlmodeltransformjob) IAM action in that cluster.
 
 **Request**
++ **baseProcessingInstanceType**  (in the CLI: `--base-processing-instance-type`) –  a String, of type: `string` (a UTF-8 encoded string).
 
-- **baseProcessingInstanceType**  (in the CLI: `--base-processing-instance-type`) –  a String, of type: `string` (a UTF-8 encoded string).
+  The type of ML instance used in preparing and managing training of ML models. This is an ML compute instance chosen based on memory requirements for processing the training data and model.
++ **baseProcessingInstanceVolumeSizeInGB**  (in the CLI: `--base-processing-instance-volume-size-in-gb`) –  an Integer, of type: `integer` (a signed 32-bit integer).
 
-The type of ML instance used in preparing and managing training of ML models.
-This is an ML compute instance chosen based on memory requirements for processing
-the training data and model.
+  The disk volume size of the training instance in gigabytes. The default is 0. Both input data and the output model are stored on disk, so the volume size must be large enough to hold both data sets. If not specified or 0, Neptune ML selects a disk volume size based on the recommendation generated in the data processing step.
++ **customModelTransformParameters**  (in the CLI: `--custom-model-transform-parameters`) –  A [CustomModelTransformParameters](#CustomModelTransformParameters) object.
 
-- **baseProcessingInstanceVolumeSizeInGB**  (in the CLI: `--base-processing-instance-volume-size-in-gb`) –  an Integer, of type: `integer` (a signed 32-bit integer).
+  Configuration information for a model transform using a custom model. The `customModelTransformParameters` object contains the following fields, which must have values compatible with the saved model parameters from the training job:
++ **dataProcessingJobId**  (in the CLI: `--data-processing-job-id`) –  a String, of type: `string` (a UTF-8 encoded string).
 
-The disk volume size of the training instance in gigabytes. The default
-is 0. Both input data and the output model are stored on disk, so the volume size
-must be large enough to hold both data sets. If not specified or 0, Neptune ML selects
-a disk volume size based on the recommendation generated in the data processing
-step.
+  The job ID of a completed data-processing job. You must include either `dataProcessingJobId` and a `mlModelTrainingJobId`, or a `trainingJobName`.
++ **id**  (in the CLI: `--id`) –  a String, of type: `string` (a UTF-8 encoded string).
 
-- **customModelTransformParameters**  (in the CLI: `--custom-model-transform-parameters`) –  A [CustomModelTransformParameters](#CustomModelTransformParameters "#CustomModelTransformParameters") object.
+  A unique identifier for the new job. The default is an autogenerated UUID.
++ **mlModelTrainingJobId**  (in the CLI: `--ml-model-training-job-id`) –  a String, of type: `string` (a UTF-8 encoded string).
 
-Configuration information for a model transform using a custom model.
-The `customModelTransformParameters` object contains the following
-fields, which must have values compatible with the saved model parameters from
-the training job:
+  The job ID of a completed model-training job. You must include either `dataProcessingJobId` and a `mlModelTrainingJobId`, or a `trainingJobName`.
++ **modelTransformOutputS3Location**  (in the CLI: `--model-transform-output-s3-location`) –  *Required:* a String, of type: `string` (a UTF-8 encoded string).
 
-- **dataProcessingJobId**  (in the CLI: `--data-processing-job-id`) –  a String, of type: `string` (a UTF-8 encoded string).
+  The location in Amazon S3 where the model artifacts are to be stored.
++ **neptuneIamRoleArn**  (in the CLI: `--neptune-iam-role-arn`) –  a String, of type: `string` (a UTF-8 encoded string).
 
-The job ID of a completed data-processing job. You must include either
-`dataProcessingJobId` and a `mlModelTrainingJobId`,
-or a `trainingJobName`.
+  The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.
++ **s3OutputEncryptionKMSKey**  (in the CLI: `--s-3-output-encryption-kms-key`) –  a String, of type: `string` (a UTF-8 encoded string).
 
-- **id**  (in the CLI: `--id`) –  a String, of type: `string` (a UTF-8 encoded string).
+  The Amazon Key Management Service (KMS) key that SageMaker uses to encrypt the output of the processing job. The default is none.
++ **sagemakerIamRoleArn**  (in the CLI: `--sagemaker-iam-role-arn`) –  a String, of type: `string` (a UTF-8 encoded string).
 
-A unique identifier for the new job. The default is an autogenerated UUID.
+  The ARN of an IAM role for SageMaker execution. This must be listed in your DB cluster parameter group or an error will occur.
++ **securityGroupIds**  (in the CLI: `--security-group-ids`) –  a String, of type: `string` (a UTF-8 encoded string).
 
-- **mlModelTrainingJobId**  (in the CLI: `--ml-model-training-job-id`) –  a String, of type: `string` (a UTF-8 encoded string).
+  The VPC security group IDs. The default is None.
++ **subnets**  (in the CLI: `--subnets`) –  a String, of type: `string` (a UTF-8 encoded string).
 
-The job ID of a completed model-training job. You must include either `dataProcessingJobId`
-and a `mlModelTrainingJobId`, or a `trainingJobName`.
+  The IDs of the subnets in the Neptune VPC. The default is None.
++ **trainingJobName**  (in the CLI: `--training-job-name`) –  a String, of type: `string` (a UTF-8 encoded string).
 
-- **modelTransformOutputS3Location**  (in the CLI: `--model-transform-output-s3-location`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
+  The name of a completed SageMaker training job. You must include either `dataProcessingJobId` and a `mlModelTrainingJobId`, or a `trainingJobName`.
++ **volumeEncryptionKMSKey**  (in the CLI: `--volume-encryption-kms-key`) –  a String, of type: `string` (a UTF-8 encoded string).
 
-The location in Amazon S3 where the model artifacts are to be stored.
-
-- **neptuneIamRoleArn**  (in the CLI: `--neptune-iam-role-arn`) –  a String, of type: `string` (a UTF-8 encoded string).
-
-The ARN of an IAM role that provides Neptune access to SageMaker and Amazon
-S3 resources. This must be listed in your DB cluster parameter group or an error
-will occur.
-
-- **s3OutputEncryptionKMSKey**  (in the CLI: `--s-3-output-encryption-kms-key`) –  a String, of type: `string` (a UTF-8 encoded string).
-
-The Amazon Key Management Service (KMS) key that SageMaker uses to encrypt
-the output of the processing job. The default is none.
-
-- **sagemakerIamRoleArn**  (in the CLI: `--sagemaker-iam-role-arn`) –  a String, of type: `string` (a UTF-8 encoded string).
-
-The ARN of an IAM role for SageMaker execution. This must be listed in your
-DB cluster parameter group or an error will occur.
-
-- **securityGroupIds**  (in the CLI: `--security-group-ids`) –  a String, of type: `string` (a UTF-8 encoded string).
-
-The VPC security group IDs. The default is None.
-
-- **subnets**  (in the CLI: `--subnets`) –  a String, of type: `string` (a UTF-8 encoded string).
-
-The IDs of the subnets in the Neptune VPC. The default is None.
-
-- **trainingJobName**  (in the CLI: `--training-job-name`) –  a String, of type: `string` (a UTF-8 encoded string).
-
-The name of a completed SageMaker training job. You must include either
-`dataProcessingJobId` and a `mlModelTrainingJobId`,
-or a `trainingJobName`.
-
-- **volumeEncryptionKMSKey**  (in the CLI: `--volume-encryption-kms-key`) –  a String, of type: `string` (a UTF-8 encoded string).
-
-The Amazon Key Management Service (KMS) key that SageMaker uses to encrypt
-data on the storage volume attached to the ML compute instances that run the training
-job. The default is None.
+  The Amazon Key Management Service (KMS) key that SageMaker uses to encrypt data on the storage volume attached to the ML compute instances that run the training job. The default is None.
 
 **Response**
++ **arn**   – a String, of type: `string` (a UTF-8 encoded string).
 
-- **arn**   – a String, of type: `string` (a UTF-8 encoded string).
+  The ARN of the model transform job.
++ **creationTimeInMillis**   – a Long, of type: `long` (a signed 64-bit integer).
 
-The ARN of the model transform job.
+  The creation time of the model transform job, in milliseconds.
++ **id**   – a String, of type: `string` (a UTF-8 encoded string).
 
-- **creationTimeInMillis**   – a Long, of type: `long` (a signed 64-bit integer).
+  The unique ID of the new model transform job.
 
-The creation time of the model transform job, in milliseconds.
-
-- **id**   – a String, of type: `string` (a UTF-8 encoded string).
-
-The unique ID of the new model transform job.
-
-###### Errors
-
-- [UnsupportedOperationException](data-api-dp-errors.md#UnsupportedOperationException "data-api-dp-errors.md#UnsupportedOperationException")
-- [BadRequestException](data-api-dp-errors.md#BadRequestException "data-api-dp-errors.md#BadRequestException")
-- [MLResourceNotFoundException](data-api-dp-errors.md#MLResourceNotFoundException "data-api-dp-errors.md#MLResourceNotFoundException")
-- [InvalidParameterException](data-api-dp-errors.md#InvalidParameterException "data-api-dp-errors.md#InvalidParameterException")
-- [ClientTimeoutException](data-api-dp-errors.md#ClientTimeoutException "data-api-dp-errors.md#ClientTimeoutException")
-- [PreconditionsFailedException](data-api-dp-errors.md#PreconditionsFailedException "data-api-dp-errors.md#PreconditionsFailedException")
-- [ConstraintViolationException](data-api-dp-errors.md#ConstraintViolationException "data-api-dp-errors.md#ConstraintViolationException")
-- [InvalidArgumentException](data-api-dp-errors.md#InvalidArgumentException "data-api-dp-errors.md#InvalidArgumentException")
-- [MissingParameterException](data-api-dp-errors.md#MissingParameterException "data-api-dp-errors.md#MissingParameterException")
-- [IllegalArgumentException](data-api-dp-errors.md#IllegalArgumentException "data-api-dp-errors.md#IllegalArgumentException")
-- [TooManyRequestsException](data-api-dp-errors.md#TooManyRequestsException "data-api-dp-errors.md#TooManyRequestsException")
+**Errors**
++ [UnsupportedOperationException](data-api-dp-errors.md#UnsupportedOperationException)
++ [BadRequestException](data-api-dp-errors.md#BadRequestException)
++ [MLResourceNotFoundException](data-api-dp-errors.md#MLResourceNotFoundException)
++ [InvalidParameterException](data-api-dp-errors.md#InvalidParameterException)
++ [ClientTimeoutException](data-api-dp-errors.md#ClientTimeoutException)
++ [PreconditionsFailedException](data-api-dp-errors.md#PreconditionsFailedException)
++ [ConstraintViolationException](data-api-dp-errors.md#ConstraintViolationException)
++ [InvalidArgumentException](data-api-dp-errors.md#InvalidArgumentException)
++ [MissingParameterException](data-api-dp-errors.md#MissingParameterException)
++ [IllegalArgumentException](data-api-dp-errors.md#IllegalArgumentException)
++ [TooManyRequestsException](data-api-dp-errors.md#TooManyRequestsException)
 
 ## ListMLModelTransformJobs (action)
+<a name="ListMLModelTransformJobs"></a>
 
-        The AWS CLI name for this API is: `list-ml-model-transform-jobs`.
+         The AWS CLI name for this API is: `list-ml-model-transform-jobs`.
 
-Returns a list of model transform job IDs. See [Use
-a trained model to generate new model artifacts](machine-learning-model-transform.md "machine-learning-model-transform.md").
+Returns a list of model transform job IDs. See [Use a trained model to generate new model artifacts](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html).
 
-When invoking this operation in a Neptune cluster that has IAM authentication
-enabled, the IAM user or role making the request must have a policy attached that
-allows the [neptune-db:ListMLModelTransformJobs](iam-dp-actions.md#listmlmodeltransformjobs "iam-dp-actions.md#listmlmodeltransformjobs")
-IAM action in that cluster.
+When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the [neptune-db:ListMLModelTransformJobs](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmlmodeltransformjobs) IAM action in that cluster.
 
 **Request**
++ **maxItems**  (in the CLI: `--max-items`) –  a ListMLModelTransformJobsInputMaxItemsInteger, of type: `integer` (a signed 32-bit integer), not less than 1 or more than 1024 ?st?s.
 
-- **maxItems**  (in the CLI: `--max-items`) –  a ListMLModelTransformJobsInputMaxItemsInteger, of type: `integer` (a signed 32-bit integer), not less than 1 or more than 1024 ?st?s.
+  The maximum number of items to return (from 1 to 1024; the default is 10).
++ **neptuneIamRoleArn**  (in the CLI: `--neptune-iam-role-arn`) –  a String, of type: `string` (a UTF-8 encoded string).
 
-The maximum number of items to return (from 1 to 1024; the default is 10).
-
-- **neptuneIamRoleArn**  (in the CLI: `--neptune-iam-role-arn`) –  a String, of type: `string` (a UTF-8 encoded string).
-
-The ARN of an IAM role that provides Neptune access to SageMaker and Amazon
-S3 resources. This must be listed in your DB cluster parameter group or an error
-will occur.
+  The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.
 
 **Response**
++ **ids**   – a String, of type: `string` (a UTF-8 encoded string).
 
-- **ids**   – a String, of type: `string` (a UTF-8 encoded string).
+  A page from the list of model transform IDs.
 
-A page from the list of model transform IDs.
-
-###### Errors
-
-- [UnsupportedOperationException](data-api-dp-errors.md#UnsupportedOperationException "data-api-dp-errors.md#UnsupportedOperationException")
-- [BadRequestException](data-api-dp-errors.md#BadRequestException "data-api-dp-errors.md#BadRequestException")
-- [MLResourceNotFoundException](data-api-dp-errors.md#MLResourceNotFoundException "data-api-dp-errors.md#MLResourceNotFoundException")
-- [InvalidParameterException](data-api-dp-errors.md#InvalidParameterException "data-api-dp-errors.md#InvalidParameterException")
-- [ClientTimeoutException](data-api-dp-errors.md#ClientTimeoutException "data-api-dp-errors.md#ClientTimeoutException")
-- [PreconditionsFailedException](data-api-dp-errors.md#PreconditionsFailedException "data-api-dp-errors.md#PreconditionsFailedException")
-- [ConstraintViolationException](data-api-dp-errors.md#ConstraintViolationException "data-api-dp-errors.md#ConstraintViolationException")
-- [InvalidArgumentException](data-api-dp-errors.md#InvalidArgumentException "data-api-dp-errors.md#InvalidArgumentException")
-- [MissingParameterException](data-api-dp-errors.md#MissingParameterException "data-api-dp-errors.md#MissingParameterException")
-- [IllegalArgumentException](data-api-dp-errors.md#IllegalArgumentException "data-api-dp-errors.md#IllegalArgumentException")
-- [TooManyRequestsException](data-api-dp-errors.md#TooManyRequestsException "data-api-dp-errors.md#TooManyRequestsException")
+**Errors**
++ [UnsupportedOperationException](data-api-dp-errors.md#UnsupportedOperationException)
++ [BadRequestException](data-api-dp-errors.md#BadRequestException)
++ [MLResourceNotFoundException](data-api-dp-errors.md#MLResourceNotFoundException)
++ [InvalidParameterException](data-api-dp-errors.md#InvalidParameterException)
++ [ClientTimeoutException](data-api-dp-errors.md#ClientTimeoutException)
++ [PreconditionsFailedException](data-api-dp-errors.md#PreconditionsFailedException)
++ [ConstraintViolationException](data-api-dp-errors.md#ConstraintViolationException)
++ [InvalidArgumentException](data-api-dp-errors.md#InvalidArgumentException)
++ [MissingParameterException](data-api-dp-errors.md#MissingParameterException)
++ [IllegalArgumentException](data-api-dp-errors.md#IllegalArgumentException)
++ [TooManyRequestsException](data-api-dp-errors.md#TooManyRequestsException)
 
 ## GetMLModelTransformJob (action)
+<a name="GetMLModelTransformJob"></a>
 
-        The AWS CLI name for this API is: `get-ml-model-transform-job`.
+         The AWS CLI name for this API is: `get-ml-model-transform-job`.
 
-Gets information about a specified model transform job. See [Use
-a trained model to generate new model artifacts](machine-learning-model-transform.md "machine-learning-model-transform.md").
+Gets information about a specified model transform job. See [Use a trained model to generate new model artifacts](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html).
 
-When invoking this operation in a Neptune cluster that has IAM authentication
-enabled, the IAM user or role making the request must have a policy attached that
-allows the [neptune-db:GetMLModelTransformJobStatus](iam-dp-actions.md#getmlmodeltransformjobstatus "iam-dp-actions.md#getmlmodeltransformjobstatus")
-IAM action in that cluster.
+When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the [neptune-db:GetMLModelTransformJobStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlmodeltransformjobstatus) IAM action in that cluster.
 
 **Request**
++ **id**  (in the CLI: `--id`) –  *Required:* a String, of type: `string` (a UTF-8 encoded string).
 
-- **id**  (in the CLI: `--id`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
+  The unique identifier of the model-transform job to be reetrieved.
++ **neptuneIamRoleArn**  (in the CLI: `--neptune-iam-role-arn`) –  a String, of type: `string` (a UTF-8 encoded string).
 
-The unique identifier of the model-transform job to be reetrieved.
-
-- **neptuneIamRoleArn**  (in the CLI: `--neptune-iam-role-arn`) –  a String, of type: `string` (a UTF-8 encoded string).
-
-The ARN of an IAM role that provides Neptune access to SageMaker and Amazon
-S3 resources. This must be listed in your DB cluster parameter group or an error
-will occur.
+  The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.
 
 **Response**
++ **baseProcessingJob**   – A [MlResourceDefinition](data-api-dp-ml-data-processing.md#MlResourceDefinition) object.
 
-- **baseProcessingJob**   – A [MlResourceDefinition](data-api-dp-ml-data-processing.md#MlResourceDefinition "data-api-dp-ml-data-processing.md#MlResourceDefinition") object.
+  The base data processing job.
++ **id**   – a String, of type: `string` (a UTF-8 encoded string).
 
-The base data processing job.
+  The unique identifier of the model-transform job to be retrieved.
++ **models**   – An array of [MlConfigDefinition](data-api-dp-ml-data-processing.md#MlConfigDefinition) objects.
 
-- **id**   – a String, of type: `string` (a UTF-8 encoded string).
+  A list of the configuration information for the models being used.
++ **remoteModelTransformJob**   – A [MlResourceDefinition](data-api-dp-ml-data-processing.md#MlResourceDefinition) object.
 
-The unique identifier of the model-transform job to be retrieved.
+  The remote model transform job.
++ **status**   – a String, of type: `string` (a UTF-8 encoded string).
 
-- **models**   – An array of [MlConfigDefinition](data-api-dp-ml-data-processing.md#MlConfigDefinition "data-api-dp-ml-data-processing.md#MlConfigDefinition") objects.
+  The status of the model-transform job.
 
-A list of the configuration information for the models being used.
-
-- **remoteModelTransformJob**   – A [MlResourceDefinition](data-api-dp-ml-data-processing.md#MlResourceDefinition "data-api-dp-ml-data-processing.md#MlResourceDefinition") object.
-
-The remote model transform job.
-
-- **status**   – a String, of type: `string` (a UTF-8 encoded string).
-
-The status of the model-transform job.
-
-###### Errors
-
-- [UnsupportedOperationException](data-api-dp-errors.md#UnsupportedOperationException "data-api-dp-errors.md#UnsupportedOperationException")
-- [BadRequestException](data-api-dp-errors.md#BadRequestException "data-api-dp-errors.md#BadRequestException")
-- [MLResourceNotFoundException](data-api-dp-errors.md#MLResourceNotFoundException "data-api-dp-errors.md#MLResourceNotFoundException")
-- [InvalidParameterException](data-api-dp-errors.md#InvalidParameterException "data-api-dp-errors.md#InvalidParameterException")
-- [ClientTimeoutException](data-api-dp-errors.md#ClientTimeoutException "data-api-dp-errors.md#ClientTimeoutException")
-- [PreconditionsFailedException](data-api-dp-errors.md#PreconditionsFailedException "data-api-dp-errors.md#PreconditionsFailedException")
-- [ConstraintViolationException](data-api-dp-errors.md#ConstraintViolationException "data-api-dp-errors.md#ConstraintViolationException")
-- [InvalidArgumentException](data-api-dp-errors.md#InvalidArgumentException "data-api-dp-errors.md#InvalidArgumentException")
-- [MissingParameterException](data-api-dp-errors.md#MissingParameterException "data-api-dp-errors.md#MissingParameterException")
-- [IllegalArgumentException](data-api-dp-errors.md#IllegalArgumentException "data-api-dp-errors.md#IllegalArgumentException")
-- [TooManyRequestsException](data-api-dp-errors.md#TooManyRequestsException "data-api-dp-errors.md#TooManyRequestsException")
+**Errors**
++ [UnsupportedOperationException](data-api-dp-errors.md#UnsupportedOperationException)
++ [BadRequestException](data-api-dp-errors.md#BadRequestException)
++ [MLResourceNotFoundException](data-api-dp-errors.md#MLResourceNotFoundException)
++ [InvalidParameterException](data-api-dp-errors.md#InvalidParameterException)
++ [ClientTimeoutException](data-api-dp-errors.md#ClientTimeoutException)
++ [PreconditionsFailedException](data-api-dp-errors.md#PreconditionsFailedException)
++ [ConstraintViolationException](data-api-dp-errors.md#ConstraintViolationException)
++ [InvalidArgumentException](data-api-dp-errors.md#InvalidArgumentException)
++ [MissingParameterException](data-api-dp-errors.md#MissingParameterException)
++ [IllegalArgumentException](data-api-dp-errors.md#IllegalArgumentException)
++ [TooManyRequestsException](data-api-dp-errors.md#TooManyRequestsException)
 
 ## CancelMLModelTransformJob (action)
+<a name="CancelMLModelTransformJob"></a>
 
-        The AWS CLI name for this API is: `cancel-ml-model-transform-job`.
+         The AWS CLI name for this API is: `cancel-ml-model-transform-job`.
 
-Cancels a specified model transform job. See [Use
-a trained model to generate new model artifacts](machine-learning-model-transform.md "machine-learning-model-transform.md").
+Cancels a specified model transform job. See [Use a trained model to generate new model artifacts](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html).
 
-When invoking this operation in a Neptune cluster that has IAM authentication
-enabled, the IAM user or role making the request must have a policy attached that
-allows the [neptune-db:CancelMLModelTransformJob](iam-dp-actions.md#cancelmlmodeltransformjob "iam-dp-actions.md#cancelmlmodeltransformjob")
-IAM action in that cluster.
+When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the [neptune-db:CancelMLModelTransformJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelmlmodeltransformjob) IAM action in that cluster.
 
 **Request**
++ **clean**  (in the CLI: `--clean`) –  a Boolean, of type: `boolean` (a Boolean (true or false) value).
 
-- **clean**  (in the CLI: `--clean`) –  a Boolean, of type: `boolean` (a Boolean (true or false) value).
+  If this flag is set to `TRUE`, all Neptune ML S3 artifacts should be deleted when the job is stopped. The default is `FALSE`.
++ **id**  (in the CLI: `--id`) –  *Required:* a String, of type: `string` (a UTF-8 encoded string).
 
-If this flag is set to `TRUE`, all Neptune ML S3 artifacts should
-be deleted when the job is stopped. The default is `FALSE`.
+  The unique ID of the model transform job to be canceled.
++ **neptuneIamRoleArn**  (in the CLI: `--neptune-iam-role-arn`) –  a String, of type: `string` (a UTF-8 encoded string).
 
-- **id**  (in the CLI: `--id`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
-
-The unique ID of the model transform job to be canceled.
-
-- **neptuneIamRoleArn**  (in the CLI: `--neptune-iam-role-arn`) –  a String, of type: `string` (a UTF-8 encoded string).
-
-The ARN of an IAM role that provides Neptune access to SageMaker and Amazon
-S3 resources. This must be listed in your DB cluster parameter group or an error
-will occur.
+  The ARN of an IAM role that provides Neptune access to SageMaker and Amazon S3 resources. This must be listed in your DB cluster parameter group or an error will occur.
 
 **Response**
++ **status**   – a String, of type: `string` (a UTF-8 encoded string).
 
-- **status**   – a String, of type: `string` (a UTF-8 encoded string).
+  the status of the cancelation.
 
-the status of the cancelation.
+**Errors**
++ [UnsupportedOperationException](data-api-dp-errors.md#UnsupportedOperationException)
++ [BadRequestException](data-api-dp-errors.md#BadRequestException)
++ [MLResourceNotFoundException](data-api-dp-errors.md#MLResourceNotFoundException)
++ [InvalidParameterException](data-api-dp-errors.md#InvalidParameterException)
++ [ClientTimeoutException](data-api-dp-errors.md#ClientTimeoutException)
++ [PreconditionsFailedException](data-api-dp-errors.md#PreconditionsFailedException)
++ [ConstraintViolationException](data-api-dp-errors.md#ConstraintViolationException)
++ [InvalidArgumentException](data-api-dp-errors.md#InvalidArgumentException)
++ [MissingParameterException](data-api-dp-errors.md#MissingParameterException)
++ [IllegalArgumentException](data-api-dp-errors.md#IllegalArgumentException)
++ [TooManyRequestsException](data-api-dp-errors.md#TooManyRequestsException)
 
-###### Errors
-
-- [UnsupportedOperationException](data-api-dp-errors.md#UnsupportedOperationException "data-api-dp-errors.md#UnsupportedOperationException")
-- [BadRequestException](data-api-dp-errors.md#BadRequestException "data-api-dp-errors.md#BadRequestException")
-- [MLResourceNotFoundException](data-api-dp-errors.md#MLResourceNotFoundException "data-api-dp-errors.md#MLResourceNotFoundException")
-- [InvalidParameterException](data-api-dp-errors.md#InvalidParameterException "data-api-dp-errors.md#InvalidParameterException")
-- [ClientTimeoutException](data-api-dp-errors.md#ClientTimeoutException "data-api-dp-errors.md#ClientTimeoutException")
-- [PreconditionsFailedException](data-api-dp-errors.md#PreconditionsFailedException "data-api-dp-errors.md#PreconditionsFailedException")
-- [ConstraintViolationException](data-api-dp-errors.md#ConstraintViolationException "data-api-dp-errors.md#ConstraintViolationException")
-- [InvalidArgumentException](data-api-dp-errors.md#InvalidArgumentException "data-api-dp-errors.md#InvalidArgumentException")
-- [MissingParameterException](data-api-dp-errors.md#MissingParameterException "data-api-dp-errors.md#MissingParameterException")
-- [IllegalArgumentException](data-api-dp-errors.md#IllegalArgumentException "data-api-dp-errors.md#IllegalArgumentException")
-- [TooManyRequestsException](data-api-dp-errors.md#TooManyRequestsException "data-api-dp-errors.md#TooManyRequestsException")
-
-## _Model transform structures:_
+## *Model transform structures:*
+<a name="data-api-dp-ml-transform-model-transform-structures-spacer"></a>
 
 ## CustomModelTransformParameters (structure)
+<a name="CustomModelTransformParameters"></a>
 
-Contains custom model transform parameters. See [Use
-a trained model to generate new model artifacts](machine-learning-model-transform.md "machine-learning-model-transform.md").
+Contains custom model transform parameters. See [Use a trained model to generate new model artifacts](https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html).
 
-###### Fields
+**Fields**
++ **sourceS3DirectoryPath** – This is *Required:* a String, of type: `string` (a UTF-8 encoded string).
 
-- **sourceS3DirectoryPath** – This is _Required:_ a String, of type: `string` (a UTF-8 encoded string).
+  The path to the Amazon S3 location where the Python module implementing your model is located. This must point to a valid existing Amazon S3 location that contains, at a minimum, a training script, a transform script, and a `model-hpo-configuration.json` file.
++ **transformEntryPointScript** – This is a String, of type: `string` (a UTF-8 encoded string).
 
-The path to the Amazon S3 location where the Python module implementing
-your model is located. This must point to a valid existing Amazon S3 location that
-contains, at a minimum, a training script, a transform script, and a `model-hpo-configuration.json`
-file.
-
-- **transformEntryPointScript** – This is a String, of type: `string` (a UTF-8 encoded string).
-
-The name of the entry point in your module of a script that should be run after
-the best model from the hyperparameter search has been identified, to compute
-the model artifacts necessary for model deployment. It should be able to run with
-no command-line arguments. The default is `transform.py`.
+  The name of the entry point in your module of a script that should be run after the best model from the hyperparameter search has been identified, to compute the model artifacts necessary for model deployment. It should be able to run with no command-line arguments. The default is `transform.py`.

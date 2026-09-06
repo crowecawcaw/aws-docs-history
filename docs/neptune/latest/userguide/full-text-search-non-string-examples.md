@@ -1,15 +1,17 @@
-# Sample non-string OpenSearch queries in Neptune
 
-Neptune does not currently support OpenSearch range queries directly. However,
-you can achieve the same effect using Lucene syntax and query-type="query\_string",
-as you can see in the following sample queries.
+
+# Sample non-string OpenSearch queries in Neptune
+<a name="full-text-search-non-string-examples"></a>
+
+Neptune does not currently support OpenSearch range queries directly. However, you can achieve the same effect using Lucene syntax and query-type="query\_string", as you can see in the following sample queries.
 
 ## Get all vertices with age greater than 30 and name starting with "Si"
+<a name="full-text-search-non-string-example-1"></a>
 
 In Gremlin:
 
 ```
-g.withSideEffect('Neptune#fts.endpoint', 'http://`your-es-endpoint`')
+g.withSideEffect('Neptune#fts.endpoint', 'http://{{your-es-endpoint}}')
  .withSideEffect("Neptune#fts.queryType", "query_string")
  .V().has('*', 'Neptune#fts predicates.age.value:>30 && predicates.name.value:Si*');
 ```
@@ -30,16 +32,15 @@ SELECT * WHERE {
 }
 ```
 
-Here, `"\\*foaf\\*age` is used instead of the full URI for brevity.
-This regular expression will retrieve all fields have both `foaf` and
-`age` in the URI.
+Here, `"\\*foaf\\*age` is used instead of the full URI for brevity. This regular expression will retrieve all fields have both `foaf` and `age` in the URI.
 
 ## Get all nodes with age between 10 and 50 and a name with a fuzzy match with "Ronka"
+<a name="full-text-search-non-string-example-2"></a>
 
 In Gremlin:
 
 ```
-g.withSideEffect('Neptune#fts.endpoint', '`http://your-es-endpoint`')
+g.withSideEffect('Neptune#fts.endpoint', '{{http://your-es-endpoint}}')
  .withSideEffect("Neptune#fts.queryType", "query_string")
  .V().has('*', 'Neptune#fts predicates.age.value:[10 TO 50] AND predicates.name.value:Ronka~');
 ```
@@ -58,15 +59,15 @@ SELECT * WHERE {
     neptune-fts:config neptune-fts:return ?res .
   }
 }
-
 ```
 
 ## Get all nodes with a timestamp that falls within the last 25 days
+<a name="full-text-search-non-string-example-3"></a>
 
 In Gremlin:
 
 ```
-g.withSideEffect('Neptune#fts.endpoint', '`http://your-es-endpoint`')
+g.withSideEffect('Neptune#fts.endpoint', '{{http://your-es-endpoint}}')
  .withSideEffect("Neptune#fts.queryType", "query_string")
  .V().has('*', 'Neptune#fts predicates.timestamp.value:>now-25d');
 ```
@@ -89,12 +90,12 @@ SELECT * WHERE {
 ```
 
 ## Get all nodes with a timestamp that falls within a given year and month
+<a name="full-text-search-non-string-example-4"></a>
 
-In Gremlin, using [date
-math expressions](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/common-options.html#date-math "https://www.elastic.co/guide/en/elasticsearch/reference/7.x/common-options.html#date-math") in Lucene syntax, for December 2020:
+In Gremlin, using [date math expressions](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/common-options.html#date-math) in Lucene syntax, for December 2020:
 
 ```
-g.withSideEffect('Neptune#fts.endpoint', '`http://your-es-endpoint`')
+g.withSideEffect('Neptune#fts.endpoint', '{{http://your-es-endpoint}}')
  .withSideEffect("Neptune#fts.queryType", "query_string")
  .V().has('*', 'Neptune#fts predicates.timestamp.value:>2020-12');
 ```
@@ -102,7 +103,7 @@ g.withSideEffect('Neptune#fts.endpoint', '`http://your-es-endpoint`')
 A Gremlin alternative:
 
 ```
-g.withSideEffect('Neptune#fts.endpoint', '`http://your-es-endpoint`')
+g.withSideEffect('Neptune#fts.endpoint', '{{http://your-es-endpoint}}')
  .withSideEffect("Neptune#fts.queryType", "query_string")
  .V().has('*', 'Neptune#fts predicates.timestamp.value:[2020-12 TO 2021-01]');
 ```

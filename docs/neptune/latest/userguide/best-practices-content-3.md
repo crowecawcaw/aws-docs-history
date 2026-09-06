@@ -1,13 +1,13 @@
+
+
 # Use flattened maps instead of nested maps in UNWIND clause
+<a name="best-practices-content-3"></a>
 
-Deep nested structure can restrict the ability of the query engine to generate an optimal query plan. To partially
-alleviate this issue, the following defined patterns will create optimal plans for the following scenarios:
+ Deep nested structure can restrict the ability of the query engine to generate an optimal query plan. To partially alleviate this issue, the following defined patterns will create optimal plans for the following scenarios: 
++  Scenario 1: UNWIND with a list of cypher literals, which includes NUMBER, STRING and BOOLEAN. 
++  Scenario 2: UNWIND with a list of flattened maps, which includes only cypher literals (NUMBER, STRING, BOOLEAN) as values. 
 
-- Scenario 1: UNWIND with a list of cypher literals, which includes NUMBER, STRING and BOOLEAN.
-- Scenario 2: UNWIND with a list of flattened maps, which includes only cypher literals (NUMBER, STRING, BOOLEAN)
-  as values.
-
-When writing a query containing UNWIND clause, use the above recommendation to improve performance.
+ When writing a query containing UNWIND clause, use the above recommendation to improve performance. 
 
 Scenario 1 example:
 
@@ -24,8 +24,7 @@ parameters={
 }
 ```
 
-An example for Scenario 2 is to generate a list of nodes to CREATE or MERGE. Instead of issuing multiple statements,
-use the following pattern to define the properties as a set of flattened maps:
+ An example for Scenario 2 is to generate a list of nodes to CREATE or MERGE. Instead of issuing multiple statements, use the following pattern to define the properties as a set of flattened maps: 
 
 ```
 UNWIND $props as p

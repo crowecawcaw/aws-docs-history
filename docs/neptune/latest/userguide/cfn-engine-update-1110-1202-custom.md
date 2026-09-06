@@ -1,10 +1,12 @@
-# Example: Major version upgrade from 1.1.1.0 to 1.2.0.2 with custom parameter groups
 
-Find the `DBCluster` that you want to upgrade, and the template you used to
-create it. For example:
+
+# Example: Major version upgrade from 1.1.1.0 to 1.2.0.2 with custom parameter groups
+<a name="cfn-engine-update-1110-1202-custom"></a>
+
+Find the `DBCluster` that you want to upgrade, and the template you used to create it. For example:
 
 ```
-Description: Base Template to create Neptune Stack with Engine Version 1.1.1.0 using custom Parameter Groups
+Description: Base Template to create Neptune Stack with Engine Version 1.1.1.0 using custom Parameter Groups 
 Parameters:
   DbInstanceType:
     Description: Neptune DB instance type
@@ -53,17 +55,12 @@ Outputs:
     Value:
       Ref: NeptuneDBCluster
 ```
++ Update the custom `DBClusterParameterGroup` family to the one used by the new engine version here `default.neptune1.2`).
++ For each `DBInstance` attached to the `DBCluster`, update the custom `DBParameterGroup` family to the one used by the new engine version (here `default.neptune1.2`).
++ Set the `DBInstanceParameterGroupName` property to the parameter group in that family (here `default.neptune1.2`).
++ Update the `EngineVersion` property from `1.1.0.0` to `1.2.0.2`.
 
-- Update the custom `DBClusterParameterGroup` family to the one used by the new engine version
-  here `default.neptune1.2`).
-- For each `DBInstance` attached to the `DBCluster`,
-  update the custom `DBParameterGroup` family to the one used by the new
-  engine version (here `default.neptune1.2`).
-- Set the `DBInstanceParameterGroupName` property to the
-  parameter group in that family (here `default.neptune1.2`).
-- Update the `EngineVersion` property from `1.1.0.0`
-  to `1.2.0.2`.
-  The template should look like this:
+The template should look like this:
 
 ```
 Description: Template to upgrade major engine version to 1.2.0.2 by modifying existing custom parameter groups

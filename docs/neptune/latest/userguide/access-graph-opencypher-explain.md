@@ -1,39 +1,31 @@
+
+
 # The openCypher `explain` feature
+<a name="access-graph-opencypher-explain"></a>
 
-The openCypher `explain` feature is a self-service tool in Amazon Neptune
-that helps you understand the execution approach taken by the Neptune engine. To invoke
-explain, you pass a parameter to an openCypher [HTTPS](access-graph-opencypher-queries.md "access-graph-opencypher-queries.md")
-request with `explain=`mode``, where the
-`*mode*` value can be one of the following:
+The openCypher `explain` feature is a self-service tool in Amazon Neptune that helps you understand the execution approach taken by the Neptune engine. To invoke explain, you pass a parameter to an openCypher [HTTPS](access-graph-opencypher-queries.md) request with `explain={{mode}}`, where the `mode` value can be one of the following:
++ **`static`**   –   In `static` mode, `explain` prints only the static structure of the query plan. It doesn't actually run the query.
++ **`dynamic`**   –   In `dynamic` mode, `explain` also runs the query, and includes dynamic aspects of the query plan. These may include the number of intermediate bindings flowing through the operators, the ratio of incoming bindings to outgoing bindings, and the total time taken by each operator.
++ **`details`**   –   In `details` mode, `explain` prints the information shown in dynamic mode plus additional details, such as the actual openCypher query string and the estimated range count for the pattern underlying a join operator.
 
-######
+  
 
-- **`static`**   –  
-  In `static` mode, `explain` prints only the static structure
-  of the query plan. It doesn't actually run the query.
-- **`dynamic`**   –  
-  In `dynamic` mode, `explain` also runs the query, and
-  includes dynamic aspects of the query plan. These may include the number of
-  intermediate bindings flowing through the operators, the ratio of incoming
-  bindings to outgoing bindings, and the total time taken by each operator.
-- **`details`**   –  
-  In `details` mode, `explain` prints the information shown
-  in dynamic mode plus additional details, such as the actual openCypher query string
-  and the estimated range count for the pattern underlying a join operator.
-  For example, using `POST` with `dynamic` mode:
+For example, using `POST` with `dynamic` mode:
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws neptunedata execute-open-cypher-explain-query \
-  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --endpoint-url https://{{your-neptune-endpoint}}:{{port}} \
   --open-cypher-query "MATCH (n) RETURN n LIMIT 1" \
   --explain-mode dynamic
 ```
 
-For more information, see [execute-open-cypher-explain-query](../../../cli/latest/reference/neptunedata/execute-open-cypher-explain-query.md "../../../cli/latest/reference/neptunedata/execute-open-cypher-explain-query.md") in the AWS CLI Command Reference.
+For more information, see [execute-open-cypher-explain-query](https://docs.aws.amazon.com/cli/latest/reference/neptunedata/execute-open-cypher-explain-query.html) in the AWS CLI Command Reference.
 
-SDK
+------
+#### [ SDK ]
 
 ```
 import boto3
@@ -41,7 +33,7 @@ from botocore.config import Config
 
 client = boto3.client(
     'neptunedata',
-    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    endpoint_url='https://{{your-neptune-endpoint}}:{{port}}',
     config=Config(read_timeout=None, retries={'total_max_attempts': 1})
 )
 
@@ -53,265 +45,172 @@ response = client.execute_open_cypher_explain_query(
 print(response['results'].read().decode('utf-8'))
 ```
 
-For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md).
 
-awscurl
+------
+#### [ awscurl ]
 
 ```
-awscurl https://`your-neptune-endpoint`:`port`/openCypher \
-  --region `us-east-1` \
+awscurl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
+  --region {{us-east-1}} \
   --service neptune-db \
   -X POST \
   -d "query=MATCH (n) RETURN n LIMIT 1" \
   -d "explain=dynamic"
 ```
 
-###### Note
+**Note**  
+This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
 
-This example assumes that your AWS credentials are configured in your
-environment. Replace `us-east-1` with the Region of your
-Neptune cluster.
-
-curl
+------
+#### [ curl ]
 
 ```
-curl https://`your-neptune-endpoint`:`port`/openCypher \
+curl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=MATCH (n) RETURN n LIMIT 1" \
   -d "explain=dynamic"
 ```
 
+------
+
 ## Limitations for openCypher `explain` in Neptune
+<a name="access-graph-opencypher-explain-limitations"></a>
 
 The current release of openCypher explain has the following limitations:
-
-- Explain plans are currently only available for queries that perform
-  read-only operations. Queries that perform any sort of mutation, such as `CREATE`,
-  `DELETE`, `MERGE`, `SET` and so on, are not
-  supported.
-- Operators and output for a specific plan may change in future releases.
++ Explain plans are currently only available for queries that perform read-only operations. Queries that perform any sort of mutation, such as `CREATE`, `DELETE`, `MERGE`, `SET` and so on, are not supported.
++ Operators and output for a specific plan may change in future releases.
 
 ## DFE operators in openCypher `explain` output
+<a name="access-graph-opencypher-dfe-operators"></a>
 
-To use the information that the openCypher `explain` feature provides,
-you need to understand some details about how the [DFE query engine](neptune-dfe-engine.md "neptune-dfe-engine.md")
-works (DFE being the engine that Neptune uses to process openCypher queries).
+To use the information that the openCypher `explain` feature provides, you need to understand some details about how the [DFE query engine](neptune-dfe-engine.md) works (DFE being the engine that Neptune uses to process openCypher queries).
 
-The DFE engine translates every query into a pipeline of operators. Starting from
-the first operator, intermediate solutions flow from one operator to the next through
-this operator pipeline. Each row in the explain table represents a result, up to the
-point of evaluation.
+The DFE engine translates every query into a pipeline of operators. Starting from the first operator, intermediate solutions flow from one operator to the next through this operator pipeline. Each row in the explain table represents a result, up to the point of evaluation.
 
 The operators that can appear in a DFE query plan are as follows:
 
-**DFEApply**   –  
-Executes the function specified in the arguments section, on the value stored in the specified variable
+**DFEApply**   –   Executes the function specified in the arguments section, on the value stored in the specified variable
 
-**DFEBindRelation**   –  
-Binds together variables with the specified names
+**DFEBindRelation**   –   Binds together variables with the specified names
 
-**DFEChunkLocalSubQuery**   –  
-This is a non-blocking operation that acts as a wrapper around subqueries being performed.
+**DFEChunkLocalSubQuery**   –   This is a non-blocking operation that acts as a wrapper around subqueries being performed.
 
-**DFEDistinctColumn**   –  
-Returns the distinct subset of the input values based on the variable specified.
+**DFEDistinctColumn**   –   Returns the distinct subset of the input values based on the variable specified.
 
-**DFEDistinctRelation**   –  
-Returns the distinct subset of the input solutions based on the variable specified.
+**DFEDistinctRelation**   –   Returns the distinct subset of the input solutions based on the variable specified.
 
-**DFEDrain**   –  
-Appears at the end of a subquery to act as a termination step for that subquery.
-The number of solutions is recorded as `Units In`. `Units Out` is always zero.
+**DFEDrain**   –   Appears at the end of a subquery to act as a termination step for that subquery. The number of solutions is recorded as `Units In`. `Units Out` is always zero.
 
-**DFEForwardValue**   –  
-Copies all input chunks directly as output chunks to be passed to its downstream operator.
+**DFEForwardValue**   –   Copies all input chunks directly as output chunks to be passed to its downstream operator.
 
-**DFEGroupByHashIndex**   –  
-Performs a group-by operation over the input solutions based on a previously computed hash index (using the
-`DFEHashIndexBuild` operation). As an output, the given input is extended by a column containing
-a group key for every input solution.
+**DFEGroupByHashIndex**   –   Performs a group-by operation over the input solutions based on a previously computed hash index (using the `DFEHashIndexBuild` operation). As an output, the given input is extended by a column containing a group key for every input solution.
 
-**DFEHashIndexBuild**   –  
-Builds a hash index over a set of variables as a side-effect. This hash index is typically
-reused in later operations. See `DFEHashIndexJoin` or `DFEGroupByHashIndex`
-for where this hash index might be used.
+**DFEHashIndexBuild**   –   Builds a hash index over a set of variables as a side-effect. This hash index is typically reused in later operations. See `DFEHashIndexJoin` or `DFEGroupByHashIndex` for where this hash index might be used.
 
-**DFEHashIndexJoin**   –  
-Performs a join over the incoming solutions against a previously built hash index. See `DFEHashIndexBuild`
-for where this hash index might be built.
+**DFEHashIndexJoin**   –   Performs a join over the incoming solutions against a previously built hash index. See `DFEHashIndexBuild` for where this hash index might be built.
 
-**DFEJoinExists**   –  
-Takes a left and right hand input relation, and retains values from the left relation that have a corresponding
-value in the right relation as defined by the given join variables.
+**DFEJoinExists**   –   Takes a left and right hand input relation, and retains values from the left relation that have a corresponding value in the right relation as defined by the given join variables. 
 
-  –  
-This is a non-blocking operation that acts as a wrapper for a subquery, allowing it to be
-run repeatedly for use in loops.
+****   –   This is a non-blocking operation that acts as a wrapper for a subquery, allowing it to be run repeatedly for use in loops.
 
-**DFEMergeChunks**   –  
-This is a blocking operation that combines chunks from its upstream operator into a single chunk of solutions
-to pass to its downstream operator (inverse of `DFESplitChunks`).
+**DFEMergeChunks**   –   This is a blocking operation that combines chunks from its upstream operator into a single chunk of solutions to pass to its downstream operator (inverse of `DFESplitChunks`).
 
-**DFEMinus**   –  
-Takes a left and right hand input relation, and retains values from the left relation that
-do not have a corresponding value in the right relation as defined by the given join variables.
-If there is no overlap in variables across both relations, then this operator simply returns
-the left hand input relation.
+**DFEMinus**   –   Takes a left and right hand input relation, and retains values from the left relation that do not have a corresponding value in the right relation as defined by the given join variables. If there is no overlap in variables across both relations, then this operator simply returns the left hand input relation.
 
-**DFENotExists**   –  
-Takes a left and right hand input relation, and retains values from the left relation
-that do not have a corresponding value in the right relation as defined by the given
-join variables. If there is no overlap in variables across both relations, then this
-operator returns an empty relation.
+**DFENotExists**   –   Takes a left and right hand input relation, and retains values from the left relation that do not have a corresponding value in the right relation as defined by the given join variables. If there is no overlap in variables across both relations, then this operator returns an empty relation.
 
-**DFEOptionalJoin**   –  
-Performs a left outer join (also called OPTIONAL join): solutions from the left hand
-side that have at least one join partner in the right-hand side are joined, and solutions
-from the left-hand side without join partner in the right-hand side are forwarded as is.
-This is a blocking operation.
+**DFEOptionalJoin**   –   Performs a left outer join (also called OPTIONAL join): solutions from the left hand side that have at least one join partner in the right-hand side are joined, and solutions from the left-hand side without join partner in the right-hand side are forwarded as is. This is a blocking operation.
 
-**DFEPipelineJoin**   –  
-Joins the input against the tuple pattern defined by the `pattern` argument.
+**DFEPipelineJoin**   –   Joins the input against the tuple pattern defined by the `pattern` argument.
 
-**DFEPipelineRangeCount**   –  
-Counts the number of solutions matching a given pattern, and returns a single one-ary solution containing the count value.
+**DFEPipelineRangeCount**   –   Counts the number of solutions matching a given pattern, and returns a single one-ary solution containing the count value.
 
-**DFEPipelineScan**   –  
-Scans the database for the given `pattern` argument, with or without a given filter on column(s).
+**DFEPipelineScan**   –   Scans the database for the given `pattern` argument, with or without a given filter on column(s).
 
-**DFEProject**   –  
-Takes multiple input columns and projects only the desired columns.
+**DFEProject**   –   Takes multiple input columns and projects only the desired columns.
 
-**DFEReduce**   –  
-Performs the specified aggregation function on specified variables.
+**DFEReduce**   –   Performs the specified aggregation function on specified variables.
 
-**DFERelationalJoin**   –  
-Joins the input of the previous operator based on the specified pattern keys using a merge join.
-This is a blocking operation.
+**DFERelationalJoin**   –   Joins the input of the previous operator based on the specified pattern keys using a merge join. This is a blocking operation.
 
-**DFERouteChunks**   –  
-Takes input chunks from its singular incoming edge and routes those chunks along its multiple outgoing edges.
+**DFERouteChunks**   –   Takes input chunks from its singular incoming edge and routes those chunks along its multiple outgoing edges.
 
-**DFESelectRows**   –  
-This operator selectively takes rows from its left input relation solutions to forward to its
-downstream operator. The rows selected based on the row identifiers supplied in the operator's
-right input relation.
+**DFESelectRows**   –   This operator selectively takes rows from its left input relation solutions to forward to its downstream operator. The rows selected based on the row identifiers supplied in the operator's right input relation.
 
-**DFESerialize**   –  
-Serializes a query’s final results into a JSON string serialization,
-mapping each input solution to the appropriate variable name. For node and edge
-results, these results are serialized into a map of entity properties and metadata.
+**DFESerialize**   –   Serializes a query’s final results into a JSON string serialization, mapping each input solution to the appropriate variable name. For node and edge results, these results are serialized into a map of entity properties and metadata.
 
-**DFESort**   –  
-Takes an input relation and produces a sorted relation based on the provided sort key.
+**DFESort**   –   Takes an input relation and produces a sorted relation based on the provided sort key.
 
-**DFESplitByGroup**   –  
-Splits each single input chunk from one incoming edge into smaller output chunks corresponding to row
-groups identified by row IDs from the corresponding input chunk from the other incoming edge.
+**DFESplitByGroup**   –   Splits each single input chunk from one incoming edge into smaller output chunks corresponding to row groups identified by row IDs from the corresponding input chunk from the other incoming edge.
 
-**DFESplitChunks**   –  
-Splits each single input chunk into smaller output chunks (inverse of `DFEMergeChunks`).
+**DFESplitChunks**   –   Splits each single input chunk into smaller output chunks (inverse of `DFEMergeChunks`).
 
-**DFEStreamingHashIndexBuild**   –  
-Streaming version of `DFEHashIndexBuild`.
+**DFEStreamingHashIndexBuild**   –   Streaming version of `DFEHashIndexBuild`.
 
-**DFEStreamingGroupByHashIndex**   –  
-Streaming version of `DFEGroupByHashIndex`.
+**DFEStreamingGroupByHashIndex**   –   Streaming version of `DFEGroupByHashIndex`.
 
-**DFESubquery**   –  
-This operator appears at the beginning of all plans and encapsulates the portions of the
-plan that are run on the [DFE engine](neptune-dfe-engine.md "neptune-dfe-engine.md"), which is the
-entire plan for openCypher.
+**DFESubquery**   –   This operator appears at the beginning of all plans and encapsulates the portions of the plan that are run on the [DFE engine](neptune-dfe-engine.md), which is the entire plan for openCypher.
 
-**DFESymmetricHashJoin**   –  
-Joins the input of the previous operator based on the specified pattern keys using a hash join. This is a non-blocking operation.
+**DFESymmetricHashJoin**   –   Joins the input of the previous operator based on the specified pattern keys using a hash join. This is a non-blocking operation.
 
-**DFESync**   –  
-This operator is a synchronization operator supporting non-blocking plans. It takes solutions
-from two incoming edges and forwards these solutions to the appropriate downstream edges.
-For synchronization purposes, the inputs along one of these edges may be buffered internally.
+**DFESync**   –   This operator is a synchronization operator supporting non-blocking plans. It takes solutions from two incoming edges and forwards these solutions to the appropriate downstream edges. For synchronization purposes, the inputs along one of these edges may be buffered internally. 
 
-**DFETee**   –  
-This is a branching operator that sends the same set of solutions to multiple operators.
+**DFETee**   –   This is a branching operator that sends the same set of solutions to multiple operators.
 
-**DFETermResolution**   –  
-Performs a localize or globalize operation on its inputs, resulting in columns of either
-localized or globalized identifiers respectively.
+**DFETermResolution**   –   Performs a localize or globalize operation on its inputs, resulting in columns of either localized or globalized identifiers respectively.
 
-  –  
-Unfolds lists of values from an input column into the output column as individual elements.
+****   –   Unfolds lists of values from an input column into the output column as individual elements.
 
-**DFEUnion**   –  
-Takes two or more input relations and produces a union of those relations using the desired output schema.
+**DFEUnion**   –   Takes two or more input relations and produces a union of those relations using the desired output schema.
 
-**SolutionInjection**   –  
-Appears before everything else in the explain output, with a value of 1 in the Units Out column.
-However, it serves as a no-op, and doesn't actually inject any solutions into the DFE engine.
+**SolutionInjection**   –   Appears before everything else in the explain output, with a value of 1 in the Units Out column. However, it serves as a no-op, and doesn't actually inject any solutions into the DFE engine.
 
-**TermResolution**   –  
-Appears at the end of plans and translates objects from the Neptune engine into openCypher objects.
+**TermResolution**   –   Appears at the end of plans and translates objects from the Neptune engine into openCypher objects.
 
 ## Columns in openCypher `explain` output
+<a name="access-graph-opencypher-explain-columns"></a>
 
-The query plan information that Neptune generates as openCypher explain output
-contains tables with one operator per row. The table has the following columns:
+The query plan information that Neptune generates as openCypher explain output contains tables with one operator per row. The table has the following columns:
 
-**ID**   –  
-The numeric ID of this operator in the plan.
+**ID**   –   The numeric ID of this operator in the plan.
 
-**Out #1** (and **Out #2**)   –  
-The ID(s) of operator(s) that are downstream from this operator. There can be at most
-two downstream operators.
+**Out \#1** (and **Out \#2**)   –   The ID(s) of operator(s) that are downstream from this operator. There can be at most two downstream operators.
 
-**Name**   –  
-The name of this operator.
+**Name**   –   The name of this operator.
 
-**Arguments**   –  
-Any relevant details for the operator. This includes things like input schema,
-output schema, pattern (for `PipelineScan` and `PipelineJoin`),
-and so on.
+**Arguments**   –   Any relevant details for the operator. This includes things like input schema, output schema, pattern (for `PipelineScan` and `PipelineJoin`), and so on.
 
-**Mode**   –  
-A label describing fundamental operator behavior. This column is mostly blank (`-`).
-One exception is `TermResolution`, where mode can be `id2value_opencypher`,
-indicating a resolution from ID to openCypher value.
+**Mode**   –   A label describing fundamental operator behavior. This column is mostly blank (`-`). One exception is `TermResolution`, where mode can be `id2value_opencypher`, indicating a resolution from ID to openCypher value.
 
-**Units In**   –  
-The number of solutions passed as input to this operator. Operators without upstream operators,
-such as `DFEPipelineScan`, `SolutionInjections`, and a `DFESubquery`
-with no static value injected, would have zero value.
+**Units In**   –   The number of solutions passed as input to this operator. Operators without upstream operators, such as `DFEPipelineScan`, `SolutionInjections`, and a `DFESubquery` with no static value injected, would have zero value.
 
-**Units Out**   –  
-The number of solutions produced as output of this operator. `DFEDrain` is a special case,
-where the number of solutions being drained is recorded in `Units In` and `Units Out`
-is always zero.
+**Units Out**   –   The number of solutions produced as output of this operator. `DFEDrain` is a special case, where the number of solutions being drained is recorded in `Units In` and `Units Out` is always zero.
 
-**Ratio**   –  
-The ratio of `Units Out` to `Units In`.
+**Ratio**   –   The ratio of `Units Out` to `Units In`.
 
-**Time (ms)**   –  
-The CPU time consumed by this operator, in milliseconds.
+**Time (ms)**   –   The CPU time consumed by this operator, in milliseconds.
 
 ## A basic example of openCypher explain output
+<a name="access-graph-opencypher-explain-basic-example"></a>
 
-The following is a basic example of openCypher `explain` output.
-The query is a single-node lookup in the air routes dataset for a node
-with the airport code `ATL` that invokes `explain` using the
-`details` mode in default ASCII output format.
+The following is a basic example of openCypher `explain` output. The query is a single-node lookup in the air routes dataset for a node with the airport code `ATL` that invokes `explain` using the `details` mode in default ASCII output format.
 
 To invoke `explain` for this query:
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws neptunedata execute-open-cypher-explain-query \
-  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --endpoint-url https://{{your-neptune-endpoint}}:{{port}} \
   --open-cypher-query "MATCH (n {code: 'ATL'}) RETURN n" \
   --explain-mode details
 ```
 
-For more information, see [execute-open-cypher-explain-query](../../../cli/latest/reference/neptunedata/execute-open-cypher-explain-query.md "../../../cli/latest/reference/neptunedata/execute-open-cypher-explain-query.md") in the AWS CLI Command Reference.
+For more information, see [execute-open-cypher-explain-query](https://docs.aws.amazon.com/cli/latest/reference/neptunedata/execute-open-cypher-explain-query.html) in the AWS CLI Command Reference.
 
-SDK
+------
+#### [ SDK ]
 
 ```
 import boto3
@@ -319,7 +218,7 @@ from botocore.config import Config
 
 client = boto3.client(
     'neptunedata',
-    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    endpoint_url='https://{{your-neptune-endpoint}}:{{port}}',
     config=Config(read_timeout=None, retries={'total_max_attempts': 1})
 )
 
@@ -331,32 +230,33 @@ response = client.execute_open_cypher_explain_query(
 print(response['results'].read().decode('utf-8'))
 ```
 
-For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md).
 
-awscurl
+------
+#### [ awscurl ]
 
 ```
-awscurl https://`your-neptune-endpoint`:`port`/openCypher \
-  --region `us-east-1` \
+awscurl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
+  --region {{us-east-1}} \
   --service neptune-db \
   -X POST \
   -d "query=MATCH (n {code: 'ATL'}) RETURN n" \
   -d "explain=details"
 ```
 
-###### Note
+**Note**  
+This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
 
-This example assumes that your AWS credentials are configured in your
-environment. Replace `us-east-1` with the Region of your
-Neptune cluster.
-
-curl
+------
+#### [ curl ]
 
 ```
-curl https://`your-neptune-endpoint`:`port`/openCypher \
+curl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=MATCH (n {code: 'ATL'}) RETURN n" \
   -d "explain=details"
 ```
+
+------
 
 The `explain` output:
 
@@ -419,39 +319,14 @@ subQuery=http://aws.amazon.com/neptune/vocab/v01/dfe/past/graph#9d84f97c-c3b0-45
 ╚════╧════════╧════════╧══════════════════════╧════════════════════════════════════════════════════════════╧══════╧══════════╧═══════════╧═══════╧═══════════╝
 ```
 
-At the top-level, `SolutionInjection` appears before everything else,
-with 1 unit out. Note that it doesn't actually inject any solutions. You can see that the next
-operator, `DFESubquery`, has 0 units in.
+At the top-level, `SolutionInjection` appears before everything else, with 1 unit out. Note that it doesn't actually inject any solutions. You can see that the next operator, `DFESubquery`, has 0 units in.
 
-After `SolutionInjection` at the top-level are `DFESubquery` and
-`TermResolution` operators. `DFESubquery` encapsulates the parts of
-the query execution plan that is being pushed to the [DFE
-engine](neptune-dfe-engine.md "neptune-dfe-engine.md") (for openCypher queries, the entire query plan is executed by the DFE).
-All the operators in the query plan are nested inside `subQuery1` that is
-referenced by `DFESubquery`. The only exception is `TermResolution`,
-which materializes internal IDs into fully serialized openCypher objects.
+After `SolutionInjection` at the top-level are `DFESubquery` and `TermResolution` operators. `DFESubquery` encapsulates the parts of the query execution plan that is being pushed to the [DFE engine](neptune-dfe-engine.md) (for openCypher queries, the entire query plan is executed by the DFE). All the operators in the query plan are nested inside `subQuery1` that is referenced by `DFESubquery`. The only exception is `TermResolution`, which materializes internal IDs into fully serialized openCypher objects.
 
-All the operators that are pushed down to the DFE engine have names that start with
-a `DFE` prefix. As mentioned above, the whole openCypher query plan is
-executed by the DFE, so as a result, all the operators except the final `TermResolution`
-operator start with `DFE`.
+All the operators that are pushed down to the DFE engine have names that start with a `DFE` prefix. As mentioned above, the whole openCypher query plan is executed by the DFE, so as a result, all the operators except the final `TermResolution` operator start with `DFE`.
 
-Inside `subQuery1`, there can be zero or more `DFEChunkLocalSubQuery`
-or `DFELoopSubQuery` operators that encapsulate a part of the pushed execution
-plan that is executed in a memory-bounded mechanism. `DFEChunkLocalSubQuery` here
-contains one `SolutionInjection` that is used as an input to the subquery.
-To find the table for that subquery in the output, search for the
-`subQuery=`graph URI`` specified in the `Arguments`
-column for the `DFEChunkLocalSubQuery` or `DFELoopSubQuery` operator.
+Inside `subQuery1`, there can be zero or more `DFEChunkLocalSubQuery` or `DFELoopSubQuery` operators that encapsulate a part of the pushed execution plan that is executed in a memory-bounded mechanism. `DFEChunkLocalSubQuery` here contains one `SolutionInjection` that is used as an input to the subquery. To find the table for that subquery in the output, search for the `subQuery={{graph URI}}` specified in the `Arguments` column for the `DFEChunkLocalSubQuery` or `DFELoopSubQuery` operator.
 
-In `subQuery1`, `DFEPipelineScan` with `ID` 0 scans
-the database for a specified `pattern`. The pattern scans for an entity with
-property `code` saved as a variable `?n_code2` over all labels
-(you could filter on a specific label by appending `airport` to `n:airport`).
-The `inlineFilters` argument shows the filtering for the `code`
-property equalling `ATL`.
+In `subQuery1`, `DFEPipelineScan` with `ID` 0 scans the database for a specified `pattern`. The pattern scans for an entity with property `code` saved as a variable `?n_code2` over all labels (you could filter on a specific label by appending `airport` to `n:airport`). The `inlineFilters` argument shows the filtering for the `code` property equalling `ATL`.
 
-Next, the `DFEChunkLocalSubQuery` operator joins the intermediate results
-of a subquery that contains `DFEPipelineJoin`. This ensures that `?n`
-is actually a node, since the previous `DFEPipelineScan` scans for any entity
-with the `code` property.
+Next, the `DFEChunkLocalSubQuery` operator joins the intermediate results of a subquery that contains `DFEPipelineJoin`. This ensures that `?n` is actually a node, since the previous `DFEPipelineScan` scans for any entity with the `code` property.

@@ -1,160 +1,142 @@
+
+
 # Using the AWS SDK to run Gremlin queries
+<a name="access-graph-gremlin-sdk"></a>
 
-With the AWS SDK, you can run Gremlin queries against your Neptune graph using
-a programming language of your choice. The Neptune data API SDK (service name
-`neptunedata`) provides the
-[ExecuteGremlinQuery](../data-api/API_ExecuteGremlinQuery.md "../data-api/API_ExecuteGremlinQuery.md")
-action for submitting Gremlin queries.
+With the AWS SDK, you can run Gremlin queries against your Neptune graph using a programming language of your choice. The Neptune data API SDK (service name `neptunedata`) provides the [ExecuteGremlinQuery](https://docs.aws.amazon.com/neptune/latest/data-api/API_ExecuteGremlinQuery.html) action for submitting Gremlin queries.
 
-You must run these examples from an Amazon EC2 instance in the same virtual private
-cloud (VPC) as your Neptune DB cluster, or from a location that has network
-connectivity to your cluster endpoint.
+You must run these examples from an Amazon EC2 instance in the same virtual private cloud (VPC) as your Neptune DB cluster, or from a location that has network connectivity to your cluster endpoint.
 
-Direct links to the API reference documentation for the `neptunedata`
-service in each SDK language can be found below:
+Direct links to the API reference documentation for the `neptunedata` service in each SDK language can be found below:
 
-| Programming language | neptunedata API reference                                                                                                                                                                                                                                                                                                             |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| C++                  | [https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-neptunedata/html/annotated.html](https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-neptunedata/html/annotated.html "https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-neptunedata/html/annotated.html")                                                                   |
-| Go                   | [https://docs.aws.amazon.com/sdk-for-go/api/service/neptunedata/](../../../sdk-for-go/api/service/neptunedata.md "../../../sdk-for-go/api/service/neptunedata.md")                                                                                                                                                                    |
-| Java                 | [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/neptunedata/package-summary.html](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/neptunedata/package-summary.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/neptunedata/package-summary.html") |
-| JavaScript           | [https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/](../../../AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata.md "../../../AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata.md")                                                                                |
-| Kotlin               | [https://sdk.amazonaws.com/kotlin/api/latest/neptunedata/index.html](https://sdk.amazonaws.com/kotlin/api/latest/neptunedata/index.html "https://sdk.amazonaws.com/kotlin/api/latest/neptunedata/index.html")                                                                                                                         |
-| .NET                 | [https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/Neptunedata/NNeptunedata.html](../../../sdkfornet/v3/apidocs/items/Neptunedata/NNeptunedata.md "../../../sdkfornet/v3/apidocs/items/Neptunedata/NNeptunedata.md")                                                                                                             |
-| PHP                  | [https://docs.aws.amazon.com/aws-sdk-php/v3/api/namespace-Aws.Neptunedata.html](../../../aws-sdk-php/v3/api/namespace-Aws.Neptunedata.md "../../../aws-sdk-php/v3/api/namespace-Aws.Neptunedata.md")                                                                                                                                  |
-| Python               | [https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptunedata.html](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptunedata.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptunedata.html")                                              |
-| Ruby                 | [https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/Neptunedata.html](../../../sdk-for-ruby/v3/api/Aws/Neptunedata.md "../../../sdk-for-ruby/v3/api/Aws/Neptunedata.md")                                                                                                                                                             |
-| Rust                 | [https://crates.io/crates/aws-sdk-neptunedata](https://crates.io/crates/aws-sdk-neptunedata "https://crates.io/crates/aws-sdk-neptunedata")                                                                                                                                                                                           |
-| CLI                  | [https://docs.aws.amazon.com/cli/latest/reference/neptunedata/](../../../cli/latest/reference/neptunedata.md "../../../cli/latest/reference/neptunedata.md")                                                                                                                                                                          |
+
+| Programming language | neptunedata API reference | 
+| --- | --- | 
+| C\+\+ | [https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-neptunedata/html/annotated.html](https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-neptunedata/html/annotated.html) | 
+| Go | [https://docs.aws.amazon.com/sdk-for-go/api/service/neptunedata/](https://docs.aws.amazon.com/sdk-for-go/api/service/neptunedata/) | 
+| Java | [https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/neptunedata/package-summary.html](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/neptunedata/package-summary.html) | 
+| JavaScript | [https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/) | 
+| Kotlin | [https://sdk.amazonaws.com/kotlin/api/latest/neptunedata/index.html](https://sdk.amazonaws.com/kotlin/api/latest/neptunedata/index.html) | 
+| .NET | [https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/Neptunedata/NNeptunedata.html](https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/Neptunedata/NNeptunedata.html) | 
+| PHP | [https://docs.aws.amazon.com/aws-sdk-php/v3/api/namespace-Aws.Neptunedata.html](https://docs.aws.amazon.com/aws-sdk-php/v3/api/namespace-Aws.Neptunedata.html) | 
+| Python | [https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptunedata.html](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptunedata.html) | 
+| Ruby | [https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/Neptunedata.html](https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/Neptunedata.html) | 
+| Rust | [https://crates.io/crates/aws-sdk-neptunedata](https://crates.io/crates/aws-sdk-neptunedata) | 
+| CLI | [https://docs.aws.amazon.com/cli/latest/reference/neptunedata/](https://docs.aws.amazon.com/cli/latest/reference/neptunedata/) | 
 
 ## Gremlin AWS SDK examples
+<a name="access-graph-gremlin-sdk-examples"></a>
 
-The following examples show how to set up a `neptunedata` client,
-run a Gremlin query, and print the results. Replace
-`YOUR_NEPTUNE_HOST` and `YOUR_NEPTUNE_PORT`
-with the endpoint and port of your Neptune DB cluster.
+The following examples show how to set up a `neptunedata` client, run a Gremlin query, and print the results. Replace {{YOUR\_NEPTUNE\_HOST}} and {{YOUR\_NEPTUNE\_PORT}} with the endpoint and port of your Neptune DB cluster.
 
-###### Client-side timeout and retry configuration
+**Client-side timeout and retry configuration**  
+The SDK client timeout controls how long the *client* waits for a response. It does not control how long the query runs on the server. If the client times out before the server finishes, the query may continue running on Neptune while the client has no way to retrieve the results.  
+We recommend setting the client-side read timeout to `0` (no timeout) or to a value that is at least a few seconds longer than the server-side [neptune\_query\_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout) setting on your Neptune DB cluster. This lets Neptune control when queries time out.  
+We also recommend setting the maximum retry attempts to `1` (no retries). If the SDK retries a query that is still running on the server, it can result in duplicate operations. This is especially important for mutation queries, where a retry could cause unintended duplicate writes.
 
-The SDK client timeout controls how long the _client_ waits
-for a response. It does not control how long the query runs on the server. If the
-client times out before the server finishes, the query may continue running on
-Neptune while the client has no way to retrieve the results.
+------
+#### [ Python ]
 
-We recommend setting the client-side read timeout to `0` (no timeout)
-or to a value that is at least a few seconds longer than the server-side
-[neptune\_query\_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout "parameters.md#parameters-db-cluster-parameters-neptune_query_timeout")
-setting on your Neptune DB cluster. This lets Neptune control when queries
-time out.
+1. Follow the [installation instructions](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) to install Boto3.
 
-We also recommend setting the maximum retry attempts to `1` (no retries).
-If the SDK retries a query that is still running on the server, it can result in
-duplicate operations. This is especially important for mutation queries, where a
-retry could cause unintended duplicate writes.
+1. Create a file named `gremlinExample.py` and paste the following code:
 
-Python
+   ```
+   import boto3
+   import json
+   from botocore.config import Config
+   
+   # Disable the client-side read timeout and retries so that
+   # Neptune's server-side neptune_query_timeout controls query duration.
+   client = boto3.client(
+       'neptunedata',
+       endpoint_url=f'https://{{YOUR_NEPTUNE_HOST}}:{{YOUR_NEPTUNE_PORT}}',
+       config=Config(read_timeout=None, retries={'total_max_attempts': 1})
+   )
+   
+   # Use the untyped GraphSON v3 serializer for a cleaner JSON response.
+   response = client.execute_gremlin_query(
+       gremlinQuery='g.V().limit(1)',
+       serializer='application/vnd.gremlin-v3.0+json;types=false'
+   )
+   
+   print(json.dumps(response['result'], indent=2))
+   ```
 
-1. Follow the
-   [installation
-   instructions](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html") to install Boto3.
-2. Create a file named `gremlinExample.py` and paste the following code:
+1. Run the example: `python gremlinExample.py`
 
-```
-import boto3
-import json
-from botocore.config import Config
+------
+#### [ Java ]
 
-# Disable the client-side read timeout and retries so that
-# Neptune's server-side neptune_query_timeout controls query duration.
-client = boto3.client(
-    'neptunedata',
-    endpoint_url=f'https://`YOUR_NEPTUNE_HOST`:`YOUR_NEPTUNE_PORT`',
-    config=Config(read_timeout=None, retries={'total_max_attempts': 1})
-)
+1. Follow the [installation instructions](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html) to set up the AWS SDK for Java.
 
-# Use the untyped GraphSON v3 serializer for a cleaner JSON response.
-response = client.execute_gremlin_query(
-    gremlinQuery='g.V().limit(1)',
-    serializer='application/vnd.gremlin-v3.0+json;types=false'
-)
+1. Use the following code to set up a `NeptunedataClient`, run a Gremlin query, and print the result:
 
-print(json.dumps(response['result'], indent=2))
-```
+   ```
+   import java.net.URI;
+   import java.time.Duration;
+   import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
+   import software.amazon.awssdk.core.retry.RetryPolicy;
+   import software.amazon.awssdk.services.neptunedata.NeptunedataClient;
+   import software.amazon.awssdk.services.neptunedata.model.ExecuteGremlinQueryRequest;
+   import software.amazon.awssdk.services.neptunedata.model.ExecuteGremlinQueryResponse;
+   
+   // Disable the client-side timeout and retries so that
+   // Neptune's server-side neptune_query_timeout controls query duration.
+   NeptunedataClient client = NeptunedataClient.builder()
+       .endpointOverride(URI.create("https://{{YOUR_NEPTUNE_HOST}}:{{YOUR_NEPTUNE_PORT}}"))
+       .overrideConfiguration(ClientOverrideConfiguration.builder()
+           .apiCallTimeout(Duration.ZERO)
+           .retryPolicy(RetryPolicy.none())
+           .build())
+       .build();
+   
+   // Use the untyped GraphSON v3 serializer for a cleaner JSON response.
+   ExecuteGremlinQueryRequest request = ExecuteGremlinQueryRequest.builder()
+       .gremlinQuery("g.V().limit(1)")
+       .serializer("application/vnd.gremlin-v3.0+json;types=false")
+       .build();
+   
+   ExecuteGremlinQueryResponse response = client.executeGremlinQuery(request);
+   
+   System.out.println(response.result().toString());
+   ```
 
-3. Run the example: `python gremlinExample.py`
+------
+#### [ JavaScript ]
 
-Java
+1. Follow the [installation instructions](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html) to set up the AWS SDK for JavaScript. Install the neptunedata client package: `npm install @aws-sdk/client-neptunedata`.
 
-1. Follow the
-   [installation
-   instructions](../../../sdk-for-java/latest/developer-guide/setup.md "../../../sdk-for-java/latest/developer-guide/setup.md") to set up the AWS SDK for Java.
-2. Use the following code to set up a `NeptunedataClient`, run a
-   Gremlin query, and print the result:
+1. Create a file named `gremlinExample.js` and paste the following code:
 
-```
-import java.net.URI;
-import java.time.Duration;
-import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
-import software.amazon.awssdk.core.retry.RetryPolicy;
-import software.amazon.awssdk.services.neptunedata.NeptunedataClient;
-import software.amazon.awssdk.services.neptunedata.model.ExecuteGremlinQueryRequest;
-import software.amazon.awssdk.services.neptunedata.model.ExecuteGremlinQueryResponse;
+   ```
+   import { NeptunedataClient, ExecuteGremlinQueryCommand } from "@aws-sdk/client-neptunedata";
+   import { NodeHttpHandler } from "@smithy/node-http-handler";
+   
+   const config = {
+       endpoint: "https://{{YOUR_NEPTUNE_HOST}}:{{YOUR_NEPTUNE_PORT}}",
+       // Disable the client-side request timeout so that
+       // Neptune's server-side neptune_query_timeout controls query duration.
+       requestHandler: new NodeHttpHandler({
+           requestTimeout: 0
+       }),
+       maxAttempts: 1
+   };
+   
+   const client = new NeptunedataClient(config);
+   
+   // Use the untyped GraphSON v3 serializer for a cleaner JSON response.
+   const input = {
+       gremlinQuery: "g.V().limit(1)",
+       serializer: "application/vnd.gremlin-v3.0+json;types=false"
+   };
+   
+   const command = new ExecuteGremlinQueryCommand(input);
+   const response = await client.send(command);
+   
+   console.log(JSON.stringify(response, null, 2));
+   ```
 
-// Disable the client-side timeout and retries so that
-// Neptune's server-side neptune_query_timeout controls query duration.
-NeptunedataClient client = NeptunedataClient.builder()
-    .endpointOverride(URI.create("https://`YOUR_NEPTUNE_HOST`:`YOUR_NEPTUNE_PORT`"))
-    .overrideConfiguration(ClientOverrideConfiguration.builder()
-        .apiCallTimeout(Duration.ZERO)
-        .retryPolicy(RetryPolicy.none())
-        .build())
-    .build();
+1. Run the example: `node gremlinExample.js`
 
-// Use the untyped GraphSON v3 serializer for a cleaner JSON response.
-ExecuteGremlinQueryRequest request = ExecuteGremlinQueryRequest.builder()
-    .gremlinQuery("g.V().limit(1)")
-    .serializer("application/vnd.gremlin-v3.0+json;types=false")
-    .build();
-
-ExecuteGremlinQueryResponse response = client.executeGremlinQuery(request);
-
-System.out.println(response.result().toString());
-```
-
-JavaScript
-
-1. Follow the
-   [installation
-   instructions](../../../sdk-for-javascript/v3/developer-guide/getting-started-nodejs.md "../../../sdk-for-javascript/v3/developer-guide/getting-started-nodejs.md") to set up the AWS SDK for JavaScript. Install the
-   neptunedata client package: `npm install @aws-sdk/client-neptunedata`.
-2. Create a file named `gremlinExample.js` and paste the following code:
-
-```
-import { NeptunedataClient, ExecuteGremlinQueryCommand } from "@aws-sdk/client-neptunedata";
-import { NodeHttpHandler } from "@smithy/node-http-handler";
-
-const config = {
-    endpoint: "https://`YOUR_NEPTUNE_HOST`:`YOUR_NEPTUNE_PORT`",
-    // Disable the client-side request timeout so that
-    // Neptune's server-side neptune_query_timeout controls query duration.
-    requestHandler: new NodeHttpHandler({
-        requestTimeout: 0
-    }),
-    maxAttempts: 1
-};
-
-const client = new NeptunedataClient(config);
-
-// Use the untyped GraphSON v3 serializer for a cleaner JSON response.
-const input = {
-    gremlinQuery: "g.V().limit(1)",
-    serializer: "application/vnd.gremlin-v3.0+json;types=false"
-};
-
-const command = new ExecuteGremlinQueryCommand(input);
-const response = await client.send(command);
-
-console.log(JSON.stringify(response, null, 2));
-```
-
-3. Run the example: `node gremlinExample.js`
+------

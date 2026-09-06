@@ -1,4 +1,7 @@
+
+
 # Query examples using parquet
+<a name="access-graph-opencypher-21-extensions-s3-read-parquet"></a>
 
 The following example query returns the number of rows in a given Parquet file:
 
@@ -31,26 +34,25 @@ CALL neptune.read(
   }
 )
 YIELD row
-CREATE (n {someField: row.someCol})
+CREATE (n {someField: row.someCol}) 
 RETURN n
 ```
 
-###### Warning
-
+**Warning**  
 It is not considered good practice to use a large results-producing clause like `MATCH(n)` prior to a `CALL` clause. This would lead to a long-running query, due to cross product between incoming solutions from prior clauses and the rows read by neptune.read. It's recommended to start the query with `CALL` neptune.read.
 
 ## Supported Parquet column types
+<a name="access-graph-opencypher-21-extensions-s3-read-parquet-column-types"></a>
 
 **Parquet Data Types:**
-
-- NULL
-- BOOLEAN
-- FLOAT
-- DOUBLE
-- STRING
-- SIGNED INTEGER: UINT8, UINT16, UINT32, UINT64
-- MAP: Only supports one-level. Does not support nested.
-- LIST: Only supports one-level. Does not support nested.
++ NULL
++ BOOLEAN
++ FLOAT
++ DOUBLE
++ STRING
++ SIGNED INTEGER: UINT8, UINT16, UINT32, UINT64
++ MAP: Only supports one-level. Does not support nested.
++ LIST: Only supports one-level. Does not support nested.
 
 **Neptune-specific data types:**
 
@@ -68,26 +70,22 @@ There are however, some special column types in the Parquet format that require 
 ```
 
 Below are details on the expected payload associated with these types:
-
-- A column type Any is supported in the user columns. An Any type is a type "syntactic sugar" for all of the other types we support. It is extremely useful if a user column has multiple types in it. The payload of an Any type value is a list of json strings as follows: `{"value": "10", "type": "Int"};{"value": "1.0", "type": "Float"}`, which has a value field and a type field in each individual json string. The cardinality value of an Any column is set, meaning that the column can accept multiple values.
-
-  - Neptune supports the following types in an Any type: Bool (or Boolean), Byte, Short, Int, Long, UnsignedByte, UnsignedShort, UnsignedInt, UnsignedLong, Float, Double, Date, dateTime, String, and Geometry.
-  - Vector type is not supported in Any type.
-  - Nested Any type is not supported. For example, `{"value": {"value": "10", "type": "Int"}, "type": "Any"}`.
-
-- Columns of type Date and Datetime are supported in the user columns. The payload of these columns must be provided as strings following the XSD format or one of the formats below:
-
-  - yyyy-MM-dd
-  - yyyy-MM-ddTHH:mm
-  - yyyy-MM-ddTHH:mm:ss
-  - yyyy-MM-ddTHH:mm:ssZ
-  - yyyy-MM-ddTHH:mm:ss.SSSZ
-  - yyyy-MM-ddTHH:mm:ss[+|-]hhmm
-  - yyyy-MM-ddTHH:mm:ss.SSS[+|-]hhmm
-
-- A Geometry column type is supported in the user columns. The payload of these columns must only contain Geometry primitives of type Point, provided as strings in Well-known text (WKT) format. For example, POINT (30 10) would be a valid Geometry value.
++ A column type Any is supported in the user columns. An Any type is a type "syntactic sugar" for all of the other types we support. It is extremely useful if a user column has multiple types in it. The payload of an Any type value is a list of json strings as follows: `{"value": "10", "type": "Int"};{"value": "1.0", "type": "Float"}`, which has a value field and a type field in each individual json string. The cardinality value of an Any column is set, meaning that the column can accept multiple values. 
+  + Neptune supports the following types in an Any type: Bool (or Boolean), Byte, Short, Int, Long, UnsignedByte, UnsignedShort, UnsignedInt, UnsignedLong, Float, Double, Date, dateTime, String, and Geometry.
+  + Vector type is not supported in Any type.
+  + Nested Any type is not supported. For example, `{"value": {"value": "10", "type": "Int"}, "type": "Any"}`.
++ Columns of type Date and Datetime are supported in the user columns. The payload of these columns must be provided as strings following the XSD format or one of the formats below: 
+  + yyyy-MM-dd
+  + yyyy-MM-ddTHH:mm
+  + yyyy-MM-ddTHH:mm:ss
+  + yyyy-MM-ddTHH:mm:ssZ
+  + yyyy-MM-ddTHH:mm:ss.SSSZ
+  + yyyy-MM-ddTHH:mm:ss[\+\|-]hhmm
+  + yyyy-MM-ddTHH:mm:ss.SSS[\+\|-]hhmm
++ A Geometry column type is supported in the user columns. The payload of these columns must only contain Geometry primitives of type Point, provided as strings in Well-known text (WKT) format. For example, POINT (30 10) would be a valid Geometry value.
 
 ## Sample parquet output
+<a name="sample-parquet-output"></a>
 
 Given a Parquet file like this:
 
@@ -164,12 +162,12 @@ Currently, there is no way to set a node or edge label to a data field coming fr
 
 ```
 CALL neptune.read({source: '<s3 path>', format: 'parquet'})
- YIELD row
+ YIELD row 
 WHERE row.`~label` = 'airport'
 CREATE (n:airport)
 
 CALL neptune.read({source: '<s3 path>', format: 'parquet'})
-YIELD row
+YIELD row 
 WHERE row.`~label` = 'country'
 CREATE (n:country)
 ```

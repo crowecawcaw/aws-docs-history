@@ -1,18 +1,20 @@
+
+
 # Examples of invoking SPARQL `explain` in Neptune
+<a name="sparql-explain-examples"></a>
 
-The examples in this section show the various kinds of output you can produce by invoking
-the SPARQL `explain` feature to analyze query execution in Amazon Neptune.
+The examples in this section show the various kinds of output you can produce by invoking the SPARQL `explain` feature to analyze query execution in Amazon Neptune.
 
-###### Topics
-
-- [Understanding Explain Output](#sparql-explain-example-output "#sparql-explain-example-output")
-- [Example of details mode output](#sparql-explain-example-details "#sparql-explain-example-details")
-- [Example of static mode output](#sparql-explain-example-static "#sparql-explain-example-static")
-- [Different ways of encoding parameters](#sparql-explain-example-parameters "#sparql-explain-example-parameters")
-- [Other output types besides text/plain](#sparql-explain-output-options "#sparql-explain-output-options")
-- [Example of SPARQL explain output when the DFE is enabled](#sparql-explain-output-dfe "#sparql-explain-output-dfe")
+**Topics**
++ [Understanding Explain Output](#sparql-explain-example-output)
++ [Example of details mode output](#sparql-explain-example-details)
++ [Example of static mode output](#sparql-explain-example-static)
++ [Different ways of encoding parameters](#sparql-explain-example-parameters)
++ [Other output types besides text/plain](#sparql-explain-output-options)
++ [Example of SPARQL `explain` output when the DFE is enabled](#sparql-explain-output-dfe)
 
 ## Understanding Explain Output
+<a name="sparql-explain-example-output"></a>
 
 In this example, Jane Doe knows two people, namely John Doe and Richard Roe:
 
@@ -29,11 +31,10 @@ ex:RichardRoe foaf:lastName "Roe" .
 .
 ```
 
-To determine the first names of all the people whom Jane Doe knows, you can write the
-following query:
+To determine the first names of all the people whom Jane Doe knows, you can write the following query:
 
 ```
- curl `http(s)://your_server:your_port`/sparql \
+ curl {{http(s)://your_server:your_port}}/sparql \
    -d "query=PREFIX foaf: <https://xmlns.com/foaf/0.1/> PREFIX ex: <https://www.example.com/> \
        SELECT ?firstName WHERE { ex:JaneDoe foaf:knows ?person . ?person foaf:firstName ?firstName }" \
    -H "Accept: text/csv"
@@ -47,19 +48,16 @@ John
 Richard
 ```
 
-Next, change the `curl` command to invoke `explain` by adding
-`-d "explain=dynamic"` and using the default output type instead of
-`text/csv`:
+Next, change the `curl` command to invoke `explain` by adding `-d "explain=dynamic"` and using the default output type instead of `text/csv`:
 
 ```
- curl `http(s)://your_server:your_port`/sparql \
+ curl {{http(s)://your_server:your_port}}/sparql \
    -d "query=PREFIX foaf: <https://xmlns.com/foaf/0.1/> PREFIX ex: <https://www.example.com/> \
        SELECT ?firstName WHERE { ex:JaneDoe foaf:knows ?person . ?person foaf:firstName ?firstName }" \
    -d "explain=dynamic"
 ```
 
-The query now returns output in pretty-printed ASCII format (HTTP content type
-`text/plain`), which is the default output type:
+The query now returns output in pretty-printed ASCII format (HTTP content type `text/plain`), which is the default output type:
 
 ```
 ╔════╤════════╤════════╤═══════════════════╤═══════════════════════════════════════════════════════╤══════════╤══════════╤═══════════╤═══════╤═══════════╗
@@ -81,106 +79,76 @@ The query now returns output in pretty-printed ASCII format (HTTP content type
 ╚════╧════════╧════════╧═══════════════════╧═══════════════════════════════════════════════════════╧══════════╧══════════╧═══════════╧═══════╧═══════════╝
 ```
 
-For details about the operations in the `Name` column and their arguments, see
-[explain operators](sparql-explain-operators.md "sparql-explain-operators.md").
+For details about the operations in the `Name` column and their arguments, see [explain operators](sparql-explain-operators.md).
 
 The following describes the output row by row:
 
-1. The first step in the main query always uses the `SolutionInjection`
-   operator to inject a solution. The solution is then expanded to the final result through
-   the evaluation process.
+1. The first step in the main query always uses the `SolutionInjection` operator to inject a solution. The solution is then expanded to the final result through the evaluation process.
 
-In this case, it injects the so-called universal solution `{ }`. In the
-presence of `VALUES` clauses or a `BIND`, this step might also
-inject more complex variable bindings to start out with.
+   In this case, it injects the so-called universal solution `{ }`. In the presence of `VALUES` clauses or a `BIND`, this step might also inject more complex variable bindings to start out with.
 
-The `Units Out` column indicates that this single solution flows out of the
-operator. The `Out #1` column specifies the operator into which this operator
-feeds the result. In this example, all operators are connected to the operator that
-follows in the table. 2. The second step is a `PipelineJoin`. It receives as input the single
-universal (fully unconstrained) solution produced by the previous operator (`Units In
- := 1`). It joins it against the tuple pattern defined by its `pattern`
-argument. This corresponds to a simple lookup for the pattern. In this case, the triple
-pattern is defined as the following:
+   The `Units Out` column indicates that this single solution flows out of the operator. The `Out #1` column specifies the operator into which this operator feeds the result. In this example, all operators are connected to the operator that follows in the table.
 
-```
-distinct( ex:JaneDoe, foaf:knows, ?person )
-```
+1. The second step is a `PipelineJoin`. It receives as input the single universal (fully unconstrained) solution produced by the previous operator (`Units In := 1`). It joins it against the tuple pattern defined by its `pattern` argument. This corresponds to a simple lookup for the pattern. In this case, the triple pattern is defined as the following:
 
-The `joinType := join` argument indicates that this is a normal join (other
-types include `optional` joins, `existence check` joins, and so on).
+   ```
+   distinct( ex:JaneDoe, foaf:knows, ?person )
+   ```
 
-The `distinct := true` argument says that you extract only distinct matches
-from the database (no duplicates), and you bind the distinct matches to the variable
-`joinProjectionVars := ?person`, deduplicated.
+   The `joinType := join` argument indicates that this is a normal join (other types include `optional` joins, `existence check` joins, and so on).
 
-The fact that the `Units Out` column value is 2 indicates that there are
-two solutions flowing out. Specifically, these are the bindings for the
-`?person` variable, reflecting the two people that the data shows that Jane
-Doe knows:
+   The `distinct := true` argument says that you extract only distinct matches from the database (no duplicates), and you bind the distinct matches to the variable `joinProjectionVars := ?person`, deduplicated.
 
-```
- ?person
- -------------
- ex:JohnDoe
- ex:RichardRoe
-```
+   The fact that the `Units Out` column value is 2 indicates that there are two solutions flowing out. Specifically, these are the bindings for the `?person` variable, reflecting the two people that the data shows that Jane Doe knows:
 
-3. The two solutions from stage 2 flow as input (`Units In := 2`)
-   into the second `PipelineJoin`. This operator joins the two previous
-   solutions with the following triple pattern:
+   ```
+    ?person
+    -------------
+    ex:JohnDoe
+    ex:RichardRoe
+   ```
 
-```
-distinct(?person, foaf:firstName, ?firstName)
-```
+1. The two solutions from stage 2 flow as input (`Units In := 2`) into the second `PipelineJoin`. This operator joins the two previous solutions with the following triple pattern:
 
-The `?person` variable is known to be bound either to `ex:JohnDoe`
-or to `ex:RichardRoe` by the operator's incoming solution.
-Given that, the `PipelineJoin` extracts the first names, John and Richard. The
-outgoing two solutions (Units Out := 2) are then as follows:
+   ```
+   distinct(?person, foaf:firstName, ?firstName)
+   ```
 
-```
- ?person       | ?firstName
- ---------------------------
- ex:JohnDoe    | John
- ex:RichardRoe | Richard
-```
+   The `?person` variable is known to be bound either to `ex:JohnDoe` or to `ex:RichardRoe` by the operator's incoming solution. Given that, the `PipelineJoin` extracts the first names, John and Richard. The outgoing two solutions (Units Out := 2) are then as follows:
 
-4. The next projection operator takes as input the two solutions from stage 3
-   (`Units In := 2`) and projects onto the `?firstName` variable.
-   This eliminates all other variable bindings in the mappings and passes on the two
-   bindings (`Units Out := 2`):
+   ```
+    ?person       | ?firstName
+    ---------------------------
+    ex:JohnDoe    | John
+    ex:RichardRoe | Richard
+   ```
 
-```
- ?firstName
- ----------
- John
- Richard
-```
+1. The next projection operator takes as input the two solutions from stage 3 (`Units In := 2`) and projects onto the `?firstName` variable. This eliminates all other variable bindings in the mappings and passes on the two bindings (`Units Out := 2`):
 
-5. To improve performance, Neptune operates where possible on internal identifiers that
-   it assigns to terms such as URIs and string literals, rather than on the strings
-   themselves. The final operator, `TermResolution`, performs a mapping from these
-   internal identifiers back to the corresponding term strings.
+   ```
+    ?firstName
+    ----------
+    John
+    Richard
+   ```
 
-In regular (non-explain) query evaluation, the result computed by the last operator is
-then serialized into the requested serialization format and streamed to the client.
+1. To improve performance, Neptune operates where possible on internal identifiers that it assigns to terms such as URIs and string literals, rather than on the strings themselves. The final operator, `TermResolution`, performs a mapping from these internal identifiers back to the corresponding term strings.
+
+   In regular (non-explain) query evaluation, the result computed by the last operator is then serialized into the requested serialization format and streamed to the client.
 
 ## Example of details mode output
+<a name="sparql-explain-example-details"></a>
 
-Suppose that you run the same query as the previous in _details_ mode
-instead of _dynamic_ mode:
+Suppose that you run the same query as the previous in *details* mode instead of *dynamic* mode:
 
 ```
- curl `http(s)://your_server:your_port`/sparql \
+ curl {{http(s)://your_server:your_port}}/sparql \
    -d "query=PREFIX foaf: <https://xmlns.com/foaf/0.1/> PREFIX ex: <https://www.example.com/> \
        SELECT ?firstName WHERE { ex:JaneDoe foaf:knows ?person . ?person foaf:firstName ?firstName }" \
    -d "explain=details"
 ```
 
-As this example shows, the output is the same with some additional details such as
-the query string at the top of the output, and the `patternEstimate` count for
-the `PipelineJoin` operator:
+As this example shows, the output is the same with some additional details such as the query string at the top of the output, and the `patternEstimate` count for the `PipelineJoin` operator:
 
 ```
 Query:
@@ -209,19 +177,18 @@ SELECT ?firstName WHERE { ex:JaneDoe foaf:knows ?person . ?person foaf:firstName
 ```
 
 ## Example of static mode output
+<a name="sparql-explain-example-static"></a>
 
-Suppose that you run the same query as the previous in _static_ mode
-(the default) instead of _details_ mode:
+Suppose that you run the same query as the previous in *static* mode (the default) instead of *details* mode:
 
 ```
- curl `http(s)://your_server:your_port`/sparql \
+ curl {{http(s)://your_server:your_port}}/sparql \
    -d "query=PREFIX foaf: <https://xmlns.com/foaf/0.1/> PREFIX ex: <https://www.example.com/> \
        SELECT ?firstName WHERE { ex:JaneDoe foaf:knows ?person . ?person foaf:firstName ?firstName }" \
    -d "explain=static"
 ```
 
-As this example shows, the output is the same, except that it omits the last three
-columns:
+As this example shows, the output is the same, except that it omits the last three columns:
 
 ```
 ╔════╤════════╤════════╤═══════════════════╤═══════════════════════════════════════════════════════╤══════════╗
@@ -244,53 +211,46 @@ columns:
 ```
 
 ## Different ways of encoding parameters
+<a name="sparql-explain-example-parameters"></a>
 
-The following example queries illustrate two different ways to encode parameters when
-invoking SPARQL `explain`.
+The following example queries illustrate two different ways to encode parameters when invoking SPARQL `explain`.
 
-**Using URL encoding** – This example uses URL
-encoding of parameters, and specifies _dynamic_ output:
-
-```
-curl -XGET "`http(s)://your_server:your_port`/sparql?query=SELECT%20*%20WHERE%20%7B%20%3Fs%20%3Fp%20%3Fo%20%7D%20LIMIT%20%31&explain=dynamic"
-```
-
-**Specifying the parameters directly** – This is the
-same as the previous query except that it passes the parameters through POST directly:
+**Using URL encoding** – This example uses URL encoding of parameters, and specifies *dynamic* output:
 
 ```
- curl `http(s)://your_server:your_port`/sparql \
+curl -XGET "{{http(s)://your_server:your_port}}/sparql?query=SELECT%20*%20WHERE%20%7B%20%3Fs%20%3Fp%20%3Fo%20%7D%20LIMIT%20%31&explain=dynamic"
+```
+
+**Specifying the parameters directly** – This is the same as the previous query except that it passes the parameters through POST directly:
+
+```
+ curl {{http(s)://your_server:your_port}}/sparql \
    -d "query=SELECT * WHERE { ?s ?p ?o } LIMIT 1" \
    -d "explain=dynamic"
 ```
 
 ## Other output types besides text/plain
+<a name="sparql-explain-output-options"></a>
 
-The preceding examples use the default `text/plain` output type. Neptune can
-also format SPARQL `explain` output in two other MIME-type formats, namely
-`text/csv` and `text/html`. You invoke them by setting the HTTP
-`Accept` header, which you can do using the `-H` flag in
-`curl`, as follows:
+The preceding examples use the default `text/plain` output type. Neptune can also format SPARQL `explain` output in two other MIME-type formats, namely `text/csv` and `text/html`. You invoke them by setting the HTTP `Accept` header, which you can do using the `-H` flag in `curl`, as follows:
 
 ```
-  -H "Accept: `output type`"
+  -H "Accept: {{output type}}"
 ```
 
 Here are some examples:
 
-###### `text/csv` Output
-
+**`text/csv` Output**  
 This query calls for CSV MIME-type output by specifying `-H "Accept: text/csv"`:
 
 ```
- curl `http(s)://your_server:your_port`/sparql \
+ curl {{http(s)://your_server:your_port}}/sparql \
    -d "query=SELECT * WHERE { ?s ?p ?o } LIMIT 1" \
    -d "explain=dynamic" \
    -H "Accept: text/csv"
 ```
 
-The CSV format, which is handy for importing into a spreadsheet or database, separates the
-fields in each `explain` row by semicolons ( `;` ), like this:
+The CSV format, which is handy for importing into a spreadsheet or database, separates the fields in each `explain` row by semicolons ( `;` ), like this:
 
 ```
 ID;Out #1;Out #2;Name;Arguments;Mode;Units In;Units Out;Ratio;Time (ms)
@@ -302,10 +262,8 @@ ID;Out #1;Out #2;Name;Arguments;Mode;Units In;Units Out;Ratio;Time (ms)
 
  
 
-###### `text/html` Output
-
-If you specify `-H "Accept: text/html"`, then `explain` generates
-an HTML table:
+**`text/html` Output**  
+If you specify `-H "Accept: text/html"`, then `explain` generates an HTML table:
 
 ```
 <!DOCTYPE html>
@@ -389,12 +347,13 @@ an HTML table:
 
 The HTML renders in a browser something like the following:
 
-![Sample of SPARQL Explain HTML output.](images/sparql-explain-dynamic-html-output.png)
+![Sample of SPARQL Explain HTML output.](http://docs.aws.amazon.com/neptune/latest/userguide/images/sparql-explain-dynamic-html-output.png)
+
 
 ## Example of SPARQL `explain` output when the DFE is enabled
+<a name="sparql-explain-output-dfe"></a>
 
-The following is an example of SPARQL `explain` output when the
-Neptune DFE alternative query engine is enabled:
+The following is an example of SPARQL `explain` output when the Neptune DFE alternative query engine is enabled:
 
 ```
 ╔════╤════════╤════════╤═══════════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╤══════════╤══════════╤═══════════╤═══════╤═══════════╗

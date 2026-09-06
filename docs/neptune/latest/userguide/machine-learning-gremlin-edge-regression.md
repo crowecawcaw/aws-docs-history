@@ -1,23 +1,19 @@
-# Gremlin edge regression queries in Neptune ML
 
-Edge regression is similar to edge classification, except that the value inferred
-from the ML model is numeric. For edge regression, Neptune ML supports the same queries
-as for classification.
+
+# Gremlin edge regression queries in Neptune ML
+<a name="machine-learning-gremlin-edge-regression"></a>
+
+Edge regression is similar to edge classification, except that the value inferred from the ML model is numeric. For edge regression, Neptune ML supports the same queries as for classification.
 
 Key points to note are:
-
-- You need to use the ML predicate `"Neptune#ml.regression"` to configure
-  the `properties()` step for this use-case.
-- The `"Neptune#ml.limit"` and `"Neptune#ml.threshold"`
-  predicates are not applicable in this use-case.
-- For filtering on the value, you need to specify the value as numerical.
++ You need to use the ML predicate `"Neptune#ml.regression"` to configure the `properties()` step for this use-case.
++ The `"Neptune#ml.limit"` and `"Neptune#ml.threshold"` predicates are not applicable in this use-case.
++ For filtering on the value, you need to specify the value as numerical.
 
 ## Syntax of a Gremlin edge regression query
+<a name="machine-learning-gremlin-edge-regression-syntax"></a>
 
-For a simple graph where `User` is the head node, `Movie`
-is the tail node, and `Rated` is the edge that connects them, here is an
-example edge regression query that finds the numeric rating value, referred to as score here,
-for the edge `Rated`:
+For a simple graph where `User` is the head node, `Movie` is the tail node, and `Rated` is the edge that connects them, here is an example edge regression query that finds the numeric rating value, referred to as score here, for the edge `Rated`:
 
 ```
 g.with("Neptune#ml.endpoint","edge-regression-movie-lens-endpoint")
@@ -26,12 +22,7 @@ g.with("Neptune#ml.endpoint","edge-regression-movie-lens-endpoint")
  .properties("score").with("Neptune#ml.regression")
 ```
 
-You can also filter on a value inferred from the ML regression model. For the
-existing `Rated` edges (from `User` to `Movie`)
-identified by `"rating_1"`, `"rating_2"`, and `"rating_3"`,
-where the edge property `Score` is not present for these ratings, you can
-use a query like following to infer `Score` for the edges where it is
-greater than or equal to 9:
+You can also filter on a value inferred from the ML regression model. For the existing `Rated` edges (from `User` to `Movie`) identified by `"rating_1"`, `"rating_2"`, and `"rating_3"`, where the edge property `Score` is not present for these ratings, you can use a query like following to infer `Score` for the edges where it is greater than or equal to 9:
 
 ```
 g.with("Neptune#ml.endpoint","edge-regression-movie-lens-endpoint")
@@ -42,9 +33,9 @@ g.with("Neptune#ml.endpoint","edge-regression-movie-lens-endpoint")
 ```
 
 ## Using inductive inference in an edge regression query
+<a name="machine-learning-gremlin-edge-regression-inductive"></a>
 
-Supposing you were to add a new edge to an existing graph, in a Jupyter notebook,
-like this:
+Supposing you were to add a new edge to an existing graph, in a Jupyter notebook, like this:
 
 ```
 %%gremlin
@@ -53,8 +44,7 @@ g.V('1').as('fromV')
 .addE('eLabel1').from('fromV').to('toV').property(id, 'e101')
 ```
 
-You could then use an inductive inference query to get a score that took into
-account the new edge:
+You could then use an inductive inference query to get a score that took into account the new edge:
 
 ```
 %%gremlin
@@ -65,8 +55,7 @@ g.with("Neptune#ml.endpoint", "er-ep")
  .with("Neptune#ml.inductiveInference")
 ```
 
-Because the query is not deterministic, the results would vary somewhat
-if you run it multiple times, based on the random neighborhood:
+Because the query is not deterministic, the results would vary somewhat if you run it multiple times, based on the random neighborhood:
 
 ```
 # First time

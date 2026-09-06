@@ -1,32 +1,22 @@
+
+
 # Rewriting Cypher queries to run in openCypher on Neptune
+<a name="migration-opencypher-rewrites"></a>
 
-The openCypher language is a declarative query language for property graphs that
-was originally developed by Neo4j, then open-sourced in 2015, and contributed to the
-[openCypher project](https://www.opencypher.org/ "https://www.opencypher.org/") under an Apache 2
-open-source license. At AWS, we believe that open source is good for everyone and
-we are committed to bringing the value of open source to our customers, and the
-operational excellence of AWS to open source communities.
+The openCypher language is a declarative query language for property graphs that was originally developed by Neo4j, then open-sourced in 2015, and contributed to the [openCypher project](https://www.opencypher.org/) under an Apache 2 open-source license. At AWS, we believe that open source is good for everyone and we are committed to bringing the value of open source to our customers, and the operational excellence of AWS to open source communities.
 
-OpenCypher syntax is documented in the [Cypher
-Query Language Reference, Version 9](https://s3.amazonaws.com/artifacts.opencypher.org/openCypher9.pdf "https://s3.amazonaws.com/artifacts.opencypher.org/openCypher9.pdf").
+OpenCypher syntax is documented in the [Cypher Query Language Reference, Version 9](https://s3.amazonaws.com/artifacts.opencypher.org/openCypher9.pdf).
 
-Because openCypher contains a subset of the syntax and features of the Cypher
-query language, some migration scenarios require either rewriting queries in
-openCypher-compliant forms or examining alternative methods to achieve the
-desired functionality.
+Because openCypher contains a subset of the syntax and features of the Cypher query language, some migration scenarios require either rewriting queries in openCypher-compliant forms or examining alternative methods to achieve the desired functionality.
 
-This section contains recommendations for handling common differences, but they
-are by no means exhaustive. You should test any application using these rewrites
-thoroughly to ensure that the results are what you expect.
+This section contains recommendations for handling common differences, but they are by no means exhaustive. You should test any application using these rewrites thoroughly to ensure that the results are what you expect.
 
 ## Rewriting `None`, `All`, and `Any` predicate functions
+<a name="migration-opencypher-rewrites-none-all-any"></a>
 
-These functions are not part of the openCypher specification. Comparable results
-can be achieved in openCypher using List Comprehension.
+These functions are not part of the openCypher specification. Comparable results can be achieved in openCypher using List Comprehension.
 
-For example, find all the paths that go from node `Start` to node
-`End`, but no journey is allowed to pass through a node with a class
-property of `D`:
+For example, find all the paths that go from node `Start` to node `End`, but no journey is allowed to pass through a node with a class property of `D`:
 
 ```
 # Neo4J Cypher code
@@ -49,15 +39,11 @@ none => size(list_comprehension(list)) = 0
 ```
 
 ## Rewriting the Cypher `reduce()` function in openCypher
+<a name="migration-opencypher-rewrites-reduce"></a>
 
-The `reduce()` function is not part of the openCypher specification.
-It is often used to create an aggregation of data from elements within a list.
-In many cases, you can use a combination of List Comprehension and the
-`UNWIND` clause to achieve similar results.
+The `reduce()` function is not part of the openCypher specification. It is often used to create an aggregation of data from elements within a list. In many cases, you can use a combination of List Comprehension and the `UNWIND` clause to achieve similar results.
 
-For example, the following Cypher query finds all airports on paths having one
-to three stops between Anchorage (ANC) and Austin (AUS), and returns the total
-distance of each path:
+For example, the following Cypher query finds all airports on paths having one to three stops between Anchorage (ANC) and Austin (AUS), and returns the total distance of each path:
 
 ```
 MATCH p=(a:airport {code: 'ANC'})-[r:route*1..3]->(z:airport {code: 'AUS'})
@@ -76,14 +62,11 @@ LIMIT 5
 ```
 
 ## Rewriting the Cypher FOREACH clause in openCypher
+<a name="migration-opencypher-rewrites-foreach"></a>
 
-The FOREACH clause is not part of the openCypher specification. It is often used
-to update data in the middle of a query, often from aggregations or elements within
-a path.
+The FOREACH clause is not part of the openCypher specification. It is often used to update data in the middle of a query, often from aggregations or elements within a path.
 
-As a path example, find all airports on a path with no more than two
-stops between Anchorage (ANC) and Austin (AUS) and set a property of
-visited on each of them:
+As a path example, find all airports on a path with no more than two stops between Anchorage (ANC) and Austin (AUS) and set a property of visited on each of them:
 
 ```
 # Neo4J Example
@@ -113,36 +96,28 @@ SET n.marked = true
 ```
 
 ## Rewriting Neo4j APOC procedures in Neptune
+<a name="migration-opencypher-rewrites-apoc"></a>
 
-The examples below use openCypher to replace some of the most commonly used
-[APOC
-procedures](https://neo4j.com/blog/intro-user-defined-procedures-apoc/ "https://neo4j.com/blog/intro-user-defined-procedures-apoc/"). These examples are for reference only, and are intended to
-provide some suggestions about how to handle common scenarios. In practice,
-each application is different, and you'll have to come up with your own
-strategies for providing all the functionality you need.
+The examples below use openCypher to replace some of the most commonly used [APOC procedures](https://neo4j.com/blog/intro-user-defined-procedures-apoc/). These examples are for reference only, and are intended to provide some suggestions about how to handle common scenarios. In practice, each application is different, and you'll have to come up with your own strategies for providing all the functionality you need.
 
 ### Rewriting `apoc.export` procedures
+<a name="migration-opencypher-rewrites-apoc-export"></a>
 
-Neptune provides an array of options for both full graph and query-based exports
-in various output formats such as CSV and JSON, using the [neptune-export](https://github.com/aws/neptune-export "https://github.com/aws/neptune-export") utility
-(see [Exporting data from a Neptune DB cluster](neptune-data-export.md "neptune-data-export.md")).
+Neptune provides an array of options for both full graph and query-based exports in various output formats such as CSV and JSON, using the [neptune-export](https://github.com/aws/neptune-export) utility (see [Exporting data from a Neptune DB cluster](neptune-data-export.md)).
 
 ### Rewriting `apoc.schema` procedures
+<a name="migration-opencypher-rewrites-apoc-schema"></a>
 
-Neptune does not have explicitly defined schema, indices, or constraints, so many
-`apoc.schema` procedures are no longer required. Examples are:
+Neptune does not have explicitly defined schema, indices, or constraints, so many `apoc.schema` procedures are no longer required. Examples are:
++ `apoc.schema.assert`
++ `apoc.schema.node.constraintExists`
++ `apoc.schema.node.indexExists`,
++ `apoc.schema.relationship.constraintExists`
++ `apoc.schema.relationship.indexExists`
++ `apoc.schema.nodes`
++ `apoc.schema.relationships`
 
-- `apoc.schema.assert`
-- `apoc.schema.node.constraintExists`
-- `apoc.schema.node.indexExists`,
-- `apoc.schema.relationship.constraintExists`
-- `apoc.schema.relationship.indexExists`
-- `apoc.schema.nodes`
-- `apoc.schema.relationships`
-
-Neptune openCypher does support retrieving similar values to those that the procedures
-do, as shown below, but can run into performance issues on larger graphs as doing so requires
-scanning a large portion of the graph to return the answer.
+Neptune openCypher does support retrieving similar values to those that the procedures do, as shown below, but can run into performance issues on larger graphs as doing so requires scanning a large portion of the graph to return the answer.
 
 ```
 # openCypher replacement for apoc.schema.properties.distinct
@@ -157,18 +132,16 @@ RETURN DISTINCT n.runways, count(n.runways)
 ```
 
 ### Alternatives to `apoc.do` procedures
+<a name="migration-opencypher-rewrites-apoc-do"></a>
 
-These procedures are used to provide conditional query execution that is easy to
-implement using other openCypher clauses. In Neptune there are at least two ways
-to achieve similar behavior:
-
-- One way is to combine openCypher's List Comprehension
-  capabilities with the `UNWIND` clause.
-- Another way is to use the choose() and coalesce() steps in Gremlin.
+These procedures are used to provide conditional query execution that is easy to implement using other openCypher clauses. In Neptune there are at least two ways to achieve similar behavior:
++ One way is to combine openCypher's List Comprehension capabilities with the `UNWIND` clause.
++ Another way is to use the choose() and coalesce() steps in Gremlin.
 
 Examples of these approaches are shown below.
 
 #### Alternatives to apoc.do.when
+<a name="migration-opencypher-rewrites-apoc-do-when"></a>
 
 ```
 # Neo4J Example
@@ -210,7 +183,7 @@ g.V().
     by(unfold().has('is_large_airport', true).count()).
     by(unfold().has('is_large_airport', false).count())
 
- #Neptune Gremlin using coalesce()
+ #Neptune Gremlin using coalesce() 
 g.V().
   has('airport', 'region', 'US-AK').
   coalesce(
@@ -224,6 +197,7 @@ g.V().
 ```
 
 #### Alternatives to apoc.do.case
+<a name="migration-opencypher-rewrites-apoc-do-case"></a>
 
 ```
 # Neo4J Example
@@ -233,7 +207,7 @@ CALL apoc.case([
  n.runways=2, 'RETURN "Has two runways" as b'
  ],
  'RETURN "Has more than 2 runways" as b'
-) YIELD value
+) YIELD value 
 RETURN {type: value.b,airport: n}
 
 # Neptune openCypher
@@ -278,16 +252,11 @@ g.V().
 ```
 
 ## Alternatives to List-based properties
+<a name="migration-opencypher-rewrites-lists"></a>
 
-Neptune does not currently support storing List-based properties. However, similar
-results can be obtained by storing list values as a comma separated string and then using
-the `join()` and `split()` functions to construct and deconstruct
-the list property.
+Neptune does not currently support storing List-based properties. However, similar results can be obtained by storing list values as a comma separated string and then using the `join()` and `split()` functions to construct and deconstruct the list property.
 
-For example, if we wanted to save a list of tags as a property, we could use
-the example rewrite which shows how to retrieve a comma separated property and
-then use the `split()` and `join()` functions with List
-Comprehension to achieve comparable results:
+For example, if we wanted to save a list of tags as a property, we could use the example rewrite which shows how to retrieve a comma separated property and then use the `split()` and `join()` functions with List Comprehension to achieve comparable results:
 
 ```
 # Neo4j Example (In this example, tags is a durable list of string.
@@ -296,7 +265,7 @@ WITH person, [tag in person.tags WHERE NOT (tag IN ['test1', 'test2', 'test3'])]
 SET person.tags = newTags
 RETURN person
 
-# Neptune openCypher
+# Neptune openCypher 
 MATCH (person:person {name: "TeeMan"})
 WITH person, [tag in split(person.tags, ',') WHERE NOT (tag IN ['test1', 'test2', 'test3'])] AS newTags
 SET person.tags = join(newTags,',')
@@ -304,19 +273,14 @@ RETURN person
 ```
 
 ## Rewriting CALL subqueries
+<a name="migration-opencypher-rewrites-call-subqueries"></a>
 
-Neptune `CALL` subqueries do not support the syntax `CALL (friend) { ... }` for importing
-variables into the subquery scope (`friend`, in this example). Please use the `WITH` clause
-inside the subquery for the same, e.g., `CALL { WITH friend ... }`.
+ Neptune `CALL` subqueries do not support the syntax `CALL (friend) { ... }` for importing variables into the subquery scope (`friend`, in this example). Please use the `WITH` clause inside the subquery for the same, e.g., `CALL { WITH friend ... }`. 
 
-Optional `CALL` subqueries are not supported at this moment.
+ Optional `CALL` subqueries are not supported at this moment. 
 
 ## Other differences between Neptune openCypher and Cypher
-
-- Neptune only supports TCP connections for the Bolt protocol. WebSockets
-  connections for Bolt are not supported.
-- Neptune openCypher removes whitespace as defined by Unicode
-  in the `trim()`, `ltrim()` and `rtrim()`
-  functions.
-- In Neptune openCypher, `tostring(`double`)`
-  does not automatically switch to E notation for large values of the double.
+<a name="opencypher-compliance-other-differences"></a>
++ Neptune only supports TCP connections for the Bolt protocol. WebSockets connections for Bolt are not supported.
++ Neptune openCypher removes whitespace as defined by Unicode in the `trim()`, `ltrim()` and `rtrim()` functions.
++ In Neptune openCypher, `tostring(`double`)` does not automatically switch to E notation for large values of the double.

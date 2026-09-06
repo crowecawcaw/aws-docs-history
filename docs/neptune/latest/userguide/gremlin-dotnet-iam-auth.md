@@ -1,16 +1,17 @@
+
+
 # Connecting to Amazon Neptune databases using IAM authentication with Gremlin .NET
+<a name="gremlin-dotnet-iam-auth"></a>
 
 ## Overview
+<a name="gremlin-dotnet-iam-auth-overview"></a>
 
-This guide demonstrates how to connect to a Amazon Neptune database with IAM authentication enabled
-using the Gremlin .NET driver, with Signature Version 4 authentication and the AWS SDK for .NET v3.
+ This guide demonstrates how to connect to a Amazon Neptune database with IAM authentication enabled using the Gremlin .NET driver, with Signature Version 4 authentication and the AWS SDK for .NET v3. 
 
 ## Create a basic connection
+<a name="gremlin-dotnet-iam-auth-basic-connection"></a>
 
-To connect with Gremlin .NET, use the `SigV4RequestSigner` source file from the
-custom library
-[https://github.com/aws/amazon-neptune-gremlin-dotnet-sigv4](https://github.com/aws/amazon-neptune-gremlin-dotnet-sigv4 "https://github.com/aws/amazon-neptune-gremlin-dotnet-sigv4"). An example project set-up is located in
-[https://github.com/aws/amazon-neptune-gremlin-dotnet-sigv4/tree/main/example](https://github.com/aws/amazon-neptune-gremlin-dotnet-sigv4/tree/main/example "https://github.com/aws/amazon-neptune-gremlin-dotnet-sigv4/tree/main/example"), and reflected below.
+ To connect with Gremlin .NET, use the `SigV4RequestSigner` source file from the custom library [ https://github.com/aws/amazon-neptune-gremlin-dotnet-sigv4](https://github.com/aws/amazon-neptune-gremlin-dotnet-sigv4). An example project set-up is located in [ https://github.com/aws/amazon-neptune-gremlin-dotnet-sigv4/tree/main/example](https://github.com/aws/amazon-neptune-gremlin-dotnet-sigv4/tree/main/example), and reflected below. 
 
 Project File:
 

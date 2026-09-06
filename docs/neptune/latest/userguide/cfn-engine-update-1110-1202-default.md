@@ -1,7 +1,9 @@
-# Example: Major version upgrade from 1.1.1.0 to 1.2.0.2 with default parameter groups
 
-Find the `DBCluster` that you want to upgrade, and the template you used to
-create it. For example:
+
+# Example: Major version upgrade from 1.1.1.0 to 1.2.0.2 with default parameter groups
+<a name="cfn-engine-update-1110-1202-default"></a>
+
+Find the `DBCluster` that you want to upgrade, and the template you used to create it. For example:
 
 ```
 Description: Base Template to create Neptune Stack with Engine Version 1.1.1.0 using default Parameter Groups
@@ -30,17 +32,12 @@ Outputs:
     Value:
       Ref: NeptuneDBCluster
 ```
++ Update the default `DBClusterParameterGroup` to the one in the parameter group family used by the new engine version (here `default.neptune1.2`).
++ For each `DBInstance` attached to the `DBCluster`, update the default `DBParameterGroup` to the one in the family used by new engine version (here `default.neptune1.2`).
++ Set the `DBInstanceParameterGroupName` property to the default parameter group in that family (here `default.neptune1.2`).
++ Update the `EngineVersion` property from `1.1.0.0` to `1.2.0.2`.
 
-- Update the default `DBClusterParameterGroup` to the one in the
-  parameter group family used by the new engine version (here `default.neptune1.2`).
-- For each `DBInstance` attached to the `DBCluster`,
-  update the default `DBParameterGroup` to the one in the family used by new
-  engine version (here `default.neptune1.2`).
-- Set the `DBInstanceParameterGroupName` property to the default
-  parameter group in that family (here `default.neptune1.2`).
-- Update the `EngineVersion` property from `1.1.0.0`
-  to `1.2.0.2`.
-  The template should look like this:
+The template should look like this:
 
 ```
 Description: Template to upgrade major engine version to 1.2.0.2 by using upgraded default parameter groups
@@ -70,7 +67,6 @@ Outputs:
   DBClusterId:
     Description: Neptune Cluster Identifier
     Value:
-
 ```
 
 Now use CloudFormation to run the revised template.

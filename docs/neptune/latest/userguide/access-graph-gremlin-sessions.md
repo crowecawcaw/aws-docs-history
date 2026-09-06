@@ -1,39 +1,27 @@
+
+
 # Support for Gremlin script-based sessions
+<a name="access-graph-gremlin-sessions"></a>
 
-You can use Gremlin sessions with implicit transactions in Amazon Neptune. For information
-about Gremlin sessions, see [Considering
-Sessions](http://tinkerpop.apache.org/docs/current/reference/#sessions "http://tinkerpop.apache.org/docs/current/reference/#sessions") in the Apache TinkerPop documentation. The sections below describe how
-to use Gremlin sessions with Java.
+You can use Gremlin sessions with implicit transactions in Amazon Neptune. For information about Gremlin sessions, see [Considering Sessions](http://tinkerpop.apache.org/docs/current/reference/#sessions) in the Apache TinkerPop documentation. The sections below describe how to use Gremlin sessions with Java.
 
-###### Important
+**Important**  
+Currently, the longest time Neptune can keep a script-based session open is 10 minutes. If you don't close a session before that, the session times out and everything in it is rolled back.
 
-Currently, the longest time Neptune can keep a script-based session open is 10 minutes.
-If you don't close a session before that, the session times out and everything in it is
-rolled back.
-
-###### Topics
-
-- [Gremlin sessions on the Gremlin console](#access-graph-gremlin-sessions-console "#access-graph-gremlin-sessions-console")
-- [Gremlin sessions in the Gremlin Language Variant](#access-graph-gremlin-sessions-glv "#access-graph-gremlin-sessions-glv")
+**Topics**
++ [Gremlin sessions on the Gremlin console](#access-graph-gremlin-sessions-console)
++ [Gremlin sessions in the Gremlin Language Variant](#access-graph-gremlin-sessions-glv)
 
 ## Gremlin sessions on the Gremlin console
+<a name="access-graph-gremlin-sessions-console"></a>
 
-If you create a remote connection on the Gremlin Console without the `session`
-parameter, the remote connection is created in _sessionless_ mode. In this
-mode, each request that is submitted to the server is treated as a complete transaction in
-itself, and no state is saved between requests. If a request fails, only that request is
-rolled back.
+If you create a remote connection on the Gremlin Console without the `session` parameter, the remote connection is created in *sessionless* mode. In this mode, each request that is submitted to the server is treated as a complete transaction in itself, and no state is saved between requests. If a request fails, only that request is rolled back.
 
-If you create a remote connection that _does_ use the
-`session` parameter, you create a script-based session that lasts until you
-close the remote connection. Every session is identified by a unique UUID that the console
-generates and returns to you.
+If you create a remote connection that *does* use the `session` parameter, you create a script-based session that lasts until you close the remote connection. Every session is identified by a unique UUID that the console generates and returns to you.
 
-The following is an example of one console call that creates a session. After queries are
-submitted, another call closes the session and commits the queries.
+The following is an example of one console call that creates a session. After queries are submitted, another call closes the session and commits the queries.
 
-###### Note
-
+**Note**  
 The Gremlin client must always be closed to release server side resources.
 
 ```
@@ -43,19 +31,14 @@ gremlin> :remote connect tinkerpop.server conf/neptune-remote.yaml session
 gremlin> :remote close
 ```
 
-For more information and examples, see [Sessions](http://tinkerpop.apache.org/docs/current/reference/#console-sessions "http://tinkerpop.apache.org/docs/current/reference/#console-sessions")
-in the TinkerPop documentation.
+For more information and examples, see [Sessions](http://tinkerpop.apache.org/docs/current/reference/#console-sessions) in the TinkerPop documentation.
 
-All the queries that you run during a session form a single transaction that isn't
-committed until all the queries succeed and you close the remote connection. If a query fails,
-or if you don't close the connection within the maximum session lifetime that Neptune
-supports, the session transaction is not committed, and all the queries in it are rolled
-back.
+All the queries that you run during a session form a single transaction that isn't committed until all the queries succeed and you close the remote connection. If a query fails, or if you don't close the connection within the maximum session lifetime that Neptune supports, the session transaction is not committed, and all the queries in it are rolled back.
 
 ## Gremlin sessions in the Gremlin Language Variant
+<a name="access-graph-gremlin-sessions-glv"></a>
 
-In the Gremlin language variant (GLV), you need to create a `SessionedClient`
-object to issue multiple queries in a single transaction, as in the following example.
+In the Gremlin language variant (GLV), you need to create a `SessionedClient` object to issue multiple queries in a single transaction, as in the following example.
 
 ```
 try {                              // line 1
@@ -67,22 +50,13 @@ try {                              // line 1
   // Always close. If there are no errors, the transaction is committed; otherwise, it's rolled back.
   client.close();
 }
-
 ```
 
-Line 3 in the preceding example creates the `SessionedClient` object
-according to the configuration options set for the cluster in question. The
-`sessionName` string that you pass to the connect method
-becomes the unique name of the session. To avoid collisions, use a UUID for the name.
+Line 3 in the preceding example creates the `SessionedClient` object according to the configuration options set for the cluster in question. The {{sessionName}} string that you pass to the connect method becomes the unique name of the session. To avoid collisions, use a UUID for the name.
 
-The client starts a session transaction when it is initialized. All the queries that you
-run during the session form are committed only when you call `client.close( )`.
-Again, if a single query fails, or if you don't close the connection within the maximum
-session lifetime that Neptune supports, the session transaction fails, and all the queries
-in it are rolled back.
+The client starts a session transaction when it is initialized. All the queries that you run during the session form are committed only when you call `client.close( )`. Again, if a single query fails, or if you don't close the connection within the maximum session lifetime that Neptune supports, the session transaction fails, and all the queries in it are rolled back.
 
-###### Note
-
+**Note**  
 The Gremlin client must always be closed to release server side resources.
 
 ```
@@ -103,5 +77,4 @@ try {
         tx.rollback();
     }
 }
-
 ```

@@ -1,9 +1,9 @@
-# Use parameterized queries
 
-It is recommended to always use parameterized queries when querying using openCypher. The query engine can leverage
-repeated parameterized queries for features like query plan cache, where repeated invocation of the same parameterized
-structure with different parameters can leverage the cached plans. The query plan generated for parameterized queries
-is cached and reused only when it completes within 100ms and the parameter types are either NUMBER, BOOLEAN or STRING.
+
+# Use parameterized queries
+<a name="best-practices-content-2"></a>
+
+ It is recommended to always use parameterized queries when querying using openCypher. The query engine can leverage repeated parameterized queries for features like query plan cache, where repeated invocation of the same parameterized structure with different parameters can leverage the cached plans. The query plan generated for parameterized queries is cached and reused only when it completes within 100ms and the parameter types are either NUMBER, BOOLEAN or STRING. 
 
 Use:
 

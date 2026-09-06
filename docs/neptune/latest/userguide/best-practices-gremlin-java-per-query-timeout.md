@@ -1,16 +1,12 @@
+
+
 # Optionally, set timeouts at a per-query level
+<a name="best-practices-gremlin-java-per-query-timeout"></a>
 
-Neptune provides you with the ability to set a timeout for your queries using the
-parameter group option `neptune_query_timeout` (see [Parameters](parameters.md "parameters.md")). You can also override the global timeout, with code
-like this:
+Neptune provides you with the ability to set a timeout for your queries using the parameter group option `neptune_query_timeout` (see [Parameters](parameters.md)). You can also override the global timeout, with code like this:
 
-###### Note
-
-Query timeout settings apply only to query evaluation. Bytecode-based
-transaction control operations such as `tx().commit()` and
-`tx().rollback()` are not subject to query timeouts. For more
-information, see
-[Timeout behavior for bytecode commit and rollback](access-graph-gremlin-transactions.md#access-graph-gremlin-transactions-commit-rollback-timeout "access-graph-gremlin-transactions.md#access-graph-gremlin-transactions-commit-rollback-timeout").
+**Note**  
+Query timeout settings apply only to query evaluation. Bytecode-based transaction control operations such as `tx().commit()` and `tx().rollback()` are not subject to query timeouts. For more information, see [Timeout behavior for bytecode commit and rollback](access-graph-gremlin-transactions.md#access-graph-gremlin-transactions-commit-rollback-timeout).
 
 ```
   final Cluster cluster = Cluster.build("localhost")
@@ -34,35 +30,13 @@ Or, for string-based query submission, the code would look like this:
 ```
   RequestOptions options = RequestOptions.build().timeout(500).create();
   List<Result> result = client.submit("g.V()", options).all().get();
-
 ```
 
-If a query exceeds the per-query timeout, Neptune terminates it. Whether
-to retry a timed-out query depends on the nature of the failure and your workload.
-For guidance, see [Exception Handling and Retries](transactions-exceptions.md "transactions-exceptions.md").
+If a query exceeds the per-query timeout, Neptune terminates it. Whether to retry a timed-out query depends on the nature of the failure and your workload. For guidance, see [Exception Handling and Retries](transactions-exceptions.md).
 
-###### Note
-
-It is possible to incur unexpected costs if you set the query timeout value
-too high, particularly on a serverless instance. Without a reasonable timeout
-setting, your query may keeps running much longer than you expected, incurring
-costs you never anticipated. This is particularly true on a serverless instance
-that could scale up to a large, expensive instance type while running the query.
-
-You can avoid unexpected expenses of this kind by using a query timeout
-value that accomodates the run-time your expect and only causes an unusually
-long run to time out.
-
-Starting from Neptune engine version 1.3.2.0, Neptune supports a new neptune\_lab\_mode parameter as
-`StrictTimeoutValidation`. When this parameter has a value of `Enabled`, a per-query
-timeout value specified as a request option or a query hint cannot exceed the value set globally in the parameter
-group. In such a case, Neptune will throw `InvalidParameterException`.
-
-This setting can be confirmed in a response on the '/status' endpoint when the value is `Disabled`.
-In engine version `1.3.2.0`, the default value of this parameter is `Disabled`. Starting
-in engine version `1.4.0.0`, the `StrictTimeoutValidation` parameter is `Enabled`
-by default.
-
-For more information about how timeout precedence is determined when multiple timeout settings are configured,
-see the [neptune\_query\_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout "parameters.md#parameters-db-cluster-parameters-neptune_query_timeout")
-parameter documentation.
+**Note**  
+It is possible to incur unexpected costs if you set the query timeout value too high, particularly on a serverless instance. Without a reasonable timeout setting, your query may keeps running much longer than you expected, incurring costs you never anticipated. This is particularly true on a serverless instance that could scale up to a large, expensive instance type while running the query.  
+You can avoid unexpected expenses of this kind by using a query timeout value that accomodates the run-time your expect and only causes an unusually long run to time out.  
+ Starting from Neptune engine version 1.3.2.0, Neptune supports a new neptune\_lab\_mode parameter as `StrictTimeoutValidation`. When this parameter has a value of `Enabled`, a per-query timeout value specified as a request option or a query hint cannot exceed the value set globally in the parameter group. In such a case, Neptune will throw `InvalidParameterException`.   
+ This setting can be confirmed in a response on the '/status' endpoint when the value is `Disabled`. In engine version `1.3.2.0`, the default value of this parameter is `Disabled`. Starting in engine version `1.4.0.0`, the `StrictTimeoutValidation` parameter is `Enabled` by default.   
+ For more information about how timeout precedence is determined when multiple timeout settings are configured, see the [neptune\_query\_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout) parameter documentation. 

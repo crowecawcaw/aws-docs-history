@@ -1,36 +1,32 @@
+
+
 # Example of `explain` output for a variable-length path (VLP) query
+<a name="access-graph-opencypher-explain-example-5"></a>
 
-This is an example of a more complex query plan for handling a variable-length path query.
-This example only shows part of the `explain` output, for clarity.
+This is an example of a more complex query plan for handling a variable-length path query. This example only shows part of the `explain` output, for clarity.
 
-In `subQuery1`, `DFEPipelineScan` (ID 0) and `DFEChunkLocalSubQuery`
-(ID 1), which injects the `...graph_1` subquery, are responsible for scanning
-for a node with the `YPO` code.
+In `subQuery1`, `DFEPipelineScan` (ID 0) and `DFEChunkLocalSubQuery` (ID 1), which injects the `...graph_1` subquery, are responsible for scanning for a node with the `YPO` code.
 
-In `subQuery1`, `DFEChunkLocalSubQuery` (ID 2), which injects
-the `...graph_2` subquery, is responsible for scanning for a node with the
-`LAX` code.
+In `subQuery1`, `DFEChunkLocalSubQuery` (ID 2), which injects the `...graph_2` subquery, is responsible for scanning for a node with the `LAX` code.
 
-In `subQuery1`, `DFEChunkLocalSubQuery` (ID 3) injects the
-`...graph3` subquery, which contains `DFELoopSubQuery` (ID 17),
-which in turn injects the `...graph5` subquery. This operation is responsible
-for resolving the `-[*2]->` variable-length pattern in the query string
-between two nodes.
+In `subQuery1`, `DFEChunkLocalSubQuery` (ID 3) injects the `...graph3` subquery, which contains `DFELoopSubQuery` (ID 17), which in turn injects the `...graph5` subquery. This operation is responsible for resolving the `-[*2]->` variable-length pattern in the query string between two nodes.
 
 To invoke `explain` for this query:
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws neptunedata execute-open-cypher-explain-query \
-  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --endpoint-url https://{{your-neptune-endpoint}}:{{port}} \
   --open-cypher-query "MATCH p=(a {code: 'YPO'})-[*2]->(b{code: 'LAX'}) return p" \
   --explain-mode details
 ```
 
-For more information, see [execute-open-cypher-explain-query](../../../cli/latest/reference/neptunedata/execute-open-cypher-explain-query.md "../../../cli/latest/reference/neptunedata/execute-open-cypher-explain-query.md") in the AWS CLI Command Reference.
+For more information, see [execute-open-cypher-explain-query](https://docs.aws.amazon.com/cli/latest/reference/neptunedata/execute-open-cypher-explain-query.html) in the AWS CLI Command Reference.
 
-SDK
+------
+#### [ SDK ]
 
 ```
 import boto3
@@ -38,7 +34,7 @@ from botocore.config import Config
 
 client = boto3.client(
     'neptunedata',
-    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    endpoint_url='https://{{your-neptune-endpoint}}:{{port}}',
     config=Config(read_timeout=None, retries={'total_max_attempts': 1})
 )
 
@@ -50,32 +46,33 @@ response = client.execute_open_cypher_explain_query(
 print(response['results'].read().decode('utf-8'))
 ```
 
-For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md).
 
-awscurl
+------
+#### [ awscurl ]
 
 ```
-awscurl https://`your-neptune-endpoint`:`port`/openCypher \
-  --region `us-east-1` \
+awscurl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
+  --region {{us-east-1}} \
   --service neptune-db \
   -X POST \
   -d "query=MATCH p=(a {code: 'YPO'})-[*2]->(b{code: 'LAX'}) return p" \
   -d "explain=details"
 ```
 
-###### Note
+**Note**  
+This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
 
-This example assumes that your AWS credentials are configured in your
-environment. Replace `us-east-1` with the Region of your
-Neptune cluster.
-
-curl
+------
+#### [ curl ]
 
 ```
-curl https://`your-neptune-endpoint`:`port`/openCypher \
+curl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=MATCH p=(a {code: 'YPO'})-[*2]->(b{code: 'LAX'}) return p" \
   -d "explain=details"
 ```
+
+------
 
 The `explain` output:
 
@@ -167,7 +164,7 @@ subQuery=http://aws.amazon.com/neptune/vocab/v01/dfe/past/graph#cc05129f-d07e-46
 ╔════╤════════╤════════╤═══════════════════════╤══════════════════════════════════════════════════════════════════════════════════════════════════════════════╤══════════╤══════════╤═══════════╤═══════╤═══════════╗
 ║ ID │ Out #1 │ Out #2 │ Name                  │ Arguments                                                                                                    │ Mode     │ Units In │ Units Out │ Ratio │ Time (ms) ║
 ╠════╪════════╪════════╪═══════════════════════╪══════════════════════════════════════════════════════════════════════════════════════════════════════════════╪══════════╪══════════╪═══════════╪═══════╪═══════════╣
-`...`
+{{...}}
 ║ 17 │ 18     │ -      │ DFELoopSubQuery       │ subQuery=http://aws.amazon.com/neptune/vocab/v01/dfe/past/graph#cc05129f-d07e-4622-bbe3-9e99558eca46/graph_5 │ -        │ 1        │ 2         │ 2.00  │ 0.31      ║
-`...`
+{{...}}
 ```

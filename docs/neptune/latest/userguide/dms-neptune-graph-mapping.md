@@ -1,22 +1,18 @@
+
+
 # Creating a Neptune GraphMappingConfig
+<a name="dms-neptune-graph-mapping"></a>
 
-The `GraphMappingConfig` that you create specifies how data extracted from
-a source data store should be loaded into a Neptune DB cluster. Its format differs
-depending on whether it is intended for loading RDF data or for loading property-graph
-data.
+The `GraphMappingConfig` that you create specifies how data extracted from a source data store should be loaded into a Neptune DB cluster. Its format differs depending on whether it is intended for loading RDF data or for loading property-graph data.
 
-For RDF data, you can use the W3 [R2RML](https://www.w3.org/TR/r2rml/ "https://www.w3.org/TR/r2rml/")
-language for mapping relational data to RDF.
+For RDF data, you can use the W3 [R2RML](https://www.w3.org/TR/r2rml/) language for mapping relational data to RDF.
 
-If you are loading property-graph data to be queried using Gremlin, you create a
-JSON object for `GraphMappingConfig`.
+If you are loading property-graph data to be queried using Gremlin, you create a JSON object for `GraphMappingConfig`.
 
 ## GraphMappingConfig Layout for RDF/SPARQL Data
+<a name="dms-neptune-graph-mapping-sparql"></a>
 
-If you are loading RDF data to be queried using SPARQL, you write the
-`GraphMappingConfig` in [R2RML](https://www.w3.org/TR/r2rml/ "https://www.w3.org/TR/r2rml/").
-`R2RML` is a standard W3 language for mapping relational data to RDF. Here is
-one example:
+If you are loading RDF data to be queried using SPARQL, you write the `GraphMappingConfig` in [R2RML](https://www.w3.org/TR/r2rml/). `R2RML` is a standard W3 language for mapping relational data to RDF. Here is one example:
 
 ```
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
@@ -57,14 +53,12 @@ Here is another example:
     ] .
 ```
 
-The W3 Recommendation at [R2RML:
-RDB to RDF Mapping Language](https://www.w3.org/TR/r2rml/ "https://www.w3.org/TR/r2rml/") provides details of the language.
+The W3 Recommendation at [R2RML: RDB to RDF Mapping Language](https://www.w3.org/TR/r2rml/) provides details of the language.
 
 ## GraphMappingConfig Layout for Property-Graph/Gremlin Data
+<a name="dms-neptune-graph-mapping-gremlin"></a>
 
-A comparable `GraphMappingConfig` for property-graph data is a JSON object
-that provides a mapping rule for each graph entity to be genereated from the source data.
-The following template shows what each rule in this object looks like:
+A comparable `GraphMappingConfig` for property-graph data is a JSON object that provides a mapping rule for each graph entity to be genereated from the source data. The following template shows what each rule in this object looks like:
 
 ```
 {
@@ -118,13 +112,9 @@ The following template shows what each rule in this object looks like:
     }
   ]
 }
-
 ```
 
-Note that the presence of a vertex label implies that the vertex
-is being created here, whereas its absence implies that the vertex is
-created by a different source, and this definition is only adding
-vertex properties.
+Note that the presence of a vertex label implies that the vertex is being created here, whereas its absence implies that the vertex is created by a different source, and this definition is only adding vertex properties.
 
 Here is a sample rule for an employee record:
 

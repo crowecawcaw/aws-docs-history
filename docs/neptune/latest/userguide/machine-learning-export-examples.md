@@ -1,19 +1,23 @@
+
+
 # Examples of using the Neptune-Export service to export training data for Neptune ML
+<a name="machine-learning-export-examples"></a>
 
 This request exports property-graph training data for a node classification task:
 
-curl
+------
+#### [ curl ]
 
 ```
 curl \
-  `(your NeptuneExportApiUri)` \
+  {{(your NeptuneExportApiUri)}} \
   -X POST \
   -H 'Content-Type: application/json' \
   -d '{
         "command": "export-pg",
-        "outputS3Path": "s3://`(your Amazon S3 bucket)`/neptune-export",
+        "outputS3Path": "s3://{{(your Amazon S3 bucket)}}/neptune-export",
         "params": {
-          "endpoint": "`(your Neptune endpoint DNS name)`",
+          "endpoint": "{{(your Neptune endpoint DNS name)}}",
           "profile": "neptune_ml"
         },
         "additionalParams": {
@@ -31,19 +35,20 @@ curl \
       }'
 ```
 
-awscurl
+------
+#### [ awscurl ]
 
 ```
-awscurl `(your NeptuneExportApiUri)` \
-  --region `us-east-1` \
+awscurl {{(your NeptuneExportApiUri)}} \
+  --region {{us-east-1}} \
   --service execute-api \
   -X POST \
   -H 'Content-Type: application/json' \
   -d '{
         "command": "export-pg",
-        "outputS3Path": "s3://`(your Amazon S3 bucket)`/neptune-export",
+        "outputS3Path": "s3://{{(your Amazon S3 bucket)}}/neptune-export",
         "params": {
-          "endpoint": "`(your Neptune endpoint DNS name)`",
+          "endpoint": "{{(your Neptune endpoint DNS name)}}",
           "profile": "neptune_ml"
         },
         "additionalParams": {
@@ -61,26 +66,26 @@ awscurl `(your NeptuneExportApiUri)` \
       }'
 ```
 
-###### Note
+**Note**  
+This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
 
-This example assumes that your AWS credentials are configured in your
-environment. Replace `us-east-1` with the Region of your
-Neptune cluster.
+------
 
 This request exports RDF training data for a node classification task:
 
-curl
+------
+#### [ curl ]
 
 ```
 curl \
-  `(your NeptuneExportApiUri)` \
+  {{(your NeptuneExportApiUri)}} \
   -X POST \
   -H 'Content-Type: application/json' \
   -d '{
         "command": "export-rdf",
-        "outputS3Path": "s3://`(your Amazon S3 bucket)`/neptune-export",
+        "outputS3Path": "s3://{{(your Amazon S3 bucket)}}/neptune-export",
         "params": {
-          "endpoint": "`(your Neptune endpoint DNS name)`",
+          "endpoint": "{{(your Neptune endpoint DNS name)}}",
           "profile": "neptune_ml"
         },
         "additionalParams": {
@@ -98,19 +103,20 @@ curl \
       }'
 ```
 
-awscurl
+------
+#### [ awscurl ]
 
 ```
-awscurl `(your NeptuneExportApiUri)` \
-  --region `us-east-1` \
+awscurl {{(your NeptuneExportApiUri)}} \
+  --region {{us-east-1}} \
   --service execute-api \
   -X POST \
   -H 'Content-Type: application/json' \
   -d '{
         "command": "export-rdf",
-        "outputS3Path": "s3://`(your Amazon S3 bucket)`/neptune-export",
+        "outputS3Path": "s3://{{(your Amazon S3 bucket)}}/neptune-export",
         "params": {
-          "endpoint": "`(your Neptune endpoint DNS name)`",
+          "endpoint": "{{(your Neptune endpoint DNS name)}}",
           "profile": "neptune_ml"
         },
         "additionalParams": {
@@ -128,8 +134,7 @@ awscurl `(your NeptuneExportApiUri)` \
       }'
 ```
 
-###### Note
+**Note**  
+This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
 
-This example assumes that your AWS credentials are configured in your
-environment. Replace `us-east-1` with the Region of your
-Neptune cluster.
+------

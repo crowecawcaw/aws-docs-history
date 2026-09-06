@@ -1,4 +1,7 @@
+
+
 # The `queryId` SPARQL Query Hint
+<a name="sparql-query-hints-queryId"></a>
 
 Use this query hint to assign your own queryId value to a SPARQL query.
 

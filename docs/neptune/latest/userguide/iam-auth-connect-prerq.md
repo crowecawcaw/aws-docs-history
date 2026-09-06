@@ -1,47 +1,51 @@
+
+
 # Prerequisites for connecting Amazon Neptune databases using IAM authentication
+<a name="iam-auth-connect-prerq"></a>
 
-The following are instructions for installing Apache Maven and Java 8 on an Amazon EC2 instance.
-These are required for the Amazon Neptune Signature Version 4 authentication samples.
+The following are instructions for installing Apache Maven and Java 8 on an Amazon EC2 instance. These are required for the Amazon Neptune Signature Version 4 authentication samples.
 
-###### To Install Apache Maven and Java 8 on your EC2 instance
+**To Install Apache Maven and Java 8 on your EC2 instance**
 
 1. Connect to your Amazon EC2 instance with an SSH client.
-2. Install Apache Maven on your EC2 instance. If using Amazon Linux 2023 (preferred), use:
 
-```
-sudo dnf update -y
-sudo dnf install maven -y
-```
+1. Install Apache Maven on your EC2 instance. If using Amazon Linux 2023 (preferred), use:
 
-If using Amazon Linux 2, download the latest binary from [https://maven.apache.org/download.cgi:](https://maven.apache.org/download.cgi: "https://maven.apache.org/download.cgi:")
+   ```
+   sudo dnf update -y
+   sudo dnf install maven -y
+   ```
 
-```
-sudo yum remove maven -y
-wget https://dlcdn.apache.org/maven/maven-3/ <version>/binaries/apache-maven-<version>-bin.tar.gz
-sudo tar -xzf apache-maven-<version>-bin.tar.gz -C /opt/
-sudo ln -sf /opt/apache-maven-<version> /opt/maven
-echo 'export MAVEN_HOME=/opt/maven' >> ~/.bashrc
-echo 'export PATH=$MAVEN_HOME/bin:$PATH' >> ~/.bashrc
-source ~/.bashrc
-```
+   If using Amazon Linux 2, download the latest binary from [ https://maven.apache.org/download.cgi: ](https://maven.apache.org/download.cgi:)
 
-3. The Gremlin libraries require Java 8. Enter the following to install Java 8 on your
-   EC2 instance.
+   ```
+   sudo yum remove maven -y
+   wget https://dlcdn.apache.org/maven/maven-3/ <version>/binaries/apache-maven-<version>-bin.tar.gz
+   sudo tar -xzf apache-maven-<version>-bin.tar.gz -C /opt/
+   sudo ln -sf /opt/apache-maven-<version> /opt/maven
+   echo 'export MAVEN_HOME=/opt/maven' >> ~/.bashrc
+   echo 'export PATH=$MAVEN_HOME/bin:$PATH' >> ~/.bashrc
+   source ~/.bashrc
+   ```
 
-```
-sudo yum install java-1.8.0-devel
-```
+1. The Gremlin libraries require Java 8. Enter the following to install Java 8 on your EC2 instance.
 
-4. Enter the following to set Java 8 as the default runtime on your EC2 instance.
+   ```
+   sudo yum install java-1.8.0-devel
+   ```
 
-```
-sudo /usr/sbin/alternatives --config java
-```
+1. Enter the following to set Java 8 as the default runtime on your EC2 instance.
 
-When prompted, enter the number for Java 8. 5. Enter the following to set Java 8 as the default compiler on your EC2 instance.
+   ```
+   sudo /usr/sbin/alternatives --config java
+   ```
 
-```
-sudo /usr/sbin/alternatives --config javac
-```
+   When prompted, enter the number for Java 8.
 
-When prompted, enter the number for Java 8.
+1. Enter the following to set Java 8 as the default compiler on your EC2 instance.
+
+   ```
+   sudo /usr/sbin/alternatives --config javac
+   ```
+
+   When prompted, enter the number for Java 8.

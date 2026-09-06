@@ -1,30 +1,32 @@
+
+
 # Example of `explain` output for a mathematical value expression function
+<a name="access-graph-opencypher-explain-example-4"></a>
 
-In this example, `RETURN abs(-10)` performs a simple evaluation, taking
-the absolute value of a constant, `-10`.
+In this example, `RETURN abs(-10)` performs a simple evaluation, taking the absolute value of a constant, `-10`.
 
-`DFEChunkLocalSubQuery` (ID 1) performs a solution injection for
-the static value `-10`, which is stored in the variable, `?100`.
+`DFEChunkLocalSubQuery` (ID 1) performs a solution injection for the static value `-10`, which is stored in the variable, `?100`.
 
-`DFEApply` (ID 2) is the operator that executes the absolute value
-function `abs()` on the static value stored in `?100` variable.
+`DFEApply` (ID 2) is the operator that executes the absolute value function `abs()` on the static value stored in `?100` variable.
 
 Here is the query and resulting `explain` output.
 
 To invoke `explain` for this query:
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws neptunedata execute-open-cypher-explain-query \
-  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --endpoint-url https://{{your-neptune-endpoint}}:{{port}} \
   --open-cypher-query "RETURN abs(-10)" \
   --explain-mode details
 ```
 
-For more information, see [execute-open-cypher-explain-query](../../../cli/latest/reference/neptunedata/execute-open-cypher-explain-query.md "../../../cli/latest/reference/neptunedata/execute-open-cypher-explain-query.md") in the AWS CLI Command Reference.
+For more information, see [execute-open-cypher-explain-query](https://docs.aws.amazon.com/cli/latest/reference/neptunedata/execute-open-cypher-explain-query.html) in the AWS CLI Command Reference.
 
-SDK
+------
+#### [ SDK ]
 
 ```
 import boto3
@@ -32,7 +34,7 @@ from botocore.config import Config
 
 client = boto3.client(
     'neptunedata',
-    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    endpoint_url='https://{{your-neptune-endpoint}}:{{port}}',
     config=Config(read_timeout=None, retries={'total_max_attempts': 1})
 )
 
@@ -44,32 +46,33 @@ response = client.execute_open_cypher_explain_query(
 print(response['results'].read().decode('utf-8'))
 ```
 
-For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md).
 
-awscurl
+------
+#### [ awscurl ]
 
 ```
-awscurl https://`your-neptune-endpoint`:`port`/openCypher \
-  --region `us-east-1` \
+awscurl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
+  --region {{us-east-1}} \
   --service neptune-db \
   -X POST \
   -d "query=RETURN abs(-10)" \
   -d "explain=details"
 ```
 
-###### Note
+**Note**  
+This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
 
-This example assumes that your AWS credentials are configured in your
-environment. Replace `us-east-1` with the Region of your
-Neptune cluster.
-
-curl
+------
+#### [ curl ]
 
 ```
-curl https://`your-neptune-endpoint`:`port`/openCypher \
+curl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=RETURN abs(-10)" \
   -d "explain=details"
 ```
+
+------
 
 The `explain` output:
 

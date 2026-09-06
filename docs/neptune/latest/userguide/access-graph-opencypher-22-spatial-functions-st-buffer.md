@@ -1,4 +1,7 @@
+
+
 # ST\_Buffer
+<a name="access-graph-opencypher-22-spatial-functions-st-buffer"></a>
 
 ST\_Buffer returns 2D geometry that represents all points whose distance from the input geometry projected on the xy-Cartesian plane is less than or equal to the input distance.
 
@@ -9,11 +12,11 @@ ST_Buffer(geom, distance, number_of_segments_per_quarter_circle)
 ```
 
 **Arguments**
++ `geom` - A value of data type GEOMETRY or an expression that evaluates to a GEOMETRY type.
++ `distance` - A value of data type DOUBLE PRECISION that represents distance (or radius) of the buffer.
++ `number_of_segments_per_quarter_circle` - A value of data type INTEGER (should be larger or equal to 0). This value determines the number of points to approximate a quarter circle around each vertex of the input geometry. Negative values default to zero. The default is 8.
 
-- `geom` - A value of data type GEOMETRY or an expression that evaluates to a GEOMETRY type.
-- `distance` - A value of data type DOUBLE PRECISION that represents distance (or radius) of the buffer.
-- `number_of_segments_per_quarter_circle` - A value of data type INTEGER (should be larger or equal to 0). This value determines the number of points to approximate a quarter circle around each vertex of the input geometry. Negative values default to zero. The default is 8.
-  **Return type**
+**Return type**
 
 GEOMETRY
 

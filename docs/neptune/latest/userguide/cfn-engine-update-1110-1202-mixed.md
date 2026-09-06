@@ -1,10 +1,12 @@
-# Example: Major version upgrade from 1.1.1.0 to 1.2.0.2 with a mix of default and custom parameter groups
 
-Find the `DBCluster` that you want to upgrade, and the template you used to
-create it. For example:
+
+# Example: Major version upgrade from 1.1.1.0 to 1.2.0.2 with a mix of default and custom parameter groups
+<a name="cfn-engine-update-1110-1202-mixed"></a>
+
+Find the `DBCluster` that you want to upgrade, and the template you used to create it. For example:
 
 ```
-Description: Base Template to create Neptune Stack with Engine Version 1.1.1.0 using custom Parameter Groups
+Description: Base Template to create Neptune Stack with Engine Version 1.1.1.0 using custom Parameter Groups 
 Parameters:
   DbInstanceType:
     Description: Neptune DB instance type
@@ -60,24 +62,15 @@ Outputs:
     Value:
       Ref: NeptuneDBCluster
 ```
++ For a custom cluster parameter group, update the `DBClusterParameterGroup` family to the one corresponding to new engine version, namely `neptune1.2`.
++ For a default cluster parameter group, update the `DBClusterParameterGroup` to the default corresponding to new engine version, namely `default.neptune1.2`.
++ For each `DBInstance` attached to the `DBCluster`, update a default `DBParameterGroup` to the one in the family used by new engine version (here `default.neptune1.2`), and a custom parameter group to one that uses the family supported by the new engine version (here `neptune1.2`).
++ Set the `DBInstanceParameterGroupName` property to the parameter group in the family supported by the new engine version.
 
-- For a custom cluster parameter group, update the
-  `DBClusterParameterGroup` family to the one corresponding
-  to new engine version, namely `neptune1.2`.
-- For a default cluster parameter group, update the
-  `DBClusterParameterGroup` to the default corresponding
-  to new engine version, namely `default.neptune1.2`.
-- For each `DBInstance` attached to the `DBCluster`,
-  update a default `DBParameterGroup` to the one in the family used by new
-  engine version (here `default.neptune1.2`), and a custom
-  parameter group to one that uses the family supported by the new engine
-  version (here `neptune1.2`).
-- Set the `DBInstanceParameterGroupName` property
-  to the parameter group in the family supported by the new engine version.
-  The template should look like this:
+The template should look like this:
 
 ```
-Description: Template to update Neptune Stack to Engine Version 1.2.0.1 using custom and default Parameter Groups
+Description: Template to update Neptune Stack to Engine Version 1.2.0.1 using custom and default Parameter Groups 
 Parameters:
   DbInstanceType:
     Description: Neptune DB instance type

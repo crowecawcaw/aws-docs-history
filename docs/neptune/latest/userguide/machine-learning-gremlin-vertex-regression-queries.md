@@ -1,17 +1,15 @@
+
+
 # Gremlin node regression queries in Neptune ML
+<a name="machine-learning-gremlin-vertex-regression-queries"></a>
 
-Node regression is similar to node classification, except that the value inferred
-from the regression model for each node is numeric. You can use the same Gremlin queries
-for node regression as for node classification except for the following differences:
+Node regression is similar to node classification, except that the value inferred from the regression model for each node is numeric. You can use the same Gremlin queries for node regression as for node classification except for the following differences:
++ Again, in Neptune ML, nodes refer to vertices.
++ The `properties()` step takes the form, `properties().with("Neptune#ml.regression")`instead of `properties().with("Neptune#ml.classification")`.
++ The `"Neptune#ml.limit`" and `"Neptune#ml.threshold"` predicates are not applicable.
++ When you filter on the value, you have to specify a numeric value.
 
-- Again, in Neptune ML, nodes refer to vertices.
-- The `properties()` step takes the form,
-  `properties().with("Neptune#ml.regression")`instead of
-  `properties().with("Neptune#ml.classification")`.
-- The `"Neptune#ml.limit`" and `"Neptune#ml.threshold"`
-  predicates are not applicable.
-- When you filter on the value, you have to specify a numeric value.
-  Here is a sample vertex classification query:
+Here is a sample vertex classification query:
 
 ```
 g.with("Neptune#ml.endpoint","node-regression-movie-lens-endpoint")
@@ -20,8 +18,7 @@ g.with("Neptune#ml.endpoint","node-regression-movie-lens-endpoint")
  .properties("revenue").with("Neptune#ml.regression")
 ```
 
-You can filter on the value inferred using a regression model, as
-illustrated in the following examples:
+You can filter on the value inferred using a regression model, as illustrated in the following examples:
 
 ```
 g.with("Neptune#ml.endpoint","node-regression-movie-lens-endpoint")
@@ -38,9 +35,9 @@ g.with("Neptune#ml.endpoint","node-regression-movie-lens-endpoint")
 ```
 
 ## Using inductive inference in a node regression query
+<a name="machine-learning-gremlin-node-regress-inductive"></a>
 
-Supposing you were to add a new node to an existing graph, in a Jupyter notebook,
-like this:
+Supposing you were to add a new node to an existing graph, in a Jupyter notebook, like this:
 
 ```
 %%gremlin
@@ -51,8 +48,7 @@ g.addV('label1').property(id,'101').as('newV')
  .addE('eLabel2').from('oldV2').to('newV')
 ```
 
-You could then use an inductive inference query to get a rating that took into
-account the new node:
+You could then use an inductive inference query to get a rating that took into account the new node:
 
 ```
 %%gremlin
@@ -63,8 +59,7 @@ g.with("Neptune#ml.endpoint", "nr-ep")
  .with("Neptune#ml.inductiveInference")
 ```
 
-Because the query is not deterministic, it might return somewhat different
-results if you run it several times, based on the neighborhood:
+Because the query is not deterministic, it might return somewhat different results if you run it several times, based on the neighborhood:
 
 ```
 # First time

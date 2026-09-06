@@ -1,27 +1,15 @@
+
+
 # Gremlin node classification queries in Neptune ML
+<a name="machine-learning-gremlin-vertex-classification-queries"></a>
 
 For Gremlin node classification in Neptune ML:
++ The model is trained on one property of the vertices. The set of unique values of this property are referred to as a set of node classes, or simply, classes.
++ The node class or categorical property value of a vertex's property can be inferred from the node classification model. This is useful where this property is not already attached to the vertex.
++ In order to fetch one or more classes from a node classification model, you need to use the `with()` step with the predicate `Neptune#ml.classification` to configure the `properties()` step. The output format is similar to what you would expect if those were vertex properties.
 
-- The model is trained on one property of the vertices.
-  The set of unique values of this property are referred to as a
-  set of node classes, or simply, classes.
-- The node class or categorical property value of a
-  vertex's property can be inferred from the node classification
-  model. This is useful where this property is not already
-  attached to the vertex.
-- In order to fetch one or more classes from
-  a node classification model, you need to use the `with()`
-  step with the predicate `Neptune#ml.classification`
-  to configure the `properties()` step. The output format
-  is similar to what you would expect if those were vertex properties.
-
-###### Note
-
-Node classification only works with string property values.
-That means that numerical property values such as `0` or `1`
-are not supported, although the string equivalents `"0"` and `"1"`
-are. Similarly, the Boolean property values `true` and `false`
-don't work, but `"true"` and `"false"` do.
+**Note**  
+Node classification only works with string property values. That means that numerical property values such as `0` or `1` are not supported, although the string equivalents `"0"` and `"1"` are. Similarly, the Boolean property values `true` and `false` don't work, but `"true"` and `"false"` do.
 
 Here is a sample node classification query:
 
@@ -42,23 +30,17 @@ The output of this query would look something like the following:
 ==>vp[genre->Comedy]
 ```
 
-In the query above, the `V()` and `properties()`
-steps are used as follows:
+In the query above, the `V()` and `properties()` steps are used as follows:
 
-The `V()` step contains the set of vertices for which you want
-to fetch the classes from the node-classification model:
+The `V()` step contains the set of vertices for which you want to fetch the classes from the node-classification model:
 
 ```
  .V( "movie_1", "movie_2", "movie_3" )
 ```
 
-The `properties()` step contains the key on which the model
-was trained, and has `.with("Neptune#ml.classification")`
-to indicate that this is a node classification ML inference query.
+The `properties()` step contains the key on which the model was trained, and has `.with("Neptune#ml.classification")` to indicate that this is a node classification ML inference query.
 
-Multiple property keys are not currently supported in a
-`properties().with("Neptune#ml.classification")` step.
-For example, the following query results in an exception:
+Multiple property keys are not currently supported in a `properties().with("Neptune#ml.classification")` step. For example, the following query results in an exception:
 
 ```
 g.with("Neptune#ml.endpoint", "node-classification-movie-lens-endpoint")
@@ -67,26 +49,23 @@ g.with("Neptune#ml.endpoint", "node-classification-movie-lens-endpoint")
  .properties("genre", "other_label").with("Neptune#ml.classification")
 ```
 
-For the specific error message, see the [list of Neptune
-ML exceptions](machine-learning-gremlin-exceptions.md "machine-learning-gremlin-exceptions.md").
+For the specific error message, see the [list of Neptune ML exceptions](machine-learning-gremlin-exceptions.md).
 
-A `properties().with("Neptune#ml.classification")` step can
-be used in combination with any of the following steps:
-
-- `value()`
-- `value().is()`
-- `hasValue()`
-- `has(value,"")`
-- `key()`
-- `key().is()`
-- `hasKey()`
-- `has(key,"")`
-- `path()`
+A `properties().with("Neptune#ml.classification")` step can be used in combination with any of the following steps:
++ `value()`
++ `value().is()`
++ `hasValue()`
++ `has(value,"")`
++ `key()`
++ `key().is()`
++ `hasKey()`
++ `has(key,"")`
++ `path()`
 
 ## Other node-classification queries
+<a name="machine-learning-gremlin-node-class-other-queries"></a>
 
-If both the inference endpoint and the corresponding IAM role have been saved in
-your DB cluster parameter group, a node-classification query can be as simple as this:
+If both the inference endpoint and the corresponding IAM role have been saved in your DB cluster parameter group, a node-classification query can be as simple as this:
 
 ```
 g.V("movie_1", "movie_2", "movie_3").properties("genre").with("Neptune#ml.classification")
@@ -113,8 +92,7 @@ g.with("Neptune#ml.endpoint","node-classification-movie-lens-endpoint")
  .properties("genre").with("Neptune#ml.classification")
 ```
 
-You can retrieve the node classes together with vertices using the
-`select()` step together with the `as()` step:
+You can retrieve the node classes together with vertices using the `select()` step together with the `as()` step:
 
 ```
 g.with("Neptune#ml.endpoint","node-classification-movie-lens-endpoint")
@@ -164,13 +142,12 @@ The response would look like this:
 ==>vp[Neptune#ml.score->0.543210]
 ==>vp[genre->Comedy]
 ==>vp[Neptune#ml.score->0.10101]
-
 ```
 
 ## Using inductive inference in a node classification query
+<a name="machine-learning-gremlin-node-class-inductive"></a>
 
-Supposing you were to add a new node to an existing graph, in a Jupyter notebook,
-like this:
+Supposing you were to add a new node to an existing graph, in a Jupyter notebook, like this:
 
 ```
 %%gremlin
@@ -181,8 +158,7 @@ g.addV('label1').property(id,'101').as('newV')
  .addE('eLabel2').from('oldV2').to('newV')
 ```
 
-You could then use an inductive inference query to get a genre and confidence
-score that reflected the new node:
+You could then use an inductive inference query to get a genre and confidence score that reflected the new node:
 
 ```
 %%gremlin
@@ -193,8 +169,7 @@ g.with("Neptune#ml.endpoint", "nc-ep")
  .with("Neptune#ml.inductiveInference")
 ```
 
-If you ran the query several times, however, you might get somewhat different
-results:
+If you ran the query several times, however, you might get somewhat different results:
 
 ```
 # First time

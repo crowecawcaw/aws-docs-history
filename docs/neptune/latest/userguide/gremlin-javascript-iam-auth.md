@@ -1,22 +1,23 @@
+
+
 # Connecting to Amazon Neptune databases using IAM authentication with Gremlin JavaScript
+<a name="gremlin-javascript-iam-auth"></a>
 
 ## Overview
+<a name="gremlin-javascript-iam-auth-overview"></a>
 
-This guide demonstrates how to connect to an Amazon Neptune database with IAM authentication
-enabled using the Gremlin JavaScript driver, with Signature Version 4 authentication and the
-AWS SDK for Javascript v3.
+ This guide demonstrates how to connect to an Amazon Neptune database with IAM authentication enabled using the Gremlin JavaScript driver, with Signature Version 4 authentication and the AWS SDK for Javascript v3. 
 
 ## Prerequisites
-
-- An Amazon Neptune cluster with IAM authentication enabled.
-- Node 13 or later (refer to minimal versions for Gremlin JavaScript and
-  [AWS SDK for Javascript v3](../../../AWSJavaScriptSDK/v3/latest/introduction.md#release-cadence "../../../AWSJavaScriptSDK/v3/latest/introduction.md#release-cadence")).
-- AWS credentials configured (via environment variables, shared credentials file, or IAM role).
+<a name="gremlin-javascript-iam-auth-prereqs"></a>
++  An Amazon Neptune cluster with IAM authentication enabled. 
++  Node 13 or later (refer to minimal versions for Gremlin JavaScript and [AWS SDK for Javascript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/introduction/#release-cadence)). 
++  AWS credentials configured (via environment variables, shared credentials file, or IAM role). 
 
 ## Create a basic connection
+<a name="gremlin-javascript-iam-auth-basic-connection"></a>
 
-Use the following code example as guidance on how to establish a basic connection with IAM authentication
-using the Gremlin JavaScript driver.
+ Use the following code example as guidance on how to establish a basic connection with IAM authentication using the Gremlin JavaScript driver. 
 
 ```
 const { fromNodeProviderChain } = require('@aws-sdk/credential-providers');

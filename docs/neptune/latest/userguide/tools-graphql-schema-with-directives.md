@@ -1,39 +1,36 @@
-# Working with directives for a GraphQL schema
 
-You can start from a GraphQL schema that already has directives, using a command
-like the following:
+
+# Working with directives for a GraphQL schema
+<a name="tools-graphql-schema-with-directives"></a>
+
+You can start from a GraphQL schema that already has directives, using a command like the following:
 
 ```
 neptune-for-graphql \
-  --input-schema-file `(your GraphQL schema file with directives)` \
+  --input-schema-file {{(your GraphQL schema file with directives)}} \
   --create-update-aws-pipeline \
   --create-update-aws-pipeline-name (name for your new GraphQL API) \
-  --create-update-aws-pipeline-neptune-endpoint  `(empty Neptune database endpoint)`:`(port number)` \
+  --create-update-aws-pipeline-neptune-endpoint  {{(empty Neptune database endpoint)}}:{{(port number)}} \
   --output-resolver-query-https
 ```
 
-You can modify directives that the utility has created or add your own directives
-to a GraphQL schema. Here are some of the ways to work with directives:
+You can modify directives that the utility has created or add your own directives to a GraphQL schema. Here are some of the ways to work with directives:
 
 ## Running the utility so that it doesn't generate mutations
+<a name="tools-graphql-no-mutations"></a>
 
-To prevent the utility from generating muatations in the GraphQL API, use the the
-`--output-schema-no-mutations` option in the `neptune-for-graphql`
-command.
+To prevent the utility from generating muatations in the GraphQL API, use the the `--output-schema-no-mutations` option in the `neptune-for-graphql` command.
 
 ## The `@alias` directive
+<a name="tools-graphql-alias-directive"></a>
 
-The `@alias` directive can be applied to GraphQL schema types or fields.
-It maps different names between the graph database and the GraphQL schema. The syntax
-is:
+The `@alias` directive can be applied to GraphQL schema types or fields. It maps different names between the graph database and the GraphQL schema. The syntax is:
 
 ```
-@alias(property: `(property name)`)
+@alias(property: {{(property name)}})
 ```
 
-In the example below `airport` is the graph database node label mapped
-to the `Airport` GraphQL type, and `desc` is the the graph node
-property mapped to the `description` field (see the [Air Routes Example](tools-graphql.md "tools-graphql.md")):
+In the example below `airport` is the graph database node label mapped to the `Airport` GraphQL type, and `desc` is the the graph node property mapped to the `description` field (see the [Air Routes Example](tools-graphql.md)):
 
 ```
 type Airport @alias(property: "airport") {
@@ -42,16 +39,15 @@ type Airport @alias(property: "airport") {
 }
 ```
 
-Note that standard GraphQL formatting calls for Pascal-casing type namess and
-camel-casing field names.
+Note that standard GraphQL formatting calls for Pascal-casing type namess and camel-casing field names.
 
 ## The `@relationship` directive
+<a name="tools-graphql-relationship-directive"></a>
 
-The `@relationship` directive maps nested GraphQL types to graph database
-edges. The syntax is:
+The `@relationship` directive maps nested GraphQL types to graph database edges. The syntax is:
 
 ```
-@relationship(edgeType: `(edge name)`, direction: `(IN or OUT)`)
+@relationship(edgeType: {{(edge name)}}, direction: {{(IN or OUT)}})
 ```
 
 Here is an example command:
@@ -64,16 +60,14 @@ type Airport @alias(property: "airport") {
   airportRoutesOut(filter: AirportInput, options: Options): [Airport] @relationship(edgeType: "route", direction: OUT)
   airportRoutesIn(filter: AirportInput, options: Options): [Airport] @relationship(edgeType: "route", direction: IN)
 }
-
 ```
 
-You can find `@relationship` directives in both the [Todo example](tools-graphql-start-from-schema.md#tools-graphql-todo-example "tools-graphql-start-from-schema.md#tools-graphql-todo-example") and the [Air Routes Example](tools-graphql.md "tools-graphql.md").
+You can find `@relationship` directives in both the [Todo example](tools-graphql-start-from-schema.md#tools-graphql-todo-example) and the [Air Routes Example](tools-graphql.md).
 
 ## The `@graphQuery` and `@cypher` directives
+<a name="tools-graphql-graphquery-cypher-directives"></a>
 
-You can define openCypher queries to resolve a field value, add queries or add
-mutations. For example, this adds a new `outboundRoutesCount` field to the
-`Airport` type to count the outboud routes:
+You can define openCypher queries to resolve a field value, add queries or add mutations. For example, this adds a new `outboundRoutesCount` field to the `Airport` type to count the outboud routes:
 
 ```
 type Airport @alias(property: "airport") {
@@ -99,11 +93,9 @@ type Mutation {
       CREATE (from)-[this:route{dist:$dist}]->(to) \
       RETURN this")
 }
-
 ```
 
-Note that if you omit the `RETURN`, the resolver assumes the keyword
-`this` is the returning scope.
+Note that if you omit the `RETURN`, the resolver assumes the keyword `this` is the returning scope.
 
 You can also add a query or mututation using a Gremlin query:
 
@@ -116,19 +108,14 @@ type Query {
   getCountriesCount: Int \
     @graphQuery(statement: "g.V().hasLabel('country').count()")                   # scalar
 }
-
 ```
 
-At this time Gremlin queries are limited to ones that return scalar values,
-or `elementMap()` for a single node, or `elementMap().fold()`
-for a list of nodes.
+At this time Gremlin queries are limited to ones that return scalar values, or `elementMap()` for a single node, or `elementMap().fold()` for a list of nodes.
 
 ## The `@id` directive
+<a name="tools-graphql-id-directive"></a>
 
-The `@id` directive identifies the field mapped to the `id`
-graph database entity. Graph databases like Amazon Neptune always have a unique
-`id` for nodes and edges that is assigned during bulk imports or that is
-autogenerated. For example:
+The `@id` directive identifies the field mapped to the `id` graph database entity. Graph databases like Amazon Neptune always have a unique `id` for nodes and edges that is assigned during bulk imports or that is autogenerated. For example:
 
 ```
 type Airport {
@@ -136,14 +123,12 @@ type Airport {
   city: String
   code: String
 }
-
 ```
 
 ## Reserved type, query and mutation names
+<a name="tools-graphql-reserved-names"></a>
 
-The utility autogenerates queries and mutations to creeate a working GraphQL API.
-The pattern of these names is recognized by the resolver and is reserved. Here are
-examples for the type `Airport` and the connecting type `Route`:
+The utility autogenerates queries and mutations to creeate a working GraphQL API. The pattern of these names is recognized by the resolver and is reserved. Here are examples for the type `Airport` and the connecting type `Route`:
 
 The `Options` type is reserved.
 
@@ -151,7 +136,6 @@ The `Options` type is reserved.
 input Options {
   limit: Int
 }
-
 ```
 
 The `filter` and `options` function parameters are reserved.
@@ -162,10 +146,7 @@ type Query {
 }
 ```
 
-The getNode prefix of query names is reserved, and prefixes of mutations names
-like `createNode`, `updateNode`, `deleteNode`,
-`connectNode`, `deleteNode`, `updateEdge`,
-and `deleteEdge` are reserved.
+The getNode prefix of query names is reserved, and prefixes of mutations names like `createNode`, `updateNode`, `deleteNode`, `connectNode`, `deleteNode`, `updateEdge`, and `deleteEdge` are reserved.
 
 ```
 type Query {
@@ -181,27 +162,24 @@ type Mutation {
   updateEdgeRouteFromAirportToAirport(from: ID!, to: ID!, edge: RouteInput!): Route
   deleteEdgeRouteFromAirportToAirport(from: ID!, to: ID!): Boolean
 }
-
 ```
 
 ## Applying changes to the GraphQL schema
+<a name="tools-graphql-apply-schema-changes"></a>
 
-You can modify the GraphQL source schema and run the utility again, getting the latest
-schema from your Neptune database. Every time the utility discovers a new schema in the
-database, it generates a new GraphQL schema.
+You can modify the GraphQL source schema and run the utility again, getting the latest schema from your Neptune database. Every time the utility discovers a new schema in the database, it generates a new GraphQL schema.
 
-You can also manually edit the GraphQL source schema and run the utility again using
-the source schema as input instead of the Neptune database endpoint.
+You can also manually edit the GraphQL source schema and run the utility again using the source schema as input instead of the Neptune database endpoint.
 
 Finally, you can put your changes in a file using this JSON format:
 
 ```
 [
   {
-    "type": "`(GraphQL type name)`",
-    "field": "`(GraphQL field name)`",
-    "action": "`(remove or add)`",
-    "value": "`(value)`"
+    "type": "{{(GraphQL type name)}}",
+    "field": "{{(GraphQL field name)}}",
+    "action": "{{(remove or add)}}",
+    "value": "{{(value)}}"
   }
 ]
 ```
@@ -229,8 +207,6 @@ For example:
     "value": ""
   }
 ]
-
 ```
 
-Then, as you run the utility on this file using the `--input-schema-changes-file`
-parameter in the command, the utility applies your changes at once.
+Then, as you run the utility on this file using the `--input-schema-changes-file` parameter in the command, the utility applies your changes at once.

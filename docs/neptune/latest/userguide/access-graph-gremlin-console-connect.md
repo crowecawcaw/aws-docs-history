@@ -1,27 +1,25 @@
+
+
 # An alternate way to connect to the Gremlin console
+<a name="access-graph-gremlin-console-connect"></a>
 
 **Drawbacks of the normal connection approach**
 
-The most common way to connect to the Gremlin console is the one explained above,
-using commands like this at the `gremlin>` prompt:
+The most common way to connect to the Gremlin console is the one explained above, using commands like this at the `gremlin>` prompt:
 
 ```
-gremlin> :remote connect tinkerpop.server conf/`(file name)`.yaml
+gremlin> :remote connect tinkerpop.server conf/{{(file name)}}.yaml
 gremlin> :remote console
 ```
 
-This works well, and lets you send queries to Neptune. However, it takes the
-Groovy script engine out of the loop, so Neptune treats all queries as pure Gremlin.
-This means that the following query forms fail:
+This works well, and lets you send queries to Neptune. However, it takes the Groovy script engine out of the loop, so Neptune treats all queries as pure Gremlin. This means that the following query forms fail:
 
 ```
 gremlin> 1 + 1
 gremlin> x = g.V().count()
 ```
 
-The closest you can get to using a variable when connected this way is to use
-the `result` variable maintained by the console and send the query using
-`:>`, like this:
+The closest you can get to using a variable when connected this way is to use the `result` variable maintained by the console and send the query using `:>`, like this:
 
 ```
 gremlin> :remote console
@@ -40,8 +38,7 @@ gremlin> println(result['object'])
 
 **A different way to connect**
 
-You can also connect to the Gremlin console in a different way, which
-you may find nicer, like this:
+You can also connect to the Gremlin console in a different way, which you may find nicer, like this:
 
 ```
 gremlin> g = traversal().withRemote('conf/neptune.properties')
@@ -58,21 +55,17 @@ gremlin.remote.driver.sourceName=g
 The `my-cluster.yaml` file should look like this:
 
 ```
-hosts: [`my-cluster-abcdefghijk.us-east-1.neptune.amazonaws.com`]
+hosts: [{{my-cluster-abcdefghijk.us-east-1.neptune.amazonaws.com}}]
 port: 8182
 serializer: { className: org.apache.tinkerpop.gremlin.util.ser.GraphBinaryMessageSerializerV1,
               config: { serializeResultToString: false } }
 connectionPool: { enableSsl: true }
 ```
 
-###### Note
+**Note**  
+ Serializers were moved from the `gremlin-driver` module to the new `gremlin-util` module in version 3.7.0. The package changed from org.apache.tinkerpop.gremlin.driver.ser to org.apache.tinkerpop.gremlin.util.ser. 
 
-Serializers were moved from the `gremlin-driver` module to the new `gremlin-util` module in
-version 3.7.0. The package changed from org.apache.tinkerpop.gremlin.driver.ser to
-org.apache.tinkerpop.gremlin.util.ser.
-
-Configuring the Gremlin console connection like that lets you make the following
-kinds of queries successfully:
+Configuring the Gremlin console connection like that lets you make the following kinds of queries successfully:
 
 ```
 gremlin> 1+1
@@ -93,13 +86,11 @@ gremlin> println(x)
 4249
 ```
 
-All the usual ways of querying (without the terminal step) continue to work.
-For example:
+All the usual ways of querying (without the terminal step) continue to work. For example:
 
 ```
 gremlin> g.V().count()
 ==>4249
 ```
 
-You can even use the [`g.io().read()`](https://tinkerpop.apache.org/docs/current/reference/#io-step "https://tinkerpop.apache.org/docs/current/reference/#io-step")
-step to load a file with this kind of connection.
+You can even use the [`g.io().read()`](https://tinkerpop.apache.org/docs/current/reference/#io-step) step to load a file with this kind of connection.

@@ -1,4 +1,7 @@
+
+
 # ST\_GeometryType
+<a name="access-graph-opencypher-22-spatial-functions-st-geometrytype"></a>
 
 ST\_GeometryType returns the type of the geometry as a string.
 
@@ -9,9 +12,9 @@ ST_GeometryType(geom)
 ```
 
 **Arguments**
++ `geom` - A value of data type GEOMETRY or an expression that evaluates to a GEOMETRY type.
 
-- `geom` - A value of data type GEOMETRY or an expression that evaluates to a GEOMETRY type.
-  **Return type**
+**Return type**
 
 STRING
 

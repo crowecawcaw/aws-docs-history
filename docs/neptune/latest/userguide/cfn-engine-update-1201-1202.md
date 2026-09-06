@@ -1,7 +1,9 @@
-# Example: Minor engine upgrade from 1.2.0.1 to 1.2.0.2
 
-Find the DB cluster that you want to upgrade, and the template you used to
-create it. For example:
+
+# Example: Minor engine upgrade from 1.2.0.1 to 1.2.0.2
+<a name="cfn-engine-update-1201-1202"></a>
+
+Find the DB cluster that you want to upgrade, and the template you used to create it. For example:
 
 ```
 Description: Base Template to create Neptune Stack with Engine Version 1.2.0.1 using custom Parameter Groups
@@ -52,8 +54,7 @@ Outputs:
       Ref: NeptuneDBCluster
 ```
 
-Update the `EngineVersion` property from `1.2.0.1`
-to `1.2.0.2`:
+Update the `EngineVersion` property from `1.2.0.1` to `1.2.0.2`:
 
 ```
 Description: Template to upgrade minor engine version to 1.2.0.2

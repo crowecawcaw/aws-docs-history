@@ -1,65 +1,48 @@
+
+
 # Neptune data model for OpenSearch data
+<a name="full-text-search-model"></a>
 
-Amazon Neptune uses a unified JSON document structure for storing both SPARQL and Gremlin
-data in OpenSearch Service. Each document in OpenSearch corresponds to an entity and stores all
-the relevant information for that entity. For Gremlin, vertexes and edges are considered
-entities, so the corresponding OpenSearch documents have information about vertexes,
-labels, and properties. For SPARQL, subjects can be considered entities, so corresponding
-OpenSearch documents have information about all the predicate-object pairs in one
-document.
+Amazon Neptune uses a unified JSON document structure for storing both SPARQL and Gremlin data in OpenSearch Service. Each document in OpenSearch corresponds to an entity and stores all the relevant information for that entity. For Gremlin, vertexes and edges are considered entities, so the corresponding OpenSearch documents have information about vertexes, labels, and properties. For SPARQL, subjects can be considered entities, so corresponding OpenSearch documents have information about all the predicate-object pairs in one document.
 
-###### Note
-
-The Neptune-to-OpenSearch replication implementation only stores
-string data. However, you can modify it to store other data types.
+**Note**  
+The Neptune-to-OpenSearch replication implementation only stores string data. However, you can modify it to store other data types.
 
 The unified JSON document structure looks like the following.
 
 ```
 {
-  "entity_id": "`Vertex Id/Edge Id/Subject URI`",
-  "entity_type": [`List of Labels/rdf:type object value`],
-  "document_type": "`vertex/edge/rdf-resource`"
+  "entity_id": "{{Vertex Id/Edge Id/Subject URI}}",
+  "entity_type": [{{List of Labels/rdf:type object value}}],
+  "document_type": "{{vertex/edge/rdf-resource}}"
   "predicates": {
-    "`Property name or predicate URI`": [
+    "{{Property name or predicate URI}}": [
       {
-        "value": "`Property Value or Object Value`",
-        "graph": "`(Only for Sparql) Named Graph Quad is present`"
-        "language": "`(Only for Sparql) rdf:langString`"
+        "value": "{{Property Value or Object Value}}",
+        "graph": "{{(Only for Sparql) Named Graph Quad is present}}"
+        "language": "{{(Only for Sparql) rdf:langString}}"
       },
       {
-        "value": "`Property Value 2/ Object Value 2`",
+        "value": "{{Property Value 2/ Object Value 2}}",
       }
     ]
   }
 }
 ```
++ `entity_id` – Entity unique ID representing the document.
+  + For SPARQL, this is the subject URI.
+  + For Gremlin, this is the `Vertex_ID` or `Edge_ID`.
++ `entity_type` – Represents one or more labels for a vertex or edge, or zero or more `rdf:type` predicate values for a subject.
++ `document_type` – Used to specify whether the current document represents a vertex, edge, or rdf-resource.
++ `predicates` – For Gremlin, stores properties and values for a vertex or edge. For SPARQL, it stores predicate-object pairs.
 
-######
-
-- `entity_id` – Entity unique ID representing the
-  document.
-
-  - For SPARQL, this is the subject URI.
-  - For Gremlin, this is the `Vertex_ID` or `Edge_ID`.
-
-- `entity_type` – Represents one or more labels for
-  a vertex or edge, or zero or more `rdf:type` predicate values for a subject.
-- `document_type` – Used to specify whether the current document
-  represents a vertex, edge, or rdf-resource.
-- `predicates` – For Gremlin, stores properties and values for
-  a vertex or edge. For SPARQL, it stores predicate-object pairs.
-
-The property name takes the form `properties.name.value` in OpenSearch.
-To query it, you have to name it in that form.
-
-- `value`  – A property value for Gremlin or an object value for
-  SPARQL.
-- `graph` – A named graph for SPARQL.
-- `language` – A language tag for a `rdf:langString`
-  literal in SPARQL.
+  The property name takes the form `properties.name.value` in OpenSearch. To query it, you have to name it in that form.
++ `value ` – A property value for Gremlin or an object value for SPARQL.
++ `graph` – A named graph for SPARQL.
++ `language` – A language tag for a `rdf:langString` literal in SPARQL.
 
 ## Sample SPARQL OpenSearch document
+<a name="full-text-search-model-sparql-example"></a>
 
 **Data**
 
@@ -120,6 +103,7 @@ _:bnode     ex:means     "coding"                     DG      # Not stored in ES
 ```
 
 ## Sample Gremlin OpenSearch document
+<a name="full-text-search-model-gremlin-example"></a>
 
 **Data**
 

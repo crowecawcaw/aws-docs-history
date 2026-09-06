@@ -1,17 +1,11 @@
+
+
 # Understanding Neptune log file entries
+<a name="cloudtrail.CloudTrail_Events"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files are not an ordered stack trace of
-the public API calls, so they do not appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files are not an ordered stack trace of the public API calls, so they do not appear in any specific order. 
 
-The following example shows a CloudTrail log for a user that created a snapshot of a DB instance
-and then deleted that instance using the Neptune console. The console is identified by the
-`userAgent` element. The requested API calls made by the console
-(`CreateDBSnapshot` and `DeleteDBInstance`) are found in the
-`eventName` element for each record. Information about the user
-(`Alice`) can be found in the `userIdentity` element.
+The following example shows a CloudTrail log for a user that created a snapshot of a DB instance and then deleted that instance using the Neptune console. The console is identified by the `userAgent` element. The requested API calls made by the console (`CreateDBSnapshot` and `DeleteDBInstance`) are found in the `eventName` element for each record. Information about the user (`Alice`) can be found in the `userIdentity` element. 
 
 ```
 {

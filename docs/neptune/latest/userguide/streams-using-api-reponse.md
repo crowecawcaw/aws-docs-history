@@ -1,59 +1,32 @@
+
+
 # Neptune Streams API Response Format
+<a name="streams-using-api-reponse"></a>
 
 A response to a Neptune Streams REST API request has the following fields:
++ `lastEventId`   –   Sequence identifier of the last change in the stream response. An event ID is composed of two fields: A `commitNum` identifies a transaction that changed the graph, and an `opNum` identifies a specific operation within that transaction. This is shown in the following example.
 
-- `lastEventId`   –  
-  Sequence identifier of the last change in
-  the stream response. An event ID is composed of two fields: A `commitNum`
-  identifies a transaction that changed the graph, and an `opNum` identifies a
-  specific operation within that transaction. This is shown in the following example.
+  ```
+    "eventId": {
+      "commitNum": 12,
+      "opNum": 1
+    }
+  ```
++ `lastTrxTimestamp`   –   The time at which the commit for the transaction was requested, in milliseconds from the Unix epoch.
++ `format`   –   Serialization format for the change records being returned. The possible values are `PG_JSON` for Gremlin or openCypher change records, and `NQUADS` for SPARQL change records.
++ `records`   –   An array of serialized change-log stream records included in the response. Each record in the `records` array contains these fields:
+  + `commitTimestamp`   –   The time at which the commit for the transaction was requested, in milliseconds from the Unix epoch.
+  + `eventId`   –   The sequence identifier of the stream change record.
+  + `data`   –   The serialized Gremlin, SPARQL, or OpenCypher change record. The serialization formats of each record are described in more detail in the next section, [Serialization Formats in Neptune Streams](streams-change-formats.md).
+  + `op`   –   The operation that created the change. Valid values are:
+    + `ADD`   –   Indicates that a new element (such as a vertex, edge, property, or triple) was added to the graph.
+    + `REMOVE`   –   Indicates that an existing element was removed from the graph.
 
-```
-  "eventId": {
-    "commitNum": 12,
-    "opNum": 1
-  }
-```
+    Neptune expresses a modification to an existing element as a `REMOVE` record followed by an `ADD` record.
+  + `isLastOp`   –   Only present if this operation is the last one in its transaction. When present, it is set to `true`. Useful for ensuring that an entire transaction is consumed.
++ `totalRecords`   –   The total number of records in the response.
 
-- `lastTrxTimestamp`   –  
-  The time at which the commit for the transaction was requested, in milliseconds
-  from the Unix epoch.
-- `format`   –  
-  Serialization format for the change records being returned. The possible values are
-  `PG_JSON` for Gremlin or openCypher change records, and `NQUADS` for
-  SPARQL change records.
-- `records`   –  
-  An array of serialized change-log stream records included in the response.
-  Each record in the `records` array contains these fields:
-
-  - `commitTimestamp`   –  
-    The time at which the commit for the transaction was requested,
-    in milliseconds from the Unix epoch.
-  - `eventId`   –  
-    The sequence identifier of the stream change record.
-  - `data`   –  
-    The serialized Gremlin, SPARQL, or OpenCypher change record.
-    The serialization formats of each record are described in more
-    detail in the next section, [Serialization Formats in Neptune Streams](streams-change-formats.md "streams-change-formats.md").
-  - `op`   –  
-    The operation that created the change. Valid values are:
-
-    - `ADD`   –  
-      Indicates that a new element (such as a vertex, edge, property, or triple) was added to the graph.
-    - `REMOVE`   –  
-      Indicates that an existing element was removed from the graph.
-      Neptune expresses a modification to an existing element as a `REMOVE`
-      record followed by an `ADD` record.
-
-  - `isLastOp`   –  
-    Only present if this operation is the last one in its transaction.
-    When present, it is set to `true`. Useful for ensuring that
-    an entire transaction is consumed.
-
-- `totalRecords`   –  
-  The total number of records in the response.
-  For example, the following response returns Gremlin change data,
-  for a transaction that contains more than one operation:
+For example, the following response returns Gremlin change data, for a transaction that contains more than one operation:
 
 ```
 {
@@ -86,9 +59,7 @@ A response to a Neptune Streams REST API request has the following fields:
 }
 ```
 
-The following response returns SPARQL change data for the last operation in
-a transaction (the operation identified by `EventId(97, 1)` in transaction
-number 97).
+The following response returns SPARQL change data for the last operation in a transaction (the operation identified by `EventId(97, 1)` in transaction number 97).
 
 ```
 {

@@ -1,14 +1,17 @@
+
+
 # Connecting to Amazon Neptune databases using IAM authentication with Gremlin Python
+<a name="gremlin-python-iam-auth"></a>
 
 ## Overview
+<a name="gremlin-python-iam-auth-overview"></a>
 
-This guide demonstrates how to connect to an Amazon Neptune database with IAM authentication enabled using the
-Gremlin Python driver, with Signature Version 4 authentication and the AWS SDK for Python (Boto3).
+ This guide demonstrates how to connect to an Amazon Neptune database with IAM authentication enabled using the Gremlin Python driver, with Signature Version 4 authentication and the AWS SDK for Python (Boto3). 
 
 ## Create a basic connection
+<a name="gremlin-python-iam-auth-basic-connection"></a>
 
-Use the following code example as guidance on how to establish basic connection with IAM authentication
-using the Gremlin Python driver.
+ Use the following code example as guidance on how to establish basic connection with IAM authentication using the Gremlin Python driver. 
 
 ```
 from boto3 import Session
@@ -19,7 +22,7 @@ from gremlin_python.process.anonymous_traversal import traversal
 from gremlin_python.driver.driver_remote_connection import DriverRemoteConnection
 
 def main():
-    endpoint = '`your.cluster.endpoint`.neptune.amazonaws.com'
+    endpoint = '{{your.cluster.endpoint}}.neptune.amazonaws.com'
     conn_string = 'wss://' + endpoint + ':8182/gremlin'
     default_region = 'us-east-1'
     service = 'neptune-db'

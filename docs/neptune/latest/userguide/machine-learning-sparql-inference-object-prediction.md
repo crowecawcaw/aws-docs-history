@@ -1,9 +1,11 @@
+
+
 # SPARQL object prediction example
+<a name="machine-learning-sparql-inference-object-prediction"></a>
 
-_Object prediction_ predicts the object value for a given subject and predicate.
+*Object prediction* predicts the object value for a given subject and predicate.
 
-The following object-prediction query seeks to predict what movie
-the input of type `foaf:Person` would like:
+The following object-prediction query seeks to predict what movie the input of type `foaf:Person` would like:
 
 ```
 ?x a foaf:Person .

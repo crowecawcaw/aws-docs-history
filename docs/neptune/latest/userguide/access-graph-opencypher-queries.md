@@ -1,45 +1,44 @@
+
+
 # The Amazon Neptune OpenCypher HTTPS endpoint
+<a name="access-graph-opencypher-queries"></a>
 
-###### Topics
+**Topics**
++ [OpenCypher read and write queries on the HTTPS endpoint](#access-graph-opencypher-queries-read-write)
++ [The default OpenCypher JSON results format](#access-graph-opencypher-queries-results-simple-JSON)
++ [Optional HTTP trailing headers for multi-part OpenCypher responses](#optional-http-trailing-headers)
 
-- [OpenCypher read and write queries on the HTTPS endpoint](#access-graph-opencypher-queries-read-write "#access-graph-opencypher-queries-read-write")
-- [The default OpenCypher JSON results format](#access-graph-opencypher-queries-results-simple-JSON "#access-graph-opencypher-queries-results-simple-JSON")
-- [Optional HTTP trailing headers for multi-part OpenCypher responses](#optional-http-trailing-headers "#optional-http-trailing-headers")
-
-###### Note
-
-Neptune does not currently support HTTP/2 for REST API requests. Clients must use
-HTTP/1.1 when connecting to endpoints.
+**Note**  
+Neptune does not currently support HTTP/2 for REST API requests. Clients must use HTTP/1.1 when connecting to endpoints.
 
 ## OpenCypher read and write queries on the HTTPS endpoint
+<a name="access-graph-opencypher-queries-read-write"></a>
 
-The OpenCypher HTTPS endpoint supports read and update queries using both the
-`GET` and the `POST` method. The `DELETE` and
-`PUT` methods are not supported.
+The OpenCypher HTTPS endpoint supports read and update queries using both the `GET` and the `POST` method. The `DELETE` and `PUT` methods are not supported.
 
-The following instructions walk you through connecting to the OpenCypher endpoint using the
-`curl` command and HTTPS. You must follow these instructions from an Amazon EC2 instance
-in the same virtual private cloud (VPC) as your Neptune DB instance.
+The following instructions walk you through connecting to the OpenCypher endpoint using the `curl` command and HTTPS. You must follow these instructions from an Amazon EC2 instance in the same virtual private cloud (VPC) as your Neptune DB instance.
 
 The syntax is:
 
 ```
-HTTPS://`(the server)`:`(the port number)`/openCypher
+HTTPS://{{(the server)}}:{{(the port number)}}/openCypher
 ```
 
 Here is a sample read query:
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws neptunedata execute-open-cypher-query \
-  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --endpoint-url https://{{your-neptune-endpoint}}:{{port}} \
   --open-cypher-query "MATCH (n1) RETURN n1"
 ```
 
-For more information, see [execute-open-cypher-query](../../../cli/latest/reference/neptunedata/execute-open-cypher-query.md "../../../cli/latest/reference/neptunedata/execute-open-cypher-query.md") in the AWS CLI Command Reference.
+For more information, see [execute-open-cypher-query](https://docs.aws.amazon.com/cli/latest/reference/neptunedata/execute-open-cypher-query.html) in the AWS CLI Command Reference.
 
-SDK
+------
+#### [ SDK ]
 
 ```
 import boto3
@@ -47,7 +46,7 @@ from botocore.config import Config
 
 client = boto3.client(
     'neptunedata',
-    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    endpoint_url='https://{{your-neptune-endpoint}}:{{port}}',
     config=Config(read_timeout=None, retries={'total_max_attempts': 1})
 )
 
@@ -58,44 +57,47 @@ response = client.execute_open_cypher_query(
 print(response['results'])
 ```
 
-For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md).
 
-awscurl
+------
+#### [ awscurl ]
 
 ```
-awscurl https://`your-neptune-endpoint`:`port`/openCypher \
-  --region `us-east-1` \
+awscurl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
+  --region {{us-east-1}} \
   --service neptune-db \
   -X POST \
   -d "query=MATCH (n1) RETURN n1"
 ```
 
-###### Note
+**Note**  
+This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
 
-This example assumes that your AWS credentials are configured in your
-environment. Replace `us-east-1` with the Region of your
-Neptune cluster.
-
-curl
+------
+#### [ curl ]
 
 ```
-curl https://`your-neptune-endpoint`:`port`/openCypher \
+curl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=MATCH (n1) RETURN n1"
 ```
 
+------
+
 Here is a sample write/update query:
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws neptunedata execute-open-cypher-query \
-  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --endpoint-url https://{{your-neptune-endpoint}}:{{port}} \
   --open-cypher-query "CREATE (n:Person { age: 25 })"
 ```
 
-For more information, see [execute-open-cypher-query](../../../cli/latest/reference/neptunedata/execute-open-cypher-query.md "../../../cli/latest/reference/neptunedata/execute-open-cypher-query.md") in the AWS CLI Command Reference.
+For more information, see [execute-open-cypher-query](https://docs.aws.amazon.com/cli/latest/reference/neptunedata/execute-open-cypher-query.html) in the AWS CLI Command Reference.
 
-SDK
+------
+#### [ SDK ]
 
 ```
 import boto3
@@ -103,7 +105,7 @@ from botocore.config import Config
 
 client = boto3.client(
     'neptunedata',
-    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    endpoint_url='https://{{your-neptune-endpoint}}:{{port}}',
     config=Config(read_timeout=None, retries={'total_max_attempts': 1})
 )
 
@@ -114,40 +116,38 @@ response = client.execute_open_cypher_query(
 print(response['results'])
 ```
 
-For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md "access-graph-opencypher-sdk.md").
+For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md).
 
-awscurl
+------
+#### [ awscurl ]
 
 ```
-awscurl https://`your-neptune-endpoint`:`port`/openCypher \
-  --region `us-east-1` \
+awscurl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
+  --region {{us-east-1}} \
   --service neptune-db \
   -X POST \
   -d "query=CREATE (n:Person { age: 25 })"
 ```
 
-###### Note
+**Note**  
+This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
 
-This example assumes that your AWS credentials are configured in your
-environment. Replace `us-east-1` with the Region of your
-Neptune cluster.
-
-curl
+------
+#### [ curl ]
 
 ```
-curl https://`your-neptune-endpoint`:`port`/openCypher \
+curl https://{{your-neptune-endpoint}}:{{port}}/openCypher \
   -d "query=CREATE (n:Person { age: 25 })"
 ```
 
+------
+
 ## The default OpenCypher JSON results format
+<a name="access-graph-opencypher-queries-results-simple-JSON"></a>
 
-The following JSON format is returned by default, or by setting the request header
-explicitly to `Accept: application/json`. This format is designed to be easily
-parsed into objects using native-language features of most libraries.
+The following JSON format is returned by default, or by setting the request header explicitly to `Accept: application/json`. This format is designed to be easily parsed into objects using native-language features of most libraries.
 
-The JSON document that is returned contains one field, `results`, which
-contains the query return values. The examples below show the JSON formatting for
-common values.
+The JSON document that is returned contains one field, `results`, which contains the query return values. The examples below show the JSON formatting for common values.
 
 **Value response example:**
 
@@ -280,48 +280,35 @@ common values.
 ```
 
 ## Optional HTTP trailing headers for multi-part OpenCypher responses
+<a name="optional-http-trailing-headers"></a>
 
-This feature is available starting with Neptune engine release
-[1.4.5.0](../../../releases/release-1.4.5.0.xml.md "../../../releases/release-1.4.5.0.xml.md").
+ This feature is available starting with Neptune engine release [1.4.5.0](https://docs.aws.amazon.com/releases/release-1.4.5.0.xml). 
 
-The HTTP response to OpenCypher queries and updates is typically returned in multiple chunks. When failures
-occur after the initial response chunks have been sent (with an HTTP status code of 200), it can be challenging
-to diagnose the issue. By default, `Neptune reports such failures by appending an error message to the message
-body, which may be corrupted due to the streaming nature of the response.
+ The HTTP response to OpenCypher queries and updates is typically returned in multiple chunks. When failures occur after the initial response chunks have been sent (with an HTTP status code of 200), it can be challenging to diagnose the issue. By default, `Neptune reports such failures by appending an error message to the message body, which may be corrupted due to the streaming nature of the response. 
 
-###### Using trailing headers
+**Using trailing headers**  
+ To improve error detection and diagnosis, you can enable trailing headers by including a transfer-encoding (TE) trailers header (te: trailers)in your request. Doing this will cause Neptune to include two new header fields within the trailing headers of the response chunks: 
++  `X-Neptune-Status` – contains the response code followed by a short name. For instance, in case of success the trailing header would be: `X-Neptune-Status: 200 OK`. In the case of failure, the response code would be a Neptune engine error code such as `X-Neptune-Status: 500 TimeLimitExceededException`. 
++  `X-Neptune-Detail` – is empty for successful requests. In the case of errors, it contains the JSON error message. Because only ASCII characters are allowed in HTTP header values, the JSON string is URL encoded. The error message is also still appended to the response message body. 
 
-To improve error detection and diagnosis, you can enable trailing headers by including a transfer-encoding (TE)
-trailers header (te: trailers)in your request. Doing this will cause Neptune to include two new header fields
-within the trailing headers of the response chunks:
+ For more information, see the [MDN page about TE request headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/TE). 
 
-- `X-Neptune-Status` – contains the response code followed by a short name. For instance, in case of
-  success the trailing header would be: `X-Neptune-Status: 200 OK`. In the case of failure, the response
-  code would be a Neptune engine error code such as `X-Neptune-Status: 500 TimeLimitExceededException`.
-- `X-Neptune-Detail` – is empty for successful requests. In the case of errors, it contains the JSON error
-  message. Because only ASCII characters are allowed in HTTP header values, the JSON string is URL encoded. The error
-  message is also still appended to the response message body.
-
-For more information, see the
-[MDN page about TE request headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/TE "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/TE").
-
-###### OpenCypher trailing headers usage example
-
-This example demonstrates how trailing headers help diagnose a query that exceeds its time limit:
+**OpenCypher trailing headers usage example**  
+ This example demonstrates how trailing headers help diagnose a query that exceeds its time limit: 
 
 ```
 curl --raw 'https://your-neptune-endpoint:port/openCypher' \
 -H 'TE: trailers' \
 -d 'query=MATCH(n) RETURN n.firstName'
-
-
+ 
+ 
 Output:
 < HTTP/1.1 200 OK
 < transfer-encoding: chunked
 < trailer: X-Neptune-Status, X-Neptune-Detail
 < content-type: application/json;charset=UTF-8
-<
-<
+< 
+< 
 {
   "results": [{
       "n.firstName": "Hossein"
@@ -331,7 +318,7 @@ Output:
       "n.firstName": "Miguel"
     }, {
       "n.firstName": "Eric"
-    },
+    }, 
 {"detailedMessage":"Operation terminated (deadline exceeded)",
 "code":"TimeLimitExceededException",
 "requestId":"a7e9d2aa-fbb7-486e-8447-2ef2a8544080",
@@ -341,9 +328,5 @@ X-Neptune-Status: 500 TimeLimitExceededException
 X-Neptune-Detail: %7B%22detailedMessage%22%3A%22Operation+terminated+%28deadline+exceeded%29%22%2C%22code%22%3A%22TimeLimitExceededException%22%2C%22requestId%22%3A%22a7e9d2aa-fbb7-486e-8447-2ef2a8544080%22%2C%22message%22%3A%22Operation+terminated+%28deadline+exceeded%29%22%7D
 ```
 
-###### Response breakdown:
-
-The previous example shows how an OpenCypher response with trailing headers can help diagnose query failures. Here
-we see four sequential parts: (1) initial headers with a 200 OK status indicating streaming begins, (2) partial (broken)
-JSON results successfully streamed before the failure, (3) the appended error message showing the timeout, and (4)
-trailing headers containing the final status (500 TimeLimitExceededException) and detailed error information.
+**Response breakdown:**  
+ The previous example shows how an OpenCypher response with trailing headers can help diagnose query failures. Here we see four sequential parts: (1) initial headers with a 200 OK status indicating streaming begins, (2) partial (broken) JSON results successfully streamed before the failure, (3) the appended error message showing the timeout, and (4) trailing headers containing the final status (500 TimeLimitExceededException) and detailed error information. 

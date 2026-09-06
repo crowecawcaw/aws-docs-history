@@ -1,14 +1,13 @@
+
+
 # SPARQL object classification examples
+<a name="machine-learning-sparql-inference-object-classification"></a>
 
-For SPARQL object classification in Neptune ML, the model is trained on one of
-the predicate values. This is useful where that predicate is not already present with
-a given subject.
+For SPARQL object classification in Neptune ML, the model is trained on one of the predicate values. This is useful where that predicate is not already present with a given subject.
 
-Only categorical predicate values can be inferred using the object classification
-model.
+Only categorical predicate values can be inferred using the object classification model.
 
-The following query seeks to predict the <http://www.example.org/team>
-predicate value for all the inputs of type `foaf:Person`:
+The following query seeks to predict the <http://www.example.org/team> predicate value for all the inputs of type `foaf:Person`:
 
 ```
 SELECT * WHERE { ?input a foaf:Person .

@@ -1,22 +1,23 @@
+
+
 # Connecting to Amazon Neptune databases using IAM authentication with Gremlin Go
+<a name="gremlin-go-iam-auth"></a>
 
 ## Overview
+<a name="gremlin-go-iam-auth-overview"></a>
 
-This guide demonstrates how to connect to a Amazon Neptune database with IAM authentication
-enabled using the Gremlin Go driver, with Signature Version 4 authentication and the AWS SDK for GO v2.
+ This guide demonstrates how to connect to a Amazon Neptune database with IAM authentication enabled using the Gremlin Go driver, with Signature Version 4 authentication and the AWS SDK for GO v2. 
 
 ## Prerequisites
-
-- An Amazon Neptune cluster with IAM authentication enabled.
-- Go 1.22 or later (refer to minimal supported versions for
-  [Gremlin Go](https://pkg.go.dev/github.com/apache/tinkerpop/gremlin-go/v3/driver "https://pkg.go.dev/github.com/apache/tinkerpop/gremlin-go/v3/driver") and
-  [AWS SDK for Go v2](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2 "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2")).
-- AWS credentials configured (via environment variables, shared credentials file, or IAM role)
+<a name="gremlin-go-iam-auth-prereqs"></a>
++  An Amazon Neptune cluster with IAM authentication enabled. 
++  Go 1.22 or later (refer to minimal supported versions for [ Gremlin Go](https://pkg.go.dev/github.com/apache/tinkerpop/gremlin-go/v3/driver) and [AWS SDK for Go v2](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2)). 
++  AWS credentials configured (via environment variables, shared credentials file, or IAM role) 
 
 ## Create a basic connection
+<a name="gremlin-go-iam-auth-basic-connection"></a>
 
-Use the following code example as guidance on how to establish a basic connection with IAM authentication
-using the Gremlin Go driver.
+ Use the following code example as guidance on how to establish a basic connection with IAM authentication using the Gremlin Go driver. 
 
 ```
 package main
@@ -55,7 +56,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	// Retrieve loaded credentials
+	// Retrieve loaded credentials 
 	cr, err := cfg.Credentials.Retrieve(context.TODO())
 	if err != nil {
 		fmt.Println(err)
@@ -105,9 +106,9 @@ func main() {
 ```
 
 ## Gremlin Go Dynamic Credential Refresh
+<a name="gremlin-go-iam-auth-go-credential-refresh"></a>
 
-Gremlin Go has DynamicAuth which allows the injection of a function pointer to retrieve credentials and generate
-the header, which prevents header expiry with long-running connections.
+ Gremlin Go has DynamicAuth which allows the injection of a function pointer to retrieve credentials and generate the header, which prevents header expiry with long-running connections. 
 
 ```
 package main
@@ -153,12 +154,12 @@ func main() {
 		// region set inside config profile, or via AWS_REGION or AWS_DEFAULT_REGION environment variable will be loaded
 		region = cfg.Region
 	}
-
+	
 	signer := v4.NewSigner()
 
 	// This is the function that will be used for dynamic refreseh of credentials and signed headers
 	gen := func() gremlingo.AuthInfoProvider {
-		// Retrieve loaded credentials
+		// Retrieve loaded credentials 
 		cr, err := cfg.Credentials.Retrieve(context.TODO())
 		fmt.Println("AWS Credentials: ", cr)
 		if err != nil {

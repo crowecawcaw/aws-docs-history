@@ -1,52 +1,28 @@
+
+
 # Using the Bolt protocol to make openCypher queries to Neptune
+<a name="access-graph-opencypher-bolt"></a>
 
-[Bolt](https://boltprotocol.org/ "https://boltprotocol.org/") is a statement-oriented
-client/server protocol initially developed by Neo4j and licensed under the Creative
-Commons 3.0 [Attribution-ShareAlike](https://creativecommons.org/licenses/by-sa/3.0/ "https://creativecommons.org/licenses/by-sa/3.0/")
-license. It is client-driven, meaning that the client always initiates message exchanges.
+[Bolt](https://boltprotocol.org/) is a statement-oriented client/server protocol initially developed by Neo4j and licensed under the Creative Commons 3.0 [Attribution-ShareAlike](https://creativecommons.org/licenses/by-sa/3.0/) license. It is client-driven, meaning that the client always initiates message exchanges.
 
-To connect to Neptune using Neo4j's Bolt drivers, simply replace the URL and Port
-number with your cluster endpoints using the `bolt` URI scheme. If you have a single
-Neptune instance running, use the read\_write endpoint. If multiple instances are running,
-then two drivers are recommended, one for the writer and another for all the read replicas.
-If you have only the default two endpoints, a read\_write and a read\_only driver are
-sufficient, but if you have custom endpoints as well, consider creating a driver
-instance for each one.
+To connect to Neptune using Neo4j's Bolt drivers, simply replace the URL and Port number with your cluster endpoints using the `bolt` URI scheme. If you have a single Neptune instance running, use the read\_write endpoint. If multiple instances are running, then two drivers are recommended, one for the writer and another for all the read replicas. If you have only the default two endpoints, a read\_write and a read\_only driver are sufficient, but if you have custom endpoints as well, consider creating a driver instance for each one.
 
-###### Note
+**Note**  
+Althought the Bolt spec states that Bolt can connect using either TCP or WebSockets, Neptune only supports TCP connections for Bolt.
 
-Althought the Bolt spec states that Bolt can connect using either TCP or
-WebSockets, Neptune only supports TCP connections for Bolt.
+Neptune allows up to 1000 concurrent Bolt connections on all instance sizes except for t3.medium and t4g.medium. On t3.medium and t4g.medium instances only 512 connections are allowed.
 
-Neptune allows up to 1000 concurrent Bolt connections on all instance sizes except for
-t3.medium and t4g.medium. On t3.medium and t4g.medium instances only 512 connections are allowed.
+For examples of openCypher queries in various languages that use the Bolt drivers, see the Neo4j [Drivers & Language Guides](https://neo4j.com/developer/language-guides/) documentation.
 
-For examples of openCypher queries in various languages that use the Bolt drivers,
-see the Neo4j [Drivers &
-Language Guides](https://neo4j.com/developer/language-guides/ "https://neo4j.com/developer/language-guides/") documentation.
-
-###### Important
-
-The Neo4j Bolt drivers for Python, .NET, JavaScript, and Golang did not initially
-support the automatic renewal of AWS Signature v4 authentication tokens. This
-means that after the signature expired (often in 5 minutes), the driver failed
-to authenticate, and subsequent requests failed. The Python, .NET, JavaScript, and
-Go examples below were all affected by this issue.
-
-See [Neo4j
-Python driver issue #834](https://github.com/neo4j/neo4j-python-driver/issues/834 "https://github.com/neo4j/neo4j-python-driver/issues/834"), [Neo4j .NET issue
-#664](https://github.com/neo4j/neo4j-dotnet-driver/issues/664 "https://github.com/neo4j/neo4j-dotnet-driver/issues/664"), [Neo4j JavaScript
-driver issue #993](https://github.com/neo4j/neo4j-javascript-driver/issues/993 "https://github.com/neo4j/neo4j-javascript-driver/issues/993"), and [Neo4j goLang driver
-issue #429](https://github.com/neo4j/neo4j-go-driver/issues/429 "https://github.com/neo4j/neo4j-go-driver/issues/429") for more information.
-
-As of driver version 5.8.0, a new preview re-authentication API was released
-for the Go driver (see [v5.8.0 -
-Feedback wanted on re-authentication](https://github.com/neo4j/neo4j-go-driver/discussions/482 "https://github.com/neo4j/neo4j-go-driver/discussions/482")).
+**Important**  
+The Neo4j Bolt drivers for Python, .NET, JavaScript, and Golang did not initially support the automatic renewal of AWS Signature v4 authentication tokens. This means that after the signature expired (often in 5 minutes), the driver failed to authenticate, and subsequent requests failed. The Python, .NET, JavaScript, and Go examples below were all affected by this issue.  
+See [Neo4j Python driver issue \#834](https://github.com/neo4j/neo4j-python-driver/issues/834), [Neo4j .NET issue \#664](https://github.com/neo4j/neo4j-dotnet-driver/issues/664), [Neo4j JavaScript driver issue \#993](https://github.com/neo4j/neo4j-javascript-driver/issues/993), and [Neo4j goLang driver issue \#429](https://github.com/neo4j/neo4j-go-driver/issues/429) for more information.  
+As of driver version 5.8.0, a new preview re-authentication API was released for the Go driver (see [v5.8.0 - Feedback wanted on re-authentication](https://github.com/neo4j/neo4j-go-driver/discussions/482)).
 
 ## Using Bolt with Java to connect to Neptune
+<a name="access-graph-opencypher-bolt-java"></a>
 
-You can download a driver for whatever version you want to use from the Maven [MVN
-repository](https://mvnrepository.com/artifact/org.neo4j.driver/neo4j-java-driver "https://mvnrepository.com/artifact/org.neo4j.driver/neo4j-java-driver"), or can add this dependency to your project:
+You can download a driver for whatever version you want to use from the Maven [MVN repository](https://mvnrepository.com/artifact/org.neo4j.driver/neo4j-java-driver), or can add this dependency to your project:
 
 ```
 <dependency>
@@ -54,30 +30,27 @@ repository](https://mvnrepository.com/artifact/org.neo4j.driver/neo4j-java-drive
   <artifactId>neo4j-java-driver</artifactId>
   <version>4.3.3</version>
 </dependency>
-
 ```
 
-Then, to connect to Neptune in Java using one of these Bolt drivers, create a driver
-instance for the primary/writer instance in your cluster using code like the following:
+Then, to connect to Neptune in Java using one of these Bolt drivers, create a driver instance for the primary/writer instance in your cluster using code like the following:
 
 ```
 import org.neo4j.driver.Driver;
 import org.neo4j.driver.GraphDatabase;
 
 final Driver driver =
-  GraphDatabase.driver("bolt://`(your cluster endpoint URL)`:`(your cluster port)`",
+  GraphDatabase.driver("bolt://{{(your cluster endpoint URL)}}:{{(your cluster port)}}",
     AuthTokens.none(),
     Config.builder().withEncryption()
                     .withTrustStrategy(TrustStrategy.trustSystemCertificates())
                     .build());
 ```
 
-If you have one or more reader replicas, you can similarly create a driver
-instance for them using code like this:
+If you have one or more reader replicas, you can similarly create a driver instance for them using code like this:
 
 ```
 final Driver read_only_driver =              // (without connection timeout)
-  GraphDatabase.driver("bolt://`(your cluster endpoint URL)`:`(your cluster port)`",
+  GraphDatabase.driver("bolt://{{(your cluster endpoint URL)}}:{{(your cluster port)}}",
       Config.builder().withEncryption()
                       .withTrustStrategy(TrustStrategy.trustSystemCertificates())
                       .build());
@@ -87,17 +60,17 @@ Or, with a timeout:
 
 ```
 final Driver read_only_timeout_driver =      // (with connection timeout)
-  GraphDatabase.driver("bolt://`(your cluster endpoint URL)`:`(your cluster port)`",
+  GraphDatabase.driver("bolt://{{(your cluster endpoint URL)}}:{{(your cluster port)}}",
     Config.builder().withConnectionTimeout(30, TimeUnit.SECONDS)
                     .withEncryption()
                     .withTrustStrategy(TrustStrategy.trustSystemCertificates())
                     .build());
 ```
 
-If you have custom endpoints, it may also be worthwhile to create a driver instance
-for each one.
+If you have custom endpoints, it may also be worthwhile to create a driver instance for each one.
 
 ## A Python openCypher query example using Bolt
+<a name="access-graph-opencypher-bolt-python"></a>
 
 Here is how to make an openCypher query in Python using Bolt:
 
@@ -107,17 +80,16 @@ python -m pip install neo4j
 
 ```
 from neo4j import GraphDatabase
-uri = "bolt://`(your cluster endpoint URL)`:`(your cluster port)`"
+uri = "bolt://{{(your cluster endpoint URL)}}:{{(your cluster port)}}"
 driver = GraphDatabase.driver(uri, auth=("username", "password"), encrypted=True)
 ```
 
 Note that the `auth` parameters are ignored.
 
 ## A .NET openCypher query example using Bolt
+<a name="access-graph-opencypher-bolt-dotnet"></a>
 
-To make an openCypher query in .NET using Bolt, the first step is to install
-the Neo4j driver using NuHet. To make synchronous calls, use the `.Simple`
-version, like this:
+To make an openCypher query in .NET using Bolt, the first step is to install the Neo4j driver using NuHet. To make synchronous calls, use the `.Simple` version, like this:
 
 ```
 Install-Package Neo4j.Driver.Simple-4.3.0
@@ -134,7 +106,7 @@ namespace hello
   {
     private bool _disposed = false;
     private readonly IDriver _driver;
-    private static string url = "bolt://(your cluster endpoint URL):`(your cluster port)`";
+    private static string url = "bolt://(your cluster endpoint URL):{{(your cluster port)}}";
     private static string createNodeQuery = "CREATE (a:Greeting) SET a.message = 'HelloWorldExample'";
     private static string readNodeQuery = "MATCH(n:Greeting) RETURN n.message";
 
@@ -213,10 +185,9 @@ namespace hello
 ```
 
 ## A Java openCypher query example using Bolt with IAM authentication
+<a name="access-graph-opencypher-bolt-java-iam-auth"></a>
 
-The Java code below shows how to make openCypher queries in Java using Bolt
-with IAM authentication. The JavaDoc comment describes its usage. Once a driver
-instance is available, you can use it to make multiple authenticated requests.
+The Java code below shows how to make openCypher queries in Java using Bolt with IAM authentication. The JavaDoc comment describes its usage. Once a driver instance is available, you can use it to make multiple authenticated requests.
 
 ```
 package software.amazon.neptune.bolt;
@@ -337,9 +308,9 @@ public class NeptuneAuthToken extends InternalAuthToken {
 ```
 
 ## A Python openCypher query example using Bolt with IAM authentication
+<a name="access-graph-opencypher-bolt-python-iam-auth"></a>
 
-The Python class below lets you make openCypher queries in Python using Bolt
-with IAM authentication:
+The Python class below lets you make openCypher queries in Python using Bolt with IAM authentication:
 
 ```
 import json
@@ -395,9 +366,9 @@ You use this class to create a driver as follows:
 ```
 
 ## A Node.js example using IAM authentication and Bolt
+<a name="access-graph-opencypher-bolt-nodejs-iam-auth"></a>
 
-The Node.js code below uses the AWS SDK for JavaScript version 3 and ES6 syntax
-to create a driver that authenticates requests:
+The Node.js code below uses the AWS SDK for JavaScript version 3 and ES6 syntax to create a driver that authenticates requests:
 
 ```
 import neo4j from "neo4j-driver";
@@ -491,10 +462,9 @@ try {
 ```
 
 ## A .NET openCypher query example using Bolt with IAM authentication
+<a name="access-graph-opencypher-bolt-dotnet-iam-auth"></a>
 
-To enable IAM authentication in .NET, you need to sign a request when establishing
-the connection. The example below shows how to create a `NeptuneAuthToken`
-helper to generate an authentication token:
+To enable IAM authentication in .NET, you need to sign a request when establishing the connection. The example below shows how to create a `NeptuneAuthToken` helper to generate an authentication token:
 
 ```
 using Amazon.Runtime;
@@ -663,8 +633,7 @@ namespace Hello
 }
 ```
 
-Here is how to make an openCypher query in .NET using Bolt with IAM authentication.
-The example below uses the `NeptuneAuthToken` helper:
+Here is how to make an openCypher query in .NET using Bolt with IAM authentication. The example below uses the `NeptuneAuthToken` helper:
 
 ```
 using Neo4j.Driver;
@@ -673,14 +642,14 @@ namespace Hello
 {
   public class HelloWorldExample
   {
-    private const string Host = "`(your hostname)`:8182";
+    private const string Host = "{{(your hostname)}}:8182";
     private const string Url = $"bolt://{Host}";
     private const string CreateNodeQuery = "CREATE (a:Greeting) SET a.message = 'HelloWorldExample'";
     private const string ReadNodeQuery = "MATCH(n:Greeting) RETURN n.message";
 
-    private const string AccessKey = "`(your access key)`";
-    private const string SecretKey = "`(your secret key)`";
-    private const string Region = "`(your AWS region)`"; // e.g. "us-west-2"
+    private const string AccessKey = "{{(your access key)}}";
+    private const string SecretKey = "{{(your secret key)}}";
+    private const string Region = "{{(your AWS region)}}"; // e.g. "us-west-2"
 
     private readonly IDriver _driver;
 
@@ -739,11 +708,9 @@ namespace Hello
 }
 ```
 
-This example can be launched by running the code below on `.NET 6`
-or `.NET 7` with the following packages:
-
-- **`Neo4j`**`.Driver=4.3.0`
-- **`AWSSDK`**`.Core=3.7.102.1`
+This example can be launched by running the code below on `.NET 6` or `.NET 7` with the following packages:
++ **`Neo4j`**`.Driver=4.3.0`
++ **`AWSSDK`**`.Core=3.7.102.1`
 
 ```
 namespace Hello
@@ -762,15 +729,11 @@ namespace Hello
 ```
 
 ## A Golang openCypher query example using Bolt with IAM authentication
+<a name="access-graph-opencypher-bolt-golang-iam-auth"></a>
 
-The following example shows how to make openCypher queries in Go using the Bolt protocol with
-IAM authentication. It uses the AWS SDK for Go v2 for SigV4 signing and the Neo4j Go driver v5 with
-an `AuthTokenManager` struct that implements the Neo4j Go driver's token manager interface
-(`github.com/neo4j/neo4j-go-driver/v5/neo4j/auth.TokenManager`) to automatically refresh
-credentials before they expire.
+The following example shows how to make openCypher queries in Go using the Bolt protocol with IAM authentication. It uses the AWS SDK for Go v2 for SigV4 signing and the Neo4j Go driver v5 with an `AuthTokenManager` struct that implements the Neo4j Go driver's token manager interface (`github.com/neo4j/neo4j-go-driver/v5/neo4j/auth.TokenManager`) to automatically refresh credentials before they expire.
 
-First, create an `AuthTokenManager` that generates SigV4-signed tokens. Save this as
-`auth_token_manager.go`:
+First, create an `AuthTokenManager` that generates SigV4-signed tokens. Save this as `auth_token_manager.go`:
 
 ```
 // AuthTokenManager for Amazon Neptune IAM authentication via the Bolt protocol.
@@ -928,8 +891,7 @@ func (m *AuthTokenManager) generateToken(ctx context.Context) (neo4j.AuthToken, 
 }
 ```
 
-Then use the token manager to create a driver and find a node by ID. Note the use of a
-parameterized query (`$nodeId`) instead of string interpolation:
+Then use the token manager to create a driver and find a node by ID. Note the use of a parameterized query (`$nodeId`) instead of string interpolation:
 
 ```
 package main
@@ -1009,13 +971,8 @@ func main() {
 }
 ```
 
-###### Note
-
-The `auth.TokenManager` interface (`github.com/neo4j/neo4j-go-driver/v5/neo4j/auth`)
-used in this example became generally available in
-Neo4j Go driver **v5.14.0**. This interface enables automatic credential
-refresh, which is necessary for Neptune IAM authentication since SigV4 signatures are only valid for a
-short period and must be regenerated when the driver establishes new connections.
+**Note**  
+The `auth.TokenManager` interface (`github.com/neo4j/neo4j-go-driver/v5/neo4j/auth`) used in this example became generally available in Neo4j Go driver **v5.14.0**. This interface enables automatic credential refresh, which is necessary for Neptune IAM authentication since SigV4 signatures are only valid for a short period and must be regenerated when the driver establishes new connections.
 
 This example was validated using the following Go modules:
 
@@ -1030,41 +987,23 @@ require (
 ```
 
 ## Bolt connection behavior in Neptune
+<a name="access-graph-opencypher-bolt-connections"></a>
 
 Here are some things to keep in mind about Neptune Bolt connections:
++ Because Bolt connections are created at the TCP layer, you can't use an [Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html) in front of them, as you can with an HTTP endpoint.
++ The port that Neptune uses for Bolt connections is your DB cluster's port.
++ Based on the Bolt preamble passed to it, the Neptune server selects the highest appropriate Bolt version (1, 2, 3, or 4.0).
++ The maximum number of connections to the Neptune server that a client can have open at any point in time is 1,000.
++ If the client doesn't close a connection after a query, that connection can be used to execute the next query.
++ However, if a connection is idle for 20 minutes, the server closes it automatically.
++ If IAM authentication is not enabled, you can use `AuthTokens.none()` rather than supplying a dummy user name and password. For example, in Java:
 
-- Because Bolt connections are created at the TCP layer, you can't use an
-  [Application
-  Load Balancer](../../../elasticloadbalancing/latest/application/introduction.md "../../../elasticloadbalancing/latest/application/introduction.md") in front of them, as you can with an HTTP endpoint.
-- The port that Neptune uses for Bolt connections is your DB
-  cluster's port.
-- Based on the Bolt preamble passed to it, the Neptune server selects
-  the highest appropriate Bolt version (1, 2, 3, or 4.0).
-- The maximum number of connections to the Neptune server that a
-  client can have open at any point in time is 1,000.
-- If the client doesn't close a connection after a query, that
-  connection can be used to execute the next query.
-- However, if a connection is idle for 20 minutes, the server closes it
-  automatically.
-- If IAM authentication is not enabled, you can use `AuthTokens.none()`
-  rather than supplying a dummy user name and password. For example, in Java:
-
-```
-GraphDatabase.driver("bolt://`(your cluster endpoint URL)`:`(your cluster port)`", AuthTokens.none(),
-    Config.builder().withEncryption().withTrustStrategy(TrustStrategy.trustSystemCertificates()).build());
-```
-
-- When IAM authentication is enabled, a Bolt connection is
-  always disconnected a few minutes more than 10 days after it was established
-  if it hasn't already closed for some other reason.
-- If the client sends a query for execution over a connection
-  without having consumed the results of a previous query, the new query is
-  discarded. To discard the previous results instead, the client must send
-  a reset message over the connection.
-- Only one transaction at a time can be created on a given
-  connection.
-- If an exception occurs during a transaction, the Neptune server
-  rolls back the transaction and closes the connection. In this case, the driver
-  creates a new connection for the next query.
-- Be aware that sessions are not thread-safe. Multiple parallel
-  operations must use multiple separate sessions.
+  ```
+  GraphDatabase.driver("bolt://{{(your cluster endpoint URL)}}:{{(your cluster port)}}", AuthTokens.none(),
+      Config.builder().withEncryption().withTrustStrategy(TrustStrategy.trustSystemCertificates()).build());
+  ```
++ When IAM authentication is enabled, a Bolt connection is always disconnected a few minutes more than 10 days after it was established if it hasn't already closed for some other reason.
++ If the client sends a query for execution over a connection without having consumed the results of a previous query, the new query is discarded. To discard the previous results instead, the client must send a reset message over the connection.
++ Only one transaction at a time can be created on a given connection.
++ If an exception occurs during a transaction, the Neptune server rolls back the transaction and closes the connection. In this case, the driver creates a new connection for the next query.
++ Be aware that sessions are not thread-safe. Multiple parallel operations must use multiple separate sessions.

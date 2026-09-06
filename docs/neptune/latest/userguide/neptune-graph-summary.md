@@ -1,73 +1,43 @@
+
+
 # Getting a quick summary report about your graph
+<a name="neptune-graph-summary"></a>
 
-The Neptune graph summary API retrieves the following information about your
-graph:
+The Neptune graph summary API retrieves the following information about your graph:
++ For property (PG) graphs, the graph summary API returns a read-only list of node and edge labels and property keys, along with counts of nodes, edges, and properties.
++ For resource description framework (RDF) graphs, the graph summary API returns a read-only list of classes and predicate keys, along with counts of quads, subjects, and predicates.
 
-- For property (PG) graphs, the graph summary API returns a read-only
-  list of node and edge labels and property keys, along with counts of nodes, edges,
-  and properties.
-- For resource description framework (RDF) graphs, the graph summary API
-  returns a read-only list of classes and predicate keys, along with counts of quads,
-  subjects, and predicates.
+**Note**  
+The graph summary API was introduced in Neptune [engine release 1.2.1.0](engine-releases-1.2.1.0.md).
 
-###### Note
+With the graph summary API, you can quickly gain a high-level understanding of your graph data size and content. You can also use the API interactively within a Neptune notebook using the [`%summary`](notebooks-magics.md#notebooks-line-magics-summary) Neptune Workbench magic. In a graph application, the API can be used to improve search results by providing discovered node or edge labels as part of the search.
 
-The graph summary API was introduced in Neptune [engine release 1.2.1.0](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md").
+Graph summary data is drawn from the [DFE statistics](neptune-dfe-statistics.md) computed by the [Neptune DFE engine](neptune-dfe-engine.md) during runtime, and is available whenever DFE statistics are available. Statistics are enabled by default when you create a new Neptune DB cluster.
 
-With the graph summary API, you can quickly gain a high-level understanding
-of your graph data size and content. You can also use the API interactively within
-a Neptune notebook using the [%summary](notebooks-magics.md#notebooks-line-magics-summary "notebooks-magics.md#notebooks-line-magics-summary")
-Neptune Workbench magic. In a graph application, the API can be used to improve
-search results by providing discovered node or edge labels as part of the search.
+**Note**  
+Statistics generation is disabled on `t3` and `t4` instance types (that is, on `db.t3.medium` and `db.t4g.medium` instance types) to conserve memory. As a result, graph summary data is not available either on those instance types.
 
-Graph summary data is drawn from the [DFE
-statistics](neptune-dfe-statistics.md "neptune-dfe-statistics.md") computed by the [Neptune
-DFE engine](neptune-dfe-engine.md "neptune-dfe-engine.md") during runtime, and is available whenever DFE statistics are
-available. Statistics are enabled by default when you create a new Neptune DB
-cluster.
+You can check the status of DFE statistics using the [statistics status API](neptune-dfe-statistics.md#neptune-dfe-statistics-status). As long as auto-generation of statistics has not [been disabled](neptune-dfe-statistics.md#neptune-dfe-statistics-auto-disable), statistics are automatically updated periodically.
 
-###### Note
-
-Statistics generation is disabled on `t3` and `t4`
-instance types (that is, on `db.t3.medium` and `db.t4g.medium`
-instance types) to conserve memory. As a result, graph summary data is not
-available either on those instance types.
-
-You can check the status of DFE statistics using the [statistics status API](neptune-dfe-statistics.md#neptune-dfe-statistics-status "neptune-dfe-statistics.md#neptune-dfe-statistics-status").
-As long as auto-generation of statistics has not [been disabled](neptune-dfe-statistics.md#neptune-dfe-statistics-auto-disable "neptune-dfe-statistics.md#neptune-dfe-statistics-auto-disable"), statistics
-are automatically updated periodically.
-
-If you want to be sure that statistics are as up to date as possible when you request
-a graph summary, you can [manually
-trigger a statistics update](neptune-dfe-statistics.md#neptune-dfe-statistics-manual "neptune-dfe-statistics.md#neptune-dfe-statistics-manual") right before retrieving the summary. If the
-graph is changing while the statistics are being computed, they will necessarily
-lag slightly behind, but not by much.
+If you want to be sure that statistics are as up to date as possible when you request a graph summary, you can [manually trigger a statistics update](neptune-dfe-statistics.md#neptune-dfe-statistics-manual) right before retrieving the summary. If the graph is changing while the statistics are being computed, they will necessarily lag slightly behind, but not by much.
 
 ## Using the graph summary API to retrieve graph summary information
+<a name="neptune-graph-summary-retrieving"></a>
 
-For a property graph that you query using Gremlin or openCypher, you can retrieve
-a graph summary from the property-graph summary endpoint. There is both a long and a
-short URI for this endpoint:
+For a property graph that you query using Gremlin or openCypher, you can retrieve a graph summary from the property-graph summary endpoint. There is both a long and a short URI for this endpoint:
++ `https://{{your-neptune-host}}:{{port}}/propertygraph/statistics/summary`
++ `https://{{your-neptune-host}}:{{port}}/pg/statistics/summary`
 
-- `https://`your-neptune-host`:`port`/propertygraph/statistics/summary`
-- `https://`your-neptune-host`:`port`/pg/statistics/summary`
+For an RDF graph that you query using SPARQL, you can retrieve a graph summary from the RDF summary endpoint:
++ `https://{{your-neptune-host}}:{{port}}/rdf/statistics/summary`
 
-For an RDF graph that you query using SPARQL, you can retrieve a graph summary from
-the RDF summary endpoint:
-
-- `https://`your-neptune-host`:`port`/rdf/statistics/summary`
-
-These endpoints are read-only, and only support an HTTP `GET` operation.
-If $GRAPH\_SUMMARY\_ENDPOINT is set to the address of whichever endpoint you want
-to query, you can retrieve the summary data using `curl` and HTTP `GET`
-as follows:
+These endpoints are read-only, and only support an HTTP `GET` operation. If $GRAPH\_SUMMARY\_ENDPOINT is set to the address of whichever endpoint you want to query, you can retrieve the summary data using `curl` and HTTP `GET` as follows:
 
 ```
 curl -G "$GRAPH_SUMMARY_ENDPOINT"
 ```
 
-If no statistics are available when you try to retrieve a graph summary, the
-response looks like this:
+If no statistics are available when you try to retrieve a graph summary, the response looks like this:
 
 ```
 {
@@ -78,26 +48,20 @@ response looks like this:
 ```
 
 ## The `mode` URL query parameter for the graph summary API
+<a name="neptune-graph-summary-mode"></a>
 
-The graph summary API accepts a URL query parameter named `mode`,
-which can take one of two values, namely `basic` (the default) and
-`detailed`. For an RDF graph, the `detailed` mode graph summary
-response contains an additional `subjectStructures` field. For a property
-graph, the detailed graph summary response contains two additional fields, namely
-`nodeStructures` and `edgeStructures`.
+The graph summary API accepts a URL query parameter named `mode`, which can take one of two values, namely `basic` (the default) and `detailed`. For an RDF graph, the `detailed` mode graph summary response contains an additional `subjectStructures` field. For a property graph, the detailed graph summary response contains two additional fields, namely `nodeStructures` and `edgeStructures`.
 
-To request a `detailed` graph summary response, include the `mode`
-parameter as follows:
+To request a `detailed` graph summary response, include the `mode` parameter as follows:
 
 ```
 curl -G "$GRAPH_SUMMARY_ENDPOINT?mode=detailed"
 ```
 
-If the `mode` parameter isn't present, `basic` mode is used
-by default, so while it is possible to specify `?mode=basic` explicitly,
-this is not necessary.
+If the `mode` parameter isn't present, `basic` mode is used by default, so while it is possible to specify `?mode=basic` explicitly, this is not necessary.
 
 ## Graph summary response for a property graph (PG)
+<a name="neptune-graph-summary-pg-response"></a>
 
 For an empty property graph, the detailed graph summary response looks like this:
 
@@ -128,72 +92,35 @@ For an empty property graph, the detailed graph summary response looks like this
 ```
 
 A property graph (PG) summary response has the following fields:
++ **`status`**   –   the HTTP return code of the request. If the request succeeded, the code is 200.
 
-- **`status`**   –  
-  the HTTP return code of the request. If the request succeeded, the code is
-
-200.
-
-See [Common graph summary errors](#neptune-graph-summary-errors "#neptune-graph-summary-errors") for a list of common errors.
-
-- **`payload`**
-
-  - **`version`**   –  
-    The version of this graph summary response.
-  - **`lastStatisticsComputationTime`**   –  
-    The timestamp, in ISO 8601 format, of the time at which Neptune last
-    computed [statistics](neptune-dfe-statistics.md "neptune-dfe-statistics.md").
-  - **`graphSummary`**
-
-    - **`numNodes`**   –  
-      The number of nodes in the graph.
-    - **`numEdges`**   –  
-      The number of edges in the graph.
-    - **`numNodeLabels`**   –  
-      The number of distinct node labels in the graph.
-    - **`numEdgeLabels`**   –  
-      The number of distinct edge labels in the graph.
-    - **`nodeLabels`**   –  
-      List of distinct node labels in the graph.
-    - **`edgeLabels`**   –  
-      List of distinct edge labels in the graph.
-    - **`numNodeProperties`**   –  
-      The number of distinct node properties in the graph.
-    - **`numEdgeProperties`**   –  
-      The number of distinct edge properties in the graph.
-    - **`nodeProperties`**   –  
-      List of distinct node properties in the graph, along with the count of nodes
-      where each property is used.
-    - **`edgeProperties`**   –  
-      List of distinct edge properties in the graph along with the count of edges
-      where each property is used.
-    - **`totalNodePropertyValues`**   –  
-      Total number of usages of all node properties.
-    - **`totalEdgePropertyValues`**   –  
-      Total number of usages of all edge properties.
-    - **`nodeStructures`**   –  
-      _This field is only present when `mode=detailed`
-      is specified in the request._ It contains a list of node
-      structures, each of which contains the following fields:
-
-      - **`count`**   –  
-        Number of nodes that have this specific structure.
-      - **`nodeProperties`**   –  
-        List of node properties present in this specific structure.
-      - **`distinctOutgoingEdgeLabels`**   –  
-        List of distinct outgoing edge labels present in this specific structure.
-
-    - **`edgeStructures`**   –  
-      _This field is only present when `mode=detailed`
-      is specified in the request._ It contains a list of edge
-      structures, each of which contains the following fields:
-
-      - **`count`**   –  
-        Number of edges that have this specific structure.
-      - **`edgeProperties`**   –  
-        List of edge properties present in this specific structure.
+  See [Common graph summary errors](#neptune-graph-summary-errors) for a list of common errors.
++ **`payload`**
+  + **`version`**   –   The version of this graph summary response.
+  + **`lastStatisticsComputationTime `**   –   The timestamp, in ISO 8601 format, of the time at which Neptune last computed [statistics](neptune-dfe-statistics.md).
+  + **`graphSummary`**
+    + **`numNodes`**   –   The number of nodes in the graph.
+    + **`numEdges`**   –   The number of edges in the graph.
+    + **`numNodeLabels`**   –   The number of distinct node labels in the graph.
+    + **`numEdgeLabels`**   –   The number of distinct edge labels in the graph.
+    + **`nodeLabels`**   –   List of distinct node labels in the graph.
+    + **`edgeLabels`**   –   List of distinct edge labels in the graph.
+    + **`numNodeProperties`**   –   The number of distinct node properties in the graph.
+    + **`numEdgeProperties`**   –   The number of distinct edge properties in the graph.
+    + **`nodeProperties`**   –   List of distinct node properties in the graph, along with the count of nodes where each property is used.
+    + **`edgeProperties`**   –   List of distinct edge properties in the graph along with the count of edges where each property is used.
+    + **`totalNodePropertyValues`**   –   Total number of usages of all node properties.
+    + **`totalEdgePropertyValues`**   –   Total number of usages of all edge properties.
+    + **`nodeStructures`**   –   *This field is only present when `mode=detailed` is specified in the request.* It contains a list of node structures, each of which contains the following fields:
+      + **`count`**   –   Number of nodes that have this specific structure.
+      + **`nodeProperties`**   –   List of node properties present in this specific structure.
+      + **`distinctOutgoingEdgeLabels`**   –   List of distinct outgoing edge labels present in this specific structure.
+    + **`edgeStructures`**   –   *This field is only present when `mode=detailed` is specified in the request.* It contains a list of edge structures, each of which contains the following fields:
+      + **`count`**   –   Number of edges that have this specific structure.
+      + **`edgeProperties`**   –   List of edge properties present in this specific structure.
 
 ## Graph summary response for an RDF graph
+<a name="neptune-graph-summary-rdf-response"></a>
 
 For an empty RDF graph, the detailed graph summary response looks like this:
 
@@ -217,50 +144,27 @@ For an empty RDF graph, the detailed graph summary response looks like this:
 ```
 
 An RDF graph summary response has the following fields:
++ **`status`**   –   the HTTP return code of the request. If the request succeeded, the code is 200.
 
-- **`status`**   –  
-  the HTTP return code of the request. If the request succeeded, the code is
-
-200.
-
-See [Common graph summary errors](#neptune-graph-summary-errors "#neptune-graph-summary-errors") for a list
-of common errors.
-
-- **`payload`**
-
-  - **`version`**   –  
-    The version of this graph summary response.
-  - **`lastStatisticsComputationTime`**   –  
-    The timestamp, in ISO 8601 format, of the time at which Neptune last
-    computed [statistics](neptune-dfe-statistics.md "neptune-dfe-statistics.md").
-  - **`graphSummary`**
-
-    - **`numDistinctSubjects`**   –  
-      The number of distinct subjects in the graph.
-    - **`numDistinctPredicates`**   –  
-      The number of distinct predicates in the graph.
-    - **`numQuads`**   –  
-      The number of quads in the graph.
-    - **`numClasses`**   –  
-      The number of classes in the graph.
-    - **`classes`**   –  
-      List of classes in the graph.
-    - **`predicates`**   –  
-      List of predicates in the graph, along with the predicate counts.
-    - **`subjectStructures`**   –  
-      _This field is only present when `mode=detailed`
-      is specified in the request._ It contains a list of subject
-      structures, each of which contains the following fields:
-
-      - **`count`**   –  
-        Number of occurrences of this specific structure.
-      - **`predicates`**   –  
-        List of predicates present in this specific structure.
+  See [Common graph summary errors](#neptune-graph-summary-errors) for a list of common errors.
++ **`payload`**
+  + **`version`**   –   The version of this graph summary response.
+  + **`lastStatisticsComputationTime `**   –   The timestamp, in ISO 8601 format, of the time at which Neptune last computed [statistics](neptune-dfe-statistics.md).
+  + **`graphSummary`**
+    + **`numDistinctSubjects`**   –   The number of distinct subjects in the graph.
+    + **`numDistinctPredicates`**   –   The number of distinct predicates in the graph.
+    + **`numQuads`**   –   The number of quads in the graph.
+    + **`numClasses`**   –   The number of classes in the graph.
+    + **`classes`**   –   List of classes in the graph.
+    + **`predicates`**   –   List of predicates in the graph, along with the predicate counts.
+    + **`subjectStructures`**   –   *This field is only present when `mode=detailed` is specified in the request.* It contains a list of subject structures, each of which contains the following fields:
+      + **`count`**   –   Number of occurrences of this specific structure.
+      + **`predicates`**   –   List of predicates present in this specific structure.
 
 ## Sample property-graph (PG) summary response
+<a name="neptune-graph-summary-sample-pg-response"></a>
 
-Here is the detailed summary response for a property graph that contains the [sample
-property-graph air routes dataset](https://github.com/aws/graph-notebook/tree/main/src/graph_notebook/seed/queries/propertygraph/gremlin/airports "https://github.com/aws/graph-notebook/tree/main/src/graph_notebook/seed/queries/propertygraph/gremlin/airports"):
+Here is the detailed summary response for a property graph that contains the [sample property-graph air routes dataset](https://github.com/aws/graph-notebook/tree/main/src/graph_notebook/seed/queries/propertygraph/gremlin/airports):
 
 ```
 {
@@ -421,9 +325,9 @@ property-graph air routes dataset](https://github.com/aws/graph-notebook/tree/ma
 ```
 
 ## Sample RDF graph summary response
+<a name="neptune-graph-summary-sample-rdf-response"></a>
 
-Here is the detailed summary response for an RDF graph that contains the [sample
-RDF air routes dataset](https://github.com/aws/graph-notebook/tree/main/src/graph_notebook/seed/queries/rdf/sparql/airports "https://github.com/aws/graph-notebook/tree/main/src/graph_notebook/seed/queries/rdf/sparql/airports"):
+Here is the detailed summary response for an RDF graph that contains the [sample RDF air routes dataset](https://github.com/aws/graph-notebook/tree/main/src/graph_notebook/seed/queries/rdf/sparql/airports):
 
 ```
 {
@@ -587,48 +491,63 @@ RDF air routes dataset](https://github.com/aws/graph-notebook/tree/main/src/grap
 ```
 
 ## Using AWS Identity and Access Management (IAM) authentication with graph summary endpoints
+<a name="neptune-graph-summary-iam"></a>
 
-You can access graph summary endpoints securely with IAM authentication by using
-[awscurl](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl") or any other tool
-that works with HTTPS and IAM. See [Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl") to see how to set up the proper
-credentials. Once you have done that, you can then make requests like this:
+You can access graph summary endpoints securely with IAM authentication by using [awscurl](https://github.com/okigan/awscurl) or any other tool that works with HTTPS and IAM. See [Using `awscurl` with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl) to see how to set up the proper credentials. Once you have done that, you can then make requests like this:
 
 ```
 awscurl "$GRAPH_SUMMARY_ENDPOINT" \
-    --region `(your region)` \
+    --region {{(your region)}} \
     --service neptune-db
 ```
 
-###### Important
+**Important**  
+The IAM identity or role that creates the temporary credentials must have an IAM policy attached that allows the [GetGraphSummary](iam-dp-actions.md#getgraphsummary) IAM action.
 
-The IAM identity or role that creates the temporary credentials
-must have an IAM policy attached that allows the [GetGraphSummary](iam-dp-actions.md#getgraphsummary "iam-dp-actions.md#getgraphsummary") IAM action.
-
-See [IAM Authentication Errors](errors-engine-codes.md#errors-iam-auth "errors-engine-codes.md#errors-iam-auth") for
-a list of common IAM errors that you may encounter.
+See [IAM Authentication Errors](errors-engine-codes.md#errors-iam-auth) for a list of common IAM errors that you may encounter.
 
 ## Common error codes that a graph summary request may return
+<a name="neptune-graph-summary-errors"></a>
 
-| Neptune service error code            | HTTP status                                                                                                   | Message                                                                                                                                                                                                        | Error Scenario                                                                                                        | Mitigation                                                                                                                                                                                                                                               |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`AccessDeniedException`**           | 403                                                                                                           | Missing Authentication Token.                                                                                                                                                                                  | Unsigned or incorrectly signed request was sent to<br>Neptune database with IAM enabled.                              | Sign the request with SigV4 before sending<br>(see [IAM and graph summaries](#neptune-graph-summary-iam "#neptune-graph-summary-iam")).                                                                                                                  |
-| 403                                   | User: `(user ARN)` is not authorized<br>to perform: neptune-db:GetGraphSummary on resource: `(resource ARN)`. | IAM policy does not allow the action [GetGraphSummary](iam-dp-actions.md#getgraphsummary "iam-dp-actions.md#getgraphsummary") when the graph summary request<br>was sent to Neptune database with IAM enabled. | Make sure that the IAM policy attached to the user or role making the request<br>allows the `GetGraphSummary` action. |
-| **`BadRequestException`**             | 400                                                                                                           | Statistics are disabled, so graph summary is also disabled.                                                                                                                                                    | Trying to fetch summary on burstable instance types<br>(`t3` or `t4g`) where statistics are disabled.                 | Use an instance type where statistics generation is enabled<br>(all supported instances except `t3` and `t4g`).                                                                                                                                          |
-| 400                                   | Bad route: `/rdf/statistics/summarypathapi`                                                                   | Request sent to invalid path.                                                                                                                                                                                  | Use correct route for graph summary endpoint.                                                                         |
-| **`InvalidParameterException`**       | 400                                                                                                           | Request contains unknown parameters: '`(unknown parameter or parameters)`'.                                                                                                                                    | When an invalid parameter is specified in the request.                                                                | Only use valid parameters (such as `mode`) in the request.                                                                                                                                                                                               |
-| **`InvalidParameterException`**       | 400                                                                                                           | URI query parameter 'mode' has unsupported value '`(invalid value)`'.                                                                                                                                          | When the URL parameter 'mode' in the request is followed by an invalid value.                                         | Use valid values (such as `basic` or `detailed`) when<br>specifying the URL parameter 'mode'.                                                                                                                                                            |
-| **`MethodNotAllowedException`**       | 405                                                                                                           | Method Not Allowed.                                                                                                                                                                                            | Calling summary endpoint with any HTTP method other than<br>`GET` (such as `POST` or `DELETE`).                       | Use HTTP `GET` method when calling summary endpoint.                                                                                                                                                                                                     |
-| **`StatisticsNotAvailableException`** | 400                                                                                                           | Statistics are not computed yet, graph summary will be available<br>after statistics computation is complete.                                                                                                  | There are no statistics available when the request is<br>sent to the summary endpoint.                                | Wait until statistics generation is complete. You can check<br>the status of statistics generation using the [statistics status API](neptune-dfe-statistics.md#neptune-dfe-statistics-status "neptune-dfe-statistics.md#neptune-dfe-statistics-status"). |
-| 400                                   | Statistics limit reached, thus graph summary is not available.                                                | Statistics generation has stopped because it reached [statistics size limits](neptune-dfe-statistics.md#neptune-dfe-statistics-limits "neptune-dfe-statistics.md#neptune-dfe-statistics-limits").              | Graph summary is not available on this graph.                                                                         |
 
-For example, if you make a request to graph summary endpoint in a
-Neptune database that has IAM authentication enabled, and the necessary
-permissions are not present in the requestor’s IAM policy, then you would
-get a response like the following:
+
+- ****`AccessDeniedException`****
+  - **HTTP status:** 403 / **Message:** Missing Authentication Token. / **Error Scenario:** Unsigned or incorrectly signed request was sent to Neptune database with IAM enabled. / **Mitigation:** Sign the request with SigV4 before sending (see [IAM and graph summaries](#neptune-graph-summary-iam)).
+  - **HTTP status:** 403 / **Message:** User: {{(user ARN)}} is not authorized to perform: neptune-db:GetGraphSummary on resource: {{(resource ARN)}}. / **Error Scenario:** IAM policy does not allow the action [GetGraphSummary](iam-dp-actions.md#getgraphsummary) when the graph summary request was sent to Neptune database with IAM enabled.  / **Mitigation:** Make sure that the IAM policy attached to the user or role making the request allows the `GetGraphSummary` action. 
+
+- ****`BadRequestException`****
+  - **HTTP status:** 400 / **Message:** Statistics are disabled, so graph summary is also disabled. / **Error Scenario:** Trying to fetch summary on burstable instance types (`t3` or `t4g`) where statistics are disabled. / **Mitigation:** Use an instance type where statistics generation is enabled (all supported instances except `t3` and `t4g`).
+  - **HTTP status:** 400 / **Message:** Bad route: {{/rdf/statistics/summarypathapi}} / **Error Scenario:** Request sent to invalid path. / **Mitigation:** Use correct route for graph summary endpoint.
+
+- ****`InvalidParameterException`****
+  - **HTTP status:** 400
+  - **Message:** Request contains unknown parameters: '{{(unknown parameter or parameters)}}'.
+  - **Error Scenario:** When an invalid parameter is specified in the request.
+  - **Mitigation:** Only use valid parameters (such as `mode`) in the request.
+
+- ****`InvalidParameterException`****
+  - **HTTP status:** 400
+  - **Message:** URI query parameter 'mode' has unsupported value '{{(invalid value)}}'.
+  - **Error Scenario:** When the URL parameter 'mode' in the request is followed by an invalid value.
+  - **Mitigation:** Use valid values (such as `basic` or `detailed`) when specifying the URL parameter 'mode'.
+
+- ****`MethodNotAllowedException`****
+  - **HTTP status:** 405
+  - **Message:** Method Not Allowed.
+  - **Error Scenario:** Calling summary endpoint with any HTTP method other than `GET` (such as `POST` or `DELETE`).
+  - **Mitigation:** Use HTTP `GET` method when calling summary endpoint.
+
+- ****`StatisticsNotAvailableException`****
+  - **HTTP status:** 400 / **Message:** Statistics are not computed yet, graph summary will be available after statistics computation is complete. / **Error Scenario:** There are no statistics available when the request is sent to the summary endpoint. / **Mitigation:** Wait until statistics generation is complete. You can check the status of statistics generation using the [statistics status API](neptune-dfe-statistics.md#neptune-dfe-statistics-status).
+  - **HTTP status:** 400 / **Message:** Statistics limit reached, thus graph summary is not available. / **Error Scenario:** Statistics generation has stopped because it reached [statistics size limits](neptune-dfe-statistics.md#neptune-dfe-statistics-limits). / **Mitigation:** Graph summary is not available on this graph.
+
+
+
+For example, if you make a request to graph summary endpoint in a Neptune database that has IAM authentication enabled, and the necessary permissions are not present in the requestor’s IAM policy, then you would get a response like the following:
 
 ```
 {
-  "detailedMessage": "User: arn:aws:iam::`(account ID)`:`(user or user name)` is not authorized to perform: neptune-db:GetGraphSummary on resource: arn:aws:neptune-db:`(region)`:`(account ID)`:`(cluster resource ID)`/*",
+  "detailedMessage": "User: arn:aws:iam::{{(account ID)}}:{{(user or user name)}} is not authorized to perform: neptune-db:GetGraphSummary on resource: arn:aws:neptune-db:{{(region)}}:{{(account ID)}}:{{(cluster resource ID)}}/*",
   "requestId": "7ac2b98e-b626-d239-1d05-74b4c88fce82",
   "code": "AccessDeniedException"
 }

@@ -1,82 +1,68 @@
+
+
 # Gremlin `profile` API in Neptune
+<a name="gremlin-profile-api"></a>
 
-The Neptune Gremlin `profile` API runs a specified Gremlin traversal,
-collects various metrics about the run, and produces a profile report as output.
+The Neptune Gremlin `profile` API runs a specified Gremlin traversal, collects various metrics about the run, and produces a profile report as output.
 
-It differs from the TinkerPop .profile() step so as to be able to report
-information specific to the Neptune engine.
+It differs from the TinkerPop .profile() step so as to be able to report information specific to the Neptune engine.
 
 The profile report includes the following information about the query plan:
++ The physical operator pipeline
++ The index operations for query execution and serialization
++ The size of the result
 
-- The physical operator pipeline
-- The index operations for query execution and serialization
-- The size of the result
-  The `profile` API uses an extended version of the HTTP API syntax for query,
-  with `/gremlin/profile` as the endpoint instead of `/gremlin`.
+The `profile` API uses an extended version of the HTTP API syntax for query, with `/gremlin/profile` as the endpoint instead of `/gremlin`.
 
 ## Parameters specific to Neptune Gremlin `profile`
+<a name="gremlin-profile-api-parameters"></a>
++ **profile.results** – `boolean`, allowed values: `TRUE` and `FALSE`, default value: `TRUE`.
 
-- **profile.results**
-  – `boolean`, allowed values: `TRUE` and `FALSE`,
-  default value: `TRUE`.
+  If true, the query results are gathered and displayed as part of the `profile` report. If false, only the result count is displayed.
++ **profile.chop** – `int`, default value: 250.
 
-If true, the query results are gathered and displayed as part of the `profile` report.
-If false, only the result count is displayed.
+  If non-zero, causes the results string to be truncated at that number of characters. This does not keep all results from being captured. It simply limits the size of the string in the profile report. If set to zero, the string contains all the results.
++ **profile.serializer** – `string`, default value: `<null>`.
 
-- **profile.chop**
-  – `int`, default value: 250.
+  If non-null, the gathered results are returned in a serialized response message in the format specified by this parameter. The number of index operations necessary to produce that response message is reported along with the size in bytes to be sent to the client.
 
-If non-zero, causes the results string to be truncated at that number of characters.
-This does not keep all results from being captured. It simply limits the size of the
-string in the profile report. If set to zero, the string contains all the results.
+  Allowed values are `<null>` or any of the valid MIME type or TinkerPop driver "Serializers" enum values.
 
-- **profile.serializer**
-  – `string`, default value: `<null>`.
+  ```
+  "application/json" or "GRAPHSON"
+  "application/vnd.gremlin-v1.0+json" or "GRAPHSON_V1"
+  "application/vnd.gremlin-v1.0+json;types=false" or "GRAPHSON_V1_UNTYPED"
+  "application/vnd.gremlin-v2.0+json" or "GRAPHSON_V2"
+  "application/vnd.gremlin-v2.0+json;types=false" or "GRAPHSON_V2_UNTYPED"
+  "application/vnd.gremlin-v3.0+json" or "GRAPHSON_V3"
+  "application/vnd.gremlin-v3.0+json;types=false" or "GRAPHSON_V3_UNTYPED"
+  "application/vnd.graphbinary-v1.0" or "GRAPHBINARY_V1"
+  ```
++ **profile.indexOps** – `boolean`, allowed values: `TRUE` and `FALSE`, default value: `FALSE`.
 
-If non-null, the gathered results are returned in a serialized response message in the
-format specified by this parameter. The number of index operations necessary to produce
-that response message is reported along with the size in bytes to be sent to the
-client.
+  If true, shows a detailed report of all index operations that took place during query execution and serialization. Warning: This report can be verbose.
 
-Allowed values are `<null>` or any of the valid MIME type or
-TinkerPop driver "Serializers" enum values.
 
-```
-
-"application/json" or "GRAPHSON"
-"application/vnd.gremlin-v1.0+json" or "GRAPHSON_V1"
-"application/vnd.gremlin-v1.0+json;types=false" or "GRAPHSON_V1_UNTYPED"
-"application/vnd.gremlin-v2.0+json" or "GRAPHSON_V2"
-"application/vnd.gremlin-v2.0+json;types=false" or "GRAPHSON_V2_UNTYPED"
-"application/vnd.gremlin-v3.0+json" or "GRAPHSON_V3"
-"application/vnd.gremlin-v3.0+json;types=false" or "GRAPHSON_V3_UNTYPED"
-"application/vnd.graphbinary-v1.0" or "GRAPHBINARY_V1"
-
-```
-
-- **profile.indexOps**
-  – `boolean`, allowed values: `TRUE` and `FALSE`,
-  default value: `FALSE`.
-
-If true, shows a detailed report of all index operations that took place during query
-execution and serialization. Warning: This report can be verbose.
 
 ## Sample output of Neptune Gremlin `profile`
+<a name="gremlin-profile-sample-output"></a>
 
 The following is a sample `profile` query.
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws neptunedata execute-gremlin-profile-query \
-  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --endpoint-url https://{{your-neptune-endpoint}}:{{port}} \
   --gremlin-query 'g.V().hasLabel("airport").has("code", "AUS").emit().repeat(in().simplePath()).times(2).limit(100)' \
   --serializer "application/vnd.gremlin-v3.0+json"
 ```
 
-For more information, see [execute-gremlin-profile-query](../../../cli/latest/reference/neptunedata/execute-gremlin-profile-query.md "../../../cli/latest/reference/neptunedata/execute-gremlin-profile-query.md") in the AWS CLI Command Reference.
+For more information, see [execute-gremlin-profile-query](https://docs.aws.amazon.com/cli/latest/reference/neptunedata/execute-gremlin-profile-query.html) in the AWS CLI Command Reference.
 
-SDK
+------
+#### [ SDK ]
 
 ```
 import boto3
@@ -84,7 +70,7 @@ from botocore.config import Config
 
 client = boto3.client(
     'neptunedata',
-    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    endpoint_url='https://{{your-neptune-endpoint}}:{{port}}',
     config=Config(read_timeout=None, retries={'total_max_attempts': 1})
 )
 
@@ -96,36 +82,35 @@ response = client.execute_gremlin_profile_query(
 print(response['output'])
 ```
 
-For AWS SDK examples in other languages like Java, .NET, and more, see [AWS SDK](access-graph-gremlin-sdk.md "access-graph-gremlin-sdk.md").
+For AWS SDK examples in other languages like Java, .NET, and more, see [AWS SDK](access-graph-gremlin-sdk.md).
 
-awscurl
+------
+#### [ awscurl ]
 
 ```
-awscurl https://`your-neptune-endpoint`:`port`/gremlin/profile \
-  --region `us-east-1` \
+awscurl https://{{your-neptune-endpoint}}:{{port}}/gremlin/profile \
+  --region {{us-east-1}} \
   --service neptune-db \
   -X POST \
   -d '{"gremlin":"g.V().hasLabel(\"airport\").has(\"code\", \"AUS\").emit().repeat(in().simplePath()).times(2).limit(100)", "profile.serializer":"application/vnd.gremlin-v3.0+json"}'
 ```
 
-###### Note
+**Note**  
+This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
 
-This example assumes that your AWS credentials are configured in your
-environment. Replace `us-east-1` with the Region of your
-Neptune cluster.
+For more information about using **awscurl** with IAM authentication, see [Using `awscurl` with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl).
 
-For more information about using **awscurl** with IAM authentication, see
-[Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
-
-curl
+------
+#### [ curl ]
 
 ```
-curl -X POST https://`your-neptune-endpoint`:`port`/gremlin/profile \
+curl -X POST https://{{your-neptune-endpoint}}:{{port}}/gremlin/profile \
   -d '{"gremlin":"g.V().hasLabel(\"airport\").has(\"code\", \"AUS\").emit().repeat(in().simplePath()).times(2).limit(100)", "profile.serializer":"application/vnd.gremlin-v3.0+json"}'
 ```
 
-This query generates the following `profile` report when executed on the
-air-routes sample graph from the blog post, [Let Me Graph That For You – Part 1 – Air Routes](https://aws.amazon.com/blogs/database/let-me-graph-that-for-you-part-1-air-routes/ "https://aws.amazon.com/blogs/database/let-me-graph-that-for-you-part-1-air-routes/").
+------
+
+This query generates the following `profile` report when executed on the air-routes sample graph from the blog post, [Let Me Graph That For You – Part 1 – Air Routes](https://aws.amazon.com/blogs/database/let-me-graph-that-for-you-part-1-air-routes/).
 
 ```
 *******************************************************
@@ -233,80 +218,54 @@ Serialization:
     # of terms materialized: 393
 ```
 
-In addition to the query plans returned by a call to Neptune `explain`,
-the `profile` results include runtime statistics around query execution.
-Each Join operation is tagged with the time it took to perform its join as well
-as the actual number of solutions that passed through it.
+In addition to the query plans returned by a call to Neptune `explain`, the `profile` results include runtime statistics around query execution. Each Join operation is tagged with the time it took to perform its join as well as the actual number of solutions that passed through it.
 
-The `profile` output includes the time taken during the core query execution
-phase, as well as the serialization phase if the `profile.serializer` option
-was specified.
+The `profile` output includes the time taken during the core query execution phase, as well as the serialization phase if the `profile.serializer` option was specified.
 
-The breakdown of the index operations performed during each phase is also
-included at the bottom of the `profile` output.
+The breakdown of the index operations performed during each phase is also included at the bottom of the `profile` output.
 
-Note that consecutive runs of the same query may show different results in
-terms of run-time and index operations because of caching.
+Note that consecutive runs of the same query may show different results in terms of run-time and index operations because of caching.
 
-For queries using the `repeat()` step, a breakdown of the frontier
-on each iteration is available if the `repeat()` step was pushed down
-as part of a `NeptuneGraphQueryStep`.
+For queries using the `repeat()` step, a breakdown of the frontier on each iteration is available if the `repeat()` step was pushed down as part of a `NeptuneGraphQueryStep`.
 
 ## Differences in `profile` reports when DFE is enabled
+<a name="gremlin-profile-dfe-output"></a>
 
-When the Neptune DFE alternative query engine is enabled, `profile` output
-is somewhat different:
+When the Neptune DFE alternative query engine is enabled, `profile` output is somewhat different:
 
-**Optimized Traversal:**
-This section is similar to the one in `explain` output, but contains
-additional information. This includes the type of DFE operators that were considered
-in planning, and the associated worst case and best case cost estimates.
+**Optimized Traversal:** This section is similar to the one in `explain` output, but contains additional information. This includes the type of DFE operators that were considered in planning, and the associated worst case and best case cost estimates.
 
-**Physical Pipeline:**
-This section captures the operators that are used to execute the query.
-`DFESubQuery` elements abstract the physical plan that is used by DFE to
-execute the portion of the plan it is responsible for. The `DFESubQuery`
-elements are unfolded in the following section where DFE statistics are listed.
+**Physical Pipeline:** This section captures the operators that are used to execute the query. `DFESubQuery` elements abstract the physical plan that is used by DFE to execute the portion of the plan it is responsible for. The `DFESubQuery` elements are unfolded in the following section where DFE statistics are listed.
 
-**DFEQueryEngine Statistics:**
-This section shows up only when at least part of the query is executed by DFE.
-It outlines various runtime statistics that are specific to DFE, and contains
-a detailed breakdown of the time spent in the various parts of the query execution,
-by `DFESubQuery`.
+**DFEQueryEngine Statistics:** This section shows up only when at least part of the query is executed by DFE. It outlines various runtime statistics that are specific to DFE, and contains a detailed breakdown of the time spent in the various parts of the query execution, by `DFESubQuery`.
 
-Nested subqueries in different `DFESubQuery` elements are flattened
-in this section, and unique identifiers are marked with a header that starts with
-`subQuery=`.
+Nested subqueries in different `DFESubQuery` elements are flattened in this section, and unique identifiers are marked with a header that starts with `subQuery=`.
 
-**Traversal metrics:**
-This section shows step-level traversal metrics, and when the DFE engine runs all
-or part of the query, displays metrics for `DFEStep` and/or
-`NeptuneInterleavingStep`. See [Tuning Gremlin queries using explain and profile](gremlin-traversal-tuning.md "gremlin-traversal-tuning.md").
+**Traversal metrics:** This section shows step-level traversal metrics, and when the DFE engine runs all or part of the query, displays metrics for `DFEStep` and/or `NeptuneInterleavingStep`. See [Tuning Gremlin queries using `explain` and `profile`](gremlin-traversal-tuning.md).
 
-###### Note
-
-Because DFE support for Gremlin is an experimental feature, the
-exact format of the `profile` output is subject to change.
+**Note**  
+Because DFE support for Gremlin is an experimental feature, the exact format of the `profile` output is subject to change.
 
 ## Sample `profile` output when the Neptune Dataflow engine (DFE) is enabled
+<a name="gremlin-profile-sample-dfe-output"></a>
 
-When the DFE engine is being used to run Gremlin queries, output of the
-[Gremlin profile API](gremlin-profile-api.md "gremlin-profile-api.md") is
-formatted as shown in the example below.
+When the DFE engine is being used to run Gremlin queries, output of the [Gremlin `profile` API](#gremlin-profile-api) is formatted as shown in the example below.
 
 Query:
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws neptunedata execute-gremlin-profile-query \
-  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --endpoint-url https://{{your-neptune-endpoint}}:{{port}} \
   --gremlin-query "g.withSideEffect('Neptune#useDFE', true).V().has('code', 'ATL').out()"
 ```
 
-For more information, see [execute-gremlin-profile-query](../../../cli/latest/reference/neptunedata/execute-gremlin-profile-query.md "../../../cli/latest/reference/neptunedata/execute-gremlin-profile-query.md") in the AWS CLI Command Reference.
+For more information, see [execute-gremlin-profile-query](https://docs.aws.amazon.com/cli/latest/reference/neptunedata/execute-gremlin-profile-query.html) in the AWS CLI Command Reference.
 
-SDK
+------
+#### [ SDK ]
 
 ```
 import boto3
@@ -314,7 +273,7 @@ from botocore.config import Config
 
 client = boto3.client(
     'neptunedata',
-    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    endpoint_url='https://{{your-neptune-endpoint}}:{{port}}',
     config=Config(read_timeout=None, retries={'total_max_attempts': 1})
 )
 
@@ -325,33 +284,33 @@ response = client.execute_gremlin_profile_query(
 print(response['output'])
 ```
 
-For AWS SDK examples in other languages like Java, .NET, and more, see [AWS SDK](access-graph-gremlin-sdk.md "access-graph-gremlin-sdk.md").
+For AWS SDK examples in other languages like Java, .NET, and more, see [AWS SDK](access-graph-gremlin-sdk.md).
 
-awscurl
+------
+#### [ awscurl ]
 
 ```
-awscurl https://`your-neptune-endpoint`:`port`/gremlin/profile \
-  --region `us-east-1` \
+awscurl https://{{your-neptune-endpoint}}:{{port}}/gremlin/profile \
+  --region {{us-east-1}} \
   --service neptune-db \
   -X POST \
   -d '{"gremlin":"g.withSideEffect('"'"'Neptune#useDFE'"'"', true).V().has('"'"'code'"'"', '"'"'ATL'"'"').out()"}'
 ```
 
-###### Note
+**Note**  
+This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
 
-This example assumes that your AWS credentials are configured in your
-environment. Replace `us-east-1` with the Region of your
-Neptune cluster.
+For more information about using **awscurl** with IAM authentication, see [Using `awscurl` with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl).
 
-For more information about using **awscurl** with IAM authentication, see
-[Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
-
-curl
+------
+#### [ curl ]
 
 ```
-curl -X POST https://`your-neptune-endpoint`:`port`/gremlin/profile \
+curl -X POST https://{{your-neptune-endpoint}}:{{port}}/gremlin/profile \
   -d '{"gremlin":"g.withSideEffect('"'"'Neptune#useDFE'"'"', true).V().has('"'"'code'"'"', '"'"'ATL'"'"').out()"}'
 ```
+
+------
 
 ```
 *******************************************************
@@ -491,7 +450,5 @@ curl -X POST https://`your-neptune-endpoint`:`port`/gremlin/profile \
         # of terms materialized: 0
 ```
 
-###### Note
-
-Because DFE support for Gremlin is an experimental feature,
-the exact format of the `profile` output is subject to change.
+**Note**  
+Because DFE support for Gremlin is an experimental feature, the exact format of the `profile` output is subject to change.

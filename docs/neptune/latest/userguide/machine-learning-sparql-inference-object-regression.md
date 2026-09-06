@@ -1,13 +1,11 @@
+
+
 # SPARQL object regression examples
+<a name="machine-learning-sparql-inference-object-regression"></a>
 
-Object regression is similar to object classification, except that a numerical
-predicate value inferred from the regression model for each node. You can use the
-same SPARQL queries for object regression as for object classification with the
-exception that `the Neptune#ml.limit` and `Neptune#ml.threshold`
-predicates are not applicable.
+Object regression is similar to object classification, except that a numerical predicate value inferred from the regression model for each node. You can use the same SPARQL queries for object regression as for object classification with the exception that `the Neptune#ml.limit` and `Neptune#ml.threshold` predicates are not applicable.
 
-The following query seeks to predict the <http://www.example.org/accountbalance>
-predicate value for all the inputs of type `foaf:Person`:
+The following query seeks to predict the <http://www.example.org/accountbalance> predicate value for all the inputs of type `foaf:Person`:
 
 ```
 SELECT * WHERE { ?input a foaf:Person .

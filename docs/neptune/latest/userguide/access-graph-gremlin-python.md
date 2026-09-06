@@ -1,102 +1,79 @@
+
+
 # Using Python to connect to a Neptune DB instance
+<a name="access-graph-gremlin-python"></a>
 
-###### Important
+**Important**  
+Choosing the correct Apache TinkerPop Gremlin driver version is critical for compatibility with your Neptune engine version. Using an incompatible version can result in connection failures or unexpected behavior. For detailed version compatibility information, see [Accessing a Neptune graph with Gremlin](access-graph-gremlin.md).
 
-Choosing the correct Apache TinkerPop Gremlin driver version is critical for compatibility
-with your Neptune engine version. Using an incompatible version can result in connection
-failures or unexpected behavior. For detailed version compatibility information, see
-[Accessing a Neptune graph with Gremlin](access-graph-gremlin.md "access-graph-gremlin.md").
+The following section walks you through the running of a Python sample that connects to an Amazon Neptune DB instance and performs a Gremlin traversal.
 
-The following section walks you through the running of a Python sample that connects to an
-Amazon Neptune DB instance and performs a Gremlin traversal.
-
-You must follow these instructions from an Amazon EC2 instance in the same virtual private
-cloud (VPC) as your Neptune DB instance.
+You must follow these instructions from an Amazon EC2 instance in the same virtual private cloud (VPC) as your Neptune DB instance.
 
 Before you begin, do the following:
++ Download and install Python 3.6 or later from the [Python.org website](https://www.python.org/downloads/).
++ Verify that you have **pip** installed. If you don't have **pip** or you're not sure, see [Do I need to install pip?](https://pip.pypa.io/en/stable/installing/#do-i-need-to-install-pip) in the **pip** documentation.
++ If your Python installation does not already have it, download `futures` as follows: `pip install futures`
 
-- Download and install Python 3.6 or later from the [Python.org website](https://www.python.org/downloads/ "https://www.python.org/downloads/").
-- Verify that you have **pip** installed. If you don't have
-  **pip** or you're not sure, see [Do I need to
-  install pip?](https://pip.pypa.io/en/stable/installing/#do-i-need-to-install-pip "https://pip.pypa.io/en/stable/installing/#do-i-need-to-install-pip") in the **pip** documentation.
-- If your Python installation does not already have it, download
-  `futures` as follows: `pip install futures`
 
-###### To connect to Neptune using Python
+
+**To connect to Neptune using Python**
 
 1. Enter the following to install the `gremlinpython` package:
 
-```
-pip install --user gremlinpython
-```
+   ```
+   pip install --user gremlinpython
+   ```
 
-2. Create a file named `gremlinexample.py`, and then open it in a text
-   editor.
-3. Copy the following into the `gremlinexample.py` file. Replace
-   `your-neptune-endpoint` with the address of your Neptune DB cluster and
-   `your-neptune-port` with the port of your Neptune DB cluster (default:8182).
+1. Create a file named `gremlinexample.py`, and then open it in a text editor.
 
-For information about finding the address of your Neptune DB instance, see the [Connecting to Amazon Neptune Endpoints](feature-overview-endpoints.md "feature-overview-endpoints.md") section.
+1. Copy the following into the `gremlinexample.py` file. Replace {{your-neptune-endpoint}} with the address of your Neptune DB cluster and {{your-neptune-port}} with the port of your Neptune DB cluster (default:8182). 
 
-The example below demonstrates how to connect with Gremlin Python.
+   For information about finding the address of your Neptune DB instance, see the [Connecting to Amazon Neptune Endpoints](feature-overview-endpoints.md) section.
 
-```
-import boto3
-import os
-from botocore.auth import SigV4Auth
-from botocore.awsrequest import AWSRequest
-from gremlin_python.driver.driver_remote_connection import DriverRemoteConnection
-from gremlin_python.process.anonymous_traversal import traversal
+    The example below demonstrates how to connect with Gremlin Python. 
 
-database_url = "wss://your-neptune-endpoint:your-neptune-port/gremlin"
+   ```
+   import boto3
+   import os
+   from botocore.auth import SigV4Auth
+   from botocore.awsrequest import AWSRequest
+   from gremlin_python.driver.driver_remote_connection import DriverRemoteConnection
+   from gremlin_python.process.anonymous_traversal import traversal
+   
+   database_url = "wss://your-neptune-endpoint:your-neptune-port/gremlin"
+   
+   remoteConn = DriverRemoteConnection(database_url, "g")
+   
+   g = traversal().withRemote(remoteConn)
+   
+   print(g.inject(1).toList())
+   remoteConn.close()
+   ```
 
-remoteConn = DriverRemoteConnection(database_url, "g")
+1. Enter the following command to run the sample:
 
-g = traversal().withRemote(remoteConn)
+   ```
+   python gremlinexample.py
+   ```
 
-print(g.inject(1).toList())
-remoteConn.close()
-```
+   The Gremlin query at the end of this example returns the vertices (`g.V().limit(2)`) in a list. This list is then printed with the standard Python `print` function.
+**Note**  
+The final part of the Gremlin query, `toList()`, is required to submit the traversal to the server for evaluation. If you don't include that method or another equivalent method, the query is not submitted to the Neptune DB instance.
 
-4. Enter the following command to run the sample:
+   The following are examples of methods that submit the query to the Neptune DB instance:
+   + `toList()`
+   + `toSet()`
+   + `next()`
+   + `iterate()`
 
-```
-python gremlinexample.py
-```
+   These terminal steps behave differently in script mode and bytecode mode. For the canonical list of terminal steps and details about how they affect transactions, see [Test Gremlin code in the context where you will deploy it](best-practices-gremlin-console-glv-differences.md).
 
-The Gremlin query at the end of this example returns the vertices
-(`g.V().limit(2)`) in a list. This list is then printed with the standard
-Python `print` function.
+   Use `iterate()` when you don't need the results of your queries (e.g. mutations) as it saves serialization costs.
 
-###### Note
-
-The final part of the Gremlin query, `toList()`,
-is required to submit the traversal to the server for evaluation.
-If you don't include that method or another equivalent method,
-the query is not submitted to the Neptune DB instance.
-
-The following are examples of methods that submit the query to the Neptune DB instance:
-
-    * `toList()`
-    * `toSet()`
-    * `next()`
-    * `iterate()`
-
-These terminal steps behave differently in script mode and bytecode mode.
-For the canonical list of terminal steps and details about how they affect transactions,
-see [Test Gremlin code in the context where you will deploy it](best-practices-gremlin-console-glv-differences.md "best-practices-gremlin-console-glv-differences.md").
-
-Use `iterate()` when you don't need the results of your queries
-(e.g. mutations) as it saves serialization costs.
-
-The preceding example returns the first two vertices in the graph by using the
-`g.V().limit(2).toList()` traversal. To query for something else, replace it
-with another Gremlin traversal with one of the appropriate ending methods.
+   The preceding example returns the first two vertices in the graph by using the `g.V().limit(2).toList()` traversal. To query for something else, replace it with another Gremlin traversal with one of the appropriate ending methods.
 
 ## IAM authentication
+<a name="access-graph-gremlin-python-iam"></a>
 
-Neptune supports [IAM authentication](iam-auth-enable.md "iam-auth-enable.md")
-to control access to your DB cluster. If you have IAM authentication enabled, you
-need to use Signature Version 4 signing to authenticate your requests. For detailed
-instructions and code examples for connecting from a Python client, see
-[Connecting to Amazon Neptune databases using IAM authentication with Gremlin Python](gremlin-python-iam-auth.md "gremlin-python-iam-auth.md").
+Neptune supports [IAM authentication](iam-auth-enable.md) to control access to your DB cluster. If you have IAM authentication enabled, you need to use Signature Version 4 signing to authenticate your requests. For detailed instructions and code examples for connecting from a Python client, see [Connecting to Amazon Neptune databases using IAM authentication with Gremlin Python](gremlin-python-iam-auth.md).

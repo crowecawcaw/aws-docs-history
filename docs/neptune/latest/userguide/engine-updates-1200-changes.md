@@ -1,42 +1,13 @@
+
+
 # Upgrading to engine version 1.2.0.0 or above from a version earlier than 1.2.0.0
+<a name="engine-updates-1200-changes"></a>
 
-[Engine release 1.2.0.0](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md") introduced
-several significant changes that can make upgrading from an earlier version more
-complicated than usual:
+[Engine release 1.2.0.0](engine-releases-1.2.0.0.md) introduced several significant changes that can make upgrading from an earlier version more complicated than usual:
++ [Engine release 1.2.0.0](engine-releases-1.2.0.0.md) introduced a new format for custom parameter groups and custom cluster parameter groups. As a result, if you are upgrading from an engine version earlier than 1.2.0.0 to engine version 1.2.0.0 or above, you must re-create all your existing custom parameter groups and custom cluster parameter groups using parameter group family `neptune1.2`. Earlier releases used parameter group family `neptune1`, and those parameter groups won't work with release 1.2.0.0 and above. See [Amazon Neptune parameter groups](parameter-groups.md) for more information.
++ Engine release 1.2.0.0 introduced a new format for undo logs. Consequently, if you are upgrading to version 1.2.0.0 or higher from a version earlier than 1.2.0.0, the [`UndoLogListSize`](cw-metrics.md#cw-metrics-UndoLogListSize) metric must be below a certain threshold. Otherwise, the patch will roll back and fail. The thresholds are based on instance type: the default limit is 40k for 4xlarge or larger instances, and 10k for instances smaller than 4xlarge. If the `UndoLogListSize` exceeds the limit when you attempt to upgrade, the patch process will roll back, the upgrade will be canceled, and an event with the reason will be visible on the cluster event page. These limits can change for operational reasons without prior warning.
 
-- [Engine release 1.2.0.0](engine-releases-1.2.0.0.md "engine-releases-1.2.0.0.md") introduced
-  a new format for custom parameter groups and custom cluster parameter
-  groups. As a result, if you are upgrading from an engine version earlier than 1.2.0.0
-  to engine version 1.2.0.0 or above, you must re-create all your existing custom
-  parameter groups and custom cluster parameter groups using parameter group family
-  `neptune1.2`. Earlier releases used parameter group family `neptune1`,
-  and those parameter groups won't work with release 1.2.0.0 and above.
-  See [Amazon Neptune parameter groups](parameter-groups.md "parameter-groups.md") for more
-  information.
-- Engine release 1.2.0.0 introduced a new format for undo logs. Consequently,
-  if you are upgrading to version 1.2.0.0 or higher from a version earlier than
-  1.2.0.0, the [UndoLogListSize](cw-metrics.md#cw-metrics-UndoLogListSize "cw-metrics.md#cw-metrics-UndoLogListSize")
-  metric must be below a certain threshold. Otherwise, the patch will roll back and fail.
-  The thresholds are based on instance type: the default limit is 40k for 4xlarge or
-  larger instances, and 10k for instances smaller than 4xlarge. If the
-  `UndoLogListSize` exceeds the limit when you attempt to upgrade, the patch
-  process will roll back, the upgrade will be canceled, and an event with the reason will
-  be visible on the cluster event page. These limits can change for operational reasons
-  without prior warning.
+  You can speed up the purge rate by upgrading the cluster's writer instance, which is where the purging occurs. Doing that before trying to upgrade can help bring down the `UndoLogListSize` below the applicable threshold. Increasing the size of the writer to a 24XL instance type can increase your purge rate to more than a million records per hour.
 
-You can speed up the purge rate by upgrading the cluster's writer instance,
-which is where the purging occurs. Doing that before trying to upgrade can help bring
-down the `UndoLogListSize` below the applicable threshold. Increasing the
-size of the writer to a 24XL instance type can increase your purge rate to more than
-a million records per hour.
-
-If the `UndoLogListSize` CloudWatch metric is extremely large, opening
-a support case may help you explore additional strategies for bringing it down below
-the required limit.
-
-- Finally, there was a breaking change in release 1.2.0.0 affecting earlier code
-  that used the Bolt protocol with IAM authentication. Starting with release 1.2.0.0,
-  Bolt needs a resource path for IAM signing. In Java, setting the resource path
-  might look like this: `request.setResourcePath("/openCypher"));`.
-  In other languages, the `/openCypher` can be appended to the endpoint
-  URI. See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md") for examples.
+  If the `UndoLogListSize` CloudWatch metric is extremely large, opening a support case may help you explore additional strategies for bringing it down below the required limit.
++ Finally, there was a breaking change in release 1.2.0.0 affecting earlier code that used the Bolt protocol with IAM authentication. Starting with release 1.2.0.0, Bolt needs a resource path for IAM signing. In Java, setting the resource path might look like this: `request.setResourcePath("/openCypher"));`. In other languages, the `/openCypher` can be appended to the endpoint URI. See [Using the Bolt protocol](access-graph-opencypher-bolt.md) for examples.

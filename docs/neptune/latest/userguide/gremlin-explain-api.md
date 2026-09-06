@@ -1,87 +1,51 @@
+
+
 # Using the Gremlin `explain` API in Neptune
+<a name="gremlin-explain-api"></a>
 
-The Amazon Neptune Gremlin `explain` API returns the query plan that would be
-executed if a specified query were run. Because the API doesn't actually run the query, the
-plan is returned almost instantaneously.
+The Amazon Neptune Gremlin `explain` API returns the query plan that would be executed if a specified query were run. Because the API doesn't actually run the query, the plan is returned almost instantaneously.
 
-It differs from the TinkerPop .explain() step so as to be able to report
-information specific to the Neptune engine.
+It differs from the TinkerPop .explain() step so as to be able to report information specific to the Neptune engine.
 
 ## Information contained in a Gremlin `explain` report
+<a name="gremlin-explain-api-results"></a>
 
 An `explain` report contains the following information:
++ The query string as requested.
++ **The original traversal.** This is the TinkerPop Traversal object produced by parsing the query string into TinkerPop steps. It is equivalent to the original query produced by running `.explain()` on the query against the TinkerPop TinkerGraph.
++ **The converted traversal.** This is the Neptune Traversal produced by converting the TinkerPop Traversal into the Neptune logical query plan representation. In many cases the entire TinkerPop traversal is converted into two Neptune steps: one that executes the entire query (`NeptuneGraphQueryStep`) and one that converts the Neptune query engine output back into TinkerPop Traversers (`NeptuneTraverserConverterStep`).
++ **The optimized traversal.** This is the optimized version of the Neptune query plan after it has been run through a series of static work-reducing optimizers that rewrite the query based on static analysis and estimated cardinalities. These optimizers do things like reorder operators based on range counts, prune unnecessary or redundant operators, rearrange filters, push operators into different groups, and so on.
++ **The predicate count.** Because of the Neptune indexing strategy described earlier, having a large number of different predicates can cause performance problems. This is especially true for queries that use reverse traversal operators with no edge label (`.in` or `.both`). If such operators are used and the predicate count is high enough, the `explain` report displays a warning message.
++ **DFE information.** When the DFE alternative engine is enabled, the following traversal components may show up in the optimized traversal:
+  + **`DFEStep`**   –   A Neptune optimized DFE step in the traversal that contains a child `DFENode`. `DFEStep` represents the part of the query plan that is executed in the DFE engine.
+  + **`DFENode`**   –   Contains the intermediate representation as one or more child `DFEJoinGroupNodes`.
+  + **`DFEJoinGroupNode`**   –   Represents a join of one or more `DFENode` or `DFEJoinGroupNode` elements.
+  + **`NeptuneInterleavingStep`**   –   A Neptune optimized DFE step in the traversal that contains a child `DFEStep`.
 
-- The query string as requested.
-- **The original traversal.**
-  This is the TinkerPop Traversal object produced by parsing the query string
-  into TinkerPop steps. It is equivalent to the original query produced
-  by running `.explain()` on the query against the TinkerPop
-  TinkerGraph.
-- **The converted traversal.**
-  This is the Neptune Traversal produced by converting the TinkerPop Traversal
-  into the Neptune logical query plan representation. In many cases the entire
-  TinkerPop traversal is converted into two Neptune steps: one that executes
-  the entire query (`NeptuneGraphQueryStep`) and one that converts the
-  Neptune query engine output back into TinkerPop Traversers
-  (`NeptuneTraverserConverterStep`).
-- **The optimized traversal.**
-  This is the optimized version of the Neptune query plan after it has been run
-  through a series of static work-reducing optimizers that rewrite the query
-  based on static analysis and estimated cardinalities. These optimizers do
-  things like reorder operators based on range counts, prune unnecessary or
-  redundant operators, rearrange filters, push operators into different groups,
-  and so on.
-- **The predicate count.**
-  Because of the Neptune indexing strategy described earlier, having a large
-  number of different predicates can cause performance problems. This is
-  especially true for queries that use reverse traversal operators with
-  no edge label (`.in` or `.both`).
-  If such operators are used and the predicate count is high enough, the
-  `explain` report displays a warning message.
-- **DFE information.**
-  When the DFE alternative engine is enabled, the following traversal components
-  may show up in the optimized traversal:
+    Also contains a `stepInfo` element that contains information about the traversal, such as the frontier element, the path elements used, and so on. This information is used to process the child `DFEStep`.
 
-  - **`DFEStep`**   –  
-    A Neptune optimized DFE step in the traversal that contains a child
-    `DFENode`. `DFEStep` represents the part of the query plan
-    that is executed in the DFE engine.
-  - **`DFENode`**   –  
-    Contains the intermediate representation as one or more child `DFEJoinGroupNodes`.
-  - **`DFEJoinGroupNode`**   –  
-    Represents a join of one or more `DFENode` or `DFEJoinGroupNode`
-    elements.
-  - **`NeptuneInterleavingStep`**   –  
-    A Neptune optimized DFE step in the traversal that contains a child `DFEStep`.
+  An easy way to find out if your query is being evaluated by DFE is to check whether the `explain` output contains a `DFEStep`. Any part of the traversal that is not part of the `DFEStep` will not be executed by DFE and will be executed by the TinkerPop engine.
 
-  Also contains a `stepInfo` element that contains information
-  about the traversal, such as the frontier element, the path elements used,
-  and so on. This information is used to process the child `DFEStep`.
-  An easy way to find out if your query is being evaluated by DFE is to check
-  whether the `explain` output contains a `DFEStep`. Any part
-  of the traversal that is not part of the `DFEStep` will not be executed
-  by DFE and will be executed by the TinkerPop engine.
-
-See [Example with DFE enabled](#gremlin-explain-dfe "#gremlin-explain-dfe")
-for a sample report.
+  See [Example with DFE enabled](#gremlin-explain-dfe) for a sample report.
 
 ## Gremlin `explain` syntax
+<a name="gremlin-explain-api-syntax"></a>
 
-The syntax of the `explain` API is the same as that for the HTTP API for query,
-except that it uses `/gremlin/explain` as the endpoint instead of
-`/gremlin`, as in the following examples.
+The syntax of the `explain` API is the same as that for the HTTP API for query, except that it uses `/gremlin/explain` as the endpoint instead of `/gremlin`, as in the following examples.
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
 ```
 aws neptunedata execute-gremlin-explain-query \
-  --endpoint-url https://`your-neptune-endpoint`:`port` \
+  --endpoint-url https://{{your-neptune-endpoint}}:{{port}} \
   --gremlin-query "g.V().limit(1)"
 ```
 
-For more information, see [execute-gremlin-explain-query](../../../cli/latest/reference/neptunedata/execute-gremlin-explain-query.md "../../../cli/latest/reference/neptunedata/execute-gremlin-explain-query.md") in the AWS CLI Command Reference.
+For more information, see [execute-gremlin-explain-query](https://docs.aws.amazon.com/cli/latest/reference/neptunedata/execute-gremlin-explain-query.html) in the AWS CLI Command Reference.
 
-SDK
+------
+#### [ SDK ]
 
 ```
 import boto3
@@ -89,7 +53,7 @@ from botocore.config import Config
 
 client = boto3.client(
     'neptunedata',
-    endpoint_url='https://`your-neptune-endpoint`:`port`',
+    endpoint_url='https://{{your-neptune-endpoint}}:{{port}}',
     config=Config(read_timeout=None, retries={'total_max_attempts': 1})
 )
 
@@ -100,33 +64,33 @@ response = client.execute_gremlin_explain_query(
 print(response['output'])
 ```
 
-For AWS SDK examples in other languages like Java, .NET, and more, see [AWS SDK](access-graph-gremlin-sdk.md "access-graph-gremlin-sdk.md").
+For AWS SDK examples in other languages like Java, .NET, and more, see [AWS SDK](access-graph-gremlin-sdk.md).
 
-awscurl
+------
+#### [ awscurl ]
 
 ```
-awscurl https://`your-neptune-endpoint`:`port`/gremlin/explain \
-  --region `us-east-1` \
+awscurl https://{{your-neptune-endpoint}}:{{port}}/gremlin/explain \
+  --region {{us-east-1}} \
   --service neptune-db \
   -X POST \
   -d '{"gremlin":"g.V().limit(1)"}'
 ```
 
-###### Note
+**Note**  
+This example assumes that your AWS credentials are configured in your environment. Replace {{us-east-1}} with the Region of your Neptune cluster.
 
-This example assumes that your AWS credentials are configured in your
-environment. Replace `us-east-1` with the Region of your
-Neptune cluster.
+For more information about using **awscurl** with IAM authentication, see [Using `awscurl` with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl).
 
-For more information about using **awscurl** with IAM authentication, see
-[Using awscurl with temporary credentials to securely connect to a DB cluster with IAM authentication enabled](iam-auth-connect-command-line.md#iam-auth-connect-awscurl "iam-auth-connect-command-line.md#iam-auth-connect-awscurl").
-
-curl
+------
+#### [ curl ]
 
 ```
-curl -X POST https://`your-neptune-endpoint`:`port`/gremlin/explain \
+curl -X POST https://{{your-neptune-endpoint}}:{{port}}/gremlin/explain \
   -d '{"gremlin":"g.V().limit(1)"}'
 ```
+
+------
 
 The preceding query would produce the following output.
 
@@ -173,25 +137,18 @@ Predicates
 ```
 
 ## Unconverted TinkerPop Steps
+<a name="gremlin-explain-unconverted-steps"></a>
 
-Ideally, all TinkerPop steps in a traversal have native Neptune operator coverage. When
-this isn't the case, Neptune falls back on TinkerPop step execution for gaps in its
-operator coverage. If a traversal uses a step for which Neptune does not yet have
-native coverage, the `explain` report displays a warning showing where the
-gap occurred.
+Ideally, all TinkerPop steps in a traversal have native Neptune operator coverage. When this isn't the case, Neptune falls back on TinkerPop step execution for gaps in its operator coverage. If a traversal uses a step for which Neptune does not yet have native coverage, the `explain` report displays a warning showing where the gap occurred.
 
-When a step without a corresponding native Neptune operator is encountered, the entire
-traversal from that point forward is run using TinkerPop steps, even if subsequent steps
-do have native Neptune operators.
+When a step without a corresponding native Neptune operator is encountered, the entire traversal from that point forward is run using TinkerPop steps, even if subsequent steps do have native Neptune operators.
 
-The exception to this is when Neptune full-text search is invoked. The
-NeptuneSearchStep implements steps without native equivalents as full-text
-search steps.
+The exception to this is when Neptune full-text search is invoked. The NeptuneSearchStep implements steps without native equivalents as full-text search steps.
 
 ## Example of `explain` output where all steps in a query have native equivalents
+<a name="gremlin-explain-all-steps-converted"></a>
 
-The following is an example `explain` report for a query where
-all steps have native equivalents:
+The following is an example `explain` report for a query where all steps have native equivalents:
 
 ```
 *******************************************************
@@ -238,10 +195,9 @@ Predicates
 ```
 
 ## Example where some steps in a query do not have native equivalents
+<a name="gremlin-explain-not-all-steps-converted"></a>
 
-Neptune handles both `GraphStep` and `VertexStep` natively, but if
-you introduce a `FoldStep` and `UnfoldStep`, the resulting
-`explain` output is different:
+Neptune handles both `GraphStep` and `VertexStep` natively, but if you introduce a `FoldStep` and `UnfoldStep`, the resulting `explain` output is different:
 
 ```
 *******************************************************
@@ -286,20 +242,17 @@ Neptune steps:
 WARNING: >> FoldStep << is not supported natively yet
 ```
 
-In this case, the `FoldStep` breaks you out of native execution.
-But even the subsequent `VertexStep` is no longer handled natively
-because it appears downstream of the `Fold/Unfold` steps.
+In this case, the `FoldStep` breaks you out of native execution. But even the subsequent `VertexStep` is no longer handled natively because it appears downstream of the `Fold/Unfold` steps.
 
-For performance and cost-savings, it's important that you try to formulate traversals so
-that the maximum amount of work possible is done natively inside the Neptune query
-engine, instead of by the TinkerPop step implementations.
+For performance and cost-savings, it's important that you try to formulate traversals so that the maximum amount of work possible is done natively inside the Neptune query engine, instead of by the TinkerPop step implementations.
 
 ## Example of a query that uses Neptune full-text-search
+<a name="gremlin-explain-full-text-search-steps"></a>
 
 The following query uses Neptune full-text search:
 
 ```
-g.withSideEffect("`Neptune#fts.endpoint`", "`some_endpoint`")
+g.withSideEffect("{{Neptune#fts.endpoint}}", "{{some_endpoint}}")
   .V()
   .tail(100)
   .has("Neptune#fts mark*")
@@ -308,10 +261,7 @@ g.withSideEffect("`Neptune#fts.endpoint`", "`some_endpoint`")
   .has("Person", "name", "Neptune#fts mark*")
 ```
 
-The `.has("name", "Neptune#fts mark*")` part limits the search
-to vertexes with `name`, while `.has("Person", "name", "Neptune#fts mark*")`
-limits the search to vertexes with `name` and the label `Person`.
-This results in the following traversal in the `explain` report:
+The `.has("name", "Neptune#fts mark*")` part limits the search to vertexes with `name`, while `.has("Person", "name", "Neptune#fts mark*")` limits the search to vertexes with `name` and the label `Person`. This results in the following traversal in the `explain` report:
 
 ```
 Final Traversal
@@ -330,9 +280,9 @@ Final Traversal
 ```
 
 ## Example of using `explain` when the DFE is enabled
+<a name="gremlin-explain-dfe"></a>
 
-The following is an example of an `explain` report when the
-DFE alternative query engine is enabled:
+The following is an example of an `explain` report when the DFE alternative query engine is enabled:
 
 ```
 *******************************************************
@@ -377,7 +327,7 @@ Neptune steps:
           }, {rangeCountEstimate=unknown}
           ]
         } [Vertex(?9):VertexStep, Vertex(?12):VertexStep]
-      }
+      } 
     }
 ]
 + not converted into Neptune steps: WherePredicateStep(eq(a)),
@@ -415,7 +365,7 @@ Neptune steps:
           }, {rangeCountEstimate=unknown}
           ]
         } [Vertex(?9):VertexStep, Vertex(?12):VertexStep]
-      }
+      } 
     }
 ]
 + not converted into Neptune steps: WherePredicateStep(eq(a)),
@@ -432,5 +382,4 @@ Predicates
 # of predicates: 8
 ```
 
-See [Information in explain](#gremlin-explain-api-results "#gremlin-explain-api-results") for a description
-of the DFE-specific sections in the report.
+See [Information in `explain`](#gremlin-explain-api-results) for a description of the DFE-specific sections in the report.

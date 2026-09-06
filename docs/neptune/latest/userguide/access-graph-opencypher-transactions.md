@@ -1,15 +1,17 @@
-# Transactions in Neptune openCypher
 
-The openCypher implementation in Amazon Neptune uses the [transaction semantics defined by Neptune](transactions-neptune.md "transactions-neptune.md")
-However, isolation levels provided by the Bolt driver have some specific implications
-for Bolt transaction semantics, as described in the sections below.
+
+# Transactions in Neptune openCypher
+<a name="access-graph-opencypher-transactions"></a>
+
+The openCypher implementation in Amazon Neptune uses the [transaction semantics defined by Neptune](transactions-neptune.md) However, isolation levels provided by the Bolt driver have some specific implications for Bolt transaction semantics, as described in the sections below.
 
 ## Read-only Bolt transaction queries
+<a name="access-graph-opencypher-transactions-ro"></a>
 
-There are various ways that read-only queries can be processed, with different
-transaction models and isolation levels, as follows:
+There are various ways that read-only queries can be processed, with different transaction models and isolation levels, as follows:
 
 ### Implicit read-only transaction queries
+<a name="access-graph-opencypher-transactions-ro-implicit"></a>
 
 Here is an example of a read-only implicit transaction:
 
@@ -66,15 +68,12 @@ public void executeReadImplicitTransaction()
 }
 ```
 
-Because read-replicas only accept read-only queries, all queries against
-read-replicas execute as read-implicit transactions regardless of the access
-mode set in the session configuration. Neptune evaluates read-implicit
-transactions as [read-only
-queries](transactions-neptune.md#transactions-neptune-read-only "transactions-neptune.md#transactions-neptune-read-only") under `SNAPSHOT` isolation semantics.
+Because read-replicas only accept read-only queries, all queries against read-replicas execute as read-implicit transactions regardless of the access mode set in the session configuration. Neptune evaluates read-implicit transactions as [read-only queries](transactions-neptune.md#transactions-neptune-read-only) under `SNAPSHOT` isolation semantics.
 
 In case of failure, read-implicit transactions are retried by default.
 
 ### Autocommit read-only transaction queries
+<a name="access-graph-opencypher-transactions-ro-autocommit"></a>
 
 Here is an example of a read-only autocommit transaction:
 
@@ -127,18 +126,14 @@ public void executeAutoCommitTransaction()
 }
 ```
 
-If the access mode is set to `READ` in the session configuration,
-Neptune evaluates autocommit transaction queries as [read-only queries](transactions-neptune.md#transactions-neptune-read-only "transactions-neptune.md#transactions-neptune-read-only") under
-`SNAPSHOT` isolation semantics. Note that read-replicas only
-accept read-only queries.
+If the access mode is set to `READ` in the session configuration, Neptune evaluates autocommit transaction queries as [read-only queries](transactions-neptune.md#transactions-neptune-read-only) under `SNAPSHOT` isolation semantics. Note that read-replicas only accept read-only queries.
 
-If you don't pass in a session configuration, autocommit queries are processed
-by default with mutation query isolation, so it is important to pass in a session
-configuration that explicitly sets the access mode to `READ`.
+If you don't pass in a session configuration, autocommit queries are processed by default with mutation query isolation, so it is important to pass in a session configuration that explicitly sets the access mode to `READ`.
 
 In case of failure, read-only autocommit queries are not re-tried.
 
 ### Explicit read-only transaction queries
+<a name="access-graph-opencypher-transactions-ro-explicit"></a>
 
 Here is an example of an explicit read-only transaction:
 
@@ -197,23 +192,19 @@ public void executeReadExplicitTransaction()
 }
 ```
 
-If the access mode is set to `READ` in the session configuration,
-Neptune evaluates explicit read-only transactions as [read-only queries](transactions-neptune.md#transactions-neptune-read-only "transactions-neptune.md#transactions-neptune-read-only") under
-`SNAPSHOT` isolation semantics. Note that read-replicas only
-accept read-only queries.
+If the access mode is set to `READ` in the session configuration, Neptune evaluates explicit read-only transactions as [read-only queries](transactions-neptune.md#transactions-neptune-read-only) under `SNAPSHOT` isolation semantics. Note that read-replicas only accept read-only queries.
 
-If you don't pass in a session configuration, explicit read-only transactions
-are processed by default with mutation query isolation, so it is important to pass
-in a session configuration that explicitly sets the access mode to `READ`.
+If you don't pass in a session configuration, explicit read-only transactions are processed by default with mutation query isolation, so it is important to pass in a session configuration that explicitly sets the access mode to `READ`.
 
 In case of failure, read-only explicit queries are retried by default.
 
 ## Mutation Bolt transaction queries
+<a name="access-graph-opencypher-transactions-wr"></a>
 
-As with read-only queries, there are various ways that mutation queries can be
-processed, with different transaction models and isolation levels, as follows:
+As with read-only queries, there are various ways that mutation queries can be processed, with different transaction models and isolation levels, as follows:
 
 ### Implicit mutation transaction queries
+<a name="access-graph-opencypher-transactions-wr-implicit"></a>
 
 Here is an example of an implicit mutation transaction:
 
@@ -277,25 +268,23 @@ public void executeWriteImplicitTransaction()
 }
 ```
 
-Reads made as part of mutation queries are executed under `READ COMMITTED`
-isolation with the usual guarantees for [Neptune
-mutation transactions](transactions-neptune.md#transactions-neptune-mutation "transactions-neptune.md#transactions-neptune-mutation").
+Reads made as part of mutation queries are executed under `READ COMMITTED` isolation with the usual guarantees for [Neptune mutation transactions](transactions-neptune.md#transactions-neptune-mutation).
 
-Whether or not you specifically pass in a session configuration, the
-transaction is always treated as a write transaction.
+Whether or not you specifically pass in a session configuration, the transaction is always treated as a write transaction.
 
-For conflicts, see [Conflict Resolution Using Lock-Wait Timeouts](transactions-neptune.md#transactions-neptune-conflicts "transactions-neptune.md#transactions-neptune-conflicts").
+For conflicts, see [Conflict Resolution Using Lock-Wait Timeouts](transactions-neptune.md#transactions-neptune-conflicts).
 
 ### Autocommit mutation transaction queries
+<a name="access-graph-opencypher-transactions-wr-autocommit"></a>
 
 Mutation autocommit queries inherit the same behavior as mutation implicit transactions.
 
-If you do not pass in a session configuration, the transaction
-is treated as a write transaction by default.
+If you do not pass in a session configuration, the transaction is treated as a write transaction by default.
 
 In case of failure, mutation autocommit queries are not automatically retried.
 
 ### Explicit mutation transaction queries
+<a name="access-graph-opencypher-transactions-wr-explicit"></a>
 
 Here is an example of an explicit mutation transaction:
 
@@ -361,10 +350,8 @@ public void executeWriteExplicitTransaction()
 }
 ```
 
-Explicit mutation queries inherit the same behavior as implicit mutation
-transactions.
+Explicit mutation queries inherit the same behavior as implicit mutation transactions.
 
-If you do not pass in a session configuration, the transaction
-is treated as a write transaction by default.
+If you do not pass in a session configuration, the transaction is treated as a write transaction by default.
 
-For conflicts, see [Conflict Resolution Using Lock-Wait Timeouts](transactions-neptune.md#transactions-neptune-conflicts "transactions-neptune.md#transactions-neptune-conflicts").
+For conflicts, see [Conflict Resolution Using Lock-Wait Timeouts](transactions-neptune.md#transactions-neptune-conflicts).
