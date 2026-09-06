@@ -42,7 +42,7 @@ _Type:_ Boolean
 
 _Default:_ false
 
-Controls whether IIS is reset during application deployments. This flag affects both `msDeploy` and `aspNetCoreWeb` deployment types.
+Controls whether Elastic Beanstalk resets IIS during application deployments. This flag affects `msDeploy` and `aspNetCoreWeb` deployments. For `custom` deployments, it controls whether Elastic Beanstalk runs your custom restart script during application deployments.
 
 _Behavior:_
 
@@ -538,15 +538,35 @@ Runs after the application is uninstalled.
 
 `install`
 
-Primary installation script for custom deployments. This script is responsible for installing the application or service.
+Primary installation script for a custom deployment. Elastic Beanstalk runs this script during
+each application deployment. This script deploys the application content, configures IIS
+or your service, and serves the application at the health check path (`/` by
+default) so that the health check succeeds. For more information, see
+[Define custom deployments](dotnet-manifest.md#dotnet-manifest-custom "dotnet-manifest.md#dotnet-manifest-custom").
 
 `restart`
 
-Script to restart the application or service. Called when the environment is restarted.
+Script that restarts the application or service. Elastic Beanstalk runs this script after every
+application deployment and after every configuration change. Because a custom
+deployment performs no IIS management on your behalf, this script must restart the
+application itself—for an IIS-hosted site by running `iisreset`, or for
+a self-hosted service by restarting the service. Choosing **Restart
+App Server** performs a platform-level `iisreset` and does not
+invoke your custom restart script.
+
+###### Note
+
+When the top-level `skipIISReset` property is set to `true`,
+Elastic Beanstalk skips the custom restart script on application deployments. Configuration
+deployments always run the custom restart script, regardless of the
+`skipIISReset` setting.
 
 `uninstall`
 
-Script to uninstall the application or service. Called during environment termination or application removal.
+Script that removes a previously installed application version. Elastic Beanstalk runs this
+script before each new application version is installed, that is, before each
+application deployment. Set `ignoreErrors` to `true` so that the
+first deployment—when there is nothing to remove—doesn't fail.
 
 ### Script properties
 

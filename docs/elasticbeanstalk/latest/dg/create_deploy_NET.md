@@ -38,6 +38,7 @@ This platform does not support worker environments. For details, see [Elastic Be
 - [Setting up your .NET development environment](dotnet-devenv.md "dotnet-devenv.md")
 - [Using the Elastic Beanstalk .NET Windows platform](create_deploy_NET.container.console.md "create_deploy_NET.container.console.md")
 - [Adding an Amazon RDS DB instance to your .NET application environment](create_deploy_NET.rds.md "create_deploy_NET.rds.md")
+- [Joining instances to an Active Directory domain](dotnet-activedirectory.md "dotnet-activedirectory.md")
 - [The AWS Toolkit for Visual Studio](dotnet-toolkit.md "dotnet-toolkit.md")
 - [Migrating your on-premises .NET application to Elastic Beanstalk](dotnet-onpremmigration.md "dotnet-onpremmigration.md")
 - [Recommendations for Windows Server retired components on Elastic Beanstalk](dotnet-deprecation-recommendations.md "dotnet-deprecation-recommendations.md")
