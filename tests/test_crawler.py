@@ -1,6 +1,7 @@
 import unittest
 import tempfile
 from pathlib import Path
+from unittest.mock import Mock
 
 from bs4 import BeautifulSoup
 
@@ -11,8 +12,10 @@ from crawler import (
     looks_like_non_service,
     looks_like_unwanted_guide,
     url_to_output_path,
+    url_to_markdown_url,
     extract_main_content,
     convert_html_to_markdown,
+    AwsDocsCrawler,
     LinkChecker,
 )
 
@@ -177,6 +180,63 @@ class TestUrlToOutputPath(unittest.TestCase):
         self.assertNotEqual(parent, child)
         self.assertEqual(parent, Path("dms/latest/userguide/CHAP_Tasks.md"))
         self.assertEqual(child, Path("dms/latest/userguide/CHAP_Tasks.Creating.md"))
+
+
+class TestUrlToMarkdownUrl(unittest.TestCase):
+    def test_replaces_html_extension(self):
+        result = url_to_markdown_url(
+            "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html"
+        )
+
+        self.assertEqual(
+            result,
+            "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.md",
+        )
+
+    def test_removes_query_and_fragment(self):
+        result = url_to_markdown_url(
+            "https://docs.aws.amazon.com/service/latest/guide/page.html?x=1#topic"
+        )
+
+        self.assertEqual(
+            result,
+            "https://docs.aws.amazon.com/service/latest/guide/page.md",
+        )
+
+
+class TestMarkdownDownload(unittest.TestCase):
+    def test_process_url_downloads_aws_markdown_without_conversion(self):
+        response = Mock()
+        response.headers = {"Content-Type": "text/markdown; charset=utf-8"}
+        response.text = "# AWS-authored Markdown\n\n<custom-element />\n"
+        response.raise_for_status.return_value = None
+        session = Mock()
+        session.headers = {}
+        session.get.return_value = response
+
+        with tempfile.TemporaryDirectory() as tmp:
+            output_dir = Path(tmp)
+            crawler = AwsDocsCrawler(
+                output_dir,
+                session=session,
+                requests_per_second=None,
+            )
+            crawler._link_checker = LinkChecker(
+                ["/AmazonS3/latest/userguide/"]
+            )
+            page_url = (
+                "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html"
+            )
+
+            crawler._process_url(page_url)
+
+            session.get.assert_called_once_with(
+                "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.md",
+                timeout=30,
+            )
+            output = output_dir / "AmazonS3/latest/userguide/Welcome.md"
+            self.assertEqual(output.read_text(), response.text)
+            self.assertEqual(crawler.visited_urls, [page_url])
 
 
 class TestHtmlToMarkdownConversion(unittest.TestCase):
