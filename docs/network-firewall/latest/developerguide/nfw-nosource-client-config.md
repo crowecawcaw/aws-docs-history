@@ -1,13 +1,16 @@
+
+
 # Configuring workloads for the proxy
+<a name="nfw-nosource-client-config"></a>
 
 You can direct HTTP and HTTPS traffic from your workloads to the firewall's proxy listener. The firewall receives HTTP CONNECT requests, evaluates the requested domain against your security rules, and establishes connections to allowed destinations on behalf of the client.
 
 ## Setting proxy environment variables
+<a name="nfw-nosource-env-vars"></a>
 
 Configure your workloads to use the firewall's hostname as their HTTP/HTTPS proxy.
 
-###### Linux
-
+**Linux**  
 Set the following environment variables:
 
 ```
@@ -25,16 +28,19 @@ export no_proxy="169.254.169.254,localhost"
 ```
 
 ## Hostname resolution
+<a name="nfw-nosource-hostname"></a>
 
 When you create a VPC endpoint association, Network Firewall automatically creates private hosted zones in the associated VPCs. These hosted zones resolve the firewall's hostname to the local VPC endpoint IP address.
 
 You do not need to configure DNS manually. Resolution is handled automatically.
 
 ## HTTP and HTTPS listeners
+<a name="nfw-nosource-listeners"></a>
 
 Your firewall's proxy settings define one or more listeners with a port and type (HTTP or HTTPS). The listener type determines how clients establish the initial connection to the proxy.
 
-| Listener type | Client connection                                            | Certificate                                                              | Use case                                                                |
-| ------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
-| HTTP          | Client sends HTTP CONNECT in plaintext to the proxy port     | None required                                                            | Simpler setup; proxy request is unencrypted between client and firewall |
-| HTTPS         | Client establishes TLS with the proxy before sending CONNECT | Amazon public certificate (ACM-signed, trusted by standard trust stores) | Encrypts the proxy connection between client and firewall               |
+
+| Listener type | Client connection | Certificate | Use case | 
+| --- | --- | --- | --- | 
+| HTTP | Client sends HTTP CONNECT in plaintext to the proxy port | None required | Simpler setup; proxy request is unencrypted between client and firewall | 
+| HTTPS | Client establishes TLS with the proxy before sending CONNECT | Amazon public certificate (ACM-signed, trusted by standard trust stores) | Encrypts the proxy connection between client and firewall | 

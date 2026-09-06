@@ -1,39 +1,35 @@
+
+
 # HTTP responses
+<a name="api-making-requests-response"></a>
 
 All Network Firewall API actions include JSON-formatted data in the response.
 
-Here are some important headers in the HTTP response and how you should handle them in your
-application, if applicable.
+Here are some important headers in the HTTP response and how you should handle them in your application, if applicable.
 
-**HTTP/1.1**
-This header is followed by a status code. Status code 200 indicates a successful operation.
-
+**HTTP/1.1**  
+This header is followed by a status code. Status code 200 indicates a successful operation.   
 Type: String
 
-**x-amzn-RequestId**
-A value created by Network Firewall that uniquely identifies your request, for example,
-`K2QH8DNOU907N97FNA2GDLL8OBVV4KQNSO5AEMVJF66Q9ASUAAJG`. If you have a problem with Network Firewall, AWS can
-use this value to troubleshoot the problem.
-
+**x-amzn-RequestId**  
+A value created by Network Firewall that uniquely identifies your request, for example, `K2QH8DNOU907N97FNA2GDLL8OBVV4KQNSO5AEMVJF66Q9ASUAAJG`. If you have a problem with Network Firewall, AWS can use this value to troubleshoot the problem.   
 Type: String
 
-**Content-Length**
-The length of the response body in bytes.
-
+**Content-Length**  
+The length of the response body in bytes.  
 Type: String
 
-**Date**
-The date and time that Network Firewall responded, for example, Wed, 07 Oct 2019 12:00:00 GMT.
-
+**Date**  
+The date and time that Network Firewall responded, for example, Wed, 07 Oct 2019 12:00:00 GMT.  
 Type: String
 
 ## Error responses
+<a name="api-making-requests-error-response"></a>
 
 If a request results in an error, the HTTP response contains the following values:
-
-- A JSON error document as the response body
-- A `Content-Type` header
-- The applicable 3xx, 4xx, or 5xx HTTP status code
++ A JSON error document as the response body
++ A `Content-Type` header
++ The applicable 3xx, 4xx, or 5xx HTTP status code
 
 The following is an example of a JSON error document:
 

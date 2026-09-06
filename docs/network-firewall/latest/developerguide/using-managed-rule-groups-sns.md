@@ -1,54 +1,30 @@
+
+
 # Getting notified of updates to a threat signature rule group in AWS Network Firewall
+<a name="using-managed-rule-groups-sns"></a>
 
-You can subscribe to Amazon Simple Notification Service (Amazon SNS) notifications for updates to a
-managed threat signature rule group, such as updates made
-for urgent security updates. AWS updates managed threat signature rule
-groups for Network Firewall as often as once a day to once a week.
+You can subscribe to Amazon Simple Notification Service (Amazon SNS) notifications for updates to a managed threat signature rule group, such as updates made for urgent security updates. AWS updates managed threat signature rule groups for Network Firewall as often as once a day to once a week.
 
-The AWS threat signature managed rule groups use a single SNS subscription
-topic ARN, so you subscribe once for all the rule groups.
+The AWS threat signature managed rule groups use a single SNS subscription topic ARN, so you subscribe once for all the rule groups. 
 
-###### How to subscribe
+**How to subscribe**  
+To subscribe to notifications for a rule group, create an Amazon SNS subscription for the rule group's Amazon SNS topic ARN.
 
-To subscribe to notifications for a rule group, create an Amazon SNS
-subscription for the rule group's Amazon SNS topic
-ARN.
+For information about how to subscribe to an Amazon SNS topic, see [Configuring Amazon Simple Notification Service](https://docs.aws.amazon.com/sns/latest/dg/sns-configuring.html) in the *[Amazon Simple Notification Service Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/)*.
 
-For information about how to subscribe to an Amazon SNS topic, see [Configuring Amazon Simple Notification Service](../../../sns/latest/dg/sns-configuring.md "../../../sns/latest/dg/sns-configuring.md") in the _[Amazon Simple Notification Service Developer Guide](../../../sns/latest/dg.md "../../../sns/latest/dg.md")_.
+**Where to find the Amazon SNS topic ARN for a threat signature managed rule group**
 
-###### Where to find the Amazon SNS topic ARN for a threat signature managed rule group
+The AWS managed rule groups use a single SNS topic ARN, so you can retrieve the topic ARN from one of the rule groups and subscribe to it to get notifications for all of the managed rule groups.
++ **Console** 
+  + On the Network Firewall rule groups page, in the **AWS managed rule group** tab, in the **Threat signature rule groups** section, select a rule group to view the rule group's details. The details include the rule group's Amazon SNS topic ARN. 
+  + (Option) After you've added the managed rule group into your firewall policy, choose **Edit** on the firewall policy, and then select and edit the rule group rule to view the rule group's Amazon SNS topic ARN.
++ **API** – The [DescribeRuleGroup](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html) response includes `SnsTopic`. The value for `SnsTopic` is the Amazon SNS topic ARN.
++ **CLI** – The [describe-rule-group](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/network-firewall/describe-rule-group.html) response includes `SnsTopic`. The value for `SnsTopic` is the Amazon SNS topic ARN.
 
-The AWS managed rule groups use a single SNS topic ARN, so you can retrieve the topic
-ARN from one of the rule groups and subscribe to it to get notifications for
-all of the managed rule groups.
+**The notification format for AWS managed rule group**  
+The Amazon SNS notifications for AWS managed rule groups always contain the fields `Subject`, `Message`, and `MessageAttributes`. Other fields are included according to the type of message and which managed rule group the notification is for. 
 
-- **Console**
-
-  - On
-    the
-    Network Firewall rule groups page, in the **AWS
-    managed rule group** tab, in the
-    **Threat signature rule groups**
-    section, select a rule group to view the rule
-    group's details. The details include the rule
-    group's Amazon SNS topic ARN.
-  - (Option) After you've added the managed rule group into your firewall policy, choose
-    **Edit** on the firewall policy, and then select
-    and edit the rule group rule to view the rule group's Amazon SNS topic
-    ARN.
-
-- **API** – The [DescribeRuleGroup](../APIReference/API_DescribeRuleGroup.md "../APIReference/API_DescribeRuleGroup.md") response includes `SnsTopic`. The value for `SnsTopic` is the Amazon SNS topic ARN.
-- **CLI** – The [describe-rule-group](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/network-firewall/describe-rule-group.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/network-firewall/describe-rule-group.html") response includes `SnsTopic`. The value for `SnsTopic` is the Amazon SNS topic ARN.
-
-###### The notification format for AWS managed rule group
-
-The Amazon SNS notifications for AWS managed rule groups always contain the fields
-`Subject`, `Message`, and
-`MessageAttributes`. Other fields are included according to
-the type of message and which managed rule group the notification is for.
-
-The following shows an example notification listing for the
-`AWS-Managed-Threat-Signatures`.
+The following shows an example notification listing for the `AWS-Managed-Threat-Signatures`.
 
 ```
 {
@@ -69,10 +45,6 @@ The following shows an example notification listing for the
 }
 ```
 
-The notification contains `source_revision_token`. The value for `source_revision_token` is the `UpdateToken` that you can view when you call [DescribeRuleGroup](../APIReference/API_DescribeRuleGroup.md "../APIReference/API_DescribeRuleGroup.md") in the _AWS Network Firewall API Reference_.
+The notification contains `source_revision_token`. The value for `source_revision_token` is the `UpdateToken` that you can view when you call [DescribeRuleGroup](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html) in the *AWS Network Firewall API Reference*.
 
-For general information about Amazon SNS notification formats and how to filter the
-notifications that you receive, see
-[Parsing message formats](../../../sns/latest/dg/sns-message-and-json-formats.md "../../../sns/latest/dg/sns-message-and-json-formats.md") and
-[Amazon SNS subscription filter policies](../../../sns/latest/dg/sns-subscription-filter-policies.md "../../../sns/latest/dg/sns-subscription-filter-policies.md")
-in the Amazon Simple Notification Service Developer Guide.
+For general information about Amazon SNS notification formats and how to filter the notifications that you receive, see [Parsing message formats](https://docs.aws.amazon.com/sns/latest/dg/sns-message-and-json-formats.html) and [Amazon SNS subscription filter policies](https://docs.aws.amazon.com/sns/latest/dg/sns-subscription-filter-policies.html) in the Amazon Simple Notification Service Developer Guide. 

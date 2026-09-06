@@ -1,26 +1,35 @@
+
+
 # Managing AWS Network Firewall events using Amazon EventBridge
+<a name="eventbridge-events"></a>
 
 AWS Network Firewall sends events directly to the EventBridge default event bus when firewall state changes occur. You can use these events to automate responses, send notifications, or integrate with other AWS services when your firewall configuration or attachment status changes.
 
 ## Event types
+<a name="eventbridge-events-types"></a>
 
 The following table describes the event types that AWS Network Firewall publishes to EventBridge default event bus for firewall state changes.
 
-| Event type                                         | Description                                                                                                 |
-| -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Firewall Configuration Changed                     | Published when the firewall configuration changes, such as when a firewall policy or rule group is updated. |
-| Firewall Attachment Status Changed                 | Published when the status of a firewall endpoint attachment changes.                                        |
-| Firewall Transit Gateway Attachment Status Changed | Published when the status of a transit gateway attachment to the firewall changes.                          |
+
+| Event type | Description | 
+| --- | --- | 
+| Firewall Configuration Changed | Published when the firewall configuration changes, such as when a firewall policy or rule group is updated. | 
+| Firewall Attachment Status Changed | Published when the status of a firewall endpoint attachment changes. | 
+| Firewall Transit Gateway Attachment Status Changed | Published when the status of a transit gateway attachment to the firewall changes. | 
 
 ## Event examples
+<a name="eventbridge-events-examples"></a>
 
 The following examples show the structure of events that AWS Network Firewall publishes to EventBridge.
 
 ### Firewall Configuration Changed
+<a name="eventbridge-firewall-configuration-changed"></a>
 
 Events published when a firewall configuration changes, such as when a firewall policy or rule group is updated.
 
-Update Events
+------
+#### [ Update Events ]
+
 This event is published when a firewall policy or rule group is updated, changing the configuration synchronization status. The example shows a policy update that transitions the configuration sync status from `IN_SYNC` to `PENDING`.
 
 ```
@@ -58,11 +67,16 @@ This event is published when a firewall policy or rule group is updated, changin
 }
 ```
 
+------
+
 ### Firewall Attachment Status Changed
+<a name="eventbridge-firewall-attachment-status-changed"></a>
 
 Events published when the status of a firewall endpoint attachment changes during the firewall lifecycle.
 
-Creating Events
+------
+#### [ Creating Events ]
+
 This event is published when a firewall endpoint attachment is being created in an availability zone. The `Current Attachment Status` field shows `CREATING`.
 
 ```
@@ -92,7 +106,9 @@ This event is published when a firewall endpoint attachment is being created in 
 }
 ```
 
-Ready Events
+------
+#### [ Ready Events ]
+
 This event is published when a firewall endpoint attachment completes creation and becomes ready for traffic. The status transitions from `CREATING` to `READY`.
 
 ```
@@ -124,7 +140,9 @@ This event is published when a firewall endpoint attachment completes creation a
 }
 ```
 
-Deleting Events
+------
+#### [ Deleting Events ]
+
 This event is published when a firewall endpoint attachment is being deleted. The status transitions from `READY` to `DELETING`.
 
 ```
@@ -156,11 +174,16 @@ This event is published when a firewall endpoint attachment is being deleted. Th
 }
 ```
 
+------
+
 ### Firewall Transit Gateway Attachment Status Changed
+<a name="eventbridge-firewall-tgw-attachment-status-changed"></a>
 
 Events published when the status of a transit gateway attachment to the firewall changes during the attachment lifecycle.
 
-Creating Events
+------
+#### [ Creating Events ]
+
 This event is published when a transit gateway attachment to the firewall is being created. The `Current Transit Gateway Attachment Status` field shows `CREATING`.
 
 ```
@@ -188,7 +211,9 @@ This event is published when a transit gateway attachment to the firewall is bei
 }
 ```
 
-Pending Events
+------
+#### [ Pending Events ]
+
 This event is published when a transit gateway attachment is waiting for acceptance. The status transitions from `CREATING` to `PENDING_ACCEPTANCE`.
 
 ```
@@ -217,7 +242,9 @@ This event is published when a transit gateway attachment is waiting for accepta
 }
 ```
 
-Ready Events
+------
+#### [ Ready Events ]
+
 This event is published when a transit gateway attachment completes and becomes ready for traffic. The status transitions from `CREATING` to `READY`.
 
 ```
@@ -246,7 +273,9 @@ This event is published when a transit gateway attachment completes and becomes 
 }
 ```
 
-Deleting Events
+------
+#### [ Deleting Events ]
+
 This event is published when a transit gateway attachment is being deleted. The status transitions from `READY` to `DELETING`.
 
 ```
@@ -274,3 +303,5 @@ This event is published when a transit gateway attachment is being deleted. The 
   }
 }
 ```
+
+------
