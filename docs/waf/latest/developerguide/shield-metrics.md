@@ -1,148 +1,126 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS Shield Advanced metrics
+<a name="shield-metrics"></a>
 
-Shield Advanced publishes Amazon CloudWatch detection, mitigation, and top contributor metrics for all
-resources that it protects. These metrics improve your ability to monitor your resources
-by making it possible to create and configure CloudWatch dashboards and alarms for them.
+Shield Advanced publishes Amazon CloudWatch detection, mitigation, and top contributor metrics for all resources that it protects. These metrics improve your ability to monitor your resources by making it possible to create and configure CloudWatch dashboards and alarms for them. 
 
-The Shield Advanced console presents summaries of many of the metrics that it records. For information, see [Visibility into DDoS events with Shield Advanced](ddos-viewing-events.md "ddos-viewing-events.md").
+The Shield Advanced console presents summaries of many of the metrics that it records. For information, see [Visibility into DDoS events with Shield Advanced](ddos-viewing-events.md).
 
-If you enable automatic application layer DDoS mitigation for an application layer protection,
-Shield Advanced adds a rule group to your protection pack (web ACL) that it uses to manage automated protections. This rule
-group generates AWS WAF metrics, but they are not available to view. This is the same as for
-any other rule groups that you use in your protection pack (web ACL) but do not own, such as AWS Managed Rules rule groups.
-For more information about AWS WAF metrics, see [AWS WAF metrics and dimensions](waf-metrics.md "waf-metrics.md"). For information
-about this Shield Advanced protection option, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md").
+If you enable automatic application layer DDoS mitigation for an application layer protection, Shield Advanced adds a rule group to your protection pack (web ACL) that it uses to manage automated protections. This rule group generates AWS WAF metrics, but they are not available to view. This is the same as for any other rule groups that you use in your protection pack (web ACL) but do not own, such as AWS Managed Rules rule groups. For more information about AWS WAF metrics, see [AWS WAF metrics and dimensions](waf-metrics.md). For information about this Shield Advanced protection option, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md). 
 
-###### Metric reporting locations
-
+**Metric reporting locations**  
 Shield Advanced reports metrics in the US East (N. Virginia) Region, `us-east-1` for the following:
++ The global services Amazon CloudFront and Amazon Route 53.
++ Protection groups. For information about protection groups, see [Grouping your AWS Shield Advanced protections](ddos-protection-groups.md).
 
-- The global services Amazon CloudFront and Amazon Route 53.
-- Protection groups. For information about protection groups, see
-  [Grouping your AWS Shield Advanced protections](ddos-protection-groups.md "ddos-protection-groups.md").
-  For other resource types, Shield Advanced reports metrics in the resource's
-  Region.
+For other resource types, Shield Advanced reports metrics in the resource's Region. 
 
-###### Timing of metric reporting
+**Timing of metric reporting**  
+Shield Advanced reports metrics to Amazon CloudWatch on an AWS resource more frequently during DDoS events than while no events are underway. Shield Advanced reports metrics once a minute during an event, and then once right after the event ends. 
 
-Shield Advanced reports metrics to Amazon CloudWatch on an AWS resource more frequently
-during DDoS events than while no events are underway. Shield Advanced reports
-metrics once a minute during an event, and then once right after the event
-ends.
+While no events are underway, Shield Advanced reports metrics once a day, at a time assigned to the resource. This periodic report keeps the metrics active and available for use in custom CloudWatch alarms and dashboards. 
 
-While no events are underway, Shield Advanced reports metrics once a day, at
-a time assigned to the resource. This periodic report keeps the metrics
-active and available for use in custom CloudWatch alarms and dashboards.
+**Alarm recommendations**  
+We recommend that you create alarms to notify you of circumstances that require attention. As a starting point, you could create an alarm for each protected resource that reports when the `DDoSDetected` detection metric is non zero. A non-zero value in this metric doesn't necessarily imply that a DDoS attack is underway, but we recommend looking closer at the resource status when the metric is in this state. 
 
-###### Alarm recommendations
+For request floods, we recommend that you create alarms for composite checks that also consider factors such as application health and web request volume. You may choose to alarm on the other 3 metrics that report on the volume of traffic for various attack vector dimensions. By considering the capacity of your application and alarming when traffic is approaching your application limitations, you can create a set of rules that notify you as needed, without too much unwanted noise. 
 
-We recommend that you create alarms to notify you of circumstances that require attention.
-As a starting point, you could create an alarm for each protected resource that reports
-when the `DDoSDetected` detection metric is non zero. A non-zero value in this metric
-doesn't necessarily imply that a DDoS attack is underway, but we recommend looking
-closer at the resource status when the metric is in this state.
-
-For request floods, we recommend that you create alarms for composite checks that also
-consider factors such as application health and web request volume. You may choose to
-alarm on the other 3 metrics that report on the volume of traffic for various
-attack vector dimensions. By considering the capacity of your application and alarming
-when traffic is approaching your application limitations,
-you can create a set of rules that notify you as needed, without too much unwanted noise.
-
-###### Topics
-
-- [Detection metrics](#ddos-metrics-detection "#ddos-metrics-detection")
-- [Mitigation metrics](#ddos-metrics-mitigation "#ddos-metrics-mitigation")
-- [Top contributors metrics](#ddos-metrics-top-contributors "#ddos-metrics-top-contributors")
+**Topics**
++ [Detection metrics](#ddos-metrics-detection)
++ [Mitigation metrics](#ddos-metrics-mitigation)
++ [Top contributors metrics](#ddos-metrics-top-contributors)
 
 ## Detection metrics
+<a name="ddos-metrics-detection"></a>
 
-Shield Advanced provides the metrics and dimensions in the
-`AWS/DDoSProtection` namespace.
+Shield Advanced provides the metrics and dimensions in the `AWS/DDoSProtection` namespace. 
 
-Detection metrics| Metric | Description |
-| --- | --- |
-| `DDoSDetected` | Indicates whether a DDoS event is underway for a<br>particular Amazon Resource Name (ARN). This metric has<br>a non-zero value during an event. |
-| `DDoSAttackBitsPerSecond` | The number of bits observed during a DDoS event for a<br>particular Amazon Resource Name (ARN). This metric is<br>available only for network and transport layer (layer 3 and layer 4) DDoS events.<br>This metric has a non-zero value during an event.Units:<br>Bits |
-| `DDoSAttackPacketsPerSecond` | The number of packets observed during a DDoS event for a<br>particular Amazon Resource Name (ARN). This metric is<br>available only for network and transport layer (layer 3 and layer 4) DDoS events.<br>This metric has a non-zero value during an event.Units:<br>Packets |
-| `DDoSAttackRequestsPerSecond` | The number of requests observed during a DDoS event for a<br>particular Amazon Resource Name (ARN). This metric is<br>available only for layer 7 DDoS events. The metric is<br>reported only for the most significant layer 7 events.<br>This metric has a non-zero value during an event.Units:<br>Requests |
-| `DDoSAttackRequests` | The number of requests observed during a DDoS event for a<br>particular Amazon Resource Name (ARN). This metric is available<br>only for Anti-DDoS Managed Rules (AMR) DDoS events. This<br>metic is in the AWS/WAFV2 namespace and<br>has a non-zero value during an event.Units:<br>Requests |
 
-Shield Advanced posts the `DDoSDetected` metric with no other
-dimensions. The remaining detection metrics include the
-`AttackVector` dimensions that correspond to the type of
-attack, from the following list:
+**Detection metrics**  
 
-- `ACKFlood`
-- `ChargenReflection`
-- `DNSReflection`
-- AWS/WAFV2
-- `GenericUDPReflection`
-- `MemcachedReflection`
-- `MSSQLReflection`
-- `NetBIOSReflection`
-- `NTPReflection`
-- `PortMapper`
-- `RequestFlood`
-- `RIPReflection`
-- `SNMPReflection`
-- `SSDPReflection`
-- `SYNFlood`
-- `UDPFragment`
-- `UDPTraffic`
-- `UDPReflection`
+| Metric | Description | 
+| --- | --- | 
+| DDoSDetected | Indicates whether a DDoS event is underway for a particular Amazon Resource Name (ARN). This metric has a non-zero value during an event.  | 
+| DDoSAttackBitsPerSecond | The number of bits observed during a DDoS event for a particular Amazon Resource Name (ARN). This metric is available only for network and transport layer (layer 3 and layer 4) DDoS events. This metric has a non-zero value during an event.<br />Units: Bits | 
+| DDoSAttackPacketsPerSecond | The number of packets observed during a DDoS event for a particular Amazon Resource Name (ARN). This metric is available only for network and transport layer (layer 3 and layer 4) DDoS events. This metric has a non-zero value during an event.<br />Units: Packets | 
+| DDoSAttackRequestsPerSecond | The number of requests observed during a DDoS event for a particular Amazon Resource Name (ARN). This metric is available only for layer 7 DDoS events. The metric is reported only for the most significant layer 7 events. This metric has a non-zero value during an event.<br />Units: Requests | 
+| DDoSAttackRequests | The number of requests observed during a DDoS event for a particular Amazon Resource Name (ARN). This metric is available only for Anti-DDoS Managed Rules (AMR) DDoS events. This metic is in the AWS/WAFV2 namespace and has a non-zero value during an event.<br />Units: Requests | 
+
+Shield Advanced posts the `DDoSDetected` metric with no other dimensions. The remaining detection metrics include the `AttackVector` dimensions that correspond to the type of attack, from the following list:
++ `ACKFlood`
++ `ChargenReflection`
++ `DNSReflection`
++ AWS/WAFV2
++ `GenericUDPReflection`
++ `MemcachedReflection`
++ `MSSQLReflection`
++ `NetBIOSReflection`
++ `NTPReflection`
++ `PortMapper`
++ `RequestFlood`
++ `RIPReflection`
++ `SNMPReflection`
++ `SSDPReflection`
++ `SYNFlood`
++ `UDPFragment`
++ `UDPTraffic`
++ `UDPReflection`
 
 ## Mitigation metrics
+<a name="ddos-metrics-mitigation"></a>
 
-Shield Advanced provides metrics and dimensions in
-the `AWS/DDoSProtection` namespace.
+Shield Advanced provides metrics and dimensions in the `AWS/DDoSProtection` namespace. 
 
-Mitigation metrics| Metric | Description |
-| --- | --- |
-| `VolumePacketsPerSecond` | The number of packets per second that were dropped or<br>passed by a mitigation that was deployed in response to<br>a detected event.Units: packets |
 
-Mitigation dimensions| Dimension | Description |
-| --- | --- |
-| `ResourceArn` | Amazon Resource Name (ARN) |
-| `MitigationAction` | The outcome of an applied mitigation. Possible values<br>are `Pass` or `Drop`. |
+**Mitigation metrics**  
+
+| Metric | Description | 
+| --- | --- | 
+| VolumePacketsPerSecond | The number of packets per second that were dropped or passed by a mitigation that was deployed in response to a detected event.Units: packets  | 
+
+
+**Mitigation dimensions**  
+
+| Dimension | Description | 
+| --- | --- | 
+| `ResourceArn` | Amazon Resource Name (ARN) | 
+| `MitigationAction` | The outcome of an applied mitigation. Possible values are `Pass` or `Drop`.  | 
 
 ## Top contributors metrics
+<a name="ddos-metrics-top-contributors"></a>
 
-Shield Advanced provides metrics in
-the `AWS/DDoSProtection` namespace.
+Shield Advanced provides metrics in the `AWS/DDoSProtection` namespace. 
 
-Top contributors metrics| Metric | Description |
-| --- | --- |
-| `VolumePacketsPerSecond` | The number of packets per second for a top<br>contributor.Units: packets |
-| `VolumeBitsPerSecond` | The number of bits per second for a top contributor.<br>Units: bits |
 
-Shield Advanced posts top contributors metrics by dimension combinations that
-characterize the event contributors. You can use any of the following
-combinations of dimensions for any of the top contributors
-metrics:
+**Top contributors metrics**  
 
-- `ResourceArn`, `Protocol`
-- `ResourceArn`, `Protocol`,
-  `SourcePort`
-- `ResourceArn`, `Protocol`,
-  `DestinationPort`
-- `ResourceArn`, `Protocol`,
-  `SourceIp`
-- `ResourceArn`, `Protocol`,
-  `SourceAsn`
-- `ResourceArn`, `TcpFlags`
+| Metric | Description | 
+| --- | --- | 
+| VolumePacketsPerSecond | The number of packets per second for a top contributor.Units: packets  | 
+| VolumeBitsPerSecond | The number of bits per second for a top contributor. Units: bits  | 
 
-Top contributors dimensions| Dimension | Description |
-| --- | --- |
-| `ResourceArn` | Amazon Resource Name (ARN). |
-| `Protocol` | IP protocol name, either `TCP` or<br>`UDP`. |
-| `SourcePort` | Source TCP or UDP port. |
-| `DestinationPort` | Destination TCP or UDP port. |
-| `SourceIp` | Source IP address. |
-| `SourceAsn` | Source autonomous system number (ASN). |
-| `TcpFlags` | A combination of flags present in a TCP packet,<br>separated by<br>a<br>dash (`-`). Monitored<br>flags are `ACK`, `FIN`,<br>`RST`, `SYN`. This dimension<br>value always appears sorted alphabetically. For<br>example, `ACK-FIN-RST-SYN`,<br>`ACK-SYN`, and<br>`FIN-RST`. |
+Shield Advanced posts top contributors metrics by dimension combinations that characterize the event contributors. You can use any of the following combinations of dimensions for any of the top contributors metrics:
++ `ResourceArn`, `Protocol` 
++ `ResourceArn`, `Protocol`, `SourcePort` 
++ `ResourceArn`, `Protocol`, `DestinationPort` 
++ `ResourceArn`, `Protocol`, `SourceIp` 
++ `ResourceArn`, `Protocol`, `SourceAsn` 
++ `ResourceArn`, `TcpFlags` 
+
+
+**Top contributors dimensions**  
+
+| Dimension | Description | 
+| --- | --- | 
+| `ResourceArn` | Amazon Resource Name (ARN). | 
+| `Protocol` | IP protocol name, either `TCP` or `UDP`. | 
+| `SourcePort` | Source TCP or UDP port. | 
+| `DestinationPort` | Destination TCP or UDP port. | 
+| `SourceIp` | Source IP address. | 
+| `SourceAsn` | Source autonomous system number (ASN). | 
+| `TcpFlags ` | A combination of flags present in a TCP packet, separated by a dash (`-`). Monitored flags are `ACK`, `FIN`, `RST`, `SYN`. This dimension value always appears sorted alphabetically. For example, `ACK-FIN-RST-SYN`, `ACK-SYN`, and `FIN-RST`. | 

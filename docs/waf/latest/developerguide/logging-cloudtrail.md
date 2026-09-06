@@ -1,45 +1,47 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Logging AWS Shield network security director API calls with AWS CloudTrail
+<a name="logging-cloudtrail"></a>
 
 AWS Shield network security director integrates with AWS CloudTrail to record all API calls as events. This integration captures calls made from the network security director console, programmatic calls to network security director APIs, and calls made from other AWS services.
 
 With CloudTrail, you can view recent events in the Event history or create a trail to deliver ongoing logs to an Amazon Simple Storage Service bucket. These logs provide details about each request, including the identity of the caller, the time, the request parameters, and the response.
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
 ## network security director information in CloudTrail
+<a name="cloudtrail-info"></a>
 
 CloudTrail is automatically enabled on your AWS account. When activity occurs in network security director, it's recorded as an event in CloudTrail. For an ongoing record of events, create a trail that delivers log files to an Amazon S3 bucket.
 
 For more information about creating and managing trails, see:
-
-- [Creating a Trail for Your AWS Account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [AWS Service Integrations with CloudTrail Logs](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md")
-- [Receiving CloudTrail Log Files from Multiple Regions and Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
++ [Creating a Trail for Your AWS Account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [AWS Service Integrations with CloudTrail Logs](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html)
++ [Receiving CloudTrail Log Files from Multiple Regions and Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
 ## network security director API operations logged by CloudTrail
+<a name="api-operations-logged"></a>
 
 All network security director API operations are logged by CloudTrail and documented in the API Reference. The following operations are included:
-
-- _ListResources_: Lists resources available in the service
-- _GetResource_: Retrieves detailed information about a specific resource
-- _ListFindings_: Lists security findings
-- _GetFinding_: Retrieves detailed information about a specific finding
-- _UpdateFinding_: Updates the status or other attributes of a finding
-- _ListRemediations_: Lists remediation recommendations for a finding
-- _ListInsights_: Lists insights based on findings and resources
-- _ListAccountSummaries_: Lists account summaries for an organization
++ *ListResources*: Lists resources available in the service
++ *GetResource*: Retrieves detailed information about a specific resource
++ *ListFindings*: Lists security findings
++ *GetFinding*: Retrieves detailed information about a specific finding
++ *UpdateFinding*: Updates the status or other attributes of a finding
++ *ListRemediations*: Lists remediation recommendations for a finding
++ *ListInsights*: Lists insights based on findings and resources
++ *ListAccountSummaries*: Lists account summaries for an organization
 
 ## Understanding network security director log file entries
+<a name="understanding-entries"></a>
 
 CloudTrail log entries contain information about who made the request, when it was made, and what parameters were used. Here's an example of a ListAccountSummaries action:
 
 ```
-
 {
   "eventVersion": "1.11",
   "userIdentity": {
@@ -82,27 +84,29 @@ CloudTrail log entries contain information about who made the request, when it w
   "recipientAccountId": "111122223333",
   "eventCategory": "Management"
 }
-
 ```
 
 ## Monitoring CloudTrail logs with Amazon CloudWatch
+<a name="monitoring-cloudtrail"></a>
 
 You can use Amazon CloudWatch to monitor and alert on specific API activity in CloudTrail logs. This helps you detect unauthorized access attempts, configuration changes, or unusual activity patterns.
 
 To set up CloudWatch monitoring:
 
 1. Configure your CloudTrail trail to send logs to CloudWatch Logs
-2. Create metric filters to extract specific information from log events
-3. Create alarms based on these metrics
 
-For detailed instructions, see [Monitoring CloudTrail Log Files with Amazon CloudWatch Logs](../../../awscloudtrail/latest/userguide/monitor-cloudtrail-log-files-with-cloudwatch-logs.md "../../../awscloudtrail/latest/userguide/monitor-cloudtrail-log-files-with-cloudwatch-logs.md").
+1. Create metric filters to extract specific information from log events
+
+1. Create alarms based on these metrics
+
+For detailed instructions, see [Monitoring CloudTrail Log Files with Amazon CloudWatch Logs](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/monitor-cloudtrail-log-files-with-cloudwatch-logs.html).
 
 ## Best practices for CloudTrail with network security director
+<a name="best-practices"></a>
 
 To maximize security and auditability with CloudTrail:
-
-- _Enable CloudTrail in all regions_ for comprehensive coverage
-- _Enable log file integrity validation_ to detect unauthorized modifications
-- _Use IAM to control access to CloudTrail logs_ following least privilege principles
-- _Set up alerts for critical events_ using CloudWatch alarms
-- _Regularly review CloudTrail logs_ to identify unusual activity
++ *Enable CloudTrail in all regions* for comprehensive coverage
++ *Enable log file integrity validation* to detect unauthorized modifications
++ *Use IAM to control access to CloudTrail logs* following least privilege principles
++ *Set up alerts for critical events* using CloudWatch alarms
++ *Regularly review CloudTrail logs* to identify unusual activity

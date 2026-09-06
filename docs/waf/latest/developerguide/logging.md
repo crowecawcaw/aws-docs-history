@@ -1,50 +1,32 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Logging AWS WAF protection pack (web ACL) traffic
+<a name="logging"></a>
 
-This section explains the logging options for your AWS WAF protection packs (web ACLs).
+This section explains the logging options for your AWS WAF protection packs (web ACLs). 
 
-You can enable logging to get detailed information about traffic that is analyzed by your web
-ACL. Logged information includes the time that AWS WAF received a web request from your AWS
-resource, detailed information about the request, and details about the rules that the
-request matched. You can send protection pack (web ACL) logs to an Amazon CloudWatch Logs log group, an Amazon Simple Storage Service (Amazon S3)
-bucket, or an Amazon Data Firehose delivery stream.
+You can enable logging to get detailed information about traffic that is analyzed by your web ACL. Logged information includes the time that AWS WAF received a web request from your AWS resource, detailed information about the request, and details about the rules that the request matched. You can send protection pack (web ACL) logs to an Amazon CloudWatch Logs log group, an Amazon Simple Storage Service (Amazon S3) bucket, or an Amazon Data Firehose delivery stream.
 
 In addition to logs that you can enable for your protection packs (web ACLs), AWS also uses service logs of website or application traffic processed by AWS WAF to provide support for and protect the security of AWS customers and services.
 
-###### Note
+**Note**  
+The protection pack (web ACL) logging configuration only affects the AWS WAF logs. In particular, the redacted fields configuration for logging has no impact on request sampling or Security Lake data collection. You can exclude fields from collection or sampling by configuring protection pack (web ACL) data protection. Other than data protection, Security Lake data collection is configured entirely through the Security Lake service. 
 
-The protection pack (web ACL) logging configuration only affects the AWS WAF logs. In particular, the redacted fields configuration
-for logging has no impact on request sampling or Security Lake data collection.
-You can exclude fields from collection or sampling by configuring protection pack (web ACL) data protection.
-Other than data protection, Security Lake data collection is configured entirely through the Security Lake service.
+**Topics**
++ [Pricing for logging protection pack (web ACL) traffic information](logging-pricing.md)
++ [AWS WAF logging destinations](logging-destinations.md)
++ [Configuring logging for a protection pack (web ACL)](logging-management-configure.md)
++ [Finding your protection pack (web ACL) records](logging-management.md)
++ [Log fields for protection pack (web ACL) traffic](logging-fields.md)
++ [Log examples for protection pack (web ACL) traffic](logging-examples.md)
 
-###### Topics
+**Other data collection and analysis options**  
+In addition to logging, you can enable the following options for data collection and analysis: 
++ **Amazon Security Lake** – You can configure Security Lake to collect protection pack (web ACL) data. Security Lake collects log and event data from various sources for normalization, analysis, and management. For information about this option, see [What is Amazon Security Lake?](https://docs.aws.amazon.com/security-lake/latest/userguide/what-is-security-lake.html) and [Collecting data from AWS services](https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html) in the *Amazon Security Lake user guide*. 
 
-- [Pricing for logging protection pack (web ACL) traffic information](logging-pricing.md "logging-pricing.md")
-- [AWS WAF logging destinations](logging-destinations.md "logging-destinations.md")
-- [Configuring logging for a protection pack (web ACL)](logging-management-configure.md "logging-management-configure.md")
-- [Finding your protection pack (web ACL) records](logging-management.md "logging-management.md")
-- [Log fields for protection pack (web ACL) traffic](logging-fields.md "logging-fields.md")
-- [Log examples for protection pack (web ACL) traffic](logging-examples.md "logging-examples.md")
-
-###### Other data collection and analysis options
-
-In addition to logging, you can enable the following options for data collection and analysis:
-
-- **Amazon Security Lake** – You can configure Security Lake to collect protection pack (web ACL) data.
-  Security Lake collects log and event data from various sources for normalization, analysis, and management.
-  For information about this option,
-  see [What is Amazon Security Lake?](../../../security-lake/latest/userguide/what-is-security-lake.md "../../../security-lake/latest/userguide/what-is-security-lake.md")
-  and [Collecting data from AWS services](../../../security-lake/latest/userguide/internal-sources.md "../../../security-lake/latest/userguide/internal-sources.md")
-  in the _Amazon Security Lake user guide_.
-
-AWS WAF doesn't charge you for using this option. For pricing information, see [Security Lake Pricing](https://aws.amazon.com/security-lake/pricing/ "https://aws.amazon.com/security-lake/pricing/") and
-[How Security Lake pricing is determined](../../../security-lake/latest/userguide/estimating-costs.md "../../../security-lake/latest/userguide/estimating-costs.md") in the _Amazon Security Lake user guide_.
-
-- **Request sampling** – You can configure your protection pack (web ACL) to sample the web requests
-  that it evaluates, to get an idea of the type of traffic that your application is receiving.
-  For information about this option, see [Viewing a sample of web requests](web-acl-testing-view-sample.md "web-acl-testing-view-sample.md").
+  AWS WAF doesn't charge you for using this option. For pricing information, see [Security Lake Pricing](https://aws.amazon.com/security-lake/pricing/) and [How Security Lake pricing is determined](https://docs.aws.amazon.com/security-lake/latest/userguide/estimating-costs.html) in the *Amazon Security Lake user guide*. 
++ **Request sampling** – You can configure your protection pack (web ACL) to sample the web requests that it evaluates, to get an idea of the type of traffic that your application is receiving. For information about this option, see [Viewing a sample of web requests](web-acl-testing-view-sample.md). 

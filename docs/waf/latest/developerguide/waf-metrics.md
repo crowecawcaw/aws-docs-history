@@ -1,200 +1,207 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS WAF metrics and dimensions
+<a name="waf-metrics"></a>
 
-AWS WAF reports metrics once a minute. AWS WAF provides
-metrics and dimensions in the `AWS/WAFV2` namespace.
+AWS WAF reports metrics once a minute. AWS WAF provides metrics and dimensions in the `AWS/WAFV2` namespace. 
 
-You can see summary information for AWS WAF metrics through the AWS WAF console,
-in the protection pack (web ACL)'s traffic overview tab. For more information, go to the
-console or see [Traffic overview dashboards for protection packs (web ACLs)](web-acl-dashboards.md "web-acl-dashboards.md").
+You can see summary information for AWS WAF metrics through the AWS WAF console, in the protection pack (web ACL)'s traffic overview tab. For more information, go to the console or see [Traffic overview dashboards for protection packs (web ACLs)](web-acl-dashboards.md).
 
-You can see the following metrics for protection packs (web ACLs), rules, rule groups, and labels.
+You can see the following metrics for protection packs (web ACLs), rules, rule groups, and labels. 
 
-###### Note
+**Note**  
+If your Application Load Balancer is associated with a protection pack (web ACL) that has no rules or other active configurations, AWS WAF does not provide sampled requests or publish CloudWatch metrics for that Application Load Balancer. For more information about this behavior and how to enable observability features, see [AWS WAF Distributed Denial of Service (DDoS) prevention](waf-anti-ddos.md).
++ **Your rules** – Metrics are grouped by the rule action. For example, when you test a rule in Count mode, its matches are listed as `Count` metrics for the protection pack (web ACL). 
++ **Your rule groups** – The metrics for your rule groups are listed under the rule group metrics. 
++ **Rule groups owned by another account** – Rule group metrics are generally visible only to the rule group owner. However, if you override the rule action for a rule, the metrics for that rule will be listed under your protection pack (web ACL) metrics. Additionally, labels added by any rule group are listed in your protection pack (web ACL) metrics. 
 
-If your Application Load Balancer is associated with a protection pack (web ACL) that has no rules or other active configurations,
-AWS WAF does not provide sampled requests or publish CloudWatch metrics for that Application Load Balancer. For more information
-about this behavior and how to enable observability features, see
-[AWS WAF Distributed Denial of Service (DDoS) prevention](waf-anti-ddos.md "waf-anti-ddos.md").
+  Count action rules in rule groups do NOT emit web ACL dimension metrics - only Rule, RuleGroup, and Region dimensions. This applies even when the rule group is referenced in a web ACL.
 
-- **Your rules** – Metrics are grouped by the rule
-  action. For example, when you test a rule in Count
-  mode, its matches are listed as `Count` metrics
-  for the protection pack (web ACL).
-- **Your rule groups** – The metrics for your rule
-  groups are listed under the rule group metrics.
-- **Rule groups owned by another account** – Rule group metrics
-  are generally visible only to the rule group owner. However, if
-  you override the rule action for a rule, the metrics for that
-  rule will be listed under your protection pack (web ACL) metrics. Additionally, labels added by any rule
-  group are listed in your protection pack (web ACL) metrics.
+  Rule groups in this category are [AWS Managed Rules for AWS WAF](aws-managed-rule-groups.md), [AWS Marketplace rule groups](marketplace-rule-groups.md), [Recognizing rule groups provided by other services](waf-service-owned-rule-groups.md), and rule groups that are shared with you by another account. When a protection pack (web ACL) is deployed through Firewall Manager, any rules within the WebACL that have a Count action will not display their metrics in the member account.
++ **Labels** - Labels that were added to a web request during evaluation are listed in the protection pack (web ACL) label metrics. You can access the metrics for all labels, regardless of whether they were added by your rules and rule groups or by rules in a rule group that another account owns. 
 
-Count action rules in rule groups do NOT emit
-web ACL dimension metrics - only Rule, RuleGroup, and Region dimensions. This applies even when the
-rule group is referenced in a web ACL.
-
-Rule groups in this category are [AWS Managed Rules for AWS WAF](aws-managed-rule-groups.md "aws-managed-rule-groups.md"), [AWS Marketplace rule groups](marketplace-rule-groups.md "marketplace-rule-groups.md"), [Recognizing rule groups provided by other services](waf-service-owned-rule-groups.md "waf-service-owned-rule-groups.md"), and rule
-groups that are shared with you by another account. When a protection pack (web ACL) is deployed through Firewall Manager, any rules within the WebACL that have a Count action will not display their metrics in the member account.
-
-- **Labels** - Labels that were added to a web request
-  during evaluation are listed in the protection pack (web ACL) label metrics. You
-  can access the metrics for all labels, regardless of whether they were added
-  by your rules and rule groups or by rules in a rule group that another account owns.
-
-###### Topics
-
-- [AWS WAF core metrics and dimensions](#waf-metrics-general "#waf-metrics-general")
-- [Label metrics and dimensions](#waf-metrics-label "#waf-metrics-label")
-- [Free bot visibility metrics and dimensions](#waf-metrics-bot-free "#waf-metrics-bot-free")
-- [Account metrics and dimensions](#waf-metrics-account "#waf-metrics-account")
-- [AWS WAF usage metrics](#waf-metrics-usage "#waf-metrics-usage")
+**Topics**
++ [AWS WAF core metrics and dimensions](#waf-metrics-general)
++ [Label metrics and dimensions](#waf-metrics-label)
++ [Free bot visibility metrics and dimensions](#waf-metrics-bot-free)
++ [Account metrics and dimensions](#waf-metrics-account)
++ [AWS WAF usage metrics](#waf-metrics-usage)
 
 ## AWS WAF core metrics and dimensions
+<a name="waf-metrics-general"></a>
 
-AWS WAF core metrics| Metric | Description |
-| --- | --- |
-| `AllowedRequests` | The number of allowed web requests.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `BlockedRequests` | The number of blocked web requests.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `CountedRequests` | The number of counted web requests.<br>Reporting criteria: There is a nonzero value.<br>A counted web request is one that matches at least one of the rules.<br>Request counting is typically used<br>for testing.<br>Valid statistics: Sum |
-| `CaptchaRequests` | The number of web requests that had CAPTCHA controls applied.<br>It represents a terminating rule and does not include<br>`RequestsWithValidCaptchaToken`.<br>Reporting criteria: There is a nonzero value.<br>A CAPTCHA web request is one that matches a<br>rule that has a CAPTCHA<br>action setting. This metric records all requests that match, regardless<br>of whether the CAPTCHA token is expired, invalid, absent, or has a domain mismatch.<br>Valid statistics: Sum |
-| `RequestsWithValidCaptchaToken` | The number of web requests that had CAPTCHA<br>controls applied and that had a valid CAPTCHA<br>token.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `CaptchasAttempted` | The number of solutions that were submitted by an end user<br>in response to a CAPTCHA puzzle challenge.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `CaptchasSolved` | The number of CAPTCHA puzzle solutions submitted that<br>successfully solved the puzzle.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `ChallengeRequests` | The number of web requests that had challenge controls<br>applied. It represents a terminating rule and does not<br>include `RequestsWithValidChallengeToken`.<br>Reporting criteria: There is a nonzero value.<br>A challenge web request is one that matches a rule that<br>has a Challenge action setting. This metric records all<br>requests that match, regardless of whether the challenge token is<br>expired, invalid, absent, or has a domain mismatch.<br>Valid statistics: Sum |
-| `ChallengesAttempted` | The number of attempts that were submitted by an end user<br>in response to a silent challenge served by<br>AWS WAF. This includes challenges served by a Challenge rule action<br>and challenges run as part of a CAPTCHA action when no token is present.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `ChallengesSolved` | The number of silent challenge solutions submitted that<br>successfully passed a silent challenge served by<br>AWS WAF. This includes challenges served by a Challenge rule action<br>and challenges run as part of a CAPTCHA action when no token is present.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `PassedRequests` | The number of passed requests. This is only used for requests<br>that go through a rule group evaluation without matching any<br>of the rule group rules.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `RequestsWithValidChallengeToken` | The number of web requests that had challenge controls<br>applied and that had a valid challenge token.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `LowReputationPacketsDropped` | The number of packets dropped from known malicious sources. This metric is recorded when a request is blocked by resource-level DDoS protection.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum<br>This metric is published to the `AWS/ApplicationELB` namespace. |
-| `LowReputationRequestsDenied` | The number of HTTP requests denied with HTTP 403 responses. This metric is recorded when a request is blocked by resource-level DDoS protection.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum<br>This metric is published to the `AWS/ApplicationELB` namespace. |
-| `MonetizeRequests` | The number of web requests that had monetize controls applied. It represents a terminating rule that has a Monetize action.<br>Reporting criteria: There is a nonzero value.<br>A monetize web request is one that matches a rule that has a Monetize action setting. This metric records all requests that match.<br>Valid statistics: Sum |
-| `MonetizeRequestsFailedVerification` | The number of web requests that had monetize controls applied and failed monetize verification.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
 
-AWS WAF core dimensions| Dimension | Description |
-| --- | --- |
-| `Region` | Required for all protected resource types except for Amazon CloudFront<br>distributions. |
-| `Rule` | One of the following:<br>• The metric name of the `Rule`.<br>• ALL, which represents all rules within a WebACL or<br>`RuleGroup`.<br>• `Default_Action` (only when combined<br>with the `WebACL` dimension), which<br>represents the action assigned to any request whose<br>evaluation wasn't terminated by the action of a rule<br>in the protection pack (web ACL). |
-| `RuleGroup` | The metric name of the `RuleGroup`. |
-| `WebACL` | The metric name of the `WebACL`. |
-| `WebACLArn` | The Amazon Resource Name (ARN) of the web ACL. This dimension is only available when AWS WAF is enabled. |
-| `ResourceType` | The type of the protected resource, such as `CF`, `APIGW`, or `ALB`. |
-| `Resource` | The Amazon Resource Name (ARN) of the protected resource.<br>This dimension does not include App Runner resource<br>ARNs. |
-| `Country` | The country of origin of the request. This is the<br>two-character designation from the International<br>Organization for Standardization (ISO) 3166 standard. For<br>example, US for the United States and UA for Ukraine.<br>If a request has an `X-Forwarded-For` header,<br>AWS WAF uses that to determine this setting. Otherwise, AWS WAF<br>uses the country of the client IP. This determination is<br>independent of any logic you use in your rules to determine<br>country of origin. AWS WAF determines the locations of the IPs<br>using MaxMind GeoIP databases. |
-| `Attack` | The type of attack that AWS WAF identified in the request,<br>based on the rules and rule groups that you use in your web<br>ACL.<br>Your rules and the rules in the baseline AWS managed<br>rule groups can identify attack types. For example,<br>cross-site scripting (XSS) rule matches identify XSS attack<br>types, and rate-based rules identify volumetric attack<br>types. The attack type usually indicates the type of rule<br>that terminated the web request evaluation. |
-| `Device` | The device type of the client that sent the request,<br>obtained from the web request's `user-agent`<br>header. |
-| `LoadBalancerArn` | The Amazon Resource Name (ARN) of the load balancer. |
-| `LoadBalancerArnAvailabilityZone` | The combination of the load balancer ARN and the Availability Zone. |
-| `ManagedRuleGroup` | The metric name of the `ManagedRuleGroup`. |
-| `ManagedRuleGroupRule` | The rule within the `ManagedRuleGroup` that was matched. |
-| `VulnerabilityCategory` | The vulnerability category that the request matches, based<br>on AWS managed rule IP sets. |
+**AWS WAF core metrics**  
+
+| Metric | Description | 
+| --- | --- | 
+| `AllowedRequests` | The number of allowed web requests.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `BlockedRequests` | The number of blocked web requests.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `CountedRequests` | The number of counted web requests.<br />Reporting criteria: There is a nonzero value.<br />A counted web request is one that matches at least one of the rules. Request counting is typically used for testing.<br />Valid statistics: Sum | 
+| `CaptchaRequests` | The number of web requests that had CAPTCHA controls applied. It represents a terminating rule and does not include `RequestsWithValidCaptchaToken`.<br />Reporting criteria: There is a nonzero value.<br />A CAPTCHA web request is one that matches a rule that has a CAPTCHA action setting. This metric records all requests that match, regardless of whether the CAPTCHA token is expired, invalid, absent, or has a domain mismatch.<br />Valid statistics: Sum | 
+| `RequestsWithValidCaptchaToken` | The number of web requests that had CAPTCHA controls applied and that had a valid CAPTCHA token. <br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `CaptchasAttempted` | The number of solutions that were submitted by an end user in response to a CAPTCHA puzzle challenge.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `CaptchasSolved` | The number of CAPTCHA puzzle solutions submitted that successfully solved the puzzle.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `ChallengeRequests` | The number of web requests that had challenge controls applied. It represents a terminating rule and does not include `RequestsWithValidChallengeToken`. <br />Reporting criteria: There is a nonzero value.<br />A challenge web request is one that matches a rule that has a Challenge action setting. This metric records all requests that match, regardless of whether the challenge token is expired, invalid, absent, or has a domain mismatch.<br />Valid statistics: Sum | 
+| `ChallengesAttempted` | The number of attempts that were submitted by an end user in response to a silent challenge served by AWS WAF. This includes challenges served by a Challenge rule action and challenges run as part of a CAPTCHA action when no token is present.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `ChallengesSolved` | The number of silent challenge solutions submitted that successfully passed a silent challenge served by AWS WAF. This includes challenges served by a Challenge rule action and challenges run as part of a CAPTCHA action when no token is present.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `PassedRequests` | The number of passed requests. This is only used for requests that go through a rule group evaluation without matching any of the rule group rules. <br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `RequestsWithValidChallengeToken` | The number of web requests that had challenge controls applied and that had a valid challenge token. <br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `LowReputationPacketsDropped` | The number of packets dropped from known malicious sources. This metric is recorded when a request is blocked by resource-level DDoS protection.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum<br />This metric is published to the `AWS/ApplicationELB` namespace. | 
+| `LowReputationRequestsDenied` | The number of HTTP requests denied with HTTP 403 responses. This metric is recorded when a request is blocked by resource-level DDoS protection.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum<br />This metric is published to the `AWS/ApplicationELB` namespace. | 
+| `MonetizeRequests` | The number of web requests that had monetize controls applied. It represents a terminating rule that has a Monetize action.<br />Reporting criteria: There is a nonzero value.<br />A monetize web request is one that matches a rule that has a Monetize action setting. This metric records all requests that match.<br />Valid statistics: Sum | 
+| `MonetizeRequestsFailedVerification` | The number of web requests that had monetize controls applied and failed monetize verification.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+
+
+**AWS WAF core dimensions**  
+
+| Dimension | Description | 
+| --- | --- | 
+| `Region` | Required for all protected resource types except for Amazon CloudFront distributions. | 
+| `Rule` | One of the following:+  The metric name of the `Rule`. <br />+  ALL, which represents all rules within a WebACL or `RuleGroup`. <br />+  `Default_Action` (only when combined with the `WebACL` dimension), which represents the action assigned to any request whose evaluation wasn't terminated by the action of a rule in the protection pack (web ACL).   | 
+| `RuleGroup` | The metric name of the `RuleGroup`. | 
+| `WebACL` | The metric name of the `WebACL`. | 
+| `WebACLArn` | The Amazon Resource Name (ARN) of the web ACL. This dimension is only available when AWS WAF is enabled. | 
+| `ResourceType` | The type of the protected resource, such as `CF`, `APIGW`, or `ALB`. | 
+| `Resource` | The Amazon Resource Name (ARN) of the protected resource. <br />This dimension does not include App Runner resource ARNs. | 
+| `Country` | The country of origin of the request. This is the two-character designation from the International Organization for Standardization (ISO) 3166 standard. For example, US for the United States and UA for Ukraine. <br />If a request has an `X-Forwarded-For` header, AWS WAF uses that to determine this setting. Otherwise, AWS WAF uses the country of the client IP. This determination is independent of any logic you use in your rules to determine country of origin. AWS WAF determines the locations of the IPs using MaxMind GeoIP databases. | 
+| `Attack` | The type of attack that AWS WAF identified in the request, based on the rules and rule groups that you use in your web ACL. <br />Your rules and the rules in the baseline AWS managed rule groups can identify attack types. For example, cross-site scripting (XSS) rule matches identify XSS attack types, and rate-based rules identify volumetric attack types. The attack type usually indicates the type of rule that terminated the web request evaluation.  | 
+| `Device` | The device type of the client that sent the request, obtained from the web request's `user-agent` header. | 
+| `LoadBalancerArn` | The Amazon Resource Name (ARN) of the load balancer. | 
+| `LoadBalancerArnAvailabilityZone` | The combination of the load balancer ARN and the Availability Zone. | 
+| `ManagedRuleGroup` | The metric name of the `ManagedRuleGroup`. | 
+| `ManagedRuleGroupRule` | The rule within the `ManagedRuleGroup` that was matched. | 
+| `VulnerabilityCategory` | The vulnerability category that the request matches, based on AWS managed rule IP sets. | 
 
 ## Label metrics and dimensions
+<a name="waf-metrics-label"></a>
 
-Metrics for the labels added to requests during evaluation by your rules and by
-the managed rule groups that you use in your protection pack (web ACL). For information, see [Web request labeling](waf-labels.md "waf-labels.md").
+Metrics for the labels added to requests during evaluation by your rules and by the managed rule groups that you use in your protection pack (web ACL). For information, see [Web request labeling](waf-labels.md).
 
-For any single web request, AWS WAF stores metrics for at most 100 labels.
-Your protection pack (web ACL) evaluation can apply more than 100 labels and match against more than 100 labels,
-but only the first 100 are reflected in the metrics.
+For any single web request, AWS WAF stores metrics for at most 100 labels. Your protection pack (web ACL) evaluation can apply more than 100 labels and match against more than 100 labels, but only the first 100 are reflected in the metrics. 
 
-Label metrics| Metric | Description |
-| --- | --- |
-| `AllowedRequests` | The number of labels on web requests that had the action setting Allow applied. The labels can have been added at any point during the web request evaluation.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `BlockedRequests` | The number of labels on web requests that had the action setting Block applied. The labels can have been added at any point during the web request evaluation.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `CountedRequests` | The number of labels added to web requests by rule group rules that have a Count action setting.<br>This metric is only available to the owner of a rule group, for rules inside the rule group. For other cases, the count label metrics are rolled up into the terminating action that was applied to the request, like Allow or Block.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `CaptchaRequests` | The number of labels on web requests that had a terminating CAPTCHA action applied. The labels can have been added at any point during the web request evaluation.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `ChallengeRequests` | The number of labels on web requests that had a terminating Challenge action applied. The labels can have been added at any point during the web request evaluation.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `AllowRuleMatch` | The number of matched rules that both generated the associated label and terminated request evaluation with an Allow action.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `BlockRuleMatch` | The number of matched rules that both generated the associated label and terminated request evaluation with a Block action.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `CountRuleMatch` | The number of matched rules that both generated the associated label and applied a Count action.<br>One request could result in multiple instances of this metric, if multiple rules are configured with the same label and action.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `CaptchaRuleMatch` | The number of matched rules that both generated the associated label and terminated request evaluation with a CAPTCHA action.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `ChallengeRuleMatch` | The number of matched rules that both generated the associated label and terminated request evaluation with a Challenge action.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `CaptchaRuleMatchWithValidToken` | The number of matched rules that both generated the associated label and applied a non-terminating CAPTCHA action.<br>One request could result in multiple instances of this metric, if multiple rules are configured with the same label and action.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `ChallengeRuleMatchWithValidToken` | The number of matched rules that both generated the associated label and applied a non-terminating Challenge action.<br>One request could result in multiple instances of this metric, if multiple rules are configured with the same label and action.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
 
-Label dimensions| Dimension | Description |
-| --- | --- |
-| `Region` | Required for all protected resource types except for Amazon CloudFront<br>distributions. |
-| `RuleGroup` | The metric name of the `RuleGroup`. Used for<br>the metric `CountedRequests`. |
-| `WebACL` | The metric name of the `WebACL`. |
-| `ResourceType` | The type of the protected resource, such as `CF`, `APIGW`, or `ALB`. |
-| `Resource` | The Amazon Resource Name (ARN) of the protected resource. |
-| `LabelNamespace` | The namespace prefix of the label that was added to the request. |
-| `Label` | The name of the label that was added to the request. |
-| `Context` | The managed rule group that served as the context of the label addition.<br>For example, the context for token management labels such as `awswaf:managed:token:accepted`<br>is the AWS WAF managed rule group that uses token management on the request, such as<br>the Bot Control or ATP managed rule group. This dimension doesn't apply to all labels. |
+**Label metrics**  
+
+| Metric | Description | 
+| --- | --- | 
+| `AllowedRequests` | The number of labels on web requests that had the action setting Allow applied. The labels can have been added at any point during the web request evaluation.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `BlockedRequests` | The number of labels on web requests that had the action setting Block applied. The labels can have been added at any point during the web request evaluation.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `CountedRequests` | The number of labels added to web requests by rule group rules that have a Count action setting.<br />This metric is only available to the owner of a rule group, for rules inside the rule group. For other cases, the count label metrics are rolled up into the terminating action that was applied to the request, like Allow or Block.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `CaptchaRequests` | The number of labels on web requests that had a terminating CAPTCHA action applied. The labels can have been added at any point during the web request evaluation.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `ChallengeRequests` | The number of labels on web requests that had a terminating Challenge action applied. The labels can have been added at any point during the web request evaluation.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `AllowRuleMatch` | The number of matched rules that both generated the associated label and terminated request evaluation with an Allow action.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `BlockRuleMatch` | The number of matched rules that both generated the associated label and terminated request evaluation with a Block action.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `CountRuleMatch` | The number of matched rules that both generated the associated label and applied a Count action.<br />One request could result in multiple instances of this metric, if multiple rules are configured with the same label and action.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `CaptchaRuleMatch` | The number of matched rules that both generated the associated label and terminated request evaluation with a CAPTCHA action.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `ChallengeRuleMatch` | The number of matched rules that both generated the associated label and terminated request evaluation with a Challenge action.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `CaptchaRuleMatchWithValidToken` | The number of matched rules that both generated the associated label and applied a non-terminating CAPTCHA action.<br />One request could result in multiple instances of this metric, if multiple rules are configured with the same label and action.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `ChallengeRuleMatchWithValidToken` | The number of matched rules that both generated the associated label and applied a non-terminating Challenge action.<br />One request could result in multiple instances of this metric, if multiple rules are configured with the same label and action.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+
+
+**Label dimensions**  
+
+| Dimension | Description | 
+| --- | --- | 
+| `Region` | Required for all protected resource types except for Amazon CloudFront distributions. | 
+| `RuleGroup` | The metric name of the `RuleGroup`. Used for the metric `CountedRequests`. | 
+| `WebACL` | The metric name of the `WebACL`. | 
+| `ResourceType` | The type of the protected resource, such as `CF`, `APIGW`, or `ALB`. | 
+| `Resource` | The Amazon Resource Name (ARN) of the protected resource. | 
+| `LabelNamespace` | The namespace prefix of the label that was added to the request.  | 
+| `Label` | The name of the label that was added to the request.  | 
+| `Context` | The managed rule group that served as the context of the label addition. For example, the context for token management labels such as awswaf:managed:token:accepted is the AWS WAF managed rule group that uses token management on the request, such as the Bot Control or ATP managed rule group. This dimension doesn't apply to all labels.  | 
 
 ## Free bot visibility metrics and dimensions
+<a name="waf-metrics-bot-free"></a>
 
-When you don't use Bot Control in your protection pack (web ACL), AWS WAF applies the Bot Control managed rule
-group to a sampling of your web requests, at no additional cost. This can
-provide an idea of the bot traffic that is coming to your protected resources. For
-information about Bot Control, see [AWS WAF Bot Control rule group](aws-managed-rule-groups-bot.md "aws-managed-rule-groups-bot.md").
+When you don't use Bot Control in your protection pack (web ACL), AWS WAF applies the Bot Control managed rule group to a sampling of your web requests, at no additional cost. This can provide an idea of the bot traffic that is coming to your protected resources. For information about Bot Control, see [AWS WAF Bot Control rule group](aws-managed-rule-groups-bot.md).
 
-Free bot visibility metrics| Metric | Description |
-| --- | --- |
-| `SampleAllowedRequest` | The number of sampled requests that have Allow action.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `SampleBlockedRequest` | The number of sampled requests that have Block action.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `SampleCaptchaRequest` | The number of sampled requests that have<br>CAPTCHA action.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `SampleChallengeRequest` | The number of sampled requests that have<br>Challenge action.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `SampleCountRequest` | The number of sampled requests that have Count<br>action.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
 
-Free bot visibility dimensions| Dimension | Description |
-| --- | --- |
-| `Region` | Required for all protected resource types except for Amazon CloudFront<br>distributions. |
-| `WebACL` | The metric name of the `WebACL`. |
-| `BotCategory` | The name of the of the detected bot category, based on the<br>web request labels. |
-| `VerificationStatus` | The name of the of the detected bot verification status,<br>based on the web request labels. |
-| `Signal` | The name of the of the detected bot signals, based on the<br>web request labels. |
+**Free bot visibility metrics**  
+
+| Metric | Description | 
+| --- | --- | 
+| `SampleAllowedRequest` | The number of sampled requests that have Allow action. <br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `SampleBlockedRequest` | The number of sampled requests that have Block action. <br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `SampleCaptchaRequest` | The number of sampled requests that have CAPTCHA action. <br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `SampleChallengeRequest` | The number of sampled requests that have Challenge action. <br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `SampleCountRequest` | The number of sampled requests that have Count action. <br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+
+
+**Free bot visibility dimensions**  
+
+| Dimension | Description | 
+| --- | --- | 
+| `Region` | Required for all protected resource types except for Amazon CloudFront distributions. | 
+| `WebACL` | The metric name of the `WebACL`. | 
+| `BotCategory` | The name of the of the detected bot category, based on the web request labels.  | 
+| `VerificationStatus` | The name of the of the detected bot verification status, based on the web request labels.  | 
+| `Signal` | The name of the of the detected bot signals, based on the web request labels.  | 
 
 ## Account metrics and dimensions
+<a name="waf-metrics-account"></a>
 
-Account metrics provide account-wide information about CAPTCHA puzzles and
-silent Challenge rule actions that were serviced through the JavaScript
-API.
+Account metrics provide account-wide information about CAPTCHA puzzles and silent Challenge rule actions that were serviced through the JavaScript API.
 
-Account metrics| Metric | Description |
-| --- | --- |
-| `CaptchasAttemptedSdk` | The number of solutions that were submitted by an end user<br>in response to a CAPTCHA puzzle challenge, for puzzles that were served via the CAPTCHA JavaScript API.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `CaptchasSolvedSdk` | The number of CAPTCHA puzzle solutions submitted that<br>successfully solved the puzzle, for puzzles that were served via the CAPTCHA JavaScript API.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `ChallengesAttemptedSdk` | The number of attempts that were submitted by an end user<br>in response to a silent challenge served through the<br>Challenge JavaScript API. This includes challenges initiated by a Challenge action<br>and challenges run as part of a CAPTCHA action when no token is present.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
-| `ChallengesSolvedSdk` | The number of silent challenge solutions submitted that<br>successfully passed a silent challenge served through the<br>Challenge JavaScript API. This includes challenges initiated by a Challenge action<br>and challenges run as part of a CAPTCHA action when no token is present.<br>Reporting criteria: There is a nonzero value.<br>Valid statistics: Sum |
 
-Account dimensions| Dimension | Description |
-| --- | --- |
-| `Region` | Required for all protected resource types except for Amazon CloudFront<br>distributions. |
+**Account metrics**  
+
+| Metric | Description | 
+| --- | --- | 
+| `CaptchasAttemptedSdk` | The number of solutions that were submitted by an end user in response to a CAPTCHA puzzle challenge, for puzzles that were served via the CAPTCHA JavaScript API.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `CaptchasSolvedSdk` | The number of CAPTCHA puzzle solutions submitted that successfully solved the puzzle, for puzzles that were served via the CAPTCHA JavaScript API.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `ChallengesAttemptedSdk` | The number of attempts that were submitted by an end user in response to a silent challenge served through the Challenge JavaScript API. This includes challenges initiated by a Challenge action and challenges run as part of a CAPTCHA action when no token is present.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+| `ChallengesSolvedSdk` | The number of silent challenge solutions submitted that successfully passed a silent challenge served through the Challenge JavaScript API. This includes challenges initiated by a Challenge action and challenges run as part of a CAPTCHA action when no token is present.<br />Reporting criteria: There is a nonzero value.<br />Valid statistics: Sum | 
+
+
+**Account dimensions**  
+
+| Dimension | Description | 
+| --- | --- | 
+| `Region` | Required for all protected resource types except for Amazon CloudFront distributions. | 
 
 ## AWS WAF usage metrics
+<a name="waf-metrics-usage"></a>
 
 You can use CloudWatch usage metrics to provide visibility into your account's usage of resources. Use these metrics to visualize your current service usage on CloudWatch graphs and dashboards.
 
-AWS WAF usage metrics correspond to AWS service quotas. You can configure alarms that alert you when your usage approaches a service quota. For more information about CloudWatch integration with service quotas, see [AWS usage metrics](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Service-Quota-Integration.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Service-Quota-Integration.md") in the
-_Amazon CloudWatch User Guide._
+AWS WAF usage metrics correspond to AWS service quotas. You can configure alarms that alert you when your usage approaches a service quota. For more information about CloudWatch integration with service quotas, see [AWS usage metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Service-Quota-Integration.html) in the *Amazon CloudWatch User Guide.*
 
 AWS WAF publishes the following metrics in the `AWS/Usage` namespace.
 
-Usage metrics| Metric | Description |
-| --- | --- |
-| `ResourceCount` | The number of the specified resources in your account. The resources are defined by the dimensions associated with the metric.<br>The most useful statistic for this metric is `MAXIMUM`, which represents the maximum number of resources used during the 1-minute period. |
+
+**Usage metrics**  
+
+| Metric | Description | 
+| --- | --- | 
+| `ResourceCount` | The number of the specified resources in your account. The resources are defined by the dimensions associated with the metric.<br />The most useful statistic for this metric is `MAXIMUM`, which represents the maximum number of resources used during the 1-minute period. | 
 
 The following dimension is used to refine the usage metrics that are published by AWS WAF.
 
-Usage dimensions| Dimension | Description |
-| --- | --- |
-| `Resource` | The type of resource for which the usage is being reported. |
+
+**Usage dimensions**  
+
+| Dimension | Description | 
+| --- | --- | 
+| `Resource` | The type of resource for which the usage is being reported. | 
 
 The following are the supported values for the `Resource` dimension.
 
-`Resource` values| Value | Description |
-| --- | --- |
-| `WebAclsPerAccountCloudFront` | The number of protection packs (web ACLs) the customer has in CloudFront per account. This metric is only available when there is at least one protection pack (web ACL) in CloudFront. |
-| `WebAclsPerAccountRegional` | The number of protection packs (web ACLs) the customer has in a region per account. This metric is only available when there is at least one protection pack (web ACL) in that region. |
-| `RuleGroupsPerAccountCloudFront` | The number of rule groups the customer has in CloudFront per account. This metric is only available when there is at least one rule group in CloudFront. |
-| `RuleGroupsPerAccountRegional` | The number of rule groups the customer has in a region per account. This metric is only available when there is at least one rule group in that region. |
-| `IpSetsPerAccountCloudFront` | The number of IP sets the customer has in CloudFront per account. This metric is only available when there is at least one IP set in CloudFront. |
-| `IpSetsPerAccountRegional` | The number of IP sets the customer has in a region per account. This metric is only available when there is at least one IP set in that region. |
-| `RegexPatternSetsPerAccountCloudFront` | The number of regex pattern sets the customer has in CloudFront per account. This metric is only available when there is at least one regex pattern set in CloudFront. |
-| `RegexPatternSetsPerAccountRegional` | The number of regex pattern sets the customer has in a region per account. This metric is only available when there is at least one regex pattern set in that region. |
+
+**`Resource` values**  
+
+| Value | Description | 
+| --- | --- | 
+| `WebAclsPerAccountCloudFront` | The number of protection packs (web ACLs) the customer has in CloudFront per account. This metric is only available when there is at least one protection pack (web ACL) in CloudFront. | 
+| `WebAclsPerAccountRegional` | The number of protection packs (web ACLs) the customer has in a region per account. This metric is only available when there is at least one protection pack (web ACL) in that region. | 
+| `RuleGroupsPerAccountCloudFront` | The number of rule groups the customer has in CloudFront per account. This metric is only available when there is at least one rule group in CloudFront. | 
+| `RuleGroupsPerAccountRegional` | The number of rule groups the customer has in a region per account. This metric is only available when there is at least one rule group in that region. | 
+| `IpSetsPerAccountCloudFront` | The number of IP sets the customer has in CloudFront per account. This metric is only available when there is at least one IP set in CloudFront. | 
+| `IpSetsPerAccountRegional` | The number of IP sets the customer has in a region per account. This metric is only available when there is at least one IP set in that region. | 
+| `RegexPatternSetsPerAccountCloudFront` | The number of regex pattern sets the customer has in CloudFront per account. This metric is only available when there is at least one regex pattern set in CloudFront. | 
+| `RegexPatternSetsPerAccountRegional` | The number of regex pattern sets the customer has in a region per account. This metric is only available when there is at least one regex pattern set in that region. | 

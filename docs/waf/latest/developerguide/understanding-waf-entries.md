@@ -1,47 +1,39 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS WAF information in AWS CloudTrail
+<a name="understanding-waf-entries"></a>
 
-All AWS WAF actions are logged by AWS CloudTrail and are documented in the [AWS WAF API
-Reference](../APIReference.md "../APIReference.md"). For example, calls to `ListWebACL`,
-`UpdateWebACL`, and `DeleteWebACL` generate entries in the
-CloudTrail log files.
+All AWS WAF actions are logged by AWS CloudTrail and are documented in the [AWS WAF API Reference](http://docs.aws.amazon.com/waf/latest/APIReference/). For example, calls to `ListWebACL`, `UpdateWebACL`, and `DeleteWebACL` generate entries in the CloudTrail log files. 
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root user credentials 
++ Whether the request was made with temporary security credentials for a role or federated user
++ Whether the request was made by another AWS service
 
-- Whether the request was made with root user credentials
-- Whether the request was made with temporary security credentials for a
-  role or federated user
-- Whether the request was made by another AWS service
-  For more information, see [CloudTrail
-  userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Cross-account CloudTrail events
+<a name="cross-account-cloudtrail-events"></a>
 
 For certain AWS WAF API operations that support cross-account access through resource-based policies, CloudTrail events are logged to both the caller account and the resource owner account. This applies to the following API operations:
-
-- `CreateWebACL`
-- `UpdateWebACL`
-- `GetWebACL`
-- `GetRuleGroup`
-- `PutFirewallManagerRuleGroups`
++ `CreateWebACL`
++ `UpdateWebACL`
++ `GetWebACL`
++ `GetRuleGroup`
++ `PutFirewallManagerRuleGroups`
 
 When these operations are performed across accounts, CloudTrail events are generated for both successful API calls and access denied calls in both the caller's account and the resource owner's account.
 
 ## Example: AWS WAF log file entries
+<a name="understanding-service-name-entries-WAF"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. AWS CloudTrail log files contain one or more log entries. An
-event represents a single request from any source and includes information about the
-requested action, the date and time of the action, request parameters, and so on.
-CloudTrail log files are not an ordered stack trace of the public API calls, so they do
-not appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. AWS CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files are not an ordered stack trace of the public API calls, so they do not appear in any specific order.
 
-The following are examples of CloudTrail log entries for AWS WAF protection pack (web ACL) operations.
+The following are examples of CloudTrail log entries for AWS WAF protection pack (web ACL) operations. 
 
 Example: CloudTrail log entry for `CreateWebACL`
 
@@ -301,12 +293,11 @@ Example: CloudTrail log entry for `DeleteWebACL`
 ```
 
 ## Example: AWS WAF classic log file entries
+<a name="understanding-service-name-entries-WAF"></a>
 
-AWS WAF Classic is the prior version of AWS WAF. For information, see [AWS WAF Classic](classic-waf-chapter.md "classic-waf-chapter.md").
+AWS WAF Classic is the prior version of AWS WAF. For information, see [AWS WAF Classic](classic-waf-chapter.md).
 
-The log entry demonstrates the
-`CreateRule`, `GetRule`, `UpdateRule`, and
-`DeleteRule` operations:
+The log entry demonstrates the `CreateRule`, `GetRule`, `UpdateRule`, and `DeleteRule` operations:
 
 ```
 {
@@ -337,7 +328,7 @@ The log entry demonstrates the
           "metricName": "0923ab32722949f0a0e366c81example",
           "ruleId": "12132e64-6750-4725-b714-e7544example",
           "predicates": [
-
+            
           ],
           "name": "0923ab32-7229-49f0-a0e3-66c81example"
         },

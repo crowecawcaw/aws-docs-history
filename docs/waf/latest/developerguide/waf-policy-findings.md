@@ -1,37 +1,24 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS WAF policy Firewall Manager findings
+<a name="waf-policy-findings"></a>
 
 This page explains Firewall Manager findings for AWS WAF policies.
 
-You can use Firewall Manager AWS WAF policies to apply AWS WAF rule groups to your resources in AWS Organizations.
-For more information, see [Using AWS Firewall Manager policies](working-with-policies.md "working-with-policies.md").
+You can use Firewall Manager AWS WAF policies to apply AWS WAF rule groups to your resources in AWS Organizations. For more information, see [Using AWS Firewall Manager policies](working-with-policies.md).
 
-###### Resource is missing Firewall Manager managed web ACL.
+**Resource is missing Firewall Manager managed web ACL.**  
+An AWS resource doesn't have the AWS Firewall Manager managed web ACL association in accordance with the Firewall Manager policy. You can enable Firewall Manager remediation on the policy to correct this. 
++ Severity – 80
++ Status settings – PASSED/FAILED
++ Updates – If Firewall Manager performs the remediation action, it will update the finding and the severity will lower from `HIGH` to `INFORMATIONAL`. If you perform the remediation, Firewall Manager will not update the finding. 
 
-An AWS resource doesn't have the AWS Firewall Manager managed web ACL association in accordance with
-the Firewall Manager policy. You can enable Firewall Manager remediation on the policy to correct this.
-
-- Severity – 80
-- Status settings – PASSED/FAILED
-- Updates – If Firewall Manager performs the remediation
-  action, it will update the finding and the severity will lower from `HIGH` to
-  `INFORMATIONAL`. If you perform the remediation, Firewall Manager will not
-  update the finding.
-
-###### Firewall Manager managed web ACL has misconfigured rule groups.
-
-This is a AWS WAF Classic policy finding. The rule groups in a web ACL that's managed by Firewall Manager are not configured correctly,
-according to the Firewall Manager policy. This means that the web ACL is missing the rule
-groups that the policy requires. You can enable Firewall Manager remediation on the policy to
-correct this.
-
-- Severity – 80
-- Status settings – PASSED/FAILED
-- Updates – If Firewall Manager performs the remediation
-  action, it will update the finding and the severity will lower from `HIGH` to
-  `INFORMATIONAL`. If you perform the remediation, Firewall Manager will not
-  update the finding.
+**Firewall Manager managed web ACL has misconfigured rule groups.**  
+This is a AWS WAF Classic policy finding. The rule groups in a web ACL that's managed by Firewall Manager are not configured correctly, according to the Firewall Manager policy. This means that the web ACL is missing the rule groups that the policy requires. You can enable Firewall Manager remediation on the policy to correct this. 
++ Severity – 80
++ Status settings – PASSED/FAILED
++ Updates – If Firewall Manager performs the remediation action, it will update the finding and the severity will lower from `HIGH` to `INFORMATIONAL`. If you perform the remediation, Firewall Manager will not update the finding. 

@@ -1,16 +1,15 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Bot Control example: Excluding IP range from bot management
+<a name="waf-bot-control-example-scope-down-ip"></a>
 
-If you want to exclude a subset of web traffic from AWS WAF Bot Control management, and you can
-identify that subset using a rule statement, then exclude it by adding a scope-down
-statement to your Bot Control managed rule group statement.
+If you want to exclude a subset of web traffic from AWS WAF Bot Control management, and you can identify that subset using a rule statement, then exclude it by adding a scope-down statement to your Bot Control managed rule group statement. 
 
-The following rule performs normal Bot Control bot management on all web traffic except for web
-requests coming from a specific IP address range.
+The following rule performs normal Bot Control bot management on all web traffic except for web requests coming from a specific IP address range.
 
 ```
 {
@@ -19,7 +18,7 @@ requests coming from a specific IP address range.
   "Statement": {
     "ManagedRuleGroupStatement": {
       "VendorName": "AWS",
-      "Name": "`AWSManagedRulesBotControlRuleSet`",
+      "Name": "AWSManagedRulesBotControlRuleSet",
       "ManagedRuleGroupConfigs": [
         {
           "AWSManagedRulesBotControlRuleSet": {

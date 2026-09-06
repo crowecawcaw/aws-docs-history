@@ -1,143 +1,63 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using forwarded IP addresses in AWS WAF
+<a name="waf-rule-statement-forwarded-ip-address"></a>
 
-This section applies to rule statements that use the IP address of a web request.
-By default, AWS WAF uses the IP address from the web request origin. However, if a web
-request goes through one or more proxies or load balancers, the web request origin
-will contain the address of the last proxy, and not the originating address of the
-client. In this case, the originating client address is usually forwarded in another
-HTTP header. This header is typically `X-Forwarded-For` (XFF), but it can
-be a different one.
+This section applies to rule statements that use the IP address of a web request. By default, AWS WAF uses the IP address from the web request origin. However, if a web request goes through one or more proxies or load balancers, the web request origin will contain the address of the last proxy, and not the originating address of the client. In this case, the originating client address is usually forwarded in another HTTP header. This header is typically `X-Forwarded-For` (XFF), but it can be a different one. 
 
-###### Rule statements that use IP addresses
-
+**Rule statements that use IP addresses**  
 The rule statements that use IP addresses are the following:
++ [IP set match](waf-rule-statement-type-ipset-match.md) - Inspects the IP address for a match with the addresses that are defined in an IP set.
++ [Geographic match](waf-rule-statement-type-geo-match.md) - Uses the IP address to determine country and region of origin and matches the country of origin against a list of countries.
++ [ASN match](waf-rule-statement-type-asn-match.md) - Uses the IP address to determine the Autonomous System Number (ASN) and matches the ASN against a list of ASNs.
++ [Using rate-based rule statements](waf-rule-statement-type-rate-based.md) - Can aggregate requests by their IP addresses to ensure that no individual IP address sends requests at too high a rate. You can use IP address aggregation by itself or in combination with other aggregation keys. 
 
-- [IP set
-  match](waf-rule-statement-type-ipset-match.md "waf-rule-statement-type-ipset-match.md") - Inspects
-  the IP address for a match with the addresses that are defined in an IP
-  set.
-- [Geographic
-  match](waf-rule-statement-type-geo-match.md "waf-rule-statement-type-geo-match.md") - Uses the IP
-  address to determine country and region of origin and matches the country of
-  origin against a list of countries.
-- [ASN
-  match](waf-rule-statement-type-asn-match.md "waf-rule-statement-type-asn-match.md") - Uses the
-  IP address to determine the Autonomous System Number (ASN) and matches the ASN against a list of ASNs.
-- [Using rate-based rule statements](waf-rule-statement-type-rate-based.md "waf-rule-statement-type-rate-based.md") - Can
-  aggregate requests by their IP addresses to ensure that no individual IP
-  address sends requests at too high a rate. You can use IP address
-  aggregation by itself or in combination with other aggregation keys.
-  You can instruct AWS WAF to use a forwarded IP address for any of these rule
-  statements, either from the `X-Forwarded-For` header or from another HTTP
-  header, instead of using the web request's origin. For details on how to provide the
-  specifications, see the guidance for the individual rule statement types.
+You can instruct AWS WAF to use a forwarded IP address for any of these rule statements, either from the `X-Forwarded-For` header or from another HTTP header, instead of using the web request's origin. For details on how to provide the specifications, see the guidance for the individual rule statement types.
 
-###### Note
+**Note**  
+If a header is missing, AWS WAF evaluates any statement that uses that header as "No match." If you use a NOT statement with a "No match" result, AWS WAF converts the evaluation to "Match." Missing headers don't trigger fallback behavior - only invalid header values do.
 
-If a header is missing, AWS WAF evaluates any statement that uses that header as
-"No match." If you use a NOT statement with a "No match" result, AWS WAF converts
-the evaluation to "Match." Missing headers don't trigger fallback behavior -
-only invalid header values do.
+**Fallback behavior**  
+When you use the forwarded IP address, you indicate the match status for AWS WAF to assign to the web request if the request doesn't have a valid IP address in the specified position: 
++ **MATCH** - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
++ **NO MATCH** - Treat the web request as not matching the rule statement. 
 
-###### Fallback behavior
+**IP addresses used in AWS WAF Bot Control**  
+The Bot Control managed rule group verifies bots using the IP addresses from AWS WAF. If you use Bot Control and you have verified bots that route through a proxy or load balancer, you need to explicitly allow them using a custom rule. For example, you can configure a custom IP set match rule that uses forwarded IP addresses to detect and allow your verified bots. You can use the rule to customize your bot management in a number of ways. For information and examples, see [AWS WAF Bot Control](waf-bot-control.md). 
 
-When you use the forwarded IP address, you indicate the match status for AWS WAF to assign
-to the web request if the request doesn't have a valid IP address in the
-specified position:
+**Detecting client IP behind supported CDNs**  
+For requests that arrive at AWS WAF through a third-party CDN, the Bot Control managed rule group and the Anti-DDoS managed rule group automatically recognize traffic that originates from the IP ranges of Amazon CloudFront, Cloudflare, and Fastly. When the rule groups detect a request from one of these CDNs, they transparently use the originating client IP from the upstream CDN's standard client IP header (for example, the `Fastly-Client-IP` header for Fastly). You don't need to configure forwarded IP addresses on these rule groups for these CDNs to work correctly. For other rule statements that use IP addresses, such as your custom IP set match, geo match, ASN match, and rate-based rules, you still need to specify a forwarded IP configuration if you want them to evaluate the upstream client IP instead of the CDN's IP.
 
-- **MATCH** - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
-- **NO MATCH** - Treat the web request as not matching the rule statement.
+**General considerations for using forwarded IP addresses**  
+Before you use a forwarded IP address, note the following general caveats: 
++ A header can be modified by proxies along the way, and the proxies might handle the header in different ways. 
++ Attackers might alter the contents of the header in an attempt to bypass AWS WAF inspections. 
++ The IP address inside the header can be malformed or invalid.
++ The header that you specify might not be present at all in a request.
 
-###### IP addresses used in AWS WAF Bot Control
+**Considerations for using forwarded IP addresses with AWS WAF**  
+The following list describes requirements and caveats for using forwarded IP addresses in AWS WAF:
++ For any single rule, you can specify one header for the forwarded IP address. The header specification is case insensitive.
++ For rate-based rule statements, any nested scoping statements do not inherit the forwarded IP configuration. Specify the configuration for each statement that uses a forwarded IP address. 
++ For geo match, ASN match, and rate-based rules, AWS WAF uses the first address in the header. For example, if a header contains `10.1.1.1, 127.0.0.0, 10.10.10.10` AWS WAF uses `10.1.1.1`
++ For IP set match, you indicate whether to match against the first, last, or any address in the header. If you specify any, AWS WAF inspects all addresses in the header for a match, up to 10 addresses. If the header contains more than 10 addresses, AWS WAF inspects the last 10. 
++ Headers that contain multiple addresses must use a comma separator between the addresses. If a request uses a separator other than a comma, AWS WAF considers the IP addresses in the header malformed.
++ If the IP addresses inside the header are malformed or invalid, AWS WAF designates the web request as matching the rule or not matching, according to the fallback behavior that you specify in the forwarded IP configuration.
++ If the header that you specify isn’t present in a request, AWS WAF doesn’t apply the rule to the request at all. This means that AWS WAF doesn't apply the rule action and doesn't apply the fallback behavior.
++ A rule statement that uses a forwarded IP header for the IP address won’t use the IP address that’s reported by the web request origin.
 
-The Bot Control managed rule group verifies bots using the IP addresses from AWS WAF.
-If you use Bot Control and you have verified bots that route through a proxy or load
-balancer, you need to explicitly allow them using a custom rule. For example,
-you can configure a custom IP set match rule that uses forwarded IP addresses to
-detect and allow your verified bots. You can use the rule to customize your bot
-management in a number of ways. For information and examples, see [AWS WAF Bot Control](waf-bot-control.md "waf-bot-control.md").
+**Best practices for using forwarded IP addresses with AWS WAF**  
+When you use forwarded IP addresses, use the following best practices: 
++ Carefully consider all possible states of your request headers before enabling forwarded IP configuration. You might need to use more than one rule to get the behavior you want.
++ To inspect multiple forwarded IP headers or to inspect the web request origin and a forwarded IP header, use one rule for each IP address source. 
++ To block web requests that have an invalid header, set the rule action to block and set the fallback behavior for the forwarded IP configuration to match. 
 
-###### Detecting client IP behind supported CDNs
-
-For requests that arrive at AWS WAF through a third-party CDN, the
-Bot Control managed rule group and the Anti-DDoS managed rule group
-automatically recognize traffic that originates from the IP ranges of
-Amazon CloudFront, Cloudflare, and Fastly. When the rule groups detect a request from
-one of these CDNs, they transparently use the originating client IP
-from the upstream CDN's standard client IP header
-(for example, the `Fastly-Client-IP` header for Fastly).
-You don't need to configure forwarded IP addresses on these rule groups
-for these CDNs to work correctly. For other rule statements that use
-IP addresses, such as your custom IP set match, geo match, ASN match,
-and rate-based rules, you still need to specify a forwarded IP
-configuration if you want them to evaluate the upstream client IP
-instead of the CDN's IP.
-
-###### General considerations for using forwarded IP addresses
-
-Before you use a forwarded IP address, note the following general caveats:
-
-- A header can be modified by proxies along the way, and the proxies might
-  handle the header in different ways.
-- Attackers might alter the contents of the header in an attempt to bypass
-  AWS WAF inspections.
-- The IP address inside the header can be malformed or invalid.
-- The header that you specify might not be present at all in a
-  request.
-
-###### Considerations for using forwarded IP addresses with AWS WAF
-
-The following list describes requirements and caveats for using forwarded IP
-addresses in AWS WAF:
-
-- For any single rule, you can specify one header for the forwarded IP
-  address. The header specification is case insensitive.
-- For rate-based rule statements, any nested scoping statements do not
-  inherit the forwarded IP configuration. Specify the configuration for each
-  statement that uses a forwarded IP address.
-- For geo match, ASN match, and rate-based rules, AWS WAF uses the first address in the
-  header. For example, if a header contains `10.1.1.1, 127.0.0.0,
- 10.10.10.10` AWS WAF uses `10.1.1.1`
-- For IP set match, you indicate whether to match against the first, last,
-  or any address in the header. If you specify any, AWS WAF inspects all
-  addresses in the header for a match, up to 10 addresses. If the header
-  contains more than 10 addresses, AWS WAF inspects the last 10.
-- Headers that contain multiple addresses must use a comma separator between
-  the addresses. If a request uses a separator other than a comma, AWS WAF
-  considers the IP addresses in the header malformed.
-- If the IP addresses inside the header are malformed or invalid, AWS WAF
-  designates the web request as matching the rule or not matching, according
-  to the fallback behavior that you specify in the forwarded IP
-  configuration.
-- If the header that you specify isn’t present in a request, AWS WAF doesn’t
-  apply the rule to the request at all. This means that AWS WAF doesn't apply
-  the rule action and doesn't apply the fallback behavior.
-- A rule statement that uses a forwarded IP header for the IP address won’t
-  use the IP address that’s reported by the web request origin.
-
-###### Best practices for using forwarded IP addresses with AWS WAF
-
-When you use forwarded IP addresses, use the following best practices:
-
-- Carefully consider all possible states of your request headers before
-  enabling forwarded IP configuration. You might need to use more than one
-  rule to get the behavior you want.
-- To inspect multiple forwarded IP headers or to inspect the web request
-  origin and a forwarded IP header, use one rule for each IP address source.
-- To block web requests that have an invalid header, set the rule action to
-  block and set the fallback behavior for the forwarded IP configuration to
-  match.
-
-###### Example JSON for forwarded IP addresses
-
-The following geo match statement matches only if the
-`X-Forwarded-For` header contains an IP whose country of origin
-is `US`:
+**Example JSON for forwarded IP addresses**  
+The following geo match statement matches only if the `X-Forwarded-For` header contains an IP whose country of origin is `US`: 
 
 ```
 {
@@ -165,13 +85,7 @@ is `US`:
 }
 ```
 
-The following rate-based rule aggregates requests based on the first IP in the
-`X-Forwarded-For` header. The rule counts only requests that match
-the nested geo match statement, and it only blocks requests that match the geo match
-statement. The nested geo match statement also uses the `X-Forwarded-For`
-header to determine whether the IP address indicates a country of origin of
-`US`. If it does, or if the header is present but malformed, the geo
-match statement returns a match.
+The following rate-based rule aggregates requests based on the first IP in the `X-Forwarded-For` header. The rule counts only requests that match the nested geo match statement, and it only blocks requests that match the geo match statement. The nested geo match statement also uses the `X-Forwarded-For` header to determine whether the IP address indicates a country of origin of `US`. If it does, or if the header is present but malformed, the geo match statement returns a match. 
 
 ```
 {

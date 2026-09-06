@@ -1,18 +1,13 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # ACFP example: Simple configuration
+<a name="waf-acfp-control-example-basic"></a>
 
-The following JSON listing shows an example protection pack (web ACL) with an AWS WAF Fraud Control account creation fraud prevention (ACFP) managed rule
-group. Note the additional `CreationPath` and
-`RegistrationPagePath` configurations, along with the payload type
-and the information needed to locate new account information in the payload, in
-order to verify it. The rule group uses this information to monitor and manage your
-account creation requests. This JSON includes the protection pack (web ACL)'s automatically generated
-settings, like the label namespace and the protection pack (web ACL)'s application integration
-URL.
+The following JSON listing shows an example protection pack (web ACL) with an AWS WAF Fraud Control account creation fraud prevention (ACFP) managed rule group. Note the additional `CreationPath` and `RegistrationPagePath` configurations, along with the payload type and the information needed to locate new account information in the payload, in order to verify it. The rule group uses this information to monitor and manage your account creation requests. This JSON includes the protection pack (web ACL)'s automatically generated settings, like the label namespace and the protection pack (web ACL)'s application integration URL.
 
 ```
 {

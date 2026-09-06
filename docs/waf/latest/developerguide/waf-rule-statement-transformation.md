@@ -1,303 +1,148 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Using text transformations in AWS WAF
+<a name="waf-rule-statement-transformation"></a>
 
 This section explains how to provide transformations for AWS WAF to apply before inspecting the request.
 
-In statements that look for patterns or set constraints, you can provide
-transformations for AWS WAF to apply before inspecting the request. A
-transformation reformats a web request to eliminate some of the unusual
-formatting that attackers use in an effort to bypass AWS WAF.
+In statements that look for patterns or set constraints, you can provide transformations for AWS WAF to apply before inspecting the request. A transformation reformats a web request to eliminate some of the unusual formatting that attackers use in an effort to bypass AWS WAF. 
 
-When you use this with the JSON body request component selection, AWS WAF
-applies your transformations after parsing and extracting the elements to
-inspect from the JSON. For more information, see [JSON body](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-json-body "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-json-body").
+When you use this with the JSON body request component selection, AWS WAF applies your transformations after parsing and extracting the elements to inspect from the JSON. For more information, see [JSON body](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-json-body).
 
-If you provide more than one transformation, you also set the order for AWS WAF
-to apply them.
+If you provide more than one transformation, you also set the order for AWS WAF to apply them. 
 
-**WCUs** – Each text transformation is 10
-WCUs.
+**WCUs** – Each text transformation is 10 WCUs.
 
-The AWS WAF console and API documentation also provide guidance for these
-settings in the following locations:
-
-- **Rule builder** on the console –
-  **Text transformation**. This option is available
-  when you use request components.
-- **API statement contents** –
-  `TextTransformations`
-
-###### Options for text transformations
+The AWS WAF console and API documentation also provide guidance for these settings in the following locations: 
++ **Rule builder** on the console – **Text transformation**. This option is available when you use request components. 
++ **API statement contents** – `TextTransformations`Options for text transformations
 
 Each transformation listing shows the console and API specifications followed by the description.
 
-Base64 decode – `BASE64_DECODE`
-
+Base64 decode – `BASE64_DECODE`  
 AWS WAF decodes a Base64-encoded string.
 
-Base64 decode extension – `BASE64_DECODE_EXT`
+Base64 decode extension – `BASE64_DECODE_EXT`  
+AWS WAF decodes a Base64-encoded string, but uses a forgiving implementation that ignores characters that aren't valid. 
 
-AWS WAF decodes a Base64-encoded string, but uses a forgiving
-implementation that ignores characters that aren't valid.
+Command line – `CMD_LINE`  
+This option mitigates situations where attackers might be injecting an operating system command-line command and are using unusual formatting to disguise some or all of the command.   
+Use this option to perform the following transformations:  
++ Delete the following characters: `\ " ' ^`
++ Delete spaces before the following characters: `/ (`
++ Replace the following characters with a space: `, ;`
++ Replace multiple spaces with one space
++ Convert uppercase letters, `A-Z`, to lowercase, `a-z`
 
-Command line – `CMD_LINE`
+Command line Unix – `CMD_LINE_UNIX`  
+This option mitigates situations where attackers might be injecting a Unix or Linux operating system command-line command and are using unusual formatting to disguise some or all of the command.   
+Use this option to perform the following transformations:  
++ Delete the following characters: `\ " '`
++ Replace the following characters with a space: tab `\t` (ASCII 9), newline `\n` (ASCII 10), carriage return `\r` (ASCII 13), vertical tab `\v` (ASCII 11), and formfeed `\f` (ASCII 12)
++ Replace multiple spaces with one space
++ Remove leading and trailing spaces
++ Convert uppercase letters, `A-Z`, to lowercase, `a-z`
 
-This option mitigates situations where attackers might be
-injecting an operating system command-line command and are using
-unusual formatting to disguise some or all of the command.
+Command line Windows – `CMD_LINE_WIN`  
+This option mitigates situations where attackers might be injecting a Windows operating system command-line or PowerShell command and are using unusual formatting to disguise some or all of the command.   
+Use this option to perform the following transformations:  
++ Delete the following characters: `" ' ^ ``
++ Delete caret line-continuation sequences, a caret followed by a newline `\n` or by a carriage return and newline `\r\n`, as a single unit
++ Replace the following characters with a space: tab `\t` (ASCII 9), newline `\n` (ASCII 10), carriage return `\r` (ASCII 13), vertical tab `\v` (ASCII 11), and formfeed `\f` (ASCII 12)
++ Replace multiple spaces with one space
++ Remove leading and trailing spaces
++ Convert uppercase letters, `A-Z`, to lowercase, `a-z`
++ Replace consecutive backslashes with a single backslash. Single backslashes are preserved, so Windows paths such as `c:\windows\system32\cmd.exe` and UNC paths remain intact.
 
-Use this option to perform the following transformations:
+Compress whitespace – `COMPRESS_WHITE_SPACE`  
+AWS WAF compresses white space by replacing multiple spaces with one space and replacing the following characters with a space character (ASCII 32):  
++ Formfeed (ASCII 12)
++ Tab (ASCII 9)
++ Newline (ASCII 10)
++ Carriage return (ASCII 13)
++ Vertical tab (ASCII 11)
++ Non-breaking space (ASCII 160)
 
-- Delete the following characters: `\ " '
- ^`
-- Delete spaces before the following characters: `/
- (`
-- Replace the following characters with a space: `,
- ;`
-- Replace multiple spaces with one space
-- Convert uppercase letters, `A-Z`, to lowercase,
-  `a-z`
+CSS decode – `CSS_DECODE`  
+AWS WAF decodes characters that were encoded using CSS 2.x escape rules `syndata.html#characters`. This function uses up to two bytes in the decoding process, so it can help to uncover ASCII characters that were encoded using CSS encoding that wouldn’t typically be encoded. It's also useful in countering evasion, which is a combination of a backslash and non-hexadecimal characters. For example, `ja\vascript` for `javascript`.
 
-Command line Unix – `CMD_LINE_UNIX`
+Escape sequences decode – `ESCAPE_SEQ_DECODE`  
+AWS WAF decodes the following ANSI C escape sequences: `\a`, `\b`, `\f`, `\n`, `\r`, `\t`, `\v`, `\\`, `\?`, `\'`, `\"`, `\xHH` (hexadecimal), `\0OOO` (octal). Encodings that aren't valid remain in the output.
 
-This option mitigates situations where attackers might be
-injecting a Unix or Linux operating system command-line command and are using
-unusual formatting to disguise some or all of the command.
+Hex decode – `HEX_DECODE`  
+AWS WAF decodes a string of hexadecimal characters into a binary.
 
-Use this option to perform the following transformations:
+HTML entity decode – `HTML_ENTITY_DECODE`  
+AWS WAF replaces characters that are represented in hexadecimal format `&#xhhhh;` or decimal format `&#nnnn;` with the corresponding characters.  
+AWS WAF replaces the following HTML-encoded characters with unencoded characters. This list uses lowercase HTML encoding, but the handling is case insensitive, for example `&QuOt;` and `&quot;` are treated the same.       
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html)
 
-- Delete the following characters: `\ " '`
-- Replace the following characters with a space: tab `\t` (ASCII 9),
-  newline `\n` (ASCII 10), carriage return `\r` (ASCII 13),
-  vertical tab `\v` (ASCII 11), and formfeed `\f` (ASCII 12)
-- Replace multiple spaces with one space
-- Remove leading and trailing spaces
-- Convert uppercase letters, `A-Z`, to lowercase,
-  `a-z`
+JS decode – `JS_DECODE`  
+AWS WAF decodes JavaScript escape sequences. If a `\uHHHH` code is in the full-width ASCII code range of `FF01-FF5E`, then the higher byte is used to detect and adjust the lower byte. If not, only the lower byte is used and the higher byte is zeroed, causing a possible loss of information.
 
-Command line Windows – `CMD_LINE_WIN`
+JS decode extended – `JS_DECODE_EXT`  
+AWS WAF decodes JavaScript escape sequences like `JS_DECODE`, but uses a forgiving implementation so that Microsoft Windows file paths aren't altered. `JS_DECODE_EXT` differs from `JS_DECODE` as follows:  
++ Decode the escapes `\\`, `\/`, `\'`, and `\"` by removing the backslash and keeping the subsequent character.
++ Preserve the single-character escapes `\a`, `\b`, `\f`, `\n`, `\r`, `\t`, and `\v` by keeping both the backslash and the subsequent character.
++ Preserve any other unrecognized `\C` escape sequence (for example `\d` or `\w`) by keeping both the backslash and the subsequent character, so that Windows file paths such as `\default` and `\windows` aren't altered.
 
-This option mitigates situations where attackers might be
-injecting a Windows operating system command-line or PowerShell command and are using
-unusual formatting to disguise some or all of the command.
-
-Use this option to perform the following transformations:
-
-- Delete the following characters: `" ' ^ ``
-- Delete caret line-continuation sequences, a caret followed by a newline `\n`
-  or by a carriage return and newline `\r\n`, as a single unit
-- Replace the following characters with a space: tab `\t` (ASCII 9),
-  newline `\n` (ASCII 10), carriage return `\r` (ASCII 13),
-  vertical tab `\v` (ASCII 11), and formfeed `\f` (ASCII 12)
-- Replace multiple spaces with one space
-- Remove leading and trailing spaces
-- Convert uppercase letters, `A-Z`, to lowercase,
-  `a-z`
-- Replace consecutive backslashes with a single backslash. Single backslashes are preserved,
-  so Windows paths such as `c:\windows\system32\cmd.exe` and UNC paths remain intact.
-
-Compress whitespace – `COMPRESS_WHITE_SPACE`
-
-AWS WAF compresses white space by replacing multiple spaces with one space and replacing the
-following characters with a space character (ASCII 32):
-
-- Formfeed (ASCII 12)
-- Tab (ASCII 9)
-- Newline (ASCII 10)
-- Carriage return (ASCII 13)
-- Vertical tab (ASCII 11)
-- Non-breaking space (ASCII 160)
-
-CSS decode – `CSS_DECODE`
-
-AWS WAF decodes characters that were encoded using CSS 2.x escape rules
-`syndata.html#characters`. This function uses up to
-two bytes in the decoding process, so it can help to uncover ASCII
-characters that were encoded using CSS encoding that wouldn’t
-typically be encoded. It's also useful in countering evasion, which
-is a combination of a backslash and non-hexadecimal characters. For
-example, `ja\vascript` for
-`javascript`.
-
-Escape sequences decode – `ESCAPE_SEQ_DECODE`
-
-AWS WAF decodes the following ANSI C escape sequences: `\a`, `\b`,
-`\f`, `\n`, `\r`, `\t`, `\v`, `\\`, `\?`, `\'`, `\"`, `\xHH` (hexadecimal), `\0OOO`
-(octal). Encodings that aren't valid remain in the
-output.
-
-Hex decode – `HEX_DECODE`
-
-AWS WAF decodes a string of hexadecimal characters into a
-binary.
-
-HTML entity decode – `HTML_ENTITY_DECODE`
-
-AWS WAF replaces characters that are represented in hexadecimal format
-`&#xhhhh;` or decimal format `&#nnnn;` with the corresponding characters.
-
-AWS WAF replaces the following HTML-encoded characters with unencoded characters. This list uses lowercase HTML encoding, but the handling is case insensitive, for example `&QuOt;` and `&quot;` are treated the same.
-
-| HTML-encoded character                          | replaced with...                |
-| ----------------------------------------------- | ------------------------------- |
-| `&quot;`                                        | `"`                             |
-| `&amp;`                                         | `&`                             |
-| `&lt;`                                          | `<`                             |
-| `&gt;`                                          | `>`                             |
-| `&nbsp;` or `&NonBreakingSpace;`                | non-breaking space, decimal 160 |
-| `&NewLine;`                                     | `\n`, decimal 10                |
-| `&Tab;`                                         | `\t`, decimal 9                 |
-| `&lcub;` or<br>`&lbrace;`                       | `{`                             |
-| `&verbar;`,<br>`&vert;`, or<br>`&VerticalLine;` | `                               | `   |
-| `&rcub;` or<br>`&rbrace;`                       | `}`                             |
-| `&excl;`                                        | `!`                             |
-| `&num;`                                         | `#`                             |
-| `&dollar;`                                      | `$`                             |
-| `&percent;` or<br>`&percnt;`                    | `%`                             |
-| `&apos;`                                        | `\`                             |
-| `&lpar;`                                        | `(`                             |
-| `&rpar;`                                        | `)`                             |
-| `&ast;` or<br>`&midast;`                        | `*`                             |
-| `&plus;`                                        | `+`                             |
-| `&comma;`                                       | `,`                             |
-| `&period;`                                      | `.`                             |
-| `&sol;`                                         | `/`                             |
-| `&colon;`                                       | `:`                             |
-| `&semi;`                                        | `;`                             |
-| `&equals;`                                      | `=`                             |
-| `&quest;`                                       | `?`                             |
-| `&tilde;` or<br>`&DiacriticalTilde;`            | `~`                             |
-| `&minus;`                                       | `-`                             |
-| `&lsqb;` or<br>`&lbrack;`                       | `[`                             |
-| `&bsol;`                                        | `\\`                            |
-| `&rsqb;` or<br>`&rbrack;`                       | `]`                             |
-| `&hat;`                                         | `^`                             |
-| `&lowbar;` or<br>`&underbar;`                   | `_`                             |
-| `&grave;` or<br>`&DiacriticalGrave;`            | ```                             |
-|                                                 |                                 |
-
-JS decode – `JS_DECODE`
-
-AWS WAF decodes JavaScript escape sequences. If a
-`\uHHHH` code is in the full-width ASCII code range
-of `FF01-FF5E`, then the higher byte is used to detect
-and adjust the lower byte. If not, only the lower byte is used and
-the higher byte is zeroed, causing a possible loss of
-information.
-
-JS decode extended – `JS_DECODE_EXT`
-
-AWS WAF decodes JavaScript escape sequences like `JS_DECODE`, but uses a forgiving
-implementation so that Microsoft Windows file paths aren't altered.
-`JS_DECODE_EXT` differs from `JS_DECODE` as follows:
-
-- Decode the escapes `\\`, `\/`, `\'`, and
-  `\"` by removing the backslash and keeping the subsequent character.
-- Preserve the single-character escapes `\a`, `\b`,
-  `\f`, `\n`, `\r`, `\t`, and
-  `\v` by keeping both the backslash and the subsequent character.
-- Preserve any other unrecognized `\C` escape sequence (for example
-  `\d` or `\w`) by keeping both the backslash and the subsequent
-  character, so that Windows file paths such as `\default` and
-  `\windows` aren't altered.
-
-Lowercase – `LOWERCASE`
-
+Lowercase – `LOWERCASE`  
 AWS WAF converts uppercase letters (A-Z) to lowercase (a-z).
 
-MD5 – `MD5`
+MD5 – `MD5`  
+AWS WAF calculates an MD5 hash from the data in the input. The computed hash is in a raw binary form.
 
-AWS WAF calculates an MD5 hash from the data in the input. The
-computed hash is in a raw binary form.
+None – `NONE`  
+AWS WAF inspects the web request as received, without any text transformations. 
 
-None – `NONE`
+Normalize path – `NORMALIZE_PATH`  
+AWS WAF normalizes the input string by removing multiple slashes, directory self-references, and directory back-references that are not at the beginning of the input.
 
-AWS WAF inspects the web request as received, without any text
-transformations.
+Normalize path Windows – `NORMALIZE_PATH_WIN`  
+AWS WAF converts backslash characters to forward slashes and then processes the resulting string using the `NORMALIZE_PATH` transformation.
 
-Normalize path – `NORMALIZE_PATH`
+Remove comments characters – `REMOVE_COMMENTS_CHAR`  
+AWS WAF removes common comment characters from the input: /\*, \*/, --, and \#.
 
-AWS WAF normalizes the input string by removing multiple slashes, directory self-references, and
-directory back-references that are not at the beginning of the input.
+Remove nulls – `REMOVE_NULLS`  
+AWS WAF removes all `NULL` bytes from the input. 
 
-Normalize path Windows – `NORMALIZE_PATH_WIN`
+Remove whitespace – `REMOVE_WHITESPACE`  
+AWS WAF removes all whitespace characters from the input.
 
-AWS WAF converts backslash characters to forward slashes and then processes the resulting
-string using the `NORMALIZE_PATH` transformation.
+Replace comments – `REPLACE_COMMENTS`  
+AWS WAF replaces each occurrence of a C-style comment (/\* ... \*/) with a single space. It doesn't compress multiple consecutive occurrences. It replaces unterminated comments with a space (ASCII 0x20). It doesn't change a standalone termination of a comment (\*/).
 
-Remove comments characters – `REMOVE_COMMENTS_CHAR`
+Replace nulls – `REPLACE_NULLS`  
+AWS WAF replaces each `NULL` byte in the input with the space character (ASCII 0x20).
 
-AWS WAF removes common comment characters from the input: /\*,
-\*/, --, and #.
+SHA256 – `SHA256`  
+AWS WAF calculates a SHA-256 hash from the data in the input. The computed hash is in a raw binary form.
 
-Remove nulls – `REMOVE_NULLS`
+SQL hex decode – `SQL_HEX_DECODE`  
+AWS WAF decodes SQL hex data. For example, AWS WAF decodes (`0x414243`) to (`ABC`).
 
-AWS WAF removes all `NULL` bytes from the input.
+Trim – `TRIM`  
+AWS WAF removes whitespace from both the left and right sides of the input.
 
-Remove whitespace – `REMOVE_WHITESPACE`
+Trim left – `TRIM_LEFT`  
+AWS WAF removes whitespace from the left side of the input.
 
-AWS WAF removes all whitespace characters from the
-input.
+Trim right – `TRIM_RIGHT`  
+AWS WAF removes whitespace from the right side of the input.
 
-Replace comments – `REPLACE_COMMENTS`
+Uppercase – `UPPERCASE`  
+AWS WAF converts all lowercase letters (a-z) to uppercase (A-Z).
 
-AWS WAF replaces each occurrence of a C-style comment (/\* ... \*/)
-with a single space. It doesn't compress multiple consecutive occurrences.
-It replaces unterminated comments with a space (ASCII 0x20). It doesn't change a standalone termination of a comment (\*/).
-
-Replace nulls – `REPLACE_NULLS`
-
-AWS WAF replaces each `NULL` byte in the input with the space
-character (ASCII 0x20).
-
-SHA256 – `SHA256`
-
-AWS WAF calculates a SHA-256 hash from the data in the input.
-The computed hash is in a raw binary form.
-
-SQL hex decode – `SQL_HEX_DECODE`
-
-AWS WAF decodes SQL hex data. For example, AWS WAF decodes (`0x414243`)
-to (`ABC`).
-
-Trim – `TRIM`
-
-AWS WAF removes whitespace from both the left and right sides of
-the input.
-
-Trim left – `TRIM_LEFT`
-
-AWS WAF removes whitespace from the left side of the
-input.
-
-Trim right – `TRIM_RIGHT`
-
-AWS WAF removes whitespace from the right side of the
-input.
-
-Uppercase – `UPPERCASE`
-
-AWS WAF converts all lowercase letters (a-z) to uppercase
-(A-Z).
-
-URL decode – `URL_DECODE`
-
+URL decode – `URL_DECODE`  
 AWS WAF decodes a URL-encoded value.
 
-URL decode Unicode – `URL_DECODE_UNI`
+URL decode Unicode – `URL_DECODE_UNI`  
+Like `URL_DECODE`, but with support for Microsoft-specific `%u` encoding. If the code is in the full-width ASCII code range of `FF01-FF5E`, the higher byte is used to detect and adjust the lower byte. Otherwise, only the lower byte is used and the higher byte is zeroed.
 
-Like `URL_DECODE`, but with support for
-Microsoft-specific `%u` encoding. If the code is in the
-full-width ASCII code range of `FF01-FF5E`, the higher
-byte is used to detect and adjust the lower byte. Otherwise, only
-the lower byte is used and the higher byte is zeroed.
-
-UTF8 to Unicode – `UTF8_TO_UNICODE`
-
-AWS WAF converts all UTF-8 character sequences to Unicode. This
-helps normalize input and it minimizes false-positives and
-false-negatives for non-English languages.
+UTF8 to Unicode – `UTF8_TO_UNICODE`  
+AWS WAF converts all UTF-8 character sequences to Unicode. This helps normalize input and it minimizes false-positives and false-negatives for non-English languages.

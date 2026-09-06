@@ -1,13 +1,15 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Log examples for protection pack (web ACL) traffic
+<a name="logging-examples"></a>
 
 This section provides examples for logging protection pack (web ACL) traffic.
 
-###### Example Rate-based rule 1: Rule configuration with one key, set to `Header:dogname`
+**Example Rate-based rule 1: Rule configuration with one key, set to `Header:dogname`**  
 
 ```
     {
@@ -43,7 +45,7 @@ This section provides examples for logging protection pack (web ACL) traffic.
     }
 ```
 
-###### Example Rate-based rule 1: Log entry for request blocked by rate-based rule
+**Example Rate-based rule 1: Log entry for request blocked by rate-based rule**  
 
 ```
 {
@@ -54,12 +56,12 @@ This section provides examples for logging protection pack (web ACL) traffic.
    "terminatingRuleType":"RATE_BASED",
    "action":"BLOCK",
    "terminatingRuleMatchDetails":[
-
+      
    ],
    "httpSourceName":"APIGW",
    "httpSourceId":"EXAMPLE11:rjvegx5guh:CanaryTest",
    "ruleGroupList":[
-
+      
    ],
    "rateBasedRuleList":[
       {
@@ -78,7 +80,7 @@ This section provides examples for logging protection pack (web ACL) traffic.
       }
    ],
    "nonTerminatingMatchingRules":[
-
+      
    ],
    "requestHeadersInserted":null,
    "responseCodeSent":null,
@@ -128,7 +130,7 @@ This section provides examples for logging protection pack (web ACL) traffic.
 }
 ```
 
-###### Example Rate-based rule 2: Rule configuration with two keys, set to `Header:dogname` and `Header:catname`
+**Example Rate-based rule 2: Rule configuration with two keys, set to `Header:dogname` and `Header:catname`**  
 
 ```
     {
@@ -175,7 +177,7 @@ This section provides examples for logging protection pack (web ACL) traffic.
     }
 ```
 
-###### Example Rate-based rule 2: Log entry for request blocked by rate-based rule
+**Example Rate-based rule 2: Log entry for request blocked by rate-based rule**  
 
 ```
 {
@@ -186,12 +188,12 @@ This section provides examples for logging protection pack (web ACL) traffic.
    "terminatingRuleType":"RATE_BASED",
    "action":"BLOCK",
    "terminatingRuleMatchDetails":[
-
+      
    ],
    "httpSourceName":"APIGW",
    "httpSourceId":"EXAMPLE11:rjvegx5guh:CanaryTest",
    "ruleGroupList":[
-
+      
    ],
    "rateBasedRuleList":[
       {
@@ -215,7 +217,7 @@ This section provides examples for logging protection pack (web ACL) traffic.
       }
    ],
    "nonTerminatingMatchingRules":[
-
+      
    ],
    "requestHeadersInserted":null,
    "responseCodeSent":null,
@@ -267,10 +269,9 @@ This section provides examples for logging protection pack (web ACL) traffic.
       "requestId":"EdzmlH5OCGYF1vQ="
    }
 }
-
 ```
 
-###### Example Log output for a rule that triggered on SQLi detection (terminating)
+**Example Log output for a rule that triggered on SQLi detection (terminating)**  
 
 ```
 {
@@ -332,7 +333,7 @@ This section provides examples for logging protection pack (web ACL) traffic.
 }
 ```
 
-###### Example Log output for a rule that triggered on SQLi detection (non-terminating)
+**Example Log output for a rule that triggered on SQLi detection (non-terminating)**  
 
 ```
 {
@@ -384,7 +385,7 @@ This section provides examples for logging protection pack (web ACL) traffic.
 }
 ```
 
-###### Example Log output for multiple rules that triggered inside a rule group (RuleA-XSS is terminating and Rule-B is non-terminating)
+**Example Log output for multiple rules that triggered inside a rule group (RuleA-XSS is terminating and Rule-B is non-terminating)**  
 
 ```
 {
@@ -454,10 +455,8 @@ This section provides examples for logging protection pack (web ACL) traffic.
 }
 ```
 
-###### Example Log output for a rule that triggered for the inspection of the request body with content type JSON
-
-AWS WAF currently reports the location for JSON body inspection as
-`UNKNOWN`.
+**Example Log output for a rule that triggered for the inspection of the request body with content type JSON**  
+AWS WAF currently reports the location for JSON body inspection as `UNKNOWN`.  
 
 ```
 {
@@ -504,13 +503,8 @@ AWS WAF currently reports the location for JSON body inspection as
 }
 ```
 
-###### Example Log output for a CAPTCHA rule against a web request with a valid, unexpired CAPTCHA token
-
-The following log listing is for a web request that matched a rule with
-CAPTCHA action. The web request has a valid and unexpired
-CAPTCHA token, and is only noted as a CAPTCHA
-match by AWS WAF, similar to the behavior for the Count action. This CAPTCHA
-match is noted under `nonTerminatingMatchingRules`.
+**Example Log output for a CAPTCHA rule against a web request with a valid, unexpired CAPTCHA token**  
+The following log listing is for a web request that matched a rule with CAPTCHA action. The web request has a valid and unexpired CAPTCHA token, and is only noted as a CAPTCHA match by AWS WAF, similar to the behavior for the Count action. This CAPTCHA match is noted under `nonTerminatingMatchingRules`.  
 
 ```
 {
@@ -637,11 +631,8 @@ match is noted under `nonTerminatingMatchingRules`.
 }
 ```
 
-###### Example Log output for a CAPTCHA rule against a web request that doesn't have a CAPTCHA token
-
-The following log listing is for a web request that matched a rule with
-CAPTCHA action. The web request didn't have a
-CAPTCHA token, and was blocked by AWS WAF.
+**Example Log output for a CAPTCHA rule against a web request that doesn't have a CAPTCHA token**  
+The following log listing is for a web request that matched a rule with CAPTCHA action. The web request didn't have a CAPTCHA token, and was blocked by AWS WAF.  
 
 ```
 {

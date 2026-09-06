@@ -1,44 +1,39 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS Shield Advanced information in CloudTrail
+<a name="shield-info-in-cloudtrail"></a>
 
 AWS Shield Advanced supports logging the following actions as events in CloudTrail log files:
++ [ListAttacks](https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_ListAttacks.html)
++ [DescribeAttack](https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_DescribeAttack.html)
++ [CreateProtection](https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateProtection.html)
++ [DescribeProtection](https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_DescribeProtection.html)
++ [DeleteProtection](https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_DeleteProtection.html)
++ [ListProtections](https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_ListProtections.html)
++ [CreateSubscription](https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html)
++ [DescribeSubscription](https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_DescribeSubscription.html)
++ [GetSubscriptionState](https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_GetSubscriptionState.html)
 
-- [ListAttacks](../DDOSAPIReference/API_ListAttacks.md "../DDOSAPIReference/API_ListAttacks.md")
-- [DescribeAttack](../DDOSAPIReference/API_DescribeAttack.md "../DDOSAPIReference/API_DescribeAttack.md")
-- [CreateProtection](../DDOSAPIReference/API_CreateProtection.md "../DDOSAPIReference/API_CreateProtection.md")
-- [DescribeProtection](../DDOSAPIReference/API_DescribeProtection.md "../DDOSAPIReference/API_DescribeProtection.md")
-- [DeleteProtection](../DDOSAPIReference/API_DeleteProtection.md "../DDOSAPIReference/API_DeleteProtection.md")
-- [ListProtections](../DDOSAPIReference/API_ListProtections.md "../DDOSAPIReference/API_ListProtections.md")
-- [CreateSubscription](../DDOSAPIReference/API_CreateSubscription.md "../DDOSAPIReference/API_CreateSubscription.md")
-- [DescribeSubscription](../DDOSAPIReference/API_DescribeSubscription.md "../DDOSAPIReference/API_DescribeSubscription.md")
-- [GetSubscriptionState](../DDOSAPIReference/API_GetSubscriptionState.md "../DDOSAPIReference/API_GetSubscriptionState.md")
-  Every event or log entry contains information about who generated the request. The
-  identity information helps you determine the following:
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root user credentials 
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-- Whether the request was made with root user credentials
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-  For more information, see the [CloudTrail userIdentity
-  Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Example: Shield Advanced log file entries
+<a name="understanding-service-name-entries-shield"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files are not an ordered stack trace of
-the public API calls, so they do not appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files are not an ordered stack trace of the public API calls, so they do not appear in any specific order.
 
 The following example shows a CloudTrail log entry that demonstrates the `DeleteProtection` and `ListProtections` actions.
 
 ```
-
-
+ 
  [
   {
     "eventVersion": "1.05",

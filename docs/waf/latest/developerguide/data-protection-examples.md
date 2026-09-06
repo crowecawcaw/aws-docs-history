@@ -1,13 +1,16 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Examples of data protection
+<a name="data-protection-examples"></a>
 
 This section provides log examples of data protection logging of protection pack (web ACL) traffic.
 
 ## DataProtection hashing
+<a name="dataprotection-hashing"></a>
 
 Webacl config
 
@@ -97,6 +100,7 @@ Example DataProtection hashing: Log entry with the SingleQuery argument "hoppy" 
 ```
 
 ## DataProtection substitution
+<a name="dataprotection-substitution"></a>
 
 Webacl Config
 
@@ -176,6 +180,7 @@ Example DataProtection substitution: Log entry with Single Query Argument "hoppy
 ```
 
 ## Retaining data in RuleMatchDetails
+<a name="rulematchdetails-retain-data"></a>
 
 Webacl config
 
@@ -271,6 +276,7 @@ Example of retaining data in RuleMatchDetails: Log entry with single `Header` "h
 ```
 
 ## Retaining data in rateBasedRule
+<a name="ratebasedrule-retain-data"></a>
 
 ```
  "data_protection_config": {
@@ -357,6 +363,7 @@ Example Retaining data in rateBasedRuleList: Log entry with the Single `Header` 
 ```
 
 ## Data protection for Body
+<a name="dataprotection-body"></a>
 
 AWS WAF only log subsets of Body in `RuleMatchDetails`.
 
@@ -447,6 +454,7 @@ Example DataProtection for Body: Log entry with Body Subsituted in `ruleMatchDet
 ```
 
 ## Data protection for `SINGLE_COOKIE`
+<a name="single-cookie-data-protection"></a>
 
 Webacl config
 
@@ -472,8 +480,7 @@ Example DataProtection for `SINGLE_COOKIE`: Log entry with a `SINGLE_COOKIE` nam
 
 The full Log shows the Cookie named MILO is protected in `ruleMatchDetails` and the cookie header. Only cookie values are protected and key names are excluded.
 
-###### Note
-
+**Note**  
 All protected fields (single header, cookie, query arg) are not case sensitive. So, for this example, "MILO" matches "milo".
 
 ```
@@ -545,6 +552,7 @@ All protected fields (single header, cookie, query arg) are not case sensitive. 
 ```
 
 ## Data protection for all cookies
+<a name="all-cookies-data-protection"></a>
 
 You can configure data protection for cookies by using `SINGLE_HEADER`. Only cookie values are protected and key names are excluded.
 
@@ -564,10 +572,9 @@ You can configure data protection for cookies by using `SINGLE_HEADER`. Only coo
 }
 ```
 
-Example DataProtection for the `header` "COOKIE": Log entry with the cookie header protected.
+Example DataProtection for the `header ` "COOKIE": Log entry with the cookie header protected.
 
-###### Note
-
+**Note**  
 The cookie name `AWS-WAF-TOKEN` is out of scope for data protection.
 
 ```
@@ -629,6 +636,7 @@ The cookie name `AWS-WAF-TOKEN` is out of scope for data protection.
 ```
 
 ## Data protection for single query arguments
+<a name="single-query-argument"></a>
 
 You can configure data protection for a query string by using `SINGLE_QUERY_ARGUMENT`. This affects the keys and values of all query args. For the following examples, the original query string was `baloo=10 AND 1=1&hoppy=10 AND 1=1&x-hoppy-extra=generic-%3Cwords`.
 
@@ -744,6 +752,7 @@ Example DataProtection for `SINGLE_QUERY_ARGUEMENT`: Log entry with "hoppy" quer
 ```
 
 ## Data protection for query strings
+<a name="data-protection-query-string"></a>
 
 You can configure data protection for a query string by using `QUERY_STRING`. This affects the keys and values of all query args. For the following examples, the original query string was `baloo=10 AND 1=1&hoppy-query=10 AND 1=1&x-hoppy-extra=generic-%3Cwords`.
 
@@ -846,6 +855,7 @@ Example DataProtection for `QUERY_STRING`: Log entry with query string protected
 ```
 
 ## Data protection for multiple query arguments
+<a name="data-protection-multiple-query-arguments"></a>
 
 You can configure data protection for individual query args by using `SINGLE_QUERY_ARGUMENT`. When reporting local information we use local protections. However, strings that matched in query string and cookie header have many protection configs that could apply. To simplify, the strictest protection for `RuleMatchDetails` is applied, even if it doesn't overlap with the specific data range that matched.
 
@@ -969,6 +979,5 @@ Example DataProtection for multiple query arguments.
 }
 ```
 
-###### Note
-
+**Note**  
 You cannot specify both **QueryString Masking** and **Single Query Arg Masking** in the same webACL.

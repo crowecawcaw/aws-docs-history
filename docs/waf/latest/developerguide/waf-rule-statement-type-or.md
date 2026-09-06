@@ -1,48 +1,32 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # OR rule statement
+<a name="waf-rule-statement-type-or"></a>
 
-The OR rule statement combines nested statements with
-OR logic, so one of the nested statements must match for the
-OR statement to match. This requires at least
-two nested statements.
+The OR rule statement combines nested statements with OR logic, so one of the nested statements must match for the OR statement to match. This requires at least two nested statements. 
 
-For example, if you want to block requests that come from a specific country
-or that contain a specific query string, you could create an OR
-statement and nest in it a geo match statement for the country and a
-string match statement for the query string.
+For example, if you want to block requests that come from a specific country or that contain a specific query string, you could create an OR statement and nest in it a geo match statement for the country and a string match statement for the query string. 
 
-If instead you want to block requests that _don't_ come from a specific country or that contain a specific
-query string, you would modify the previous OR statement to nest
-the geo match statement one level lower, inside a NOT
-statement. This level of nesting requires you to use the JSON formatting,
-because the console supports only one level of nesting.
+If instead you want to block requests that *don't* come from a specific country or that contain a specific query string, you would modify the previous OR statement to nest the geo match statement one level lower, inside a NOT statement. This level of nesting requires you to use the JSON formatting, because the console supports only one level of nesting.
 
 ## Rule statement characteristics
+<a name="or-rule-statement-characteristics"></a>
 
-**Nestable** – You can nest this statement
-type.
+**Nestable** – You can nest this statement type. 
 
-**WCUs** – Depends on the nested
-statements.
+**WCUs** – Depends on the nested statements.
 
 ## Where to find this rule statement
+<a name="or-rule-statement-where-to-find"></a>
++ **Rule builder** on the console – For **If a request**, choose **matches at least one of the statements (OR)**, and then fill in the nested statements. 
++ **API** – [OrStatement](https://docs.aws.amazon.com/waf/latest/APIReference/API_OrStatement.html)
 
-- **Rule builder** on the console –
-  For **If a request**, choose **matches at least
-  one of the statements (OR)**, and then fill in the nested
-  statements.
-- **API** –
-  [OrStatement](../APIReference/API_OrStatement.md "../APIReference/API_OrStatement.md")
-
-###### Examples
-
-The following listing shows the use of OR to combine two
-other statements. The OR statement is a match if either of
-the nested statements match.
+**Examples**  
+The following listing shows the use of OR to combine two other statements. The OR statement is a match if either of the nested statements match. 
 
 ```
 {
@@ -77,8 +61,7 @@ the nested statements match.
 }
 ```
 
-Using the console rule visual editor, you can nest most nestable statements under a logical rule statement, but you can't use the visual editor to nest OR or AND statements. To configure this type of nesting,
-you need to provide your rule statement in JSON. For example, the following JSON rule listing includes an OR statement nested inside an AND statement.
+Using the console rule visual editor, you can nest most nestable statements under a logical rule statement, but you can't use the visual editor to nest OR or AND statements. To configure this type of nesting, you need to provide your rule statement in JSON. For example, the following JSON rule listing includes an OR statement nested inside an AND statement. 
 
 ```
 {

@@ -1,29 +1,36 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Troubleshooting AWS Shield network security director
+<a name="troubleshooting"></a>
 
 ## Unsupported Cross-Account Shared Resources
+<a name="unsupported-shared-resources"></a>
 
 AWS Shield network security director does not support certain cross-account shared resources. When attempting to scan these resources, you'll receive error messages indicating the resources cannot be analyzed.
 
-Unsupported Shared Resources and Error Messages| Resource Type | Error Message |
-| --- | --- |
-| Network Firewall FirewallPolicy | network-firewall:DescribeFirewallPolicy not supported on shared resources |
-| Network Firewall Stateful rule group | network-firewall:DescribeRuleGroup not supported on shared resources |
-| Network Firewall Stateless rule group | network-firewall:DescribeRuleGroup not supported on shared resources |
-| EC2 PrefixList | ec2:GetManagedPrefixListEntries not supported on shared resources |
+
+**Unsupported Shared Resources and Error Messages**  
+
+| Resource Type | Error Message | 
+| --- | --- | 
+| Network Firewall FirewallPolicy | network-firewall:DescribeFirewallPolicy not supported on shared resources | 
+| Network Firewall Stateful rule group | network-firewall:DescribeRuleGroup not supported on shared resources | 
+| Network Firewall Stateless rule group | network-firewall:DescribeRuleGroup not supported on shared resources | 
+| EC2 PrefixList | ec2:GetManagedPrefixListEntries not supported on shared resources | 
 
 ## Availability of Resources, Findings, and Suppression
+<a name="finding-availability"></a>
 
 If an account leaves an organization or network security director is disabled for an account, the following occurs:
-
-- **Findings and Resources:** Findings from the account will be removed once the service is disabled for the account. This process typically takes a few minutes but could be longer.
-- **Suppressions:** Suppressions are deleted within 90 days of disabling the service for an account. If the service is re-enabled for an account within this 90-day period, existing suppressions might still be available, but availability is not guaranteed. Suppressions must be removed before disabling the service for an account to avoid this uncertainty.
++ **Findings and Resources:** Findings from the account will be removed once the service is disabled for the account. This process typically takes a few minutes but could be longer.
++ **Suppressions:** Suppressions are deleted within 90 days of disabling the service for an account. If the service is re-enabled for an account within this 90-day period, existing suppressions might still be available, but availability is not guaranteed. Suppressions must be removed before disabling the service for an account to avoid this uncertainty.
 
 ## Performance Considerations
+<a name="performance-considerations"></a>
 
 AWS Shield network security director is designed to provide daily data refreshes for your organization's network analysis. However, performance can vary based on your organization's size and region.
 
@@ -32,5 +39,6 @@ Organizations with a large number of accounts may experience longer refresh cycl
 For improved performance and more frequent data refreshes, we recommend enabling network security director for accounts that are specifically relevant to each region. This recommendation is especially critical for opt-in regions.
 
 ## Additional Resources
+<a name="additional-resources"></a>
 
 If you encounter issues not addressed in this troubleshooting guide, please contact AWS Support for additional assistance.

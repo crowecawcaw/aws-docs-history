@@ -1,43 +1,39 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # HTTP responses
+<a name="waf-api-making-requests-response"></a>
 
 All AWS WAF and Shield Advanced API actions include JSON-formatted data in the response.
 
 Here are some important headers in the HTTP response and how you should handle them in your application, if applicable:
 
-**HTTP/1.1**
-This header is followed by a status code. Status code 200 indicates a successful operation.
-
+**HTTP/1.1**  
+This header is followed by a status code. Status code 200 indicates a successful operation.   
 Type: String
 
-**x-amzn-RequestId**
-A value created by AWS WAF or Shield Advanced that uniquely identifies your request, for example,
-`K2QH8DNOU907N97FNA2GDLL8OBVV4KQNSO5AEMVJF66Q9ASUAAJG`. If you have a problem with AWS WAF, AWS can
-use this value to troubleshoot the problem.
-
+**x-amzn-RequestId**  
+A value created by AWS WAF or Shield Advanced that uniquely identifies your request, for example, `K2QH8DNOU907N97FNA2GDLL8OBVV4KQNSO5AEMVJF66Q9ASUAAJG`. If you have a problem with AWS WAF, AWS can use this value to troubleshoot the problem.   
 Type: String
 
-**Content-Length**
-The length of the response body in bytes.
-
+**Content-Length**  
+The length of the response body in bytes.  
 Type: String
 
-**Date**
-The date and time that AWS WAF or Shield Advanced responded, for example, Wed, 07 Oct 2015 12:00:00 GMT.
-
+**Date**  
+The date and time that AWS WAF or Shield Advanced responded, for example, Wed, 07 Oct 2015 12:00:00 GMT.  
 Type: String
 
 ## Error responses
+<a name="waf-api-making-requests-error-response"></a>
 
 If a request results in an error, the HTTP response contains the following values:
-
-- A JSON error document as the response body
-- Content-Type
-- The applicable 3xx, 4xx, or 5xx HTTP status code
++ A JSON error document as the response body
++ Content-Type
++ The applicable 3xx, 4xx, or 5xx HTTP status code
 
 The following is an example of a JSON error document:
 

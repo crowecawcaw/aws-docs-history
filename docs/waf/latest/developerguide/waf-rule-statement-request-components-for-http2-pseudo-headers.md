@@ -1,22 +1,24 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Inspecting HTTP/2 pseudo headers in AWS WAF
+<a name="waf-rule-statement-request-components-for-http2-pseudo-headers"></a>
 
 This section explains how you can use AWS WAF to inspect HTTP/2 pseudo headers.
 
-Protected AWS resources that support HTTP/2 traffic do not forward HTTP/2 pseudo headers
-to AWS WAF for inspection, but they provide contents of pseudo headers in web
-request components that AWS WAF inspects.
+Protected AWS resources that support HTTP/2 traffic do not forward HTTP/2 pseudo headers to AWS WAF for inspection, but they provide contents of pseudo headers in web request components that AWS WAF inspects. 
 
-You can use AWS WAF to inspect only the
-pseudo headers that are listed in the following table.
+You can use AWS WAF to inspect only the pseudo headers that are listed in the following table. 
 
-HTTP/2 pseudo header contents mapped to web request components| HTTP/2 pseudo header | Web request component to inspect | Documentation |
-| --- | --- | --- |
-| `:method` | HTTP method | [HTTP method](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-http-method "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-http-method") |
-| `:authority` | `Host` header | [Single header](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-single-header "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-single-header")<br>[All headers](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-headers "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-headers") |
-| `:path` URI path | URI path | [URI path](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-uri-path "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-uri-path") |
-| `:path` query | Query string | [Query string](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-query-string "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-query-string")<br>[Single query parameter](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-single-query-param "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-single-query-param")<br>[All query parameters](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-all-query-params "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-all-query-params") |
+
+**HTTP/2 pseudo header contents mapped to web request components**  
+
+| HTTP/2 pseudo header | Web request component to inspect | Documentation | 
+| --- | --- | --- | 
+| `:method` | HTTP method  | [HTTP method](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-http-method) | 
+| `:authority` | `Host` header  | [Single header](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-single-header) <br />[All headers](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-headers) | 
+| `:path` URI path | URI path  | [URI path](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-uri-path) | 
+| `:path` query | Query string | [Query string](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-query-string)<br />[Single query parameter](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-single-query-param)<br />[All query parameters](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-all-query-params) | 

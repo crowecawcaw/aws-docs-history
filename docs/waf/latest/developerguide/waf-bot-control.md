@@ -1,77 +1,54 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS WAF Bot Control
+<a name="waf-bot-control"></a>
 
 This section explains what Bot Control does.
 
-With Bot Control, you can easily monitor, block, or rate limit bots such as scrapers, scanners,
-crawlers, status monitors, and search engines. If you use the targeted inspection level of
-the rule group, you can also challenge bots that don't self identify, making it harder and
-more expensive for malicious bots to operate against your website. You can protect your
-applications using the Bot Control managed rule group alone, or in combination with other AWS Managed Rules rule groups
-and your own custom AWS WAF rules.
+With Bot Control, you can easily monitor, block, or rate limit bots such as scrapers, scanners, crawlers, status monitors, and search engines. If you use the targeted inspection level of the rule group, you can also challenge bots that don't self identify, making it harder and more expensive for malicious bots to operate against your website. You can protect your applications using the Bot Control managed rule group alone, or in combination with other AWS Managed Rules rule groups and your own custom AWS WAF rules. 
 
-Bot Control also provides AI traffic monetization, which lets you charge AI bots and agents for content access. When you add rules with the Monetize action, you can use Bot Control labels to differentiate pricing based on bot identity and verification status. For more information, see [AI traffic monetization](waf-ai-traffic-monetization.md "waf-ai-traffic-monetization.md").
+Bot Control also provides AI traffic monetization, which lets you charge AI bots and agents for content access. When you add rules with the Monetize action, you can use Bot Control labels to differentiate pricing based on bot identity and verification status. For more information, see [AI traffic monetization](waf-ai-traffic-monetization.md).
 
-###### Important
-
+**Important**  
 To implement your AI traffic monetization policies, we use multiple detection techniques such as behavioral signals and risk-based systems to inspect and categorize inbound traffic. While these methods are designed to provide high-confidence classification, they are probabilistic and might not correctly identify or categorize all bot traffic in all cases. We continuously test and update our analysis methods to increase accuracy. We recommend using Test mode to validate that your policies produce the expected results before enabling live monetization.
 
-###### Monetize
+**Monetize**  
+Returns an HTTP 402 Payment Required Challenge containing payment instructions. The client can complete payment and resubmit the request to gain access. Use the Monetize action to charge AI bots for content access. The Monetize action is available only for web ACLs associated with Amazon CloudFront distributions. To use this action, your web ACL must have a MonetizationConfig configured. For more information, see [AI traffic monetization](waf-ai-traffic-monetization.md).
 
-Returns an HTTP 402 Payment Required Challenge containing payment instructions. The client can complete payment and resubmit the request to gain access. Use the Monetize action to charge AI bots for content access. The Monetize action is available only for web ACLs associated with Amazon CloudFront distributions. To use this action, your web ACL must have a MonetizationConfig configured. For more information, see [AI traffic monetization](waf-ai-traffic-monetization.md "waf-ai-traffic-monetization.md").
 
-Monetize action parameters| Parameter | Required | Description |
-| --- | --- | --- |
-| PriceMultiplier | No | Integer multiplier (1–100) applied to the base price. Default: 1. |
+**Monetize action parameters**  
 
-Bot Control includes a console dashboard that shows how much of your current traffic is coming from
-bots, based on request sampling. With the Bot Control managed rule group added to your protection pack (web ACL),
-you can take action against bot traffic and receive detailed, real-time information about
-common bot traffic coming to your applications.
+| Parameter | Required | Description | 
+| --- | --- | --- | 
+| PriceMultiplier | No | Integer multiplier (1–100) applied to the base price. Default: 1. | 
 
-###### Note
+Bot Control includes a console dashboard that shows how much of your current traffic is coming from bots, based on request sampling. With the Bot Control managed rule group added to your protection pack (web ACL), you can take action against bot traffic and receive detailed, real-time information about common bot traffic coming to your applications. 
 
-You are charged additional fees when you use this managed rule group. For more information, see [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/ "https://aws.amazon.com/waf/pricing/").
+**Note**  
+You are charged additional fees when you use this managed rule group. For more information, see [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/).
 
-The Bot Control managed rule group provides a basic, common protection level that adds labels to
-self-identifying bots, verifies generally desirable bots, and detects high confidence bot
-signatures. This gives you the ability to monitor and control common categories of bot
-traffic.
+The Bot Control managed rule group provides a basic, common protection level that adds labels to self-identifying bots, verifies generally desirable bots, and detects high confidence bot signatures. This gives you the ability to monitor and control common categories of bot traffic. 
 
-The Bot Control rule group also provides a targeted protection level that adds detection for
-sophisticated bots that don't self identify. Targeted protections use detection techniques
-such as browser interrogation, fingerprinting, and behavior heuristics to identify bad bot
-traffic. Additionally, targeted protections provide optional automated, machine-learning analysis of
-website traffic statistics to detect bot-related activity. When you enable machine learning,
-AWS WAF uses statistics about website traffic, such as timestamps, browser
-characteristics, and previous URL visited, to improve the Bot Control machine learning model.
+The Bot Control rule group also provides a targeted protection level that adds detection for sophisticated bots that don't self identify. Targeted protections use detection techniques such as browser interrogation, fingerprinting, and behavior heuristics to identify bad bot traffic. Additionally, targeted protections provide optional automated, machine-learning analysis of website traffic statistics to detect bot-related activity. When you enable machine learning, AWS WAF uses statistics about website traffic, such as timestamps, browser characteristics, and previous URL visited, to improve the Bot Control machine learning model. 
 
-When AWS WAF evaluates a web request against the Bot Control managed rule group, it labels
-requests that it detects as bot-related. Labels include the bot category and bot name.
-You can match against these labels in your own AWS WAF rules to customize handling.
-The labels that are generated by the Bot Control managed rule group are included in Amazon CloudWatch
-metrics and your protection pack (web ACL) logs.
+When AWS WAF evaluates a web request against the Bot Control managed rule group, it labels requests that it detects as bot-related. Labels include the bot category and bot name. You can match against these labels in your own AWS WAF rules to customize handling. The labels that are generated by the Bot Control managed rule group are included in Amazon CloudWatch metrics and your protection pack (web ACL) logs. 
 
-You can also use AWS Firewall Manager AWS WAF policies to deploy the Bot Control managed rule group across your
-applications in multiple accounts that are part of your organization in AWS Organizations.
+You can also use AWS Firewall Manager AWS WAF policies to deploy the Bot Control managed rule group across your applications in multiple accounts that are part of your organization in AWS Organizations.
 
-For more information about the Bot Control managed rule group, see [AWS WAF Bot Control rule group](aws-managed-rule-groups-bot.md "aws-managed-rule-groups-bot.md").
+For more information about the Bot Control managed rule group, see [AWS WAF Bot Control rule group](aws-managed-rule-groups-bot.md). 
 
-For guidance on choosing the right protection level and configuring Bot Control for specific
-application scenarios, see [Choosing and configuring Bot Control for your use case](waf-bot-control-use-cases.md "waf-bot-control-use-cases.md").
+For guidance on choosing the right protection level and configuring Bot Control for specific application scenarios, see [Choosing and configuring Bot Control for your use case](waf-bot-control-use-cases.md).
 
 ## Web bot authentication for AI agents
+<a name="waf-bot-ai-agents"></a>
 
-AWS WAF Bot Control now supports Web Bot Authentication (WBA) as a cryptographic verification method for bots and AI agents. WBA applies to your CloudFront distributions and Regional resources in the commercial AWS Regions.
-This feature enables legitimate AI crawlers and agents to prove their identity without requiring traditional challenge-response mechanisms.
+AWS WAF Bot Control now supports Web Bot Authentication (WBA) as a cryptographic verification method for bots and AI agents. WBA applies to your CloudFront distributions and Regional resources in the commercial AWS Regions. This feature enables legitimate AI crawlers and agents to prove their identity without requiring traditional challenge-response mechanisms.
 
-Version requirement: `AWSManagedRulesBotControlRuleSet` Version\_4.0 or later. (The static version must be explicitly selected.)
-For detailed label taxonomy and rule behavior, see:
-
-- [AWS WAF Bot Control rule group](aws-managed-rule-groups-bot.md "aws-managed-rule-groups-bot.md")
-- [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md")
-- [AWS Managed Rules changelog](aws-managed-rule-groups-changelog.md "aws-managed-rule-groups-changelog.md")
+Version requirement: `AWSManagedRulesBotControlRuleSet` Version\_4.0 or later. (The static version must be explicitly selected.) For detailed label taxonomy and rule behavior, see: 
++ [AWS WAF Bot Control rule group](aws-managed-rule-groups-bot.md)
++ [Web request labeling in AWS WAF](waf-labels.md)
++ [AWS Managed Rules changelog](aws-managed-rule-groups-changelog.md)

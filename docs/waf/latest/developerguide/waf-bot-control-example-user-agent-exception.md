@@ -1,23 +1,18 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Bot Control example: Creating an exception for a blocked user agent
+<a name="waf-bot-control-example-user-agent-exception"></a>
 
-If traffic from some non-browser user agents is being erroneously blocked, you can create an
-exception by setting the offending AWS WAF Bot Control rule
-`SignalNonBrowserUserAgent` to Count and then combining the rule's
-labeling with your exception criteria.
+If traffic from some non-browser user agents is being erroneously blocked, you can create an exception by setting the offending AWS WAF Bot Control rule `SignalNonBrowserUserAgent` to Count and then combining the rule's labeling with your exception criteria. 
 
-###### Note
+**Note**  
+Mobile apps typically have non-browser user agents, which the `SignalNonBrowserUserAgent` rule blocks by default. 
 
-Mobile apps typically have non-browser user agents, which the
-`SignalNonBrowserUserAgent` rule blocks by default.
-
-The following rule uses the Bot Control managed rule group but overrides the rule action for
-`SignalNonBrowserUserAgent` to Count. The signal rule applies its labels as usual to matching
-requests, but only counts them instead of performing its usual action of block.
+The following rule uses the Bot Control managed rule group but overrides the rule action for `SignalNonBrowserUserAgent` to Count. The signal rule applies its labels as usual to matching requests, but only counts them instead of performing its usual action of block. 
 
 ```
 {
@@ -26,7 +21,7 @@ requests, but only counts them instead of performing its usual action of block.
   "Statement": {
     "ManagedRuleGroupStatement": {
       "VendorName": "AWS",
-      "Name": "`AWSManagedRulesBotControlRuleSet`",
+      "Name": "AWSManagedRulesBotControlRuleSet",
       "ManagedRuleGroupConfigs": [
         {
           "AWSManagedRulesBotControlRuleSet": {
@@ -53,13 +48,9 @@ requests, but only counts them instead of performing its usual action of block.
 }
 ```
 
-The following rule matches against the signal label that the Bot Control
-`SignalNonBrowserUserAgent` rule adds to its matching web requests.
-Among the signal requests, this rule blocks all but those that have the user agent
-that we want to allow.
+The following rule matches against the signal label that the Bot Control `SignalNonBrowserUserAgent` rule adds to its matching web requests. Among the signal requests, this rule blocks all but those that have the user agent that we want to allow. 
 
-The following rule must run after the preceding Bot Control managed rule group in the protection pack (web ACL)
-processing order.
+The following rule must run after the preceding Bot Control managed rule group in the protection pack (web ACL) processing order. 
 
 ```
 {

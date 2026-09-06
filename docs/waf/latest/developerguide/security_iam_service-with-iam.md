@@ -1,95 +1,76 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # How AWS WAF works with IAM
+<a name="security_iam_service-with-iam"></a>
 
 This section explains how to use the features of IAM with AWS WAF.
 
-###### Note
+**Note**  
+Introducing new actions in IAM policies that give you more granular control when invoking web ACL Association related operations for Application Load Balancer and AWS AppSync. See [Actions that require additional permissions settings](#security_iam_action-additions).
 
-Introducing new actions in IAM policies that give you more granular control when invoking web ACL Association related operations for Application Load Balancer and AWS AppSync.
-See [Actions that require additional permissions settings](#security_iam_action-additions "#security_iam_action-additions").
+Before you use IAM to manage access to AWS WAF, learn what IAM features are available to use with AWS WAF.
 
-Before you use IAM to manage access to AWS WAF, learn what IAM features are
-available to use with AWS WAF.
 
-IAM features you can use with AWS WAF| IAM feature | AWS WAF support |
-| --- | --- |
-| [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies") | Yes |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies") | Yes |
-| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions") | Yes |
-| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources") | Yes |
-| [Policy condition keys (service-specific)](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes |
-| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls") | No |
-| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags") | Partial |
-| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds") | Yes |
-| [Forward access sessions (FAS)](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions") | Yes |
-| [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service") | Yes |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked") | Yes |
 
-To get a high-level view of how AWS WAF and other AWS services work with most IAM
-features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
-_IAM User Guide_.
+
+
+
+**IAM features you can use with AWS WAF**  
+
+| IAM feature | AWS WAF support | 
+| --- | --- | 
+| [Identity-based policies](#security_iam_service-with-iam-id-based-policies) |  Yes | 
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies) |  Yes | 
+| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions) |  Yes | 
+| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources) |  Yes | 
+| [Policy condition keys (service-specific)](#security_iam_service-with-iam-id-based-policies-conditionkeys) |  Yes | 
+| [ACLs](#security_iam_service-with-iam-acls) |  No  | 
+| [ABAC (tags in policies)](#security_iam_service-with-iam-tags) |  Partial | 
+| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds) |  Yes | 
+| [Forward access sessions (FAS)](#security_iam_service-with-iam-principal-permissions) |  Yes | 
+| [Service roles](#security_iam_service-with-iam-roles-service) |  Yes | 
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked) |  Yes | 
+
+To get a high-level view of how AWS WAF and other AWS services work with most IAM features, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
 ## Identity-based policies for AWS WAF
+<a name="security_iam_service-with-iam-id-based-policies"></a>
 
-**Supports identity-based policies:**
+**Supports identity-based policies:** Yes
 
-Yes
+Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*.
 
-Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These
-policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based
-policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the
-_IAM User Guide_.
+With IAM identity-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied. To learn about all of the elements that you can use in a JSON policy, see [IAM JSON policy elements reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *IAM User Guide*.
 
-With IAM identity-based policies, you can specify allowed or denied actions and
-resources as well as the conditions under which actions are allowed or denied. To learn about all of the elements that you can use in a
-JSON policy, see [IAM JSON
-policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
-_IAM User Guide_.
-
-To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for AWS WAF](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for AWS WAF](security_iam_id-based-policy-examples.md).
 
 ## Resource-based policies within AWS WAF
+<a name="security_iam_service-with-iam-resource-based-policies"></a>
 
-**Supports resource-based policies:**
+**Supports resource-based policies:** Yes
 
-Yes
+Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are IAM *role trust policies* and Amazon S3 *bucket policies*. In services that support resource-based policies, service administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions a specified principal can perform on that resource and under what conditions. You must [specify a principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html) in a resource-based policy. Principals can include accounts, users, roles, federated users, or AWS services.
 
-Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are
-IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service
-administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions
-a specified principal can perform on that resource and under what conditions. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy. Principals
-can include accounts, users, roles, federated users, or AWS services.
+To enable cross-account access, you can specify an entire account or IAM entities in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html) in the *IAM User Guide*.
 
-To enable cross-account access, you can specify an entire account or IAM entities
-in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
-_IAM User Guide_.
-
-AWS WAF uses resource based policies to support the sharing of rule groups across
-accounts. You share a rule group that you own with another AWS account by
-providing the resource-based policy settings to the AWS WAF API call
-`PutPermissionPolicy` or to an equivalent CLI or SDK call. For
-additional information, including examples and links to documentation for the other
-available languages, see [PutPermissionPolicy](../APIReference/API_PutPermissionPolicy.md "../APIReference/API_PutPermissionPolicy.md") in the AWS WAF API Reference. This functionality isn't
-available through other means, such as the console or CloudFormation.
+AWS WAF uses resource based policies to support the sharing of rule groups across accounts. You share a rule group that you own with another AWS account by providing the resource-based policy settings to the AWS WAF API call `PutPermissionPolicy` or to an equivalent CLI or SDK call. For additional information, including examples and links to documentation for the other available languages, see [PutPermissionPolicy](https://docs.aws.amazon.com/waf/latest/APIReference/API_PutPermissionPolicy.html) in the AWS WAF API Reference. This functionality isn't available through other means, such as the console or CloudFormation. 
 
 ## Policy actions for AWS WAF
+<a name="security_iam_service-with-iam-id-based-policies-actions"></a>
 
-**Supports policy actions:**
+**Supports policy actions:** Yes
 
-Yes
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
-Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
-**actions** on what **resources**, and under what **conditions**.
+The `Action` element of a JSON policy describes the actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-The `Action` element of a JSON policy describes the
-actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-To see a list of AWS WAF actions and permissions for each, see [Actions defined by AWS WAF V2](../../../service-authorization/latest/reference/list_awswafv2.md#awswafv2-actions-as-permissions "../../../service-authorization/latest/reference/list_awswafv2.md#awswafv2-actions-as-permissions") in the
-_Service Authorization Reference_.
+
+To see a list of AWS WAF actions and permissions for each, see [Actions defined by AWS WAF V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswafv2.html#awswafv2-actions-as-permissions) in the *Service Authorization Reference*.
 
 Policy actions in AWS WAF use the following prefix before the action:
 
@@ -101,47 +82,41 @@ To specify multiple actions in a single statement, separate them with commas.
 
 ```
 "Action": [
-      "wafv2:`action1`",
-      "wafv2:`action2`"
+      "wafv2:{{action1}}",
+      "wafv2:{{action2}}"
          ]
 ```
 
-You can specify multiple actions using wildcards (\*). For example, to specify all
-actions in AWS WAF that begin with `List`, include the following
-action:
+
+
+You can specify multiple actions using wildcards (\*). For example, to specify all actions in AWS WAF that begin with `List`, include the following action:
 
 ```
 "Action": "wafv2:List*"
 ```
 
-To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for AWS WAF](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for AWS WAF](security_iam_id-based-policy-examples.md).
 
 ### Actions that require additional permissions settings
+<a name="security_iam_action-additions"></a>
 
-Some actions require permissions that
-can't be completely described in [Actions defined by AWS WAF V2](../../../service-authorization/latest/reference/list_awswafv2.md#awswafv2-actions-as-permissions "../../../service-authorization/latest/reference/list_awswafv2.md#awswafv2-actions-as-permissions") in the
-_Service Authorization Reference_. This section
-provides additional permissions information.
+Some actions require permissions that can't be completely described in [Actions defined by AWS WAF V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswafv2.html#awswafv2-actions-as-permissions) in the *Service Authorization Reference*. This section provides additional permissions information.
 
-###### Topics
-
-- [Permissions for AssociateWebACL](#security_iam_action-AssociateWebACL "#security_iam_action-AssociateWebACL")
-- [Permissions for DisassociateWebACL](#security_iam_action-DisassociateWebACL "#security_iam_action-DisassociateWebACL")
-- [Permissions for GetWebACLForResource](#security_iam_action-GetWebACLForResource "#security_iam_action-GetWebACLForResource")
-- [Permissions for ListResourcesForWebACL](#security_iam_action-ListResourcesForWebACL "#security_iam_action-ListResourcesForWebACL")
+**Topics**
++ [Permissions for `AssociateWebACL`](#security_iam_action-AssociateWebACL)
++ [Permissions for `DisassociateWebACL`](#security_iam_action-DisassociateWebACL)
++ [Permissions for `GetWebACLForResource`](#security_iam_action-GetWebACLForResource)
++ [Permissions for `ListResourcesForWebACL`](#security_iam_action-ListResourcesForWebACL)
 
 #### Permissions for `AssociateWebACL`
+<a name="security_iam_action-AssociateWebACL"></a>
 
-This section lists the permissions required to associate a protection pack (web ACL) to a resource using the
-AWS WAF action `AssociateWebACL`.
+This section lists the permissions required to associate a protection pack (web ACL) to a resource using the AWS WAF action `AssociateWebACL`. 
 
-For Amazon CloudFront distributions, instead of this action, use the
-CloudFront action `UpdateDistribution`. For information, see [UpdateDistribution](../../../cloudfront/latest/APIReference/API_UpdateDistribution.md "../../../cloudfront/latest/APIReference/API_UpdateDistribution.md") in the _Amazon CloudFront API Reference_.
+For Amazon CloudFront distributions, instead of this action, use the CloudFront action `UpdateDistribution`. For information, see [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html) in the *Amazon CloudFront API Reference*. 
 
-###### Amazon API Gateway REST API
-
-Requires permission to call API Gateway `SetWebACL` on the REST API
-resource type and to call AWS WAF `AssociateWebACL` on a protection pack (web ACL).
+**Amazon API Gateway REST API**  
+Requires permission to call API Gateway `SetWebACL` on the REST API resource type and to call AWS WAF `AssociateWebACL` on a protection pack (web ACL). 
 
 ```
 {
@@ -151,7 +126,7 @@ resource type and to call AWS WAF `AssociateWebACL` on a protection pack (web AC
         "wafv2:AssociateWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -166,13 +141,10 @@ resource type and to call AWS WAF `AssociateWebACL` on a protection pack (web AC
 }
 ```
 
-###### Application Load Balancer
+**Application Load Balancer**  
+ **Old Permission Setting**
 
-**Old Permission Setting**
-
-Requires permission to call `elasticloadbalancing:SetWebACL` action
-on the Application Load Balancer resource type and to call AWS WAF
-`AssociateWebACL` on a protection pack (web ACL).
+Requires permission to call `elasticloadbalancing:SetWebACL` action on the Application Load Balancer resource type and to call AWS WAF `AssociateWebACL` on a protection pack (web ACL). 
 
 ```
 {
@@ -182,7 +154,7 @@ on the Application Load Balancer resource type and to call AWS WAF
                      "wafv2:AssociateWebACL"
                   ],
                   "Resource": [
-                     "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+                     "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
                   ]
                },
                {
@@ -192,17 +164,14 @@ on the Application Load Balancer resource type and to call AWS WAF
                      "elasticloadbalancing:SetWebACL"
                   ],
                   "Resource": [
-                     "arn:aws:elasticloadbalancing:*:`account-id`:loadbalancer/app/*/*"
+                     "arn:aws:elasticloadbalancing:*:{{account-id}}:loadbalancer/app/*/*"
                   ]
                }
 ```
 
-[Show moreShow less](# "#")
-**New Permission Setting**
+ **New Permission Setting**
 
-Requires permission to call `elasticloadbalancing:CreateWebACLAssociation` action
-on the Application Load Balancer resource type and to call AWS WAF
-`AssociateWebACL` on a protection pack (web ACL).
+ Requires permission to call `elasticloadbalancing:CreateWebACLAssociation` action on the Application Load Balancer resource type and to call AWS WAF `AssociateWebACL` on a protection pack (web ACL).
 
 ```
 {
@@ -212,7 +181,7 @@ on the Application Load Balancer resource type and to call AWS WAF
       "wafv2:AssociateWebACL"
    ],
    "Resource": [
-      "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+      "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
    ]
 },
 {
@@ -222,18 +191,15 @@ on the Application Load Balancer resource type and to call AWS WAF
       "elasticloadbalancing:CreateWebACLAssociation"
    ],
    "Resource": [
-         "arn:aws:elasticloadbalancing:*:`account-id`:loadbalancer/app/*/*"
+         "arn:aws:elasticloadbalancing:*:{{account-id}}:loadbalancer/app/*/*"
    ]
 }
 ```
 
-###### AWS AppSync GraphQL API
+**AWS AppSync GraphQL API**  
+ **Old Permission Setting**
 
-**Old Permission Setting**
-
-Requires permission to call AWS AppSync `SetWebACL` on the
-GraphQL API resource type and to call AWS WAF `AssociateWebACL`
-on a protection pack (web ACL).
+Requires permission to call AWS AppSync `SetWebACL` on the GraphQL API resource type and to call AWS WAF `AssociateWebACL` on a protection pack (web ACL). 
 
 ```
 {
@@ -243,7 +209,7 @@ on a protection pack (web ACL).
         "wafv2:AssociateWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -253,18 +219,14 @@ on a protection pack (web ACL).
         "appsync:SetWebACL"
     ],
     "Resource": [
-        "arn:aws:appsync:*:`account-id`:apis/*"
+        "arn:aws:appsync:*:{{account-id}}:apis/*"
     ]
 }
 ```
 
-[Show moreShow less](# "#")
+ **New Permission Setting**
 
-**New Permission Setting**
-
-Requires permission to call `appsync:AssociateWebACL`
-action on the GraphQL API resource type and to call AWS WAF `AssociateWebACL` on a
-protection pack (web ACL).
+Requires permission to call `appsync:AssociateWebACL` action on the GraphQL API resource type and to call AWS WAF `AssociateWebACL` on a protection pack (web ACL).
 
 ```
 {
@@ -289,11 +251,8 @@ protection pack (web ACL).
 }
 ```
 
-###### Amazon Cognito user pool
-
-Requires permission to call the Amazon Cognito `AssociateWebACL` action on
-the user pool resource type and to call AWS WAF `AssociateWebACL` on a
-protection pack (web ACL).
+**Amazon Cognito user pool**  
+Requires permission to call the Amazon Cognito `AssociateWebACL` action on the user pool resource type and to call AWS WAF `AssociateWebACL` on a protection pack (web ACL). 
 
 ```
 {
@@ -303,7 +262,7 @@ protection pack (web ACL).
         "wafv2:AssociateWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -313,16 +272,13 @@ protection pack (web ACL).
         "cognito-idp:AssociateWebACL"
     ],
     "Resource": [
-        "arn:aws:cognito-idp:*:`account-id`:userpool/*"
+        "arn:aws:cognito-idp:*:{{account-id}}:userpool/*"
     ]
 }
 ```
 
-###### AWS App Runner service
-
-Requires permission to call the App Runner `AssociateWebACL` action on the
-App Runner service resource type and to call AWS WAF `AssociateWebACL` on a web
-ACL.
+**AWS App Runner service**  
+Requires permission to call the App Runner `AssociateWebACL` action on the App Runner service resource type and to call AWS WAF `AssociateWebACL` on a web ACL. 
 
 ```
 {
@@ -332,7 +288,7 @@ ACL.
         "wafv2:AssociateWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -342,13 +298,12 @@ ACL.
         "apprunner:AssociateWebAcl"
     ],
     "Resource": [
-        "arn:aws:apprunner:*:`account-id`:service/*/*"
+        "arn:aws:apprunner:*:{{account-id}}:service/*/*"
     ]
 }
 ```
 
-###### Amazon Bedrock AgentCore Gateway
-
+**Amazon Bedrock AgentCore Gateway**  
 Requires permission to call the `bedrock-agentcore:GatewayAssociateWebACL` action on the Bedrock AgentCore Gateway resource type and to call AWS WAF `AssociateWebACL` for a web ACL.
 
 ```
@@ -359,7 +314,7 @@ Requires permission to call the `bedrock-agentcore:GatewayAssociateWebACL` actio
     "wafv2:AssociateWebACL"
   ],
   "Resource": [
-    "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+    "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
   ]
 },
 {
@@ -369,17 +324,13 @@ Requires permission to call the `bedrock-agentcore:GatewayAssociateWebACL` actio
     "bedrock-agentcore:GatewayAssociateWebACL"
   ],
   "Resource": [
-    "arn:aws:bedrock-agentcore:*:`account-id`:gateway/*"
+    "arn:aws:bedrock-agentcore:*:{{account-id}}:gateway/*"
   ]
 }
 ```
 
-###### AWS Verified Access instance
-
-Requires permission to call the
-`ec2:AssociateVerifiedAccessInstanceWebAcl` action on the Verified Access
-instance resource type and to call AWS WAF `AssociateWebACL` on a web
-ACL.
+**AWS Verified Access instance**  
+Requires permission to call the `ec2:AssociateVerifiedAccessInstanceWebAcl` action on the Verified Access instance resource type and to call AWS WAF `AssociateWebACL` on a web ACL. 
 
 ```
 {
@@ -389,7 +340,7 @@ ACL.
         "wafv2:AssociateWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -399,23 +350,20 @@ ACL.
         "ec2:AssociateVerifiedAccessInstanceWebAcl"
     ],
     "Resource": [
-        "arn:aws:ec2:*:`account-id`:verified-access-instance/*"
+        "arn:aws:ec2:*:{{account-id}}:verified-access-instance/*"
     ]
 }
 ```
 
 #### Permissions for `DisassociateWebACL`
+<a name="security_iam_action-DisassociateWebACL"></a>
 
-This section lists the permissions required to disassociate a protection pack (web ACL) from a resource using the
-AWS WAF action `DisassociateWebACL`.
+This section lists the permissions required to disassociate a protection pack (web ACL) from a resource using the AWS WAF action `DisassociateWebACL`. 
 
-For Amazon CloudFront distributions, instead of this action, use the
-CloudFront action `UpdateDistribution` with an empty protection pack (web ACL) ID. For information, see [UpdateDistribution](../../../cloudfront/latest/APIReference/API_UpdateDistribution.md "../../../cloudfront/latest/APIReference/API_UpdateDistribution.md") in the _Amazon CloudFront API Reference_.
+For Amazon CloudFront distributions, instead of this action, use the CloudFront action `UpdateDistribution` with an empty protection pack (web ACL) ID. For information, see [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html) in the *Amazon CloudFront API Reference*. 
 
-###### Amazon API Gateway REST API
-
-Requires permission to call API Gateway `SetWebACL` on the REST API
-resource type. Does not require permission to call AWS WAF `DisassociateWebACL`.
+**Amazon API Gateway REST API**  
+Requires permission to call API Gateway `SetWebACL` on the REST API resource type. Does not require permission to call AWS WAF `DisassociateWebACL`.
 
 ```
 {
@@ -430,12 +378,10 @@ resource type. Does not require permission to call AWS WAF `DisassociateWebACL`.
 }
 ```
 
-###### Application Load Balancer
+**Application Load Balancer**  
+ **Old Permission Setting**
 
-**Old Permission Setting**
-
-Requires permission to call the `elasticloadbalancing:SetWebACL`
-action on the Application Load Balancer resource type. Does not require permission to call AWS WAF `DisassociateWebACL`.
+Requires permission to call the `elasticloadbalancing:SetWebACL` action on the Application Load Balancer resource type. Does not require permission to call AWS WAF `DisassociateWebACL`.
 
 ```
 {
@@ -445,23 +391,21 @@ action on the Application Load Balancer resource type. Does not require permissi
         "elasticloadbalancing:SetWebACL"
     ],
     "Resource": [
-        "arn:aws:elasticloadbalancing:*:`account-id`:loadbalancer/app/*/*"
+        "arn:aws:elasticloadbalancing:*:{{account-id}}:loadbalancer/app/*/*"
     ]
 }
 ```
 
-[Show moreShow less](# "#")
-**New Permission Setting**
+ **New Permission Setting**
 
-Requires permission to call the `elasticloadbalancing:DeleteWebACLAssociation`
-action on the Application Load Balancer resource type. Also requires permission to call AWS WAF `DisassociateWebACL`.
+Requires permission to call the `elasticloadbalancing:DeleteWebACLAssociation` action on the Application Load Balancer resource type. Also requires permission to call AWS WAF `DisassociateWebACL`.
 
 ```
 {
       "Sid": "DisassociateWebACL",
       "Effect": "Allow",
       "Action": "wafv2:DisassociateWebACL",
-      "Resource": "*"
+      "Resource": "*" 
     },
     {
       "Sid": "DisassociateWebACL2",
@@ -470,19 +414,16 @@ action on the Application Load Balancer resource type. Also requires permission 
          "elasticloadbalancing:DeleteWebACLAssociation"
       ],
       "Resource": [
-        "arn:aws:elasticloadbalancing:*:`account-id`:loadbalancer/app/*/*"
+        "arn:aws:elasticloadbalancing:*:{{account-id}}:loadbalancer/app/*/*"
       ]
-   }
+   }   
 }
 ```
 
-###### AWS AppSync GraphQL API
-
+**AWS AppSync GraphQL API**  
 **Old Permission Setting**
 
-Requires permission to call AWS AppSync `SetWebACL` on the
-GraphQL API resource type. Does not require permission to call AWS WAF
-`DisassociateWebACL`.
+Requires permission to call AWS AppSync `SetWebACL` on the GraphQL API resource type. Does not require permission to call AWS WAF `DisassociateWebACL`.
 
 ```
 {
@@ -492,18 +433,14 @@ GraphQL API resource type. Does not require permission to call AWS WAF
         "appsync:SetWebACL"
     ],
     "Resource": [
-        "arn:aws:appsync:*:`account-id`:apis/*"
+        "arn:aws:appsync:*:{{account-id}}:apis/*"
     ]
 }
 ```
 
-[Show moreShow less](# "#")
+ **New Permission Setting**
 
-**New Permission Setting**
-
-Requires permission to call the `appsync:DisassociateWebACL`
-action on the GraphQL API resource type. Also requires permission to call
-AWS WAF `DisassociateWebACL`.
+Requires permission to call the `appsync:DisassociateWebACL` action on the GraphQL API resource type. Also requires permission to call AWS WAF `DisassociateWebACL`.
 
 ```
 {
@@ -524,10 +461,8 @@ AWS WAF `DisassociateWebACL`.
 }
 ```
 
-###### Amazon Cognito user pool
-
-Requires permission to call the Amazon Cognito `DisassociateWebACL` action on
-the user pool resource type and to call AWS WAF `DisassociateWebACL`.
+**Amazon Cognito user pool**  
+Requires permission to call the Amazon Cognito `DisassociateWebACL` action on the user pool resource type and to call AWS WAF `DisassociateWebACL`. 
 
 ```
 {
@@ -543,15 +478,13 @@ the user pool resource type and to call AWS WAF `DisassociateWebACL`.
         "cognito-idp:DisassociateWebACL"
     ],
     "Resource": [
-        "arn:aws:cognito-idp:*:`account-id`:userpool/*"
+        "arn:aws:cognito-idp:*:{{account-id}}:userpool/*"
     ]
 }
 ```
 
-###### AWS App Runner service
-
-Requires permission to call the App Runner `DisassociateWebACL` action on
-the App Runner service resource type and to call AWS WAF `DisassociateWebACL`.
+**AWS App Runner service**  
+Requires permission to call the App Runner `DisassociateWebACL` action on the App Runner service resource type and to call AWS WAF `DisassociateWebACL`. 
 
 ```
 {
@@ -567,13 +500,12 @@ the App Runner service resource type and to call AWS WAF `DisassociateWebACL`.
         "apprunner:DisassociateWebAcl"
     ],
     "Resource": [
-        "arn:aws:apprunner:*:`account-id`:service/*/*"
+        "arn:aws:apprunner:*:{{account-id}}:service/*/*"
     ]
 }
 ```
 
-###### Amazon Bedrock AgentCore Gateway
-
+**Amazon Bedrock AgentCore Gateway**  
 Requires permission to call the `bedrock-agentcore:GatewayDisassociateWebACL` action on the Bedrock AgentCore Gateway resource type and to call AWS WAF `DisassociateWebACL`.
 
 ```
@@ -592,16 +524,13 @@ Requires permission to call the `bedrock-agentcore:GatewayDisassociateWebACL` ac
     "bedrock-agentcore:GatewayDisassociateWebACL"
   ],
   "Resource": [
-    "arn:aws:bedrock-agentcore:*:`account-id`:gateway/*"
+    "arn:aws:bedrock-agentcore:*:{{account-id}}:gateway/*"
   ]
 }
 ```
 
-###### AWS Verified Access instance
-
-Requires permission to call the
-`ec2:DisassociateVerifiedAccessInstanceWebAcl` action on the Verified Access
-instance resource type and to call AWS WAF `DisassociateWebACL`.
+**AWS Verified Access instance**  
+Requires permission to call the `ec2:DisassociateVerifiedAccessInstanceWebAcl` action on the Verified Access instance resource type and to call AWS WAF `DisassociateWebACL`. 
 
 ```
 {
@@ -617,35 +546,23 @@ instance resource type and to call AWS WAF `DisassociateWebACL`.
         "ec2:DisassociateVerifiedAccessInstanceWebAcl"
     ],
     "Resource": [
-        "arn:aws:ec2:*:`account-id`:verified-access-instance/*"
+        "arn:aws:ec2:*:{{account-id}}:verified-access-instance/*"
     ]
 }
 ```
 
 #### Permissions for `GetWebACLForResource`
+<a name="security_iam_action-GetWebACLForResource"></a>
 
-This section lists the permissions required to get the protection pack (web ACL) for a protected resource using the
-AWS WAF action `GetWebACLForResource`.
+This section lists the permissions required to get the protection pack (web ACL) for a protected resource using the AWS WAF action `GetWebACLForResource`. 
 
-For Amazon CloudFront distributions, instead of this action, use the
-CloudFront action `GetDistributionConfig`.
-For information, see [GetDistributionConfig](../../../cloudfront/latest/APIReference/API_GetDistributionConfig.md "../../../cloudfront/latest/APIReference/API_GetDistributionConfig.md") in the _Amazon CloudFront API Reference_.
+For Amazon CloudFront distributions, instead of this action, use the CloudFront action `GetDistributionConfig`. For information, see [GetDistributionConfig](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistributionConfig.html) in the *Amazon CloudFront API Reference*. 
 
-###### Note
+**Note**  
+`GetWebACLForResource` requires the permission to call `GetWebACL`. In this context, AWS WAF uses `GetWebACL` only to verify that your account has the permission it needs to access the protection pack (web ACL) that `GetWebACLForResource` returns. When you call `GetWebACLForResource`, you might get an error indicating that your account is not authorized to perform `wafv2:GetWebACL` on the resource. AWS WAF doesn't add this type of error to the AWS CloudTrail event history. 
 
-`GetWebACLForResource` requires the permission to call
-`GetWebACL`. In this
-context, AWS WAF uses `GetWebACL` only to verify that your account has the permission it needs to access the
-protection pack (web ACL) that `GetWebACLForResource` returns. When you call
-`GetWebACLForResource`, you might get an error
-indicating that your account is not authorized to perform
-`wafv2:GetWebACL` on the resource. AWS WAF doesn't add this
-type of error to the AWS CloudTrail event history.
-
-###### Amazon API Gateway REST API
-
-Require permission to call AWS WAF `GetWebACLForResource` and
-`GetWebACL` for a protection pack (web ACL).
+**Amazon API Gateway REST API**  
+Require permission to call AWS WAF `GetWebACLForResource` and `GetWebACL` for a protection pack (web ACL). 
 
 ```
 {
@@ -656,17 +573,15 @@ Require permission to call AWS WAF `GetWebACLForResource` and
         "wafv2:GetWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 }
 ```
 
-###### Application Load Balancer
+**Application Load Balancer**  
+ **Old Permission Setting**
 
-**Old Permission Setting**
-
-Require permission to call AWS WAF `GetWebACLForResource` and
-`GetWebACL` for a protection pack (web ACL).
+Require permission to call AWS WAF `GetWebACLForResource` and `GetWebACL` for a protection pack (web ACL). 
 
 ```
 {
@@ -677,17 +592,14 @@ Require permission to call AWS WAF `GetWebACLForResource` and
         "wafv2:GetWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 }
 ```
 
-[Show moreShow less](# "#")
-**New Permission Setting**
+ **New Permission Setting**
 
-Require permission to call AWS WAF `GetWebACLForResource` and
-`GetWebACL` for a protection pack (web ACL). Also require permission to call
-`elasticloadbalancing:GetLoadBalancerWebACL`.
+Require permission to call AWS WAF `GetWebACLForResource` and `GetWebACL` for a protection pack (web ACL). Also require permission to call `elasticloadbalancing:GetLoadBalancerWebACL`.
 
 ```
 {
@@ -698,7 +610,7 @@ Require permission to call AWS WAF `GetWebACLForResource` and
         "wafv2:GetWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -708,17 +620,15 @@ Require permission to call AWS WAF `GetWebACLForResource` and
         "elasticloadbalancing:GetLoadBalancerWebACL"
     ],
     "Resource": [
-        "arn:aws:elasticloadbalancing:*:`account-id`:loadbalancer/app/*/*"
+        "arn:aws:elasticloadbalancing:*:{{account-id}}:loadbalancer/app/*/*"
     ]
 }
 ```
 
-###### AWS AppSync GraphQL API
+**AWS AppSync GraphQL API**  
+ **Old Permission Setting**
 
-**Old Permission Setting**
-
-Require permission to call AWS WAF `GetWebACLForResource` and
-`GetWebACL` for a protection pack (web ACL).
+Require permission to call AWS WAF `GetWebACLForResource` and `GetWebACL` for a protection pack (web ACL). 
 
 ```
 {
@@ -729,18 +639,14 @@ Require permission to call AWS WAF `GetWebACLForResource` and
         "wafv2:GetWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 }
 ```
 
-[Show moreShow less](# "#")
+ **New Permission Setting**
 
-**New Permission Setting**
-
-Require permission to call AWS WAF `GetWebACLForResource` and
-`GetWebACL` for a protection pack (web ACL). Also require permission
-to call `appsync:GetWebACLForResource`.
+Require permission to call AWS WAF `GetWebACLForResource` and `GetWebACL` for a protection pack (web ACL). Also require permission to call `appsync:GetWebACLForResource`.
 
 ```
 {
@@ -751,7 +657,7 @@ to call `appsync:GetWebACLForResource`.
         "wafv2:GetWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -761,16 +667,13 @@ to call `appsync:GetWebACLForResource`.
         "appsync:GetWebACLForResource"
     ],
     "Resource": [
-        "arn:aws:appsync:*:`account-id`:apis/*"
+        "arn:aws:appsync:*:{{account-id}}:apis/*"
     ]
 }
 ```
 
-###### Amazon Cognito user pool
-
-Requires permission to call the Amazon Cognito `GetWebACLForResource` action
-on the user pool resource type and to call AWS WAF `GetWebACLForResource`
-and `GetWebACL`.
+**Amazon Cognito user pool**  
+Requires permission to call the Amazon Cognito `GetWebACLForResource` action on the user pool resource type and to call AWS WAF `GetWebACLForResource` and `GetWebACL`. 
 
 ```
 {
@@ -780,8 +683,8 @@ and `GetWebACL`.
         "wafv2:GetWebACLForResource",
         "wafv2:GetWebACL"
     ],
-    "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+    "Resource": [ 
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -791,16 +694,13 @@ and `GetWebACL`.
         "cognito-idp:GetWebACLForResource"
     ],
     "Resource": [
-        "arn:aws:cognito-idp:*:`account-id`:userpool/*"
+        "arn:aws:cognito-idp:*:{{account-id}}:userpool/*"
     ]
 }
 ```
 
-###### AWS App Runner service
-
-Requires permission to call the App Runner `DescribeWebAclForService`
-action on the App Runner service resource type and to call AWS WAF
-`GetWebACLForResource` and `GetWebACL`.
+**AWS App Runner service**  
+Requires permission to call the App Runner `DescribeWebAclForService` action on the App Runner service resource type and to call AWS WAF `GetWebACLForResource` and `GetWebACL`. 
 
 ```
 {
@@ -811,7 +711,7 @@ action on the App Runner service resource type and to call AWS WAF
         "wafv2:GetWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -821,13 +721,12 @@ action on the App Runner service resource type and to call AWS WAF
         "apprunner:DescribeWebAclForService"
     ],
     "Resource": [
-        "arn:aws:apprunner:*:`account-id`:service/*/*"
+        "arn:aws:apprunner:*:{{account-id}}:service/*/*"
     ]
 }
 ```
 
-###### Amazon Bedrock AgentCore Gateway
-
+**Amazon Bedrock AgentCore Gateway**  
 Requires permission to call the `bedrock-agentcore:GatewayGetWebACLForResource` action on the Bedrock AgentCore Gateway resource type and to call AWS WAF `GetWebACLForResource` and `GetWebACL` for a web ACL.
 
 ```
@@ -839,7 +738,7 @@ Requires permission to call the `bedrock-agentcore:GatewayGetWebACLForResource` 
     "wafv2:GetWebACL"
   ],
   "Resource": [
-    "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+    "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
   ]
 },
 {
@@ -849,17 +748,13 @@ Requires permission to call the `bedrock-agentcore:GatewayGetWebACLForResource` 
     "bedrock-agentcore:GatewayGetWebACLForResource"
   ],
   "Resource": [
-    "arn:aws:bedrock-agentcore:*:`account-id`:gateway/*"
+    "arn:aws:bedrock-agentcore:*:{{account-id}}:gateway/*"
   ]
 }
 ```
 
-###### AWS Verified Access instance
-
-Requires permission to call the
-`ec2:GetVerifiedAccessInstanceWebAcl` action on the Verified Access instance
-resource type and to call AWS WAF `GetWebACLForResource` and
-`GetWebACL`.
+**AWS Verified Access instance**  
+Requires permission to call the `ec2:GetVerifiedAccessInstanceWebAcl` action on the Verified Access instance resource type and to call AWS WAF `GetWebACLForResource` and `GetWebACL`. 
 
 ```
 {
@@ -870,7 +765,7 @@ resource type and to call AWS WAF `GetWebACLForResource` and
         "wafv2:GetWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -880,25 +775,20 @@ resource type and to call AWS WAF `GetWebACLForResource` and
         "ec2:GetVerifiedAccessInstanceWebAcl"
     ],
     "Resource": [
-        "arn:aws:ec2:*:`account-id`:verified-access-instance/*"
+        "arn:aws:ec2:*:{{account-id}}:verified-access-instance/*"
     ]
 }
 ```
 
 #### Permissions for `ListResourcesForWebACL`
+<a name="security_iam_action-ListResourcesForWebACL"></a>
 
-This section lists the permissions required to retrieve the list of protected resources for a protection pack (web ACL) using the
-AWS WAF action `ListResourcesForWebACL`.
+This section lists the permissions required to retrieve the list of protected resources for a protection pack (web ACL) using the AWS WAF action `ListResourcesForWebACL`. 
 
-For Amazon CloudFront distributions, instead of this action, use the
-CloudFront action `ListDistributionsByWebACLId`. For
-information, see [ListDistributionsByWebACLId](../../../cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.md "../../../cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.md") in the _Amazon CloudFront API
-Reference_.
+For Amazon CloudFront distributions, instead of this action, use the CloudFront action `ListDistributionsByWebACLId`. For information, see [ListDistributionsByWebACLId](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html) in the *Amazon CloudFront API Reference*. 
 
-###### Amazon API Gateway REST API
-
-Require permission to call AWS WAF `ListResourcesForWebACL` for a web
-ACL.
+**Amazon API Gateway REST API**  
+Require permission to call AWS WAF `ListResourcesForWebACL` for a web ACL. 
 
 ```
 {
@@ -908,17 +798,15 @@ ACL.
         "wafv2:ListResourcesForWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 }
 ```
 
-###### Application Load Balancer
+**Application Load Balancer**  
+ **Old Permission Setting**
 
-**Old Permission Setting**
-
-Require permission to call AWS WAF `ListResourcesForWebACL`
-for a protection pack (web ACL).
+Require permission to call AWS WAF `ListResourcesForWebACL` for a protection pack (web ACL). 
 
 ```
 {
@@ -928,18 +816,14 @@ for a protection pack (web ACL).
         "wafv2:GetWebACLForResource"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 }
 ```
 
-[Show moreShow less](# "#")
+ **New Permission Setting**
 
-**New Permission Setting**
-
-Require permission to call AWS WAF `ListResourcesForWebACL` for
-a protection pack (web ACL). Also require permission to call
-`elasticloadbalancing:DescribeWebACLAssociation`.
+Require permission to call AWS WAF `ListResourcesForWebACL` for a protection pack (web ACL). Also require permission to call `elasticloadbalancing:DescribeWebACLAssociation`.
 
 ```
 {
@@ -949,7 +833,7 @@ a protection pack (web ACL). Also require permission to call
         "wafv2:ListResourcesForWebACL",
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -962,12 +846,10 @@ a protection pack (web ACL). Also require permission to call
 }
 ```
 
-###### AWS AppSync GraphQL API
+**AWS AppSync GraphQL API**  
+ **Old Permission Setting**
 
-**Old Permission Setting**
-
-Require permission to call AWS WAF `ListResourcesForWebACL`
-for a protection pack (web ACL).
+Require permission to call AWS WAF `ListResourcesForWebACL` for a protection pack (web ACL). 
 
 ```
 {
@@ -977,18 +859,14 @@ for a protection pack (web ACL).
         "wafv2:ListResourcesForWebACL",
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 }
 ```
 
-[Show moreShow less](# "#")
+ **New Permission Setting**
 
-**New Permission Setting**
-
-Require permission to call AWS WAF `ListResourcesForWebACL` for
-a protection pack (web ACL). Also require permission to call
-`appsync:ListResourcesForWebACL`.
+Require permission to call AWS WAF `ListResourcesForWebACL` for a protection pack (web ACL). Also require permission to call `appsync:ListResourcesForWebACL`.
 
 ```
 {
@@ -998,7 +876,7 @@ a protection pack (web ACL). Also require permission to call
         "wafv2:ListResourcesForWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -1011,11 +889,8 @@ a protection pack (web ACL). Also require permission to call
 }
 ```
 
-###### Amazon Cognito user pool
-
-Requires permission to call the Amazon Cognito `ListResourcesForWebACL`
-action on the user pool resource type and to call AWS WAF
-`ListResourcesForWebACL`.
+**Amazon Cognito user pool**  
+Requires permission to call the Amazon Cognito `ListResourcesForWebACL` action on the user pool resource type and to call AWS WAF `ListResourcesForWebACL`. 
 
 ```
 {
@@ -1025,7 +900,7 @@ action on the user pool resource type and to call AWS WAF
         "wafv2:ListResourcesForWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -1035,16 +910,13 @@ action on the user pool resource type and to call AWS WAF
         "cognito-idp:ListResourcesForWebACL"
     ],
     "Resource": [
-        "arn:aws:cognito-idp:*:`account-id`:userpool/*"
+        "arn:aws:cognito-idp:*:{{account-id}}:userpool/*"
     ]
 }
 ```
 
-###### AWS App Runner service
-
-Requires permission to call the App Runner
-`ListAssociatedServicesForWebAcl` action on the App Runner service
-resource type and to call AWS WAF `ListResourcesForWebACL`.
+**AWS App Runner service**  
+Requires permission to call the App Runner `ListAssociatedServicesForWebAcl` action on the App Runner service resource type and to call AWS WAF `ListResourcesForWebACL`. 
 
 ```
 {
@@ -1054,7 +926,7 @@ resource type and to call AWS WAF `ListResourcesForWebACL`.
         "wafv2:ListResourcesForWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -1064,13 +936,12 @@ resource type and to call AWS WAF `ListResourcesForWebACL`.
         "apprunner:ListAssociatedServicesForWebAcl"
     ],
     "Resource": [
-        "arn:aws:apprunner:*:`account-id`:service/*/*"
+        "arn:aws:apprunner:*:{{account-id}}:service/*/*"
     ]
 }
 ```
 
-###### Amazon Bedrock AgentCore Gateway
-
+**Amazon Bedrock AgentCore Gateway**  
 Requires permission to call the `bedrock-agentcore:GatewayListResourcesForWebACL` action and to call AWS WAF `ListResourcesForWebACL` for a web ACL.
 
 ```
@@ -1081,7 +952,7 @@ Requires permission to call the `bedrock-agentcore:GatewayListResourcesForWebACL
     "wafv2:ListResourcesForWebACL"
   ],
   "Resource": [
-    "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+    "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
   ]
 },
 {
@@ -1094,12 +965,8 @@ Requires permission to call the `bedrock-agentcore:GatewayListResourcesForWebACL
 }
 ```
 
-###### AWS Verified Access instance
-
-Requires permission to call the
-`ec2:DescribeVerifiedAccessInstanceWebAclAssociations` action on the
-Verified Access instance resource type and to call AWS WAF
-`ListResourcesForWebACL`.
+**AWS Verified Access instance**  
+Requires permission to call the `ec2:DescribeVerifiedAccessInstanceWebAclAssociations` action on the Verified Access instance resource type and to call AWS WAF `ListResourcesForWebACL`. 
 
 ```
 {
@@ -1109,7 +976,7 @@ Verified Access instance resource type and to call AWS WAF
         "wafv2:ListResourcesForWebACL"
     ],
     "Resource": [
-        "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+        "arn:aws:wafv2:{{region}}:{{account-id}}:regional/webacl/*/*"
     ]
 },
 {
@@ -1119,196 +986,131 @@ Verified Access instance resource type and to call AWS WAF
         "ec2:DescribeVerifiedAccessInstanceWebAclAssociations"
     ],
     "Resource": [
-        "arn:aws:ec2:*:`account-id`:verified-access-instance/*"
+        "arn:aws:ec2:*:{{account-id}}:verified-access-instance/*"
     ]
 }
 ```
 
 ## Policy resources for AWS WAF
+<a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 
-**Supports policy resources:**
+**Supports policy resources:** Yes
 
-Yes
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
-Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
-**actions** on what **resources**, and under what **conditions**.
-
-The `Resource` JSON policy element specifies the object or objects to which the action applies. As a best practice, specify a resource using its [Amazon Resource Name (ARN)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md"). For actions that don't support resource-level permissions, use a wildcard (\*) to indicate that the statement applies to all resources.
+The `Resource` JSON policy element specifies the object or objects to which the action applies. As a best practice, specify a resource using its [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html). For actions that don't support resource-level permissions, use a wildcard (\*) to indicate that the statement applies to all resources.
 
 ```
 "Resource": "*"
 ```
 
-To see the list of AWS WAF resource types and their ARNs, see
-[Resources defined by AWS WAF V2](../../../service-authorization/latest/reference/list_awswafv2.md#awswafv2-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awswafv2.md#awswafv2-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with
-which actions you can specify the ARN of each resource, see [Actions defined by AWS WAF V2](../../../service-authorization/latest/reference/list_awswafv2.md#awswafv2-actions-as-permissions "../../../service-authorization/latest/reference/list_awswafv2.md#awswafv2-actions-as-permissions"). To
-allow or deny access to a subset of AWS WAF resources, include the ARN of the
-resource in the `resource` element of your policy.
+To see the list of AWS WAF resource types and their ARNs, see [Resources defined by AWS WAF V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswafv2.html#awswafv2-resources-for-iam-policies) in the *Service Authorization Reference*. To learn with which actions you can specify the ARN of each resource, see [Actions defined by AWS WAF V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswafv2.html#awswafv2-actions-as-permissions). To allow or deny access to a subset of AWS WAF resources, include the ARN of the resource in the `resource` element of your policy.
 
 The ARNs of AWS WAF `wafv2` resources have the following format:
 
 ```
-arn:`partition`:wafv2:`region`:`account-id`:`scope`/`resource-type`/`resource-name`/`resource-id`
+arn:{{partition}}:wafv2:{{region}}:{{account-id}}:{{scope}}/{{resource-type}}/{{resource-name}}/{{resource-id}}
 ```
 
-For general information about ARN specifications, see [Amazon Resource Names (ARNs)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md")
-in the Amazon Web Services General Reference.
+For general information about ARN specifications, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the Amazon Web Services General Reference. 
 
-The following lists requirements that are specific to the ARNs of `wafv2`
-resources:
+The following lists requirements that are specific to the ARNs of `wafv2` resources: 
++ {{region}}: For AWS WAF resources that you use to protect Amazon CloudFront distributions, set this to `us-east-1`. Otherwise, set this to the Region you're using with your protected regional resources. 
++ {{scope}}: Set the scope to `global` for use with an Amazon CloudFront distribution or `regional` for use with any of the regional resources that AWS WAF supports. The regional resources are an Amazon API Gateway REST API, an Application Load Balancer, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, an Amazon Bedrock AgentCore Gateway, and an AWS Verified Access instance. 
++ {{resource-type}}: Specify one of the following values: `webacl`, `rulegroup`, `ipset`, `regexpatternset`, or `managedruleset`.
++ {{resource-name}}: Specify the name that you gave the AWS WAF resource, or specify a wildcard (`*`) to indicate all resources that satisfy the other specifications in the ARN. You must either specify the resource name and resource ID or specify a wildcard for both. 
++ {{resource-id}}: Specify the ID of the AWS WAF resource, or specify a wildcard (`*`) to indicate all resources that satisfy the other specifications in the ARN. You must either specify the resource name and resource ID or specify a wildcard for both.
 
-- `region`: For AWS WAF resources that you use to protect Amazon CloudFront distributions, set this to
-  `us-east-1`. Otherwise, set this to the Region you're
-  using with your protected regional resources.
-- `scope`: Set the scope to `global` for use
-  with an Amazon CloudFront distribution or `regional` for use with any of the
-  regional resources that AWS WAF supports. The regional resources are
-  an Amazon API Gateway REST API, an Application Load Balancer, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, an Amazon Bedrock AgentCore Gateway, and an AWS Verified Access instance.
-- `resource-type`: Specify one of the following values:
-  `webacl`, `rulegroup`, `ipset`,
-  `regexpatternset`, or `managedruleset`.
-- `resource-name`: Specify the name that you gave the
-  AWS WAF resource, or specify a wildcard (`*`) to indicate all
-  resources that satisfy the other specifications in the ARN. You must either
-  specify the resource name and resource ID or specify a wildcard for both.
-- `resource-id`: Specify the ID of the AWS WAF
-  resource, or specify a wildcard (`*`) to indicate all resources that
-  satisfy the other specifications in the ARN. You must either specify the resource
-  name and resource ID or specify a wildcard for both.
-
-For example, the following ARN specifies all protection packs (web ACLs) with regional scope for the
-account `111122223333` in Region `us-west-1`:
+For example, the following ARN specifies all protection packs (web ACLs) with regional scope for the account `111122223333` in Region `us-west-1`:
 
 ```
 arn:aws:wafv2:us-west-1:111122223333:regional/webacl/*/*
 ```
 
-The following ARN specifies the rule group named `MyIPManagementRuleGroup` with
-global scope for the account `111122223333` in Region
-`us-east-1`:
+The following ARN specifies the rule group named `MyIPManagementRuleGroup` with global scope for the account `111122223333` in Region `us-east-1`:
 
 ```
 arn:aws:wafv2:us-east-1:111122223333:global/rulegroup/MyIPManagementRuleGroup/1111aaaa-bbbb-cccc-dddd-example-id
 ```
 
-To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for AWS WAF](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for AWS WAF](security_iam_id-based-policy-examples.md).
 
 ## Policy condition keys for AWS WAF
+<a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
 
-**Supports service-specific policy condition keys:**
+**Supports service-specific policy condition keys:** Yes
 
-Yes
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
-Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
-**actions** on what **resources**, and under what **conditions**.
+The `Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html), such as equals or less than, to match the condition in the policy with values in the request. To see all AWS global condition keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*.
 
-The `Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition
-operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md"), such as equals or less than, to match the condition in the
-policy with values in the request. To see all AWS global
-condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
-_IAM User Guide_.
+In addition, AWS WAF supports the following condition keys that you can use to provide fine-grained filtering for your IAM policies:
++ **wafv2:LogDestinationResource**
 
-In addition, AWS WAF supports the following condition keys that you can use to
-provide fine-grained filtering for your IAM policies:
+  This condition key takes an Amazon Resource Name (ARN) specification for the logging destination. This is the ARN that you provide for the logging destination when you use the REST API call `PutLoggingConfiguration`. 
 
-- **wafv2:LogDestinationResource**
+  You can explicitly specify an ARN and you can specify filtering for the ARN. The following example specifies filtering for Amazon S3 bucket ARNs that have a specific location and prefix. 
 
-This condition key takes an Amazon Resource Name (ARN) specification for
-the logging destination. This is the ARN that you provide for the logging
-destination when you use the REST API call
-`PutLoggingConfiguration`.
+  ```
+  "Condition": { "ArnLike": { "wafv2:LogDestinationResource": "arn:aws:s3:::aws-waf-logs-suffix/custom-prefix/*" } }
+  ```
++ **wafv2:LogScope**
 
-You can explicitly specify an ARN and you can specify filtering for the
-ARN. The following example specifies filtering for Amazon S3 bucket ARNs that
-have a specific location and prefix.
+  This condition key defines the source of the logging configuration in a string. Currently, this is always set to the default of `Customer`, which indicates that the logging destination is owned and managed by you. 
 
-```
-"Condition": { "ArnLike": { "wafv2:LogDestinationResource": "arn:aws:s3:::aws-waf-logs-suffix/custom-prefix/*" } }
-```
+To see a list of AWS WAF condition keys, see [Condition keys for AWS WAF V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswafv2.html#awswafv2-policy-keys) in the *Service Authorization Reference*. To learn with which actions and resources you can use a condition key, see [Actions defined by AWS WAF V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswafv2.html#awswafv2-actions-as-permissions).
 
-- **wafv2:LogScope**
-
-This condition key defines the source of the logging configuration in a
-string. Currently, this
-is always set to the default of `Customer`, which indicates that
-the logging destination is owned and managed by you.
-
-To see a list of AWS WAF condition keys, see [Condition keys for AWS WAF V2](../../../service-authorization/latest/reference/list_awswafv2.md#awswafv2-policy-keys "../../../service-authorization/latest/reference/list_awswafv2.md#awswafv2-policy-keys") in the
-_Service Authorization Reference_. To learn with which actions and resources you
-can use a condition key, see [Actions defined by AWS WAF V2](../../../service-authorization/latest/reference/list_awswafv2.md#awswafv2-actions-as-permissions "../../../service-authorization/latest/reference/list_awswafv2.md#awswafv2-actions-as-permissions").
-
-To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for AWS WAF](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for AWS WAF](security_iam_id-based-policy-examples.md).
 
 ## ACLs in AWS WAF
+<a name="security_iam_service-with-iam-acls"></a>
 
-**Supports ACLs:**
+**Supports ACLs:** No 
 
-No
-
-Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
-similar to resource-based policies, although they do not use the JSON policy document format.
+Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are similar to resource-based policies, although they do not use the JSON policy document format.
 
 ## ABAC with AWS WAF
+<a name="security_iam_service-with-iam-tags"></a>
 
-**Supports ABAC (tags in policies):**
+**Supports ABAC (tags in policies):** Partial
 
-Partial
+Attribute-based access control (ABAC) is an authorization strategy that defines permissions based on attributes called tags. You can attach tags to IAM entities and AWS resources, then design ABAC policies to allow operations when the principal's tag matches the tag on the resource.
 
-Attribute-based access control (ABAC) is an authorization strategy that defines permissions
-based on attributes called tags. You can attach tags to IAM entities and AWS resources, then design ABAC policies to allow operations when the principal's tag matches the tag on the resource.
-
-To control access based on tags, you provide tag information in the [condition element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") of a policy using the `aws:ResourceTag/`key-name``, 
- `aws:RequestTag/`key-name``, or `aws:TagKeys` condition keys.
+To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `aws:ResourceTag/{{key-name}}`, `aws:RequestTag/{{key-name}}`, or `aws:TagKeys` condition keys.
 
 If a service supports all three condition keys for every resource type, then the value is **Yes** for the service. If a service supports all three condition keys for only some resource types, then the value is **Partial**.
 
-For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
-[Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
+For more information about ABAC, see [Define permissions with ABAC authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*. To view a tutorial with steps for setting up ABAC, see [Use attribute-based access control (ABAC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html) in the *IAM User Guide*.
 
 ## Using temporary credentials with AWS WAF
+<a name="security_iam_service-with-iam-roles-tempcreds"></a>
 
-**Supports temporary credentials:**
+**Supports temporary credentials:** Yes
 
-Yes
-
-Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you
-dynamically generate temporary credentials instead of using long-term access keys. For
-more information, see [Temporary
-security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
-that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
+Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you dynamically generate temporary credentials instead of using long-term access keys. For more information, see [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) and [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
 ## Forward access sessions for service AWS WAF
+<a name="security_iam_service-with-iam-principal-permissions"></a>
 
-**Supports forward access sessions (FAS):**
+**Supports forward access sessions (FAS):** Yes
 
-Yes
-
-Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
-when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
+ Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details when making FAS requests, see [Forward access sessions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html). 
 
 ## Service roles for AWS WAF
+<a name="security_iam_service-with-iam-roles-service"></a>
 
-**Supports service roles:**
+**Supports service roles:** Yes
 
-Yes
+ A service role is an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a service assumes to perform actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For more information, see [Create a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*. 
 
-A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that a service assumes to perform
-actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
-more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
-
-###### Warning
-
-Changing the permissions for a service role might break AWS WAF functionality.
-Edit service roles only when AWS WAF provides guidance to do so.
+**Warning**  
+Changing the permissions for a service role might break AWS WAF functionality. Edit service roles only when AWS WAF provides guidance to do so.
 
 ## Service-linked roles for AWS WAF
+<a name="security_iam_service-with-iam-roles-service-linked"></a>
 
-**Supports service-linked roles:**
+**Supports service-linked roles:** Yes
 
-Yes
+ A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf. Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view, but not edit the permissions for service-linked roles. 
 
-A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf.
-Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
-but not edit the permissions for service-linked roles.
-
-For details about creating or managing AWS WAF service-linked roles, see [Using service-linked roles for AWS WAF](using-service-linked-roles.md "using-service-linked-roles.md").
+For details about creating or managing AWS WAF service-linked roles, see [Using service-linked roles for AWS WAF](using-service-linked-roles.md).

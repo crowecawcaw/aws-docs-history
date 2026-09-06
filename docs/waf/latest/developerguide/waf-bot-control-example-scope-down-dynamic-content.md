@@ -1,21 +1,17 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Bot Control example: Using Bot Control only for dynamic content
+<a name="waf-bot-control-example-scope-down-dynamic-content"></a>
 
-This example uses a scope-down statement to apply AWS WAF Bot Control only to dynamic content.
+This example uses a scope-down statement to apply AWS WAF Bot Control only to dynamic content. 
 
-The scope-down statement excludes static content by negating the match results for a regex pattern set:
-
-- The regex pattern set is configured to match extensions of _static
-  content_. For example, the regex pattern set specification
-  might be `(?i)\.(jpe?g|gif|png|svg|ico|css|js|woff2?)$`. For
-  information about regex pattern sets and statements, see [Regex pattern set match rule statement](waf-rule-statement-type-regex-pattern-set-match.md "waf-rule-statement-type-regex-pattern-set-match.md").
-- In the scope-down statement, we exclude the matching static content by nesting the regex
-  pattern set statement inside a `NOT` statement. For information about the
-  `NOT` statement, see [NOT rule statement](waf-rule-statement-type-not.md "waf-rule-statement-type-not.md").
+The scope-down statement excludes static content by negating the match results for a regex pattern set: 
++ The regex pattern set is configured to match extensions of *static content*. For example, the regex pattern set specification might be `(?i)\.(jpe?g|gif|png|svg|ico|css|js|woff2?)$`. For information about regex pattern sets and statements, see [Regex pattern set match rule statement](waf-rule-statement-type-regex-pattern-set-match.md). 
++ In the scope-down statement, we exclude the matching static content by nesting the regex pattern set statement inside a `NOT` statement. For information about the `NOT` statement, see [NOT rule statement](waf-rule-statement-type-not.md).
 
 ```
 {
@@ -24,7 +20,7 @@ The scope-down statement excludes static content by negating the match results f
   "Statement": {
     "ManagedRuleGroupStatement": {
       "VendorName": "AWS",
-      "Name": "`AWSManagedRulesBotControlRuleSet`",
+      "Name": "AWSManagedRulesBotControlRuleSet",
 	  "ManagedRuleGroupConfigs": [
         {
           "AWSManagedRulesBotControlRuleSet": {

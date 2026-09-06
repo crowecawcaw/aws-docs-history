@@ -1,34 +1,22 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # Handling a CAPTCHA response from AWS WAF
+<a name="waf-js-captcha-api-conditional"></a>
 
-This section provides an example of handling a CAPTCHA
-response.
+This section provides an example of handling a CAPTCHA response.
 
-An AWS WAF rule with a CAPTCHA action terminates the evaluation of a matching web
-request if the request doesn't have a token with a valid CAPTCHA timestamp. If
-the request is a `GET` text/html call, the CAPTCHA action
-then serves the client an interstitial with a CAPTCHA puzzle. When you don't
-integrate the CAPTCHA JavaScript API, the interstitial runs the puzzle and, if
-the end user successfully solves it, automatically resubmits the request.
+An AWS WAF rule with a CAPTCHA action terminates the evaluation of a matching web request if the request doesn't have a token with a valid CAPTCHA timestamp. If the request is a `GET` text/html call, the CAPTCHA action then serves the client an interstitial with a CAPTCHA puzzle. When you don't integrate the CAPTCHA JavaScript API, the interstitial runs the puzzle and, if the end user successfully solves it, automatically resubmits the request. 
 
-When you integrate the CAPTCHA JavaScript API and customize your CAPTCHA handling, you
-need to detect the terminating CAPTCHA response, serve your custom CAPTCHA,
-and then if the end user successfully solves the puzzle, resubmit the client's
-web request.
+When you integrate the CAPTCHA JavaScript API and customize your CAPTCHA handling, you need to detect the terminating CAPTCHA response, serve your custom CAPTCHA, and then if the end user successfully solves the puzzle, resubmit the client's web request. 
 
-The following code example shows how to do this.
+The following code example shows how to do this. 
 
-###### Note
-
-The AWS WAF CAPTCHA action response has a status code of HTTP 405,
-which we use to recognize the CAPTCHA response in this code. If your
-protected endpoint uses an HTTP 405 status code to communicate any other
-type of response for the same call, this example code will render a
-CAPTCHA puzzle for those responses as well.
+**Note**  
+The AWS WAF CAPTCHA action response has a status code of HTTP 405, which we use to recognize the CAPTCHA response in this code. If your protected endpoint uses an HTTP 405 status code to communicate any other type of response for the same call, this example code will render a CAPTCHA puzzle for those responses as well. 
 
 ```
 <!DOCTYPE html>

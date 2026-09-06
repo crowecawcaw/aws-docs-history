@@ -1,195 +1,134 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # AWS WAF Distributed Denial of Service (DDoS) prevention rule group
+<a name="aws-managed-rule-groups-anti-ddos"></a>
 
 This section describes the AWS WAF managed rule group for the protection against Distributed Denial of Service (DDoS) attacks.
 
 VendorName: `AWS`, Name: `AWSManagedRulesAntiDDoSRuleSet`, WCU: 50
 
-###### Note
+**Note**  
+This documentation covers the most recent static version release of this managed rule group. We report version changes in the changelog log at [AWS Managed Rules changelog](aws-managed-rule-groups-changelog.md). For information about other versions, use the API command [DescribeManagedRuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_DescribeManagedRuleGroup.html).   
+The information that we publish for the rules in the AWS Managed Rules rule groups is intended to provide you with what you need to use the rules without giving bad actors what they need to circumvent the rules.   
+If you need more information than you find here, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/). 
 
-This documentation covers the most recent static version release of this managed rule group. We report
-version changes in the changelog log at [AWS Managed Rules changelog](aws-managed-rule-groups-changelog.md "aws-managed-rule-groups-changelog.md").
-For information about other versions, use the API command
-[DescribeManagedRuleGroup](../APIReference/API_DescribeManagedRuleGroup.md "../APIReference/API_DescribeManagedRuleGroup.md").
-
-The information that we publish for the rules in the AWS Managed Rules rule groups is intended to provide you
-with what you need to use the rules without giving
-bad actors what they need to circumvent the rules.
-
-If you need more information than you find here, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
-
-The Anti-DDoS managed rule group provides rules that detect and manage requests that are participating
-or likely to be participating in DDoS attacks. Additionally, the rule group labels all requests that it evaluates during a probable event.
+The Anti-DDoS managed rule group provides rules that detect and manage requests that are participating or likely to be participating in DDoS attacks. Additionally, the rule group labels all requests that it evaluates during a probable event. 
 
 ## Considerations for using this rule group
+<a name="aws-managed-rule-groups-anti-ddos-using"></a>
 
-This rule group provides soft and hard mitigations for web requests coming
-to resources that are under DDoS attack. To detect different threat levels, you can tune the sensitivity of both mitigation types to high, medium, or low suspicion levels.
+This rule group provides soft and hard mitigations for web requests coming to resources that are under DDoS attack. To detect different threat levels, you can tune the sensitivity of both mitigation types to high, medium, or low suspicion levels.
++ **Soft mitigation** – The rule group can send silent browser challenges in response to requests that can handle the challenge interstitial. For information about the requirements for running the challenge, see [CAPTCHA and Challenge action behavior](waf-captcha-and-challenge-actions.md).
++ **Hard mitigation** – The rule group can block requests altogether. 
 
-- **Soft mitigation** – The rule group can send silent browser challenges
-  in response to requests that can handle the challenge interstitial. For information
-  about the requirements for running the challenge, see [CAPTCHA and Challenge action behavior](waf-captcha-and-challenge-actions.md "waf-captcha-and-challenge-actions.md").
-- **Hard mitigation** – The rule group can block requests altogether.
+For more information about how the rule group works and how to configure it, see [Advanced Anti-DDoS protection using the AWS WAF Anti-DDoS managed rule group](waf-anti-ddos-advanced.md). 
 
-For more information about how the rule group
-works and how to configure it, see [Advanced Anti-DDoS protection using the AWS WAF Anti-DDoS managed rule group](waf-anti-ddos-advanced.md "waf-anti-ddos-advanced.md").
+**Note**  
+You are charged additional fees when you use this managed rule group. For more information, see [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/).
 
-###### Note
+This rule group is part of the intelligent threat mitigation protections in AWS WAF. For information, see [Intelligent threat mitigation in AWS WAF](waf-managed-protections.md).
 
-You are charged additional fees when you use this managed rule group. For more information, see [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/ "https://aws.amazon.com/waf/pricing/").
-
-This rule group is part of the intelligent
-threat mitigation protections in AWS WAF. For information, see [Intelligent threat mitigation in AWS WAF](waf-managed-protections.md "waf-managed-protections.md").
-
-To minimize costs and optimize traffic management, use this rule group in accordance with best practice guidelines. See, [Best practices for intelligent threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md").
+To minimize costs and optimize traffic management, use this rule group in accordance with best practice guidelines. See, [Best practices for intelligent threat mitigation in AWS WAF](waf-managed-protections-best-practices.md).
 
 ## Labels added by this rule group
+<a name="aws-managed-rule-groups-anti-ddos-labels"></a>
 
-This managed rule group adds labels to the web requests that
-it evaluates, which are available to rules that run after this rule group in your protection pack (web ACL). AWS WAF
-also records the labels to Amazon CloudWatch metrics. For general information about labels and label metrics, see [Web request labeling](waf-labels.md "waf-labels.md")
-and [Label metrics and dimensions](waf-metrics.md#waf-metrics-label "waf-metrics.md#waf-metrics-label").
+This managed rule group adds labels to the web requests that it evaluates, which are available to rules that run after this rule group in your protection pack (web ACL). AWS WAF also records the labels to Amazon CloudWatch metrics. For general information about labels and label metrics, see [Web request labeling](waf-labels.md) and [Label metrics and dimensions](waf-metrics.md#waf-metrics-label). 
 
 ### Token labels
+<a name="aws-managed-rule-groups-anti-ddos-labels-token"></a>
 
-This rule group uses AWS WAF token management to inspect and label web
-requests according to the status of their AWS WAF tokens. AWS WAF uses
-tokens for client session tracking and verification.
+This rule group uses AWS WAF token management to inspect and label web requests according to the status of their AWS WAF tokens. AWS WAF uses tokens for client session tracking and verification. 
 
-For information about tokens and token management, see [Token use in AWS WAF intelligent threat mitigation](waf-tokens.md "waf-tokens.md").
+For information about tokens and token management, see [Token use in AWS WAF intelligent threat mitigation](waf-tokens.md).
 
-For information
-about the label components described here, see [Label syntax and naming requirements in AWS WAF](waf-rule-label-requirements.md "waf-rule-label-requirements.md").
+For information about the label components described here, see [Label syntax and naming requirements in AWS WAF](waf-rule-label-requirements.md).
 
-###### Client session label
+**Client session label**  
+The label `awswaf:managed:token:id:{{identifier}}` contains a unique identifier that AWS WAF token management uses to identify the client session. The identifier can change if the client acquires a new token, for example after discarding the token it was using. 
 
-The label `awswaf:managed:token:id:`identifier`` contains a unique identifier that AWS WAF token management uses to identify the client session. The identifier can change if the client acquires a new token, for example after discarding the token it was using.
-
-###### Note
-
+**Note**  
 AWS WAF doesn't report Amazon CloudWatch metrics for this label.
 
-###### Browser fingerprint label
+**Browser fingerprint label**  
+The label `awswaf:managed:token:fingerprint:{{fingerprint-identifier}}` contains a robust browser fingerprint identifier that AWS WAF token management computes from various client browser signals. This identifier stays the same across multiple token acquisition attempts. The fingerprint identifier is not unique to a single client.
 
-The label `awswaf:managed:token:fingerprint:`fingerprint-identifier`` contains a
-robust browser fingerprint identifier that AWS WAF token management computes from various client browser signals.
-This identifier stays the same across multiple token acquisition attempts. The fingerprint identifier is not unique to a single client.
-
-###### Note
-
+**Note**  
 AWS WAF doesn't report Amazon CloudWatch metrics for this label.
 
-###### Token status labels: Label namespace prefixes
+**Token status labels: Label namespace prefixes**  
+Token status labels report on the status of the token and of the challenge and CAPTCHA information that it contains. 
 
-Token status labels report on the status of the token and of the challenge and CAPTCHA information that it contains.
+Each token status label begins with one of the following namespace prefixes: 
++ `awswaf:managed:token:` – Used to report the general status of the token and to report on the status of the token's challenge information. 
++ `awswaf:managed:captcha:` – Used to report on the status of the token's CAPTCHA information. 
 
-Each token status label begins with one of the following namespace prefixes:
+**Token status labels: Label names**  
+Following the prefix, the rest of the label provides detailed token status information: 
++ `accepted` – The request token is present and contains the following: 
+  + A valid challenge or CAPTCHA solution.
+  + An unexpired challenge or CAPTCHA timestamp.
+  + A domain specification that's valid for the protection pack (web ACL). 
 
-- `awswaf:managed:token:` – Used to report the general status of the token and to report on the status of the token's challenge information.
-- `awswaf:managed:captcha:` – Used to report on the status of the token's CAPTCHA information.
+  Example: The label `awswaf:managed:token:accepted` indicates that the web requests's token has a valid challenge solution, an unexpired challenge timestamp, and a valid domain.
++ `rejected` – The request token is present but doesn't meet the acceptance criteria. 
 
-###### Token status labels: Label names
+  Along with the rejected label, token management adds a custom label namespace and name to indicate the reason. 
+  + `rejected:not_solved` – The token is missing the challenge or CAPTCHA solution. 
+  + `rejected:expired` – The token's challenge or CAPTCHA timestamp has expired, according to your protection pack (web ACL)'s configured token immunity times. 
+  + `rejected:domain_mismatch` – The token's domain isn't a match for your protection pack (web ACL)'s token domain configuration. 
+  + `rejected:invalid` – AWS WAF couldn't read the indicated token. 
 
-Following the prefix, the rest of the label provides detailed token status information:
+  Example: The labels `awswaf:managed:captcha:rejected` and `awswaf:managed:captcha:rejected:expired` together indicate that the request didn't have a valid CAPTCHA solve because the CAPTCHA timestamp in the token has exceeded the CAPTCHA token immunity time that's configured in the protection pack (web ACL).
++ `absent` – The request doesn't have the token or the token manager couldn't read it. 
 
-- `accepted` – The request token is present and contains the following:
-
-  - A valid challenge or CAPTCHA solution.
-  - An unexpired challenge or CAPTCHA timestamp.
-  - A domain specification that's valid for the protection pack (web ACL).
-    Example: The label `awswaf:managed:token:accepted` indicates that the web requests's token has a valid challenge solution, an unexpired challenge timestamp, and a valid domain.
-
-- `rejected` – The request token is present but doesn't meet the acceptance criteria.
-
-Along with the rejected label, token management adds a custom label namespace and name to indicate the reason.
-
-    + `rejected:not_solved` – The token is missing the challenge or CAPTCHA solution.
-    + `rejected:expired` – The token's challenge or CAPTCHA timestamp has expired, according to your protection pack (web ACL)'s configured token immunity times.
-    + `rejected:domain_mismatch` – The token's domain isn't a match for your protection pack (web ACL)'s token domain configuration.
-    + `rejected:invalid` – AWS WAF couldn't read the indicated token.
-
-Example: The labels `awswaf:managed:captcha:rejected` and `awswaf:managed:captcha:rejected:expired` together indicate that the request didn't have a valid CAPTCHA solve because the CAPTCHA timestamp in the token has exceeded the CAPTCHA token immunity time that's configured in the protection pack (web ACL).
-
-- `absent` – The request doesn't have the token or the token manager couldn't read it.
-
-Example: The label `awswaf:managed:captcha:absent` indicates that the request doesn't have the token.
+  Example: The label `awswaf:managed:captcha:absent` indicates that the request doesn't have the token. 
 
 ### Anti-DDoS labels
+<a name="aws-managed-rule-groups-anti-ddos-labels-rg"></a>
 
-The Anti-DDoS managed rule group generates labels with the namespace prefix
-`awswaf:managed:aws:anti-ddos:` followed by any custom
-namespace and the label name. Each label reflects some aspect of the Anti-DDoS findings.
+The Anti-DDoS managed rule group generates labels with the namespace prefix `awswaf:managed:aws:anti-ddos:` followed by any custom namespace and the label name. Each label reflects some aspect of the Anti-DDoS findings.
 
-The rule group might add more than one of the
-following labels to a request, in addition to the labels that are added by individual rules.
+The rule group might add more than one of the following labels to a request, in addition to the labels that are added by individual rules. 
++ `awswaf:managed:aws:anti-ddos:event-detected` – Indicates that the request is going to a protected resource for which the managed rule group detects a DDoS event. The managed rule group detects events when the traffic to the resource has a significant deviation from the resource's traffic baseline. 
 
-- `awswaf:managed:aws:anti-ddos:event-detected`
-  – Indicates that the request is going to a protected
-  resource for which the managed rule group detects a DDoS event. The managed
-  rule group detects events when the traffic to the
-  resource has a significant deviation from the resource's
-  traffic baseline.
+  The rule group adds this label to every request that goes to the resource while it's in this state, so legitimate traffic and attack traffic get this label. 
++ `awswaf:managed:aws:anti-ddos:ddos-request` – Indicates that the request is coming from a source suspected of participating in an event. 
 
-The rule group adds this label to every request that goes to the resource while it's in this state, so legitimate traffic and attack traffic get this label.
+  In addition to the general label, the rule group adds the following labels that indicate the level of confidence. 
 
-- `awswaf:managed:aws:anti-ddos:ddos-request`
-  – Indicates that the request is coming from a source suspected of
-  participating in an event.
+  `awswaf:managed:aws:anti-ddos:low-suspicion-ddos-request` – Indicates a probable DDoS attack request.
 
-In addition to the general label, the rule
-group adds the following labels that indicate the level of confidence.
+  `awswaf:managed:aws:anti-ddos:medium-suspicion-ddos-request` – Indicates a very likely DDoS attack request.
 
-`awswaf:managed:aws:anti-ddos:low-suspicion-ddos-request` – Indicates a probable DDoS attack request.
+  `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` – Indicates a highly likely DDoS attack request.
++ `awswaf:managed:aws:anti-ddos:challengeable-request` – Indicates that the request URI is capable of handling the Challenge action. The managed rule group applies this to any request whose URI isn't exempted. URIs are exempted if they match the rule group's exempt URI regular expressions. 
 
-`awswaf:managed:aws:anti-ddos:medium-suspicion-ddos-request` – Indicates a very likely DDoS attack request.
+  For information about the requirements for requests that can take a silent browser challenge, see [CAPTCHA and Challenge action behavior](waf-captcha-and-challenge-actions.md).
 
-`awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` – Indicates a highly likely DDoS attack request.
+You can retrieve all labels for a rule group through the API by calling `DescribeManagedRuleGroup`. The labels are listed in the `AvailableLabels` property in the response. 
 
-- `awswaf:managed:aws:anti-ddos:challengeable-request`
-  – Indicates that the request URI is capable of handling the Challenge action.
-  The managed rule group applies this to any request whose URI isn't exempted.
-  URIs are exempted if they match the rule group's
-  exempt URI regular expressions.
-
-For information about the requirements
-for requests that can take a silent browser challenge,
-see [CAPTCHA and Challenge action behavior](waf-captcha-and-challenge-actions.md "waf-captcha-and-challenge-actions.md").
-
-You can retrieve all labels for a rule group through the API by calling
-`DescribeManagedRuleGroup`. The labels are listed in the
-`AvailableLabels` property in the response.
-
-The Anti-DDoS managed rule group applies labels to requests, but doesn't always
-act on them. The request management depends on the confidence with which the
-rule group determines participation in an attack.
-If you want, you can manage requests that the rule group labels by adding a
-label matching rule that runs after the rule group.
-For more information about this and examples, see
-[AWS WAF Distributed Denial of Service (DDoS) prevention](waf-anti-ddos.md "waf-anti-ddos.md").
+The Anti-DDoS managed rule group applies labels to requests, but doesn't always act on them. The request management depends on the confidence with which the rule group determines participation in an attack. If you want, you can manage requests that the rule group labels by adding a label matching rule that runs after the rule group. For more information about this and examples, see [AWS WAF Distributed Denial of Service (DDoS) prevention](waf-anti-ddos.md).
 
 ## Anti-DDoS rules listing
+<a name="aws-managed-rule-groups-anti-ddos-rules"></a>
 
 This section lists the Anti-DDoS rules.
 
-###### Note
+ 
 
-This documentation covers the most recent static version release of this managed rule group. We report
-version changes in the changelog log at [AWS Managed Rules changelog](aws-managed-rule-groups-changelog.md "aws-managed-rule-groups-changelog.md").
-For information about other versions, use the API command
-[DescribeManagedRuleGroup](../APIReference/API_DescribeManagedRuleGroup.md "../APIReference/API_DescribeManagedRuleGroup.md").
+**Note**  
+This documentation covers the most recent static version release of this managed rule group. We report version changes in the changelog log at [AWS Managed Rules changelog](aws-managed-rule-groups-changelog.md). For information about other versions, use the API command [DescribeManagedRuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_DescribeManagedRuleGroup.html).   
+The information that we publish for the rules in the AWS Managed Rules rule groups is intended to provide you with what you need to use the rules without giving bad actors what they need to circumvent the rules.   
+If you need more information than you find here, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/). 
 
-The information that we publish for the rules in the AWS Managed Rules rule groups is intended to provide you
-with what you need to use the rules without giving
-bad actors what they need to circumvent the rules.
 
-If you need more information than you find here, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
-
-| Rule name                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ChallengeAllDuringEvent` | Matches requests that have the label<br>`awswaf:managed:aws:anti-ddos:challengeable-request`<br>for any protected resource<br>that is currently under attack.<br>Rule action: Challenge<br>You can only override this rule action to Allow or Count. The use of Allow is not recommended. For any rule action setting, the rule only matches requests that have the `challengeable-request` label.<br>The configuration of this rule affects the evaluation of the next rule, `ChallengeDDoSRequests`. AWS WAF only evaluates that rule when the action for this rule has override set to Count, in the web ACL's configuration of the managed rule group.<br>If your workload is vulnerable to unexpected request volume changes, we recommend challenging all<br>challengable requests, by keeping the default action setting of Challenge. For less sensitive applications, you can set the action for this rule to Count and then tune the sensitivity of your<br>Challenge responses with the rule `ChallengeDDoSRequests`.<br>Labels: `awswaf:managed:aws:anti-ddos:ChallengeAllDuringEvent` |
-| `ChallengeDDoSRequests`   | Matches requests for a protected resource<br>that meet or exceed the rule group's configured<br>challenge sensitivity setting,<br>during times that the resource is under attack.<br>Rule action: Challenge<br>You can only override this rule action to Allow or Count. The use of Allow is not recommended. In any case, the rule only matches requests that have the `challengeable-request` label.<br>AWS WAF only evaluates this rule if you override the action to Count in the prior rule, `ChallengeAllDuringEvent`.<br>Labels: `awswaf:managed:aws:anti-ddos:ChallengeDDoSRequests`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `DDoSRequests`            | Matches requests for a protected resource<br>that meet or exceed the rule group's configured<br>block sensitivity setting,<br>during times that the resource is under attack.<br>Rule action: Block<br>Labels: `awswaf:managed:aws:anti-ddos:DDoSRequests`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Rule name | Description | 
+| --- | --- | 
+| ChallengeAllDuringEvent | Matches requests that have the label `awswaf:managed:aws:anti-ddos:challengeable-request` for any protected resource that is currently under attack. <br />Rule action: Challenge<br />You can only override this rule action to Allow or Count. The use of Allow is not recommended. For any rule action setting, the rule only matches requests that have the `challengeable-request` label.<br />The configuration of this rule affects the evaluation of the next rule, `ChallengeDDoSRequests`. AWS WAF only evaluates that rule when the action for this rule has override set to Count, in the web ACL's configuration of the managed rule group. <br />If your workload is vulnerable to unexpected request volume changes, we recommend challenging all challengable requests, by keeping the default action setting of Challenge. For less sensitive applications, you can set the action for this rule to Count and then tune the sensitivity of your Challenge responses with the rule `ChallengeDDoSRequests`. <br />Labels: `awswaf:managed:aws:anti-ddos:ChallengeAllDuringEvent`  | 
+| ChallengeDDoSRequests | Matches requests for a protected resource that meet or exceed the rule group's configured challenge sensitivity setting, during times that the resource is under attack. <br />Rule action: Challenge<br />You can only override this rule action to Allow or Count. The use of Allow is not recommended. In any case, the rule only matches requests that have the `challengeable-request` label.<br />AWS WAF only evaluates this rule if you override the action to Count in the prior rule, `ChallengeAllDuringEvent`. <br />Labels: `awswaf:managed:aws:anti-ddos:ChallengeDDoSRequests`  | 
+| DDoSRequests | Matches requests for a protected resource that meet or exceed the rule group's configured block sensitivity setting, during times that the resource is under attack. <br />Rule action: Block<br />Labels: `awswaf:managed:aws:anti-ddos:DDoSRequests`  | 

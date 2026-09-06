@@ -1,30 +1,21 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # ACFP example: Custom response for compromised credentials
+<a name="waf-acfp-control-example-compromised-credentials"></a>
 
-By default, the credentials check that's performed by the rule group `AWSManagedRulesACFPRuleSet`
-handles compromised credentials by labeling the request and blocking it. For details about the rule group and rule behavior, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](aws-managed-rule-groups-acfp.md "aws-managed-rule-groups-acfp.md").
+By default, the credentials check that's performed by the rule group `AWSManagedRulesACFPRuleSet` handles compromised credentials by labeling the request and blocking it. For details about the rule group and rule behavior, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](aws-managed-rule-groups-acfp.md).
 
-To inform the user that the account credentials they've provided have been compromised,
-you can do the following:
+To inform the user that the account credentials they've provided have been compromised, you can do the following: 
++ **Override the `SignalCredentialCompromised` rule to Count** – This causes the rule to only count and label matching requests.
++ **Add a label match rule with custom handling** – Configure this rule to match against the ACFP label and to perform your custom handling. 
 
-- **Override the `SignalCredentialCompromised` rule to Count**
-  – This causes the rule to only count and label matching requests.
-- **Add a label match rule with custom handling** –
-  Configure this rule to match against the ACFP label and to perform
-  your custom handling.
-  The following protection pack (web ACL) listings shows the ACFP managed rule group from the prior example, with the
-  `SignalCredentialCompromised` rule action overridden to count. With this configuration, when this rule group evaluates any web request that uses
-  compromised credentials, it will label the request, but not block it.
+The following protection pack (web ACL) listings shows the ACFP managed rule group from the prior example, with the `SignalCredentialCompromised` rule action overridden to count. With this configuration, when this rule group evaluates any web request that uses compromised credentials, it will label the request, but not block it. 
 
-In addition, the protection pack (web ACL) now has a custom response named `aws-waf-credential-compromised`
-and a new rule named `AccountSignupCompromisedCredentialsHandling`. The rule priority is a higher numeric
-setting than the rule group, so it runs after the rule group in the protection pack (web ACL) evaluation. The new rule matches any request with
-the rule group's compromised credentials label. When the rule finds a match, it applies the
-Block action to the request with the custom response body. The custom response body provides information to the end user that their credentials have been compromised and proposes an action to take.
+In addition, the protection pack (web ACL) now has a custom response named `aws-waf-credential-compromised` and a new rule named `AccountSignupCompromisedCredentialsHandling`. The rule priority is a higher numeric setting than the rule group, so it runs after the rule group in the protection pack (web ACL) evaluation. The new rule matches any request with the rule group's compromised credentials label. When the rule finds a match, it applies the Block action to the request with the custom response body. The custom response body provides information to the end user that their credentials have been compromised and proposes an action to take. 
 
 ```
 {
@@ -157,5 +148,4 @@ Block action to the request with the custom response body. The custom response b
     }
   }
 }
-
 ```

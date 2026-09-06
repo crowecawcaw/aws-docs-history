@@ -1,22 +1,18 @@
+
+
 **Introducing a new console experience for AWS WAF**
 
-You can now use the updated experience to access AWS WAF functionality anywhere in the console.
-For more details, see [Working with the console](working-with-console.md "working-with-console.md").
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
 
 # ATP example: Response inspection configuration
+<a name="waf-atp-control-example-response-inspection"></a>
 
-The following JSON listing shows an example protection pack (web ACL) with an AWS WAF Fraud Control account takeover prevention (ATP) managed rule
-group that is configured to inspect origin responses. Note the response inspection configuration, which specifies success and response status codes. You can also configure success and response settings based on header, body, and body JSON matches. This JSON
-includes the protection pack (web ACL)'s automatically generated settings, like the label namespace
-and the protection pack (web ACL)'s application integration URL.
+The following JSON listing shows an example protection pack (web ACL) with an AWS WAF Fraud Control account takeover prevention (ATP) managed rule group that is configured to inspect origin responses. Note the response inspection configuration, which specifies success and response status codes. You can also configure success and response settings based on header, body, and body JSON matches. This JSON includes the protection pack (web ACL)'s automatically generated settings, like the label namespace and the protection pack (web ACL)'s application integration URL.
 
-###### Note
-
-ATP response inspection is available only in protection packs (web ACLs) that protect CloudFront distributions.
-AWS WAF doesn't inspect responses for web requests that clients send over HTTP/3 (QUIC).
+**Note**  
+ATP response inspection is available only in protection packs (web ACLs) that protect CloudFront distributions. AWS WAF doesn't inspect responses for web requests that clients send over HTTP/3 (QUIC).
 
 ```
-
 {
     "WebACL": {
         "LabelNamespace": "awswaf:111122223333:webacl:ATPModuleACL:",
@@ -35,37 +31,37 @@ AWS WAF doesn't inspect responses for web requests that clients send over HTTP/3
                 },
                 "Name": "DetectCompromisedUserCredentials",
                 "Statement": {
-                    **"ManagedRuleGroupStatement": {
- "VendorName": "AWS",
- "Name": "`AWSManagedRulesATPRuleSet`",
- "ManagedRuleGroupConfigs": [
- {
- "AWSManagedRulesATPRuleSet": {
- "LoginPath": "/web/login",
- "RequestInspection": {
- "PayloadType": "JSON",
- "UsernameField": {
- "Identifier": "/form/username"
- },
- "PasswordField": {
- "Identifier": "/form/password"
- }
- },
- "ResponseInspection": {
- "StatusCode": {
- "SuccessCodes": [
- 200
- ],
- "FailureCodes": [
- 401
- ]
- }
- },
- "EnableRegexInPath": false
- }
- }
- ]
- }**
+                    "ManagedRuleGroupStatement": {
+                        "VendorName": "AWS",
+                        "Name": "AWSManagedRulesATPRuleSet",
+                        "ManagedRuleGroupConfigs": [
+                          {
+                            "AWSManagedRulesATPRuleSet": {
+                              "LoginPath": "/web/login",
+                              "RequestInspection": {
+                                "PayloadType": "JSON",
+                                "UsernameField": {
+                                  "Identifier": "/form/username"
+                                },
+                                "PasswordField": {
+                                  "Identifier": "/form/password"
+                                }
+                              },
+                              "ResponseInspection": {
+                                "StatusCode": {
+                                  "SuccessCodes": [
+                                    200
+                                  ],
+                                  "FailureCodes": [
+                                    401
+                                  ]
+                                }
+                              },
+                              "EnableRegexInPath": false
+                            }
+                          }
+                        ]
+                    }
                 }
             }
         ],
