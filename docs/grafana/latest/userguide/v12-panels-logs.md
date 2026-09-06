@@ -1,73 +1,41 @@
+
+
 # Logs
+<a name="v12-panels-logs"></a>
 
-This documentation topic is designed
-for Grafana workspaces that support **Grafana version
-12.x**.
+****  
+This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).  
+For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
 
-For Grafana workspaces that support Grafana version 10.x, see
-[Working in Grafana version 10](using-grafana-v10.md "using-grafana-v10.md").
+The logs panel visualization shows log lines from data sources that support logs, such as Elastic, Influx, and Loki. Typically, you would use this panel next to a graph panel to display the log output of a related process.
 
-For Grafana workspaces that support Grafana version 9.x, see
-[Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
+The logs panel shows the result of queries that were entered on the **Query** tab. The results of multiple queries are merged and sorted by time. You can scroll inside the panel if the data source returns more lines than can be displayed.
 
-For Grafana workspaces that support Grafana version 8.x, see
-[Working in Grafana version 8](using-grafana-v8.md "using-grafana-v8.md").
-
-The logs panel visualization shows log lines from data sources that support logs,
-such as Elastic, Influx, and Loki. Typically, you would use this panel next to a graph
-panel to display the log output of a related process.
-
-The logs panel shows the result of queries that were entered on the
-**Query** tab. The results of multiple queries are merged and
-sorted by time. You can scroll inside the panel if the data source returns more lines
-than can be displayed.
-
-To limit the number of lines rendered, you can use the **Max data
-points** setting in the **Query options**. If it is not
-set, the data source will usually enforce a default limit.
+To limit the number of lines rendered, you can use the **Max data points** setting in the **Query options**. If it is not set, the data source will usually enforce a default limit.
 
 ## Log level
+<a name="v12-panels-logs-level"></a>
 
-For logs where a **level** label is specified, we use the value
-of the label to determine the log level and update color accordingly. If the log
-doesn’t have a level label specified, we try to find out if its content matches any
-of the supported expressions (see below for more information). The log level is
-always determined by the first match. In case Grafana is not able to determine a log
-level, it will be visualized with **unknown** log level. For more
-information, see [Log level](v12-explore-logs.md#v12-explore-log-level "v12-explore-logs.md#v12-explore-log-level").
+For logs where a **level** label is specified, we use the value of the label to determine the log level and update color accordingly. If the log doesn’t have a level label specified, we try to find out if its content matches any of the supported expressions (see below for more information). The log level is always determined by the first match. In case Grafana is not able to determine a log level, it will be visualized with **unknown** log level. For more information, see [Log level](v12-explore-logs.md#v12-explore-log-level).
 
 ## Log details
+<a name="v12-panels-logs-details"></a>
 
-Each log row has an extendable area with its labels and detected fields, for
-more robust interaction. Each field or label has a stats icon to display
-statistics in relation to all displayed logs.
+Each log row has an extendable area with its labels and detected fields, for more robust interaction. Each field or label has a stats icon to display statistics in relation to all displayed logs.
 
 **Data links**
 
-By using data links, you can turn any part of a log message into an internal
-or external link. The created link is visible as a button in the
-**Links** section inside the **Log details**
-view.
+By using data links, you can turn any part of a log message into an internal or external link. The created link is visible as a button in the **Links** section inside the **Log details** view.
 
 **Display options**
 
 Use the following settings to refine your visualization:
-
-- Time – Show or hide the time column.
-  This is the timestamp associated with the log line as reported from the data
-  source.
-- Unique labels – Show or hide the unique
-  labels column, which shows only non-common labels.
-- Common labels – Show or hide the
-  common labels
-- Wrap lines – Toggle line wrapping.
-- Prettify JSON – Set this to
-  `true` to pretty print all JSON logs. This setting does not
-  affect logs in any format other than JSON.
-- Enable log details – Toggle option
-  to see the log details view for each log row. The default setting is
-  `true`.
-- Order – Display results in descending
-  or ascending time order. The default is **Descending**,
-  showing the newest logs first. Set to **Ascending** to show
-  the oldest log lines first.
++ **Time** – Show or hide the time column. This is the timestamp associated with the log line as reported from the data source.
++ **Unique labels** – Show or hide the unique labels column, which shows only non-common labels.
++ **Common labels** – Show or hide the common labels
++ **Wrap lines** – Toggle line wrapping.
++ **Prettify JSON** – Set this to `true` to pretty print all JSON logs. This setting does not affect logs in any format other than JSON.
++ **Enable log details** – Toggle option to see the log details view for each log row. The default setting is `true`.
++ **Order** – Display results in descending or ascending time order. The default is **Descending**, showing the newest logs first. Set to **Ascending** to show the oldest log lines first.

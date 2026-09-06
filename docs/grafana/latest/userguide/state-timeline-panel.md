@@ -1,37 +1,28 @@
+
+
 # State timeline panel
+<a name="state-timeline-panel"></a>
 
-This documentation topic is designed
-for Grafana workspaces that support **Grafana version
-8.x**.
+****  
+This documentation topic is designed for Grafana workspaces that support **Grafana version 8.x**.  
+For Grafana workspaces that support Grafana version 12.x, see [Working in Grafana version 12](using-grafana-v12.md).  
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).
 
-For Grafana workspaces that support Grafana version 12.x, see
-[Working in Grafana version 12](using-grafana-v12.md "using-grafana-v12.md").
-
-For Grafana workspaces that support Grafana version 10.x, see
-[Working in Grafana version 10](using-grafana-v10.md "using-grafana-v10.md").
-
-For Grafana workspaces that support Grafana version 9.x, see
-[Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
-
-The state timeline panel visualization shows discrete state changes over time. Each
-field or series is rendered as its unique horizontal band. State regions can either be
-rendered with or without values. This panel works well with string or boolean states but
-can also be used with time series. When used with time series, the thresholds are used
-to turn the numerical values into discrete state regions.
+The state timeline panel visualization shows discrete state changes over time. Each field or series is rendered as its unique horizontal band. State regions can either be rendered with or without values. This panel works well with string or boolean states but can also be used with time series. When used with time series, the thresholds are used to turn the numerical values into discrete state regions.
 
 ## State timeline options
+<a name="state-timeline-options"></a>
 
 Use these options to refine your visualizations:
 
 **Merge equal consecutive values**
 
-Controls whether Grafana merges identical values if they are next to each
-other.
+Controls whether Grafana merges identical values if they are next to each other.
 
 **Show values**
 
-Controls whether values are rendered inside the state regions. Auto will render
-values if there is sufficient space.
+Controls whether values are rendered inside the state regions. Auto will render values if there is sufficient space.
 
 **Align values**
 
@@ -50,34 +41,25 @@ Controls the line width of state regions.
 Controls the opacity of state regions.
 
 ## Value mappings
+<a name="state-timeline-valuemap"></a>
 
-To assign colors to boolean or string values, use [Value mapping](field-options-overrides.md#value-mapping "field-options-overrides.md#value-mapping").
+To assign colors to boolean or string values, use [Value mapping](field-options-overrides.md#value-mapping).
 
 ## Time series data with thresholds
+<a name="state-timeline-threshold"></a>
 
-The panel can be used with time series data as well. In this case, the thresholds
-are used to turn the time series into discrete colored state regions.
+The panel can be used with time series data as well. In this case, the thresholds are used to turn the time series into discrete colored state regions.
 
 ## Legend options
+<a name="state-timeline-legend"></a>
 
-When the legend option is enabled, it can show either the value mappings or the
-threshold brackets. To show the value mappings in the legend, it’s important that
-the Color scheme option under Standard options is set to Single color or Classic
-palette. To see the threshold brackets in the legend, set the Color scheme to From
-thresholds.
+When the legend option is enabled, it can show either the value mappings or the threshold brackets. To show the value mappings in the legend, it’s important that the Color scheme option under Standard options is set to Single color or Classic palette. To see the threshold brackets in the legend, set the Color scheme to From thresholds.
 
-**Legend mode** Use these settings to refine how the
-legend appears in your visualization.
+**Legend mode** Use these settings to refine how the legend appears in your visualization.
++  **List ** – Displays the legend as a list. This is a default display mode of the legend.
++  **Table** – Displays the legend as a table.
++  **Hidden** – Hides the legend.
 
-- List – Displays the legend as a list.
-  This is a default display mode of the legend.
-- Table – Displays the legend as a
-  table.
-- Hidden – Hides the legend.
-
-**Legend placement** Choose where to place the
-legend.
-
-- Bottom – Below the graph.
-- Right – To the right of the
-  graph.
+**Legend placement** Choose where to place the legend.
++  **Bottom ** – Below the graph.
++  **Right** – To the right of the graph.

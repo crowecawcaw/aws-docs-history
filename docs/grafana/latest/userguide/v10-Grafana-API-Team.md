@@ -1,15 +1,15 @@
+
+
 # Team API
+<a name="v10-Grafana-API-Team"></a>
 
-Use the Team API to work with teams in an Amazon Managed Grafana workspace. All actions in this API
-require that you have the Admin role.
+Use the Team API to work with teams in an Amazon Managed Grafana workspace. All actions in this API require that you have the Admin role.
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Team search with pagination
+<a name="v10-Grafana-API-Team-Searchpaging"></a>
 
 ```
 GET /api/teams/search?perpage=50&page=1&query=myteam
@@ -32,22 +32,15 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 
 **Using the query parameter**
 
-The default value for the `perpage` parameter is 1000 and for the
-`page` parameter is 1.
+The default value for the `perpage` parameter is 1000 and for the `page` parameter is 1.
 
-The `totalCount` field in the response can be used for pagination of
-the teams list. For example, if `totalCount` is 100 teams and
-the`perpage` parameter is set to 10, then there are 10 pages of
-teams.
+The `totalCount` field in the response can be used for pagination of the teams list. For example, if `totalCount` is 100 teams and the`perpage` parameter is set to 10, then there are 10 pages of teams.
 
-The `query` parameter is optional and returns results where the query
-value is contained in the `name` field. Query values with spaces need to
-be URL-encoded. For example, `query=my%20team`.
+The `query` parameter is optional and returns results where the query value is contained in the `name` field. Query values with spaces need to be URL-encoded. For example, `query=my%20team`.
 
 **Using the name parameter**
 
-The `name` parameter returns a single team if the parameter matches the
-`name` field.
+The `name` parameter returns a single team if the parameter matches the `name` field.
 
 **Example response**
 
@@ -72,14 +65,13 @@ Content-Type: application/json
 ```
 
 Status Codes:
-
-- **200**— Created
-- **401**— Unauthorized
-- **403**— Permission denied
-- **404**— Team not found (if searching
-  by name)
++ **200**— Created
++ **401**— Unauthorized
++ **403**— Permission denied
++ **404**— Team not found (if searching by name)
 
 ## Get team by Id
+<a name="v10-Grafana-API-Team-getbyId"></a>
 
 ```
 GET /api/teams/:id
@@ -111,10 +103,9 @@ Content-Type: application/json
 ```
 
 ## Add a team
+<a name="v10-Grafana-API-Team-add"></a>
 
-The `name` of the team must be unique. The `name` field is
-required and the `email` and `orgId` fields are
-optional.
+The `name` of the team must be unique. The `name` field is required and the `email` and `orgId` fields are optional.
 
 ```
 POST /api/teams
@@ -145,14 +136,13 @@ Content-Type: application/json
 ```
 
 Status Codes:
-
-- **200**— Created
-- **401**— Unauthorized
-- **403**— Permission denied
-- **409**— Team name already
-  exists
++ **200**— Created
++ **401**— Unauthorized
++ **403**— Permission denied
++ **409**— Team name already exists
 
 ## Update team
+<a name="v10-Grafana-API-Team-update"></a>
 
 ```
 PUT /api/teams/:id
@@ -167,7 +157,7 @@ PUT /api/teams/2 HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
-
+        
 {
   "name": "MyTestTeam",
   "email": "email@test.com"
@@ -184,15 +174,14 @@ Content-Type: application/json
 ```
 
 Status Codes:
-
-- **200**— Created
-- **401**— Unauthorized
-- **403**— Permission denied
-- **404**— Team not found
-- **409**— Team name already
-  exists
++ **200**— Created
++ **401**— Unauthorized
++ **403**— Permission denied
++ **404**— Team not found
++ **409**— Team name already exists
 
 ## Delete team by Id
+<a name="v10-Grafana-API-Team-deletebyId"></a>
 
 ```
 DELETE /api/teams/:id
@@ -217,13 +206,13 @@ Content-Type: application/json
 ```
 
 Status Codes:
-
-- **200**— Created
-- **401**— Unauthorized
-- **403**— Permission denied
-- **404**— Team not found
++ **200**— Created
++ **401**— Unauthorized
++ **403**— Permission denied
++ **404**— Team not found
 
 ## Get team members
+<a name="v10-Grafana-API-Team-getmembers"></a>
 
 ```
 GET /api/teams/:teamId/members
@@ -265,12 +254,12 @@ Content-Type: application/json
 ```
 
 Status Codes:
-
-- **200**— Created
-- **401**— Unauthorized
-- **403**— Permission denied
++ **200**— Created
++ **401**— Unauthorized
++ **403**— Permission denied
 
 ## Add team member
+<a name="v10-Grafana-API-Team-addmember"></a>
 
 ```
 POST /api/teams/:teamId/members
@@ -283,7 +272,7 @@ POST /api/teams/1/members HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
-
+      
 {
   "userId": 2
 }
@@ -299,15 +288,14 @@ Content-Type: application/json
 ```
 
 Status Codes:
-
-- **200**— Created
-- **400**— User is already in
-  team
-- **401**— Unauthorized
-- **403**— Permission denied
-- **404**— Team not found
++ **200**— Created
++ **400**— User is already in team
++ **401**— Unauthorized
++ **403**— Permission denied
++ **404**— Team not found
 
 ## Remove member from team
+<a name="v10-Grafana-API-Team-removemember"></a>
 
 ```
 DELETE /api/teams/:teamId/members/:userId
@@ -332,14 +320,13 @@ Content-Type: application/json
 ```
 
 Status Codes:
-
-- **200**— Created
-- **401**— Unauthorized
-- **403**— Permission denied
-- **404**— Team not found/team member
-  not found
++ **200**— Created
++ **401**— Unauthorized
++ **403**— Permission denied
++ **404**— Team not found/team member not found
 
 ## Get team preferences
+<a name="v10-Grafana-API-Team-getpreferences"></a>
 
 ```
 GET /api/teams/:teamId/preferences
@@ -368,6 +355,7 @@ Content-Type: application/json
 ```
 
 ## Update team preferences
+<a name="v10-Grafana-API-Team-updatepreferences"></a>
 
 ```
 PUT /api/teams/:teamId/preferences
@@ -389,18 +377,11 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 JSON body schema:
++ **theme**— Specify either `light`, `dark`, or an empty string to use the default theme.
++ **homeDashboardId**— The numerical `:id` of a dashboard. The default is 0.
++ **timezone**— Specify either `utc`, `browser`, or an empty string to use the default. 
 
-- **theme**— Specify either
-  `light`, `dark`, or an empty string to use the
-  default theme.
-- **homeDashboardId**— The numerical
-  `:id` of a dashboard. The default is 0.
-- **timezone**— Specify either
-  `utc`, `browser`, or an empty string to use the
-  default.
-
-Omitting a parameter causes the current value to be replaced with the system
-default value.
+Omitting a parameter causes the current value to be replaced with the system default value.
 
 **Example response**
 

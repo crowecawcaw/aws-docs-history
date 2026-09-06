@@ -1,30 +1,26 @@
+
+
 # Data Source Permissions API
+<a name="v12-Grafana-API-DatasourcePermissions"></a>
 
-Use the Data Source Permissions API to enable, disable, list, add, and remove
-permissions for data sources.
+Use the Data Source Permissions API to enable, disable, list, add, and remove permissions for data sources. 
 
-You can set permissions for a user or a team. Permissions can't be set for Admins,
-because they always have access to everything.
+You can set permissions for a user or a team. Permissions can't be set for Admins, because they always have access to everything.
 
 The permission levels for the permission field are as follows:
++ 1 = Query
 
-- 1 = Query
-
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Enable permissions for a data source
+<a name="v12-Grafana-API-DatasourcePermissions-enable"></a>
 
 ```
 POST /api/datasources/:id/enable-permissions
 ```
 
-Enables permissions for the data source with the given id. No one except Org
-Admins are able to query the data source until permissions have been added to permit
-certain users or teams to query the data source.
+Enables permissions for the data source with the given id. No one except Org Admins are able to query the data source until permissions have been added to permit certain users or teams to query the data source.
 
 **Example request**
 
@@ -33,7 +29,6 @@ POST /api/datasources/1/enable-permissions
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
-
 ```
 
 **Example response**
@@ -47,22 +42,20 @@ Content-Length: 35
 ```
 
 Status Codes:
-
-- **200**— Created
-- **400**— Permissions can't be enabled,
-  see the response body for details.
-- **401**— Unauthorized
-- **403**— Access denied
-- **404**— Data source not found
++ **200**— Created
++ **400**— Permissions can't be enabled, see the response body for details.
++ **401**— Unauthorized
++ **403**— Access denied
++ **404**— Data source not found
 
 ## Disable permissions for a data source
+<a name="v12-Grafana-API-DatasourcePermissions-disable"></a>
 
 ```
 POST /api/datasources/:id/disable-permissions
 ```
 
-Disables permissions for the data source with the given id. All existing
-permissions are removed and anyone is able to query the data source.
+Disables permissions for the data source with the given id. All existing permissions are removed and anyone is able to query the data source.
 
 **Example request**
 
@@ -86,22 +79,20 @@ Content-Length: 35
 ```
 
 Status Codes:
-
-- **200**— Ok
-- **400**— Permissions can't be
-  disabled, see the response body for details.
-- **401**— Unauthorized
-- **403**— Access denied
-- **404**— Data source not found
++ **200**— Ok
++ **400**— Permissions can't be disabled, see the response body for details.
++ **401**— Unauthorized
++ **403**— Access denied
++ **404**— Data source not found
 
 ## Get permissions for a data source
+<a name="v12-Grafana-API-DatasourcePermissions-get"></a>
 
 ```
 GET /api/datasources/:id/permissions
 ```
 
-Gets all existing permissions for the data source with the given
-`id`.
+Gets all existing permissions for the data source with the given `id`.
 
 **Example request**
 
@@ -152,13 +143,13 @@ Content-Length: 551
 ```
 
 Status Codes:
-
-- **200**— Ok
-- **401**— Unauthorized
-- **403**— Access denied
-- **404**— Data source not found
++ **200**— Ok
++ **401**— Unauthorized
++ **403**— Access denied
++ **404**— Data source not found
 
 ## Add permission for a data source
+<a name="v12-Grafana-API-DatasourcePermissions-add"></a>
 
 ```
 POST /api/datasources/:id/permissions
@@ -180,8 +171,7 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 }
 ```
 
-**Example response for adding a user
-permission**
+**Example response for adding a user permission**
 
 ```
 HTTP/1.1 200 OK
@@ -205,8 +195,7 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 }
 ```
 
-**Example response for adding a team
-permission**
+**Example response for adding a team permission**
 
 ```
 HTTP/1.1 200 OK
@@ -217,22 +206,20 @@ Content-Length: 35
 ```
 
 Status Codes:
-
-- **200**— Ok
-- **400**— Permission can't be added,
-  see response body for details.
-- **401**— Unauthorized
-- **403**— Access denied
-- **404**— Data source not found
++ **200**— Ok
++ **400**— Permission can't be added, see response body for details.
++ **401**— Unauthorized
++ **403**— Access denied
++ **404**— Data source not found
 
 ## Remove permission for a data source
+<a name="v12-Grafana-API-DatasourcePermissions-remove"></a>
 
 ```
 DELETE /api/datasources/:id/permissions/:permissionId
 ```
 
-Removes the permission with the given permissionId for the data source with the
-given `id`.
+Removes the permission with the given permissionId for the data source with the given `id`.
 
 **Example request**
 
@@ -254,9 +241,7 @@ Content-Length: 35
 ```
 
 Status Codes:
-
-- **200**— Ok
-- **401**— Unauthorized
-- **403**— Access denied
-- **404**— Data source not found or
-  permission not found
++ **200**— Ok
++ **401**— Unauthorized
++ **403**— Access denied
++ **404**— Data source not found or permission not found

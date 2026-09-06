@@ -1,15 +1,15 @@
+
+
 # Authentication API
+<a name="v10-Grafana-API-Authentication"></a>
 
-Use the Authentication API to work with authentication keys in an Amazon Managed Grafana
-workspace.
+Use the Authentication API to work with authentication keys in an Amazon Managed Grafana workspace.
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Get API keys
+<a name="v10-Grafana-API-Authentication-GetApiKeys"></a>
 
 ```
 GET /api/auth/keys
@@ -25,10 +25,7 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 **Query parameter:**
-
-- **includeExpired**— (Optional) Boolean
-  parameter that specifies whether to include expired keys in the returned
-  results. The default is `false`.
++ **includeExpired**— (Optional) Boolean parameter that specifies whether to include expired keys in the returned results. The default is `false`.
 
 **Example response**
 
@@ -43,6 +40,7 @@ Content-Type: application/json
 ```
 
 ## Create API key
+<a name="v10-Grafana-API-Authentication-CreateApiKey"></a>
 
 ```
 POST /api/auth/keys
@@ -64,13 +62,9 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 JSON body schema:
-
-- **name**— The name for the key.
-- **role**— Sets the access level
-  (Grafana role) for the key. Valid values are `Admin`,
-  `Editor`, or `Viewer`.
-- **secondsToLive**— Sets the amount of
-  time before the key expires. It must be 2592000 (30 days) or less.
++ **name**— The name for the key.
++ **role**— Sets the access level (Grafana role) for the key. Valid values are `Admin`, `Editor`, or `Viewer`.
++ **secondsToLive**— Sets the amount of time before the key expires. It must be 2592000 (30 days) or less.
 
 **Example response**
 
@@ -79,13 +73,11 @@ JSON body schema:
 ```
 
 Error statuses:
-
-- **400**— `secondsToLive` is
-  greater than 2592000
-- **500**— The key couldn't be stored in
-  the database.
++ **400**— `secondsToLive` is greater than 2592000
++ **500**— The key couldn't be stored in the database.
 
 ## Delete API key
+<a name="v10-Grafana-API-Authentication-DeleteApiKey"></a>
 
 ```
 DELETE /api/auth/keys/:id

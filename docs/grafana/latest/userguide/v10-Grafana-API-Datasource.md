@@ -1,15 +1,15 @@
+
+
 # Data Source API
+<a name="v10-Grafana-API-Datasource"></a>
 
-Use the Data Source API to create, update, delete, and work with data sources in the
-Amazon Managed Grafana workspace.
+Use the Data Source API to create, update, delete, and work with data sources in the Amazon Managed Grafana workspace. 
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Get all data sources
+<a name="v10-Grafana-API-Datasource-getall"></a>
 
 ```
 GET /api/datasources
@@ -58,6 +58,7 @@ Content-Type: application/json
 ```
 
 ## Get a single data source by Id
+<a name="v10-Grafana-API-Datasource-getbyId"></a>
 
 ```
 GET /api/datasources/:datasourceId
@@ -106,6 +107,7 @@ Content-Type: application/json
 ```
 
 ## Get a single data source by UID
+<a name="v10-Grafana-API-Datasource-getbyUID"></a>
 
 ```
 GET /api/datasources/uid/:uid
@@ -154,6 +156,7 @@ Content-Type: application/json
 ```
 
 ## Get a single data source by name
+<a name="v10-Grafana-API-Datasource-getbyName"></a>
 
 ```
 GET /api/datasources/name/:name
@@ -202,6 +205,7 @@ Content-Type: application/json
 ```
 
 ## Get data source Id by name
+<a name="v10-Grafana-API-Datasource-getIDbyName"></a>
 
 ```
 GET /api/datasources/id/:name
@@ -228,6 +232,7 @@ Content-Type: application/json
 ```
 
 ## Create a data source
+<a name="v10-Grafana-API-Datasource-create"></a>
 
 ```
 POST /api/datasources
@@ -284,15 +289,10 @@ Content-Type: application/json
 }
 ```
 
-###### Note
+**Note**  
+When you define `password` and `basicAuthPassword` within `secureJsonData`, Amazon Managed Grafana encryptes them securely as an encrypted blob in the database. The response then lists the encrypte fields in `secureJsonFields`.
 
-When you define `password` and `basicAuthPassword`
-within `secureJsonData`, Amazon Managed Grafana encryptes them securely as an
-encrypted blob in the database. The response then lists the encrypte fields in
-`secureJsonFields`.
-
-**Example Graphite request with basic auth
-enabled**
+**Example Graphite request with basic auth enabled**
 
 ```
 POST /api/datasources HTTP/1.1
@@ -374,6 +374,7 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 ## Update an existing data source
+<a name="v10-Grafana-API-Datasource-update"></a>
 
 ```
 PUT /api/datasources/:datasourceId
@@ -443,14 +444,11 @@ Content-Type: application/json
 }
 ```
 
-###### Note
-
-We recommend that you define `password` and
-`basicAuthPassword` within `secureJsonData` so that
-they are stored securely as an encrypted blob in the database. The response then
-lists the encrypte fields in `secureJsonFields`.
+**Note**  
+We recommend that you define `password` and `basicAuthPassword` within `secureJsonData` so that they are stored securely as an encrypted blob in the database. The response then lists the encrypte fields in `secureJsonFields`.
 
 ## Delete data source by Id
+<a name="v10-Grafana-API-Datasource-deletebyId"></a>
 
 ```
 DELETE /api/datasources/:datasourceId
@@ -475,6 +473,7 @@ Content-Type: application/json
 ```
 
 ## Delete data source by UID
+<a name="v10-Grafana-API-Datasource-deletebyUID"></a>
 
 ```
 DELETE /api/datasources/uid/:uid
@@ -499,6 +498,7 @@ Content-Type: application/json
 ```
 
 ## Delete data source by name
+<a name="v10-Grafana-API-Datasource-deletebyname"></a>
 
 ```
 DELETE /api/datasources/name/:datasourceName
@@ -526,6 +526,7 @@ Content-Type: application/json
 ```
 
 ## Data source proxy calls
+<a name="v10-Grafana-API-Datasource-proxycall"></a>
 
 ```
 GET /api/datasources/proxy/:datasourceId/*
@@ -534,6 +535,7 @@ GET /api/datasources/proxy/:datasourceId/*
 Proxies all calls to the actual data source.
 
 ## Query data sources
+<a name="v10-Grafana-API-Datasource-querydatasource"></a>
 
 ```
 POST /api/ds/query
@@ -568,17 +570,15 @@ Content-Type: application/json
 ```
 
 JSON body schema:
++ **from/to**— Specifies the time range for the queries. The time can be either epoch timestamps in milliseconds or relative using Grafana time units. For example, `now-5m`.
++ **queries**— Specifies one or more queries. Must contain at least 1.
++ **queries.datasource.uid**— Specifies the UID of data source to be queried. Each query in the request must have a unique `datasource`.
++ **queries.refId**— Specifies an identifier of the query. Defaults to “A”.
++ **queries.format**— Specifies the format the data should be returned in. Valid options are `time_series` or `table` depending on the data source.
++ **queries.maxDataPoints**— Species the maximum amount of data points that a dashboard panel can render. Defaults to 100.
++ **queries.intervalMs**— Specifies the time series time interval in milliseconds. Defaults to 1000.
 
-- **from/to**— Specifies the time range for the queries. The time can be either epoch timestamps in milliseconds or relative using Grafana time units. For example, `now-5m`.
-- **queries**— Specifies one or more queries. Must contain at least 1.
-- **queries.datasource.uid**— Specifies the UID of data source to be queried. Each query in the request must have a unique `datasource`.
-- **queries.refId**— Specifies an identifier of the query. Defaults to “A”.
-- **queries.format**— Specifies the format the data should be returned in. Valid options are `time_series` or `table` depending on the data source.
-- **queries.maxDataPoints**— Species the maximum amount of data points that a dashboard panel can render. Defaults to 100.
-- **queries.intervalMs**— Specifies the time series time interval in milliseconds. Defaults to 1000.
-
-In addition, specific properties of each data source should be added in a request (for example **queries.stringInput** as shown in the request above). To better understand how to form a query for a certain data source,
-use the Developer Tools in your browser of choice and inspect the HTTP requests being made to `/api/ds/query`.
+In addition, specific properties of each data source should be added in a request (for example **queries.stringInput** as shown in the request above). To better understand how to form a query for a certain data source, use the Developer Tools in your browser of choice and inspect the HTTP requests being made to `/api/ds/query`. 
 
 **Example test data source time series query response**
 
@@ -625,17 +625,16 @@ Content-Type: application/json
 ```
 
 ## Query data source by Id
+<a name="v10-Grafana-API-Datasource-querybyId"></a>
 
 ```
 POST /api/tsdb/query
 ```
 
-###### Important
+**Important**  
+Starting Version 9, `/api/tsdb/query` is not supported. Use [Query data sources](#v10-Grafana-API-Datasource-querydatasource).
 
-Starting Version 9, `/api/tsdb/query` is not supported. Use [Query data sources](#v10-Grafana-API-Datasource-querydatasource "#v10-Grafana-API-Datasource-querydatasource").
-
-Queries a data source having backend implementation. Most built-in data sources
-have backend implementation.
+Queries a data source having backend implementation. Most built-in data sources have backend implementation.
 
 **Example request**
 
@@ -660,27 +659,15 @@ Content-Type: application/json
 }
 ```
 
-###### Note
-
-The `from`, `to`, and `queries` properties
-are required.
+**Note**  
+The `from`, `to`, and `queries` properties are required.
 
 JSON body schema:
-
-- **from/to**— Must be either absolute
-  in epoch timestamps in milliseconds, or relative using Grafana time units.
-  For example, `now-1h`.
-- **queries.refId**— (Optional)
-  Specifies an identifier for the query. The default is `A`.
-- **queries.datasourceId**— Specifies
-  the data source to be queried. Each query in the request must have a unique
-  `datasourceId`.
-- **queries.maxDataPoints**— (Optional)
-  Specifies the maximum amount of data points that a dashboard panel can
-  render. The default is 100.
-- **queries.intervalIMs**— (Optional)
-  Specifies the time interval in milliseconds of time series. The default is
-  1000
++ **from/to**— Must be either absolute in epoch timestamps in milliseconds, or relative using Grafana time units. For example, `now-1h`. 
++ **queries.refId**— (Optional) Specifies an identifier for the query. The default is `A`.
++ **queries.datasourceId**— Specifies the data source to be queried. Each query in the request must have a unique `datasourceId`.
++ **queries.maxDataPoints**— (Optional) Specifies the maximum amount of data points that a dashboard panel can render. The default is 100.
++ **queries.intervalIMs**— (Optional) Specifies the time interval in milliseconds of time series. The default is 1000
 
 **Example request for the MySQL data source:**
 
@@ -705,8 +692,7 @@ Content-Type: application/json
 }
 ```
 
-**Example response for the MySQL data source
-request:**
+**Example response for the MySQL data source request:**
 
 ```
 HTTP/1.1 200

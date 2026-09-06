@@ -1,15 +1,15 @@
+
+
 # Data Source API
+<a name="v12-Grafana-API-Datasource"></a>
 
-Use the Data Source API to create, update, delete, and work with data sources in the
-Amazon Managed Grafana workspace.
+Use the Data Source API to create, update, delete, and work with data sources in the Amazon Managed Grafana workspace. 
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Get all data sources
+<a name="v12-Grafana-API-Datasource-getall"></a>
 
 ```
 GET /api/datasources
@@ -58,6 +58,7 @@ Content-Type: application/json
 ```
 
 ## Get a single data source by UID
+<a name="v12-Grafana-API-Datasource-getbyUID"></a>
 
 ```
 GET /api/datasources/uid/:uid
@@ -106,6 +107,7 @@ Content-Type: application/json
 ```
 
 ## Get a single data source by name
+<a name="v12-Grafana-API-Datasource-getbyName"></a>
 
 ```
 GET /api/datasources/name/:name
@@ -154,6 +156,7 @@ Content-Type: application/json
 ```
 
 ## Get data source Id by name
+<a name="v12-Grafana-API-Datasource-getIDbyName"></a>
 
 ```
 GET /api/datasources/id/:name
@@ -180,6 +183,7 @@ Content-Type: application/json
 ```
 
 ## Create a data source
+<a name="v12-Grafana-API-Datasource-create"></a>
 
 ```
 POST /api/datasources
@@ -236,15 +240,10 @@ Content-Type: application/json
 }
 ```
 
-###### Note
+**Note**  
+When you define `password` and `basicAuthPassword` within `secureJsonData`, Amazon Managed Grafana encryptes them securely as an encrypted blob in the database. The response then lists the encrypte fields in `secureJsonFields`.
 
-When you define `password` and `basicAuthPassword`
-within `secureJsonData`, Amazon Managed Grafana encryptes them securely as an
-encrypted blob in the database. The response then lists the encrypte fields in
-`secureJsonFields`.
-
-**Example Graphite request with basic auth
-enabled**
+**Example Graphite request with basic auth enabled**
 
 ```
 POST /api/datasources HTTP/1.1
@@ -326,6 +325,7 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 ## Update a data source by UID
+<a name="v12-Grafana-API-Datasource-updatebyUID"></a>
 
 ```
 PUT /api/datasources/uid/:uid
@@ -374,6 +374,7 @@ Content-Type: application/json
 ```
 
 ## Delete data source by UID
+<a name="v12-Grafana-API-Datasource-deletebyUID"></a>
 
 ```
 DELETE /api/datasources/uid/:uid
@@ -398,6 +399,7 @@ Content-Type: application/json
 ```
 
 ## Delete data source by name
+<a name="v12-Grafana-API-Datasource-deletebyname"></a>
 
 ```
 DELETE /api/datasources/name/:datasourceName
@@ -425,6 +427,7 @@ Content-Type: application/json
 ```
 
 ## Data source proxy calls
+<a name="v12-Grafana-API-Datasource-proxycall"></a>
 
 ```
 GET /api/datasources/proxy/:datasourceId/*
@@ -433,6 +436,7 @@ GET /api/datasources/proxy/:datasourceId/*
 Proxies all calls to the actual data source.
 
 ## Query data sources
+<a name="v12-Grafana-API-Datasource-querydatasource"></a>
 
 ```
 POST /api/ds/query
@@ -467,17 +471,15 @@ Content-Type: application/json
 ```
 
 JSON body schema:
++ **from/to**— Specifies the time range for the queries. The time can be either epoch timestamps in milliseconds or relative using Grafana time units. For example, `now-5m`.
++ **queries**— Specifies one or more queries. Must contain at least 1.
++ **queries.datasource.uid**— Specifies the UID of data source to be queried. Each query in the request must have a unique `datasource`.
++ **queries.refId**— Specifies an identifier of the query. Defaults to “A”.
++ **queries.format**— Specifies the format the data should be returned in. Valid options are `time_series` or `table` depending on the data source.
++ **queries.maxDataPoints**— Species the maximum amount of data points that a dashboard panel can render. Defaults to 100.
++ **queries.intervalMs**— Specifies the time series time interval in milliseconds. Defaults to 1000.
 
-- **from/to**— Specifies the time range for the queries. The time can be either epoch timestamps in milliseconds or relative using Grafana time units. For example, `now-5m`.
-- **queries**— Specifies one or more queries. Must contain at least 1.
-- **queries.datasource.uid**— Specifies the UID of data source to be queried. Each query in the request must have a unique `datasource`.
-- **queries.refId**— Specifies an identifier of the query. Defaults to “A”.
-- **queries.format**— Specifies the format the data should be returned in. Valid options are `time_series` or `table` depending on the data source.
-- **queries.maxDataPoints**— Species the maximum amount of data points that a dashboard panel can render. Defaults to 100.
-- **queries.intervalMs**— Specifies the time series time interval in milliseconds. Defaults to 1000.
-
-In addition, specific properties of each data source should be added in a request (for example **queries.stringInput** as shown in the request above). To better understand how to form a query for a certain data source,
-use the Developer Tools in your browser of choice and inspect the HTTP requests being made to `/api/ds/query`.
+In addition, specific properties of each data source should be added in a request (for example **queries.stringInput** as shown in the request above). To better understand how to form a query for a certain data source, use the Developer Tools in your browser of choice and inspect the HTTP requests being made to `/api/ds/query`. 
 
 **Example test data source time series query response**
 
@@ -524,10 +526,10 @@ Content-Type: application/json
 ```
 
 ## Update an existing data source (deprecated)
+<a name="v12-Grafana-API-Datasource-update"></a>
 
-###### Important
-
-This endpoint is deprecated. Use [Update a data source by UID](#v12-Grafana-API-Datasource-updatebyUID "#v12-Grafana-API-Datasource-updatebyUID") instead.
+**Important**  
+This endpoint is deprecated. Use [Update a data source by UID](#v12-Grafana-API-Datasource-updatebyUID) instead.
 
 ```
 PUT /api/datasources/:datasourceId
@@ -597,18 +599,14 @@ Content-Type: application/json
 }
 ```
 
-###### Note
-
-We recommend that you define `password` and
-`basicAuthPassword` within `secureJsonData` so that
-they are stored securely as an encrypted blob in the database. The response then
-lists the encrypte fields in `secureJsonFields`.
+**Note**  
+We recommend that you define `password` and `basicAuthPassword` within `secureJsonData` so that they are stored securely as an encrypted blob in the database. The response then lists the encrypte fields in `secureJsonFields`.
 
 ## Get a single data source by Id (deprecated)
+<a name="v12-Grafana-API-Datasource-getbyId"></a>
 
-###### Important
-
-This endpoint is deprecated. Use [Get a single data source by UID](#v12-Grafana-API-Datasource-getbyUID "#v12-Grafana-API-Datasource-getbyUID") instead.
+**Important**  
+This endpoint is deprecated. Use [Get a single data source by UID](#v12-Grafana-API-Datasource-getbyUID) instead.
 
 ```
 GET /api/datasources/:datasourceId
@@ -657,10 +655,10 @@ Content-Type: application/json
 ```
 
 ## Delete data source by Id (deprecated)
+<a name="v12-Grafana-API-Datasource-deletebyId"></a>
 
-###### Important
-
-This endpoint is deprecated. Use [Delete data source by UID](#v12-Grafana-API-Datasource-deletebyUID "#v12-Grafana-API-Datasource-deletebyUID") instead.
+**Important**  
+This endpoint is deprecated. Use [Delete data source by UID](#v12-Grafana-API-Datasource-deletebyUID) instead.
 
 ```
 DELETE /api/datasources/:datasourceId

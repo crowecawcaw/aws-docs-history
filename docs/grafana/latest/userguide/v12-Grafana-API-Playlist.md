@@ -1,14 +1,15 @@
+
+
 # Playlist API
+<a name="v12-Grafana-API-Playlist"></a>
 
-Use the Playlist API to work with playlists in the Amazon Managed Grafana workspace.
+Use the Playlist API to work with playlists in the Amazon Managed Grafana workspace. 
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## List playlists
+<a name="v12-Grafana-API-Playlist-list"></a>
 
 ```
 GET /apis/playlist.grafana.app/v1/namespaces/default/playlists
@@ -55,6 +56,7 @@ Content-Type: application/json
 ```
 
 ## Get a playlist
+<a name="v12-Grafana-API-Playlist-get"></a>
 
 ```
 GET /apis/playlist.grafana.app/v1/namespaces/default/playlists/:name
@@ -94,6 +96,7 @@ Content-Type: application/json
 ```
 
 ## Create a playlist
+<a name="v12-Grafana-API-Playlist-create"></a>
 
 ```
 POST /apis/playlist.grafana.app/v1/namespaces/default/playlists
@@ -122,6 +125,7 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 ## Update a playlist
+<a name="v12-Grafana-API-Playlist-update"></a>
 
 ```
 PUT /apis/playlist.grafana.app/v1/namespaces/default/playlists/:name
@@ -154,6 +158,7 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 ## Delete a playlist
+<a name="v12-Grafana-API-Playlist-delete"></a>
 
 ```
 DELETE /apis/playlist.grafana.app/v1/namespaces/default/playlists/:name
@@ -184,17 +189,16 @@ Content-Type: application/json
 ```
 
 ## Search playlist (deprecated)
+<a name="v12-Grafana-API-Playlist-search"></a>
 
-###### Important
-
-This endpoint is deprecated. Use [List playlists](#v12-Grafana-API-Playlist-list "#v12-Grafana-API-Playlist-list") instead.
+**Important**  
+This endpoint is deprecated. Use [List playlists](#v12-Grafana-API-Playlist-list) instead.
 
 ```
 GET /api/playlists
 ```
 
-Returns all playlists for the current Amazon Managed Grafana workspace, using
-pagination.
+Returns all playlists for the current Amazon Managed Grafana workspace, using pagination.
 
 **Example request**
 
@@ -205,11 +209,8 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 Querystring parameters:
-
-- **query**— Limit the responses to
-  playlists that have a name like this value.
-- **limit**— Limit the response to X
-  number of playlists.
++ **query**— Limit the responses to playlists that have a name like this value.
++ **limit**— Limit the response to X number of playlists.
 
 **Example response**
 
@@ -226,10 +227,10 @@ Content-Type: application/json
 ```
 
 ## Get one playlist (deprecated)
+<a name="v12-Grafana-API-Playlist-getone"></a>
 
-###### Important
-
-This endpoint is deprecated. Use [Get a playlist](#v12-Grafana-API-Playlist-get "#v12-Grafana-API-Playlist-get") instead.
+**Important**  
+This endpoint is deprecated. Use [Get a playlist](#v12-Grafana-API-Playlist-get) instead.
 
 ```
 GET /api/playlists/:id
@@ -275,10 +276,10 @@ Content-Type: application/json
 ```
 
 ## Get playlist items (deprecated)
+<a name="v12-Grafana-API-Playlist-get-items"></a>
 
-###### Important
-
-This endpoint is deprecated. Use [Get a playlist](#v12-Grafana-API-Playlist-get "#v12-Grafana-API-Playlist-get") instead. Playlist items are included in the playlist response.
+**Important**  
+This endpoint is deprecated. Use [Get a playlist](#v12-Grafana-API-Playlist-get) instead. Playlist items are included in the playlist response.
 
 ```
 GET /api/playlists/:id/items
@@ -318,10 +319,10 @@ Content-Type: application/json
 ```
 
 ## Get playlist dashboards (deprecated)
+<a name="v12-Grafana-API-Playlist-get-dashboards"></a>
 
-###### Important
-
-This endpoint is deprecated. Use [Get a playlist](#v12-Grafana-API-Playlist-get "#v12-Grafana-API-Playlist-get") instead.
+**Important**  
+This endpoint is deprecated. Use [Get a playlist](#v12-Grafana-API-Playlist-get) instead.
 
 ```
 GET /api/playlists/:id/dashboards
@@ -356,10 +357,10 @@ Content-Type: application/json
 ```
 
 ## Create a playlist (deprecated)
+<a name="v12-Grafana-API-Playlist-create-legacy"></a>
 
-###### Important
-
-This endpoint is deprecated. Use [Create a playlist](#v12-Grafana-API-Playlist-create "#v12-Grafana-API-Playlist-create") instead.
+**Important**  
+This endpoint is deprecated. Use [Create a playlist](#v12-Grafana-API-Playlist-create) instead.
 
 ```
 POST /api/playlists/
@@ -405,10 +406,10 @@ Content-Type: application/json
 ```
 
 ## Update a playlist (deprecated)
+<a name="v12-Grafana-API-Playlist-update-legacy"></a>
 
-###### Important
-
-This endpoint is deprecated. Use [Update a playlist](#v12-Grafana-API-Playlist-update "#v12-Grafana-API-Playlist-update") instead.
+**Important**  
+This endpoint is deprecated. Use [Update a playlist](#v12-Grafana-API-Playlist-update) instead.
 
 ```
 PUT /api/playlists/:id
@@ -475,10 +476,10 @@ Content-Type: application/json
 ```
 
 ## Delete a playlist (deprecated)
+<a name="v12-Grafana-API-Playlist-delete-legacy"></a>
 
-###### Important
-
-This endpoint is deprecated. Use [Delete a playlist](#v12-Grafana-API-Playlist-delete "#v12-Grafana-API-Playlist-delete") instead.
+**Important**  
+This endpoint is deprecated. Use [Delete a playlist](#v12-Grafana-API-Playlist-delete) instead.
 
 ```
 DELETE /api/playlists/:id

@@ -1,55 +1,52 @@
+
+
 # Using the Amazon Redshift data source
+<a name="Redshift-using-the-data-source"></a>
 
 ## IAM policies
+<a name="Redshift-policies"></a>
 
-Grafana needs permissions granted using IAM to be able to read Redshift
-metrics. You can attach these permissions to IAM roles and utilize Grafana's
-built-in support for assuming roles. The built-in Amazon Grafana Redshift access
-policy is defined in the [AWS managed policy: AmazonGrafanaRedshiftAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaRedshiftAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaRedshiftAccess") section.
+ Grafana needs permissions granted using IAM to be able to read Redshift metrics. You can attach these permissions to IAM roles and utilize Grafana's built-in support for assuming roles. The built-in Amazon Grafana Redshift access policy is defined in the [AWS managed policy: AmazonGrafanaRedshiftAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaRedshiftAccess) section. 
 
 ## Query Amazon Redshift data
+<a name="Redshift-query"></a>
 
-Amazon Redshift data source provides a standard SQL query editor. Amazon Managed Grafana includes some macros
-to help with writing more complex timeseries queries.
+ Amazon Redshift data source provides a standard SQL query editor. Amazon Managed Grafana includes some macros to help with writing more complex timeseries queries. 
 
 Macros
 
-| Macro                        | Description                                                                                                                            | Output example                                                      |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `$__timeEpoch(column)`       | `$__timeEpoch` will be replaced by an expression to<br>convert to a UNIX timestamp and rename the column to time                       | `UNIX_TIMESTAMP(dateColumn) as "time"`                              |
-| `$__timeFilter(column)`      | `$__timeFilter`creates a conditional that filters the<br>data (using `column`) based on the time range of the<br>panel                 | `time BETWEEN '2017-07-18T11:15:52Z' AND<br>'2017-07-18T11:15:52Z'` |
-| `$__timeFrom()`              | `$__timeFrom` outputs the current starting time of the<br>range of the panel with quotes                                               | `'2017-07-18T11:15:52Z'`                                            |
-| `$__timeTo()`                | `$__timeTo` outputs the current ending time of the range<br>of the panel with quotes                                                   | `'2017-07-18T11:15:52Z'`                                            |
-| `$__timeGroup(column, '1m')` | `$__timeGroup` groups timestamps so that there is only 1<br>point for every period on the graph                                        | `floor(extract(epoch from time)/60)*60 AS<br>"time"`                |
-| `$__schema`                  | `$__schema` uses the selected schema                                                                                                   | `public`                                                            |
-| `$__table`                   | `$__table` outputs a table from the given<br>`$__schema` (it uses the public schema by default)                                        | `sales`                                                             |
-| `$__column`                  | `$__column` outputs a column from the current<br>`$__table`                                                                            | `date`                                                              |
-| `$__unixEpochFilter(column)` | `$__unixEpochFilter` be replaced by a time range filter<br>using the specified column name with times represented as Unix<br>timestamp | `column >= 1624406400 AND column <= 1624410000`                     |
-| `$__unixEpochGroup(column)`  | `$__unixEpochGroup` is the same as<br>`$__timeGroup` but for times stored as Unix timestamp                                            | `floor(time/60)*60 AS "time"`                                       |
+
+|  Macro  |  Description  |  Output example  | 
+| --- | --- | --- | 
+|  $\_\_timeEpoch(column)  |  $\_\_timeEpoch will be replaced by an expression to convert to a UNIX timestamp and rename the column to time  |  UNIX\_TIMESTAMP(dateColumn) as "time"  | 
+|  $\_\_timeFilter(column)  |  $\_\_timeFiltercreates a conditional that filters the data (using column) based on the time range of the panel  |  time BETWEEN '2017-07-18T11:15:52Z' AND '2017-07-18T11:15:52Z'  | 
+|  $\_\_timeFrom()  |  $\_\_timeFrom outputs the current starting time of the range of the panel with quotes  | '2017-07-18T11:15:52Z' | 
+|  $\_\_timeTo()  |  $\_\_timeTo outputs the current ending time of the range of the panel with quotes  | '2017-07-18T11:15:52Z' | 
+|  $\_\_timeGroup(column, '1m')  |  $\_\_timeGroup groups timestamps so that there is only 1 point for every period on the graph  | floor(extract(epoch from time)/60)\*60 AS "time" | 
+|  $\_\_schema  |  $\_\_schema  uses the selected schema  | public | 
+|  $\_\_table  |   $\_\_table outputs a table from the given $\_\_schema (it uses the public schema by default)  | sales | 
+|  $\_\_column  |  $\_\_column outputs a column from the current $\_\_table  | date  | 
+|  $\_\_unixEpochFilter(column)  |  $\_\_unixEpochFilter be replaced by a time range filter using the specified column name with times represented as Unix timestamp  |   column >= 1624406400 AND column <= 1624410000  | 
+|  $\_\_unixEpochGroup(column)  |  $\_\_unixEpochGroup is the same as $\_\_timeGroup but for times stored as Unix timestamp  | floor(time/60)\*60 AS "time" | 
 
 **Visualization**
 
-Most queries in Redshift are best represented by a table visualization. Any query
-will display data in a table. If it can be queried, then it can be put in a table.
+Most queries in Redshift are best represented by a table visualization. Any query will display data in a table. If it can be queried, then it can be put in a table. 
 
-This example returns results for a table visualization:
+This example returns results for a table visualization: 
 
 ```
 SELECT {column_1}, {column_2} FROM {table};
 ```
 
-**Time series and graph visualizations**
+**Time series and graph visualizations **
 
-For time series and graph visualizations, there are a few requirements:
+For time series and graph visualizations, there are a few requirements: 
++ A column with a `date` or a `datetime` type must be selected.
++ The `date` column must be in ascending order (using `ORDER BY column ASC`).
++ You must select a numeric column.
 
-- A column with a `date` or a `datetime` type must be
-  selected.
-- The `date` column must be in ascending order (using `ORDER
- BY column ASC`).
-- You must select a numeric column.
-
-To make a more reasonable graph, be sure to use the `$__timeFilter` and
-`$__timeGroup` macros.
+To make a more reasonable graph, be sure to use the `$__timeFilter` and `$__timeGroup` macros.
 
 **Example timeseries query:**
 
@@ -70,35 +67,25 @@ order by
 
 **Fill mode**
 
-Grafana also autocompletes frames without a value with some default. To configure
-this value, change the **Fill Value** in the query editor.
+Grafana also autocompletes frames without a value with some default. To configure this value, change the **Fill Value** in the query editor. 
 
 **Inspecting the query**
 
-Because Grafana supports macros that Redshift does not, the fully rendered query,
-which can be copied and pasted directly into Redshift, is visible in the Query
-Inspector. To view the full interpolated query, choose the **Query
-Inspector** menu, and the full query is visible on the
-**Query** tab.
+Because Grafana supports macros that Redshift does not, the fully rendered query, which can be copied and pasted directly into Redshift, is visible in the Query Inspector. To view the full interpolated query, choose the **Query Inspector** menu, and the full query is visible on the **Query** tab.
 
 ## Templates and variables
+<a name="using-redshift-templates-variables"></a>
 
-For more information about how to add a new Redshift query varialble, see [Adding a query variable](variables-types.md#add-a-query-variable "variables-types.md#add-a-query-variable"). Use your
-Redshift data source as your data source for the available queries.
+For more information about how to add a new Redshift query varialble, see [Adding a query variable](variables-types.md#add-a-query-variable). Use your Redshift data source as your data source for the available queries.
 
-Any value queried from a Amazon Redshift table can be used as a variable. Be sure to avoid
-selecting too many values, as this can cause performance issues.
+Any value queried from a Amazon Redshift table can be used as a variable. Be sure to avoid selecting too many values, as this can cause performance issues. 
 
-After creating a variable, you can use it in your Redshift queries by using [Variable syntax](templates-and-variables.md#variable-syntax "templates-and-variables.md#variable-syntax"). For more
-information about variables, see [Templates and variables](templates-and-variables.md "templates-and-variables.md").
+After creating a variable, you can use it in your Redshift queries by using [Variable syntax](templates-and-variables.md#variable-syntax). For more information about variables, see [Templates and variables](templates-and-variables.md).
 
 ## Annotations
+<a name="using-redshift-annotations"></a>
 
-[Annotations](dashboard-annotations.md "dashboard-annotations.md")
-allows you to overlay rich event information on top of graphs. You can add
-annotations by selecting the panel or by adding annotation queries using the
-**Annotations** view, opened from the
-**Dashboard** menu.
+[Annotations](dashboard-annotations.md) allows you to overlay rich event information on top of graphs. You can add annotations by selecting the panel or by adding annotation queries using the **Annotations** view, opened from the **Dashboard** menu. 
 
 Example query to automatically add annotations:
 
@@ -113,12 +100,12 @@ WHERE
   $__timeFilter(time) and humidity > 95
 ```
 
-The following table represents the values of the columns taken into account to
-render annotations:
+The following table represents the values of the columns taken into account to render annotations:
 
-| Name      | Description                                                                                                               |
-| --------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `Time`    | The name of the date or time field. Could be a column with a<br>native SQL date or time data type or epoch value.         |
-| `Timeend` | Optional name of the end date or time field. Could be a column<br>with a native SQL dateor time data type or epoch value. |
-| `Text`    | Event description field.                                                                                                  |
-| `Tags`    | Optional field name to use for event tags as a comma separated<br>string.                                                 |
+
+|  Name  |  Description  | 
+| --- | --- | 
+|  Time  |  The name of the date or time field. Could be a column with a native SQL date or time data type or epoch value.  | 
+|  Timeend  |  Optional name of the end date or time field. Could be a column with a native SQL dateor time data type or epoch value.  | 
+|  Text  |  Event description field.  | 
+|  Tags  |  Optional field name to use for event tags as a comma separated string.  | 

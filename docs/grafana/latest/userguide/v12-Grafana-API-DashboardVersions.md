@@ -1,29 +1,25 @@
+
+
 # Dashboard Versions API
+<a name="v12-Grafana-API-DashboardVersions"></a>
 
-Use the Dashboard Versions API to retrieve dashboard versions and restore a dashboard
-to a specified version.
+Use the Dashboard Versions API to retrieve dashboard versions and restore a dashboard to a specified version.
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Get all dashboard versions
+<a name="v12-Grafana-API-DashboardVersions-getall"></a>
 
 ```
 GET /api/dashboards/uid/:uid/versions
 ```
 
-Gets all existing dashboard versions for the dashboard with the given
-`uid`.
+Gets all existing dashboard versions for the dashboard with the given `uid`.
 
 Query parameters:
-
-- **limit**— Maximum number of results
-  to return.
-- **start**— Version to start from when
-  returning queries.
++ **limit**— Maximum number of results to return.
++ **start**— Version to start from when returning queries.
 
 **Example request**
 
@@ -66,21 +62,19 @@ Content-Length: 428
 ```
 
 Status Codes:
-
-- **200**— OK
-- **400**— Errors
-- **401**— Unauthorized
-- **404**— Dashboard version not
-  found
++ **200**— OK
++ **400**— Errors
++ **401**— Unauthorized
++ **404**— Dashboard version not found
 
 ## Get dashboard version
+<a name="v12-Grafana-API-DashboardVersions-get"></a>
 
 ```
 GET /api/dashboards/uid/:uid/versions/:id
 ```
 
-Get the dashboard version with the given id, for the dashboard with the given
-`dashboardId`.
+Get the dashboard version with the given id, for the dashboard with the given `dashboardId`.
 
 **Example request**
 
@@ -183,13 +177,12 @@ Content-Length: 1300
 ```
 
 Status Codes:
-
-- **200**— OK
-- **401**— Unauthorized
-- **404**— Dashboard version not
-  found
++ **200**— OK
++ **401**— Unauthorized
++ **404**— Dashboard version not found
 
 ## Restore dashboard
+<a name="v12-Grafana-API-DashboardVersions-restore"></a>
 
 ```
 POST /api/dashboards/uid/:uid/restore
@@ -211,9 +204,7 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 JSON body schema:
-
-- **version**— The dashboard version to
-  restore to.
++ **version**— The dashboard version to restore to. 
 
 **Example response**
 
@@ -230,22 +221,15 @@ Content-Length: 67
 ```
 
 JSON response body schema:
-
-- **slug**— The URL-friendly slug of the
-  dashboard's title.
-- **status**— Whether the restore was
-  successful or not.
-- **version**— The new dashboard version
-  following the restore.
++ **slug**— The URL-friendly slug of the dashboard's title. 
++ **status**— Whether the restore was successful or not.
++ **version**— The new dashboard version following the restore.
 
 Status Codes:
-
-- **200**— Created
-- **401**— Unauthorized
-- **404**— Dashboard or dashboard
-  version not found
-- **500**— Internal server error
-  (indicates issue retrieving dashboard tags from database)
++ **200**— Created
++ **401**— Unauthorized
++ **404**— Dashboard or dashboard version not found
++ **500**— Internal server error (indicates issue retrieving dashboard tags from database)
 
 Example error response:
 
@@ -260,11 +244,10 @@ Content-Length: 46
 ```
 
 JSON response body schema:
-
-- **message**— A message explaining the
-  reason for the failure.
++ **message**— A message explaining the reason for the failure. 
 
 ## Compare dashboard versions
+<a name="v12-Grafana-API-DashboardVersions-compare"></a>
 
 ```
 POST /api/dashboards/calculate-diff
@@ -294,13 +277,9 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 JSON body schema:
-
-- **base**— An object representing the
-  base dashboard version.
-- **new**— An object representing the
-  new dashboard version.
-- **difftype**— The type of diff to
-  return. Valid values are `json` and `basic`.
++ **base**— An object representing the base dashboard version. 
++ **new**— An object representing the new dashboard version. 
++ **difftype**— The type of diff to return. Valid values are `json` and `basic`.
 
 Example response (JSON diff)
 
@@ -313,16 +292,13 @@ Content-Type: text/html; charset=UTF-8
 </p>
 ```
 
-The response is a textual representation of the diff, with the dashboard values
-being in JSON, similar to the diffs seen on sites like GitHub or GitLab.
+The response is a textual representation of the diff, with the dashboard values being in JSON, similar to the diffs seen on sites like GitHub or GitLab.
 
 Status Codes:
-
-- **200**— OK
-- **200**— Bad request, invalid JSON
-  sent
-- **401**— Unauthorized
-- **404**— Not found
++ **200**— OK
++ **200**— Bad request, invalid JSON sent
++ **401**— Unauthorized
++ **404**— Not found
 
 Example response (Basic diff)
 
@@ -335,13 +311,10 @@ Content-Type: text/html; charset=UTF-8
 </div>
 ```
 
-The response is a summary of the changes, derived from the diff between the two
-JSON objects.
+The response is a summary of the changes, derived from the diff between the two JSON objects.
 
 Status Codes:
-
-- **200**— OK
-- **200**— Bad request, invalid JSON
-  sent
-- **401**— Unauthorized
-- **404**— Not found
++ **200**— OK
++ **200**— Bad request, invalid JSON sent
++ **401**— Unauthorized
++ **404**— Not found

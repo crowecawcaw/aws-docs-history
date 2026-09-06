@@ -1,22 +1,25 @@
+
+
 # Using the Timestream data source
+<a name="timestream-query-editor"></a>
 
 ## Query editor
+<a name="timestream-query-editor"></a>
 
-The query editor accepts Timestream syntax in addition to the macros
-listed previously and any dashboard template variables.
+ The query editor accepts Timestream syntax in addition to the macros listed previously and any dashboard template variables. 
 
-Press **Ctrl+Space** to open the
-IntelliSense suggestions.
+ Press **Ctrl\+Space** to open the IntelliSense suggestions. 
 
 ## Macros
+<a name="timestream-macros"></a>
 
-To simplify syntax and to allow for dynamic parts, such as date range
-filters, the query can contain macros.
+ To simplify syntax and to allow for dynamic parts, such as date range filters, the query can contain macros. 
 
-| Macro example       | Description                                                                                                                                      |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| _$\_\_database_     | Will specify the selected database. This uses the<br>default from the data source configuration, or the explicit<br>value from the query editor. |
-| _$\_\_table_        | Will specify the selected database. This uses the<br>default from the datasource config, or the explicit value<br>from the query editor.         |
-| _$\_\_measure_      | Will specify the selected measure. This uses the default<br>from the datasource config, or the explicit value from the<br>query editor.          |
-| _$\_\_timeFilter_   | Will be replaced by an expression that limits the time<br>to the dashboard range                                                                 |
-| _$\_\_interval\_ms_ | Will be replaced by a number that represents the amount<br>of time a single pixel in the graph should cover.                                     |
+
+|  Macro example  |  Description  | 
+| --- | --- | 
+| *$\_\_database* |  Will specify the selected database. This uses the default from the data source configuration, or the explicit value from the query editor.  | 
+| *$\_\_table* |  Will specify the selected database. This uses the default from the datasource config, or the explicit value from the query editor.  | 
+| *$\_\_measure* |  Will specify the selected measure. This uses the default from the datasource config, or the explicit value from the query editor.  | 
+| *$\_\_timeFilter* |  Will be replaced by an expression that limits the time to the dashboard range  | 
+| *$\_\_interval\_ms* |  Will be replaced by a number that represents the amount of time a single pixel in the graph should cover.  | 

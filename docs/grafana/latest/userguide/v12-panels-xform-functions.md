@@ -1,994 +1,819 @@
+
+
 # Transformation functions
+<a name="v12-panels-xform-functions"></a>
 
-This documentation topic is designed
-for Grafana workspaces that support **Grafana version
-12.x**.
-
-For Grafana workspaces that support Grafana version 10.x, see
-[Working in Grafana version 10](using-grafana-v10.md "using-grafana-v10.md").
-
-For Grafana workspaces that support Grafana version 9.x, see
-[Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
-
-For Grafana workspaces that support Grafana version 8.x, see
-[Working in Grafana version 8](using-grafana-v8.md "using-grafana-v8.md").
+****  
+This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).  
+For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
 
 You can perform the following transformations on your data.
 
 ## Add field from calculation
+<a name="v12-panels-xform-funcs-add"></a>
 
-Use this transformation to add a new field calculated from two other fields.
-Each transformation allows you to add one new field.
+Use this transformation to add a new field calculated from two other fields. Each transformation allows you to add one new field.
++ **Mode** - Select a mode:
+  + **Reduce row** – Apply selected calculation on each row of selected fields independently.
+  + **Binary operation** – Apply basic binary operations (for example, sum or multiply) on values in a single row from two selected fields.
+  + **Unary operation** – Apply basic unary operations on values in a single row from a selected field. The available operations are:
+    + **Absolute value (abs)** – Returns the absolute value of a given expression. It represents the distance from zero as a positive number.
+    + **Natural exponential (exp)** – Returns *e* raised to the power of a given expression.
+    + **Natural logarithm (ln)** – Returns the natural logarithm of a given expression.
+    + **Floor (floor)** – Returns the largest integer less than or equal to a given expression.
+    + **Ceiling (ceil)** – returns the smallest integer greater than or equal to a given expression.
+  + **Cumulative functions** – Apply functions on teh current row and all preceding rows.
+    + **Total** – Calculates the cumulative total up to and including the current row.
+    + **Mean** – Calculates the mean up to and including the current row.
+  + **Window functions** – Apply window functions. The window can either be *trailing* or *centered*. With a trailing window the current row will be the last row in the window. With a centered window, the window will be centered on the current row. For even windows sizes, the window will be centered between the current row and the previous row.
+    + **Mean** – Calculates the moving mean or running average.
+    + **** – Calculates the moving standard deviation.
+    + **Variance** – Calculate the moving variance.
+  + **Row index** – Insert a field with the row index.
++ **Field name** – Select the names of fields you want to use in the calculation for the new field.
++ **Calculation** – If you select **Reduce row** mode, then the **Calculation** field appears. Select the field to see a list of calculation choices you can use to create the new field. For information about available calculations, refer to [Calculation types](v12-panels-calculation-types.md).
++ **Operation** – If you select **Binary operation** or **Unary operation** mode, then the **Operation** fields appear. These fields allow you to do basic math operations on values in a single row from two selected fields. You can also use numerical values for binary operations.
++ **As percentile** – If you select **Row index** mode, then the **As percentile** switch appears. This switch allows you to transform the row index as a percentage of the total number of rows.
++ **Alias** – (Optional) Enter the name of your new field. If you leave this blank, then the field will be named to match the calculation.
++ **Replace all fields** – (Optional) Select this option if you want to hide all other fields and display only your calculated field in the visualization.
 
-- **Mode** - Select a mode:
-
-  - **Reduce row** – Apply
-    selected calculation on each row of selected fields
-    independently.
-  - **Binary operation** –
-    Apply basic binary operations (for example, sum or multiply) on
-    values in a single row from two selected fields.
-  - **Unary operation** –
-    Apply basic unary operations on values in a single row from a
-    selected field. The available operations are:
-
-    - **Absolute value (abs)**
-      – Returns the absolute value of a given
-      expression. It represents the distance from zero as a
-      positive number.
-    - **Natural exponential
-      (exp)** – Returns
-      _e_ raised to the power of a
-      given expression.
-    - **Natural logarithm
-      (ln)** – Returns the natural
-      logarithm of a given expression.
-    - **Floor (floor)**
-      – Returns the largest integer less than or equal
-      to a given expression.
-    - **Ceiling (ceil)**
-      – returns the smallest integer greater than or
-      equal to a given expression.
-
-  - **Cumulative functions** –
-    Apply functions on teh current row and all preceding
-    rows.
-
-    - **Total** –
-      Calculates the cumulative total up to and including the
-      current row.
-    - **Mean** –
-      Calculates the mean up to and including the current
-      row.
-
-  - **Window functions** –
-    Apply window functions. The window can either be
-    _trailing_ or
-    _centered_. With a trailing window the
-    current row will be the last row in the window. With a centered
-    window, the window will be centered on the current row. For even
-    windows sizes, the window will be centered between the current
-    row and the previous row.
-
-    - **Mean** –
-      Calculates the moving mean or running average.
-    - – Calculates the moving
-      standard deviation.
-    - **Variance** –
-      Calculate the moving variance.
-
-  - **Row index** – Insert a
-    field with the row index.
-
-- **Field name** – Select the names
-  of fields you want to use in the calculation for the new field.
-- **Calculation** – If you select
-  **Reduce row** mode, then the
-  **Calculation** field appears. Select the field to
-  see a list of calculation choices you can use to create the new field.
-  For information about available calculations, refer to [Calculation
-  types](v12-panels-calculation-types.md "v12-panels-calculation-types.md").
-- **Operation** – If you select
-  **Binary operation** or **Unary
-  operation** mode, then the **Operation**
-  fields appear. These fields allow you to do basic math operations on
-  values in a single row from two selected fields. You can also use
-  numerical values for binary operations.
-- **As percentile** – If you select
-  **Row index** mode, then the **As
-  percentile** switch appears. This switch allows you to
-  transform the row index as a percentage of the total number of
-  rows.
-- **Alias** – (Optional) Enter the
-  name of your new field. If you leave this blank, then the field will be
-  named to match the calculation.
-- **Replace all fields** –
-  (Optional) Select this option if you want to hide all other fields and
-  display only your calculated field in the visualization.
-
-###### Note
-
-**Cumulative functions** and **Window
-functions** are current in public preview. Grafana Labs offers
-limited support, and breaking changes might occur prior to the feature being
-made generally available.
+**Note**  
+**Cumulative functions** and **Window functions** are current in public preview. Grafana Labs offers limited support, and breaking changes might occur prior to the feature being made generally available.
 
 ## Concatenate fields
+<a name="v12-panels-xform-funcs-concat"></a>
 
 **Concatenate fields**
 
-Use this transformation to combines all fields from all frames into one
-result.
+Use this transformation to combines all fields from all frames into one result.
 
-For example, if you have separate queries retrieving temperature and uptime
-data (query A) and air quality index and error information (query b), applying
-the concatenate transformation yields a consolidated data frame with all
-relevant information in one view.
+For example, if you have separate queries retrieving temperature and uptime data (query A) and air quality index and error information (query b), applying the concatenate transformation yields a consolidated data frame with all relevant information in one view.
 
 Consider these two following.
 
-_Query A:_
+*Query A:*
 
-| Temp | Uptime  |
-| ---- | ------- |
-| 15.4 | 1230233 |
 
-_Query B:_
+| Temp | Uptime | 
+| --- | --- | 
+| 15.4 | 1230233 | 
 
-| AQI | Errors |
-| --- | ------ |
-| 3.2 | 5      |
+*Query B:*
+
+
+| AQI | Errors | 
+| --- | --- | 
+| 3.2 | 5 | 
 
 After you concatenate the fields, the data frame would be:
 
-| Temp | Uptime  | AQI | Errors |
-| ---- | ------- | --- | ------ |
-| 15.4 | 1230233 | 3.2 | 5      |
 
-This transformation simplifies the process of merging data from different
-sources, providing a comprehensive view for analysis and visualization.
+| Temp | Uptime | AQI | Errors | 
+| --- | --- | --- | --- | 
+| 15.4 | 1230233 | 3.2 | 5 | 
+
+This transformation simplifies the process of merging data from different sources, providing a comprehensive view for analysis and visualization.
 
 ## Config from query results
+<a name="v12-panels-xform-funcs-config"></a>
 
 **Config from query results**
 
-Use this transformation to select one query and extract standard options like
-**Min**, **Max**,
-**Unit** and **Thresholds** and apply them
-to other query results. This enables dynamic visualization configuration, based
-on the data returned by a specific query.
+Use this transformation to select one query and extract standard options like **Min**, **Max**, **Unit** and **Thresholds** and apply them to other query results. This enables dynamic visualization configuration, based on the data returned by a specific query.
 
 **Options**
-
-- **Config query** – Select the query that
-  returns the data you want to use as configuration.
-- **Apply to** – Select the fields or series to
-  which the configuration should be applied.
-- **Apply to options** – Specify a field type or
-  use a field name regex, depending on your selection in **Apply
-  to**.
++ **Config query** – Select the query that returns the data you want to use as configuration.
++ **Apply to** – Select the fields or series to which the configuration should be applied.
++ **Apply to options** – Specify a field type or use a field name regex, depending on your selection in **Apply to**.
 
 **Field mapping table**
 
-Below the configuration options, you'll find the field mapping table. This
-table lists all fields found in the data returned by the config query, along
-with the **Use as** and **Select** options. It
-provides control over mapping fields to config properties, and for multiple
-rows, it allows you to choose which value to select.
+Below the configuration options, you'll find the field mapping table. This table lists all fields found in the data returned by the config query, along with the **Use as** and **Select** options. It provides control over mapping fields to config properties, and for multiple rows, it allows you to choose which value to select.
 
-The following example shows an input query and a query used as field
-configuration.
+The following example shows an input query and a query used as field configuration.
 
-_Input query_
+*Input query*
 
-| Time          | Value |
-| ------------- | ----- |
-| 1626178119127 | 10    |
-| 1626178119129 | 30    |
 
-_Config query_
+| Time | Value | 
+| --- | --- | 
+| 1626178119127 | 10 | 
+| 1626178119129 | 30 | 
 
-| Time          | Value |
-| ------------- | ----- |
-| 1626178119127 | 100   |
-| 1626178119129 | 100   |
+*Config query*
 
-_Output query (same as input, but now with config on the value
-field)_
 
-| Time          | Value (config: Max=100) |
-| ------------- | ----------------------- |
-| 1626178119127 | 10                      |
-| 1626178119129 | 30                      |
+| Time | Value | 
+| --- | --- | 
+| 1626178119127 | 100 | 
+| 1626178119129 | 100 | 
 
-Each field now has a maximum configuration option set. Options such as
-**Min**, **Max**,
-**Unit**, and **Thresholds** are part of
-teh field configuration. If set, they are used by the visualization instead of
-any options manually configured in the panel editor options pane.
+*Output query (same as input, but now with config on the value field)*
+
+
+| Time | Value (config: Max=100) | 
+| --- | --- | 
+| 1626178119127 | 10 | 
+| 1626178119129 | 30 | 
+
+Each field now has a maximum configuration option set. Options such as **Min**, **Max**, **Unit**, and **Thresholds** are part of teh field configuration. If set, they are used by the visualization instead of any options manually configured in the panel editor options pane.
 
 **Value mappings**
 
-You can also transform a query result into value mappings. With this option,
-every row in the configuration query result defines a single value mapping row.
-See the following example.
+You can also transform a query result into value mappings. With this option, every row in the configuration query result defines a single value mapping row. See the following example.
 
-_Config query result_
+*Config query result*
 
-| Value | Text   | Color |
-| ----- | ------ | ----- |
-| L     | Low    | blue  |
-| M     | Medium | green |
-| H     | High   | red   |
 
-_In the field mapping, specify:_
+| Value | Text | Color | 
+| --- | --- | --- | 
+| L | Low | blue | 
+| M | Medium | green | 
+| H | High | red | 
 
-| Field | Use as                 | Select     |
-| ----- | ---------------------- | ---------- |
-| Value | Value mappings / Value | All values |
-| Text  | Value mappings / Text  | All values |
-| Color | Value mappings / Color | All values |
+*In the field mapping, specify:*
 
-Grafana builds value mappings from your query result and applies them to the
-real data query results. You should see values being mapped and colored
-according to the config query results.
+
+| Field | Use as | Select | 
+| --- | --- | --- | 
+| Value | Value mappings / Value | All values | 
+| Text | Value mappings / Text | All values | 
+| Color | Value mappings / Color | All values | 
+
+Grafana builds value mappings from your query result and applies them to the real data query results. You should see values being mapped and colored according to the config query results.
 
 ## Convert field type
+<a name="v12-panels-xform-funcs-convert"></a>
 
-Use this transformation to modify the field type of the specified
-field.
+Use this transformation to modify the field type of the specified field.
 
 This transformation has the following options:
++ **Field** – Select from available fields.
++ **as** – Select the FieldType to convert to.
+  + **Numeric** – attempts to make the values numbers.
+  + **String** – will make the values strings.
+  + **Time** – attempts to parse the values as time.
+    + Will show an option to specify a DateFormat as input by a string, like `yyyy-mm-dd` or `DD MM YYYY hh:mm:ss`.
+  + **Boolean** – will make the values Boolean.
+  + **Enum** – will make the values enums.
+    + Will show a table to manage the enums.
+  + **Other** – attempts to parse the values as json.
 
-- **Field** – Select from available
-  fields.
-- **as** – Select the FieldType to convert
-  to.
+For example consider the following query that could be modified by selecting the time field, as **Time**, and Date Format as `YYYY`.
 
-  - **Numeric** – attempts to make the
-    values numbers.
-  - **String** – will make the values
-    strings.
-  - **Time** – attempts to parse the
-    values as time.
 
-    - Will show an option to specify a DateFormat as input
-      by a string, like `yyyy-mm-dd` or `DD MM
-   YYYY hh:mm:ss`.
-
-  - **Boolean** – will make the values
-    Boolean.
-  - **Enum** – will make the values
-    enums.
-
-    - Will show a table to manage the enums.
-
-  - **Other** – attempts to parse the
-    values as json.
-
-For example consider the following query that could be modified by selecting
-the time field, as **Time**, and Date Format as
-`YYYY`.
-
-| Time       | Mark  | Value |
-| ---------- | ----- | ----- |
-| 2017-07-01 | above | 25    |
-| 2018-08-02 | below | 22    |
-| 2019-09-02 | below | 29    |
-| 2020-10-04 | above | 22    |
+| Time | Mark | Value | 
+| --- | --- | --- | 
+| 2017-07-01 | above | 25 | 
+| 2018-08-02 | below | 22 | 
+| 2019-09-02 | below | 29 | 
+| 2020-10-04 | above | 22 | 
 
 The result:
 
-| Time                | Mark  | Value |
-| ------------------- | ----- | ----- |
-| 2017-01-01 00:00:00 | above | 25    |
-| 2018-01-01 00:00:00 | below | 22    |
-| 2019-01-01 00:00:00 | below | 29    |
-| 2020-01-01 00:00:00 | above | 22    |
 
-This transformation allows you to flexibly adapt your data types, ensuring
-compatibility and consistency in your visualizations.
+| Time | Mark | Value | 
+| --- | --- | --- | 
+| 2017-01-01 00:00:00 | above | 25 | 
+| 2018-01-01 00:00:00 | below | 22 | 
+| 2019-01-01 00:00:00 | below | 29 | 
+| 2020-01-01 00:00:00 | above | 22 | 
+
+This transformation allows you to flexibly adapt your data types, ensuring compatibility and consistency in your visualizations.
 
 ## Extract Fields
+<a name="v12-panels-xform-funcs-extract"></a>
 
-Use this transformation to select a source of data and extract content from
-it in different formats. This transformation has the following fields:
-
-- **Source** – Select the field for the
-  source of data.
-- **Format** – Choose one of the following:
-
-  - **JSON** – Parse JSON content
-    from the source.
-  - **Key+value pairs** – Parse
-    content in the format `a=b` or `c:d`
-    from the source.
-  - **Auto** – Discover fields
-    automatically.
-  - **Regex** – Extract fields using
-    regular expressions for more powerful field extraction from
-    text data.
-
-- **Replace All Fields** – (Optional)
-  Select this option to hide all other fields and display only your
-  calculated field in the visualization.
-- **Keep Time** - (Optional) Available only
-  if **Replace All Fields** is true. Keeps
-  the time field in the output.
+Use this transformation to select a source of data and extract content from it in different formats. This transformation has the following fields:
++ **Source** – Select the field for the source of data.
++ **Format** – Choose one of the following:
+  + **JSON** – Parse JSON content from the source.
+  + **Key\+value pairs** – Parse content in the format `a=b` or `c:d` from the source.
+  + **Auto** – Discover fields automatically.
+  + **Regex** – Extract fields using regular expressions for more powerful field extraction from text data.
++ **Replace All Fields** – (Optional) Select this option to hide all other fields and display only your calculated field in the visualization.
++ **Keep Time** - (Optional) Available only if **Replace All Fields** is true. Keeps the time field in the output.
 
 Consider the following dataset:
 
 **Dataset Example**
 
-| Timestamp           | json\_data    |
-| ------------------- | ------------- |
-| 1636678740000000000 | {"value": 1}  |
-| 1636678680000000000 | {"value": 5}  |
-| 1636678620000000000 | {"value": 12} |
 
-You could prepare the data to be used by a [Time
-series panel](v12-panels-time-series.md "v12-panels-time-series.md") with this configuration:
+| Timestamp | json\_data | 
+| --- | --- | 
+| 1636678740000000000 | {"value": 1} | 
+| 1636678680000000000 | {"value": 5} | 
+| 1636678620000000000 | {"value": 12} | 
 
-- Source: json\_data
-- Format: JSON
-
-  - Field: value
-  - Alias: my\_value
-
-- Replace all fields: true
-- Keep time: true
+You could prepare the data to be used by a [Time series panel](v12-panels-time-series.md) with this configuration:
++ Source: json\_data
++ Format: JSON
+  + Field: value
+  + Alias: my\_value
++ Replace all fields: true
++ Keep time: true
 
 This will generate the following output:
 
 **Transformed Data**
 
-| Timestamp           | my\_value |
-| ------------------- | --------- |
-| 1636678740000000000 | 1         |
-| 1636678680000000000 | 5         |
-| 1636678620000000000 | 12        |
 
-With this transformation, you can extract and format data in various
-ways. You can customize the extraction format based on your specific data
-needs.
+| Timestamp | my\_value | 
+| --- | --- | 
+| 1636678740000000000 | 1 | 
+| 1636678680000000000 | 5 | 
+| 1636678620000000000 | 12 | 
+
+With this transformation, you can extract and format data in various ways. You can customize the extraction format based on your specific data needs.
 
 ## Lookup fields from resource
+<a name="v12-panels-xform-funcs-lookup"></a>
 
-Use this transformation to enrich a field value by looking up additional
-fields from an external source.
+Use this transformation to enrich a field value by looking up additional fields from an external source.
 
 This transformation has the following fields:
++ **Field** – Select a text field from your dataset.
++ **Lookup** – Choose from **Countries**, **USA States**, and **Airports**.
 
-- **Field** – Select a text field from your
-  dataset.
-- **Lookup** – Choose from
-  **Countries**, **USA
-  States**, and **Airports**.
-
-###### Note
-
+**Note**  
 This transformation only supports spatial data.
 
 For example, if you have this data:
 
 **Dataset Example**
 
-| Location  | Values |
-| --------- | ------ |
-| AL        | 0      |
-| AK        | 10     |
-| Arizona   | 5      |
-| Arkansas  | 1      |
-| Somewhere | 5      |
+
+| Location | Values | 
+| --- | --- | 
+| AL | 0 | 
+| AK | 10 | 
+| Arizona | 5 | 
+| Arkansas | 1 | 
+| Somewhere | 5 | 
 
 With this configuration:
-
-- Field: location
-- Lookup: USA States
++ Field: location
++ Lookup: USA States
 
 You’ll get the following output:
 
 **Transformed Data**
 
-| Location  | ID  | Name     | Lng         | Lat       | Values |
-| --------- | --- | -------- | ----------- | --------- | ------ |
-| AL        | AL  | Alabama  | -80.891064  | 12.448457 | 0      |
-| AK        | AK  | Arkansas | -100.891064 | 24.448457 | 10     |
-| Arizona   |     |          |             |           | 5      |
-| Arkansas  |     |          |             |           | 1      |
-| Somewhere |     |          |             |           | 5      |
 
-This transformation lets you augment your data by fetching additional
-information from external sources, providing a more comprehensive dataset
-for analysis and visualization.
+| Location | ID | Name | Lng | Lat | Values | 
+| --- | --- | --- | --- | --- | --- | 
+| AL | AL | Alabama | -80.891064 | 12.448457 | 0 | 
+| AK | AK | Arkansas | -100.891064 | 24.448457 | 10 | 
+| Arizona |  |  |  |  | 5 | 
+| Arkansas |  |  |  |  | 1 | 
+| Somewhere |  |  |  |  | 5 | 
+
+This transformation lets you augment your data by fetching additional information from external sources, providing a more comprehensive dataset for analysis and visualization.
 
 ## Filter data by query refId
+<a name="v12-panels-xform-funcs-queryrefid"></a>
 
-Use this transformation to hide one or more queries in panels that have
-multiple queries.
+Use this transformation to hide one or more queries in panels that have multiple queries.
 
-Grafana displays the query identification letters in dark gray text. Choose a
-query identifier to toggle filtering. If the query letter is white, then the
-results are displayed. If the query letter is dark, then the results are hidden.
+Grafana displays the query identification letters in dark gray text. Choose a query identifier to toggle filtering. If the query letter is white, then the results are displayed. If the query letter is dark, then the results are hidden.
 
-###### Note
-
-This transformation is not
-available for Graphite because this data source does not support correlating
-returned data with queries.
+**Note**  
+This transformation is not available for Graphite because this data source does not support correlating returned data with queries.
 
 ## Filter data by values
+<a name="v12-panels-xform-funcs-values"></a>
 
-Use this transformation to selectively filter data points directly within
-your visualization. This transformation provides options to include or exclude
-data based on one or more conditions applied to a selected field.
+Use this transformation to selectively filter data points directly within your visualization. This transformation provides options to include or exclude data based on one or more conditions applied to a selected field.
 
-This transformation is very useful if your data source does not natively
-filter by values. You might also use this to narrow values to display if you are
-using a shared query.
+This transformation is very useful if your data source does not natively filter by values. You might also use this to narrow values to display if you are using a shared query.
 
 The available conditions for all fields are:
-
-- **Regex** – Match a regex expression.
-- **Is Null** – Match if the value is null.
-- **Is Not Null** – Match if the value is
-  not null.
-- **Equal** – Match if the value is equal
-  to the specified value.
-- **Different** – Match if the value is
-  different than the specified value.
-- **Substring** – Match if the value
-  contains the specified text.
++ **Regex** – Match a regex expression.
++ **Is Null** – Match if the value is null.
++ **Is Not Null** – Match if the value is not null.
++ **Equal** – Match if the value is equal to the specified value.
++ **Different** – Match if the value is different than the specified value.
++ **Substring** – Match if the value contains the specified text.
 
 Additional available conditions for number fields are:
-
-- **Greater** – Match if the value is
-  greater than the specified value.
-- **Lower** – Match if the value is lower
-  than the specified value.
-- **Greater or equal** – Match if the value
-  is greater or equal.
-- **Lower or equal** – Match if the value
-  is lower or equal.
-- **Range** – Match a range between a
-  specified minimum and maximum, min and max included.
++ **Greater** – Match if the value is greater than the specified value.
++ **Lower** – Match if the value is lower than the specified value.
++ **Greater or equal** – Match if the value is greater or equal.
++ **Lower or equal** – Match if the value is lower or equal.
++ **Range** – Match a range between a specified minimum and maximum, min and max included.
 
 Consider the following dataset:
 
-| Time                | Temperature | Altitude |
-| ------------------- | ----------- | -------- |
-| 2020-07-07 11:34:23 | 32          | 101      |
-| 2020-07-07 11:34:22 | 28          | 125      |
-| 2020-07-07 11:34:21 | 26          | 110      |
-| 2020-07-07 11:34:20 | 23          | 98       |
-| 2020-07-07 10:32:24 | 31          | 95       |
-| 2020-07-07 10:31:22 | 20          | 85       |
-| 2020-07-07 09:30:57 | 19          | 101      |
 
-If you **Include** the data points that
-have a temperature below 30°C, the configuration will look as follows:
+| Time | Temperature | Altitude | 
+| --- | --- | --- | 
+| 2020-07-07 11:34:23 | 32 | 101 | 
+| 2020-07-07 11:34:22 | 28 | 125 | 
+| 2020-07-07 11:34:21 | 26 | 110 | 
+| 2020-07-07 11:34:20 | 23 | 98 | 
+| 2020-07-07 10:32:24 | 31 | 95 | 
+| 2020-07-07 10:31:22 | 20 | 85 | 
+| 2020-07-07 09:30:57 | 19 | 101 | 
 
-- Filter Type: 'Include'
-- Condition: Rows where 'Temperature' matches 'Lower Than' '30'
+If you **Include** the data points that have a temperature below 30°C, the configuration will look as follows:
++ Filter Type: 'Include'
++ Condition: Rows where 'Temperature' matches 'Lower Than' '30'
 
-And you will get the following result, where only the temperatures below
-30°C are included:
+And you will get the following result, where only the temperatures below 30°C are included:
 
 **Transformed Data**
 
-| Time                | Temperature | Altitude |
-| ------------------- | ----------- | -------- |
-| 2020-07-07 11:34:22 | 28          | 125      |
-| 2020-07-07 11:34:21 | 26          | 110      |
-| 2020-07-07 11:34:20 | 23          | 98       |
-| 2020-07-07 10:31:22 | 20          | 85       |
-| 2020-07-07 09:30:57 | 19          | 101      |
 
-You can add more than one condition to the filter. For example, you might
-want to include the data only if the altitude is greater than 100. To do so,
-add that condition to the following configuration:
+| Time | Temperature | Altitude | 
+| --- | --- | --- | 
+| 2020-07-07 11:34:22 | 28 | 125 | 
+| 2020-07-07 11:34:21 | 26 | 110 | 
+| 2020-07-07 11:34:20 | 23 | 98 | 
+| 2020-07-07 10:31:22 | 20 | 85 | 
+| 2020-07-07 09:30:57 | 19 | 101 | 
 
-- Filter type: 'Include' rows that 'Match All' conditions
-- Condition 1: Rows where 'Temperature' matches 'Lower' than '30'
-- Condition 2: Rows where 'Altitude' matches 'Greater' than '100'
+You can add more than one condition to the filter. For example, you might want to include the data only if the altitude is greater than 100. To do so, add that condition to the following configuration:
++ Filter type: 'Include' rows that 'Match All' conditions
++ Condition 1: Rows where 'Temperature' matches 'Lower' than '30'
++ Condition 2: Rows where 'Altitude' matches 'Greater' than '100'
 
-When you have more than one condition, you can choose if you want the
-action (include/exclude) to be applied on rows that **Match
-all** conditions or **Match any** of the
-conditions you added.
+When you have more than one condition, you can choose if you want the action (include/exclude) to be applied on rows that **Match all** conditions or **Match any** of the conditions you added.
 
-In the example above, we chose **Match all** because we
-wanted to include the rows that have a
-temperature lower than 30°C _AND_ an altitude higher than 100. If we wanted to include the rows that have a temperature lower than
-30°C _OR_ an altitude higher than 100 instead, then we
-would select **Match any**. This would
-include the first row in the original data, which has a temperature of 32°C
-(does not match the first condition) but an altitude of 101 (which matches
-the second condition), so it is included.
+In the example above, we chose **Match all** because we wanted to include the rows that have a temperature lower than 30°C *AND* an altitude higher than 100. If we wanted to include the rows that have a temperature lower than 30°C *OR* an altitude higher than 100 instead, then we would select **Match any**. This would include the first row in the original data, which has a temperature of 32°C (does not match the first condition) but an altitude of 101 (which matches the second condition), so it is included.
 
 Conditions that are invalid or incompletely configured are ignored.
 
-This versatile data filtering transformation lets you to selectively
-include or exclude data points based on specific conditions. Customize the
-criteria to tailor your data presentation to meet your unique analytical
-needs.
+This versatile data filtering transformation lets you to selectively include or exclude data points based on specific conditions. Customize the criteria to tailor your data presentation to meet your unique analytical needs.
 
 ## Filter fields by name
+<a name="v12-panels-xform-funcs-name"></a>
 
-Use this transformation to remove parts of your query results. There are
-three ways to filter field names:
+Use this transformation to remove parts of your query results. There are three ways to filter field names:
++ Enter a regular expression.
++ Manually select included fields.
++ Use a dashboard variable.
 
-- Enter a regular expression.
-- Manually select included fields.
-- Use a dashboard variable.
+*Use a regular expression*
 
-_Use a regular expression_
+When you filter using a regular expression, field names that match the regular expression are included. For example, using the regular expression `'prod.*'` would return only the fields that start with `prod`
 
-When you filter using a regular expression, field names that match the
-regular expression are included. For example, using the regular expression
-`'prod.*'` would return only the fields that start with
-`prod`
+The regular expression can include an interpolated dashboard variable using the `${variableName}` syntax.
 
-The regular expression can include an interpolated dashboard variable using
-the `${variableName}` syntax.
+*Manually select included fields*
 
-_Manually select included fields_
+Select or deselect field names to remove them from the result. If a regular expression is also included, fields that are matched by the expression are included, even if they're unchecked.
 
-Select or deselect field names to remove them from the result. If a regular
-expression is also included, fields that are matched by the expression are
-included, even if they're unchecked.
+*Use a dashboard variable*
 
-_Use a dashboard variable_
+Select **From variable** to let you select a dashboard variable that's used to include fields. By setting up a dashboard variable with multiple choices, the same fields can be displayed across multiple visualizations.
 
-Select **From variable** to let you select a dashboard
-variable that's used to include fields. By setting up a dashboard variable
-with multiple choices, the same fields can be displayed across multiple
-visualizations.
-
-This transformation provides flexibility in tailoring your query results to
-focus on the specific fields you need for effective analysis and
-visualization.
+This transformation provides flexibility in tailoring your query results to focus on the specific fields you need for effective analysis and visualization.
 
 ## Format string
+<a name="v12-panels-xform-funcs-string"></a>
 
-Use this transformation to customize the output of a string field. This
-transformation has the following fields:
+Use this transformation to customize the output of a string field. This transformation has the following fields:
++ **Upper case** – Formats the entire string in uppercase characters.
++ **Lower case** – Formats the entire string in lowercase characters.
++ **Sentence case** – Formats the first character of the string in uppercase.
++ **Title case** – Formats the first character of each word in the string in uppercase.
++ **Pascal case** – Formats the first character of each word in the string in uppercase and doesn’t include spaces between words.
++ **Camel case** – Formats the first character of each word in the string in uppercase, except the first word, and doesn’t include spaces between words.
++ **Snake case** – Formats all characters in the string in lowercase and uses underscores instead of spaces between words.
++ **Kebab case** – Formats all characters in the string in lowercase and uses dashes instead of spaces between words.
++ **Trim** – Removes all leading and trailing spaces from the string.
++ **Substring** – Returns a substring of the string, using the specified start and end positions.
 
-- **Upper case** – Formats the entire
-  string in uppercase characters.
-- **Lower case** – Formats the entire
-  string in lowercase characters.
-- **Sentence case** – Formats the first
-  character of the string in uppercase.
-- **Title case** – Formats the first
-  character of each word in the string in uppercase.
-- **Pascal case** – Formats the first
-  character of each word in the string in uppercase and doesn’t include
-  spaces between words.
-- **Camel case** – Formats the first
-  character of each word in the string in uppercase, except the first
-  word, and doesn’t include spaces between words.
-- **Snake case** – Formats all characters
-  in the string in lowercase and uses underscores instead of spaces
-  between words.
-- **Kebab case** – Formats all characters
-  in the string in lowercase and uses dashes instead of spaces between
-  words.
-- **Trim** – Removes all leading and
-  trailing spaces from the string.
-- **Substring** – Returns a substring of
-  the string, using the specified start and end positions.
+This transformation provides a convenient way to standardize and tailor the presentation of string data for better visualization and analysis.
 
-This transformation provides a convenient way to standardize and tailor the
-presentation of string data for better visualization and analysis.
-
-###### Note
-
-This transformation is currently in
-public preview. Grafana Labs offers limited support, and breaking changes
-might occur prior to the feature being made generally available.
+**Note**  
+This transformation is currently in public preview. Grafana Labs offers limited support, and breaking changes might occur prior to the feature being made generally available.
 
 ## Format time
+<a name="v12-panels-xform-funcs-time"></a>
 
-Use this transformation to customize the output of a time field. Output can
-be formatted using [Moment.js format strings](https://momentjs.com/docs/#/displaying/ "https://momentjs.com/docs/#/displaying/"). For example, if you want to display only
-the year of a time field, the format string 'YYYY' can be used to
-show the calendar year (for example, 1999 or 2012).
+Use this transformation to customize the output of a time field. Output can be formatted using [Moment.js format strings](https://momentjs.com/docs/#/displaying/). For example, if you want to display only the year of a time field, the format string 'YYYY' can be used to show the calendar year (for example, 1999 or 2012).
 
 **Before Transformation:**
 
-| Timestamp           | Event        |
-| ------------------- | ------------ |
-| 1636678740000000000 | System Start |
-| 1636678680000000000 | User Login   |
-| 1636678620000000000 | Data Updated |
+
+| Timestamp | Event | 
+| --- | --- | 
+| 1636678740000000000 | System Start | 
+| 1636678680000000000 | User Login | 
+| 1636678620000000000 | Data Updated | 
 
 **After applying 'YYYY-MM-DD HH:mm:ss':**
 
-| Timestamp           | Event        |
-| ------------------- | ------------ |
-| 2021-11-12 14:25:40 | System Start |
-| 2021-11-12 14:24:40 | User Login   |
-| 2021-11-12 14:23:40 | Data Updated |
 
-This transformation lets you tailor the time representation in your
-visualizations, providing flexibility and precision in displaying temporal data.
+| Timestamp | Event | 
+| --- | --- | 
+| 2021-11-12 14:25:40 | System Start | 
+| 2021-11-12 14:24:40 | User Login | 
+| 2021-11-12 14:23:40 | Data Updated | 
 
-###### Note
+This transformation lets you tailor the time representation in your visualizations, providing flexibility and precision in displaying temporal data.
 
-This transformation is available in workspaces compatbile with
-Grafana v12 as an alpha feature.
+**Note**  
+This transformation is available in workspaces compatbile with Grafana v12 as an alpha feature.
 
 ## Group by
+<a name="v12-panels-xform-funcs-group"></a>
 
-This transformation groups the data by a specified field (column) value and
-processes calculations on each group. Select to see a list of calculation
-choices.
+This transformation groups the data by a specified field (column) value and processes calculations on each group. Select to see a list of calculation choices.
 
 Here’s an example of original data.
 
-| Time                 | Server ID | CPU Temperature | Server Status |
-| -------------------- | --------- | --------------- | ------------- |
-| 7/7/2020 11:34:20 AM | server 1  | 80              | Shutdown      |
-| 7/7/2020 11:34:20 AM | server 3  | 62              | OK            |
-| 7/7/2020 10:32:20 AM | server 2  | 90              | Overload      |
-| 7/7/2020 10:31:22 AM | server 3  | 55              | OK            |
-| 7/7/2020 9:30:57 AM  | server 3  | 62              | Rebooting     |
-| 7/7/2020 9:30:05 AM  | server 2  | 88              | OK            |
-| 7/7/2020 9:28:06 AM  | server 1  | 80              | OK            |
-| 7/7/2020 9:25:05 AM  | server 2  | 88              | OK            |
-| 7/7/2020 9:23:07 AM  | server 1  | 86              | OK            |
 
-This transformation goes in two steps. First you specify one or multiple
-fields to group the data by. This will group all the same values of those fields
-together, as if you sorted them. For instance if we group by the Server ID
-field, then it would group the data this way:
+| Time | Server ID | CPU Temperature | Server Status | 
+| --- | --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | server 1 | 80 | Shutdown | 
+| 7/7/2020 11:34:20 AM | server 3 | 62 | OK | 
+| 7/7/2020 10:32:20 AM | server 2 | 90 | Overload | 
+| 7/7/2020 10:31:22 AM | server 3 | 55 | OK | 
+| 7/7/2020 9:30:57 AM | server 3 | 62 | Rebooting | 
+| 7/7/2020 9:30:05 AM | server 2 | 88 | OK | 
+| 7/7/2020 9:28:06 AM | server 1 | 80 | OK | 
+| 7/7/2020 9:25:05 AM | server 2 | 88 | OK | 
+| 7/7/2020 9:23:07 AM | server 1 | 86 | OK | 
 
-| Time                 | Server ID | CPU Temperature | Server Status |
-| -------------------- | --------- | --------------- | ------------- |
-| 7/7/2020 11:34:20 AM | server 1  | 80              | Shutdown      |
-| 7/7/2020 9:28:06 AM  | server 1  | 80              | OK            |
-| 7/7/2020 9:23:07 AM  | server 1  | 86              | OK            |
-| 7/7/2020 10:32:20 AM | server 2  | 90              | Overload      |
-| 7/7/2020 9:30:05 AM  | server 2  | 88              | OK            |
-| 7/7/2020 9:25:05 AM  | server 2  | 88              | OK            |
-| 7/7/2020 11:34:20 AM | server 3  | 62              | OK            |
-| 7/7/2020 10:31:22 AM | server 3  | 55              | OK            |
-| 7/7/2020 9:30:57 AM  | server 3  | 62              | Rebooting     |
+This transformation goes in two steps. First you specify one or multiple fields to group the data by. This will group all the same values of those fields together, as if you sorted them. For instance if we group by the Server ID field, then it would group the data this way:
+
+
+| Time | Server ID | CPU Temperature | Server Status | 
+| --- | --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | server 1 | 80 | Shutdown | 
+| 7/7/2020 9:28:06 AM | server 1 | 80 | OK | 
+| 7/7/2020 9:23:07 AM | server 1 | 86 | OK | 
+| 7/7/2020 10:32:20 AM | server 2 | 90 | Overload | 
+| 7/7/2020 9:30:05 AM | server 2 | 88 | OK | 
+| 7/7/2020 9:25:05 AM | server 2 | 88 | OK | 
+| 7/7/2020 11:34:20 AM | server 3 | 62 | OK | 
+| 7/7/2020 10:31:22 AM | server 3 | 55 | OK | 
+| 7/7/2020 9:30:57 AM | server 3 | 62 | Rebooting | 
 
 All rows with the same value of Server ID are grouped together.
 
-After choosing which field you want to group your data by, you can add various
-calculations on the other fields, and apply the calculation to each group of
-rows. For instance, we could want to calculate the average CPU temperature for
-each of those servers. So we can add the _mean_ calculation
-applied on the CPU Temperature field to get the following:
+After choosing which field you want to group your data by, you can add various calculations on the other fields, and apply the calculation to each group of rows. For instance, we could want to calculate the average CPU temperature for each of those servers. So we can add the *mean* calculation applied on the CPU Temperature field to get the following:
 
-| Server ID | CPU Temperature (mean) |
-| --------- | ---------------------- |
-| server 1  | 82                     |
-| server 2  | 88.6                   |
-| server 3  | 59.6                   |
+
+| Server ID | CPU Temperature (mean) | 
+| --- | --- | 
+| server 1 | 82 | 
+| server 2 | 88.6 | 
+| server 3 | 59.6 | 
 
 And we can add more than one calculation. For instance:
-
-- For field Time, we can calculate the _Last_ value,
-  to know when the last data point was received for each server
-- For field Server Status, we can calculate the
-  _Last_ value to know what is the last state value
-  for each server
-- For field Temperature, we can also calculate the
-  _Last_ value to know what is the latest monitored
-  temperature for each server
++ For field Time, we can calculate the *Last* value, to know when the last data point was received for each server
++ For field Server Status, we can calculate the *Last* value to know what is the last state value for each server
++ For field Temperature, we can also calculate the *Last* value to know what is the latest monitored temperature for each server
 
 We would then get:
 
-| Server ID | CPU Temperature (mean) | CPU Temperature (last) | Time (last)          | Server Status (last) |
-| --------- | ---------------------- | ---------------------- | -------------------- | -------------------- |
-| server 1  | 82                     | 80                     | 7/7/2020 11:34:20 AM | Shutdown             |
-| server 2  | 88.6                   | 90                     | 7/7/2020 10:32:20 AM | Overload             |
-| server 3  | 59.6                   | 62                     | 7/7/2020 11:34:20 AM | OK                   |
 
-This transformation enables you to extract key information from your time
-series and display it in a convenient way.
+| Server ID | CPU Temperature (mean) | CPU Temperature (last) | Time (last) | Server Status (last) | 
+| --- | --- | --- | --- | --- | 
+| server 1 | 82 | 80 | 7/7/2020 11:34:20 AM | Shutdown | 
+| server 2 | 88.6 | 90 | 7/7/2020 10:32:20 AM | Overload | 
+| server 3 | 59.6 | 62 | 7/7/2020 11:34:20 AM | OK | 
+
+This transformation enables you to extract key information from your time series and display it in a convenient way.
 
 ## Grouping to matrix
+<a name="v12-panels-xform-funcs-groupmatrix"></a>
 
-Use this transformation to combine three fields—which are used as input for
-the **Column**, **Row**, and **Cell
-value** fields from the query output—and generate a matrix. The
-matrix is calculated as follows:
+Use this transformation to combine three fields—which are used as input for the **Column**, **Row**, and **Cell value** fields from the query output—and generate a matrix. The matrix is calculated as follows:
 
 **Original data**
 
-| Server ID | CPU Temperature | Server Status |
-| --------- | --------------- | ------------- |
-| server 1  | 82              | OK            |
-| server 2  | 88.6            | OK            |
-| server 3  | 59.6            | Shutdown      |
 
-We can generate a matrix using the values of `Server Status` as
-column names, the `Server ID` values as row names, and the
-`CPU Temperature` as content of each cell. The content of each
-cell will appear for the existing column (`Server Status`) and row
-combination (`Server ID`). For the rest of the cells, you can
-select which value to display between: **Null**,
-**True**, **False**, or
-**Empty**.
+| Server ID | CPU Temperature | Server Status | 
+| --- | --- | --- | 
+| server 1 | 82 | OK | 
+| server 2 | 88.6 | OK | 
+| server 3 | 59.6 | Shutdown | 
+
+We can generate a matrix using the values of `Server Status` as column names, the `Server ID` values as row names, and the `CPU Temperature` as content of each cell. The content of each cell will appear for the existing column (`Server Status`) and row combination (`Server ID`). For the rest of the cells, you can select which value to display between: **Null**, **True**, **False**, or **Empty**.
 
 **Output**
 
-| Server IDServer Status | OK   | Shutdown |
-| ---------------------- | ---- | -------- |
-| server 1               | 82   |          |
-| server 2               | 88.6 |          |
-| server 3               |      | 59.6     |
 
-Use this transformation to construct a matrix by specifying fields from your
-query results. The matrix output reflects the relationships between the unique
-values in these fields. This helps you present complex relationships in a clear
-and structured matrix format.
+| Server IDServer Status | OK | Shutdown | 
+| --- | --- | --- | 
+| server 1 | 82 |  | 
+| server 2 | 88.6 |  | 
+| server 3 |  | 59.6 | 
+
+Use this transformation to construct a matrix by specifying fields from your query results. The matrix output reflects the relationships between the unique values in these fields. This helps you present complex relationships in a clear and structured matrix format.
 
 ## Group to nested table
+<a name="v12-panels-xform-funcs-grouptable"></a>
 
-Use this transformation to group the data by a specified field (column)
-value and process calculation on each group. Records are generated that
-share the same grouped field value, to be displayed in a nested table.
+Use this transformation to group the data by a specified field (column) value and process calculation on each group. Records are generated that share the same grouped field value, to be displayed in a nested table.
 
-To calculate a statistic for a field, select the box next to the field
-and choose the **Calculate** option. This will add another
-selection box with statistics to be selected.
+To calculate a statistic for a field, select the box next to the field and choose the **Calculate** option. This will add another selection box with statistics to be selected.
 
 The following table shows sample data.
 
-| Time                 | Server ID | CPU Temperature | Server Status |
-| -------------------- | --------- | --------------- | ------------- |
-| 7/7/2020 11:34:20 AM | server 1  | 80              | Shutdown      |
-| 7/7/2020 11:34:20 AM | server 3  | 62              | OK            |
-| 7/7/2020 10:32:20 AM | server 2  | 90              | Overload      |
-| 7/7/2020 10:31:22 AM | server 3  | 55              | OK            |
-| 7/7/2020 9:30:57 AM  | server 3  | 62              | Rebooting     |
-| 7/7/2020 9:30:05 AM  | server 2  | 88              | OK            |
-| 7/7/2020 9:28:06 AM  | server 1  | 80              | OK            |
-| 7/7/2020 9:25:05 AM  | server 2  | 88              | OK            |
-| 7/7/2020 9:23:07 AM  | server 1  | 86              | OK            |
 
-This transformation has two steps. First, specify one or more fields by
-which to group the data. This groups all the same values of those fields
-together, as if you sorted them For instance, if you group by the
-`Server ID` field, Grafana groups the data this way:
+| Time | Server ID | CPU Temperature | Server Status | 
+| --- | --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | server 1 | 80 | Shutdown | 
+| 7/7/2020 11:34:20 AM | server 3 | 62 | OK | 
+| 7/7/2020 10:32:20 AM | server 2 | 90 | Overload | 
+| 7/7/2020 10:31:22 AM | server 3 | 55 | OK | 
+| 7/7/2020 9:30:57 AM | server 3 | 62 | Rebooting | 
+| 7/7/2020 9:30:05 AM | server 2 | 88 | OK | 
+| 7/7/2020 9:28:06 AM | server 1 | 80 | OK | 
+| 7/7/2020 9:25:05 AM | server 2 | 88 | OK | 
+| 7/7/2020 9:23:07 AM | server 1 | 86 | OK | 
 
-| Server ID | Data |
-| --------- | ---- |
-| server 1  |      | Time | CPU Temperature | Server Status | <br> | --<br>• | --<br>• | --<br>• | <br> | 7/7/2020 11:34:20 AM | 80  | Shutdown | <br> | 7/7/2020 9:28:06 AM  | 80  | OK  | <br> | 7/7/2020 9:23:07 AM | 86  | OK        |     |
-| server 2  |      | Time | CPU Temperature | Server Status | <br> | --<br>• | --<br>• | --<br>• | <br> | 7/7/2020 10:32:20 AM | 90  | Overload | <br> | 7/7/2020 9:30:05 AM  | 88  | OK  | <br> | 7/7/2020 9:25:05 AM | 88  | OK        |     |
-| server 3  |      | Time | CPU Temperature | Server Status | <br> | --<br>• | --<br>• | --<br>• | <br> | 7/7/2020 11:34:20 AM | 62  | OK       | <br> | 7/7/2020 10:31:22 AM | 55  | OK  | <br> | 7/7/2020 9:30:57 AM | 62  | Rebooting |     |
+This transformation has two steps. First, specify one or more fields by which to group the data. This groups all the same values of those fields together, as if you sorted them For instance, if you group by the `Server ID` field, Grafana groups the data this way:
 
-After choosing the field by which you want to group your data, you can
-add various calculations on the other fields and apply the calculation to
-each group of rows. For instance, you might want to calculate the average
-CPU temperature for each of those servers. To do so, add the mean
-calculation applied on the CPU Temperature field to get the following
-result:
 
-| Server ID | CPU Temperatute (mean) |     |
-| --------- | ---------------------- | --- |
-| server 1  | 82                     |     | Time | Server Status | <br> | --<br>• | --<br>• | <br> | 7/7/2020 11:34:20 AM | Shutdown | <br> | 7/7/2020 9:28:06 AM  | OK  | <br> | 7/7/2020 9:23:07 AM | OK        |     |
-| server 2  | 88.6                   |     | Time | Server Status | <br> | --<br>• | --<br>• | <br> | 7/7/2020 10:32:20 AM | Overload | <br> | 7/7/2020 9:30:05 AM  | OK  | <br> | 7/7/2020 9:25:05 AM | OK        |     |
-| server 3  | 59.6                   |     | Time | Server Status | <br> | --<br>• | --<br>• | <br> | 7/7/2020 11:34:20 AM | OK       | <br> | 7/7/2020 10:31:22 AM | OK  | <br> | 7/7/2020 9:30:57 AM | Rebooting |     |
+<table>
+<thead>
+  <tr><th>Server ID</th><th>Data</th></tr>
+</thead>
+<tbody>
+  <tr><td>server 1</td><td>
+<table>
+<thead>
+  <tr><th>Time</th><th>CPU Temperature</th><th>Server Status</th></tr>
+</thead>
+<tbody>
+  <tr><td>7/7/2020 11:34:20 AM</td><td>80</td><td>Shutdown</td></tr>
+  <tr><td>7/7/2020 9:28:06 AM</td><td>80</td><td>OK</td></tr>
+  <tr><td>7/7/2020 9:23:07 AM</td><td>86</td><td>OK</td></tr>
+</tbody>
+</table>
+</td></tr>
+  <tr><td>server 2</td><td>
+<table>
+<thead>
+  <tr><th>Time</th><th>CPU Temperature</th><th>Server Status</th></tr>
+</thead>
+<tbody>
+  <tr><td>7/7/2020 10:32:20 AM</td><td>90</td><td>Overload</td></tr>
+  <tr><td>7/7/2020 9:30:05 AM</td><td>88</td><td>OK</td></tr>
+  <tr><td>7/7/2020 9:25:05 AM</td><td>88</td><td>OK</td></tr>
+</tbody>
+</table>
+</td></tr>
+  <tr><td>server 3</td><td>
+<table>
+<thead>
+  <tr><th>Time</th><th>CPU Temperature</th><th>Server Status</th></tr>
+</thead>
+<tbody>
+  <tr><td>7/7/2020 11:34:20 AM</td><td>62</td><td>OK</td></tr>
+  <tr><td>7/7/2020 10:31:22 AM</td><td>55</td><td>OK</td></tr>
+  <tr><td>7/7/2020 9:30:57 AM</td><td>62</td><td>Rebooting</td></tr>
+</tbody>
+</table>
+</td></tr>
+</tbody>
+</table>
+
+
+After choosing the field by which you want to group your data, you can add various calculations on the other fields and apply the calculation to each group of rows. For instance, you might want to calculate the average CPU temperature for each of those servers. To do so, add the mean calculation applied on the CPU Temperature field to get the following result:
+
+
+<table>
+<thead>
+  <tr><th>Server ID</th><th>CPU Temperatute (mean)</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td>server 1</td><td>82</td><td>
+<table>
+<thead>
+  <tr><th>Time</th><th>Server Status</th></tr>
+</thead>
+<tbody>
+  <tr><td>7/7/2020 11:34:20 AM</td><td>Shutdown</td></tr>
+  <tr><td>7/7/2020 9:28:06 AM</td><td>OK</td></tr>
+  <tr><td>7/7/2020 9:23:07 AM</td><td>OK</td></tr>
+</tbody>
+</table>
+</td></tr>
+  <tr><td>server 2</td><td>88.6</td><td>
+<table>
+<thead>
+  <tr><th>Time</th><th>Server Status</th></tr>
+</thead>
+<tbody>
+  <tr><td>7/7/2020 10:32:20 AM</td><td>Overload</td></tr>
+  <tr><td>7/7/2020 9:30:05 AM</td><td>OK</td></tr>
+  <tr><td>7/7/2020 9:25:05 AM</td><td>OK</td></tr>
+</tbody>
+</table>
+</td></tr>
+  <tr><td>server 3</td><td>59.6</td><td>
+<table>
+<thead>
+  <tr><th>Time</th><th>Server Status</th></tr>
+</thead>
+<tbody>
+  <tr><td>7/7/2020 11:34:20 AM</td><td>OK</td></tr>
+  <tr><td>7/7/2020 10:31:22 AM</td><td>OK</td></tr>
+  <tr><td>7/7/2020 9:30:57 AM</td><td>Rebooting</td></tr>
+</tbody>
+</table>
+</td></tr>
+</tbody>
+</table>
+
 
 ## Create heatmap
+<a name="v12-panels-xform-funcs-heatmap"></a>
 
-Use this transformation to prepare histogram data for visualizing trends over
-time. Similar to the heatmap visualization, this transformation converts
-histogram metrics into temporal buckets.
+Use this transformation to prepare histogram data for visualizing trends over time. Similar to the heatmap visualization, this transformation converts histogram metrics into temporal buckets.
 
 **X Bucket**
 
 This setting determines how the x-axis is split into buckets.
-
-- **Size** – Specify a time interval in
-  the input field. For example, a time range of `1h`
-  creates cells one hour wide on the x-axis.
-- **Count** – For non-time-related
-  series, use this option to define the number of elements in a
-  bucket.
++ **Size** – Specify a time interval in the input field. For example, a time range of `1h` creates cells one hour wide on the x-axis.
++ **Count** – For non-time-related series, use this option to define the number of elements in a bucket.
 
 **Y Bucket**
 
 This setting determines how the y-axis is split into buckets.
-
-- **Linear**
-- **Logarithmic** – Choose between log
-  base 2 or log base 10.
-- **Symlog** – Uses a symmetrical
-  logarithmic scale. Choose between log base 2 or log base 10,
-  allowing for negative values.
++ **Linear**
++ **Logarithmic** – Choose between log base 2 or log base 10.
++ **Symlog** – Uses a symmetrical logarithmic scale. Choose between log base 2 or log base 10, allowing for negative values.
 
 Assume you have the following dataset:
 
-| Timestamp           | Value |
-| ------------------- | ----- |
-| 2023-01-01 12:00:00 | 5     |
-| 2023-01-01 12:15:00 | 10    |
-| 2023-01-01 12:30:00 | 15    |
-| 2023-01-01 12:45:00 | 8     |
 
-- With X Bucket set to `Size: 15m` and Y Bucket as
-  `Linear`, the histogram organizes values into time
-  intervals of 15 minutes on the x-axis and linearly on the
-  y-axis.
-- For X Bucket as `Count: 2` and Y Bucket as
-  `Logarithmic (base 10)`, the histogram groups
-  values into buckets of two on the x-axis and use a logarithmic scale
-  on the y-axis.
+| Timestamp | Value | 
+| --- | --- | 
+| 2023-01-01 12:00:00 | 5 | 
+| 2023-01-01 12:15:00 | 10 | 
+| 2023-01-01 12:30:00 | 15 | 
+| 2023-01-01 12:45:00 | 8 | 
++ With X Bucket set to `Size: 15m` and Y Bucket as `Linear`, the histogram organizes values into time intervals of 15 minutes on the x-axis and linearly on the y-axis.
++ For X Bucket as `Count: 2` and Y Bucket as `Logarithmic (base 10)`, the histogram groups values into buckets of two on the x-axis and use a logarithmic scale on the y-axis.
 
 ## Histogram
+<a name="v12-panels-xform-funcs-histogram"></a>
 
-Use this transformation to generate a histogram based on input data, allowing
-you to visualize the distribution of values.
-
-- **Bucket size** – The range between the
-  lowest and highest items in a bucket (xMin to xMax).
-- **Bucket offset** – The offset for
-  non-zero-based buckets.
-- **Combine series** – Create a unified
-  histogram using all available series.
+Use this transformation to generate a histogram based on input data, allowing you to visualize the distribution of values.
++ **Bucket size** – The range between the lowest and highest items in a bucket (xMin to xMax).
++ **Bucket offset** – The offset for non-zero-based buckets.
++ **Combine series** – Create a unified histogram using all available series.
 
 **Original data**
 
 Series 1:
 
-| A   | B   | C   |
-| --- | --- | --- |
-| 1   | 3   | 5   |
-| 2   | 4   | 6   |
-| 3   | 5   | 7   |
-| 4   | 6   | 8   |
-| 5   | 7   | 9   |
+
+| A | B | C | 
+| --- | --- | --- | 
+| 1 | 3 | 5 | 
+| 2 | 4 | 6 | 
+| 3 | 5 | 7 | 
+| 4 | 6 | 8 | 
+| 5 | 7 | 9 | 
 
 Series 2:
 
-| C   |
-| --- |
-| 5   |
-| 6   |
-| 7   |
-| 8   |
-| 9   |
+
+| C | 
+| --- | 
+| 5 | 
+| 6 | 
+| 7 | 
+| 8 | 
+| 9 | 
 
 **Output**
 
-| xMin | xMax | A   | B   | C   | C   |
-| ---- | ---- | --- | --- | --- | --- |
-| 1    | 2    | 1   | 0   | 0   | 0   |
-| 2    | 3    | 1   | 0   | 0   | 0   |
-| 3    | 4    | 1   | 1   | 0   | 0   |
-| 4    | 5    | 1   | 1   | 0   | 0   |
-| 5    | 6    | 1   | 1   | 1   | 1   |
-| 6    | 7    | 0   | 1   | 1   | 1   |
-| 7    | 8    | 0   | 1   | 1   | 1   |
-| 8    | 9    | 0   | 0   | 1   | 1   |
-| 9    | 10   | 0   | 0   | 1   | 1   |
 
-Visualize the distribution of values using the generated histogram, providing
-insights into the data’s spread and density.
+| xMin | xMax | A | B | C | C | 
+| --- | --- | --- | --- | --- | --- | 
+| 1 | 2 | 1 | 0 | 0 | 0 | 
+| 2 | 3 | 1 | 0 | 0 | 0 | 
+| 3 | 4 | 1 | 1 | 0 | 0 | 
+| 4 | 5 | 1 | 1 | 0 | 0 | 
+| 5 | 6 | 1 | 1 | 1 | 1 | 
+| 6 | 7 | 0 | 1 | 1 | 1 | 
+| 7 | 8 | 0 | 1 | 1 | 1 | 
+| 8 | 9 | 0 | 0 | 1 | 1 | 
+| 9 | 10 | 0 | 0 | 1 | 1 | 
+
+Visualize the distribution of values using the generated histogram, providing insights into the data’s spread and density.
 
 ## Join by field
+<a name="v12-panels-xform-funcs-joinfield"></a>
 
-Use this transformation to merge multiple results into a single table,
-enabling the consolidation of data from different queries.
+Use this transformation to merge multiple results into a single table, enabling the consolidation of data from different queries.
 
-The is especially useful for converting multiple time series results
-into a single wide table with a shared time field.
+The is especially useful for converting multiple time series results into a single wide table with a shared time field.
 
 **Inner join**
 
-An inner join merges data from multiple tables where all tables share the same
-value from the selected field. This type of join excludes data where values do
-not match in every result.
+An inner join merges data from multiple tables where all tables share the same value from the selected field. This type of join excludes data where values do not match in every result.
 
-Use this transformation to combine the results from multiple queries
-(combining on a passed join field or the first time column) into one result, and
-drop rows where a successful join cannot occur.
+Use this transformation to combine the results from multiple queries (combining on a passed join field or the first time column) into one result, and drop rows where a successful join cannot occur.
 
-In the following example, two queries return table data. It is visualized as
-two separate tables before applying the inner join transformation.
+In the following example, two queries return table data. It is visualized as two separate tables before applying the inner join transformation.
 
 Query A:
 
-| Time                 | Job     | Uptime    |
-| -------------------- | ------- | --------- |
-| 7/7/2020 11:34:20 AM | node    | 25260122  |
-| 7/7/2020 11:24:20 AM | postgre | 123001233 |
-| 7/7/2020 11:14:20 AM | postgre | 345001233 |
+
+| Time | Job | Uptime | 
+| --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | node | 25260122 | 
+| 7/7/2020 11:24:20 AM | postgre | 123001233 | 
+| 7/7/2020 11:14:20 AM | postgre | 345001233 | 
 
 Query B:
 
-| Time                 | Server   | Errors |
-| -------------------- | -------- | ------ |
-| 7/7/2020 11:34:20 AM | server 1 | 15     |
-| 7/7/2020 11:24:20 AM | server 2 | 5      |
-| 7/7/2020 11:04:20 AM | server 3 | 10     |
 
-The result after applying the inner join transformation looks like the
-following:
+| Time | Server | Errors | 
+| --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | server 1 | 15 | 
+| 7/7/2020 11:24:20 AM | server 2 | 5 | 
+| 7/7/2020 11:04:20 AM | server 3 | 10 | 
 
-| Time                 | Job     | Uptime    | Server   | Errors |
-| -------------------- | ------- | --------- | -------- | ------ |
-| 7/7/2020 11:34:20 AM | node    | 25260122  | server 1 | 15     |
-| 7/7/2020 11:24:20 AM | postgre | 123001233 | server 2 | 5      |
+The result after applying the inner join transformation looks like the following:
 
-_Outer join_
 
-An outer join includes all data from an inner join and rows where values do
-not match in every input. While the inner join joins Query A and Query B on the
-time field, the outer join includes all rows that don’t match on the time
-field.
+| Time | Job | Uptime | Server | Errors | 
+| --- | --- | --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | node | 25260122 | server 1 | 15 | 
+| 7/7/2020 11:24:20 AM | postgre | 123001233 | server 2 | 5 | 
 
-In the following example, two queries return table data. It is visualized as
-two tables before applying the outer join transformation.
+*Outer join*
+
+An outer join includes all data from an inner join and rows where values do not match in every input. While the inner join joins Query A and Query B on the time field, the outer join includes all rows that don’t match on the time field.
+
+In the following example, two queries return table data. It is visualized as two tables before applying the outer join transformation.
 
 Query A:
 
-| Time                 | Job     | Uptime    |
-| -------------------- | ------- | --------- |
-| 7/7/2020 11:34:20 AM | node    | 25260122  |
-| 7/7/2020 11:24:20 AM | postgre | 123001233 |
-| 7/7/2020 11:14:20 AM | postgre | 345001233 |
+
+| Time | Job | Uptime | 
+| --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | node | 25260122 | 
+| 7/7/2020 11:24:20 AM | postgre | 123001233 | 
+| 7/7/2020 11:14:20 AM | postgre | 345001233 | 
 
 Query B:
 
-| Time                 | Server   | Errors |
-| -------------------- | -------- | ------ |
-| 7/7/2020 11:34:20 AM | server 1 | 15     |
-| 7/7/2020 11:24:20 AM | server 2 | 5      |
-| 7/7/2020 11:04:20 AM | server 3 | 10     |
 
-The result after applying the outer join transformation looks like the
-following:
+| Time | Server | Errors | 
+| --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | server 1 | 15 | 
+| 7/7/2020 11:24:20 AM | server 2 | 5 | 
+| 7/7/2020 11:04:20 AM | server 3 | 10 | 
 
-| Time                 | Job     | Uptime    | Server   | Errors |
-| -------------------- | ------- | --------- | -------- | ------ |
-| 7/7/2020 11:04:20 AM |         |           | server 3 | 10     |
-| 7/7/2020 11:14:20 AM | postgre | 345001233 |          |        |
-| 7/7/2020 11:34:20 AM | node    | 25260122  | server 1 | 15     |
-| 7/7/2020 11:24:20 AM | postgre | 123001233 | server 2 | 5      |
+The result after applying the outer join transformation looks like the following:
+
+
+| Time | Job | Uptime | Server | Errors | 
+| --- | --- | --- | --- | --- | 
+| 7/7/2020 11:04:20 AM |  |  | server 3 | 10 | 
+| 7/7/2020 11:14:20 AM | postgre | 345001233 |  |  | 
+| 7/7/2020 11:34:20 AM | node | 25260122 | server 1 | 15 | 
+| 7/7/2020 11:24:20 AM | postgre | 123001233 | server 2 | 5 | 
 
 ## Join by labels
+<a name="v12-panels-xform-funcs-joinlabel"></a>
 
 Use this transformation to join multiple results into a single table.
 
-This is especially useful for converting multiple time series results into a
-single wide table with a shared **Label** field.
-
-- **Join** – Select the label to join by
-  between the labels available or common across all time series.
-- **Value** – The name for the output
-  result.
+This is especially useful for converting multiple time series results into a single wide table with a shared **Label** field.
++ **Join** – Select the label to join by between the labels available or common across all time series.
++ **Value** – The name for the output result.
 
 **Example**
 
 Input 1: `series1{what='Temp', cluster='A', job='J1'}`
 
-| Time | Value |
-| ---- | ----- |
-| 1    | 10    |
-| 2    | 200   |
+
+| Time | Value | 
+| --- | --- | 
+| 1 | 10 | 
+| 2 | 200 | 
 
 Input 2: `series2{what='Temp', cluster='B', job='J1'}`
 
-| Time | Value |
-| ---- | ----- |
-| 1    | 10    |
-| 2    | 200   |
+
+| Time | Value | 
+| --- | --- | 
+| 1 | 10 | 
+| 2 | 200 | 
 
 Input 3: `series3{what='Speed', cluster='B', job='J1'}`
 
-| Time | Value |
-| ---- | ----- |
-| 22   | 22    |
-| 28   | 77    |
+
+| Time | Value | 
+| --- | --- | 
+| 22 | 22 | 
+| 28 | 77 | 
 
 Config:
 
@@ -998,608 +823,485 @@ value: 'what'
 
 Output:
 
-| cluster | job | Temp | Speed |
-| ------- | --- | ---- | ----- |
-| A       | J1  | 10   |       |
-| A       | J1  | 200  |       |
-| B       | J1  | 10   | 22    |
-| B       | J1  | 200  | 77    |
 
-Combine and organize time series data effectively with this
-transformation for comprehensive insights.
+| cluster | job | Temp | Speed | 
+| --- | --- | --- | --- | 
+| A | J1 | 10 |  | 
+| A | J1 | 200 |  | 
+| B | J1 | 10 | 22 | 
+| B | J1 | 200 | 77 | 
+
+Combine and organize time series data effectively with this transformation for comprehensive insights.
 
 ## Labels to fields
+<a name="v12-panels-xform-funcs-labelstofields"></a>
 
-Use this transformation to convert time series results with labels or tags
-into a table, including each label's keys and values in the result. Display
-labels as either columns or row values for enhanced data visualization.
+Use this transformation to convert time series results with labels or tags into a table, including each label's keys and values in the result. Display labels as either columns or row values for enhanced data visualization.
 
 Given a query result of two time series:
-
-- Series 1 – labels `Server=Server A`,
-  `Datacenter=EU`
-- Series 2 – labels `Server=Server B`,
-  `Datacenter=EU`
++ Series 1 – labels `Server=Server A`, `Datacenter=EU`
++ Series 2 – labels `Server=Server B`, `Datacenter=EU`
 
 In **Columns** mode, the result looks like this:
 
-| Time                 | Server   | Datacenter | Value |
-| -------------------- | -------- | ---------- | ----- |
-| 7/7/2020 11:34:20 AM | Server A | EU         | 1     |
-| 7/7/2020 11:34:20 AM | Server B | EU         | 2     |
 
-In “Rows” mode, the result has a table for each series and show each label
-value like this:
+| Time | Server | Datacenter | Value | 
+| --- | --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | Server A | EU | 1 | 
+| 7/7/2020 11:34:20 AM | Server B | EU | 2 | 
 
-| label      | value    |
-| ---------- | -------- |
-| Server     | Server A |
-| Datacenter | EU       |
+In “Rows” mode, the result has a table for each series and show each label value like this:
 
-| label      | value    |
-| ---------- | -------- |
-| Server     | Server B |
-| Datacenter | EU       |
+
+| label | value | 
+| --- | --- | 
+| Server | Server A | 
+| Datacenter | EU | 
+
+
+| label | value | 
+| --- | --- | 
+| Server | Server B | 
+| Datacenter | EU | 
 
 **Value field name**
 
-If you selected Server as the **Value field name**, then you
-would get one field for every value of the Server label.
+If you selected Server as the **Value field name**, then you would get one field for every value of the Server label.
 
-| Time                 | Datacenter | Server A | Server B |
-| -------------------- | ---------- | -------- | -------- |
-| 7/7/2020 11:34:20 AM | EU         | 1        | 2        |
+
+| Time | Datacenter | Server A | Server B | 
+| --- | --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | EU | 1 | 2 | 
 
 **Merging behavior**
 
-The labels to fields transformer is internally two separate transformations.
-The first acts on single series and extracts labels to fields. The second is the
-merge transformation that joins all the results into a single table. The merge
-transformation tries to join on all matching fields. This merge step is required
-and cannot be turned off.
+The labels to fields transformer is internally two separate transformations. The first acts on single series and extracts labels to fields. The second is the merge transformation that joins all the results into a single table. The merge transformation tries to join on all matching fields. This merge step is required and cannot be turned off.
 
-To illustrate this, here is an example where you have two queries that return
-time series with no overlapping labels.
-
-- Series 1 – labels `Server=ServerA`
-- Series 2 – labels `Datacenter=EU`
+To illustrate this, here is an example where you have two queries that return time series with no overlapping labels.
++ Series 1 – labels `Server=ServerA`
++ Series 2 – labels `Datacenter=EU`
 
 This will first result in these two tables:
 
-| Time                 | Server  | Value |
-| -------------------- | ------- | ----- |
-| 7/7/2020 11:34:20 AM | ServerA | 10    |
 
-| Time                 | Datacenter | Value |
-| -------------------- | ---------- | ----- |
-| 7/7/2020 11:34:20 AM | EU         | 20    |
+| Time | Server | Value | 
+| --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | ServerA | 10 | 
+
+
+| Time | Datacenter | Value | 
+| --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | EU | 20 | 
 
 After merge:
 
-| Time                 | Server  | Value | Datacenter |
-| -------------------- | ------- | ----- | ---------- |
-| 7/7/2020 11:34:20 AM | ServerA | 10    |            |
-| 7/7/2020 11:34:20 AM |         | 20    | EU         |
+
+| Time | Server | Value | Datacenter | 
+| --- | --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | ServerA | 10 |  | 
+| 7/7/2020 11:34:20 AM |  | 20 | EU | 
 
 ## Limit
+<a name="v12-panels-xform-funcs-limit"></a>
 
-Use this transformation to restrict the number of rows displayed,
-providing a more focused view of your data. This is particularly
-useful when dealing with large datasets.
+Use this transformation to restrict the number of rows displayed, providing a more focused view of your data. This is particularly useful when dealing with large datasets.
 
-The following is an example illustrating the impact of the
-**Limit** transformation on a response from a data
-source:
+The following is an example illustrating the impact of the **Limit** transformation on a response from a data source:
 
-| Time                 | Metric      | Value |
-| -------------------- | ----------- | ----- |
-| 7/7/2020 11:34:20 AM | Temperature | 25    |
-| 7/7/2020 11:34:20 AM | Humidity    | 22    |
-| 7/7/2020 10:32:20 AM | Humidity    | 29    |
-| 7/7/2020 10:31:22 AM | Temperature | 22    |
-| 7/7/2020 9:30:57 AM  | Humidity    | 33    |
-| 7/7/2020 9:30:05 AM  | Temperature | 19    |
 
-Here is the result after adding a Limit transformation with a value of
-‘3’:
+| Time | Metric | Value | 
+| --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | Temperature | 25 | 
+| 7/7/2020 11:34:20 AM | Humidity | 22 | 
+| 7/7/2020 10:32:20 AM | Humidity | 29 | 
+| 7/7/2020 10:31:22 AM | Temperature | 22 | 
+| 7/7/2020 9:30:57 AM | Humidity | 33 | 
+| 7/7/2020 9:30:05 AM | Temperature | 19 | 
 
-| Time                 | Metric      | Value |
-| -------------------- | ----------- | ----- |
-| 7/7/2020 11:34:20 AM | Temperature | 25    |
-| 7/7/2020 11:34:20 AM | Humidity    | 22    |
-| 7/7/2020 10:32:20 AM | Humidity    | 29    |
+Here is the result after adding a Limit transformation with a value of ‘3’:
 
-This transformation helps you tailor the visual presentation of your data
-to focus on the most relevant data.
+
+| Time | Metric | Value | 
+| --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | Temperature | 25 | 
+| 7/7/2020 11:34:20 AM | Humidity | 22 | 
+| 7/7/2020 10:32:20 AM | Humidity | 29 | 
+
+This transformation helps you tailor the visual presentation of your data to focus on the most relevant data.
 
 ## Merge series/tables
+<a name="v12-panels-xform-funcs-merge"></a>
 
-Use this transformation to combine the result from multiple queries into
-a single result, which is particularly useful when using the table panel
-visualization. The transformation merges values into the same row if
-shared fields contain the same data.
+Use this transformation to combine the result from multiple queries into a single result, which is particularly useful when using the table panel visualization. The transformation merges values into the same row if shared fields contain the same data.
 
-Here's an exampleillustration the impact of the **Merge
-series/tables** transformation on two queries returning table data:
+Here's an exampleillustration the impact of the **Merge series/tables** transformation on two queries returning table data:
 
-_Query A:_
+*Query A:*
 
-| Time                 | Job     | Uptime    |
-| -------------------- | ------- | --------- |
-| 7/7/2020 11:34:20 AM | node    | 25260122  |
-| 7/7/2020 11:24:20 AM | postgre | 123001233 |
+
+| Time | Job | Uptime | 
+| --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | node | 25260122 | 
+| 7/7/2020 11:24:20 AM | postgre | 123001233 | 
 
 Query B:
 
-| Time                 | Job     | Errors |
-| -------------------- | ------- | ------ |
-| 7/7/2020 11:34:20 AM | node    | 15     |
-| 7/7/2020 11:24:20 AM | postgre | 5      |
+
+| Time | Job | Errors | 
+| --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | node | 15 | 
+| 7/7/2020 11:24:20 AM | postgre | 5 | 
 
 Here is the result after applying the Merge transformation:
 
-| Time                 | Job     | Errors | Uptime    |
-| -------------------- | ------- | ------ | --------- |
-| 7/7/2020 11:34:20 AM | node    | 15     | 25260122  |
-| 7/7/2020 11:24:20 AM | postgre | 5      | 123001233 |
 
-This transformation combines values from Query A and Query B into a
-unified table, enhancingthe presentation for better insights.
+| Time | Job | Errors | Uptime | 
+| --- | --- | --- | --- | 
+| 7/7/2020 11:34:20 AM | node | 15 | 25260122 | 
+| 7/7/2020 11:24:20 AM | postgre | 5 | 123001233 | 
+
+This transformation combines values from Query A and Query B into a unified table, enhancingthe presentation for better insights.
 
 ## Organize fields by name
+<a name="v12-panels-xform-funcs-organize"></a>
 
-Use this transformation to rename, reorder, or hide fields returned by a
-single query in your panel. This transformation only works in panels with a
-single query. If your panel has multiple queries, then you must either
-apply an _Outer join_ transformation or remove the
-extra queries.
+Use this transformation to rename, reorder, or hide fields returned by a single query in your panel. This transformation only works in panels with a single query. If your panel has multiple queries, then you must either apply an *Outer join* transformation or remove the extra queries.
 
 **Transforming fields**
 
 Grafana displays a list of fields returned by the query. You can:
-
-- **Change field order** – Drag a field
-  to a new location in the list.
-- **Hide or show a field** – Use the eye
-  icon next to the field name to toggle the visibility of a field.
-- **Rename fields** – Type a new name
-  into the **Rename** box.
++ **Change field order** – Drag a field to a new location in the list.
++ **Hide or show a field** – Use the eye icon next to the field name to toggle the visibility of a field.
++ **Rename fields** – Type a new name into the **Rename** box.
 
 **Example**
 
 Given this initial query result:
 
-| Time                | Metric      | Value |
-| ------------------- | ----------- | ----- |
-| 2020-07-07 11:34:20 | Temperature | 25    |
-| 2020-07-07 11:34:20 | Humidity    | 22    |
-| 2020-07-07 10:32:20 | Humidity    | 29    |
+
+| Time | Metric | Value | 
+| --- | --- | --- | 
+| 2020-07-07 11:34:20 | Temperature | 25 | 
+| 2020-07-07 11:34:20 | Humidity | 22 | 
+| 2020-07-07 10:32:20 | Humidity | 29 | 
 
 You could apply a rename field override to create:
 
-| Time                | Sensor      | Reading |
-| ------------------- | ----------- | ------- |
-| 2020-07-07 11:34:20 | Temperature | 25      |
-| 2020-07-07 11:34:20 | Humidity    | 22      |
-| 2020-07-07 10:32:20 | Humidity    | 29      |
 
-This transformation lets you tailor the display of query results,
-ensuring a clear and insightful representation of your data in
-Grafana.
+| Time | Sensor | Reading | 
+| --- | --- | --- | 
+| 2020-07-07 11:34:20 | Temperature | 25 | 
+| 2020-07-07 11:34:20 | Humidity | 22 | 
+| 2020-07-07 10:32:20 | Humidity | 29 | 
+
+This transformation lets you tailor the display of query results, ensuring a clear and insightful representation of your data in Grafana.
 
 ## Partition by values
+<a name="v12-panels-xform-funcs-partition"></a>
 
-Use this transformation to streamline the process of graphing multiple
-series without the need for multiple queries with different
-`WHERE` clauses.
+Use this transformation to streamline the process of graphing multiple series without the need for multiple queries with different `WHERE` clauses.
 
-###### Note
+**Note**  
+This function is available in workspaces compatible with Grafana version 9 and above.
 
-This function is available in workspaces compatible with Grafana
-version 9 and above.
+This is particularly useful when using a metrics SQL table, as in this example:
 
-This is particularly useful when using a metrics SQL table, as in this
-example:
 
-| Time                   | Region | Value |
-| ---------------------- | ------ | ----- |
-| 10/20/2022 12:00:00 PM | US     | 1520  |
-| 10/20/2022 12:00:00 PM | EU     | 2936  |
-| 10/20/2022 1:00:00 AM  | US     | 1327  |
-| 10/20/2022 1:00:00 AM  | EU     | 912   |
+| Time | Region | Value | 
+| --- | --- | --- | 
+| 10/20/2022 12:00:00 PM | US | 1520 | 
+| 10/20/2022 12:00:00 PM | EU | 2936 | 
+| 10/20/2022 1:00:00 AM | US | 1327 | 
+| 10/20/2022 1:00:00 AM | EU | 912 | 
 
-With the _Partition by values_ transformer, you can
-issue a single query and split the results by unique values in one or more
-columns (fields) of your choosing. The following example uses
-`Region`.
+With the *Partition by values* transformer, you can issue a single query and split the results by unique values in one or more columns (fields) of your choosing. The following example uses `Region`.
 
 ```
 SELECT Time, Region, Value FROM metrics WHERE Time > '2022-10-20'
 ```
 
-| Time                   | Region | Value |
-| ---------------------- | ------ | ----- |
-| 10/20/2022 12:00:00 PM | US     | 1520  |
-| 10/20/2022 1:00:00 AM  | US     | 1327  |
 
-| Time                   | Region | Value |
-| ---------------------- | ------ | ----- |
-| 10/20/2022 12:00:00 PM | EU     | 2936  |
-| 10/20/2022 1:00:00 AM  | EU     | 912   |
+| Time | Region | Value | 
+| --- | --- | --- | 
+| 10/20/2022 12:00:00 PM | US | 1520 | 
+| 10/20/2022 1:00:00 AM | US | 1327 | 
 
-This transformation simplifies the process and enhances the flexibility
-of visualizing multiple series within the same time series visualization.
+
+| Time | Region | Value | 
+| --- | --- | --- | 
+| 10/20/2022 12:00:00 PM | EU | 2936 | 
+| 10/20/2022 1:00:00 AM | EU | 912 | 
+
+This transformation simplifies the process and enhances the flexibility of visualizing multiple series within the same time series visualization.
 
 ## Prepare times series
+<a name="v12-panels-xform-funcs-preparetimeseries"></a>
 
-Use this transformation to address issues when a data source returns time
-series data in a format that isn’t compatible with the desired
-visualization. This transformation allows you to convert time series
-data from between wide and long formats.
+Use this transformation to address issues when a data source returns time series data in a format that isn’t compatible with the desired visualization. This transformation allows you to convert time series data from between wide and long formats.
 
 **Multi-frame time series**
 
-Use this option to transform the time series data frame from the wide
-format to the long format. This is particularly helpful when your data
-source delivers time series information in a format that needs to be
-reshaped for optimal compatibility with your visualization.
+Use this option to transform the time series data frame from the wide format to the long format. This is particularly helpful when your data source delivers time series information in a format that needs to be reshaped for optimal compatibility with your visualization.
 
-_Example_
+*Example*
 
 This input:
 
-| Timestamp           | Value1 | Value2 |
-| ------------------- | ------ | ------ |
-| 2023-01-01 00:00:00 | 10     | 20     |
-| 2023-01-01 01:00:00 | 15     | 25     |
+
+| Timestamp | Value1 | Value2 | 
+| --- | --- | --- | 
+| 2023-01-01 00:00:00 | 10 | 20 | 
+| 2023-01-01 01:00:00 | 15 | 25 | 
 
 Could be transformed to:
 
-| Timestamp           | Variable | Value |
-| ------------------- | -------- | ----- |
-| 2023-01-01 00:00:00 | Value1   | 10    |
-| 2023-01-01 00:00:00 | Value2   | 20    |
-| 2023-01-01 01:00:00 | Value1   | 15    |
-| 2023-01-01 01:00:00 | Value2   | 25    |
+
+| Timestamp | Variable | Value | 
+| --- | --- | --- | 
+| 2023-01-01 00:00:00 | Value1 | 10 | 
+| 2023-01-01 00:00:00 | Value2 | 20 | 
+| 2023-01-01 01:00:00 | Value1 | 15 | 
+| 2023-01-01 01:00:00 | Value2 | 25 | 
 
 **Wide time series**
 
-Use this option to transform the time series data frame from the long
-format to the wide format. This is particularly helpful when your data
-source delivers time series data in a long format and your visualization
-requires a wide format.
+Use this option to transform the time series data frame from the long format to the wide format. This is particularly helpful when your data source delivers time series data in a long format and your visualization requires a wide format.
 
-_Example_
+*Example*
 
 This input:
 
-| Timestamp           | Variable | Value |
-| ------------------- | -------- | ----- |
-| 2023-01-01 00:00:00 | Value1   | 10    |
-| 2023-01-01 00:00:00 | Value2   | 20    |
-| 2023-01-01 01:00:00 | Value1   | 15    |
-| 2023-01-01 01:00:00 | Value2   | 25    |
+
+| Timestamp | Variable | Value | 
+| --- | --- | --- | 
+| 2023-01-01 00:00:00 | Value1 | 10 | 
+| 2023-01-01 00:00:00 | Value2 | 20 | 
+| 2023-01-01 01:00:00 | Value1 | 15 | 
+| 2023-01-01 01:00:00 | Value2 | 25 | 
 
 Could be transformed to:
 
-| Timestamp           | Value1 | Value2 |
-| ------------------- | ------ | ------ |
-| 2023-01-01 00:00:00 | 10     | 20     |
-| 2023-01-01 01:00:00 | 15     | 25     |
+
+| Timestamp | Value1 | Value2 | 
+| --- | --- | --- | 
+| 2023-01-01 00:00:00 | 10 | 20 | 
+| 2023-01-01 01:00:00 | 15 | 25 | 
 
 ## Reduce
+<a name="v12-panels-xform-funcs-reduce"></a>
 
-Use this transformation applies a calculation to each field in the data
-frame and return a single value. This transformation is particularly
-useful for consolidating mulitiple time series data into a more compact,
-summarized format. Time fields are removed when applying this
-transformation.
+Use this transformation applies a calculation to each field in the data frame and return a single value. This transformation is particularly useful for consolidating mulitiple time series data into a more compact, summarized format. Time fields are removed when applying this transformation.
 
 Consider the input:
 
 Query A:
 
-| Time                | Temp | Uptime  |
-| ------------------- | ---- | ------- |
-| 2020-07-07 11:34:20 | 12.3 | 256122  |
-| 2020-07-07 11:24:20 | 15.4 | 1230233 |
+
+| Time | Temp | Uptime | 
+| --- | --- | --- | 
+| 2020-07-07 11:34:20 | 12.3 | 256122 | 
+| 2020-07-07 11:24:20 | 15.4 | 1230233 | 
 
 Query B:
 
-| Time                | AQI | Errors |
-| ------------------- | --- | ------ |
-| 2020-07-07 11:34:20 | 6.5 | 15     |
-| 2020-07-07 11:24:20 | 3.2 | 5      |
+
+| Time | AQI | Errors | 
+| --- | --- | --- | 
+| 2020-07-07 11:34:20 | 6.5 | 15 | 
+| 2020-07-07 11:24:20 | 3.2 | 5 | 
 
 The reduce transformer has two modes:
++ **Series to rows** – Creates a row for each field and a column for each calculation.
++ **Reduce fields** – Keeps the existing frame structure, but collapses each field into a single value.
 
-- **Series to rows** – Creates a row for
-  each field and a column for each calculation.
-- **Reduce fields** – Keeps the existing
-  frame structure, but collapses each field into a single value.
+For example, if you used the **First** and **Last** calculation with a **Series to rows** transformation, then the result wouldbe:
 
-For example, if you used the **First** and
-**Last** calculation with a **Series to
-rows** transformation, then the result wouldbe:
 
-| Field  | First  | Last    |
-| ------ | ------ | ------- |
-| Temp   | 12.3   | 15.4    |
-| Uptime | 256122 | 1230233 |
-| AQI    | 6.5    | 3.2     |
-| Errors | 15     | 5       |
+| Field | First | Last | 
+| --- | --- | --- | 
+| Temp | 12.3 | 15.4 | 
+| Uptime | 256122 | 1230233 | 
+| AQI | 6.5 | 3.2 | 
+| Errors | 15 | 5 | 
 
-The **Reduce fields** with the **Last**
-calculation, results in two frames, each with one row:
+The **Reduce fields** with the **Last** calculation, results in two frames, each with one row:
 
 Query A:
 
-| Temp | Uptime  |
-| ---- | ------- |
-| 15.4 | 1230233 |
+
+| Temp | Uptime | 
+| --- | --- | 
+| 15.4 | 1230233 | 
 
 Query B:
 
-| AQI | Errors |
-| --- | ------ |
-| 3.2 | 5      |
+
+| AQI | Errors | 
+| --- | --- | 
+| 3.2 | 5 | 
 
 ## Rename by regex
+<a name="v12-panels-xform-funcs-rename"></a>
 
-Use this transformation to rename parts of the query results using a regular
-expression and replacement pattern.
+Use this transformation to rename parts of the query results using a regular expression and replacement pattern.
 
-You can specify a regular expression, which is only applied to matches, along
-with a replacement pattern that support back references. For example, let’s
-imagine you’re visualizing CPU usage per host and you want to remove the domain
-name. You could set the regex to `([^\.]+)\..+` and the replacement
-pattern to `$1`, `web-01.example.com` would become
-`web-01`.
+You can specify a regular expression, which is only applied to matches, along with a replacement pattern that support back references. For example, let’s imagine you’re visualizing CPU usage per host and you want to remove the domain name. You could set the regex to `([^\.]+)\..+` and the replacement pattern to `$1`, `web-01.example.com` would become `web-01`.
 
-This transformation lets you tailor your data to meet your visualization
-needs, making your dashboards more informative and user-friendly.
+This transformation lets you tailor your data to meet your visualization needs, making your dashboards more informative and user-friendly.
 
 ## Rows to fields
+<a name="v12-panels-xform-funcs-row"></a>
 
-Use this transformation to convert rows into separate fields. This can
-be useful because fields can be styled and configured individually. It
-can also use additional fields as sources for dynamic field configuration
-or map them to field labels. The additional labels can then be used to
-define better display names for the resulting fields.
+Use this transformation to convert rows into separate fields. This can be useful because fields can be styled and configured individually. It can also use additional fields as sources for dynamic field configuration or map them to field labels. The additional labels can then be used to define better display names for the resulting fields.
 
-This transformation includes a field table which lists all fields in
-the data returned by the configuration query. This table gives you
-control over what field should be mapped to each configuration property
-(the **Use as** option). You can also choose which value
-to select if there are multiple rows in the returned data.
+This transformation includes a field table which lists all fields in the data returned by the configuration query. This table gives you control over what field should be mapped to each configuration property (the **Use as** option). You can also choose which value to select if there are multiple rows in the returned data.
 
 This transformation requires:
++ One field to use as the source of field names.
 
-- One field to use as the source of field names.
+  By default, the transform uses the first string field as the source. You can override this default setting by selecting **Field name** in the **Use as** column for the field you want to use instead.
++ One field to use as the source of values.
 
-By default, the transform uses the first string field as the
-source. You can override this default setting by selecting
-**Field name** in the **Use as**
-column for the field you want to use instead.
-
-- One field to use as the source of values.
-
-By default, the transform uses the first number field as the
-source. But you can override this default setting by selecting
-**Field value** in the **Use as**
-column for the field you want to use instead.
+  By default, the transform uses the first number field as the source. But you can override this default setting by selecting **Field value** in the **Use as** column for the field you want to use instead.
 
 Useful when visualizing data in:
-
-- Gauge
-- Stat
-- Pie chart
++ Gauge
++ Stat
++ Pie chart
 
 **Map extra fields to labels**
 
-If a field does not map to config property Grafana will automatically use it
-as source for a label on the output field.
+If a field does not map to config property Grafana will automatically use it as source for a label on the output field.
 
 Example:
 
-| Name    | DataCenter | Value |
-| ------- | ---------- | ----- |
-| ServerA | US         | 100   |
-| ServerB | EU         | 200   |
+
+| Name | DataCenter | Value | 
+| --- | --- | --- | 
+| ServerA | US | 100 | 
+| ServerB | EU | 200 | 
 
 Output:
 
-| ServerA (labels: DataCenter: US) | ServerB (labels: DataCenter: EU) |
-| -------------------------------- | -------------------------------- |
-| 100                              | 200                              |
 
-The extra labels can now be used in the field display name to provide
-more complete field names.
+| ServerA (labels: DataCenter: US) | ServerB (labels: DataCenter: EU) | 
+| --- | --- | 
+| 100 | 200 | 
 
-If you want to extract config from one query and apply it to another you
-should use the _config from query results_
-transformation.
+The extra labels can now be used in the field display name to provide more complete field names.
+
+If you want to extract config from one query and apply it to another you should use the *config from query results* transformation.
 
 **Example**
 
 Input:
 
-| Name    | Value | Max |
-| ------- | ----- | --- |
-| ServerA | 10    | 100 |
-| ServerB | 20    | 200 |
-| ServerC | 30    | 300 |
+
+| Name | Value | Max | 
+| --- | --- | --- | 
+| ServerA | 10 | 100 | 
+| ServerB | 20 | 200 | 
+| ServerC | 30 | 300 | 
 
 Output:
 
-| ServerA (config: max=100) | ServerB (config: max=200) | ServerC (config: max=300) |
-| ------------------------- | ------------------------- | ------------------------- |
-| 10                        | 20                        | 30                        |
 
-As you can see each row in the source data becomes a separate field. Each
-field now also has a max config option set. Options like
-**Min**, **Max**, **Unit**
-and **Thresholds** are all part of field configuration and
-if set like this will be used by the visualization instead of any options
-manually configured in the panel editor options pane.
+| ServerA (config: max=100) | ServerB (config: max=200) | ServerC (config: max=300) | 
+| --- | --- | --- | 
+| 10 | 20 | 30 | 
 
-This transformation enables the conversion of rows into individual fields,
-facilitates dynamic field configuration, and maps additional fields to
-labels.
+As you can see each row in the source data becomes a separate field. Each field now also has a max config option set. Options like **Min**, **Max**, **Unit** and **Thresholds** are all part of field configuration and if set like this will be used by the visualization instead of any options manually configured in the panel editor options pane.
+
+This transformation enables the conversion of rows into individual fields, facilitates dynamic field configuration, and maps additional fields to labels.
 
 ## Series to rows
+<a name="v12-panels-xform-funcs-series"></a>
 
-Use this transformation to combine the result from multiple time series data
-queries into one single result. This is helpful when using the table panel
-visualization.
+Use this transformation to combine the result from multiple time series data queries into one single result. This is helpful when using the table panel visualization.
 
-The result from this transformation will contain three columns: Time, Metric,
-and Value. The Metric column is added so you easily can see from which query the
-metric originates from. Customize this value by defining Label on the source
-query.
+The result from this transformation will contain three columns: Time, Metric, and Value. The Metric column is added so you easily can see from which query the metric originates from. Customize this value by defining Label on the source query.
 
-In the example below, we have two queries returning time series data. It is
-visualized as two separate tables before applying the transformation.
+In the example below, we have two queries returning time series data. It is visualized as two separate tables before applying the transformation.
 
-_Query A:_
+*Query A:*
 
-| Time                | Temperature |
-| ------------------- | ----------- |
-| 2020-07-07 11:34:20 | 25          |
-| 2020-07-07 10:31:22 | 22          |
-| 2020-07-07 09:30:05 | 19          |
 
-_Query B:_
+| Time | Temperature | 
+| --- | --- | 
+| 2020-07-07 11:34:20 | 25 | 
+| 2020-07-07 10:31:22 | 22 | 
+| 2020-07-07 09:30:05 | 19 | 
 
-| Time                | Humidity |
-| ------------------- | -------- |
-| 2020-07-07 11:34:20 | 24       |
-| 2020-07-07 10:32:20 | 29       |
-| 2020-07-07 09:30:57 | 33       |
+*Query B:*
+
+
+| Time | Humidity | 
+| --- | --- | 
+| 2020-07-07 11:34:20 | 24 | 
+| 2020-07-07 10:32:20 | 29 | 
+| 2020-07-07 09:30:57 | 33 | 
 
 Here is the result after applying the Series to rows transformation.
 
-| Time                | Metric      | Value |
-| ------------------- | ----------- | ----- |
-| 2020-07-07 11:34:20 | Temperature | 25    |
-| 2020-07-07 11:34:20 | Humidity    | 22    |
-| 2020-07-07 10:32:20 | Humidity    | 29    |
-| 2020-07-07 10:31:22 | Temperature | 22    |
-| 2020-07-07 09:30:57 | Humidity    | 33    |
-| 2020-07-07 09:30:05 | Temperature | 19    |
 
-This transformation facilitates the consolidation of results from
-multiple time series queries, providing a streamlined and unified
-dataset for efficient analysis and visualization in a tabular
-format.
+| Time | Metric | Value | 
+| --- | --- | --- | 
+| 2020-07-07 11:34:20 | Temperature | 25 | 
+| 2020-07-07 11:34:20 | Humidity | 22 | 
+| 2020-07-07 10:32:20 | Humidity | 29 | 
+| 2020-07-07 10:31:22 | Temperature | 22 | 
+| 2020-07-07 09:30:57 | Humidity | 33 | 
+| 2020-07-07 09:30:05 | Temperature | 19 | 
+
+This transformation facilitates the consolidation of results from multiple time series queries, providing a streamlined and unified dataset for efficient analysis and visualization in a tabular format.
 
 ## Sort by
+<a name="v12-panels-xform-funcs-sort"></a>
 
-Use this transformation to sort each frame within a query result based on a
-specified field, making your data easier to understand and analyze. By
-configuring the desired field for sorting, you can control the order in which
-the data is presented in the table or visualization.
+Use this transformation to sort each frame within a query result based on a specified field, making your data easier to understand and analyze. By configuring the desired field for sorting, you can control the order in which the data is presented in the table or visualization.
 
-Use the **Reverse** switch to inversely order
-the values within the specified field. This functionality is particularly useful
-when you want to quickly toggle between ascending and descending order to suit
-your analytical needs.
+Use the **Reverse** switch to inversely order the values within the specified field. This functionality is particularly useful when you want to quickly toggle between ascending and descending order to suit your analytical needs.
 
-For example, in a scenario where time-series data is retrieved from a data
-source, the **Sort by** transformation can be
-applied to arrange the data frames based on the timestamp, either in ascending
-or descending order, depending on the analytical requirements. This capability
-ensures that you can easily navigate and interpret time-series data, gaining
-valuable insights from the organized and visually coherent presentation.
+For example, in a scenario where time-series data is retrieved from a data source, the **Sort by** transformation can be applied to arrange the data frames based on the timestamp, either in ascending or descending order, depending on the analytical requirements. This capability ensures that you can easily navigate and interpret time-series data, gaining valuable insights from the organized and visually coherent presentation.
 
 ## Spatial
+<a name="v12-panels-xform-funcs-spatial"></a>
 
 Use this transformation to apply spatial operations to query results.
++ **Action** – Select an action:
+  + **Prepare spatial field** – Set a geometry field based on the results of other fields.
+    + **Location mode** – Select a location mode (these options are shared by the **Calculate value** and **Transform** modes):
+      + **Auto** – Automatically identify location data based on default field names.
+      + **Coords** – Specify latitude and longitude fields.
+      + **Geohash** – Specify a geohash field.
+      + **Lookup** – Specify Gazetteer location fields.
+  + **Calculate value** – Use the geometry to define a new field (heading/distance/area).
+    + **Function** – Choose a mathematical operation to apply to the geometry:
+      + **Heading** – Calculate the heading (direction) between two points.
+      + **Area** – Calculate the area enclosed by a polygon defined by the geometry.
+      + **Distance** – Calculate the distance between two points.
+  + **Transform** – Apply spatial operations to the geometry.
+    + **Operation** – Choose an operation to apply to the geometry:
+      + **As line** – Create a single line feature with a vertex at each row.
+      + **Line builder** – Create a line between two points.
 
-- **Action** – Select an action:
-
-  - **Prepare spatial field** – Set a
-    geometry field based on the results of other fields.
-
-    - **Location mode** –
-      Select a location mode (these options are shared by the
-      **Calculate value**
-      and **Transform** modes):
-
-      - **Auto** –
-        Automatically identify location data based on
-        default field names.
-      - **Coords** –
-        Specify latitude and longitude fields.
-      - **Geohash** –
-        Specify a geohash field.
-      - **Lookup** –
-        Specify Gazetteer location fields.
-
-  - **Calculate value** – Use the
-    geometry to define a new field (heading/distance/area).
-
-    - **Function** – Choose a
-      mathematical operation to apply to the geometry:
-
-      - **Heading** –
-        Calculate the heading (direction) between two
-        points.
-      - **Area** –
-        Calculate the area enclosed by a polygon defined
-        by the geometry.
-      - **Distance** –
-        Calculate the distance between two points.
-
-  - **Transform** – Apply spatial
-    operations to the geometry.
-
-    - **Operation** – Choose an
-      operation to apply to the geometry:
-
-      - **As line** –
-        Create a single line feature with a vertex at each
-        row.
-      - **Line builder** –
-        Create a line between two points.
-
-This transformation allows you to manipulate and analyze geospatial data,
-enabling operations such as creating lines between points, calculating spatial
-properties, and more.
+This transformation allows you to manipulate and analyze geospatial data, enabling operations such as creating lines between points, calculating spatial properties, and more.
 
 ## Time series to table transform
+<a name="v12-panels-xform-funcs-seriestotable"></a>
 
-Use this transformation to convert time series results into a table,
-transforming a time series data frame into a **Trend**
-field. The **Trend** field can then be rendered using the
-[sparkline cell type](v12-panels-table.md#v12-panels-table-cell-type "v12-panels-table.md#v12-panels-table-cell-type"),
-generating an inline sparkline for each table row. If there are multiple time
-series queries, each will result in a separate table data frame. These can be
-joined using join or merge transforms to produce a single table with multiple
-sparklines per row.
+Use this transformation to convert time series results into a table, transforming a time series data frame into a **Trend** field. The **Trend** field can then be rendered using the [sparkline cell type](v12-panels-table.md#v12-panels-table-cell-type), generating an inline sparkline for each table row. If there are multiple time series queries, each will result in a separate table data frame. These can be joined using join or merge transforms to produce a single table with multiple sparklines per row.
 
-For each generated **Trend** field value, a
-calculation function can be selected. The default is **Last
-non-null value**. This value is displayed next to the
-sparkline and used for sorting table rows.
+For each generated **Trend** field value, a calculation function can be selected. The default is **Last non-null value**. This value is displayed next to the sparkline and used for sorting table rows.
 
 ## Regression analysis
+<a name="v12-panels-xform-funcs-regression"></a>
 
-Use this transformation to create a new data frame containing values
-predicted by a statistical model. This is useful for finding a trend in chaotic
-data. It works by fitting a mathematical function to the data, using either
-linear or polynomial regression. The data frame can then be used in a
-visualization to display a trendline.
+Use this transformation to create a new data frame containing values predicted by a statistical model. This is useful for finding a trend in chaotic data. It works by fitting a mathematical function to the data, using either linear or polynomial regression. The data frame can then be used in a visualization to display a trendline.
 
 There are two different models:
++  **Linear regression** – Fits a linear function to the data.
++  **Polynomial regression** – Fits a polynomial function to the data.
 
-- **Linear regression** – Fits a linear
-  function to the data.
-- **Polynomial regression** – Fits a
-  polynomial function to the data.
-
-###### Note
-
-This transformation is currently in public preview. Grafana Labs
-offers limited support, and breaking changes might occur prior to the
-feature being made generally available.
+**Note**  
+This transformation is currently in public preview. Grafana Labs offers limited support, and breaking changes might occur prior to the feature being made generally available.

@@ -1,43 +1,30 @@
+
+
 # How label matching works
+<a name="v9-alerting-explore-labels-matching"></a>
 
-This documentation topic is designed
-for Grafana workspaces that support **Grafana version
-9.x**.
+****  
+This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  
+For Grafana workspaces that support Grafana version 12.x, see [Working in Grafana version 12](using-grafana-v12.md).  
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
+For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
 
-For Grafana workspaces that support Grafana version 12.x, see
-[Working in Grafana version 12](using-grafana-v12.md "using-grafana-v12.md").
+Use labels and label matchers to link alert rules to notification policies and silences. This allows for a very flexible way to manage your alert instances, specify which policy should handle them, and which alerts to silence.
 
-For Grafana workspaces that support Grafana version 10.x, see
-[Working in Grafana version 10](using-grafana-v10.md "using-grafana-v10.md").
+A label matchers consists of 3 distinct parts, the **label**, the **value** and the **operator**.
++ The **Label** field is the name of the label to match. It must exactly match the label name.
++ The **Value** field matches against the corresponding value for the specified **Label** name. How it matches depends on the **Operator** value.
++ The **Operator** field is the operator to match against the label value. The available operators are:
 
-For Grafana workspaces that support Grafana version 8.x, see
-[Working in Grafana version 8](using-grafana-v8.md "using-grafana-v8.md").
 
-Use labels and label matchers to link alert rules to notification policies and
-silences. This allows for a very flexible way to manage your alert instances,
-specify which policy should handle them, and which alerts to silence.
+| Operator | Description | 
+| --- | --- | 
+| `=` | Select labels that are exactly equal to the value. | 
+| `!=` | Select labels that are not equal to the value. | 
+| `=~` | Select labels that regex-match the value. | 
+| `!~` | Select labels that do not regex-match the value. | 
 
-A label matchers consists of 3 distinct parts, the **label**, the **value** and the
-**operator**.
-
-- The **Label** field is the name of
-  the label to match. It must exactly match the label name.
-- The **Value** field matches against
-  the corresponding value for the specified **Label** name. How it matches depends on the **Operator** value.
-- The **Operator** field is the
-  operator to match against the label value. The available operators
-  are:
-
-| Operator | Description                                        |
-| -------- | -------------------------------------------------- |
-| `=`      | Select labels that are exactly equal to the value. |
-| `!=`     | Select labels that are not equal to the value.     |
-| `=~`     | Select labels that regex-match the value.          |
-| `!~`     | Select labels that do not regex-match the value.   |
-
-If you are using multiple label matchers, they are combined using the AND
-logical operator. This means that all matchers must match in order to link a
-rule to a policy.
+If you are using multiple label matchers, they are combined using the AND logical operator. This means that all matchers must match in order to link a rule to a policy.
 
 **Example scenario**
 
@@ -48,15 +35,8 @@ If you define the following set of labels for your alert:
 ```
 
 then:
-
-- A label matcher defined as `foo=bar`
-  matches this alert rule.
-- A label matcher defined as
-  `foo!=bar` does
-  _not_ match this alert rule.
-- A label matcher defined as `id=~[0-9]+` matches this
-  alert rule.
-- A label matcher defined as `baz!~[0-9]+` matches this
-  alert rule.
-- Two label matchers defined as `foo=bar` and
-  `id=~[0-9]+` match this alert rule.
++ A label matcher defined as `foo=bar` matches this alert rule.
++ A label matcher defined as `foo!=bar` does *not* match this alert rule.
++ A label matcher defined as `id=~[0-9]+` matches this alert rule.
++ A label matcher defined as `baz!~[0-9]+` matches this alert rule.
++ Two label matchers defined as `foo=bar` and `id=~[0-9]+` match this alert rule.

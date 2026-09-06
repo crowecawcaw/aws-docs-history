@@ -1,39 +1,26 @@
+
+
 # About alert rules
+<a name="v12-alerting-explore-rules"></a>
 
-This documentation topic is designed
-for Grafana workspaces that support **Grafana version
-12.x**.
+****  
+This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).  
+For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
 
-For Grafana workspaces that support Grafana version 10.x, see
-[Working in Grafana version 10](using-grafana-v10.md "using-grafana-v10.md").
+An alerting rule is a set of evaluation criteria that determines whether an alert instance will fire. The rule consists of one or more queries and expressions, a condition, the frequency of evaluation, and the duration over which the condition needs to be met to start firing.
 
-For Grafana workspaces that support Grafana version 9.x, see
-[Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
+While queries and expressions select the data set to evaluate, a *condition* sets the threshold that the data must meet or exceed to create an alert.
 
-For Grafana workspaces that support Grafana version 8.x, see
-[Working in Grafana version 8](using-grafana-v8.md "using-grafana-v8.md").
+An *interval* specifies how frequently an alerting rule is evaluated. *Duration*, when configured, indicates how long a condition must be met. The alert rules can also define alerting behavior in the absence of data.
 
-An alerting rule is a set of evaluation criteria that determines whether an alert
-instance will fire. The rule consists of one or more queries and expressions, a
-condition, the frequency of evaluation, and the duration over which the
-condition needs to be met to start firing.
-
-While queries and expressions select the data set to evaluate, a
-_condition_ sets
-the threshold that the data must meet or exceed to create an alert.
-
-An _interval_ specifies how frequently an alerting rule is
-evaluated. _Duration_, when configured, indicates how long a
-condition must be met. The alert rules can also define alerting behavior in the
-absence of data.
-
-###### Topics
-
-- [Alert rule types](v12-alerting-explore-rules-types.md "v12-alerting-explore-rules-types.md")
-- [Recording rules](v12-alerting-explore-rule-recording.md "v12-alerting-explore-rule-recording.md")
-- [Queries and conditions](v12-alerting-explore-rules-queries.md "v12-alerting-explore-rules-queries.md")
-- [Alert instances](v12-alerting-rules-instances.md "v12-alerting-rules-instances.md")
-- [Namespaces, folders and groups](v12-alerting-rules-grouping.md "v12-alerting-rules-grouping.md")
-- [Alert rule evaluation](v12-alerting-rules-evaluation.md "v12-alerting-rules-evaluation.md")
-- [State and health of alerting rules](v12-alerting-explore-state.md "v12-alerting-explore-state.md")
-- [Notification templating](v12-alerting-rules-notification-templates.md "v12-alerting-rules-notification-templates.md")
+**Topics**
++ [Alert rule types](v12-alerting-explore-rules-types.md)
++ [Recording rules](v12-alerting-explore-rule-recording.md)
++ [Queries and conditions](v12-alerting-explore-rules-queries.md)
++ [Alert instances](v12-alerting-rules-instances.md)
++ [Namespaces, folders and groups](v12-alerting-rules-grouping.md)
++ [Alert rule evaluation](v12-alerting-rules-evaluation.md)
++ [State and health of alerting rules](v12-alerting-explore-state.md)
++ [Notification templating](v12-alerting-rules-notification-templates.md)

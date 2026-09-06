@@ -1,14 +1,15 @@
+
+
 # Organization API
+<a name="v12-Grafana-API-Organization"></a>
 
 Use the Organization API to work with organizations in an Amazon Managed Grafana workspace.
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Get current organization
+<a name="v12-Grafana-API-Organization-getcurrent"></a>
 
 ```
 GET /api/org/
@@ -36,13 +37,13 @@ Content-Type: application/json
 ```
 
 ## Get all users within the current organization
+<a name="v12-Grafana-API-Organization-getusers"></a>
 
 ```
 GET /api/org/users
 ```
 
-Required permissions: the `org.users:read` action with the scope
-`users:*`
+Required permissions: the `org.users:read` action with the scope `users:*`
 
 **Example request**
 
@@ -74,15 +75,13 @@ Content-Type: application/json
 ```
 
 ## Get all users within the current organization (lookup)
+<a name="v12-Grafana-API-Organization-getuserslookup"></a>
 
 ```
 GET /api/org/users/lookup
 ```
 
-Returns all users within the current organization, but with less detailed
-information. Accessible to users with org admin role, admin in any folder or admin
-of any team. Used mostly by the Grafana UI to provide a list of users when adding
-team members and when e diting folder/dashboard permissions.
+Returns all users within the current organization, but with less detailed information. Accessible to users with org admin role, admin in any folder or admin of any team. Used mostly by the Grafana UI to provide a list of users when adding team members and when e diting folder/dashboard permissions.
 
 **Example request**
 
@@ -109,13 +108,13 @@ Content-Type: application/json
 ```
 
 ## Updates the given user
+<a name="v12-Grafana-API-Organization-updateuser"></a>
 
 ```
 PATCH /api/org/users/:userId
 ```
 
-Required permissions: the `org.users.role:update` action with the scope
-`users:*`
+Required permissions: the `org.users.role:update` action with the scope `users:*`
 
 **Example request**
 
@@ -140,13 +139,13 @@ Content-Type: application/json
 ```
 
 ## Deletes user in current organization
+<a name="v12-Grafana-API-Organization-deleteuser"></a>
 
 ```
 DELETE /api/org/users/:userId
 ```
 
-Required permissions: the `org.users:remove` action with the scope
-`users:*`
+Required permissions: the `org.users:remove` action with the scope `users:*`
 
 **Example request**
 
@@ -167,6 +166,7 @@ Content-Type: application/json
 ```
 
 ## Update the current organization
+<a name="v12-Grafana-API-Organization-update"></a>
 
 ```
 PUT /api/org
@@ -183,7 +183,6 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 {
   "name":"Main Org."
 }
-
 ```
 
 **Example response**
@@ -193,17 +192,16 @@ HTTP/1.1 200
 Content-Type: application/json
 
 {"message":"Organization updated"}
-
 ```
 
 ## Add user to the current organization
+<a name="v12-Grafana-API-Organization-adduser"></a>
 
 ```
 POST /api/org/users
 ```
 
-Required permissions: the `org.users:add` action with the scope
-`users:*`
+Required permissions: the `org.users:add` action with the scope `users:*`
 
 **Example request**
 

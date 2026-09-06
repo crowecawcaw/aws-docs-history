@@ -1,33 +1,28 @@
+
+
 # Dashboard Permissions API
+<a name="v10-Grafana-API-DashboardPermissions"></a>
 
-Use the Dashboard Permissions API to update or retrieve the permissions for a
-dashboard.
+Use the Dashboard Permissions API to update or retrieve the permissions for a dashboard. 
 
-Permissions with `dashboardId=-1` are the default permissions for users
-with the Viewer and Editor roles. Permissions can be set for a user, a team or a role
-(Viewer or Editor). Permissions cannot be set for Admins - they always have access to
-everything.
+Permissions with `dashboardId=-1` are the default permissions for users with the Viewer and Editor roles. Permissions can be set for a user, a team or a role (Viewer or Editor). Permissions cannot be set for Admins - they always have access to everything.
 
 The permission levels for the `permission` field are as follows:
++ 1 = View
++ 2 = Edit
++ 4 = Admin
 
-- 1 = View
-- 2 = Edit
-- 4 = Admin
-
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Get permissions for a dashboard
+<a name="v10-Grafana-API-DashboardPermissions-get"></a>
 
 ```
 GET /api/dashboards/id/:dashboardId/permissions
 ```
 
-Gets all existing permissions for the dashboard with the given
-`dashboardId`.
+Gets all existing permissions for the dashboard with the given `dashboardId`.
 
 **Example request**
 
@@ -88,20 +83,19 @@ Content-Length: 551
 ```
 
 Status Codes:
-
-- **200**— OK
-- **401**— Unauthorized
-- **403**— Access denied
-- **404**— Dashboard not found
++ **200**— OK
++ **401**— Unauthorized
++ **403**— Access denied
++ **404**— Dashboard not found
 
 ## Update permissions for a dashboard
+<a name="v10-Grafana-API-DashboardPermissions-update"></a>
 
 ```
 POST /api/dashboards/id/:dashboardId/permissions
 ```
 
-Updates the permissions for a dashboard. This operation removes existing
-permissions if they are not included in the request.
+Updates the permissions for a dashboard. This operation removes existing permissions if they are not included in the request.
 
 **Example request**
 
@@ -134,9 +128,7 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 JSON body schema:
-
-- **items**— The permission items to add
-  or update. Existing items that are omitted from the list are removed.
++ **items**— The permission items to add or update. Existing items that are omitted from the list are removed. 
 
 **Example response**
 
@@ -149,8 +141,7 @@ Content-Length: 35
 ```
 
 Status Codes:
-
-- **200**— Created
-- **401**— Unauthorized
-- **403**— Access denied
-- **404**— Dashboard not found
++ **200**— Created
++ **401**— Unauthorized
++ **403**— Access denied
++ **404**— Dashboard not found

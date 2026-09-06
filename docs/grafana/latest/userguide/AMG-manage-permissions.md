@@ -1,193 +1,132 @@
+
+
 # Amazon Managed Grafana permissions and policies for AWS data sources
+<a name="AMG-manage-permissions"></a>
 
 Amazon Managed Grafana offers three permission modes:
++ Service-managed permissions for current account
++ Service-managed permissions for organizations
++ Customer-managed permissions
 
-- Service-managed permissions for current account
-- Service-managed permissions for organizations
-- Customer-managed permissions
-  When you create a workspace, you choose which permission mode to use. You can also change
-  this later if you want.
+When you create a workspace, you choose which permission mode to use. You can also change this later if you want.
 
-In either of the service-managed permission modes, Amazon Managed Grafana creates roles and policies
-that are needed to access and discover AWS data sources in your account or organization.
-You can then edit these policies in the IAM console if you choose.
+In either of the service-managed permission modes, Amazon Managed Grafana creates roles and policies that are needed to access and discover AWS data sources in your account or organization. You can then edit these policies in the IAM console if you choose.
 
 ## Service-managed permissions for a single account
+<a name="AMG-service-managed-account"></a>
 
-In this mode, Amazon Managed Grafana creates a role called
-**AmazonGrafanaServiceRole-`random-id`**.
-Amazon Managed Grafana then attaches a policy to this role for each AWS service that you select to
-access from the Amazon Managed Grafana workspace.
+In this mode, Amazon Managed Grafana creates a role called **AmazonGrafanaServiceRole-{{random-id}}**. Amazon Managed Grafana then attaches a policy to this role for each AWS service that you select to access from the Amazon Managed Grafana workspace.
 
-**CloudWatch**
+**CloudWatch**  
+Amazon Managed Grafana attaches the AWS managed policy **AmazonGrafanaCloudWatchAccess**.  
+For workspaces that used CloudWatch before the **AmazonGrafanaCloudWatchAccess** managed policy was created, Amazon Managed Grafana created a customer-managed policy with the name **AmazonGrafanaCloudWatchPolicy-{{random-id}}**.
 
-Amazon Managed Grafana attaches the AWS managed policy
-**AmazonGrafanaCloudWatchAccess**.
-
-###### Note
-
-For workspaces that used CloudWatch before the
-**AmazonGrafanaCloudWatchAccess**
-managed policy was created,
-Amazon Managed Grafana created a customer-managed policy with the name
-**AmazonGrafanaCloudWatchPolicy-`random-id`**.
-
-**Amazon OpenSearch Service**
-
-Amazon Managed Grafana creates a customer-managed policy with the name
-**AmazonGrafanaOpenSearchPolicy-`random-id`**.
-The Get/Post permissions are needed for data source access. The
-List/Describe permissions are used by Amazon Managed Grafana for data source discovery,
-but they aren’t required for the data source plugin to work. The contents of
-the policy are as follows:
-
-JSON
+**Amazon OpenSearch Service**  
+Amazon Managed Grafana creates a customer-managed policy with the name **AmazonGrafanaOpenSearchPolicy-{{random-id}}**. The Get/Post permissions are needed for data source access. The List/Describe permissions are used by Amazon Managed Grafana for data source discovery, but they aren’t required for the data source plugin to work. The contents of the policy are as follows:    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "es:ESHttpGet",
- "es:DescribeElasticsearchDomains",
- "es:ListDomainNames"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": "es:ESHttpPost",
- "Resource": [
- "arn:aws:es:*:*:domain/*/_msearch*",
- "arn:aws:es:*:*:domain/*/_opendistro/_ppl"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "es:ESHttpGet",
+                "es:DescribeElasticsearchDomains",
+                "es:ListDomainNames"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "es:ESHttpPost",
+            "Resource": [
+                "arn:aws:es:*:*:domain/*/_msearch*",
+                "arn:aws:es:*:*:domain/*/_opendistro/_ppl"
+            ]
+        }
+    ]
+}
 ```
 
-**AWS IoT SiteWise**
+**AWS IoT SiteWise**  
+Amazon Managed Grafana attaches the AWS managed policy **AWSIoTSiteWiseReadOnlyAccess**.
 
-Amazon Managed Grafana attaches the AWS managed policy
-**AWSIoTSiteWiseReadOnlyAccess**.
+**Amazon Redshift**  
+Amazon Managed Grafana attaches the AWS managed policy **AmazonGrafanaRedshiftAccess**.
 
-**Amazon Redshift**
+**Amazon Athena**  
+Amazon Managed Grafana attaches the AWS managed policy **AmazonGrafanaAthenaAccess**.
 
-Amazon Managed Grafana attaches the AWS managed policy
-**AmazonGrafanaRedshiftAccess**.
-
-**Amazon Athena**
-
-Amazon Managed Grafana attaches the AWS managed policy
-**AmazonGrafanaAthenaAccess**.
-
-**Amazon Managed Service for Prometheus**
-
-Amazon Managed Grafana creates a customer-managed policy with the name
-**AmazonGrafanaPrometheusPolicy-`random-id`**.
-The List/Describe permissions are used by Amazon Managed Grafana for data source
-discovery, they aren’t required for the plugin to work. The contents of the
-policy are as follows:
-
-JSON
+**Amazon Managed Service for Prometheus**  
+Amazon Managed Grafana creates a customer-managed policy with the name **AmazonGrafanaPrometheusPolicy-{{random-id}}**. The List/Describe permissions are used by Amazon Managed Grafana for data source discovery, they aren’t required for the plugin to work. The contents of the policy are as follows:    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "aps:ListWorkspaces",
- "aps:DescribeWorkspace",
- "aps:QueryMetrics",
- "aps:GetLabels",
- "aps:GetSeries",
- "aps:GetMetricMetadata"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "aps:ListWorkspaces",
+                "aps:DescribeWorkspace",
+                "aps:QueryMetrics",
+                "aps:GetLabels",
+                "aps:GetSeries",
+                "aps:GetMetricMetadata"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 ```
 
-**Amazon SNS**
-
-Amazon Managed Grafana creates a customer-managed policy with the name
-**AmazonGrafanaSNSPolicy-`random-id`**.
-The policy restricts you to only using SNS topics in your account that start
-with the string `grafana`. This is not necessary if you create
-your own policy. The contents of the policy are as follows:
-
-JSON
+**Amazon SNS**  
+Amazon Managed Grafana creates a customer-managed policy with the name **AmazonGrafanaSNSPolicy-{{random-id}}**. The policy restricts you to only using SNS topics in your account that start with the string `grafana`. This is not necessary if you create your own policy. The contents of the policy are as follows:    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "sns:Publish"
- ],
- "Resource": [
- "arn:aws:sns:*:`111122223333`:grafana*"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sns:Publish"
+            ],
+            "Resource": [
+                "arn:aws:sns:*:{{111122223333}}:grafana*"
+            ]
+        }
+    ]
+}
 ```
 
-**Timestream**
+**Timestream**  
+Amazon Managed Grafana attaches the AWS managed policy **AmazonTimestreamReadOnlyAccess**.
 
-Amazon Managed Grafana attaches the AWS managed policy
-**AmazonTimestreamReadOnlyAccess**.
-
-**X-Ray**
-
-Amazon Managed Grafana attaches the AWS managed policy
-**AWSXrayReadOnlyAccess**.
+**X-Ray**  
+Amazon Managed Grafana attaches the AWS managed policy **AWSXrayReadOnlyAccess**.
 
 ## Service-managed permissions for an organization
+<a name="AMG-service-managed-organization"></a>
 
-This mode is supported only for workspaces created in management accounts or
-delegated administrator accounts in an organization. Delegated administrator accounts
-can create and administer stack sets for the organization. For more information about
-delegated administrator accounts, see [Register a delegated administrator](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.md").
+This mode is supported only for workspaces created in management accounts or delegated administrator accounts in an organization. Delegated administrator accounts can create and administer stack sets for the organization. For more information about delegated administrator accounts, see [Register a delegated administrator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html).
 
-###### Note
+**Note**  
+Creating resources such as Amazon Managed Grafana workspaces in the management account of an organization is against AWS security best practices.
 
-Creating resources such as Amazon Managed Grafana workspaces in the management account of an
-organization is against AWS security best practices.
+In this mode, Amazon Managed Grafana creates all the IAM roles that are necessary to access AWS resources in other accounts in your AWS organization. In each account in the Organizational Units that you select, Amazon Managed Grafana creates a role called **AmazonGrafanaOrgMemberRole-{{random-id}}**. This role creation is performed through an integration with AWS CloudFormation StackSets.
 
-In this mode, Amazon Managed Grafana creates all the IAM roles that are necessary to access AWS
-resources in other accounts in your AWS organization. In each account in the
-Organizational Units that you select, Amazon Managed Grafana creates a role called
-**AmazonGrafanaOrgMemberRole-`random-id`**.
-This role creation is performed through an integration with AWS CloudFormation StackSets.
+This role has a policy attached for each AWS data source that you select to use in the workspace. For the contents of these data policies, see [Service-managed permissions for a single account](#AMG-service-managed-account).
 
-This role has a policy attached for each AWS data source that you select to
-use in the workspace. For the contents of these data policies, see [Service-managed permissions for a single account](#AMG-service-managed-account "#AMG-service-managed-account").
+Amazon Managed Grafana also creates a role called **AmazonGrafanaOrgAdminRole-{{random-id}}** in the organization's management account. This role allows the Amazon Managed Grafana workspace permission to access other accounts in the organization. AWS service notification channel policies also get attached to this role. Use the **AWS Data Source** menu in your workspace to quickly provision data sources for each account that your workspace can access
 
-Amazon Managed Grafana also creates a role called
-**AmazonGrafanaOrgAdminRole-`random-id`**
-in the organization's management account. This role allows the Amazon Managed Grafana workspace
-permission to access other accounts in the organization. AWS service notification
-channel policies also get attached to this role. Use the **AWS Data
-Source** menu in your workspace to quickly provision data sources for each
-account that your workspace can access
+To use this mode, you must enable CloudFormation Stacksets as a trusted service in your AWS organization. For more information, see [ Enable trusted access with AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.html).
 
-To use this mode, you must enable CloudFormation Stacksets as a trusted service in your AWS
-organization. For more information, see [Enable trusted access with AWS Organizations](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.md").
-
-Here is the content of the
-**AmazonGrafanaStackSet-`random-id`**
-stack set:
+Here is the content of the **AmazonGrafanaStackSet-{{random-id}}** stack set:
 
 ```
 Parameters:
@@ -268,7 +207,7 @@ Resources:
     Type: AWS::IAM::Policy
     Condition: addPrometheus
     Properties:
-      Roles:
+      Roles: 
        - !Ref GrafanaMemberServiceRole
       PolicyName: AmazonGrafanaPrometheusPolicy
       PolicyDocument:
@@ -288,7 +227,7 @@ Resources:
     Type: AWS::IAM::Policy
     Condition: addAES
     Properties:
-      Roles:
+      Roles: 
        - !Ref GrafanaMemberServiceRole
       PolicyName: AmazonGrafanaElasticsearchPolicy
       PolicyDocument:
@@ -307,7 +246,7 @@ Resources:
     Type: AWS::IAM::Policy
     Condition: addCloudWatch
     Properties:
-      Roles:
+      Roles: 
        - !Ref GrafanaMemberServiceRole
       PolicyName: AmazonGrafanaCloudWatchPolicy
       PolicyDocument:
@@ -367,90 +306,76 @@ Resources:
         - !If [addAthena, arn:aws:iam::aws:policy/service-role/AmazonGrafanaAthenaAccess, !Ref AWS::NoValue]
 ```
 
-Here is the content of
-**AmazonGrafanaOrgAdminPolicy-`random-id`**.
+Here is the content of **AmazonGrafanaOrgAdminPolicy-{{random-id}}**.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [{
- "Effect": "Allow",
- "Action": [
- "organizations:ListAccountsForParent",
- "organizations:ListOrganizationalUnitsForParent"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "aws:PrincipalOrgID": "o-`organizationId`"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "sts:AssumeRole"
- ],
- "Resource": "arn:aws:iam::*:role/service-role/AmazonGrafanaOrgMemberRole-`random-Id`"
- }]
-}`
+****  
 
 ```
+{ 
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [{
+        "Effect": "Allow",
+        "Action": [
+            "organizations:ListAccountsForParent", 
+            "organizations:ListOrganizationalUnitsForParent"
+        ],
+        "Resource": "*",
+        "Condition": {
+            "StringEquals": {
+                "aws:PrincipalOrgID": "o-{{organizationId}}"
+            }
+        }
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "sts:AssumeRole"
+        ],
+        "Resource": "arn:aws:iam::*:role/service-role/AmazonGrafanaOrgMemberRole-{{random-Id}}" 
+    }]
+}
+```
+
+------
 
 ## Customer-managed permissions
+<a name="AMG-customer-managed"></a>
 
-If you choose to use customer-managed permissions, you specify an existing IAM role
-in your account when you create an Amazon Managed Grafana workspace. The role must have a trust
-policy which trusts `grafana.amazonaws.com`.
+If you choose to use customer-managed permissions, you specify an existing IAM role in your account when you create an Amazon Managed Grafana workspace. The role must have a trust policy which trusts `grafana.amazonaws.com`.
 
 The following is an example of such a policy:
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "grafana.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "grafana.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
 ```
 
-For that role to access AWS data sources or notification channels in that account,
-it must have the permissions in the policies listed earlier in this section. For
-example, to use the CloudWatch data source, it must have the permissions in the CloudWatch policy
-listed in [Service-managed permissions for a single account](#AMG-service-managed-account "#AMG-service-managed-account").
+------
 
-The `List` and `Describe` permissions in the policies for Amazon
-OpenSearch Service and Amazon Managed Service for Prometheus shown in [Service-managed permissions for a single account](#AMG-service-managed-account "#AMG-service-managed-account") are only needed for the data source
-discovery and provisioning to work correctly. They aren’t needed if you just want to set
-up these data sources manually.
+For that role to access AWS data sources or notification channels in that account, it must have the permissions in the policies listed earlier in this section. For example, to use the CloudWatch data source, it must have the permissions in the CloudWatch policy listed in [Service-managed permissions for a single account](#AMG-service-managed-account).
+
+The `List` and `Describe` permissions in the policies for Amazon OpenSearch Service and Amazon Managed Service for Prometheus shown in [Service-managed permissions for a single account](#AMG-service-managed-account) are only needed for the data source discovery and provisioning to work correctly. They aren’t needed if you just want to set up these data sources manually.
 
 **Cross-account access**
 
-When a workspace is created in account 111111111111, a role in account 1111111111111
-must be supplied. For this example, call this role
-_WorkspaceRole_. To access data in account 999999999999, you must
-create a role in account 999999999999. Call that
-_DataSourceRole_. You must then establish a trust relationship
-between _WorkspaceRole_ and _DataSourceRole_. For
-more information about establishing trust between two roles, see [IAM Tutorial:
-Delegate access across AWS accounts using IAM roles](../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md "../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md").
+When a workspace is created in account 111111111111, a role in account 1111111111111 must be supplied. For this example, call this role *WorkspaceRole*. To access data in account 999999999999, you must create a role in account 999999999999. Call that *DataSourceRole*. You must then establish a trust relationship between *WorkspaceRole* and *DataSourceRole*. For more information about establishing trust between two roles, see [IAM Tutorial: Delegate access across AWS accounts using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html).
 
-_DataSourceRole_ needs to contain the policy statements listed
-earlier in this section for each data source that you want to use. After the trust
-relationship is established, you can specify the ARN of
-_DataSourceRole_ (arn:aws:iam::999999999999:role:DataSourceRole)
-in the **Assume Role ARN** field on the data source configuration page
-of any AWS data source in your workspace. The data source then accesses account
-999999999999 with the permissions that are defined in
-_DataSourceRole_.
+*DataSourceRole* needs to contain the policy statements listed earlier in this section for each data source that you want to use. After the trust relationship is established, you can specify the ARN of *DataSourceRole* (arn:aws:iam::999999999999:role:DataSourceRole) in the **Assume Role ARN** field on the data source configuration page of any AWS data source in your workspace. The data source then accesses account 999999999999 with the permissions that are defined in *DataSourceRole*. 

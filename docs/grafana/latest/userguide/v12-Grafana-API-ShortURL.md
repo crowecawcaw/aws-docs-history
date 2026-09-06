@@ -1,15 +1,15 @@
+
+
 # Short URL API
+<a name="v12-Grafana-API-ShortURL"></a>
 
-Use the Short URL API to create shortened URLs. A short URL represents a longer
-URL containing complex query parameters in a smaller and simpler format.
+Use the Short URL API to create shortened URLs. A short URL represents a longer URL containing complex query parameters in a smaller and simpler format.
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Create short URL
+<a name="v12-Grafana-API-ShortURL-create"></a>
 
 ```
 POST /api/short-urls
@@ -31,9 +31,7 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 JSON body schema:
-
-- **path** – The path to shorten,
-  relative to the Grafana root URL.
++ **path** – The path to shorten, relative to the Grafana root URL.
 
 **Example response**
 
@@ -48,12 +46,11 @@ Content-Type: application/json
 ```
 
 Status codes:
-
-- **200** – Created
-- **400** – Errors (invalid JSON,
-  missing or invalid fields)
++ **200** – Created
++ **400** – Errors (invalid JSON, missing or invalid fields)
 
 ## Get short URL
+<a name="v12-Grafana-API-ShortURL-get"></a>
 
 ```
 GET /api/short-urls/:uid

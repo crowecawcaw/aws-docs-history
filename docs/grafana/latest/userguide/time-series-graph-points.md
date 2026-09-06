@@ -1,32 +1,26 @@
+
+
 # Graph time series as points
+<a name="time-series-graph-points"></a>
 
-This documentation topic is designed
-for Grafana workspaces that support **Grafana version
-8.x**.
+****  
+This documentation topic is designed for Grafana workspaces that support **Grafana version 8.x**.  
+For Grafana workspaces that support Grafana version 12.x, see [Working in Grafana version 12](using-grafana-v12.md).  
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).
 
-For Grafana workspaces that support Grafana version 12.x, see
-[Working in Grafana version 12](using-grafana-v12.md "using-grafana-v12.md").
+This section explains how to use Time series field options to visualize time series data as points and illustrates what the options do.
 
-For Grafana workspaces that support Grafana version 10.x, see
-[Working in Grafana version 10](using-grafana-v10.md "using-grafana-v10.md").
+**Create the panel**
 
-For Grafana workspaces that support Grafana version 9.x, see
-[Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
+1. Create a panel, selecting the **Time series** visualization. For more information, see [Adding a panel](add-a-panel-to-a-dashboard.md).
 
-This section explains how to use Time series field options to visualize time
-series data as points and illustrates what the options do.
+1. In the **Panel editor**, choose **Field**.
 
-###### Create the panel
-
-1. Create a panel, selecting the **Time series**
-   visualization. For more information, see [Adding a panel](add-a-panel-to-a-dashboard.md "add-a-panel-to-a-dashboard.md").
-2. In the **Panel editor**, choose
-   **Field**.
-3. In **Style**, choose **Points**.
+1. In **Style**, choose **Points**.
 
 ## Style the points
+<a name="time-series-graph-points-style"></a>
 
 When you graph as points, you can choose the point size.
-
-- **Point size** – Choose the point
-  size, between 1 and 40 pixels in diameter.
++ **Point size** – Choose the point size, between 1 and 40 pixels in diameter.

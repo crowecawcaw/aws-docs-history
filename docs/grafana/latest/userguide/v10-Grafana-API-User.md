@@ -1,14 +1,15 @@
+
+
 # User API
+<a name="v10-Grafana-API-User"></a>
 
-Use the User API to work with users in an Amazon Managed Grafana workspace.
+Use the User API to work with users in an Amazon Managed Grafana workspace. 
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Get teams that the user is a member of
+<a name="v10-Grafana-API-User-teammember"></a>
 
 ```
 GET /api/user/teams
@@ -42,6 +43,7 @@ Content-Type: application/json
 ```
 
 ## Get list of snapshots
+<a name="v10-Grafana-API-User-stardashboard"></a>
 
 Stars the given Dashboard for the actual user.
 
@@ -68,6 +70,7 @@ Content-Type: application/json
 ```
 
 ## Unstar a dashboard
+<a name="v10-Grafana-API-User-unstardashboard"></a>
 
 Deletes the starring of the given Dashboard for the actual user.
 
@@ -94,6 +97,7 @@ Content-Type: application/json
 ```
 
 ## Get auth tokens of the actual user
+<a name="v10-Grafana-API-User-authtokens"></a>
 
 ```
 GET /api/user/auth-tokens
@@ -143,14 +147,13 @@ Content-Type: application/json
 ```
 
 ## Revoke an auth token of the actual user
+<a name="v10-Grafana-API-User-authtokens-revoke"></a>
 
 ```
 POST /api/user/revoke-auth-token
 ```
 
-Revokes the given auth token (device) for the actual user. User of issued auth
-token (device) are no longer logged in and are required to authenticate again at
-their next activity.
+Revokes the given auth token (device) for the actual user. User of issued auth token (device) are no longer logged in and are required to authenticate again at their next activity.
 
 **Example request**
 

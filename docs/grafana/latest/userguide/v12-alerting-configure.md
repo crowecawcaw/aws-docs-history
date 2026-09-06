@@ -1,25 +1,19 @@
+
+
 # Configure alerting
+<a name="v12-alerting-configure"></a>
 
-This documentation topic is designed
-for Grafana workspaces that support **Grafana version
-12.x**.
+****  
+This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).  
+For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
 
-For Grafana workspaces that support Grafana version 10.x, see
-[Working in Grafana version 10](using-grafana-v10.md "using-grafana-v10.md").
+Configure the features and integrations that you need to create and manage your alerts.
 
-For Grafana workspaces that support Grafana version 9.x, see
-[Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
-
-For Grafana workspaces that support Grafana version 8.x, see
-[Working in Grafana version 8](using-grafana-v8.md "using-grafana-v8.md").
-
-Configure the features and integrations that you need to create and manage your
-alerts.
-
-###### Topics
-
-- [Configure Grafana managed alert rules](v12-alerting-configure-grafanamanaged.md "v12-alerting-configure-grafanamanaged.md")
-- [Configure data source managed alert rules](v12-alerting-configure-datasourcemanaged.md "v12-alerting-configure-datasourcemanaged.md")
-- [Configure recording rules](v12-alerting-configure-recordingrules.md "v12-alerting-configure-recordingrules.md")
-- [Configure contact points](v12-alerting-configure-contactpoints.md "v12-alerting-configure-contactpoints.md")
-- [Configure notification policies](v12-alerting-configure-notification-policies.md "v12-alerting-configure-notification-policies.md")
+**Topics**
++ [Configure Grafana managed alert rules](v12-alerting-configure-grafanamanaged.md)
++ [Configure data source managed alert rules](v12-alerting-configure-datasourcemanaged.md)
++ [Configure recording rules](v12-alerting-configure-recordingrules.md)
++ [Configure contact points](v12-alerting-configure-contactpoints.md)
++ [Configure notification policies](v12-alerting-configure-notification-policies.md)

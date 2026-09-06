@@ -1,25 +1,19 @@
+
+
 # Dashboard API
+<a name="v12-Grafana-API-Dashboard"></a>
 
-Use the Dashboard API to create, update, delete, and work with dashboards in the
-Amazon Managed Grafana workspace.
+Use the Dashboard API to create, update, delete, and work with dashboards in the Amazon Managed Grafana workspace. 
 
-The identifier (id) of a dashboard is an auto-incrementing numeric value and is only
-unique per workspace. The unique identifier (uid) of a dashboard can be used to uniquely
-identify a dashboard between multiple Amazon Managed Grafana workspaces. It’s automatically generated
-if you don't provide one when you create a dashboard. The uid allows having consistent
-URLs for accessing dashboards and when synchronizing dashboards between multiple
-workspaces. The use of the uid means that changing the title of a dashboard does not
-break any bookmarked links to that dashboard.
+The identifier (id) of a dashboard is an auto-incrementing numeric value and is only unique per workspace. The unique identifier (uid) of a dashboard can be used to uniquely identify a dashboard between multiple Amazon Managed Grafana workspaces. It’s automatically generated if you don't provide one when you create a dashboard. The uid allows having consistent URLs for accessing dashboards and when synchronizing dashboards between multiple workspaces. The use of the uid means that changing the title of a dashboard does not break any bookmarked links to that dashboard.
 
 The uid can have a maximum length of 40 characters.
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Create/Update dashboard
+<a name="v12-Grafana-API-Dashboard-createupdate"></a>
 
 ```
 POST /api/dashboards/db
@@ -51,37 +45,21 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
   "message": "Made changes to xyz",
   "overwrite": false
 }
-
 ```
 
 JSON body schema:
++ **dashboard**— The complete dashboard model. Use null to create a new dashboard.
++ **dashboard.id**— Use null to create a new dashboard.
++ **dashboard.uid**— Optional unique identifer when you use this to create a new dashboard. If null, a new uid is generated. 
++ **folderid**— The id of the folder to save the dashboard in.
++ **folderUid**— The Uid of the folder to save the dashboard in. Overrides the value of `folderid`
++ **overwrite**— Specify `true` to overwrite an existing dashboard with a newer version, same dashboard title in folder or same dashboard uid.
++ **message**— Set a commit message for the version history.
++ **refresh**— Set the dashboard refresh interval. If this is lower than the minimum refresh interval, it is ignored and the minimum refresh interval is used. 
 
-- **dashboard**— The complete dashboard
-  model. Use null to create a new dashboard.
-- **dashboard.id**— Use null to create a
-  new dashboard.
-- **dashboard.uid**— Optional unique
-  identifer when you use this to create a new dashboard. If null, a new uid is
-  generated.
-- **folderid**— The id of the folder to
-  save the dashboard in.
-- **folderUid**— The Uid of the folder
-  to save the dashboard in. Overrides the value of
-  `folderid`
-- **overwrite**— Specify
-  `true` to overwrite an existing dashboard with a newer
-  version, same dashboard title in folder or same dashboard uid.
-- **message**— Set a commit message for
-  the version history.
-- **refresh**— Set the dashboard refresh
-  interval. If this is lower than the minimum refresh interval, it is ignored
-  and the minimum refresh interval is used.
+To add or update an alert rule for a dashboard panel, declare a `dashboard.panels.alert` block.
 
-To add or update an alert rule for a dashboard panel, declare a
-`dashboard.panels.alert` block.
-
-**Example request to update a dashboard alert
-rule**
+**Example request to update a dashboard alert rule**
 
 ```
 HTTP/1.1 200 OK
@@ -250,32 +228,22 @@ Content-Length: 78
   "version": 1,
   "slug":    "production-overview" //deprecated in Grafana v5.0
 }
-
 ```
 
 Status Codes:
++ **200**— Created
++ **400**— Error such as invalid JSON, invalid or missing fields
++ **401**— Unauthorized
++ **403**— Access denied
++ **412**— Precondition failed
 
-- **200**— Created
-- **400**— Error such as invalid JSON,
-  invalid or missing fields
-- **401**— Unauthorized
-- **403**— Access denied
-- **412**— Precondition failed
+The **412** status code is used to explain why the dashboard can't be created.
++  The dashboard has been changed by someone else `status=version-mismatch` 
++  A dashboard with the same name in the folder already exists `status=name-exists` 
++  A dashboard with the same uid already exists `status=name-exists` 
++ The dashboard belongs to plugin `plugin title` `status=plugin-dashboard`
 
-The **412** status code is used to explain why the dashboard
-can't be created.
-
-- The dashboard has been changed by someone else
-  `status=version-mismatch`
-- A dashboard with the same name in the folder already exists
-  `status=name-exists`
-- A dashboard with the same uid already exists
-  `status=name-exists`
-- The dashboard belongs to plugin `plugin title`
-  `status=plugin-dashboard`
-
-The response body has the following properties. If another dashboard has the same
-title, the `status` value is `name-exists`.
+The response body has the following properties. If another dashboard has the same title, the `status` value is `name-exists`.
 
 ```
 HTTP/1.1 412 Precondition Failed
@@ -289,13 +257,13 @@ Content-Length: 97
 ```
 
 ## Get dashboard by uid
+<a name="v12-Grafana-API-Dashboard-get"></a>
 
 ```
 GET /api/dashboards/uid/:uid
 ```
 
-Returns the dashboard matching the uid. The metadata returned might contain
-information about the UID of the folder that contains the dashboard.
+Returns the dashboard matching the uid. The metadata returned might contain information about the UID of the folder that contains the dashboard.
 
 **Example request**
 
@@ -333,13 +301,13 @@ Content-Type: application/json
 ```
 
 Status Codes:
-
-- **200**— Found
-- **401**— Unauthorized
-- **403**— Access denied
-- **404**— Not found
++ **200**— Found
++ **401**— Unauthorized
++ **403**— Access denied
++ **404**— Not found
 
 ## Delete dashboard by uid
+<a name="v12-Grafana-API-Dashboard-delete"></a>
 
 ```
 DELETE /api/dashboards/uid/:uid
@@ -370,13 +338,13 @@ Content-Type: application/json
 ```
 
 Status Codes:
-
-- **200**— Deleted
-- **401**— Unauthorized
-- **403**— Access denied
-- **404**— Not found
++ **200**— Deleted
++ **401**— Unauthorized
++ **403**— Access denied
++ **404**— Not found
 
 ## Gets the home dashboard
+<a name="v12-Grafana-API-Dashboard-home"></a>
 
 ```
 GET /api/dashboards/home
@@ -434,6 +402,7 @@ Content-Type: application/json
 ```
 
 ## Get dashboard tags
+<a name="v12-Grafana-API-Dashboard-tags"></a>
 
 ```
 GET /api/dashboards/tags

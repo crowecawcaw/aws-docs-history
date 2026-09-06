@@ -1,14 +1,15 @@
+
+
 # Snapshot API
+<a name="v10-Grafana-API-Snapshot"></a>
 
-Use the Snapshot API to work with snapshots in an Amazon Managed Grafana workspace.
+Use the Snapshot API to work with snapshots in an Amazon Managed Grafana workspace. 
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Create new shapshot
+<a name="v10-Grafana-API-Snapshot-create"></a>
 
 ```
 POST /api/snapshots
@@ -51,31 +52,18 @@ POST /api/snapshots HTTP/1.1
         },
       "expires": 3600
     }
-
 ```
 
 JSON body schema:
++ **dashboard**— (Required) The complete dashboard model. 
++ **name**— (Optional) A name for the snapshot.
++ **expires**— (Optional) When the snapshot should expire, in seconds. The default is to never expire.
++ **external**— (Optional) Save the snapshot on an external server rather than locally. Default is false.
++ **key**— (Required if `external` is `true`) Define a unique key.
++ **deletekey**— (Required if `external` is `true`) A unique key to be used to delete the snapshot. It is different than `key` so that only the creator can delete the snapshot.
 
-- **dashboard**— (Required) The complete
-  dashboard model.
-- **name**— (Optional) A name for the
-  snapshot.
-- **expires**— (Optional) When the
-  snapshot should expire, in seconds. The default is to never expire.
-- **external**— (Optional) Save the
-  snapshot on an external server rather than locally. Default is false.
-- **key**— (Required if
-  `external` is `true`) Define a unique key.
-- **deletekey**— (Required if
-  `external` is `true`) A unique key to be used to
-  delete the snapshot. It is different than `key` so that only the
-  creator can delete the snapshot.
-
-###### Note
-
-When creating a snapshot using the API, you have to provide the full dashboard
-payload including the snapshot data. This endpoint is designed for the Grafana
-UI.
+**Note**  
+When creating a snapshot using the API, you have to provide the full dashboard payload including the snapshot data. This endpoint is designed for the Grafana UI.
 
 **Example response**
 
@@ -92,23 +80,19 @@ HTTP/1.1 200
 ```
 
 Keys:
-
-- **deleteKey**— A key generated to be
-  used to delete the snapshot.
-- **key**— A key generated to share the
-  dashboard.
++ **deleteKey**— A key generated to be used to delete the snapshot.
++ **key**— A key generated to share the dashboard.
 
 ## Get list of snapshots
+<a name="v10-Grafana-API-snapshot-list"></a>
 
 ```
 GET /api/dashboard/snapshots
 ```
 
 Query parameters:
-
-- **query**— Search query
-- **limit**— Limit the number of
-  returned results
++ **query**— Search query
++ **limit**— Limit the number of returned results
 
 **Example request**
 
@@ -141,6 +125,7 @@ Content-Type: application/json
 ```
 
 ## Get snapshot by key
+<a name="v10-Grafana-API-snapshot-get-bykey"></a>
 
 ```
 GET /api/snapshots/:key
@@ -201,6 +186,7 @@ Content-Type: application/json
 ```
 
 ## Delete snapshot by key
+<a name="v10-Grafana-API-snapshot-delete-bykey"></a>
 
 ```
 DELETE /api/snapshots/:key
@@ -224,9 +210,9 @@ Content-Type: application/json
 ```
 
 ## Delete snapshot by deleteKey
+<a name="v10-Grafana-API-snapshot-delete-deletekey"></a>
 
-This API call can be used without authentication by using the secret delete key
-for the snapshot.
+This API call can be used without authentication by using the secret delete key for the snapshot.
 
 ```
 GET /api/snapshots-delete/:deleteKey

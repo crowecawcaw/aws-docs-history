@@ -1,25 +1,19 @@
+
+
 # Alerting Notification Channels API
+<a name="v12-Grafana-API-AlertingNotificationChannels"></a>
 
-Use the Alerting Notification Channels API to create, update, delete, and retrieve
-notification channels.
+Use the Alerting Notification Channels API to create, update, delete, and retrieve notification channels.
 
-The identifier (id) of a notification channel is an auto-incrementing numeric value
-and is only unique per workspace. The unique identifier (uid) of a notification channel
-can be used to uniquely identify a folder between multiple workspaces. It’s
-automatically generated if you don't provide one when you create a notification channel.
-The uid allows having consistent URLs for accessing notification channels and when
-synchronizing notification channels between multiple Amazon Managed Grafana workspaces.
+The identifier (id) of a notification channel is an auto-incrementing numeric value and is only unique per workspace. The unique identifier (uid) of a notification channel can be used to uniquely identify a folder between multiple workspaces. It’s automatically generated if you don't provide one when you create a notification channel. The uid allows having consistent URLs for accessing notification channels and when synchronizing notification channels between multiple Amazon Managed Grafana workspaces. 
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Get all notification channels
+<a name="v12-Grafana-API-AlertNotificationChannels-getall"></a>
 
-Returns all notification channels that the authenticated user has permission to
-view.
+Returns all notification channels that the authenticated user has permission to view.
 
 ```
 GET /api/alert-notifications
@@ -67,10 +61,9 @@ Content-Type: application/json
 ```
 
 ## Get all notification channels (lookup)
+<a name="v12-Grafana-API-AlertNotificationChannels-getlookup"></a>
 
-Returns all notification channels, but with less detailed information. Accessible
-by any authenticated user and is mainly used to provide alert notification channels
-in the Grafana workspace console UI when configuring alert rules.
+Returns all notification channels, but with less detailed information. Accessible by any authenticated user and is mainly used to provide alert notification channels in the Grafana workspace console UI when configuring alert rules.
 
 ```
 GET /api/alert-notifications/lookup
@@ -110,6 +103,7 @@ Content-Type: application/json
 ```
 
 ## Get all notification channels by UID
+<a name="v12-Grafana-API-AlertNotificationChannels-getbyUID"></a>
 
 ```
 GET /api/alert-notifications/uid/:uid
@@ -155,6 +149,7 @@ Content-Type: application/json
 ```
 
 ## Get all notification channels by Id
+<a name="v12-Grafana-API-AlertNotificationChannels-getbyId"></a>
 
 ```
 GET /api/alert-notifications/:id
@@ -200,13 +195,11 @@ Content-Type: application/json
 ```
 
 ## Create notification channel
+<a name="v12-Grafana-API-AlertNotificationChannels-Create"></a>
 
-To see what notification channels are supported by Amazon Managed Grafana, see the list of
-supported notifiers in [Working with contact points](alert-contact-points.md "alert-contact-points.md").
+To see what notification channels are supported by Amazon Managed Grafana, see the list of supported notifiers in [Working with contact points](alert-contact-points.md).
 
-In Grafana version 12, use the Alerting Provisioning API to create contact
-points. The legacy `/api/alert-notifications` endpoint is no longer
-available.
+In Grafana version 12, use the Alerting Provisioning API to create contact points. The legacy `/api/alert-notifications` endpoint is no longer available.
 
 **Example request**
 
@@ -230,6 +223,7 @@ Authorization: Bearer 1234abcd567exampleToken890
 ```
 
 ## Update notification channel by UID
+<a name="v12-Grafana-API-AlertNotificationChannels-UpdatebyUID"></a>
 
 ```
 PUT /api/alert-notifications/uid/:uid
@@ -291,6 +285,7 @@ Content-Type: application/json
 ```
 
 ## Update notification channel by Id
+<a name="v12-Grafana-API-AlertNotificationChannels-UpdatebyId"></a>
 
 ```
 PUT /api/alert-notifications/:id
@@ -353,6 +348,7 @@ Content-Type: application/json
 ```
 
 ## Delete notification channel by UID
+<a name="v12-Grafana-API-AlertNotificationChannels-DeletebyUID"></a>
 
 ```
 DELETE /api/alert-notifications/uid/:uid
@@ -379,6 +375,7 @@ Content-Type: application/json
 ```
 
 ## Delete notification channel by Id
+<a name="v12-Grafana-API-AlertNotificationChannels-DeletebyId"></a>
 
 ```
 DELETE /api/alert-notifications/:id
@@ -405,9 +402,9 @@ Content-Type: application/json
 ```
 
 ## Test notification channel
+<a name="v12-Grafana-API-AlertNotificationChannels-Test"></a>
 
-Sends a test notification message for the given notification channel type and
-settings.
+Sends a test notification message for the given notification channel type and settings.
 
 ```
 POST /api/alert-notifications/test

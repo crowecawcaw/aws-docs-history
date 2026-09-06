@@ -1,44 +1,47 @@
-# Configuring Amazon Redshift
 
-After adding your Amazon Redshift data source to your workspace, configure Amazon Redshift settings as the
-following:
+
+# Configuring Amazon Redshift
+<a name="Redshift-config"></a>
+
+ After adding your Amazon Redshift data source to your workspace, configure Amazon Redshift settings as the following:
 
 ## Prerequisites
-
-- You have access to **Amazon Redshift** from your account.
+<a name="Redshift-prerequisites"></a>
++  You have access to **Amazon Redshift** from your account.
 
 ## **Connection details** settings
+<a name="Redshift-connection-details"></a>
 
-###### Configure Connection details settings
+**Configure Connection details settings**
 
-1. In the **Connection Details** menu, select the
-   authentication provider (recommended: **Workspace IAM
-   Role**).
-2. Choose the **Default Region** you want to query.
+1.  In the **Connection Details** menu, select the authentication provider (recommended: **Workspace IAM Role**). 
+
+1.  Choose the **Default Region** you want to query. 
 
 ## **Authentication** settings
+<a name="Redshift-Authentication"></a>
 
-###### Configure **Authentication** settings
+**Configure **Authentication** settings**
 
-1. In the **Authentication** menu, choose either the
-   **Temporary Credentials** or **AWS Secrets
-   Manager** tab as your access credentials provider. For details
-   on Temporary Credentials and AWS Secrets Manager, refer to [AWS managed policy: AmazonGrafanaRedshiftAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaRedshiftAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaRedshiftAccess")
-2. If you choose **Temporary credentials** which is by
-   default, follow the steps below. If you choose **AWS Secrets
-   Manager**, enter your **AWS Secrets
-   Manager** credentials in the input fields.
-3. Choose the **Cluster Identifier** of the cluster you
-   created in Amazon Redshift.
+1.  In the **Authentication** menu, choose either the **Temporary Credentials** or **AWS Secrets Manager** tab as your access credentials provider. For details on Temporary Credentials and AWS Secrets Manager, refer to [AWS managed policy: AmazonGrafanaRedshiftAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonGrafanaRedshiftAccess)
 
-For more information about the Redshift cluster, see [Redshift connections](../../../redshift/latest/gsg/connection.md "../../../redshift/latest/gsg/connection.md"). 4. Choose your targeted Redshift database. 5. Select the database user you created for the above cluster. 6. Choose **Save & Test**.
+1.  If you choose **Temporary credentials** which is by default, follow the steps below. If you choose **AWS Secrets Manager**, enter your **AWS Secrets Manager** credentials in the input fields. 
 
-The following is an example of the **Temporary Credentials**
-settings.
+1.  Choose the **Cluster Identifier** of the cluster you created in Amazon Redshift.
 
-![Temporary Credentials example](images/redshift.png)
+   For more information about the Redshift cluster, see [ Redshift connections](https://docs.aws.amazon.com/redshift/latest/gsg/connection.html).
 
-The following is an example of the **AWS Secrets Manager**
-menu.
+1.  Choose your targeted Redshift database.
 
-![Secrets Manager example](images/secretsmanager.png)
+1.  Select the database user you created for the above cluster. 
+
+1.  Choose **Save & Test**. 
+
+The following is an example of the ** Temporary Credentials** settings.
+
+![Temporary Credentials example](http://docs.aws.amazon.com/grafana/latest/userguide/images/redshift.png)
+
+
+The following is an example of the **AWS Secrets Manager** menu.
+
+![Secrets Manager example](http://docs.aws.amazon.com/grafana/latest/userguide/images/secretsmanager.png)

@@ -1,20 +1,17 @@
+
+
 # Annotations API
+<a name="v10-Grafana-API-Annotations"></a>
 
-Use the Annotations API to create, update, delete, and work with annotations in the
-Amazon Managed Grafana workspace.
+Use the Annotations API to create, update, delete, and work with annotations in the Amazon Managed Grafana workspace. 
 
-Annotations are saved in the workspace's Grafana database (sqlite, mysql or postgres).
-Annotations can be global annotations that can be shown on any dashboard by configuring
-an annotation data source. Annotations are filtered by tags. Or they can be tied to a
-panel on a dashboard, and displayed only on that panel.
+Annotations are saved in the workspace's Grafana database (sqlite, mysql or postgres). Annotations can be global annotations that can be shown on any dashboard by configuring an annotation data source. Annotations are filtered by tags. Or they can be tied to a panel on a dashboard, and displayed only on that panel.
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Find annotations
+<a name="v10-Grafana-API-Annotations-Find"></a>
 
 ```
 GET /api/annotations?from=1506676478816&to=1507281278816&tags=tag1&tags=tag2&limit=100
@@ -30,30 +27,15 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 Query parameters:
-
-- **from**— (Optional) Epoch datetime in
-  milliseconds.
-- **to**— (Optional) Epoch datetime in
-  milliseconds.
-- **limit**— (Optional) Maximum number
-  of results returned. The default is 100.
-- **alertid**— (Optional) FInd
-  annotations for the specified alert.
-- **dashboardId**— (Optional) Find
-  annotations that are scoped to the specified dashboard.
-- **panelId**— (Optional) Find
-  annotations that are scoped to the specified panel.
-- **userId**— (Optional) Find
-  annotations created by the specified user.
-- **type**— (Optional) Specify to return
-  alerts or user-created annotations. Value values are `alert` and
-  `annotation`.
-- **tags**— (Optional) Use this to
-  filter global annotations. Global annotations are annotations from an
-  annotation data source that are not connected specifically to a dashboard or
-  panel. To do an “AND” filtering with multiple tags, specify the tags
-  parameter multiple times. For example, `tags=tag1&tags=tag2`.
-  These are Grafana tags, not AWS tags.
++ **from**— (Optional) Epoch datetime in milliseconds.
++ **to**— (Optional) Epoch datetime in milliseconds.
++ **limit**— (Optional) Maximum number of results returned. The default is 100.
++ **alertid**— (Optional) FInd annotations for the specified alert.
++ **dashboardId**— (Optional) Find annotations that are scoped to the specified dashboard.
++ **panelId**— (Optional) Find annotations that are scoped to the specified panel.
++ **userId**— (Optional) Find annotations created by the specified user.
++ **type**— (Optional) Specify to return alerts or user-created annotations. Value values are `alert` and `annotation`. 
++ **tags**— (Optional) Use this to filter global annotations. Global annotations are annotations from an annotation data source that are not connected specifically to a dashboard or panel. To do an “AND” filtering with multiple tags, specify the tags parameter multiple times. For example, `tags=tag1&tags=tag2`. These are Grafana tags, not AWS tags. 
 
 **Example response**
 
@@ -102,19 +84,15 @@ Content-Type: application/json
 ```
 
 ## Create annotation
+<a name="v10-Grafana-API-Annotations-create"></a>
 
 ```
 POST /api/annotations
 ```
 
-Creates an annotation in the workspace's Grafana database. The
-`dashboardId` and `panelId` fields are optional. If they
-are not specified, a global annotation is created and can be queried in any
-dashboard that adds the Grafana annotations data source. When creating a region
-annotation, be sure to include the `timeEnd` property.
+Creates an annotation in the workspace's Grafana database. The `dashboardId` and `panelId` fields are optional. If they are not specified, a global annotation is created and can be queried in any dashboard that adds the Grafana annotations data source. When creating a region annotation, be sure to include the `timeEnd` property.
 
-The format for `time` and `timeEnd` should be epoch numbers
-in millisecond resolution.
+The format for `time` and `timeEnd` should be epoch numbers in millisecond resolution.
 
 **Example request**
 
@@ -147,16 +125,13 @@ Content-Type: application/json
 ```
 
 ## Create annotation in graphite format
+<a name="v10-Grafana-API-Annotations-create-graphite"></a>
 
 ```
 POST /api/annotations/graphite
 ```
 
-Creates an annotation by using a Graphite-compatible event format. The
-`when` and `data` fields are optional. If
-`when` is not specified, the current time is used as annotation’s
-timestamp. The `tags` field can also be in prior to Graphite 0.10.0
-format (string with multiple tags being separated by a space).
+Creates an annotation by using a Graphite-compatible event format. The `when` and `data` fields are optional. If `when` is not specified, the current time is used as annotation’s timestamp. The `tags` field can also be in prior to Graphite 0.10.0 format (string with multiple tags being separated by a space). 
 
 **Example request**
 
@@ -187,13 +162,13 @@ Content-Type: application/json
 ```
 
 ## Update annotation
+<a name="v10-Grafana-API-Annotations-update"></a>
 
 ```
 PUT /api/annotations/:id
 ```
 
-pdates all properties of an annotation that matches the specified id. To only
-update certain properties, use the Patch Annotation operation.
+pdates all properties of an annotation that matches the specified id. To only update certain properties, use the Patch Annotation operation.
 
 **Example request**
 
@@ -223,14 +198,13 @@ Content-Type: application/json
 ```
 
 ## Patch annotation
+<a name="v10-Grafana-API-Annotations-patch"></a>
 
 ```
 PATCH /api/annotations/:id
 ```
 
-Updates one or more properties of an annotation that matches the specified id.
-This operation currently supports updating the `text`, `tags`,
-`time`, and `timeEnd` properties.
+Updates one or more properties of an annotation that matches the specified id. This operation currently supports updating the `text`, `tags`, `time`, and `timeEnd` properties.
 
 **Example request:**
 
@@ -239,7 +213,7 @@ PATCH /api/annotations/1145 HTTP/1.1
 Accept: application/json
 Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 Content-Type: application/json
-
+       
 {
    "text":"New Annotation Description",
    "tags":["tag6","tag7","tag8"]
@@ -258,6 +232,7 @@ Content-Type: application/json
 ```
 
 ## Delete annotation by Id
+<a name="v10-Grafana-API-Annotations-deteebyId"></a>
 
 ```
 DELETE /api/annotations/:id

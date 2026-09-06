@@ -1,46 +1,29 @@
+
+
 # Use AWS data source configuration to add Amazon Managed Service for Prometheus as a data source
+<a name="AMP-adding-AWS-config"></a>
 
-###### Important
+**Important**  
+Starting in Amazon Managed Grafana version 12, SigV4 authentication support in the Core Prometheus plugin has been removed. All Amazon Managed Service for Prometheus data sources that were previously using the Core Prometheus plugin are automatically migrated to the Amazon Managed Service for Prometheus plugin. Any dashboards using these data sources are automatically updated to reflect this change. See [Connect to an Amazon Managed Service for Prometheus data source](amazon-prometheus-data-source.md).
 
-Starting in Amazon Managed Grafana version 12, SigV4 authentication support in the
-Core Prometheus plugin has been removed. All Amazon Managed Service for Prometheus data sources that were
-previously using the Core Prometheus plugin are automatically migrated to
-the Amazon Managed Service for Prometheus plugin. Any dashboards using these data sources are automatically
-updated to reflect this change. See [Connect to an Amazon Managed Service for Prometheus data source](amazon-prometheus-data-source.md "amazon-prometheus-data-source.md").
+To use AWS data source configuration, first you use the Amazon Managed Grafana console to enable service-managed IAM roles that grant the workspace the IAM policies necessary to read the Amazon Managed Service for Prometheus resources in your account or in your entire organizational units. Then you use the Amazon Managed Grafana workspace console to add Amazon Managed Service for Prometheus as a data source.
 
-To use AWS data source configuration, first you use the Amazon Managed Grafana console to
-enable service-managed IAM roles that grant the workspace the IAM policies
-necessary to read the Amazon Managed Service for Prometheus resources in your account or in your entire
-organizational units. Then you use the Amazon Managed Grafana workspace console to add Amazon Managed Service for Prometheus
-as a data source.
+**To use AWS data source configuration to add Amazon Managed Service for Prometheus as a data source**
 
-###### To use AWS data source configuration to add Amazon Managed Service for Prometheus as a data source
+1. Open the Amazon Managed Grafana console at [https://console.aws.amazon.com/grafana/](https://console.aws.amazon.com/grafana/home/). 
 
-1. Open the Amazon Managed Grafana console at [https://console.aws.amazon.com/grafana/](https://console.aws.amazon.com/grafana/home/ "https://console.aws.amazon.com/grafana/home/").
-2. In the upper left corner of the page, choose the menu icon and then
-   choose **All workspaces**.
-3. Choose the name of the workspace.
-4. If you didn't choose to use service-managed permissions for this
-   workspace when you created it, then change from using customer-managed
-   permissions to use service-managed permissions to ensure that the proper
-   IAM roles and policies are enabled for using the AWS data source
-   configuration option in the Grafana workspace console. To do so, choose
-   the edit icon by **IAM role** and then choose
-   **Service managed**, **Save
-   changes**. For more information, see [Amazon Managed Grafana permissions and policies for AWS data sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
-5. Choose the **Data sources** tab. Then select the
-   check box for **Amazon Managed Service for Prometheus**, and choose
-   **Actions**, **Enable service-managed
-   policy**.
-6. Choose the **Data sources** tab again, and then
-   choose **Configure in Grafana** in the
-   **Amazon Managed Service for Prometheus** row.
-7. Sign into the Grafana workspace console using IAM Identity Center if
-   necessary.
-8. In the left navigation bar in the Grafana workspace console, choose
-   the AWS icon and then choose **AWS services**,
-   **Prometheus**.
-9. Select the Region that you want Amazon Managed Grafana to search to discover Amazon Managed Service for Prometheus
-   workspaces, and then select the accounts and Amazon Managed Service for Prometheus workspaces that you
-   want to add, and then choose **Add data
-   source**.
+1. In the upper left corner of the page, choose the menu icon and then choose **All workspaces**.
+
+1. Choose the name of the workspace.
+
+1. If you didn't choose to use service-managed permissions for this workspace when you created it, then change from using customer-managed permissions to use service-managed permissions to ensure that the proper IAM roles and policies are enabled for using the AWS data source configuration option in the Grafana workspace console. To do so, choose the edit icon by **IAM role** and then choose **Service managed**, **Save changes**. For more information, see [Amazon Managed Grafana permissions and policies for AWS data sources](AMG-manage-permissions.md).
+
+1. Choose the **Data sources** tab. Then select the check box for **Amazon Managed Service for Prometheus**, and choose **Actions**, **Enable service-managed policy**.
+
+1. Choose the **Data sources** tab again, and then choose **Configure in Grafana** in the **Amazon Managed Service for Prometheus** row.
+
+1. Sign into the Grafana workspace console using IAM Identity Center if necessary.
+
+1. In the left navigation bar in the Grafana workspace console, choose the AWS icon and then choose **AWS services**, **Prometheus**.
+
+1. Select the Region that you want Amazon Managed Grafana to search to discover Amazon Managed Service for Prometheus workspaces, and then select the accounts and Amazon Managed Service for Prometheus workspaces that you want to add, and then choose **Add data source**.

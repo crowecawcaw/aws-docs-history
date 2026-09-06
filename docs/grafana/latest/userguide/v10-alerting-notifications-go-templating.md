@@ -1,71 +1,41 @@
+
+
 # Using Go’s templating language
+<a name="v10-alerting-notifications-go-templating"></a>
 
-This documentation topic is designed
-for Grafana workspaces that support **Grafana version
-10.x**.
+****  
+This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  
+For Grafana workspaces that support Grafana version 12.x, see [Working in Grafana version 12](using-grafana-v12.md).  
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).  
+For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
 
-For Grafana workspaces that support Grafana version 12.x, see
-[Working in Grafana version 12](using-grafana-v12.md "using-grafana-v12.md").
+You write notification templates in Go’s templating language, [text/template](https://pkg.go.dev/text/template).
 
-For Grafana workspaces that support Grafana version 9.x, see
-[Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
-
-For Grafana workspaces that support Grafana version 8.x, see
-[Working in Grafana version 8](using-grafana-v8.md "using-grafana-v8.md").
-
-You write notification templates in Go’s templating language, [text/template](https://pkg.go.dev/text/template "https://pkg.go.dev/text/template").
-
-This section provides an overview of Go’s
-templating language and writing templates in text/template.
+This section provides an overview of Go’s templating language and writing templates in text/template.
 
 ## Dot
+<a name="v10-go-dot"></a>
 
-In text/template there is a special cursor called dot, and is written as
-`.`. You can think of this cursor as a
-variable whose value changes depending where in the template it is used. For
-example, at the start of a notification template
-`.` refers to the `ExtendedData`
-object, which contains a number of fields including
-`Alerts`,
-`Status`,
-`GroupLabels`,
-`CommonLabels`,
-`CommonAnnotations` and
-`ExternalURL`. However, dot might refer to
-something else when used in a `range` over a list, when used inside a
-`with`, or when writing feature templates to
-be used in other templates. You can see examples of this in [Create notification templates](v10-alerting-create-templates.md "v10-alerting-create-templates.md"), and all data and
-functions in the [Template reference](v10-alerting-template-reference.md "v10-alerting-template-reference.md").
+In text/template there is a special cursor called dot, and is written as `.`. You can think of this cursor as a variable whose value changes depending where in the template it is used. For example, at the start of a notification template `.` refers to the `ExtendedData` object, which contains a number of fields including `Alerts`, `Status`, `GroupLabels`, `CommonLabels`, `CommonAnnotations` and `ExternalURL`. However, dot might refer to something else when used in a `range` over a list, when used inside a `with`, or when writing feature templates to be used in other templates. You can see examples of this in [Create notification templates](v10-alerting-create-templates.md), and all data and functions in the [Template reference](v10-alerting-template-reference.md).
 
 ## Opening and closing tags
+<a name="v10-go-openclosetags"></a>
 
-In text/template, templates start with `{{`
-and end with `}}` irrespective of whether the
-template prints a variable or runs control structures such as if
-statements. This is different from other templating languages such as Jinja
-where printing a variable uses `{{` and
-`}}` and control structures use
-`{%` and
-`%}`.
+In text/template, templates start with `{{` and end with `}}` irrespective of whether the template prints a variable or runs control structures such as if statements. This is different from other templating languages such as Jinja where printing a variable uses `{{` and `}}` and control structures use `{%` and `%}`.
 
 ## Print
+<a name="v10-go-print"></a>
 
-To print the value of something use `{{`
-and `}}`. You can print the value of dot, a
-field of dot, the result of a function, and the value of a [variable](#v10-go-variables "#v10-go-variables"). For example, to print the
-`Alerts` field where dot refers to
-`ExtendedData` you would write the
-following:
+To print the value of something use `{{` and `}}`. You can print the value of dot, a field of dot, the result of a function, and the value of a [variable](#v10-go-variables). For example, to print the `Alerts` field where dot refers to `ExtendedData` you would write the following:
 
 ```
 {{ .Alerts }}
 ```
 
 ## Iterate over alerts
+<a name="v10-go-iterate-alerts"></a>
 
-To print just the labels of each alert, rather than all information about
-the alert, you can use a `range` to iterate
-the alerts in `ExtendedData`:
+To print just the labels of each alert, rather than all information about the alert, you can use a `range` to iterate the alerts in `ExtendedData`:
 
 ```
 {{ range .Alerts }}
@@ -73,15 +43,7 @@ the alerts in `ExtendedData`:
 {{ end }}
 ```
 
-Inside the range dot no longer refers to
-`ExtendedData`, but to an
-`Alert`. You can use
-`{{ .Labels }}` to print the labels of each
-alert. This works because
-`{{ range .Alerts }}` changes dot to refer to
-the current alert in the list of alerts. When the range is finished dot is
-reset to the value it had before the start of the range, which in this
-example is `ExtendedData`:
+Inside the range dot no longer refers to `ExtendedData`, but to an `Alert`. You can use `{{ .Labels }}` to print the labels of each alert. This works because `{{ range .Alerts }}` changes dot to refer to the current alert in the list of alerts. When the range is finished dot is reset to the value it had before the start of the range, which in this example is `ExtendedData`:
 
 ```
 {{ range .Alerts }}
@@ -94,21 +56,11 @@ example is `ExtendedData`:
 ```
 
 ## Iterate over annotations and labels
+<a name="v10-go-iterate-labels"></a>
 
-Let’s write a template to print the labels of each alert in the format
-`The name of the label is $name, and the
- value is $value`, where
-`$name` and
-`$value` contain the name and value of each
-label.
+Let’s write a template to print the labels of each alert in the format `The name of the label is $name, and the value is $value`, where `$name` and `$value` contain the name and value of each label.
 
-Like in the previous example, use a range to iterate over the alerts in
-`.Alerts` such that dot refers to the current
-alert in the list of alerts, and then use a second range on the sorted
-labels so dot is updated a second time to refer to the current label. Inside
-the second range use `.Name` and
-`.Value` to print the name and value of each
-label:
+Like in the previous example, use a range to iterate over the alerts in `.Alerts` such that dot refers to the current alert in the list of alerts, and then use a second range on the sorted labels so dot is updated a second time to refer to the current label. Inside the second range use `.Name` and `.Value` to print the name and value of each label:
 
 ```
 {{ range .Alerts }}
@@ -122,9 +74,9 @@ The name of the annotation is {{ .Name }}, and the value is {{ .Value }}
 ```
 
 ## The index functions
+<a name="v10-go-index"></a>
 
-To print a specific annotation or label use the `index`
-function.
+To print a specific annotation or label use the `index` function.
 
 ```
 {{ range .Alerts }}
@@ -133,11 +85,9 @@ The name of the alert is {{ index .Labels "alertname" }}
 ```
 
 ## If statements
+<a name="v10-go-if"></a>
 
-You can use if statements in templates. For example, to print
-`There are no alerts` if there are no alerts
-in `.Alerts` you would write the
-following:
+You can use if statements in templates. For example, to print `There are no alerts` if there are no alerts in `.Alerts` you would write the following:
 
 ```
 {{ if .Alerts }}
@@ -148,10 +98,9 @@ There are no alerts
 ```
 
 ## With
+<a name="v10-go-with"></a>
 
-With is similar to if statements, however unlike if statements,
-`with` updates dot to refer to the value of
-the with:
+With is similar to if statements, however unlike if statements, `with` updates dot to refer to the value of the with:
 
 ```
 {{ with .Alerts }}
@@ -162,23 +111,17 @@ There are no alerts
 ```
 
 ## Variables
+<a name="v10-go-variables"></a>
 
-Variables in text/template must be created within the template. For
-example, to create a variable called
-`$variable` with the current value of dot you
-would write the following:
+Variables in text/template must be created within the template. For example, to create a variable called `$variable` with the current value of dot you would write the following:
 
 ```
 {{ $variable := . }}
 ```
 
-You can use `$variable` inside a range or
-`with` and it will refer to the value of dot
-at the time the variable was defined, not the current value of dot.
+You can use `$variable` inside a range or `with` and it will refer to the value of dot at the time the variable was defined, not the current value of dot.
 
-For example, you cannot write a template that use
-`{{ .Labels }}` in the second range because
-here dot refers to the current label, not the current alert:
+For example, you cannot write a template that use `{{ .Labels }}` in the second range because here dot refers to the current label, not the current alert:
 
 ```
 {{ range .Alerts }}
@@ -190,9 +133,7 @@ There are {{ len .Labels }}
 {{ end }}
 ```
 
-You can fix this by defining a variable called
-`$alert` in the first range and before the
-second range:
+You can fix this by defining a variable called `$alert` in the first range and before the second range:
 
 ```
 {{ range .Alerts }}
@@ -206,9 +147,9 @@ There are {{ len $alert.Labels }}
 ```
 
 ## Range with index
+<a name="v10-go-rangeindex"></a>
 
-You can get the index of each alert within a range by defining index and
-value variables at the start of the range:
+You can get the index of each alert within a range by defining index and value variables at the start of the range:
 
 ```
 {{ $num_alerts := len .Alerts }}
@@ -218,20 +159,9 @@ This is alert {{ $index }} out of {{ $num_alerts }}
 ```
 
 ## Define templates
+<a name="v10-go-define"></a>
 
-You can define templates that can be used within other templates,
-using `define` and
-the name of the template in double quotes. You should not define templates
-with the same name as other templates, including default templates such as
-`__subject`,
-`__text_values_list`,
-`__text_alert_list`,
-`default.title` and
-`default.message`. Where a template has been
-created with the same name as a default template, or a template in another
-notification template, Grafana might use either template. Grafana does not
-prevent, or show an error message, when there are two or more templates with
-the same name.
+You can define templates that can be used within other templates, using `define` and the name of the template in double quotes. You should not define templates with the same name as other templates, including default templates such as `__subject`, `__text_values_list`, `__text_alert_list`, `default.title` and `default.message`. Where a template has been created with the same name as a default template, or a template in another notification template, Grafana might use either template. Grafana does not prevent, or show an error message, when there are two or more templates with the same name.
 
 ```
 {{ define "print_labels" }}
@@ -239,36 +169,32 @@ the same name.
 ```
 
 ## Execute templates
+<a name="v10-go-execute"></a>
 
-You can execute defined template within your template using
-`template`, the name of the template in
-double quotes, and the cursor that should be passed to the template:
+You can execute defined template within your template using `template`, the name of the template in double quotes, and the cursor that should be passed to the template:
 
 ```
 {{ template "print_labels" . }}
 ```
 
 ## Pass data to templates
+<a name="v10-go-passdata"></a>
 
-Within a template dot refers to the value that is passed to the
-template.
+Within a template dot refers to the value that is passed to the template.
 
-For example, if a template is passed a list of firing alerts then dot
-refers to that list of firing alerts:
+For example, if a template is passed a list of firing alerts then dot refers to that list of firing alerts:
 
 ```
 {{ template "print_alerts" .Alerts }}
 ```
 
-If the template is passed the sorted labels for an alert then dot refers
-to the list of sorted labels:
+If the template is passed the sorted labels for an alert then dot refers to the list of sorted labels:
 
 ```
 {{ template "print_labels" .SortedLabels }}
 ```
 
-This is useful when writing reusable templates. For example, to print all
-alerts you might write the following:
+This is useful when writing reusable templates. For example, to print all alerts you might write the following:
 
 ```
 {{ template "print_alerts" .Alerts }}
@@ -280,8 +206,7 @@ Then to print just the firing alerts you could write this:
 {{ template "print_alerts" .Alerts.Firing }}
 ```
 
-This works because both `.Alerts` and
-`.Alerts.Firing` are lists of alerts.
+This works because both `.Alerts` and `.Alerts.Firing` are lists of alerts.
 
 ```
 {{ define "print_alerts" }}
@@ -292,9 +217,9 @@ This works because both `.Alerts` and
 ```
 
 ## Comments
+<a name="v10-go-comments"></a>
 
-You can add comments with `{{/*` and
-`*/}}`:
+You can add comments with `{{/*` and `*/}}`:
 
 ```
 {{/* This is a comment */}}
@@ -307,9 +232,9 @@ To prevent comments from adding line breaks use:
 ```
 
 ## Indentation
+<a name="v10-go-indentation"></a>
 
-You can use indentation, both tabs and spaces, and line breaks, to make
-templates more readable:
+You can use indentation, both tabs and spaces, and line breaks, to make templates more readable:
 
 ```
 {{ range .Alerts }}
@@ -319,17 +244,14 @@ templates more readable:
 {{ end }}
 ```
 
-However, indentation in the template will also be present in the text.
-Next we will see how to remove it.
+However, indentation in the template will also be present in the text. Next we will see how to remove it.
 
 ## Remove spaces and line breaks
+<a name="v10-go-removespace"></a>
 
-In text/template use `{{-` and
-`-}}` to remove leading and trailing spaces
-and line breaks.
+In text/template use `{{-` and `-}}` to remove leading and trailing spaces and line breaks.
 
-For example, when using indentation and line breaks to make a template
-more readable:
+For example, when using indentation and line breaks to make a template more readable:
 
 ```
 {{ range .Alerts }}
@@ -347,9 +269,7 @@ The indentation and line breaks will also be present in the text:
     grafana_folder = "Test alerts"
 ```
 
-You can remove the indentation and line breaks from the text changing
-`}}` to `-}}`
-at the start of each range:
+You can remove the indentation and line breaks from the text changing `}}` to `-}}` at the start of each range:
 
 ```
 {{ range .Alerts -}}
@@ -359,8 +279,7 @@ at the start of each range:
 {{ end }}
 ```
 
-The indentation and line breaks in the template are now absent from the
-text:
+The indentation and line breaks in the template are now absent from the text:
 
 ```
 alertname = "Test"

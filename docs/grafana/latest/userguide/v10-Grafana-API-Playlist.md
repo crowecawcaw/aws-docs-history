@@ -1,21 +1,21 @@
+
+
 # Playlist API
+<a name="v10-Grafana-API-Playlist"></a>
 
-Use the Playlist API to work with playlists in the Amazon Managed Grafana workspace.
+Use the Playlist API to work with playlists in the Amazon Managed Grafana workspace. 
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Search playlist
+<a name="v10-Grafana-API-Playlist-search"></a>
 
 ```
 GET /api/playlists
 ```
 
-Returns all playlists for the current Amazon Managed Grafana workspace, using
-pagination.
+Returns all playlists for the current Amazon Managed Grafana workspace, using pagination.
 
 **Example request**
 
@@ -26,11 +26,8 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 Querystring parameters:
-
-- **query**— Limit the responses to
-  playlists that have a name like this value.
-- **limit**— Limit the response to X
-  number of playlists.
++ **query**— Limit the responses to playlists that have a name like this value.
++ **limit**— Limit the response to X number of playlists.
 
 **Example response**
 
@@ -47,6 +44,7 @@ Content-Type: application/json
 ```
 
 ## Get one playlist
+<a name="v10-Grafana-API-Playlist-getone"></a>
 
 ```
 GET /api/playlists/:id
@@ -92,6 +90,7 @@ Content-Type: application/json
 ```
 
 ## Get playlist items
+<a name="v10-Grafana-API-Playlist-get-items"></a>
 
 ```
 GET /api/playlists/:id/items
@@ -131,6 +130,7 @@ Content-Type: application/json
 ```
 
 ## Get playlist dashboards
+<a name="v10-Grafana-API-Playlist-get-dashboards"></a>
 
 ```
 GET /api/playlists/:id/dashboards
@@ -165,6 +165,7 @@ Content-Type: application/json
 ```
 
 ## Create a playlist
+<a name="v10-Grafana-API-Playlist-create"></a>
 
 ```
 POST /api/playlists/
@@ -210,6 +211,7 @@ Content-Type: application/json
 ```
 
 ## Update a playlist
+<a name="v10-Grafana-API-Playlist-update"></a>
 
 ```
 PUT /api/playlists/:id
@@ -276,6 +278,7 @@ Content-Type: application/json
 ```
 
 ## Delete a playlist
+<a name="v10-Grafana-API-Playlist-delete"></a>
 
 ```
 DELETE /api/playlists/:id

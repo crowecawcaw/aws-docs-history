@@ -1,91 +1,85 @@
+
+
 # Encryption at rest
+<a name="AMG-encryption-at-rest"></a>
 
 By default, Amazon Managed Grafana automatically provides you with encryption at rest and does this using AWS owned encryption keys.
++ **AWS owned keys** – Amazon Managed Grafana uses these keys to automatically encrypt data of your workspace. You can't view, manage or use AWS owned keys, or audit their use. However, you don't have to take any action or change any programs to protect the keys that encrypt your data. For more information, see [AWS-owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) in the *AWS KMS Developer Guide*.
 
-- **AWS owned keys** – Amazon Managed Grafana uses these keys to automatically encrypt data of your workspace. You can't view, manage or use AWS owned keys, or audit their use. However, you don't have to take any action or change any programs to protect the keys that encrypt your data. For more information, see [AWS-owned keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") in the _AWS KMS Developer Guide_.
-  Encryption of data at rest helps reduce the operational overhead and complexity that goes into protecting sensitive customer data, such as personally identifiable information. It allows you to build secure applications that meet strict encryption compliance and regulatory requirements.
+Encryption of data at rest helps reduce the operational overhead and complexity that goes into protecting sensitive customer data, such as personally identifiable information. It allows you to build secure applications that meet strict encryption compliance and regulatory requirements.
 
 You can alternatively choose to use a customer managed key when you create your workspace:
++ **Customer managed keys** – Amazon Managed Grafana supports the use of a symmetric customer managed key that you create, own, and manage to encrypt the data in your workspace. Because you have full control of this encryption, you can perform such tasks as:
+  + Establishing and maintaining key policies
+  + Establishing and maintaining IAM policies and grants
+  + Enabling and disabling key policies
+  + Rotating key cryptographic material
+  + Adding tags
+  + Creating key aliases
+  + Scheduling keys for deletion
 
-- **Customer managed keys** – Amazon Managed Grafana supports the use of a symmetric customer managed key that you create, own, and manage to encrypt the data in your workspace. Because you have full control of this encryption, you can perform such tasks as:
-
-  - Establishing and maintaining key policies
-  - Establishing and maintaining IAM policies and grants
-  - Enabling and disabling key policies
-  - Rotating key cryptographic material
-  - Adding tags
-  - Creating key aliases
-  - Scheduling keys for deletion
-    For more information, see [customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the _AWS KMS Developer Guide_ and [What is AWS KMS?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md")
+For more information, see [customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) in the *AWS KMS Developer Guide* and [What is AWS KMS?](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)
 
 Choose whether to use customer managed keys or AWS owned keys carefully. Workspaces created with customer managed keys can't be converted to use AWS owned keys later (and vice versa).
 
-###### Note
+**Note**  
+Amazon Managed Grafana automatically enables encryption at rest using AWS owned keys to protect your data at no charge.
+However, AWS KMS charges apply for using a customer managed key. For more information about pricing, see [AWS KMS pricing](https://aws.amazon.com/kms/pricing/).
 
-- Amazon Managed Grafana automatically enables encryption at rest using AWS owned keys to protect your data at no charge.
-- However, AWS KMS charges apply for using a customer managed key. For more information about pricing, see [AWS KMS pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
-
-###### Important
-
-- If you disable the customer managed key or remove Amazon Managed Grafana access in the key policy, your workspace will become inaccessible. The workspace will remain in an `ACTIVE` state but will be functionally unavailable. You have 7 days to restore access by re-enabling the key or restoring the key policy. After 7 days, the workspace will transition to a `FAILED` state and can only be deleted.
-- Scheduling a key for deletion in AWS KMS has a minimum waiting period of 7 days before the key is deleted. Once a key is deleted, it cannot be restored, and any workspace encrypted with that key will permanently lose access to its data.
-- Customer managed key encryption is only available when creating new workspaces. Existing workspaces cannot be converted to use customer managed keys.
-- You cannot modify a workspace's customer managed key after creation.
+**Important**  
+If you disable the customer managed key or remove Amazon Managed Grafana access in the key policy, your workspace will become inaccessible. The workspace will remain in an `ACTIVE` state but will be functionally unavailable. You have 7 days to restore access by re-enabling the key or restoring the key policy. After 7 days, the workspace will transition to a `FAILED` state and can only be deleted.
+Scheduling a key for deletion in AWS KMS has a minimum waiting period of 7 days before the key is deleted. Once a key is deleted, it cannot be restored, and any workspace encrypted with that key will permanently lose access to its data.
+Customer managed key encryption is only available when creating new workspaces. Existing workspaces cannot be converted to use customer managed keys.
+You cannot modify a workspace's customer managed key after creation.
 
 ## How Amazon Managed Grafana uses grants in AWS KMS
+<a name="AMG-encryption-grants"></a>
 
 Amazon Managed Grafana requires grants to use your customer managed key.
 
-When you create an Amazon Managed Grafana workspace encrypted with a customer managed key, Amazon Managed Grafana creates grants on your behalf by sending [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") requests to AWS KMS. Grants in AWS KMS are used to give Amazon Managed Grafana access to the KMS key in your account, even when not called directly on your behalf (for example, when storing dashboard data or user configurations).
+When you create an Amazon Managed Grafana workspace encrypted with a customer managed key, Amazon Managed Grafana creates grants on your behalf by sending [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) requests to AWS KMS. Grants in AWS KMS are used to give Amazon Managed Grafana access to the KMS key in your account, even when not called directly on your behalf (for example, when storing dashboard data or user configurations).
 
 Amazon Managed Grafana requires the grants to use your customer managed key for the following internal operations:
-
-- Send [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") requests to AWS KMS to create additional grants as needed.
-- Send [DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") requests to AWS KMS to verify that the symmetric customer managed KMS key given when creating a workspace is valid.
-- Send [ReEncryptTo and ReEncryptFrom](../../../kms/latest/APIReference/API_ReEncrypt.md "../../../kms/latest/APIReference/API_ReEncrypt.md") requests to AWS KMS to re-encrypt data when moving between different encryption contexts.
-- Send [Encrypt](../../../kms/latest/APIReference/API_Encrypt.md "../../../kms/latest/APIReference/API_Encrypt.md") requests to AWS KMS to encrypt data directly with your customer managed key.
-- Send [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") requests to AWS KMS to decrypt the encrypted data keys so that they can be used to encrypt your data.
-- Send [GenerateDataKey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") requests to AWS KMS to generate data keys encrypted by your customer managed key.
-- Send [GenerateDataKeyWithoutPlaintext](../../../kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.md "../../../kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.md") requests to AWS KMS to generate encrypted data keys without returning the plaintext version.
-- Send [RetireGrant](../../../kms/latest/APIReference/API_RetireGrant.md "../../../kms/latest/APIReference/API_RetireGrant.md") requests to AWS KMS to retire grants that are no longer needed.
++ Send [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) requests to AWS KMS to create additional grants as needed.
++ Send [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) requests to AWS KMS to verify that the symmetric customer managed KMS key given when creating a workspace is valid.
++ Send [ReEncryptTo and ReEncryptFrom](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html) requests to AWS KMS to re-encrypt data when moving between different encryption contexts.
++ Send [Encrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) requests to AWS KMS to encrypt data directly with your customer managed key.
++ Send [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) requests to AWS KMS to decrypt the encrypted data keys so that they can be used to encrypt your data.
++ Send [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) requests to AWS KMS to generate data keys encrypted by your customer managed key.
++ Send [GenerateDataKeyWithoutPlaintext](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.html) requests to AWS KMS to generate encrypted data keys without returning the plaintext version.
++ Send [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) requests to AWS KMS to retire grants that are no longer needed.
 
 Amazon Managed Grafana creates grants to the AWS KMS key that allow Amazon Managed Grafana to use the key on your behalf. You can remove access to the key by changing the key policy, by disabling the key, or by revoking the grant. You should understand the consequences of these actions before performing them. This can cause data loss in your workspace.
 
 If you remove access to any of the grants in any way, Amazon Managed Grafana won't be able to access any of the data encrypted by the customer managed key, nor store new data sent to the workspace, which affects operations that are dependent on that data. New updates to the workspace will not be accessible and may be permanently lost.
 
-###### Warning
-
-- If you disable the key, or remove Amazon Managed Grafana access in the key policy, the workspace data is no longer accessible. The workspace will remain in an `ACTIVE` state but will be functionally unavailable. New updates being sent to the workspace will not be accessible and may be permanently lost. You can restore access to the workspace data and resume receiving new data by re-enabling the key or restoring Amazon Managed Grafana access to the key within 7 days. After 7 days without access, the workspace will transition to a `FAILED` state.
-- If you schedule the key for deletion in AWS KMS, the key will be deleted after the mandatory 7-day waiting period. Once deleted, the key cannot be restored, and the workspace data will be permanently inaccessible.
-- If you _revoke_ a grant, it can't be recreated, and the data in the workspace is lost permanently.
-- Amazon Managed Grafana creates additional child grants through Amazon RDS due to its dependency on RDS for data storage. Revoking these RDS-related grants will have the same permanent data loss effect as revoking the primary Grafana grants.
+**Warning**  
+If you disable the key, or remove Amazon Managed Grafana access in the key policy, the workspace data is no longer accessible. The workspace will remain in an `ACTIVE` state but will be functionally unavailable. New updates being sent to the workspace will not be accessible and may be permanently lost. You can restore access to the workspace data and resume receiving new data by re-enabling the key or restoring Amazon Managed Grafana access to the key within 7 days. After 7 days without access, the workspace will transition to a `FAILED` state.
+If you schedule the key for deletion in AWS KMS, the key will be deleted after the mandatory 7-day waiting period. Once deleted, the key cannot be restored, and the workspace data will be permanently inaccessible.
+If you *revoke* a grant, it can't be recreated, and the data in the workspace is lost permanently.
+Amazon Managed Grafana creates additional child grants through Amazon RDS due to its dependency on RDS for data storage. Revoking these RDS-related grants will have the same permanent data loss effect as revoking the primary Grafana grants.
 
 ## Step 1: Create a customer managed key
+<a name="AMG-encryption-create-key"></a>
 
 You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs. The key must be in the same region as the Amazon Managed Grafana workspace and must be a symmetric key with `ENCRYPT_DECRYPT` key usage.
 
-###### To create a symmetric customer managed key
+**To create a symmetric customer managed key**
++ Follow the steps for [Creating symmetric customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *AWS KMS Developer Guide*.
 
-- Follow the steps for [Creating symmetric customer managed key](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS KMS Developer Guide_.
-
-###### Key policy
-
-Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Managing access to customer managed keys](../../../kms/latest/developerguide/control-access-overview.md#managing-access "../../../kms/latest/developerguide/control-access-overview.md#managing-access") in the _AWS KMS Developer Guide_.
+Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Managing access to customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html#managing-access) in the *AWS KMS Developer Guide*.
 
 To use your customer managed key with your Amazon Managed Grafana workspaces, the following API operations must be permitted in the key policy:
-
-- [kms:CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") – Adds a grant to a customer managed key. Grants control access to a specified KMS key, which allows access to [grant operations](../../../kms/latest/developerguide/grants.md#terms-grant-operations "../../../kms/latest/developerguide/grants.md#terms-grant-operations") Amazon Managed Grafana requires. For more information, see [Using Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in the _AWS KMS Developer Guide_. This allows Amazon Managed Grafana to do the following:
-
-  - Call `GenerateDataKey` to generate an encrypted data key and store it.
-  - Call `Decrypt` to use the stored encrypted data key to access encrypted data.
-
-- [kms:DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") – Provides the customer managed key details to allow Amazon Managed Grafana to validate the key.
++ [kms:CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) – Adds a grant to a customer managed key. Grants control access to a specified KMS key, which allows access to [grant operations](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations) Amazon Managed Grafana requires. For more information, see [Using Grants](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) in the *AWS KMS Developer Guide*. This allows Amazon Managed Grafana to do the following:
+  + Call `GenerateDataKey` to generate an encrypted data key and store it.
+  + Call `Decrypt` to use the stored encrypted data key to access encrypted data.
++ [kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) – Provides the customer managed key details to allow Amazon Managed Grafana to validate the key.
 
 The following are policy statement examples you can add for Amazon Managed Grafana:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "Allow IAM Users and Roles to validate KMS key",
@@ -139,23 +133,23 @@ The following are policy statement examples you can add for Amazon Managed Grafa
   ]
 }
 ```
-
-- For more information about specifying permissions in a policy, see the [AWS Key Management Service Developer Guide](../../../kms/latest/developerguide.md "../../../kms/latest/developerguide.md").
-- For more information about troubleshooting key access, see the [AWS Key Management Service Developer Guide](../../../kms/latest/developerguide.md "../../../kms/latest/developerguide.md").
++ For more information about specifying permissions in a policy, see the [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/).
++ For more information about troubleshooting key access, see the [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/).
 
 ## Step 2: Specifying a customer managed key for Amazon Managed Grafana
+<a name="AMG-encryption-specify-key"></a>
 
 When you create a workspace, you can specify the customer managed key by entering a KMS Key ARN, which Amazon Managed Grafana uses to encrypt the data stored by the workspace.
 
-###### Using the AWS Management Console
+1. Open the Amazon Managed Grafana console at [https://console.aws.amazon.com/grafana/](https://console.aws.amazon.com/grafana/).
 
-1. Open the Amazon Managed Grafana console at [https://console.aws.amazon.com/grafana/](https://console.aws.amazon.com/grafana/ "https://console.aws.amazon.com/grafana/").
-2. Choose **Create workspace**.
-3. In the **Encryption** section, select **Customer managed key**.
-4. Enter the ARN of your customer managed key in the **KMS Key ARN** field.
-5. Complete the remaining workspace configuration and choose **Create workspace**.
+1. Choose **Create workspace**.
 
-###### Using the AWS CLI
+1. In the **Encryption** section, select **Customer managed key**.
+
+1. Enter the ARN of your customer managed key in the **KMS Key ARN** field.
+
+1. Complete the remaining workspace configuration and choose **Create workspace**.
 
 You can specify a customer managed key when creating a workspace using the `--kms-key-id` parameter:
 
@@ -170,12 +164,11 @@ aws grafana create-workspace \
 ```
 
 ## Monitoring your encryption keys for Amazon Managed Grafana
+<a name="AMG-encryption-monitoring"></a>
 
 When you use an AWS KMS customer managed key with your Amazon Managed Grafana workspaces, you can use AWS CloudTrail or Amazon CloudWatch Logs to track requests that Amazon Managed Grafana sends to AWS KMS.
 
 The following examples are AWS CloudTrail events for `CreateGrant`, `DescribeKey`, `GenerateDataKey`, and `Decrypt` to monitor KMS operations called by Amazon Managed Grafana to access data encrypted by your customer managed key:
-
-###### CreateGrant
 
 When you use an AWS KMS customer managed key to encrypt your workspace, Amazon Managed Grafana sends `CreateGrant` requests on your behalf to access the KMS key you specified. The grants that Amazon Managed Grafana creates are specific to the resource associated with the AWS KMS customer managed key.
 
@@ -248,8 +241,6 @@ The following example event records a `CreateGrant` operation:
 }
 ```
 
-###### DescribeKey
-
 Amazon Managed Grafana uses the `DescribeKey` operation to verify if the AWS KMS customer managed key associated with your workspace exists in the account and region.
 
 The following example event records the `DescribeKey` operation:
@@ -305,8 +296,6 @@ The following example event records the `DescribeKey` operation:
 "recipientAccountId": "111122223333"
 }
 ```
-
-###### GenerateDataKey
 
 Amazon Managed Grafana uses the `GenerateDataKey` operation to generate data keys that are used to encrypt workspace data.
 
@@ -364,8 +353,6 @@ The following example event records the `GenerateDataKey` operation:
 "recipientAccountId": "111122223333"
 }
 ```
-
-###### Decrypt
 
 Amazon Managed Grafana uses the `Decrypt` operation to decrypt encrypted data keys so that they can be used to decrypt workspace data.
 
@@ -426,8 +413,8 @@ The following example event records the `Decrypt` operation:
 ```
 
 ## Learn more
+<a name="AMG-encryption-learn-more"></a>
 
 The following resources provide more information about data encryption at rest.
-
-- For more information about AWS KMS basic concepts, see the [AWS KMS Developer Guide](../../../kms/latest/developerguide.md "../../../kms/latest/developerguide.md").
-- For more information about Security best practices for AWS KMS, see the [AWS KMS Developer Guide](../../../kms/latest/developerguide.md "../../../kms/latest/developerguide.md").
++ For more information about AWS KMS basic concepts, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/).
++ For more information about Security best practices for AWS KMS, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/).

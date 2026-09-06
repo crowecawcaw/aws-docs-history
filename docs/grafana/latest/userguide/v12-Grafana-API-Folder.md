@@ -1,30 +1,23 @@
+
+
 # Folder API
+<a name="v12-Grafana-API-Folder"></a>
 
-Use the Folder API to work with folders in the Amazon Managed Grafana workspace.
+Use the Folder API to work with folders in the Amazon Managed Grafana workspace. 
 
-The identifier (id) of a folder is an auto-incrementing numeric value and is only
-unique per workspace. The unique identifier (uid) of a folder can be used to uniquely
-identify a folder between multiple workspaces. It’s automatically generated if you don't
-provide one when you create a folder. The uid allows having consistent URLs for
-accessing folder and when synchronizing folder between multiple Amazon Managed Grafana workspaces.
-The use of the uid means that changing the title of a folder does not break any
-bookmarked links to that folder.
+The identifier (id) of a folder is an auto-incrementing numeric value and is only unique per workspace. The unique identifier (uid) of a folder can be used to uniquely identify a folder between multiple workspaces. It’s automatically generated if you don't provide one when you create a folder. The uid allows having consistent URLs for accessing folder and when synchronizing folder between multiple Amazon Managed Grafana workspaces. The use of the uid means that changing the title of a folder does not break any bookmarked links to that folder.
 
 The uid can have a maximum length of 40 characters.
 
 Folders can't be nested.
 
-###### Note
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
-
-The **General** folder, with an `id` of 0, is not part of
-the Folder API. You can't use the Folder API to retrieve information about the general
-folder.
+The **General** folder, with an `id` of 0, is not part of the Folder API. You can't use the Folder API to retrieve information about the general folder. 
 
 ## Create folder
+<a name="v12-Grafana-API-Folder-create"></a>
 
 ```
 POST /api/folders
@@ -44,15 +37,11 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
   "uid": "nErXDvCkzz",
   "title": "Department ABC"
 }
-
 ```
 
 JSON body schema:
-
-- **uid**— Optional unique identifer. If
-  null, a new uid is generated.
-- **title**— The title for the
-  folder.
++ **uid**— Optional unique identifer. If null, a new uid is generated. 
++ **title**— The title for the folder.
 
 **Example response**
 
@@ -78,14 +67,13 @@ Content-Type: application/json
 ```
 
 Status Codes:
-
-- **200**— Created
-- **400**— Error such as invalid JSON,
-  invalid or missing fields
-- **401**— Unauthorized
-- **403**— Access denied
++ **200**— Created
++ **400**— Error such as invalid JSON, invalid or missing fields
++ **401**— Unauthorized
++ **403**— Access denied
 
 ## Update folder
+<a name="v12-Grafana-API-Folder-update"></a>
 
 ```
 PUT /api/folders/:uid
@@ -108,17 +96,10 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 ```
 
 JSON body schema:
-
-- **uid**— Changes the unique identifer,
-  if provided.
-- **title**— The title of the
-  folder.
-- **version**— Provide the current
-  version to be able to overwrite the folder. Not needed if
-  `overwrite=true`.
-- **overwrite**— Set to
-  `true` to overwrite the existing folder with a newer
-  version.
++ **uid**— Changes the unique identifer, if provided. 
++ **title**— The title of the folder.
++ **version**— Provide the current version to be able to overwrite the folder. Not needed if `overwrite=true`.
++ **overwrite**— Set to `true` to overwrite the existing folder with a newer version.
 
 **Example response**
 
@@ -144,20 +125,15 @@ Content-Type: application/json
 ```
 
 Status Codes:
++ **200**— Created
++ **400**— Error such as invalid JSON, invalid or missing fields
++ **401**— Unauthorized
++ **403**— Access denied
++ **404**— Folder not found
++ **412**— Precondition failed
 
-- **200**— Created
-- **400**— Error such as invalid JSON,
-  invalid or missing fields
-- **401**— Unauthorized
-- **403**— Access denied
-- **404**— Folder not found
-- **412**— Precondition failed
-
-The **412** status code is used to explain why the folder can't
-be updated.
-
-- The folder has been changed by someone else
-  `status=version-mismatch`
+The **412** status code is used to explain why the folder can't be updated.
++  The folder has been changed by someone else `status=version-mismatch` 
 
 The response body has the following properties:
 
@@ -173,14 +149,13 @@ Content-Length: 97
 ```
 
 ## Get all folders
+<a name="v12-Grafana-API-Folder-get-all"></a>
 
 ```
 GET /api/folders
 ```
 
-Returns all folders that you have permission to view. You can control the maximum
-number of folders returned by using the `limit` query parameter. The
-default is 1000.
+Returns all folders that you have permission to view. You can control the maximum number of folders returned by using the `limit` query parameter. The default is 1000.
 
 **Example request**
 
@@ -212,6 +187,7 @@ Content-Type: application/json
 ```
 
 ## Get folder by uid
+<a name="v12-Grafana-API-Folder-get-uid"></a>
 
 ```
 GET /api/folders/:uid
@@ -252,13 +228,13 @@ Content-Type: application/json
 ```
 
 Status Codes:
-
-- **200**— Found
-- **401**— Unauthorized
-- **403**— Access denied
-- **404**— Not found
++ **200**— Found
++ **401**— Unauthorized
++ **403**— Access denied
++ **404**— Not found
 
 ## Get folder by id
+<a name="v12-Grafana-API-Folder-get-id"></a>
 
 ```
 GET /api/folders/id/:id
@@ -299,20 +275,19 @@ Content-Type: application/json
 ```
 
 Status Codes:
-
-- **200**— Found
-- **401**— Unauthorized
-- **403**— Access denied
-- **404**— Not found
++ **200**— Found
++ **401**— Unauthorized
++ **403**— Access denied
++ **404**— Not found
 
 ## Delete folder by uid
+<a name="v12-Grafana-API-Folder-delete"></a>
 
 ```
 DELETE /api/folders/:uid
 ```
 
-Deletes the folder matching the uid, and also deletes all dashboards stored in the
-folder. This oepration can't be reverted.
+Deletes the folder matching the uid, and also deletes all dashboards stored in the folder. This oepration can't be reverted.
 
 **Example request**
 
@@ -336,8 +311,7 @@ Content-Type: application/json
 ```
 
 Status Codes:
-
-- **200**— Deleted
-- **401**— Unauthorized
-- **403**— Access denied
-- **404**— Not found
++ **200**— Deleted
++ **401**— Unauthorized
++ **403**— Access denied
++ **404**— Not found

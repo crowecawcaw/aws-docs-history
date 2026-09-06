@@ -1,155 +1,108 @@
+
+
 # Correlation configuration
+<a name="v12-correlations-config"></a>
 
-This documentation topic is designed
-for Grafana workspaces that support **Grafana version
-12.x**.
+****  
+This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).  
+For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
 
-For Grafana workspaces that support Grafana version 10.x, see
-[Working in Grafana version 10](using-grafana-v10.md "using-grafana-v10.md").
+ Each correlation is configured with the following options: 
 
-For Grafana workspaces that support Grafana version 9.x, see
-[Working in Grafana version 9](using-grafana-v9.md "using-grafana-v9.md").
-
-For Grafana workspaces that support Grafana version 8.x, see
-[Working in Grafana version 8](using-grafana-v8.md "using-grafana-v8.md").
-
-Each correlation is configured with the following options:
-
-**Label**
-
+**Label**  
 Link label, shown in the visualization.
 
-**Description**
-
+**Description**  
 Optional description.
 
-**Source data source**
-
+**Source data source**  
 The source of results that have links displayed.
 
-**Results field**
-
+**Results field**  
 Defines where the link is shown in a visualization.
 
-**Target query**
-
+**Target query**  
 The target query run when a link is clicked.
 
-**Transformations**
+**Transformations**  
+Optional manipulations applied to the source data before it is passed to the target query.
 
-Optional manipulations applied to the source data before it is passed
-to the target query.
-
-For details about creating a correlation, see [Create a correlation](v12-correlations-create.md "v12-correlations-create.md").
+For details about creating a correlation, see [Create a correlation](v12-correlations-create.md).
 
 ## Source data source and result field
+<a name="v12-correlations-config-source-and-result"></a>
 
-Links are shown in Explore visualizations for the results from the correlation’s
-source data source. A link is assigned to one of the fields from the result provided
-in the correlation configuration (the results field). Each visualization displays
-fields with links in a different way.
+Links are shown in Explore visualizations for the results from the correlation’s source data source. A link is assigned to one of the fields from the result provided in the correlation configuration (the results field). Each visualization displays fields with links in a different way. 
 
 ## Target query
+<a name="v12-correlations-config-target-query"></a>
 
-The target query is run when a link is clicked in the visualization. You can use
-the query editor of the selected target data source to specify the target query.
-Source data results can be accessed inside the target query with variables.
+The target query is run when a link is clicked in the visualization. You can use the query editor of the selected target data source to specify the target query. Source data results can be accessed inside the target query with variables.
 
 ### Correlation Variables
+<a name="v12-correlations-config-variables"></a>
 
-You can use variables inside the target query to access the source data
-related to the query. Correlations use [Grafana variable syntax](v12-dash-variable-syntax.md "v12-dash-variable-syntax.md"). Variables are filled with values from the
-source results when the link is chosen. There are two types of variables you
-can use:
+You can use variables inside the target query to access the source data related to the query. Correlations use [Grafana variable syntax](v12-dash-variable-syntax.md). Variables are filled with values from the source results when the link is chosen. There are two types of variables you can use:
++ [Field variables](v12-panels-configure-data-links.md#v12-panels-data-link-variables) (to access field values and labels).
++ Correlation variables (to access field values and transformations).
 
-- [Field variables](v12-panels-configure-data-links.md#v12-panels-data-link-variables "v12-panels-configure-data-links.md#v12-panels-data-link-variables")
-  (to access field values and labels).
-- Correlation variables (to access field values and
-  transformations).
+Example: If source results contain a field called `employee`, the value of the field can be accessed with:
++ A field variable `${__data.fields.employee}`.
++ A correlation variable that maps the field value above to `${employee}`.
 
-Example: If source results contain a field called `employee`,
-the value of the field can be accessed with:
+In addition to mapping field values to shorter variable names, more correlation variables can be created by applying transformations to existing fields.
 
-- A field variable `${__data.fields.employee}`.
-- A correlation variable that maps the field value above to
-  `${employee}`.
-
-In addition to mapping field values to shorter variable names, more
-correlation variables can be created by applying transformations to existing
-fields.
-
-Correlation creates a data link only if all variables have values in the
-selected data row. [Global
-variables](v12-dash-variable-add.md#v12-dash-variable-add-global "v12-dash-variable-add.md#v12-dash-variable-add-global") are the exception to this rule and are not required to be
-filled in from the returned data. These variables are interpolated
-automatically by data sources.
+Correlation creates a data link only if all variables have values in the selected data row. [Global variables](v12-dash-variable-add.md#v12-dash-variable-add-global) are the exception to this rule and are not required to be filled in from the returned data. These variables are interpolated automatically by data sources.
 
 ### Correlation Transformations
+<a name="v12-correlations-config-transformations"></a>
 
-Transformations provide a way to extract more variables out of field values. The
-output of transformations is a set of new variables that can be accessed as any
-other variable.
+Transformations provide a way to extract more variables out of field values. The output of transformations is a set of new variables that can be accessed as any other variable.
 
 There are two types of transformations: logfmt and regular expression.
 
-Each transformation uses a selected field value as the input. The output of a
-transformation is a set of new variables based on the type and options of the
-transformation.
+Each transformation uses a selected field value as the input. The output of a transformation is a set of new variables based on the type and options of the transformation.
 
 ### Logfmt transformation
+<a name="v12-correlations-config-logfmt-transformation"></a>
 
-The logfmt transformation deconstructs a field value containing text
-formatted with [logfmt key/value
-pairs](https://brandur.org/logfmt "https://brandur.org/logfmt"). Each pair becomes a variable with the key being the name of
-the variable.
+The logfmt transformation deconstructs a field value containing text formatted with [logfmt key/value pairs](https://brandur.org/logfmt). Each pair becomes a variable with the key being the name of the variable.
 
-The logfmt transformation only requires specifying the input field name if
-you would like the transformation to apply to a different field than the results
-field. Example output variables for `field = "host=srv001 endpoint=/test
- app=foo"`:
+The logfmt transformation only requires specifying the input field name if you would like the transformation to apply to a different field than the results field. Example output variables for `field = "host=srv001 endpoint=/test app=foo"`:
 
-| name     | value  |
-| -------- | ------ |
-| host     | srv001 |
-| endpoint | /test  |
-| app      | foo    |
+
+| name | value | 
+| --- | --- | 
+| host | srv001 | 
+| endpoint | /test | 
+| app | foo | 
 
 ### Regular expression transformation
+<a name="v12-correlations-config-regular-expression-transformation"></a>
 
-The regular expression transformation deconstructs a field value based on the
-provided regular expression.
+The regular expression transformation deconstructs a field value based on the provided regular expression.
 
 Regular expression transformation options:
 
-**field**
+**field**  
 Input field name
 
-**expression**
+**expression**  
+Regular expression. Named capture groups are mapped to variables matching the group name. If non-named matching groups are used a variable is created out of the first match. The value overrides the variable matching the input field or a new variable is created if mapValue is provided (see examples in the following table).
 
-Regular expression. Named capture groups are mapped to variables
-matching the group name. If non-named matching groups are used a
-variable is created out of the first match. The value overrides the
-variable matching the input field or a new variable is created if
-mapValue is provided (see examples in the following table).
+**mapValue**  
+Used with simple regex groups without named matching groups. By default, the first match overrides the variable with the name of the field that is used as the input. To change that default behavior you can specify the mapValue property. The provided name is used to create a new variable. This can be useful if your target query requires both the exact value and a part of the value extracted with the transformation.
 
-**mapValue**
-
-Used with simple regex groups without named matching groups. By
-default, the first match overrides the variable with the name of the
-field that is used as the input. To change that default behavior you
-can specify the mapValue property. The provided name is used to
-create a new variable. This can be useful if your target query
-requires both the exact value and a part of the value extracted with
-the transformation.
-
-Example: Assuming the selected field name is `employee` and the
-field value is `John Doe`.
+Example: Assuming the selected field name is `employee` and the field value is `John Doe`.
 
 Various output variables based on expression and mapValue options:
 
-| expression        | mapValue | output variables                 | comment                                                                                                 |
-| ----------------- | -------- | -------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `/\w+ (\w+)/`     | -        | `employee=Doe`                   | No mapValue provided. The first matching is mapped to the<br>existing field name variable (`employee`). |
-| `/(\w+) (\w+)/`   | name     | `name=John`                      | The first matching is mapped to a new variable called<br>`name`.                                        |
-| `/(?\w+) (?\w+)/` | -        | `firstName=John`, `lastName=Doe` | When named groups are used they are the names of the output<br>variables and mapValue is ignored.       |
-| `/(?\w+) (?\w+)/` | name     | `firstName=John`, `lastName=Doe` | Same as above                                                                                           |
+
+| expression | mapValue | output variables | comment | 
+| --- | --- | --- | --- | 
+| /\\w\+ (\\w\+)/ | - | employee=Doe | No mapValue provided. The first matching is mapped to the existing field name variable (employee). | 
+| /(\\w\+) (\\w\+)/ | name | name=John | The first matching is mapped to a new variable called name.  | 
+| /(?\\w\+) (?\\w\+)/ | - | firstName=John, lastName=Doe | When named groups are used they are the names of the output variables and mapValue is ignored. | 
+| /(?\\w\+) (?\\w\+)/ | name | firstName=John, lastName=Doe | Same as above | 

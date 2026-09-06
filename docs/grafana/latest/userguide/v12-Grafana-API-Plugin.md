@@ -1,16 +1,15 @@
+
+
 # Plugin API
+<a name="v12-Grafana-API-Plugin"></a>
 
-Use the Plugin API to manage plugins in the Amazon Managed Grafana workspace. To make changes to
-plugins with this API, the workspace must have [plugin management enabled](AMG-configure-workspace.md "AMG-configure-workspace.md") for your
-workspace. The user defined by the service account token must also be an [admin](Grafana-user-roles.md "Grafana-user-roles.md") for the Amazon Managed Grafana workspace.
+Use the Plugin API to manage plugins in the Amazon Managed Grafana workspace. To make changes to plugins with this API, the workspace must have [plugin management enabled](AMG-configure-workspace.md) for your workspace. The user defined by the service account token must also be an [admin](Grafana-user-roles.md) for the Amazon Managed Grafana workspace.
 
-###### Note
-
-To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid
-service account token. You include this in the `Authorization` field
-in the API request.
+**Note**  
+To use a Grafana API with your Amazon Managed Grafana workspace, you must have a valid service account token. You include this in the `Authorization` field in the API request.
 
 ## Install plugin
+<a name="v12-Grafana-API-Plugin-install"></a>
 
 ```
 POST /api/plugins/:id/install
@@ -36,6 +35,7 @@ HTTP/1.1 200
 ```
 
 ## Uninstall plugin
+<a name="v12-Grafana-API-Plugin-uninstall"></a>
 
 ```
 POST /api/plugins/:id/uninstall
@@ -61,6 +61,7 @@ HTTP/1.1 200
 ```
 
 ## Get all plugins
+<a name="v12-Grafana-API-Plugin-getall"></a>
 
 ```
 GET /api/gnet/plugins
@@ -118,18 +119,18 @@ Content-Type: application/json
           "packageName": "linux-amd64",
           "downloadUrl": "/api/plugins/alexanderzobnin-zabbix-app/versions/4.4.3/download?os=linux&arch=amd64"
         },
-        `<... further packages>`
+        {{<... further packages>}}
       },
       "links": [
         {
           "rel": "self",
           "href": "/plugins/alexanderzobnin-zabbix-app"
         },
-        `<... further links>`
+        {{<... further links>}}
       ],
       "angularDetected": false
     },
-    `<... further plugins>`
+    {{<... further plugins>}}
   ],
   "orderBy": "weight",
   "direction": "asc",
@@ -143,6 +144,7 @@ Content-Type: application/json
 ```
 
 ## Get plugin
+<a name="v12-Grafana-API-Plugin-get"></a>
 
 ```
 GET /api/gnet/plugins/:id
@@ -246,7 +248,7 @@ Content-Type: application/json
     "name": "Amazon Athena",
     "type": "datasource"
   },
-  "readme": "`<... full HTML readme>`",
+  "readme": "{{<... full HTML readme>}}",
   "statusContext": "",
   "downloads": 2505825,
   "verified": false,
@@ -263,20 +265,21 @@ Content-Type: application/json
       "packageName": "linux-amd64",
       "downloadUrl": "/api/plugins/grafana-athena-datasource/versions/2.13.0/download?os=linux&arch=amd64"
     },
-    `<... other packages>`
+    {{<... other packages>}}
   },
   "links": [
     {
       "rel": "self",
       "href": "/plugins/grafana-athena-datasource"
     },
-    `<... other links>`
+    {{<... other links>}}
   ],
   "angularDetected": false
 }
 ```
 
 ## Get plugin versions
+<a name="v12-Grafana-API-Plugin-versions"></a>
 
 ```
 POST /api/gnet/plugins/:id/versions
@@ -380,7 +383,7 @@ Content-Type: application/json
       "grafanaDependency": ">=8.0.0",
       "angularDetected": false
     },
-    `<... other versions>`
+    {{<... other versions>}}
   ]
 }
 ```
