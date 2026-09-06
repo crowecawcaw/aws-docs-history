@@ -1,9 +1,9 @@
-# StartSigningJob
 
-The following Java example shows how to use the [`StartSigningJob`](../api/API_StartSigningJob.md "../api/API_StartSigningJob.md")
-operation. You must call `StartSigningJob` before you call any other AWS Signer
-API operation. `StartSigningJob` returns a `jobId` value that you can
-use when calling [`DescribeSigningJob`](../api/API_DescribeSigningJob.md "../api/API_DescribeSigningJob.md") operation.
+
+# StartSigningJob
+<a name="api-startsigningjob"></a>
+
+The following Java example shows how to use the [`StartSigningJob`](https://docs.aws.amazon.com/signer/latest/api/API_StartSigningJob.html) operation. You must call `StartSigningJob` before you call any other AWS Signer API operation. `StartSigningJob` returns a `jobId` value that you can use when calling [`DescribeSigningJob`](https://docs.aws.amazon.com/signer/latest/api/API_DescribeSigningJob.html) operation.
 
 ```
 package com.amazonaws.samples;
@@ -30,18 +30,18 @@ import com.amazonaws.services.signer.model.InternalServiceErrorException;
 import com.amazonaws.AmazonClientException;
 
 /**
-* This sample demonstrates how to use the StartSigningJob operation in the
+* This sample demonstrates how to use the StartSigningJob operation in the 
 * AWS Signer service.
 *
 * Input Parameters:
 *
 * source             - Structure that contains the following:
-*                          - Name of the Amazon S3 bucket to which you copied your
+*                          - Name of the Amazon S3 bucket to which you copied your 
 *                            code image
 *                          - Name of the file that contains your code image
 *                          - Amazon S3 version number of your file
 * destination        - Structure that contains the following:
-*                          - Name of the Amazon S3 bucket that AWS Signer can use for
+*                          - Name of the Amazon S3 bucket that AWS Signer can use for 
 *                            your signed code
 *                          - Optional Amazon S3 bucket prefix
 *
@@ -52,10 +52,10 @@ public class StartSigningJob {
    public static void main(String[] args) throws Exception{
 
       // Define variables.
-      String bucketSrc = "`amzn-s3-demo-source-bucket`";
-      String key = "`Code-Image-File`";
-      String objectVersion = "`Source-S3-File-Version`";
-      String bucketDest = "`amzn-s3-demo-destination-bucket`";
+      String bucketSrc = "{{amzn-s3-demo-source-bucket}}";
+      String key = "{{Code-Image-File}}";
+      String objectVersion = "{{Source-S3-File-Version}}";
+      String bucketDest = "{{amzn-s3-demo-destination-bucket}}";
       S3Source s3src = new S3Source()
           .withBucketName(bucketSrc)
           .withKey(key)
@@ -63,9 +63,9 @@ public class StartSigningJob {
       Source src = new Source().withS3(s3src);
       S3Destination s3Dest = new S3Destination().withBucketName(bucketDest);
       Destination dest = new Destination().withS3(s3Dest);
-      String signingProfileName = "`MyProfile`";
+      String signingProfileName = "{{MyProfile}}";
 
-      // Retrieve your credentials from the C:\Users\name\.aws\credentials file in
+      // Retrieve your credentials from the C:\Users\name\.aws\credentials file in 
       // Windows or the ~/.aws/credentials in Linux.
       AWSCredentials credentials = null;
       try {
@@ -77,7 +77,7 @@ public class StartSigningJob {
 
       // Specify the endpoint and region.
       EndpointConfiguration endpoint =
-            new EndpointConfiguration("`https://endpoint`","`region`");
+            new EndpointConfiguration("{{https://endpoint}}","{{region}}");
 
 
       // Create a client.

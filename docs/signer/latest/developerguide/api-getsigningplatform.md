@@ -1,7 +1,9 @@
-# GetSigningPlatform
 
-The following Java example shows how to use the [`GetSigningPlatform`](../api/API_GetSigningPlatform.md "../api/API_GetSigningPlatform.md")
-operation.
+
+# GetSigningPlatform
+<a name="api-getsigningplatform"></a>
+
+The following Java example shows how to use the [`GetSigningPlatform`](https://docs.aws.amazon.com/signer/latest/api/API_GetSigningPlatform.html) operation.
 
 ```
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -20,7 +22,7 @@ public class GetSigningPlatform {
 
         // Create a client.
         AWSsigner client = AWSsignerClient.builder()
-                .withRegion("`region`")
+                .withRegion("{{region}}")
                 .withCredentials(new ProfileCredentialsProvider(credentialsProfile))
                 .build();
 

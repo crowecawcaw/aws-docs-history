@@ -1,6 +1,9 @@
-# ListSigningProfiles
 
-The following Java example shows how to use the [`ListSigningProfiles`](../api/API_ListSigningProfiles.md "../api/API_ListSigningProfiles.md") operation.
+
+# ListSigningProfiles
+<a name="api-listsigningprofiles"></a>
+
+The following Java example shows how to use the [`ListSigningProfiles`](https://docs.aws.amazon.com/signer/latest/api/API_ListSigningProfiles.html) operation.
 
 ```
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -18,7 +21,7 @@ public class ListSigningProfilesTest {
 
         // Create a client.
         final AWSsigner client = AWSsignerClient.builder()
-                .withRegion("`region`")
+                .withRegion("{{region}}")
                 .withCredentials(new ProfileCredentialsProvider(credentialsProfile))
                 .build();
 

@@ -1,6 +1,9 @@
-# ListProfilePermissions
 
-The following Java example shows how to use the [`ListProfilePermissions`](../api/API_ListProfilePermissions.md "../api/API_ListProfilePermissions.md") operation.
+
+# ListProfilePermissions
+<a name="api-listprofilepermissions"></a>
+
+The following Java example shows how to use the [`ListProfilePermissions`](https://docs.aws.amazon.com/signer/latest/api/API_ListProfilePermissions.html) operation.
 
 ```
 package com.examples;
@@ -17,18 +20,18 @@ public class ListProfilePermissions {
     public static void main(String[] s) {
 
         String credentialsProfile = "default";
-        String signingProfileName = "`MyProfile`";
+        String signingProfileName = "{{MyProfile}}";
 
         // Create a client.
         final AWSSigner client = AWSSignerClient.builder()
-                .withRegion("`region`")
+                .withRegion("{{region}}")
                 .withCredentials(new ProfileCredentialsProvider(credentialsProfile))
                 .build();
 
         // List the permissions for a profile
         ListProfilePermissionsResult result = client.listProfilePermissions(new ListProfilePermissionsRequest()
                 .withProfileName(signingProfileName));
-
+        
         // Iterate through the permissions
         for (Permission permission: result.getPermissions()) {
             System.out.println("StatementId: " + permission.getStatementId());

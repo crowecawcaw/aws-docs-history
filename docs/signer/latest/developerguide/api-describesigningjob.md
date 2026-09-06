@@ -1,9 +1,9 @@
-# DescribeSigningJob
 
-The following Java example shows you how to use the [`DescribeSigningJob`](../api/API_DescribeSigningJob.md "../api/API_DescribeSigningJob.md")
-operation. Call the [`StartSigningJob`](url-signer-api.md "url-signer-api.md") operation before calling
-`DescribeSigningJob`. `StartSigningJob` returns a `jobId`
-value that you use when you call `DescribeSigningJob`.
+
+# DescribeSigningJob
+<a name="api-describesigningjob"></a>
+
+The following Java example shows you how to use the [`DescribeSigningJob`](https://docs.aws.amazon.com/signer/latest/api/API_DescribeSigningJob.html) operation. Call the [`StartSigningJob`](url-signer-api;API_StartSigningJob.html) operation before calling `DescribeSigningJob`. `StartSigningJob` returns a `jobId` value that you use when you call `DescribeSigningJob`. 
 
 ```
 package com.amazonaws.samples;
@@ -24,12 +24,12 @@ import com.amazonaws.services.signer.model.InternalServiceErrorException;
 import com.amazonaws.AmazonClientException;
 
 /**
-* This sample demonstrates how to use the DescribeSigningJob operation in the
+* This sample demonstrates how to use the DescribeSigningJob operation in the 
 * AWS Signer service.
 *
 * Input Parameters:
 *
-*   jobId  - String that contains the ID of the job that was returned by the
+*   jobId  - String that contains the ID of the job that was returned by the 
 *            StartSigningJob operation.
 *
 */
@@ -39,8 +39,8 @@ public class DescribeSigningJob {
 
    public static void main(String[] args) throws Exception {
 
-      // Retrieve your credentials from the `C:\Users\name\.aws\credentials` file
-      // in Windows or the `~/.aws/credentials` file in Linux.
+      // Retrieve your credentials from the {{C:\Users\name\.aws\credentials}} file 
+      // in Windows or the {{~/.aws/credentials}} file in Linux.
       AWSCredentials credentials = null;
       try {
           credentials = new ProfileCredentialsProvider().getCredentials();
@@ -51,7 +51,7 @@ public class DescribeSigningJob {
 
       // Specify the endpoint and region.
       EndpointConfiguration endpoint =
-            new EndpointConfiguration("`https://endpoint`","`region`");
+            new EndpointConfiguration("{{https://endpoint}}","{{region}}");
 
       // Create a client.
       AWSSigner client = AWSSignerClient.builder()
@@ -61,7 +61,7 @@ public class DescribeSigningJob {
 
       // Create a request object.
       DescribeSigningJobRequest req = new DescribeSigningJobRequest()
-            .withJobId("`jobID`");
+            .withJobId("{{jobID}}");
 
       // Create a result object.
       DescribeSigningJobResult result = null;

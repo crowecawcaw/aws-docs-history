@@ -1,6 +1,9 @@
-# ListSigningPlatforms
 
-The following Java example shows how to use the [`ListSigningPlatforms`](../api/API_ListSigningPlatforms.md "../api/API_ListSigningPlatforms.md") operation.
+
+# ListSigningPlatforms
+<a name="api-listsigningplatforms"></a>
+
+The following Java example shows how to use the [`ListSigningPlatforms`](https://docs.aws.amazon.com/signer/latest/api/API_ListSigningPlatforms.html) operation.
 
 ```
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -18,7 +21,7 @@ public class ListSigningPlatforms {
 
         // Create a client.
         final AWSsigner client = AWSsignerClient.builder()
-                .withRegion("`region`")
+                .withRegion("{{region}}")
                 .withCredentials(new ProfileCredentialsProvider(credentialsProfile))
                 .build();
 

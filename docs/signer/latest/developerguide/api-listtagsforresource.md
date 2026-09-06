@@ -1,6 +1,9 @@
-# ListTagsForResource
 
-The following Java example shows how to use the [`ListTagsForResource`](../api/API_ListTagsForResource.md "../api/API_ListTagsForResource.md") operation.
+
+# ListTagsForResource
+<a name="api-listtagsforresource"></a>
+
+The following Java example shows how to use the [`ListTagsForResource`](https://docs.aws.amazon.com/signer/latest/api/API_ListTagsForResource.html) operation.
 
 ```
 package com.examples;
@@ -18,11 +21,11 @@ public class ListTagsForResource {
     public static void main(String[] s) {
 
         String credentialsProfile = "default";
-        String signingProfileArn = "arn:aws:signer:`region`:`account`:/signing-profiles/`MyProfile`";
+        String signingProfileArn = "arn:aws:signer:{{region}}:{{account}}:/signing-profiles/{{MyProfile}}";
 
         // Create a client.
         final AWSSigner client = AWSSignerClient.builder()
-                .withRegion("`region`")
+                .withRegion("{{region}}")
                 .withCredentials(new ProfileCredentialsProvider(credentialsProfile))
                 .build();
 

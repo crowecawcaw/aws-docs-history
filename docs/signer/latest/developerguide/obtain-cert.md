@@ -1,10 +1,9 @@
-# Obtain and import a code-signing certificate
 
-Before you can use AWS Signer with AWS IoT Device Management or Amazon FreeRTOS, you must have or
-obtain a code-signing certificate. Code-signing certificates typically contain a
-`Digital Signature` value in the `Key Usage` extension and
-a `Code Signing` value in the `Extended Key Usage`
-extension.
+
+# Obtain and import a code-signing certificate
+<a name="obtain-cert"></a>
+
+Before you can use AWS Signer with AWS IoT Device Management or Amazon FreeRTOS, you must have or obtain a code-signing certificate. Code-signing certificates typically contain a `Digital Signature` value in the `Key Usage` extension and a `Code Signing` value in the `Extended Key Usage` extension.
 
 ```
 Certificate:
@@ -62,15 +61,7 @@ Certificate:
          45:4e
 ```
 
-###### Important
+**Important**  
+We recommend that you purchase a code-signing certificate from a company with a good reputation for security. Do not use a self-signed certificate for any purpose other than testing. Encouraging your users to trust arbitrary certificates with no reputational backing is a poor security practice.
 
-We recommend that you purchase a code-signing certificate from a company with
-a good reputation for security. Do not use a self-signed certificate for any
-purpose other than testing. Encouraging your users to trust arbitrary
-certificates with no reputational backing is a poor security practice.
-
-After you have obtained the certificate, you must import it into AWS Certificate Manager
-(ACM). ACM returns an Amazon Resource Name (ARN) for the certificate. You must
-use the ARN when you call the [StartSigningJob](signer/latest/api/API_StartSigningJob.md "signer/latest/api/API_StartSigningJob.md") action. For more information about importing, see
-[Importing Certificates](../../../acm/latest/userguide/import-certificate.md "../../../acm/latest/userguide/import-certificate.md")
-in the AWS Certificate Manager User Guide.
+After you have obtained the certificate, you must import it into AWS Certificate Manager (ACM). ACM returns an Amazon Resource Name (ARN) for the certificate. You must use the ARN when you call the [StartSigningJob](signer/latest/api/API_StartSigningJob.html) action. For more information about importing, see [Importing Certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the AWS Certificate Manager User Guide. 

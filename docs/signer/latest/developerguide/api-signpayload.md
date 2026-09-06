@@ -1,7 +1,9 @@
-# SignPayload
 
-The following Java example shows how to use the [`SignPayload`](../api/API_SignPayload.md "../api/API_SignPayload.md")
-operation.
+
+# SignPayload
+<a name="api-signpayload"></a>
+
+The following Java example shows how to use the [`SignPayload`](https://docs.aws.amazon.com/signer/latest/api/API_SignPayload.html) operation.
 
 ```
 package com.examples;
@@ -18,12 +20,12 @@ public class SignPayload{
     public static void main(String[] s) {
 
         String credentialsProfile = "default";
-        String signingProfileName = "`MyProfile`";
+        String signingProfileName = "{{MyProfile}}";
         String payloadFormat = "application/vnd.cncf.notary.payload.v1+json";
         String payload = "{\n" +
             "  \"targetArtifact\": {\n" +
             "    \"mediaType\": \"application/vnd.docker.distribution.manifest.v2+json\",\n" +
-            "    \"digest\": \"sha256:`73c803930ea3ba1e54bc25c2bdc53edd0284c62ed651fe7b00369da519a3c333`\",\n" +
+            "    \"digest\": \"sha256:{{73c803930ea3ba1e54bc25c2bdc53edd0284c62ed651fe7b00369da519a3c333}}\",\n" +
             "    \"size\": 16724,\n" +
             "    \"annotations\": {\n" +
             "        \"io.wabbit-networks.buildId\": \"123\"" +
@@ -33,7 +35,7 @@ public class SignPayload{
 
         // Create a client.
         final AWSSigner client = AWSSignerClient.builder()
-                .withRegion("`region`")
+                .withRegion("{{region}}")
                 .withCredentials(new ProfileCredentialsProvider(credentialsProfile))
                 .build();
 

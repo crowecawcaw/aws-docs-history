@@ -1,6 +1,9 @@
-# AddProfilePermission
 
-The following Java example shows how to use the [`AddProfilePermission`](../api/API_AddProfilePermission.md "../api/API_AddProfilePermission.md") operation.
+
+# AddProfilePermission
+<a name="api-addprofilepermission"></a>
+
+The following Java example shows how to use the [`AddProfilePermission`](https://docs.aws.amazon.com/signer/latest/api/API_AddProfilePermission.html) operation.
 
 ```
 package com.examples;
@@ -16,13 +19,13 @@ public class AddProfilePermission {
     public static void main(String[] s) {
 
         String credentialsProfile = "default";
-        String signingProfileName = "`MyProfile`";
+        String signingProfileName = "{{MyProfile}}";
         String signingProfileVersion = "SeFHjuJAjV";
-        String principal = "`account`";
+        String principal = "{{account}}";
 
         // Create a client.
         final AWSSigner client = AWSSignerClient.builder()
-                .withRegion("`region`")
+                .withRegion("{{region}}")
                 .withCredentials(new ProfileCredentialsProvider(credentialsProfile))
                 .build();
 

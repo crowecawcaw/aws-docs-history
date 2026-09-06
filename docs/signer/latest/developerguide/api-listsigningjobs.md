@@ -1,11 +1,9 @@
-# ListSigningJobs
 
-The following Java example shows how to use the [`ListSigningJobs`](../api/API_ListSigningJobs.md "../api/API_ListSigningJobs.md")
-operations. This operation lists all of the signing jobs that you have performed in your
-account. Call the [`StartSigningJob`](../api/API_StartSigningJob.md "../api/API_StartSigningJob.md") operation before you call
-`ListSigningJobs`. You can also call [`DescribeSigningJob`](../api/API_DescribeSigningJob.md "../api/API_DescribeSigningJob.md")
-and specify a `jobId` to see information about a specific signing job created by
-calling `StartSigningJob`.
+
+# ListSigningJobs
+<a name="api-listsigningjobs"></a>
+
+The following Java example shows how to use the [`ListSigningJobs`](https://docs.aws.amazon.com/signer/latest/api/API_ListSigningJobs.html) operations. This operation lists all of the signing jobs that you have performed in your account. Call the [`StartSigningJob`](https://docs.aws.amazon.com/signer/latest/api/API_StartSigningJob.html) operation before you call `ListSigningJobs`. You can also call [`DescribeSigningJob`](https://docs.aws.amazon.com/signer/latest/api/API_DescribeSigningJob.html) and specify a `jobId` to see information about a specific signing job created by calling `StartSigningJob`. 
 
 ```
 package com.amazonaws.samples;
@@ -27,27 +25,27 @@ import com.amazonaws.services.signer.model.InternalServiceErrorException;
 import com.amazonaws.AmazonClientException;
 
 /**
-* This sample demonstrates how to use the ListSigningJobs operation in the
+* This sample demonstrates how to use the ListSigningJobs operation in the 
 * AWS Signer service.
 *
 * Input Parameters:
 *
-* status      - String that specifies the status that you want to use for filtering.
+* status      - String that specifies the status that you want to use for filtering. 
 *               This can be:
 *                  - InProgress
 *                  - Failed
 *                  - Succeeded
-* platform    - String that contains the name of the microcontroller platform that
+* platform    - String that contains the name of the microcontroller platform that 
 *               you want to use for filtering.
 * requestedBy - IAM  principal that requested the signing job.
-* maxResults  - Use this parameter when paginating results to specify the maximum
-*               number of items to return in the response. If additional items exist
-*               beyond the number you specify, the nextToken element is sent in the
-*               response. Use the nextToken value in a subsequent request to retrieve
+* maxResults  - Use this parameter when paginating results to specify the maximum 
+*               number of items to return in the response. If additional items exist 
+*               beyond the number you specify, the nextToken element is sent in the 
+*               response. Use the nextToken value in a subsequent request to retrieve 
 *               additional items.
-* nextToken   - Use this parameter only when paginating results and only in a
+* nextToken   - Use this parameter only when paginating results and only in a 
 *               subsequent request after you receive a response with truncated results.
-*               Set it to the value of `nextToken` from the response you
+*               Set it to the value of nextToken from the response you 
 *               just received.
 *
 */
@@ -56,8 +54,8 @@ public class ListSigningJobs {
 
    public static void main(String[] args) throws Exception{
 
-      // Retrieve your credentials from the `C:\Users\name\.aws\credentials` file in Windows
-      // or the `~/.aws/credentials` file in Linux.
+      // Retrieve your credentials from the {{C:\Users\name\.aws\credentials}} file in Windows
+      // or the {{~/.aws/credentials}} file in Linux.
       AWSCredentials credentials = null;
       try {
           credentials = new ProfileCredentialsProvider().getCredentials();
@@ -68,7 +66,7 @@ public class ListSigningJobs {
 
       // Specify the endpoint and region.
       EndpointConfiguration endpoint =
-            new EndpointConfiguration("`https://endpoint`","`region`");
+            new EndpointConfiguration("{{https://endpoint}}","{{region}}");
 
       // Create a client.
       AWSSigner client = AWSSignerClient.builder()
@@ -79,7 +77,7 @@ public class ListSigningJobs {
       // Create a request object.
       ListSigningJobsRequest req = new ListSigningJobsRequest()
             .withStatus("Succeeded")
-            .withPlatform("`platform`")
+            .withPlatform("{{platform}}")
             .withMaxResults(10);
 
       // Create a result object.

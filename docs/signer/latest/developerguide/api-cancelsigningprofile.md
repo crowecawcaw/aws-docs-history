@@ -1,6 +1,9 @@
-# CancelSigningProfile
 
-The following Java example shows how to use the [`CancelSigningProfile`](../api/API_CancelSigningProfile.md "../api/API_CancelSigningProfile.md") operation.
+
+# CancelSigningProfile
+<a name="api-cancelsigningprofile"></a>
+
+The following Java example shows how to use the [`CancelSigningProfile`](https://docs.aws.amazon.com/signer/latest/api/API_CancelSigningProfile.html) operation.
 
 ```
 package com.examples;
@@ -18,15 +21,15 @@ public class CancelSigningProfile {
     public static void main(String[] s) {
 
         final String credentialsProfile = "default";
-        final String codeSigningProfileName = "`MyProfile`";
+        final String codeSigningProfileName = "{{MyProfile}}";
 
 
         // Create a client.
         final AWSSigner client = AWSSignerClient.builder()
-            .withRegion("`region`")
+            .withRegion("{{region}}")
             .withCredentials(new ProfileCredentialsProvider(credentialsProfile))
             .build();
-
+            
         // cancel a signing profile
         client.cancelSigningProfile(new CancelSigningProfileRequest().withProfileName(codeSigningProfileName));
     }

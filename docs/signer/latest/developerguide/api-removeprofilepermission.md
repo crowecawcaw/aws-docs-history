@@ -1,6 +1,9 @@
-# RemoveProfilePermission
 
-The following Java example shows how to use the [`RemoveProfilePermission`](../api/API_RemoveProfilePermission.md "../api/API_RemoveProfilePermission.md") operation.
+
+# RemoveProfilePermission
+<a name="api-removeprofilepermission"></a>
+
+The following Java example shows how to use the [`RemoveProfilePermission`](https://docs.aws.amazon.com/signer/latest/api/API_RemoveProfilePermission.html) operation.
 
 ```
 package com.examples;
@@ -17,14 +20,14 @@ public class RemoveProfilePermission {
     public static void main(String[] s) {
 
         String credentialsProfile = "default";
-        String signingProfileName = "`MyProfile`";
+        String signingProfileName = "{{MyProfile}}";
 
         // Create a client.
         final AWSSigner client = AWSSignerClient.builder()
-                .withRegion("`region`")
+                .withRegion("{{region}}")
                 .withCredentials(new ProfileCredentialsProvider(credentialsProfile))
                 .build();
-
+        
         // Get the latest revisionId for the profile
         ListProfilePermissionsResult result = client.listProfilePermissions(new ListProfilePermissionsRequest()
                 .withProfileName(signingProfileName));

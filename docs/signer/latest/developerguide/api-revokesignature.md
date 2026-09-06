@@ -1,7 +1,9 @@
-# RevokeSignature
 
-The following Java example shows how to use the [`RevokeSignature`](../api/API_RevokeSignature.md "../api/API_RevokeSignature.md")
-operation.
+
+# RevokeSignature
+<a name="api-revokesignature"></a>
+
+The following Java example shows how to use the [`RevokeSignature`](https://docs.aws.amazon.com/signer/latest/api/API_RevokeSignature.html) operation.
 
 ```
 package com.examples;
@@ -16,12 +18,12 @@ public class RevokeSignature {
     public static void main(String[] s) {
 
         String credentialsProfile = "default";
-        String signingJobId = "`jobID`";
-        String revokeReason = "`Reason for revocation`";
+        String signingJobId = "{{jobID}}";
+        String revokeReason = "{{Reason for revocation}}";
 
         // Create a client.
         final AWSSigner client = AWSSignerClient.builder()
-                .withRegion("`region`")
+                .withRegion("{{region}}")
                 .withCredentials(new ProfileCredentialsProvider(credentialsProfile))
                 .build();
 

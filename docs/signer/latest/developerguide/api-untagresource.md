@@ -1,7 +1,9 @@
-# UntagResource
 
-The following Java example shows how to use the [`UntagResource`](url-signer-api.md "url-signer-api.md")
-operation.
+
+# UntagResource
+<a name="api-untagresource"></a>
+
+The following Java example shows how to use the [`UntagResource`](url-signer-api;API_UntagResource.html) operation.
 
 ```
 package com.examples;
@@ -18,12 +20,12 @@ public class UntagResource {
     public static void main(String[] s) {
 
         String credentialsProfile = "default";
-        String signingProfileArn = "arn:aws:signer:`region`:`account`:/signing-profiles/`MyProfile`";
+        String signingProfileArn = "arn:aws:signer:{{region}}:{{account}}:/signing-profiles/{{MyProfile}}";
         String tagKey = "Key";
 
         // Create a client.
         final AWSSigner client = AWSSignerClient.builder()
-                .withRegion("`region`")
+                .withRegion("{{region}}")
                 .withCredentials(new ProfileCredentialsProvider(credentialsProfile))
                 .build();
 

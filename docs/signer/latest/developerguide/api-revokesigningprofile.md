@@ -1,6 +1,9 @@
-# RevokeSigningProfile
 
-The following Java example shows how to use the [`RevokeSigningProfile`](../api/API_RevokeSigningProfile.md "../api/API_RevokeSigningProfile.md") operation.
+
+# RevokeSigningProfile
+<a name="api-revokesigningprofile"></a>
+
+The following Java example shows how to use the [`RevokeSigningProfile`](https://docs.aws.amazon.com/signer/latest/api/API_RevokeSigningProfile.html) operation.
 
 ```
 package com.examples;
@@ -18,13 +21,13 @@ public class RevokeSigningProfile {
     public static void main(String[] s) {
 
         String credentialsProfile = "default";
-        String signingProfileName = "`MyProfile`";
-        String signingProfileVersion = "`version`";
-        String revokeReason = "`Reason for revocation`";
+        String signingProfileName = "{{MyProfile}}";
+        String signingProfileVersion = "{{version}}";
+        String revokeReason = "{{Reason for revocation}}";
 
         // Create a client.
         final AWSSigner client = AWSSignerClient.builder()
-                .withRegion("`region`")
+                .withRegion("{{region}}")
                 .withCredentials(new ProfileCredentialsProvider(credentialsProfile))
                 .build();
 

@@ -1,7 +1,9 @@
-# GetSigningProfile
 
-The following Java example shows how to use the [`GetSigningProfile`](../api/API_SetSigningProfile.md "../api/API_SetSigningProfile.md")
-operation.
+
+# GetSigningProfile
+<a name="api-getsigningprofile"></a>
+
+The following Java example shows how to use the [`GetSigningProfile`](https://docs.aws.amazon.com/signer/latest/api/API_SetSigningProfile.html) operation.
 
 ```
 package com.examples;
@@ -18,16 +20,16 @@ import com.amazonaws.services.signer.model.GetSigningProfileResult;
 public class GetSigningProfile {
 
     public static void main(String[] s) {
-
+    
         final String credentialsProfile = "default";
-        final String codeSigningProfileName = "`MyProfile`";
-
+        final String codeSigningProfileName = "{{MyProfile}}";
+        
     // Create a client.
     final AWSSigner client = AWSSignerClient.builder()
-        .withRegion("`region`")
+        .withRegion("{{region}}")
         .withCredentials(new ProfileCredentialsProvider(credentialsProfile))
         .build();
-
+        
     // Get a signing profile.
     GetSigningProfileResult getSigningProfileResult = client.getSigningProfile(new
         GetSigningProfileRequest().withProfileName(codeSigningProfileName));
