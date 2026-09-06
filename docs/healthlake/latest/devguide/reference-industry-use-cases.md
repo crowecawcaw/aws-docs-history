@@ -7,3 +7,4 @@ sections describe how HealthLake addresses these needs with FHIR R4-native capab
 ###### Topics
 
 - [EHRs](reference-industry-ehrs.md "reference-industry-ehrs.md")
+- [Payers](reference-industry-payers.md "reference-industry-payers.md")

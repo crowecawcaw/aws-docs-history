@@ -174,6 +174,70 @@ Then find what was missed:
 | `unmappedTables`  | CSV files in your input that the profile does not declare<br>(with the reason and the columns in that file). | Add a table mapping if that file should be<br>converted.           |
 | `unmappedColumns` | Per table, the columns present in the CSV but not used by<br>any field mapping.                              | Add field mappings for the columns you want in the FHIR<br>output. |
 
+### Sync CSV drift report
+
+[How to read it](#data-transformation-drift-report-csv-read "#data-transformation-drift-report-csv-read") describes the bulk
+(asynchronous) format that a transformation job writes to Amazon S3. When you run
+drift detection synchronously, the API response includes the comma-separated
+value (CSV) drift report inline. To enable this, set
+`enableDriftDetection` to `true` on a
+`TransformData` request. Because a sync request processes a single
+input rather than a whole dataset, its report has a simpler structure.
+
+```
+{
+  "sourceFormat": "CSV",
+  "summary": {
+    "totalTablesInProfile": 1,
+    "totalTablesInInput": 1,
+    "tablesProcessed": 1,
+    "tablesUnmapped": 0,
+    "totalColumnsInInput": 10,
+    "columnsMapped": 7,
+    "columnsUnmapped": 3,
+    "totalRowsProcessed": 2,
+    "totalResourcesGenerated": 2,
+    "tablesCoverageRate": 1.0,
+    "columnsCoverageRate": 0.7,
+    "perTableRowCounts": { "patients": 2 }
+  },
+  "unmappedTables": [],
+  "unmappedColumns": [
+    {
+      "tableName": "patients",
+      "columns": ["ETHNICITY", "LANGUAGE", "NICKNAME"],
+      "reason": "Columns present in CSV but not referenced in any field mapping"
+    }
+  ],
+  "warnings": []
+}
+```
+
+The `summary`, `unmappedTables`, and
+`unmappedColumns` fields carry the same meaning as in the bulk report.
+The sync report differs from the bulk CSV report in the following ways:
+
+- It has no `jobId`, `profileId`, or
+  `profileVersion`, because a sync request is not tied to a
+  transformation job. Instead, it includes a top-level
+  `sourceFormat` field (`CSV`) that identifies the
+  format of the input.
+- It omits the row-failure counts
+  (`rowsFailedCustomerError` and
+  `rowsFailedServerError`) and the bulk report's
+  `totalRowsScanned` and
+  `rowsConvertedSuccessfully` fields. A sync request converts
+  a single input. It either succeeds or returns an error. On success, it
+  reports `totalRowsProcessed` and a
+  `perTableRowCounts` map showing the number of rows processed
+  for each table.
+- It reports `tablesCoverageRate` and
+  `columnsCoverageRate`, but not a combined
+  `overallCoverageRate`.
+- It includes a `warnings` array inline that lists non-fatal
+  issues encountered during the conversion, such as missing primary keys
+  or unrecognized value-map entries.
+
 ## Improving coverage (both formats)
 
 1. Identify the highest-impact gaps: for C-CDA, the

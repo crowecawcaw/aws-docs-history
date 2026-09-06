@@ -26,7 +26,7 @@ aws healthlake create-data-transformation-profile \
   --region us-west-2 \
   --source-format CSV \
   --profile-name "Patient CSV Mapping" \
-  --source '{"SampleData": {"S3Uri": "s3://my-bucket/samples/patient-data.csv"}}'
+  --source '{"SampleData": {"S3Uri": "s3://amzn-s3-demo-bucket/samples/patient-data.csv"}}'
 ```
 
 Run the AI agent to create initial YAML mapping.
@@ -138,12 +138,12 @@ Response:
 ```
 {
     "TransformedData": "{\"resourceType\":\"Bundle\",\"type\":\"collection\",\"entry\":[...]}",
-    "DriftReport": "{\"coverageRate\":0.95,\"unmappedElements\":[...]}"
+    "DriftReport": "{\"fileDriftResults\":[{\"documentOid\":\"2.16.840.1.113883.10.20.22.1.2\",\"sectionCoverageRate\":0.92,\"overallCoverageRate\":0.88,\"resourceAccuracy\":0.97,\"unknownSections\":{\"2.16.840.1.113883.10.20.22.2.14\":1},\"unknownEntries\":{},\"missingExpectedResources\":{}}]}"
 }
 ```
 
 - TransformedData: the converted FHIR resources as a JSON-encoded FHIR Bundle string.
-- DriftReport: present only when DriftDetectionEnabled is true. A JSON-encoded drift report showing coverage rate and unmapped source elements.
+- DriftReport: This field is present only when DriftDetectionEnabled is true. It contains a JSON-encoded drift report that shows coverage rates and unmapped source elements. See [Sync CSV drift report](data-transformation-drift-report.md#data-transformation-drift-report-csv-sync "data-transformation-drift-report.md#data-transformation-drift-report-csv-sync") for the sync CSV report structure, or [C-CDA drift report](data-transformation-drift-report.md#data-transformation-drift-report-ccda "data-transformation-drift-report.md#data-transformation-drift-report-ccda") for C-CDA.
 
 ###### Note
 
@@ -164,7 +164,8 @@ curl -X POST "https://datatransformation.healthlake.us-west-2.amazonaws.com/tran
       "CsvInput": {
         "patients": "PAT_ID,MRN,LAST_NM,FIRST_NM,SEX,DOB,ZIP\nP001,MRN-001,Smith,John,M,1985-03-15,98101\nP002,MRN-002,Garcia,Maria,F,1990-07-22,90210"
       }
-    }
+    },
+    "DriftDetectionEnabled": true
   }'
 ```
 
@@ -186,7 +187,8 @@ Response:
 
 ```
 {
-    "TransformedData": "{\"resourceType\":\"Bundle\",\"type\":\"transaction\",\"entry\":[...]}"
+    "TransformedData": "{\"resourceType\":\"Bundle\",\"type\":\"transaction\",\"entry\":[...]}",
+    "DriftReport": "{\"sourceFormat\":\"CSV\",\"summary\":{\"totalTablesInProfile\":1,\"totalTablesInInput\":1,\"tablesProcessed\":1,\"tablesUnmapped\":0,\"totalColumnsInInput\":7,\"columnsMapped\":7,\"columnsUnmapped\":0,\"totalRowsProcessed\":2,\"totalResourcesGenerated\":2,\"tablesCoverageRate\":1.0,\"columnsCoverageRate\":1.0,\"perTableRowCounts\":{\"patients\":2}},\"unmappedTables\":[],\"unmappedColumns\":[],\"warnings\":[]}"
 }
 ```
 
@@ -194,7 +196,7 @@ Keep the following in mind when you convert CSV input:
 
 - Each key in CsvInput must exactly match a tableName in your profile's mapping configuration. Matching is case-sensitive.
 - Pass the CSV content for each table as a single string. Separate rows with `\n`.
-- DriftDetectionEnabled isn't supported for CSV input. Omit it or set it to false. If you set it to true, the request fails with a ValidationException.
+- You can use `DriftDetectionEnabled` with CSV input. Set it to `true`. The response includes a drift report that shows table and column coverage rates alongside the transformed data.
 
 ## Step 4: Publish the profile
 
@@ -253,8 +255,8 @@ curl -X POST "https://datatransformation.healthlake.us-west-2.amazonaws.com/tran
 aws healthlake start-data-transformation-job \
   --region us-west-2 \
   --profile-id "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6" \
-  --input-data-config '{"S3Uri": "s3://my-source-bucket/ccda-files/", "SourceFormat": "CCDA"}' \
-  --output-data-config '{"S3Configuration": {"S3Uri": "s3://my-output-bucket/fhir-output/", "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/abcd1234"}}' \
+  --input-data-config '{"S3Uri": "s3://amzn-s3-demo-source-bucket/ccda-files/", "SourceFormat": "CCDA"}' \
+  --output-data-config '{"S3Configuration": {"S3Uri": "s3://amzn-s3-demo-output-bucket/fhir-output/", "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/abcd1234"}}' \
   --data-access-role-arn "arn:aws:iam::123456789012:role/DTA-DataAccessRole" \
   --client-token "unique-token-$(date +%s)" \
   --job-name "cardiology-batch-july" \
@@ -284,8 +286,8 @@ To convert source files and load the resulting FHIR resources directly into a He
 aws healthlake start-fhir-import-job \
   --region us-west-2 \
   --datastore-id "your-datastore-id" \
-  --input-data-config '{"S3Uri": "s3://my-source-bucket/ccda-files/"}' \
-  --job-output-data-config '{"S3Configuration": {"S3Uri": "s3://my-output-bucket/import-output/", "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/abcd1234"}}' \
+  --input-data-config '{"S3Uri": "s3://amzn-s3-demo-source-bucket/ccda-files/"}' \
+  --job-output-data-config '{"S3Configuration": {"S3Uri": "s3://amzn-s3-demo-output-bucket/import-output/", "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/abcd1234"}}' \
   --data-access-role-arn "arn:aws:iam::123456789012:role/DTA-DataAccessRole" \
   --profile-id "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6" \
   --input-format "CCDA" \

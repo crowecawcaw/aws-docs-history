@@ -86,6 +86,8 @@ IDE.
 
 ### What the agent does
 
+The Data Transformation AI agent performs the following tasks:
+
 - Generates conversion logic from your data. For CSV, the agent analyzes
   sample files you provided at profile creation and produces a base profile
   : inferring the target FHIR resources and fields, so you begin from a
@@ -167,6 +169,8 @@ transformations in a request/response flow.
 
 ### How it works
 
+A synchronous transform processes a single input as follows:
+
 - You submit one input (a C-CDA document or a set of CSV files) against a
   profile and receive the converted FHIR resources as a FHIR Bundle in the
   response.
@@ -206,6 +210,8 @@ page](getting-started-setting-up.md "getting-started-setting-up.md") for IAM per
 
 ### How it works
 
+A bulk transformation job works as follows:
+
 - Point a job at an Amazon S3 prefix of source files, choose a published profile,
   and choose an output destination. The job scans the input, converts each file
   (C-CDA) or set of rows (CSV), and writes the results.
@@ -213,6 +219,8 @@ page](getting-started-setting-up.md "getting-started-setting-up.md") for IAM per
   automatically.
 
 ### Output modes
+
+A bulk job supports the following output modes:
 
 - Standalone: write converted FHIR to an Amazon S3 location. Use
   the StartDataTransformationJob API.
@@ -338,6 +346,8 @@ source contains against what the profile actually produced, and records what was
 behind.
 
 ### What the report contains
+
+The drift report contains the following information:
 
 - The overall coverage rate for the conversion.
 - A ranked list of unmapped source sections and elements, so you can
