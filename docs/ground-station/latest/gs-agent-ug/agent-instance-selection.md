@@ -1,92 +1,123 @@
+
+
 # Select Amazon EC2 instance and reserve CPU cores for your architecture
+<a name="agent-instance-selection"></a>
 
 ## Supported Amazon EC2 instance types
+<a name="supported-ec2-instance-types"></a>
 
-The AWS Ground Station Agent requires dedicated CPU cores to operate due to the compute intensive data delivery workflows.
-We support the following instance types. See [CPU core planning](#cpu-core-planning "#cpu-core-planning") to decide which instance type best suits your use case.
+ The AWS Ground Station Agent requires dedicated CPU cores to operate due to the compute intensive data delivery workflows. We support the following instance types. See [CPU core planning](#cpu-core-planning) to decide which instance type best suits your use case. 
 
-| Instance family | Instance type | Default vCPUs | Default CPU cores | Max DigIF aggregate bandwidth (MHz) |
-| --------------- | ------------- | ------------- | ----------------- | ----------------------------------- |
-| c5              | c5.12xlarge   | 48            | 24                | 180                                 |
-| c5.18xlarge     | 72            | 36            | 380               |
-| c5.24xlarge     | 96            | 48            | 380               |
-| c5n             | c5n.18xlarge  | 72            | 36                | 400                                 |
-| c5n.metal       | 72            | 36            | 400               |
-| c6i             | c6i.24xlarge  | 96            | 48                | 400                                 |
-| c6i.32xlarge    | 128           | 64            | 400               |
-| c7i             | c7i.12xlarge  | 48            | 24                | 280                                 |
-| c7i.24xlarge    | 96            | 48            | 400               |
-| p3dn            | p3dn.24xlarge | 96            | 48                | 400                                 |
-| g4dn            | g4dn.12xlarge | 48            | 24                | 400                                 |
-| g4dn.16xlarge   | 64            | 32            | 400               |
-| g4dn.metal      | 96            | 48            | 400               |
-| p4d             | p4d.24xlarge  | 96            | 48                | 400                                 |
-| m5              | m5.8xlarge    | 32            | 16                | 100                                 |
-| m5.12xlarge     | 48            | 24            | 180               |
-| m5.24xlarge     | 96            | 48            | 380               |
-| m6i             | m6i.32xlarge  | 128           | 64                | 400                                 |
-| r5              | r5.24xlarge   | 96            | 48                | 380                                 |
-| r5.metal        | 96            | 48            | 380               |
-| r5n             | r5n.24xlarge  | 96            | 48                | 400                                 |
-| r5n.metal       | 96            | 48            | 400               |
-| r6i             | r6i.32xlarge  | 128           | 64                | 400                                 |
 
-###### Note
 
+- **c5**
+  - **Instance type:** c5.12xlarge / **Default vCPUs:** 48 / **Default CPU cores:** 24 / **Max DigIF aggregate bandwidth (MHz):** 180
+  - **Instance type:** c5.18xlarge / **Default vCPUs:** 72 / **Default CPU cores:** 36 / **Max DigIF aggregate bandwidth (MHz):** 380
+  - **Instance type:** c5.24xlarge / **Default vCPUs:** 96 / **Default CPU cores:** 48 / **Max DigIF aggregate bandwidth (MHz):** 380
+
+- **c5n**
+  - **Instance type:** c5n.18xlarge / **Default vCPUs:** 72 / **Default CPU cores:** 36 / **Max DigIF aggregate bandwidth (MHz):** 400
+  - **Instance type:** c5n.metal / **Default vCPUs:** 72 / **Default CPU cores:** 36 / **Max DigIF aggregate bandwidth (MHz):** 400
+
+- **c6i**
+  - **Instance type:** c6i.24xlarge / **Default vCPUs:** 96 / **Default CPU cores:** 48 / **Max DigIF aggregate bandwidth (MHz):** 400
+  - **Instance type:** c6i.32xlarge / **Default vCPUs:** 128 / **Default CPU cores:** 64 / **Max DigIF aggregate bandwidth (MHz):** 400
+
+- **c7i**
+  - **Instance type:** c7i.12xlarge / **Default vCPUs:** 48 / **Default CPU cores:** 24 / **Max DigIF aggregate bandwidth (MHz):** 280
+  - **Instance type:** c7i.24xlarge / **Default vCPUs:** 96 / **Default CPU cores:** 48 / **Max DigIF aggregate bandwidth (MHz):** 400
+
+- **p3dn**
+  - **Instance type:** p3dn.24xlarge
+  - **Default vCPUs:** 96
+  - **Default CPU cores:** 48
+  - **Max DigIF aggregate bandwidth (MHz):** 400
+
+- **g4dn**
+  - **Instance type:** g4dn.12xlarge / **Default vCPUs:** 48 / **Default CPU cores:** 24 / **Max DigIF aggregate bandwidth (MHz):** 400
+  - **Instance type:** g4dn.16xlarge / **Default vCPUs:** 64 / **Default CPU cores:** 32 / **Max DigIF aggregate bandwidth (MHz):** 400
+  - **Instance type:** g4dn.metal / **Default vCPUs:** 96 / **Default CPU cores:** 48 / **Max DigIF aggregate bandwidth (MHz):** 400
+
+- **p4d**
+  - **Instance type:** p4d.24xlarge
+  - **Default vCPUs:** 96
+  - **Default CPU cores:** 48
+  - **Max DigIF aggregate bandwidth (MHz):** 400
+
+- **m5**
+  - **Instance type:** m5.8xlarge / **Default vCPUs:** 32 / **Default CPU cores:** 16 / **Max DigIF aggregate bandwidth (MHz):** 100
+  - **Instance type:** m5.12xlarge / **Default vCPUs:** 48 / **Default CPU cores:** 24 / **Max DigIF aggregate bandwidth (MHz):** 180
+  - **Instance type:** m5.24xlarge / **Default vCPUs:** 96 / **Default CPU cores:** 48 / **Max DigIF aggregate bandwidth (MHz):** 380
+
+- **m6i**
+  - **Instance type:** m6i.32xlarge
+  - **Default vCPUs:** 128
+  - **Default CPU cores:** 64
+  - **Max DigIF aggregate bandwidth (MHz):** 400
+
+- **r5**
+  - **Instance type:** r5.24xlarge / **Default vCPUs:** 96 / **Default CPU cores:** 48 / **Max DigIF aggregate bandwidth (MHz):** 380
+  - **Instance type:** r5.metal / **Default vCPUs:** 96 / **Default CPU cores:** 48 / **Max DigIF aggregate bandwidth (MHz):** 380
+
+- **r5n**
+  - **Instance type:** r5n.24xlarge / **Default vCPUs:** 96 / **Default CPU cores:** 48 / **Max DigIF aggregate bandwidth (MHz):** 400
+  - **Instance type:** r5n.metal / **Default vCPUs:** 96 / **Default CPU cores:** 48 / **Max DigIF aggregate bandwidth (MHz):** 400
+
+- **r6i**
+  - **Instance type:** r6i.32xlarge
+  - **Default vCPUs:** 128
+  - **Default CPU cores:** 64
+  - **Max DigIF aggregate bandwidth (MHz):** 400
+
+
+
+**Note**  
 The Max DigIF aggregate bandwidth column shows the maximum supported aggregate bandwidth for all DigIF dataflows combined on each instance type. These limitations are due to EC2 network capacity allocated to the given instance types. These values represent conservative estimates and should be used when planning your DigIF configurations. The actual bandwidth may vary based on system load and other factors.
 
 ## CPU core planning
+<a name="cpu-core-planning"></a>
 
-The AWS Ground Station Agent requires dedicated processor cores that share L3 cache for each dataflow.
-The agent is designed to leverage Hyper-threaded (HT) CPU pairs and requires HT pairs to be reserved for its use.
-A hyper-threaded pair is a pair of virtual CPUs (vCPU) that are contained within a single core.
-The following tables provide a mapping of dataflow data rate to the required number of cores reserved for the agent for a single dataflow.
-These tables assume Cascade Lake or newer CPUs and are valid for any supported instance type.
-If your bandwidth is between entries in a table, select the next highest.
+ The AWS Ground Station Agent requires dedicated processor cores that share L3 cache for each dataflow. The agent is designed to leverage Hyper-threaded (HT) CPU pairs and requires HT pairs to be reserved for its use. A hyper-threaded pair is a pair of virtual CPUs (vCPU) that are contained within a single core. The following tables provide a mapping of dataflow data rate to the required number of cores reserved for the agent for a single dataflow. These tables assume Cascade Lake or newer CPUs and are valid for any supported instance type. If your bandwidth is between entries in a table, select the next highest. 
 
-AWS Ground Station uses two different delivery strategies depending on the bandwidth of the dataflow:
+ AWS Ground Station uses two different delivery strategies depending on the bandwidth of the dataflow: 
++ **Narrowband** – Bandwidths of 40 MHz and below.
++ **Wideband** – Bandwidths above 40 MHz.
 
-- **Narrowband** – Bandwidths of 40 MHz and below.
-- **Wideband** – Bandwidths above 40 MHz.
+ These strategies have different core requirements. Notably, narrowband dataflows may require more cores than wideband dataflows at comparable or even higher bandwidths. The strategy is selected automatically based on the configured AntennaDownlink bandwidth. 
 
-These strategies have different core requirements. Notably, narrowband dataflows may require more cores than wideband dataflows at comparable or even higher bandwidths.
-The strategy is selected automatically based on the configured AntennaDownlink bandwidth.
-
-###### Important
-
-Each dataflow requires its own dedicated set of cores. If you have multiple dataflows, look up the core requirement for each dataflow independently using the appropriate table (narrowband or wideband) and sum them. Do not share cores between dataflows. The agent needs an additional reserved core for management and coordination, so the total cores required will be the sum of the cores needed for each dataflow plus **a single additional core (2 vCPUs)**.
+**Important**  
+ Each dataflow requires its own dedicated set of cores. If you have multiple dataflows, look up the core requirement for each dataflow independently using the appropriate table (narrowband or wideband) and sum them. Do not share cores between dataflows. The agent needs an additional reserved core for management and coordination, so the total cores required will be the sum of the cores needed for each dataflow plus **a single additional core (2 vCPUs)**. 
 
 **Narrowband core requirements (≤40 MHz)**
 
-| AntennaDownlink Bandwidth (MHz) | Expected VITA-49.2 DigIF Data Rate (Mb/s) | Number of Cores (HT CPU Pairs) | Total vCPU |
-| ------------------------------- | ----------------------------------------- | ------------------------------ | ---------- |
-| ≤25                             | ≤500                                      | 3                              | 6          |
-| 30                              | 600                                       | 4                              | 8          |
-| 35                              | 700                                       | 4                              | 8          |
-| 40                              | 800                                       | 4                              | 8          |
+
+| AntennaDownlink Bandwidth (MHz) | Expected VITA-49.2 DigIF Data Rate (Mb/s) | Number of Cores (HT CPU Pairs) | Total vCPU | 
+| --- | --- | --- | --- | 
+| ≤25 | ≤500 | 3 | 6 | 
+| 30 | 600 | 4 | 8 | 
+| 35 | 700 | 4 | 8 | 
+| 40 | 800 | 4 | 8 | 
 
 **Wideband core requirements (>40 MHz)**
 
-| AntennaDownlink Bandwidth (MHz) | Expected VITA-49.2 DigIF Data Rate (Mb/s) | Number of Cores (HT CPU Pairs) | Total vCPU |
-| ------------------------------- | ----------------------------------------- | ------------------------------ | ---------- |
-| 50                              | 1000                                      | 3                              | 6          |
-| 100                             | 2000                                      | 4                              | 8          |
-| 150                             | 3000                                      | 5                              | 10         |
-| 200                             | 4000                                      | 6                              | 12         |
-| 250                             | 5000                                      | 6                              | 12         |
-| 300                             | 6000                                      | 7                              | 14         |
-| 350                             | 7000                                      | 8                              | 16         |
-| 400                             | 8000                                      | 9                              | 18         |
+
+| AntennaDownlink Bandwidth (MHz) | Expected VITA-49.2 DigIF Data Rate (Mb/s) | Number of Cores (HT CPU Pairs) | Total vCPU | 
+| --- | --- | --- | --- | 
+| 50 | 1000 | 3 | 6 | 
+| 100 | 2000 | 4 | 8 | 
+| 150 | 3000 | 5 | 10 | 
+| 200 | 4000 | 6 | 12 | 
+| 250 | 5000 | 6 | 12 | 
+| 300 | 6000 | 7 | 14 | 
+| 350 | 7000 | 8 | 16 | 
+| 400 | 8000 | 9 | 18 | 
 
 ## Gathering architecture information
+<a name="agent-cpu-planning-architecture"></a>
 
-`lscpu` provides information about the architecture of your system.
-The basic output shows which vCPUs (labeled as "CPU") belong to which NUMA nodes (and each NUMA node shares an L3 cache).
-Below we examine a `c5.24xlarge` instance in order to gather the necessary information to configure the AWS Ground Station Agent.
-This includes useful information like number of vCPUs, cores, and vCPU-to-node association.
+ `lscpu` provides information about the architecture of your system. The basic output shows which vCPUs (labeled as "CPU") belong to which NUMA nodes (and each NUMA node shares an L3 cache). Below we examine a `c5.24xlarge` instance in order to gather the necessary information to configure the AWS Ground Station Agent. This includes useful information like number of vCPUs, cores, and vCPU-to-node association. 
 
 ```
-
 > lscpu
 Architecture: x86_64
 CPU op-mode(s): 32-bit, 64-bit
@@ -112,19 +143,13 @@ L2 cache: 1024K
 L3 cache: 36608K
 NUMA node0 CPU(s): 0-23,48-71     <------
 NUMA node1 CPU(s): 24-47,72-95    <------
-
 ```
 
-Cores dedicated to the AWS Ground Station Agent should include both vCPUs for each assigned core.
-All cores for a dataflow must exist on the same NUMA node.
-The `-p` option for the `lscpu` command provides us with the core to CPU associations needed to configure the agent.
-The relevant fields are CPU (which is what we refer to as the vCPU), Core, and L3 (which indicates which L3 cache is shared by that core).
-Note that on most Intel processors the NUMA Node is equal to the L3 cache.
+ Cores dedicated to the AWS Ground Station Agent should include both vCPUs for each assigned core. All cores for a dataflow must exist on the same NUMA node. The `-p` option for the `lscpu` command provides us with the core to CPU associations needed to configure the agent. The relevant fields are CPU (which is what we refer to as the vCPU), Core, and L3 (which indicates which L3 cache is shared by that core). Note that on most Intel processors the NUMA Node is equal to the L3 cache. 
 
-Consider the following subset of the `lscpu -p` output for a `c5.24xlarge` (abbreviated and formatted for clarity).
+ Consider the following subset of the `lscpu -p` output for a `c5.24xlarge` (abbreviated and formatted for clarity). 
 
 ```
-
 CPU,Core,Socket,Node,,L1d,L1i,L2,L3
 0   0    0      0     0   0   0  0
 1   1    0      0     1   1   1  0
@@ -135,41 +160,31 @@ CPU,Core,Socket,Node,,L1d,L1i,L2,L3
 17  1    0      0     1   1   1  0
 18  2    0      0     2   2   2  0
 19  3    0      0     3   3   3  0
-
 ```
 
-From the output we can see that Core 0 includes vCPUs 0 and 16, Core 1 includes vCPUs 1 and 17, Core 2 includes vCPUs 2 and 18.
-In other words the hyper-threaded pairs are: 0 and 16, 1 and 17, 2 and 18.
+ From the output we can see that Core 0 includes vCPUs 0 and 16, Core 1 includes vCPUs 1 and 17, Core 2 includes vCPUs 2 and 18. In other words the hyper-threaded pairs are: 0 and 16, 1 and 17, 2 and 18. 
 
 ## CPU assignment example
+<a name="agent-cpu-planning-example"></a>
 
-As an example, we will use a `c5.24xlarge` instance for a Dual Polarity Wideband downlink at 350MHz.
-From the table in [CPU core planning](#cpu-core-planning "#cpu-core-planning") we know that a 350 MHz downlink requires 8 cores (16 vCPUs) for the single data flow.
-This means that this dual polarity setup using two dataflows requires a total of 16 cores (32 vCPUs) plus one core (2 vCPUs) for the Agent.
+ As an example, we will use a `c5.24xlarge` instance for a Dual Polarity Wideband downlink at 350MHz. From the table in [CPU core planning](#cpu-core-planning) we know that a 350 MHz downlink requires 8 cores (16 vCPUs) for the single data flow. This means that this dual polarity setup using two dataflows requires a total of 16 cores (32 vCPUs) plus one core (2 vCPUs) for the Agent. 
 
-We know the `lscpu` output for `c5.24xlarge` includes
-`NUMA node0 CPU(s): 0-23,48-71` and `NUMA node1 CPU(s): 24-47,72-95`.
-Since NUMA node0 has more than we need, we will only assign from cores: 0-23 and 48-71.
+ We know the `lscpu` output for `c5.24xlarge` includes `NUMA node0 CPU(s): 0-23,48-71` and `NUMA node1 CPU(s): 24-47,72-95`. Since NUMA node0 has more than we need, we will only assign from cores: 0-23 and 48-71. 
 
-First, we will select 8 cores for each dataflow that share an L3 cache or NUMA Node.
-Then we will look up the corresponding vCPUs (labeled “CPU”) in the `lscpu -p` output in [Appendix: lscpu -p output (full) for c5.24xlarge](#agent-cpu-planning-appendix-lscpu-full "#agent-cpu-planning-appendix-lscpu-full").
-An example core selection process might look like the following:
+ First, we will select 8 cores for each dataflow that share an L3 cache or NUMA Node. Then we will look up the corresponding vCPUs (labeled “CPU”) in the `lscpu -p` output in [Appendix: `lscpu -p` output (full) for c5.24xlarge](#agent-cpu-planning-appendix-lscpu-full). An example core selection process might look like the following: 
++ Reserve cores 0-1 for the OS.
++ Flow 1: select cores 2-9 which map to vCPUs 2-9 and 50-57.
++ Flow 2: select cores 10-17 which map to vCPUs 10-17 and 58-65.
++ Agent core: select core 18 which maps to vCPUs 18 and 66.
 
-- Reserve cores 0-1 for the OS.
-- Flow 1: select cores 2-9 which map to vCPUs 2-9 and 50-57.
-- Flow 2: select cores 10-17 which map to vCPUs 10-17 and 58-65.
-- Agent core: select core 18 which maps to vCPUs 18 and 66.
+ This results in vCPUs 2-18 and 50-66 so the list to provide the agent is `[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66]`. You should ensure your own processes are not running on these CPUs as described in [Running services and processes alongside the AWS Ground Station Agent](best-practices.md#avoiding-contested-cores). 
 
-This results in vCPUs 2-18 and 50-66 so the list to provide the agent is `[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66]`.
-You should ensure your own processes are not running on these CPUs as described in [Running services and processes alongside the AWS Ground Station Agent](best-practices.md#avoiding-contested-cores "best-practices.md#avoiding-contested-cores").
-
-Note that the specific cores selected in this example are somewhat arbitrary.
-Other sets of cores would work as long as they satisfy the requirement of all sharing an L3 cache for each dataflow.
+ Note that the specific cores selected in this example are somewhat arbitrary. Other sets of cores would work as long as they satisfy the requirement of all sharing an L3 cache for each dataflow. 
 
 ## Appendix: `lscpu -p` output (full) for c5.24xlarge
+<a name="agent-cpu-planning-appendix-lscpu-full"></a>
 
 ```
-
 > lscpu -p
 # The following is the parsable format, which can be fed to other
 # programs. Each different item in every column has an unique ID
@@ -271,5 +286,4 @@ Other sets of cores would work as long as they satisfy the requirement of all sh
 93,45,1,1,,45,45,45,1
 94,46,1,1,,46,46,46,1
 95,47,1,1,,47,47,47,1
-
 ```
