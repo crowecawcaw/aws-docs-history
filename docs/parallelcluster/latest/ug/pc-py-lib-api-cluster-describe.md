@@ -1,17 +1,16 @@
+
+
 # `describe_cluster`
+<a name="pc-py-lib-api-cluster-describe"></a>
 
 ```
 describe_cluster(cluster_name, region)
 ```
 
-Get detailed information about an existing cluster.
+Get detailed information about an existing cluster.Parameters:
 
-###### Parameters:
-
-**`cluster_name` (required)**
-
+**`cluster_name` (required)**  
 The cluster name.
 
-**`region`**
-
+**`region`**  
 The cluster AWS Region.

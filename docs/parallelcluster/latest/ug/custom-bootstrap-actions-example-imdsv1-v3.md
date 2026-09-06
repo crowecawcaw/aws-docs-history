@@ -1,36 +1,38 @@
-# Example of how to update a configuration for IMDSv1
 
-The following is an example of a cluster configuration that supports IMDSv1 when using AWS ParallelCluster
-versions 3.7.0 and older.
+
+# Example of how to update a configuration for IMDSv1
+<a name="custom-bootstrap-actions-example-imdsv1-v3"></a>
+
+The following is an example of a cluster configuration that supports IMDSv1 when using AWS ParallelCluster versions 3.7.0 and older.
 
 ```
-Region: `us-east-1`
+Region: {{us-east-1}}
 Imds:
   ImdsSupport: v1.0
 Image:
-  Os: `alinux2023`
+  Os: {{alinux2023}}
 HeadNode:
-  InstanceType: `t2.micro`
+  InstanceType: {{t2.micro}}
   Networking:
-    SubnetId: `subnet-abcdef01234567890`
+    SubnetId: {{subnet-abcdef01234567890}}
   Ssh:
-    KeyName: `key-name`
+    KeyName: {{key-name}}
   CustomActions:
     OnNodeConfigured:
-      Script: `Script-path`
+      Script: {{Script-path}}
 Scheduling:
   Scheduler: slurm
   SlurmQueues:
-  - Name: `queue1`
+  - Name: {{queue1}}
     CustomActions:
       OnNodeConfigured:
-        Script: `Script-path`
+        Script: {{Script-path}}
     ComputeResources:
-    - Name: `t2micro`
+    - Name: {{t2micro}}
       Instances:
-      - InstanceType: `t2.micro`
-      MinCount: `1`1
+      - InstanceType: {{t2.micro}}
+      MinCount: {{1}}1
     Networking:
       SubnetIds:
-      - `subnet-abcdef01234567890`
+      - {{subnet-abcdef01234567890}}
 ```

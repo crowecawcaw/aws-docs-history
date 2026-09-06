@@ -1,13 +1,15 @@
+
+
 # Example
+<a name="pc-py-lib-api-examples"></a>
 
-###### Topics
-
-- [Create a cluster](#pc-py-lib-api-examples-create-cluster "#pc-py-lib-api-examples-create-cluster")
+**Topics**
++ [Create a cluster](#pc-py-lib-api-examples-create-cluster)
 
 ## Create a cluster
+<a name="pc-py-lib-api-examples-create-cluster"></a>
 
-When you run the following example script, with the given inputs stored in your environment, you create a cluster.
-The cluster configuration is created as a Python data type based on the [cluster configuration documentation](cluster-configuration-file-v3.md "cluster-configuration-file-v3.md").
+When you run the following example script, with the given inputs stored in your environment, you create a cluster. The cluster configuration is created as a Python data type based on the [cluster configuration documentation](cluster-configuration-file-v3.md).
 
 ```
 import os

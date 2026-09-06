@@ -1,19 +1,22 @@
+
+
 # deleteImage
+<a name="delete-image"></a>
 
 Initiate the deletion of the custom AWS ParallelCluster image.
 
-###### Topics
-
-- [Request syntax](#delete-image-request "#delete-image-request")
-- [Request body](#delete-image-request-body "#delete-image-request-body")
-- [Response syntax](#delete-image-response "#delete-image-response")
-- [Response body](#delete-image-response-body "#delete-image-response-body")
-- [Example](#delete-image-example "#delete-image-example")
+**Topics**
++ [Request syntax](#delete-image-request)
++ [Request body](#delete-image-request-body)
++ [Response syntax](#delete-image-response)
++ [Response body](#delete-image-response-body)
++ [Example](#delete-image-example)
 
 ## Request syntax
+<a name="delete-image-request"></a>
 
 ```
-DELETE /v3/images/custom/{`imageId`}
+DELETE /v3/images/custom/{{{imageId}}}
 {
   "force": boolean,
   "region": "string"
@@ -21,33 +24,25 @@ DELETE /v3/images/custom/{`imageId`}
 ```
 
 ## Request body
+<a name="delete-image-request-body"></a>
 
-**imageId**
-
-The ID of the image.
-
-Type: string
-
+**imageId**  
+The ID of the image.  
+Type: string  
 Required: Yes
 
-**force**
-
-If set to `true`, force the AMI delete. Use this parameter if there are instances
-that use the AMI or if the AMI is shared. The default is `false`.
-
-Type: boolean
-
+**force**  
+If set to `true`, force the AMI delete. Use this parameter if there are instances that use the AMI or if the AMI is shared. The default is `false`.  
+Type: boolean  
 Required: No
 
-**region**
-
-The AWS Region in which the image was created.
-
-Type: string
-
+**region**  
+The AWS Region in which the image was created.  
+Type: string  
 Required: No
 
 ## Response syntax
+<a name="delete-image-response"></a>
 
 ```
 {
@@ -66,82 +61,57 @@ Required: No
 ```
 
 ## Response body
+<a name="delete-image-response-body"></a>
 
-**image**
-
-**cloudformationStackArn**
-
-The Amazon resource name (ARN) of the main CloudFormation stack.
-
-Type: string
-
-**cloudformationStackStatus**
-
-The CloudFormation stack status.
-
-Type: string
-
-Valid values: `CREATE_IN_PROGRESS | CREATE_FAILED | CREATE_COMPLETE |
- ROLLBACK_IN_PROGRESS | ROLLBACK_FAILED | ROLLBACK_COMPLETE |
- DELETE_IN_PROGRESS | DELETE_FAILED | DELETE_COMPLETE | UPDATE_IN_PROGRESS |
- UPDATE_COMPLETE_CLEANUP_IN_PROGRESS | UPDATE_COMPLETE |
- UPDATE_ROLLBACK_IN_PROGRESS | UPDATE_ROLLBACK_FAILED |
- UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS |
- UPDATE_ROLLBACK_COMPLETE`
-
-**ec2AmiInfo**
-
-**amiId**
-
-The Amazon EC2 AMI ID.
-
-Type: string
-
-**imageBuildStatus**
-
-The image build status.
-
-Type: string
-
-Valid values: `BUILD_IN_PROGRESS | BUILD_FAILED | BUILD_COMPLETE |
- DELETE_IN_PROGRESS | DELETE_FAILED | DELETE_COMPLETE`
-
-**imageId**
-
-The ID of the image.
-
-Type: string
-
-**region**
-
-The AWS Region in which the image is created.
-
-Type: string
-
-**version**
-
-The AWS ParallelCluster version that's used to build the image.
-
+**image**    
+**cloudformationStackArn**  
+The Amazon resource name (ARN) of the main CloudFormation stack.  
+Type: string  
+**cloudformationStackStatus**  
+The CloudFormation stack status.  
+Type: string  
+Valid values: `CREATE_IN_PROGRESS | CREATE_FAILED | CREATE_COMPLETE | ROLLBACK_IN_PROGRESS | ROLLBACK_FAILED | ROLLBACK_COMPLETE | DELETE_IN_PROGRESS | DELETE_FAILED | DELETE_COMPLETE | UPDATE_IN_PROGRESS | UPDATE_COMPLETE_CLEANUP_IN_PROGRESS | UPDATE_COMPLETE | UPDATE_ROLLBACK_IN_PROGRESS | UPDATE_ROLLBACK_FAILED | UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS | UPDATE_ROLLBACK_COMPLETE`  
+**ec2AmiInfo**    
+**amiId**  
+The Amazon EC2 AMI ID.  
+Type: string  
+**imageBuildStatus**  
+The image build status.  
+Type: string  
+Valid values: `BUILD_IN_PROGRESS | BUILD_FAILED | BUILD_COMPLETE | DELETE_IN_PROGRESS | DELETE_FAILED | DELETE_COMPLETE`  
+**imageId**  
+The ID of the image.  
+Type: string  
+**region**  
+The AWS Region in which the image is created.  
+Type: string  
+**version**  
+The AWS ParallelCluster version that's used to build the image.  
 Type: string
 
 ## Example
+<a name="delete-image-example"></a>
 
-Python
-Request
+------
+#### [ Python ]
 
-```
-`$` `delete_image(`custom-image-id`)`
-```
-
-200 Response
+**Request**
 
 ```
-`{
- "image": {
- "image_build_status": "DELETE_IN_PROGRESS",
- "image_id": "custom-image-id",
- "region": "us-east-1",
- "version": "3.2.1"
- }
-}`
+$ delete_image({{custom-image-id}})
 ```
+
+**200 Response**
+
+```
+{
+  "image": {
+    "image_build_status": "DELETE_IN_PROGRESS",
+    "image_id": "custom-image-id",
+    "region": "us-east-1",
+    "version": "3.2.1"
+  }
+}
+```
+
+------

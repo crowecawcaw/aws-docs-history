@@ -1,75 +1,47 @@
+
+
 # Customize compute node network interfaces with launch template overrides
+<a name="tutorial-network-customization-v3"></a>
 
-Starting with AWS ParallelCluster 3.15.0, the `LaunchTemplateOverrides` parameter
-lets you customize the network interfaces of compute nodes by overriding the default network
-interface configuration with the configuration in a referenced launch template. The entire
-network interface section of the compute nodes is overwritten by the network interface section
-of the launch template used to override.
+Starting with AWS ParallelCluster 3.15.0, the `LaunchTemplateOverrides` parameter lets you customize the network interfaces of compute nodes by overriding the default network interface configuration with the configuration in a referenced launch template. The entire network interface section of the compute nodes is overwritten by the network interface section of the launch template used to override.
 
-This tutorial walks through an example of overriding the default network configuration of
-`p6-b300.48xlarge` compute nodes. This customization is useful when you need a
-specific network interface configuration that differs from what AWS ParallelCluster configures
-by default. In this example, we configure use case 2 for P6-B300 instances as outlined in the
-[Amazon EC2
-EFA-supported instance types documentation](../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md "../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md").
+This tutorial walks through an example of overriding the default network configuration of `p6-b300.48xlarge` compute nodes. This customization is useful when you need a specific network interface configuration that differs from what AWS ParallelCluster configures by default. In this example, we configure use case 2 for P6-B300 instances as outlined in the [Amazon EC2 EFA-supported instance types documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa-acc-inst-types.html).
 
-###### Note
+**Note**  
+It is recommended to use the AWS CLI to create the launch template instead of the console for maximum flexibility.
 
-It is recommended to use the AWS CLI to create the launch template instead of the
-console for maximum flexibility.
+**Note**  
+The launch template should only contain Network Interfaces overrides. AWS ParallelCluster has a validation preventing overriding other parameters.
 
-###### Note
+**Warning**  
+If you use the override to configure network interfaces in a way that is not supported by the instance type being used, then the instances will fail to launch.
 
-The launch template should only contain Network Interfaces overrides. AWS ParallelCluster
-has a validation preventing overriding other parameters.
-
-###### Warning
-
-If you use the override to configure network interfaces in a way that is not supported
-by the instance type being used, then the instances will fail to launch.
-
-###### Prerequisites
-
-- AWS ParallelCluster version 3.15.0 or later [is installed](install-v3-parallelcluster.md "install-v3-parallelcluster.md").
-- The AWS CLI [is installed and configured.](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
-- You have an IAM role with the [permissions](iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-example-user-policies "iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-example-user-policies") that are required to run the [pcluster](pcluster-v3.md "pcluster-v3.md") CLI.
+**Prerequisites**
++ AWS ParallelCluster version 3.15.0 or later [is installed](install-v3-parallelcluster.md).
++ The AWS CLI [is installed and configured.](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
++ You have an IAM role with the [permissions](iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-example-user-policies) that are required to run the [`pcluster`](pcluster-v3.md) CLI.
 
 ## Step 1: Create security groups
+<a name="tutorial-network-customization-v3-security-groups"></a>
 
-When creating the launch template to use in the override, you must reference a security
-group. The default AWS ParallelCluster security group for the compute resource does not exist
-until cluster creation, so you must create a custom security group. This security group must
-then be referenced by the head node security group to allow traffic between the head node
-and compute nodes.
+When creating the launch template to use in the override, you must reference a security group. The default AWS ParallelCluster security group for the compute resource does not exist until cluster creation, so you must create a custom security group. This security group must then be referenced by the head node security group to allow traffic between the head node and compute nodes.
 
-If you are updating an existing cluster to customize new capacity, you can use the default
-AWS ParallelCluster compute node security group in the launch template instead of creating a
-custom one.
+If you are updating an existing cluster to customize new capacity, you can use the default AWS ParallelCluster compute node security group in the launch template instead of creating a custom one.
 
 Create the following two security groups:
-
-- **Head node additional security group**
-  (`sg-1234abcd`):
-
-  - Ingress: all traffic from compute security group
-
-- **Compute security group**
-  (`sg-abcd1234`):
-
-  - Ingress: all traffic from head node security group
-  - Ingress: all traffic from self (compute-to-compute)
-  - Egress: default allow-all
++ **Head node additional security group** (`sg-1234abcd`):
+  + Ingress: all traffic from compute security group
++ **Compute security group** (`sg-abcd1234`):
+  + Ingress: all traffic from head node security group
+  + Ingress: all traffic from self (compute-to-compute)
+  + Egress: default allow-all
 
 ## Step 2: Create the launch template
+<a name="tutorial-network-customization-v3-launch-template"></a>
 
-Create a launch template that defines the network interface configuration for
-`p6-b300.48xlarge` compute nodes. For the primary network interface (network
-card index 0, device index 0), use an ENA (default) network interface. For the remaining
-network cards, create an EFA-only interface (network card indexes 1-16, device index 0)
-and an ENA (default) interface (network card indexes 1-16, device index 1).
+Create a launch template that defines the network interface configuration for `p6-b300.48xlarge` compute nodes. For the primary network interface (network card index 0, device index 0), use an ENA (default) network interface. For the remaining network cards, create an EFA-only interface (network card indexes 1-16, device index 0) and an ENA (default) interface (network card indexes 1-16, device index 1).
 
-Run the following AWS CLI command to create the launch template
-(`lt-123456789`):
+Run the following AWS CLI command to create the launch template (`lt-123456789`):
 
 ```
 aws ec2 create-launch-template \
@@ -115,9 +87,9 @@ aws ec2 create-launch-template \
 ```
 
 ## Step 3: Create the cluster with launch template overrides
+<a name="tutorial-network-customization-v3-create-cluster"></a>
 
-Create a cluster configuration that uses the `LaunchTemplateOverrides`
-parameter to reference the launch template you created.
+Create a cluster configuration that uses the `LaunchTemplateOverrides` parameter to reference the launch template you created.
 
 ```
 Region: us-east-1

@@ -1,104 +1,120 @@
+
+
 # (Optional) Manage AD users and groups
+<a name="tutorials_05_multi-user-ad-step2"></a>
 
 In this step, you manage users and groups from an Amazon EC2 Amazon Linux 2023 instance that's joined to the Active Directory (AD) domain.
 
-If you followed the _automated_ path, restart and log in to the AD joined instance that was created as part of the
-automation.
+If you followed the *automated* path, restart and log in to the AD joined instance that was created as part of the automation.
 
-If you followed the _manual_ path, restart and log in to the instance that you created and joined to the AD in preceding
-steps.
+If you followed the *manual* path, restart and log in to the instance that you created and joined to the AD in preceding steps.
 
-In these steps, you use the [adcli](https://www.mankier.com/package/adcli "https://www.mankier.com/package/adcli") and [openldap-clients](https://www.mankier.com/package/openldap-clients "https://www.mankier.com/package/openldap-clients") tools that were installed in the instance as part of a preceding
-step.
+In these steps, you use the [adcli](https://www.mankier.com/package/adcli) and [openldap-clients](https://www.mankier.com/package/openldap-clients) tools that were installed in the instance as part of a preceding step.
 
-###### Log in to an Amazon EC2 instance that is joined to the AD domain
+**Log in to an Amazon EC2 instance that is joined to the AD domain**
 
-1. From the Amazon EC2 console, select the untitled Amazon EC2 instance that was created in previous steps. The instance state might be
-   **Stopped**.
-2. If the instance state is **Stopped**, choose **Instance state** and then **Start instance**.
-3. After the status checks pass, select the instance and choose **Connect** and SSH in to the instance.
+1. From the Amazon EC2 console, select the untitled Amazon EC2 instance that was created in previous steps. The instance state might be **Stopped**.
 
-###### Manage users and groups when logged into an Amazon EC2 Amazon Linux 2023 instance that's joined to the AD
+1. If the instance state is **Stopped**, choose **Instance state** and then **Start instance**.
 
-When you run the `adcli` commands with the `-U "Admin"` option, you're prompted to enter the AD `Admin`
-password. You include the AD `Admin` password as part of the `ldapsearch` commands.
+1. After the status checks pass, select the instance and choose **Connect** and SSH in to the instance.
 
-1. ###### Create a user.
+**Manage users and groups when logged into an Amazon EC2 Amazon Linux 2023 instance that's joined to the AD**
 
-```
-`$` `adcli create-user `"clusteruser"` --domain `"corp.example.com"` -U "Admin"`
-```
+When you run the `adcli` commands with the ` -U "Admin"` option, you're prompted to enter the AD `Admin` password. You include the AD `Admin` password as part of the `ldapsearch` commands.
 
-2. ###### Set a user password.
+1. 
 
-```
-`$` `aws --region `"region-id"` ds reset-user-password --directory-id `"d-abcdef01234567890"` --user-name `"clusteruser"` --new-password `"new-p@ssw0rd"``
-```
+**Create a user.**
 
-3. ###### Create a group.
+   ```
+   $ adcli create-user {{"clusteruser"}} --domain {{"corp.example.com"}} -U "Admin"
+   ```
 
-```
-`$` `adcli create-group `"clusterteam"` --domain `"corp.example.com"` -U "Admin"`
-```
+1. 
 
-4. ###### Add a user to a group.
+**Set a user password.**
 
-```
-`$` `adcli add-member `"clusterteam"` `"clusteruser"` --domain `"corp.example.com"` -U "Admin"`
-```
+   ```
+   $ aws --region {{"region-id"}} ds reset-user-password --directory-id {{"d-abcdef01234567890"}} --user-name {{"clusteruser"}} --new-password {{"new-p@ssw0rd"}}
+   ```
 
-5. ###### Describe users and groups.
+1. 
 
-Describe all users.
+**Create a group.**
 
-```
-`$` `ldapsearch "(&(objectClass=`user`))" -x -h `"192.0.2.254"` -b "DC=`corp`,DC=`example`,DC=`com`" -D "CN=Admin,OU=Users,OU=`CORP`,DC=`corp`,DC=`example`,DC=`com`" -w `"p@ssw0rd"``
-```
+   ```
+   $ adcli create-group {{"clusterteam"}} --domain {{"corp.example.com"}} -U "Admin"
+   ```
 
-Describe a specific user.
+1. 
 
-```
-`$` `ldapsearch "(&(objectClass=`user`)(cn=`clusteruser`))" -x -h `"192.0.2.254"` -b "DC=`corp`,DC=`example`,DC=`com`" -D "CN=Admin,OU=Users,OU=`CORP`,DC=`corp`,DC=`example`,DC=`com`" -w `"p@ssw0rd"``
-```
+**Add a user to a group.**
 
-Describe all users with a name pattern.
+   ```
+   $ adcli add-member {{"clusterteam"}} {{"clusteruser"}} --domain {{"corp.example.com"}} -U "Admin"
+   ```
 
-```
-`$` `ldapsearch "(&(objectClass=`user`)(cn=`user*`))" -x -h `"192.0.2.254"` -b "DC=`corp`,DC=`example`,DC=`com`" -D "CN=Admin,OU=Users,OU=`CORP`,DC=`corp`,DC=`example`,DC=`com`" -w `"p@ssw0rd"``
-```
+1. 
 
-Describe all users that are part of a specific group.
+**Describe users and groups.**
 
-```
-`$` `ldapsearch "(&(objectClass=`user`)(memberOf=CN=`clusterteam`,OU=Users,OU=`CORP`,DC=`corp`,DC=`example`,DC=`com`))" -x -h `"192.0.2.254"` -b "DC=`corp`,DC=`example`,DC=`com`" -D "CN=Admin,OU=Users,OU=`CORP`,DC=`corp`,DC=`example`,DC=`com`" -w `"p@ssw0rd"``
-```
+   Describe all users.
 
-Describe all groups
+   ```
+   $ ldapsearch "(&(objectClass={{user}}))" -x -h {{"192.0.2.254"}} -b "DC={{corp}},DC={{example}},DC={{com}}" -D "CN=Admin,OU=Users,OU={{CORP}},DC={{corp}},DC={{example}},DC={{com}}" -w {{"p@ssw0rd"}}
+   ```
 
-```
-`$` `ldapsearch "objectClass=`group`" -x -h `"192.0.2.254"` -b "DC=`corp`,DC=`example`,DC=`com`" -D "CN=Admin,OU=Users,OU=`CORP`,DC=`corp`,DC=`example`,DC=`com`" -w `"p@ssw0rd"``
-```
+   Describe a specific user.
 
-Describe a specific group
+   ```
+   $ ldapsearch "(&(objectClass={{user}})(cn={{clusteruser}}))" -x -h {{"192.0.2.254"}} -b "DC={{corp}},DC={{example}},DC={{com}}" -D "CN=Admin,OU=Users,OU={{CORP}},DC={{corp}},DC={{example}},DC={{com}}" -w {{"p@ssw0rd"}}
+   ```
 
-```
-`$` `ldapsearch "(&(objectClass=`group`)(cn=`clusterteam`))" -x -h `"192.0.2.254"` -b "DC=`corp`,DC=`example`,DC=`com`" -D "CN=Admin,OU=Users,OU=`CORP`,DC=`corp`,DC=`example`,DC=`com`" -w `"p@ssw0rd"``
-```
+   Describe all users with a name pattern.
 
-6. ###### Remove a user from a group.
+   ```
+   $ ldapsearch "(&(objectClass={{user}})(cn={{user*}}))" -x -h {{"192.0.2.254"}} -b "DC={{corp}},DC={{example}},DC={{com}}" -D "CN=Admin,OU=Users,OU={{CORP}},DC={{corp}},DC={{example}},DC={{com}}" -w {{"p@ssw0rd"}}
+   ```
 
-```
-`$` `adcli remove-member `"clusterteam"` `"clusteruser"` --domain `"corp.`example`.com"` -U "Admin"`
-```
+   Describe all users that are part of a specific group.
 
-7. ###### Delete a user.
+   ```
+   $ ldapsearch "(&(objectClass={{user}})(memberOf=CN={{clusterteam}},OU=Users,OU={{CORP}},DC={{corp}},DC={{example}},DC={{com}}))" -x -h {{"192.0.2.254"}} -b "DC={{corp}},DC={{example}},DC={{com}}" -D "CN=Admin,OU=Users,OU={{CORP}},DC={{corp}},DC={{example}},DC={{com}}" -w {{"p@ssw0rd"}}
+   ```
 
-```
-`$` `adcli delete-user `"clusteruser"` --domain `"corp.`example`.com"` -U "Admin"`
-```
+   Describe all groups
 
-8. ###### Delete a group.
+   ```
+   $ ldapsearch "objectClass={{group}}" -x -h {{"192.0.2.254"}} -b "DC={{corp}},DC={{example}},DC={{com}}" -D "CN=Admin,OU=Users,OU={{CORP}},DC={{corp}},DC={{example}},DC={{com}}" -w {{"p@ssw0rd"}}
+   ```
 
-```
-`$` `adcli delete-group `"clusterteam"` --domain `"corp.`example`.com"` -U "Admin"`
-```
+   Describe a specific group
+
+   ```
+   $ ldapsearch "(&(objectClass={{group}})(cn={{clusterteam}}))" -x -h {{"192.0.2.254"}} -b "DC={{corp}},DC={{example}},DC={{com}}" -D "CN=Admin,OU=Users,OU={{CORP}},DC={{corp}},DC={{example}},DC={{com}}" -w {{"p@ssw0rd"}}
+   ```
+
+1. 
+
+**Remove a user from a group.**
+
+   ```
+   $ adcli remove-member {{"clusterteam"}} {{"clusteruser"}} --domain {{"corp.{{example}}.com"}} -U "Admin"
+   ```
+
+1. 
+
+**Delete a user.**
+
+   ```
+   $ adcli delete-user {{"clusteruser"}} --domain {{"corp.{{example}}.com"}} -U "Admin"
+   ```
+
+1. 
+
+**Delete a group.**
+
+   ```
+   $ adcli delete-group {{"clusterteam"}} --domain {{"corp.{{example}}.com"}} -U "Admin"
+   ```

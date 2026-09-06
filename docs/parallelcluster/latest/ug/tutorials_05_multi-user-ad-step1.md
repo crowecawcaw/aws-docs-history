@@ -1,43 +1,58 @@
+
+
 # Create the AD infrastructure
+<a name="tutorials_05_multi-user-ad-step1"></a>
 
-Choose the _Automated_ tab to create the Active Directory (AD) infrastructure with an CloudFormation quick create template.
+Choose the *Automated* tab to create the Active Directory (AD) infrastructure with an CloudFormation quick create template.
 
-Choose the _Manual_ tab to manually create the AD infrastructure.
+Choose the *Manual* tab to manually create the AD infrastructure.
+
+## Automated
+<a name="tutorials_05_multi-user-ad-step1-automated"></a>
 
 1. Sign in to the AWS Management Console.
-2. Open [CloudFormation Quick Create (region us-east-1)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=pcluster-ad&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/templates/1-click/ad-integration.yaml "https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=pcluster-ad&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/templates/1-click/ad-integration.yaml") to create the following resources in the CloudFormation console:
 
-   - A VPC with two subnets and routing for public access, if no VPC is specified.
-   - An AWS Managed Microsoft AD.
-   - An Amazon EC2 instance that's joined to the AD that you can use to manage the directory.
+1. Open [CloudFormation Quick Create (region us-east-1)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=pcluster-ad&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/templates/1-click/ad-integration.yaml) to create the following resources in the CloudFormation console:
+   + A VPC with two subnets and routing for public access, if no VPC is specified.
+   + An AWS Managed Microsoft AD.
+   + An Amazon EC2 instance that's joined to the AD that you can use to manage the directory.
 
-3. In the **Quick create stack** page **Parameters** section, enter passwords for the
-   following parameters:
+1. In the **Quick create stack** page **Parameters** section, enter passwords for the following parameters:
+   + **AdminPassword**
+   + **ReadOnlyPassword**
+   + **UserPassword**
 
-   - **AdminPassword**
-   - **ReadOnlyPassword**
-   - **UserPassword**
-     Make note of the passwords. You use them later on in this tutorial.
+   Make note of the passwords. You use them later on in this tutorial.
 
-4. For **DomainName**, enter `corp.example.com`
-5. For **Keypair**, enter the name of an Amazon EC2 key pair.
-6. Check the boxes to acknowledge each of the access capabilities at the bottom of the page.
-7. Choose **Create stack**.
-8. After the CloudFormation stack has reached the `CREATE_COMPLETE` state, choose the **Outputs** tab of the stack.
-   Make a note of the output resource names and IDs because you need to use them in later steps. The outputs provide the information that's
-   needed to create the cluster.
+1. For **DomainName**, enter **corp.example.com**
 
-![A diagram that shows the created stack outputs in the AWS Management Console.](images/ad-cfn.png) 9. To complete the exercises [(Optional) Manage AD users and groups](tutorials_05_multi-user-ad-step2.md "tutorials_05_multi-user-ad-step2.md"), you need the directory ID.
-Choose **Resources** and scroll down to make note of the directory ID. 10. Continue at [(Optional) Manage AD users and groups](tutorials_05_multi-user-ad-step2.md "tutorials_05_multi-user-ad-step2.md") or [Create the cluster](tutorials_05_multi-user-ad-step3.md "tutorials_05_multi-user-ad-step3.md").
+1. For **Keypair**, enter the name of an Amazon EC2 key pair.
+
+1. Check the boxes to acknowledge each of the access capabilities at the bottom of the page.
+
+1. Choose **Create stack**.
+
+1. After the CloudFormation stack has reached the `CREATE_COMPLETE` state, choose the **Outputs** tab of the stack. Make a note of the output resource names and IDs because you need to use them in later steps. The outputs provide the information that's needed to create the cluster.  
+![A diagram that shows the created stack outputs in the AWS Management Console.](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/ad-cfn.png)
+
+1. To complete the exercises [(Optional) Manage AD users and groups](tutorials_05_multi-user-ad-step2.md), you need the directory ID. Choose **Resources** and scroll down to make note of the directory ID.
+
+1. Continue at [(Optional) Manage AD users and groups](tutorials_05_multi-user-ad-step2.md) or [Create the cluster](tutorials_05_multi-user-ad-step3.md).
+
+## Manual
+<a name="tutorials_05_multi-user-ad-step1-manual"></a>
+
 Create a VPC for the directory service with two subnets in different Availability Zones and an AWS Managed Microsoft AD.
 
-###### Note
+### Create the AD
+<a name="tutorials_05_multi-user-ad-step1-manual-ad"></a>
 
-- The directory and domain name is `corp.example.com`. The short name is `CORP`.
-- Change the `Admin` password in the script.
-- The Active Directory (AD) takes at least 15 minutes to create.
-  Use the following Python script to create the VPC, subnets, and AD resources in your local AWS Region. Save this file as
-  `ad.py` and run it.
+**Note**  
+The directory and domain name is `corp.example.com`. The short name is `CORP`.
+Change the `Admin` password in the script.
+The Active Directory (AD) takes at least 15 minutes to create.
+
+Use the following Python script to create the VPC, subnets, and AD resources in your local AWS Region. Save this file as `ad.py` and run it.
 
 ```
 import boto3
@@ -46,7 +61,7 @@ from pprint import pprint
 
 vpc_name = "PclusterVPC"
 ad_domain = "corp.example.com"
-admin_password = `"asdfASDF1234"`
+admin_password = {{"asdfASDF1234"}}
 
 ec2 = boto3.client("ec2")
 ds = boto3.client("ds")
@@ -92,7 +107,7 @@ while directory["Stage"] in {"Requested", "Creating"}:
     time.sleep(3)
     directories = ds.describe_directories(DirectoryIds=[directory_id])["DirectoryDescriptions"]
     directory = directories[0]
-
+    
 dns_ip_addrs = directory["DnsIpAddrs"]
 
 pprint({"directory_id": directory_id,
@@ -118,481 +133,561 @@ Make a note of the output resource names and IDs. You use them in later steps.
 
 After the script completes, continue to the next step.
 
-New Amazon EC2 console
+### Create an Amazon EC2 instance
+<a name="tutorials_05_multi-user-ad-step1-manual-instance"></a>
+
+------
+#### [ New Amazon EC2 console ]
 
 1. Sign in to the AWS Management Console.
-2. If you don't have a role with the policies listed in step 4 attached, open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). Otherwise, skip to step 5.
-3. Create the `ResetUserPassword` policy, replacing the red highlighted content with your AWS Region ID, Account ID, and the directory ID from the output of
-   the script you ran to create the AD.
 
-ResetUserPassword
+1. If you don't have a role with the policies listed in step 4 attached, open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/). Otherwise, skip to step 5.
 
-```
-{
-       "Statement": [
-        {
-            "Action": [
-                "ds:ResetUserPassword"
-            ],
-            "Resource": "arn:aws:ds:`region-id`:`123456789012`:directory/`d-abcdef01234567890`",
-            "Effect": "Allow"
+1. Create the `ResetUserPassword` policy, replacing the red highlighted content with your AWS Region ID, Account ID, and the directory ID from the output of the script you ran to create the AD.
+
+   ResetUserPassword
+
+   ```
+   {
+          "Statement": [
+           {
+               "Action": [
+                   "ds:ResetUserPassword"
+               ],
+               "Resource": "arn:aws:ds:{{region-id}}:{{123456789012}}:directory/{{d-abcdef01234567890}}",
+               "Effect": "Allow"
+           }
+       ]
+   }
+   ```
+
+1. Create an IAM role with the following policies attached.
+   + AWS managed policy [AmazonSSMManagedInstanceCore](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore)
+   + AWS managed policy [AmazonSSMDirectoryServiceAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess)
+   + ResetUserPassword policy
+
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
+
+1. In the **Amazon EC2 Dashboard**, choose **Launch Instance**.
+
+1. In **Application and OS Images**, select a recent Amazon Linux 2023 AMI.
+
+1. For **Instance type**, choose t2.micro.
+
+1. For **Key pair**, choose a key pair.
+
+1. For **Network settings**, choose **Edit**.
+
+1. For **VPC**, select the directory VPC.
+
+1. Scroll down and select **Advanced details**.
+
+1. In **Advanced details**, **Domain join directory**, choose **corp.example.com**.
+
+1. For **IAM Instance profile**, choose the role you created in step 1 or a role with policies listed in step 4 attached.
+
+1. In **Summary** choose **Launch instance**.
+
+1. Make note of the Instance ID (for example, i-1234567890abcdef0) and wait for the instance to finish launching.
+
+1. After the instance has launched, continue to the next step.
+
+------
+#### [ Old Amazon EC2 console ]
+
+1. Sign in to the AWS Management Console.
+
+1. If you don't have a role with the policies listed in step 4 attached, open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/). Otherwise, skip to step 5.
+
+1. Create the `ResetUserPassword` policy. Replace the red highlighted content with your AWS Region ID, AWS account ID, and the directory ID from the output of the script you ran to create the Active Directory (AD).
+
+   ResetUserPassword
+
+   ```
+   {
+           "Statement": [
+               {
+                   "Action": [
+                       "ds:ResetUserPassword"
+                   ],
+                   "Resource": "arn:aws:ds:{{region-id}}:{{123456789012}}:directory/{{d-abcdef01234567890}}",
+                   "Effect": "Allow"
+               }
+           ]
         }
-    ]
-}
-```
+   ```
 
-4. Create an IAM role with the following policies attached.
+1. Create an IAM role with the following policies attached.
+   + AWS managed policy [AmazonSSMManagedInstanceCore](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore)
+   + AWS managed policy [AmazonSSMDirectoryServiceAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess)
+   + ResetUserPassword policy
 
-   - AWS managed policy [AmazonSSMManagedInstanceCore](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
-   - AWS managed policy [AmazonSSMDirectoryServiceAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess")
-   - ResetUserPassword policy
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-5. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-6. In the **Amazon EC2 Dashboard**, choose **Launch Instance**.
-7. In **Application and OS Images**, select a recent Amazon Linux 2023 AMI.
-8. For **Instance type**, choose t2.micro.
-9. For **Key pair**, choose a key pair.
-10. For **Network settings**, choose **Edit**.
-11. For **VPC**, select the directory VPC.
-12. Scroll down and select **Advanced details**.
-13. In **Advanced details**, **Domain join directory**, choose `corp.example.com`.
-14. For **IAM Instance profile**, choose the role you created in step 1 or a role with policies listed in step 4 attached.
-15. In **Summary** choose **Launch instance**.
-16. Make note of the Instance ID (for example, i-1234567890abcdef0) and wait for the instance to finish launching.
-17. After the instance has launched, continue to the next step.
+1. In the **Amazon EC2 Dashboard**, choose **Launch Instance**.
 
-Old Amazon EC2 console
+1. In **Application and OS Images**, select a recent Amazon Linux 2023 AMI.
 
-1. Sign in to the AWS Management Console.
-2. If you don't have a role with the policies listed in step 4 attached, open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). Otherwise, skip to step 5.
-3. Create the `ResetUserPassword` policy. Replace the red highlighted content with your AWS Region ID, AWS account ID,
-   and the directory ID from the output of the script you ran to create the Active Directory (AD).
+1. For **Instance type**, choose t2.micro.
 
-ResetUserPassword
+1. For **Key pair**, choose a key pair.
 
-```
-{
-        "Statement": [
-            {
-                "Action": [
-                    "ds:ResetUserPassword"
-                ],
-                "Resource": "arn:aws:ds:`region-id`:`123456789012`:directory/`d-abcdef01234567890`",
-                "Effect": "Allow"
-            }
-        ]
-     }
-```
+1. In **Network settings**, choose **Edit**.
 
-4. Create an IAM role with the following policies attached.
+1. In **Network settings**, **VPC**, select the directory VPC.
 
-   - AWS managed policy [AmazonSSMManagedInstanceCore](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
-   - AWS managed policy [AmazonSSMDirectoryServiceAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess")
-   - ResetUserPassword policy
+1. Scroll down and select **Advanced details**.
 
-5. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-6. In the **Amazon EC2 Dashboard**, choose **Launch Instance**.
-7. In **Application and OS Images**, select a recent Amazon Linux 2023 AMI.
-8. For **Instance type**, choose t2.micro.
-9. For **Key pair**, choose a key pair.
-10. In **Network settings**, choose **Edit**.
-11. In **Network settings**, **VPC**, select
-    the directory VPC.
-12. Scroll down and select **Advanced details**.
-13. In **Advanced details**, **Domain join directory**, choose `corp.example.com`.
-14. In **Advanced details**, **Instance profile**, choose the role that you created in step 1 or a
-    role with the policies that are listed in step 4 attached.
-15. In **Summary** choose **Launch instance**.
-16. Make note of the Instance ID (for example, i-1234567890abcdef0) and wait for the instance to finish launching.
-17. After the instance has launched, continue to the next step.
+1. In **Advanced details**, **Domain join directory**, choose **corp.example.com**.
 
-18. ###### Connect to your instance and join the AD realm as `admin`.
+1. In **Advanced details**, **Instance profile**, choose the role that you created in step 1 or a role with the policies that are listed in step 4 attached.
 
-Run the following commands to connect to the instance.
+1. In **Summary** choose **Launch instance**.
 
-```
-`$` `INSTANCE_ID=`"i-1234567890abcdef0"``
-```
+1. Make note of the Instance ID (for example, i-1234567890abcdef0) and wait for the instance to finish launching.
 
-```
-`$` `PUBLIC_IP=$(aws ec2 describe-instances \
---instance-ids $INSTANCE_ID \
---query "Reservations[0].Instances[0].PublicIpAddress" \
---output text)`
-```
+1. After the instance has launched, continue to the next step.
 
-```
-`$` `ssh -i `~/.ssh/keys/keypair.pem` ec2-user@$PUBLIC_IP`
-```
+------
 
-2. ###### Install necessary software and join the realm.
+### Join your instance to the AD
+<a name="tutorials_05_multi-user-ad-step1-manual-join"></a>
 
-```
-`$` `sudo yum -y install sssd realmd oddjob oddjob-mkhomedir adcli samba-common samba-common-tools krb5-workstation openldap-clients policycoreutils-python`
-```
+1. 
 
-3. ###### Replace the admin password with your `admin` password.
+**Connect to your instance and join the AD realm as `admin`.**
 
-```
-`$` `ADMIN_PW=`"asdfASDF1234"``
-```
+   Run the following commands to connect to the instance.
 
-````
-`$` `echo $ADMIN_PW | sudo realm join -U Admin `corp.example.com```Password for Admin:`
-````
+   ```
+   $ INSTANCE_ID={{"i-1234567890abcdef0"}}
+   ```
 
-If the preceding has succeeded, you're joined to the realm and can proceed to the next step.
+   ```
+   $ PUBLIC_IP=$(aws ec2 describe-instances \
+   --instance-ids $INSTANCE_ID \
+   --query "Reservations[0].Instances[0].PublicIpAddress" \
+   --output text)
+   ```
 
-1. ###### Create the ReadOnlyUser and an additional user.
+   ```
+   $ ssh -i {{~/.ssh/keys/keypair.pem}} ec2-user@$PUBLIC_IP
+   ```
 
-In this step, you use [adcli](https://www.mankier.com/package/adcli "https://www.mankier.com/package/adcli") and [openldap-clients](https://www.mankier.com/package/openldap-clients "https://www.mankier.com/package/openldap-clients") tools that you installed in a preceding step.
+1. 
 
-```
-`$` `echo $ADMIN_PW | adcli create-user -x -U Admin --domain=`corp.example.com` --display-name=ReadOnlyUser ReadOnlyUser`
-```
+**Install necessary software and join the realm.**
 
-```
-`$` `echo $ADMIN_PW | adcli create-user -x -U Admin --domain=`corp.example.com` --display-name=`user000 user000``
-```
+   ```
+   $ sudo yum -y install sssd realmd oddjob oddjob-mkhomedir adcli samba-common samba-common-tools krb5-workstation openldap-clients policycoreutils-python
+   ```
 
-2. **Verify the users are created:**
+1. 
 
-The directory DNS IP addresses are outputs of the Python script.
+**Replace the admin password with your `admin` password.**
 
-```
-`$` `DIRECTORY_IP=`"192.0.2.254"``
-```
+   ```
+   $ ADMIN_PW={{"asdfASDF1234"}}
+   ```
 
-```
-`$` `ldapsearch -x -h $DIRECTORY_IP -D Admin -w $ADMIN_PW -b "cn=ReadOnlyUser,ou=Users,ou=CORP,dc=`corp`,dc=`example`,dc=`com`"`
-```
+   ```
+   $ echo $ADMIN_PW | sudo realm join -U Admin {{corp.example.com}}
+   Password for Admin:
+   ```
 
-```
-`$` `ldapsearch -x -h $DIRECTORY_IP -D Admin -w $ADMIN_PW -b "cn=`user000`,ou=Users,ou=CORP,dc=`corp`,dc=`example`,dc=`com`"`
-```
+   If the preceding has succeeded, you're joined to the realm and can proceed to the next step.
 
-By default, when you create a user with the `ad-cli`, the user is disabled. 3. ###### **Reset and activate the user passwords from your local machine:**
+### Add users to the AD
+<a name="tutorials_05_multi-user-ad-step1-manual-join-add-users"></a>
 
-Log out of your Amazon EC2 instance.
+1. 
 
-###### Note
+**Create the ReadOnlyUser and an additional user.**
 
-    * `ro-p@ssw0rd` is the password of `ReadOnlyUser`, retrieved from AWS Secrets Manager.
-    * `user-p@ssw0rd` is the password of a cluster user that's provided when you connect (`ssh`) to the
-     cluster.
+   In this step, you use [adcli](https://www.mankier.com/package/adcli) and [openldap-clients](https://www.mankier.com/package/openldap-clients) tools that you installed in a preceding step.
 
-The `directory-id` is an output of the Python script.
+   ```
+   $ echo $ADMIN_PW | adcli create-user -x -U Admin --domain={{corp.example.com}} --display-name=ReadOnlyUser ReadOnlyUser
+   ```
 
-```
-`$` `DIRECTORY_ID=`"d-abcdef01234567890"``
-```
+   ```
+   $ echo $ADMIN_PW | adcli create-user -x -U Admin --domain={{corp.example.com}} --display-name={{user000 user000}}
+   ```
 
-```
-`$` `aws ds reset-user-password \
---directory-id $DIRECTORY_ID \
---user-name "ReadOnlyUser" \
---new-password `"ro-p@ssw0rd"` \
---region `"region-id"``
-```
+1. **Verify the users are created:**
 
-```
-`$` `aws ds reset-user-password \
---directory-id $DIRECTORY_ID \
---user-name `"user000"` \
---new-password `"user-p@ssw0rd"` \
---region `"region-id"``
-```
+   The directory DNS IP addresses are outputs of the Python script.
 
-4. **Add the password to a Secrets Manager secret.**
+   ```
+   $ DIRECTORY_IP={{"192.0.2.254"}}
+   ```
 
-Now that you created a `ReadOnlyUser` and set the password, store it in a secret that AWS ParallelCluster uses for validating
-logins.
+   ```
+   $ ldapsearch -x -h $DIRECTORY_IP -D Admin -w $ADMIN_PW -b "cn=ReadOnlyUser,ou=Users,ou=CORP,dc={{corp}},dc={{example}},dc={{com}}"
+   ```
 
-Use Secrets Manager to create a new secret to hold the password for the `ReadOnlyUser` as the value. The secret value format must be
-plain text only (not JSON format). Make note of the secret ARN for future steps.
+   ```
+   $ ldapsearch -x -h $DIRECTORY_IP -D Admin -w $ADMIN_PW -b "cn={{user000}},ou=Users,ou=CORP,dc={{corp}},dc={{example}},dc={{com}}"
+   ```
 
-```
-`$` `aws secretsmanager create-secret --name `"ADSecretPassword"` \
---region `region_id` \
---secret-string `"ro-p@ssw0rd"` \
---query ARN \
---output text``arn:aws:secretsmanager:region-id:123456789012:secret:ADSecretPassword-1234`
-```
+   By default, when you create a user with the `ad-cli`, the user is disabled.
+
+1. 
+
+****Reset and activate the user passwords from your local machine:****
+
+   Log out of your Amazon EC2 instance.
+**Note**  
+`ro-p@ssw0rd` is the password of `ReadOnlyUser`, retrieved from AWS Secrets Manager.
+`user-p@ssw0rd` is the password of a cluster user that's provided when you connect (`ssh`) to the cluster.
+
+   The `directory-id` is an output of the Python script.
+
+   ```
+   $ DIRECTORY_ID={{"d-abcdef01234567890"}}
+   ```
+
+   ```
+   $ aws ds reset-user-password \
+   --directory-id $DIRECTORY_ID \
+   --user-name "ReadOnlyUser" \
+   --new-password {{"ro-p@ssw0rd"}} \
+   --region {{"region-id"}}
+   ```
+
+   ```
+   $ aws ds reset-user-password \
+   --directory-id $DIRECTORY_ID \
+   --user-name {{"user000"}} \
+   --new-password {{"user-p@ssw0rd"}} \
+   --region {{"region-id"}}
+   ```
+
+1. **Add the password to a Secrets Manager secret.**
+
+   Now that you created a `ReadOnlyUser` and set the password, store it in a secret that AWS ParallelCluster uses for validating logins.
+
+   Use Secrets Manager to create a new secret to hold the password for the `ReadOnlyUser` as the value. The secret value format must be plain text only (not JSON format). Make note of the secret ARN for future steps.
+
+   ```
+   $ aws secretsmanager create-secret --name {{"ADSecretPassword"}} \
+   --region {{region_id}} \
+   --secret-string {{"ro-p@ssw0rd"}} \
+   --query ARN \
+   --output text
+   arn:aws:secretsmanager:region-id:123456789012:secret:ADSecretPassword-1234
+   ```
+
+### LDAPS with certificate verification (recommended) setup
+<a name="tutorials_05_multi-user-ad-step1-manual-ldaps"></a>
 
 Make a note of resource IDs. You use them in steps later on.
 
-1. ###### Generate domain certificate, locally.
+1. 
 
-```
-``$` PRIVATE_KEY="corp-example-com.key"
-CERTIFICATE="corp-example-com.crt"
-printf ".\n.\n.\n.\n.\ncorp.example.com\n.\n" | openssl req -x509 -sha256 -nodes -newkey rsa:2048 -keyout $PRIVATE_KEY -days 365 -out $CERTIFICATE`
-```
+**Generate domain certificate, locally.**
 
-2. ###### Store the certificate to Secrets Manager to make it retrievable from within the cluster later on.
+   ```
+   $ PRIVATE_KEY="corp-example-com.key"
+   CERTIFICATE="corp-example-com.crt"
+   printf ".\n.\n.\n.\n.\ncorp.example.com\n.\n" | openssl req -x509 -sha256 -nodes -newkey rsa:2048 -keyout $PRIVATE_KEY -days 365 -out $CERTIFICATE
+   ```
 
-````
-``$` aws secretsmanager create-secret --name example-cert \
- --secret-string file://$CERTIFICATE \
- --region `region-id```{
- "ARN": "arn:aws:secretsmanager:region-id:123456789012:secret:example-cert-123abc",
- "Name": "example-cert",
- "VersionId": "14866070-092a-4d5a-bcdd-9219d0566b9c"
-}`
-````
+1. 
 
-3. Add the following policy to the IAM role that you created to join the Amazon EC2 instance to the AD domain.
+**Store the certificate to Secrets Manager to make it retrievable from within the cluster later on.**
 
-`PutDomainCertificateSecrets`
+   ```
+   $ aws secretsmanager create-secret --name example-cert \
+     --secret-string file://$CERTIFICATE \
+     --region {{region-id}}
+   {
+     "ARN": "arn:aws:secretsmanager:region-id:123456789012:secret:example-cert-123abc",
+     "Name": "example-cert",
+     "VersionId": "14866070-092a-4d5a-bcdd-9219d0566b9c"
+   }
+   ```
 
-```
-{
-    "Statement": [
-        {
-            "Action": [
-                "secretsmanager:PutSecretValue"
-            ],
-            "Resource": [
-                "arn:aws:secretsmanager:`region-id`:`123456789012`:secret:`example-cert-123abc`"
-            ],
-            "Effect": "Allow"
-        }
-    ]
-}
-```
+1. Add the following policy to the IAM role that you created to join the Amazon EC2 instance to the AD domain.
 
-4. ###### Import the certificate to AWS Certificate Manager (ACM).
+   `PutDomainCertificateSecrets`
 
-````
-``$` aws acm import-certificate --certificate fileb://$CERTIFICATE \
- --private-key fileb://$PRIVATE_KEY \
- --region `region-id```{
- "CertificateArn": "arn:aws:acm:region-id:123456789012:certificate/343db133-490f-4077-b8d4-3da5bfd89e72"
-}`
-````
+   ```
+   {
+       "Statement": [
+           {
+               "Action": [
+                   "secretsmanager:PutSecretValue"
+               ],
+               "Resource": [
+                   "arn:aws:secretsmanager:{{region-id}}:{{123456789012}}:secret:{{example-cert-123abc}}"
+               ],
+               "Effect": "Allow"
+           }
+       ]
+   }
+   ```
 
-5. ###### Create and the load balancer that is put in front of the Active Directory endpoints.
+1. 
 
-````
-``$` aws elbv2 create-load-balancer --name CorpExampleCom-NLB \
- --type network \
- --scheme internal \
- --subnets `subnet-1234567890abcdef0 subnet-021345abcdef6789` \
- --region `region-id```{
- "LoadBalancers": [
- {
- "LoadBalancerArn": "arn:aws:elasticloadbalancing:region-id:123456789012:loadbalancer/net/CorpExampleCom-NLB/3afe296bf4ba80d4",
- "DNSName": "CorpExampleCom-NLB-3afe296bf4ba80d4.elb.region-id.amazonaws.com",
- "CanonicalHostedZoneId": "Z2IFOLAFXWLO4F",
- "CreatedTime": "2022-05-05T12:56:55.988000+00:00",
- "LoadBalancerName": "CorpExampleCom-NLB",
- "Scheme": "internal",
- "VpcId": "vpc-021345abcdef6789",
- "State": {
- "Code": "provisioning"
- },
- "Type": "network",
- "AvailabilityZones": [
- {
- "ZoneName": "region-idb",
- "SubnetId": "subnet-021345abcdef6789",
- "LoadBalancerAddresses": []
- },
- {
- "ZoneName": "region-ida",
- "SubnetId": "subnet-1234567890abcdef0",
- "LoadBalancerAddresses": []
- }
- ],
- "IpAddressType": "ipv4"
- }
- ]
-}`
-````
+**Import the certificate to AWS Certificate Manager (ACM).**
 
-6. ###### Create the target group that's targeting the Active Directory endpoints.
+   ```
+   $ aws acm import-certificate --certificate fileb://$CERTIFICATE \
+     --private-key fileb://$PRIVATE_KEY \
+     --region {{region-id}}
+   {
+     "CertificateArn": "arn:aws:acm:region-id:123456789012:certificate/343db133-490f-4077-b8d4-3da5bfd89e72"
+   }
+   ```
 
-````
-``$` aws elbv2 create-target-group --name CorpExampleCom-Targets --protocol TCP \
- --port 389 \
- --target-type ip \
- --vpc-id `vpc-021345abcdef6789` \
- --region `region-id```{
- "TargetGroups": [
- {
- "TargetGroupArn": "arn:aws:elasticloadbalancing:region-id:123456789012:targetgroup/CorpExampleCom-Targets/44577c583b695e81",
- "TargetGroupName": "CorpExampleCom-Targets",
- "Protocol": "TCP",
- "Port": 389,
- "VpcId": "vpc-021345abcdef6789",
- "HealthCheckProtocol": "TCP",
- "HealthCheckPort": "traffic-port",
- "HealthCheckEnabled": true,
- "HealthCheckIntervalSeconds": 30,
- "HealthCheckTimeoutSeconds": 10,
- "HealthyThresholdCount": 3,
- "UnhealthyThresholdCount": 3,
- "TargetType": "ip",
- "IpAddressType": "ipv4"
- }
- ]
-}`
-````
+1. 
 
-7. ###### Register the Active Directory (AD) endpoints into the target group.
+**Create and the load balancer that is put in front of the Active Directory endpoints.**
 
-```
-``$` aws elbv2 register-targets --target-group-arn arn:aws:elasticloadbalancing:`region-id`:`123456789012`:targetgroup/CorpExampleCom-Targets/`44577c583b695e81` \
- --targets Id=`192.0.2.254`,Port=389 Id=`203.0.113.237`,Port=389 \
- --region `region-id``
-```
+   ```
+   $ aws elbv2 create-load-balancer --name CorpExampleCom-NLB \
+     --type network \
+     --scheme internal \
+     --subnets {{subnet-1234567890abcdef0 subnet-021345abcdef6789}} \
+     --region {{region-id}}
+   {
+     "LoadBalancers": [
+       {
+         "LoadBalancerArn": "arn:aws:elasticloadbalancing:region-id:123456789012:loadbalancer/net/CorpExampleCom-NLB/3afe296bf4ba80d4",
+         "DNSName": "CorpExampleCom-NLB-3afe296bf4ba80d4.elb.region-id.amazonaws.com",
+         "CanonicalHostedZoneId": "Z2IFOLAFXWLO4F",
+         "CreatedTime": "2022-05-05T12:56:55.988000+00:00",
+         "LoadBalancerName": "CorpExampleCom-NLB",
+         "Scheme": "internal",
+         "VpcId": "vpc-021345abcdef6789",
+         "State": {
+           "Code": "provisioning"
+          },
+          "Type": "network",
+          "AvailabilityZones": [
+            {
+              "ZoneName": "region-idb",
+              "SubnetId": "subnet-021345abcdef6789",
+              "LoadBalancerAddresses": []
+            },
+            {
+              "ZoneName": "region-ida",
+              "SubnetId": "subnet-1234567890abcdef0",
+              "LoadBalancerAddresses": []
+            }
+          ],
+          "IpAddressType": "ipv4"
+       }   
+     ]
+   }
+   ```
 
-8. ###### Create the LB listener with the certificate.
+1. 
 
-````
-``$` aws elbv2 create-listener --load-balancer-arn arn:aws:elasticloadbalancing:`region-id`:`123456789012`:loadbalancer/net/CorpExampleCom-NLB/`3afe296bf4ba80d4` \
- --protocol TLS \
- --port 636 \
- --default-actions Type=forward,TargetGroupArn=arn:aws:elasticloadbalancing:`region-id`:`123456789012`:targetgroup/CorpExampleCom-Targets/`44577c583b695e81` \
- --ssl-policy ELBSecurityPolicy-TLS-1-2-2017-01 \
- --certificates CertificateArn=arn:aws:acm:`region-id`:`123456789012`:certificate/`343db133-490f-4077-b8d4-3da5bfd89e72` \
- --region `region-id```"Listeners": [
- {
- "ListenerArn": "arn:aws:elasticloadbalancing:region-id:123456789012:listener/net/CorpExampleCom-NLB/3afe296bf4ba80d4/a8f9d97318743d4b",
- "LoadBalancerArn": "arn:aws:elasticloadbalancing:region-id:123456789012:loadbalancer/net/CorpExampleCom-NLB/3afe296bf4ba80d4",
- "Port": 636,
- "Protocol": "TLS",
- "Certificates": [
- {
- "CertificateArn": "arn:aws:acm:region-id:123456789012:certificate/343db133-490f-4077-b8d4-3da5bfd89e72"
- }
- ],
- "SslPolicy": "ELBSecurityPolicy-TLS-1-2-2017-01",
- "DefaultActions": [
- {
- "Type": "forward",
- "TargetGroupArn": "arn:aws:elasticloadbalancing:region-id:123456789012:targetgroup/CorpExampleCom-Targets/44577c583b695e81",
- "ForwardConfig": {
- "TargetGroups": [
- {
- "TargetGroupArn": "arn:aws:elasticloadbalancing:region-id:123456789012:targetgroup/CorpExampleCom-Targets/44577c583b695e81"
- }
- ]
- }
- }
- ]
- }
- ]
-}`
-````
+**Create the target group that's targeting the Active Directory endpoints.**
 
-9. ###### Create the hosted zone to make the domain discoverable within the cluster VPC.
+   ```
+   $ aws elbv2 create-target-group --name CorpExampleCom-Targets --protocol TCP \
+     --port 389 \
+     --target-type ip \
+     --vpc-id {{vpc-021345abcdef6789}} \
+     --region {{region-id}}
+   {
+     "TargetGroups": [
+       {
+         "TargetGroupArn": "arn:aws:elasticloadbalancing:region-id:123456789012:targetgroup/CorpExampleCom-Targets/44577c583b695e81",
+         "TargetGroupName": "CorpExampleCom-Targets",
+         "Protocol": "TCP",
+         "Port": 389,
+         "VpcId": "vpc-021345abcdef6789",
+         "HealthCheckProtocol": "TCP",
+         "HealthCheckPort": "traffic-port",
+         "HealthCheckEnabled": true,
+         "HealthCheckIntervalSeconds": 30,
+         "HealthCheckTimeoutSeconds": 10,
+         "HealthyThresholdCount": 3,
+         "UnhealthyThresholdCount": 3,
+         "TargetType": "ip",
+         "IpAddressType": "ipv4"
+       }
+     ]
+   }
+   ```
 
-```
-``$` aws route53 create-hosted-zone --name corp.example.com \
- --vpc VPCRegion=`region-id`,VPCId=`vpc-021345abcdef6789` \
- --caller-reference "ParallelCluster AD Tutorial"``{
- "Location": "https://route53.amazonaws.com/2013-04-01/hostedzone/Z09020002B5MZQNXMSJUB",
- "HostedZone": {
- "Id": "/hostedzone/Z09020002B5MZQNXMSJUB",
- "Name": "corp.example.com.",
- "CallerReference": "ParallelCluster AD Tutorial",
- "Config": {
- "PrivateZone": true
- },
- "ResourceRecordSetCount": 2
- },
- "ChangeInfo": {
- "Id": "/change/C05533343BF3IKSORW1TQ",
- "Status": "PENDING",
- "SubmittedAt": "2022-05-05T13:21:53.863000+00:00"
- },
- "VPC": {
- "VPCRegion": "region-id",
- "VPCId": "vpc-021345abcdef6789"
- }
-}`
-```
+1. 
 
-10. ###### Create a file that's named `recordset-change.json` with the following content. `HostedZoneId` is the canonical hosted zone ID of the load balancer.
+**Register the Active Directory (AD) endpoints into the target group.**
 
-```
-{
-  "Changes": [
-    {
-      "Action": "CREATE",
-      "ResourceRecordSet": {
-        "Name": "corp.example.com",
-        "Type": "A",
-        "Region": `"region-id"`,
-        "SetIdentifier": "example-active-directory",
-        "AliasTarget": {
-          "HostedZoneId": `"Z2IFOLAFXWLO4F"`,
-          "DNSName": "CorpExampleCom-NLB-`3afe296bf4ba80d4`.elb.`region-id`.amazonaws.com",
-          "EvaluateTargetHealth": true
-        }
-      }
-    }
-  ]
-}
-```
+   ```
+   $ aws elbv2 register-targets --target-group-arn arn:aws:elasticloadbalancing:{{region-id}}:{{123456789012}}:targetgroup/CorpExampleCom-Targets/{{44577c583b695e81}} \
+     --targets Id={{192.0.2.254}},Port=389 Id={{203.0.113.237}},Port=389 \
+     --region {{region-id}}
+   ```
 
-11. ###### Submit the recordset change to the hosted zone, this time using the hosted zone ID.
+1. 
 
-```
-``$` aws route53 change-resource-record-sets --hosted-zone-id `Z09020002B5MZQNXMSJUB` \
- --change-batch file://recordset-change.json``{
- "ChangeInfo": {
- "Id": "/change/C0137926I56R3GC7XW2Y",
- "Status": "PENDING",
- "SubmittedAt": "2022-05-05T13:40:36.553000+00:00"
- }
-}`
-```
+**Create the LB listener with the certificate.**
 
-12. ###### Create a policy document `policy.json` with the following content.
+   ```
+   $ aws elbv2 create-listener --load-balancer-arn arn:aws:elasticloadbalancing:{{region-id}}:{{123456789012}}:loadbalancer/net/CorpExampleCom-NLB/{{3afe296bf4ba80d4}} \
+     --protocol TLS \
+     --port 636 \
+     --default-actions Type=forward,TargetGroupArn=arn:aws:elasticloadbalancing:{{region-id}}:{{123456789012}}:targetgroup/CorpExampleCom-Targets/{{44577c583b695e81}} \
+     --ssl-policy ELBSecurityPolicy-TLS-1-2-2017-01 \
+     --certificates CertificateArn=arn:aws:acm:{{region-id}}:{{123456789012}}:certificate/{{343db133-490f-4077-b8d4-3da5bfd89e72}} \
+     --region {{region-id}}
+     "Listeners": [
+     {
+       "ListenerArn": "arn:aws:elasticloadbalancing:region-id:123456789012:listener/net/CorpExampleCom-NLB/3afe296bf4ba80d4/a8f9d97318743d4b",
+       "LoadBalancerArn": "arn:aws:elasticloadbalancing:region-id:123456789012:loadbalancer/net/CorpExampleCom-NLB/3afe296bf4ba80d4",
+       "Port": 636,
+       "Protocol": "TLS",
+       "Certificates": [
+         {
+           "CertificateArn": "arn:aws:acm:region-id:123456789012:certificate/343db133-490f-4077-b8d4-3da5bfd89e72"
+          }
+        ],
+        "SslPolicy": "ELBSecurityPolicy-TLS-1-2-2017-01",
+        "DefaultActions": [
+          {
+            "Type": "forward",
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:region-id:123456789012:targetgroup/CorpExampleCom-Targets/44577c583b695e81",
+            "ForwardConfig": {
+              "TargetGroups": [
+                {
+                   "TargetGroupArn": "arn:aws:elasticloadbalancing:region-id:123456789012:targetgroup/CorpExampleCom-Targets/44577c583b695e81"
+                 }
+               ]
+             }
+           }
+         ]
+       }
+     ]
+   }
+   ```
 
-JSON
+1. 
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "secretsmanager:GetSecretValue"
- ],
- "Resource": [
- "arn:aws:secretsmanager:`us-east-1`:`123456789012`:secret:example-cert-`abc123`"
- ],
- "Effect": "Allow"
- }
- ]
-}`
+**Create the hosted zone to make the domain discoverable within the cluster VPC.**
 
-```
+   ```
+   $ aws route53 create-hosted-zone --name corp.example.com \
+     --vpc VPCRegion={{region-id}},VPCId={{vpc-021345abcdef6789}} \
+     --caller-reference "ParallelCluster AD Tutorial"
+   {
+     "Location": "https://route53.amazonaws.com/2013-04-01/hostedzone/Z09020002B5MZQNXMSJUB",
+     "HostedZone": {
+       "Id": "/hostedzone/Z09020002B5MZQNXMSJUB",
+       "Name": "corp.example.com.",
+       "CallerReference": "ParallelCluster AD Tutorial",
+       "Config": {
+            "PrivateZone": true
+       },
+       "ResourceRecordSetCount": 2
+     },
+     "ChangeInfo": {
+       "Id": "/change/C05533343BF3IKSORW1TQ",
+       "Status": "PENDING",
+       "SubmittedAt": "2022-05-05T13:21:53.863000+00:00"
+     },
+     "VPC": {
+       "VPCRegion": "region-id",
+       "VPCId": "vpc-021345abcdef6789"
+     }
+   }
+   ```
 
-13. ###### Create a policy document that is named `policy.json` with the following content.
+1. 
 
-```
-``$` aws iam create-policy --policy-name ReadCertExample \
- --policy-document file://policy.json``{
- "Policy": {
- "PolicyName": "ReadCertExample",
- "PolicyId": "ANPAUUXUVBC42VZSI4LDY",
- "Arn": "arn:aws:iam::123456789012:policy/ReadCertExample-efg456",
- "Path": "/",
- "DefaultVersionId": "v1",
- "AttachmentCount": 0,
- "PermissionsBoundaryUsageCount": 0,
- "IsAttachable": true,
- "CreateDate": "2022-05-05T13:42:18+00:00",
- "UpdateDate": "2022-05-05T13:42:18+00:00"
- }
-}`
-```
+**Create a file that's named `recordset-change.json` with the following content. `HostedZoneId` is the canonical hosted zone ID of the load balancer.**
 
-14. Continue to follow the steps at [(Optional) Manage AD users and groups](tutorials_05_multi-user-ad-step2.md "tutorials_05_multi-user-ad-step2.md") or
-    [Create the cluster](tutorials_05_multi-user-ad-step3.md "tutorials_05_multi-user-ad-step3.md").
+   ```
+   {
+     "Changes": [
+       {
+         "Action": "CREATE",
+         "ResourceRecordSet": {
+           "Name": "corp.example.com",
+           "Type": "A",
+           "Region": {{"region-id"}},
+           "SetIdentifier": "example-active-directory",
+           "AliasTarget": {
+             "HostedZoneId": {{"Z2IFOLAFXWLO4F"}},
+             "DNSName": "CorpExampleCom-NLB-{{3afe296bf4ba80d4}}.elb.{{region-id}}.amazonaws.com",
+             "EvaluateTargetHealth": true
+           }
+         }
+       }
+     ]
+   }
+   ```
+
+1. 
+
+**Submit the recordset change to the hosted zone, this time using the hosted zone ID.**
+
+   ```
+   $ aws route53 change-resource-record-sets --hosted-zone-id {{Z09020002B5MZQNXMSJUB}} \
+     --change-batch file://recordset-change.json
+   {
+     "ChangeInfo": {
+       "Id": "/change/C0137926I56R3GC7XW2Y",
+       "Status": "PENDING",
+       "SubmittedAt": "2022-05-05T13:40:36.553000+00:00"
+     }
+   }
+   ```
+
+1. 
+
+**Create a policy document `policy.json` with the following content.**
+
+------
+#### [ JSON ]
+
+****  
+
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Action": [
+                   "secretsmanager:GetSecretValue"
+               ],
+               "Resource": [
+                   "arn:aws:secretsmanager:{{us-east-1}}:{{123456789012}}:secret:example-cert-{{abc123}}"
+               ],
+               "Effect": "Allow"
+           }
+       ]
+   }
+   ```
+
+------
+
+1. 
+
+**Create a policy document that is named `policy.json` with the following content.**
+
+   ```
+   $ aws iam create-policy --policy-name ReadCertExample \
+     --policy-document file://policy.json
+   {
+     "Policy": {
+       "PolicyName": "ReadCertExample",
+       "PolicyId": "ANPAUUXUVBC42VZSI4LDY",
+       "Arn": "arn:aws:iam::123456789012:policy/ReadCertExample-efg456",
+       "Path": "/",
+       "DefaultVersionId": "v1",
+       "AttachmentCount": 0,
+       "PermissionsBoundaryUsageCount": 0,
+       "IsAttachable": true,
+       "CreateDate": "2022-05-05T13:42:18+00:00",
+       "UpdateDate": "2022-05-05T13:42:18+00:00"
+     }
+   }
+   ```
+
+1. Continue to follow the steps at [(Optional) Manage AD users and groups](tutorials_05_multi-user-ad-step2.md) or [Create the cluster](tutorials_05_multi-user-ad-step3.md).

@@ -1,4 +1,7 @@
+
+
 # Cluster resource
+<a name="cfn-cluster-resource"></a>
 
 The CloudFormation cluster resource is formatted as shown in the following CloudFormation template snippet:
 
@@ -12,59 +15,31 @@ PclusterCluster:
     # Your Cluster Configuration
 ```
 
-**Properties:**
-
-**ServiceToken:**
-
-The AWS ParallelCluster provider stack `ServiceToken` output.
-
-**ClusterName:**
-
-The name of the cluster to be created and managed. The name must not match the CloudFormation stack’s name.
-The name can't be changed after the cluster has been created.
-
-**ClusterConfiguration:**
-
-The cluster configuration YAML file, as described in [Cluster configuration file](cluster-configuration-file-v3.md "cluster-configuration-file-v3.md").
-However, you can use the usual CloudFormation constructs, such as [Intrinsic functions](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.md").
-
-**DeletionPolicy:**
-
-Defines whether to delete the cluster when the root stack is deleted.
-The default is `Delete`.
-
-**Retain:**
-
-Retain the cluster if the custom resource is deleted.
-
-###### Note
-
-To keep the retained cluster functioning, cluster-dependent resources, such as storage and networking, must have a
-deletion policy set to retain.
-
-**Delete:**
-
+**Properties: **    
+**ServiceToken: **  
+The AWS ParallelCluster provider stack `ServiceToken` output.  
+**ClusterName: **  
+The name of the cluster to be created and managed. The name must not match the CloudFormation stack’s name. The name can't be changed after the cluster has been created.  
+**ClusterConfiguration: **  
+The cluster configuration YAML file, as described in [Cluster configuration file](cluster-configuration-file-v3.md). However, you can use the usual CloudFormation constructs, such as [Intrinsic functions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html).  
+**DeletionPolicy: **  
+Defines whether to delete the cluster when the root stack is deleted. The default is `Delete`.    
+**Retain: **  
+Retain the cluster if the custom resource is deleted.  
+To keep the retained cluster functioning, cluster-dependent resources, such as storage and networking, must have a deletion policy set to retain.  
+**Delete: **  
 Delete the cluster if the custom resource is deleted.
 
-**`Fn::GetAtt` return values:**
+**`Fn::GetAtt` return values: **  
+The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of a type. For more information about using the `Fn::GetAtt intrinsic` function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html).    
+**ClusterProperties: **  
+The values from the [`pcluster describe-cluster`](pcluster.describe-cluster-v3.md) operation.  
+**validationMessages: **  
+A string containing all the validation messages that occurred during the last create or update operation.  
+**logGroupName: **  
+The name of the log group that's used for logging Lambda cluster operations. The log events are retained for 90 days and the log group is retained after cluster deletion.
 
-The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of a type. For more information about using the `Fn::GetAtt intrinsic` function, see
-[Fn::GetAtt](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.md").
-
-**ClusterProperties:**
-
-The values from the [pcluster describe-cluster](pcluster.describe-cluster-v3.md "pcluster.describe-cluster-v3.md") operation.
-
-**validationMessages:**
-
-A string containing all the validation messages that occurred during the last create or update operation.
-
-**logGroupName:**
-
-The name of the log group that's used for logging Lambda cluster operations. The log events are retained for 90 days and
-the log group is retained after cluster deletion.
-
-Example: `Fn::GetAtt`:
+**Example: **`Fn::GetAtt`:
 
 ```
 # Provide the public IP address of the head node as an output of a stack
@@ -74,7 +49,7 @@ Outputs:
     Value: !GetAtt [ PclusterCluster, headNode.publicIpAddress ]
 ```
 
-Example: Simple, complete CloudFormation template with an AWS ParallelCluster custom resource:
+**Example: **Simple, complete CloudFormation template with an AWS ParallelCluster custom resource:
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -136,5 +111,4 @@ Outputs:
     Value: !GetAtt PclusterCluster.validationMessages
 ```
 
-To learn more about how to use the CloudFormation AWS ParallelCluster custom resource,
-see [Creating a cluster with CloudFormation](tutorials_09_cfn-custom-resource-v3.md "tutorials_09_cfn-custom-resource-v3.md").
+To learn more about how to use the CloudFormation AWS ParallelCluster custom resource, see [Creating a cluster with CloudFormation](tutorials_09_cfn-custom-resource-v3.md).

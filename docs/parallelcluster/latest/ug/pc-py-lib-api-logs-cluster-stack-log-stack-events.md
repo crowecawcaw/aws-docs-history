@@ -1,21 +1,19 @@
+
+
 # `get_cluster_stack_events`
+<a name="pc-py-lib-api-logs-cluster-stack-log-stack-events"></a>
 
 ```
 get_cluster_stack_events(cluster_name, region, next_token)
 ```
 
-Get stack events for a given cluster.
+Get stack events for a given cluster.Parameters:
 
-###### Parameters:
-
-**`cluster_name` (required)**
-
+**`cluster_name` (required)**  
 The cluster name.
 
-**`region`**
-
+**`region`**  
 The cluster AWS Region.
 
-**`next_token`**
-
+**`next_token`**  
 The token for the next set of results.

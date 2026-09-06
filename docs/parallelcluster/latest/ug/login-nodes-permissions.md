@@ -1,9 +1,11 @@
-# Permissions required to run the login nodes pool
 
-In order to manage the login nodes pool the cluster administrator must have the following additional permissions:
+
+# Permissions required to run the login nodes pool
+<a name="login-nodes-permissions"></a>
+
+In order to manage the login nodes pool the cluster administrator must have the following additional permissions: 
 
 ```
-
             - Action:
               - iam:CreateServiceLinkedRole
               - autoscaling:DeleteAutoScalingGroup

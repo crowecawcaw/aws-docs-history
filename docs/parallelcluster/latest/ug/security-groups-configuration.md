@@ -1,63 +1,69 @@
-# Configuring security groups for restricted environments
 
-By default, AWS ParallelCluster creates and configures security groups that allow all traffic between cluster nodes.
-In highly restricted environments, you might need to limit network access to only the ports required for cluster operation.
-This section describes how to configure custom security groups with restricted access for your AWS ParallelCluster deployment.
+
+# Configuring security groups for restricted environments
+<a name="security-groups-configuration"></a>
+
+By default, AWS ParallelCluster creates and configures security groups that allow all traffic between cluster nodes. In highly restricted environments, you might need to limit network access to only the ports required for cluster operation. This section describes how to configure custom security groups with restricted access for your AWS ParallelCluster deployment.
 
 ## Security groups overview
+<a name="security-groups-configuration-overview"></a>
 
-AWS ParallelCluster uses security groups to control network traffic between the head node, compute nodes, and login nodes (if configured).
-By default, when AWS ParallelCluster creates a cluster, it creates security groups that allow all traffic between nodes within the cluster.
-In environments with strict security requirements, you can provide custom security groups that limit traffic to only the necessary ports.
+AWS ParallelCluster uses security groups to control network traffic between the head node, compute nodes, and login nodes (if configured). By default, when AWS ParallelCluster creates a cluster, it creates security groups that allow all traffic between nodes within the cluster. In environments with strict security requirements, you can provide custom security groups that limit traffic to only the necessary ports.
 
 Security groups can be configured in the following sections of your cluster configuration:
-
-- [HeadNode / Networking](HeadNode-v3.md#HeadNode-v3-Networking "HeadNode-v3.md#HeadNode-v3-Networking") - Controls access to and from the head node
-- [Scheduling / SlurmQueues / Networking](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Networking "Scheduling-v3.md#Scheduling-v3-SlurmQueues-Networking") - Controls access to and from compute nodes
-- [LoginNodes](LoginNodes-v3.md "LoginNodes-v3.md") - Controls access to and from login nodes (if configured)
++ [`HeadNode` / `Networking`](HeadNode-v3.md#HeadNode-v3-Networking) - Controls access to and from the head node
++ [`Scheduling` / `SlurmQueues` / `Networking`](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Networking) - Controls access to and from compute nodes
++ [`LoginNodes`](LoginNodes-v3.md) - Controls access to and from login nodes (if configured)
 
 For each of these sections, you can specify:
-
-- `SecurityGroups` - Replaces the default security groups that AWS ParallelCluster would create
-- `AdditionalSecurityGroups` - Adds security groups in addition to the default ones created by AWS ParallelCluster
++ `SecurityGroups` - Replaces the default security groups that AWS ParallelCluster would create
++ `AdditionalSecurityGroups` - Adds security groups in addition to the default ones created by AWS ParallelCluster
 
 ## Required ports for cluster operation
+<a name="security-groups-configuration-required-ports"></a>
 
 When configuring custom security groups, you must ensure that the following ports are open between the appropriate nodes:
 
-Required ports for head node| Port | Protocol | Direction | Purpose |
-| --- | --- | --- | --- |
-| 22 | TCP | Inbound | SSH access to the head node (from allowed IP ranges) |
-| 6817-6819 | TCP | Inbound | Slurm controller ports (from compute and login nodes) |
-| 6817-6819 | TCP | Outbound | Slurm controller ports (to compute and login nodes) |
-| 8443 | TCP | Inbound | Amazon DCV (if enabled, from allowed IP ranges) |
-| 111, 2049 | TCP/UDP | Inbound | NFS (from compute and login nodes, if using NFS for shared storage) |
-| 443 | TCP | Outbound | HTTPS access to AWS services (if not using VPC endpoints) |
 
-Required ports for compute nodes| Port | Protocol | Direction | Purpose |
-| --- | --- | --- | --- |
-| 22 | TCP | Inbound | SSH access (from head node and login nodes) |
-| 6818 | TCP | Inbound | Slurm daemon port (from head node) |
-| 6817-6819 | TCP | Outbound | Slurm controller ports (to head node) |
-| 111, 2049 | TCP/UDP | Outbound | NFS (to head node, if using NFS for shared storage) |
-| 443 | TCP | Outbound | HTTPS access to AWS services (if not using VPC endpoints) |
+**Required ports for head node**  
+
+| Port | Protocol | Direction | Purpose | 
+| --- | --- | --- | --- | 
+| 22 | TCP | Inbound | SSH access to the head node (from allowed IP ranges) | 
+| 6817-6819 | TCP | Inbound | Slurm controller ports (from compute and login nodes) | 
+| 6817-6819 | TCP | Outbound | Slurm controller ports (to compute and login nodes) | 
+| 8443 | TCP | Inbound | Amazon DCV (if enabled, from allowed IP ranges) | 
+| 111, 2049 | TCP/UDP | Inbound | NFS (from compute and login nodes, if using NFS for shared storage) | 
+| 443 | TCP | Outbound | HTTPS access to AWS services (if not using VPC endpoints) | 
+
+
+**Required ports for compute nodes**  
+
+| Port | Protocol | Direction | Purpose | 
+| --- | --- | --- | --- | 
+| 22 | TCP | Inbound | SSH access (from head node and login nodes) | 
+| 6818 | TCP | Inbound | Slurm daemon port (from head node) | 
+| 6817-6819 | TCP | Outbound | Slurm controller ports (to head node) | 
+| 111, 2049 | TCP/UDP | Outbound | NFS (to head node, if using NFS for shared storage) | 
+| 443 | TCP | Outbound | HTTPS access to AWS services (if not using VPC endpoints) | 
 
 If you're using EFA (Elastic Fabric Adapter), you must also allow all traffic between compute nodes that have EFA enabled:
++ All TCP and UDP traffic between compute nodes with EFA
++ All traffic on the EFA device between compute nodes with EFA
 
-- All TCP and UDP traffic between compute nodes with EFA
-- All traffic on the EFA device between compute nodes with EFA
-
-###### Note
-
+**Note**  
 If you're using shared storage systems like FSx for Lustre, Amazon EFS, or other storage solutions, you'll need to ensure that the appropriate ports are open for those services as well.
 
 ## Creating custom security groups
+<a name="security-groups-configuration-custom"></a>
 
 To create custom security groups for your AWS ParallelCluster deployment, follow these steps:
 
 1. Create security groups for the head node, compute nodes, and login nodes (if applicable) using the AWS Management Console, AWS CLI, or AWS CloudFormation.
-2. Configure the security group rules to allow only the necessary traffic as outlined in the previous section.
-3. Reference these security groups in your cluster configuration file.
+
+1. Configure the security group rules to allow only the necessary traffic as outlined in the previous section.
+
+1. Reference these security groups in your cluster configuration file.
 
 Here's an example of how to create security groups using the AWS CLI:
 
@@ -79,6 +85,7 @@ aws ec2 create-security-group \
 ```
 
 ## Configuring security groups in the cluster configuration
+<a name="security-groups-configuration-cluster-config"></a>
 
 Once you've created your custom security groups, you can reference them in your cluster configuration file:
 
@@ -126,24 +133,17 @@ LoginNodes:
       ...
 ```
 
-When using `SecurityGroups`, AWS ParallelCluster will use only the security groups you specify, replacing the default ones.
-When using `AdditionalSecurityGroups`, AWS ParallelCluster will use both the default security groups it creates and the additional ones you specify.
+When using `SecurityGroups`, AWS ParallelCluster will use only the security groups you specify, replacing the default ones. When using `AdditionalSecurityGroups`, AWS ParallelCluster will use both the default security groups it creates and the additional ones you specify.
 
-###### Warning
-
-If you enable [Elastic Fabric Adapter (EFA)](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Efa "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Efa") for your compute instances,
-make sure that your EFA-enabled instances are members of a security group that allows all inbound and outbound traffic to itself.
-This is required for EFA to function properly.
+**Warning**  
+If you enable [Elastic Fabric Adapter (EFA)](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Efa) for your compute instances, make sure that your EFA-enabled instances are members of a security group that allows all inbound and outbound traffic to itself. This is required for EFA to function properly.
 
 ## Using VPC endpoints in restricted environments
+<a name="security-groups-configuration-vpc-endpoints"></a>
 
-In highly restricted environments, you might want to deploy AWS ParallelCluster in a subnet without internet access.
-In this case, you'll need to configure VPC endpoints to allow the cluster to communicate with AWS services.
-For detailed instructions, see [AWS ParallelCluster in a single subnet with no internet access](aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md "aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md").
+In highly restricted environments, you might want to deploy AWS ParallelCluster in a subnet without internet access. In this case, you'll need to configure VPC endpoints to allow the cluster to communicate with AWS services. For detailed instructions, see [AWS ParallelCluster in a single subnet with no internet access](aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md).
 
-When using VPC endpoints, ensure that your security groups allow traffic to and from the VPC endpoints.
-You can do this by adding the security groups associated with the VPC endpoints to the `AdditionalSecurityGroups`
-configuration for your head node and compute nodes.
+When using VPC endpoints, ensure that your security groups allow traffic to and from the VPC endpoints. You can do this by adding the security groups associated with the VPC endpoints to the `AdditionalSecurityGroups` configuration for your head node and compute nodes.
 
 ```
 HeadNode:
@@ -166,24 +166,24 @@ Scheduling:
 ```
 
 ## Best practices for security group configuration
+<a name="security-groups-configuration-best-practices"></a>
 
 When configuring security groups for AWS ParallelCluster in restricted environments, consider the following best practices:
-
-- **Principle of least privilege**: Only open the ports that are necessary for cluster operation.
-- **Use security group references**: When possible, use security group references (allowing traffic from another security group) rather than CIDR blocks to limit traffic between cluster components.
-- **Restrict SSH access**: Limit SSH access to the head node to only the IP ranges that need it using the [HeadNode / Ssh / AllowedIps](HeadNode-v3.md#yaml-HeadNode-Ssh-AllowedIps "HeadNode-v3.md#yaml-HeadNode-Ssh-AllowedIps") configuration.
-- **Restrict DCV access**: If using Amazon DCV, limit access to only the IP ranges that need it using the [HeadNode / Dcv / AllowedIps](HeadNode-v3.md#yaml-HeadNode-Dcv-AllowedIps "HeadNode-v3.md#yaml-HeadNode-Dcv-AllowedIps") configuration.
-- **Test thoroughly**: After configuring custom security groups, thoroughly test all cluster functionality to ensure that all required communication paths are working.
-- **Document your configuration**: Maintain documentation of your security group configuration, including which ports are open and why they are needed.
++ **Principle of least privilege**: Only open the ports that are necessary for cluster operation.
++ **Use security group references**: When possible, use security group references (allowing traffic from another security group) rather than CIDR blocks to limit traffic between cluster components.
++ **Restrict SSH access**: Limit SSH access to the head node to only the IP ranges that need it using the [`HeadNode` / `Ssh` / `AllowedIps`](HeadNode-v3.md#yaml-HeadNode-Ssh-AllowedIps) configuration.
++ **Restrict DCV access**: If using Amazon DCV, limit access to only the IP ranges that need it using the [`HeadNode` / `Dcv` / `AllowedIps`](HeadNode-v3.md#yaml-HeadNode-Dcv-AllowedIps) configuration.
++ **Test thoroughly**: After configuring custom security groups, thoroughly test all cluster functionality to ensure that all required communication paths are working.
++ **Document your configuration**: Maintain documentation of your security group configuration, including which ports are open and why they are needed.
 
 ## Troubleshooting security group issues
+<a name="security-groups-configuration-troubleshooting"></a>
 
 If you encounter issues after configuring custom security groups, consider the following troubleshooting steps:
-
-- **Check cluster logs**: Review the cluster logs in CloudWatch Logs for any connection errors.
-- **Verify security group rules**: Ensure that all required ports are open between the appropriate nodes.
-- **Test connectivity**: Use tools like `telnet` or `nc` to test connectivity between nodes on specific ports.
-- **Temporarily expand rules**: If you're having trouble identifying which ports are needed, temporarily allow all traffic between cluster nodes and then gradually restrict it as you identify the required ports.
-- **Check VPC endpoint configuration**: If you're using VPC endpoints, ensure that they are properly configured and that the security groups allow traffic to and from them.
++ **Check cluster logs**: Review the cluster logs in CloudWatch Logs for any connection errors.
++ **Verify security group rules**: Ensure that all required ports are open between the appropriate nodes.
++ **Test connectivity**: Use tools like `telnet` or `nc` to test connectivity between nodes on specific ports.
++ **Temporarily expand rules**: If you're having trouble identifying which ports are needed, temporarily allow all traffic between cluster nodes and then gradually restrict it as you identify the required ports.
++ **Check VPC endpoint configuration**: If you're using VPC endpoints, ensure that they are properly configured and that the security groups allow traffic to and from them.
 
 If you continue to experience issues, you can revert to using the default security groups created by AWS ParallelCluster by removing the `SecurityGroups` configuration from your cluster configuration file.

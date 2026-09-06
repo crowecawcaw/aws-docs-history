@@ -1,21 +1,19 @@
+
+
 # `list_image_log_streams`
+<a name="pc-py-lib-api-logs-image-stack-log-streams"></a>
 
 ```
 list_image_log_streams(image_id, region, next_token)
 ```
 
-List log streams for an image.
+List log streams for an image.Parameters:
 
-###### Parameters:
-
-**`image_id` (required)**
-
+**`image_id` (required)**  
 The image ID.
 
-**`region`**
-
+**`region`**  
 The image AWS Region.
 
-**`next_token`**
-
+**`next_token`**  
 The token for the next set of results.

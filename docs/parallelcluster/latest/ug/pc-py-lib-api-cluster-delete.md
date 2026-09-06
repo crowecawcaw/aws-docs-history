@@ -1,21 +1,19 @@
+
+
 # `delete_cluster`
+<a name="pc-py-lib-api-cluster-delete"></a>
 
 ```
 delete_cluster(cluster_name, region, wait)
 ```
 
-Delete a cluster in a given Region.
+Delete a cluster in a given Region.Parameters:
 
-###### Parameters:
-
-**`cluster_name` (required)**
-
+**`cluster_name` (required)**  
 The cluster name.
 
-**`region`**
-
+**`region`**  
 The cluster AWS Region.
 
-**`wait`**
-
+**`wait`**  
 If set to `True`, waits for the operation to complete. The default is `False`.

@@ -1,31 +1,26 @@
+
+
 # `describe_cluster_instances`
+<a name="pc-py-lib-api-fleet-describe-instances"></a>
 
 ```
 describe_cluster_instances(cluster_name, region, next_token, node_type, queue_name)
 ```
 
-Describe a cluster's instances.
+Describe a cluster's instances.Parameters:
 
-###### Parameters:
-
-**`cluster_name` (required)**
-
+**`cluster_name` (required)**  
 The cluster name.
 
-**`region`**
-
+**`region`**  
 The cluster AWS Region.
 
-**`next_token`**
-
+**`next_token`**  
 The token for the next set of results.
 
-**`node_type`**
+**`node_type`**  
+Filters the instances by `node_type`.  
+Valid values: `HeadNode` \| `ComputeNode`
 
-Filters the instances by `node_type`.
-
-Valid values: `HeadNode` | `ComputeNode`
-
-**`queue_name`**
-
+**`queue_name`**  
 Filters the instances by queue name.

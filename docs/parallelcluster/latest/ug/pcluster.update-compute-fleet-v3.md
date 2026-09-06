@@ -1,59 +1,49 @@
+
+
 # `pcluster update-compute-fleet`
+<a name="pcluster.update-compute-fleet-v3"></a>
 
 Updates the status of the cluster compute fleet.
 
 ```
 pcluster update-compute-fleet [-h]
-                 --cluster-name `CLUSTER_NAME`
-                 --status {`START_REQUESTED`,`STOP_REQUESTED`,`ENABLED`,`DISABLED`}
+                 --cluster-name {{CLUSTER_NAME}}
+                 --status {START_REQUESTED,STOP_REQUESTED,ENABLED,DISABLED}
                 [--debug]
-                [--query `QUERY`]
-                [--region `REGION`]
+                [--query {{QUERY}}]
+                [--region {{REGION}}]
 ```
 
-###### Note
-
-This operation is asynchronous: the command only requests the status change. Use
-[pcluster describe-compute-fleet](pcluster.describe-compute-fleet-v3.md "pcluster.describe-compute-fleet-v3.md") to verify that
-the fleet reaches the final status (`RUNNING` or `STOPPED`). If it stays in
-`STARTING` or `STOPPING`, check `/var/log/parallelcluster/clusterstatusmgtd`
-on the head node for errors.
+**Note**  
+This operation is asynchronous: the command only requests the status change. Use [`pcluster describe-compute-fleet`](pcluster.describe-compute-fleet-v3.md) to verify that the fleet reaches the final status (`RUNNING` or `STOPPED`). If it stays in `STARTING` or `STOPPING`, check `/var/log/parallelcluster/clusterstatusmgtd` on the head node for errors.
 
 ## Named arguments
+<a name="pcluster-v3.update-compute-fleet.namedargs"></a>
 
-`-h, --help`
-
+**-h, --help**  
 Shows the help text for `pcluster update-compute-fleet`.
 
-`--cluster-name, -n `CLUSTER_NAME``
-
+**--cluster-name, -n {{CLUSTER\_NAME}}**  
 Specifies the name of the cluster.
 
-`--status {START_REQUESTED,STOP_REQUESTED,ENABLED,DISABLED}`
+**--status {START\_REQUESTED,STOP\_REQUESTED,ENABLED,DISABLED}**  
+Specifies the status applied to the cluster compute fleet. The statuses `START_REQUESTED` and `STOP_REQUESTED` correspond to the Slurm scheduler while the statuses `ENABLED` and `DISABLED` correspond to the AWS Batch scheduler.
 
-Specifies the status applied to the cluster compute fleet. The statuses `START_REQUESTED` and
-`STOP_REQUESTED` correspond to the Slurm scheduler while the statuses `ENABLED` and
-`DISABLED` correspond to the AWS Batch scheduler.
-
-`--debug`
-
+**--debug**  
 Enables debug logging.
 
-`--query `QUERY``
-
+**--query {{QUERY}}**  
 Specifies the JMESPath query to perform on the output.
 
-`--region, -r `REGION``
-
-Specifies the AWS Region to use. The AWS Region must be specified, using the `AWS_DEFAULT_REGION`
-environment variable, the `region` setting in the `[default]` section of the
-`~/.aws/config` file, or the `--region` parameter.
+**--region, -r {{REGION}}**  
+Specifies the AWS Region to use. The AWS Region must be specified, using the `AWS_DEFAULT_REGION` environment variable, the `region` setting in the `[default]` section of the `~/.aws/config` file, or the `--region` parameter.
 
 **Example using AWS ParallelCluster version 3.1.4:**
 
-````
-`$` `pcluster update-compute-fleet -n `cluster-v3` --status `STOP_REQUESTED```{
- "status": "STOP_REQUESTED",
- "lastStatusUpdatedTime": "2022-07-12T20:19:47.653Z"
-}`
-````
+```
+$ pcluster update-compute-fleet -n {{cluster-v3}} --status {{STOP_REQUESTED}}
+{
+  "status": "STOP_REQUESTED",
+  "lastStatusUpdatedTime": "2022-07-12T20:19:47.653Z"
+}
+```
