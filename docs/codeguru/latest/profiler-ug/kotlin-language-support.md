@@ -1,7 +1,9 @@
-# Kotlin
 
-You can add support for the CodeGuru Profiler agent into your Kotlin application by adding the
-following lines into your startup or `main` function.
+
+# Kotlin
+<a name="kotlin-language-support"></a>
+
+You can add support for the CodeGuru Profiler agent into your Kotlin application by adding the following lines into your startup or `main` function. 
 
 ```
 import software.amazon.codeguruprofilerjavaagent.Profiler
@@ -15,5 +17,4 @@ fun main() {
 }
 ```
 
-You need to [add a dependency](enabling-the-agent-with-code.md "enabling-the-agent-with-code.md") to the
-agent .jar file.
+You need to [add a dependency](enabling-the-agent-with-code.md) to the agent .jar file.

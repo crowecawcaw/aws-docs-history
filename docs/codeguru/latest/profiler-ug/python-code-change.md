@@ -1,24 +1,24 @@
-# Enabling the agent with code
 
-If your application runs on a platform other than Lambda, install
-`codeguru_profiler_agent` through `pip`.
+
+# Enabling the agent with code
+<a name="python-code-change"></a>
+
+If your application runs on a platform other than Lambda, install `codeguru_profiler_agent` through `pip`.
 
 ```
 pip install codeguru_profiler_agent
 ```
 
-You can configure the agent by passing different parameters to the `Profiler`
-object.
+You can configure the agent by passing different parameters to the `Profiler` object.
 
-| Option                          | Constructor argument                      | Details                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Profiling group name (required) | `profiling_group_name="MyProfilingGroup"` | The name of the profiling group to send the data into. The Profiling group must<br>exist.                                                                                                                                                                                                                                                                                   |
-| Region                          | `region_name="eu-west-2"`                 | Use this if your application is not running in the same region as the one where<br>the profiling group was created.                                                                                                                                                                                                                                                         |
-| AWS session                     | `aws_session=boto3.session.Session()`     | The session object that should be used to target the CodeGuru Profiler backends.<br>Use this if you want to use different credentials or region than the default one.<br>See [boto3 session](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/session.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/session.html") for more information. |
 
-Start the agent from one place in your application. We recommend you start the agent in
-your startup code. Only one Profiler object can be started at the time. The following is a
-runtime example.
+| Option | Constructor argument | Details | 
+| --- | --- | --- | 
+| Profiling group name (required) | `profiling_group_name="MyProfilingGroup"` | The name of the profiling group to send the data into. The Profiling group must exist. | 
+| Region | `region_name="eu-west-2"` | Use this if your application is not running in the same region as the one where the profiling group was created. | 
+| AWS session | `aws_session=boto3.session.Session()` | The session object that should be used to target the CodeGuru Profiler backends. Use this if you want to use different credentials or region than the default one. See [boto3 session](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/session.html) for more information. | 
+
+Start the agent from one place in your application. We recommend you start the agent in your startup code. Only one Profiler object can be started at the time. The following is a runtime example.
 
 ```
 from codeguru_profiler_agent import Profiler
@@ -30,10 +30,9 @@ start_application()
 ...
 ```
 
-You can find the sample code for the following examples in [Amazon CodeGuru Profiler Python Demo Applications](https://github.com/aws-samples/aws-codeguru-profiler-python-demo-application "https://github.com/aws-samples/aws-codeguru-profiler-python-demo-application").
+You can find the sample code for the following examples in [ Amazon CodeGuru Profiler Python Demo Applications](https://github.com/aws-samples/aws-codeguru-profiler-python-demo-application).
 
-The following is an example of a simple application that sets your profiling group name to
-`MyProfilingGroup`.
+The following is an example of a simple application that sets your profiling group name to `MyProfilingGroup`.
 
 ```
 from codeguru_profiler_agent import Profiler
@@ -44,12 +43,11 @@ if __name__ == '__main__':
 ```
 
 ## Supported web components
+<a name="supported-languages"></a>
 
-The following topics provide code that you can add to your application to enable the
-Amazon CodeGuru Profiler agent.
+The following topics provide code that you can add to your application to enable the Amazon CodeGuru Profiler agent.
 
-###### Topics
-
-- [Django](python-django.md "python-django.md")
-- [Flask](python-flask.md "python-flask.md")
-- [WSGI servers](python-wsgi.md "python-wsgi.md")
+**Topics**
++ [Django](python-django.md)
++ [Flask](python-flask.md)
++ [WSGI servers](python-wsgi.md)

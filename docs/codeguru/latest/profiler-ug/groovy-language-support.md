@@ -1,7 +1,9 @@
-# Groovy
 
-You can add support for the CodeGuru Profiler agent into your Groovy application by adding the
-following lines into your startup or `main` function.
+
+# Groovy
+<a name="groovy-language-support"></a>
+
+You can add support for the CodeGuru Profiler agent into your Groovy application by adding the following lines into your startup or `main` function. 
 
 ```
 import software.amazon.codeguruprofilerjavaagent.Profiler
@@ -14,5 +16,4 @@ Profiler.builder()
 ...
 ```
 
-You need to [add a dependency](enabling-the-agent-with-code.md "enabling-the-agent-with-code.md") to the
-agent .jar file.
+You need to [add a dependency](enabling-the-agent-with-code.md) to the agent .jar file.

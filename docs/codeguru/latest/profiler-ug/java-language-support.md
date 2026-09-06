@@ -1,7 +1,9 @@
-# Java
 
-You can add support for the CodeGuru Profiler agent into your Java application by adding the
-following lines into your startup or `main` function.
+
+# Java
+<a name="java-language-support"></a>
+
+You can add support for the CodeGuru Profiler agent into your Java application by adding the following lines into your startup or `main` function. 
 
 ```
 import software.amazon.codeguruprofilerjavaagent.Profiler;
@@ -17,5 +19,4 @@ class MyClass {
 }
 ```
 
-You need to [add a dependency](enabling-the-agent-with-code.md "enabling-the-agent-with-code.md") to the
-agent .jar file.
+You need to [add a dependency](enabling-the-agent-with-code.md) to the agent .jar file.

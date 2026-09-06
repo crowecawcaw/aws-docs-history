@@ -1,7 +1,9 @@
-# Jython
 
-You can add support for the CodeGuru Profiler agent into your Jython application by adding the
-following lines into your startup or `main` function.
+
+# Jython
+<a name="jython-language-support"></a>
+
+You can add support for the CodeGuru Profiler agent into your Jython application by adding the following lines into your startup or `main` function. 
 
 ```
 import sys
@@ -15,5 +17,4 @@ Profiler.builder()
 ...
 ```
 
-You need to [add a dependency](enabling-the-agent-with-code.md "enabling-the-agent-with-code.md") to the
-agent .jar file.
+You need to [add a dependency](enabling-the-agent-with-code.md) to the agent .jar file.

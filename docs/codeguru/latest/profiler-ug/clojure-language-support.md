@@ -1,7 +1,9 @@
-# Clojure
 
-You can add support for the CodeGuru Profiler agent into your Clojure application by adding the
-following lines into your startup or `main` function.
+
+# Clojure
+<a name="clojure-language-support"></a>
+
+You can add support for the CodeGuru Profiler agent into your Clojure application by adding the following lines into your startup or `main` function. 
 
 ```
 (-> (software.amazon.codeguruprofilerjavaagent.Profiler/builder)
@@ -12,5 +14,4 @@ following lines into your startup or `main` function.
 ...
 ```
 
-You need to [add a dependency](enabling-the-agent-with-code.md "enabling-the-agent-with-code.md") to the
-agent .jar file.
+You need to [add a dependency](enabling-the-agent-with-code.md) to the agent .jar file.
