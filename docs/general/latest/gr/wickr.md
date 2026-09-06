@@ -16,7 +16,6 @@ The following are the service endpoints and service quotas for this service.
 | Region Name              | Region         | Endpoint                                                                       | Protocol       |
 | ------------------------ | -------------- | ------------------------------------------------------------------------------ | -------------- |
 | US East (N. Virginia)    | us-east-1      | admin.wickr.us-east-1.amazonaws.com<br>admin.wickr.us-east-1.api.aws           | HTTPS<br>HTTPS |
-| Asia Pacific (Malaysia)  | ap-southeast-5 | admin.wickr.ap-southeast-5.amazonaws.com<br>admin.wickr.ap-southeast-5.api.aws | HTTPS<br>HTTPS |
 | Asia Pacific (Singapore) | ap-southeast-1 | admin.wickr.ap-southeast-1.amazonaws.com<br>admin.wickr.ap-southeast-1.api.aws | HTTPS<br>HTTPS |
 | Asia Pacific (Sydney)    | ap-southeast-2 | admin.wickr.ap-southeast-2.amazonaws.com<br>admin.wickr.ap-southeast-2.api.aws | HTTPS<br>HTTPS |
 | Asia Pacific (Tokyo)     | ap-northeast-1 | admin.wickr.ap-northeast-1.amazonaws.com<br>admin.wickr.ap-northeast-1.api.aws | HTTPS<br>HTTPS |

@@ -15,6 +15,7 @@ The following are the service endpoints and service quotas for this service.
 | ------------------------- | -------------- | ------------------------------------- | -------- |
 | US East (Ohio)            | us-east-2      | account-access.us-east-2.api.aws      |          |
 | US East (N. Virginia)     | us-east-1      | account-access.us-east-1.api.aws      |          |
+| US West (N. California)   | us-west-1      | account-access.us-west-1.api.aws      |          |
 | US West (Oregon)          | us-west-2      | account-access.us-west-2.api.aws      |          |
 | Asia Pacific (Mumbai)     | ap-south-1     | account-access.ap-south-1.api.aws     |          |
 | Asia Pacific (Osaka)      | ap-northeast-3 | account-access.ap-northeast-3.api.aws |          |
