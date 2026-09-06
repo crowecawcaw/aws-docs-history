@@ -1,16 +1,10 @@
+
+
 # Encryption in AWS Direct Connect
+<a name="encryption-in-transit"></a>
 
-AWS Direct Connect does not encrypt your traffic that is in transit by default. To encrypt the data in
-transit that traverses AWS Direct Connect, you must use the transit encryption options for that
-service. To learn about EC2 instance traffic encryption, see [Encryption in
-Transit](../../../AWSEC2/latest/UserGuide/data-protection.md#encryption-transit "../../../AWSEC2/latest/UserGuide/data-protection.md#encryption-transit") in the Amazon EC2 User Guide.
+AWS Direct Connect does not encrypt your traffic that is in transit by default. To encrypt the data in transit that traverses AWS Direct Connect, you must use the transit encryption options for that service. To learn about EC2 instance traffic encryption, see [Encryption in Transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the Amazon EC2 User Guide.
 
-With AWS Direct Connect and AWS Site-to-Site VPN, you can combine one or more AWS Direct Connect dedicated
-network connections with the Amazon VPC VPN. This combination provides an IPsec-encrypted
-private connection that also reduces network costs, increases bandwidth throughput, and
-provides a more consistent network experience than internet-based VPN connections. For more
-information, see [Amazon VPC-to-Amazon VPC Connectivity Options](https://aws.amazon.com/answers/networking/aws-single-data-center-ha-network-connectivity/ "https://aws.amazon.com/answers/networking/aws-single-data-center-ha-network-connectivity/").
+With AWS Direct Connect and AWS Site-to-Site VPN, you can combine one or more AWS Direct Connect dedicated network connections with the Amazon VPC VPN. This combination provides an IPsec-encrypted private connection that also reduces network costs, increases bandwidth throughput, and provides a more consistent network experience than internet-based VPN connections. For more information, see [Amazon VPC-to-Amazon VPC Connectivity Options](https://aws.amazon.com/answers/networking/aws-single-data-center-ha-network-connectivity/).
 
-MAC Security (MACsec) is an IEEE standard that provides data confidentiality, data
-integrity, and data origin authenticity. You can use Direct Connect connections that
-support MACsec to encrypt your data from your corporate data center to the Direct Connect location. For more information, see [MAC Security in Direct Connect](MACsec.md "MACsec.md").
+MAC Security (MACsec) is an IEEE standard that provides data confidentiality, data integrity, and data origin authenticity. You can use Direct Connect connections that support MACsec to encrypt your data from your corporate data center to the Direct Connect location. For more information, see [MAC Security in Direct Connect](MACsec.md).

@@ -1,22 +1,24 @@
+
+
 # View Direct Connect virtual interface details
+<a name="viewvifdetails"></a>
 
 You can view the current status of your virtual interface using either the Direct Connect console or using the command line or API. Details include:
++ Connection state
++ Name
++ Location
++ VLAN
++ BGP details
++ Peer IP addresses
 
-- Connection state
-- Name
-- Location
-- VLAN
-- BGP details
-- Peer IP addresses
+**To view details about a virtual interface**
 
-###### To view details about a virtual interface
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home).
 
-1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
-2. In the left pane, choose **Virtual Interfaces**.
-3. Select the virtual interface and then choose **View
-   details**.
+1. In the left pane, choose **Virtual Interfaces**.
 
-###### To describe virtual interfaces using the command line or API
+1. Select the virtual interface and then choose **View details**.
 
-- [describe-virtual-interfaces](../../../cli/latest/reference/directconnect/describe-virtual-interfaces.md "../../../cli/latest/reference/directconnect/describe-virtual-interfaces.md") (AWS CLI)
-- [DescribeVirtualInterfaces](../APIReference/API_DescribeVirtualInterfaces.md "../APIReference/API_DescribeVirtualInterfaces.md") (Direct Connect API)
+**To describe virtual interfaces using the command line or API**
++ [describe-virtual-interfaces](https://docs.aws.amazon.com/cli/latest/reference/directconnect/describe-virtual-interfaces.html) (AWS CLI)
++ [DescribeVirtualInterfaces](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualInterfaces.html) (Direct Connect API)

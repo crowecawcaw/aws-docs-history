@@ -1,44 +1,41 @@
+
+
 # Update a Direct Connect connection
+<a name="updateconnection"></a>
 
 You can update the following connection attribute using either the Direct Connect console or using the command line or API.
++ The name of the connection.
++ The connection's MACsec encryption mode.
+**Note**  
+While you cannot directly modify MACSec properties on hosted connections, partners can enable MACSec on their own interconnects to provide secure hosted connections to their customers.
 
-- The name of the connection.
-- The connection's MACsec encryption mode.
+  The valid values are:
+  + `should_encrypt`
+  + `must_encrypt`
 
-###### Note
+    When you set the encryption mode to this value, the connection goes down when the encryption is down.
+  + `no_encrypt`
 
-While you cannot directly modify MACSec properties on hosted connections,
-partners can enable MACSec on their own interconnects to provide secure hosted
-connections to their customers.
+**To update a connection**
 
-The valid values are:
+1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home).
 
-    + `should_encrypt`
-    + `must_encrypt`
+1. In the navigation pane, choose **Connections**.
 
+1. Select the connection, and then choose **Edit**.
 
-    When you set the encryption mode to this value, the connection goes
-     down when the encryption is down.
-    + `no_encrypt`
+1. Modify the connection:
 
-###### To update a connection
+   [Change the name] For **Name**, enter a new connection name.
 
-1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
-2. In the navigation pane, choose **Connections**.
-3. Select the connection, and then choose **Edit**.
-4. Modify the connection:
+   [Add a tag] Choose **Add tag** and do the following:
+   + For **Key**, enter the key name.
+   + For **Value**, enter the key value.
 
-[Change the name] For **Name**, enter a new connection
-name.
+   [Remove a tag] Next to the tag, choose **Remove tag**.
 
-[Add a tag] Choose **Add tag** and do the following:
+1. Choose **Edit connection**.
 
-    * For **Key**, enter the key name.
-    * For **Value**, enter the key value.[Remove a tag] Next to the tag, choose **Remove tag**.
-
-5. Choose **Edit connection**.
-
-###### To update a connection using the command line or API
-
-- [update-connection](../../../cli/latest/reference/directconnect/update-connection.md "../../../cli/latest/reference/directconnect/update-connection.md") (AWS CLI)
-- [UpdateConnection](../APIReference/API_UpdateConnection.md "../APIReference/API_UpdateConnection.md") (Direct Connect API)
+**To update a connection using the command line or API**
++ [update-connection](https://docs.aws.amazon.com/cli/latest/reference/directconnect/update-connection.html) (AWS CLI)
++ [UpdateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateConnection.html) (Direct Connect API)
