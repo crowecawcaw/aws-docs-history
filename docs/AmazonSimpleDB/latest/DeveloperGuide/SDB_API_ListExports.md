@@ -1,41 +1,50 @@
+
+
 # ListExports
+<a name="SDB_API_ListExports"></a>
 
 ## Description
+<a name="SDB_API_ListExports_Description"></a>
 
 Lists all exports created in an AWS account. Results are paginated and can be filtered by domain name. Returns exports created within the past 3 months.
 
 ## Request Parameters
+<a name="SDB_API_ListExports_RequestParameters"></a>
 
-| Name         | Description                                                                                                               | Required |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `domainName` | Filter exports by domain name. If not specified, returns exports for all domains.<br>Type: String                         | No       |
-| `maxResults` | The maximum number of exports to return in a single call.<br>Type: Integer                                                | No       |
-| `nextToken`  | The pagination token from a previous ListExports response. Use this to retrieve the next page of results.<br>Type: String | No       |
+
+|  Name  |  Description  |  Required | 
+| --- | --- | --- | 
+|  domainName  | Filter exports by domain name. If not specified, returns exports for all domains.<br />Type: String |  No  | 
+|  maxResults  | The maximum number of exports to return in a single call.<br />Type: Integer |  No  | 
+|  nextToken  | The pagination token from a previous ListExports response. Use this to retrieve the next page of results.<br />Type: String |  No  | 
 
 ## Response Elements
+<a name="SDB_API_ListExports_ResponseElements"></a>
 
-| Name                             | Description                                                                                           |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `exportSummaries`                | A list of export summaries.                                                                           |
-| `exportSummaries[].exportArn`    | The unique Amazon Resource Name (ARN) of the export.                                                  |
-| `exportSummaries[].exportStatus` | The current state of the export. Valid values: `PENDING`                                              | `IN_PROGRESS` | `SUCCEEDED` | `FAILED` |
-| `exportSummaries[].domainName`   | The name of the Amazon SimpleDB domain.                                                               |
-| `nextToken`                      | The token to use for retrieving the next page of results. Present only if more results are available. |
+
+|  Name  |  Description  | 
+| --- | --- | 
+|  exportSummaries  | A list of export summaries. | 
+|  exportSummaries[].exportArn  | The unique Amazon Resource Name (ARN) of the export. | 
+|  exportSummaries[].exportStatus  | The current state of the export. Valid values: PENDING \| IN\_PROGRESS \| SUCCEEDED \| FAILED | 
+|  exportSummaries[].domainName  | The name of the Amazon SimpleDB domain. | 
+|  nextToken  | The token to use for retrieving the next page of results. Present only if more results are available. | 
 
 ## Special Errors
+<a name="SDB_API_ListExports_SpecialErrors"></a>
 
-| Error                   | Description                               |
-| ----------------------- | ----------------------------------------- |
-| `InvalidParameterValue` | One or more parameter values are invalid. |
+
+|  Error  |  Description  | 
+| --- | --- | 
+|  InvalidParameterValue  | One or more parameter values are invalid. | 
 
 ## Examples
+<a name="SDB_API_ListExports_Examples"></a>
 
-###### Note
-
+**Note**  
 The new Export APIs don't support sending requests using `query parameters`. This is shown in the following code example.
 
 ```
-
 import software.amazon.awssdk.services.simpledbv2.SimpleDbV2Client;
 import software.amazon.awssdk.services.simpledbv2.model.ListExportsRequest;
 import software.amazon.awssdk.services.simpledbv2.model.ListExportsResponse;
@@ -101,10 +110,9 @@ public class SimpleDBListExportsExample {
         }
     }
 }
-
 ```
 
 ## Related Actions
-
-- [StartDomainExport](SDB_API_StartDomainExport.md "SDB_API_StartDomainExport.md")
-- [GetExport](SDB_API_GetExport.md "SDB_API_GetExport.md")
+<a name="SDB_API_ListExports_Related_Actions"></a>
++  [StartDomainExport](SDB_API_StartDomainExport.md) 
++  [GetExport](SDB_API_GetExport.md) 

@@ -1,118 +1,92 @@
+
+
 # PutAttributes
+<a name="SDB_API_PutAttributes"></a>
 
 ## Description
+<a name="SDB_API_PutAttributes_Description"></a>
 
-The `PutAttributes` operation creates or replaces attributes in an item. You
-specify new attributes using a combination of the `Attribute.X.Name` and
-`Attribute.X.Value` parameters. You specify the first
-_attribute_ by the parameters `Attribute.1.Name` and
-`Attribute.1.Value`, the second attribute by the parameters
-`Attribute.2.Name` and `Attribute.2.Value`, and so
-on.
+The `PutAttributes` operation creates or replaces attributes in an item. You specify new attributes using a combination of the `Attribute.X.Name` and `Attribute.X.Value` parameters. You specify the first attribute by the parameters `Attribute.1.Name` and `Attribute.1.Value`, the second attribute by the parameters `Attribute.2.Name` and `Attribute.2.Value`, and so on. 
 
-Attributes are uniquely identified in an item by their name/value combination. For example, a
-single item can have the attributes `{ "first_name", "first_value" }` and `{
- "first_name", second_value" }`. However, it cannot have two attribute instances where
-both the `Attribute.X.Name` and `Attribute.X.Value` are
-the same.
+Attributes are uniquely identified in an item by their name/value combination. For example, a single item can have the attributes `{ "first_name", "first_value" }` and ` { "first_name", second_value" }`. However, it cannot have two attribute instances where both the `Attribute.X.Name` and `Attribute.X.Value` are the same.
 
-Optionally, the requester can supply the `Replace` parameter for each
-individual attribute. Setting this value to `true` causes the new attribute value to
-replace the existing attribute value(s). For example, if an item has the attributes `{ 'a',
- '1' }`, `{ 'b', '2'}` and `{ 'b', '3' }` and the requester calls
-`PutAttributes` using the attributes `{ 'b', '4' }` with the
-`Replace` parameter set to `true`, the final attributes of the
-item are changed to `{ 'a', '1' }` and `{ 'b', '4' }`, which replaces the
-previous values of the `'b'` attribute with the new value.
+Optionally, the requester can supply the `Replace` parameter for each individual attribute. Setting this value to `true` causes the new attribute value to replace the existing attribute value(s). For example, if an item has the attributes `{ 'a', '1' }`, `{ 'b', '2'}` and `{ 'b', '3' }` and the requester calls `PutAttributes` using the attributes `{ 'b', '4' }` with the `Replace` parameter set to `true`, the final attributes of the item are changed to `{ 'a', '1' }` and `{ 'b', '4' }`, which replaces the previous values of the `'b'` attribute with the new value. 
 
-Conditional updates are useful for ensuring multiple processes do not overwrite each other. To prevent this
-from occurring, you can specify the expected attribute name and value. If they match, Amazon SimpleDB performs the update.
-Otherwise, the update does not occur.
+Conditional updates are useful for ensuring multiple processes do not overwrite each other. To prevent this from occurring, you can specify the expected attribute name and value. If they match, Amazon SimpleDB performs the update. Otherwise, the update does not occur. 
 
-###### Note
-
-Using `PutAttributes` to replace attribute values that do not exist will
-_not_ result in an error response.
-
-You cannot specify an empty string as an attribute name.
-
-When using _eventually consistent_ reads, a
-[GetAttributes](SDB_API_GetAttributes.md "SDB_API_GetAttributes.md")
-or [Select](SDB_API_Select.md "SDB_API_Select.md") request
-(read) immediately after a
-[DeleteAttributes](SDB_API_DeleteAttributes.md "SDB_API_DeleteAttributes.md") or
-[PutAttributes](SDB_API_PutAttributes.md "SDB_API_PutAttributes.md") request
-(write) might not return the updated data. A _consistent read_ always reflects all
-writes that received a successful response prior to the read. For more information, see
-[Consistency](ConsistencySummary.md "ConsistencySummary.md").
-
+**Note**  
+Using `PutAttributes` to replace attribute values that do not exist will *not* result in an error response.  
+You cannot specify an empty string as an attribute name.  
+When using eventually consistent reads, a [GetAttributes](SDB_API_GetAttributes.md) or [Select](SDB_API_Select.md) request (read) immediately after a [DeleteAttributes](SDB_API_DeleteAttributes.md) or [PutAttributes](#SDB_API_PutAttributes) request (write) might not return the updated data. A consistent read always reflects all writes that received a successful response prior to the read. For more information, see [Consistency](ConsistencySummary.md).  
 You can perform the expected conditional check on one attribute per operation.
 
 The following limitations are enforced for this operation:
-
-- 256 total attribute name-value pairs per item
-- One billion attributes per domain
-- 10 GB of total user data storage per domain
++ 256 total attribute name-value pairs per item
++ One billion attributes per domain
++ 10 GB of total user data storage per domain
 
 ## Request Parameters
+<a name="SDB_API_PutAttributes_RequestParameters"></a>
 
-| Name                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Required    |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `Attribute.X.Name`    | The name of the attribute. X can be any positive integer or 0.<br>Type: String.                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Yes         |
-| `Attribute.X.Value`   | The value of the attribute. X can be any positive integer or 0.<br>Type: String.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Yes         |
-| `ItemName`            | The name of the item.<br>Type: String.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Yes         |
-| `Attribute.X.Replace` | Flag to specify whether to replace the Attribute/Value or to add a new<br>Attribute/Value. X can be any positive integer or 0.<br>Type: Boolean.<br>Default: `false`.                                                                                                                                                                                                                                                                                                                                                                                 | No          |
-| `DomainName`          | The name of the domain in which to perform the operation.<br>Type: String                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Yes         |
-| `Expected.Name`       | Name of the attribute to check.<br>Type: String.<br>Conditions: Must be used with the expected value or expected exists parameter.<br>When used with the expected value parameter, you specify the value to check.<br>When expected exists is set to `true` and it is used with the expected value parameter,<br>it performs similarly to just using the expected value parameter. When expected exists is set to<br>`false`, the operation is performed if the expected attribute is not present.<br>Can only be used with single-valued attributes. | Conditional |
-| `Expected.Value`      | Value of the attribute to check.<br>Type: String.<br>Conditions: Must be used with the expected name parameter.<br>Can be used with the expected exists parameter if that parameter is set to `true`.<br>Can only be used with single-valued attributes.                                                                                                                                                                                                                                                                                              | Conditional |
-| `Expected.Exists`     | Flag to test the existence of an attribute while performing conditional<br>updates.<br>Type: Boolean.<br>Conditions: Must be used with the expected name parameter. When set to `true`,<br>this must be used with the expected value parameter. When set to `false`, this cannot<br>be used with the expected value parameter.<br>Can only be used with single-valued attributes.                                                                                                                                                                     | Conditional |
+
+|  Name  |  Description  |  Required | 
+| --- | --- | --- | 
+| `Attribute.X.Name` |  The name of the attribute. X can be any positive integer or 0.<br /> Type: String.  |  Yes  | 
+| `Attribute.X.Value` |  The value of the attribute. X can be any positive integer or 0.<br /> Type: String.  |  Yes  | 
+|  ItemName  |  The name of the item. <br /> Type: String.  |  Yes  | 
+| `Attribute.X.Replace` |  Flag to specify whether to replace the Attribute/Value or to add a new Attribute/Value. X can be any positive integer or 0.<br /> Type: Boolean. <br /> Default: `false`.  |  No  | 
+|  DomainName  |  The name of the domain in which to perform the operation. <br /> Type: String  |  Yes  | 
+| `Expected.Name` | Name of the attribute to check.<br />Type: String. <br />Conditions: Must be used with the expected value or expected exists parameter. <br /> When used with the expected value parameter, you specify the value to check. <br /> When expected exists is set to `true` and it is used with the expected value parameter, it performs similarly to just using the expected value parameter. When expected exists is set to `false`, the operation is performed if the expected attribute is not present. <br /> Can only be used with single-valued attributes.  | Conditional | 
+| `Expected.Value` | Value of the attribute to check.<br />Type: String. <br />Conditions: Must be used with the expected name parameter. Can be used with the expected exists parameter if that parameter is set to `true`. <br /> Can only be used with single-valued attributes. | Conditional | 
+| `Expected.Exists` | Flag to test the existence of an attribute while performing conditional updates.<br />Type: Boolean. <br />Conditions: Must be used with the expected name parameter. When set to `true`, this must be used with the expected value parameter. When set to `false`, this cannot be used with the expected value parameter. <br /> Can only be used with single-valued attributes. | Conditional | 
 
 ## Response Elements
+<a name="SDB_API_PutAttributes_CommonResponseElements"></a>
 
-See [Common Response Elements](SDB_API_CommonResponseElements.md "SDB_API_CommonResponseElements.md").
+See [Common Response Elements](SDB_API_CommonResponseElements.md).
 
 ## Special Errors
+<a name="SDB_API_PutAttributes_SpecialErrors"></a>
 
-| Error                            | Description                                                                                                            |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `AttributeDoesNotExist`          | Attribute ("+ name + ") does not exist                                                                                 |
-| `ConditionalCheckFailed`         | Conditional check failed. Attribute (" + name + ") value exists.                                                       |
-| `ConditionalCheckFailed`         | Conditional check failed. Attribute ("+ name +") value is ("+ value +") but was expected ("+ expValue +")              |
-| `ExistsAndExpectedValue`         | Expected.Exists=false and Expected.Value cannot be specified together                                                  |
-| `IncompleteExpectedExpression`   | If Expected.Exists=true or unspecified, then Expected.Value has to be specified                                        |
-| `InvalidParameterValue`          | Value (" + value + ") for parameter Expected.Exists is invalid. Expected.Exists should be either `true` or `false`.    |
-| `InvalidParameterValue`          | Value (" + value + ") for parameter Name is invalid.The empty string is an illegal attribute name                      |
-| `InvalidParameterValue`          | Value (" + value + ") for parameter Value is invalid. Value exceeds maximum length of 1024.                            |
-| `InvalidParameterValue`          | Value (" + value + ") for parameter Name is invalid. Value exceeds maximum<br>length of 1024.                          |
-| `InvalidParameterValue`          | Value (" + value + ") for parameter Value is invalid. Value exceeds maximum<br>length of 1024.                         |
-| `InvalidParameterValue`          | Value (" + value + ") for parameter Item is invalid. Value exceeds max length<br>of 1024.                              |
-| `InvalidParameterValue`          | Value (" + value + ") for parameter Replace is invalid. The Replace flag<br>should be either `true` or `false`.        |
-| `InvalidWSDLVersion`             | Parameter (" + parameterName +") is only supported in WSDL version 2009-04-15 or beyond. Please upgrade to new version |
-| `MissingParameter`               | The request must contain the parameter Name                                                                            |
-| `MissingParameter`               | The request must contain the parameter<br>`DomainName`.                                                                |
-| `MissingParameter`               | The request must contain the parameter<br>`ItemName`.                                                                  |
-| `MissingParameter`               | `Attribute.Value` missing for `Attribute.Name='<attribute<br>name>'`.                                                  |
-| `MissingParameter`               | `Attribute.Name` missing for `Attribute.Value='<attribute<br>value>'`.                                                 |
-| `MultipleExistsConditions`       | Only one Exists condition can be specified                                                                             |
-| `MultipleExpectedNames`          | Only one Expected.Name can be specified                                                                                |
-| `MultipleExpectedValues`         | Only one Expected.Value can be specified                                                                               |
-| `MultiValuedAttribute`           | Attribute (" + name + ") is multi-valued. Conditional check can only be performed on a single-valued attribute         |
-| `NoSuchDomain`                   | The specified domain does not exist.                                                                                   |
-| `NumberItemAttributesExceeded`   | Too many attributes in this item.                                                                                      |
-| `NumberDomainAttributesExceeded` | Too many attributes in this domain.                                                                                    |
-| `NumberDomainBytesExceeded`      | Too many bytes in this domain.                                                                                         |
+
+|  Error  |  Description  | 
+| --- | --- | 
+|  AttributeDoesNotExist  |  Attribute ("\+ name \+ ") does not exist  | 
+|  ConditionalCheckFailed  |  Conditional check failed. Attribute (" \+ name \+ ") value exists.  | 
+|  ConditionalCheckFailed  |  Conditional check failed. Attribute ("\+ name \+") value is ("\+ value \+") but was expected ("\+ expValue \+")  | 
+|  ExistsAndExpectedValue  |  Expected.Exists=false and Expected.Value cannot be specified together  | 
+|  IncompleteExpectedExpression  |  If Expected.Exists=true or unspecified, then Expected.Value has to be specified  | 
+|  InvalidParameterValue  |  Value (" \+ value \+ ") for parameter Expected.Exists is invalid. Expected.Exists should be either true or false.  | 
+|  InvalidParameterValue  |  Value (" \+ value \+ ") for parameter Name is invalid.The empty string is an illegal attribute name  | 
+|  InvalidParameterValue  |  Value (" \+ value \+ ") for parameter Value is invalid. Value exceeds maximum length of 1024.  | 
+|  InvalidParameterValue  |  Value (" \+ value \+ ") for parameter Name is invalid. Value exceeds maximum length of 1024. | 
+|  InvalidParameterValue  |  Value (" \+ value \+ ") for parameter Value is invalid. Value exceeds maximum length of 1024. | 
+|  InvalidParameterValue  |  Value (" \+ value \+ ") for parameter Item is invalid. Value exceeds max length of 1024. | 
+|  InvalidParameterValue  |  Value (" \+ value \+ ") for parameter Replace is invalid. The Replace flag should be either true or false. | 
+|  InvalidWSDLVersion  |  Parameter (" \+ parameterName \+") is only supported in WSDL version 2009-04-15 or beyond. Please upgrade to new version  | 
+|  MissingParameter  |  The request must contain the parameter Name  | 
+|  MissingParameter  |  The request must contain the parameter DomainName. | 
+|  MissingParameter  |  The request must contain the parameter ItemName. | 
+|  MissingParameter  |  Attribute.Value missing for Attribute.Name='<attribute name>'. | 
+|  MissingParameter  |  Attribute.Name missing for Attribute.Value='<attribute value>'. | 
+|  MultipleExistsConditions  |  Only one Exists condition can be specified  | 
+|  MultipleExpectedNames  |  Only one Expected.Name can be specified  | 
+|  MultipleExpectedValues  |  Only one Expected.Value can be specified  | 
+|  MultiValuedAttribute  |  Attribute (" \+ name \+ ") is multi-valued. Conditional check can only be performed on a single-valued attribute  | 
+|  NoSuchDomain  |  The specified domain does not exist. | 
+|  NumberItemAttributesExceeded  |  Too many attributes in this item.  | 
+|  NumberDomainAttributesExceeded  |  Too many attributes in this domain.  | 
+|  NumberDomainBytesExceeded  |  Too many bytes in this domain.  | 
 
 ## Examples
+<a name="SDB_API_PutAttributes_Examples"></a>
 
 ### Sample Request
+<a name="SDB_API_PutAttributes_Examples_Request"></a>
 
-The following example uses `PutAttributes` on `Item123`, which
-has attributes `(Color=Blue)`, `(Size=Med)`, and
-`(Price=0014.99)` in `MyDomain`. If `Item123` already had the
-`Price` attribute, this operation would replace the values for that attribute.
+The following example uses `PutAttributes` on `Item123`, which has attributes `(Color=Blue)`, `(Size=Med)`, and `(Price=0014.99)` in `MyDomain`. If `Item123` already had the `Price` attribute, this operation would replace the values for that attribute.
 
 ```
-
 https://sdb.amazonaws.com/
 ?Action=PutAttributes
 &Attribute.1.Name=Color
@@ -130,35 +104,29 @@ https://sdb.amazonaws.com/
 &Timestamp=2010-01-25T15%3A03%3A05-07%3A00
 &Version=2009-04-15
 &Signature=[valid signature]
-
 ```
 
 ### Sample Response
+<a name="SDB_API_PutAttributes_Examples_Response"></a>
 
 ```
-
-**<PutAttributesResponse>**
-  **<ResponseMetadata>**
-    **<RequestId>**490206ce-8292-456c-a00f-61b335eb202b**</RequestId>**
-    **<BoxUsage>**0.0000219907**</BoxUsage>**
-  **</ResponseMetadata>**
-**</PutAttributesResponse>**
-
+<PutAttributesResponse>
+  <ResponseMetadata>
+    <RequestId>490206ce-8292-456c-a00f-61b335eb202b</RequestId>
+    <BoxUsage>0.0000219907</BoxUsage>
+  </ResponseMetadata>
+</PutAttributesResponse>
 ```
 
 ### Sample Request
+<a name="SDB_API_PutAttributes_Examples_Request2"></a>
 
-The following example uses conditional updates to ensure that multiple processes do not overwrite each
-other’s settings. For example, if two people are buying the `JumboFez` item at the same time,
-the following ensures that the inventory is decremented correctly.
+The following example uses conditional updates to ensure that multiple processes do not overwrite each other’s settings. For example, if two people are buying the `JumboFez` item at the same time, the following ensures that the inventory is decremented correctly.
 
-###### Note
-
-For more examples of conditional operations, see
-[Conditionally Putting and Deleting Data](ConditionalPutDelete.md "ConditionalPutDelete.md").
+**Note**  
+For more examples of conditional operations, see [Conditionally Putting and Deleting Data](ConditionalPutDelete.md).
 
 ```
-
 https://sdb.amazonaws.com/
 ?Action=PutAttributes
 &DomainName=MyDomain
@@ -174,29 +142,25 @@ https://sdb.amazonaws.com/
 &Timestamp=2010-01-25T15%3A03%3A05-07%3A00
 &Version=2009-04-15
 &Signature=[valid signature]
-
 ```
 
 ### Sample Response
+<a name="SDB_API_PutAttributes_Examples_Response2"></a>
 
 If the update condition is met, Amazon SimpleDB returns output similar to the following.
 
 ```
-
-**<PutAttributesResponse>**
-  **<ResponseMetadata>**
-    **<RequestId>**490206ce-8292-456c-a00f-61b335eb202b**</RequestId>**
-    **<BoxUsage>**0.0000219907**</BoxUsage>**
-  **</ResponseMetadata>**
-**</PutAttributesResponse>**
-
+<PutAttributesResponse>
+  <ResponseMetadata>
+    <RequestId>490206ce-8292-456c-a00f-61b335eb202b</RequestId>
+    <BoxUsage>0.0000219907</BoxUsage>
+  </ResponseMetadata>
+</PutAttributesResponse>
 ```
 
-In this example, one of the servers updates the value and the other receives an error.
-The server that receives the error resubmits the request specifying a value of 13 and an
-expected value of 14, ensuring that the inventory is correctly set.
+In this example, one of the servers updates the value and the other receives an error. The server that receives the error resubmits the request specifying a value of 13 and an expected value of 14, ensuring that the inventory is correctly set.
 
 ## Related Actions
-
-- [DeleteAttributes](SDB_API_DeleteAttributes.md "SDB_API_DeleteAttributes.md")
-- [GetAttributes](SDB_API_GetAttributes.md "SDB_API_GetAttributes.md")
+<a name="SDB_API_PutAttributes_Related_Actions"></a>
++  [DeleteAttributes](SDB_API_DeleteAttributes.md) 
++  [GetAttributes](SDB_API_GetAttributes.md) 

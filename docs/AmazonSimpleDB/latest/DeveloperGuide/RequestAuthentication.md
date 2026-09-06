@@ -1,9 +1,12 @@
+
+
 # Request Authentication
+<a name="RequestAuthentication"></a>
 
-###### Topics
+**Topics**
++ [What Is Authentication?](WhatIsAuthentication.md)
++ [Managing Users of Amazon SimpleDB](UsingIAMWithSDB.md)
++ [Using Temporary Security Credentials](UsingTemporarySecurityCredentials_SDB.md)
++ [HMAC-SHA Signature](HMACAuth.md)
 
-- [What Is Authentication?](WhatIsAuthentication.md "WhatIsAuthentication.md")
-- [Managing Users of Amazon SimpleDB](UsingIAMWithSDB.md "UsingIAMWithSDB.md")
-- [Using Temporary Security Credentials](UsingTemporarySecurityCredentials_SDB.md "UsingTemporarySecurityCredentials_SDB.md")
-- [HMAC-SHA Signature](HMACAuth.md "HMACAuth.md")
-  This section explains how Amazon SimpleDB authenticates your requests.
+This section explains how Amazon SimpleDB authenticates your requests.

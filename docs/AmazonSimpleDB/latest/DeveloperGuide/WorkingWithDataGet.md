@@ -1,9 +1,11 @@
+
+
 # Getting Data from a Domain
+<a name="WorkingWithDataGet"></a>
 
 The following is an example of getting data from an item using REST.
 
 ```
-
 https://sdb.amazonaws.com/
 ?Action=GetAttributes
 &AWSAccessKeyId=[valid access key id]
@@ -14,13 +16,11 @@ https://sdb.amazonaws.com/
 &Timestamp=2010-01-25T15%3A03%3A07-07%3A00
 &Version=2009-04-15
 &Signature=[valid signature]
-
 ```
 
 Amazon SimpleDB returns output similar to the following.
 
 ```
-
 <GetAttributesResponse>
   <GetAttributesResult>
     <Attribute><Name>Color</Name><Value>Blue</Value></Attribute>
@@ -32,5 +32,4 @@ Amazon SimpleDB returns output similar to the following.
     <BoxUsage>0.0000219907</BoxUsage>
   </ResponseMetadata>
 </GetAttributesResponse>
-
 ```

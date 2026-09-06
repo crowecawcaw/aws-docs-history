@@ -1,15 +1,11 @@
+
+
 # Zero Padding
+<a name="ZeroPadding"></a>
 
-After all the numbers in a data set are positive, ensure they are properly represented for
-lexicographical comparisons. For example, the string "10" comes before "2" in lexicographical
-order. If we zero pad the numbers to five digits, "00002" comes before "00010" and are
-compared correctly. Additionally, the offset is valid for numbers up to 5 digits and future
-numbers such as 00402 and 02987 are properly represented in this scheme.
+After all the numbers in a data set are positive, ensure they are properly represented for lexicographical comparisons. For example, the string "10" comes before "2" in lexicographical order. If we zero pad the numbers to five digits, "00002" comes before "00010" and are compared correctly. Additionally, the offset is valid for numbers up to 5 digits and future numbers such as 00402 and 02987 are properly represented in this scheme.
 
-To determine the right number of digits for zero padding, determine the largest number in
-your data set (accounting for negative number conversions), determine the offset number
-(maximum number of digits for that number without a decimal point), and convert all your
-numbers by appending zeros to them until they match the digit length of the offset number.
+To determine the right number of digits for zero padding, determine the largest number in your data set (accounting for negative number conversions), determine the offset number (maximum number of digits for that number without a decimal point), and convert all your numbers by appending zeros to them until they match the digit length of the offset number.
 
 The following is sample data set with an offset applied.
 

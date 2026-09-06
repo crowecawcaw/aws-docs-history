@@ -1,9 +1,9 @@
-# Negative Numbers Offsets
 
-When choosing a numerical range, ensure that every number is positive. To do this, choose an
-offset that is larger than the smallest expected negative number in your data set. For
-example, if the smallest expected number in your data set is -12,000, choosing offset =
-100,000 might be safe.
+
+# Negative Numbers Offsets
+<a name="NegativeNumbersOffsets"></a>
+
+When choosing a numerical range, ensure that every number is positive. To do this, choose an offset that is larger than the smallest expected negative number in your data set. For example, if the smallest expected number in your data set is -12,000, choosing offset = 100,000 might be safe.
 
 The following is a sample original data set.
 

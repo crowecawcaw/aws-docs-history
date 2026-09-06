@@ -1,7 +1,9 @@
-# Export a domain to Amazon S3
 
-After completing the prerequisites, you can start exporting a domain using the
-`start-domain-export` command. The following example shows a basic export operation:
+
+# Export a domain to Amazon S3
+<a name="HowToExportDomainToS3"></a>
+
+ After completing the prerequisites, you can start exporting a domain using the `start-domain-export` command. The following example shows a basic export operation: 
 
 ```
 aws simpledbv2 start-domain-export \
@@ -10,7 +12,7 @@ aws simpledbv2 start-domain-export \
 		    --s3-bucket-owner '111122223333'
 ```
 
-The command returns information about the export request:
+ The command returns information about the export request: 
 
 ```
 {
@@ -20,5 +22,4 @@ The command returns information about the export request:
 		}
 ```
 
-The `exportArn` uniquely identifies the export and is used to track its status
-and retrieve information about the export.
+ The `exportArn` uniquely identifies the export and is used to track its status and retrieve information about the export. 

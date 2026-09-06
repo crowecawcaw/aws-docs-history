@@ -1,9 +1,11 @@
+
+
 # Creating a Domain
+<a name="WorkingWithDomainsCreate"></a>
 
 The following is an example of creating a domain using REST.
 
 ```
-
 https://sdb.amazonaws.com/
 ?Action=CreateDomain
 &AWSAccessKeyId=[valid access key id]
@@ -13,18 +15,15 @@ https://sdb.amazonaws.com/
 &Timestamp=2010-01-25T15%3A01%3A28-07%3A00
 &Version=2009-04-15
 &Signature=[valid signature]
-
 ```
 
 Amazon SimpleDB returns output similar to the following.
 
 ```
-
 <CreateDomainResponse>
   <ResponseMetadata>
     <RequestId>2a1305a2-ed1c-43fc-b7c4-e6966b5e2727</RequestId>
     <BoxUsage>0.0000219907</BoxUsage>
   </ResponseMetadata>
 </CreateDomainResponse>
-
 ```

@@ -1,9 +1,11 @@
+
+
 # Deleting Data from a Domain
+<a name="WorkingWithDataDelete"></a>
 
 The following is an example of deleting data from an item using REST.
 
 ```
-
 https://sdb.amazonaws.com/
 ?Action=DeleteAttributes
 &DomainName=MyDomain
@@ -20,22 +22,18 @@ https://sdb.amazonaws.com/
 &Timestamp=2010-01-25T15%3A03%3A07-07%3A00
 &Version=2009-04-15
 &Signature=[valid signature]
-
 ```
 
 Amazon SimpleDB returns output similar to the following.
 
 ```
-
 <DeleteAttributesResponse>
   <ResponseMetadata>
     <RequestId>05ae667c-cfac-41a8-ab37-a9c897c4c3ca</RequestId>
     <BoxUsage>0.0000219907</BoxUsage>
   </ResponseMetadata>
 </DeleteAttributesResponse>
-
 ```
 
-###### Note
-
-For information on performing multiple delete operations at once, see [BatchDeleteAttributes](SDB_API_BatchDeleteAttributes.md "SDB_API_BatchDeleteAttributes.md").
+**Note**  
+For information on performing multiple delete operations at once, see [BatchDeleteAttributes](SDB_API_BatchDeleteAttributes.md).

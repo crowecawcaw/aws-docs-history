@@ -1,132 +1,119 @@
+
+
 # HMAC-SHA Signature
+<a name="HMACAuth"></a>
 
-###### Topics
-
-- [Required Authentication Information](#RequiredAuthInfo "#RequiredAuthInfo")
-- [Authentication Process](#AuthProcess "#AuthProcess")
-- [Signing REST Requests](#REST_RESTAuth "#REST_RESTAuth")
-- [About the Time Stamp](#AboutTimestamp "#AboutTimestamp")
+**Topics**
++ [Required Authentication Information](#RequiredAuthInfo)
++ [Authentication Process](#AuthProcess)
++ [Signing REST Requests](#REST_RESTAuth)
++ [About the Time Stamp](#AboutTimestamp)
 
 ## Required Authentication Information
+<a name="RequiredAuthInfo"></a>
 
-When accessing Amazon SimpleDB using one of the AWS SDKs, the SDK handles the authentication process
-for you. For a list of available AWS SDKs supporting Amazon SimpleDB, see [Available Libraries](AWSLibraries.md "AWSLibraries.md").
+When accessing Amazon SimpleDB using one of the AWS SDKs, the SDK handles the authentication process for you. For a list of available AWS SDKs supporting Amazon SimpleDB, see [Available Libraries](AWSLibraries.md).
 
-However, when accessing Amazon SimpleDB using a REST request, you must provide the following
-items so the request can be authenticated.
+However, when accessing Amazon SimpleDB using a REST request, you must provide the following items so the request can be authenticated.
 
-###### Authentication
+**Authentication**
++ **AWSAccessKeyId—**Your AWS account is identified by your Access Key ID, which AWS uses to look up your Secret Access Key.
++ **Signature—**Each request must contain a valid HMAC-SHA signature, or the request is rejected. 
 
-- AWSAccessKeyId—Your AWS account is identified
-  by your Access Key ID, which AWS uses to look up your Secret Access Key.
-- Signature—Each request must contain a valid
-  HMAC-SHA signature, or the request is rejected.
+  A request signature is calculated using your Secret Access Key, which is a shared secret known only to you and AWS. You must use a HMAC-SHA256 signature.
++ **Date—**Each request must contain the time stamp of the request. 
 
-A request signature is calculated using your Secret Access Key, which is a shared
-secret known only to you and AWS. You must use a HMAC-SHA256 signature.
-
-- Date—Each request must contain the time stamp
-  of the request.
-
-Depending on the API you're using, you can provide an expiration date and time for
-the request instead of or in addition to the time stamp. For details of what is required
-and allowed for each API, see the authentication topic for the particular API.
+  Depending on the API you're using, you can provide an expiration date and time for the request instead of or in addition to the time stamp. For details of what is required and allowed for each API, see the authentication topic for the particular API.
 
 ## Authentication Process
+<a name="AuthProcess"></a>
 
-Following is the series of tasks required to authenticate requests to AWS using an
-HMAC-SHA request signature. It is assumed you have already
-created an AWS account and received an Access Key ID and Secret Access Key. For more information
-about those, see .
+Following is the series of tasks required to authenticate requests to AWS using an HMAC-SHA request signature. It is assumed you have already created an AWS account and received an Access Key ID and Secret Access Key. For more information about those, see .
 
 You perform the first three tasks.
 
-![HMAC-SHA Authentication Process](images/HMACAuthProcess_You.png)
+![HMAC-SHA Authentication Process](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/HMACAuthProcess_You.png)
 
-Process for Authentication: Tasks You Perform| Red circle with number 1 inside, indicating a numerical step or priority. | You construct a request to AWS. |
-| Red circle with number 2 inside, likely representing a step or item in a sequence. | You calculate a keyed-hash message authentication code (HMAC-SHA) signature using your Secret<br>Access Key (for information about HMAC, go to [http://www.rfc-editor.org/rfc/rfc2104.txt](http://www.rfc-editor.org/rfc/rfc2104.txt "http://www.rfc-editor.org/rfc/rfc2104.txt")) |
-| Red circle with number 3 inside, indicating a step or sequence number. | You include the signature and your Access Key ID in the request, and then<br>send the request to AWS. |
+
+
+**Process for Authentication: Tasks You Perform**  
+
+|  |  | 
+| --- |--- |
+|  ![Red circle with number 1 inside, indicating a numerical step or priority.](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/callouts/1.png)  | You construct a request to AWS. | 
+|  ![Red circle with number 2 inside, likely representing a step or item in a sequence.](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/callouts/2.png)  | You calculate a keyed-hash message authentication code (HMAC-SHA) signature using your Secret Access Key (for information about HMAC, go to [http://www.rfc-editor.org/rfc/rfc2104.txt](http://www.rfc-editor.org/rfc/rfc2104.txt)) | 
+|  ![Red circle with number 3 inside, indicating a step or sequence number.](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/callouts/3.png)  | You include the signature and your Access Key ID in the request, and then send the request to AWS. | 
 
 AWS performs the next three tasks.
 
-![HMAC-SHA Authentication Process](images/HMACAuthProcess_AWS.png)
+![HMAC-SHA Authentication Process](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/HMACAuthProcess_AWS.png)
 
-Process for Authentication: Tasks AWS Performs| Red circle with number 4 inside, likely representing a notification or count indicator. | AWS uses the Access Key ID to look up your Secret Access Key. |
-| Red circle with white number 3 inside, indicating a step or sequence number. | AWS generates a signature from the request data and the Secret Access Key<br>using the same algorithm you used to calculate the signature you sent in the<br>request. |
-| Red circle with white letter B inside, representing a logo or icon. | If the signature generated by AWS matches the one you sent in the<br>request, the request is considered authentic. If the comparison fails, the<br>request is discarded, and AWS returns an error response. |
+
+
+**Process for Authentication: Tasks AWS Performs**  
+
+|  |  | 
+| --- |--- |
+|  ![Red circle with number 4 inside, likely representing a notification or count indicator.](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/callouts/4.png)  | AWS uses the Access Key ID to look up your Secret Access Key. | 
+|  ![Red circle with white number 3 inside, indicating a step or sequence number.](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/callouts/5.png)  | AWS generates a signature from the request data and the Secret Access Key using the same algorithm you used to calculate the signature you sent in the request. | 
+|  ![Red circle with white letter B inside, representing a logo or icon.](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/callouts/6.png)  | If the signature generated by AWS matches the one you sent in the request, the request is considered authentic. If the comparison fails, the request is discarded, and AWS returns an error response. | 
 
 ## Signing REST Requests
+<a name="REST_RESTAuth"></a>
 
-You can send REST requests over either HTTP or HTTPS. Regardless of which
-protocol you use, you must include a signature in every REST request. This section describes how to
-create the signature. The method described in the following procedure is known as _signature
-version 2_, and uses the HMAC-SHA256 signing method.
+You can send REST requests over either HTTP or HTTPS. Regardless of which protocol you use, you must include a signature in every REST request. This section describes how to create the signature. The method described in the following procedure is known as *signature version 2*, and uses the HMAC-SHA256 signing method.
 
-In addition to the requirements listed in [Required Authentication Information](#RequiredAuthInfo "#RequiredAuthInfo"), signatures for REST requests must also include:
+In addition to the requirements listed in [Required Authentication Information](#RequiredAuthInfo), signatures for REST requests must also include:
++ **SignatureVersion—**The AWS signature version, which is currently the value `2`.
++ **SignatureMethod—**Explicitly provide the signature method `HmacSHA256`.
 
-- SignatureVersion—The AWS signature version, which is currently the value `2`.
-- SignatureMethod—Explicitly provide the signature method `HmacSHA256`.
+**Important**  
+If you are currently using signature version 1: Version 1 is deprecated, and you should move to signature version 2 immediately. 
 
-###### Important
+**To create the signature**
 
-If you are currently using signature version 1: Version 1 is deprecated, and you
-should move to signature version 2 immediately.
-
-###### To create the signature
-
-1. Create the canonicalized query string that you need later in this
-   procedure:
+1. Create the canonicalized query string that you need later in this procedure:
 
    1. Sort the UTF-8 query string components by parameter name with natural byte ordering.
 
-   The parameters can come from the GET URI or from the POST body (when `Content-Type` is `application/x-www-form-urlencoded` ). 2. URL encode the parameter name and values according to the following rules:
+      The parameters can come from the GET URI or from the POST body (when `Content-Type` is `application/x-www-form-urlencoded` ).
 
-        * Do not URL encode any of the unreserved characters that RFC 3986 defines.
-         These unreserved characters are A-Z, a-z, 0-9, hyphen ( - ), underscore ( \_ ), period ( . ), and tilde ( ~ ).
-        * Percent encode all other characters with %XY, where X and Y are hex characters 0-9 and uppercase A-F.
-        * Percent encode extended UTF-8 characters in the form %XY%ZA....
-        * Percent encode the space character as %20 (and not +, as common encoding schemes do).
+   1. URL encode the parameter name and values according to the following rules:
+      + Do not URL encode any of the unreserved characters that RFC 3986 defines. These unreserved characters are A-Z, a-z, 0-9, hyphen ( - ), underscore ( \_ ), period ( . ), and tilde ( \~ ).
+      + Percent encode all other characters with %XY, where X and Y are hex characters 0-9 and uppercase A-F.
+      + Percent encode extended UTF-8 characters in the form %XY%ZA....
+      + Percent encode the space character as %20 (and not \+, as common encoding schemes do).
+**Note**  
+Currently all AWS service parameter names use unreserved characters, so you don't need to encode them. However, you might want to include code to handle parameter names that use reserved characters, for possible future use.
 
-   ###### Note
+   1. Separate the encoded parameter names from their encoded values with the equals sign ( = ) (ASCII character 61), even if the parameter value is empty.
 
-   Currently all AWS service parameter names use unreserved characters,
-   so you don't need to encode them. However, you might want to include
-   code to handle parameter names that use reserved characters, for
-   possible future use. 3. Separate the encoded parameter names from their encoded values with the equals sign ( = ) (ASCII character 61), even if the parameter value is empty. 4. Separate the name-value pairs with an ampersand ( & ) (ASCII character 38).
+   1. Separate the name-value pairs with an ampersand ( & ) (ASCII character 38).
 
-2. Create the string to sign according to the following pseudo-grammar (the
-   `"\n"` represents an ASCII newline character).
+1. Create the string to sign according to the following pseudo-grammar (the `"\n"` represents an ASCII newline character).
 
-```
-StringToSign = HTTPVerb + "\n" +
-               ValueOfHostHeaderInLowercase + "\n" +
-               HTTPRequestURI + "\n" +
-               CanonicalizedQueryString <from the preceding step>
-```
+   ```
+   StringToSign = HTTPVerb + "\n" +
+                  ValueOfHostHeaderInLowercase + "\n" +
+                  HTTPRequestURI + "\n" +
+                  CanonicalizedQueryString <from the preceding step>
+   ```
 
-The HTTPRequestURI component is the HTTP absolute path component of the URI up to,
-but not including, the query string. If the HTTPRequestURI is empty, use a forward
-slash ( / ). 3. Calculate an RFC 2104-compliant HMAC with the string you just created, your Secret
-Access Key as the key, and SHA256 or SHA1 as the hash algorithm.
+   The HTTPRequestURI component is the HTTP absolute path component of the URI up to, but not including, the query string. If the HTTPRequestURI is empty, use a forward slash ( / ). 
 
-For more information, see [http://www.ietf.org/rfc/rfc2104.txt](http://www.ietf.org/rfc/rfc2104.txt "http://www.ietf.org/rfc/rfc2104.txt"). 4. Convert the resulting value to base64. 5. Use the resulting value as the value of the
-`Signature` request parameter.
+1. Calculate an RFC 2104-compliant HMAC with the string you just created, your Secret Access Key as the key, and SHA256 or SHA1 as the hash algorithm.
 
-###### Important
+   For more information, see [http://www.ietf.org/rfc/rfc2104.txt](http://www.ietf.org/rfc/rfc2104.txt).
 
-The final signature you send in the request must be URL encoded as specified in
-RFC 3986 (for more information, see [http://www.ietf.org/rfc/rfc3986.txt](http://www.ietf.org/rfc/rfc3986.txt "http://www.ietf.org/rfc/rfc3986.txt")). If your toolkit URL encodes your
-final request, then it handles the required URL encoding of the signature. If your
-toolkit doesn't URL encode the final request, then make sure to URL encode the
-signature before you include it in the request. Most importantly, make sure the
-signature is URL encoded _only once_. A common mistake is to URL
-encode it manually during signature formation, and then again when the toolkit URL
-encodes the entire request.
+1. Convert the resulting value to base64.
 
-Some toolkits implement RFC 1738, which has different rules than RFC 3986 (for more information, go to
-[http://www.rfc-editor.org/rfc/rfc2104.txt](http://www.rfc-editor.org/rfc/rfc2104.txt "http://www.rfc-editor.org/rfc/rfc2104.txt").
+1. Use the resulting value as the value of the `Signature `request parameter.
+**Important**  
+The final signature you send in the request must be URL encoded as specified in RFC 3986 (for more information, see [http://www.ietf.org/rfc/rfc3986.txt](http://www.ietf.org/rfc/rfc3986.txt)). If your toolkit URL encodes your final request, then it handles the required URL encoding of the signature. If your toolkit doesn't URL encode the final request, then make sure to URL encode the signature before you include it in the request. Most importantly, make sure the signature is URL encoded *only once*. A common mistake is to URL encode it manually during signature formation, and then again when the toolkit URL encodes the entire request.
 
-###### Example PutAttributes Request
+Some toolkits implement RFC 1738, which has different rules than RFC 3986 (for more information, go to [http://www.rfc-editor.org/rfc/rfc2104.txt](http://www.rfc-editor.org/rfc/rfc2104.txt).
+
+**Example PutAttributes Request**  
 
 ```
 https://sdb.amazonaws.com/?Action=PutAttributes
@@ -141,8 +128,7 @@ https://sdb.amazonaws.com/?Action=PutAttributes
 &SignatureMethod=HmacSHA256
 &AWSAccessKeyId=<Your AWS Access Key ID>
 ```
-
-Following is the string to sign.
+Following is the string to sign.  
 
 ```
 GET\n
@@ -163,8 +149,7 @@ AWSAccessKeyId=<Your AWS Access Key ID>
 &Timestamp=2010-01-25T15%3A01%3A28-07%3A00
 &Version=2009-04-15
 ```
-
-Following is the signed request.
+Following is the signed request.  
 
 ```
 https://sdb.amazonaws.com/?Action=PutAttributes
@@ -182,21 +167,11 @@ https://sdb.amazonaws.com/?Action=PutAttributes
 ```
 
 ## About the Time Stamp
+<a name="AboutTimestamp"></a>
 
-The time stamp (or expiration time) you use in the request must be a `dateTime`
-object, with the complete date plus hours, minutes, and seconds (for more information, go to
-[http://www.w3.org/TR/xmlschema-2/#dateTime](http://www.w3.org/TR/xmlschema-2/#dateTime "http://www.w3.org/TR/xmlschema-2/#dateTime")). For example: 2010-01-31T23:59:59Z.
-Although it is not required, we recommend you provide the time stamp in the Coordinated Universal
-Time (Greenwich Mean Time) time zone.
+The time stamp (or expiration time) you use in the request must be a `dateTime` object, with the complete date plus hours, minutes, and seconds (for more information, go to [http://www.w3.org/TR/xmlschema-2/\#dateTime](http://www.w3.org/TR/xmlschema-2/#dateTime)). For example: 2010-01-31T23:59:59Z. Although it is not required, we recommend you provide the time stamp in the Coordinated Universal Time (Greenwich Mean Time) time zone.
 
-If you specify a time stamp (instead of an expiration time), the request automatically expires
-15 minutes after the time stamp (in other words, AWS does not process a request if the request
-time stamp is more than 15 minutes earlier than the current time on AWS servers). Make sure your
-server's time is set correctly.
+If you specify a time stamp (instead of an expiration time), the request automatically expires 15 minutes after the time stamp (in other words, AWS does not process a request if the request time stamp is more than 15 minutes earlier than the current time on AWS servers). Make sure your server's time is set correctly.
 
-###### Important
-
-If you are using .NET you must not send overly specific time stamps, due to different
-interpretations of how extra time precision should be dropped. To avoid overly specific time
-stamps, manually construct `dateTime` objects with no more than millisecond
-precision.
+**Important**  
+If you are using .NET you must not send overly specific time stamps, due to different interpretations of how extra time precision should be dropped. To avoid overly specific time stamps, manually construct `dateTime` objects with no more than millisecond precision.

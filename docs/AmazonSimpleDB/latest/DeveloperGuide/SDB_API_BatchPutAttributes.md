@@ -1,125 +1,89 @@
+
+
 # BatchPutAttributes
+<a name="SDB_API_BatchPutAttributes"></a>
 
 ## Description
+<a name="SDB_API_BatchPutAttributes_Description"></a>
 
-With the `BatchPutAttributes` operation, you can perform multiple `PutAttribute`
-operations in a single call. This helps you yield savings in round trips and latencies, and enables Amazon SimpleDB to optimize
-requests, which generally yields better throughput.
+With the `BatchPutAttributes` operation, you can perform multiple `PutAttribute` operations in a single call. This helps you yield savings in round trips and latencies, and enables Amazon SimpleDB to optimize requests, which generally yields better throughput. 
 
-You can specify attributes and values for _items_ using a combination of the
-`Item.Y.Attribute.X.Name` and `Item.Y.Attribute.X.Value` parameters.
-To specify attributes and values for the first item, you use `Item.1.Attribute.1.Name` and
-`Item.1.Attribute.1.Value` for the first attribute, `Item.1.Attribute.2.Name`
-and `Item.1.Attribute.2.Value` for the second attribute, and so on.
+ You can specify attributes and values for items using a combination of the `Item.Y.Attribute.X.Name` and `Item.Y.Attribute.X.Value` parameters. To specify attributes and values for the first item, you use `Item.1.Attribute.1.Name` and `Item.1.Attribute.1.Value` for the first attribute, `Item.1.Attribute.2.Name` and `Item.1.Attribute.2.Value` for the second attribute, and so on. 
 
-To specify attributes and values for the second item, you use `Item.2.Attribute.1.Name` and
-`Item.2.Attribute.1.Value` for the first attribute, `Item.2.Attribute.2.Name`
-and `Item.2.Attribute.2.Value` for the second attribute, and so on.
+ To specify attributes and values for the second item, you use `Item.2.Attribute.1.Name` and `Item.2.Attribute.1.Value` for the first attribute, `Item.2.Attribute.2.Name` and `Item.2.Attribute.2.Value` for the second attribute, and so on. 
 
-Amazon SimpleDB uniquely identifies attributes in an item by their name/value combinations. For example, a
-single item can have the attributes `{ "first_name", "first_value" }` and `{
- "first_name", second_value" }`. However, it cannot have two attribute instances where
-both the `Item.Y.Attribute.X.Name` and `Item.Y.Attribute.X.Value` are
-the same.
+Amazon SimpleDB uniquely identifies attributes in an item by their name/value combinations. For example, a single item can have the attributes `{ "first_name", "first_value" }` and ` { "first_name", second_value" }`. However, it cannot have two attribute instances where both the `Item.Y.Attribute.X.Name` and `Item.Y.Attribute.X.Value` are the same.
 
-Optionally, you can supply the `Replace` parameter for each
-individual attribute. Setting this value to `true` causes the new attribute value to
-replace the existing attribute value(s) if any exist. Otherwise, Amazon SimpleDB simply inserts the attribute values.
-For example, if an item has the attributes `{ 'a', '1' }`, `{ 'b', '2'}`, and
-`{ 'b', '3' }` and the requester calls `BatchPutAttributes` using the
-attributes `{ 'b', '4' }` with the `Replace` parameter set to
-`true`, the final attributes of the item are changed to `{ 'a', '1' }` and
-`{ 'b', '4' }`. This occurs because the new `'b'` attribute replaces the old value.
+Optionally, you can supply the `Replace` parameter for each individual attribute. Setting this value to `true` causes the new attribute value to replace the existing attribute value(s) if any exist. Otherwise, Amazon SimpleDB simply inserts the attribute values. For example, if an item has the attributes `{ 'a', '1' }`, `{ 'b', '2'}`, and `{ 'b', '3' }` and the requester calls `BatchPutAttributes` using the attributes `{ 'b', '4' }` with the `Replace` parameter set to `true`, the final attributes of the item are changed to `{ 'a', '1' }` and `{ 'b', '4' }`. This occurs because the new `'b'` attribute replaces the old value. 
 
-###### Note
-
-You cannot specify an empty string as an item or attribute name.
-
-The `BatchPutAttributes` operation succeeds or fails in its entirety. There are
-no partial puts.
-
-You can execute multiple `BatchPutAttributes` operations and other operations in parallel.
-However, large numbers of concurrent `BatchPutAttributes` calls can result in Service Unavailable (503)
-responses.
-
-This operation is vulnerable to exceeding the maximum URL size when making a REST request using the HTTP GET method.
-
-This operation does not support conditions using `Expected.Name`,
-`Expected.Value`, or
-`Expected.Exists`.
+**Note**  
+You cannot specify an empty string as an item or attribute name.  
+The `BatchPutAttributes` operation succeeds or fails in its entirety. There are no partial puts.  
+You can execute multiple `BatchPutAttributes` operations and other operations in parallel. However, large numbers of concurrent `BatchPutAttributes` calls can result in Service Unavailable (503) responses.   
+This operation is vulnerable to exceeding the maximum URL size when making a REST request using the HTTP GET method.  
+This operation does not support conditions using `Expected.Name`, `Expected.Value`, or `Expected.Exists`.
 
 The following limitations are enforced for this operation:
-
-- 256 attribute name-value pairs per item
-- 1 MB request size
-- 1 billion attributes per domain
-- 10 GB of total user data storage per domain
-- 25 item limit per `BatchPutAttributes` operation
++ 256 attribute name-value pairs per item
++ 1 MB request size
++ 1 billion attributes per domain
++ 10 GB of total user data storage per domain
++ 25 item limit per `BatchPutAttributes` operation
 
 ## Request Parameters
+<a name="SDB_API_BatchPutAttributes_RequestParameters"></a>
 
-| Name                         | Description                                                                                                                                                                                                                                                                                                                                                                                                              | Required |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| `Item.Y.ItemName`            | The name of the item.<br>Type: String.<br>Default: None.                                                                                                                                                                                                                                                                                                                                                                 | Yes      |
-| `Item.Y.Attribute.X.Name`    | The name of the attribute for the specified item. Y or X can be any positive integer or 0.<br>Type: String.<br>Default: None.                                                                                                                                                                                                                                                                                            | Yes      |
-| `Item.Y.Attribute.X.Value`   | The value of the attribute for the specified item. Y or X can be any positive integer or 0.<br>Type: String.<br>Default: None.                                                                                                                                                                                                                                                                                           | Yes      |
-| `Item.Y.Attribute.X.Replace` | Flag to specify whether to replace the Attribute/Value or to add a new<br>Attribute/Value. The `replace` parameter is more resource intensive than non-replace operations and<br>is not recommended unless required. Y or X can be any positive integer or 0.<br>To reduce the request size and<br>latencies, we recommend that you do not specify this request parameter at all.<br>Type: Boolean.<br>Default: `false`. | No       |
-| `DomainName`                 | The name of the domain in which to perform the operation.<br>Type: String<br>Default: None.                                                                                                                                                                                                                                                                                                                              | Yes      |
 
-###### Note
+|  Name  |  Description  |  Required | 
+| --- | --- | --- | 
+|  Item.Y.ItemName  |  The name of the item. <br /> Type: String. <br /> Default: None.  |  Yes  | 
+| `Item.Y.Attribute.X.Name` |  The name of the attribute for the specified item. Y or X can be any positive integer or 0.<br /> Type: String. <br /> Default: None.  |  Yes  | 
+| `Item.Y.Attribute.X.Value` |  The value of the attribute for the specified item. Y or X can be any positive integer or 0.<br /> Type: String. <br /> Default: None.  |  Yes  | 
+| `Item.Y.Attribute.X.Replace` |  Flag to specify whether to replace the Attribute/Value or to add a new Attribute/Value. The `replace` parameter is more resource intensive than non-replace operations and is not recommended unless required. Y or X can be any positive integer or 0.<br />To reduce the request size and latencies, we recommend that you do not specify this request parameter at all.<br /> Type: Boolean. <br /> Default: `false`.  |  No  | 
+|  DomainName  |  The name of the domain in which to perform the operation. <br /> Type: String <br /> Default: None.  |  Yes  | 
 
-When using _eventually consistent_ reads, a
-[GetAttributes](SDB_API_GetAttributes.md "SDB_API_GetAttributes.md")
-or [Select](SDB_API_Select.md "SDB_API_Select.md") request
-(read) immediately after a
-[DeleteAttributes](SDB_API_DeleteAttributes.md "SDB_API_DeleteAttributes.md") or
-[PutAttributes](SDB_API_PutAttributes.md "SDB_API_PutAttributes.md") request
-(write) might not return the updated data. Some items might be updated before others, despite the fact that the
-operation never partially succeeds. A _consistent read_ always reflects all
-writes that received a successful response prior to the read. For more information, see
-[Consistency](ConsistencySummary.md "ConsistencySummary.md").
+**Note**  
+When using eventually consistent reads, a [GetAttributes](SDB_API_GetAttributes.md) or [Select](SDB_API_Select.md) request (read) immediately after a [DeleteAttributes](SDB_API_DeleteAttributes.md) or [PutAttributes](SDB_API_PutAttributes.md) request (write) might not return the updated data. Some items might be updated before others, despite the fact that the operation never partially succeeds. A consistent read always reflects all writes that received a successful response prior to the read. For more information, see [Consistency](ConsistencySummary.md).
 
 ## Response Elements
+<a name="SDB_API_BatchPutAttributes_CommonResponseElements"></a>
 
-See [Common Response Elements](SDB_API_CommonResponseElements.md "SDB_API_CommonResponseElements.md").
+See [Common Response Elements](SDB_API_CommonResponseElements.md).
 
 ## Special Errors
+<a name="SDB_API_BatchPutAttributes_SpecialErrors"></a>
 
-| Error                               | Description                                                                                             |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `DuplicateItemName`                 | Item `item_name` was specified more than once.                                                          |
-| `InvalidParameterValue`             | Value `value` for parameter Name is invalid. Value exceeds maximum<br>length of 1024.                   |
-| `InvalidParameterValue`             | Value `value` for parameter Value is invalid. Value exceeds maximum<br>length of 1024.                  |
-| `InvalidParameterValue`             | Value `value` for parameter Item is invalid. Value exceeds max length<br>of 1024.                       |
-| `InvalidParameterValue`             | Value `value` for parameter Replace is invalid. The Replace flag<br>should be either `true` or `false`. |
-| `MissingParameter`                  | The request must contain the parameter<br>`DomainName`.                                                 |
-| `MissingParameter`                  | The request must contain the parameter<br>`ItemName`.                                                   |
-| `MissingParameter`                  | `Attribute.Value` missing for `Attribute.Name=``attribute_name`.                                        |
-| `MissingParameter`                  | `Attribute.Name` missing for `Attribute.Value=``attribute_name`.                                        |
-| `MissingParameter`                  | No attributes for item `item_name`.                                                                     |
-| `NoSuchDomain`                      | The specified domain does not exist.                                                                    |
-| `NumberItemAttributesExceeded`      | Too many attributes in this item.                                                                       |
-| `NumberDomainAttributesExceeded`    | Too many attributes in this domain.                                                                     |
-| `NumberDomainBytesExceeded`         | Too many bytes in this domain.                                                                          |
-| `NumberSubmittedItemsExceeded`      | Too many items in a single call. Up to 25 items per call allowed.                                       |
-| `NumberSubmittedAttributesExceeded` | Too many attributes for item `itemName` in a single call. Up to 256 attributes per call allowed.        |
+
+|  Error  |  Description  | 
+| --- | --- | 
+|  DuplicateItemName  |  Item item\_name was specified more than once.  | 
+|  InvalidParameterValue  |  Value value for parameter Name is invalid. Value exceeds maximum length of 1024. | 
+|  InvalidParameterValue  |  Value value for parameter Value is invalid. Value exceeds maximum length of 1024. | 
+|  InvalidParameterValue  |  Value value for parameter Item is invalid. Value exceeds max length of 1024. | 
+|  InvalidParameterValue  |  Value value for parameter Replace is invalid. The Replace flag should be either true or false. | 
+|  MissingParameter  |  The request must contain the parameter DomainName. | 
+|  MissingParameter  |  The request must contain the parameter ItemName. | 
+|  MissingParameter  |  Attribute.Value missing for Attribute.Name=attribute\_name. | 
+|  MissingParameter  |  Attribute.Name missing for Attribute.Value=attribute\_name. | 
+|  MissingParameter  |  No attributes for item item\_name. | 
+|  NoSuchDomain  |  The specified domain does not exist. | 
+|  NumberItemAttributesExceeded  |  Too many attributes in this item.  | 
+|  NumberDomainAttributesExceeded  |  Too many attributes in this domain.  | 
+|  NumberDomainBytesExceeded  |  Too many bytes in this domain.  | 
+| `NumberSubmittedItemsExceeded` |  Too many items in a single call. Up to 25 items per call allowed. | 
+| `NumberSubmittedAttributesExceeded` |  Too many attributes for item itemName in a single call. Up to 256 attributes per call allowed.  | 
 
 ## Examples
+<a name="SDB_API_BatchPutAttributes_Examples"></a>
 
 ### Sample Request
+<a name="SDB_API_BatchPutAttributes_Examples_Request"></a>
 
-The following example uses `BatchPutAttributes` on `Shirt1`, which
-has attributes `(Color=Blue)`, `(Size=Med)`, and
-`(Price=0014.99)` in `MyDomain`. If `Shirt1` already had the
-`Price` attribute, this operation would replace the values for that attribute.
-Otherwise, a new (additional) `Price` attribute is created with the value 0014.99.
+The following example uses `BatchPutAttributes` on `Shirt1`, which has attributes `(Color=Blue)`, `(Size=Med)`, and `(Price=0014.99)` in `MyDomain`. If `Shirt1` already had the `Price` attribute, this operation would replace the values for that attribute. Otherwise, a new (additional) `Price` attribute is created with the value 0014.99.
 
-The example also uses `BatchPutAttributes` on `Shirt2` which
-has attributes `(Color=Red)`, `(Size=Large)`, and
-`(Price=0019.99)`.
+ The example also uses `BatchPutAttributes` on `Shirt2` which has attributes `(Color=Red)`, `(Size=Large)`, and `(Price=0019.99)`. 
 
 ```
-
 https://sdb.amazonaws.com/
 ?Action=BatchPutAttributes
 &Item.1.ItemName=Shirt1
@@ -144,24 +108,22 @@ https://sdb.amazonaws.com/
 &Timestamp=2009-01-12T15%3A03%3A05-07%3A00
 &Version=2009-04-15
 &Signature=[valid signature]
-
 ```
 
 ### Sample Response
+<a name="SDB_API_BatchPutAttributes_Examples_Response"></a>
 
 ```
-
-**<BatchPutAttributesResponse>**
-  **<ResponseMetadata>**
-    **<RequestId>**490206ce-8292-456c-a00f-61b335eb202b**</RequestId>**
-    **<BoxUsage>**0.0000219907**</BoxUsage>**
-  **</ResponseMetadata>**
-**</BatchPutAttributesResponse>**
-
+<BatchPutAttributesResponse>
+  <ResponseMetadata>
+    <RequestId>490206ce-8292-456c-a00f-61b335eb202b</RequestId>
+    <BoxUsage>0.0000219907</BoxUsage>
+  </ResponseMetadata>
+</BatchPutAttributesResponse>
 ```
 
 ## Related Actions
-
-- [PutAttributes](SDB_API_PutAttributes.md "SDB_API_PutAttributes.md")
-- [DeleteAttributes](SDB_API_DeleteAttributes.md "SDB_API_DeleteAttributes.md")
-- [GetAttributes](SDB_API_GetAttributes.md "SDB_API_GetAttributes.md")
+<a name="SDB_API_BatchPutAttributes_Related_Actions"></a>
++  [PutAttributes](SDB_API_PutAttributes.md) 
++  [DeleteAttributes](SDB_API_DeleteAttributes.md) 
++  [GetAttributes](SDB_API_GetAttributes.md) 

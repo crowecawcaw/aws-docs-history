@@ -1,7 +1,10 @@
+
+
 # Tuning Queries
+<a name="TuningQueries"></a>
 
-###### Topics
+**Topics**
++ [Tuning Your Queries Using Composite Attributes](BoxUsageTuning.md)
++ [Data Set Partitioning](DataSetPartitioning.md)
 
-- [Tuning Your Queries Using Composite Attributes](BoxUsageTuning.md "BoxUsageTuning.md")
-- [Data Set Partitioning](DataSetPartitioning.md "DataSetPartitioning.md")
-  This section describes steps you can take to tune queries and your data set.
+This section describes steps you can take to tune queries and your data set.

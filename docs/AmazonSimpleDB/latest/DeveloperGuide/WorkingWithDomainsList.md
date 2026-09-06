@@ -1,9 +1,11 @@
+
+
 # Verifying the Domain
+<a name="WorkingWithDomainsList"></a>
 
 The following is an example of listing domains using REST.
 
 ```
-
 https://sdb.amazonaws.com/
 ?Action=ListDomains
 &AWSAccessKeyId=[valid access key id]
@@ -14,13 +16,11 @@ https://sdb.amazonaws.com/
 &Timestamp=2010-01-25T15%3A02%3A19-07%3A00
 &Version=2009-04-15
 &Signature=[valid signature]
-
 ```
 
 Amazon SimpleDB returns output similar to the following.
 
 ```
-
 <ListDomainsResponse>
   <ListDomainsResult>
     <DomainName>MyDomain</DomainName>
@@ -31,5 +31,4 @@ Amazon SimpleDB returns output similar to the following.
     <BoxUsage>0.0000219907</BoxUsage>
   </ResponseMetadata>
 </ListDomainsResponse>
-
 ```

@@ -1,4 +1,7 @@
+
+
 # Select Quoting Rules
+<a name="QuotingRulesSelect"></a>
 
 Attribute values must be quoted with a single or double quote. If a quote appears within the attribute value, it must be escaped with the same quote symbol. These following two expressions are equivalent:
 
@@ -20,22 +23,21 @@ select * from mydomain where `abc``123` = '1'
 ```
 
 The following is the list of reserved keywords that are valid identifiers that must be backtick quoted if used as an attribute or domain name in the Select syntax.
-
-- or
-- and
-- not
-- from
-- where
-- select
-- like
-- null
-- is
-- order
-- by
-- asc
-- desc
-- in
-- between
-- intersection
-- limit
-- every
++ or
++ and
++ not
++ from
++ where
++ select
++ like
++ null
++ is
++ order
++ by
++ asc
++ desc
++ in
++ between
++ intersection
++ limit
++ every

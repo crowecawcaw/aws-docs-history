@@ -1,83 +1,73 @@
+
+
 # Select
+<a name="SDB_API_Select"></a>
 
 ## Description
+<a name="SDB_API_Select_Description"></a>
 
-The `Select` operation returns a set of `Attributes`
-for `ItemNames` that match the select expression. `Select` is
-similar to the standard SQL `SELECT` statement.
+The `Select` operation returns a set of `Attributes` for `ItemNames` that match the select expression. `Select` is similar to the standard SQL `SELECT` statement. 
 
-Amazon SimpleDB keeps multiple copies of each domain. When data is written or updated, all copies of the data
-are updated. However, it takes time for the update to propagate to all storage locations. The data will
-eventually be consistent, but an immediate read might not show the change. If eventually consistent reads are not
-acceptable for your application, use `ConsistentRead`. Although this operation might take
-longer than a standard read, it always returns the last updated value.
+Amazon SimpleDB keeps multiple copies of each domain. When data is written or updated, all copies of the data are updated. However, it takes time for the update to propagate to all storage locations. The data will eventually be consistent, but an immediate read might not show the change. If eventually consistent reads are not acceptable for your application, use `ConsistentRead`. Although this operation might take longer than a standard read, it always returns the last updated value. 
 
-The total size of the response cannot exceed 1 MB. Amazon SimpleDB automatically adjusts
-the number of items returned per page to enforce this limit. For example, even if you ask to
-retrieve 2500 items, but each individual item is 10 KB in size, the system returns 100 items and an
-appropriate next token so you can get the next page of results.
+The total size of the response cannot exceed 1 MB. Amazon SimpleDB automatically adjusts the number of items returned per page to enforce this limit. For example, even if you ask to retrieve 2500 items, but each individual item is 10 KB in size, the system returns 100 items and an appropriate next token so you can get the next page of results.
 
-For information on how to construct select expressions, see [Using Select to Create Amazon SimpleDB Queries](UsingSelect.md "UsingSelect.md").
+For information on how to construct select expressions, see [Using Select to Create Amazon SimpleDB Queries](UsingSelect.md).
 
-###### Note
-
-Operations that run longer than 5 seconds return a time-out error response or a partial
-or empty result set. Partial and empty result sets contain a
-`NextToken` value, which allows you to continue the
-operation from where it left off.
-
-Responses larger than one megabyte return a partial result set.
-
-Your application should _not_ excessively retry queries that return
-`QueryTimeout` errors. If you receive too many
-`QueryTimeout` errors, reduce the complexity of your query
-expression.
-
-When designing your application, keep in mind that Amazon SimpleDB does not guarantee how attributes are ordered in the returned response.
-
-For information about limits that affect Select, see [Limits](SDBLimits.md "SDBLimits.md").
-
+**Note**  
+Operations that run longer than 5 seconds return a time-out error response or a partial or empty result set. Partial and empty result sets contain a `NextToken` value, which allows you to continue the operation from where it left off.  
+Responses larger than one megabyte return a partial result set.  
+Your application should *not* excessively retry queries that return `QueryTimeout` errors. If you receive too many `QueryTimeout` errors, reduce the complexity of your query expression.   
+When designing your application, keep in mind that Amazon SimpleDB does not guarantee how attributes are ordered in the returned response.  
+For information about limits that affect Select, see [Limits](SDBLimits.md).  
 The `select` operation is case-sensitive.
 
 ## Request Parameters
+<a name="SDB_API_Select_RequestParameters"></a>
 
-| Name               | Description                                                                                                                                                                                       | Required |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `SelectExpression` | The expression used to query the domain.<br>Type: String<br>Default: None                                                                                                                         | Yes      |
-| `ConsistentRead`   | When set to `true`, ensures that the most recent data is returned. For<br>more information, see [Consistency](ConsistencySummary.md "ConsistencySummary.md")<br>Type: Boolean<br>Default: `false` | No       |
-| `NextToken`        | String that tells Amazon SimpleDB where to start the next list of ItemNames.<br>Type: String<br>Default: None                                                                                     | No       |
+
+|  Name  |  Description  |  Required | 
+| --- | --- | --- | 
+|  SelectExpression  | The expression used to query the domain. <br />Type: String <br />Default: None  |  Yes | 
+|  ConsistentRead  | When set to `true`, ensures that the most recent data is returned. For more information, see [Consistency](ConsistencySummary.md)<br />Type: Boolean <br />Default: `false`  |  No | 
+|  NextToken  | String that tells Amazon SimpleDB where to start the next list of ItemNames. <br />Type: String <br />Default: None  |  No | 
 
 ## Response Elements
+<a name="SDB_API_Select_ResponseElements"></a>
 
-| Name                                                                    | Description                                                                                                                                                  |
-| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<Item><Name>...<br></Name></Item>`                                     | Item names that match the select expression.                                                                                                                 |
-| `<Attribute><br><Name>...</Name><br><Value>...</Value><br></Attribute>` | The name and value of the attribute.                                                                                                                         |
-| `NextToken`                                                             | An opaque token indicating that more than<br>`MaxNumberOfItems` matched, the response<br>size exceeded 1 megabyte, or the execution time exceeded 5 seconds. |
+
+|  Name  |  Description  | 
+| --- | --- | 
+|  <Item><Name>... </Name></Item>  |  Item names that match the select expression.  | 
+|  <Attribute> <Name>...</Name> <Value>...</Value> </Attribute>  |  The name and value of the attribute.  | 
+|  NextToken  |  An opaque token indicating that more than MaxNumberOfItems matched, the response size exceeded 1 megabyte, or the execution time exceeded 5 seconds.  | 
 
 ## Special Errors
+<a name="SDB_API_Select_SpecialErrors"></a>
 
-| Error                        | Description                                                                                                                                    |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `InvalidParameterValue`      | Value (" + value + ") for parameter<br>`MaxNumberOfItems` is invalid.<br>`MaxNumberOfItems` must be between 1 and<br>2500.                     |
-| `InvalidParameterValue`      | Value (" + value + ") for parameter AttributeName is invalid. Value<br>exceeds maximum length of 1024.                                         |
-| `InvalidParameterValue`      | Value (" + value + ") for parameter ConsistentRead is invalid. The<br>ConsistentRead flag should be either `true` or<br>`false`.               |
-| `InvalidNextToken`           | The specified next token is not valid.                                                                                                         |
-| `InvalidNumberPredicates`    | Too many predicates in the query expression.                                                                                                   |
-| `InvalidNumberValueTests`    | Too many value tests per predicate in the query expression.                                                                                    |
-| `InvalidQueryExpression`     | The specified query expression syntax is not valid.                                                                                            |
-| `InvalidSortExpression`      | The sort attribute must be present in at least one of the<br>predicates, and the predicate cannot contain the is null<br>operator.             |
-| `MissingParameter`           | The request must contain the parameter<br>`DomainName`.                                                                                        |
-| `NoSuchDomain`               | The specified domain does not exist.                                                                                                           |
-| `QueryTimeout`               | A timeout occurred when attempting to query domain <domain<br>name> with query expression <query expression>. BoxUsage<br>[<box usage value>]" |
-| `TooManyRequestedAttributes` | Too many attributes requested.                                                                                                                 |
+
+|  Error  |  Description  | 
+| --- | --- | 
+|  InvalidParameterValue  |  Value (" \+ value \+ ") for parameter MaxNumberOfItems is invalid. MaxNumberOfItems must be between 1 and 2500. | 
+|  InvalidParameterValue  | Value (" \+ value \+ ") for parameter AttributeName is invalid. Value exceeds maximum length of 1024. | 
+|  InvalidParameterValue  |  Value (" \+ value \+ ") for parameter ConsistentRead is invalid. The ConsistentRead flag should be either true or false. | 
+|  InvalidNextToken  |  The specified next token is not valid. | 
+|  InvalidNumberPredicates  |  Too many predicates in the query expression. | 
+|  InvalidNumberValueTests  |  Too many value tests per predicate in the query expression. | 
+|  InvalidQueryExpression  |  The specified query expression syntax is not valid. | 
+|  InvalidSortExpression  |  The sort attribute must be present in at least one of the predicates, and the predicate cannot contain the is null operator. | 
+|  MissingParameter  |  The request must contain the parameter DomainName. | 
+|  NoSuchDomain  |  The specified domain does not exist. | 
+|  QueryTimeout  |  A timeout occurred when attempting to query domain <domain name> with query expression <query expression>. BoxUsage [<box usage value>]" | 
+|  TooManyRequestedAttributes   |  Too many attributes requested.  | 
 
 ## Examples
+<a name="SDB_API_Select_Examples"></a>
 
 ### Sample Request
+<a name="SDB_API_Select_Examples_Request"></a>
 
 ```
-
 https://sdb.amazonaws.com/
 ?Action=Select
 &AWSAccessKeyId=[valid access key id]
@@ -89,39 +79,37 @@ https://sdb.amazonaws.com/
 &Timestamp=2010-01-25T15%3A03%3A09-07%3A00
 &Version=2009-04-15
 &Signature=[valid signature]
-
 ```
 
 ### Sample Response
+<a name="SDB_API_Select_Examples_Response"></a>
 
 ```
-
-**<SelectResponse>**
-  **<SelectResult>**
-    **<Item>**
-      **<Name>**Item_03**</Name>**
-      **<Attribute>****<Name>**Category**</Name>****<Value>**Clothes**</Value>****</Attribute>**
-      **<Attribute>****<Name>**Subcategory**</Name>****<Value>**Pants**</Value>****</Attribute>**
-      **<Attribute>****<Name>**Name**</Name>****<Value>**Sweatpants**</Value>****</Attribute>**
-      **<Attribute>****<Name>**Color**</Name>****<Value>**Blue**</Value>****</Attribute>**
-      **<Attribute>****<Name>**Color**</Name>****<Value>**Yellow**</Value>****</Attribute>**
-      **<Attribute>****<Name>**Color**</Name>****<Value>**Pink**</Value>****</Attribute>**
-      **<Attribute>****<Name>**Size**</Name>****<Value>**Large**</Value>****</Attribute>**
-    **</Item>**
-    **<Item>**
-      **<Name>**Item_06**</Name>**
-      **<Attribute>****<Name>**Category**</Name>****<Value>**Motorcycle Parts**</Value>****</Attribute>**
-      **<Attribute>****<Name>**Subcategory**</Name>****<Value>**Bodywork**</Value>****</Attribute>**
-      **<Attribute>****<Name>**Name**</Name>****<Value>**Fender Eliminator**</Value>****</Attribute>**
-      **<Attribute>****<Name>**Color**</Name>****<Value>**Blue**</Value>****</Attribute>**
-      **<Attribute>****<Name>**Make**</Name>****<Value>**Yamaha**</Value>****</Attribute>**
-      **<Attribute>****<Name>**Model**</Name>****<Value>**R1**</Value>****</Attribute>**
-    **</Item>**
-  **</SelectResult>**
-  **<ResponseMetadata>**
-    **<RequestId>**b1e8f1f7-42e9-494c-ad09-2674e557526d**</RequestId>**
-    **<BoxUsage>**0.0000219907**</BoxUsage>**
-  **</ResponseMetadata>**
-**</SelectResponse>**
-
+<SelectResponse>
+  <SelectResult>
+    <Item>
+      <Name>Item_03</Name>
+      <Attribute><Name>Category</Name><Value>Clothes</Value></Attribute>
+      <Attribute><Name>Subcategory</Name><Value>Pants</Value></Attribute>
+      <Attribute><Name>Name</Name><Value>Sweatpants</Value></Attribute>
+      <Attribute><Name>Color</Name><Value>Blue</Value></Attribute>
+      <Attribute><Name>Color</Name><Value>Yellow</Value></Attribute>
+      <Attribute><Name>Color</Name><Value>Pink</Value></Attribute>
+      <Attribute><Name>Size</Name><Value>Large</Value></Attribute>
+    </Item>
+    <Item>
+      <Name>Item_06</Name>
+      <Attribute><Name>Category</Name><Value>Motorcycle Parts</Value></Attribute>
+      <Attribute><Name>Subcategory</Name><Value>Bodywork</Value></Attribute>
+      <Attribute><Name>Name</Name><Value>Fender Eliminator</Value></Attribute>
+      <Attribute><Name>Color</Name><Value>Blue</Value></Attribute>
+      <Attribute><Name>Make</Name><Value>Yamaha</Value></Attribute>
+      <Attribute><Name>Model</Name><Value>R1</Value></Attribute>
+    </Item>
+  </SelectResult>
+  <ResponseMetadata>
+    <RequestId>b1e8f1f7-42e9-494c-ad09-2674e557526d</RequestId>
+    <BoxUsage>0.0000219907</BoxUsage>
+  </ResponseMetadata>
+</SelectResponse>
 ```

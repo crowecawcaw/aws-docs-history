@@ -1,64 +1,63 @@
+
+
 # API Usage
+<a name="APIUsage"></a>
 
-This section provides a high-level overview of the Amazon SimpleDB API. It describes API
-conventions, API versioning used to minimize the impact of service changes, and
-API-specific information for making REST requests.
+This section provides a high-level overview of the Amazon SimpleDB API. It describes API conventions, API versioning used to minimize the impact of service changes, and API-specific information for making REST requests.
 
-###### Note
-
-The new Export APIs (StartDomainExport, GetExport, and ListExports) don't support sending requests using `query 
- parameters` as per latest AWS standards. Code snippets have been provided to show usage of the new operations.
+**Note**  
+The new Export APIs (StartDomainExport, GetExport, and ListExports) don't support sending requests using `query parameters` as per latest AWS standards. Code snippets have been provided to show usage of the new operations.
 
 ## API Conventions
+<a name="APIConventions"></a>
 
 ### Overview
+<a name="api-conventions-overview"></a>
 
-This topic discusses the conventions used in the Amazon SimpleDB API reference. This includes terminology, notation, and
-any abbreviations used to describe the API.
+ This topic discusses the conventions used in the Amazon SimpleDB API reference. This includes terminology, notation, and any abbreviations used to describe the API.
 
-The API reference is broken down into a collection of _Actions_ and _Data Types_.
+The API reference is broken down into a collection of *Actions* and *Data Types*. 
 
 ### Actions
+<a name="api-conventions-operations"></a>
 
-Actions encapsulate the possible interactions with Amazon SimpleDB. These can be viewed as remote procedure calls and consist of a request and response message pair. Requests must be signed, allowing Amazon SimpleDB to authenticate the caller.
+ Actions encapsulate the possible interactions with Amazon SimpleDB. These can be viewed as remote procedure calls and consist of a request and response message pair. Requests must be signed, allowing Amazon SimpleDB to authenticate the caller. 
 
 ### Data Types
+<a name="api-conventions-types"></a>
 
-Values provided as parameters to the various operations must be of the indicated type. Standard XSD types (like
-`string`, `boolean`, `int`) are prefixed with xsd:. Complex types defined by the
-Amazon SimpleDB WSDL are prefixed with `sdb:`.
+Values provided as parameters to the various operations must be of the indicated type. Standard XSD types (like `string`, `boolean`, `int`) are prefixed with xsd:. Complex types defined by the Amazon SimpleDB WSDL are prefixed with `sdb:`. 
 
 ## WSDL Location and API Version
+<a name="SDB_API_WSDL"></a>
 
-The Amazon SimpleDB API is published through a Web Services Description Language (WSDL) and an XML schema document. The version of the Amazon SimpleDB API supported with this document is 2009-04-15.
+ The Amazon SimpleDB API is published through a Web Services Description Language (WSDL) and an XML schema document. The version of the Amazon SimpleDB API supported with this document is 2009-04-15. 
 
-The Amazon SimpleDB WSDL is located at: [http://sdb.amazonaws.com/doc/2009-04-15/AmazonSimpleDB.wsdl](http://sdb.amazonaws.com/doc/2009-04-15/AmazonSimpleDB.wsdl "http://sdb.amazonaws.com/doc/2009-04-15/AmazonSimpleDB.wsdl").
+ The Amazon SimpleDB WSDL is located at: [http://sdb.amazonaws.com/doc/2009-04-15/AmazonSimpleDB.wsdl](http://sdb.amazonaws.com/doc/2009-04-15/AmazonSimpleDB.wsdl). 
 
-The Amazon SimpleDB schema is located at: [http://sdb.amazonaws.com/doc/2009-04-15/AmazonSimpleDB.xsd](http://sdb.amazonaws.com/doc/2009-04-15/AmazonSimpleDB.xsd "http://sdb.amazonaws.com/doc/2009-04-15/AmazonSimpleDB.xsd").
+ The Amazon SimpleDB schema is located at: [http://sdb.amazonaws.com/doc/2009-04-15/AmazonSimpleDB.xsd](http://sdb.amazonaws.com/doc/2009-04-15/AmazonSimpleDB.xsd). 
 
 Some libraries can generate code directly from the WSDL. Other libraries require a little more work on your part.
 
 ### API Versions
+<a name="SDB_API_WSDL_Versions"></a>
 
-All Amazon SimpleDB API operations are versioned. This minimizes the impact of API changes on client software by sending back a response that the client can process. New versions are designed to be backward-compatible with older API revisions. However, there might be occasions where an incompatible API change is required. Additionally, newer API responses might include additional fields and, depending on how the client software is written, it might not be able to handle additional fields. Including a version in the request guarantees that it will always be sent a response that it expects.
+ All Amazon SimpleDB API operations are versioned. This minimizes the impact of API changes on client software by sending back a response that the client can process. New versions are designed to be backward-compatible with older API revisions. However, there might be occasions where an incompatible API change is required. Additionally, newer API responses might include additional fields and, depending on how the client software is written, it might not be able to handle additional fields. Including a version in the request guarantees that it will always be sent a response that it expects.
 
-Each API revision is assigned a version in date form. This version is included in the
-request as a version parameter when using REST. The response returned by Amazon SimpleDB
-honors the version included in the request. Fields introduced in a later API
-version are not returned in the response.
+Each API revision is assigned a version in date form. This version is included in the request as a version parameter when using REST. The response returned by Amazon SimpleDB honors the version included in the request. Fields introduced in a later API version are not returned in the response.
 
 The WSDL for each supported API version is available using the following URI format:
 
 http://sdb.amazonaws.com/doc/<api-version>/AmazonSimpleDB.wsdl
 
 ### Specifying the API Version
+<a name="SDB_API_WSDL_Versions_Specify"></a>
 
 For all requests, you must explicitly request the API version you want to use. Specifying the version ensures that the service does not return response elements that your application is not designed to handle.
 
 In REST requests, you include the Version parameter.
 
 ```
-
 http://sdb.amazonaws.com
 ?Action=CreateDomain
 &AWSAccessKeyId=[valid access key id]
@@ -66,33 +65,35 @@ http://sdb.amazonaws.com
 &SignatureVersion=2
 &SignatureMethod=HmacSHA256
 &Timestamp=2010-01-25T15%3A01%3A28-07%3A00
-&Version=`2009-04-15`
+&Version={{2009-04-15}}
 &Signature=[valid signature]
-
 ```
 
 ## API Error Retries
+<a name="APIErrorRetries"></a>
 
-This section describes how to handle client and server errors.
+ This section describes how to handle client and server errors.
 
-###### Note
-
-For information on specific error messages, see [API Error Codes](APIError.md "APIError.md")
+**Note**  
+ For information on specific error messages, see [API Error Codes](APIError.md) 
 
 ### Client Errors
+<a name="APIClientErrors"></a>
 
 REST client errors are indicated by a 4xx HTTP response code.
 
-Do not retry client errors. Client errors indicate that Amazon SimpleDB found a problem
-with the client request and the application should address the issue before
-submitting the request again.
+Do not retry client errors. Client errors indicate that Amazon SimpleDB found a problem with the client request and the application should address the issue before submitting the request again.
+
+
 
 ### Server Errors
+<a name="APIServerErrors"></a>
 
 For server errors, you should retry the original request.
 
 REST server errors are indicated by a 5xx HTTP response code.
 
 ### Retries and Exponential Backoff
+<a name="APIRetries"></a>
 
-The AWS SDKs that support Amazon SimpleDB implement retries and exponential backoff. For more information, see [Error Retries and Exponential Backoff](../../../general/latest/gr/api-retries.md "../../../general/latest/gr/api-retries.md") in the AWS General Reference.
+The AWS SDKs that support Amazon SimpleDB implement retries and exponential backoff. For more information, see [Error Retries and Exponential Backoff](http://docs.aws.amazon.com/general/latest/gr/api-retries.html) in the AWS General Reference.

@@ -1,44 +1,48 @@
+
+
 # CreateDomain
+<a name="SDB_API_CreateDomain"></a>
 
 ## Description
+<a name="SDB_API_CreateDomain_Description"></a>
 
-The `CreateDomain` operation creates a new domain. The domain name must be
-unique among the domains associated with the Access Key ID provided in the request. The
-`CreateDomain` operation might take 10 or more seconds to complete.
+The `CreateDomain` operation creates a new domain. The domain name must be unique among the domains associated with the Access Key ID provided in the request. The `CreateDomain` operation might take 10 or more seconds to complete. 
 
-###### Note
-
-`CreateDomain` is an idempotent operation; running it multiple times
-using the same domain name will _not_ result in an error response.
-
-You can create up to 250 domains per account.
-
-If you require additional domains, go to [https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-simpledb-domains](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-simpledb-domains "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-simpledb-domains").
+**Note**  
+`CreateDomain` is an idempotent operation; running it multiple times using the same domain name will *not* result in an error response.   
+You can create up to 250 domains per account.  
+If you require additional domains, go to [https://console.aws.amazon.com/support/home\#/case/create?issueType=service-limit-increase&limitType=service-code-simpledb-domains](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-simpledb-domains).
 
 ## Request Parameters
+<a name="SDB_API_CreateDomain_RequestParameters"></a>
 
-| Name         | Description                                                                                                                                                                          | Required |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| `DomainName` | The name of the domain to create. The name can range between<br>3 and 255 characters and can contain the following characters: a-z, A-Z,<br>0-9, '\_', '-', and '.'.<br>Type: String | Yes      |
+
+|  Name  |  Description  |  Required | 
+| --- | --- | --- | 
+|  DomainName  |  The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '\_', '-', and '.'. <br />Type: String |  Yes  | 
 
 ## Response Elements
+<a name="SDB_API_CreateDomain_CommonResponseElements"></a>
 
-See [Common Response Elements](SDB_API_CommonResponseElements.md "SDB_API_CommonResponseElements.md").
+See [Common Response Elements](SDB_API_CommonResponseElements.md).
 
 ## Special Errors
+<a name="SDB_API_CreateDomain_SpecialErrors"></a>
 
-| Error                   | Description                                                |
-| ----------------------- | ---------------------------------------------------------- |
-| `InvalidParameterValue` | Value (" + value + ") for parameter DomainName is invalid. |
-| `MissingParameter`      | The request must contain the parameter<br>`DomainName`.    |
-| `NumberDomainsExceeded` | Number of domains limit exceeded.                          |
+
+|  Error  |  Description  | 
+| --- | --- | 
+|  InvalidParameterValue  |  Value (" \+ value \+ ") for parameter DomainName is invalid. | 
+|  MissingParameter  |  The request must contain the parameter DomainName. | 
+|  NumberDomainsExceeded  |  Number of domains limit exceeded. | 
 
 ## Examples
+<a name="SDB_API_CreateDomain_Examples"></a>
 
 ### Sample Request
+<a name="SDB_API_CreateDomain_Examples_Request"></a>
 
 ```
-
 https://sdb.amazonaws.com/
 ?Action=CreateDomain
 &AWSAccessKeyId=[valid access key id]
@@ -48,23 +52,21 @@ https://sdb.amazonaws.com/
 &Timestamp=2010-01-25T15%3A01%3A28-07%3A00
 &Version=2009-04-15
 &Signature=[valid signature]
-
 ```
 
 ### Sample Response
+<a name="SDB_API_CreateDomain_Examples_Response"></a>
 
 ```
-
-**<CreateDomainResponse>**
-  **<ResponseMetadata>**
-    **<RequestId>**2a1305a2-ed1c-43fc-b7c4-e6966b5e2727**</RequestId>**
-    **<BoxUsage>**0.0000219907**</BoxUsage>**
-  **</ResponseMetadata>**
-**</CreateDomainResponse>**
-
+<CreateDomainResponse>
+  <ResponseMetadata>
+    <RequestId>2a1305a2-ed1c-43fc-b7c4-e6966b5e2727</RequestId>
+    <BoxUsage>0.0000219907</BoxUsage>
+  </ResponseMetadata>
+</CreateDomainResponse>
 ```
 
 ## Related Actions
-
-- [DeleteDomain](SDB_API_DeleteDomain.md "SDB_API_DeleteDomain.md")
-- [ListDomains](SDB_API_ListDomains.md "SDB_API_ListDomains.md")
+<a name="SDB_API_CreateDomain_Related_Actions"></a>
++  [DeleteDomain](SDB_API_DeleteDomain.md) 
++  [ListDomains](SDB_API_ListDomains.md) 

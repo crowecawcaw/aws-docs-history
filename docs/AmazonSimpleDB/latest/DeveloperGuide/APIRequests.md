@@ -1,7 +1,10 @@
+
+
 # Making API Requests
+<a name="APIRequests"></a>
 
-###### Topics
+**Topics**
++ [Region Endpoints](Endpoints.md)
++ [Making REST Requests](MakingRESTRequests.md)
 
-- [Region Endpoints](Endpoints.md "Endpoints.md")
-- [Making REST Requests](MakingRESTRequests.md "MakingRESTRequests.md")
-  This section describes how to make REST requests.
+This section describes how to make REST requests.
