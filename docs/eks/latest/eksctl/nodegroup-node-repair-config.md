@@ -1,12 +1,15 @@
-# Support Node Repair Configuration for EKS Managed Nodegroups
 
-EKS Managed Nodegroups supports Node Repair, where the health of managed nodes are monitored,
-and unhealthy worker nodes are replaced or rebooted in response. eksctl now provides comprehensive
-configuration options for fine-grained control over node repair behavior.
+
+# Support Node Repair Configuration for EKS Managed Nodegroups
+<a name="nodegroup-node-repair-config"></a>
+
+EKS Managed Nodegroups supports Node Repair, where the health of managed nodes are monitored, and unhealthy worker nodes are replaced or rebooted in response. eksctl now provides comprehensive configuration options for fine-grained control over node repair behavior.
 
 ## Basic Node Repair Configuration
+<a name="_basic_node_repair_configuration"></a>
 
 ### Using CLI flags
+<a name="_using_cli_flags"></a>
 
 To create a cluster with a managed nodegroup using basic node repair, pass the `--enable-node-repair` flag:
 
@@ -21,6 +24,7 @@ eksctl create nodegroup --cluster=<clusterName> --enable-node-repair
 ```
 
 ### Using configuration files
+<a name="_using_configuration_files"></a>
 
 ```
 # basic-node-repair.yaml
@@ -42,12 +46,15 @@ eksctl create cluster -f basic-node-repair.yaml
 ```
 
 ## Enhanced Node Repair Configuration
+<a name="_enhanced_node_repair_configuration"></a>
 
 ### Threshold Configuration
+<a name="_threshold_configuration"></a>
 
-You can configure when node repair actions will stop using either percentage or count-based thresholds. **Note: You cannot use both percentage and count thresholds at the same time.**
+You can configure when node repair actions will stop using either percentage or count-based thresholds. **Note: You cannot use both percentage and count thresholds at the same time.** 
 
 #### CLI flags for thresholds
+<a name="_cli_flags_for_thresholds"></a>
 
 ```
 # Percentage-based threshold - repair stops when 20% of nodes are unhealthy
@@ -60,6 +67,7 @@ eksctl create cluster --enable-node-repair \
 ```
 
 #### Configuration file for thresholds
+<a name="_configuration_file_for_thresholds"></a>
 
 ```
 managedNodeGroups:
@@ -74,10 +82,12 @@ managedNodeGroups:
 ```
 
 ### Parallel Repair Limits
+<a name="_parallel_repair_limits"></a>
 
-Control the maximum number of nodes that can be repaired concurrently or in parallel. This gives you finer-grained control over the pace of node replacements. **Note: You cannot use both percentage and count limits at the same time.**
+Control the maximum number of nodes that can be repaired concurrently or in parallel. This gives you finer-grained control over the pace of node replacements. **Note: You cannot use both percentage and count limits at the same time.** 
 
 #### CLI flags for parallel limits
+<a name="_cli_flags_for_parallel_limits"></a>
 
 ```
 # Percentage-based parallel limits - repair at most 15% of unhealthy nodes in parallel
@@ -90,6 +100,7 @@ eksctl create cluster --enable-node-repair \
 ```
 
 #### Configuration file for parallel limits
+<a name="_configuration_file_for_parallel_limits"></a>
 
 ```
 managedNodeGroups:
@@ -104,8 +115,9 @@ managedNodeGroups:
 ```
 
 ### Custom Repair Overrides
+<a name="_custom_repair_overrides"></a>
 
-Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. **If you use this, you must specify all the values for each override.**
+Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. **If you use this, you must specify all the values for each override.** 
 
 ```
 managedNodeGroups:
@@ -129,10 +141,12 @@ managedNodeGroups:
 ```
 
 ## Complete Configuration Examples
+<a name="_complete_configuration_examples"></a>
 
-For a comprehensive example with all configuration options, see [examples/44-node-repair.yaml](https://github.com/eksctl-io/eksctl/blob/main/examples/44-node-repair.yaml "https://github.com/eksctl-io/eksctl/blob/main/examples/44-node-repair.yaml").
+For a comprehensive example with all configuration options, see [examples/44-node-repair.yaml](https://github.com/eksctl-io/eksctl/blob/main/examples/44-node-repair.yaml).
 
 ### Example 1: Basic repair with percentage thresholds
+<a name="_example_1_basic_repair_with_percentage_thresholds"></a>
 
 ```
 apiVersion: eksctl.io/v1alpha5
@@ -153,6 +167,7 @@ managedNodeGroups:
 ```
 
 ### Example 2: Conservative repair for critical workloads
+<a name="_example_2_conservative_repair_for_critical_workloads"></a>
 
 ```
 apiVersion: eksctl.io/v1alpha5
@@ -180,6 +195,7 @@ managedNodeGroups:
 ```
 
 ### Example 3: GPU workload with specialized repair
+<a name="_example_3_gpu_workload_with_specialized_repair"></a>
 
 ```
 apiVersion: eksctl.io/v1alpha5
@@ -206,41 +222,49 @@ managedNodeGroups:
 ```
 
 ## CLI Reference
+<a name="_cli_reference"></a>
 
 ### Node Repair Flags
+<a name="_node_repair_flags"></a>
 
-| Flag                                     | Description                                         | Example                                     |
-| ---------------------------------------- | --------------------------------------------------- | ------------------------------------------- |
-| `--enable-node-repair`                   | Enable automatic node repair                        | `--enable-node-repair`                      |
-| `--node-repair-max-unhealthy-percentage` | Maximum percentage of unhealthy nodes before repair | `--node-repair-max-unhealthy-percentage=20` |
-| `--node-repair-max-unhealthy-count`      | Maximum count of unhealthy nodes before repair      | `--node-repair-max-unhealthy-count=5`       |
-| `--node-repair-max-parallel-percentage`  | Maximum percentage of nodes to repair in parallel   | `--node-repair-max-parallel-percentage=15`  |
-| `--node-repair-max-parallel-count`       | Maximum count of nodes to repair in parallel        | `--node-repair-max-parallel-count=2`        |
 
-**Note:** Node repair config overrides are only supported through YAML configuration files due to their complexity.
+| Flag | Description | Example | 
+| --- | --- | --- | 
+|  `--enable-node-repair`  | Enable automatic node repair |  `--enable-node-repair`  | 
+|  `--node-repair-max-unhealthy-percentage`  | Maximum percentage of unhealthy nodes before repair |  `--node-repair-max-unhealthy-percentage=20`  | 
+|  `--node-repair-max-unhealthy-count`  | Maximum count of unhealthy nodes before repair |  `--node-repair-max-unhealthy-count=5`  | 
+|  `--node-repair-max-parallel-percentage`  | Maximum percentage of nodes to repair in parallel |  `--node-repair-max-parallel-percentage=15`  | 
+|  `--node-repair-max-parallel-count`  | Maximum count of nodes to repair in parallel |  `--node-repair-max-parallel-count=2`  | 
+
+ **Note:** Node repair config overrides are only supported through YAML configuration files due to their complexity.
 
 ## Configuration Reference
+<a name="_configuration_reference"></a>
 
 ### nodeRepairConfig
+<a name="_noderepairconfig"></a>
 
-| Field                                 | Type    | Description                                                                             | Constraints                                               | Example            |
-| ------------------------------------- | ------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------- | ------------------ |
-| `enabled`                             | boolean | Enable/disable node repair                                                              | -                                                         | `true`             |
-| `maxUnhealthyNodeThresholdPercentage` | integer | Percentage threshold of unhealthy nodes, above which node auto repair actions will stop | Cannot be used with `maxUnhealthyNodeThresholdCount`      | `20`               |
-| `maxUnhealthyNodeThresholdCount`      | integer | Count threshold of unhealthy nodes, above which node auto repair actions will stop      | Cannot be used with `maxUnhealthyNodeThresholdPercentage` | `5`                |
-| `maxParallelNodesRepairedPercentage`  | integer | Maximum percentage of unhealthy nodes that can be repaired concurrently or in parallel  | Cannot be used with `maxParallelNodesRepairedCount`       | `15`               |
-| `maxParallelNodesRepairedCount`       | integer | Maximum count of unhealthy nodes that can be repaired concurrently or in parallel       | Cannot be used with `maxParallelNodesRepairedPercentage`  | `2`                |
-| `nodeRepairConfigOverrides`           | array   | Granular overrides for specific repair actions controlling repair action and delay time | All values must be specified for each override            | See examples above |
+
+| Field | Type | Description | Constraints | Example | 
+| --- | --- | --- | --- | --- | 
+|  `enabled`  | boolean | Enable/disable node repair | - |  `true`  | 
+|  `maxUnhealthyNodeThresholdPercentage`  | integer | Percentage threshold of unhealthy nodes, above which node auto repair actions will stop | Cannot be used with `maxUnhealthyNodeThresholdCount`  |  `20`  | 
+|  `maxUnhealthyNodeThresholdCount`  | integer | Count threshold of unhealthy nodes, above which node auto repair actions will stop | Cannot be used with `maxUnhealthyNodeThresholdPercentage`  |  `5`  | 
+|  `maxParallelNodesRepairedPercentage`  | integer | Maximum percentage of unhealthy nodes that can be repaired concurrently or in parallel | Cannot be used with `maxParallelNodesRepairedCount`  |  `15`  | 
+|  `maxParallelNodesRepairedCount`  | integer | Maximum count of unhealthy nodes that can be repaired concurrently or in parallel | Cannot be used with `maxParallelNodesRepairedPercentage`  |  `2`  | 
+|  `nodeRepairConfigOverrides`  | array | Granular overrides for specific repair actions controlling repair action and delay time | All values must be specified for each override | See examples above | 
 
 ### nodeRepairConfigOverrides
+<a name="_noderepairconfigoverrides"></a>
 
-| Field                     | Type    | Description                                                                                                | Valid Values                                         |
-| ------------------------- | ------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| `nodeMonitoringCondition` | string  | Unhealthy condition reported by the node monitoring agent that this override applies to                    | `"AcceleratedInstanceNotReady"`, `"NetworkNotReady"` |
-| `nodeUnhealthyReason`     | string  | Reason reported by the node monitoring agent that this override applies to                                 | `"NvidiaXID13Error"`, `"InterfaceNotUp"`             |
-| `minRepairWaitTimeMins`   | integer | Minimum time in minutes to wait before attempting to repair a node with the specified condition and reason | Any positive integer                                 |
-| `repairAction`            | string  | Repair action to take for nodes when all of the specified conditions are met                               | `"Terminate"`, `"Restart"`, `"NoAction"`             |
+
+| Field | Type | Description | Valid Values | 
+| --- | --- | --- | --- | 
+|  `nodeMonitoringCondition`  | string | Unhealthy condition reported by the node monitoring agent that this override applies to |  `"AcceleratedInstanceNotReady"`, `"NetworkNotReady"`  | 
+|  `nodeUnhealthyReason`  | string | Reason reported by the node monitoring agent that this override applies to |  `"NvidiaXID13Error"`, `"InterfaceNotUp"`  | 
+|  `minRepairWaitTimeMins`  | integer | Minimum time in minutes to wait before attempting to repair a node with the specified condition and reason | Any positive integer | 
+|  `repairAction`  | string | Repair action to take for nodes when all of the specified conditions are met |  `"Terminate"`, `"Restart"`, `"NoAction"`  | 
 
 ## Further information
-
-- [EKS Managed Nodegroup Node Health](../userguide/node-health.md "../userguide/node-health.md")
+<a name="_further_information"></a>
++  [EKS Managed Nodegroup Node Health](https://docs.aws.amazon.com/eks/latest/userguide/node-health.html) 

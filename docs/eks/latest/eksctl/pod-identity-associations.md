@@ -1,10 +1,14 @@
+
+
 # EKS Pod Identity Associations
+<a name="pod-identity-associations"></a>
 
 AWS EKS has introduced a new enhanced mechanism called Pod Identity Association for cluster administrators to configure Kubernetes applications to receive IAM permissions required to connect with AWS services outside of the cluster. Pod Identity Association leverages IRSA, however, it makes it configurable directly through the EKS API, eliminating the need for using IAM API altogether.
 
-As a result, IAM roles no longer need to reference an [OIDC provider](iamserviceaccounts.md#iam-how-works "iamserviceaccounts.md#iam-how-works") and hence won’t be tied to a single cluster anymore. This means, IAM roles can now be used across multiple EKS clusters without the need to update the role trust policy each time a new cluster is created. This in turn, eliminates the need for role duplication and simplifies the process of automating IRSA altogether.
+As a result, IAM roles no longer need to reference an [OIDC provider](iamserviceaccounts.md#iam-how-works) and hence won’t be tied to a single cluster anymore. This means, IAM roles can now be used across multiple EKS clusters without the need to update the role trust policy each time a new cluster is created. This in turn, eliminates the need for role duplication and simplifies the process of automating IRSA altogether.
 
 ## Prerequisites
+<a name="_prerequisites"></a>
 
 Behind the scenes, the implementation of pod identity associations is running an agent as a daemonset on the worker nodes. To run the pre-requisite agent on the cluster, EKS provides a new add-on called EKS Pod Identity Agent. Therefore, creating pod identity associations (in general, and with `eksctl`) requires the `eks-pod-identity-agent` addon pre-installed on the cluster. This addon can be created using `eksctl` in the same fashion any other supported addon is.
 
@@ -16,7 +20,7 @@ Additionally, if using a pre-existing IAM role when creating a pod identity asso
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -35,6 +39,7 @@ Additionally, if using a pre-existing IAM role when creating a pod identity asso
 If instead you do not provide the ARN of an existing role to the create command, `eksctl` will create one behind the scenes and configure the above trust policy.
 
 ## Creating Pod Identity Associations
+<a name="_creating_pod_identity_associations"></a>
 
 For manipulating pod identity associations, `eksctl` has added a new field under `iam.podIdentityAssociations`, e.g.
 
@@ -53,10 +58,9 @@ iam:
     tags: {} #optional
 ```
 
-For a complete example, refer to [pod-identity-associations.yaml](https://github.com/eksctl-io/eksctl/blob/main/examples/39-pod-identity-association.yaml "https://github.com/eksctl-io/eksctl/blob/main/examples/39-pod-identity-association.yaml").
+For a complete example, refer to [pod-identity-associations.yaml](https://github.com/eksctl-io/eksctl/blob/main/examples/39-pod-identity-association.yaml).
 
-###### Note
-
+**Note**  
 Apart from `permissionPolicy` which is used as an inline policy document, all other fields have a CLI flag counterpart.
 
 Creating pod identity associations can be achieved in the following ways. During cluster creation, by specifying the desired pod identity associations as part of the config file and running:
@@ -83,11 +87,11 @@ eksctl create podidentityassociation \
     --permissions-boundary-arn arn:aws:iam::111122223333:policy/permissions-boundary
 ```
 
-###### Note
-
+**Note**  
 Only a single IAM role can be associated with a service account at a time. Therefore, trying to create a second pod identity association for the same service account will result in an error.
 
 ## Fetching Pod Identity Associations
+<a name="_fetching_pod_identity_associations"></a>
 
 To retrieve all pod identity associations for a certain cluster, run one of the following commands:
 
@@ -114,6 +118,7 @@ eksctl get podidentityassociation --cluster my-cluster --namespace default --ser
 ```
 
 ## Updating Pod Identity Associations
+<a name="_updating_pod_identity_associations"></a>
 
 To update the IAM role of one or more pod identity associations, either pass the new `roleARN(s)` to the config file e.g.
 
@@ -141,6 +146,7 @@ eksctl update podidentityassociation --cluster my-cluster --namespace default --
 ```
 
 ## Deleting Pod Identity Associations
+<a name="_deleting_pod_identity_associations"></a>
 
 To delete one or more pod identity associations, either pass `namespace(s)` and `serviceAccountName(s)` to the config file e.g.
 
@@ -166,14 +172,15 @@ eksctl delete podidentityassociation --cluster my-cluster --namespace default --
 ```
 
 ## EKS Add-ons support for pod identity associations
+<a name="pod-id-support"></a>
 
 EKS Add-ons also support receiving IAM permissions via EKS Pod Identity Associations. The config file exposes three fields that allow configuring these: `addon.podIdentityAssociations`, `addonsConfig.autoApplyPodIdentityAssociations` and `addon.useDefaultPodIdentityAssociations`. You can either explicitly configure the desired pod identity associations, using `addon.podIdentityAssociations`, or have `eksctl` automatically resolve (and apply) the recommended pod identity configuration, using either `addonsConfig.autoApplyPodIdentityAssociations` or `addon.useDefaultPodIdentityAssociations`.
 
-###### Note
-
-Not all EKS Add-ons will support pod identity associations at launch. For this case, required IAM permissions shall continue to be provided using [IRSA settings](addons.md#addons-create "addons.md#addons-create").
+**Note**  
+Not all EKS Add-ons will support pod identity associations at launch. For this case, required IAM permissions shall continue to be provided using [IRSA settings](addons.md#addons-create).
 
 ### Creating addons with IAM permissions
+<a name="_creating_addons_with_iam_permissions"></a>
 
 When creating an addon that requires IAM permissions, `eksctl` will first check if either pod identity associations or IRSA settings are being explicitly configured as part of the config file, and if so, use one of those to configure the permissions for the addon. e.g.
 
@@ -192,8 +199,7 @@ eksctl create addon -f config.yaml
 2024-05-13 15:38:58 [ℹ] pod identity associations are set for "vpc-cni" addon; will use these to configure required IAM permissions
 ```
 
-###### Note
-
+**Note**  
 Setting both pod identities and IRSA at the same time is not allowed, and will result in a validation error.
 
 For EKS Add-ons that support pod identities, `eksctl` offers the option to automatically configure any recommended IAM permissions, on addon creation. This can be achieved by simply setting `addonsConfig.autoApplyPodIdentityAssociations: true` in the config file. e.g.
@@ -234,15 +240,14 @@ eksctl update addon -f config.yaml
 ```
 
 ### Updating addons with IAM permissions
+<a name="_updating_addons_with_iam_permissions"></a>
 
 When updating an addon, specifying `addon.PodIdentityAssociations` will represent the single source of truth for the state that the addon shall have, after the update operation is completed. Behind the scenes, different types of operations are performed in order to achieve the desired state i.e.
++ create pod identites that are present in the config file, but missing on the cluster
++ delete existing pod identites that were removed from the config file, together with any associated IAM resources
++ update existing pod identities that are also present in the config file, and for which the set of IAM permissions has changed
 
-- create pod identites that are present in the config file, but missing on the cluster
-- delete existing pod identites that were removed from the config file, together with any associated IAM resources
-- update existing pod identities that are also present in the config file, and for which the set of IAM permissions has changed
-
-###### Note
-
+**Note**  
 The lifecycle of pod identity associations owned by EKS Add-ons is directly handled by the EKS Addons API.
 
 You can’t use `eksctl update podidentityassociation` (to update IAM permissions) or `eksctl delete podidentityassociations` (to remove the association) for associations used with an Amazon EKS Add-on. Instead, `eksctl update addon` or `eksctl delete addon` shall be used.
@@ -353,10 +358,12 @@ eksctl update addon -f config.yaml
 ```
 
 ### Deleting addons with IAM permissions
+<a name="_deleting_addons_with_iam_permissions"></a>
 
 Deleting an addon will also remove all pod identities associated with the addon. Deleting the cluster will achieve the same effect, for all addons. Any IAM roles for pod identities, created by `eksctl`, will be deleted as-well.
 
 ## Migrating existing iamserviceaccounts and addons to pod identity associations
+<a name="_migrating_existing_iamserviceaccounts_and_addons_to_pod_identity_associations"></a>
 
 There is an `eksctl` utils command for migrating existing IAM Roles for service accounts to pod identity associations, i.e.
 
@@ -365,13 +372,12 @@ eksctl utils migrate-to-pod-identity --cluster my-cluster --approve
 ```
 
 Behind the scenes, the command will apply the following steps:
-
-- install the `eks-pod-identity-agent` addon if not already active on the cluster
-- identify all IAM Roles that are associated with iamserviceaccounts
-- identify all IAM Roles that are associated with EKS addons that support pod identity associations
-- update the IAM trust policy of all identified roles, with an additional trusted entity, pointing to the new EKS Service principal (and, optionally, remove exising OIDC provider trust relationship)
-- create pod identity associations for filtered roles associated with iamserviceaccounts
-- update EKS addons with pod identities (EKS API will create the pod identities behind the scenes)
++ install the `eks-pod-identity-agent` addon if not already active on the cluster
++ identify all IAM Roles that are associated with iamserviceaccounts
++ identify all IAM Roles that are associated with EKS addons that support pod identity associations
++ update the IAM trust policy of all identified roles, with an additional trusted entity, pointing to the new EKS Service principal (and, optionally, remove exising OIDC provider trust relationship)
++ create pod identity associations for filtered roles associated with iamserviceaccounts
++ update EKS addons with pod identities (EKS API will create the pod identities behind the scenes)
 
 Running the command without the `--approve` flag will only output a plan consisting of a set of tasks reflecting the steps above, e.g.
 
@@ -414,12 +420,14 @@ eksctl utils migrate-to-pod-identity --cluster my-cluster --approve --remove-oid
 ```
 
 ## Cross Account Pod Identity Support
+<a name="_cross_account_pod_identity_support"></a>
 
-eksctl supports [EKS Pod Identity cross-account access](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md"). This feature allows pods running in your EKS cluster to access AWS resources in a different AWS account.
+eksctl supports [EKS Pod Identity cross-account access](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html). This feature allows pods running in your EKS cluster to access AWS resources in a different AWS account.
 
 ### Usage
+<a name="_usage"></a>
 
-To create a pod identity association with cross-account access, first set up IAM Roles and Policies allowing access from a source AWS account (with the cluster) to a target AWS account (with the resources the cluster can access). For an example of this, see ["Amazon EKS Pod Identity streamlines cross account access."](https://aws.amazon.com/blogs/containers/amazon-eks-pod-identity-streamlines-cross-account-access/ "https://aws.amazon.com/blogs/containers/amazon-eks-pod-identity-streamlines-cross-account-access/")
+To create a pod identity association with cross-account access, first set up IAM Roles and Policies allowing access from a source AWS account (with the cluster) to a target AWS account (with the resources the cluster can access). For an example of this, see ["Amazon EKS Pod Identity streamlines cross account access."](https://aws.amazon.com/blogs/containers/amazon-eks-pod-identity-streamlines-cross-account-access/) 
 
 Once an IAM Role is configured in each account, use eksctl to create the pod identity associations:
 
@@ -461,9 +469,10 @@ managedNodeGroups:
 ```
 
 ## Further references
+<a name="_further_references"></a>
 
-[Official AWS Userdocs for EKS Add-ons support for pod identities](../userguide/add-ons-iam.md "../userguide/add-ons-iam.md")
+ [Official AWS Userdocs for EKS Add-ons support for pod identities](https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html) 
 
-[Official AWS Blog Post on Pod Identity Associations](https://aws.amazon.com/blogs/aws/amazon-eks-pod-identity-simplifies-iam-permissions-for-applications-on-amazon-eks-clusters/ "https://aws.amazon.com/blogs/aws/amazon-eks-pod-identity-simplifies-iam-permissions-for-applications-on-amazon-eks-clusters/")
+ [Official AWS Blog Post on Pod Identity Associations](https://aws.amazon.com/blogs/aws/amazon-eks-pod-identity-simplifies-iam-permissions-for-applications-on-amazon-eks-clusters/) 
 
-[Official AWS userdocs for Pod Identity Associations](../userguide/pod-identities.md "../userguide/pod-identities.md")
+ [Official AWS userdocs for Pod Identity Associations](https://docs.aws.amazon.com/eks/latest/userguide/pod-identities.html) 

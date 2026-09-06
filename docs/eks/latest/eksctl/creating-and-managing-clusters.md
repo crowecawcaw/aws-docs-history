@@ -1,8 +1,12 @@
+
+
 # Creating and managing clusters
+<a name="creating-and-managing-clusters"></a>
 
 This topic covers how to create and delete EKS clusters using Eksctl. You can create clusters with a CLI command, or by creating a cluster configuration YAML file.
 
 ## Creating a simple cluster
+<a name="_creating_a_simple_cluster"></a>
 
 Create a simple cluster with the following command:
 
@@ -10,17 +14,16 @@ Create a simple cluster with the following command:
 eksctl create cluster
 ```
 
-That will create an EKS cluster in your default region (as specified by your AWS CLI configuration) with one managed
-nodegroup containing two m5.large nodes.
+That will create an EKS cluster in your default region (as specified by your AWS CLI configuration) with one managed nodegroup containing two m5.large nodes.
 
-eksctl now creates a managed nodegroup by default when a config file isn’t used. To create a self-managed nodegroup,
-pass `--managed=false` to `eksctl create cluster` or `eksctl create nodegroup`.
+eksctl now creates a managed nodegroup by default when a config file isn’t used. To create a self-managed nodegroup, pass `--managed=false` to `eksctl create cluster` or `eksctl create nodegroup`.
 
 ### Considerations
-
-- When creating clusters in `us-east-1`, you might encounter an `UnsupportedAvailabilityZoneException`. If this happens, copy the suggested zones and pass the `--zones` flag, for example: `eksctl create cluster --region=us-east-1 --zones=us-east-1a,us-east-1b,us-east-1d`. This issue may occur in other regions but is less common. In most cases, you won’t need to use the `--zone` flag.
+<a name="_considerations"></a>
++ When creating clusters in `us-east-1`, you might encounter an `UnsupportedAvailabilityZoneException`. If this happens, copy the suggested zones and pass the `--zones` flag, for example: `eksctl create cluster --region=us-east-1 --zones=us-east-1a,us-east-1b,us-east-1d`. This issue may occur in other regions but is less common. In most cases, you won’t need to use the `--zone` flag.
 
 ## Create cluster using config file
+<a name="_create_cluster_using_config_file"></a>
 
 You can create a cluster using a config file instead of flags.
 
@@ -90,24 +93,25 @@ nodeGroups:
         imageBuilder: true
 ```
 
-The cluster name or nodegroup name must contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and can’t exceed 128 characters, or you will receive a validation error. For more information, see [Create a stack from the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-parameters.md "../../../AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-parameters.md") in the AWS CLoudFormation user guide.
+The cluster name or nodegroup name must contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and can’t exceed 128 characters, or you will receive a validation error. For more information, see [Create a stack from the CloudFormation console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-using-console-create-stack-parameters.html) in the AWS CLoudFormation user guide.
 
 ## Update kubeconfig for new cluster
+<a name="_update_kubeconfig_for_new_cluster"></a>
 
-After the cluster has been created, the appropriate kubernetes configuration will be added to your kubeconfig file.
-This is, the file that you have configured in the environment variable `KUBECONFIG` or `~/.kube/config` by default.
-The path to the kubeconfig file can be overridden using the `--kubeconfig` flag.
+After the cluster has been created, the appropriate kubernetes configuration will be added to your kubeconfig file. This is, the file that you have configured in the environment variable `KUBECONFIG` or `~/.kube/config` by default. The path to the kubeconfig file can be overridden using the `--kubeconfig` flag.
 
 Other flags that can change how the kubeconfig file is written:
 
-| flag                     | type   | use                                                                                                             | default value                 |
-| ------------------------ | ------ | --------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| --kubeconfig             | string | path to write kubeconfig (incompatible with --auto-kubeconfig)                                                  | $KUBECONFIG or ~/.kube/config |
-| --set-kubeconfig-context | bool   | if true then current-context will be set in kubeconfig; if a context is already set then it will be overwritten | true                          |
-| --auto-kubeconfig        | bool   | save kubeconfig file by cluster name                                                                            | true                          |
-| --write-kubeconfig       | bool   | toggle writing of kubeconfig                                                                                    | true                          |
+
+| flag | type | use | default value | 
+| --- | --- | --- | --- | 
+| --kubeconfig | string | path to write kubeconfig (incompatible with --auto-kubeconfig) | $KUBECONFIG or \~/.kube/config | 
+| --set-kubeconfig-context | bool | if true then current-context will be set in kubeconfig; if a context is already set then it will be overwritten | true | 
+| --auto-kubeconfig | bool | save kubeconfig file by cluster name | true | 
+| --write-kubeconfig | bool | toggle writing of kubeconfig | true | 
 
 ## Delete cluster
+<a name="_delete_cluster"></a>
 
 To delete this cluster, run:
 
@@ -115,14 +119,12 @@ To delete this cluster, run:
 eksctl delete cluster -f cluster.yaml
 ```
 
-###### Warning
-
+**Warning**  
 Use the `--wait` flag with delete operations to ensure deletion errors are properly reported.
 
 Without the `--wait` flag, eksctl will only issue a delete operation to the cluster’s CloudFormation stack and won’t wait for its deletion. In some cases, AWS resources using the cluster or its VPC may cause cluster deletion to fail. If your delete fails or you forget the wait flag, you may have to go to the CloudFormation GUI and delete the eks stacks from there.
 
-###### Warning
-
+**Warning**  
 PDB policies may block node removal during cluster deletion.
 
 When deleting a cluster with nodegroups, Pod Disruption Budget (PDB) policies can prevent nodes from being removed successfully. For example, clusters with `aws-ebs-csi-driver` installed typically have two pods with a PDB policy allowing only one pod to be unavailable at a time, making the other pod unevictable during deletion. To successfully delete the cluster in these scenarios, use the `disable-nodegroup-eviction` flag to bypass PDB policy checks:
@@ -131,11 +133,11 @@ When deleting a cluster with nodegroups, Pod Disruption Budget (PDB) policies ca
 eksctl delete cluster -f cluster.yaml --disable-nodegroup-eviction
 ```
 
-See the [`examples/`](https://github.com/eksctl-io/eksctl/tree/master/examples "https://github.com/eksctl-io/eksctl/tree/master/examples") directory in the eksctl GitHub repo for more sample config files.
+See the [`examples/`](https://github.com/eksctl-io/eksctl/tree/master/examples) directory in the eksctl GitHub repo for more sample config files.
 
 ## Dry Run
+<a name="_dry_run"></a>
 
-The dry-run feature enables generating a ClusterConfig file that skips cluster creation and outputs a ClusterConfig file that
-represents the supplied CLI options and contains the default values set by eksctl.
+The dry-run feature enables generating a ClusterConfig file that skips cluster creation and outputs a ClusterConfig file that represents the supplied CLI options and contains the default values set by eksctl.
 
-More info can be found on the [Dry Run](dry-run.md "dry-run.md") page.
+More info can be found on the [Dry Run](dry-run.md) page.

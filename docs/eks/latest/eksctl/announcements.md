@@ -1,24 +1,21 @@
+
+
 # Announcements
+<a name="announcements"></a>
 
 This topic covers past annoucements of new Eksctl features.
 
 ## Managed Nodegroups Default
+<a name="_managed_nodegroups_default"></a>
 
-As of [eksctl v0.58.0](https://github.com/eksctl-io/eksctl/releases/tag/0.58.0 "https://github.com/eksctl-io/eksctl/releases/tag/0.58.0"), eksctl creates managed nodegroups by
-default when a `ClusterConfig` file isn’t specified for `eksctl create cluster` and `eksctl create nodegroup`.
-To create a self-managed nodegroup, pass `--managed=false`. This may break scripts not using a config file if a feature
-not supported in managed nodegroups, e.g., Windows nodegroups, is being used.
-To fix this, pass `--managed=false`, or specify your nodegroup config in a `ClusterConfig` file using the
-`nodeGroups` field which creates a self-managed nodegroup.
+As of [eksctl v0.58.0](https://github.com/eksctl-io/eksctl/releases/tag/0.58.0), eksctl creates managed nodegroups by default when a `ClusterConfig` file isn’t specified for `eksctl create cluster` and `eksctl create nodegroup`. To create a self-managed nodegroup, pass `--managed=false`. This may break scripts not using a config file if a feature not supported in managed nodegroups, e.g., Windows nodegroups, is being used. To fix this, pass `--managed=false`, or specify your nodegroup config in a `ClusterConfig` file using the `nodeGroups` field which creates a self-managed nodegroup.
 
 ## Nodegroup Bootstrap Override For Custom AMIs
+<a name="_nodegroup_bootstrap_override_for_custom_amis"></a>
 
-This change was announced in the issue [Breaking: overrideBootstrapCommand soon…​](https://github.com/eksctl-io/eksctl/issues/3563 "https://github.com/eksctl-io/eksctl/issues/3563").
-Now, it has come to pass in [this](https://github.com/eksctl-io/eksctl/pull/4968 "https://github.com/eksctl-io/eksctl/pull/4968") PR. Please read the attached issue carefully about
-why we decided to move away from supporting custom AMIs without bootstrap scripts or with partial bootstrap scripts.
+This change was announced in the issue [Breaking: overrideBootstrapCommand soon…​](https://github.com/eksctl-io/eksctl/issues/3563). Now, it has come to pass in [this](https://github.com/eksctl-io/eksctl/pull/4968) PR. Please read the attached issue carefully about why we decided to move away from supporting custom AMIs without bootstrap scripts or with partial bootstrap scripts.
 
-We still provide a helper! Migrating hopefully is not that painful. `eksctl` still provides a script, which when sourced,
-will export a couple of helpful environment properties and settings. This script is located [here](https://github.com/eksctl-io/eksctl/blob/70a289d62e3c82e6177930cf2469c2572c82e104/pkg/nodebootstrap/assets/scripts/bootstrap.helper.sh "https://github.com/eksctl-io/eksctl/blob/70a289d62e3c82e6177930cf2469c2572c82e104/pkg/nodebootstrap/assets/scripts/bootstrap.helper.sh").
+We still provide a helper\! Migrating hopefully is not that painful. `eksctl` still provides a script, which when sourced, will export a couple of helpful environment properties and settings. This script is located [here](https://github.com/eksctl-io/eksctl/blob/70a289d62e3c82e6177930cf2469c2572c82e104/pkg/nodebootstrap/assets/scripts/bootstrap.helper.sh).
 
 The following environment properties will be at your disposal:
 
@@ -36,9 +33,7 @@ CONTAINER_RUNTIME # default is docker
 KUBELET_EXTRA_ARGS # for details, look at the script
 ```
 
-The minimum that needs to be used when overriding so `eksctl` doesn’t fail, is labels! `eksctl` relies on a specific set of
-labels to be on the node, so it can find them. When defining the override, please provide this **bare minimum** override
-command:
+The minimum that needs to be used when overriding so `eksctl` doesn’t fail, is labels\! `eksctl` relies on a specific set of labels to be on the node, so it can find them. When defining the override, please provide this **bare minimum** override command:
 
 ```
     overrideBootstrapCommand: |
@@ -50,8 +45,7 @@ command:
       /etc/eks/bootstrap.sh ${CLUSTER_NAME} --container-runtime containerd --kubelet-extra-args "--node-labels=${NODE_LABELS}"
 ```
 
-For nodegroups that have no outbound internet access, you’ll need to supply `--apiserver-endpoint` and `--b64-cluster-ca`
-to the bootstrap script as follows:
+For nodegroups that have no outbound internet access, you’ll need to supply `--apiserver-endpoint` and `--b64-cluster-ca` to the bootstrap script as follows:
 
 ```
     overrideBootstrapCommand: |
@@ -64,10 +58,6 @@ to the bootstrap script as follows:
         --apiserver-endpoint ${API_SERVER_URL} --b64-cluster-ca ${B64_CLUSTER_CA}
 ```
 
-Note the _`--node-labels`_ setting. If this is not defined, the node will join the cluster, but `eksctl` will ultimately
-time out on the last step when it’s waiting for the nodes to be `Ready`. It’s doing a Kubernetes lookup for nodes that
-have the label `alpha.eksctl.io/nodegroup-name=<cluster-name>`. This is only true for unmanaged nodegroups. For managed
-it’s using a different label.
+Note the *`--node-labels`* setting. If this is not defined, the node will join the cluster, but `eksctl` will ultimately time out on the last step when it’s waiting for the nodes to be `Ready`. It’s doing a Kubernetes lookup for nodes that have the label `alpha.eksctl.io/nodegroup-name=<cluster-name>`. This is only true for unmanaged nodegroups. For managed it’s using a different label.
 
-If, at all, it’s possible to switch to managed nodegroups to avoid this overhead, the time has come now to do that. Makes
-all the overriding a lot easier.
+If, at all, it’s possible to switch to managed nodegroups to avoid this overhead, the time has come now to do that. Makes all the overriding a lot easier.

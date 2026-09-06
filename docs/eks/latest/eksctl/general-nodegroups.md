@@ -1,6 +1,10 @@
+
+
 # Work with node groups
+<a name="general-nodegroups"></a>
 
 ## Creating nodegroups
+<a name="_creating_nodegroups"></a>
 
 You can add one or more nodegroups in addition to the initial nodegroup created along with the cluster.
 
@@ -10,12 +14,10 @@ To create an additional nodegroup, use:
 eksctl create nodegroup --cluster=<clusterName> [--name=<nodegroupName>]
 ```
 
-###### Note
+**Note**  
+ `--version` flag is not supported for managed nodegroups. It always inherits the version from control plane.
 
-`--version` flag is not supported for managed nodegroups. It always inherits the version from control plane.
-
-By default, new unmanaged nodegroups inherit the version from the control plane (`--version=auto`), but you can specify a different
-version, you can also use `--version=latest` to force use of whichever is the latest version.
+By default, new unmanaged nodegroups inherit the version from the control plane (`--version=auto`), but you can specify a different version, you can also use `--version=latest` to force use of whichever is the latest version.
 
 Additionally, you can use the same config file used for `eksctl create cluster`:
 
@@ -24,9 +26,9 @@ eksctl create nodegroup --config-file=<path>
 ```
 
 ### Creating a nodegroup from a config file
+<a name="_creating_a_nodegroup_from_a_config_file"></a>
 
-Nodegroups can also be created through a cluster definition or config file. Given the following example config file
-and an existing cluster called `dev-cluster`:
+Nodegroups can also be created through a cluster definition or config file. Given the following example config file and an existing cluster called `dev-cluster`:
 
 ```
 # dev-cluster.yaml
@@ -59,9 +61,9 @@ eksctl create nodegroup --config-file=dev-cluster.yaml
 ```
 
 #### Load Balancing
+<a name="_load_balancing"></a>
 
-If you have already prepared for attaching existing classic load balancers or/and target groups to the nodegroups,
-you can specify these in the config file. The classic load balancers or/and target groups are automatically associated with the ASG when creating nodegroups. This is only supported for self-managed nodegroups defined via the `nodeGroups` field.
+If you have already prepared for attaching existing classic load balancers or/and target groups to the nodegroups, you can specify these in the config file. The classic load balancers or/and target groups are automatically associated with the ASG when creating nodegroups. This is only supported for self-managed nodegroups defined via the `nodeGroups` field.
 
 ```
 # dev-cluster-with-lb.yaml
@@ -102,16 +104,15 @@ nodeGroups:
 ```
 
 ## Nodegroup selection in config files
+<a name="_nodegroup_selection_in_config_files"></a>
 
-To perform a `create` or `delete` operation on only a subset of the nodegroups specified in a config file, there are two
-CLI flags that accept a list of globs, `–0—` and `–1—`, e.g.:
+To perform a `create` or `delete` operation on only a subset of the nodegroups specified in a config file, there are two CLI flags that accept a list of globs, `0` and `1`, e.g.:
 
 ```
 eksctl create nodegroup --config-file=<path> --include='ng-prod-*-??' --exclude='ng-test-1-ml-a,ng-test-2-?'
 ```
 
-Using the example config file above, one can create all the workers nodegroup except the workers one with the following
-command:
+Using the example config file above, one can create all the workers nodegroup except the workers one with the following command:
 
 ```
 eksctl create nodegroup --config-file=dev-cluster.yaml --exclude=ng-1-workers
@@ -126,14 +127,14 @@ eksctl delete nodegroup --config-file=dev-cluster.yaml --include=ng-2-builders -
 In this case, we also need to supply the `--approve` command to actually delete the nodegroup.
 
 ### Include and exclude rules
-
-- if no `--include` or `--exclude` is specified everything is included
-- if only `--include` is specified, only nodegroups that match those globs will be included
-- if only `--exclude` is specified, all nodegroups that do not match those globs are included
-- if both are specified then `--exclude` rules take precedence over `--include` (i.e. nodegroups that match rules in
-  both groups will be excluded)
+<a name="node-include"></a>
++ if no `--include` or `--exclude` is specified everything is included
++ if only `--include` is specified, only nodegroups that match those globs will be included
++ if only `--exclude` is specified, all nodegroups that do not match those globs are included
++ if both are specified then `--exclude` rules take precedence over `--include` (i.e. nodegroups that match rules in both groups will be excluded)
 
 ## Listing nodegroups
+<a name="_listing_nodegroups"></a>
 
 To list the details about a nodegroup or all of the nodegroups, use:
 
@@ -152,24 +153,22 @@ eksctl get nodegroup --cluster=<clusterName> [--name=<nodegroupName>] --output=j
 ```
 
 ## Nodegroup immutability
+<a name="_nodegroup_immutability"></a>
 
-By design, nodegroups are immutable. This means that if you need to change something (other than scaling) like the
-AMI or the instance type of a nodegroup, you would need to create a new nodegroup with the desired changes, move the
-load and delete the old one. See the [Deleting and draining nodegroups](#nodegroup-delete "#nodegroup-delete") section.
+By design, nodegroups are immutable. This means that if you need to change something (other than scaling) like the AMI or the instance type of a nodegroup, you would need to create a new nodegroup with the desired changes, move the load and delete the old one. See the [Deleting and draining nodegroups](#nodegroup-delete) section.
 
 ## Scaling nodegroups
+<a name="_scaling_nodegroups"></a>
 
-Nodegroup scaling is a process that can take up to a few minutes. When the `--wait` flag is not specified,
-`eksctl` optimistically expects the nodegroup to be scaled and returns as soon as the AWS API request has been sent. To make
-`eksctl` wait until the nodes are available, add a `--wait` flag like the example below.
+Nodegroup scaling is a process that can take up to a few minutes. When the `--wait` flag is not specified, `eksctl` optimistically expects the nodegroup to be scaled and returns as soon as the AWS API request has been sent. To make `eksctl` wait until the nodes are available, add a `--wait` flag like the example below.
 
-###### Note
-
+**Note**  
 Scaling a nodegroup down/in (i.e. reducing the number of nodes) may result in errors as we rely purely on changes to the ASG. This means that the node(s) being removed/terminated aren’t explicitly drained. This may be an area for improvement in the future.
 
 Scaling a managed nodegroup is achieved by directly calling the EKS API that updates a managed node group configuration.
 
 ### Scaling a single nodegroup
+<a name="_scaling_a_single_nodegroup"></a>
 
 A nodegroup can be scaled by using the `eksctl scale nodegroup` command:
 
@@ -185,16 +184,17 @@ eksctl scale nodegroup --cluster=cluster-1 --nodes=5 ng-a345f4e1
 
 A nodegroup can also be scaled by using a config file passed to `--config-file` and specifying the name of the nodegroup that should be scaled with `--name`. Eksctl will search the config file and discover that nodegroup as well as its scaling configuration values.
 
-If the desired number of nodes is `NOT` within the range of current minimum and current maximum number nodes, one specific error will be shown.
-These values can also be passed with flags `--nodes-min` and `--nodes-max` respectively.
+If the desired number of nodes is `NOT` within the range of current minimum and current maximum number nodes, one specific error will be shown. These values can also be passed with flags `--nodes-min` and `--nodes-max` respectively.
 
 ### Scaling multiple nodegroups
+<a name="_scaling_multiple_nodegroups"></a>
 
 Eksctl can discover and scale all the nodegroups found in a config file that is passed with `--config-file`.
 
 Similarly to scaling a single nodegroup, the same set of validations apply to each nodegroup. For example, the desired number of nodes must be within the range of the minimum and maximum number of nodes.
 
 ## Deleting and draining nodegroups
+<a name="nodegroup-delete"></a>
 
 To delete a nodegroup, run:
 
@@ -202,10 +202,9 @@ To delete a nodegroup, run:
 eksctl delete nodegroup --cluster=<clusterName> --name=<nodegroupName>
 ```
 
-[Include and exclude rules](#node-include "#node-include") can also be used with this command.
+ [Include and exclude rules](#node-include) can also be used with this command.
 
-###### Note
-
+**Note**  
 This will drain all pods from that nodegroup before the instances are deleted.
 
 To skip eviction rules during the drain process, run:
@@ -214,8 +213,7 @@ To skip eviction rules during the drain process, run:
 eksctl delete nodegroup --cluster=<clusterName> --name=<nodegroupName> --disable-eviction
 ```
 
-All nodes are cordoned and all pods are evicted from a nodegroup on deletion,
-but if you need to drain a nodegroup without deleting it, run:
+All nodes are cordoned and all pods are evicted from a nodegroup on deletion, but if you need to drain a nodegroup without deleting it, run:
 
 ```
 eksctl drain nodegroup --cluster=<clusterName> --name=<nodegroupName>
@@ -236,6 +234,7 @@ eksctl drain nodegroup --cluster=<clusterName> --name=<nodegroupName> --disable-
 To speed up the drain process you can specify `--parallel <value>` for the number of nodes to drain in parallel.
 
 ## Other features
+<a name="_other_features"></a>
 
 You can also enable SSH, ASG access and other features for a nodegroup, e.g.:
 
@@ -244,18 +243,18 @@ eksctl create nodegroup --cluster=cluster-1 --node-labels="autoscaling=enabled,p
 ```
 
 ### Update labels
+<a name="_update_labels"></a>
 
-There are no specific commands in `eksctl` to update the labels of a nodegroup, but it can easily be achieved using
-`kubectl`, e.g.:
+There are no specific commands in `eksctl` to update the labels of a nodegroup, but it can easily be achieved using `kubectl`, e.g.:
 
 ```
 kubectl label nodes -l alpha.eksctl.io/nodegroup-name=ng-1 new-label=foo
 ```
 
 ### SSH Access
+<a name="_ssh_access"></a>
 
-You can enable SSH access for nodegroups by configuring one of `publicKey`, `publicKeyName` and `publicKeyPath` in your
-nodegroup configuration. Alternatively you can use [AWS Systems Manager (SSM)](../../../systems-manager/latest/userguide/session-manager-working-with-sessions-start.md#sessions-start-cli "../../../systems-manager/latest/userguide/session-manager-working-with-sessions-start.md#sessions-start-cli") to SSH onto nodes, by configuring the nodegroup with `enableSsm`:
+You can enable SSH access for nodegroups by configuring one of `publicKey`, `publicKeyName` and `publicKeyPath` in your nodegroup configuration. Alternatively you can use [AWS Systems Manager (SSM)](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-cli) to SSH onto nodes, by configuring the nodegroup with `enableSsm`:
 
 ```
 managedNodeGroups:

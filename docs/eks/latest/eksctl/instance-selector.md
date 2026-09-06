@@ -1,25 +1,22 @@
+
+
 # Instance Selector
+<a name="instance-selector"></a>
 
-eksctl supports specifying multiple instance types for managed and self-managed nodegroups, but with over 270 EC2 instance types,
-users have to spend time figuring out which instance types would be well suited for their nodegroup. It’s even harder
-when using Spot instances because you need to choose a set of instances that works together well with the Cluster Autoscaler.
+eksctl supports specifying multiple instance types for managed and self-managed nodegroups, but with over 270 EC2 instance types, users have to spend time figuring out which instance types would be well suited for their nodegroup. It’s even harder when using Spot instances because you need to choose a set of instances that works together well with the Cluster Autoscaler.
 
-eksctl now integrates with the [EC2 instance selector](https://github.com/aws/amazon-ec2-instance-selector "https://github.com/aws/amazon-ec2-instance-selector"),
-which addresses this problem by generating a list of instance types based on resource criteria: vCPUs, memory, # of GPUs and CPU architecture.
-When the instance selector criteria is passed, eksctl creates a nodegroup with the instance types set to the instance types
-matching the supplied criteria.
+eksctl now integrates with the [EC2 instance selector](https://github.com/aws/amazon-ec2-instance-selector), which addresses this problem by generating a list of instance types based on resource criteria: vCPUs, memory, \# of GPUs and CPU architecture. When the instance selector criteria is passed, eksctl creates a nodegroup with the instance types set to the instance types matching the supplied criteria.
 
 ## Create cluster and nodegroups
+<a name="_create_cluster_and_nodegroups"></a>
 
-To create a cluster with a single nodegroup that uses instance types matched by the instance selector resource
-criteria passed to eksctl, run
+To create a cluster with a single nodegroup that uses instance types matched by the instance selector resource criteria passed to eksctl, run
 
 ```
 eksctl create cluster --instance-selector-vcpus=2 --instance-selector-memory=4
 ```
 
-This will create a cluster and a managed nodegroup with the `instanceTypes` field set to
-`[c5.large, c5a.large, c5ad.large, c5d.large, t2.medium, t3.medium, t3a.medium]` (the set of instance types returned may change).
+This will create a cluster and a managed nodegroup with the `instanceTypes` field set to `[c5.large, c5a.large, c5ad.large, c5d.large, t2.medium, t3.medium, t3a.medium]` (the set of instance types returned may change).
 
 For unmanaged nodegroups, the `instancesDistribution.instanceTypes` field will be set:
 
@@ -59,14 +56,14 @@ eksctl create cluster -f instance-selector-cluster.yaml
 
 The following instance selector CLI options are supported by `eksctl create cluster` and `eksctl create nodegroup`:
 
-`--instance-selector-vcpus`, `--instance-selector-memory`, `--instance-selector-gpus` and `instance-selector-cpu-architecture`
+ `--instance-selector-vcpus`, `--instance-selector-memory`, `--instance-selector-gpus` and `instance-selector-cpu-architecture` 
 
-An example file can be found [here](https://github.com/eksctl-io/eksctl/blob/main/examples/28-instance-selector.yaml "https://github.com/eksctl-io/eksctl/blob/main/examples/28-instance-selector.yaml").
+An example file can be found [here](https://github.com/eksctl-io/eksctl/blob/main/examples/28-instance-selector.yaml).
 
 ### Dry Run
+<a name="_dry_run"></a>
 
-The [dry-run](dry-run.md "dry-run.md") feature allows you to inspect and change the instances matched by the instance selector before proceeding
-to creating a nodegroup.
+The [dry-run](dry-run.md) feature allows you to inspect and change the instances matched by the instance selector before proceeding to creating a nodegroup.
 
 ```
 eksctl create cluster --name development --instance-selector-vcpus=2 --instance-selector-memory=4 --dry-run
@@ -97,9 +94,7 @@ The generated ClusterConfig can then be passed to `eksctl create cluster`:
 eksctl create cluster -f generated-cluster.yaml
 ```
 
-The `instanceSelector` field representing the CLI options will also be added to the ClusterConfig file for visibility and documentation purposes.
-When `--dry-run` is omitted, this field will be ignored and the `instanceTypes` field will be used, otherwise any
-changes to `instanceTypes` would get overridden by eksctl.
+The `instanceSelector` field representing the CLI options will also be added to the ClusterConfig file for visibility and documentation purposes. When `--dry-run` is omitted, this field will be ignored and the `instanceTypes` field will be used, otherwise any changes to `instanceTypes` would get overridden by eksctl.
 
 When a ClusterConfig file is passed with `--dry-run`, eksctl will output a ClusterConfig file containing the same set of nodegroups after expanding each nodegroup’s instance selector resource criteria.
 

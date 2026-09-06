@@ -1,8 +1,9 @@
-# Karpenter Support
 
-`eksctl` provides support for adding [Karpenter](https://karpenter.sh/ "https://karpenter.sh/") to a newly created cluster. It will create all the necessary
-prerequisites outlined in Karpenter’s [Getting Started](https://karpenter.sh/docs/getting-started/ "https://karpenter.sh/docs/getting-started/") section including installing
-Karpenter itself using Helm. We currently support installing versions `0.28.0+`. See the [Karpenter compatibility](https://karpenter.sh/docs/upgrading/compatibility/ "https://karpenter.sh/docs/upgrading/compatibility/") section for further details.
+
+# Karpenter Support
+<a name="eksctl-karpenter"></a>
+
+ `eksctl` provides support for adding [Karpenter](https://karpenter.sh/) to a newly created cluster. It will create all the necessary prerequisites outlined in Karpenter’s [Getting Started](https://karpenter.sh/docs/getting-started/) section including installing Karpenter itself using Helm. We currently support installing versions `0.28.0+`. See the [Karpenter compatibility](https://karpenter.sh/docs/upgrading/compatibility/) section for further details.
 
 The following cluster configuration outlines a typical Karpenter installation:
 
@@ -29,8 +30,7 @@ managedNodeGroups:
     desiredCapacity: 1
 ```
 
-The version is Karpenter’s version as it can be found in their Helm Repository. The following options are also available
-to be set:
+The version is Karpenter’s version as it can be found in their Helm Repository. The following options are also available to be set:
 
 ```
 karpenter:
@@ -42,8 +42,7 @@ karpenter:
 
 OIDC must be defined in order to install Karpenter.
 
-Once Karpenter is successfully installed, add [NodePool(s)](https://karpenter.sh/docs/concepts/nodepools/ "https://karpenter.sh/docs/concepts/nodepools/") and [NodeClass(es)](https://karpenter.sh/docs/concepts/nodeclasses/ "https://karpenter.sh/docs/concepts/nodeclasses/") to allow Karpenter
-to start adding nodes to the cluster.
+Once Karpenter is successfully installed, add [NodePool(s)](https://karpenter.sh/docs/concepts/nodepools/) and [NodeClass(es)](https://karpenter.sh/docs/concepts/nodeclasses/) to allow Karpenter to start adding nodes to the cluster.
 
 The NodePool’s `nodeClassRef` section must match the name of an `EC2NodeClass`. For example:
 
@@ -98,11 +97,11 @@ spec:
     - alias: al2023@latest # Amazon Linux 2023
 ```
 
-Note that you must specify one of `role` or `instanceProfile` for lauch nodes. If you choose to use `instanceProfile`
-the name of the profile created by `eksctl` follows the pattern: `eksctl-KarpenterNodeInstanceProfile-<cluster-name>`.
+Note that you must specify one of `role` or `instanceProfile` for lauch nodes. If you choose to use `instanceProfile` the name of the profile created by `eksctl` follows the pattern: `eksctl-KarpenterNodeInstanceProfile-<cluster-name>`.
 
 ## Automatic Security Group Tagging
+<a name="_automatic_security_group_tagging"></a>
 
-`eksctl` automatically tags the cluster’s shared node security group with `karpenter.sh/discovery` when both Karpenter is enabled (`karpenter.version` specified) and the `karpenter.sh/discovery` tag exists in `metadata.tags`. This enables AWS Load Balancer Controller compatibility.
+ `eksctl` automatically tags the cluster’s shared node security group with `karpenter.sh/discovery` when both Karpenter is enabled (`karpenter.version` specified) and the `karpenter.sh/discovery` tag exists in `metadata.tags`. This enables AWS Load Balancer Controller compatibility.
 
-Note with karpenter 0.32.0+, Provisioners have been deprecated and replaced by [NodePool](https://karpenter.sh/docs/concepts/nodepools/ "https://karpenter.sh/docs/concepts/nodepools/").
+Note with karpenter 0.32.0\+, Provisioners have been deprecated and replaced by [NodePool](https://karpenter.sh/docs/concepts/nodepools/).

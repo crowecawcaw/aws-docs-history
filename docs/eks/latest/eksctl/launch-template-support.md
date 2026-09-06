@@ -1,9 +1,12 @@
-# Launch Template support for Managed Nodegroups
 
-eksctl supports launching managed nodegroups using a provided [EC2 Launch Template](../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md "../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md").
-This enables multiple customization options for nodegroups including providing custom AMIs and security groups, and passing user data for node bootstrapping.
+
+# Launch Template support for Managed Nodegroups
+<a name="launch-template-support"></a>
+
+eksctl supports launching managed nodegroups using a provided [EC2 Launch Template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html). This enables multiple customization options for nodegroups including providing custom AMIs and security groups, and passing user data for node bootstrapping.
 
 ## Creating managed nodegroups using a provided launch template
+<a name="_creating_managed_nodegroups_using_a_provided_launch_template"></a>
 
 ```
 # managed-cluster.yaml
@@ -36,13 +39,13 @@ managedNodeGroups:
 ```
 
 ## Upgrading a managed nodegroup to use a different launch template version
+<a name="_upgrading_a_managed_nodegroup_to_use_a_different_launch_template_version"></a>
 
 ```
 eksctl upgrade nodegroup --name=managed-ng-1 --cluster=managed-cluster --launch-template-version=3
 ```
 
-###### Note
-
+**Note**  
 If a launch template is using a custom AMI, then the new version should also use a custom AMI or the upgrade operation will fail
 
 If a launch template is not using a custom AMI, the Kubernetes version to upgrade to can also be specified:
@@ -52,9 +55,8 @@ eksctl upgrade nodegroup --name=managed-ng-1 --cluster=managed-cluster --launch-
 ```
 
 ## Notes on custom AMI and launch template support
-
-- When a launch template is provided, the following fields are not supported: `instanceType`, `ami`, `ssh.allow`, `ssh.sourceSecurityGroupIds`, `securityGroups`,
-  `instancePrefix`, `instanceName`, `ebsOptimized`, `volumeEncrypted`, `volumeKmsKeyID`, `volumeIOPS`, `maxPodsPerNode`, `preBootstrapCommands`, `overrideBootstrapCommand` and `disableIMDSv1`.
-- When using a custom AMI (`ami`), `overrideBootstrapCommand` must also be set to perform the bootstrapping.
-- `overrideBootstrapCommand` can only be set when using a custom AMI.
-- When a launch template is provided, tags specified in the nodegroup config apply to the EKS Nodegroup resource only and are not propagated to EC2 instances.
+<a name="_notes_on_custom_ami_and_launch_template_support"></a>
++ When a launch template is provided, the following fields are not supported: `instanceType`, `ami`, `ssh.allow`, `ssh.sourceSecurityGroupIds`, `securityGroups`, `instancePrefix`, `instanceName`, `ebsOptimized`, `volumeEncrypted`, `volumeKmsKeyID`, `volumeIOPS`, `maxPodsPerNode`, `preBootstrapCommands`, `overrideBootstrapCommand` and `disableIMDSv1`.
++ When using a custom AMI (`ami`), `overrideBootstrapCommand` must also be set to perform the bootstrapping.
++  `overrideBootstrapCommand` can only be set when using a custom AMI.
++ When a launch template is provided, tags specified in the nodegroup config apply to the EKS Nodegroup resource only and are not propagated to EC2 instances.

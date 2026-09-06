@@ -1,17 +1,15 @@
+
+
 # Windows Worker Nodes
+<a name="windows-worker-nodes"></a>
 
-From version 1.14, Amazon EKS supports [Windows Nodes](../userguide/windows-support.md "../userguide/windows-support.md") that allow running Windows containers.
-In addition to having Windows nodes, a Linux node in the cluster is required to run CoreDNS, as Microsoft doesn’t support host-networking mode yet. Thus, a Windows EKS cluster will be a mixture of Windows nodes and at least one Linux node.
-The Linux nodes are critical to the functioning of the cluster, and thus, for a production-grade cluster, it’s recommended to have at least two `t2.large` Linux nodes for HA.
+From version 1.14, Amazon EKS supports [Windows Nodes](https://docs.aws.amazon.com/eks/latest/userguide/windows-support.html) that allow running Windows containers. In addition to having Windows nodes, a Linux node in the cluster is required to run CoreDNS, as Microsoft doesn’t support host-networking mode yet. Thus, a Windows EKS cluster will be a mixture of Windows nodes and at least one Linux node. The Linux nodes are critical to the functioning of the cluster, and thus, for a production-grade cluster, it’s recommended to have at least two `t2.large` Linux nodes for HA.
 
-###### Note
-
-You no longer need to install the VPC resource controller on Linux worker nodes to run Windows workloads in EKS clusters
-created after October 22, 2021.
-You can enable Windows IP address management on the EKS control plane via a ConﬁgMap setting (see link:eks/latest/userguide/windows-support.html for details).
-eksctl will automatically patch the ConfigMap to enable Windows IP address management when a Windows nodegroup is created.
+**Note**  
+You no longer need to install the VPC resource controller on Linux worker nodes to run Windows workloads in EKS clusters created after October 22, 2021. You can enable Windows IP address management on the EKS control plane via a ConﬁgMap setting (see link:eks/latest/userguide/windows-support.html for details). eksctl will automatically patch the ConfigMap to enable Windows IP address management when a Windows nodegroup is created.
 
 ## Creating a new cluster with Windows support
+<a name="_creating_a_new_cluster_with_windows_support"></a>
 
 The config file syntax allows creating a fully-functioning cluster with Windows support in a single command:
 
@@ -55,10 +53,11 @@ eksctl create cluster --managed=false --name=windows-cluster --node-ami-family=W
 ```
 
 ## Adding Windows support to an existing Linux cluster
+<a name="_adding_windows_support_to_an_existing_linux_cluster"></a>
 
 To enable running Windows workloads on an existing cluster with Linux nodes (`AmazonLinux2` AMI family), you need to add a Windows nodegroup.
 
-**NEW** Support for Windows managed nodegroup has been added (--managed=true or omit the flag).
+ **NEW** Support for Windows managed nodegroup has been added (--managed=true or omit the flag).
 
 ```
 eksctl create nodegroup --managed=false --cluster=existing-cluster --node-ami-family=WindowsServer2019CoreContainer
@@ -84,5 +83,5 @@ To ensure workloads are scheduled on the right OS, they must have a `nodeSelecto
 If you are using a cluster older than `1.19` the `kubernetes.io/os` and `kubernetes.io/arch` labels need to be replaced with `beta.kubernetes.io/os` and `beta.kubernetes.io/arch` respectively.
 
 ### Further information
-
-- [EKS Windows Support](../userguide/windows-support.md "../userguide/windows-support.md")
+<a name="_further_information"></a>
++  [EKS Windows Support](https://docs.aws.amazon.com/eks/latest/userguide/windows-support.html) 

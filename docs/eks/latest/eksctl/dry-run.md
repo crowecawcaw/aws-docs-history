@@ -1,11 +1,11 @@
+
+
 # Dry Run
+<a name="dry-run"></a>
 
-The dry-run feature allows you to inspect and change the instances matched by the instance selector before proceeding
-to creating a nodegroup.
+The dry-run feature allows you to inspect and change the instances matched by the instance selector before proceeding to creating a nodegroup.
 
-When `eksctl create cluster` is called with the instance selector options and `--dry-run`, eksctl will output a
-ClusterConfig file containing a nodegroup representing the CLI options and the instance types set to the instances
-matched by the instance selector resource criteria.
+When `eksctl create cluster` is called with the instance selector options and `--dry-run`, eksctl will output a ClusterConfig file containing a nodegroup representing the CLI options and the instance types set to the instances matched by the instance selector resource criteria.
 
 ```
 eksctl create cluster --name development --dry-run
@@ -86,6 +86,7 @@ eksctl create cluster -f generated-cluster.yaml
 When a ClusterConfig file is passed with `--dry-run`, eksctl will output a ClusterConfig file containing the values set in the file.
 
 ## One-off Options in eksctl
+<a name="_one_off_options_in_eksctl"></a>
 
 There are certain one-off options that cannot be represented in the `ClusterConfig` file, e.g., `--install-vpc-controllers`.
 
@@ -105,6 +106,5 @@ would be equivalent to running the first command without `--dry-run`.
 
 eksctl therefore disallows passing options that cannot be represented in the config file when `--dry-run` is passed.
 
-###### Important
-
+**Important**  
 If you need to pass an AWS profile, set the `AWS_PROFILE` environment variable, instead of passing the `--profile` CLI option.

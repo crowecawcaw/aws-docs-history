@@ -1,15 +1,14 @@
+
+
 # EKS Fargate Support
+<a name="fargate"></a>
 
-[AWS Fargate](https://aws.amazon.com/fargate/ "https://aws.amazon.com/fargate/") is a managed compute engine
-for Amazon ECS that can run containers. In Fargate you don’t need to
-manage servers or clusters.
+ [AWS Fargate](https://aws.amazon.com/fargate/) is a managed compute engine for Amazon ECS that can run containers. In Fargate you don’t need to manage servers or clusters.
 
-[Amazon EKS can now launch pods onto AWS Fargate](../userguide/fargate.md "../userguide/fargate.md"). This removes the need to worry
-about how you provision or manage infrastructure for pods and makes it
-easier to build and run performant, highly-available Kubernetes
-applications on AWS.
+ [Amazon EKS can now launch pods onto AWS Fargate](https://docs.aws.amazon.com/eks/latest/userguide/fargate.html). This removes the need to worry about how you provision or manage infrastructure for pods and makes it easier to build and run performant, highly-available Kubernetes applications on AWS.
 
 ## Creating a cluster with Fargate support
+<a name="_creating_a_cluster_with_fargate_support"></a>
 
 You can add a cluster with Fargate support with:
 
@@ -50,25 +49,13 @@ eksctl create cluster --fargate
 [✔]  EKS cluster "ridiculous-painting-1574859263" in "ap-northeast-1" region is ready
 ```
 
-This command will have created a cluster and a Fargate profile. This
-profile contains certain information needed by AWS to instantiate pods
-in Fargate. These are:
+This command will have created a cluster and a Fargate profile. This profile contains certain information needed by AWS to instantiate pods in Fargate. These are:
++ pod execution role to define the permissions required to run the pod and the networking location (subnet) to run the pod. This allows the same networking and security permissions to be applied to multiple Fargate pods and makes it easier to migrate existing pods on a cluster to Fargate.
++ Selector to define which pods should run on Fargate. This is composed by a `namespace` and `labels`.
 
-- pod execution role to define the permissions required to run the
-  pod and the networking location (subnet) to run the pod. This allows the
-  same networking and security permissions to be applied to multiple
-  Fargate pods and makes it easier to migrate existing pods on a cluster
-  to Fargate.
-- Selector to define which pods should run on Fargate. This is composed
-  by a `namespace` and `labels`.
+When the profile is not specified but support for Fargate is enabled with `--fargate` a default Fargate profile is created. This profile targets the `default` and the `kube-system` namespaces so pods in those namespaces will run on Fargate.
 
-When the profile is not specified but support for Fargate is enabled
-with `--fargate` a default Fargate profile is created. This profile
-targets the `default` and the `kube-system` namespaces so pods in
-those namespaces will run on Fargate.
-
-The Fargate profile that was created can be checked with the following
-command:
+The Fargate profile that was created can be checked with the following command:
 
 ```
 eksctl get fargateprofile --cluster ridiculous-painting-1574859263 -o yaml
@@ -83,17 +70,12 @@ eksctl get fargateprofile --cluster ridiculous-painting-1574859263 -o yaml
   - subnet-0a29aa00b25082021
 ```
 
-To learn more about selectors see
-[Designing Fargate profiles](#designing-fargate-profiles "#designing-fargate-profiles").
+To learn more about selectors see [Designing Fargate profiles](#designing-fargate-profiles).
 
 ## Creating a cluster with Fargate support using a config file
+<a name="_creating_a_cluster_with_fargate_support_using_a_config_file"></a>
 
-The following config file declares an EKS cluster with both a nodegroup
-composed of one EC2 `m5.large` instance and two Fargate profiles. All
-pods defined in the `default` and `kube-system` namespaces will run
-on Fargate. All pods in the `dev` namespace that also have the label
-`dev=passed` will also run on Fargate. Any other pods will be
-scheduled on the node in `ng-1`.
+The following config file declares an EKS cluster with both a nodegroup composed of one EC2 `m5.large` instance and two Fargate profiles. All pods defined in the `default` and `kube-system` namespaces will run on Fargate. All pods in the `dev` namespace that also have the label `dev=passed` will also run on Fargate. Any other pods will be scheduled on the node in `ng-1`.
 
 ```
 # An example of ClusterConfig with a normal nodegroup and a Fargate profile.
@@ -174,27 +156,18 @@ eksctl create cluster -f cluster-fargate.yaml
 ```
 
 ## Designing Fargate profiles
+<a name="designing-fargate-profiles"></a>
 
-Each selector entry has up to two components, namespace and a list of
-key-value pairs. Only the namespace component is required to create a
-selector entry. All rules (namespaces, key value pairs) must apply to a
-pod to match a selector entry. A pod only needs to match one selector
-entry to run on the profile. Any pod that matches all the conditions in
-a selector field would be scheduled to be run on Fargate. Any pods not
-matching either the whitelisted Namespaces but where the user manually
-set the scheduler: fargate-scheduler filed would be stuck in a Pending
-state, as they were not authorized to run on Fargate.
+Each selector entry has up to two components, namespace and a list of key-value pairs. Only the namespace component is required to create a selector entry. All rules (namespaces, key value pairs) must apply to a pod to match a selector entry. A pod only needs to match one selector entry to run on the profile. Any pod that matches all the conditions in a selector field would be scheduled to be run on Fargate. Any pods not matching either the whitelisted Namespaces but where the user manually set the scheduler: fargate-scheduler filed would be stuck in a Pending state, as they were not authorized to run on Fargate.
 
 Profiles must meet the following requirements:
-
-- One selector is mandatory per profile
-- Each selector must include a namespace; labels are optional
++ One selector is mandatory per profile
++ Each selector must include a namespace; labels are optional
 
 ### Example: scheduling workload in Fargate
+<a name="_example_scheduling_workload_in_fargate"></a>
 
-To schedule pods on Fargate for the example mentioned above, one could,
-for example, create a namespace called `dev` and deploy the workload
-there:
+To schedule pods on Fargate for the example mentioned above, one could, for example, create a namespace called `dev` and deploy the workload there:
 
 ```
 kubectl create namespace dev
@@ -214,27 +187,18 @@ kube-system   kube-proxy-brxhg           1/1     Running   21m   192.168.23.122 
 kube-system   kube-proxy-zd7s8           1/1     Running   21m   192.168.70.246    ip-192-168-70-246.ap-northeast-1.compute.internal
 ```
 
-From the output of the last `kubectl get pods` command we can see that
-the `nginx` pod is deployed in a node called
-`fargate-ip-192-168-183-140.ap-northeast-1.compute.internal`.
+From the output of the last `kubectl get pods` command we can see that the `nginx` pod is deployed in a node called `fargate-ip-192-168-183-140.ap-northeast-1.compute.internal`.
 
 ## Managing Fargate profiles
+<a name="_managing_fargate_profiles"></a>
 
-To deploy Kubernetes workloads on Fargate, EKS needs a Fargate profile.
-When creating a cluster like in the examples above, `eksctl` takes
-care of this by creating a default profile. Given an already existing
-cluster, it’s also possible to create a Fargate profile with the
-`eksctl create fargateprofile` command:
+To deploy Kubernetes workloads on Fargate, EKS needs a Fargate profile. When creating a cluster like in the examples above, `eksctl` takes care of this by creating a default profile. Given an already existing cluster, it’s also possible to create a Fargate profile with the `eksctl create fargateprofile` command:
 
-###### Note
+**Note**  
+This operation is only supported on clusters that run on the EKS platform version `eks.5` or higher.
 
-This operation is only supported on clusters that run on the
-EKS platform version `eks.5` or higher.
-
-###### Note
-
-If the existing was created with a version of `eksctl` prior to 0.11.0, you will need to run `eksctl upgrade
-cluster` before creating the Fargate profile.
+**Note**  
+If the existing was created with a version of `eksctl` prior to 0.11.0, you will need to run `eksctl upgrade cluster` before creating the Fargate profile.
 
 ```
 eksctl create fargateprofile --namespace dev --cluster fargate-example-cluster
@@ -242,17 +206,14 @@ eksctl create fargateprofile --namespace dev --cluster fargate-example-cluster
 [ℹ]  created Fargate profile "fp-9bfc77ad" on EKS cluster "fargate-example-cluster"
 ```
 
-You can also specify the name of the Fargate profile to be created. This
-name must not start with the prefix `eks-`.
+You can also specify the name of the Fargate profile to be created. This name must not start with the prefix `eks-`.
 
 ```
 eksctl create fargateprofile --namespace dev --cluster fargate-example-cluster --name fp-development
 [ℹ]  created Fargate profile "fp-development" on EKS cluster "fargate-example-cluster"
 ```
 
-Using this command with CLI flags eksctl can only create a single
-Fargate profile with a simple selector. For more complex selectors, for
-example with more namespaces, eksctl supports using a config file:
+Using this command with CLI flags eksctl can only create a single Fargate profile with a simple selector. For more complex selectors, for example with more namespaces, eksctl supports using a config file:
 
 ```
 apiVersion: eksctl.io/v1alpha5
@@ -335,10 +296,7 @@ eksctl get fargateprofile --cluster fargate-example-cluster -o json
 ]
 ```
 
-Fargate profiles are immutable by design. To change something, create a
-new Fargate profile with the desired changes and delete the old one with
-the `eksctl delete fargateprofile` command like in the following
-example:
+Fargate profiles are immutable by design. To change something, create a new Fargate profile with the desired changes and delete the old one with the `eksctl delete fargateprofile` command like in the following example:
 
 ```
 eksctl delete fargateprofile --cluster fargate-example-cluster --name fp-9bfc77ad --wait
@@ -348,14 +306,9 @@ eksctl delete fargateprofile --cluster fargate-example-cluster --name fp-9bfc77a
 }
 ```
 
-Note that the profile deletion is a process that can take up to a few
-minutes. When the `--wait` flag is not specified, `eksctl`
-optimistically expects the profile to be deleted and returns as soon as
-the AWS API request has been sent. To make `eksctl` wait until the
-profile has been successfully deleted, use `--wait` like in the
-example above.
+Note that the profile deletion is a process that can take up to a few minutes. When the `--wait` flag is not specified, `eksctl` optimistically expects the profile to be deleted and returns as soon as the AWS API request has been sent. To make `eksctl` wait until the profile has been successfully deleted, use `--wait` like in the example above.
 
 ## Further reading
-
-- [AWS Fargate](https://aws.amazon.com/fargate/ "https://aws.amazon.com/fargate/")
-- [Amazon EKS can now launch pods onto AWS Fargate](../userguide/fargate.md "../userguide/fargate.md")
+<a name="_further_reading"></a>
++  [AWS Fargate](https://aws.amazon.com/fargate/) 
++  [Amazon EKS can now launch pods onto AWS Fargate](https://docs.aws.amazon.com/eks/latest/userguide/fargate.html) 

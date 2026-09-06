@@ -1,13 +1,12 @@
+
+
 # Spot instances
+<a name="spot-instances"></a>
 
 ## Managed Nodegroups
+<a name="_managed_nodegroups"></a>
 
-`eksctl` supports [Spot worker nodes using EKS Managed Nodegroups](https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-provisioning-and-managing-ec2-spot-instances-in-managed-node-groups/ "https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-provisioning-and-managing-ec2-spot-instances-in-managed-node-groups/"), a feature that allows EKS customers with
-fault-tolerant applications to easily provision and manage EC2 Spot Instances for their EKS clusters.
-EKS Managed Nodegroup will configure and launch an EC2 Autoscaling group of Spot Instances following Spot best
-practices and draining Spot worker nodes automatically before the instances are interrupted by AWS. There is no
-incremental charge to use this feature and customers pay only for using the AWS resources, such as EC2 Spot Instances
-and EBS volumes.
+ `eksctl` supports [Spot worker nodes using EKS Managed Nodegroups](https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-provisioning-and-managing-ec2-spot-instances-in-managed-node-groups/), a feature that allows EKS customers with fault-tolerant applications to easily provision and manage EC2 Spot Instances for their EKS clusters. EKS Managed Nodegroup will configure and launch an EC2 Autoscaling group of Spot Instances following Spot best practices and draining Spot worker nodes automatically before the instances are interrupted by AWS. There is no incremental charge to use this feature and customers pay only for using the AWS resources, such as EC2 Spot Instances and EBS volumes.
 
 To create a cluster with a managed nodegroup using Spot instances, pass the `--spot` flag and an optional list of instance types:
 
@@ -52,19 +51,18 @@ managedNodeGroups:
 eksctl create cluster -f spot-cluster.yaml
 ```
 
-###### Note
-
-Unmanaged nodegroups do not support the `spot` and `instanceTypes` fields, instead the `instancesDistribution` field
-is used to configure Spot instances. [See below](#spot-unmanaged "#spot-unmanaged")
+**Note**  
+Unmanaged nodegroups do not support the `spot` and `instanceTypes` fields, instead the `instancesDistribution` field is used to configure Spot instances. [See below](#spot-unmanaged) 
 
 ### Further information
-
-- [EKS Spot Nodegroups](https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-provisioning-and-managing-ec2-spot-instances-in-managed-node-groups/ "https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-provisioning-and-managing-ec2-spot-instances-in-managed-node-groups/")
-- [EKS Managed Nodegroup Capacity Types](../userguide/managed-node-groups.md#managed-node-group-capacity-types "../userguide/managed-node-groups.md#managed-node-group-capacity-types")
+<a name="_further_information"></a>
++  [EKS Spot Nodegroups](https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-provisioning-and-managing-ec2-spot-instances-in-managed-node-groups/) 
++  [EKS Managed Nodegroup Capacity Types](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types) 
 
 ## Unmanaged Nodegroups
+<a name="spot-unmanaged"></a>
 
-`eksctl` has support for spot instances through the MixedInstancesPolicy for Auto Scaling Groups.
+ `eksctl` has support for spot instances through the MixedInstancesPolicy for Auto Scaling Groups.
 
 Here is an example of a nodegroup that uses 50% spot instances and 50% on demand instances:
 
@@ -128,7 +126,7 @@ nodeGroups:
       spotAllocationStrategy: "capacity-optimized-prioritized"
 ```
 
-Use the `capacity-optimized-prioritized` allocation strategy and then set the order of instance types in the list of launch template overrides from highest to lowest priority (first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best-effort basis but optimizes for capacity first. This is a good option for workloads where the possibility of disruption must be minimized, but also the preference for certain instance types matters.For more information, see [ASG Purchase Options](../../../autoscaling/ec2/userguide/asg-purchase-options.md#asg-spot-strategy "../../../autoscaling/ec2/userguide/asg-purchase-options.md#asg-spot-strategy").
+Use the `capacity-optimized-prioritized` allocation strategy and then set the order of instance types in the list of launch template overrides from highest to lowest priority (first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best-effort basis but optimizes for capacity first. This is a good option for workloads where the possibility of disruption must be minimized, but also the preference for certain instance types matters.For more information, see [ASG Purchase Options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html#asg-spot-strategy).
 
 Note that the `spotInstancePools` field shouldn’t be set when using the `spotAllocationStrategy` field. If the `spotAllocationStrategy` is not specified, EC2 will default to use the `lowest-price` strategy.
 
@@ -144,5 +142,6 @@ nodeGroups:
 To distinguish nodes between spot or on-demand instances you can use the kubernetes label `node-lifecycle` which will have the value `spot` or `on-demand` depending on its type.
 
 ### Parameters in instancesDistribution
+<a name="_parameters_in_instancesdistribution"></a>
 
 Please see the cluster config schema for details.

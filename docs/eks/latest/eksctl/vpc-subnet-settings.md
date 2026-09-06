@@ -1,25 +1,24 @@
+
+
 # Subnet Settings
+<a name="vpc-subnet-settings"></a>
 
 ## Use private subnets for initial nodegroup
+<a name="_use_private_subnets_for_initial_nodegroup"></a>
 
-If you prefer to isolate the initial nodegroup from the public internet, you can use the `--node-private-networking` flag.
-When used in conjunction with the `--ssh-access` flag, the SSH port can only be accessed from inside the VPC.
+If you prefer to isolate the initial nodegroup from the public internet, you can use the `--node-private-networking` flag. When used in conjunction with the `--ssh-access` flag, the SSH port can only be accessed from inside the VPC.
 
-###### Note
-
-Using the `--node-private-networking` flag will result in outgoing traffic to go through the NAT gateway using its
-Elastic IP. On the other hand, if the nodes are in a public subnet, the outgoing traffic won’t go through the
-NAT gateway and hence the outgoing traffic has the IP of each individual node.
+**Note**  
+Using the `--node-private-networking` flag will result in outgoing traffic to go through the NAT gateway using its Elastic IP. On the other hand, if the nodes are in a public subnet, the outgoing traffic won’t go through the NAT gateway and hence the outgoing traffic has the IP of each individual node.
 
 ## Custom subnet topology
+<a name="_custom_subnet_topology"></a>
 
-`eksctl` version `0.32.0` introduced further subnet topology customisation with the ability to:
+ `eksctl` version `0.32.0` introduced further subnet topology customisation with the ability to:
++ List multiple subnets per AZ in VPC configuration
++ Specify subnets in nodegroup configuration
 
-- List multiple subnets per AZ in VPC configuration
-- Specify subnets in nodegroup configuration
-
-In earlier versions custom subnets had to be provided by availability zone, meaning just one subnet per AZ could be listed.
-From `0.32.0` the identifying keys can be arbitrary.
+In earlier versions custom subnets had to be provided by availability zone, meaning just one subnet per AZ could be listed. From `0.32.0` the identifying keys can be arbitrary.
 
 ```
 vpc:
@@ -39,27 +38,19 @@ vpc:
           id: "subnet-0cc9c5aebe75083fd"
 ```
 
-###### Important
-
+**Important**  
 If using the AZ as the identifying key, the `az` value can be omitted.
 
 If using an arbitrary string as the identifying key, like above, either:
++  `id` must be set (`az` and `cidr` optional)
++ or `az` must be set (`cidr` optional)
 
-- `id` must be set (`az` and `cidr` optional)
-- or `az` must be set (`cidr` optional)
+If a user specifies a subnet by AZ without specifying CIDR and ID, a subnet in that AZ will be chosen from the VPC, arbitrarily if multiple such subnets exist.
 
-If a user specifies a subnet by AZ without specifying CIDR and ID, a subnet
-in that AZ will be chosen from the VPC, arbitrarily if multiple such subnets
-exist.
+**Note**  
+A complete subnet spec must be provided, i.e. both `public` and `private` configurations declared in the VPC spec.
 
-###### Note
-
-A complete subnet spec must be provided, i.e. both `public` and `private` configurations
-declared in the VPC spec.
-
-Nodegroups can be restricted to named subnets via the configuration.
-When specifying subnets on nodegroup configuration, use the identifying key as given in the VPC spec **not** the subnet id.
-For example:
+Nodegroups can be restricted to named subnets via the configuration. When specifying subnets on nodegroup configuration, use the identifying key as given in the VPC spec **not** the subnet id. For example:
 
 ```
 vpc:
@@ -78,12 +69,10 @@ nodeGroups:
       - public-one
 ```
 
-###### Note
-
+**Note**  
 Only one of `subnets` or `availabilityZones` can be provided in nodegroup configuration.
 
-When placing nodegroups inside a private subnet, `privateNetworking` must be set to `true`
-on the nodegroup:
+When placing nodegroups inside a private subnet, `privateNetworking` must be set to `true` on the nodegroup:
 
 ```
 vpc:
@@ -103,5 +92,4 @@ nodeGroups:
       - private-one
 ```
 
-See [24-nodegroup-subnets.yaml](https://github.com/eksctl-io/eksctl/blob/master/examples/24-nodegroup-subnets.yaml "https://github.com/eksctl-io/eksctl/blob/master/examples/24-nodegroup-subnets.yaml") in the eksctl GitHub repo for a full
-configuration example.
+See [24-nodegroup-subnets.yaml](https://github.com/eksctl-io/eksctl/blob/master/examples/24-nodegroup-subnets.yaml) in the eksctl GitHub repo for a full configuration example.

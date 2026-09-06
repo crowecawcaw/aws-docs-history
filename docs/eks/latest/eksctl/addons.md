@@ -1,9 +1,11 @@
+
+
 # Addons
+<a name="addons"></a>
 
 This topic describes how to manage Amazon EKS Add-Ons for your Amazon EKS clusters using eksctl. EKS Add-Ons is a feature that lets you enable and manage Kubernetes operational software through the EKS API, simplifying the process of installing, configuring, and updating cluster add-ons.
 
-###### Warning
-
+**Warning**  
 Starting with eksctl v0.184.0 (and v0.201.0 for metrics-server), eksctl installs default addons (vpc-cni, coredns, kube-proxy, metrics-server) as EKS addons instead of self-managed addons. This means you should use `eksctl update addon` instead of `eksctl utils update-*` commands.
 
 You can create clusters without any default networking addons when you want to use alternative CNI plugins like Cilium and Calico.
@@ -11,6 +13,7 @@ You can create clusters without any default networking addons when you want to u
 EKS Add-ons now support receiving IAM permissions via EKS Pod Identity Associations, allowing them to connect with AWS services outside of the cluster
 
 ## Creating addons
+<a name="addons-create"></a>
 
 Eksctl provides more flexibility for managing cluster addons:
 
@@ -60,10 +63,8 @@ You can specify at most one of `attachPolicy`, `attachPolicyARNs` and `serviceAc
 
 If none of these are specified, the addon will be created with a role that has all recommended policies attached.
 
-###### Note
-
-In order to attach policies to addons your cluster must have `OIDC` enabled. If it’s not enabled we ignore any policies
-attached.
+**Note**  
+In order to attach policies to addons your cluster must have `OIDC` enabled. If it’s not enabled we ignore any policies attached.
 
 You can then either have these addons created during the cluster creation process:
 
@@ -85,8 +86,7 @@ eksctl create addon --name vpc-cni --version 1.7.5 --service-account-role-arn <r
 eksctl create addon --name aws-ebs-csi-driver --namespace-config 'namespace=custom-namespace'
 ```
 
-###### Tip
-
+**Tip**  
 Use the `--namespace-config` flag to deploy addons to a custom namespace instead of the default namespace.
 
 During addon creation, if a self-managed version of the addon already exists on the cluster, you can choose how potential `configMap` conflicts shall be resolved by setting `resolveConflicts` option via the config file, e.g.
@@ -100,12 +100,12 @@ addons:
 ```
 
 For addon create, the `resolveConflicts` field supports three distinct values:
-
-- `none` - EKS doesn’t change the value. The create might fail.
-- `overwrite` - EKS overwrites any config changes back to EKS default values.
-- `preserve` - EKS doesn’t change the value. The create might fail. (Similarly to `none`, but different from [preserve in updating addons](#update-addons "#update-addons")).
++  `none` - EKS doesn’t change the value. The create might fail.
++  `overwrite` - EKS overwrites any config changes back to EKS default values.
++  `preserve` - EKS doesn’t change the value. The create might fail. (Similarly to `none`, but different from [`preserve` in updating addons](#update-addons)).
 
 ## Listing enabled addons
+<a name="_listing_enabled_addons"></a>
 
 You can see what addons are enabled in your cluster by running:
 
@@ -120,6 +120,7 @@ eksctl get addons -f config.yaml
 ```
 
 ## Setting the addon’s version
+<a name="_setting_the_addons_version"></a>
 
 Setting the version of the addon is optional. If the `version` field is left empty `eksctl` will resolve the default version for the addon. More information about which version is the default version for specific addons can be found in the AWS documentation about EKS. Note that the default version might not necessarily be the latest version available.
 
@@ -128,6 +129,7 @@ The addon version can be set to `latest`. Alternatively, the version can be set 
 See the section below on how to discover available addons and their versions.
 
 ## Discovering addons
+<a name="_discovering_addons"></a>
 
 You can discover what addons are available to install on your cluster by running:
 
@@ -135,15 +137,13 @@ You can discover what addons are available to install on your cluster by running
 eksctl utils describe-addon-versions --cluster <cluster-name>
 ```
 
-This will discover your cluster’s kubernetes version and filter on that. Alternatively if you want to see what
-addons are available for a particular kubernetes version you can run:
+This will discover your cluster’s kubernetes version and filter on that. Alternatively if you want to see what addons are available for a particular kubernetes version you can run:
 
 ```
 eksctl utils describe-addon-versions --kubernetes-version <version>
 ```
 
-You can also discover addons by filtering on their `type`, `owner` and/or `publisher`.
-For e.g., to see addons for a particular owner and type you can run:
+You can also discover addons by filtering on their `type`, `owner` and/or `publisher`. For e.g., to see addons for a particular owner and type you can run:
 
 ```
 eksctl utils describe-addon-versions --kubernetes-version 1.22 --types "infra-management, policy-management" --owners "aws-marketplace"
@@ -152,6 +152,7 @@ eksctl utils describe-addon-versions --kubernetes-version 1.22 --types "infra-ma
 The `types`, `owners` and `publishers` flags are optional and can be specified together or individually to filter the results.
 
 ## Discovering the configuration schema for addons
+<a name="_discovering_the_configuration_schema_for_addons"></a>
 
 After discovering the addon and version, you can view the customization options by fetching its JSON configuration schema.
 
@@ -162,8 +163,9 @@ eksctl utils describe-addon-configuration --name vpc-cni --version v1.12.0-eksbu
 This returns a JSON schema of the various options available for this addon.
 
 ## Working with configuration values
+<a name="_working_with_configuration_values"></a>
 
-`ConfigurationValues` can be provided in the configuration file during the creation or update of addons. Only JSON and YAML formats are supported.
+ `ConfigurationValues` can be provided in the configuration file during the creation or update of addons. Only JSON and YAML formats are supported.
 
 For eg.,
 
@@ -182,8 +184,7 @@ addons:
   resolveConflicts: overwrite
 ```
 
-###### Note
-
+**Note**  
 Bear in mind that when addon configuration values are being modified, configuration conflicts will arise.
 
 ```
@@ -208,10 +209,12 @@ eksctl get addon --cluster my-cluster --output yaml
 ```
 
 ## Using custom namespace
+<a name="_using_custom_namespace"></a>
 
 A custom namespace can be provided in the configuration file during the creation of addons. A namespace can’t be updated once an addon is created.
 
 ### Using config file
+<a name="_using_config_file"></a>
 
 ```
 addons:
@@ -222,6 +225,7 @@ addons:
 ```
 
 ### Using CLI flag
+<a name="_using_cli_flag"></a>
 
 Alternatively, you can specify a custom namespace using the `--namespace-config` flag:
 
@@ -245,6 +249,7 @@ The get command will also retrieve the namespace value for the addon
 ```
 
 ## Updating addons
+<a name="update-addons"></a>
 
 You can update your addons to newer versions and change what policies are attached by running:
 
@@ -256,8 +261,7 @@ eksctl update addon -f config.yaml
 eksctl update addon --name vpc-cni --version 1.8.0 --service-account-role-arn <new-role>
 ```
 
-###### Note
-
+**Note**  
 The namespace configuration cannot be updated once an addon is created. The `--namespace-config` flag is only available during addon creation.
 
 Similarly to addon creation, When updating an addon, you have full control over the config changes that you may have previously applied on that add-on’s `configMap`. Specifically, you can preserve, or overwrite them. This optional functionality is available via the same config file field `resolveConflicts`. e.g.,
@@ -271,12 +275,12 @@ addons:
 ```
 
 For addon update, the `resolveConflicts` field accepts three distinct values:
-
-- `none` - EKS doesn’t change the value. The update might fail.
-- `overwrite` - EKS overwrites any config changes back to EKS default values.
-- `preserve` - EKS preserves the value. If you choose this option, we recommend that you test any field and value changes on a non-production cluster before updating the add-on on your production cluster.
++  `none` - EKS doesn’t change the value. The update might fail.
++  `overwrite` - EKS overwrites any config changes back to EKS default values.
++  `preserve` - EKS preserves the value. If you choose this option, we recommend that you test any field and value changes on a non-production cluster before updating the add-on on your production cluster.
 
 ## Deleting addons
+<a name="_deleting_addons"></a>
 
 You can delete an addon by running:
 
@@ -289,10 +293,9 @@ This will delete the addon and any IAM roles associated to it.
 When you delete your cluster all IAM roles associated to addons are also deleted.
 
 ## Cluster creation flexibility for default networking addons
+<a name="barecluster"></a>
 
-When a cluster is created, EKS automatically installs VPC CNI, CoreDNS and kube-proxy as self-managed addons.
-To disable this behavior in order to use other CNI plugins like Cilium and Calico, eksctl now supports creating a cluster
-without any default networking addons. To create such a cluster, set `addonsConfig.disableDefaultAddons`, as in:
+When a cluster is created, EKS automatically installs VPC CNI, CoreDNS and kube-proxy as self-managed addons. To disable this behavior in order to use other CNI plugins like Cilium and Calico, eksctl now supports creating a cluster without any default networking addons. To create such a cluster, set `addonsConfig.disableDefaultAddons`, as in:
 
 ```
 addonsConfig:
@@ -303,8 +306,7 @@ addonsConfig:
 eksctl create cluster -f cluster.yaml
 ```
 
-To create a cluster with only CoreDNS and kube-proxy and not VPC CNI, specify the addons explicitly in `addons`
-and set `addonsConfig.disableDefaultAddons`, as in:
+To create a cluster with only CoreDNS and kube-proxy and not VPC CNI, specify the addons explicitly in `addons` and set `addonsConfig.disableDefaultAddons`, as in:
 
 ```
 addonsConfig:
@@ -318,14 +320,11 @@ addons:
 eksctl create cluster -f cluster.yaml
 ```
 
-As part of this change, eksctl now installs default addons as EKS addons instead of self-managed addons during cluster creation
-if `addonsConfig.disableDefaultAddons` is not explicitly set to true. As such, `eksctl utils update-*` commands can no
-longer be used for updating addons for clusters created with eksctl v0.184.0 and above:
-
-- `eksctl utils update-aws-node`
-- `eksctl utils update-coredns`
-- `eksctl utils update-kube-proxy`
+As part of this change, eksctl now installs default addons as EKS addons instead of self-managed addons during cluster creation if `addonsConfig.disableDefaultAddons` is not explicitly set to true. As such, `eksctl utils update-*` commands can no longer be used for updating addons for clusters created with eksctl v0.184.0 and above:
++  `eksctl utils update-aws-node` 
++  `eksctl utils update-coredns` 
++  `eksctl utils update-kube-proxy` 
 
 Instead, `eksctl update addon` should be used now.
 
-To learn more, see [Amazon EKS introduces cluster creation flexibility for networking add-ons](https://aws.amazon.com/about-aws/whats-new/2024/06/amazon-eks-cluster-creation-flexibility-networking-add-ons/ "https://aws.amazon.com/about-aws/whats-new/2024/06/amazon-eks-cluster-creation-flexibility-networking-add-ons/").
+To learn more, see [Amazon EKS introduces cluster creation flexibility for networking add-ons](https://aws.amazon.com/about-aws/whats-new/2024/06/amazon-eks-cluster-creation-flexibility-networking-add-ons/).

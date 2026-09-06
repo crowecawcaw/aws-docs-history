@@ -1,11 +1,14 @@
+
+
 # IPv6 Support
+<a name="vpc-ip-family"></a>
 
 ## Define IP Family
+<a name="_define_ip_family"></a>
 
 When `eksctl` creates a vpc, you can define the IP version that will be used. The following options are available to be configured:
-
-- IPv4
-- IPv6
++ IPv4
++ IPv6
 
 The default value is `IPv4`.
 
@@ -32,20 +35,18 @@ iam:
   withOIDC: true
 ```
 
-###### Note
-
+**Note**  
 This setting is only in the config file, not in a CLI flag.
 
 If you use IPv6, you must configure the following requirements:
++ OIDC is enabled
++ managed addons are defined as shows above
++ cluster version must be => 1.21
++ vpc-cni addon version must be => 1.10.0
++ self-managed nodegroups are not supported with IPv6 clusters
++ managed nodegroups are not supported with un-owned IPv6 clusters
++  `vpc.nat` and `serviceIPv4CIDR` fields are created by eksctl for ipv6 clusters and are not supported configuration options
++ AutoAllocateIPv6 is not supported together with IPv6
++ For IPv6 cluster, the IAM role for vpc-cni must have [required IAM policies for IPv6 mode](https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/iam-policy.md#ipv6-mode) associated
 
-- OIDC is enabled
-- managed addons are defined as shows above
-- cluster version must be => 1.21
-- vpc-cni addon version must be => 1.10.0
-- self-managed nodegroups are not supported with IPv6 clusters
-- managed nodegroups are not supported with un-owned IPv6 clusters
-- `vpc.nat` and `serviceIPv4CIDR` fields are created by eksctl for ipv6 clusters and are not supported configuration options
-- AutoAllocateIPv6 is not supported together with IPv6
-- For IPv6 cluster, the IAM role for vpc-cni must have [required IAM policies for IPv6 mode](https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/iam-policy.md#ipv6-mode "https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/iam-policy.md#ipv6-mode") associated
-
-Private networking can be done with IPv6 IP family as well. Please follow the instruction outlined under [EKS Private Cluster](eks-private-cluster.md "eks-private-cluster.md").
+Private networking can be done with IPv6 IP family as well. Please follow the instruction outlined under [EKS Private Cluster](eks-private-cluster.md).

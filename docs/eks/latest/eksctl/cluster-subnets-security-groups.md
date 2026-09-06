@@ -1,12 +1,14 @@
+
+
 # Updating control plane subnets and security groups
+<a name="cluster-subnets-security-groups"></a>
 
 This documentation explains how to modify the networking configuration of your EKS cluster’s control plane after initial creation. This includes updating the control plane subnets and security groups.
 
 ## Updating control plane subnets
+<a name="_updating_control_plane_subnets"></a>
 
-When a cluster is created with eksctl, a set of public and private subnets are created and passed to the EKS API.
-EKS creates 2 to 4 cross-account elastic network interfaces (ENIs) in those subnets to enable communication between the EKS
-managed Kubernetes control plane and your VPC.
+When a cluster is created with eksctl, a set of public and private subnets are created and passed to the EKS API. EKS creates 2 to 4 cross-account elastic network interfaces (ENIs) in those subnets to enable communication between the EKS managed Kubernetes control plane and your VPC.
 
 To update the subnets used by the EKS control plane, run:
 
@@ -31,13 +33,12 @@ vpc:
 eksctl utils update-cluster-vpc-config -f config.yaml
 ```
 
-Without the `--approve` flag, eksctl only logs the proposed changes. Once you are satisfied with the proposed changes, rerun the command with
-the `--approve` flag.
+Without the `--approve` flag, eksctl only logs the proposed changes. Once you are satisfied with the proposed changes, rerun the command with the `--approve` flag.
 
 ## Updating control plane security groups
+<a name="_updating_control_plane_security_groups"></a>
 
-To manage traffic between the control plane and worker nodes, EKS supports passing additional security groups that are applied to the cross-account network interfaces
-provisioned by EKS. To update the security groups for the EKS control plane, run:
+To manage traffic between the control plane and worker nodes, EKS supports passing additional security groups that are applied to the cross-account network interfaces provisioned by EKS. To update the security groups for the EKS control plane, run:
 
 ```
 eksctl utils update-cluster-vpc-config --cluster=<cluster> --control-plane-security-group-ids=sg-1234,sg-5678
@@ -84,7 +85,6 @@ vpc:
 eksctl utils update-cluster-vpc-config -f config.yaml
 ```
 
-For a complete example, refer to [cluster-subnets-sgs.yaml](https://github.com/eksctl-io/eksctl/blob/main/examples/38-cluster-subnets-sgs.yaml "https://github.com/eksctl-io/eksctl/blob/main/examples/38-cluster-subnets-sgs.yaml").
+For a complete example, refer to [cluster-subnets-sgs.yaml](https://github.com/eksctl-io/eksctl/blob/main/examples/38-cluster-subnets-sgs.yaml).
 
-Without the `--approve` flag, eksctl only logs the proposed changes. Once you are satisfied with the proposed changes, rerun the command with
-the `--approve` flag.
+Without the `--approve` flag, eksctl only logs the proposed changes. Once you are satisfied with the proposed changes, rerun the command with the `--approve` flag.

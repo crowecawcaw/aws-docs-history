@@ -1,6 +1,9 @@
-# Taints
 
-To apply [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/ "https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/") to a specific nodegroup use the `taints` config section like this:
+
+# Taints
+<a name="nodegroup-taints"></a>
+
+To apply [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to a specific nodegroup use the `taints` config section like this:
 
 ```
     taints:
@@ -12,4 +15,4 @@ To apply [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-
         effect: NoExecute
 ```
 
-A full example can be found [here](https://github.com/eksctl-io/eksctl/blob/main/examples/34-taints.yaml "https://github.com/eksctl-io/eksctl/blob/main/examples/34-taints.yaml").
+A full example can be found [here](https://github.com/eksctl-io/eksctl/blob/main/examples/34-taints.yaml).

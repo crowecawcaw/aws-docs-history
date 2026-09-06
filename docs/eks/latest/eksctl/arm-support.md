@@ -1,9 +1,11 @@
+
+
 # ARM Support
+<a name="arm-support"></a>
 
 This topic covers how to create a cluster with an ARM node group, and how to add an ARM node group to an existing cluster.
 
-EKS supports 64-bit ARM architecture with its [Graviton processors](https://aws.amazon.com/ec2/graviton/ "https://aws.amazon.com/ec2/graviton/"). To create a cluster,
-select one of the Graviton-based instance types (`a1`, `t4g`, `m6g`, `m7g`, `m6gd`, `c6g`, `c7g`, `c6gd`, `r6g`, `r7g`, `r6gd`, `m8g`, `r8g`, `c8g`) and run:
+EKS supports 64-bit ARM architecture with its [Graviton processors](https://aws.amazon.com/ec2/graviton/). To create a cluster, select one of the Graviton-based instance types (`a1`, `t4g`, `m6g`, `m7g`, `m6gd`, `c6g`, `c7g`, `c6gd`, `r6g`, `r7g`, `r6gd`, `m8g`, `r8g`, `c8g`) and run:
 
 ```
 eksctl create cluster --node-type=a1.large
@@ -54,6 +56,5 @@ eksctl create cluster -f cluster-arm-2.yaml
 
 The AMI resolvers, `auto` and `auto-ssm`, will infer the correct AMI based on the ARM instance type. Only AmazonLinux2023, AmazonLinux2 and Bottlerocket families have EKS optimized AMIs for ARM.
 
-###### Note
-
+**Note**  
 ARM is supported for clusters with version 1.15 and higher.

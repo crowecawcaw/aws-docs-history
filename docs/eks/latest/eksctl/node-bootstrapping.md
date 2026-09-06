@@ -1,14 +1,18 @@
+
+
 # Node bootstrapping
+<a name="node-bootstrapping"></a>
 
 ## AmazonLinux2023
+<a name="_amazonlinux2023"></a>
 
-AL2023 introduced a new node initialization process [nodeadm](https://awslabs.github.io/amazon-eks-ami/nodeadm/ "https://awslabs.github.io/amazon-eks-ami/nodeadm/") that uses a YAML configuration schema, dropping the use of `/etc/eks/bootstrap.sh` script.
+AL2023 introduced a new node initialization process [nodeadm](https://awslabs.github.io/amazon-eks-ami/nodeadm/) that uses a YAML configuration schema, dropping the use of `/etc/eks/bootstrap.sh` script.
 
-###### Note
-
+**Note**  
 With Kubernetes versions 1.30 and above, Amazon Linux 2023 is the default OS.
 
 ### Default settings for AL2023
+<a name="_default_settings_for_al2023"></a>
 
 For self-managed nodes and EKS-managed nodes based on custom AMIs, `eksctl` creates a default, minimal, `NodeConfig` and automatically injects it into the nodegroups’s launch template userdata. i.e.
 
@@ -41,6 +45,7 @@ spec:
 For EKS-managed nodes based on native AMIs, the default `NodeConfig` is being added by EKS MNG under the hood, appended directly to the EC2’s userdata. Thus, in this scenario, `eksctl` does not need to include it within the launch template.
 
 ### Configuring the bootstrapping process
+<a name="_configuring_the_bootstrapping_process"></a>
 
 To set advanced properties of `NodeConfig`, or simply override the default values, eksctl allows you to specify a custom `NodeConfig` via `nodeGroup.overrideBootstrapCommand` or `managedNodeGroup.overrideBootstrapCommand` e.g.
 
@@ -58,4 +63,4 @@ managedNodeGroups:
             strategy: RAID0
 ```
 
-This custom config will be prepended to the userdata by eksctl, and merged by `nodeadm` with the default config. Read more about `nodeadm`'s capability of merging multiple configuration objects [here](https://awslabs.github.io/amazon-eks-ami/nodeadm/doc/examples/#merging-multiple-configuration-objects "https://awslabs.github.io/amazon-eks-ami/nodeadm/doc/examples/#merging-multiple-configuration-objects").
+This custom config will be prepended to the userdata by eksctl, and merged by `nodeadm` with the default config. Read more about `nodeadm`'s capability of merging multiple configuration objects [here](https://awslabs.github.io/amazon-eks-ami/nodeadm/doc/examples/#merging-multiple-configuration-objects).

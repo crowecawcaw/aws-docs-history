@@ -1,7 +1,9 @@
-# Additional Volume Mappings
 
-As an additional configuration option, when dealing with volume mappings, it’s possible to configure extra mappings
-when the nodegroup is created.
+
+# Additional Volume Mappings
+<a name="nodegroup-additional-volume-mappings"></a>
+
+As an additional configuration option, when dealing with volume mappings, it’s possible to configure extra mappings when the nodegroup is created.
 
 To do this, set the field `additionalVolumes` as follows:
 
@@ -33,5 +35,4 @@ managedNodeGroups:
         snapshotID: 'snapshot-id'
 ```
 
-For more details about selecting volumeNames, see the [device naming documentation](../../../AWSEC2/latest/UserGuide/device_naming.md "../../../AWSEC2/latest/UserGuide/device_naming.md").
-To find out more about EBS volumes, Instance volume limits or Block device mappings visit [this page](../../../AWSEC2/latest/UserGuide/Storage.md "../../../AWSEC2/latest/UserGuide/Storage.md").
+For more details about selecting volumeNames, see the [device naming documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html). To find out more about EBS volumes, Instance volume limits or Block device mappings visit [this page](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Storage.html).

@@ -1,36 +1,35 @@
+
+
 # Custom subnets
+<a name="nodegroup-with-custom-subnet"></a>
 
 It’s possible to extend an existing VPC with a new subnet and add a Nodegroup to that subnet.
 
 ## Why
+<a name="_why"></a>
 
-Should the cluster run out of pre-configured IPs, it’s possible to resize the existing VPC with
-a new CIDR to add a new subnet to it. To see how to do that, read this guide on AWS [Extending VPCs](../../../vpc/latest/userguide/VPC_Subnets.md#vpc-resize "../../../vpc/latest/userguide/VPC_Subnets.md#vpc-resize").
+Should the cluster run out of pre-configured IPs, it’s possible to resize the existing VPC with a new CIDR to add a new subnet to it. To see how to do that, read this guide on AWS [Extending VPCs](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize).
 
 ### TL;DR
+<a name="_tldr"></a>
 
-Go to the VPC’s configuration and add click on Actions->Edit CIDRs and add a new range.
-For example:
+Go to the VPC’s configuration and add click on Actions->Edit CIDRs and add a new range. For example:
 
 ```
 192.168.0.0/19 -> existing CIDR
 + 192.169.0.0/19 -> new CIDR
 ```
 
-Now you need to add a new Subnet. Depending on if it’s a new Private or a Public subnet, you will have
-to copy the routing information from a private or a public subnet respectively.
+Now you need to add a new Subnet. Depending on if it’s a new Private or a Public subnet, you will have to copy the routing information from a private or a public subnet respectively.
 
-Once the subnet is created, add routing, and copy either the NAT gateway ID or the Internet Gateway
-from another subnet in the VPC. Take care that if it’s a public subnet Enable Automatic IP Assignment.
-Actions->Modify auto-assign IP settings->Enable auto-assign public IPv4 address.
+Once the subnet is created, add routing, and copy either the NAT gateway ID or the Internet Gateway from another subnet in the VPC. Take care that if it’s a public subnet Enable Automatic IP Assignment. Actions->Modify auto-assign IP settings->Enable auto-assign public IPv4 address.
 
-Don’t forget to also copy the TAGS of the existing subnets depending on Public or Private subnet configuration.
-This is important, otherwise the subnet will not be part of the cluster and instances in the subnet
-will be unable to join.
+Don’t forget to also copy the TAGS of the existing subnets depending on Public or Private subnet configuration. This is important, otherwise the subnet will not be part of the cluster and instances in the subnet will be unable to join.
 
 When finished, copy the new subnet’s ID. Repeat as often as necessary.
 
 ## How
+<a name="_how"></a>
 
 To create a nodegroup in the created subnet(s) run the following command:
 
@@ -70,9 +69,9 @@ nodeGroups:
 Wait for the nodegroup to be created and the new instances should have the new IP ranges of the subnet(s).
 
 ## Deleting the cluster
+<a name="_deleting_the_cluster"></a>
 
-Since the new addition modified the existing VPC by adding a dependency outside of the CloudFormation stack, CloudFormation
-can no longer remove the cluster.
+Since the new addition modified the existing VPC by adding a dependency outside of the CloudFormation stack, CloudFormation can no longer remove the cluster.
 
 Before deleting the cluster, remove all created extra subnets by hand, then proceed by calling `eksctl`:
 

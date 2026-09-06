@@ -1,34 +1,33 @@
+
+
 # IAM Roles for Service Accounts
+<a name="iamserviceaccounts"></a>
 
-###### Tip
+**Tip**  
+ `eksctl` supports configuring fine-grained permissions to EKS running apps via [EKS Pod Identity Associations](pod-identity-associations.md) 
 
-`eksctl` supports configuring fine-grained permissions to EKS running apps via [EKS Pod Identity Associations](pod-identity-associations.md "pod-identity-associations.md")
+Amazon EKS supports [here](https://docs.aws.amazon.com/eks/latest/userguide/access-policies.html#access-policy-permissions) Roles for Service Accounts (IRSA)] that allows cluster operators to map AWS IAM Roles to Kubernetes Service Accounts.
 
-Amazon EKS supports [here](../userguide/access-policies.md#access-policy-permissions "../userguide/access-policies.md#access-policy-permissions") Roles for Service Accounts (IRSA)] that allows cluster operators to map AWS IAM Roles to Kubernetes Service Accounts.
-
-This provides fine-grained permission management for apps that run on EKS and use other AWS services. These could be apps that use S3,
-any other data services (RDS, MQ, STS, DynamoDB), or Kubernetes components like AWS Load Balancer controller or ExternalDNS.
+This provides fine-grained permission management for apps that run on EKS and use other AWS services. These could be apps that use S3, any other data services (RDS, MQ, STS, DynamoDB), or Kubernetes components like AWS Load Balancer controller or ExternalDNS.
 
 You can easily create IAM Role and Service Account pairs with `eksctl`.
 
-###### Note
-
-If you used [instance roles](iam-policies.md "iam-policies.md"), and are considering to use IRSA instead, you shouldn’t mix the two.
+**Note**  
+If you used [instance roles](iam-policies.md), and are considering to use IRSA instead, you shouldn’t mix the two.
 
 ## How it works
+<a name="iam-how-works"></a>
 
-It works via IAM OpenID Connect Provider (OIDC) that EKS exposes, and IAM Roles must be constructed with reference to the IAM OIDC Provider (specific to a given EKS cluster), and a reference to the Kubernetes Service Account it will be bound to.
-Once an IAM Role is created, a service account should include the ARN of that role as an annotation (`eks.amazonaws.com/role-arn`).
-By default the service account will be created or updated to include the role annotation, this can be disabled using the flag `--role-only`.
+It works via IAM OpenID Connect Provider (OIDC) that EKS exposes, and IAM Roles must be constructed with reference to the IAM OIDC Provider (specific to a given EKS cluster), and a reference to the Kubernetes Service Account it will be bound to. Once an IAM Role is created, a service account should include the ARN of that role as an annotation (`eks.amazonaws.com/role-arn`). By default the service account will be created or updated to include the role annotation, this can be disabled using the flag `--role-only`.
 
-Inside EKS, there is an [admission controller](https://github.com/aws/amazon-eks-pod-identity-webhook/ "https://github.com/aws/amazon-eks-pod-identity-webhook/") that injects AWS session credentials into pods respectively of the roles based on the annotation on the Service Account used by the pod. The credentials will get exposed by `AWS_ROLE_ARN` & `AWS_WEB_IDENTITY_TOKEN_FILE` environment variables. Given a recent version of AWS SDK is used (see [here](../userguide/access-policies.md#access-policy-permissions "../userguide/access-policies.md#access-policy-permissions") for details of exact version), the application will use these credentials.
+Inside EKS, there is an [admission controller](https://github.com/aws/amazon-eks-pod-identity-webhook/) that injects AWS session credentials into pods respectively of the roles based on the annotation on the Service Account used by the pod. The credentials will get exposed by `AWS_ROLE_ARN` & `AWS_WEB_IDENTITY_TOKEN_FILE` environment variables. Given a recent version of AWS SDK is used (see [here](https://docs.aws.amazon.com/eks/latest/userguide/access-policies.html#access-policy-permissions) for details of exact version), the application will use these credentials.
 
-In `eksctl` the name of the resource is _iamserviceaccount_, which represents an IAM Role and Service Account pair.
+In `eksctl` the name of the resource is *iamserviceaccount*, which represents an IAM Role and Service Account pair.
 
 ## Usage from CLI
+<a name="_usage_from_cli"></a>
 
-###### Note
-
+**Note**  
 IAM Roles for Service Accounts require Kubernetes version 1.13 or above.
 
 The IAM OIDC Provider is not enabled by default, you can use the following command to enable it, or use config file (see below):
@@ -43,8 +42,7 @@ Once you have the IAM OIDC Provider associated with the cluster, to create a IAM
 eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --namespace=<serviceAccountNamespace> --attach-policy-arn=<policyARN>
 ```
 
-###### Note
-
+**Note**  
 You can specify `--attach-policy-arn` multiple times to use more than one policy.
 
 More specifically, you can create a service account with read-only access to S3 by running:
@@ -59,8 +57,7 @@ By default, it will be created in `default` namespace, but you can specify any o
 eksctl create iamserviceaccount --cluster=<clusterName> --name=s3-read-only --namespace=s3-app --attach-policy-arn=arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
 ```
 
-###### Note
-
+**Note**  
 If the namespace doesn’t exist already, it will be created.
 
 If you have service account already created in the cluster (without an IAM Role), you will need to use `--override-existing-serviceaccounts` flag.
@@ -77,14 +74,13 @@ CloudFormation will generate a role name that includes a random string. If you p
 eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --role-name "custom-role-name"
 ```
 
-When the service account is created and managed by some other tool, such as helm, use `--role-only` to prevent conflicts.
-The other tool is then responsible for maintaining the role ARN annotation. Note that `--override-existing-serviceaccounts` has no effect on `roleOnly`/`--role-only` service accounts, the role will always be created.
+When the service account is created and managed by some other tool, such as helm, use `--role-only` to prevent conflicts. The other tool is then responsible for maintaining the role ARN annotation. Note that `--override-existing-serviceaccounts` has no effect on `roleOnly`/`--role-only` service accounts, the role will always be created.
 
 ```
 eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --role-only --role-name=<customRoleName>
 ```
 
-When you have an existing role which you want to use with a service account, you can provide the `--attach-role-arn` flag instead of providing the policies. To ensure the role can only be assumed by the specified service account, you should set a [here](../userguide/access-policies.md#access-policy-permissions "../userguide/access-policies.md#access-policy-permissions") relationship policy document].
+When you have an existing role which you want to use with a service account, you can provide the `--attach-role-arn` flag instead of providing the policies. To ensure the role can only be assumed by the specified service account, you should set a [here](https://docs.aws.amazon.com/eks/latest/userguide/access-policies.html#access-policy-permissions) relationship policy document].
 
 ```
 eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --attach-role-arn=<customRoleARN>
@@ -92,33 +88,26 @@ eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountNa
 
 To update a service accounts roles permissions you can run `eksctl update iamserviceaccount`.
 
-###### Note
-
-`eksctl delete iamserviceaccount` deletes Kubernetes `ServiceAccounts` even if they were not created by `eksctl`.
+**Note**  
+ `eksctl delete iamserviceaccount` deletes Kubernetes `ServiceAccounts` even if they were not created by `eksctl`.
 
 ## Usage with config files
+<a name="_usage_with_config_files"></a>
 
 To manage `iamserviceaccounts` using config file, you will be looking to set `iam.withOIDC: true` and list account you want under `iam.serviceAccount`.
 
-All of the commands support `--config-file`, you can manage _iamserviceaccounts_ the same way as _nodegroups_.
-The `eksctl create iamserviceaccount` command supports `--include` and `--exclude` flags (see
-[this section](general-nodegroups.md#node-include "general-nodegroups.md#node-include") for more details about how these work).
-And the `eksctl delete iamserviceaccount` command supports `--only-missing` as well, so you can perform deletions the same way as nodegroups.
+All of the commands support `--config-file`, you can manage *iamserviceaccounts* the same way as *nodegroups*. The `eksctl create iamserviceaccount` command supports `--include` and `--exclude` flags (see [this section](general-nodegroups.md#node-include) for more details about how these work). And the `eksctl delete iamserviceaccount` command supports `--only-missing` as well, so you can perform deletions the same way as nodegroups.
 
-###### Note
-
+**Note**  
 IAM service accounts are scoped within a namespace, i.e. two service accounts with the same name may exist in different namespaces. Thus, to uniquely define a service account as part of `--include`, `--exclude` flags, you will need to pass the name string in the `namespace/name` format. E.g.
 
 ```
 eksctl create iamserviceaccount --config-file=<path> --include backend-apps/s3-reader
 ```
 
-The option to enable `wellKnownPolicies` is included for using IRSA with well-known
-use cases like `cluster-autoscaler` and `cert-manager`, as a shorthand for lists
-of policies.
+The option to enable `wellKnownPolicies` is included for using IRSA with well-known use cases like `cluster-autoscaler` and `cert-manager`, as a shorthand for lists of policies.
 
-Supported well-known policies and other properties of `serviceAccounts` are documented at
-[the config schema](https://geoffcline.github.io/eksctl-schema-demo/#iam-serviceAccounts "https://geoffcline.github.io/eksctl-schema-demo/#iam-serviceAccounts").
+Supported well-known policies and other properties of `serviceAccounts` are documented at [the config schema](https://geoffcline.github.io/eksctl-schema-demo/#iam-serviceAccounts).
 
 You use the following config example with `eksctl create cluster`:
 
@@ -182,7 +171,7 @@ eksctl create iamserviceaccount --config-file=<path>
 ```
 
 ## Further information
-
-- [Introducing Fine-grained IAM Roles For Service Accounts](https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/ "https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/")
-- [EKS User Guide - IAM Roles For Service Accounts](../userguide/access-policies.md#access-policy-permissions "../userguide/access-policies.md#access-policy-permissions")
-- [Mapping IAM users and role to Kubernetes RBAC roles](iam-identity-mappings.md "iam-identity-mappings.md")
+<a name="_further_information"></a>
++  [Introducing Fine-grained IAM Roles For Service Accounts](https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/) 
++  [EKS User Guide - IAM Roles For Service Accounts](https://docs.aws.amazon.com/eks/latest/userguide/access-policies.html#access-policy-permissions) 
++  [Mapping IAM users and role to Kubernetes RBAC roles](iam-identity-mappings.md) 

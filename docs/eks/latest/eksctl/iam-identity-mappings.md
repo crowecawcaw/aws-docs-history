@@ -1,57 +1,59 @@
+
+
 # Manage IAM users and roles
+<a name="iam-identity-mappings"></a>
 
-###### Note
-
-AWS suggests migraitng to [EKS Pod Identity Associations](pod-identity-associations.md "pod-identity-associations.md") from the `aws-auth` ConfigMap.
+**Note**  
+AWS suggests migraitng to [EKS Pod Identity Associations](pod-identity-associations.md) from the `aws-auth` ConfigMap.
 
 EKS clusters use IAM users and roles to control access to the cluster. The rules are implemented in a config map
 
 ## Edit ConfigMap with a CLI Command
+<a name="_edit_configmap_with_a_cli_command"></a>
 
 called `aws-auth`. `eksctl` provides commands to read and edit this config map.
 
-**Get all identity mappings:**
+ **Get all identity mappings:** 
 
 ```
 eksctl get iamidentitymapping --cluster <clusterName> --region=<region>
 ```
 
-**Get all identity mappings matching an arn:**
+ **Get all identity mappings matching an arn:** 
 
 ```
 eksctl get iamidentitymapping --cluster <clusterName> --region=<region> --arn arn:aws:iam::123456:role/testing-role
 ```
 
-**Create an identity mapping:**
+ **Create an identity mapping:** 
 
 ```
  eksctl create iamidentitymapping --cluster  <clusterName> --region=<region> --arn arn:aws:iam::123456:role/testing --group system:masters --username admin
 ```
 
-**Delete an identity mapping:**
+ **Delete an identity mapping:** 
 
 ```
 eksctl delete iamidentitymapping --cluster  <clusterName> --region=<region> --arn arn:aws:iam::123456:role/testing
 ```
 
-###### Note
+**Note**  
+Above command deletes a single mapping FIFO unless `--all` is given in which case it removes all matching. Will warn if more mappings matching this role are found.
 
-Above command deletes a single mapping FIFO unless `--all` is given in which case it removes all matching. Will warn if
-more mappings matching this role are found.
-
-**Create an account mapping:**
+ **Create an account mapping:** 
 
 ```
  eksctl create iamidentitymapping --cluster  <clusterName> --region=<region> --account user-account
 ```
 
-**Delete an account mapping:**
+ **Delete an account mapping:** 
 
 ```
  eksctl delete iamidentitymapping --cluster  <clusterName> --region=<region> --account user-account
 ```
 
 ## Edit ConfigMap using a ClusterConfig file
+<a name="_edit_configmap_using_a_clusterconfig_file"></a>
 
 The identity mappings can also be specified in ClusterConfig:
 

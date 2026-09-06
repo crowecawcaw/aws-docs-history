@@ -1,20 +1,24 @@
+
+
 # EKS Hybrid Nodes
+<a name="hybrid-nodes"></a>
 
 ## Introduction
+<a name="_introduction"></a>
 
-AWS EKS introduces Hybrid Nodes, a new feature that enables you to run on-premises and edge applications on customer-managed infrastructure with the same AWS EKS clusters, features, and tools you use in the AWS Cloud. AWS EKS Hybird Nodes brings an AWS-managed Kubernetes experience to on-premises environments for customers to simplify and standardize how you run applications across on-premises, edge and cloud environments. Read more at [EKS Hybrid Nodes](../userguide/hybrid-nodes-overview.md "../userguide/hybrid-nodes-overview.md").
+AWS EKS introduces Hybrid Nodes, a new feature that enables you to run on-premises and edge applications on customer-managed infrastructure with the same AWS EKS clusters, features, and tools you use in the AWS Cloud. AWS EKS Hybird Nodes brings an AWS-managed Kubernetes experience to on-premises environments for customers to simplify and standardize how you run applications across on-premises, edge and cloud environments. Read more at [EKS Hybrid Nodes](https://docs.aws.amazon.com/eks/latest/userguide/hybrid-nodes-overview.html).
 
 To facilitate support for this feature, eksctl introduces a new top-level field called `remoteNetworkConfig`. Any Hybrid Nodes related configuration shall be set up via this field, as part of the config file; there are no CLI flags counterparts. Additionally, at launch, any remote network config can only be set up during cluster creation and cannot be updated afterwards. This means, you won’t be able to update existing clusters to use Hybrid Nodes.
 
 The `remoteNetworkConfig` section of the config file allows you to setup the two core areas when it comes to joining remote nodes to you EKS clusters: **networking** and **credentials**.
 
 ## Networking
+<a name="hybrid-networking"></a>
 
-EKS Hybrid Nodes is ﬂexible to your preferred method of connecting your on-premises network(s) to an AWS VPC. There are several [documented options](../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md "../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md") available, including AWS Site-to-Site VPN and AWS Direct Connect, and you can choose the method that best fits your use case. In most of the methods you might choose, your VPC will be attached to either a virtual private gateway (VGW) or a transit gateway (TGW). If you rely on eksctl to create a VPC for you, eksctl will also configure, **within the scope of your VPC**, any networking related pre-requisites in order to facilitate communication between your EKS control plane and the remote nodes i.e.
-
-- ingress/egress SG rules
-- routes in the private subnets' route tables
-- the VPC gateway attachment to the given TGW or VGW
+EKS Hybrid Nodes is ﬂexible to your preferred method of connecting your on-premises network(s) to an AWS VPC. There are several [documented options](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.html) available, including AWS Site-to-Site VPN and AWS Direct Connect, and you can choose the method that best fits your use case. In most of the methods you might choose, your VPC will be attached to either a virtual private gateway (VGW) or a transit gateway (TGW). If you rely on eksctl to create a VPC for you, eksctl will also configure, **within the scope of your VPC**, any networking related pre-requisites in order to facilitate communication between your EKS control plane and the remote nodes i.e.
++ ingress/egress SG rules
++ routes in the private subnets' route tables
++ the VPC gateway attachment to the given TGW or VGW
 
 Example config file:
 
@@ -31,14 +35,13 @@ remoteNetworkConfig:
 
 If your connectivity method of choice does not involve using a TGW or VGW, you must not rely on eksctl to create the VPC for you, and instead provide a pre-existing one. On a related note, if you are using a pre-existing VPC, eksctl won’t make any amendments to it, and ensuring all networking requirements are in place falls under your responsibility.
 
-###### Note
-
+**Note**  
 eksctl does not setup any networking infrastructure outside your AWS VPC (i.e. any infrastructure from VGW/TGW to the remote networks)
 
 ## Credentials
+<a name="_credentials"></a>
 
-EKS Hybrid Nodes use the AWS IAM Authenticator and temporary IAM credentials provisioned by either **AWS SSM** or **AWS IAM Roles Anywhere**
-to authenticate with the EKS cluster. Similar to the self-managed nodegroups, if not otherwise provided, eksctl will create for you a Hybrid Nodes IAM Role to be assumed by the remote nodes. Additioanlly, when using IAM Roles Anywhere as your credentials provider, eksctl will setup a profile, and trust anchor based on a given certificate authority bundle (`iam.caBundleCert`) e.g.
+EKS Hybrid Nodes use the AWS IAM Authenticator and temporary IAM credentials provisioned by either **AWS SSM** or **AWS IAM Roles Anywhere** to authenticate with the EKS cluster. Similar to the self-managed nodegroups, if not otherwise provided, eksctl will create for you a Hybrid Nodes IAM Role to be assumed by the remote nodes. Additioanlly, when using IAM Roles Anywhere as your credentials provider, eksctl will setup a profile, and trust anchor based on a given certificate authority bundle (`iam.caBundleCert`) e.g.
 
 ```
 remoteNetworkConfig:
@@ -85,14 +88,14 @@ eksctl get accessentry --cluster my-cluster --principal-arn arn:aws:iam::0000111
 ```
 
 ## Add-ons support
+<a name="_add_ons_support"></a>
 
-Container Networking Interface (CNI): The AWS VPC CNI can’t be used with hybrid nodes. The core capabilities of Cilium and Calico are supported for use with hybrid nodes. You can manage your CNI with your choice of tooling such as Helm. For more information, see [Configure a CNI for hybrid nodes](../userguide/hybrid-nodes-cni.md "../userguide/hybrid-nodes-cni.md").
+Container Networking Interface (CNI): The AWS VPC CNI can’t be used with hybrid nodes. The core capabilities of Cilium and Calico are supported for use with hybrid nodes. You can manage your CNI with your choice of tooling such as Helm. For more information, see [Configure a CNI for hybrid nodes](https://docs.aws.amazon.com/eks/latest/userguide/hybrid-nodes-cni.html).
 
-###### Note
-
+**Note**  
 If you install VPC CNI in your cluster for your self-managed or EKS-managed nodegroups, you have to use `v1.19.0-eksbuild.1` or later, as this includes an udpate to the add-on’s daemonset to exclude it from being installed on Hybrid Nodes.
 
 ## Further references
-
-- [EKS Hybrid Nodes UserDocs](../userguide/hybrid-nodes-overview.md "../userguide/hybrid-nodes-overview.md")
-- [Launch Announcement](https://aws.amazon.com/about-aws/whats-new/2024/12/amazon-eks-hybrid-nodes "https://aws.amazon.com/about-aws/whats-new/2024/12/amazon-eks-hybrid-nodes")
+<a name="_further_references"></a>
++  [EKS Hybrid Nodes UserDocs](https://docs.aws.amazon.com/eks/latest/userguide/hybrid-nodes-overview.html) 
++  [Launch Announcement](https://aws.amazon.com/about-aws/whats-new/2024/12/amazon-eks-hybrid-nodes) 

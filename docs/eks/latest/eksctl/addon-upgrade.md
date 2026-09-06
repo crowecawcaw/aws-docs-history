@@ -1,22 +1,23 @@
+
+
 # Default add-on updates
+<a name="addon-upgrade"></a>
 
 This topic explains how to update the default pre-installed add-ons that are included on EKS clusters.
 
-###### Warning
-
-eksctl now installs default addons as EKS addons instead of self-managed addons. Read more about its implications in [Cluster creation flexibility for default networking addons](addons.md#barecluster "addons.md#barecluster").
-
+**Warning**  
+eksctl now installs default addons as EKS addons instead of self-managed addons. Read more about its implications in [Cluster creation flexibility for default networking addons](addons.md#barecluster).  
 For updating addons, `eksctl utils update-<addon>` cannot be used for clusters created with eksctl v0.184.0 and above. This guide is only valid for clusters created before this change.
 
 There are 3 default add-ons that get included in each EKS cluster:
-
-- `kube-proxy`
-- `aws-node`
-- `coredns`
++  `kube-proxy` 
++  `aws-node` 
++  `coredns` 
 
 ## Update pre-installed add-on
+<a name="_update_pre_installed_add_on"></a>
 
-For official EKS addons that are created manually through `eksctl create addons` or upon cluster creation, the way to manage them is through `eksctl create/get/update/delete addon`. In such cases, please refer to the docs about [EKS Add-Ons](addons.md "addons.md").
+For official EKS addons that are created manually through `eksctl create addons` or upon cluster creation, the way to manage them is through `eksctl create/get/update/delete addon`. In such cases, please refer to the docs about [EKS Add-Ons](addons.md).
 
 The process for updating each of them is different, hence there are 3 distinct commands that you will need to run. All of the following commands accept `--config-file`. By default each of these commands runs in plan mode, if you are happy with the proposed changes, re-run with `--approve`.
 
@@ -38,8 +39,7 @@ To update `coredns`, run:
 eksctl utils update-coredns --cluster=<clusterName>
 ```
 
-Once upgraded, be sure to run `kubectl get pods -n kube-system` and check if all addon pods are in ready state, you should see
-something like this:
+Once upgraded, be sure to run `kubectl get pods -n kube-system` and check if all addon pods are in ready state, you should see something like this:
 
 ```
 NAME                       READY   STATUS    RESTARTS   AGE

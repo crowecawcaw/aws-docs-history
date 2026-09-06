@@ -1,10 +1,14 @@
-# IAM policies
 
-You can attach Instance Roles to node groups. Workloads running on the node will receive IAM permissions from the node. For mroe information, see [IAM roles for Amazon EC2](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md").
+
+# IAM policies
+<a name="iam-policies"></a>
+
+You can attach Instance Roles to node groups. Workloads running on the node will receive IAM permissions from the node. For mroe information, see [IAM roles for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html).
 
 This page lists the pre-defined IAM policy templates available in eksctl. These templates simplify the process of granting your EKS nodes the appropriate AWS service permissions without having to manually create custom IAM policies.
 
 ## Supported IAM add-on policies
+<a name="_supported_iam_add_on_policies"></a>
 
 Example of all supported add-on policies:
 
@@ -30,19 +34,22 @@ nodeGroups:
 ```
 
 ### Image Builder Policy
+<a name="_image_builder_policy"></a>
 
-The `imageBuilder` policy allows for full ECR (Elastic Container Registry) access. This is useful for building, for
-example, a CI server that needs to push images to ECR.
+The `imageBuilder` policy allows for full ECR (Elastic Container Registry) access. This is useful for building, for example, a CI server that needs to push images to ECR.
 
 ### EBS Policy
+<a name="_ebs_policy"></a>
 
 The `ebs` policy enables the new EBS CSI (Elastic Block Store Container Storage Interface) driver.
 
 ### Cert Manager Policy
+<a name="_cert_manager_policy"></a>
 
-The `certManager` policy enables the ability to add records to Route 53 in order to solve the DNS01 challenge. More information can be found [here](https://cert-manager.io/docs/configuration/acme/dns01/route53/#set-up-a-iam-role "https://cert-manager.io/docs/configuration/acme/dns01/route53/#set-up-a-iam-role").
+The `certManager` policy enables the ability to add records to Route 53 in order to solve the DNS01 challenge. More information can be found [here](https://cert-manager.io/docs/configuration/acme/dns01/route53/#set-up-a-iam-role).
 
 ## Adding a custom instance role
+<a name="_adding_a_custom_instance_role"></a>
 
 This example creates a nodegroup that reuses an existing IAM Instance Role from another cluster:
 
@@ -63,6 +70,7 @@ nodeGroups:
 ```
 
 ## Attaching inline policies
+<a name="_attaching_inline_policies"></a>
 
 ```
 nodeGroups:
@@ -78,6 +86,7 @@ nodeGroups:
 ```
 
 ## Attaching policies by ARN
+<a name="_attaching_policies_by_arn"></a>
 
 ```
 nodeGroups:
@@ -94,6 +103,5 @@ nodeGroups:
         imageBuilder: true
 ```
 
-###### Warning
-
+**Warning**  
 If a nodegroup includes the `attachPolicyARNs` it **must** also include the default node policies, like `AmazonEKSWorkerNodePolicy`, `AmazonEKS_CNI_Policy` and `AmazonEC2ContainerRegistryPullOnly` in this example.

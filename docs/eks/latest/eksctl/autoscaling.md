@@ -1,17 +1,20 @@
+
+
 # Auto Scaling
+<a name="autoscaling"></a>
 
 ## Enable Auto Scaling
+<a name="_enable_auto_scaling"></a>
 
-You can create a cluster (or nodegroup in an existing cluster) with IAM role that will allow use of [cluster autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md "https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md"):
+You can create a cluster (or nodegroup in an existing cluster) with IAM role that will allow use of [cluster autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md):
 
 ```
 eksctl create cluster --asg-access
 ```
 
-This flag also sets `k8s.io/cluster-autoscaler/enabled`
-and `k8s.io/cluster-autoscaler/<clusterName>` tags, so nodegroup discovery should work.
+This flag also sets `k8s.io/cluster-autoscaler/enabled` and `k8s.io/cluster-autoscaler/<clusterName>` tags, so nodegroup discovery should work.
 
-Once the cluster is running, you will need to install [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md "https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md") itself.
+Once the cluster is running, you will need to install [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md) itself.
 
 You should also add the following to your managed or unmanaged nodegroup definition(s) to add the tags required for the Cluster Autoscaler to scale the nodegroup:
 
@@ -24,14 +27,11 @@ nodeGroups:
 ```
 
 ### Scaling up from 0
+<a name="_scaling_up_from_0"></a>
 
-If you would like to be able to scale your node group up from 0 and you have
-labels and/or taints defined on your nodegroups, you will need to propagate these as
-tags on your Auto Scaling Groups (ASGs).
+If you would like to be able to scale your node group up from 0 and you have labels and/or taints defined on your nodegroups, you will need to propagate these as tags on your Auto Scaling Groups (ASGs).
 
-One way to do this is by setting the ASG tags in the `tags` field of your nodegroup
-definitions. For example, given a nodegroup with the following labels and
-taints:
+One way to do this is by setting the ASG tags in the `tags` field of your nodegroup definitions. For example, given a nodegroup with the following labels and taints:
 
 ```
 nodeGroups:
@@ -74,17 +74,17 @@ nodeGroups:
 ```
 
 ### Zone-aware Auto Scaling
+<a name="_zone_aware_auto_scaling"></a>
 
 If your workloads are zone-specific you’ll need to create separate nodegroups for each zone. This is because the `cluster-autoscaler` assumes that all nodes in a group are exactly equivalent. So, for example, if a scale-up event is triggered by a pod which needs a zone-specific PVC (e.g. an EBS volume), the new node might get scheduled in the wrong AZ and the pod will fail to start.
 
 You won’t need a separate nodegroup for each AZ if your environment meets the following criteria:
++ No zone-specific storage requirements.
++ No required podAffinity with topology other than host.
++ No required nodeAffinity on zone label.
++ No nodeSelector on a zone label.
 
-- No zone-specific storage requirements.
-- No required podAffinity with topology other than host.
-- No required nodeAffinity on zone label.
-- No nodeSelector on a zone label.
-
-(Read more [here](https://github.com/kubernetes/autoscaler/pull/1802#issuecomment-474295002 "https://github.com/kubernetes/autoscaler/pull/1802#issuecomment-474295002") and [here](https://github.com/eksctl-io/eksctl/pull/647#issuecomment-474698054 "https://github.com/eksctl-io/eksctl/pull/647#issuecomment-474698054").)
+(Read more [here](https://github.com/kubernetes/autoscaler/pull/1802#issuecomment-474295002) and [here](https://github.com/eksctl-io/eksctl/pull/647#issuecomment-474698054).)
 
 If you meet all of the above requirements (and possibly others) then you should be safe with a single nodegroup which spans multiple AZs. Otherwise you’ll want to create separate, single-AZ nodegroups:
 

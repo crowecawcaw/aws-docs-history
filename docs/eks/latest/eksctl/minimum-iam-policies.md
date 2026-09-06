@@ -1,29 +1,29 @@
+
+
 # Minimum IAM policies
+<a name="minimum-iam-policies"></a>
 
-This document describes the minimum IAM policies needed to run the main use cases of eksctl. These are the ones used to
-run the integration tests.
+This document describes the minimum IAM policies needed to run the main use cases of eksctl. These are the ones used to run the integration tests.
 
-###### Note
-
+**Note**  
 Remember to replace `<account_id>` with your own.
 
-###### Note
-
+**Note**  
 An AWS Managed Policy is created and administered by AWS. You cannot change the permissions defined in AWS managed policies.
 
-**AmazonEC2FullAccess (AWS Managed Policy)**
+ **AmazonEC2FullAccess (AWS Managed Policy)** 
 
-[View AmazonEC2FullAccess policy definition.](../../../aws-managed-policy/latest/reference/AmazonEC2FullAccess.md "../../../aws-managed-policy/latest/reference/AmazonEC2FullAccess.md")
+ [View AmazonEC2FullAccess policy definition.](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEC2FullAccess.html) 
 
-**AWSCloudFormationFullAccess (AWS Managed Policy)**
+ **AWSCloudFormationFullAccess (AWS Managed Policy)** 
 
-[View AWSCloudFormationFullAccess policy definition.](../../../aws-managed-policy/latest/reference/AWSCloudFormationFullAccess.md "../../../aws-managed-policy/latest/reference/AWSCloudFormationFullAccess.md")
+ [View AWSCloudFormationFullAccess policy definition.](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSCloudFormationFullAccess.html) 
 
-**EksAllAccess**
+ **EksAllAccess** 
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -60,11 +60,11 @@ An AWS Managed Policy is created and administered by AWS. You cannot change the 
 }
 ```
 
-**IamLimitedAccess**
+ **IamLimitedAccess** 
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
