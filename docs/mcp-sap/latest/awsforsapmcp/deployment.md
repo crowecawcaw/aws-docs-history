@@ -1,145 +1,164 @@
+
+
 # Deployment via AWS CloudFormation
+<a name="deployment"></a>
 
 You deploy the AWS for SAP Model Context Protocol (MCP) Server onto Amazon Bedrock AgentCore Runtime by using an AWS CloudFormation template. The template creates all required resources for you, including the AgentCore runtime, Identity and Access Management (IAM) roles, and networking configuration.
 
-Before you begin, ensure you have completed the necessary setup detailed in the [Getting Started](getting-started.md "getting-started.md") section.
+Before you begin, ensure you have completed the necessary setup detailed in the [Getting Started](getting-started.md) section.
 
 ## Summary of prerequisites
-
-- **IAM Roles** with sufficient privileges to create CloudFormation stacks and the resources defined within the stack.
-- **VPC** with private subnets and security groups already configured in your target AWS Region.
-- **Network connectivity** from selected subnets to your SAP system (via Direct Connect, VPN, or internal routing).
-- **AWS Secrets Manager secret** containing SAP or OAuth credentials.
-- **Private IdP** if your VPC-hosted SAP system (Application Server/Gateway) is used as an IdP, you must choose an Amazon VPC Lattice connectivity mode (managed or self-managed). For self-managed mode, pre-create a VPC Lattice resource configuration before deployment. For more information, see [Connect to private identity providers](../../../bedrock-agentcore/latest/devguide/identity-private-idp.md "../../../bedrock-agentcore/latest/devguide/identity-private-idp.md").
+<a name="summary-of-prerequisites"></a>
++  **IAM Roles** with sufficient privileges to create CloudFormation stacks and the resources defined within the stack.
++  **VPC** with private subnets and security groups already configured in your target AWS Region.
++  **Network connectivity** from selected subnets to your SAP system (via Direct Connect, VPN, or internal routing).
++  ** AWS Secrets Manager secret** containing SAP or OAuth credentials.
++  **Private IdP** if your VPC-hosted SAP system (Application Server/Gateway) is used as an IdP, you must choose an Amazon VPC Lattice connectivity mode (managed or self-managed). For self-managed mode, pre-create a VPC Lattice resource configuration before deployment. For more information, see [Connect to private identity providers](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity-private-idp.html).
 
 ## Deployment Steps
+<a name="deployment-steps"></a>
 
 ### Step 1: Launch the CloudFormation stack
+<a name="step-1-launch"></a>
 
 1. Sign in to the {aws-management-console}.
-2. Navigate to **CloudFormation** → **Stacks** → **Create stack** → **With new resources (standard)**.
-3. Under **Specify template**, select **Amazon S3 URL** and enter:
 
-```
-https://awsforsap-mcp-server-setup-{region}.s3.{region}.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json
-```
+1. Navigate to **CloudFormation** → **Stacks** → **Create stack** → **With new resources (standard)**.
 
-Example:
+1. Under **Specify template**, select **Amazon S3 URL** and enter:
 
-```
-https://awsforsap-mcp-server-setup-us-east-1.s3.us-east-1.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json
-```
+   ```
+   https://awsforsap-mcp-server-setup-{region}.s3.{region}.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json
+   ```
 
-4. Choose **Next**.
+   Example:
+
+   ```
+   https://awsforsap-mcp-server-setup-us-east-1.s3.us-east-1.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json
+   ```
+
+1. Choose **Next**.
 
 ### Step 2: Specify stack details
+<a name="step-2-stack-details"></a>
 
 Provide a **Stack name** following these rules:
++ Must start with a letter (a–z, A–Z).
++ Can contain letters, numbers, and hyphens only.
++ Maximum 128 characters.
 
-- Must start with a letter (a–z, A–Z).
-- Can contain letters, numbers, and hyphens only.
-- Maximum 128 characters.
-
-Example: `aws-for-sap-mcp-server`
+Example: `aws-for-sap-mcp-server` 
 
 ### Step 3: Configure Parameters
+<a name="step-3-parameters"></a>
 
-**General configuration**
+ **General configuration** 
 
-| Parameter  | Parameter Label   | Description                                                                                                                              | Example |
-| ---------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `UniqueId` | Unique Identifier | Short unique identifier for stack resources. Max 8 characters, lowercase alphanumeric. Used to namespace all resources within the stack. | `mcp01` |
 
-**SAP system configuration**
+| Parameter | Parameter Label | Description | Example | 
+| --- | --- | --- | --- | 
+|  `UniqueId`  | Unique Identifier | Short unique identifier for stack resources. Max 8 characters, lowercase alphanumeric. Used to namespace all resources within the stack. |  `mcp01`  | 
 
-| Parameter    | Parameter Label         | Description                         | Example                                |
-| ------------ | ----------------------- | ----------------------------------- | -------------------------------------- |
-| `SapBaseUrl` | SAP Base OData Endpoint | Base URL of the SAP OData endpoint. | `https://host:port/sap/opu/odata/sap/` |
+ **SAP system configuration** 
 
-**Authentication configuration**
+
+| Parameter | Parameter Label | Description | Example | 
+| --- | --- | --- | --- | 
+|  `SapBaseUrl`  | SAP Base OData Endpoint | Base URL of the SAP OData endpoint. |  `https://host:port/sap/opu/odata/sap/`  | 
+
+ **Authentication configuration** 
 
 The MCP Server supports the following authentication flows for connecting to SAP. Choose the one that matches your SAP system setup.
 
-| Parameter              | Parameter Label               | Description                                                                                      | BASIC    | M2M      | USER\_FEDERATION | ON\_BEHALF\_OF\_TOKEN\_EXCHANGE |
-| ---------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------ | -------- | -------- | ---------------- | ------------------------------- |
-| `AuthFlow`             | Authentication Flow           | Authentication flow to use: `BASIC`, `M2M`, `USER_FEDERATION`, or `ON_BEHALF_OF_TOKEN_EXCHANGE`. | ✓        | ✓        | ✓                | ✓                               |
-| `SapCredentialsSecret` | Auth Credentials Secret Name  | AWS Secrets Manager secret name containing SAP credentials (BASIC) or OAuth client credentials.  | Required | Required | Required         | Required                        |
-| `SapAuthorizeUrl`      | Authorization Endpoint        | OAuth2 authorization URL.                                                                        | —        | Required | Required         | —                               |
-| `SapTokenUrl`          | Token Endpoint                | OAuth2 token URL.                                                                                | —        | Required | Required         | —                               |
-| `OauthScopes`          | Scope(s)                      | OAuth scopes for SAP access.                                                                     | —        | Required | Required         | Required                        |
-| `AppCallbackEndpoint`  | Application Callback Endpoint | Client application callback URL.                                                                 | —        | —        | Required         | —                               |
 
-**Inbound Authentication Configuration**
+| Parameter | Parameter Label | Description | BASIC | M2M | USER\_FEDERATION | ON\_BEHALF\_OF\_TOKEN\_EXCHANGE | 
+| --- | --- | --- | --- | --- | --- | --- | 
+|  `AuthFlow`  | Authentication Flow | Authentication flow to use: `BASIC`, `M2M`, `USER_FEDERATION`, or `ON_BEHALF_OF_TOKEN_EXCHANGE`. | ✓ | ✓ | ✓ | ✓ | 
+|  `SapCredentialsSecret`  | Auth Credentials Secret Name |  AWS Secrets Manager secret name containing SAP credentials (BASIC) or OAuth client credentials. | Required | Required | Required | Required | 
+|  `SapAuthorizeUrl`  | Authorization Endpoint | OAuth2 authorization URL. | — | Required | Required | — | 
+|  `SapTokenUrl`  | Token Endpoint | OAuth2 token URL. | — | Required | Required | — | 
+|  `OauthScopes`  | Scope(s) | OAuth scopes for SAP access. | — | Required | Required | Required | 
+|  `AppCallbackEndpoint`  | Application Callback Endpoint | Client application callback URL. | — | — | Required | — | 
 
-| Parameter             | Parameter Label                 | Description                                                           | Notes                                         |
-| --------------------- | ------------------------------- | --------------------------------------------------------------------- | --------------------------------------------- |
-| `InboundAuthProvider` | Inbound Authentication Provider | Identity provider for validating incoming requests to the MCP Server. | Default: Cognito (or Entra ID)                |
-| `DiscoveryUrl`        | Discovery Url                   | URL to fetch authorization server metadata for JWT validation.        | Required for Entra ID; not needed for Cognito |
-| `AllowedAudiences`    | Allowed Audiences               | Audience values validated in incoming JWT tokens.                     | Required for Entra ID; not needed for Cognito |
+ **Inbound Authentication Configuration** 
 
-###### Note
 
-`DiscoveryUrl` and `AllowedAudiences` are only required when using an external identity provider (for example, Entra ID). Leave these fields empty if using Cognito.
+| Parameter | Parameter Label | Description | Notes | 
+| --- | --- | --- | --- | 
+|  `InboundAuthProvider`  | Inbound Authentication Provider | Identity provider for validating incoming requests to the MCP Server. | Default: Cognito (or Entra ID) | 
+|  `DiscoveryUrl`  | Discovery Url | URL to fetch authorization server metadata for JWT validation. | Required for Entra ID; not needed for Cognito | 
+|  `AllowedAudiences`  | Allowed Audiences | Audience values validated in incoming JWT tokens. | Required for Entra ID; not needed for Cognito | 
 
-**MCP Server Configuration**
+**Note**  
+ `DiscoveryUrl` and `AllowedAudiences` are only required when using an external identity provider (for example, Entra ID). Leave these fields empty if using Cognito.
 
-| Parameter           | Parameter Label      | Description       | Allowed Values                      | Default |
-| ------------------- | -------------------- | ----------------- | ----------------------------------- | ------- |
-| `McpServerLogLevel` | MCP Server Log Level | Server log level. | `DEBUG`, `INFO`, `WARNING`, `ERROR` | `INFO`  |
+ **MCP Server Configuration** 
 
-**MCP Server Permissions**
+
+| Parameter | Parameter Label | Description | Allowed Values | Default | 
+| --- | --- | --- | --- | --- | 
+|  `McpServerLogLevel`  | MCP Server Log Level | Server log level. |  `DEBUG`, `INFO`, `WARNING`, `ERROR`  |  `INFO`  | 
+
+ **MCP Server Permissions** 
 
 Control which operations the MCP Server is permitted to perform against your SAP system. Start with the minimum permissions required.
 
-| Parameter                        | Parameter Label        | Default | Dependency                            |
-| -------------------------------- | ---------------------- | ------- | ------------------------------------- |
-| `McpServerReadEnabled`           | Enable Read Access     | `TRUE`  | —                                     |
-| `McpServerWriteEnabled`          | Enable Write Access    | `FALSE` | —                                     |
-| `McpServerCreateEnabled`         | Enable Create Access   | `FALSE` | Requires `McpServerWriteEnabled=true` |
-| `McpServerUpdateEnabled`         | Enable Update Access   | `FALSE` | Requires `McpServerWriteEnabled=true` |
-| `McpServerDeleteEnabled`         | Enable Delete Access   | `FALSE` | Requires `McpServerWriteEnabled=true` |
-| `McpServerFunctionImportEnabled` | Enable Function Import | `FALSE` | —                                     |
 
-###### Note
+| Parameter | Parameter Label | Default | Dependency | 
+| --- | --- | --- | --- | 
+|  `McpServerReadEnabled`  | Enable Read Access |  `TRUE`  | — | 
+|  `McpServerWriteEnabled`  | Enable Write Access |  `FALSE`  | — | 
+|  `McpServerCreateEnabled`  | Enable Create Access |  `FALSE`  | Requires `McpServerWriteEnabled=true`  | 
+|  `McpServerUpdateEnabled`  | Enable Update Access |  `FALSE`  | Requires `McpServerWriteEnabled=true`  | 
+|  `McpServerDeleteEnabled`  | Enable Delete Access |  `FALSE`  | Requires `McpServerWriteEnabled=true`  | 
+|  `McpServerFunctionImportEnabled`  | Enable Function Import |  `FALSE`  | — | 
 
-`McpServerCreateEnabled`, `McpServerUpdateEnabled`, and `McpServerDeleteEnabled` have no effect unless `McpServerWriteEnabled` is set to `true`.
+**Note**  
+ `McpServerCreateEnabled`, `McpServerUpdateEnabled`, and `McpServerDeleteEnabled` have no effect unless `McpServerWriteEnabled` is set to `true`.
 
-**Network Configuration**
+ **Network Configuration** 
 
-| Parameter                   | Parameter Label     | Description                                                                                                                                                                                                                                                |
-| --------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `McpServerVpcSecurityGroup` | VPC Security Groups | Comma-separated list of VPC security group IDs. The security group must allow outbound traffic to your SAP system on the `SapBaseUrl` port. If traffic is routed through a load balancer (ALB/NLB), allow traffic on the associated listener port instead. |
-| `McpServerNetworkSubnets`   | VPC Subnets         | Comma-separated list of private subnet IDs where AgentCore launches its ENIs. These subnets must have network connectivity to the SAP system.                                                                                                              |
 
-**Subnet selection guidance:**
+| Parameter | Parameter Label | Description | 
+| --- | --- | --- | 
+|  `McpServerVpcSecurityGroup`  | VPC Security Groups | Comma-separated list of VPC security group IDs. The security group must allow outbound traffic to your SAP system on the `SapBaseUrl` port. If traffic is routed through a load balancer (ALB/NLB), allow traffic on the associated listener port instead. | 
+|  `McpServerNetworkSubnets`  | VPC Subnets | Comma-separated list of private subnet IDs where AgentCore launches its ENIs. These subnets must have network connectivity to the SAP system. | 
 
-- The subnets for the AWS for SAP MCP Server must use an Availability Zone that is supported by AgentCore. See [AgentCore supported Availability Zones](../../../bedrock-agentcore/latest/devguide/agentcore-vpc.md#agentcore-supported-azs "../../../bedrock-agentcore/latest/devguide/agentcore-vpc.md#agentcore-supported-azs").
-- If your SAP system runs in a multi-AZ high-availability setup, ensure the network route from the selected subnets to the SAP virtual IP always resolves to the active system.
-- If traffic is routed through an Elastic Load Balancer (ALB/NLB), ensure the subnets can reach the ELB’s resolved IPs.
+ **Subnet selection guidance:** 
++ The subnets for the AWS for SAP MCP Server must use an Availability Zone that is supported by AgentCore. See [AgentCore supported Availability Zones](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-vpc.html#agentcore-supported-azs).
++ If your SAP system runs in a multi-AZ high-availability setup, ensure the network route from the selected subnets to the SAP virtual IP always resolves to the active system.
++ If traffic is routed through an Elastic Load Balancer (ALB/NLB), ensure the subnets can reach the ELB’s resolved IPs.
 
 ### Step 4: Configure stack options
+<a name="step-4-stack-options"></a>
 
 On the **Configure stack options** page you can optionally add tags, set IAM permissions, and configure stack failure behavior. For most deployments, the defaults are sufficient.
 
 Choose **Next**.
 
 ### Step 5: Review and Deploy
+<a name="step-5-review"></a>
 
 1. Review all parameters on the summary page.
-2. If prompted, acknowledge the IAM capabilities checkbox: **"I acknowledge that AWS CloudFormation might create IAM resources"**.
-3. Choose **Submit**.
+
+1. If prompted, acknowledge the IAM capabilities checkbox: **"I acknowledge that AWS CloudFormation might create IAM resources"**.
+
+1. Choose **Submit**.
 
 ### Step 6: Monitor Deployment
+<a name="step-6-monitor"></a>
 
 1. Navigate to **CloudFormation** → **Stacks** and select your stack.
-2. Open the **Events** tab to monitor progress.
-3. When the status shows `CREATE_COMPLETE`, the MCP Server is deployed and ready.
 
-###### Note
+1. Open the **Events** tab to monitor progress.
 
+1. When the status shows `CREATE_COMPLETE`, the MCP Server is deployed and ready.
+
+**Note**  
 If the stack reaches `ROLLBACK_COMPLETE`, check the Events tab for the root cause error, correct the parameter values, and redeploy.
 
 ## Example: Basic Authentication Deployment
+<a name="deploy-basic-auth"></a>
 
 The following command deploys the AWS for SAP MCP Server with Basic Authentication. Replace the placeholder values with your actual configuration:
 
@@ -163,11 +182,11 @@ aws cloudformation create-stack \
     ParameterKey=McpServerNetworkSubnets,ParameterValue="subnet-1234567"
 ```
 
-###### Note
-
+**Note**  
 For Basic Authentication with Cognito as the inbound provider, `DiscoveryUrl` and `AllowedAudiences` are not required.
 
 ## Example: Machine-to-Machine (M2M) Authentication Deployment
+<a name="deploy-m2m-auth"></a>
 
 For machine-to-machine OAuth authentication, include the additional OAuth parameters:
 
@@ -204,11 +223,11 @@ aws cloudformation create-stack \
     ParameterKey=McpServerNetworkSubnets,ParameterValue=<your-subnet-ids>
 ```
 
-###### Note
-
-`DiscoveryUrl` and `AllowedAudiences` are required when using any inbound auth provider other than Cognito.
+**Note**  
+ `DiscoveryUrl` and `AllowedAudiences` are required when using any inbound auth provider other than Cognito.
 
 ## Example: User Federation Authentication Deployment
+<a name="deploy-user-federation-auth"></a>
 
 ```
 aws cloudformation create-stack \
@@ -243,11 +262,11 @@ aws cloudformation create-stack \
     ParameterKey=McpServerNetworkSubnets,ParameterValue=<your-subnet-ids>
 ```
 
-###### Note
-
-`USER_FEDERATION` does not require `SapCredentialsSecret`. `AppCallbackEndpoint` is required for this flow only.
+**Note**  
+ `USER_FEDERATION` does not require `SapCredentialsSecret`. `AppCallbackEndpoint` is required for this flow only.
 
 ## Example: On-Behalf-Of Token Exchange Deployment
+<a name="deploy-obo-token-exchange-auth"></a>
 
 ```
 aws cloudformation create-stack \
@@ -280,16 +299,17 @@ aws cloudformation create-stack \
     ParameterKey=McpServerNetworkSubnets,ParameterValue=<your-subnet-ids>
 ```
 
-###### Note
-
-`ON_BEHALF_OF_TOKEN_EXCHANGE` requires `SapCredentialsSecret`, `DiscoveryUrl`, and `AllowedAudiences`. `AppCallbackEndpoint` and `SapAuthorizeUrl`/`SapTokenUrl` are not required for this flow.
+**Note**  
+ `ON_BEHALF_OF_TOKEN_EXCHANGE` requires `SapCredentialsSecret`, `DiscoveryUrl`, and `AllowedAudiences`. `AppCallbackEndpoint` and `SapAuthorizeUrl`/`SapTokenUrl` are not required for this flow.
 
 ## What to expect
+<a name="deploy-expected-outcome"></a>
 
 After a successful deployment, you have a Bedrock AgentCore runtime with AWS for SAP MCP Server installed. Your MCP clients (AI agents) can communicate with the server over Streamable HTTP through the AgentCore invocation endpoint. You can find the invocation endpoint in the CloudFormation stack **Outputs** tab after the stack reaches `CREATE_COMPLETE`.
 
 ## Troubleshooting deployment failures
+<a name="deploy-troubleshooting"></a>
 
 If the CloudFormation stack creation fails (status `CREATE_FAILED` or `ROLLBACK_COMPLETE`), open the AWS CloudFormation console, select your stack, and choose the **Events** tab. The events list shows each resource creation attempt in chronological order. Look for the first event with a `CREATE_FAILED` status to identify the root cause. Common failure reasons include invalid parameter values or insufficient IAM permissions.
 
-**Private IdP connectivity failure:** If the stack fails while creating the OAuth credential provider or the Runtime, check that the specified subnets can reach the IdP’s discovery and token endpoints over HTTPS. Verify that the security groups permit outbound traffic on the IdP’s port. For managed Lattice, also verify that the deployer has `iam:CreateServiceLinkedRole` permission. For more information, see [Troubleshooting](troubleshooting.md "troubleshooting.md").
+ **Private IdP connectivity failure:** If the stack fails while creating the OAuth credential provider or the Runtime, check that the specified subnets can reach the IdP’s discovery and token endpoints over HTTPS. Verify that the security groups permit outbound traffic on the IdP’s port. For managed Lattice, also verify that the deployer has `iam:CreateServiceLinkedRole` permission. For more information, see [Troubleshooting](troubleshooting.md).
