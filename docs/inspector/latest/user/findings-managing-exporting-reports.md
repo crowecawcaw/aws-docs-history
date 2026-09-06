@@ -513,6 +513,13 @@ or hours. When the export is complete, Amazon Inspector displays a message indic
 findings report was exported successfully. Optionally choose **View
 report** in the message to navigate to the report in Amazon S3.
 
+###### Note
+
+Report generation times out if it takes longer than 12 hours to complete. If your
+report times out, [add filter
+criteria](findings-managing-filtering.md "findings-managing-filtering.md") to reduce the number of findings included in the report, and
+then export the report again.
+
 Note that you can export only one report a time. If an export is currently in
 progress, wait until that export is complete before you try to export another
 report.

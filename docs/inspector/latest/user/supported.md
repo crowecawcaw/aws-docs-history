@@ -68,7 +68,6 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | AlmaLinux                           | 10              | Errata CVE                             | Yes                    | Yes                      |
 | Amazon Linux 2023 (AL2023)          | AL2023          | ALAS Errata CVE                        | Yes                    | Yes                      |
 | Bottlerocket                        | 1.7.0 and later | Errata CVE                             | Yes                    | Yes                      |
-| Debian Server (Bullseye)            | 11              | DSA CVE                                | Yes                    | Yes                      |
 | Debian Server (Bookworm)            | 12              | DSA CVE                                | Yes                    | Yes                      |
 | Debian Server (Trixie)              | 13              | DSA CVE                                | Yes                    | Yes                      |
 | Fedora                              | 43              | Errata CVE                             | Yes                    | Yes                      |
@@ -120,7 +119,6 @@ It also specifies the vendor security advisory for each operating system.
 | Azure Linux                         | 3       | Errata CVE                             | Yes            | Yes               |
 | BusyBox                             | –       | MITRE CVE                              | Yes            | Yes               |
 | Chainguard                          | –       | Errata CVE                             | Yes            | Yes               |
-| Debian Server (Bullseye)            | 11      | DSA CVE                                | Yes            | Yes               |
 | Debian Server (Bookworm)            | 12      | DSA CVE                                | Yes            | Yes               |
 | Debian Server (Trixie)              | 13      | DSA CVE                                | Yes            | Yes               |
 | Echo                                | 2       | Errata CVE                             | Yes            | Yes               |
@@ -196,7 +194,6 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 | Bottlerocket                        | –       |
 | BusyBox                             | 1.36.0+ |
 | Chainguard                          | –       |
-| Debian Server (Bullseye)            | 11      |
 | Debian Server (Bookworm)            | 12      |
 | Debian Server (Trixie)              | 13      |
 | Debian Sid                          | –       |
@@ -270,6 +267,7 @@ As a result, Amazon Inspector stops generating findings for discontinued operati
 | Debian Server (Jessie)              | 8       | June 30, 2020     |
 | Debian Server (Stretch)             | 9       | June 30, 2022     |
 | Debian Server (Buster)              | 10      | June 30, 2024     |
+| Debian Server (Bullseye)            | 11      | August 31, 2026   |
 | Fedora                              | 33      | November 30, 2021 |
 | Fedora                              | 34      | June 7, 2022      |
 | Fedora                              | 35      | December 13, 2022 |

@@ -911,7 +911,11 @@ For each of the supported artifacts, the Sbomgen parses and collects either chro
 For puppeteer installations, the corresponding Chromium version is collected based on the puppeteer version.
 For more information, see [Supported browsers](https://pptr.dev/supported-browsers "https://pptr.dev/supported-browsers") on the Puppeteer website.
 
-When the `PUPPETEER_SKIP_CHROMIUM_DOWNLOAD` environment variable is set to `true`, evaluation is skipped, and the `skip_chromium_download=true` qualifier is added to the Puppeteer package URL.
+When any of the following environment variables is set to `true`, evaluation is skipped, and the `skip_chromium_download=true` qualifier is added to the Puppeteer package URL.
+
+- `PUPPETEER_SKIP_CHROMIUM_DOWNLOAD`
+- `PUPPETEER_CHROME_SKIP_DOWNLOAD`
+- `PUPPETEER_SKIP_DOWNLOAD`
 
 ###### Example `chrome/VERSION` version file
 
