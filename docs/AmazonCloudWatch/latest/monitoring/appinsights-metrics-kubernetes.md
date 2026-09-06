@@ -1,13 +1,16 @@
+
+
 # Kubernetes on AWS
+<a name="appinsights-metrics-kubernetes"></a>
 
 CloudWatch Application Insights supports the following metrics:
 
-###### Metrics
-
-- [Container Insights metrics](#appinsights-metrics-kubernetes-container-insights-metrics "#appinsights-metrics-kubernetes-container-insights-metrics")
-- [Container Insights Prometheus metrics](#appinsights-metrics-kubernetes-container-insights-prometheus "#appinsights-metrics-kubernetes-container-insights-prometheus")
+**Topics**
++ [Container Insights metrics](#appinsights-metrics-kubernetes-container-insights-metrics)
++ [Container Insights Prometheus metrics](#appinsights-metrics-kubernetes-container-insights-prometheus)
 
 ## Container Insights metrics
+<a name="appinsights-metrics-kubernetes-container-insights-metrics"></a>
 
 cluster\_failed\_node\_count
 
@@ -58,6 +61,7 @@ pod\_network\_tx\_bytes
 service\_number\_of\_running\_pods
 
 ## Container Insights Prometheus metrics
+<a name="appinsights-metrics-kubernetes-container-insights-prometheus"></a>
 
 **Java JMX metrics**
 

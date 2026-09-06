@@ -1,7 +1,9 @@
-# CloudWatch pipelines configuration for Palo Alto Networks Next-Generation Firewalls
 
-Collects log data from Palo Alto Next-Generation Firewall using basic
-authentication.
+
+# CloudWatch pipelines configuration for Palo Alto Networks Next-Generation Firewalls
+<a name="paloalto-ngfw-pipeline-setup"></a>
+
+Collects log data from Palo Alto Next-Generation Firewall using basic authentication.
 
 Configure the Palo Alto NGFW source with the following parameters:
 
@@ -13,20 +15,13 @@ source:
       basic:
         username: "${{aws_secrets:<secret-name>:username}}"
         password: "${{aws_secrets:<secret-name>:password}}"
-```
+```Parameters
 
-###### Parameters
-
-`hostname` (required)
-
+`hostname` (required)  
 The Palo Alto NGFW hostname for your firewall.
 
-`authentication.basic.username` (required)
+`authentication.basic.username` (required)  
+Basic authentication username for Palo Alto NGFW API authentication.
 
-Basic authentication username for Palo Alto NGFW API
-authentication.
-
-`authentication.basic.password` (required)
-
-Basic authentication password for Palo Alto NGFW API
-authentication.
+`authentication.basic.password` (required)  
+Basic authentication password for Palo Alto NGFW API authentication.

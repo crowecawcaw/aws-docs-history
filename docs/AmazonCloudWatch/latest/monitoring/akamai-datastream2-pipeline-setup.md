@@ -1,7 +1,9 @@
-# CloudWatch pipelines configuration for Akamai DataStream 2
 
-The Akamai DataStream 2 setup on AWS reads log data from Amazon S3 buckets using Amazon SQS
-notifications for new object events.
+
+# CloudWatch pipelines configuration for Akamai DataStream 2
+<a name="akamai-datastream2-pipeline-setup"></a>
+
+The Akamai DataStream 2 setup on AWS reads log data from Amazon S3 buckets using Amazon SQS notifications for new object events.
 
 Configure the Akamai DataStream 2 source using the following parameters:
 
@@ -23,45 +25,28 @@ source:
     sqs:
       queue_url: "https://sqs.region.amazonaws.com/<account>/<queue-name>"
     on_error: "retain_messages"
-```
+```Parameters
 
-###### Parameters
+`notification_type` (required)  
+Specifies the notification mechanism. Must be "sqs" to use SQS for S3 event notifications.
 
-`notification_type` (required)
+`data_source_name` (required)  
+Identifies the data source. This can be any string value that represents your data source. Example: "akamai\_datastream\_2".
 
-Specifies the notification mechanism. Must be "sqs" to use SQS for
-S3 event notifications.
-
-`data_source_name` (required)
-
-Identifies the data source. This can be any string value that
-represents your data source. Example: "akamai\_datastream\_2".
-
-`aws.region` (required)
-
+`aws.region` (required)  
 The AWS Region where the S3 bucket and SQS queue are located.
 
-`aws.sts_role_arn` (required)
+`aws.sts_role_arn` (required)  
+The ARN of the IAM role to assume for accessing S3 and SQS resources.
 
-The ARN of the IAM role to assume for accessing S3 and SQS
-resources.
+`codec` (required)  
+Codec configuration for parsing S3 objects. Supports csv, json, ndjson codecs.
 
-`codec` (required)
+`compression` (optional)  
+Compression type of the S3 objects. Valid values are "none", "gzip", "automatic". Defaults to "none".
 
-Codec configuration for parsing S3 objects. Supports csv, json,
-ndjson codecs.
+`sqs.queue_url` (required for SQS)  
+The complete SQS queue URL that receives S3 bucket notifications when new objects are created.
 
-`compression` (optional)
-
-Compression type of the S3 objects. Valid values are "none",
-"gzip", "automatic". Defaults to "none".
-
-`sqs.queue_url` (required for SQS)
-
-The complete SQS queue URL that receives S3 bucket notifications
-when new objects are created.
-
-`on_error` (optional)
-
-Determines how to handle errors in Amazon SQS. Can be either
-retain\_messages or delete\_messages. Default is retain\_messages.
+`on_error` (optional)  
+Determines how to handle errors in Amazon SQS. Can be either retain\_messages or delete\_messages. Default is retain\_messages.

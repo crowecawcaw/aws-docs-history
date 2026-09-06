@@ -1,46 +1,36 @@
+
+
 # How to parse OpenTelemetry 1.0.0 messages
+<a name="CloudWatch-metric-streams-formats-opentelemetry-parse-100"></a>
 
-This section provides information to help you get started with parsing
-OpenTelemetry 1.0.0.
+This section provides information to help you get started with parsing OpenTelemetry 1.0.0.
 
-First, you should get language-specific bindings, which enable you to parse
-OpenTelemetry 1.0.0 messages in your preferred language.
+First, you should get language-specific bindings, which enable you to parse OpenTelemetry 1.0.0 messages in your preferred language.
 
-###### To get language-specific bindings
+**To get language-specific bindings**
++ The steps depend on your preferred language.
+  + To use Java, add the following Maven dependency to your Java project: [OpenTelemetry Java >> 0.14.1](https://mvnrepository.com/artifact/io.opentelemetry/opentelemetry-proto/0.14.1).
+  + To use any other language, follow these steps:
 
-- The steps depend on your preferred language.
+    1. Make sure that your language is supported by checking the list at [Generating Your Classes](https://developers.google.com/protocol-buffers/docs/proto3#generating).
 
-  - To use Java, add the following Maven dependency
-    to your Java project:
-    [OpenTelemetry Java >> 0.14.1](https://mvnrepository.com/artifact/io.opentelemetry/opentelemetry-proto/0.14.1 "https://mvnrepository.com/artifact/io.opentelemetry/opentelemetry-proto/0.14.1").
-  - To use any other language, follow these steps:
+    1. Install the Protobuf compiler by following the steps at [Download Protocol Buffers](https://developers.google.com/protocol-buffers/docs/downloads).
 
-    1. Make sure that your language is supported by
-       checking the list at [Generating Your Classes](https://developers.google.com/protocol-buffers/docs/proto3#generating "https://developers.google.com/protocol-buffers/docs/proto3#generating").
-    2. Install the Protobuf compiler by following the steps
-       at [Download Protocol Buffers](https://developers.google.com/protocol-buffers/docs/downloads "https://developers.google.com/protocol-buffers/docs/downloads").
-    3. Download the OpenTelemetry 1.0.0 ProtoBuf definitions at
-       [Release version 1.0.0](https://github.com/open-telemetry/opentelemetry-proto/releases/tag/v1.0.0 "https://github.com/open-telemetry/opentelemetry-proto/releases/tag/v1.0.0").
-    4. Confirm that you are in the root folder of the downloaded
-       OpenTelemetry 1.0.0 ProtoBuf definitions. Then create a `src`
-       folder and then run the command to
-       generate language-specific bindings. For more information, see
-       [Generating Your Classes](https://developers.google.com/protocol-buffers/docs/proto3#generating "https://developers.google.com/protocol-buffers/docs/proto3#generating").
+    1. Download the OpenTelemetry 1.0.0 ProtoBuf definitions at [Release version 1.0.0](https://github.com/open-telemetry/opentelemetry-proto/releases/tag/v1.0.0). 
 
-    The following is an example for how to generate
-    Javascript bindings.
+    1. Confirm that you are in the root folder of the downloaded OpenTelemetry 1.0.0 ProtoBuf definitions. Then create a `src` folder and then run the command to generate language-specific bindings. For more information, see [Generating Your Classes](https://developers.google.com/protocol-buffers/docs/proto3#generating). 
 
-    ```
-    protoc --proto_path=./ --js_out=import_style=commonjs,binary:src \
-    opentelemetry/proto/common/v1/common.proto \
-    opentelemetry/proto/resource/v1/resource.proto \
-    opentelemetry/proto/metrics/v1/metrics.proto \
-    opentelemetry/proto/collector/metrics/v1/metrics_service.proto
+       The following is an example for how to generate Javascript bindings.
 
-    ```
+       ```
+       protoc --proto_path=./ --js_out=import_style=commonjs,binary:src \
+       opentelemetry/proto/common/v1/common.proto \
+       opentelemetry/proto/resource/v1/resource.proto \
+       opentelemetry/proto/metrics/v1/metrics.proto \
+       opentelemetry/proto/collector/metrics/v1/metrics_service.proto
+       ```
 
-The following section includes examples of using the language-specific bindings
-that you can build using the previous instructions.
+The following section includes examples of using the language-specific bindings that you can build using the previous instructions.
 
 **Java**
 
@@ -79,15 +69,12 @@ public class MyOpenTelemetryParser {
 
 **Javascript**
 
-This example assumes that the root folder with the bindings
-generated is `./`
+This example assumes that the root folder with the bindings generated is `./`
 
-The data argument of the function `parseRecord` can be one of the
-following types:
-
-- `Uint8Array` this is optimal
-- `Buffer` optimal under node
-- `Array.`number`` 8-bit integers
+The data argument of the function `parseRecord` can be one of the following types:
++ `Uint8Array` this is optimal
++ `Buffer` optimal under node
++ `Array.{{number}}` 8-bit integers
 
 ```
 const pb = require('google-protobuf')
@@ -131,11 +118,7 @@ function parseRecord(data) {
 
 **Python**
 
-You must read the `var-int` delimiters yourself or use the
-internal methods `_VarintBytes(size)` and
-`_DecodeVarint32(buffer, position)`. These return the position
-in the buffer just after the size bytes. The read-side constructs a
-new buffer that is limited to reading only the bytes of the message.
+You must read the `var-int` delimiters yourself or use the internal methods `_VarintBytes(size)` and `_DecodeVarint32(buffer, position)`. These return the position in the buffer just after the size bytes. The read-side constructs a new buffer that is limited to reading only the bytes of the message. 
 
 ```
 size = my_metric.ByteSize()
@@ -151,21 +134,16 @@ request.ParseFromString(msg_buf)
 
 Use `Buffer.DecodeMessage()`.
 
-**C#**
+**C\#**
 
-Use `CodedInputStream`. This class can read
-size-delimited messages.
+Use `CodedInputStream`. This class can read size-delimited messages.
 
-**C++**
+**C\+\+**
 
-The functions described in `google/protobuf/util/delimited_message_util.h`
-can read size-delimited messages.
+The functions described in `google/protobuf/util/delimited_message_util.h` can read size-delimited messages.
 
 **Other languages**
 
-For other languages, see [Download Protocol Buffers](https://developers.google.com/protocol-buffers/docs/downloads "https://developers.google.com/protocol-buffers/docs/downloads").
+For other languages, see [Download Protocol Buffers](https://developers.google.com/protocol-buffers/docs/downloads).
 
-When implementing the parser, consider that a Kinesis record can contain
-multiple `ExportMetricsServiceRequest` Protocol Buffers messages,
-each of them starting with a header with an `UnsignedVarInt32` that
-indicates the record length in bytes.
+When implementing the parser, consider that a Kinesis record can contain multiple `ExportMetricsServiceRequest` Protocol Buffers messages, each of them starting with a header with an `UnsignedVarInt32` that indicates the record length in bytes.

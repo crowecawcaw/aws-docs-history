@@ -1,4 +1,7 @@
+
+
 # CloudWatch pipelines configuration for Cisco FTD
+<a name="cisco-ftd-pipeline-setup"></a>
 
 The Cisco FTD setup reads log data from Amazon S3 buckets using Amazon SQS notifications for new object events.
 
@@ -20,46 +23,34 @@ source:
     notification_type: "sqs"
     sqs:
       queue_url: "https://sqs.<region>.amazonaws.com/<account>/<queue-name>"
-```
+```Parameters
 
-###### Parameters
-
-`sqs.queue_url` (required)
-
+`sqs.queue_url` (required)  
 Amazon SQS queue receiving Amazon S3 event notifications.
 
-`data_source_name` (required)
-
+`data_source_name` (required)  
 Set to `cisco_ftd`.
 
-`aws.region` (required)
-
+`aws.region` (required)  
 Region of Amazon S3 and Amazon SQS.
 
-`aws.sts_role_arn` (required)
-
+`aws.sts_role_arn` (required)  
 IAM role to assume for Amazon S3/Amazon SQS access.
 
-`notification_type` (required)
-
+`notification_type` (required)  
 Set to `sqs`.
 
-`codec` (required)
-
+`codec` (required)  
 Codec for parsing Amazon S3 objects. Cisco FTD uses `newline`.
 
-`bucket_owners` (optional)
-
+`bucket_owners` (optional)  
 Mapping of Amazon S3 bucket to AWS account ID.
 
-`default_bucket_owner` (optional)
-
+`default_bucket_owner` (optional)  
 Default AWS account ID.
 
-`compression` (optional)
-
+`compression` (optional)  
 Default `none`.
 
-###### Note
-
-The `sts_role_arn` role must have permissions to read from Amazon S3 and receive/delete Amazon SQS messages. See the [pipeline IAM reference](pipeline-iam-reference.md#source-specific-iam-policies "pipeline-iam-reference.md#source-specific-iam-policies") for the required trust policy and permissions policy.
+**Note**  
+The `sts_role_arn` role must have permissions to read from Amazon S3 and receive/delete Amazon SQS messages. See the [pipeline IAM reference](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/pipeline-iam-reference.html#source-specific-iam-policies) for the required trust policy and permissions policy.

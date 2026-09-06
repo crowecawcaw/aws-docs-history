@@ -1,7 +1,9 @@
-# Java
 
-The following example shows a component configuration in JSON format for
-Java.
+
+# Java
+<a name="component-configuration-examples-java"></a>
+
+The following example shows a component configuration in JSON format for Java.
 
 ```
 {
@@ -25,7 +27,5 @@ Java.
 }
 ```
 
-###### Note
-
-Application Insights does not support configuring authentication for Prometheus JMX
-exporter. For information about how to set up authentication, see the [Prometheus JMX exporter example configuration](https://github.com/prometheus/jmx_exporter#configuration "https://github.com/prometheus/jmx_exporter#configuration").
+**Note**  
+Application Insights does not support configuring authentication for Prometheus JMX exporter. For information about how to set up authentication, see the [Prometheus JMX exporter example configuration](https://github.com/prometheus/jmx_exporter#configuration).

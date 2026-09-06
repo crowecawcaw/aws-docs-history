@@ -1,22 +1,19 @@
+
+
 # Use `GetMetricData` with an AWS SDK or CLI
+<a name="example_cloudwatch_GetMetricData_section"></a>
 
 The following code examples show how to use `GetMetricData`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
++  [Run CPU stress tests on virtual machine instances using fault injection](example_iam_GettingStarted_069_section.md) 
 
-- [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
-- [Run CPU stress tests on virtual machine instances using fault injection](example_iam_GettingStarted_069_section.md "example_iam_GettingStarted_069_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
     /// <summary>
@@ -61,31 +58,23 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return metricData;
     }
+```
++  For API details, see [GetMetricData](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricData) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To get the Average Total IOPS for the specified EC2 using math expression**  
+The following `get-metric-data` example retrieves CloudWatch metric values for the EC2 instance with InstanceID `i-abcdef` using metric math exprssion that combines `EBSReadOps` and `EBSWriteOps` metrics.  
 
 ```
-
-- For API details, see
-  [GetMetricData](../../../goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricData.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricData.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To get the Average Total IOPS for the specified EC2 using math expression**
-
-The following `get-metric-data` example retrieves CloudWatch metric values for the EC2 instance with InstanceID `i-abcdef` using metric math exprssion that combines `EBSReadOps` and `EBSWriteOps` metrics.
-
+aws cloudwatch get-metric-data \
+    --metric-data-queries {{file://file.json}} \
+    --start-time {{2024-09-29T22:10:00Z}} \
+    --end-time {{2024-09-29T22:15:00Z}}
 ```
-`aws cloudwatch get-metric-data \
- --metric-data-queries `file://file.json` \
- --start-time `2024-09-29T22:10:00Z` \
- --end-time `2024-09-29T22:15:00Z``
-
-```
-
-Contents of `file.json`:
+Contents of `file.json`:  
 
 ```
 [
@@ -134,8 +123,7 @@ Contents of `file.json`:
     }
 ]
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -155,21 +143,17 @@ Output:
     "Messages": []
 }
 ```
-
-**Example 2: To monitor the estimated AWS charges using CloudWatch billing metrics**
-
-The following `get-metric-data` example retrieves `EstimatedCharges` CloudWatch metric from AWS/Billing namespace.
+**Example 2: To monitor the estimated AWS charges using CloudWatch billing metrics**  
+The following `get-metric-data` example retrieves `EstimatedCharges` CloudWatch metric from AWS/Billing namespace.  
 
 ```
-`aws cloudwatch get-metric-data \
- --metric-data-queries '`[{"Id":"m1","MetricStat":{"Metric":{"Namespace":"AWS/Billing","MetricName":"EstimatedCharges","Dimensions":[{"Name":"Currency","Value":"USD"}]},"Period":21600,"Stat":"Maximum"}}]`' \
- --start-time `2024-09-26T12:00:00Z` \
- --end-time `2024-09-26T18:00:00Z` \
- --region `us-east-1``
-
+aws cloudwatch get-metric-data \
+    --metric-data-queries '{{[{"Id":"m1","MetricStat":{"Metric":{"Namespace":"AWS/Billing","MetricName":"EstimatedCharges","Dimensions":[{"Name":"Currency","Value":"USD"}]},"Period":21600,"Stat":"Maximum"}}]}}' \
+    --start-time {{2024-09-26T12:00:00Z}} \
+    --end-time {{2024-09-26T18:00:00Z}} \
+    --region {{us-east-1}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -189,25 +173,16 @@ Output:
     "Messages": []
 }
 ```
+For more information, see [Using math expressions with CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html) in the *Amazon CloudWatch User Guide*.  
++  For API details, see [GetMetricData](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/get-metric-data.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Using math expressions with CloudWatch metrics](using-metric-math.md "using-metric-math.md") in the _Amazon CloudWatch User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [GetMetricData](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/get-metric-data.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/get-metric-data.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
-
     /**
      * Retrieves custom metric data from the AWS CloudWatch service.
      *
@@ -283,23 +258,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             throw new RuntimeException("Failed to get metric data", exception);
         });
     }
-
-
 ```
++  For API details, see [GetMetricData](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricData) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetMetricData](../../../goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricData.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricData.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun getCustomMetricData(fileName: String) {
@@ -362,14 +328,9 @@ suspend fun getCustomMetricData(fileName: String) {
         }
     }
 }
-
-
 ```
++  For API details, see [GetMetricData](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [GetMetricData](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,120 +1,115 @@
+
+
 # Invoke a Lambda function from an alarm
+<a name="alarms-and-actions-Lambda"></a>
 
-CloudWatch alarms guarantees an asynchronous invocation of the Lambda function for a given
-state change, except in the following cases:
+CloudWatch alarms guarantees an asynchronous invocation of the Lambda function for a given state change, except in the following cases:
++ When the function doesn't exist.
++ When CloudWatch is not authorized to invoke the Lambda function.
 
-- When the function doesn't exist.
-- When CloudWatch is not authorized to invoke the Lambda function.
-  If CloudWatch can't reach the Lambda service or the message is rejected for another reason,
-  CloudWatch retries until the invocation is successful. Lambda queues the message and handles
-  execution retries. For more information about this execution model, including information
-  about how Lambda handles errors, see [Asynchronous invocation](../../../lambda/latest/dg/invocation-async.md "../../../lambda/latest/dg/invocation-async.md") in the
-  AWS Lambda Developer Guide.
+If CloudWatch can't reach the Lambda service or the message is rejected for another reason, CloudWatch retries until the invocation is successful. Lambda queues the message and handles execution retries. For more information about this execution model, including information about how Lambda handles errors, see [ Asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html) in the AWS Lambda Developer Guide.
 
 You can invoke a Lambda function in the same account, or in other AWS accounts.
 
-When you specify an alarm to invoke a Lambda function as an alarm action, you can choose
-to specify the function name, function alias, or a specific version of a function.
+When you specify an alarm to invoke a Lambda function as an alarm action, you can choose to specify the function name, function alias, or a specific version of a function.
 
-When you specify a Lambda function as an alarm action, you must create a resource policy
-for the function to allow the CloudWatch service principal to invoke the function.
+When you specify a Lambda function as an alarm action, you must create a resource policy for the function to allow the CloudWatch service principal to invoke the function.
 
 One way to do this is by using the AWS CLI, as in the following example:
 
 ```
 aws lambda add-permission \
---function-name `my-function-name` \
+--function-name {{my-function-name}} \
 --statement-id AlarmAction \
 --action 'lambda:InvokeFunction' \
 --principal lambda.alarms.cloudwatch.amazonaws.com \
---source-account `111122223333` \
---source-arn arn:aws:cloudwatch:`us-east-1`:`111122223333`:alarm:alarm-name
+--source-account {{111122223333}} \
+--source-arn arn:aws:cloudwatch:{{us-east-1}}:{{111122223333}}:alarm:alarm-name
 ```
 
-Alternatively, you can create a policy similar to one of the following examples and then
-assign it to the function.
+Alternatively, you can create a policy similar to one of the following examples and then assign it to the function.
 
-The following example specifies the account where the alarm is located, so that only
-alarms in that account (111122223333) can invoke the function.
+The following example specifies the account where the alarm is located, so that only alarms in that account (111122223333) can invoke the function.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Id": "default",
- "Statement": [{
- "Sid": "AlarmAction",
- "Effect": "Allow",
- "Principal": {
- "Service": "lambda.alarms.cloudwatch.amazonaws.com"
- },
- "Action": "lambda:InvokeFunction",
- "Resource": "arn:aws:lambda:us-east-1:444455556666:function:function-name",
- "Condition": {
- "StringEquals": {
- "AWS:SourceAccount": "111122223333"
- }
- }
- }]
-}`
+****  
 
 ```
-
-The following example has a narrower scope, allowing only the specified alarm in the
-specified account to invoke the function.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Id": "default",
- "Statement": [
- {
- "Sid": "AlarmAction",
- "Effect": "Allow",
- "Principal": {
- "Service": "lambda.alarms.cloudwatch.amazonaws.com"
- },
- "Action": "lambda:InvokeFunction",
- "Resource": "arn:aws:lambda:`us-east-1`:`444455556666`:function:`function-name`",
- "Condition": {
- "StringEquals": {
- "AWS:SourceAccount": "`111122223333`",
- "AWS:SourceArn": "arn:aws:cloudwatch:us-east-1:`111122223333`:alarm:`alarm-name`"
- }
- }
- }]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Id": "default",
+    "Statement": [{
+        "Sid": "AlarmAction",
+        "Effect": "Allow",
+        "Principal": {
+            "Service": "lambda.alarms.cloudwatch.amazonaws.com"
+        },
+        "Action": "lambda:InvokeFunction",
+        "Resource": "arn:aws:lambda:us-east-1:444455556666:function:function-name",
+        "Condition": {
+            "StringEquals": {
+                "AWS:SourceAccount": "111122223333"
+            }
+        }
+    }]
+}
 ```
 
-We don't recommend creating a policy that doesn't specify a source account, because such
-policies are vulnerable to confused deputy issues.
+------
+
+The following example has a narrower scope, allowing only the specified alarm in the specified account to invoke the function.
+
+------
+#### [ JSON ]
+
+****  
+
+```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Id": "default",
+  "Statement": [
+    {
+      "Sid": "AlarmAction",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "lambda.alarms.cloudwatch.amazonaws.com"
+      },
+      "Action": "lambda:InvokeFunction",
+      "Resource": "arn:aws:lambda:{{us-east-1}}:{{444455556666}}:function:{{function-name}}",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceAccount": "{{111122223333}}",
+          "AWS:SourceArn": "arn:aws:cloudwatch:us-east-1:{{111122223333}}:alarm:{{alarm-name}}"
+        }
+      }
+    }]
+}
+```
+
+------
+
+We don't recommend creating a policy that doesn't specify a source account, because such policies are vulnerable to confused deputy issues.
 
 ## Add Lambda metrics to CloudWatch investigations
+<a name="Lambda-metrics-investigation"></a>
 
-You can add Lambda metrics to your active CloudWatch investigations. When investigating an issue, Lambda
-metrics can provide valuable insights about function performance and behavior. For
-example, if you're investigating an application performance issue, Lambda metrics such as
-duration, error rates, or throttles might help identify the root cause.
+You can add Lambda metrics to your active CloudWatch investigations. When investigating an issue, Lambda metrics can provide valuable insights about function performance and behavior. For example, if you're investigating an application performance issue, Lambda metrics such as duration, error rates, or throttles might help identify the root cause.
 
 To add Lambda metrics to CloudWatch investigations:
 
-1. Open the AWS Lambda console at
-   [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
-2. In the **Monitor** section, find the metric.
-3. Open the context menu for the metric, choose **Investigate**,
-   **Add to investigation**. Then, in the
-   **Investigate** pane, select the name of the investigation.
+1. Open the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/).
+
+1. In the **Monitor** section, find the metric.
+
+1. Open the context menu for the metric, choose **Investigate**, **Add to investigation**. Then, in the **Investigate** pane, select the name of the investigation.
 
 ## Event object sent from CloudWatch to Lambda
+<a name="Lambda-action-payload"></a>
 
-When you configure a Lambda function as an alarm action, CloudWatch delivers a JSON payload
-to the Lambda function when it invokes the function. This JSON payload serves as the event
-object for the function. You can extract data from this JSON object and use it in your
-function. The following is an example of an event object from a metric alarm.
+When you configure a Lambda function as an alarm action, CloudWatch delivers a JSON payload to the Lambda function when it invokes the function. This JSON payload serves as the event object for the function. You can extract data from this JSON object and use it in your function. The following is an example of an event object from a metric alarm.
 
 ```
 {

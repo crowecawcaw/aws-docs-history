@@ -1,21 +1,18 @@
+
+
 # Use `DeleteAnomalyDetector` with an AWS SDK or CLI
+<a name="example_cloudwatch_DeleteAnomalyDetector_section"></a>
 
 The following code examples show how to use `DeleteAnomalyDetector`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
 
-- [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
     /// <summary>
@@ -33,47 +30,31 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return deleteAnomalyDetectorResponse.HttpStatusCode == HttpStatusCode.OK;
     }
+```
++  For API details, see [DeleteAnomalyDetector](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAnomalyDetector) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete a specified anomaly detection model**  
+The following `delete-anomaly-detector` example deletes an anomaly detector model in the specified account.  
 
 ```
-
-- For API details, see
-  [DeleteAnomalyDetector](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAnomalyDetector.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAnomalyDetector.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete a specified anomaly detection model**
-
-The following `delete-anomaly-detector` example deletes an anomaly detector model in the specified account.
-
+aws cloudwatch delete-anomaly-detector \
+    --namespace {{AWS/Logs}} \
+    --metric-name {{IncomingBytes}} \
+    --stat {{SampleCount}}
 ```
-`aws cloudwatch delete-anomaly-detector \
- --namespace `AWS/Logs` \
- --metric-name `IncomingBytes` \
- --stat `SampleCount``
+This command produces no output.  
+For more information, see [Deleting an anomaly detection model](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.html#Delete_Anomaly_Detection_Model) in the *Amazon CloudWatch User Guide*.  
++  For API details, see [DeleteAnomalyDetector](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/delete-anomaly-detector.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This command produces no output.
-
-For more information, see [Deleting an anomaly detection model](Create_Anomaly_Detection_Alarm.md#Delete_Anomaly_Detection_Model "Create_Anomaly_Detection_Alarm.md#Delete_Anomaly_Detection_Model") in the _Amazon CloudWatch User Guide_.
-
-- For API details, see
-  [DeleteAnomalyDetector](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/delete-anomaly-detector.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/delete-anomaly-detector.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
     /**
@@ -115,23 +96,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             }
         });
     }
-
-
 ```
++  For API details, see [DeleteAnomalyDetector](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAnomalyDetector) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteAnomalyDetector](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAnomalyDetector.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAnomalyDetector.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun deleteAnomalyDetector(fileName: String) {
@@ -158,14 +130,9 @@ suspend fun deleteAnomalyDetector(fileName: String) {
         println("Successfully deleted the Anomaly Detector.")
     }
 }
-
-
 ```
++  For API details, see [DeleteAnomalyDetector](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteAnomalyDetector](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

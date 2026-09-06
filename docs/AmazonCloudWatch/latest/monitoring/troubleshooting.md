@@ -1,35 +1,25 @@
-# Troubleshooting
 
-This section covers common issues you might encounter when working with CloudWatch pipelines and
-their solutions.
+
+# Troubleshooting
+<a name="troubleshooting"></a>
+
+This section covers common issues you might encounter when working with CloudWatch pipelines and their solutions.
 
 **Pipeline creation failures**
++ **Issue:** Pipeline creation fails with permission errors
 
-- **Issue:** Pipeline creation fails with
-  permission errors
+  **Solution:** Verify that your IAM role has the required PassRole permissions for any roles specified in the pipeline configuration
++ **Issue:** Configuration validation errors
 
-**Solution:** Verify that your IAM role has the
-required PassRole permissions for any roles specified in the pipeline
-configuration
+  **Solution:** Use the ValidateTelemetryPipeline API to check your configuration syntax before creating the pipeline
++ **Issue:** Log source not available to select
 
-- **Issue:** Configuration validation errors
+  **Possible reason:** There is already a log source with the same data source name and type. Duplicate combinations are greyed out since you can only create one of each.
 
-**Solution:** Use the ValidateTelemetryPipeline
-API to check your configuration syntax before creating the pipeline
-
-- **Issue:** Log source not available to select
-
-**Possible reason:** There is already a log source with the same data source name and type. Duplicate combinations are greyed out since you can only create one of each.
 **Data processing issues**
++ **Issue:** No data flowing through pipeline
 
-- **Issue:** No data flowing through
-  pipeline
+  **Solution:** Check that your data source is properly configured and generating data, and verify that CloudWatch Logs resource policies are correctly set
++ **Issue:** Processor errors in pipeline
 
-**Solution:** Check that your data source is
-properly configured and generating data, and verify that CloudWatch Logs
-resource policies are correctly set
-
-- **Issue:** Processor errors in pipeline
-
-**Solution:** Review processor configuration and
-make sure input data format matches processor expectations
+  **Solution:** Review processor configuration and make sure input data format matches processor expectations

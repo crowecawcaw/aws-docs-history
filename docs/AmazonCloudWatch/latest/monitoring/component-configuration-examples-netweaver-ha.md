@@ -1,4 +1,7 @@
+
+
 # SAP NetWeaver High Availability on Amazon EC2
+<a name="component-configuration-examples-netweaver-ha"></a>
 
 The following example shows a component configuration in JSON format for SAP NetWeaver High Availability on Amazon EC2.
 

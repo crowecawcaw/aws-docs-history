@@ -1,7 +1,9 @@
-# Amazon EKS cluster
 
-The following example shows a component configuration in JSON format for Amazon EKS
-cluster.
+
+# Amazon EKS cluster
+<a name="component-configuration-examples-eks-cluster"></a>
+
+The following example shows a component configuration in JSON format for Amazon EKS cluster.
 
 ```
 {
@@ -178,12 +180,6 @@ cluster.
  }
 ```
 
-###### Note
-
-- The `subComponents` section of
-  `AWS::EC2::Instance`, `AWS::EC2::Volume`,
-  and `AWS::AutoScaling::AutoScalingGroup` applies only to
-  Amazon EKS cluster running on the EC2 launch type.
-- The `windowsEvents` section of
-  `AWS::EC2::Instance` in `subComponents`
-  applies only to Windows running on Amazon EC2 instances.
+**Note**  
+The `subComponents` section of `AWS::EC2::Instance`, `AWS::EC2::Volume`, and `AWS::AutoScaling::AutoScalingGroup` applies only to Amazon EKS cluster running on the EC2 launch type.
+The `windowsEvents` section of `AWS::EC2::Instance` in `subComponents` applies only to Windows running on Amazon EC2 instances.

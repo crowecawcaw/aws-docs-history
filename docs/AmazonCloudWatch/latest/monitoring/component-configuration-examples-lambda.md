@@ -1,7 +1,9 @@
-# AWS Lambda Function
 
-The following example shows a component configuration in JSON format for
-AWS Lambda Function.
+
+# AWS Lambda Function
+<a name="component-configuration-examples-lambda"></a>
+
+The following example shows a component configuration in JSON format for AWS Lambda Function.
 
 ```
 {

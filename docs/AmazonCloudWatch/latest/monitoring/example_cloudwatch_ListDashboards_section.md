@@ -1,21 +1,18 @@
+
+
 # Use `ListDashboards` with an AWS SDK or CLI
+<a name="example_cloudwatch_ListDashboards_section"></a>
 
 The following code examples show how to use `ListDashboards`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md) 
 
-- [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
     /// <summary>
@@ -35,28 +32,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return results;
     }
+```
++  For API details, see [ListDashboards](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/ListDashboards) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To retrieve a list of Dashboards**  
+The following `list-dashboards` example lists all the Dashboards in the specified account.  
 
 ```
-
-- For API details, see
-  [ListDashboards](../../../goto/DotNetSDKV4/monitoring-2010-08-01/ListDashboards.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/ListDashboards.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To retrieve a list of Dashboards**
-
-The following `list-dashboards` example lists all the Dashboards in the specified account.
-
+aws cloudwatch list-dashboards
 ```
-`aws cloudwatch list-dashboards`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -76,22 +65,14 @@ Output:
     ]
 }
 ```
+For more information, see [Amazon CloudWatch dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) in the *Amazon CloudWatch User Guide*.  
++  For API details, see [ListDashboards](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/list-dashboards.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Amazon CloudWatch dashboards](CloudWatch_Dashboards.md "CloudWatch_Dashboards.md") in the _Amazon CloudWatch User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [ListDashboards](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/list-dashboards.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/list-dashboards.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
     /**
@@ -113,23 +94,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             throw new RuntimeException("Error occurred while listing dashboards", ex);
         });
     }
-
-
 ```
++  For API details, see [ListDashboards](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/ListDashboards) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListDashboards](../../../goto/SdkForJavaV2/monitoring-2010-08-01/ListDashboards.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/ListDashboards.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun listDashboards() {
@@ -143,72 +115,52 @@ suspend fun listDashboards() {
             }
     }
 }
-
-
 ```
++  For API details, see [ListDashboards](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListDashboards](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns the collection of dashboards for your account.**
+**Tools for PowerShell V4**  
+**Example 1: Returns the collection of dashboards for your account.**  
 
 ```
 Get-CWDashboardList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 DashboardArn DashboardName LastModified        Size
 ------------ ------------- ------------        ----
 arn:...      Dashboard1    7/6/2017 8:14:15 PM 252
 ```
-
-**Example 2: Returns the collection of dashboards for your account whose names start with the prefix 'dev'.**
+**Example 2: Returns the collection of dashboards for your account whose names start with the prefix 'dev'.**  
 
 ```
 Get-CWDashboardList -DashboardNamePrefix dev
-
 ```
++  For API details, see [ListDashboards](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListDashboards](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns the collection of dashboards for your account.**
+**Tools for PowerShell V5**  
+**Example 1: Returns the collection of dashboards for your account.**  
 
 ```
 Get-CWDashboardList
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 DashboardArn DashboardName LastModified        Size
 ------------ ------------- ------------        ----
 arn:...      Dashboard1    7/6/2017 8:14:15 PM 252
 ```
-
-**Example 2: Returns the collection of dashboards for your account whose names start with the prefix 'dev'.**
+**Example 2: Returns the collection of dashboards for your account whose names start with the prefix 'dev'.**  
 
 ```
 Get-CWDashboardList -DashboardNamePrefix dev
-
 ```
++  For API details, see [ListDashboards](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListDashboards](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

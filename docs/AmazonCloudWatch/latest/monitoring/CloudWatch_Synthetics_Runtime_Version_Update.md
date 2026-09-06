@@ -1,31 +1,20 @@
+
+
 # Runtime versions update
+<a name="CloudWatch_Synthetics_Runtime_Version_Update"></a>
 
-You can update a canary's runtime version by using the CloudWatch console, AWS CloudFormation, the
-AWS CLI or the AWS SDK. When you use the CloudWatch console, you can update up to five canaries
-at once by selecting them in the canary list page and then choosing **Actions**
-, **Update Runtime**.
+You can update a canary's runtime version by using the CloudWatch console, AWS CloudFormation, the AWS CLI or the AWS SDK. When you use the CloudWatch console, you can update up to five canaries at once by selecting them in the canary list page and then choosing **Actions** , **Update Runtime**.
 
-You can verify the update by testing it first before committing the runtime update.
-When updating the runtime versions, choose the **Start Dry Run**
-or **Validate and save later** options in the CloudWatch console to
-create a dry run of the original canary along with any changes you made to the
-configuration. The dry run will update and execute the canary to validate whether the
-runtime update is safe for the canary. After you have verified your canary with the new
-runtime version, you can update the runtime version of your canary. For more information,
-see [Performing safe canary updates](performing-safe-canary-upgrades.md "performing-safe-canary-upgrades.md").
+You can verify the update by testing it first before committing the runtime update. When updating the runtime versions, choose the **Start Dry Run** or **Validate and save later** options in the CloudWatch console to create a dry run of the original canary along with any changes you made to the configuration. The dry run will update and execute the canary to validate whether the runtime update is safe for the canary. After you have verified your canary with the new runtime version, you can update the runtime version of your canary. For more information, see [Performing safe canary updates](performing-safe-canary-upgrades.md).
 
-Alternatively, you can verify the update by first cloning the canary using the CloudWatch
-console and updating the runtime version. This creates another canary which is a clone of
-your original canary.
-After you have verified your canary with the new runtime version, you can update the
-runtime version of your original canary and delete the clone canary.
+Alternatively, you can verify the update by first cloning the canary using the CloudWatch console and updating the runtime version. This creates another canary which is a clone of your original canary. After you have verified your canary with the new runtime version, you can update the runtime version of your original canary and delete the clone canary.
 
-You can also update multiple canaries using an upgrade script. For more information,
-see [Canary runtime upgrade script](#CloudWatch_Synthetics_Canaries_upgrade_script "#CloudWatch_Synthetics_Canaries_upgrade_script").
+ You can also update multiple canaries using an upgrade script. For more information, see [Canary runtime upgrade script](#CloudWatch_Synthetics_Canaries_upgrade_script).
 
-If you upgrade a canary and it fails, see [Troubleshooting a failed canary](CloudWatch_Synthetics_Canaries_Troubleshoot.md "CloudWatch_Synthetics_Canaries_Troubleshoot.md").
+If you upgrade a canary and it fails, see [Troubleshooting a failed canary](CloudWatch_Synthetics_Canaries_Troubleshoot.md).
 
 ## Canary runtime upgrade script
+<a name="CloudWatch_Synthetics_Canaries_upgrade_script"></a>
 
 To upgrade a canary script to a supported runtime version, use the following script.
 

@@ -1,34 +1,32 @@
+
+
 # Metrics with data points requirements
+<a name="appinsights-metrics-datapoint-requirements"></a>
 
-For metrics without an obvious default threshold to alarm on, Application Insights waits
-until the metric has enough data points to predict a reasonable threshold to alarm
-on. The metric data points requirement that CloudWatch Application Insights checks before an alarm is created
-are:
+For metrics without an obvious default threshold to alarm on, Application Insights waits until the metric has enough data points to predict a reasonable threshold to alarm on. The metric data points requirement that CloudWatch Application Insights checks before an alarm is created are: 
++ The metric has at least 100 data points from the past 15 to the past 2 days.
++ The metric has at least 100 data points from the last day.
 
-- The metric has at least 100 data points from the past 15 to the past 2
-  days.
-- The metric has at least 100 data points from the last day.
-  The following metrics follow these data points requirements. Note that CloudWatch agent
-  metrics require up to one hour to create alarms.
+The following metrics follow these data points requirements. Note that CloudWatch agent metrics require up to one hour to create alarms. 
 
-###### Metrics
-
-- [AWS/ApplicationELB](#appinsights-metrics-datapoint-requirements-app-elb "#appinsights-metrics-datapoint-requirements-app-elb")
-- [AWS/AutoScaling](#appinsights-metrics-datapoint-requirements-autoscaling "#appinsights-metrics-datapoint-requirements-autoscaling")
-- [AWS/EC2](#appinsights-metrics-datapoint-requirements-ec2 "#appinsights-metrics-datapoint-requirements-ec2")
-- [Elastic Block Store (EBS)](#appinsights-metrics-datapoint-requirements-ebs "#appinsights-metrics-datapoint-requirements-ebs")
-- [AWS/ELB](#appinsights-metrics-datapoint-requirements-elb "#appinsights-metrics-datapoint-requirements-elb")
-- [AWS/RDS](#appinsights-metrics-datapoint-requirements-rds "#appinsights-metrics-datapoint-requirements-rds")
-- [AWS/Lambda](#appinsights-metrics-datapoint-requirements-lambda "#appinsights-metrics-datapoint-requirements-lambda")
-- [AWS/SQS](#appinsights-metrics-datapoint-requirements-sqs "#appinsights-metrics-datapoint-requirements-sqs")
-- [AWS/CWAgent](#appinsights-metrics-datapoint-requirements-cwagent "#appinsights-metrics-datapoint-requirements-cwagent")
-- [AWS/DynamoDB](#appinsights-metrics-datapoint-requirements-dynamo "#appinsights-metrics-datapoint-requirements-dynamo")
-- [AWS/S3](#appinsights-metrics-datapoint-requirements-s3 "#appinsights-metrics-datapoint-requirements-s3")
-- [AWS/States](#appinsights-metrics-datapoint-requirements-states "#appinsights-metrics-datapoint-requirements-states")
-- [AWS/ApiGateway](#appinsights-metrics-datapoint-requirements-api-gateway "#appinsights-metrics-datapoint-requirements-api-gateway")
-- [AWS/SNS](#appinsights-metrics-datapoint-requirements-sns "#appinsights-metrics-datapoint-requirements-sns")
+**Topics**
++ [AWS/ApplicationELB](#appinsights-metrics-datapoint-requirements-app-elb)
++ [AWS/AutoScaling](#appinsights-metrics-datapoint-requirements-autoscaling)
++ [AWS/EC2](#appinsights-metrics-datapoint-requirements-ec2)
++ [Elastic Block Store (EBS)](#appinsights-metrics-datapoint-requirements-ebs)
++ [AWS/ELB](#appinsights-metrics-datapoint-requirements-elb)
++ [AWS/RDS](#appinsights-metrics-datapoint-requirements-rds)
++ [AWS/Lambda](#appinsights-metrics-datapoint-requirements-lambda)
++ [AWS/SQS](#appinsights-metrics-datapoint-requirements-sqs)
++ [AWS/CWAgent](#appinsights-metrics-datapoint-requirements-cwagent)
++ [AWS/DynamoDB](#appinsights-metrics-datapoint-requirements-dynamo)
++ [AWS/S3](#appinsights-metrics-datapoint-requirements-s3)
++ [AWS/States](#appinsights-metrics-datapoint-requirements-states)
++ [AWS/ApiGateway](#appinsights-metrics-datapoint-requirements-api-gateway)
++ [AWS/SNS](#appinsights-metrics-datapoint-requirements-sns)
 
 ## AWS/ApplicationELB
+<a name="appinsights-metrics-datapoint-requirements-app-elb"></a>
 
 ActiveConnectionCount
 
@@ -53,6 +51,7 @@ TargetResponseTime
 UnHealthyHostCount
 
 ## AWS/AutoScaling
+<a name="appinsights-metrics-datapoint-requirements-autoscaling"></a>
 
 GroupDesiredCapacity
 
@@ -71,6 +70,7 @@ GroupTerminatingInstances
 GroupTotalInstances
 
 ## AWS/EC2
+<a name="appinsights-metrics-datapoint-requirements-ec2"></a>
 
 CPUCreditBalance
 
@@ -111,18 +111,19 @@ NetworkPacketsIn
 NetworkPacketsOut
 
 ## Elastic Block Store (EBS)
+<a name="appinsights-metrics-datapoint-requirements-ebs"></a>
 
-VolumeReadBytes
+VolumeReadBytes 
 
-VolumeWriteBytes
+VolumeWriteBytes 
 
 VolumeReadOps
 
 VolumeWriteOps
 
-VolumeTotalReadTime
+VolumeTotalReadTime 
 
-VolumeTotalWriteTime
+VolumeTotalWriteTime 
 
 VolumeIdleTime
 
@@ -135,6 +136,7 @@ VolumeConsumedReadWriteOps
 BurstBalance
 
 ## AWS/ELB
+<a name="appinsights-metrics-datapoint-requirements-elb"></a>
 
 EstimatedALBActiveConnectionCount
 
@@ -159,6 +161,7 @@ SurgeQueueLength
 UnHealthyHostCount
 
 ## AWS/RDS
+<a name="appinsights-metrics-datapoint-requirements-rds"></a>
 
 ActiveTransactions
 
@@ -245,6 +248,7 @@ WriteIOPS
 WriteThroughput
 
 ## AWS/Lambda
+<a name="appinsights-metrics-datapoint-requirements-lambda"></a>
 
 Errors
 
@@ -259,6 +263,7 @@ IteratorAge
 ProvisionedConcurrencySpilloverInvocations
 
 ## AWS/SQS
+<a name="appinsights-metrics-datapoint-requirements-sqs"></a>
 
 ApproximateAgeOfOldestMessage
 
@@ -277,6 +282,7 @@ NumberOfMessagesReceived
 NumberOfMessagesSent
 
 ## AWS/CWAgent
+<a name="appinsights-metrics-datapoint-requirements-cwagent"></a>
 
 LogicalDisk % Free Space
 
@@ -353,6 +359,7 @@ TCPv4 Connections Established
 TCPv6 Connections Established
 
 ## AWS/DynamoDB
+<a name="appinsights-metrics-datapoint-requirements-dynamo"></a>
 
 ConsumedReadCapacityUnits
 
@@ -375,6 +382,7 @@ PendingReplicationCount
 ReplicationLatency
 
 ## AWS/S3
+<a name="appinsights-metrics-datapoint-requirements-s3"></a>
 
 ReplicationLatency
 
@@ -415,6 +423,7 @@ BytesDownloaded
 BytesUploaded
 
 ## AWS/States
+<a name="appinsights-metrics-datapoint-requirements-states"></a>
 
 ActivitiesScheduled
 
@@ -461,8 +470,9 @@ ConsumedCapacity
 ThrottledEvents
 
 ## AWS/ApiGateway
+<a name="appinsights-metrics-datapoint-requirements-api-gateway"></a>
 
-4XXError
+4XXError 
 
 IntegrationLatency
 
@@ -475,6 +485,7 @@ CacheHitCount
 CacheMissCount
 
 ## AWS/SNS
+<a name="appinsights-metrics-datapoint-requirements-sns"></a>
 
 NumberOfNotificationsDelivered
 

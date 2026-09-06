@@ -1,57 +1,58 @@
+
+
 # Example: Use Application Signals to troubleshoot generative AI applications interacting with Amazon Bedrock models
+<a name="Services-example-scenario-GenerativeAI"></a>
 
-You can use Application Signals to troubleshoot your generative AI applications that
-interact with Amazon Bedrock models.
-Application Signals streamlines this process by providing out-of-the-box telemetry data, offering deeper insights into your application's interactions with LLM models. It helps address key use cases such as:
+You can use Application Signals to troubleshoot your generative AI applications that interact with Amazon Bedrock models. Application Signals streamlines this process by providing out-of-the-box telemetry data, offering deeper insights into your application's interactions with LLM models. It helps address key use cases such as:
++ Model configuration issues
++ Model usage costs
++ Model latency
++ Model response generation stopped reasons
 
-- Model configuration issues
-- Model usage costs
-- Model latency
-- Model response generation stopped reasons
-  [Enabling Application Signals](CloudWatch-Application-Signals-Enable.md "CloudWatch-Application-Signals-Enable.md") with LLM/GenAI Observability provides real-time visibility into your application's interactions with Amazon Bedrock services.
-  Application Signals automatically generates and correlates performance metrics and traces for Amazon Bedrock API calls.
+[Enabling Application Signals](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable.html) with LLM/GenAI Observability provides real-time visibility into your application's interactions with Amazon Bedrock services. Application Signals automatically generates and correlates performance metrics and traces for Amazon Bedrock API calls.
 
 Application Signals currently support the following LLM Models from Amazon Bedrock.
-
-- AI21 Jamba
-- Amazon Titan
-- Anthropic Claude
-- Cohere Command
-- Meta Llama
-- Mistral AI
-- Nova
++ AI21 Jamba
++ Amazon Titan
++ Anthropic Claude
++ Cohere Command
++ Meta Llama
++ Mistral AI
++ Nova
 
 ## Fine-grained metrics and traces
+<a name="Services-example-scenario-GenerativeAI-metricandtraces"></a>
 
 For each Amazon Bedrock API call, Application Signals generates detailed performance metrics at the resource level, including:
-
-- Model ID
-- Guardrails ID
-- Knowledge Base ID
-- Bedrock Agent ID
++ Model ID
++ Guardrails ID
++ Knowledge Base ID
++ Bedrock Agent ID
 
 Additionally, correlated trace spans at the same level help provide a comprehensive view of request execution and dependencies.
 
-![Performance metrics using Application Signals.](images/AppSignalsAIExample.png)
+![Performance metrics using Application Signals.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/AppSignalsAIExample.png)
+
 
 ## OpenTelemetry GenAI attributes support
+<a name="Services-example-scenario-GenerativeAI-OpenTelemetryAISupport"></a>
 
-Application Signals generates the following generative AI attributes for Amazon Bedrock API calls with OpenTelemetry semantic convention.
-These attributes help analyze model usage, cost, and response quality, and can be leveraged through [Transaction Search](CloudWatch-Transaction-Search.md "CloudWatch-Transaction-Search.md") for deeper insights.
+Application Signals generates the following generative AI attributes for Amazon Bedrock API calls with OpenTelemetry semantic convention. These attributes help analyze model usage, cost, and response quality, and can be leveraged through [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html) for deeper insights.
++ gen\_ai.system
++ gen\_ai.request.model
++ gen\_ai.request.max\_tokens
++ gen\_ai.request.temperature
++ gen\_ai.request.top\_p
++ gen\_ai.usage.input\_tokens
++ gen\_ai.usage.output\_tokens
++ gen\_ai.response.finish\_reasons
 
-- gen\_ai.system
-- gen\_ai.request.model
-- gen\_ai.request.max\_tokens
-- gen\_ai.request.temperature
-- gen\_ai.request.top\_p
-- gen\_ai.usage.input\_tokens
-- gen\_ai.usage.output\_tokens
-- gen\_ai.response.finish\_reasons
+![Generative AI attributes using Application Signals.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/AppSignalsAIExample_1.png)
 
-![Generative AI attributes using Application Signals.](images/AppSignalsAIExample_1.png)
 
 For example, you can use the analytic capability from Transaction Search to compare the token usage and cost across different LLM models for the same prompt, enabling cost-efficient model selection.
 
-![Generative AI attributes using Application Signals.](images/AppSignalsAIExample_2.png)
+![Generative AI attributes using Application Signals.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/AppSignalsAIExample_2.png)
 
-For more information, see [Improve Amazon Bedrock Observability with CloudWatch Application Signals](https://aws.amazon.com/blogs/mt/improve-amazon-bedrock-observability-with-amazon-cloudwatch-appsignals/ "https://aws.amazon.com/blogs/mt/improve-amazon-bedrock-observability-with-amazon-cloudwatch-appsignals/").
+
+For more information, see [Improve Amazon Bedrock Observability with CloudWatch Application Signals](https://aws.amazon.com/blogs/mt/improve-amazon-bedrock-observability-with-amazon-cloudwatch-appsignals/).

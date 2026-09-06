@@ -1,7 +1,9 @@
-# Amazon ECS services
 
-The following example shows a component configuration in JSON format for an
-Amazon ECS service.
+
+# Amazon ECS services
+<a name="component-configuration-examples-ecs-service"></a>
+
+The following example shows a component configuration in JSON format for an Amazon ECS service.
 
 ```
 {
@@ -177,12 +179,6 @@ Amazon ECS service.
  }
 ```
 
-###### Note
-
-- The `subComponents` section of
-  `AWS::EC2::Instance` and
-  `AWS::EC2::Volume` applies only to Amazon ECS running on
-  the EC2 launch type.
-- The `windowsEvents` section of
-  `AWS::EC2::Instance` in `subComponents`
-  applies only to Windows running on Amazon EC2 instances.
+**Note**  
+The `subComponents` section of `AWS::EC2::Instance` and `AWS::EC2::Volume` applies only to Amazon ECS running on the EC2 launch type.
+The `windowsEvents` section of `AWS::EC2::Instance` in `subComponents` applies only to Windows running on Amazon EC2 instances.

@@ -1,4 +1,7 @@
+
+
 # Java
+<a name="appinsights-metrics-java"></a>
 
 CloudWatch Application Insights supports the following metrics:
 

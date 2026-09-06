@@ -1,6 +1,9 @@
-# Examples of configuration files
 
-**Basic system metrics configuration**
+
+# Examples of configuration files
+<a name="create-cloudwatch-agent-configuration-file-examples"></a>
+
+**Basic system metrics configuration** 
 
 ```
 {
@@ -28,10 +31,9 @@
     }
   }
 }
-
 ```
 
-**Web server monitoring configuration**
+**Web server monitoring configuration ** 
 
 ```
 {
@@ -74,11 +76,9 @@
     }
   }
 }
-
-
 ```
 
-**Database server configuration**
+**Database server configuration **
 
 ```
 {
@@ -112,5 +112,4 @@
     }
   }
 }
-
 ```

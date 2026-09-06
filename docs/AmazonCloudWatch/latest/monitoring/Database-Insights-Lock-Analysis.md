@@ -1,91 +1,92 @@
+
+
 # Analyzing lock trees for Amazon Aurora PostgreSQL and Amazon RDS for PostgreSQL with CloudWatch Database Insights
+<a name="Database-Insights-Lock-Analysis"></a>
 
 To troubleshoot performance issues caused by locks, you can analyze lock trees for Amazon Aurora PostgreSQL and Amazon RDS for PostgreSQL databases with CloudWatch Database Insights using the following.
++ **Sliced by** dropdown – Choose the **Blocking object**, **Blocking session**, or **Blocking SQL** dimensions in the **Database load** chart to view how distinct top blockers contribute to DB Load over time. With the DB load chart, you can analyze if top blockers are constant or change often. Then, you can troubleshoot the blockers.  
+![The Top SQL table with Blocking Session selected in the Sliced by dropdown.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/DBInsights_TopSQLBlocking.png)
++ **Lock analysis** tab – Choose **DB Load Analysis**, then choose the **Lock analysis** tab to view information about lock contention in your database.  
+![The Lock trees table in the Database load dashboard.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/DBInsights_LoadLockAnalysis.png)
 
-- **Sliced by** dropdown – Choose the **Blocking object**, **Blocking session**, or **Blocking SQL** dimensions in the **Database load** chart
-  to view how distinct top blockers contribute to DB Load over time. With the DB load chart, you can analyze if top blockers are constant or change often. Then, you can troubleshoot the blockers.
+**Note**  
+CloudWatch Database Insights supports lock analysis for all Aurora PostgreSQL versions. To analyze lock trees, you must have Database Insights Advance Mode enabled. For information on how to turn on Advanced mode, see [Turning on the Advanced mode of Database Insights for Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.TurningOnAdvanced.html) and [Turning on the Advanced mode of Database Insights for Amazon Relational Database Service](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DatabaseInsights.TurningOnAdvanced.html)
 
-![The Top SQL table with Blocking Session selected in the Sliced by dropdown.](images/DBInsights_TopSQLBlocking.png)
-
-- **Lock analysis** tab – Choose **DB Load Analysis**, then choose the **Lock analysis** tab to view information about lock contention in your database.
-
-![The Lock trees table in the Database load dashboard.](images/DBInsights_LoadLockAnalysis.png)
-
-###### Note
-
-CloudWatch Database Insights supports lock analysis for all Aurora PostgreSQL versions. To analyze lock trees, you must have
-Database Insights Advance Mode enabled. For information on how to turn on Advanced mode, see
-[Turning on the Advanced mode of Database Insights for Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.TurningOnAdvanced.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.TurningOnAdvanced.md")
-and [Turning on the Advanced mode of Database Insights for Amazon Relational Database Service](../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.TurningOnAdvanced.md "../../../AmazonRDS/latest/UserGuide/USER_DatabaseInsights.TurningOnAdvanced.md")
-
-The lock analysis tab provides information about lock contention for your database.
-The lock tree visualization shows the relationships and dependencies between lock requests from different sessions.
+The lock analysis tab provides information about lock contention for your database. The lock tree visualization shows the relationships and dependencies between lock requests from different sessions.
 
 Database Insights captures snapshots every 15 seconds. Snapshots show the lock data for your database at a point in time.
 
-###### Note
-
-When CloudWatch detects high locking, CloudWatch displays the **High locking detected** banner for the **Lock analysis** tab.
-CloudWatch detects high locking if CloudWatch takes a lock snapshot for each 15 second interval for 15 consecutive minutes.
+**Note**  
+When CloudWatch detects high locking, CloudWatch displays the **High locking detected** banner for the **Lock analysis** tab. CloudWatch detects high locking if CloudWatch takes a lock snapshot for each 15 second interval for 15 consecutive minutes.
 
 Each node in the tree represents a specific session. The parent node is a session that is blocking its child nodes.
 
 To analyze lock trees, use the following procedure.
 
-###### To analyze lock trees
+**To analyze lock trees**
 
-1. Sign in to the AWS Management Console and open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. Choose **Insights**.
-3. Choose **Database Insights**.
-4. Choose the **Database Instance** view.
-5. Choose a DB instance.
-6. Choose the **DB load analysis** tab.
-7. Choose the **Lock analysis** tab.
+1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-To view lock data for a DB instance, choose a period of 1 day or less. 8. Choose a snapshot window. By default, Database Insights chooses the snapshot window with the most blocked sessions.
+1. Choose **Insights**.
 
-![Lock analysis table.](images/dbi_lock-analysis.png) 9. To view lock data for a snapshot, choose the time Database Insights took the snapshot. 10. To expand a lock tree, choose the arrow next to the session ID.
+1. Choose **Database Insights**.
 
-![Lock tree expanded.](images/dbi_lock-analysis-expand.png)
+1. Choose the **Database Instance** view.
+
+1. Choose a DB instance.
+
+1. Choose the **DB load analysis** tab.
+
+1. Choose the **Lock analysis** tab.
+
+   To view lock data for a DB instance, choose a period of 1 day or less.
+
+1. Choose a snapshot window. By default, Database Insights chooses the snapshot window with the most blocked sessions.  
+![Lock analysis table.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_lock-analysis.png)
+
+1. To view lock data for a snapshot, choose the time Database Insights took the snapshot.
+
+1. To expand a lock tree, choose the arrow next to the session ID.  
+![Lock tree expanded.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_lock-analysis-expand.png)
 
 ## Lock snapshot data
+<a name="Database-Insights-Lock-Analysis-snapshot-data"></a>
 
 Database Insights provides the following information for each lock request. To view columns that aren't enabled by default, choose the **Settings** icon for the **Lock trees** table and enable other columns.
 
-| Column name                  | Definition                                                                                                                                                                                                                                                                                                                                                                     | Default column | Notes                                                                                                                                   |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `session_id`                 | The unique session identifier.                                                                                                                                                                                                                                                                                                                                                 | Yes            | The `session_id` is derived from `HEX(pg_stat_activity.backend_start).HEX(pg_locks.pid)`.                                               |
-| `pid`                        | The PID of this backend.                                                                                                                                                                                                                                                                                                                                                       | Yes            | `pg_locks.pid`                                                                                                                          |
-| `blocked_sessions_count`     | The number of sessions blocked by this lock.                                                                                                                                                                                                                                                                                                                                   | Yes            | The `blocked_sessions_count` is derived from the number of session IDs blocked by<br>this lock.                                         |
-| `last_query_executed`        | The last query executed by this session. For blockers, it may not be the<br>query that holds the blocking lock.                                                                                                                                                                                                                                                                | Yes            | `pg_stat_activity.query`                                                                                                                |
-| `wait_event`                 | The wait event name if the backend is currently waiting, otherwise the value is NULL.                                                                                                                                                                                                                                                                                          | Yes            | `pg_stat_activity.wait_event`                                                                                                           |
-| `blocking_time_(In Seconds)` | The time (in seconds) since the start of this lock.                                                                                                                                                                                                                                                                                                                            | Yes            | The `blocking_time_(In Seconds)` is derived from the start time of the waiting transaction (`pg_locks.waitstart`) for the first waiter. |
-| `blocking_mode`              | The lock mode held by the blocking session.                                                                                                                                                                                                                                                                                                                                    | No             | `pg_locks.mode`                                                                                                                         |
-| `waiting_mode`               | The lock mode requested by the waiting session.                                                                                                                                                                                                                                                                                                                                | No             | `pg_locks.mode`                                                                                                                         |
-| `application`                | The name of the application that is connected to this backend.                                                                                                                                                                                                                                                                                                                 | No             | `pg_stat_activity.application_name`                                                                                                     |
-| `blocking_txn_start_time`    | The start time of the blocking transaction or null if no transaction is<br>active.                                                                                                                                                                                                                                                                                             | No             | `pg_stat_activity.xact_start`                                                                                                           |
-| `waiting_start_time`         | The time when a waiting user session started waiting for this lock, or null if the lock is<br>held.                                                                                                                                                                                                                                                                            | No             | `pg_locks.waitstart`                                                                                                                    |
-| `session_start_time`         | The time when a user session was started.                                                                                                                                                                                                                                                                                                                                      | No             | `pg_stat_activity.backend_start`                                                                                                        |
-| `state`                      | The state of a backend.                                                                                                                                                                                                                                                                                                                                                        | No             | `pg_stat_activity.state`                                                                                                                |
-| `wait_event_type`            | The type of wait event for which this session is waiting.                                                                                                                                                                                                                                                                                                                      | No             | `pg_stat_activity.wait_event_type`                                                                                                      |
-| `last_query_exec_time`       | The time when the last query was started.                                                                                                                                                                                                                                                                                                                                      | No             | `pg_stat_activity.query_start`                                                                                                          |
-| `user`                       | The name of the user logged into this backend.                                                                                                                                                                                                                                                                                                                                 | No             | `pg_stat_activity.usename`                                                                                                              |
-| `host`                       | The host name of the connected client, as reported by a reverse DNS lookup of<br>`client_addr`. This field will only be non-null for<br>IP connections, and only when [log\_hostname](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-HOSTNAME "https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-HOSTNAME") is enabled. | No             | `pg_stat_activity.client_hostname`                                                                                                      |
-| `port`                       | The TCP port number that the client is using for communication with this backend, or `-1` if a<br>Unix socket is used. If this field is null, it indicates that this<br>is an internal server process.                                                                                                                                                                         | No             | `pg_stat_activity.client_port`                                                                                                          |
-| `client_address`             | The IP address of the client connected to this backend. If this field is null, it indicates<br>either that the client is connected through a Unix socket on the server<br>machine or that this is an internal process such as<br>autovacuum.                                                                                                                                   | No             | `pg_stat_activity.client_addr`                                                                                                          |
-| `granted`                    | The value is true if lock is held and false if lock is awaited.                                                                                                                                                                                                                                                                                                                | No             | `pg_locks.granted`                                                                                                                      |
-| `waiting_tuple`              | The tuple number targeted by the lock within the page, or null if<br>the target is not a tuple.                                                                                                                                                                                                                                                                                | No             | `pg_locks.tuple`                                                                                                                        |
-| `waiting_page`               | The page number targeted by the lock within the relation, or null if the target is not a<br>relation page or tuple.                                                                                                                                                                                                                                                            | No             | `pg_locks.page`                                                                                                                         |
-| `waiting_transaction_id`     | The ID of the transaction targeted by the lock, or null if the target is not a transaction<br>ID.                                                                                                                                                                                                                                                                              | No             | `pg_locks.transactionid`                                                                                                                |
-| `waiting_relation`           | The OID of the relation targeted by the lock, or null if the target is not a relation or part<br>of a relation.                                                                                                                                                                                                                                                                | No             | `pg_locks.relation`                                                                                                                     |
-| `waiting_object_id`          | The OID of the lock target within its system catalog, or null if the target is not a general<br>database object.                                                                                                                                                                                                                                                               | No             | `pg_locks.objid`                                                                                                                        |
-| `waiting_database_id`        | The OID of the database in which the lock target exists, or zero if the target is a shared<br>object, or null if the target is a transaction ID.                                                                                                                                                                                                                               | No             | `pg_locks.database`                                                                                                                     |
-| `waiting_database_name`      | The name of the database in which the lock target exists.                                                                                                                                                                                                                                                                                                                      | No             | `pg_stat_activity.datname`                                                                                                              |
-| `waiting_locktype`           | The type of the lockable object: relation, extend, frozenid, page, tuple, transactionid,<br>virtualxid, spectoken, object, userlock, advisory, or<br>applytransaction.                                                                                                                                                                                                         | No             | `pg_locks.locktype`                                                                                                                     |
-| `is_fastpath`                | The value is true if the lock was taken with the fast path and false if taken from the main lock<br>table.                                                                                                                                                                                                                                                                     | No             | `pg_locks.fastpath`                                                                                                                     |
+
+| Column name | Definition  | Default column | Notes | 
+| --- | --- | --- | --- | 
+| `session_id` | The unique session identifier. | Yes | The `session_id` is derived from `HEX(pg_stat_activity.backend_start).HEX(pg_locks.pid)`. | 
+| `pid` | The PID of this backend. | Yes | `pg_locks.pid` | 
+| `blocked_sessions_count` | The number of sessions blocked by this lock. | Yes | The `blocked_sessions_count` is derived from the number of session IDs blocked by this lock. | 
+| `last_query_executed` | The last query executed by this session. For blockers, it may not be the query that holds the blocking lock. | Yes | `pg_stat_activity.query` | 
+| `wait_event` | The wait event name if the backend is currently waiting, otherwise the value is NULL. | Yes | `pg_stat_activity.wait_event` | 
+| `blocking_time_(In Seconds)` | The time (in seconds) since the start of this lock. | Yes | The `blocking_time_(In Seconds)` is derived from the start time of the waiting transaction (`pg_locks.waitstart`) for the first waiter. | 
+| `blocking_mode` | The lock mode held by the blocking session. | No | `pg_locks.mode` | 
+| `waiting_mode` | The lock mode requested by the waiting session. | No | `pg_locks.mode` | 
+| `application` | The name of the application that is connected to this backend. | No | `pg_stat_activity.application_name` | 
+| `blocking_txn_start_time` | The start time of the blocking transaction or null if no transaction is active. | No | `pg_stat_activity.xact_start` | 
+| `waiting_start_time` | The time when a waiting user session started waiting for this lock, or null if the lock is held. | No | `pg_locks.waitstart` | 
+| `session_start_time` | The time when a user session was started. | No | `pg_stat_activity.backend_start` | 
+| `state` | The state of a backend.  | No | `pg_stat_activity.state` | 
+| `wait_event_type` | The type of wait event for which this session is waiting. | No | `pg_stat_activity.wait_event_type` | 
+| `last_query_exec_time` | The time when the last query was started. | No | `pg_stat_activity.query_start` | 
+| `user` | The name of the user logged into this backend. | No | `pg_stat_activity.usename` | 
+| `host` | The host name of the connected client, as reported by a reverse DNS lookup of `client_addr`. This field will only be non-null for IP connections, and only when [log\_hostname](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-HOSTNAME) is enabled. | No | `pg_stat_activity.client_hostname` | 
+| `port` | The TCP port number that the client is using for communication with this backend, or `-1` if a Unix socket is used. If this field is null, it indicates that this is an internal server process. | No | `pg_stat_activity.client_port` | 
+| `client_address` | The IP address of the client connected to this backend. If this field is null, it indicates either that the client is connected through a Unix socket on the server machine or that this is an internal process such as autovacuum. | No | `pg_stat_activity.client_addr` | 
+| `granted` | The value is true if lock is held and false if lock is awaited. | No | `pg_locks.granted` | 
+| `waiting_tuple` | The tuple number targeted by the lock within the page, or null if the target is not a tuple. | No | `pg_locks.tuple` | 
+| `waiting_page` | The page number targeted by the lock within the relation, or null if the target is not a relation page or tuple. | No | `pg_locks.page` | 
+| `waiting_transaction_id` | The ID of the transaction targeted by the lock, or null if the target is not a transaction ID. | No | `pg_locks.transactionid` | 
+| `waiting_relation` | The OID of the relation targeted by the lock, or null if the target is not a relation or part of a relation. | No | `pg_locks.relation` | 
+| `waiting_object_id` | The OID of the lock target within its system catalog, or null if the target is not a general database object. | No | `pg_locks.objid` | 
+| `waiting_database_id` | The OID of the database in which the lock target exists, or zero if the target is a shared object, or null if the target is a transaction ID. | No | `pg_locks.database` | 
+| `waiting_database_name` | The name of the database in which the lock target exists. | No | `pg_stat_activity.datname` | 
+| `waiting_locktype` | The type of the lockable object: relation, extend, frozenid, page, tuple, transactionid, virtualxid, spectoken, object, userlock, advisory, or applytransaction. | No | `pg_locks.locktype` | 
+| `is_fastpath` | The value is true if the lock was taken with the fast path and false if taken from the main lock table. | No | `pg_locks.fastpath` | 
 
 For more information about the values in the `pg_stat_activity` and `pg_locks` views, see the following topics in the PostgreSQL documentation.
-
-- [pg\_locks](https://www.postgresql.org/docs/current/view-pg-locks.html "https://www.postgresql.org/docs/current/view-pg-locks.html")
-- [pg\_stat\_activity](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW")
++ [pg\_locks](https://www.postgresql.org/docs/current/view-pg-locks.html)
++ [pg\_stat\_activity](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW)

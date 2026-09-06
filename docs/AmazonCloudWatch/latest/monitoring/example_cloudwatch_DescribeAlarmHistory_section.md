@@ -1,21 +1,18 @@
+
+
 # Use `DescribeAlarmHistory` with an AWS SDK or CLI
+<a name="example_cloudwatch_DescribeAlarmHistory_section"></a>
 
 The following code examples show how to use `DescribeAlarmHistory`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
 
-- [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
     /// <summary>
@@ -42,29 +39,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         }
         return alarmHistory;
     }
+```
++  For API details, see [DescribeAlarmHistory](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmHistory) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To retrieve history for an alarm**  
+The following example uses the `describe-alarm-history` command to retrieve history for the Amazon CloudWatch alarm named "myalarm":  
 
 ```
-
-- For API details, see
-  [DescribeAlarmHistory](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmHistory.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmHistory.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To retrieve history for an alarm**
-
-The following example uses the `describe-alarm-history` command to retrieve history for the Amazon
-CloudWatch alarm named "myalarm":
-
+aws cloudwatch describe-alarm-history --alarm-name {{"myalarm"}} --history-item-type {{StateUpdate}}
 ```
-`aws cloudwatch describe-alarm-history --alarm-name `"myalarm"` --history-item-type `StateUpdate``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -86,23 +74,15 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeAlarmHistory](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarm-history.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeAlarmHistory](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarm-history.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarm-history.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
-
     /**
      * Retrieves the alarm history for a given alarm name and date range.
      *
@@ -159,24 +139,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             }
         });
     }
-
-
-
 ```
++  For API details, see [DescribeAlarmHistory](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmHistory) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeAlarmHistory](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmHistory.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmHistory.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun getAlarmHistory(
@@ -217,14 +187,9 @@ suspend fun getAlarmHistory(
         }
     }
 }
-
-
 ```
++  For API details, see [DescribeAlarmHistory](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeAlarmHistory](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

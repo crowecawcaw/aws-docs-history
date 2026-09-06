@@ -1,212 +1,173 @@
+
+
 # Cross-account cross-Region CloudWatch console
+<a name="Cross-Account-Cross-Region"></a>
 
-###### Note
+**Note**  
+We recommend that you use CloudWatch cross-account observability to get the richest cross-account observability and discovery experience for your metrics, logs, and traces within a Region. For more information, see [CloudWatch cross-account observability](CloudWatch-Unified-Cross-Account.md).
 
-We recommend that you
-use CloudWatch cross-account observability to get the richest cross-account observability and discovery experience for your metrics, logs, and traces within a Region.
-For more information, see
-[CloudWatch cross-account observability](CloudWatch-Unified-Cross-Account.md "CloudWatch-Unified-Cross-Account.md").
+The cross-account, cross-Region CloudWatch console allows you to easily switch between different accounts and Region by using selectors in the console to view the dashboards, alarms, and metrics in other accounts and Regions. This feature also allows you to create cross-account, cross-Region dashboards which summarize your CloudWatch metrics from multiple AWS accounts and multiple Regions into a single dashboard, making them accessible without having to switch accounts or Regions. 
 
-The cross-account, cross-Region CloudWatch console allows you to easily switch between different accounts and Region by using
-selectors in the console to view the dashboards, alarms, and metrics in other accounts and Regions. This feature also
-allows you to create cross-account, cross-Region dashboards which summarize your CloudWatch metrics from multiple AWS accounts and multiple Regions
-into a single dashboard, making them accessible without having to switch accounts or Regions.
+Many organizations have their AWS resources deployed in multiple accounts, to provide billing and security boundaries. In this case, you should designate one or more of your accounts as your *monitoring accounts*, and build your cross-account cross-Region dashboards in these accounts. Cross-account cross-Region console functionality is integrated with AWS Organizations, to help you efficiently build your cross-account cross-Region dashboards.
 
-Many organizations have their AWS resources deployed in multiple accounts, to provide billing and security boundaries. In this case, you should
-designate one or more of your accounts as your _monitoring accounts_, and build your cross-account cross-Region dashboards
-in these accounts. Cross-account cross-Region console functionality is integrated with AWS Organizations, to help you efficiently build your cross-account cross-Region dashboards.
+The cross-account, cross-region CloudWatch console experience does not provide cross-account cross-Region visibility for logs. Additionally, it does not support the creation of alarms on metrics in other accounts or Regions from within a monitoring account.
 
-The cross-account, cross-region CloudWatch console experience does not provide cross-account cross-Region visibility for logs. Additionally, it does not support the creation of
-alarms on metrics in other accounts or Regions from within a monitoring account.
-
-###### Topics
-
-- [Enabling cross-account cross-Region functionality in CloudWatch](#enable-cross-account-cross-Region "#enable-cross-account-cross-Region")
-- [(Optional) Integrate with AWS Organizations](#cross-account-and-AWS-organizations "#cross-account-and-AWS-organizations")
-- [Troubleshooting your CloudWatch cross-account setup](#troubleshooting-cross-account-cross-Region "#troubleshooting-cross-account-cross-Region")
-- [Monitoring account permissions for cross-account access](#cross-account-cross-region-limitations "#cross-account-cross-region-limitations")
-- [Disabling and cleaning up after using cross-account](#cleanup-cross-account-cross-Region "#cleanup-cross-account-cross-Region")
+**Topics**
++ [Enabling cross-account cross-Region functionality in CloudWatch](#enable-cross-account-cross-Region)
++ [(Optional) Integrate with AWS Organizations](#cross-account-and-AWS-organizations)
++ [Troubleshooting your CloudWatch cross-account setup](#troubleshooting-cross-account-cross-Region)
++ [Monitoring account permissions for cross-account access](#cross-account-cross-region-limitations)
++ [Disabling and cleaning up after using cross-account](#cleanup-cross-account-cross-Region)
 
 ## Enabling cross-account cross-Region functionality in CloudWatch
+<a name="enable-cross-account-cross-Region"></a>
 
-To set up cross-account cross-Region functionality in your CloudWatch console, use the
-CloudWatch console to set up your sharing accounts and monitoring accounts.
+To set up cross-account cross-Region functionality in your CloudWatch console, use the CloudWatch console to set up your sharing accounts and monitoring accounts.
 
 ### Set up a sharing account
+<a name="setup_sharing_account"></a>
 
-You must enable sharing in each account that will make data available to the monitoring account.
+You must enable sharing in each account that will make data available to the monitoring account. 
 
-This grants the read-only permissions that you choose in step 5 to all users
-that view a cross account dashboard in the account that you share with, if the
-user has corresponding permissions in the account that you share with.
+This grants the read-only permissions that you choose in step 5 to all users that view a cross account dashboard in the account that you share with, if the user has corresponding permissions in the account that you share with.
 
-###### To enable your account to share CloudWatch data with other accounts
+**To enable your account to share CloudWatch data with other accounts**
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane, choose **Settings**.
-3. For **Share your CloudWatch data**, choose **Configure**.
-4. For **Sharing**, choose **Specific accounts** and enter the IDs of the accounts
-   that you want to share data with.
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-Any accounts that you specify here can view your account's CloudWatch data.
-Specify the IDs only of accounts that you know and trust. 5. For **Permissions**, specify how to share your data
-with one of the following options:
+1. In the navigation pane, choose **Settings**.
 
-    * **Provide read-only access to your CloudWatch metrics, dashboards, and
-     alarms**. This option enables the monitoring accounts to
-     create cross-account dashboards that include widgets that
-     contain CloudWatch data from your account.
-    * **Include CloudWatch automatic dashboards**. If you select this option, users in
-     the monitoring account can also view the information in this account's
-     automatic dashboards. For more information, see [Getting started with CloudWatch automatic dashboards](GettingStarted.md "GettingStarted.md").
-    * **Include X-Ray read-only access for the X-Ray Trace Map**.
-     If you select this option, users in
-     the monitoring account can also view the X-Ray trace map
-     and X-Ray trace information in this account. For more information, see
-     [Using the
-     X-Ray Trace Map](../../../xray/latest/devguide/xray-console-servicemap.md "../../../xray/latest/devguide/xray-console-servicemap.md").
-    * **Include read-only access for Database Insights**.
-     If you select this option, users in
-     the monitoring account can also view Database Insights telemetry in this account. For more information, see
-     [Set up cross-account cross-region monitoring for CloudWatch Database Insights](Database-Insights-Cross-Account-Cross-Region.md "Database-Insights-Cross-Account-Cross-Region.md").
-    * **Full read-only access to everything in your account**. This option enables
-     the accounts that you use for sharing to create cross-account
-     dashboards that include widgets that contain CloudWatch data from
-     your account. It also enables those accounts to look deeper into your
-     account and view your account's data in the consoles of other AWS
-     services.
+1. For **Share your CloudWatch data**, choose **Configure**.
 
-6. Choose **Launch CloudFormation template**.
+1. For **Sharing**, choose **Specific accounts** and enter the IDs of the accounts that you want to share data with.
 
-In the confirmation screen, type `Confirm`, and
-choose **Launch template**. 7. Select the **I acknowledge...** check box, and choose **Create stack**.
+   Any accounts that you specify here can view your account's CloudWatch data. Specify the IDs only of accounts that you know and trust.
+
+1. For **Permissions**, specify how to share your data with one of the following options:
+   + **Provide read-only access to your CloudWatch metrics, dashboards, and alarms**. This option enables the monitoring accounts to create cross-account dashboards that include widgets that contain CloudWatch data from your account.
+   + **Include CloudWatch automatic dashboards**. If you select this option, users in the monitoring account can also view the information in this account's automatic dashboards. For more information, see [Getting started with CloudWatch automatic dashboards](GettingStarted.md).
+   + **Include X-Ray read-only access for the X-Ray Trace Map**. If you select this option, users in the monitoring account can also view the X-Ray trace map and X-Ray trace information in this account. For more information, see [Using the X-Ray Trace Map](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-servicemap.html).
+   + **Include read-only access for Database Insights**. If you select this option, users in the monitoring account can also view Database Insights telemetry in this account. For more information, see [ Set up cross-account cross-region monitoring for CloudWatch Database Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Database-Insights-Cross-Account-Cross-Region.html).
+   + **Full read-only access to everything in your account**. This option enables the accounts that you use for sharing to create cross-account dashboards that include widgets that contain CloudWatch data from your account. It also enables those accounts to look deeper into your account and view your account's data in the consoles of other AWS services.
+
+1. Choose **Launch CloudFormation template**.
+
+   In the confirmation screen, type **Confirm**, and choose **Launch template**.
+
+1. Select the **I acknowledge... ** check box, and choose **Create stack**.
 
 #### Sharing with an entire organization
+<a name="sharing-with-an-organization"></a>
 
-Completing the preceding procedure creates an IAM role which enables your account to share data with one account. You can create or edit an IAM role that
-shares your data with all accounts in an organization. Do this only if you know and trust all accounts in the organization.
+Completing the preceding procedure creates an IAM role which enables your account to share data with one account. You can create or edit an IAM role that shares your data with all accounts in an organization. Do this only if you know and trust all accounts in the organization.
 
-This grants the read-only permissions listed in the policies shown in step 5 of the
-previous procedure to all users that view a cross-account dashboard in the account that you share with,
-if the user has corresponding permissions in the account that you share with.
+This grants the read-only permissions listed in the policies shown in step 5 of the previous procedure to all users that view a cross-account dashboard in the account that you share with, if the user has corresponding permissions in the account that you share with.
 
-###### To share your CloudWatch account data with all accounts in an organization
+**To share your CloudWatch account data with all accounts in an organization**
 
 1. If you haven't already, complete the preceding procedure to share your data with one AWS account.
-2. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-3. In the navigation pane, choose **Roles**.
-4. In the list of roles, choose **CloudWatch-CrossAccountSharingRole**.
-5. Choose **Trust relationships**, **Edit trust relationship**.
 
-You see a policy like this:
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
-JSON
+1. In the navigation pane, choose **Roles**.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`123456789012`:root"
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
+1. In the list of roles, choose **CloudWatch-CrossAccountSharingRole**.
 
-```
+1. Choose **Trust relationships**, **Edit trust relationship**.
 
-6. Change the policy to the following, replacing `org-id` with the ID of your organization.
+   You see a policy like this:
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "AWS": "*"
- },
- "Action": "sts:AssumeRole",
- "Condition": {
- "StringEquals": {
- "aws:PrincipalOrgID": "`org-id`"
- }
- }
+****  
 
- }
- ]
-}`
+   ```
+   {
+     "Version":"2012-10-17",		 	 	 
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "AWS": "arn:aws:iam::{{123456789012}}:root"
+         },
+         "Action": "sts:AssumeRole"
+       }
+     ]
+   }
+   ```
 
-```
+------
 
-7. Choose **Update Trust Policy**.
+1. Change the policy to the following, replacing {{org-id}} with the ID of your organization.
+
+------
+#### [ JSON ]
+
+****  
+
+   ```
+   {
+     "Version":"2012-10-17",		 	 	 
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "AWS": "*"
+         },
+         "Action": "sts:AssumeRole",
+         "Condition": {
+           "StringEquals": {
+             "aws:PrincipalOrgID": "{{org-id}}"
+           }
+         }
+   
+       }
+     ]
+   }
+   ```
+
+------
+
+1. Choose **Update Trust Policy**.
 
 ### Set up a monitoring account
+<a name="setup_monitoring_account"></a>
 
-Enable each monitoring account to view cross-account CloudWatch data. You can enable a monitoring account by using the
-Amazon CloudWatch console or the AWS Cloud Development Kit (AWS CDK).
+Enable each monitoring account to view cross-account CloudWatch data. You can enable a monitoring account by using the Amazon CloudWatch console or the AWS Cloud Development Kit (AWS CDK).
 
-After you set up a monitoring account, you can create cross-account dashboards.
-For more information, see [Creating a customized CloudWatch dashboard](create_dashboard.md "create_dashboard.md").
+After you set up a monitoring account, you can create cross-account dashboards. For more information, see [Creating a customized CloudWatch dashboard](create_dashboard.md).
 
 #### Enable a monitoring account by using the console
+<a name="enable-monitoring-account-console"></a>
 
-When you complete the following procedure, CloudWatch creates a service role that CloudWatch uses in the monitoring account to access data
-shared from your other accounts. This service role is called **ServiceRoleForCloudWatchCrossAccountV2**.
+When you complete the following procedure, CloudWatch creates a service role that CloudWatch uses in the monitoring account to access data shared from your other accounts. This service role is called **ServiceRoleForCloudWatchCrossAccountV2**.
 
-###### To enable your account to view cross-account CloudWatch data
+**To enable your account to view cross-account CloudWatch data**
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane,
-   choose **Settings**,
-   and then,
-   in the **Cross-account cross-region** section,
-   choose **Configure**.
-3. Under the **View cross-account cross-region** section,
-   choose **Enable**,
-   and then select the **Show selector in the console** checkbox
-   to enable an account selector to appear
-   in the CloudWatch console
-   when you're graphing a metric or creating an alarm.
-4. Under **View cross-account cross-region**, choose one
-   of the following options:
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-   - **Account Id Input**. This option prompts you to manually input an account ID
-     each time that you want to switch accounts when you view cross-account
-     data.
-   - **AWS Organization account selector**. This option causes the accounts that
-     you specified when you completed your cross-account
-     integration with Organizations to appear. When you next use the console, CloudWatch
-     displays a dropdown list of these accounts for you to select from when
-     you are viewing cross-account data.
+1. In the navigation pane, choose **Settings**, and then, in the **Cross-account cross-region** section, choose **Configure**.
 
-   To do this, you must have first used your organization
-   management account to allow CloudWatch to see a list of accounts in your organization.
-   For more information, see [(Optional) Integrate with AWS Organizations](#cross-account-and-AWS-organizations "#cross-account-and-AWS-organizations").
-   - **Custom account selector**. This option prompts you to enter a list of
-     account IDs. When you next use the console, CloudWatch displays a dropdown
-     list of these accounts for you to select from when you are viewing
-     cross-account data.
+1. Under the **View cross-account cross-region** section, choose **Enable**, and then select the **Show selector in the console** checkbox to enable an account selector to appear in the CloudWatch console when you're graphing a metric or creating an alarm.
 
-   You can also enter a label for each of these accounts to help you identify them when choosing accounts to view.
+1. Under **View cross-account cross-region**, choose one of the following options:
+   + **Account Id Input**. This option prompts you to manually input an account ID each time that you want to switch accounts when you view cross-account data.
+   + **AWS Organization account selector**. This option causes the accounts that you specified when you completed your cross-account integration with Organizations to appear. When you next use the console, CloudWatch displays a dropdown list of these accounts for you to select from when you are viewing cross-account data.
 
-   The account selector settings that a user makes here are retained only for that user, not for all other
-   users in the monitoring account.
+     To do this, you must have first used your organization management account to allow CloudWatch to see a list of accounts in your organization. For more information, see [(Optional) Integrate with AWS Organizations](#cross-account-and-AWS-organizations).
+   + **Custom account selector**. This option prompts you to enter a list of account IDs. When you next use the console, CloudWatch displays a dropdown list of these accounts for you to select from when you are viewing cross-account data.
 
-5. Choose **Enable**.
+     You can also enter a label for each of these accounts to help you identify them when choosing accounts to view.
+
+     The account selector settings that a user makes here are retained only for that user, not for all other users in the monitoring account. 
+
+1. Choose **Enable**.
 
 #### Enable a monitoring account by using the CDK
+<a name="enable_monitoring_account_cdk"></a>
 
-You can also set up a monitoring account without using the console. Define the **ServiceRoleForCloudWatchCrossAccountV2** role
-as infrastructure as code. Use this approach when you manage multiple monitoring accounts. It deploys the role consistently across all of them.
-The following example uses the AWS CDK in TypeScript to define the role with the required trust policy and an inline permissions policy:
+You can also set up a monitoring account without using the console. Define the **ServiceRoleForCloudWatchCrossAccountV2** role as infrastructure as code. Use this approach when you manage multiple monitoring accounts. It deploys the role consistently across all of them. The following example uses the AWS CDK in TypeScript to define the role with the required trust policy and an inline permissions policy:
 
 ```
 import { Role, ServicePrincipal, PolicyDocument, PolicyStatement, Effect } from 'aws-cdk-lib/aws-iam';
@@ -230,144 +191,126 @@ new Role(this, 'ServiceRoleForCloudWatchCrossAccountV2', {
 });
 ```
 
-This example uses a wildcard resource, which is the least restrictive scope. To restrict the monitoring account to specific sharing accounts or
-to an organization, change the `resources` array. You can add a `conditions` property with an `aws:ResourceOrgID`
-condition. Either approach matches one of the inline policies in the following section.
+This example uses a wildcard resource, which is the least restrictive scope. To restrict the monitoring account to specific sharing accounts or to an organization, change the `resources` array. You can add a `conditions` property with an `aws:ResourceOrgID` condition. Either approach matches one of the inline policies in the following section.
 
-To deploy the role to many accounts at once, use the synthesized template with CloudFormation StackSets. A stack set creates the role across
-multiple accounts and Regions in a single operation. A stack set also automatically deploys the role to new accounts that join your
-organization. For more information about CloudFormation StackSets, see [Working with CloudFormation StackSets](../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md "../../../AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.md") in the
-_CloudFormation User Guide_.
+To deploy the role to many accounts at once, use the synthesized template with CloudFormation StackSets. A stack set creates the role across multiple accounts and Regions in a single operation. A stack set also automatically deploys the role to new accounts that join your organization. For more information about CloudFormation StackSets, see [Working with CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html) in the *CloudFormation User Guide*.
 
 #### Scope of accounts the monitoring account can access
+<a name="scoping-monitoring-account-access"></a>
 
-When you define the role with the AWS CDK, the inline permissions policy grants `sts:AssumeRole` permission. CloudWatch uses this
-permission to assume the **CloudWatch-CrossAccountSharingRole** in your sharing accounts. To follow the principle of least privilege,
-limit the `Resource` of the `sts:AssumeRole` action to only the accounts that the monitoring account needs. You can scope access
-in the following ways, from most restrictive to least restrictive:
+When you define the role with the AWS CDK, the inline permissions policy grants `sts:AssumeRole` permission. CloudWatch uses this permission to assume the **CloudWatch-CrossAccountSharingRole** in your sharing accounts. To follow the principle of least privilege, limit the `Resource` of the `sts:AssumeRole` action to only the accounts that the monitoring account needs. You can scope access in the following ways, from most restrictive to least restrictive:
++ **An entire organization** – Allow the monitoring account to assume the sharing role only in accounts that belong to your organization. Replace {{org-id}} with the ID of your organization (for example, `o-a1b2c3d4e5`). Use the following JSON inline policy:
 
-- **An entire organization** – Allow the monitoring account to assume the sharing role only in accounts that
-  belong to your organization. Replace `org-id` with the ID of your organization (for example, `o-a1b2c3d4e5`). Use the following JSON inline policy:
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": "sts:AssumeRole",
-      "Resource": "arn:aws:iam::*:role/CloudWatch-CrossAccountSharingRole",
-      "Condition": {
-        "StringEquals": {
-          "aws:ResourceOrgID": "`org-id`"
+  ```
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": "sts:AssumeRole",
+        "Resource": "arn:aws:iam::*:role/CloudWatch-CrossAccountSharingRole",
+        "Condition": {
+          "StringEquals": {
+            "aws:ResourceOrgID": "{{org-id}}"
+          }
         }
       }
-    }
-  ]
-}
-```
+    ]
+  }
+  ```
++ **A list of accounts** – Allow the monitoring account to assume the sharing role only in the accounts that you list. Replace each example account ID (such as `111122223333`) with the ID of a sharing account. Use the following JSON inline policy:
 
-- **A list of accounts** – Allow the monitoring account to assume the sharing role only in the accounts
-  that you list. Replace each example account ID (such as `111122223333`) with the ID of a sharing account. Use the following JSON inline policy:
+  ```
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": "sts:AssumeRole",
+        "Resource": [
+          "arn:aws:iam::111122223333:role/CloudWatch-CrossAccountSharingRole",
+          "arn:aws:iam::444455556666:role/CloudWatch-CrossAccountSharingRole"
+        ]
+      }
+    ]
+  }
+  ```
++ **Any account** – Allow the monitoring account to assume the sharing role in any account. This matches the permissions of the role that CloudWatch creates for you, but it is the least restrictive option. Use the following JSON inline policy:
 
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": "sts:AssumeRole",
-      "Resource": [
-        "arn:aws:iam::111122223333:role/CloudWatch-CrossAccountSharingRole",
-        "arn:aws:iam::444455556666:role/CloudWatch-CrossAccountSharingRole"
-      ]
-    }
-  ]
-}
-```
-
-- **Any account** – Allow the monitoring account to assume the sharing role in any account. This
-  matches the permissions of the role that CloudWatch creates for you, but it is the least restrictive option. Use the following JSON inline policy:
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": "sts:AssumeRole",
-      "Resource": "arn:aws:iam::*:role/CloudWatch-CrossAccountSharingRole"
-    }
-  ]
-}
-```
+  ```
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": "sts:AssumeRole",
+        "Resource": "arn:aws:iam::*:role/CloudWatch-CrossAccountSharingRole"
+      }
+    ]
+  }
+  ```
 
 ### Cross-Region functionality
+<a name="cross-region-functionality"></a>
 
-This feature provides Cross-Region functionality automatically. You do not need to take any extra
-steps to display metrics from different Regions in a single account on the same
-graph or the same dashboard. Cross-Region functionality is not supported for alarms, so you cannot create an
-alarm in one Region that watches a metric in a different Region.
+This feature provides Cross-Region functionality automatically. You do not need to take any extra steps to display metrics from different Regions in a single account on the same graph or the same dashboard. Cross-Region functionality is not supported for alarms, so you cannot create an alarm in one Region that watches a metric in a different Region.
 
 ## (Optional) Integrate with AWS Organizations
+<a name="cross-account-and-AWS-organizations"></a>
 
-If you want to integrate cross-account functionality with AWS Organizations, you must make a list of all accounts
-in the organization available to the monitoring accounts.
+If you want to integrate cross-account functionality with AWS Organizations, you must make a list of all accounts in the organization available to the monitoring accounts.
 
-###### To enable cross-account CloudWatch functionality to access a list of all accounts in your organization
+**To enable cross-account CloudWatch functionality to access a list of all accounts in your organization**
 
 1. Sign in to your organization's management account.
-2. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-3. In the navigation pane, choose **Settings**, then choose **Configure**.
-4. For **Grant permission to view the list of accounts in the organization**,
-   choose **Specific accounts** to be prompted to enter a
-   list of account IDs. The list of accounts in your organization are
-   shared with only the accounts that you specify here.
-5. Choose **Share organization account list**.
-6. Choose **Launch CloudFormation template**.
 
-In the confirmation screen, type `Confirm`, and
-choose **Launch template**.
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
+
+1. In the navigation pane, choose **Settings**, then choose **Configure**.
+
+1. For **Grant permission to view the list of accounts in the organization**, choose **Specific accounts** to be prompted to enter a list of account IDs. The list of accounts in your organization are shared with only the accounts that you specify here.
+
+1. Choose **Share organization account list**.
+
+1. Choose **Launch CloudFormation template**.
+
+   In the confirmation screen, type **Confirm**, and choose **Launch template**.
 
 ## Troubleshooting your CloudWatch cross-account setup
+<a name="troubleshooting-cross-account-cross-Region"></a>
 
 This section contains troubleshooting tips for cross-account, console deployment in CloudWatch.
 
-**I am getting access denied errors displaying cross-account data**
+**I am getting access denied errors displaying cross-account data**  
+Check the following:  
++ Your monitoring account must have a role named **ServiceRoleForCloudWatchCrossAccountV2**. If it does not, create this role. For more information, see [Set up a monitoring account](#setup_monitoring_account).
++ Each sharing account must have a role named **CloudWatch-CrossAccountSharingRole**. If it does not, create this role. For more information, see [Set up a sharing account](#setup_sharing_account).
++ The sharing role must trust the monitoring account.
 
-Check the following:
+**To confirm that your roles are set up properly for the CloudWatch cross-account console**
 
-- Your monitoring account must have a role named **ServiceRoleForCloudWatchCrossAccountV2**. If it does not,
-  create this role. For more information, see [Set up a monitoring account](#setup_monitoring_account "#setup_monitoring_account").
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
-- Each sharing account must have a role named **CloudWatch-CrossAccountSharingRole**. If it does not,
-  create this role. For more information, see [Set up a sharing account](#setup_sharing_account "#setup_sharing_account").
+1. In the navigation pane, choose **Roles**.
 
-- The sharing role must trust the monitoring account.
+1. In the list of roles, make sure the needed role exists. In a sharing account, look for **CloudWatch-CrossAccountSharingRole**. In a monitoring account, look for **ServiceRoleForCloudWatchCrossAccountV2**.
 
-###### To confirm that your roles are set up properly for the CloudWatch cross-account console
+1. If you are in a sharing account and **CloudWatch-CrossAccountSharingRole** already exists, choose **CloudWatch-CrossAccountSharingRole**.
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Roles**.
-3. In the list of roles, make sure the needed role exists. In a sharing account, look for **CloudWatch-CrossAccountSharingRole**.
-   In a monitoring account, look for **ServiceRoleForCloudWatchCrossAccountV2**.
-4. If you are in a sharing account and **CloudWatch-CrossAccountSharingRole** already exists, choose **CloudWatch-CrossAccountSharingRole**.
-5. Choose **Trust relationships**, **Edit trust relationship**.
-6. Confirm that the policy lists either the account ID of the monitoring account, or the organization ID of an organization that contains the monitoring
-   account.
+1. Choose **Trust relationships**, **Edit trust relationship**.
 
-**I don't see an account dropdown in the console**
+1. Confirm that the policy lists either the account ID of the monitoring account, or the organization ID of an organization that contains the monitoring account.
 
-First, check that you have created the correct IAM roles, as discussed in the preceding troubleshooting section. If those are set up
-correctly, make sure that you have enabled
-this account to view cross-account data, as described in [Enable Your Account to View Cross-Account Data](#view_cross_account "#view_cross_account").
+**I don't see an account dropdown in the console**  
+First, check that you have created the correct IAM roles, as discussed in the preceding troubleshooting section. If those are set up correctly, make sure that you have enabled this account to view cross-account data, as described in [Enable Your Account to View Cross-Account Data](#view_cross_account).
 
 ## Monitoring account permissions for cross-account access
+<a name="cross-account-cross-region-limitations"></a>
 
 To access an action in source accounts successfully, the user in the monitoring account must have the equivalent permission for all resources (\*) for that action in the monitoring account. This is a local permission requirement in the monitoring account and is unrelated to permissions in the cross-account sharing role in source accounts.
 
 ### Example
+<a name="policy-configuration-examples"></a>
 
 To start a Logs query in a source account, you must have wildcard (\*) access to StartQuery in the monitoring account. The source account's cross-account role can still restrict access to specific log groups.
 
@@ -392,31 +335,20 @@ To start a Logs query in a source account, you must have wildcard (\*) access to
 ```
 
 ## Disabling and cleaning up after using cross-account
+<a name="cleanup-cross-account-cross-Region"></a>
 
 To disable cross-account functionality for CloudWatch, follow these steps.
 
 **Step 1: Remove the cross-account stacks or roles**
 
-The best method is to remove the CloudFormation stacks that were used to enable cross-account
-functionality.
-
-- In each of the sharing accounts, remove the
-  **CloudWatch-CrossAccountSharingRole** stack.
-- If you used AWS Organizations to enable cross-account functionality with all accounts in an
-  organization, remove the
-  **CloudWatch-CrossAccountListAccountsRole** stack in
-  the organization's management account.
+The best method is to remove the CloudFormation stacks that were used to enable cross-account functionality.
++ In each of the sharing accounts, remove the **CloudWatch-CrossAccountSharingRole** stack.
++ If you used AWS Organizations to enable cross-account functionality with all accounts in an organization, remove the **CloudWatch-CrossAccountListAccountsRole ** stack in the organization's management account.
 
 If you didn't use the CloudFormation stacks to enable cross-account functionality, do the following:
-
-- In each of the sharing accounts, delete the
-  **CloudWatch-CrossAccountSharingRole** IAM role.
-- If you used AWS Organizations to enable cross-account functionality with all accounts in an
-  organization, delete the
-  **CloudWatch-CrossAccountSharing-ListAccountsRole** IAM role in
-  the organization's management account.
++ In each of the sharing accounts, delete the **CloudWatch-CrossAccountSharingRole** IAM role.
++ If you used AWS Organizations to enable cross-account functionality with all accounts in an organization, delete the **CloudWatch-CrossAccountSharing-ListAccountsRole** IAM role in the organization's management account.
 
 **Step 2: Remove the service role**
 
-In the monitoring account, delete the **ServiceRoleForCloudWatchCrossAccountV2**
-IAM service role.
+In the monitoring account, delete the **ServiceRoleForCloudWatchCrossAccountV2** IAM service role.

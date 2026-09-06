@@ -1,16 +1,15 @@
+
+
 # Hello CloudWatch
+<a name="example_cloudwatch_Hello_section"></a>
 
 The following code examples show how to get started using CloudWatch.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
 using Amazon.CloudWatch;
@@ -55,23 +54,14 @@ public static class HelloCloudWatch
         }
     }
 }
-
-
 ```
++  For API details, see [ListMetrics](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/ListMetrics) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListMetrics](../../../goto/DotNetSDKV4/monitoring-2010-08-01/ListMetrics.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/ListMetrics.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -131,26 +121,16 @@ public class HelloService {
         }
     }
 }
+```
++  For API details, see [ListMetrics](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/ListMetrics) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
-
-- For API details, see
-  [ListMetrics](../../../goto/SdkForJavaV2/monitoring-2010-08-01/ListMetrics.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/ListMetrics.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
-
-```
-
 /**
 Before running this Kotlin code example, set up your development environment,
 including your credentials.
@@ -161,9 +141,9 @@ https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/setup.html
 suspend fun main(args: Array<String>) {
     val usage = """
         Usage:
-           <namespace>
+           <namespace> 
         Where:
-           namespace - The namespace to filter against (for example, AWS/EC2).
+           namespace - The namespace to filter against (for example, AWS/EC2). 
     """
 
     if (args.size != 1) {
@@ -191,14 +171,9 @@ suspend fun listAllMets(namespaceVal: String?) {
             }
     }
 }
-
-
 ```
++  For API details, see [ListMetrics](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListMetrics](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

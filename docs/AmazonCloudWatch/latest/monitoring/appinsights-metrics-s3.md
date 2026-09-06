@@ -1,4 +1,7 @@
+
+
 # Amazon S3 bucket
+<a name="appinsights-metrics-s3"></a>
 
 CloudWatch Application Insights supports the following metrics:
 

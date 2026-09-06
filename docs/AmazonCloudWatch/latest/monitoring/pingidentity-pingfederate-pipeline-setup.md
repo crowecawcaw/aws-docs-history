@@ -1,4 +1,7 @@
+
+
 # CloudWatch pipelines configuration for Ping Identity PingFederate
+<a name="pingidentity-pingfederate-pipeline-setup"></a>
 
 The Ping Identity PingFederate setup on AWS reads log data from Amazon S3 buckets using Amazon SQS notifications for new object events.
 
@@ -21,34 +24,25 @@ source:
     notification_type: "sqs"
     sqs:
       queue_url: "https://sqs.region.amazonaws.com/<account>/<queue-name>"
-```
+```Parameters
 
-###### Parameters
-
-`notification_type` (required)
-
+`notification_type` (required)  
 Specifies the notification mechanism. Must be "sqs" to use SQS for S3 event notifications.
 
-`data_source_name` (required)
-
+`data_source_name` (required)  
 Identifies the data source. Use "pingidentity\_pingfederate" for Ping Identity PingFederate.
 
-`aws.region` (required)
-
+`aws.region` (required)  
 The AWS region where the S3 bucket and SQS queue are located.
 
-`aws.sts_role_arn` (required)
-
+`aws.sts_role_arn` (required)  
 The ARN of the IAM role to assume for accessing S3 and SQS resources.
 
-`codec` (required)
-
+`codec` (required)  
 Codec configuration for parsing S3 objects. Use `ndjson` for PingFederate JSON audit logs.
 
-`compression` (optional)
-
+`compression` (optional)  
 Compression type of the S3 objects. Valid values are "none", "gzip", "automatic". Defaults to "none".
 
-`sqs.queue_url` (required for SQS)
-
+`sqs.queue_url` (required for SQS)  
 The complete SQS queue URL that receives S3 bucket notifications when new objects are created.

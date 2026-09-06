@@ -1,11 +1,11 @@
+
+
 # Create a Log Alarm on high latency per endpoint
+<a name="US_LogAlarmLatencyByEndpoint"></a>
 
-You can create a multi-contributor Log Alarm that monitors average latency grouped by
-endpoint. The alarm transitions to `ALARM` state if any endpoint exceeds the
-latency threshold.
+You can create a multi-contributor Log Alarm that monitors average latency grouped by endpoint. The alarm transitions to `ALARM` state if any endpoint exceeds the latency threshold.
 
-The following example creates a Log Alarm that enters `ALARM` state when any
-endpoint has average latency greater than 1000 ms in 3 out of 5 query executions.
+The following example creates a Log Alarm that enters `ALARM` state when any endpoint has average latency greater than 1000 ms in 3 out of 5 query executions.
 
 ```
 aws cloudwatch put-log-alarm \
@@ -16,11 +16,11 @@ aws cloudwatch put-log-alarm \
     --query-results-to-evaluate 5 \
     --query-results-to-alarm 3 \
     --treat-missing-data missing \
-    --alarm-actions "arn:aws:sns:`region`:`account-id`:`topic-name`" \
+    --alarm-actions "arn:aws:sns:{{region}}:{{account-id}}:{{topic-name}}" \
     --scheduled-query-configuration '{
         "QueryString": "parse @message /endpoint=(?<endpoint>\\S+).*latency=(?<latency>\\d+)/",
-        "LogGroupIdentifiers": ["/aws/apigateway/`my-api`"],
-        "ScheduledQueryRoleARN": "arn:aws:iam::`account-id`:role/`ScheduledQueryRole`",
+        "LogGroupIdentifiers": ["/aws/apigateway/{{my-api}}"],
+        "ScheduledQueryRoleARN": "arn:aws:iam::{{account-id}}:role/{{ScheduledQueryRole}}",
         "AggregationExpression": "avg(latency) by endpoint",
         "ScheduleConfiguration": {
             "ScheduleExpression": "rate(5 minutes)",
@@ -29,7 +29,4 @@ aws cloudwatch put-log-alarm \
     }'
 ```
 
-In this example, each unique value of `endpoint` becomes a contributor. If
-any contributor's average latency exceeds 1000 ms, the alarm transitions to
-`ALARM` state and sends a notification identifying which endpoint is
-breaching.
+In this example, each unique value of `endpoint` becomes a contributor. If any contributor's average latency exceeds 1000 ms, the alarm transitions to `ALARM` state and sends a notification identifying which endpoint is breaching.

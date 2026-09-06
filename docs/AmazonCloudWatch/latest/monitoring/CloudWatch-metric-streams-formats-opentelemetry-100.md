@@ -1,33 +1,18 @@
+
+
 # CloudWatch metric stream output in OpenTelemetry 1.0.0 format
+<a name="CloudWatch-metric-streams-formats-opentelemetry-100"></a>
 
-###### Note
+**Note**  
+With the OpenTelemetry 1.0.0 format, metric attributes are encoded as a list of `KeyValue` objects instead of the `StringKeyValue` type used in the 0.7.0 format. As a consumer, this is the only major change between the 0.7.0 and 1.0.0 formats. A parser generated from the 0.7.0 proto files won't parse metric attributes encoded in the 1.0.0 format. The same is true in reverse, a parser generated from the 1.0.0 proto files will not parse metric attributes encoded in the 0.7.0 format.
 
-With the OpenTelemetry 1.0.0 format, metric attributes are
-encoded as a list of `KeyValue` objects instead of the `StringKeyValue` type
-used in the 0.7.0 format. As a consumer, this is the only major change between the
-0.7.0 and 1.0.0 formats. A parser generated from the 0.7.0 proto files won't
-parse metric attributes encoded in the 1.0.0 format. The same is true in reverse, a
-parser generated from the 1.0.0 proto files will not parse metric attributes encoded in the 0.7.0 format.
+OpenTelemetry is a collection of tools, APIs, and SDKs. You can use it to instrument, generate, collect, and export telemetry data (metrics, logs, and traces) for analysis. OpenTelemetry is part of the Cloud Native Computing Foundation. For more information, see [OpenTelemetry](https://opentelemetry.io/).
 
-OpenTelemetry is a collection of tools, APIs, and SDKs.
-You can use it to instrument, generate, collect, and export telemetry data
-(metrics, logs, and traces) for analysis. OpenTelemetry is part of the
-Cloud Native Computing Foundation. For more information,
-see [OpenTelemetry](https://opentelemetry.io/ "https://opentelemetry.io/").
+For information about the full OpenTelemetry 1.0.0 specification, see [Release version 1.0.0](https://github.com/open-telemetry/opentelemetry-proto/releases/tag/v1.0.0).
 
-For information about the full OpenTelemetry 1.0.0 specification,
-see [Release version 1.0.0](https://github.com/open-telemetry/opentelemetry-proto/releases/tag/v1.0.0 "https://github.com/open-telemetry/opentelemetry-proto/releases/tag/v1.0.0").
+A Kinesis record can contain one or more `ExportMetricsServiceRequest` OpenTelemetry data structures. Each data structure starts with a header with an `UnsignedVarInt32` indicating the record length in bytes. Each `ExportMetricsServiceRequest` may contain data from multiple metrics at once.
 
-A Kinesis record can contain one or more `ExportMetricsServiceRequest`
-OpenTelemetry data structures. Each data structure starts with a header with an
-`UnsignedVarInt32` indicating the record length in bytes.
-Each `ExportMetricsServiceRequest` may contain data from multiple
-metrics at once.
-
-The following is a string representation of the message of
-the `ExportMetricsServiceRequest`
-OpenTelemetry data structure. OpenTelemetry serializes the
-Google Protocol Buffers binary protocol, and this is not human-readable.
+The following is a string representation of the message of the `ExportMetricsServiceRequest` OpenTelemetry data structure. OpenTelemetry serializes the Google Protocol Buffers binary protocol, and this is not human-readable.
 
 ```
 resource_metrics {
@@ -154,8 +139,7 @@ resource_metrics {
 
 **Top-level object to serialize OpenTelemetry metric data**
 
-`ExportMetricsServiceRequest` is the top-level wrapper to serialize
-an OpenTelemetry exporter payload. It contains one or more `ResourceMetrics`.
+`ExportMetricsServiceRequest` is the top-level wrapper to serialize an OpenTelemetry exporter payload. It contains one or more `ResourceMetrics`.
 
 ```
 message ExportMetricsServiceRequest {
@@ -168,7 +152,7 @@ message ExportMetricsServiceRequest {
 }
 ```
 
-`ResourceMetrics` is the top-level object to represent MetricData objects.
+`ResourceMetrics` is the top-level object to represent MetricData objects. 
 
 ```
 // A collection of ScopeMetrics from a Resource.
@@ -190,18 +174,13 @@ message ResourceMetrics {
 
 **The Resource object**
 
-A `Resource` object is a value-pair object that contains some
-information about the resource that generated the metrics. For metrics created by
-AWS, the data structure contains the Amazon Resource Name (ARN) of the resource
-related to the metric, such as an EC2 instance or an S3 bucket.
+A `Resource` object is a value-pair object that contains some information about the resource that generated the metrics. For metrics created by AWS, the data structure contains the Amazon Resource Name (ARN) of the resource related to the metric, such as an EC2 instance or an S3 bucket.
 
-The `Resource` object contains an attribute
-called `attributes`, which store a list of key-value pairs.
-
-- `cloud.account.id` contains the account ID
-- `cloud.region` contains the Region
-- `aws.exporter.arn` contains the metric stream ARN
-- `cloud.provider` is always `aws`.
+The `Resource` object contains an attribute called `attributes`, which store a list of key-value pairs.
++ `cloud.account.id` contains the account ID
++ `cloud.region` contains the Region
++ `aws.exporter.arn` contains the metric stream ARN
++ `cloud.provider` is always `aws`.
 
 ```
 // Resource information.
@@ -219,8 +198,7 @@ message Resource {
 
 **The ScopeMetrics object**
 
-The `scope` field will not be filled. We fill only the metrics field
-that we are exporting.
+The `scope` field will not be filled. We fill only the metrics field that we are exporting.
 
 ```
 // A collection of Metrics produced by an Scope.
@@ -240,18 +218,13 @@ message ScopeMetrics {
 
 **The Metric object**
 
-The metric object contains some metadata and a `Summary` data field
-that contains a list of `SummaryDataPoint`.
+The metric object contains some metadata and a `Summary` data field that contains a list of `SummaryDataPoint`.
 
 For metric streams, the metadata is as follows:
-
-- `name` will be
-  `amazonaws.com/`metric_namespace`/`metric_name``
-- `description` will be blank
-- `unit` will be filled by mapping the metric datum's
-  unit to the case-sensitive variant of the Unified code for Units of Measure. For more information, see [Translations with OpenTelemetry 1.0.0 format in CloudWatch](CloudWatch-metric-streams-formats-opentelemetry-translation-100.md "CloudWatch-metric-streams-formats-opentelemetry-translation-100.md")
-  and [The Unified Code For Units of Measure](https://ucum.org/ucum.html "https://ucum.org/ucum.html").
-- `type` will be `SUMMARY`
++ `name` will be `amazonaws.com/{{metric_namespace}}/{{metric_name}}`
++ `description` will be blank
++ `unit` will be filled by mapping the metric datum's unit to the case-sensitive variant of the Unified code for Units of Measure. For more information, see [Translations with OpenTelemetry 1.0.0 format in CloudWatch](CloudWatch-metric-streams-formats-opentelemetry-translation-100.md) and [The Unified Code For Units of Measure](https://ucum.org/ucum.html).
++ `type` will be `SUMMARY`
 
 ```
 message Metric {
@@ -286,8 +259,7 @@ message Summary {
 
 **The SummaryDataPoint object**
 
-The SummaryDataPoint object contains the value of a single data point
-in a time series in a DoubleSummary metric.
+The SummaryDataPoint object contains the value of a single data point in a time series in a DoubleSummary metric.
 
 ```
 // SummaryDataPoint is a single data point in a timeseries that describes the
@@ -356,4 +328,4 @@ message SummaryDataPoint {
 }
 ```
 
-For more information, see [Translations with OpenTelemetry 1.0.0 format in CloudWatch](CloudWatch-metric-streams-formats-opentelemetry-translation-100.md "CloudWatch-metric-streams-formats-opentelemetry-translation-100.md").
+For more information, see [Translations with OpenTelemetry 1.0.0 format in CloudWatch](CloudWatch-metric-streams-formats-opentelemetry-translation-100.md).

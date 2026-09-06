@@ -1,9 +1,8 @@
+
+
 # Using Contributor Insights built-in rules in CloudWatch
+<a name="ContributorInsights-BuiltInRules"></a>
 
-You can use Contributor Insights built-in rules
-to analyze metrics
-from other AWS services.
-The following services support built-in rules:
-
-- [Contributor Insights for Amazon DynamoDB](../../../amazondynamodb/latest/developerguide/contributorinsights.md "../../../amazondynamodb/latest/developerguide/contributorinsights.md") in the _Amazon DynamoDB Developer Guide_.
-- [Use built-in Contributor Insights rules](../../../vpc/latest/privatelink/privatelink-cloudwatch-metrics.md#privatelink-contributor-insights "../../../vpc/latest/privatelink/privatelink-cloudwatch-metrics.md#privatelink-contributor-insights") in the _AWS PrivateLink Guide_.
+You can use Contributor Insights built-in rules to analyze metrics from other AWS services. The following services support built-in rules:
++ [Contributor Insights for Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights.html) in the *Amazon DynamoDB Developer Guide*.
++ [Use built-in Contributor Insights rules](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-cloudwatch-metrics.html#privatelink-contributor-insights) in the *AWS PrivateLink Guide*.

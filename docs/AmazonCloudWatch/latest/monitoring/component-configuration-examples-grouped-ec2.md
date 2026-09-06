@@ -1,7 +1,9 @@
-# Customer-grouped Amazon EC2 instances
 
-The following example shows a component configuration in JSON format for
-customer-grouped Amazon EC2 instances.
+
+# Customer-grouped Amazon EC2 instances
+<a name="component-configuration-examples-grouped-ec2"></a>
+
+The following example shows a component configuration in JSON format for customer-grouped Amazon EC2 instances.
 
 ```
 {
@@ -11,7 +13,7 @@ customer-grouped Amazon EC2 instances.
         "alarmMetrics": [
           {
             "alarmMetricName": "CPUUtilization",
-          },
+          }, 
           {
             "alarmMetricName": "StatusCheckFailed"
           }

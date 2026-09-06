@@ -1,21 +1,18 @@
+
+
 # Use `PutAnomalyDetector` with an AWS SDK or CLI
+<a name="example_cloudwatch_PutAnomalyDetector_section"></a>
 
 The following code examples show how to use `PutAnomalyDetector`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
 
-- [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
     /// <summary>
@@ -33,50 +30,33 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return putAlarmDetectorResult.HttpStatusCode == HttpStatusCode.OK;
     }
+```
++  For API details, see [PutAnomalyDetector](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/PutAnomalyDetector) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To create an anomaly detection model**  
+The following `put-anomaly-detector` example creates an anomaly detection model for a CloudWatch metric.  
 
 ```
+aws cloudwatch put-anomaly-detector \
+    --namespace {{AWS/Logs}} \
+    --metric-name {{IncomingBytes}} \
+    --stat {{SampleCount}}
+```
+This command produces no output.  
+For more information, see [Using CloudWatch anomaly detection](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html) in the *Amazon CloudWatch User Guide*.  
++  For API details, see [PutAnomalyDetector](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-anomaly-detector.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [PutAnomalyDetector](../../../goto/DotNetSDKV4/monitoring-2010-08-01/PutAnomalyDetector.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/PutAnomalyDetector.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-CLI
-
-**AWS CLI**
-
-**To create an anomaly detection model**
-
-The following `put-anomaly-detector` example creates an anomaly detection model for a CloudWatch metric.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
-`aws cloudwatch put-anomaly-detector \
- --namespace `AWS/Logs` \
- --metric-name `IncomingBytes` \
- --stat `SampleCount``
-
-```
-
-This command produces no output.
-
-For more information, see [Using CloudWatch anomaly detection](CloudWatch_Anomaly_Detection.md "CloudWatch_Anomaly_Detection.md") in the _Amazon CloudWatch User Guide_.
-
-- For API details, see
-  [PutAnomalyDetector](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-anomaly-detector.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-anomaly-detector.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
-
-```
-
     /**
      * Adds an anomaly detector for the given file.
      *
@@ -120,23 +100,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             }
         });
     }
-
-
 ```
++  For API details, see [PutAnomalyDetector](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutAnomalyDetector) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutAnomalyDetector](../../../goto/SdkForJavaV2/monitoring-2010-08-01/PutAnomalyDetector.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/PutAnomalyDetector.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun addAnomalyDetector(fileName: String?) {
@@ -163,14 +134,9 @@ suspend fun addAnomalyDetector(fileName: String?) {
         println("Added anomaly detector for metric $customMetricName.")
     }
 }
-
-
 ```
++  For API details, see [PutAnomalyDetector](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [PutAnomalyDetector](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

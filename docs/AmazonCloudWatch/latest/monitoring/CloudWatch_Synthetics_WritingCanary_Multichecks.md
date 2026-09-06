@@ -1,36 +1,35 @@
+
+
 # Writing a JSON configuration for Node.js multi Checks blueprint
+<a name="CloudWatch_Synthetics_WritingCanary_Multichecks"></a>
 
-The Node.js multi checks blueprint allows you to create canaries that perform multiple
-validation checks within a single canary run. This blueprint is useful when you want to
-test multiple endpoints, validate different aspects of your application, or perform a
-series of related checks in sequence.
+The Node.js multi checks blueprint allows you to create canaries that perform multiple validation checks within a single canary run. This blueprint is useful when you want to test multiple endpoints, validate different aspects of your application, or perform a series of related checks in sequence. 
 
-###### Topics
-
-- [Root configuration structure](#root-configuration-structure "#root-configuration-structure")
-- [Global settings](#global-settings "#global-settings")
-- [Variables and data management](#variables-data-management "#variables-data-management")
-- [Step definitions](#step-definitions "#step-definitions")
-- [Check types](#check-types "#check-types")
-- [Authentication methods](#authentication-methods "#authentication-methods")
-- [Assertions and validation](#assertions-validation "#assertions-validation")
-- [Data extraction](#data-extraction "#data-extraction")
+**Topics**
++ [Root configuration structure](#root-configuration-structure)
++ [Global settings](#global-settings)
++ [Variables and data management](#variables-data-management)
++ [Step definitions](#step-definitions)
++ [Check types](#check-types)
++ [Authentication methods](#authentication-methods)
++ [Assertions and validation](#assertions-validation)
++ [Data extraction](#data-extraction)
 
 ## Root configuration structure
+<a name="root-configuration-structure"></a>
 
-The root configuration defines the overall structure of your advanced API blueprint
-canary.
+The root configuration defines the overall structure of your advanced API blueprint canary.
 
-| Property         | Type   | Required | Description                                 |
-| ---------------- | ------ | -------- | ------------------------------------------- |
-| `globalSettings` | Object | No       | Default configurations applied to all steps |
-| `variables`      | Object | No       | Reusable values across steps (max 10)       |
-| `steps`          | Object | **Yes**  | Collection of monitoring steps (1-10 steps) |
 
-**Example**
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+|  globalSettings  | Object | No | Default configurations applied to all steps | 
+|  variables  | Object | No | Reusable values across steps (max 10) | 
+|  steps  | Object |  Yes  | Collection of monitoring steps (1-10 steps) | 
+
+ **Example** 
 
 ```
-
 {
   "globalSettings": {
     "stepTimeout": 30000,
@@ -49,62 +48,58 @@ canary.
     }
   }
 }
-
 ```
 
-**Validation rules**
-
-- Must contain at least one step
-- Maximum 10 steps allowed
-- No additional properties allowed beyond `globalSettings`, `variables`, and `steps`
+ **Validation rules** 
++ Must contain at least one step
++ Maximum 10 steps allowed
++ No additional properties allowed beyond `globalSettings`, ` variables`, and `steps`
 
 ## Global settings
+<a name="global-settings"></a>
 
-Global settings provide default configurations that apply to all steps unless
-overridden at the step level.
+Global settings provide default configurations that apply to all steps unless overridden at the step level.
 
-**Properties**
+ **Properties** 
 
-| Property      | Type    | Default | Range       | Description                                  |
-| ------------- | ------- | ------- | ----------- | -------------------------------------------- |
-| `stepTimeout` | integer | 30000   | 5000-300000 | Default timeout for all steps (milliseconds) |
 
-**Example**
+| Property | Type | Default | Range | Description | 
+| --- | --- | --- | --- | --- | 
+|  stepTimeout  | integer | 30000 | 5000-300000 | Default timeout for all steps (milliseconds) | 
+
+ **Example** 
 
 ```
-
 {
   "globalSettings": {
     "stepTimeout": 60000,
-
+            
   }
 }
-
 ```
 
 ## Variables and data management
+<a name="variables-data-management"></a>
 
-Variables allow you to define reusable values that can be referenced throughout your
-configuration using `${variableName}` syntax.
+Variables allow you to define reusable values that can be referenced throughout your configuration using `${variableName}` syntax.
 
-**Variable properties**
+ **Variable properties** 
 
-| Property        | Type   | Description                                  |
-| --------------- | ------ | -------------------------------------------- |
-| Variable names  | string | Must match pattern `^[a-zA-Z][a-zA-Z0-9_]*$` |
-| Variable values | string | Any string value                             |
 
-**Limitations**
+| Property | Type | Description | 
+| --- | --- | --- | 
+| Variable names | string | Must match pattern ^[a-zA-Z][a-zA-Z0-9\_]\*$ | 
+| Variable values | string | Any string value | 
 
-- Maximum 10 variables per configuration
-- Variable names must start with a letter
-- Variable names can contain letters, numbers, and underscores only
-- Maximum length not specified in schema
+ **Limitations** 
++ Maximum 10 variables per configuration
++ Variable names must start with a letter
++ Variable names can contain letters, numbers, and underscores only
++ Maximum length not specified in schema
 
-**Example**
+ **Example** 
 
 ```
-
 {
   "variables": {
     "baseUrl": "https://api.example.com",
@@ -113,13 +108,11 @@ configuration using `${variableName}` syntax.
     "userEmail": "test@example.com"
   }
 }
-
 ```
 
-**Configuration usage**
+ **Configuration usage** 
 
 ```
-
 {
   "steps": {
     "1": {
@@ -131,37 +124,34 @@ configuration using `${variableName}` syntax.
     }
   }
 }
-
-
 ```
 
 ## Step definitions
+<a name="step-definitions"></a>
 
-Steps define individual monitoring operations. Each step is numbered from 1 to 10
-and contains a specific type of check.
+Steps define individual monitoring operations. Each step is numbered from 1 to 10 and contains a specific type of check.
 
-_Common step properties_
+ *Common step properties* 
 
-| Property      | Type   | Required | Description                                |
-| ------------- | ------ | -------- | ------------------------------------------ |
-| `stepName`    | string | **Yes**  | Unique identifier for the step             |
-| `checkerType` | string | **Yes**  | Type of check: `HTTP`, `DNS`, `SSL`, `TCP` |
-| `extractors`  | array  | No       | Data extraction configuration              |
 
-_Step name validation_
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+|  stepName  | string |  Yes  | Unique identifier for the step | 
+|  checkerType  | string |  Yes  | Type of check: HTTP, DNS, SSL,  TCP | 
+|  extractors  | array | No | Data extraction configuration | 
 
-- Pattern - ^[a-zA-Z][a-zA-Z0-9\_-]\*$
-- Maximum length - 64 characters
-- Must start with a letter
+ *Step name validation* 
++ Pattern - ^[a-zA-Z][a-zA-Z0-9\_-]\*$
++ Maximum length - 64 characters
++ Must start with a letter
 
-_Step numbering_
+ *Step numbering* 
++ Steps are numbered as string keys: "1", "2", ..., "10"
++ Pattern: ^([1-9]\|10)$
++ Minimum 1 step required
++ Maximum 10 steps allowed
 
-- Steps are numbered as string keys: "1", "2", ..., "10"
-- Pattern: ^([1-9]|10)$
-- Minimum 1 step required
-- Maximum 10 steps allowed
-
-_Example_
+ *Example* 
 
 ```
 {
@@ -179,37 +169,39 @@ _Example_
     }
   }
 }
-
 ```
 
 ## Check types
+<a name="check-types"></a>
 
 ### HTTP checks
+<a name="http-types"></a>
 
 Monitor web endpoints and APIs with comprehensive request and response validation.
 
-**Required properties**
+ **Required properties** 
 
-| Property     | Type   | Description                                                             |
-| ------------ | ------ | ----------------------------------------------------------------------- |
-| `url`        | string | Target URL (must be valid URI format)                                   |
-| `httpMethod` | string | HTTP method: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, `OPTIONS` |
 
-**Optional properties**
+| Property | Type | Description | 
+| --- | --- | --- | 
+|  url  | string | Target URL (must be valid URI format) | 
+|  httpMethod  | string | HTTP method: GET, POST, PUT,  PATCH, DELETE, HEAD, OPTIONS | 
 
-| Property         | Type    | Default | Range       | Description                          |
-| ---------------- | ------- | ------- | ----------- | ------------------------------------ |
-| `timeout`        | integer | 30000   | 5000-300000 | Request timeout (milliseconds)       |
-| `waitTime`       | integer | 0       | 0-60        | Delay before request (seconds)       |
-| `headers`        | object  | -       | -           | Custom HTTP headers                  |
-| `body`           | string  | -       | -           | Request body for POST/PUT operations |
-| `authentication` | object  | -       | -           | Authentication configuration         |
-| `assertions`     | array   | -       | -           | Response validation rules            |
+ **Optional properties** 
 
-**Example**
+
+| Property | Type | Default | Range | Description | 
+| --- | --- | --- | --- | --- | 
+|  timeout  | integer | 30000 | 5000-300000 | Request timeout (milliseconds) | 
+|  waitTime  | integer | 0 | 0-60 | Delay before request (seconds) | 
+|  headers  | object | - | - | Custom HTTP headers | 
+|  body  | string | - | - | Request body for POST/PUT operations | 
+|  authentication  | object | - | - | Authentication configuration | 
+|  assertions  | array | - | - | Response validation rules | 
+
+ **Example** 
 
 ```
-
 {
   "stepName": "createUser",
   "checkerType": "HTTP",
@@ -234,31 +226,33 @@ Monitor web endpoints and APIs with comprehensive request and response validatio
     }
   ]
 }
-
 ```
 
 ### DNS checks
+<a name="dns-types"></a>
 
 Validate DNS resolution and record information.
 
-**Required properties**
+ **Required properties** 
 
-| Property | Type   | Description                            |
-| -------- | ------ | -------------------------------------- |
-| `domain` | string | Domain name to query (hostname format) |
 
-**Optional properties**
+| Property | Type | Description | 
+| --- | --- | --- | 
+|  domain  | string | Domain name to query (hostname format) | 
 
-| Property     | Type    | Default | Description                                      |
-| ------------ | ------- | ------- | ------------------------------------------------ |
-| `recordType` | string  | "A"     | DNS record type: `A`, `CNAME`, `MX`, `TXT`, `NS` |
-| `nameserver` | string  | -       | Specific DNS server to query                     |
-| `timeout`    | integer | 30000   | Query timeout (5000-300000ms)                    |
-| `port`       | integer | 53      | DNS server port (1-65535)                        |
-| `protocol`   | string  | "UDP"   | Protocol: `UDP` or `TCP`                         |
-| `assertions` | array   | -       | DNS response validation rules                    |
+ **Optional properties** 
 
-**Example**
+
+| Property | Type | Default | Description | 
+| --- | --- | --- | --- | 
+|  recordType  | string | "A" | DNS record type: A, CNAME, MX,  TXT, NS | 
+|  nameserver  | string | - | Specific DNS server to query | 
+|  timeout  | integer | 30000 | Query timeout (5000-300000ms) | 
+|  port  | integer | 53 | DNS server port (1-65535) | 
+|  protocol  | string | "UDP" | Protocol: UDP or TCP | 
+|  assertions  | array | - | DNS response validation rules | 
+
+ **Example** 
 
 ```
 {
@@ -276,31 +270,33 @@ Validate DNS resolution and record information.
     }
   ]
 }
-
 ```
 
 ### SSL checks
+<a name="ssl-types"></a>
 
 Monitor SSL certificate health and configuration.
 
-**Required properties**
+ **Required properties** 
 
-| Property   | Type   | Description                       |
-| ---------- | ------ | --------------------------------- |
-| `hostname` | string | Target hostname (hostname format) |
 
-**Optional properties**
+| Property | Type | Description | 
+| --- | --- | --- | 
+|  hostname  | string | Target hostname (hostname format) | 
 
-| Property          | Type    | Default | Description                        |
-| ----------------- | ------- | ------- | ---------------------------------- |
-| `port`            | integer | 443     | SSL port (1-65535)                 |
-| `timeout`         | integer | 30000   | Connection timeout (5000-300000ms) |
-| `sni`             | boolean | TRUE    | Server Name Indication             |
-| `verifyHostname`  | boolean | TRUE    | Hostname verification              |
-| `allowSelfSigned` | boolean | FALSE   | Accept self-signed certificates    |
-| `assertions`      | array   | -       | Certificate validation rules       |
+ **Optional properties** 
 
-**Example**
+
+| Property | Type | Default | Description | 
+| --- | --- | --- | --- | 
+|  port  | integer | 443 | SSL port (1-65535) | 
+|  timeout  | integer | 30000 | Connection timeout (5000-300000ms) | 
+|  sni  | boolean | TRUE | Server Name Indication | 
+|  verifyHostname  | boolean | TRUE | Hostname verification | 
+|  allowSelfSigned  | boolean | FALSE | Accept self-signed certificates | 
+|  assertions  | array | - | Certificate validation rules | 
+
+ **Example** 
 
 ```
 {
@@ -319,33 +315,35 @@ Monitor SSL certificate health and configuration.
     }
   ]
 }
-
 ```
 
 ### TCP checks
+<a name="tcp-types"></a>
 
 Test TCP port connectivity and response validation.
 
-**Required properties**
+ **Required properties** 
 
-| Property   | Type    | Description                       |
-| ---------- | ------- | --------------------------------- |
-| `hostname` | string  | Target hostname (hostname format) |
-| `port`     | integer | Target port (1-65535)             |
 
-**Optional properties**
+| Property | Type | Description | 
+| --- | --- | --- | 
+|  hostname  | string | Target hostname (hostname format) | 
+|  port  | integer | Target port (1-65535) | 
 
-| Property            | Type    | Default | Description                            |
-| ------------------- | ------- | ------- | -------------------------------------- |
-| `timeout`           | integer | 30000   | Overall timeout (5000-300000ms)        |
-| `connectionTimeout` | integer | 3000    | Connection timeout (5000-300000ms)     |
-| `readTimeout`       | integer | 2000    | Data read timeout (5000-300000ms)      |
-| `sendData`          | string  | -       | Data to send after connection          |
-| `expectedResponse`  | string  | -       | Expected response data                 |
-| `encoding`          | string  | "UTF-8" | Data encoding: `UTF-8`, `ASCII`, `HEX` |
-| `assertions`        | array   | -       | Connection and response validation     |
+ **Optional properties** 
 
-**Example**
+
+| Property | Type | Default | Description | 
+| --- | --- | --- | --- | 
+|  timeout  | integer | 30000 | Overall timeout (5000-300000ms) | 
+|  connectionTimeout  | integer | 3000 | Connection timeout (5000-300000ms) | 
+|  readTimeout  | integer | 2000 | Data read timeout (5000-300000ms) | 
+|  sendData  | string | - | Data to send after connection | 
+|  expectedResponse  | string | - | Expected response data | 
+|  encoding  | string | "UTF-8" | Data encoding: UTF-8, ASCII, HEX | 
+|  assertions  | array | - | Connection and response validation | 
+
+ **Example** 
 
 ```
 {
@@ -363,30 +361,29 @@ Test TCP port connectivity and response validation.
     }
   ]
 }
-
 ```
 
 ## Authentication methods
+<a name="authentication-methods"></a>
 
-**No authentication**
+ **No authentication** 
 
 ```
-
 {
   "type": "NONE"
 }
-
 ```
 
-**Basic authentication**
+ **Basic authentication** 
 
-| Property   | Type   | Required | Description                 |
-| ---------- | ------ | -------- | --------------------------- |
-| `type`     | string | **Yes**  | Must be `"BASIC"`           |
-| `username` | string | **Yes**  | Username for authentication |
-| `password` | string | **Yes**  | Password for authentication |
 
-**Example**
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+|  type  | string |  Yes  | Must be "BASIC" | 
+|  username  | string |  Yes  | Username for authentication | 
+|  password  | string |  Yes  | Password for authentication | 
+
+ **Example** 
 
 ```
 {
@@ -396,15 +393,16 @@ Test TCP port connectivity and response validation.
 }
 ```
 
-**API key authentication**
+ **API key authentication** 
 
-| Property     | Type   | Required | Default     | Description             |
-| ------------ | ------ | -------- | ----------- | ----------------------- |
-| `type`       | string | **Yes**  | -           | Must be `"API_KEY"`     |
-| `apiKey`     | string | **Yes**  | -           | API key value           |
-| `headerName` | string | No       | "X-API-Key" | Header name for API key |
 
-**Example**
+| Property | Type | Required | Default | Description | 
+| --- | --- | --- | --- | --- | 
+|  type  | string |  Yes  | - | Must be "API\_KEY" | 
+|  apiKey  | string |  Yes  | - | API key value | 
+|  headerName  | string | No | "X-API-Key" | Header name for API key | 
+
+ **Example** 
 
 ```
 {
@@ -414,21 +412,22 @@ Test TCP port connectivity and response validation.
 }
 ```
 
-**OAuth client credentials**
+ **OAuth client credentials** 
 
-| Property        | Type    | Required | Default | Description                                                 |
-| --------------- | ------- | -------- | ------- | ----------------------------------------------------------- |
-| `type`          | string  | **Yes**  | -       | Must be `"OAUTH_CLIENT_CREDENTIALS"`                        |
-| `tokenUrl`      | string  | **Yes**  | -       | OAuth token endpoint URL                                    |
-| `clientId`      | string  | **Yes**  | -       | OAuth client ID                                             |
-| `clientSecret`  | string  | **Yes**  | -       | OAuth client secret                                         |
-| `scope`         | string  | No       | -       | OAuth scope                                                 |
-| `audience`      | string  | No       | -       | OAuth audience                                              |
-| `resource`      | string  | No       | -       | OAuth resource                                              |
-| `tokenApiAuth`  | array   | No       | -       | Token API auth methods: `BASIC_AUTH_HEADER`, `REQUEST_BODY` |
-| `tokenCacheTtl` | integer | No       | 3600    | Token cache TTL (minimum 60 seconds)                        |
 
-**Example**
+| Property | Type | Required | Default | Description | 
+| --- | --- | --- | --- | --- | 
+|  type  | string |  Yes  | - | Must be "OAUTH\_CLIENT\_CREDENTIALS" | 
+|  tokenUrl  | string |  Yes  | - | OAuth token endpoint URL | 
+|  clientId  | string |  Yes  | - | OAuth client ID | 
+|  clientSecret  | string |  Yes  | - | OAuth client secret | 
+|  scope  | string | No | - | OAuth scope | 
+|  audience  | string | No | - | OAuth audience | 
+|  resource  | string | No | - | OAuth resource | 
+|  tokenApiAuth  | array | No | - | Token API auth methods: BASIC\_AUTH\_HEADER, REQUEST\_BODY | 
+|  tokenCacheTtl  | integer | No | 3600 | Token cache TTL (minimum 60 seconds) | 
+
+ **Example** 
 
 ```
 {
@@ -439,19 +438,19 @@ Test TCP port connectivity and response validation.
   "scope": "read write",
   "tokenCacheTtl": 7200
 }
-
 ```
 
-**AWS Signature (Version 4)**
+ **AWS Signature (Version 4)** 
 
-| Property  | Type   | Required | Description                                          |
-| --------- | ------ | -------- | ---------------------------------------------------- |
-| `type`    | string | **Yes**  | Must be `"SIGV4"`                                    |
-| `service` | string | **Yes**  | Name of the AWS service (for example, "execute-api") |
-| `region`  | string | **Yes**  | AWS region                                           |
-| `roleArn` | string | **Yes**  | IAM role ARN for signing                             |
 
-**Example**
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+|  type  | string |  Yes  | Must be "SIGV4" | 
+|  service  | string |  Yes  | Name of the AWS service (for example, "execute-api") | 
+|  region  | string |  Yes  | AWS region | 
+|  roleArn  | string |  Yes  | IAM role ARN for signing | 
+
+ **Example** 
 
 ```
 {
@@ -460,22 +459,24 @@ Test TCP port connectivity and response validation.
   "region": "us-east-1",
   "roleArn": "arn:aws:iam::123456789012:role/SyntheticsRole"
 }
-
 ```
 
 ## Assertions and validation
+<a name="assertions-validation"></a>
 
 ### HTTP assertions
+<a name="http-assertions"></a>
 
-**Status code assertions**
+ **Status code assertions** 
 
-| Property   | Type    | Required    | Description                                                     |
-| ---------- | ------- | ----------- | --------------------------------------------------------------- |
-| `type`     | string  | **Yes**     | Must be `"STATUS_CODE"`                                         |
-| `operator` | string  | **Yes**     | `EQUALS`, `NOT_EQUALS`, `GREATER_THAN`, `LESS_THAN`, `IN_RANGE` |
-| `value`    | integer | Conditional | HTTP status code (100-599)                                      |
-| `rangeMin` | integer | Conditional | Minimum range value (for `IN_RANGE`)                            |
-| `rangeMax` | integer | Conditional | Maximum range value (for `IN_RANGE`)                            |
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+|  type  | string |  Yes  | Must be "STATUS\_CODE" | 
+|  operator  | string |  Yes  | EQUALS, NOT\_EQUALS, GREATER\_THAN,  LESS\_THAN, IN\_RANGE | 
+|  value  | integer | Conditional | HTTP status code (100-599) | 
+|  rangeMin  | integer | Conditional | Minimum range value (for IN\_RANGE) | 
+|  rangeMax  | integer | Conditional | Maximum range value (for IN\_RANGE) | 
 
 ```
 {
@@ -483,17 +484,17 @@ Test TCP port connectivity and response validation.
   "operator": "EQUALS",
   "value": 200
 }
-
 ```
 
-**Response time assertions**
+ **Response time assertions** 
 
-| Property   | Type   | Required | Default        | Description                           |
-| ---------- | ------ | -------- | -------------- | ------------------------------------- |
-| `type`     | string | **Yes**  | -              | Must be `"RESPONSE_TIME"`             |
-| `operator` | string | **Yes**  | -              | `LESS_THAN`, `GREATER_THAN`, `EQUALS` |
-| `value`    | number | **Yes**  | -              | Time value (minimum 0)                |
-| `unit`     | string | No       | "MILLISECONDS" | Must be `"MILLISECONDS"`              |
+
+| Property | Type | Required | Default | Description | 
+| --- | --- | --- | --- | --- | 
+|  type  | string |  Yes  | - | Must be "RESPONSE\_TIME" | 
+|  operator  | string |  Yes  | - | LESS\_THAN, GREATER\_THAN, EQUALS | 
+|  value  | number |  Yes  | - | Time value (minimum 0) | 
+|  unit  | string | No | "MILLISECONDS" | Must be "MILLISECONDS" | 
 
 ```
 {
@@ -502,17 +503,17 @@ Test TCP port connectivity and response validation.
   "value": 500,
   "unit": "MILLISECONDS"
 }
-
 ```
 
-**Head assertions**
+ **Head assertions** 
 
-| Property     | Type           | Required    | Description                                                                |
-| ------------ | -------------- | ----------- | -------------------------------------------------------------------------- |
-| `type`       | string         | **Yes**     | Must be `"HEADER"`                                                         |
-| `headerName` | string         | **Yes**     | Name of header to validate                                                 |
-| `operator`   | string         | **Yes**     | `EQUALS`, `NOT_EQUALS`, `CONTAINS`, `NOT_CONTAINS`, `REGEX_MATCH`, `EXIST` |
-| `value`      | string/boolean | Conditional | Expected value (boolean for `EXIST` operator)                              |
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+|  type  | string |  Yes  | Must be "HEADER" | 
+|  headerName  | string |  Yes  | Name of header to validate | 
+|  operator  | string |  Yes  | EQUALS, NOT\_EQUALS, CONTAINS,  NOT\_CONTAINS, REGEX\_MATCH, EXIST | 
+|  value  | string/boolean | Conditional | Expected value (boolean for EXIST operator) | 
 
 ```
 {
@@ -523,15 +524,16 @@ Test TCP port connectivity and response validation.
 }
 ```
 
-**Body assertions**
+ **Body assertions** 
 
-| Property   | Type           | Required    | Default | Description                                                  |
-| ---------- | -------------- | ----------- | ------- | ------------------------------------------------------------ |
-| `type`     | string         | **Yes**     | -       | Must be `"BODY"`                                             |
-| `target`   | string         | No          | "JSON"  | `JSON` or `TEXT`                                             |
-| `path`     | string         | Conditional | -       | JSONPath (required for JSON target)                          |
-| `operator` | string         | **Yes**     | -       | `CONTAINS`, `NOT_CONTAINS`, `EQUALS`, `NOT_EQUALS`, `EXISTS` |
-| `value`    | string/boolean | **Yes**     | -       | Expected value (boolean for `EXISTS` operator)               |
+
+| Property | Type | Required | Default | Description | 
+| --- | --- | --- | --- | --- | 
+|  type  | string |  Yes  | - | Must be "BODY" | 
+|  target  | string | No | "JSON" | JSON or TEXT | 
+|  path  | string | Conditional | - | JSONPath (required for JSON target) | 
+|  operator  | string |  Yes  | - | CONTAINS, NOT\_CONTAINS, EQUALS,  NOT\_EQUALS, EXISTS | 
+|  value  | string/boolean |  Yes  | - | Expected value (boolean for EXISTS operator) | 
 
 ```
 {
@@ -541,114 +543,124 @@ Test TCP port connectivity and response validation.
   "operator": "EQUALS",
   "value": "John Doe"
 }
-
 ```
 
 ### DNS assertions
+<a name="dns-assertions"></a>
 
-**Record value assertions**
+ **Record value assertions** 
 
-| Property   | Type   | Required | Range | Description                                                       |
-| ---------- | ------ | -------- | ----- | ----------------------------------------------------------------- |
-| `type`     | string | **Yes**  | -     | Must be `"RECORD_VALUE"`                                          |
-| `operator` | string | **Yes**  | -     | `EQUALS`, `NOT_EQUALS`, `CONTAINS`, `NOT_CONTAINS`, `REGEX_MATCH` |
-| `value`    | string | **Yes**  | -     | Expected record value                                             |
 
-**Record count assertions**
+| Property | Type | Required | Range | Description | 
+| --- | --- | --- | --- | --- | 
+|  type  | string |  Yes  | - | Must be "RECORD\_VALUE" | 
+|  operator  | string |  Yes  | - | EQUALS, NOT\_EQUALS, CONTAINS,  NOT\_CONTAINS, REGEX\_MATCH | 
+|  value  | string |  Yes  | - | Expected record value | 
 
-| Property   | Type    | Required | Range | Description                           |
-| ---------- | ------- | -------- | ----- | ------------------------------------- |
-| `type`     | string  | **Yes**  | -     | Must be `"RECORD_COUNT"`              |
-| `operator` | string  | **Yes**  | -     | `EQUALS`, `GREATER_THAN`, `LESS_THAN` |
-| `value`    | integer | **Yes**  | ≥ 0   | Expected count (minimum 0)            |
+ **Record count assertions** 
 
-**Authoritative assertions**
 
-| Property | Type    | Required | Range | Description                   |
-| -------- | ------- | -------- | ----- | ----------------------------- |
-| `type`   | string  | **Yes**  | -     | Must be `"AUTHORITATIVE"`     |
-| `value`  | boolean | **Yes**  | -     | Expected authoritative status |
+| Property | Type | Required | Range | Description | 
+| --- | --- | --- | --- | --- | 
+|  type  | string |  Yes  | - | Must be "RECORD\_COUNT" | 
+|  operator  | string |  Yes  | - | EQUALS, GREATER\_THAN, LESS\_THAN | 
+|  value  | integer |  Yes  | ≥ 0 | Expected count (minimum 0) | 
 
-**TTL assertions**
+ **Authoritative assertions** 
 
-| Property   | Type    | Required | Range | Description                           |
-| ---------- | ------- | -------- | ----- | ------------------------------------- |
-| `type`     | string  | **Yes**  | -     | Must be `"TTL"`                       |
-| `operator` | string  | **Yes**  | -     | `EQUALS`, `GREATER_THAN`, `LESS_THAN` |
-| `value`    | integer | **Yes**  | ≥ 0   | Expected TTL (minimum 0)              |
+
+| Property | Type | Required | Range | Description | 
+| --- | --- | --- | --- | --- | 
+|  type  | string |  Yes  | - | Must be "AUTHORITATIVE" | 
+|  value  | boolean |  Yes  | - | Expected authoritative status | 
+
+ **TTL assertions** 
+
+
+| Property | Type | Required | Range | Description | 
+| --- | --- | --- | --- | --- | 
+|  type  | string |  Yes  | - | Must be "TTL" | 
+|  operator  | string |  Yes  | - | EQUALS, GREATER\_THAN, LESS\_THAN | 
+|  value  | integer |  Yes  | ≥ 0 | Expected TTL (minimum 0) | 
 
 ### SSL assertions
+<a name="ssl-assertions"></a>
 
-**Certificate expiry assertions**
+ **Certificate expiry assertions** 
 
-| Property   | Type    | Required | Default | Description                    |
-| ---------- | ------- | -------- | ------- | ------------------------------ |
-| `type`     | string  | **Yes**  | -       | Must be `"CERTIFICATE_EXPIRY"` |
-| `operator` | string  | **Yes**  | -       | `GREATER_THAN`, `LESS_THAN`    |
-| `value`    | integer | **Yes**  | -       | Time value (minimum 0)         |
-| `unit`     | string  | No       | "DAYS"  | `DAYS`, `HOURS`                |
 
-**Certificate subject assertions**
+| Property | Type | Required | Default | Description | 
+| --- | --- | --- | --- | --- | 
+|  type  | string |  Yes  | - | Must be "CERTIFICATE\_EXPIRY" | 
+|  operator  | string |  Yes  | - | GREATER\_THAN, LESS\_THAN | 
+|  value  | integer |  Yes  | - | Time value (minimum 0) | 
+|  unit  | string | No | "DAYS" | DAYS, HOURS | 
 
-| Property   | Type   | Required | Default | Description                                        |
-| ---------- | ------ | -------- | ------- | -------------------------------------------------- |
-| `type`     | string | **Yes**  | -       | Must be `"CERTIFICATE_SUBJECT"`                    |
-| `field`    | string | **Yes**  | -       | Subject field: `CN`, `O`, `OU`, `C`<br>, `ST`, `L` |
-| `operator` | string | **Yes**  | -       | `CONTAINS`, `EQUALS`, `REGEX_MATCH`                |
-| `value`    | string | **Yes**  | -       | Expected field value                               |
+ **Certificate subject assertions** 
 
-**Certificate issuer assertions**
 
-| Property   | Type   | Required | Default | Description                    |
-| ---------- | ------ | -------- | ------- | ------------------------------ |
-| `type`     | string | **Yes**  | -       | Must be `"CERTIFICATE_ISSUER"` |
-| `field`    | string | **Yes**  | -       | Issuer field: `CN`, `O`        |
-| `operator` | string | **Yes**  | -       | `CONTAINS`, `EQUALS`           |
-| `value`    | string | **Yes**  | -       | Expected field value           |
+| Property | Type | Required | Default | Description | 
+| --- | --- | --- | --- | --- | 
+|  type  | string |  Yes  | - | Must be "CERTIFICATE\_SUBJECT" | 
+|  field  | string |  Yes  | - | Subject field: CN, O, OU, C , ST, L | 
+|  operator  | string |  Yes  | - | CONTAINS, EQUALS, REGEX\_MATCH | 
+|  value  | string |  Yes  | - | Expected field value | 
+
+ **Certificate issuer assertions** 
+
+
+| Property | Type | Required | Default | Description | 
+| --- | --- | --- | --- | --- | 
+|  type  | string |  Yes  | - | Must be "CERTIFICATE\_ISSUER" | 
+|  field  | string |  Yes  | - | Issuer field: CN, O | 
+|  operator  | string |  Yes  | - | CONTAINS, EQUALS | 
+|  value  | string |  Yes  | - | Expected field value | 
 
 ### TCP assertions
+<a name="tcp-assertions"></a>
 
-**Connection success assertions**
+ **Connection success assertions** 
 
-| Property | Type    | Required | Default | Description                       |
-| -------- | ------- | -------- | ------- | --------------------------------- |
-| `type`   | string  | **Yes**  | -       | Must be `"CONNECTION_SUCCESSFUL"` |
-| `value`  | boolean | **Yes**  | -       | Expected connection status        |
 
-**Response data assertions**
+| Property | Type | Required | Default | Description | 
+| --- | --- | --- | --- | --- | 
+|  type  | string |  Yes  | - | Must be "CONNECTION\_SUCCESSFUL" | 
+|  value  | boolean |  Yes  | - | Expected connection status | 
 
-| Property   | Type   | Required | Default | Description                                                                     |
-| ---------- | ------ | -------- | ------- | ------------------------------------------------------------------------------- |
-| `type`     | string | **Yes**  | -       | Must be `"RESPONSE_DATA"`                                                       |
-| `operator` | string | **Yes**  | -       | `CONTAINS`, `EQUALS`, `NOT_CONTAINS`, `REGEX_MATCH`, `STARTS_WITH`, `ENDS_WITH` |
-| `value`    | string | **Yes**  | -       | Expected response data                                                          |
-| `encoding` | string | No       | "UTF-8" | `UTF-8`, `ASCII`, `HEX`                                                         |
+ **Response data assertions** 
+
+
+| Property | Type | Required | Default | Description | 
+| --- | --- | --- | --- | --- | 
+|  type  | string |  Yes  | - | Must be "RESPONSE\_DATA" | 
+|  operator  | string |  Yes  | - | CONTAINS, EQUALS, NOT\_CONTAINS,  REGEX\_MATCH, STARTS\_WITH, ENDS\_WITH | 
+|  value  | string |  Yes  | - | Expected response data | 
+|  encoding  | string | No | "UTF-8" | UTF-8, ASCII, HEX | 
 
 ## Data extraction
+<a name="data-extraction"></a>
 
-Extractors allows you to capture data from responses for use in subsequent steps or
-for reporting purposes.
+Extractors allows you to capture data from responses for use in subsequent steps or for reporting purposes.
 
-**Extraction properties**
+ **Extraction properties** 
 
-| Property     | Type    | Required | Default | Description                      |
-| ------------ | ------- | -------- | ------- | -------------------------------- |
-| `name`       | string  | **Yes**  | -       | Variable name for extracted data |
-| `type`       | string  | **Yes**  | -       | Extraction type: `BODY`          |
-| `path`       | string  | No       | -       | JSONPath for body extraction     |
-| `regex`      | string  | No       | -       | Regular expression pattern       |
-| `regexGroup` | integer | No       | 0       | Regex capture group (minimum 0)  |
 
-**Extraction name validation**
+| Property | Type | Required | Default | Description | 
+| --- | --- | --- | --- | --- | 
+|  name  | string |  Yes  | - | Variable name for extracted data | 
+|  type  | string |  Yes  | - | Extraction type: BODY | 
+|  path  | string | No | - | JSONPath for body extraction | 
+|  regex  | string | No | - | Regular expression pattern | 
+|  regexGroup  | integer | No | 0 | Regex capture group (minimum 0) | 
 
-- Pattern: `^[a-zA-Z][a-zA-Z0-9_]*$`
-- Must start with a letter
-- Can contain letters, numbers, and underscores
+ **Extraction name validation** 
++ Pattern: `^[a-zA-Z][a-zA-Z0-9_]*$`
++ Must start with a letter
++ Can contain letters, numbers, and underscores
 
-**Limitation** – Substitution does not apply for
-fields in the schema that have specific ENUM values
+**Limitation** – Substitution does not apply for fields in the schema that have specific ENUM values
 
-**Extraction types**
+ **Extraction types** 
 
 ```
 {
@@ -656,7 +668,6 @@ fields in the schema that have specific ENUM values
   "type": "BODY",
   "path": "$.user.id"
 }
-
 ```
 
 ```
@@ -689,5 +700,4 @@ fields in the schema that have specific ENUM values
     }
   ]
 }
-
 ```

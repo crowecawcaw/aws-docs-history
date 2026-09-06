@@ -1,13 +1,13 @@
+
+
 # Use CloudFormation to enable Lambda Insights on an existing Lambda function
+<a name="Lambda-Insights-Getting-Started-cloudformation"></a>
 
 Follow these steps to use CloudFormation to enable Lambda Insights on an existing Lambda function.
 
 **Step 1: Install the layer**
 
-Add the Lambda Insights layer to the `Layers` property within the Lambda Insights layer ARN.
-The example below uses the layer for the
-initial release of Lambda Insights. For the latest release version of the Lambda Insights extension layer, see
-[Available versions of the Lambda Insights extension](Lambda-Insights-extension-versions.md "Lambda-Insights-extension-versions.md").
+Add the Lambda Insights layer to the `Layers` property within the Lambda Insights layer ARN. The example below uses the layer for the initial release of Lambda Insights. For the latest release version of the Lambda Insights extension layer, see [Available versions of the Lambda Insights extension](Lambda-Insights-extension-versions.md).
 
 ```
 Resources:
@@ -20,8 +20,7 @@ Resources:
 
 **Step 2: Add the managed policy**
 
-Add the **CloudWatchLambdaInsightsExecutionRolePolicy**
-IAM policy to your function execution role.
+Add the **CloudWatchLambdaInsightsExecutionRolePolicy** IAM policy to your function execution role.
 
 ```
 Resources:
@@ -34,10 +33,7 @@ Resources:
 
 **Step 3: (Optional) Add VPC endpoint**
 
-This step is necessary only for functions running in a private subnet with no
-internet access, and if you have not already configured a CloudWatch Logs virtual
-private cloud (VPC) endpoint. For more information, see [Using CloudWatch Logs
-with Interface VPC Endpoints](../logs/cloudwatch-logs-and-interface-VPC.md "../logs/cloudwatch-logs-and-interface-VPC.md").
+This step is necessary only for functions running in a private subnet with no internet access, and if you have not already configured a CloudWatch Logs virtual private cloud (VPC) endpoint. For more information, see [ Using CloudWatch Logs with Interface VPC Endpoints](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.html).
 
 ```
 Resources:

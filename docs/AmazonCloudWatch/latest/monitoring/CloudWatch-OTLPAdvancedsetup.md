@@ -1,19 +1,23 @@
+
+
 # Build your own custom OpenTelemetry Collector
+<a name="CloudWatch-OTLPAdvancedsetup"></a>
 
 You can build your own custom OpenTelemetry Collector to get the best application observability experience in CloudWatch with OpenTelemetry. In this setup, you need to build your own OpenTelemetry Collector with open source CloudWatch components.
 
 ## Prerequisite
+<a name="CloudWatch-OTLPAdvancedsetupPrequisite"></a>
 
-Make sure _Transaction Search_ is enabled in CloudWatch. For more information, see [Transaction Search](CloudWatch-Transaction-Search.md "CloudWatch-Transaction-Search.md").
+Make sure *Transaction Search* is enabled in CloudWatch. For more information, see [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html).
 
 ## Build your own collector
+<a name="CloudWatch-OTLPAdvancedsetupBuildCollector"></a>
 
-You can build your own collector with the following configuration to monitor your application in CloudWatch with OpenTelemetry. For more information, see [Building a custom collector](https://opentelemetry.io/docs/collector/custom-collector/ "https://opentelemetry.io/docs/collector/custom-collector/").
+You can build your own collector with the following configuration to monitor your application in CloudWatch with OpenTelemetry. For more information, see [Building a custom collector](https://opentelemetry.io/docs/collector/custom-collector/).
 
 The common configuration for CloudWatch.
 
 ```
-
 dist:
   name: otelcol-dev
   description: OTel Collector for sending telemetry to CloudWatch.
@@ -26,13 +30,12 @@ exporters:
   - gomod: go.opentelemetry.io/collector/exporter/otlphttpexporter v0.111.0
 receivers:
   - gomod: go.opentelemetry.io/collector/receiver/otlpreceiver v0.111.0
-
 ```
 
 Additional configuration for traces.
 
 ```
-# Enable Tracing
+# Enable Tracing 
 dist:
   name: otelcol-dev
   description: OTel Collector for sending telemetry to CloudWatch.
@@ -42,7 +45,7 @@ extensions:
 
 exporters:
     #Include common configurations and your custom extensions
-
+ 
 receivers:
   - gomod: go.opentelemetry.io/collector/receiver/otlpreceiver v0.111.0
 processors:
@@ -54,13 +57,9 @@ replaces:
   - github.com/open-telemetry/opentelemetry-collector-contrib/internal/aws/cwlogs v0.113.0 => github.com/amazon-contributing/opentelemetry-collector-contrib/internal/aws/cwlogs v0.113.0
   - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/awsemfexporter v0.113.0 => github.com/amazon-contributing/opentelemetry-collector-contrib/exporter/awsemfexporter v0.113.0
   - github.com/openshift/api v3.9.0+incompatible => github.com/openshift/api v0.0.0-20180801171038-322a19404e37
-
 ```
 
-###### Note
-
-Note the following:
-
-- After the collector is built, deploy and configure the custom collector in a host or kubernetes environment by following the procedure under [OpenTelemetry Collector](CloudWatch-OTLPSimplesetup.md "CloudWatch-OTLPSimplesetup.md").
-- For information on setting up custom OpenTelemetry collector with Application Signals Processor, see an [Application Signals custom configuration](https://github.com/aws-observability/application-signals-demo/blob/main/scripts/opentelemetry/appsignals_custom_otel_setup/custom-opentelemetry.yaml "https://github.com/aws-observability/application-signals-demo/blob/main/scripts/opentelemetry/appsignals_custom_otel_setup/custom-opentelemetry.yaml")example.
-  Application Signals Processor only supports the latest versions of the OpenTelemetry Collectors for custom builds. For information on the supported versions, see [opentelemetry-collector-contrib repository.](https://github.com/amazon-contributing/opentelemetry-collector-contrib/tags "https://github.com/amazon-contributing/opentelemetry-collector-contrib/tags")
+**Note**  
+Note the following:   
+After the collector is built, deploy and configure the custom collector in a host or kubernetes environment by following the procedure under [OpenTelemetry Collector](CloudWatch-OTLPSimplesetup.md).
+For information on setting up custom OpenTelemetry collector with Application Signals Processor, see an [Application Signals custom configuration](https://github.com/aws-observability/application-signals-demo/blob/main/scripts/opentelemetry/appsignals_custom_otel_setup/custom-opentelemetry.yaml)example. Application Signals Processor only supports the latest versions of the OpenTelemetry Collectors for custom builds. For information on the supported versions, see [opentelemetry-collector-contrib repository.](https://github.com/amazon-contributing/opentelemetry-collector-contrib/tags)

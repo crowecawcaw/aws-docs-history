@@ -1,22 +1,19 @@
+
+
 # Use `ListMetrics` with an AWS SDK or CLI
+<a name="example_cloudwatch_ListMetrics_section"></a>
 
 The following code examples show how to use `ListMetrics`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
++  [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md) 
 
-- [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
-- [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md "example_cloudwatch_Usage_MetricsAlarms_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
     /// <summary>
@@ -44,25 +41,15 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return results;
     }
-
-
 ```
++  For API details, see [ListMetrics](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/ListMetrics) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListMetrics](../../../goto/DotNetSDKV4/monitoring-2010-08-01/ListMetrics.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/ListMetrics.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples").
-
-Include the required files.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples). 
+Include the required files.  
 
 ```
 #include <aws/core/Aws.h>
@@ -71,11 +58,8 @@ Include the required files.
 #include <aws/monitoring/model/ListMetricsResult.h>
 #include <iomanip>
 #include <iostream>
-
-
 ```
-
-List the metrics.
+List the metrics.  
 
 ```
         Aws::CloudWatch::CloudWatchClient cw;
@@ -135,29 +119,21 @@ List the metrics.
             request.SetNextToken(next_token);
             done = next_token.empty();
         }
+```
++  For API details, see [ListMetrics](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/ListMetrics) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To list the metrics for Amazon SNS**  
+The following `list-metrics` example displays the metrics for Amazon SNS.  
 
 ```
-
-- For API details, see
-  [ListMetrics](../../../goto/SdkForCpp/monitoring-2010-08-01/ListMetrics.md "../../../goto/SdkForCpp/monitoring-2010-08-01/ListMetrics.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list the metrics for Amazon SNS**
-
-The following `list-metrics` example displays the metrics for Amazon SNS.
-
+aws cloudwatch list-metrics \
+    --namespace {{"AWS/SNS"}}
 ```
-`aws cloudwatch list-metrics \
- --namespace `"AWS/SNS"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -245,20 +221,13 @@ Output:
     ]
 }
 ```
++  For API details, see [ListMetrics](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/list-metrics.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListMetrics](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/list-metrics.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/list-metrics.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
     /**
@@ -289,25 +258,15 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
                 throw new RuntimeException("Failed to list metrics: " + exception.getMessage(), exception);
             });
     }
-
-
 ```
++  For API details, see [ListMetrics](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/ListMetrics) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListMetrics](../../../goto/SdkForJavaV2/monitoring-2010-08-01/ListMetrics.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/ListMetrics.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples").
-
-Import the SDK and client modules and call the API.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples). 
+Import the SDK and client modules and call the API.  
 
 ```
 import {
@@ -341,32 +300,19 @@ export const main = async () => {
     }
   }
 };
-
-
 ```
-
-Create the client in a separate module and export it.
+Create the client in a separate module and export it.  
 
 ```
 import { CloudWatchClient } from "@aws-sdk/client-cloudwatch";
 
 export const client = new CloudWatchClient({});
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/cloudwatch-examples-getting-metrics.html#cloudwatch-examples-getting-metrics-listing). 
++  For API details, see [ListMetrics](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/ListMetricsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/cloudwatch-examples-getting-metrics.md#cloudwatch-examples-getting-metrics-listing "../../../sdk-for-javascript/v3/developer-guide/cloudwatch-examples-getting-metrics.md#cloudwatch-examples-getting-metrics-listing").
-- For API details, see
-  [ListMetrics](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/ListMetricsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/ListMetricsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -394,24 +340,15 @@ cw.listMetrics(params, function (err, data) {
     console.log("Metrics", JSON.stringify(data.Metrics));
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/cloudwatch-examples-getting-metrics.html#cloudwatch-examples-getting-metrics-listing). 
++  For API details, see [ListMetrics](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/monitoring-2010-08-01/ListMetrics) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-getting-metrics.md#cloudwatch-examples-getting-metrics-listing "../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-getting-metrics.md#cloudwatch-examples-getting-metrics-listing").
-- For API details, see
-  [ListMetrics](../../../goto/AWSJavaScriptSDK/monitoring-2010-08-01/ListMetrics.md "../../../goto/AWSJavaScriptSDK/monitoring-2010-08-01/ListMetrics.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun listMets(namespaceVal: String?): ArrayList<String>? {
@@ -431,23 +368,14 @@ suspend fun listMets(namespaceVal: String?): ArrayList<String>? {
     }
     return metList
 }
-
-
 ```
++  For API details, see [ListMetrics](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListMetrics](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
 
 ```
 class CloudWatchWrapper:
@@ -483,24 +411,14 @@ class CloudWatchWrapper:
             raise
         else:
             return metric_iter
-
-
-
 ```
++  For API details, see [ListMetrics](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/ListMetrics) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListMetrics](../../../goto/boto3/monitoring-2010-08-01/ListMetrics.md "../../../goto/boto3/monitoring-2010-08-01/ListMetrics.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples). 
 
 ```
 # Lists available metrics for a metric namespace in Amazon CloudWatch.
@@ -579,23 +497,14 @@ def run_me
 end
 
 run_me if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [ListMetrics](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/ListMetrics) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListMetrics](../../../goto/SdkForRubyV3/monitoring-2010-08-01/ListMetrics.md "../../../goto/SdkForRubyV3/monitoring-2010-08-01/ListMetrics.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples). 
 
 ```
     "The following list-metrics example displays the metrics for Amazon CloudWatch."
@@ -607,14 +516,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_cwtinvparamvalueex.
         MESSAGE 'The specified argument was not valid.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListMetrics](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListMetrics](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

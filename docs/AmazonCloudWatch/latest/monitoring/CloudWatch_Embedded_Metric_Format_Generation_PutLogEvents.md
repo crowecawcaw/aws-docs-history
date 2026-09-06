@@ -1,13 +1,15 @@
-# Using the PutLogEvents API to send manually-created embedded metric format logs
 
-You can send embedded metric format logs to CloudWatch Logs using the CloudWatch Logs [PutLogEvents](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.md") API.
-When calling PutLogEvents, you have the option to include the following HTTP header, which tells CloudWatch Logs the metrics should be extracted, but it's not required.
+
+# Using the PutLogEvents API to send manually-created embedded metric format logs
+<a name="CloudWatch_Embedded_Metric_Format_Generation_PutLogEvents"></a>
+
+ You can send embedded metric format logs to CloudWatch Logs using the CloudWatch Logs [PutLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html) API. When calling PutLogEvents, you have the option to include the following HTTP header, which tells CloudWatch Logs the metrics should be extracted, but it's not required. 
 
 ```
 x-amzn-logs-format: json/emf
 ```
 
-The following is a full example using the AWS SDK for Java 2.x:
+ The following is a full example using the AWS SDK for Java 2.x: 
 
 ```
 package org.example.basicapp;
@@ -75,18 +77,5 @@ public class EmbeddedMetricsExample {
 }
 ```
 
-###### Note
-
-With the embedded metric format,
-you can track the processing
-of your EMF logs
-by metrics
-that are published
-in the `AWS/Logs` namespace
-of your account.
-These can be used
-to track failed metric generation
-from EMF,
-as well as whether failures happen due
-to parsing or validation.
-For more details see [Monitoring with CloudWatch metrics](../logs/CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md "../logs/CloudWatch-Logs-Monitoring-CloudWatch-Metrics.md").
+**Note**  
+ With the embedded metric format, you can track the processing of your EMF logs by metrics that are published in the `AWS/Logs` namespace of your account. These can be used to track failed metric generation from EMF, as well as whether failures happen due to parsing or validation. For more details see [Monitoring with CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Monitoring-CloudWatch-Metrics.html). 

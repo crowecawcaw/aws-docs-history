@@ -1,20 +1,19 @@
+
+
 # Writing a canary script using the Java runtime
+<a name="Synthetics_WritingCanary_Java"></a>
 
-###### Topics
-
-- [Java project structure for a canary](#Synthetics_canary_Java_package "#Synthetics_canary_Java_package")
-- [Packaging the project for a canary](#Synthetics_canary_Java_package_canary "#Synthetics_canary_Java_package_canary")
-- [Handler name](#Synthetics_canary_Java_handler "#Synthetics_canary_Java_handler")
-- [CloudWatch Synthetics configurations](#Synthetics_canary_Java_config "#Synthetics_canary_Java_config")
-- [CloudWatch Synthetics environment variables](#Synthetics_canary_Java_variables "#Synthetics_canary_Java_variables")
+**Topics**
++ [Java project structure for a canary](#Synthetics_canary_Java_package)
++ [Packaging the project for a canary](#Synthetics_canary_Java_package_canary)
++ [Handler name](#Synthetics_canary_Java_handler)
++ [CloudWatch Synthetics configurations](#Synthetics_canary_Java_config)
++ [CloudWatch Synthetics environment variables](#Synthetics_canary_Java_variables)
 
 ## Java project structure for a canary
+<a name="Synthetics_canary_Java_package"></a>
 
-To create a canary in Java, you need to write your code, compile it, and deploy the
-compiled artifacts to Synthetics. You can initialize a Java Lambda project in various
-ways. For instance, you can use a standard
-Java project setup in your preferred IDE, such as IntelliJ IDEA or Visual Studio Code.
-Alternatively, you can create the required file structure manually.
+To create a canary in Java, you need to write your code, compile it, and deploy the compiled artifacts to Synthetics. You can initialize a Java Lambda project in various ways. For instance, you can use a standard Java project setup in your preferred IDE, such as IntelliJ IDEA or Visual Studio Code. Alternatively, you can create the required file structure manually.
 
 A Synthetics Java project contains the following general structure:
 
@@ -25,7 +24,7 @@ A Synthetics Java project contains the following general structure:
             └ java
                 └ canarypackage // name of package
                 |    └ ExampleCanary.java // Canary code file
-                |    └ `other_supporting_classes`
+                |    └ {{other_supporting_classes}}
                 - resources
                      └ synthetics.json // Synthetics configuration file
      └ build.gradle OR pom.xml
@@ -33,13 +32,11 @@ A Synthetics Java project contains the following general structure:
 
 You can use either Maven or Gradle to build your project and manage dependencies.
 
-In the above structure, the `ExampleCanary` class is the entry point or
-handler for the canary.
+In the above structure, the `ExampleCanary` class is the entry point or handler for the canary.
 
-**Java canary class example**
+ **Java canary class example** 
 
-This example is for a canary to make a get request to a URL stored in the _TESTING\_URL_ Lambda environment variable. The canary does not use any of the
-methods provided by Synthetics runtime.
+This example is for a canary to make a get request to a URL stored in the * TESTING\_URL* Lambda environment variable. The canary does not use any of the methods provided by Synthetics runtime.
 
 ```
 package canarypackage;
@@ -50,7 +47,7 @@ import java.net.URL;
 // Handler value: canary.ExampleCanary::canaryCode
 public class ExampleCanary {
   public void canaryCode() throws Exception{
-      URL url = new URL(System.getenv("`TESTING_URL`"));
+      URL url = new URL(System.getenv("{{TESTING_URL}}"));
       HttpURLConnection con=(HttpURLConnection)url.openConnection();
       con.setRequestMethod("GET");
       con.setConnectTimeout(5000);
@@ -63,14 +60,10 @@ public class ExampleCanary {
 }
 ```
 
-It is highly recommended to modularize your canaries using the Synthetics provided
-library function `executeStep`. The canary makes `get` calls to
-two separate URLs procured from URL1 and URL2 environment variables.
+It is highly recommended to modularize your canaries using the Synthetics provided library function `executeStep`. The canary makes `get` calls to two separate URLs procured from URL1 and URL2 environment variables.
 
-###### Note
-
-To use the `executeStep` functionality, the handler method for the
-canary should take in a parameter of type Synthetics as shown below.
+**Note**  
+To use the `executeStep` functionality, the handler method for the canary should take in a parameter of type Synthetics as shown below. 
 
 ```
 package canarypackage;
@@ -105,10 +98,9 @@ public class ExampleCanary {
 ```
 
 ## Packaging the project for a canary
+<a name="Synthetics_canary_Java_package_canary"></a>
 
-Synthetics accepts code for a java canary in the _zip_ format.
-The zip consists of the class files for the canary code, the jars for any third party
-dependencies and the Synthetics configuration file.
+Synthetics accepts code for a java canary in the *zip* format. The zip consists of the class files for the canary code, the jars for any third party dependencies and the Synthetics configuration file.
 
 A Synthetics Java zip contains the following general structure.
 
@@ -120,11 +112,9 @@ example-canary
     └ synthetics.json
 ```
 
-To build this zip from the above project structure, you can use gradle
-(build.gradle) or maven (pom.xml). Here is an example.
+To build this zip from the above project structure, you can use gradle (build.gradle) or maven (pom.xml). Here is an example.
 
-For information on compile time dependencies or interfaces for the Synthetics
-library, see the README under [aws-cloudwatch-synthetics-sdk-java](https://github.com/aws/aws-cloudwatch-synthetics-sdk-java/tree/main "https://github.com/aws/aws-cloudwatch-synthetics-sdk-java/tree/main") .
+For information on compile time dependencies or interfaces for the Synthetics library, see the README under [ aws-cloudwatch-synthetics-sdk-java ](https://github.com/aws/aws-cloudwatch-synthetics-sdk-java/tree/main).
 
 ```
 plugins {
@@ -177,9 +167,9 @@ tasks.named("build") {
 ```
 
 ## Handler name
+<a name="Synthetics_canary_Java_handler"></a>
 
-The handler name is the entry point for the canary. For Java runtime, the handler is
-in the following format.
+The handler name is the entry point for the canary. For Java runtime, the handler is in the following format.
 
 ```
 <<full qualified name for canary class>>::<<name of the method to start the execution from>>
@@ -187,12 +177,9 @@ in the following format.
 ```
 
 ## CloudWatch Synthetics configurations
+<a name="Synthetics_canary_Java_config"></a>
 
-You can configure the behavior of the Synthetics Java runtime by providing an
-optional JSON configuration file named `synthetics.json`. This file should be
-packaged in the root directory of the package zip. Though a configuration file is
-optional, if you don't provide a configuration file, or a configuration key is missing,
-CloudWatch uses the defaults.
+You can configure the behavior of the Synthetics Java runtime by providing an optional JSON configuration file named `synthetics.json`. This file should be packaged in the root directory of the package zip. Though a configuration file is optional, if you don't provide a configuration file, or a configuration key is missing, CloudWatch uses the defaults.
 
 The following are supported configuration values, and their defaults.
 
@@ -223,76 +210,48 @@ The following are supported configuration values, and their defaults.
 }
 ```
 
-**Step configurations**
+ **Step configurations** 
++ *continueOnStepFailure* – Determines if a script should continue even after a step has failed. The default is false.
++ *stepSuccessMetric* – Determines if a step's ` SuccessPercent` metric is emitted. The `SuccessPercent` metric for a step is *100* for the canary run if the step succeeds, and * 0 * if the step fails. The default is *true*.
++ *stepDurationMetric* – Determines if a step's * Duration* metric is emitted. The *Duration* metric is emitted as a duration, in milliseconds, of the step's run. The default is * true*.
 
-- _continueOnStepFailure_ – Determines if a script
-  should continue even after a step has failed. The default is false.
-- _stepSuccessMetric_ – Determines if a step's `SuccessPercent` metric is emitted. The `SuccessPercent` metric for
-  a step is _100_ for the canary run if the step succeeds, and _0_ if the step fails. The default is _true_.
-- _stepDurationMetric_ – Determines if a step's _Duration_ metric is emitted. The _Duration_ metric is
-  emitted as a duration, in milliseconds, of the step's run. The default is _true_.
+ **Logging configurations** 
 
-**Logging configurations**
+Applies to logs generated by CloudWatch Synthetics. Controls the verbosity of request and response logs.
++ *logRequest* – Specifies whether to log every request in canary logs. The default is false.
++ *logResponse* – Specifies whether to log every response in canary logs. The default is false.
 
-Applies to logs generated by CloudWatch Synthetics. Controls the verbosity of request and
-response logs.
+ **HTTP metric configurations** 
 
-- _logRequest_ – Specifies whether to log every request
-  in canary logs. The default is false.
-- _logResponse_ – Specifies whether to log every
-  response in canary logs. The default is false.
+Configurations for metrics related to the count of network requests with different HTTP status codes, emitted by CloudWatch Synthetics for this canary.
++ *metric\_2xx* – Specifies whether to emit the * 2xx* metric (with the CanaryName dimension) for this canary. The default is *true*.
++ *metric\_4xx* – Specifies whether to emit the * 4xx* metric (with the CanaryName dimension) for this canary. The default is *true*.
++ *metric\_5xx* – Specifies whether to emit the * 5xx* metric (with the CanaryName dimension) for this canary. The default is *true*.
++ *aggregated2xxMetric* – Specifies whether to emit the * 2xx* metric (without the CanaryName dimension) for this canary. The default is *true*.
++ *aggregated4xxMetric* – Specifies whether to emit the * 4xx* metric (without the CanaryName dimension) for this canary. The default is *true*.
++ *aggregated5xxMetric* – Specifies whether to emit the * 5xx* metric (without the CanaryName dimension) for this canary. The default is *true*.
 
-**HTTP metric configurations**
-
-Configurations for metrics related to the count of network requests with different
-HTTP status codes, emitted by CloudWatch Synthetics for this canary.
-
-- _metric\_2xx_ – Specifies whether to emit the _2xx_ metric (with the CanaryName dimension) for this canary. The default
-  is _true_.
-- _metric\_4xx_ – Specifies whether to emit the _4xx_ metric (with the CanaryName dimension) for this canary. The default
-  is _true_.
-- _metric\_5xx_ – Specifies whether to emit the _5xx_ metric (with the CanaryName dimension) for this canary. The default
-  is _true_.
-- _aggregated2xxMetric_ – Specifies whether to emit the _2xx_ metric (without the CanaryName dimension) for this canary. The
-  default is _true_.
-- _aggregated4xxMetric_ – Specifies whether to emit the _4xx_ metric (without the CanaryName dimension) for this canary. The
-  default is _true_.
-- _aggregated5xxMetric_ – Specifies whether to emit the _5xx_ metric (without the CanaryName dimension) for this canary. The
-  default is _true_.
-
-**Canary metric configurations**
+ **Canary metric configurations** 
 
 Configurations for other metrics emitted by CloudWatch Synthetics.
-
-- _failedCanaryMetric_ Network Access Analyzer Specifies whether to emit the _Failed_ metric (with the CanaryName dimension) for this canary. The
-  default is _true_.
-- _aggregatedFailedCanaryMetric_ – Specifies whether to
-  emit the _Failed_ metric (without the CanaryName dimension) for
-  this canary. The default is _true_.
++ *failedCanaryMetric* Network Access Analyzer Specifies whether to emit the * Failed* metric (with the CanaryName dimension) for this canary. The default is *true*.
++ *aggregatedFailedCanaryMetric* – Specifies whether to emit the *Failed* metric (without the CanaryName dimension) for this canary. The default is *true*.
 
 ## CloudWatch Synthetics environment variables
+<a name="Synthetics_canary_Java_variables"></a>
 
 You can configure the logging level and format by using environment variables.
 
-**Log format**
+ **Log format** 
 
-The CloudWatch Synthetics Java runtime creates CloudWatch logs for every canary run. Logs are
-written in JSON format for convenient querying. Optionally, you can change the log
-format to _TEXT_.
+The CloudWatch Synthetics Java runtime creates CloudWatch logs for every canary run. Logs are written in JSON format for convenient querying. Optionally, you can change the log format to *TEXT*.
++ *Environment variable name* – CW\_SYNTHETICS\_LOG\_FORMAT
++ *Supported values* – JSON, TEXT
++ *Default* –JSON
 
-- _Environment variable name_ – CW\_SYNTHETICS\_LOG\_FORMAT
-- _Supported values_ – JSON, TEXT
-- _Default_ –JSON
+ **Log levels** 
++ *Environment variable name* – CW\_SYNTHETICS\_LOG\_LEVEL
++ *Supported values* – TRACE, DEBUG, INFO, WARN, ERROR, FATAL
++ *Default* – INFO
 
-**Log levels**
-
-- _Environment variable name_ – CW\_SYNTHETICS\_LOG\_LEVEL
-- _Supported values_ – TRACE, DEBUG, INFO, WARN, ERROR,
-  FATAL
-- _Default_ – INFO
-
-Apart from the above environment variables, there is a default environment variable
-added for Java runtime, `AWS_LAMBDA-EXEC_WRAPPER` environment variable to
-your function, and set its value to `/opt/synthetics-otel-instrument`. This
-environment variable modifies your function's startup behavior for telemetry. If this
-environment variable already exists, make sure that it's set to the required value.
+Apart from the above environment variables, there is a default environment variable added for Java runtime, `AWS_LAMBDA-EXEC_WRAPPER` environment variable to your function, and set its value to `/opt/synthetics-otel-instrument`. This environment variable modifies your function's startup behavior for telemetry. If this environment variable already exists, make sure that it's set to the required value.

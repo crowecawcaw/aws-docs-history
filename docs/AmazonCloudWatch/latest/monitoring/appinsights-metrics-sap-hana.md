@@ -1,9 +1,10 @@
+
+
 # SAP HANA
+<a name="appinsights-metrics-sap-hana"></a>
 
-###### Note
-
-CloudWatch Application Insights supports only single SID HANA environments. If multiple HANA SIDs are
-attached, monitoring will be set up for only the first detected SID.
+**Note**  
+CloudWatch Application Insights supports only single SID HANA environments. If multiple HANA SIDs are attached, monitoring will be set up for only the first detected SID.
 
 CloudWatch Application Insights supports the following metrics:
 
@@ -67,7 +68,7 @@ hanadb\_host\_allocation\_limit\_mb
 
 hanadb\_host\_total\_memory\_used\_mb
 
-hanadb\_host\_total\_peak\_memory\_used\_mb
+ hanadb\_host\_total\_peak\_memory\_used\_mb
 
 hanadb\_host\_total\_allocation\_limit\_mb
 

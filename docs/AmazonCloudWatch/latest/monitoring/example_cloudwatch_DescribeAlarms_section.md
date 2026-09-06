@@ -1,23 +1,20 @@
+
+
 # Use `DescribeAlarms` with an AWS SDK or CLI
+<a name="example_cloudwatch_DescribeAlarms_section"></a>
 
 The following code examples show how to use `DescribeAlarms`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
++  [Get started with alarms](example_cloudwatch_Scenario_GettingStarted_section.md) 
++  [Run CPU stress tests on virtual machine instances using fault injection](example_iam_GettingStarted_069_section.md) 
 
-- [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
-- [Get started with alarms](example_cloudwatch_Scenario_GettingStarted_section.md "example_cloudwatch_Scenario_GettingStarted_section.md")
-- [Run CPU stress tests on virtual machine instances using fault injection](example_iam_GettingStarted_069_section.md "example_iam_GettingStarted_069_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
     /// <summary>
@@ -40,28 +37,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         }
         return alarms;
     }
+```
++  For API details, see [DescribeAlarms](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarms) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To list information about an alarm**  
+The following example uses the `describe-alarms` command to provide information about the alarm named "myalarm":  
 
 ```
-
-- For API details, see
-  [DescribeAlarms](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarms.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarms.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list information about an alarm**
-
-The following example uses the `describe-alarms` command to provide information about the alarm named "myalarm":
-
+aws cloudwatch describe-alarms --alarm-names {{"myalarm"}}
 ```
-`aws cloudwatch describe-alarms --alarm-names `"myalarm"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -98,23 +87,15 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeAlarms](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarms.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeAlarms](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarms.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarms.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
-
     /**
      * Describes the CloudWatch alarms of the 'METRIC_ALARM' type.
      *
@@ -146,23 +127,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
                 }
             });
     }
-
-
 ```
++  For API details, see [DescribeAlarms](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarms) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeAlarms](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarms.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarms.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun describeAlarms() {
@@ -182,26 +154,19 @@ suspend fun describeAlarms() {
         }
     }
 }
-
-
 ```
++  For API details, see [DescribeAlarms](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeAlarms](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns all the alarms including Composite and Metric Alarms from CloudWatch.**
+**Tools for PowerShell V4**  
+**Example 1: Returns all the alarms including Composite and Metric Alarms from CloudWatch.**  
 
 ```
 Get-CWAlarm -MaxRecords 1
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CompositeAlarms MetricAlarms         NextToken
@@ -210,15 +175,12 @@ CompositeAlarms MetricAlarms         NextToken
                 {MetricAlarms-02}    NextToken-02
                 {MetricAlarms-03}    NextToken-03
 ```
-
-**Example 2: Returns only the composite alarms data from CloudWatch after setting -AlarmType parameter to CompositeAlarms.**
+**Example 2: Returns only the composite alarms data from CloudWatch after setting -AlarmType parameter to CompositeAlarms.**  
 
 ```
 Get-CWAlarm -AlarmType 'CompositeAlarms'
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CompositeAlarms        MetricAlarms NextToken
@@ -227,20 +189,13 @@ CompositeAlarms        MetricAlarms NextToken
 {CompositeAlarms-02}
 {CompositeAlarms-03}
 ```
++  For API details, see [DescribeAlarms](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeAlarms](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples). 
 
 ```
 require 'aws-sdk-cloudwatch'
@@ -263,24 +218,14 @@ def list_alarms(cloudwatch_client)
 rescue StandardError => e
   puts "Error getting information about alarms: #{e.message}"
 end
-
-
-
 ```
++  For API details, see [DescribeAlarms](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/DescribeAlarms) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DescribeAlarms](../../../goto/SdkForRubyV3/monitoring-2010-08-01/DescribeAlarms.md "../../../goto/SdkForRubyV3/monitoring-2010-08-01/DescribeAlarms.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples). 
 
 ```
     TRY.
@@ -291,14 +236,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeAlarms](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeAlarms](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

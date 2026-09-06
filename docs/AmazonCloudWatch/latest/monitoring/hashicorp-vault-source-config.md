@@ -1,37 +1,47 @@
+
+
 # Source configuration for HashiCorp Vault
+<a name="hashicorp-vault-source-config"></a>
 
 ## Integrating with HashiCorp Vault
+<a name="hashicorp-vault-integration"></a>
 
 HashiCorp Vault integration uses Amazon S3 and Amazon SQS to ingest log data into CloudWatch pipelines. Vault produces two log types: audit logs (detailed JSON records of all API requests and responses) and operational logs (server health and performance). Fluent Bit collects both log types from the Vault host and delivers them to an Amazon S3 bucket. Amazon SQS notifications alert the pipeline when new log objects arrive.
 
 ## Prerequisites
-
-- An AWS account with permissions to create Amazon S3 buckets, Amazon SQS queues, and IAM roles
-- A HashiCorp Vault server (self-managed) with administrative access
-- A Linux host with Fluent Bit installed (can be the same host as Vault)
-- Network connectivity between the Vault host and AWS
+<a name="hashicorp-vault-prerequisites"></a>
++ An AWS account with permissions to create Amazon S3 buckets, Amazon SQS queues, and IAM roles
++ A HashiCorp Vault server (self-managed) with administrative access
++ A Linux host with Fluent Bit installed (can be the same host as Vault)
++ Network connectivity between the Vault host and AWS
 
 ## Log forwarding setup
+<a name="hashicorp-vault-log-forwarding"></a>
 
 HashiCorp Vault audit logs can be forwarded to Amazon S3 using the Vault file audit device combined with Fluent Bit. Vault supports three audit device types: **file**, **socket**, and **syslog**. We recommend the **file** audit device for highest reliability.
 
 ## Instructions to setup Amazon S3 and Amazon SQS
+<a name="hashicorp-vault-s3-sqs-setup"></a>
 
 Complete the following steps to configure the Amazon S3 and Amazon SQS infrastructure for HashiCorp Vault log ingestion.
 
 ### Step 1: Create Amazon S3 bucket
+<a name="hashicorp-vault-step1"></a>
 
 Create an Amazon S3 bucket to store HashiCorp Vault logs. The bucket must reside in the same AWS Region where you plan to create the CloudWatch pipeline.
 
 ### Step 2: Create Amazon SQS queue
+<a name="hashicorp-vault-step2"></a>
 
 Create an Amazon SQS queue in the same AWS Region as your Amazon S3 bucket. This queue receives notifications when new log files are added to the bucket.
 
 ### Step 3: Connect Amazon S3 to Amazon SQS
+<a name="hashicorp-vault-step3"></a>
 
 Configure the Amazon S3 bucket to send event notifications for `s3:ObjectCreated:*` events to the Amazon SQS queue.
 
 ### Step 4: Configure Amazon SQS queue policy
+<a name="hashicorp-vault-step4"></a>
 
 Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send messages to the queue. Apply the following policy to your Amazon SQS queue:
 
@@ -62,6 +72,7 @@ Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send mess
 ```
 
 ### Step 5: Configure Vault log export and Fluent Bit
+<a name="hashicorp-vault-step5"></a>
 
 Enable the Vault file audit device to write audit logs:
 
@@ -136,6 +147,7 @@ Configure Fluent Bit to collect both audit and operational logs and deliver them
 ```
 
 ### Step 6: IAM permissions
+<a name="hashicorp-vault-step6"></a>
 
 Create an IAM policy with the following permissions for the Fluent Bit host to write objects to the Amazon S3 bucket:
 
@@ -165,21 +177,24 @@ Create an IAM policy with the following permissions for the Fluent Bit host to w
 ```
 
 ### Step 7: Verify
+<a name="hashicorp-vault-step7"></a>
 
 Verify the setup by confirming that log files appear in the Amazon S3 bucket and that Amazon SQS notifications are being generated. Check the Amazon SQS queue for messages indicating new object creation events.
 
 ## Configuring the CloudWatch pipeline
-
-- Choose HashiCorp Vault as the data source when creating the pipeline.
-- Provide the Amazon SQS queue URL and IAM role ARN.
-- Select the destination CloudWatch Logs log group.
-- After you create the pipeline, data will be available in the selected log group.
+<a name="hashicorp-vault-pipeline-config"></a>
++ Choose HashiCorp Vault as the data source when creating the pipeline.
++ Provide the Amazon SQS queue URL and IAM role ARN.
++ Select the destination CloudWatch Logs log group.
++ After you create the pipeline, data will be available in the selected log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
+<a name="hashicorp-vault-ocsf-support"></a>
 
 This integration supports OCSF schema version v1.5.0. The following table shows the mapping between HashiCorp Vault log types and OCSF event classes. Events that are not mapped are forwarded as raw logs.
 
-| Event name  | OCSF event class       |
-| ----------- | ---------------------- |
-| Audit       | API Activity [6003]    |
-| Operational | N/A (raw pass-through) |
+
+| Event name | OCSF event class | 
+| --- | --- | 
+| Audit | API Activity [6003] | 
+| Operational | N/A (raw pass-through) | 

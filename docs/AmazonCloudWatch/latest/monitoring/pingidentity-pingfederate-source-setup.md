@@ -1,37 +1,47 @@
+
+
 # Source configuration for Ping Identity PingFederate
+<a name="pingidentity-pingfederate-source-setup"></a>
 
 ## Integrating with Ping Identity PingFederate
+<a name="pingidentity-pingfederate-integration"></a>
 
 Ping Identity PingFederate integration uses Amazon S3 and Amazon SQS to ingest audit log data into CloudWatch pipelines. PingFederate is deployed on-premises and does not expose a REST API for audit log retrieval. Fluent Bit tails the JSON-formatted audit log files on the PingFederate host and delivers them to an Amazon S3 bucket. Amazon SQS notifications alert the pipeline when new log objects arrive.
 
 ## Prerequisites
-
-- An AWS account with permissions to create Amazon S3 buckets, Amazon SQS queues, and IAM roles
-- A Ping Identity PingFederate server with administrative access
-- A Linux host with Fluent Bit installed (can be the same host as PingFederate)
-- Network connectivity between the PingFederate host and AWS
+<a name="pingidentity-pingfederate-prerequisites"></a>
++ An AWS account with permissions to create Amazon S3 buckets, Amazon SQS queues, and IAM roles
++ A Ping Identity PingFederate server with administrative access
++ A Linux host with Fluent Bit installed (can be the same host as PingFederate)
++ Network connectivity between the PingFederate host and AWS
 
 ## Log forwarding setup
+<a name="pingidentity-pingfederate-log-forwarding"></a>
 
 PingFederate writes audit logs to local files using Log4j2. You configure JSON-formatted output by adding JsonTemplateLayout appenders to the `log4j2.xml` configuration file. Fluent Bit tails these JSON log files and delivers them to Amazon S3. For detailed configuration instructions, see Step 5 in the following section.
 
 ## Instructions to setup Amazon S3 and Amazon SQS
+<a name="pingidentity-pingfederate-s3-sqs-setup"></a>
 
 Complete the following steps to configure the Amazon S3 and Amazon SQS infrastructure for Ping Identity PingFederate log ingestion.
 
 ### Step 1: Create Amazon S3 bucket
+<a name="pingidentity-pingfederate-step1"></a>
 
 Create an Amazon S3 bucket to store PingFederate audit logs. The bucket must reside in the same AWS Region where you plan to create the CloudWatch pipeline.
 
 ### Step 2: Create Amazon SQS queue
+<a name="pingidentity-pingfederate-step2"></a>
 
 Create an Amazon SQS queue in the same AWS Region as your Amazon S3 bucket. This queue receives notifications when new log files are added to the bucket.
 
 ### Step 3: Connect Amazon S3 to Amazon SQS
+<a name="pingidentity-pingfederate-step3"></a>
 
 Configure the Amazon S3 bucket to send event notifications for `s3:ObjectCreated:*` events to the Amazon SQS queue.
 
 ### Step 4: Configure Amazon SQS queue policy
+<a name="pingidentity-pingfederate-step4"></a>
 
 Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send messages to the queue. Apply the following policy to your Amazon SQS queue:
 
@@ -62,6 +72,7 @@ Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send mess
 ```
 
 ### Step 5: Configure Ping Identity PingFederate log export and Fluent Bit
+<a name="pingidentity-pingfederate-step5"></a>
 
 Enable JSON logging on PingFederate by editing `<PF_HOME>/server/default/conf/log4j2.xml`. Add the following RollingFile appenders:
 
@@ -173,20 +184,18 @@ Configure Fluent Bit to collect both audit log files and deliver them to Amazon 
     upload_timeout    60
 ```
 
-###### Note
-
+**Note**  
 PingFederate writes independent log files per cluster node. You must install Fluent Bit on each node.
++ The `audit_json.log` file captures runtime authentication events (SSO, credential validation, assertion issuance).
++ The `admin_json.log` file captures administrative console activity (configuration changes, admin logins).
++ Fluent Bit delivers gzip-compressed NDJSON files to Amazon S3.
++ The `storage.type filesystem` setting ensures buffering to disk for reliability.
 
-- The `audit_json.log` file captures runtime authentication events (SSO, credential validation, assertion issuance).
-- The `admin_json.log` file captures administrative console activity (configuration changes, admin logins).
-- Fluent Bit delivers gzip-compressed NDJSON files to Amazon S3.
-- The `storage.type filesystem` setting ensures buffering to disk for reliability.
-
-###### Important
-
+**Important**  
 Use only the default PingFederate-provided JSON templates. Modifying the `.json` template files changes the output schema and might break downstream processing.
 
 ### Step 6: IAM permissions
+<a name="pingidentity-pingfederate-step6"></a>
 
 Create an IAM policy with the following permissions for the Fluent Bit host to write objects to the Amazon S3 bucket:
 
@@ -216,22 +225,25 @@ Create an IAM policy with the following permissions for the Fluent Bit host to w
 ```
 
 ### Step 7: Verify
+<a name="pingidentity-pingfederate-step7"></a>
 
 Verify the setup by confirming that log files appear in the Amazon S3 bucket and that Amazon SQS notifications are being generated. Check the Amazon SQS queue for messages indicating new object creation events.
 
 ## Configuring the CloudWatch pipeline
-
-- Choose Ping Identity PingFederate as the data source when creating the pipeline.
-- Provide the Amazon SQS queue URL and IAM role ARN.
-- Select the destination CloudWatch Logs log group.
-- After you create the pipeline, data will be available in the selected log group.
+<a name="pingidentity-pingfederate-pipeline-config"></a>
++ Choose Ping Identity PingFederate as the data source when creating the pipeline.
++ Provide the Amazon SQS queue URL and IAM role ARN.
++ Select the destination CloudWatch Logs log group.
++ After you create the pipeline, data will be available in the selected log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
+<a name="pingidentity-pingfederate-ocsf-events"></a>
 
 This integration supports OCSF schema version v1.5.0. The following table shows the mapping between PingFederate audit log types and OCSF event classes.
 
-| Event name                                          | OCSF event class         |
-| --------------------------------------------------- | ------------------------ |
-| Security Audit (runtime authentication lifecycle)   | Authentication [3002]    |
-| Administrator Audit (admin login/logout)            | Authentication [3002]    |
-| Administrator Audit (CRUD on configuration objects) | Entity Management [3004] |
+
+| Event name | OCSF event class | 
+| --- | --- | 
+| Security Audit (runtime authentication lifecycle) | Authentication [3002] | 
+| Administrator Audit (admin login/logout) | Authentication [3002] | 
+| Administrator Audit (CRUD on configuration objects) | Entity Management [3004] | 

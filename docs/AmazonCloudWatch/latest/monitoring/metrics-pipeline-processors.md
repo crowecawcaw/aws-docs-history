@@ -1,28 +1,28 @@
-# Metrics pipeline processors
 
-Metrics pipeline processors transform OTel metric datapoints during ingestion. A metrics
-pipeline can have up to 20 processors, applied sequentially in the order they are
-defined.
+
+# Metrics pipeline processors
+<a name="metrics-pipeline-processors"></a>
+
+Metrics pipeline processors transform OTel metric datapoints during ingestion. A metrics pipeline can have up to 20 processors, applied sequentially in the order they are defined.
 
 Processors use OTTL path expressions to target attributes at different scopes:
 
-| Path                                      | Scope                    | Example                                       |
-| ----------------------------------------- | ------------------------ | --------------------------------------------- |
-| `resource.attributes["key"]`              | Resource-level           | `resource.attributes["service.name"]`         |
-| `instrumentation_scope.attributes["key"]` | Scope attribute          | `instrumentation_scope.attributes["library"]` |
-| `datapoint.attributes["key"]`             | Datapoint-level          | `datapoint.attributes["status_code"]`         |
-| `attributes["key"]`                       | Short form for datapoint | `attributes["environment"]`                   |
+
+| Path | Scope | Example | 
+| --- | --- | --- | 
+| `resource.attributes["key"]` | Resource-level | `resource.attributes["service.name"]` | 
+| `instrumentation_scope.attributes["key"]` | Scope attribute | `instrumentation_scope.attributes["library"]` | 
+| `datapoint.attributes["key"]` | Datapoint-level | `datapoint.attributes["status_code"]` | 
+| `attributes["key"]` | Short form for datapoint | `attributes["environment"]` | 
 
 ## add\_attributes processor
+<a name="add-attributes-processor"></a>
 
-Adds or overwrites attributes on metric datapoints. Works with all temporality
-types.
+Adds or overwrites attributes on metric datapoints. Works with all temporality types.
 
-**OTTL equivalent:**
-`set(attributes["key"], "value")`
+**OTTL equivalent:** `set(attributes["key"], "value")`
 
-###### Configuration
-
+**Configuration**  
 Configure the add\_attributes processor with the following parameters:
 
 ```
@@ -36,39 +36,28 @@ processor:
         - key: instrumentation_scope.attributes["version"]
           value: "1.0"
           overwrite_if_key_exists: true
-```
+```Parameters
 
-###### Parameters
-
-`attributes` (required)
-
+`attributes` (required)  
 Array of attribute objects to add.
 
-`attributes[].key` (required)
-
+`attributes[].key` (required)  
 OTTL attribute path specifying where to add the attribute.
 
-`attributes[].value` (required)
-
+`attributes[].value` (required)  
 String value to assign.
 
-`attributes[].overwrite_if_key_exists` (optional)
-
-Boolean. When `true`, overwrites existing values. Defaults
-to `false`. When set to `true`, this operation is
-considered destructive and does not apply to cumulative metrics or
-vended metrics.
+`attributes[].overwrite_if_key_exists` (optional)  
+Boolean. When `true`, overwrites existing values. Defaults to `false`. When set to `true`, this operation is considered destructive and does not apply to cumulative metrics or vended metrics.
 
 ## delete\_attributes processor
+<a name="delete-attributes-processor"></a>
 
-Removes specific attributes from metric datapoints. **Does not
-apply to cumulative metrics or vended metrics.**
+Removes specific attributes from metric datapoints. **Does not apply to cumulative metrics or vended metrics.**
 
-**OTTL equivalent:**
-`delete_key(attributes, "key")`
+**OTTL equivalent:** `delete_key(attributes, "key")`
 
-###### Configuration
-
+**Configuration**  
 Configure the delete\_attributes processor with the following parameters:
 
 ```
@@ -78,24 +67,19 @@ processor:
         - resource.attributes["obsolete"]
         - attributes["temp"]
         - datapoint.attributes["debug"]
-```
+```Parameters
 
-###### Parameters
-
-`with_keys` (required)
-
+`with_keys` (required)  
 Array of OTTL attribute paths to remove.
 
 ## rename\_attributes processor
+<a name="rename-attributes-processor"></a>
 
-Renames attribute keys on metric datapoints. **Does not apply to
-cumulative metrics or vended metrics.**
+Renames attribute keys on metric datapoints. **Does not apply to cumulative metrics or vended metrics.**
 
-**OTTL equivalent:**
-`set() + delete_key()`
+**OTTL equivalent:** `set() + delete_key()`
 
-###### Configuration
-
+**Configuration**  
 Configure the rename\_attributes processor with the following parameters:
 
 ```
@@ -105,37 +89,28 @@ processor:
         - from_key: resource.attributes["old_key"]
           to_key: resource.attributes["new_key"]
           overwrite_if_to_key_exists: true
-```
+```Parameters
 
-###### Parameters
-
-`attributes` (required)
-
+`attributes` (required)  
 Array of rename operations.
 
-`attributes[].from_key` (required)
-
+`attributes[].from_key` (required)  
 Source OTTL attribute path.
 
-`attributes[].to_key` (required)
-
+`attributes[].to_key` (required)  
 Target OTTL attribute path.
 
-`attributes[].overwrite_if_to_key_exists` (optional)
-
-Boolean. When `true`, overwrites if target key exists. Defaults
-to `false`.
+`attributes[].overwrite_if_to_key_exists` (optional)  
+Boolean. When `true`, overwrites if target key exists. Defaults to `false`.
 
 ## rename\_metrics processor
+<a name="rename-metrics-processor"></a>
 
-Renames metric names. **Does not apply to cumulative metrics or
-vended metrics.**
+Renames metric names. **Does not apply to cumulative metrics or vended metrics.**
 
-**OTTL equivalent:**
-`set(name, "new.metric.name") where name == "old.metric.name"`
+**OTTL equivalent:** `set(name, "new.metric.name") where name == "old.metric.name"`
 
-###### Configuration
-
+**Configuration**  
 Configure the rename\_metrics processor with the following parameters:
 
 ```
@@ -144,34 +119,26 @@ processor:
       metrics:
         - from: "old.metric.name"
           to: "new.metric.name"
-```
+```Parameters
 
-###### Parameters
-
-`metrics` (required)
-
+`metrics` (required)  
 Array of rename operations.
 
-`metrics[].from` (required)
-
+`metrics[].from` (required)  
 Current metric name.
 
-`metrics[].to` (required)
-
+`metrics[].to` (required)  
 New metric name.
 
 ## substitute\_attribute\_values processor
+<a name="substitute-attribute-values-processor"></a>
 
-Maps attribute values by using a lookup table. **Does not apply to
-cumulative metrics or vended metrics.**
+Maps attribute values by using a lookup table. **Does not apply to cumulative metrics or vended metrics.**
 
-**OTTL equivalent:**
-`replace_match()`
+**OTTL equivalent:** `replace_match()`
 
-###### Configuration
-
-Configure the substitute\_attribute\_values processor with the following
-parameters:
+**Configuration**  
+Configure the substitute\_attribute\_values processor with the following parameters:
 
 ```
 processor:
@@ -180,27 +147,22 @@ processor:
         - key: resource.attributes["region"]
           from: "us-east-1a"
           to: "us-east-1"
-```
+```Parameters
 
-###### Parameters
-
-`attributes` (required)
-
+`attributes` (required)  
 Array of substitution operations.
 
-`attributes[].key` (required)
-
+`attributes[].key` (required)  
 OTTL attribute path to match against.
 
-`attributes[].from` (required)
-
+`attributes[].from` (required)  
 Value to match.
 
-`attributes[].to` (required)
-
+`attributes[].to` (required)  
 Replacement value.
 
 ## Full example
+<a name="metrics-processors-full-example"></a>
 
 The following example uses all five processors in a single pipeline:
 
@@ -240,23 +202,13 @@ pipeline:
 ```
 
 ## Processor compatibility and restrictions
+<a name="metrics-processor-restrictions"></a>
 
-Maximum processors
-
+Maximum processors  
 A metrics pipeline can have at most 20 processors.
 
-Destructive processors and temporality
+Destructive processors and temporality  
+Destructive processors (`delete_attributes`, `rename_attributes`, `rename_metrics`, `substitute_attribute_values`, and `add_attributes` with `overwrite_if_key_exists: true`) do not apply to cumulative metrics or vended metrics. These metrics are passed through unchanged.
 
-Destructive processors (`delete_attributes`,
-`rename_attributes`, `rename_metrics`,
-`substitute_attribute_values`, and
-`add_attributes` with
-`overwrite_if_key_exists: true`) do not apply to cumulative
-metrics or vended metrics. These metrics are passed through unchanged.
-
-Vended metrics protection
-
-Destructive processors cannot modify metrics where
-`instrumentation_scope.name` starts with
-`cloudwatch.aws/`. These metrics are passed through
-unchanged.
+Vended metrics protection  
+Destructive processors cannot modify metrics where `instrumentation_scope.name` starts with `cloudwatch.aws/`. These metrics are passed through unchanged.

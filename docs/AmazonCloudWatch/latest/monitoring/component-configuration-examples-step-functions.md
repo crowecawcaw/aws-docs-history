@@ -1,7 +1,9 @@
-# AWS Step Functions
 
-The following example shows a component configurations in JSON format for
-AWS Step Functions.
+
+# AWS Step Functions
+<a name="component-configuration-examples-step-functions"></a>
+
+The following example shows a component configurations in JSON format for AWS Step Functions.
 
 ```
 {

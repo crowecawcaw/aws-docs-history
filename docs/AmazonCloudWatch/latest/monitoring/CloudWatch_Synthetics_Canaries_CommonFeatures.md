@@ -1,36 +1,23 @@
+
+
 # Common features for CloudWatch Synthetics canaries
+<a name="CloudWatch_Synthetics_Canaries_CommonFeatures"></a>
 
 You can use the following features with all canary runtimes.
 
 ## Environment variables
+<a name="CloudWatch_Synthetics_Environment_Variables"></a>
 
-You can use environment variables when you create canaries. You can write a
-single canary script and use it with different values to quickly create
-multiple canaries for a similar task.
+You can use environment variables when you create canaries. You can write a single canary script and use it with different values to quickly create multiple canaries for a similar task.
 
-For example, suppose your organization has endpoints such as `prod`,
-`dev`, and `pre-release` for different software development stages.
-You must create canaries to test each endpoint. You can
-write a single canary script that tests your software. Then specify different
-endpoint environment variable values when you create each of the three canaries. When
-you create a canary, specify the script and the environment variable values.
+For example, suppose your organization has endpoints such as `prod`, `dev`, and `pre-release` for different software development stages. You must create canaries to test each endpoint. You can write a single canary script that tests your software. Then specify different endpoint environment variable values when you create each of the three canaries. When you create a canary, specify the script and the environment variable values.
 
-The names of environment variables can contain letters, numbers, and the underscore
-character. They must start with a letter and be at least two characters. The total size
-of your environment variables can't exceed 4 KB. You can't specify any Lambda reserved
-environment variables as the names of your environment variables. For more information
-about reserved environment variables, see [Runtime environment variables](../../../lambda/latest/dg/configuration-envvars.md#configuration-envvars-runtime "../../../lambda/latest/dg/configuration-envvars.md#configuration-envvars-runtime").
+The names of environment variables can contain letters, numbers, and the underscore character. They must start with a letter and be at least two characters. The total size of your environment variables can't exceed 4 KB. You can't specify any Lambda reserved environment variables as the names of your environment variables. For more information about reserved environment variables, see [Runtime environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime).
 
-###### Environment variables are not encrypted client-side
+**Environment variables are not encrypted client-side**  
+By default, AWS encrypts environment variable keys and values at rest using an AWS owned key. However, CloudWatch Synthetics does not apply client-side encryption. Store sensitive information only after encrypting it in transit. For more information, see [Encrypting environment variables in transit](#CloudWatch_Synthetics_transit_encryption). You can also use a customer managed AWS KMS key to encrypt your canary's environment variables at rest. For more information, see [Encrypting environment variables at rest with a customer managed key](#CloudWatch_Synthetics_function_encryption).
 
-By default, AWS encrypts environment variable keys and values at rest
-using an AWS owned key. However, CloudWatch Synthetics does not apply client-side
-encryption. Store sensitive information only after encrypting it in transit. For more information, see [Encrypting environment variables in transit](#CloudWatch_Synthetics_transit_encryption "#CloudWatch_Synthetics_transit_encryption"). You can also use a customer managed AWS KMS key to encrypt your
-canary's environment variables at rest. For more information, see [Encrypting environment variables at rest with a customer managed key](#CloudWatch_Synthetics_function_encryption "#CloudWatch_Synthetics_function_encryption").
-
-The following example script uses two environment variables. This script is for a
-canary that checks whether a webpage is available. It uses environment variables to
-parameterize both the URL that it checks and the CloudWatch Synthetics log level that it uses.
+The following example script uses two environment variables. This script is for a canary that checks whether a webpage is available. It uses environment variables to parameterize both the URL that it checks and the CloudWatch Synthetics log level that it uses.
 
 The following snippets are part of the complete script that follows.
 
@@ -40,15 +27,13 @@ The following function sets `LogLevel` to the value of the `LOG_LEVEL` environme
  synthetics.setLogLevel(process.env.LOG_LEVEL);
 ```
 
-This function sets `URL` to the value of the `URL` environment
-variable.
+This function sets `URL` to the value of the `URL` environment variable.
 
 ```
 const URL = process.env.URL;
 ```
 
-The following complete script demonstrates both environment variables. When you create a canary using this script, you specify
-values for the `LOG_LEVEL` and `URL` environment variables.
+The following complete script demonstrates both environment variables. When you create a canary using this script, you specify values for the `LOG_LEVEL` and `URL` environment variables.
 
 ```
 var synthetics = require('@aws/synthetics-puppeteer');
@@ -88,19 +73,13 @@ exports.handler = async () => {
 ```
 
 ### Passing environment variables to your script
+<a name="CloudWatch_Synthetics_Canaries_pass_variables"></a>
 
-To pass environment variables to your script when you create a canary in the
-console, specify the keys and values of the environment variables in the **Environment
-variables** section on the console. For more information, see [Creating a canary](CloudWatch_Synthetics_Canaries_Create.md "CloudWatch_Synthetics_Canaries_Create.md").
+To pass environment variables to your script when you create a canary in the console, specify the keys and values of the environment variables in the **Environment variables** section on the console. For more information, see [Creating a canary](CloudWatch_Synthetics_Canaries_Create.md).
 
-To pass environment variables through the API or AWS CLI, use the `EnvironmentVariables` parameter in the `RunConfig` section. The
-following is an example AWS CLI command that creates a canary that uses two environment
-variables with keys of `Environment` and `Region`.
+To pass environment variables through the API or AWS CLI, use the `EnvironmentVariables` parameter in the `RunConfig` section. The following is an example AWS CLI command that creates a canary that uses two environment variables with keys of `Environment` and `Region`.
 
-For the
-full schema of the `RunConfig` parameter including
-`EnvironmentVariables`, see [CanaryRunConfigInput](../../../AmazonSynthetics/latest/APIReference/API_CanaryRunConfigInput.md "../../../AmazonSynthetics/latest/APIReference/API_CanaryRunConfigInput.md")
-in the _Amazon CloudWatch Synthetics API Reference_.
+For the full schema of the `RunConfig` parameter including `EnvironmentVariables`, see [CanaryRunConfigInput](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRunConfigInput.html) in the *Amazon CloudWatch Synthetics API Reference*.
 
 ```
 aws synthetics create-canary --cli-input-json '{
@@ -127,48 +106,39 @@ aws synthetics create-canary --cli-input-json '{
   "FailureRetentionPeriodInDays": 13,
   "RuntimeVersion": "syn-nodejs-2.0"
 }'
-
 ```
 
 ## Encrypting environment variables at rest with a customer managed key
+<a name="CloudWatch_Synthetics_function_encryption"></a>
 
-By default, an AWS owned key encrypts canary environment variables at rest.
-You can specify a customer managed AWS KMS key to encrypt the
-canary environment variables at rest. With a customer managed key, you have full control over the
-encryption of sensitive configuration data. The following sections describe the requirements,
-configuration steps, and permissions for using a customer managed key.
+By default, an AWS owned key encrypts canary environment variables at rest. You can specify a customer managed AWS KMS key to encrypt the canary environment variables at rest. With a customer managed key, you have full control over the encryption of sensitive configuration data. The following sections describe the requirements, configuration steps, and permissions for using a customer managed key.
 
 ### Requirements
+<a name="CloudWatch_Synthetics_function_encryption_requirements"></a>
 
 Before you configure a customer managed key, verify that you meet the following requirements:
-
-- The AWS KMS key must be a symmetric encryption key.
-- The key policy must grant `kms:CreateGrant` to the caller (the
-  IAM principal calling the Synthetics API).
-- AWS Lambda uses the grant to encrypt and decrypt the environment variables at
-  rest.
-- The AWS KMS key must be in the same AWS Region as the canary.
++ The AWS KMS key must be a symmetric encryption key.
++ The key policy must grant `kms:CreateGrant` to the caller (the IAM principal calling the Synthetics API).
++ AWS Lambda uses the grant to encrypt and decrypt the environment variables at rest.
++ The AWS KMS key must be in the same AWS Region as the canary.
 
 ### Configuring a customer managed key
+<a name="CloudWatch_Synthetics_function_encryption_configure"></a>
 
 You can configure a customer managed key when you create or update a canary. The following procedures show how to configure encryption using the Amazon CloudWatch console and the Synthetics API.
 
 #### Configure encryption in the console
+<a name="CloudWatch_Synthetics_function_encryption_configure_console"></a>
 
-To create or edit a canary in the Amazon CloudWatch console, expand the
-**Environment variables** section. Under
-**Encryption at rest configuration**, choose
-**Use a customer managed key** and then choose or specify the ARN of
-your AWS KMS key.
+To create or edit a canary in the Amazon CloudWatch console, expand the **Environment variables** section. Under **Encryption at rest configuration**, choose **Use a customer managed key** and then choose or specify the ARN of your AWS KMS key.
 
 #### Configure encryption using the API
+<a name="CloudWatch_Synthetics_function_encryption_configure_api"></a>
 
-When calling `CreateCanary` or `UpdateCanary`, specify the
-`KmsKeyArn` parameter with the ARN of your customer managed key.
-To revert to the AWS managed key, set `KmsKeyArn` to an empty
-string.
+When calling `CreateCanary` or `UpdateCanary`, specify the `KmsKeyArn` parameter with the ARN of your customer managed key. To revert to the AWS managed key, set `KmsKeyArn` to an empty string.
 
 #### Example: CreateCanary request with a customer managed key
+<a name="CloudWatch_Synthetics_function_encryption_configure_example"></a>
 
 ```
 {
@@ -183,54 +153,42 @@ string.
 ```
 
 ### Required permissions for at-rest encryption
+<a name="CloudWatch_Synthetics_function_encryption_permissions"></a>
 
-If you create or update the canary, you must have the following permissions
-on the AWS KMS key:
+If you create or update the canary, you must have the following permissions on the AWS KMS key:
++ `kms:CreateGrant`, `kms:Encrypt`—Required to configure a customer managed key for the canary.
++ `kms:Decrypt`—Required to view and manage environment variables that are encrypted with a customer managed key.
++ `kms:DescribeKey`—Required to validate the key.
 
-- `kms:CreateGrant`, `kms:Encrypt`—Required to configure a
-  customer managed key for the canary.
-- `kms:Decrypt`—Required to view and manage environment variables
-  that are encrypted with a customer managed key.
-- `kms:DescribeKey`—Required to validate the key.
-
-The canary execution role requires no AWS KMS permissions for at-rest encryption.
-Lambda uses the grant to handle encryption and decryption.
+The canary execution role requires no AWS KMS permissions for at-rest encryption. Lambda uses the grant to handle encryption and decryption.
 
 ### Multi-location canaries
+<a name="CloudWatch_Synthetics_function_encryption_multilocation"></a>
 
-For multi-location canaries, each replica location can have its own AWS KMS key.
-Specify the `KmsKeyArn` in the `AddReplicaLocations` parameter
-when creating or updating a canary. The key must be in the same Region as the
-replica.
+For multi-location canaries, each replica location can have its own AWS KMS key. Specify the `KmsKeyArn` in the `AddReplicaLocations` parameter when creating or updating a canary. The key must be in the same Region as the replica.
 
 ## Encrypting environment variables in transit
+<a name="CloudWatch_Synthetics_transit_encryption"></a>
 
-In addition to encryption at rest, you can encrypt individual environment variable
-values before CloudWatch Synthetics stores them. CloudWatch Synthetics calls this encryption in transit. When you encrypt a
-value in transit, the console replaces the plaintext value with a base64-encoded ciphertext that
-only your canary can decrypt at runtime.
+In addition to encryption at rest, you can encrypt individual environment variable values before CloudWatch Synthetics stores them. CloudWatch Synthetics calls this encryption in transit. When you encrypt a value in transit, the console replaces the plaintext value with a base64-encoded ciphertext that only your canary can decrypt at runtime.
 
 ### How encryption in transit works
+<a name="CloudWatch_Synthetics_transit_encryption_how"></a>
 
 When you choose to encrypt an environment variable value in transit:
 
-1. The console calls `kms:Encrypt` with your selected AWS KMS key to
-   encrypt the plaintext value.
-2. The encrypted ciphertext (base64-encoded) replaces the plaintext value in the
-   environment variable configuration.
-3. At runtime, your canary script decrypts the value by calling
-   `kms:Decrypt`.
+1. The console calls `kms:Encrypt` with your selected AWS KMS key to encrypt the plaintext value.
+
+1. The encrypted ciphertext (base64-encoded) replaces the plaintext value in the environment variable configuration.
+
+1. At runtime, your canary script decrypts the value by calling `kms:Decrypt`.
 
 ### Required permissions for encryption in transit
+<a name="CloudWatch_Synthetics_transit_encryption_permissions"></a>
 
 You need the following permissions for encryption in transit:
-
-- **Console user or API caller**—
-  `kms:Encrypt` on the AWS KMS key. You need this permission to encrypt the
-  value before storing it.
-- **Canary execution role**—
-  `kms:Decrypt` on the AWS KMS key. The canary's Lambda function needs this
-  permission to decrypt the value at runtime.
++ **Console user or API caller**— `kms:Encrypt` on the AWS KMS key. You need this permission to encrypt the value before storing it.
++ **Canary execution role**— `kms:Decrypt` on the AWS KMS key. The canary's Lambda function needs this permission to decrypt the value at runtime.
 
 The following is an example IAM policy to attach to the canary execution role:
 
@@ -248,10 +206,9 @@ The following is an example IAM policy to attach to the canary execution role:
 ```
 
 ### Decrypting values in your canary script
+<a name="CloudWatch_Synthetics_transit_encryption_decrypt"></a>
 
-To use an encrypted environment variable in your canary script, decrypt it at
-runtime. The following Node.js example shows how to decrypt an environment
-variable:
+To use an encrypted environment variable in your canary script, decrypt it at runtime. The following Node.js example shows how to decrypt an environment variable:
 
 ```
 const { KMSClient, DecryptCommand } = require('@aws-sdk/client-kms');
@@ -272,35 +229,31 @@ const mySecret = await decryptEnvVar('MY_CONFIG_VAR');
 ```
 
 ## Integrating your canary with other AWS services
+<a name="CloudWatch_Synthetics_Canaries_AWS_integrate"></a>
 
 You can use the AWS SDK library in your canary to integrate with other AWS services.
 
-To do so, add the following code to your canary. In these
-examples, the canary integrates with AWS Secrets Manager.
+To do so, add the following code to your canary. In these examples, the canary integrates with AWS Secrets Manager.
++ Import the AWS SDK.
 
-- Import the AWS SDK.
+  ```
+  const AWS = require('aws-sdk');
+  ```
++ Create a client for the AWS service that you are integrating with.
 
-```
-const AWS = require('aws-sdk');
-```
+  ```
+  const secretsManager = new AWS.SecretsManager();
+  ```
++ Use the client to make API calls to that service.
 
-- Create a client for the AWS service that you are integrating with.
+  ```
+  var params = {
+  SecretId: secretName
+  };
+  return await secretsManager.getSecretValue(params).promise();
+  ```
 
-```
-const secretsManager = new AWS.SecretsManager();
-```
-
-- Use the client to make API calls to that service.
-
-```
-var params = {
-SecretId: secretName
-};
-return await secretsManager.getSecretValue(params).promise();
-```
-
-The following canary script code snippet shows how to integrate with
-Secrets Manager in more detail.
+The following canary script code snippet shows how to integrate with Secrets Manager in more detail.
 
 ```
 var synthetics = require('@aws/synthetics-puppeteer');
@@ -358,23 +311,30 @@ exports.handler = async () => {
 ```
 
 ## Forcing your canary to use a static IP address
+<a name="CloudWatch_Synthetics_Canaries_staticIP"></a>
 
 You can set up a canary so that it uses a static IP address.
 
-###### To force a canary to use a static IP address
+**To force a canary to use a static IP address**
 
-1. Create a new VPC. For more information, see [Using DNS with your VPC](../../../vpc/latest/userguide/vpc-dns.md "../../../vpc/latest/userguide/vpc-dns.md").
-2. Create a new internet gateway. For more information, see [Adding an internet
-   gateway to your VPC](../../../vpc/latest/userguide/VPC_Internet_Gateway.md#working-with-igw "../../../vpc/latest/userguide/VPC_Internet_Gateway.md#working-with-igw").
-3. Create a public subnet inside your new VPC.
-4. Add a new route table to the VPC.
-5. Add a route in the new route table that goes from `0.0.0.0/0` to the
-   internet gateway.
-6. Associate the new route table with the public subnet.
-7. Create an elastic IP address. For more information, see [Elastic IP addresses](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md").
-8. Create a new NAT gateway and assign it to the public subnet and the elastic IP
-   address.
-9. Create a private subnet inside the VPC.
-10. Add a route to the VPC default route table that goes from `0.0.0.0/0`
-    to the NAT gateway.
-11. Create your canary.
+1. Create a new VPC. For more information, see [Using DNS with your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html).
+
+1. Create a new internet gateway. For more information, see [Adding an internet gateway to your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html#working-with-igw).
+
+1. Create a public subnet inside your new VPC.
+
+1. Add a new route table to the VPC.
+
+1. Add a route in the new route table that goes from `0.0.0.0/0` to the internet gateway.
+
+1. Associate the new route table with the public subnet.
+
+1. Create an elastic IP address. For more information, see [Elastic IP addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html).
+
+1. Create a new NAT gateway and assign it to the public subnet and the elastic IP address.
+
+1. Create a private subnet inside the VPC.
+
+1. Add a route to the VPC default route table that goes from `0.0.0.0/0` to the NAT gateway.
+
+1. Create your canary. 

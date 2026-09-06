@@ -1,40 +1,39 @@
+
+
 # Examples of using the CLI with Network Flow Monitor
+<a name="CloudWatch-NFM-get-started-CLI"></a>
 
-This section includes examples for using the AWS Command Line Interface with Network Flow Monitor operations.
+This section includes examples for using the AWS Command Line Interface with Network Flow Monitor operations. 
 
-Before you begin, make sure that you log in to use the AWS CLI with the AWS account that provides
-the scope that you want to use to monitor network flows. For more information about using API actions with
-Network Flow Monitor, see the [Network Flow Monitor API Reference Guide](../../../networkflowmonitor/2.0/APIReference/Welcome.md "../../../networkflowmonitor/2.0/APIReference/Welcome.md").
+Before you begin, make sure that you log in to use the AWS CLI with the AWS account that provides the scope that you want to use to monitor network flows. For more information about using API actions with Network Flow Monitor, see the [Network Flow Monitor API Reference Guide](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/Welcome.html).
 
-###### Topics
-
-- [Create a monitor](#CloudWatch-NFM-get-started-CLI-create-monitor "#CloudWatch-NFM-get-started-CLI-create-monitor")
-- [View monitor details](#CloudWatch-NFM-get-started-CLI-mon-details "#CloudWatch-NFM-get-started-CLI-mon-details")
-- [Create a scope](#CloudWatch-NFM-get-started-CLI-create-scope "#CloudWatch-NFM-get-started-CLI-create-scope")
-- [Delete a monitor](#CloudWatch-NFM-get-started-CLI-delete-monitor "#CloudWatch-NFM-get-started-CLI-delete-monitor")
-- [Delete a scope](#CloudWatch-NFM-get-started-CLI-delete-scope "#CloudWatch-NFM-get-started-CLI-delete-scope")
-- [Get information about a monitor](#CloudWatch-NFM-get-started-CLI-get-monitor "#CloudWatch-NFM-get-started-CLI-get-monitor")
-- [Retrieve data on a specific queries](#CloudWatch-NFM-get-started-CLI-get-query-results "#CloudWatch-NFM-get-started-CLI-get-query-results")
-- [See scope information](#CloudWatch-NFM-get-scope "#CloudWatch-NFM-get-scope")
-- [See a list of monitors for an account](#CloudWatch-NFM-list-monitors "#CloudWatch-NFM-list-monitors")
-- [See a list of scopes for an account](#CloudWatch-NFM-list-scopes "#CloudWatch-NFM-list-scopes")
-- [See the list of tags for a monitor](#CloudWatch-NFM-list-tags-for-resource "#CloudWatch-NFM-list-tags-for-resource")
-- [Starting and stopping queries](#CloudWatch-NFM-query-monitors "#CloudWatch-NFM-query-monitors")
-- [Tag a monitor](#CloudWatch-NFM-tag-resource "#CloudWatch-NFM-tag-resource")
-- [Remove a tag from a monitor](#CloudWatch-NFM-untag-resource "#CloudWatch-NFM-untag-resource")
-- [Update an existing monitor](#CloudWatch-NFM-update-monitor "#CloudWatch-NFM-update-monitor")
+**Topics**
++ [Create a monitor](#CloudWatch-NFM-get-started-CLI-create-monitor)
++ [View monitor details](#CloudWatch-NFM-get-started-CLI-mon-details)
++ [Create a scope](#CloudWatch-NFM-get-started-CLI-create-scope)
++ [Delete a monitor](#CloudWatch-NFM-get-started-CLI-delete-monitor)
++ [Delete a scope](#CloudWatch-NFM-get-started-CLI-delete-scope)
++ [Get information about a monitor](#CloudWatch-NFM-get-started-CLI-get-monitor)
++ [Retrieve data on a specific queries](#CloudWatch-NFM-get-started-CLI-get-query-results)
++ [See scope information](#CloudWatch-NFM-get-scope)
++ [See a list of monitors for an account](#CloudWatch-NFM-list-monitors)
++ [See a list of scopes for an account](#CloudWatch-NFM-list-scopes)
++ [See the list of tags for a monitor](#CloudWatch-NFM-list-tags-for-resource)
++ [Starting and stopping queries](#CloudWatch-NFM-query-monitors)
++ [Tag a monitor](#CloudWatch-NFM-tag-resource)
++ [Remove a tag from a monitor](#CloudWatch-NFM-untag-resource)
++ [Update an existing monitor](#CloudWatch-NFM-update-monitor)
 
 ## Create a monitor
+<a name="CloudWatch-NFM-get-started-CLI-create-monitor"></a>
 
-To create a monitor with the AWS CLI, use the `create-monitor` command. The following example creates a
-monitor named `demo` in the specified account.
+To create a monitor with the AWS CLI, use the `create-monitor` command. The following example creates a monitor named `demo` in the specified account.
 
 ```
 aws networkflowmonitor create-monitor \
         --monitor-name demo \
         --local-resources type="AWS::EC2::VPC",identifier="arn:aws:ec2:us-east-1:111122223333:vpc/vpc-11223344556677889"  \
         --scope-arn arn:aws:networkflowmonitor:us-east-1:111122223333:scope/sample-aaaa-bbbb-cccc-44556677889
-
 ```
 
 Output:
@@ -48,9 +47,10 @@ Output:
     }
 ```
 
-For more information, see [Create a monitor in Network Flow Monitor](CloudWatch-NetworkFlowMonitor-configure-monitors-create.md "CloudWatch-NetworkFlowMonitor-configure-monitors-create.md").
+For more information, see [Create a monitor in Network Flow Monitor](CloudWatch-NetworkFlowMonitor-configure-monitors-create.md).
 
 ## View monitor details
+<a name="CloudWatch-NFM-get-started-CLI-mon-details"></a>
 
 To view information about a monitor with the AWS CLI, use the `get-monitor` command.
 
@@ -78,9 +78,9 @@ Output:
 ```
 
 ## Create a scope
+<a name="CloudWatch-NFM-get-started-CLI-create-scope"></a>
 
-The following `create-scope` example creates a scope that is the set of resources
-for which Network Flow Monitor will generate network traffic metrics.
+The following `create-scope` example creates a scope that is the set of resources for which Network Flow Monitor will generate network traffic metrics.
 
 ```
 aws networkflowmonitor create-scope \
@@ -90,18 +90,17 @@ aws networkflowmonitor create-scope \
 Output:
 
 ```
-
     {
         "scopeId": "sample-aaaa-bbbb-cccc-11112222333",
         "status": "IN_PROGRESS",
         "tags": {}
     }
-
 ```
 
-For more information, see [Components and features of Network Flow Monitor](CloudWatch-NetworkFlowMonitor-components.md "CloudWatch-NetworkFlowMonitor-components.md").
+For more information, see [Components and features of Network Flow Monitor](CloudWatch-NetworkFlowMonitor-components.md).
 
 ## Delete a monitor
+<a name="CloudWatch-NFM-get-started-CLI-delete-monitor"></a>
 
 The following `delete-monitor` example deletes a monitor named `Demo` in your account.
 
@@ -112,9 +111,10 @@ aws networkflowmonitor delete-monitor \
 
 This command produces no output.
 
-For more information, see [Delete a monitor in Network Flow Monitor](CloudWatch-NetworkFlowMonitor-configure-monitors-delete.md "CloudWatch-NetworkFlowMonitor-configure-monitors-delete.md").
+For more information, see [Delete a monitor in Network Flow Monitor](CloudWatch-NetworkFlowMonitor-configure-monitors-delete.md).
 
 ## Delete a scope
+<a name="CloudWatch-NFM-get-started-CLI-delete-scope"></a>
 
 The following `delete-scope` example deletes the specified scope.
 
@@ -125,14 +125,15 @@ aws networkflowmonitor delete-scope \
 
 This command produces no output.
 
-For more information, see [Components and features of Network Flow Monitor](CloudWatch-NetworkFlowMonitor-components.md "CloudWatch-NetworkFlowMonitor-components.md").
+For more information, see [Components and features of Network Flow Monitor](CloudWatch-NetworkFlowMonitor-components.md).
 
 ## Get information about a monitor
+<a name="CloudWatch-NFM-get-started-CLI-get-monitor"></a>
 
 The following `get-monitor` example displays information about the monitor named `demo` in the specified account.
 
 ```
-aws networkflowmonitor get-monitor \
+aws networkflowmonitor get-monitor \ 
         --monitor-name Demo
 ```
 
@@ -156,13 +157,15 @@ Output:
     }
 ```
 
-For more information, see [Components and features of Network Flow Monitor](CloudWatch-NetworkFlowMonitor-components.md "CloudWatch-NetworkFlowMonitor-components.md").
+For more information, see [Components and features of Network Flow Monitor](CloudWatch-NetworkFlowMonitor-components.md).
 
 ## Retrieve data on a specific queries
+<a name="CloudWatch-NFM-get-started-CLI-get-query-results"></a>
 
 The following sections provide example CLI commands to retrieve query statuses.
 
 ### get-query-results-workload-insights-top-contributors-data
+<a name="get-query-results-workload-insights-top-contributors-data"></a>
 
 The `get-query-results-workload-insights-top-contributors-data` example returns the data for the specified query.
 
@@ -193,10 +196,10 @@ Output:
         ],
         "unit": "Bytes"
     }
-
 ```
 
 ### get-query-results-workload-insights-top-contributors
+<a name="get-query-results-workload-insights-top-contributors"></a>
 
 The following `get-query-results-workload-insights-top-contributors` example returns the data for the specified query.
 
@@ -224,10 +227,10 @@ Output:
             }
         ]
     }
-
 ```
 
 ### get-query-status-monitor-top-contributors
+<a name="get-query-status-monitor-top-contributors"></a>
 
 The following `get-query-status-monitor-top-contributors` example displays the current status of the query in the specified account.
 
@@ -243,10 +246,10 @@ Output:
 {
         "status": "SUCCEEDED"
     }
-
 ```
 
 ### get-query-status-workload-insights-top-contributors-data
+<a name="get-query-status-workload-insights-top-contributors-data"></a>
 
 The following `get-query-status-workload-insights-top-contributors-data` example displays the current status of the query in the specified account.
 
@@ -262,10 +265,10 @@ Output:
 {
         "status": "SUCCEEDED"
     }
-
 ```
 
 ### get-query-results-workload-insights-top-contributors
+<a name="get-query-results-workload-insights-top-contributors"></a>
 
 The following `get-query-results-workload-insights-top-contributors` example displays the current status of the query in the specified account.
 
@@ -281,12 +284,12 @@ Output:
 {
         "status": "SUCCEEDED"
     }
-
 ```
 
-For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
+For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md).
 
 ## See scope information
+<a name="CloudWatch-NFM-get-scope"></a>
 
 The following `get-scope` example displays information about a scope, such as status, tags, name, and target details.
 
@@ -317,9 +320,10 @@ Output:
     }
 ```
 
-For more information, see [Components and features of Network Flow Monitor](CloudWatch-NetworkFlowMonitor-components.md "CloudWatch-NetworkFlowMonitor-components.md").
+For more information, see [Components and features of Network Flow Monitor](CloudWatch-NetworkFlowMonitor-components.md).
 
 ## See a list of monitors for an account
+<a name="CloudWatch-NFM-list-monitors"></a>
 
 The following `list-monitors` example returns all the monitors in the specified account.
 
@@ -341,9 +345,10 @@ Output:
     }
 ```
 
-For more information, see [Components and features of Network Flow Monitor](CloudWatch-NetworkFlowMonitor-components.md "CloudWatch-NetworkFlowMonitor-components.md").
+For more information, see [Components and features of Network Flow Monitor](CloudWatch-NetworkFlowMonitor-components.md).
 
 ## See a list of scopes for an account
+<a name="CloudWatch-NFM-list-scopes"></a>
 
 The following `list-scopes` example lists all the scopes in the specified account.
 
@@ -365,9 +370,10 @@ Output:
     }
 ```
 
-For more information, see [Components and features of Network Flow Monitor](CloudWatch-NetworkFlowMonitor-components.md "CloudWatch-NetworkFlowMonitor-components.md").
+For more information, see [Components and features of Network Flow Monitor](CloudWatch-NetworkFlowMonitor-components.md).
 
 ## See the list of tags for a monitor
+<a name="CloudWatch-NFM-list-tags-for-resource"></a>
 
 The following `list-tags-for-resource` example returns all the tags associated with the specified resource.
 
@@ -387,13 +393,15 @@ Output:
     }
 ```
 
-For more information, see [Tagging your Amazon CloudWatch resources](CloudWatch-Tagging.md "CloudWatch-Tagging.md").
+For more information, see [Tagging your Amazon CloudWatch resources](CloudWatch-Tagging.md).
 
 ## Starting and stopping queries
+<a name="CloudWatch-NFM-query-monitors"></a>
 
 The following sections provide example CLI commands for starting and stopping queries in Network Flow Monitor.
 
 ### start-query-monitor-top-contributors
+<a name="start-query-monitor-top-contributors"></a>
 
 The following `start-query-monitor-top-contributors` example starts the query which returns a queryId to retrieve the top contributors.
 
@@ -414,9 +422,10 @@ Output:
     }
 ```
 
-For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
+For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md).
 
 ### start-query-workload-insights-top-contributors-data
+<a name="start-query-workload-insights-top-contributors-data"></a>
 
 The following `start-query-workload-insights-top-contributors-data` example starts the query which returns a queryId to retrieve the top contributors.
 
@@ -437,9 +446,10 @@ Output:
     }
 ```
 
-For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
+For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md).
 
 ### start-query-workload-insights-top-contributors
+<a name="start-query-workload-insights-top-contributors"></a>
 
 The following `start-query-workload-insights-top-contributors` example starts the query which returns a queryId to retrieve the top contributors.
 
@@ -460,9 +470,10 @@ Output:
     }
 ```
 
-For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
+For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md).
 
 ### stop-query-monitor-top-contributors
+<a name="stop-query-monitor-top-contributors"></a>
 
 The following `stop-query-monitor-top-contributors` example stops the query in the specified account.
 
@@ -474,37 +485,40 @@ aws networkflowmonitor stop-query-monitor-top-contributors \
 
 This command produces no output.
 
-For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
+For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md).
 
 ### stop-query-workload-insights-top-contributors-data
+<a name="stop-query-workload-insights-top-contributors-data"></a>
 
 The following `stop-query-workload-insights-top-contributors-data` stops the query in the specified account.
 
 ```
-aws networkflowmonitor stop-query-workload-insights-top-contributors-data \
+aws networkflowmonitor stop-query-workload-insights-top-contributors-data \ 
         --scope-id sample-aaaa-bbbb-cccc-11112222333 \
         --query-id sample-dddd-eeee-ffff-44556677889
 ```
 
 This command produces no output.
 
-For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
+For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md).
 
 ### stop-query-workload-insights-top-contributors
+<a name="stop-query-workload-insights-top-contributors"></a>
 
 The following `stop-query-workload-insights-top-contributors` example stops the query in the specified account.
 
 ```
-aws networkflowmonitor stop-query-workload-insights-top-contributors \
+aws networkflowmonitor stop-query-workload-insights-top-contributors \ 
         --scope-id sample-aaaa-bbbb-cccc-11112222333 \
         --query-id sample-dddd-eeee-ffff-44556677889
 ```
 
 This command produces no output.
 
-For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md "CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md").
+For more information, see [Evaluate network flows with workload insights](CloudWatch-NetworkFlowMonitor-configure-evaluate-flows.md).
 
 ## Tag a monitor
+<a name="CloudWatch-NFM-tag-resource"></a>
 
 The following `tag-resource` adds a tag to the monitor in the specified account.
 
@@ -516,9 +530,10 @@ aws networkflowmonitor tag-resource \
 
 This command produces no output.
 
-For more information, see [Tagging your Amazon CloudWatch resources](CloudWatch-Tagging.md "CloudWatch-Tagging.md").
+For more information, see [Tagging your Amazon CloudWatch resources](CloudWatch-Tagging.md).
 
 ## Remove a tag from a monitor
+<a name="CloudWatch-NFM-untag-resource"></a>
 
 The following `untag-resource` example removes a tag to the monitor in the specified account.
 
@@ -530,11 +545,12 @@ aws networkflowmonitor untag-resource \
 
 This command produces no output.
 
-For more information, see [Tagging your Amazon CloudWatch resources](CloudWatch-Tagging.md "CloudWatch-Tagging.md").
+For more information, see [Tagging your Amazon CloudWatch resources](CloudWatch-Tagging.md).
 
 ## Update an existing monitor
+<a name="CloudWatch-NFM-update-monitor"></a>
 
-The following `update-monitor` example updates the monitor named `Demo` in the specified account.
+The following `update-monitor` example updates the monitor named ``Demo`` in the specified account.
 
 ```
 aws networkflowmonitor update-monitor \
@@ -556,4 +572,4 @@ Output:
     }
 ```
 
-For more information, see [Components and features of Network Flow Monitor](CloudWatch-NetworkFlowMonitor-components.md "CloudWatch-NetworkFlowMonitor-components.md").
+For more information, see [Components and features of Network Flow Monitor](CloudWatch-NetworkFlowMonitor-components.md).

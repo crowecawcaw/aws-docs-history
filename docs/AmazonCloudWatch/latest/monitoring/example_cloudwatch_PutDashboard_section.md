@@ -1,26 +1,22 @@
+
+
 # Use `PutDashboard` with an AWS SDK or CLI
+<a name="example_cloudwatch_PutDashboard_section"></a>
 
 The following code examples show how to use `PutDashboard`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
++  [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md) 
++  [Using property variables in monitoring dashboards to monitor multiple serverless functions](example_iam_GettingStarted_032_section.md) 
 
-- [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
-- [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
-- [Using property variables in monitoring dashboards to monitor multiple serverless functions](example_iam_GettingStarted_032_section.md "example_iam_GettingStarted_032_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
-
     /// <summary>
     /// Set up a dashboard using a call to the wrapper class.
     /// </summary>
@@ -90,56 +86,38 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return dashboardResponse.DashboardValidationMessages ?? new List<DashboardValidationMessage>();
     }
+```
++  For API details, see [PutDashboard](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/PutDashboard) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To create a dashboard**  
+The following `put-dashboard` example creates a dashboard named `Dashboard-A` in the specified account.  
 
 ```
-
-- For API details, see
-  [PutDashboard](../../../goto/DotNetSDKV4/monitoring-2010-08-01/PutDashboard.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/PutDashboard.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create a dashboard**
-
-The following `put-dashboard` example creates a dashboard named `Dashboard-A` in the specified account.
-
+aws cloudwatch put-dashboard \
+    --dashboard-name {{Dashboard-A}} \
+    --dashboard-body '{{{"widgets":[{"height":6,"width":6,"y":0,"x":0,"type":"metric","properties":{"view":"timeSeries","stacked":false,"metrics":[["Namespace","CPUUtilization","Environment","Prod","Type","App"]],"region":"us-east-1"}}]}}}'
 ```
-`aws cloudwatch put-dashboard \
- --dashboard-name `Dashboard-A` \
- --dashboard-body '`{"widgets":[{"height":6,"width":6,"y":0,"x":0,"type":"metric","properties":{"view":"timeSeries","stacked":false,"metrics":[["Namespace","CPUUtilization","Environment","Prod","Type","App"]],"region":"us-east-1"}}]}`'`
-
-```
-
-Output:
+Output:  
 
 ```
 {
     "DashboardValidationMessages": []
 }
 ```
+For more information, see [Creating a CloudWatch dashboard](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create_dashboard.html) in the *Amazon CloudWatch User Guide*.  
++  For API details, see [PutDashboard](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-dashboard.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Creating a CloudWatch dashboard](create_dashboard.md "create_dashboard.md") in the _Amazon CloudWatch User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [PutDashboard](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-dashboard.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-dashboard.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
-
     /**
      * Creates a new dashboard with the specified name and metrics from the given file.
      *
@@ -175,23 +153,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
                 }
             });
     }
-
-
 ```
++  For API details, see [PutDashboard](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutDashboard) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutDashboard](../../../goto/SdkForJavaV2/monitoring-2010-08-01/PutDashboard.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/PutDashboard.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun createDashboardWithMetrics(
@@ -219,19 +188,14 @@ suspend fun createDashboardWithMetrics(
         }
     }
 }
-
-
 ```
++  For API details, see [PutDashboard](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [PutDashboard](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Creates or updates the dashboard named 'Dashboard1' to include two metric widgets side by side.**
+**Tools for PowerShell V4**  
+**Example 1: Creates or updates the dashboard named 'Dashboard1' to include two metric widgets side by side.**  
 
 ```
 $dashBody = @"
@@ -284,10 +248,8 @@ $dashBody = @"
 "@
 
 Write-CWDashboard -DashboardName Dashboard1 -DashboardBody $dashBody
-
 ```
-
-**Example 2: Creates or updates the dashboard, piping the content describing the dashboard into the cmdlet.**
+**Example 2: Creates or updates the dashboard, piping the content describing the dashboard into the cmdlet.**  
 
 ```
 $dashBody = @"
@@ -295,18 +257,13 @@ $dashBody = @"
 ...
 }
 "@
-
+        
 $dashBody | Write-CWDashboard -DashboardName Dashboard1
-
 ```
++  For API details, see [PutDashboard](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [PutDashboard](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Creates or updates the dashboard named 'Dashboard1' to include two metric widgets side by side.**
+**Tools for PowerShell V5**  
+**Example 1: Creates or updates the dashboard named 'Dashboard1' to include two metric widgets side by side.**  
 
 ```
 $dashBody = @"
@@ -359,10 +316,8 @@ $dashBody = @"
 "@
 
 Write-CWDashboard -DashboardName Dashboard1 -DashboardBody $dashBody
-
 ```
-
-**Example 2: Creates or updates the dashboard, piping the content describing the dashboard into the cmdlet.**
+**Example 2: Creates or updates the dashboard, piping the content describing the dashboard into the cmdlet.**  
 
 ```
 $dashBody = @"
@@ -370,15 +325,11 @@ $dashBody = @"
 ...
 }
 "@
-
+        
 $dashBody | Write-CWDashboard -DashboardName Dashboard1
-
 ```
++  For API details, see [PutDashboard](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [PutDashboard](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

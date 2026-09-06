@@ -1,39 +1,33 @@
-# Getting set up
 
-To use Amazon CloudWatch you need an AWS account. Your AWS account allows you to use services (for example,
-Amazon EC2) to generate metrics that you can view in the CloudWatch console, a graphical
-web-based interface. In addition, you can install and configure the AWS command line
-interface (CLI).
+
+# Getting set up
+<a name="GettingSetup"></a>
+
+To use Amazon CloudWatch you need an AWS account. Your AWS account allows you to use services (for example, Amazon EC2) to generate metrics that you can view in the CloudWatch console, a graphical web-based interface. In addition, you can install and configure the AWS command line interface (CLI).
 
 ## Sign up for an AWS account
+<a name="sign-up-for-aws"></a>
 
-To get started with AWS, you need an AWS account. For information about creating an AWS account, see
-[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
-in the _AWS Account Management Reference Guide_.
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see [Getting started with an AWS account](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html) in the *AWS Account Management Reference Guide*.
 
 ## Sign in to the Amazon CloudWatch console
+<a name="ConsoleSignIn"></a>
 
-###### To sign in to the Amazon CloudWatch console
+**To sign in to the Amazon CloudWatch console**
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. If necessary, use the navigation bar to change the Region to the Region where you have your AWS resources.
-3. Even if this is the first time you are using the CloudWatch console, **Your Metrics**
-   could already report metrics, because you have used an AWS product that automatically pushes metrics
-   to Amazon CloudWatch for free. Other services require that you enable metrics.
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-If you do not have any alarms, the **Your Alarms** section will
-have a **Create Alarm** button.
+1. If necessary, use the navigation bar to change the Region to the Region where you have your AWS resources.
+
+1. Even if this is the first time you are using the CloudWatch console, **Your Metrics** could already report metrics, because you have used an AWS product that automatically pushes metrics to Amazon CloudWatch for free. Other services require that you enable metrics.
+
+   If you do not have any alarms, the **Your Alarms** section will have a **Create Alarm** button.
 
 ## Set up the AWS CLI
+<a name="SetupCLI"></a>
 
-You can use the AWS CLI or the Amazon CloudWatch CLI to perform CloudWatch commands.
-Note that the AWS CLI replaces the CloudWatch CLI; we include new CloudWatch features only in the AWS CLI.
+You can use the AWS CLI or the Amazon CloudWatch CLI to perform CloudWatch commands. Note that the AWS CLI replaces the CloudWatch CLI; we include new CloudWatch features only in the AWS CLI.
 
-For information about how to install and configure the AWS CLI, see
-[Getting Set Up with the AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-set-up.md "../../../cli/latest/userguide/cli-chap-getting-set-up.md")
-in the _AWS Command Line Interface User Guide_.
+For information about how to install and configure the AWS CLI, see [Getting Set Up with the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) in the *AWS Command Line Interface User Guide*.
 
-For information about how to install and configure the Amazon CloudWatch CLI, see
-[Set Up the Command Line Interface](../cli/SetupCLI.md "../cli/SetupCLI.md")
-in the _Amazon CloudWatch CLI Reference_.
+For information about how to install and configure the Amazon CloudWatch CLI, see [Set Up the Command Line Interface](https://docs.aws.amazon.com/AmazonCloudWatch/latest/cli/SetupCLI.html) in the *Amazon CloudWatch CLI Reference*.

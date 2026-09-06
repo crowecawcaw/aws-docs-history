@@ -1,23 +1,20 @@
+
+
 # Manage CloudWatch metrics and alarms using an AWS SDK
+<a name="example_cloudwatch_Usage_MetricsAlarms_section"></a>
 
 The following code example shows how to:
++ Create an alarm to watch a CloudWatch metric.
++ Put data into a metric and trigger the alarm.
++ Get data from the alarm.
++ Delete the alarm.
 
-- Create an alarm to watch a CloudWatch metric.
-- Put data into a metric and trigger the alarm.
-- Get data from the alarm.
-- Delete the alarm.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples").
-
-Create a class that wraps CloudWatch operations.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
+Create a class that wraps CloudWatch operations.  
 
 ```
 from datetime import datetime, timedelta
@@ -219,13 +216,8 @@ class CloudWatchWrapper:
                 metric_name,
             )
             raise
-
-
-
-
 ```
-
-Use the wrapper class to put data in a metric, trigger an alarm that watches the metric, and get data from the alarm.
+Use the wrapper class to put data in a metric, trigger an alarm that watches the metric, and get data from the alarm.  
 
 ```
 def usage_demo():
@@ -327,23 +319,17 @@ def usage_demo():
 
     print("Thanks for watching!")
     print("-" * 88)
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [DeleteAlarms](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/DeleteAlarms)
+  + [DescribeAlarmsForMetric](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/DescribeAlarmsForMetric)
+  + [DisableAlarmActions](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/DisableAlarmActions)
+  + [EnableAlarmActions](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/EnableAlarmActions)
+  + [GetMetricStatistics](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/GetMetricStatistics)
+  + [ListMetrics](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/ListMetrics)
+  + [PutMetricAlarm](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/PutMetricAlarm)
+  + [PutMetricData](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/PutMetricData)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [DeleteAlarms](../../../goto/boto3/monitoring-2010-08-01/DeleteAlarms.md "../../../goto/boto3/monitoring-2010-08-01/DeleteAlarms.md")
-  - [DescribeAlarmsForMetric](../../../goto/boto3/monitoring-2010-08-01/DescribeAlarmsForMetric.md "../../../goto/boto3/monitoring-2010-08-01/DescribeAlarmsForMetric.md")
-  - [DisableAlarmActions](../../../goto/boto3/monitoring-2010-08-01/DisableAlarmActions.md "../../../goto/boto3/monitoring-2010-08-01/DisableAlarmActions.md")
-  - [EnableAlarmActions](../../../goto/boto3/monitoring-2010-08-01/EnableAlarmActions.md "../../../goto/boto3/monitoring-2010-08-01/EnableAlarmActions.md")
-  - [GetMetricStatistics](../../../goto/boto3/monitoring-2010-08-01/GetMetricStatistics.md "../../../goto/boto3/monitoring-2010-08-01/GetMetricStatistics.md")
-  - [ListMetrics](../../../goto/boto3/monitoring-2010-08-01/ListMetrics.md "../../../goto/boto3/monitoring-2010-08-01/ListMetrics.md")
-  - [PutMetricAlarm](../../../goto/boto3/monitoring-2010-08-01/PutMetricAlarm.md "../../../goto/boto3/monitoring-2010-08-01/PutMetricAlarm.md")
-  - [PutMetricData](../../../goto/boto3/monitoring-2010-08-01/PutMetricData.md "../../../goto/boto3/monitoring-2010-08-01/PutMetricData.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

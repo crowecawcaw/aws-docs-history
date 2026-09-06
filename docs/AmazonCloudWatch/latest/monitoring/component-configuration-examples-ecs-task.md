@@ -1,7 +1,9 @@
-# Amazon ECS tasks
 
-The following example shows a component configuration in JSON format for an
-Amazon ECS task.
+
+# Amazon ECS tasks
+<a name="component-configuration-examples-ecs-task"></a>
+
+The following example shows a component configuration in JSON format for an Amazon ECS task.
 
 ```
 {

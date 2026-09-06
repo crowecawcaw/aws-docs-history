@@ -1,4 +1,7 @@
+
+
 # CloudWatch pipelines configuration for Proofpoint TAP
+<a name="proofpoint-tap-pipeline-setup"></a>
 
 Collects email security event data from Proofpoint TAP using HTTP Basic authentication.
 
@@ -12,18 +15,13 @@ source:
         service_principal: "${{aws_secrets:proofpoint-tap-account-credentials:servicePrincipal}}"
         secret: "${{aws_secrets:proofpoint-tap-account-credentials:secret}}"
     range: "P1D"
-```
+```Parameters
 
-###### Parameters
-
-`authentication.basic.service_principal` (required)
-
+`authentication.basic.service_principal` (required)  
 The Proofpoint TAP service principal for HTTP Basic authentication, stored in AWS Secrets Manager.
 
-`authentication.basic.secret` (required)
-
+`authentication.basic.secret` (required)  
 The Proofpoint TAP secret for HTTP Basic authentication, stored in AWS Secrets Manager.
 
-`range` (optional)
-
+`range` (optional)  
 The historical time period for backfilling data. Uses ISO 8601 duration format. Minimum is `PT30S`, maximum is `P1D`. Default is `P1D`.

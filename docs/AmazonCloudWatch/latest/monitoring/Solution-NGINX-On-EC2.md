@@ -1,144 +1,99 @@
+
+
 # CloudWatch solution: NGINX workload on Amazon EC2
+<a name="Solution-NGINX-On-EC2"></a>
 
-This solution helps you configure out-of-the-box metric collection using CloudWatch agents for
-NGINX application running on EC2 instances. For general information about all CloudWatch observability
-solutions, see [CloudWatch observability solutions](Monitoring-Solutions.md "Monitoring-Solutions.md").
+This solution helps you configure out-of-the-box metric collection using CloudWatch agents for NGINX application running on EC2 instances. For general information about all CloudWatch observability solutions, see [CloudWatch observability solutions](Monitoring-Solutions.md).
 
-###### Topics
-
-- [Requirements](#Solution-NGINX-On-EC2-Requirements "#Solution-NGINX-On-EC2-Requirements")
-- [Benefits](#Solution-NGINX-On-EC2-Benefits "#Solution-NGINX-On-EC2-Benefits")
-- [Costs](#Solution-NGINX-On-EC2-Costs "#Solution-NGINX-On-EC2-Costs")
-- [CloudWatch agent configuration for this solution](#Solution-NGINX-CloudWatch-Agent "#Solution-NGINX-CloudWatch-Agent")
-- [Deploy the agent for your solution](#Solution-NGINX-Agent-Deploy "#Solution-NGINX-Agent-Deploy")
-- [Create the NGINX solution dashboard](#Solution-NGINX-Dashboard "#Solution-NGINX-Dashboard")
+**Topics**
++ [Requirements](#Solution-NGINX-On-EC2-Requirements)
++ [Benefits](#Solution-NGINX-On-EC2-Benefits)
++ [Costs](#Solution-NGINX-On-EC2-Costs)
++ [CloudWatch agent configuration for this solution](#Solution-NGINX-CloudWatch-Agent)
++ [Deploy the agent for your solution](#Solution-NGINX-Agent-Deploy)
++ [Create the NGINX solution dashboard](#Solution-NGINX-Dashboard)
 
 ## Requirements
+<a name="Solution-NGINX-On-EC2-Requirements"></a>
 
 This solution is relevant for the following conditions:
-
-- Supported versions: NGINX version 1.24
-- Compute: Amazon EC2
-- Supports up to 500 EC2 instances across all NGINX workloads in a given
-  AWS Region
-- Latest version of CloudWatch agent
-- Prometheus Exporter: nginxinc/nginx-prometheus-exporter (Apache 2.0 license)
-- SSM agent installed on EC2 instance
-
-###### Note
-
-AWS Systems Manager (SSM agent) is pre-installed on some [Amazon
-Machine Images (AMIs)](../../../systems-manager/latest/userguide/ami-preinstalled-agent.md "../../../systems-manager/latest/userguide/ami-preinstalled-agent.md") provided by AWS and trusted third-parties. If the
-agent isn't installed, you can install it manually using the procedure for your
-operating system type.
-
-    + [Manually
-     installing and uninstalling SSM Agent on EC2 instances for Linux](../../../systems-manager/latest/userguide/manually-install-ssm-agent-linux.md "../../../systems-manager/latest/userguide/manually-install-ssm-agent-linux.md")
-    + [Manually
-     installing and uninstalling SSM Agent on EC2 instances for macOS](../../../systems-manager/latest/userguide/manually-install-ssm-agent-macos.md "../../../systems-manager/latest/userguide/manually-install-ssm-agent-macos.md")
-    + [Manually
-     installing and uninstalling SSM Agent on EC2 instances for
-     Windows Server](../../../systems-manager/latest/userguide/manually-install-ssm-agent-windows.md "../../../systems-manager/latest/userguide/manually-install-ssm-agent-windows.md")
++ Supported versions: NGINX version 1.24
++ Compute: Amazon EC2
++ Supports up to 500 EC2 instances across all NGINX workloads in a given AWS Region
++ Latest version of CloudWatch agent
++ Prometheus Exporter: nginxinc/nginx-prometheus-exporter (Apache 2.0 license)
++ SSM agent installed on EC2 instance
+**Note**  
+AWS Systems Manager (SSM agent) is pre-installed on some [Amazon Machine Images (AMIs)](https://docs.aws.amazon.com/systems-manager/latest/userguide/ami-preinstalled-agent.html) provided by AWS and trusted third-parties. If the agent isn't installed, you can install it manually using the procedure for your operating system type.  
+ [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](https://docs.aws.amazon.com/systems-manager/latest/userguide/manually-install-ssm-agent-linux.html) 
+ [Manually installing and uninstalling SSM Agent on EC2 instances for macOS](https://docs.aws.amazon.com/systems-manager/latest/userguide/manually-install-ssm-agent-macos.html) 
+ [Manually installing and uninstalling SSM Agent on EC2 instances for Windows Server](https://docs.aws.amazon.com/systems-manager/latest/userguide/manually-install-ssm-agent-windows.html) 
 
 ## Benefits
+<a name="Solution-NGINX-On-EC2-Benefits"></a>
 
-The solution delivers NGINX monitoring, providing valuable insights for the following
-use cases:
-
-- Review connection metrics to identify potential bottlenecks, connection issues,
-  or unexpected usage.
-- Analyze HTTP request volume to understand overall traffic load on the NGINX.
+The solution delivers NGINX monitoring, providing valuable insights for the following use cases:
++ Review connection metrics to identify potential bottlenecks, connection issues, or unexpected usage.
++ Analyze HTTP request volume to understand overall traffic load on the NGINX.
 
 Below are the key advantages of the solution:
-
-- Automates metric collection for NGINX using CloudWatch agent configuration,
-  eliminating manual instrumentation.
-- Provides a pre-configured, consolidated CloudWatch dashboard for NGINX metrics.
-  The dashboard will automatically handle metrics from new NGINX EC2 instances
-  configured using the solution, even if those metrics don't exist when you first
-  create the dashboard.
++ Automates metric collection for NGINX using CloudWatch agent configuration, eliminating manual instrumentation.
++ Provides a pre-configured, consolidated CloudWatch dashboard for NGINX metrics. The dashboard will automatically handle metrics from new NGINX EC2 instances configured using the solution, even if those metrics don't exist when you first create the dashboard.
 
 The following image is an example of the dashboard for this solution.
 
-![Example dashboard for NGINX solution.](images/NGINXDashboard.png)
+![Example dashboard for NGINX solution.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/NGINXDashboard.png)
+
 
 ## Costs
+<a name="Solution-NGINX-On-EC2-Costs"></a>
 
-This solution creates and uses resources in your account. You are charged for standard
-usage, including the following:
+This solution creates and uses resources in your account. You are charged for standard usage, including the following:
++ All metrics collected by the CloudWatch agent for this solution are published to CloudWatch Logs using the Embedded Metric Format (EMF). These CloudWatch logs are charged based on their volume and retention period. Therefore, you will not be billed for any **PutMetricData** API calls for this solution. The metrics extracted and ingested from your logs are charged as custom metrics. The number of metrics used by this solution depends on the number of EC2 hosts.
+  + Each NGINX EC2 host configured for the solution publishes a total of eight metrics.
++ One custom dashboard.
 
-- All metrics collected by the CloudWatch agent for this solution are published
-  to CloudWatch Logs using the Embedded Metric Format (EMF).
-  These CloudWatch logs are charged based on their volume and retention period.
-  Therefore, you will not be billed for any **PutMetricData** API calls for this
-  solution.
-  The metrics extracted and ingested from your logs are charged as custom metrics.
-  The number of metrics used by this solution depends on the number of EC2
-  hosts.
+For more information about CloudWatch pricing, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
-  - Each NGINX EC2 host configured for the solution publishes a total of eight
-    metrics.
+The pricing calculator can help you estimate approximate monthly costs for using this solution.
 
-- One custom dashboard.
+**To use the pricing calculator to estimate your monthly solution costs**
 
-For more information about CloudWatch pricing, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+1. Open the [Amazon CloudWatch pricing calculator](https://calculator.aws/#/createCalculator/CloudWatch).
 
-The pricing calculator can help you estimate approximate monthly costs for using this
-solution.
+1. For **Choose a Region**, select the AWS Region where you would like to deploy the solution.
 
-###### To use the pricing calculator to estimate your monthly solution costs
+1. In the **Metrics** section, for **Number of metrics**, enter **8 \* number of EC2 instances configured for this solution**.
 
-1. Open the [Amazon CloudWatch
-   pricing calculator](https://calculator.aws/#/createCalculator/CloudWatch "https://calculator.aws/#/createCalculator/CloudWatch").
-2. For **Choose a Region**, select the AWS Region where you would like to
-   deploy the solution.
-3. In the **Metrics** section, for **Number of metrics**,
-   enter `8 * number of EC2 instances configured for this solution`.
-4. In the **Logs** section, for **Standard Logs: Data
-   Ingested**, enter the estimated daily log volume generated by the CloudWatch
-   Agent across all EC2 hosts. For example, five EC2 instances produce less than 1000 bytes per
-   day. Once set up, you can check your byte usage using the `IncomingBytes` metric, vended by CloudWatch Logs. Be sure to select the
-   appropriate log group.
-5. In the **Logs** section, for **Log Storage/Archival
-   (Standard and Vended Logs)**, select `Yes to Store Logs:
- Assuming 1 month retention`. Modify this value if you decide to make custom
-   changes to the retention period.
-6. In the **Dashboards and Alarms** section, for **Number
-   of Dashboards**, enter `1`.
-7. You can see your monthly estimated costs at the bottom of the pricing
-   calculator.
+1. In the **Logs** section, for **Standard Logs: Data Ingested**, enter the estimated daily log volume generated by the CloudWatch Agent across all EC2 hosts. For example, five EC2 instances produce less than 1000 bytes per day. Once set up, you can check your byte usage using the ` IncomingBytes` metric, vended by CloudWatch Logs. Be sure to select the appropriate log group.
+
+1. In the **Logs** section, for **Log Storage/Archival (Standard and Vended Logs)**, select **Yes to Store Logs: Assuming 1 month retention**. Modify this value if you decide to make custom changes to the retention period.
+
+1. In the **Dashboards and Alarms** section, for **Number of Dashboards**, enter **1**.
+
+1. You can see your monthly estimated costs at the bottom of the pricing calculator.
 
 ## CloudWatch agent configuration for this solution
+<a name="Solution-NGINX-CloudWatch-Agent"></a>
 
-The CloudWatch agent is software that runs continuously and autonomously on your servers and
-in containerized environments. It collects metrics, logs, and traces from your
-infrastructure and applications and sends them to CloudWatch and X-Ray.
+The CloudWatch agent is software that runs continuously and autonomously on your servers and in containerized environments. It collects metrics, logs, and traces from your infrastructure and applications and sends them to CloudWatch and X-Ray.
 
-For more information about the CloudWatch agent, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md "Install-CloudWatch-Agent.md").
+For more information about the CloudWatch agent, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md).
 
-The agent configuration in this solution collects a set of metrics to help you get started monitoring
-and observing your NGINX workload. The CloudWatch agent can be configured to collect more NGINX
-metrics than the dashboard displays by default. For a list of all NGINX metrics that you can
-collect, see [Metrics
-for NGINX OSS](https://github.com/nginxinc/nginx-prometheus-exporter?tab=readme-ov-file#exported-metrics "https://github.com/nginxinc/nginx-prometheus-exporter?tab=readme-ov-file#exported-metrics").
+The agent configuration in this solution collects a set of metrics to help you get started monitoring and observing your NGINX workload. The CloudWatch agent can be configured to collect more NGINX metrics than the dashboard displays by default. For a list of all NGINX metrics that you can collect, see [Metrics for NGINX OSS](https://github.com/nginxinc/nginx-prometheus-exporter?tab=readme-ov-file#exported-metrics).
 
-Before configuring the CloudWatch agent, you must first configure NGINX to expose its
-metrics. Secondly, you must install and configure
-the third party Prometheus metric exporter.
+Before configuring the CloudWatch agent, you must first configure NGINX to expose its metrics. Secondly, you must install and configure the third party Prometheus metric exporter.
 
 ### Expose NGINX metrics
+<a name="Solution-NGINX-Expose-Metrics"></a>
 
-###### Note
+**Note**  
+ The following commands are for Linux. Check [NGINX for Windows page](https://nginx.org/en/docs/windows.html) for equivalent commands in Windows Server. 
 
-The following commands are for Linux. Check [NGINX for Windows page](https://nginx.org/en/docs/windows.html "https://nginx.org/en/docs/windows.html")
-for equivalent commands in Windows Server.
-
-You must first enable the `stub_status` module. Add a new location block in
-your NGINX configuration file. Add the following lines in the `server` block of your `nginx.conf`
-to enable NGINX's `stub_status` module:
+You must first enable the `stub_status` module. Add a new location block in your NGINX configuration file. Add the following lines in the `server` block of your `nginx.conf` to enable NGINX's `stub_status` module:
 
 ```
-location /nginx_status {
+location /nginx_status { 
           stub_status on;
           allow 127.0.0.1; # Allow only localhost to access
           deny all; # Deny all other IPs
@@ -151,25 +106,20 @@ Before reloading NGINX, validate your NGINX configuration:
 sudo nginx -t
 ```
 
-This validation command helps to prevent any unforeseen errors, which can cause your
-website to gown down. The following example demonstrates a successful response:
+This validation command helps to prevent any unforeseen errors, which can cause your website to gown down. The following example demonstrates a successful response:
 
 ```
 nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 nginx: configuration file /etc/nginx/nginx.conf test is successful
 ```
 
-After you've successfully validated the updated configuration, reload NGINX (no
-output is expected):
+After you've successfully validated the updated configuration, reload NGINX (no output is expected):
 
 ```
 sudo systemctl reload nginx
 ```
 
-This command instructs the NGINX process to reload the configuration. Reloads are
-more graceful compared to a full restart.
-A reload starts the new worker process with a new configuration, gracefully shutting
-down old worker processes.
+This command instructs the NGINX process to reload the configuration. Reloads are more graceful compared to a full restart. A reload starts the new worker process with a new configuration, gracefully shutting down old worker processes.
 
 Test the NGINX status endpoint:
 
@@ -197,9 +147,9 @@ The following example demonstrates a failure response (review the previous steps
 ```
 
 ### Configure Prometheus metric exporter
+<a name="Solution-NGINX-Configure-Prometheus"></a>
 
-Download the latest NGINX Prometheus exporter release from the [official
-GitHub repository](https://github.com/nginxinc/nginx-prometheus-exporter/releases "https://github.com/nginxinc/nginx-prometheus-exporter/releases"). You must download the relevant binary for your platform.
+Download the latest NGINX Prometheus exporter release from the [official GitHub repository](https://github.com/nginxinc/nginx-prometheus-exporter/releases). You must download the relevant binary for your platform.
 
 The following example demonstrates commands for AMD64:
 
@@ -224,12 +174,12 @@ The following example demonstrates a response (background job ID and PID):
 ```
 
 ### Test the NGINX Prometheus endpoint
+<a name="Solution-NGINX-Test-Prometheus"></a>
 
-Validate that the NGINX Prometheus exporter has started to expose the relevant
-metrics:
+Validate that the NGINX Prometheus exporter has started to expose the relevant metrics:
 
 ```
-curl http://localhost:`port-number`/metrics
+curl http://localhost:{{port-number}}/metrics
 ```
 
 The following example demonstrates a successful response:
@@ -254,16 +204,15 @@ promhttp_metric_handler_requests_total{code="503"} 0
 ```
 
 ### Agent configuration for this solution
+<a name="Solution-NGINX-Agent-Config-Intro"></a>
 
 The metrics collected by the agent are defined in the agent configuration. The solution provides agent configurations to collect the recommended metrics with suitable dimensions for the solution's dashboard.
 
-The steps for deploying the solution are described later in [Deploy the agent for your solution](#Solution-NGINX-Agent-Deploy "#Solution-NGINX-Agent-Deploy"). The following information is intended to help you understand how to customize the agent configuration for your environment.
+The steps for deploying the solution are described later in [Deploy the agent for your solution](#Solution-NGINX-Agent-Deploy). The following information is intended to help you understand how to customize the agent configuration for your environment.
 
-You must customize some parts of the agent and Prometheus configurations for your
-environment such as the port number used by the Prometheus exporter.
+You must customize some parts of the agent and Prometheus configurations for your environment such as the port number used by the Prometheus exporter.
 
-The port used by the Prometheus exporter can be verified using the following
-command:
+The port used by the Prometheus exporter can be verified using the following command:
 
 ```
 sudo netstat -antp | grep nginx-prom
@@ -276,29 +225,28 @@ tcp6 0 0 :::9113 :::* LISTEN 76398/nginx-prometh
 ```
 
 ### Agent configuration for NGINX hosts
+<a name="Solution-NGINX-Agent-Config"></a>
 
-The CloudWatch agent with Prometheus monitoring needs two configurations to scrape the
-Prometheus metrics. Each configuration will be stored as a separate parameter in SSM's
-Parameter Store, as detailed later in [Step 2: Store the recommended CloudWatch agent configuration file in Systems Manager Parameter Store](#Solution-NGINX-Agent-Step2 "#Solution-NGINX-Agent-Step2").
+The CloudWatch agent with Prometheus monitoring needs two configurations to scrape the Prometheus metrics. Each configuration will be stored as a separate parameter in SSM's Parameter Store, as detailed later in [Step 2: Store the recommended CloudWatch agent configuration file in Systems Manager Parameter Store](#Solution-NGINX-Agent-Step2).
 
-The first configuration is for the Prometheus exporter, as documented in Prometheus' [scrape\_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") documentation. The second configuration is for the CloudWatch agent.
+The first configuration is for the Prometheus exporter, as documented in Prometheus' [ scrape\_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) documentation. The second configuration is for the CloudWatch agent.
 
-**Prometheus configuration**
+ **Prometheus configuration** 
 
-Replace `port-number` with the port of your server.
+Replace {{port-number}} with the port of your server.
 
 ```
 global:
   scrape_interval: 30s
   scrape_timeout: 10s
-
+  
 scrape_configs:
 - job_name: 'nginx'
   metrics_path: /metrics
   static_configs:
-    - targets: ['localhost:`port-number`']
+    - targets: ['localhost:{{port-number}}']
   ec2_sd_configs:
-    - port: `port-number`
+    - port: {{port-number}}
   relabel_configs:
     - source_labels: ['__meta_ec2_instance_id']
       target_label: InstanceId
@@ -308,16 +256,11 @@ scrape_configs:
       action: keep
 ```
 
-**CloudWatch agent configuration**
+ **CloudWatch agent configuration** 
 
-As per the previous CloudWatch agent configuration, these metrics are published through CloudWatch
-Logs using the [embedded metric format (EMF)](CloudWatch_Embedded_Metric_Format_Specification.md "CloudWatch_Embedded_Metric_Format_Specification.md"). These logs are configured to use the log group
-`nginx`. You can customize the `log_group_name`
-with a different name that represents the CloudWatch logs.
+As per the previous CloudWatch agent configuration, these metrics are published through CloudWatch Logs using the [embedded metric format (EMF)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html). These logs are configured to use the log group ` nginx`. You can customize the {{log\_group\_name}} with a different name that represents the CloudWatch logs.
 
-If you are using Windows Server, set
-`prometheus_config_path` in the following configuration to
-`C:\\ProgramData\\Amazon\\AmazonCloudWatchAgent\\prometheus.yaml`.
+ If you are using Windows Server, set {{prometheus\_config\_path}} in the following configuration to `C:\\ProgramData\\Amazon\\AmazonCloudWatchAgent\\prometheus.yaml`. 
 
 ```
 {
@@ -347,270 +290,203 @@ If you are using Windows Server, set
 ```
 
 ## Deploy the agent for your solution
+<a name="Solution-NGINX-Agent-Deploy"></a>
 
-There are several approaches for installing the CloudWatch agent, depending on the use case. You
-recommend using Systems Manager for this solution. It provides a console experience and makes it
-simpler to manage a fleet of managed servers within a single AWS account. The instructions
-in this section use Systems Manager and are intended for when you don't have the CloudWatch agent running with
-existing configurations. You can check whether the CloudWatch agent is running by following the
-steps in [Verify that the CloudWatch agent is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running").
+There are several approaches for installing the CloudWatch agent, depending on the use case. You recommend using Systems Manager for this solution. It provides a console experience and makes it simpler to manage a fleet of managed servers within a single AWS account. The instructions in this section use Systems Manager and are intended for when you don't have the CloudWatch agent running with existing configurations. You can check whether the CloudWatch agent is running by following the steps in [Verify that the CloudWatch agent is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running).
 
-If you are already running the CloudWatch agent on the EC2 hosts where the workload is deployed
-and managing agent configurations, you can skip the instructions in this section and follow
-your existing deployment mechanism to update the configuration. Be sure to merge new
-CloudWatch agent and Prometheus configurations with your existing configurations, and then
-deploy the merged configurations. If you are using Systems Manager to store and manage the configuration
-for the CloudWatch agent, you can merge the configuration to the existing parameter value. For more
-information, see [Managing
-CloudWatch agent configuration files](../../../prescriptive-guidance/latest/implementing-logging-monitoring-cloudwatch/create-store-cloudwatch-configurations.md "../../../prescriptive-guidance/latest/implementing-logging-monitoring-cloudwatch/create-store-cloudwatch-configurations.md").
+If you are already running the CloudWatch agent on the EC2 hosts where the workload is deployed and managing agent configurations, you can skip the instructions in this section and follow your existing deployment mechanism to update the configuration. Be sure to merge new CloudWatch agent and Prometheus configurations with your existing configurations, and then deploy the merged configurations. If you are using Systems Manager to store and manage the configuration for the CloudWatch agent, you can merge the configuration to the existing parameter value. For more information, see [Managing CloudWatch agent configuration files](https://docs.aws.amazon.com/prescriptive-guidance/latest/implementing-logging-monitoring-cloudwatch/create-store-cloudwatch-configurations.html).
 
-###### Note
-
-Using Systems Manager to deploy the following CloudWatch agent configurations will replace or
-overwrite any existing CloudWatch agent
-configuration on your EC2 instances. You can modify this configuration to suit
-your unique environment or use case.
-The metrics defined in configuration are the minimum required for the dashboard
-provided the solution.
+**Note**  
+Using Systems Manager to deploy the following CloudWatch agent configurations will replace or overwrite any existing CloudWatch agent configuration on your EC2 instances. You can modify this configuration to suit your unique environment or use case. The metrics defined in configuration are the minimum required for the dashboard provided the solution.
 
 The deployment process includes the following steps:
-
-- Step 1: Make sure that the target EC2 instances have the required IAM
-  permissions.
-- Step 2: Store the recommended agent configuration file in the Systems Manager Parameter Store.
-- Step 3: Install the CloudWatch agent on one or more EC2 instances using an CloudFormation
-  stack.
-- Step 4: Verify the agent setup is configured properly.
++ Step 1: Make sure that the target EC2 instances have the required IAM permissions.
++ Step 2: Store the recommended agent configuration file in the Systems Manager Parameter Store.
++ Step 3: Install the CloudWatch agent on one or more EC2 instances using an CloudFormation stack.
++ Step 4: Verify the agent setup is configured properly.
 
 ### Step 1: Make sure the target EC2 instances have the required IAM permissions
+<a name="Solution-NGINX-Agent-Step1"></a>
 
-You must grant permission for Systems Manager to install and configure the CloudWatch agent. You must
-grant permission for the CloudWatch agent to publish telemetry from your EC2 instance to CloudWatch.
-You must also grant the CloudWatch agent EC2 read access. EC2 read access is required for the
-EC2 InstanceId to be added as a metric dimension. This additional requirement is driven by
-`prometheus.yaml` as detailed above because it uses `__meta_ec2_instance_id` through EC2 Service Discovery.
+You must grant permission for Systems Manager to install and configure the CloudWatch agent. You must grant permission for the CloudWatch agent to publish telemetry from your EC2 instance to CloudWatch. You must also grant the CloudWatch agent EC2 read access. EC2 read access is required for the EC2 InstanceId to be added as a metric dimension. This additional requirement is driven by `prometheus.yaml` as detailed above because it uses ` __meta_ec2_instance_id` through EC2 Service Discovery.
 
-Make sure that the IAM role attached to the instance has the **CloudWatchAgentServerPolicy**,
-**AmazonSSMManagedInstanceCore**, and **AmazonEC2ReadOnlyAccess** IAM policies attached.
-
-- After the role is created, attach the role to your EC2 instances. To attach a role
-  to an EC2 instance, follow the steps in [Attach
-  an IAM role to an instance](../../../AWSEC2/latest/UserGuide/attach-iam-role.md "../../../AWSEC2/latest/UserGuide/attach-iam-role.md").
+Make sure that the IAM role attached to the instance has the ** CloudWatchAgentServerPolicy**, **AmazonSSMManagedInstanceCore**, and ** AmazonEC2ReadOnlyAccess** IAM policies attached.
++ After the role is created, attach the role to your EC2 instances. To attach a role to an EC2 instance, follow the steps in [Attach an IAM role to an instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attach-iam-role.html).
 
 ### Step 2: Store the recommended CloudWatch agent configuration file in Systems Manager Parameter Store
+<a name="Solution-NGINX-Agent-Step2"></a>
 
-Parameter Store simplifies the installation of the CloudWatch agent on an EC2 instance by
-securely storing and managing configuration parameters,
-eliminating the need for hard-coded values. This ensures a more secure and flexible
-deployment process, enabling centralized
-management and easier updates to configurations across multiple instances.
+Parameter Store simplifies the installation of the CloudWatch agent on an EC2 instance by securely storing and managing configuration parameters, eliminating the need for hard-coded values. This ensures a more secure and flexible deployment process, enabling centralized management and easier updates to configurations across multiple instances.
 
-Use the following steps to store the recommended CloudWatch agent configuration file as
-a parameter in Parameter Store.
+Use the following steps to store the recommended CloudWatch agent configuration file as a parameter in Parameter Store.
 
-###### To create the CloudWatch agent configuration file as a parameter
+**To create the CloudWatch agent configuration file as a parameter**
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. Verify that the selected Region on the console is the Region where NGINX is
-   running.
-3. From the navigation pane, choose **Application Management**, **Parameter
-   Store**
-4. Follow these steps to create a new parameter for the configuration.
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
+
+1. Verify that the selected Region on the console is the Region where NGINX is running.
+
+1. From the navigation pane, choose **Application Management**, **Parameter Store**
+
+1. Follow these steps to create a new parameter for the configuration.
 
    1. Choose **Create parameter**.
-   2. In the **Name** box, enter a name that you'll use to reference
-      the CloudWatch agent configuration file in later steps. For example, `AmazonCloudWatch-NGINX-CloudWatchAgent-Configuration`.
-   3. (Optional) In the **Description** box, type a description for
-      the parameter.
-   4. For **Parameter tier**, choose **Standard**.
-   5. For **Type**, choose **String**.
-   6. For **Data type**, choose **text**.
-   7. In the **Value** box, paste the corresponding JSON block that
-      was listed in [Agent configuration for NGINX hosts](#Solution-NGINX-Agent-Config "#Solution-NGINX-Agent-Config"). Be sure to customize as
-      required. For example, the relevant `log_group_name`.
-   8. Choose **Create parameter**.
 
-###### To create the Prometheus configuration file as a parameter
+   1. In the **Name** box, enter a name that you'll use to reference the CloudWatch agent configuration file in later steps. For example, ** AmazonCloudWatch-NGINX-CloudWatchAgent-Configuration**.
 
-1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. From the navigation pane, choose **Application Management**, **Parameter
-   Store**
-3. Follow these steps to create a new parameter for the configuration.
+   1. (Optional) In the **Description** box, type a description for the parameter.
+
+   1. For **Parameter tier**, choose **Standard**.
+
+   1. For **Type**, choose **String**.
+
+   1. For **Data type**, choose **text**.
+
+   1. In the **Value** box, paste the corresponding JSON block that was listed in [Agent configuration for NGINX hosts](#Solution-NGINX-Agent-Config). Be sure to customize as required. For example, the relevant `log_group_name`. 
 
    1. Choose **Create parameter**.
-   2. In the **Name** box, enter a name that you'll use to reference
-      the configuration file in later steps. For example, `AmazonCloudWatch-NGINX-Prometheus-Configuration`.
-   3. (Optional) In the **Description** box, type a description for
-      the parameter.
-   4. For **Parameter tier**, choose **Standard**.
-   5. For **Type**, choose **String**.
-   6. For **Data type**, choose **text**.
-   7. In the **Value** box, paste the corresponding YAML block that
-      was listed in the [Agent configuration for NGINX hosts](#Solution-NGINX-Agent-Config "#Solution-NGINX-Agent-Config"). Be sure to customize as
-      required. For example, the relevant port number as per `targets`.
-   8. Choose **Create parameter**.
+
+**To create the Prometheus configuration file as a parameter**
+
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
+
+1. From the navigation pane, choose **Application Management**, **Parameter Store**
+
+1. Follow these steps to create a new parameter for the configuration.
+
+   1. Choose **Create parameter**.
+
+   1. In the **Name** box, enter a name that you'll use to reference the configuration file in later steps. For example, ** AmazonCloudWatch-NGINX-Prometheus-Configuration**.
+
+   1. (Optional) In the **Description** box, type a description for the parameter.
+
+   1. For **Parameter tier**, choose **Standard**.
+
+   1. For **Type**, choose **String**.
+
+   1. For **Data type**, choose **text**.
+
+   1. In the **Value** box, paste the corresponding YAML block that was listed in the [Agent configuration for NGINX hosts](#Solution-NGINX-Agent-Config). Be sure to customize as required. For example, the relevant port number as per `targets`.
+
+   1. Choose **Create parameter**.
 
 ### Step 3: Install the CloudWatch agent and apply the configuration using an CloudFormation template
+<a name="Solution-NGINX-Agent-Step3"></a>
 
-You can use AWS CloudFormation to install the agent and configure it to use the CloudWatch agent
-configuration that you created in the previous steps.
+You can use AWS CloudFormation to install the agent and configure it to use the CloudWatch agent configuration that you created in the previous steps.
 
-###### To install and configure the CloudWatch agent for this solution
+**To install and configure the CloudWatch agent for this solution**
 
-1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json")
-   .
-2. Verify that the selected Region on the console is the Region where the
-   NGINX workload is running.
-3. For **Stack name**, enter a name to identity this stack, such as `CWAgentInstallationStack`.
-4. In the **Parameters** section, specify the following:
+1. Open the CloudFormation **Quick create stack** wizard using this link: [ https://console.aws.amazon.com/cloudformation/home?\#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json) .
 
-   1. For **CloudWatchAgentConfigSSM**, enter the name of the AWS Systems Manager parameter for the agent configuration that you created earlier, such as `AmazonCloudWatch-NGINX-CloudWatchAgent-Configuration`.
-   2. For **PrometheusConfigSSM**, enter the name of the AWS Systems Manager parameter for the agent configuration that you created earlier, such as `AmazonCloudWatch-NGINX-Prometheus-Configuration`.
-   3. To select the target instances, you have two options.
+1. Verify that the selected Region on the console is the Region where the NGINX workload is running.
 
-      1. For **InstanceIds**, specify a comma-delimited list of instance IDs
-         list of instance IDs where you want to install the CloudWatch agent with this
-         configuration. You can list a single instance or several instances.
-      2. If you are deploying at scale, you can specify the **TagKey** and the corresponding **TagValue** to
-         target all EC2 instances with this tag and value. If you specify a **TagKey**, you must specify a corresponding **TagValue**.
-         (For an Auto Scaling group, specify `aws:autoscaling:groupName` for
-         the **TagKey** and specify the Auto Scaling group name for the **TagValue**
-         to deploy to all instances within the Auto Scaling group.)
+1. For **Stack name**, enter a name to identity this stack, such as ** CWAgentInstallationStack**.
 
-5. Review the settings, then choose **Create stack**.
+1. In the **Parameters** section, specify the following:
 
-If you want to edit the template file first to customize it, choose the **Upload a template file** option
-under **Create Stack Wizard** to upload the edited template. For more information,
-see [Creating a stack on CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
-You can use the following link to download the template:
-[https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json").
+   1. For **CloudWatchAgentConfigSSM**, enter the name of the AWS Systems Manager parameter for the agent configuration that you created earlier, such as ** AmazonCloudWatch-NGINX-CloudWatchAgent-Configuration**.
 
-###### Note
+   1. For **PrometheusConfigSSM**, enter the name of the AWS Systems Manager parameter for the agent configuration that you created earlier, such as ** AmazonCloudWatch-NGINX-Prometheus-Configuration**.
 
-After this step is completed, this Systems Manager parameter will be associated with the
-CloudWatch agents running in the targeted instances. This means that:
+   1. To select the target instances, you have two options.
 
-1. If the Systems Manager parameter is deleted, the agent will stop.
-2. If the Systems Manager parameter is edited, the configuration changes will
-   automatically apply to the agent at the scheduled frequency which is 30
-   days by default.
-3. If you want to immediately apply changes to this Systems Manager parameter, you must run
-   this step again. For more information about associations, see [Working
-   with associations in Systems Manager](../../../systems-manager/latest/userguide/state-manager-associations.md "../../../systems-manager/latest/userguide/state-manager-associations.md").
+      1. For **InstanceIds**, specify a comma-delimited list of instance IDs list of instance IDs where you want to install the CloudWatch agent with this configuration. You can list a single instance or several instances.
+
+      1. If you are deploying at scale, you can specify the ** TagKey** and the corresponding **TagValue** to target all EC2 instances with this tag and value. If you specify a ** TagKey**, you must specify a corresponding **TagValue**. (For an Auto Scaling group, specify **aws:autoscaling:groupName** for the **TagKey** and specify the Auto Scaling group name for the **TagValue** to deploy to all instances within the Auto Scaling group.)
+
+1. Review the settings, then choose **Create stack**.
+
+If you want to edit the template file first to customize it, choose the **Upload a template file** option under **Create Stack Wizard** to upload the edited template. For more information, see [Creating a stack on CloudFormation console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html). You can use the following link to download the template: [https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/CloudWatchAgent/CFN/v1.0.0/cw-agent-installation-template-with-prometheus-config-1.0.0.json). 
+
+**Note**  
+After this step is completed, this Systems Manager parameter will be associated with the CloudWatch agents running in the targeted instances. This means that:  
+If the Systems Manager parameter is deleted, the agent will stop.
+If the Systems Manager parameter is edited, the configuration changes will automatically apply to the agent at the scheduled frequency which is 30 days by default.
+If you want to immediately apply changes to this Systems Manager parameter, you must run this step again. For more information about associations, see [Working with associations in Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/state-manager-associations.html).
 
 ### Step 4: Verify the agent setup is configured properly
+<a name="Solution-NGINX-Agent-Step4"></a>
 
-You can verify whether the CloudWatch agent is installed by following the steps in [Verify that the CloudWatch agent is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running "troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running"). If the CloudWatch agent is
-not installed and running, make sure you have set up everything correctly.
+You can verify whether the CloudWatch agent is installed by following the steps in [Verify that the CloudWatch agent is running](troubleshooting-CloudWatch-Agent.md#CloudWatch-Agent-troubleshooting-verify-running). If the CloudWatch agent is not installed and running, make sure you have set up everything correctly.
++ Be sure you have attached a role with correct permissions for the EC2 instance as described in [Step 1: Make sure the target EC2 instances have the required IAM permissions](#Solution-NGINX-Agent-Step1).
++ Be sure you have correctly configured the JSON for the Systems Manager parameter. Follow the steps in [Troubleshooting installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting).
 
-- Be sure you have attached a role with correct permissions for the EC2 instance as
-  described in [Step 1: Make sure the target EC2 instances have the required IAM permissions](#Solution-NGINX-Agent-Step1 "#Solution-NGINX-Agent-Step1").
-- Be sure you have correctly configured the JSON for the Systems Manager parameter. Follow the
-  steps in [Troubleshooting installation of the CloudWatch agent with CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting "Install-CloudWatch-Agent-New-Instances-CloudFormation.md#CloudWatch-Agent-CloudFormation-troubleshooting").
+If everything is set up correctly, then you should see the NGINX metrics being published to CloudWatch. You can check the CloudWatch console to verify they are being published.
 
-If everything is set up correctly, then you should see the NGINX metrics being
-published to CloudWatch.
-You can check the CloudWatch console to verify they are being published.
+**To verify that NGINX metrics are being published to CloudWatch**
 
-###### To verify that NGINX metrics are being published to CloudWatch
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. Choose **Metrics**, **Classic metrics**.
-3. Make sure you've selected the Region where you deployed the solution, and choose **Custom
-   namespaces**, **CWAgent**.
-4. Search for metrics such as `nginx_http_requests_total`. If you see
-   results for these metrics, then the metrics are being published to CloudWatch.
+1. Choose **Metrics**, **Classic metrics**.
+
+1. Make sure you've selected the Region where you deployed the solution, and choose **Custom namespaces**, **CWAgent**.
+
+1. Search for metrics such as `nginx_http_requests_total`. If you see results for these metrics, then the metrics are being published to CloudWatch.
 
 ## Create the NGINX solution dashboard
+<a name="Solution-NGINX-Dashboard"></a>
 
-The dashboard provided by this solution presents NGINX
-workload metrics by aggregating and presenting metrics across all instances.
-The dashboard shows a breakdown of the top contributors (top 10 per metric widget) for
-each metric. This helps you to quickly identify outliers or instances
-that significantly contribute to the observed metrics.
+The dashboard provided by this solution presents NGINX workload metrics by aggregating and presenting metrics across all instances. The dashboard shows a breakdown of the top contributors (top 10 per metric widget) for each metric. This helps you to quickly identify outliers or instances that significantly contribute to the observed metrics.
 
 To create the dashboard, you can use the following options:
-
-- Use CloudWatch console to create the dashboard.
-- Use AWS CloudFormation console to deploy the dashboard.
-- Download the AWS CloudFormation infrastructure as code and integrate it as part of your continuous integration (CI) automation.
++ Use CloudWatch console to create the dashboard.
++ Use AWS CloudFormation console to deploy the dashboard.
++ Download the AWS CloudFormation infrastructure as code and integrate it as part of your continuous integration (CI) automation.
 
 By using the CloudWatch console to create a dashboard, you can preview the dashboard before actually creating and being charged.
 
-###### Note
+**Note**  
+The dashboard created with CloudFormation in this solution displays metrics from the Region where the solution is deployed. Be sure to create the CloudFormation stack in the Region where your NGINX metrics are published.  
+If you've specified a custom namespace other than `CWAgent` in the CloudWatch agent configuration, you'll have to change the CloudFormation template for the dashboard to replace `CWAgent` with the customized namespace you are using.
 
-The dashboard created with CloudFormation in this solution displays metrics from the Region
-where the solution is deployed.
-Be sure to create the CloudFormation stack in the Region where your NGINX metrics are
-published.
+**To create the dashboard through CloudWatch Console**
 
-If you've specified a custom namespace other than `CWAgent` in the CloudWatch agent
-configuration, you'll have to change the CloudFormation template
-for the dashboard to replace `CWAgent` with the customized namespace you are using.
+1. Open the CloudWatch Console **Create Dashboard** using this link: [ https://console.aws.amazon.com/cloudwatch/home?\#dashboards?dashboardTemplate=NginxOnEc2&referrer=os-catalog ](https://console.aws.amazon.com/cloudwatch/home?#dashboards?dashboardTemplate=NginxOnEc2&referrer=os-catalog). 
 
-###### To create the dashboard through CloudWatch Console
+1. Verify that the selected Region on the console is the Region where the NGINX workload is running.
 
-1. Open the CloudWatch Console **Create Dashboard** using this link:
-   [https://console.aws.amazon.com/cloudwatch/home?#dashboards?dashboardTemplate=NginxOnEc2&referrer=os-catalog](https://console.aws.amazon.com/cloudwatch/home?#dashboards?dashboardTemplate=NginxOnEc2&referrer=os-catalog "https://console.aws.amazon.com/cloudwatch/home?#dashboards?dashboardTemplate=NginxOnEc2&referrer=os-catalog") .
-2. Verify that the selected Region on the console is the Region where the NGINX workload is running.
-3. Enter the name of the dashboard, then choose **Create Dashboard**.
+1. Enter the name of the dashboard, then choose **Create Dashboard**.
 
-To easily differentiate this dashboard from similar dashboards in other Regions, we recommend including the Region name
-in the dashboard name, such as `NGINXDashboard-us-east-1`. 4. Preview the dashboard and choose **Save** to create the dashboard.
+   To easily differentiate this dashboard from similar dashboards in other Regions, we recommend including the Region name in the dashboard name, such as **NGINXDashboard-us-east-1**.
 
-###### To create the dashboard through CloudFormation
+1. Preview the dashboard and choose **Save** to create the dashboard.
 
-1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json")
-   .
-2. Verify that the selected Region on the console is the Region where the NGINX
-   workload is running.
-3. For **Stack name**, enter a name to identity this stack, such as `NGINXDashboardStack`.
-4. In the **Parameters** section, specify the name of the dashboard
-   under the **DashboardName** parameter.
-5. To easily differentiate this dashboard from similar dashboards in other Regions, we
-   recommend including the Region name in the dashboard name, such as `NGINXDashboard-us-east-1`.
-6. Acknowledge access capabilities for transforms under **Capabilities
-   and transforms**. Note that CloudFormation doesn't add any IAM resources.
-7. Review the settings, then choose **Create stack**.
-8. After the stack status is **CREATE\_COMPLETE**, choose the **Resources** tab under the created stack and then choose the link under **Physical
-   ID** to go to the dashboard. You can also access the dashboard in the CloudWatch
-   console by choosing **Dashboards** in the left navigation pane of the
-   console, and finding the dashboard name under **Custom
-   Dashboards**.
+**To create the dashboard through CloudFormation**
 
-If you want to edit the template file first to customize it, choose the **Upload a template file** option
-under **Create Stack Wizard** to upload the edited template. For more information,
-see [Creating a stack on CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
-You can use the following link to download the template:
-[https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
+1. Open the CloudFormation **Quick create stack** wizard using this link: [ https://console.aws.amazon.com/cloudformation/home?\#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json) .
+
+1. Verify that the selected Region on the console is the Region where the NGINX workload is running.
+
+1. For **Stack name**, enter a name to identity this stack, such as ** NGINXDashboardStack**.
+
+1. In the **Parameters** section, specify the name of the dashboard under the **DashboardName** parameter.
+
+1. To easily differentiate this dashboard from similar dashboards in other Regions, we recommend including the Region name in the dashboard name, such as ** NGINXDashboard-us-east-1**.
+
+1. Acknowledge access capabilities for transforms under **Capabilities and transforms**. Note that CloudFormation doesn't add any IAM resources.
+
+1. Review the settings, then choose **Create stack**.
+
+1. After the stack status is **CREATE\_COMPLETE**, choose the ** Resources** tab under the created stack and then choose the link under **Physical ID** to go to the dashboard. You can also access the dashboard in the CloudWatch console by choosing **Dashboards** in the left navigation pane of the console, and finding the dashboard name under **Custom Dashboards**.
+
+If you want to edit the template file first to customize it, choose the **Upload a template file** option under **Create Stack Wizard** to upload the edited template. For more information, see [Creating a stack on CloudFormation console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html). You can use the following link to download the template: [https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json). 
 
 ### Get started with the NGINX dashboard
+<a name="Solution-NGINX-Dashboard-GetStarted"></a>
 
-Here are a few tasks that you can try out with the new NGINX dashboard. These
-tasks allow you to validate that the dashboard is working correctly
-and provide you some hands-on experience using it to monitor a NGINX workload. As
-you try these out, you'll get familiar with navigating the dashboard
-and interpreting the visualized metrics.
+Here are a few tasks that you can try out with the new NGINX dashboard. These tasks allow you to validate that the dashboard is working correctly and provide you some hands-on experience using it to monitor a NGINX workload. As you try these out, you'll get familiar with navigating the dashboard and interpreting the visualized metrics.
 
-**Review connection metrics**
+ **Review connection metrics** 
 
-In the **Connections** section, you can find several key metrics that provide insights
-into the client connection handling of your NGINX server.
-Monitoring these connection metrics can help you identify potential bottlenecks,
-connection issues, or unexpected connection patterns.
+In the **Connections** section, you can find several key metrics that provide insights into the client connection handling of your NGINX server. Monitoring these connection metrics can help you identify potential bottlenecks, connection issues, or unexpected connection patterns.
++ Accepted client connections
++ Active client connections
++ Handled client connections
++ Connections reading requests
++ Idle client connections
++ Connections writing responses
 
-- Accepted client connections
-- Active client connections
-- Handled client connections
-- Connections reading requests
-- Idle client connections
-- Connections writing responses
+ **Analyze HTTP request volume** 
 
-**Analyze HTTP request volume**
-
-The `request` metric in the **HTTP Requests** section shows the total number of HTTP
-requests handled by the NGINX server.
-Tracking this metric over time can help you understand the overall traffic load on
-your NGINX infrastructure and plan for resource allocation
-and scaling accordingly.
+The `request` metric in the **HTTP Requests** section shows the total number of HTTP requests handled by the NGINX server. Tracking this metric over time can help you understand the overall traffic load on your NGINX infrastructure and plan for resource allocation and scaling accordingly.

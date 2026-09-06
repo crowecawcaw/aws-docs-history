@@ -1,18 +1,12 @@
+
+
 # Amazon Elastic Compute Cloud (EC2) instance
+<a name="component-configuration-examples-ec2"></a>
 
-The following example shows a component configuration in JSON format for an
-Amazon EC2 instance.
+The following example shows a component configuration in JSON format for an Amazon EC2 instance.
 
-###### Important
-
-When an Amazon EC2 instance enters a `stopped` state, it is removed
-from monitoring. When it returns to a `running` state, it is
-added to the list of **Unmonitored components** on the
-**Application details** page of the CloudWatch Application Insights console. If
-automatic monitoring of new resources is enabled for the application, the
-instance is added to the list of **Monitored components**.
-However, the logs and metrics are set to the default for the workload. The
-previous log and metrics configuration is not saved.
+**Important**  
+When an Amazon EC2 instance enters a `stopped` state, it is removed from monitoring. When it returns to a `running` state, it is added to the list of **Unmonitored components** on the **Application details** page of the CloudWatch Application Insights console. If automatic monitoring of new resources is enabled for the application, the instance is added to the list of **Monitored components**. However, the logs and metrics are set to the default for the workload. The previous log and metrics configuration is not saved. 
 
 ```
 {

@@ -1,23 +1,20 @@
+
+
 # Use `DeleteDashboards` with an AWS SDK or CLI
+<a name="example_cloudwatch_DeleteDashboards_section"></a>
 
 The following code examples show how to use `DeleteDashboards`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
++  [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md) 
++  [Using property variables in monitoring dashboards to monitor multiple serverless functions](example_iam_GettingStarted_032_section.md) 
 
-- [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
-- [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
-- [Using property variables in monitoring dashboards to monitor multiple serverless functions](example_iam_GettingStarted_032_section.md "example_iam_GettingStarted_032_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
     /// <summary>
@@ -35,45 +32,29 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return deleteDashboardsResponse.HttpStatusCode == HttpStatusCode.OK;
     }
+```
++  For API details, see [DeleteDashboards](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DeleteDashboards) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete specified dashboards**  
+The following `delete-dashboards` example deletes two dashboards named `Dashboard-A` and `Dashboard-B` in the specified account.  
 
 ```
-
-- For API details, see
-  [DeleteDashboards](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteDashboards.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteDashboards.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete specified dashboards**
-
-The following `delete-dashboards` example deletes two dashboards named `Dashboard-A` and `Dashboard-B` in the specified account.
-
+aws cloudwatch delete-dashboards \
+    --dashboard-names {{Dashboard-A}} {{Dashboard-B}}
 ```
-`aws cloudwatch delete-dashboards \
- --dashboard-names `Dashboard-A` `Dashboard-B``
+This command produces no output.  
+For more information, see [Amazon CloudWatch dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) in the *Amazon CloudWatch User Guide*.  
++  For API details, see [DeleteDashboards](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/delete-dashboards.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This command produces no output.
-
-For more information, see [Amazon CloudWatch dashboards](CloudWatch_Dashboards.md "CloudWatch_Dashboards.md") in the _Amazon CloudWatch User Guide_.
-
-- For API details, see
-  [DeleteDashboards](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/delete-dashboards.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/delete-dashboards.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
     /**
@@ -97,23 +78,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
                 }
             });
     }
-
-
 ```
++  For API details, see [DeleteDashboards](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DeleteDashboards) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteDashboards](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteDashboards.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteDashboards.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun deleteDashboard(dashboardName: String) {
@@ -126,42 +98,28 @@ suspend fun deleteDashboard(dashboardName: String) {
         println("$dashboardName was successfully deleted.")
     }
 }
-
-
 ```
++  For API details, see [DeleteDashboards](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteDashboards](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Deletes the specified dashboard, promoting for confirmation before proceeding. To bypass confirmation add the -Force switch to the command.**
+**Tools for PowerShell V4**  
+**Example 1: Deletes the specified dashboard, promoting for confirmation before proceeding. To bypass confirmation add the -Force switch to the command.**  
 
 ```
 Remove-CWDashboard -DashboardName Dashboard1
-
 ```
++  For API details, see [DeleteDashboards](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteDashboards](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Deletes the specified dashboard, promoting for confirmation before proceeding. To bypass confirmation add the -Force switch to the command.**
+**Tools for PowerShell V5**  
+**Example 1: Deletes the specified dashboard, promoting for confirmation before proceeding. To bypass confirmation add the -Force switch to the command.**  
 
 ```
 Remove-CWDashboard -DashboardName Dashboard1
-
 ```
++  For API details, see [DeleteDashboards](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteDashboards](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

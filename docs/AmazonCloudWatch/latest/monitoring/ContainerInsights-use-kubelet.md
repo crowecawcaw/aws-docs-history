@@ -1,12 +1,11 @@
+
+
 # (Optional) Enable the Use\_Kubelet feature for large clusters
+<a name="ContainerInsights-use-kubelet"></a>
 
-By default, the Use\_Kubelet feature is disabled in the FluentBit Kubernetes plugin.
-Enabling this feature can reduce traffic to the API server and mitigate the issue of the
-API Server being a bottleneck. We recommend that you enable this feature for large
-clusters.
+By default, the Use\_Kubelet feature is disabled in the FluentBit Kubernetes plugin. Enabling this feature can reduce traffic to the API server and mitigate the issue of the API Server being a bottleneck. We recommend that you enable this feature for large clusters.
 
-To enable Use\_Kubelet, first add the nodes and nodes/proxy permissions to the
-clusterRole config.
+To enable Use\_Kubelet, first add the nodes and nodes/proxy permissions to the clusterRole config.
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1
@@ -26,12 +25,9 @@ rules:
 - nodes
 - nodes/proxy
     verbs: ["get", "list", "watch"]
-
 ```
 
-In the DaemonSet configuration, this feature needs host network access. The image
-version for `amazon/aws-for-fluent-bit` should 2.12.0 or later, or the fluent
-bit image version should be 1.7.2 or later.
+In the DaemonSet configuration, this feature needs host network access. The image version for `amazon/aws-for-fluent-bit` should 2.12.0 or later, or the fluent bit image version should be 1.7.2 or later.
 
 ```
 apiVersion: apps/v1
@@ -97,7 +93,7 @@ containers:
         valueFrom:
           fieldRef:
             apiVersion: v1
-            fieldPath: metadata.name
+            fieldPath: metadata.name      
       - name: CI_VERSION
         value: "k8s/1.3.8"
   resources:
@@ -155,7 +151,6 @@ tolerations:
   effect: "NoExecute"
 - operator: "Exists"
   effect: "NoSchedule"
-
 ```
 
 The Kubernetes Plugin configuration should be similar to the following:
@@ -173,6 +168,6 @@ The Kubernetes Plugin configuration should be similar to the following:
   Labels              Off
   Annotations         Off
   Use_Kubelet         On
-  Kubelet_Port        10250
+  Kubelet_Port        10250 
   Buffer_Size         0
 ```

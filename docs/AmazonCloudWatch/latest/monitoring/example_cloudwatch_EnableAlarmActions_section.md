@@ -1,21 +1,18 @@
+
+
 # Use `EnableAlarmActions` with an AWS SDK or CLI
+<a name="example_cloudwatch_EnableAlarmActions_section"></a>
 
 The following code examples show how to use `EnableAlarmActions`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md) 
 
-- [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md "example_cloudwatch_Usage_MetricsAlarms_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
     /// <summary>
@@ -33,25 +30,15 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return enableAlarmActionsResult.HttpStatusCode == HttpStatusCode.OK;
     }
-
-
 ```
++  For API details, see [EnableAlarmActions](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/EnableAlarmActions) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [EnableAlarmActions](../../../goto/DotNetSDKV4/monitoring-2010-08-01/EnableAlarmActions.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/EnableAlarmActions.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples").
-
-Include the required files.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples). 
+Include the required files.  
 
 ```
 #include <aws/core/Aws.h>
@@ -59,11 +46,8 @@ Include the required files.
 #include <aws/monitoring/model/EnableAlarmActionsRequest.h>
 #include <aws/monitoring/model/PutMetricAlarmRequest.h>
 #include <iostream>
-
-
 ```
-
-Enable the alarm actions.
+Enable the alarm actions.  
 
 ```
     Aws::CloudWatch::CloudWatchClient cw;
@@ -108,42 +92,27 @@ Enable the alarm actions.
 
     std::cout << "Successfully created alarm " << alarm_name <<
         " and enabled actions on it." << std::endl;
+```
++  For API details, see [EnableAlarmActions](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/EnableAlarmActions) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To enable all actions for an alarm**  
+The following example uses the `enable-alarm-actions` command to enable all actions for the alarm named myalarm.:  
 
 ```
-
-- For API details, see
-  [EnableAlarmActions](../../../goto/SdkForCpp/monitoring-2010-08-01/EnableAlarmActions.md "../../../goto/SdkForCpp/monitoring-2010-08-01/EnableAlarmActions.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To enable all actions for an alarm**
-
-The following example uses the `enable-alarm-actions` command to enable all actions for the alarm named myalarm.:
-
+aws cloudwatch enable-alarm-actions --alarm-names {{myalarm}}
 ```
-`aws cloudwatch enable-alarm-actions --alarm-names `myalarm``
+This command returns to the prompt if successful.  
++  For API details, see [EnableAlarmActions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/enable-alarm-actions.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This command returns to the prompt if successful.
-
-- For API details, see
-  [EnableAlarmActions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/enable-alarm-actions.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/enable-alarm-actions.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -200,25 +169,15 @@ public class EnableAlarmActions {
         }
     }
 }
-
-
 ```
++  For API details, see [EnableAlarmActions](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/EnableAlarmActions) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [EnableAlarmActions](../../../goto/SdkForJavaV2/monitoring-2010-08-01/EnableAlarmActions.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/EnableAlarmActions.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples").
-
-Import the SDK and client modules and call the API.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples). 
+Import the SDK and client modules and call the API.  
 
 ```
 import { EnableAlarmActionsCommand } from "@aws-sdk/client-cloudwatch";
@@ -237,34 +196,20 @@ const run = async () => {
 };
 
 export default run();
-
-
 ```
-
-Create the client in a separate module and export it.
+Create the client in a separate module and export it.  
 
 ```
 import { CloudWatchClient } from "@aws-sdk/client-cloudwatch";
 
 export const client = new CloudWatchClient({});
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/cloudwatch-examples-using-alarm-actions.html#cloudwatch-examples-using-alarm-actions-enabling). 
++  For API details, see [EnableAlarmActions](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/EnableAlarmActionsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/cloudwatch-examples-using-alarm-actions.md#cloudwatch-examples-using-alarm-actions-enabling "../../../sdk-for-javascript/v3/developer-guide/cloudwatch-examples-using-alarm-actions.md#cloudwatch-examples-using-alarm-actions-enabling").
-- For API details, see
-  [EnableAlarmActions](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/EnableAlarmActionsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/EnableAlarmActionsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples").
-
-Import the SDK and client modules and call the API.
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples). 
+Import the SDK and client modules and call the API.  
 
 ```
 // Load the AWS SDK for Node.js
@@ -313,24 +258,15 @@ cw.putMetricAlarm(params, function (err, data) {
     });
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/cloudwatch-examples-using-alarm-actions.html#cloudwatch-examples-using-alarm-actions-enabling). 
++  For API details, see [EnableAlarmActions](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/monitoring-2010-08-01/EnableAlarmActions) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-using-alarm-actions.md#cloudwatch-examples-using-alarm-actions-enabling "../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-using-alarm-actions.md#cloudwatch-examples-using-alarm-actions-enabling").
-- For API details, see
-  [EnableAlarmActions](../../../goto/AWSJavaScriptSDK/monitoring-2010-08-01/EnableAlarmActions.md "../../../goto/AWSJavaScriptSDK/monitoring-2010-08-01/EnableAlarmActions.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun enableActions(alarm: String) {
@@ -344,23 +280,14 @@ suspend fun enableActions(alarm: String) {
         println("Successfully enabled actions on alarm $alarm")
     }
 }
-
-
 ```
++  For API details, see [EnableAlarmActions](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [EnableAlarmActions](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
 
 ```
 class CloudWatchWrapper:
@@ -401,27 +328,16 @@ class CloudWatchWrapper:
                 alarm_name,
             )
             raise
+```
++  For API details, see [EnableAlarmActions](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/EnableAlarmActions) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ SAP ABAP ]
 
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples). 
 
 ```
-
-- For API details, see
-  [EnableAlarmActions](../../../goto/boto3/monitoring-2010-08-01/EnableAlarmActions.md "../../../goto/boto3/monitoring-2010-08-01/EnableAlarmActions.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples").
-
-```
-
     "Enable actions on the specified alarm."
     TRY.
         lo_cwt->enablealarmactions(
@@ -431,14 +347,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [EnableAlarmActions](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [EnableAlarmActions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

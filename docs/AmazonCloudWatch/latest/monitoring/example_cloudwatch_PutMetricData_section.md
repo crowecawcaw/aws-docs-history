@@ -1,25 +1,21 @@
+
+
 # Use `PutMetricData` with an AWS SDK or CLI
+<a name="example_cloudwatch_PutMetricData_section"></a>
 
 The following code examples show how to use `PutMetricData`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
++  [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md) 
 
-- [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
-- [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md "example_cloudwatch_Usage_MetricsAlarms_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
-
     /// <summary>
     /// Add some metric data using a call to a wrapper class.
     /// </summary>
@@ -69,36 +65,23 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return putDataResponse.HttpStatusCode == HttpStatusCode.OK;
     }
-
-
 ```
++  For API details, see [PutMetricData](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/PutMetricData) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [PutMetricData](../../../goto/DotNetSDKV4/monitoring-2010-08-01/PutMetricData.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/PutMetricData.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples").
-
-Include the required files.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples). 
+Include the required files.  
 
 ```
 #include <aws/core/Aws.h>
 #include <aws/monitoring/CloudWatchClient.h>
 #include <aws/monitoring/model/PutMetricDataRequest.h>
 #include <iostream>
-
-
 ```
-
-Put data into the metric.
+Put data into the metric.  
 
 ```
         Aws::CloudWatch::CloudWatchClient cw;
@@ -127,30 +110,21 @@ Put data into the metric.
         {
             std::cout << "Successfully put sample metric data" << std::endl;
         }
+```
++  For API details, see [PutMetricData](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/PutMetricData) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To publish a custom metric to Amazon CloudWatch**  
+The following example uses the `put-metric-data` command to publish a custom metric to Amazon CloudWatch:  
 
 ```
-
-- For API details, see
-  [PutMetricData](../../../goto/SdkForCpp/monitoring-2010-08-01/PutMetricData.md "../../../goto/SdkForCpp/monitoring-2010-08-01/PutMetricData.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To publish a custom metric to Amazon CloudWatch**
-
-The following example uses the `put-metric-data` command to publish a custom metric to Amazon CloudWatch:
-
+aws cloudwatch put-metric-data --namespace {{"Usage Metrics"}} --metric-data {{file://metric.json}}
 ```
-`aws cloudwatch put-metric-data --namespace `"Usage Metrics"` --metric-data `file://metric.json``
-
-```
-
-The values for the metric itself are stored in the JSON file, `metric.json`.
-
-Here are the contents of that file:
+The values for the metric itself are stored in the JSON file, `metric.json`.  
+Here are the contents of that file:  
 
 ```
 [
@@ -162,34 +136,22 @@ Here are the contents of that file:
   }
 ]
 ```
-
-For more information, see Publishing Custom Metrics in the _Amazon CloudWatch Developer Guide_.
-
-**To specify multiple dimensions**
-
-The following example illustrates how to specify multiple dimensions. Each dimension is specified as a Name=Value pair. Multiple dimensions are separated by a comma.:
+For more information, see Publishing Custom Metrics in the *Amazon CloudWatch Developer Guide*.  
+**To specify multiple dimensions**  
+The following example illustrates how to specify multiple dimensions. Each dimension is specified as a Name=Value pair. Multiple dimensions are separated by a comma.:  
 
 ```
-`aws cloudwatch put-metric-data --metric-name `Buffers` --namespace `MyNameSpace` --unit `Bytes` --value `231434333` --dimensions `InstanceID=1-23456789,InstanceType=m1.small``
+aws cloudwatch put-metric-data --metric-name {{Buffers}} --namespace {{MyNameSpace}} --unit {{Bytes}} --value {{231434333}} --dimensions {{InstanceID=1-23456789,InstanceType=m1.small}}
+```
++  For API details, see [PutMetricData](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-metric-data.html) in *AWS CLI Command Reference*. 
+
+------
+#### [ Java ]
+
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
-
-- For API details, see
-  [PutMetricData](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-metric-data.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-metric-data.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
-
-```
-
     /**
      * Adds metric data for an alarm asynchronously.
      *
@@ -255,25 +217,15 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             }
         });
     }
-
-
 ```
++  For API details, see [PutMetricData](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutMetricData) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutMetricData](../../../goto/SdkForJavaV2/monitoring-2010-08-01/PutMetricData.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/PutMetricData.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples").
-
-Import the SDK and client modules and call the API.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples). 
+Import the SDK and client modules and call the API.  
 
 ```
 import { PutMetricDataCommand } from "@aws-sdk/client-cloudwatch";
@@ -308,32 +260,19 @@ const run = async () => {
 };
 
 export default run();
-
-
 ```
-
-Create the client in a separate module and export it.
+Create the client in a separate module and export it.  
 
 ```
 import { CloudWatchClient } from "@aws-sdk/client-cloudwatch";
 
 export const client = new CloudWatchClient({});
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/cloudwatch-examples-getting-metrics.html#cloudwatch-examples-getting-metrics-publishing-custom). 
++  For API details, see [PutMetricData](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/PutMetricDataCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/cloudwatch-examples-getting-metrics.md#cloudwatch-examples-getting-metrics-publishing-custom "../../../sdk-for-javascript/v3/developer-guide/cloudwatch-examples-getting-metrics.md#cloudwatch-examples-getting-metrics-publishing-custom").
-- For API details, see
-  [PutMetricData](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/PutMetricDataCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/PutMetricDataCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -369,24 +308,15 @@ cw.putMetricData(params, function (err, data) {
     console.log("Success", JSON.stringify(data));
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/cloudwatch-examples-getting-metrics.html#cloudwatch-examples-getting-metrics-publishing-custom). 
++  For API details, see [PutMetricData](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/monitoring-2010-08-01/PutMetricData) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-getting-metrics.md#cloudwatch-examples-getting-metrics-publishing-custom "../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-getting-metrics.md#cloudwatch-examples-getting-metrics-publishing-custom").
-- For API details, see
-  [PutMetricData](../../../goto/AWSJavaScriptSDK/monitoring-2010-08-01/PutMetricData.md "../../../goto/AWSJavaScriptSDK/monitoring-2010-08-01/PutMetricData.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun addMetricDataForAlarm(fileName: String?) {
@@ -434,19 +364,14 @@ suspend fun addMetricDataForAlarm(fileName: String?) {
         println("Added metric values for for metric $customMetricName")
     }
 }
-
-
 ```
++  For API details, see [PutMetricData](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [PutMetricData](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Creates a new MetricDatum object, and writes it to Amazon Web Services CloudWatch Metrics.**
+**Tools for PowerShell V4**  
+**Example 1: Creates a new MetricDatum object, and writes it to Amazon Web Services CloudWatch Metrics.**  
 
 ```
 ### Create a MetricDatum .NET object
@@ -457,16 +382,11 @@ $Metric.Value = 50
 
 ### Write the metric data to the CloudWatch service
 Write-CWMetricData -Namespace instance1 -MetricData $Metric
-
 ```
++  For API details, see [PutMetricData](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [PutMetricData](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Creates a new MetricDatum object, and writes it to Amazon Web Services CloudWatch Metrics.**
+**Tools for PowerShell V5**  
+**Example 1: Creates a new MetricDatum object, and writes it to Amazon Web Services CloudWatch Metrics.**  
 
 ```
 ### Create a MetricDatum .NET object
@@ -477,22 +397,14 @@ $Metric.Value = 50
 
 ### Write the metric data to the CloudWatch service
 Write-CWMetricData -Namespace instance1 -MetricData $Metric
-
 ```
++  For API details, see [PutMetricData](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [PutMetricData](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
 
 ```
 class CloudWatchWrapper:
@@ -525,12 +437,8 @@ class CloudWatchWrapper:
         except ClientError:
             logger.exception("Couldn't put data for metric %s.%s", namespace, name)
             raise
-
-
-
 ```
-
-Put a set of data into a CloudWatch metric.
+Put a set of data into a CloudWatch metric.  
 
 ```
 class CloudWatchWrapper:
@@ -574,24 +482,14 @@ class CloudWatchWrapper:
         except ClientError:
             logger.exception("Couldn't put data set for metric %s.%s.", namespace, name)
             raise
-
-
-
 ```
++  For API details, see [PutMetricData](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/PutMetricData) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutMetricData](../../../goto/boto3/monitoring-2010-08-01/PutMetricData.md "../../../goto/boto3/monitoring-2010-08-01/PutMetricData.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples). 
 
 ```
 require 'aws-sdk-cloudwatch'
@@ -653,27 +551,16 @@ rescue StandardError => e
     "'#{metric_namespace}': #{e.message}"
   false
 end
+```
++  For API details, see [PutMetricData](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/PutMetricData) in *AWS SDK for Ruby API Reference*. 
 
+------
+#### [ SAP ABAP ]
 
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples). 
 
 ```
-
-- For API details, see
-  [PutMetricData](../../../goto/SdkForRubyV3/monitoring-2010-08-01/PutMetricData.md "../../../goto/SdkForRubyV3/monitoring-2010-08-01/PutMetricData.md")
-  in _AWS SDK for Ruby API Reference_.
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples").
-
-```
-
     DATA lt_metricdata TYPE /aws1/cl_cwtmetricdatum=>tt_metricdata.
 
     "Create metric data object.
@@ -692,14 +579,10 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_cwtinvparamvalueex.
         MESSAGE 'The specified argument was not valid.' TYPE 'E'.
     ENDTRY.
-
+```
+Put a set of data into a CloudWatch metric.  
 
 ```
-
-Put a set of data into a CloudWatch metric.
-
-```
-
     DATA lt_metricdata TYPE /aws1/cl_cwtmetricdatum=>tt_metricdata.
 
     "Create metric data object with values and counts.
@@ -720,14 +603,9 @@ Put a set of data into a CloudWatch metric.
       CATCH /aws1/cx_cwtinvparamvalueex.
         MESSAGE 'The specified argument was not valid.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [PutMetricData](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutMetricData](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

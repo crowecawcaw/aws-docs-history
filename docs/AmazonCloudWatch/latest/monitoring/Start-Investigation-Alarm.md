@@ -1,80 +1,61 @@
+
+
 # Start a CloudWatch investigations from an alarm
+<a name="Start-Investigation-Alarm"></a>
 
-Start a CloudWatch investigations from an alarm, or from any point in the last two weeks of a CloudWatch alarm's
-history.
+Start a CloudWatch investigations from an alarm, or from any point in the last two weeks of a CloudWatch alarm's history.
 
-For more information about CloudWatch investigations, see [CloudWatch investigations](Investigations.md "Investigations.md").
+For more information about CloudWatch investigations, see [CloudWatch investigations](Investigations.md).
 
 ## Prerequisites
+<a name="w2aac18c25b7c17b7"></a>
 
-Before you can start a CloudWatch investigations from a CloudWatch alarm, you must create a resource policy for
-the function to allow the CloudWatch service principal to start the investigation. To do this
-using the AWS CLI, use a command similar to the following example:
+Before you can start a CloudWatch investigations from a CloudWatch alarm, you must create a resource policy for the function to allow the CloudWatch service principal to start the investigation. To do this using the AWS CLI, use a command similar to the following example:
 
 ```
-
 aws aiops put-investigation-group-policy \
     --identifier arn:aws:aiops:us-east-1:111122223333:investigation-group/investigation_group_id \
     --policy "{\"Version\":\"2008-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"aiops.alarms.cloudwatch.amazonaws.com\"},\"Action\":[\"aiops:CreateInvestigation\",\"aiops:CreateInvestigationEvent\"],\"Resource\":\"*\",\"Condition\":{\"StringEquals\":{\"aws:SourceAccount\":\"111122223333\"},\"ArnLike\":{\"aws:SourceArn\":\"arn:aws:cloudwatch:us-east-1:111122223333:alarm:*\"}}}]}" \
     --region eu-north-1
-
 ```
 
-Replace the example values with your own AWS account ID, region, and investigation
-group ID.
+Replace the example values with your own AWS account ID, region, and investigation group ID.
 
-###### Start an investigation from a CloudWatch alarm
+**Start an investigation from a CloudWatch alarm**
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the left navigation pane, choose **Alarms**, **All
-   alarms**.
-3. Choose the name of the alarm.
-4. Choose the time period in the alarm history that you want to investigate.
-5. Choose **Investigate**, **Start new
-   investigation**.
-6. For **New investigation title**, enter a name for the
-   investigation. Then choose **Start investigation**.
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-The CloudWatch investigations assistant starts and scans your telemetry data to find data that might be
-associated with this situation. 7. In the CloudWatch console's navigation pane, choose **Investigations**,
-then choose the name of the investigation that you just started.
+1. In the left navigation pane, choose **Alarms**, **All alarms**.
 
-The **Findings** section displays a natural-language summary of the
-alarm's status and the reason that it was triggered. 8. (Optional) In the graph of the alarm, right-click and choose to deep-dive into the
-alarm or the metric that it watches. 9. On the right side of the screen, choose the **Suggestions**
-tab.
+1. Choose the name of the alarm.
 
-A list of other telemetry that CloudWatch investigations has discovered and that might be relevant to
-the investigation appears. These findings can include other metrics and CloudWatch Logs Insights
-query results. CloudWatch investigations ran these queries based on the alarm.
+1. Choose the time period in the alarm history that you want to investigate.
 
-    * For each finding, choose **Add to findings** or
-     **Discard**.
+1. Choose **Investigate**, **Start new investigation**.
 
+1. For **New investigation title**, enter a name for the investigation. Then choose **Start investigation**.
 
-    When you choose **Add to findings**, the telemetry is added to
-     the **Findings** section, and CloudWatch investigations uses this information to direct
-     its further scanning and suggestions.
-    * For a CloudWatch Logs Insights query result, to change or edit the query and re-run it,
-     open the context (right-click) menu for the results, and then choose **Open
-     in Logs Insights**. For more information, see [Analyzing log data with
-     CloudWatch Logs Insights](../logs/AnalyzingLogData.md "../logs/AnalyzingLogData.md").
+   The CloudWatch investigations assistant starts and scans your telemetry data to find data that might be associated with this situation.
 
+1. In the CloudWatch console's navigation pane, choose **Investigations**, then choose the name of the investigation that you just started.
 
-    To run a different query, when you get to the Logs Insights page, choose to use
-     query assist to form a query using natural language. For more information, see
-     [Use
-     natural language to generate and update CloudWatch Logs Insights queries](../logs/CloudWatchLogs-Insights-Query-Assist.md "../logs/CloudWatchLogs-Insights-Query-Assist.md").
-    * (Optional) If you know of telemetry in another AWS service that might apply to
-     this investigation, go to that service's console and add the telemetry to the
-     investigation.
+   The **Findings** section displays a natural-language summary of the alarm's status and the reason that it was triggered. 
 
-10. CloudWatch investigations might also add hypotheses to the list in the **Suggestions**
-tab. These hypotheses are generated by the investigation in natural language.
+1. (Optional) In the graph of the alarm, right-click and choose to deep-dive into the alarm or the metric that it watches.
 
-For each hypothesis, choose **Add to findings** or
-**Discard**. 11. When you think you have completed the investigation and found the root cause of the
-issue, choose the **Overview** tab and then choose
-**Investigation summary**. CloudWatch investigations then creates a natural-language
-summary of the important findings and hypotheses from the investigation.
+1. On the right side of the screen, choose the **Suggestions** tab.
+
+   A list of other telemetry that CloudWatch investigations has discovered and that might be relevant to the investigation appears. These findings can include other metrics and CloudWatch Logs Insights query results. CloudWatch investigations ran these queries based on the alarm.
+   + For each finding, choose **Add to findings** or **Discard**. 
+
+     When you choose **Add to findings**, the telemetry is added to the **Findings** section, and CloudWatch investigations uses this information to direct its further scanning and suggestions.
+   + For a CloudWatch Logs Insights query result, to change or edit the query and re-run it, open the context (right-click) menu for the results, and then choose **Open in Logs Insights**. For more information, see [Analyzing log data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html).
+
+     To run a different query, when you get to the Logs Insights page, choose to use query assist to form a query using natural language. For more information, see [Use natural language to generate and update CloudWatch Logs Insights queries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Insights-Query-Assist.html).
+   + (Optional) If you know of telemetry in another AWS service that might apply to this investigation, go to that service's console and add the telemetry to the investigation. 
+
+1. CloudWatch investigations might also add hypotheses to the list in the **Suggestions** tab. These hypotheses are generated by the investigation in natural language.
+
+   For each hypothesis, choose **Add to findings** or **Discard**.
+
+1. When you think you have completed the investigation and found the root cause of the issue, choose the **Overview** tab and then choose **Investigation summary**. CloudWatch investigations then creates a natural-language summary of the important findings and hypotheses from the investigation.

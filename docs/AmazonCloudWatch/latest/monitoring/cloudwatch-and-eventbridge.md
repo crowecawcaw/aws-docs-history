@@ -1,20 +1,21 @@
-# Alarm events and EventBridge
 
-CloudWatch sends events to Amazon EventBridge whenever a CloudWatch alarm is created, updated, deleted, or
-changes alarm state. You can use EventBridge and these events to write rules that take actions,
-such as notifying you, when an alarm changes state. For more information, see [What is Amazon EventBridge?](../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md "../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md")
+
+# Alarm events and EventBridge
+<a name="cloudwatch-and-eventbridge"></a>
+
+CloudWatch sends events to Amazon EventBridge whenever a CloudWatch alarm is created, updated, deleted, or changes alarm state. You can use EventBridge and these events to write rules that take actions, such as notifying you, when an alarm changes state. For more information, see [What is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html)
 
 CloudWatch guarantees the delivery of alarm state change events to EventBridge.
 
 ## Alarm State Change Events
+<a name="CloudWatch-state-change-events"></a>
 
-This section shows example events sent to EventBridge when an alarm's state changes. Select a
-tab to view different types of alarm state change events.
+This section shows example events sent to EventBridge when an alarm's state changes. Select a tab to view different types of alarm state change events.
 
-Single Metric Alarm
-Events generated when a single metric alarm changes state. These events
-include `state` and `previousState` fields with the
-alarm's evaluation results.
+------
+#### [ Single Metric Alarm ]
+
+Events generated when a single metric alarm changes state. These events include `state` and `previousState` fields with the alarm's evaluation results.
 
 ```
 {
@@ -71,10 +72,10 @@ alarm's evaluation results.
 }
 ```
 
-Metric Math Alarm
-Events generated when a metric math alarm changes state. These events
-include the math expression details in the `configuration`
-field.
+------
+#### [ Metric Math Alarm ]
+
+Events generated when a metric math alarm changes state. These events include the math expression details in the `configuration` field.
 
 ```
 {
@@ -151,10 +152,10 @@ field.
 }
 ```
 
-Anomaly Detection Alarm
-Events generated when an anomaly detection alarm changes state. These
-events include upper and lower threshold bounds in the
-`reasonData` field.
+------
+#### [ Anomaly Detection Alarm ]
+
+Events generated when an anomaly detection alarm changes state. These events include upper and lower threshold bounds in the `reasonData` field.
 
 ```
 {
@@ -212,10 +213,10 @@ events include upper and lower threshold bounds in the
 }
 ```
 
-Composite Alarm
-Events generated when a composite alarm changes state. These events
-include suppression information in the `actionsSuppressedBy` and
-`actionsSuppressedReason` fields.
+------
+#### [ Composite Alarm ]
+
+Events generated when a composite alarm changes state. These events include suppression information in the `actionsSuppressedBy` and `actionsSuppressedReason` fields.
 
 ```
 {
@@ -260,12 +261,10 @@ include suppression information in the `actionsSuppressedBy` and
 }
 ```
 
-Multi Time Series Alarm
+------
+#### [ Multi Time Series Alarm ]
 
-Events generated when an Alarm Contributor or an Alarm changes
-state. Alarm Contributor state change events contain the id and attributes of the Alarm Contributor
-as well as the most recent datapoint that breached the threshold. Alarm State change events have a
-summary of the number of contributors that caused the alarm to transition in their state reason.
+ Events generated when an Alarm Contributor or an Alarm changes state. Alarm Contributor state change events contain the id and attributes of the Alarm Contributor as well as the most recent datapoint that breached the threshold. Alarm State change events have a summary of the number of contributors that caused the alarm to transition in their state reason. 
 
 **Alarm Contributor Example**
 
@@ -312,7 +311,6 @@ summary of the number of contributors that caused the alarm to transition in the
     }
   }
 }
-
 ```
 
 **Alarm Example**
@@ -354,12 +352,12 @@ summary of the number of contributors that caused the alarm to transition in the
     }
   }
 }
-
 ```
 
-Log Alarm
-Events generated when a single-value log alarm (without a BY clause) changes
-state.
+------
+#### [ Log Alarm ]
+
+Events generated when a single-value log alarm (without a BY clause) changes state.
 
 ```
 {
@@ -416,9 +414,10 @@ state.
 }
 ```
 
-Multi-Contributor Log Alarm
-Events generated when a contributor of a multi-contributor log alarm (with a
-BY clause) changes state. Each contributor generates a separate event.
+------
+#### [ Multi-Contributor Log Alarm ]
+
+Events generated when a contributor of a multi-contributor log alarm (with a BY clause) changes state. Each contributor generates a separate event.
 
 ```
 {
@@ -474,15 +473,17 @@ BY clause) changes state. Each contributor generates a separate event.
 }
 ```
 
+------
+
 ## Alarm Configuration Change Events
+<a name="CloudWatch-config-change-events"></a>
 
-This section shows example events sent to EventBridge when an alarm's configuration
-changes. Configuration changes include creating, updating, or deleting alarms.
+This section shows example events sent to EventBridge when an alarm's configuration changes. Configuration changes include creating, updating, or deleting alarms.
 
-Creation Events
-Events generated when new alarms are created. These events include the
-initial alarm configuration in the `configuration` field, with
-`operation` set to "create".
+------
+#### [ Creation Events ]
+
+Events generated when new alarms are created. These events include the initial alarm configuration in the `configuration` field, with `operation` set to "create".
 
 **Composite Alarm Example**
 
@@ -519,8 +520,7 @@ initial alarm configuration in the `configuration` field, with
 }
 ```
 
-**Composite Alarm with Suppressor
-Example**
+**Composite Alarm with Suppressor Example**
 
 ```
 {
@@ -607,13 +607,12 @@ Example**
 }
 ```
 
-Update Events
-Events generated when existing alarms are modified. These events contain
-both `configuration` and `previousConfiguration`
-fields to show what changed.
+------
+#### [ Update Events ]
 
-**Metric Alarm
-Example**
+Events generated when existing alarms are modified. These events contain both `configuration` and `previousConfiguration` fields to show what changed.
+
+**Metric Alarm Example**
 
 ```
 {
@@ -698,11 +697,9 @@ Example**
 }
 ```
 
-**Metric Alarm with Suppressor
-Example**
+**Metric Alarm with Suppressor Example**
 
 ```
-
     {
     "version": "0",
     "id": "4c6f4177-6bd5-c0ca-9f05-b4151c54568b",
@@ -731,7 +728,7 @@ Example**
             "actionsEnabled": true,
             "timestamp": "2022-07-14T13:59:56.290+0000",
             "okActions": [],
-            "alarmActions": [], Remove
+            "alarmActions": [], Remove 
             "insufficientDataActions": []
         },
         "previousConfiguration": {
@@ -748,7 +745,6 @@ Example**
         }
     }
 }
-
 ```
 
 **Log Alarm Update Example**
@@ -826,9 +822,10 @@ Example**
 }
 ```
 
-Deletion Events
-Events generated when alarms are deleted. These events include the final
-alarm configuration and set `operation` to "delete".
+------
+#### [ Deletion Events ]
+
+Events generated when alarms are deleted. These events include the final alarm configuration and set `operation` to "delete".
 
 **Metric Math Alarm Example**
 
@@ -905,8 +902,7 @@ alarm configuration and set `operation` to "delete".
 }
 ```
 
-**Metric Math Alarm with Suppressor
-Example**
+**Metric Math Alarm with Suppressor Example**
 
 ```
 {
@@ -993,3 +989,5 @@ Example**
     }
 }
 ```
+
+------

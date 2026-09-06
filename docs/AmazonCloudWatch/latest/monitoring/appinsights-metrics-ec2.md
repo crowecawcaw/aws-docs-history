@@ -1,15 +1,18 @@
+
+
 # Amazon Elastic Compute Cloud (EC2)
+<a name="appinsights-metrics-ec2"></a>
 
 CloudWatch Application Insights supports the following metrics:
 
-###### Metrics
-
-- [CloudWatch built-in metrics](#appinsights-metrics-ec2-built-in "#appinsights-metrics-ec2-built-in")
-- [CloudWatch agent metrics (Windows server)](#appinsights-metrics-ec2-windows "#appinsights-metrics-ec2-windows")
-- [CloudWatch agent process metrics (Windows server)](#appinsights-metrics-procstat-ec2-windows "#appinsights-metrics-procstat-ec2-windows")
-- [CloudWatch agent metrics (Linux server)](#appinsights-metrics-ec2-linux "#appinsights-metrics-ec2-linux")
+**Topics**
++ [CloudWatch built-in metrics](#appinsights-metrics-ec2-built-in)
++ [CloudWatch agent metrics (Windows server)](#appinsights-metrics-ec2-windows)
++ [CloudWatch agent process metrics (Windows server)](#appinsights-metrics-procstat-ec2-windows)
++ [CloudWatch agent metrics (Linux server)](#appinsights-metrics-ec2-linux)
 
 ## CloudWatch built-in metrics
+<a name="appinsights-metrics-ec2-built-in"></a>
 
 CPUCreditBalance
 
@@ -56,26 +59,27 @@ StatusCheckFailed\_Instance
 StatusCheckFailed\_System
 
 ## CloudWatch agent metrics (Windows server)
+<a name="appinsights-metrics-ec2-windows"></a>
 
-.NET CLR Exceptions # of Exceps Thrown
+.NET CLR Exceptions \# of Exceps Thrown
 
-.NET CLR Exceptions # of Exceps Thrown/Sec
+.NET CLR Exceptions \# of Exceps Thrown/Sec
 
-.NET CLR Exceptions # of Filters/sec
+.NET CLR Exceptions \# of Filters/sec
 
-.NET CLR Exceptions # of Finallys/sec
+.NET CLR Exceptions \# of Finallys/sec
 
 .NET CLR Exceptions Throw to Catch Depth/sec
 
-.NET CLR Interop # of CCWs
+.NET CLR Interop \# of CCWs
 
-.NET CLR Interop # of Stubs
+.NET CLR Interop \# of Stubs
 
-.NET CLR Interop # of TLB exports/sec
+.NET CLR Interop \# of TLB exports/sec
 
-.NET CLR Interop # of TLB imports/sec
+.NET CLR Interop \# of TLB imports/sec
 
-.NET CLR Interop # of marshaling
+.NET CLR Interop \# of marshaling
 
 .NET CLR Jit % Time in Jit
 
@@ -89,7 +93,7 @@ StatusCheckFailed\_System
 
 .NET CLR LocksAndThreads Queue Length/sec
 
-.NET CLR Memory # Total Committed Bytes
+.NET CLR Memory \# Total Committed Bytes
 
 .NET CLR Memory % Time in GC
 
@@ -254,10 +258,9 @@ Cluster Handles/sec
 Resource Handles/sec
 
 ## CloudWatch agent process metrics (Windows server)
+<a name="appinsights-metrics-procstat-ec2-windows"></a>
 
-Process metrics are collected using the [CloudWatch agent procstat
-plugin](CloudWatch-Agent-procstat-process-metrics.md "CloudWatch-Agent-procstat-process-metrics.md"). Only Amazon EC2 instances running Windows workloads support
-process metrics.
+Process metrics are collected using the [CloudWatch agent procstat plugin](CloudWatch-Agent-procstat-process-metrics.md). Only Amazon EC2 instances running Windows workloads support process metrics.
 
 procstat cpu\_time\_system
 
@@ -278,6 +281,7 @@ procstat write\_bytes
 procstat write\_count
 
 ## CloudWatch agent metrics (Linux server)
+<a name="appinsights-metrics-ec2-linux"></a>
 
 cpu\_time\_active
 

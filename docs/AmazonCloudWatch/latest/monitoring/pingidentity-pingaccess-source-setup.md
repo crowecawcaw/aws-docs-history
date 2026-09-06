@@ -1,37 +1,47 @@
+
+
 # Source configuration for Ping Identity PingAccess
+<a name="pingidentity-pingaccess-source-setup"></a>
 
 ## Integrating with Ping Identity PingAccess
+<a name="pingidentity-pingaccess-integration"></a>
 
 Ping Identity PingAccess integration uses Amazon S3 and Amazon SQS to ingest audit log data into CloudWatch pipelines. PingAccess is deployed on-premises and does not expose a REST API for audit log retrieval. Fluent Bit tails the JSON-formatted audit log files on the PingAccess host and delivers them to an Amazon S3 bucket. Amazon SQS notifications alert the pipeline when new log objects arrive.
 
 ## Prerequisites
-
-- An AWS account with permissions to create Amazon S3 buckets, Amazon SQS queues, and IAM roles
-- A Ping Identity PingAccess server with administrative access
-- A Linux host with Fluent Bit installed (can be the same host as PingAccess)
-- Network connectivity between the PingAccess host and AWS
+<a name="pingidentity-pingaccess-prerequisites"></a>
++ An AWS account with permissions to create Amazon S3 buckets, Amazon SQS queues, and IAM roles
++ A Ping Identity PingAccess server with administrative access
++ A Linux host with Fluent Bit installed (can be the same host as PingAccess)
++ Network connectivity between the PingAccess host and AWS
 
 ## Log forwarding setup
+<a name="pingidentity-pingaccess-log-forwarding"></a>
 
 PingAccess writes audit logs to local files using Log4j2. You configure JSON-formatted output by adding JsonTemplateLayout appenders to the `log4j2.xml` configuration file. Fluent Bit tails these JSON log files and delivers them to Amazon S3. For detailed configuration instructions, see Step 5 in the following section.
 
 ## Instructions to setup Amazon S3 and Amazon SQS
+<a name="pingidentity-pingaccess-s3-sqs-setup"></a>
 
 Complete the following steps to configure the Amazon S3 and Amazon SQS infrastructure for Ping Identity PingAccess log ingestion.
 
 ### Step 1: Create Amazon S3 bucket
+<a name="pingidentity-pingaccess-step1"></a>
 
 Create an Amazon S3 bucket to store PingAccess audit logs. The bucket must reside in the same AWS Region where you plan to create the CloudWatch pipeline.
 
 ### Step 2: Create Amazon SQS queue
+<a name="pingidentity-pingaccess-step2"></a>
 
 Create an Amazon SQS queue in the same AWS Region as your Amazon S3 bucket. This queue receives notifications when new log files are added to the bucket.
 
 ### Step 3: Connect Amazon S3 to Amazon SQS
+<a name="pingidentity-pingaccess-step3"></a>
 
 Configure the Amazon S3 bucket to send event notifications for `s3:ObjectCreated:*` events to the Amazon SQS queue.
 
 ### Step 4: Configure Amazon SQS queue policy
+<a name="pingidentity-pingaccess-step4"></a>
 
 Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send messages to the queue. Apply the following policy to your Amazon SQS queue:
 
@@ -62,6 +72,7 @@ Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send mess
 ```
 
 ### Step 5: Configure Ping Identity PingAccess log export and Fluent Bit
+<a name="pingidentity-pingaccess-step5"></a>
 
 Enable JSON logging on PingAccess by editing `<PA_HOME>/conf/log4j2.xml`. Add the following RollingFile appenders:
 
@@ -164,19 +175,18 @@ Configure Fluent Bit to collect both audit log files and deliver them to Amazon 
     upload_timeout    60
 ```
 
-###### Note
-
+**Note**  
 PingAccess writes independent log files per cluster node. Fluent Bit must be installed on each node.
 
 The `audit_json.log` captures runtime access control events (request URL, client IP, policy decision, response code, latency). The `admin_audit_json.log` captures administrative console activity (configuration changes, admin logins, rule and application modifications).
 
 Fluent Bit delivers gzip-compressed NDJSON files to Amazon S3. The `storage.type filesystem` setting ensures buffering to disk for reliability.
 
-###### Important
-
+**Important**  
 Use only the default PingAccess-provided JSON templates.
 
 ### Step 6: IAM permissions
+<a name="pingidentity-pingaccess-step6"></a>
 
 Create an IAM policy with the following permissions for the Fluent Bit host to write objects to the Amazon S3 bucket:
 
@@ -206,21 +216,24 @@ Create an IAM policy with the following permissions for the Fluent Bit host to w
 ```
 
 ### Step 7: Verify
+<a name="pingidentity-pingaccess-step7"></a>
 
 Verify the setup by confirming that log files appear in the Amazon S3 bucket and that Amazon SQS notifications are being generated. Check the Amazon SQS queue for messages indicating new object creation events.
 
 ## Configuring the CloudWatch pipeline
-
-- Choose Ping Identity PingAccess as the data source when creating the pipeline.
-- Provide the Amazon SQS queue URL and IAM role ARN.
-- Select the destination CloudWatch Logs log group.
-- After you create the pipeline, data will be available in the selected log group.
+<a name="pingidentity-pingaccess-pipeline-config"></a>
++ Choose Ping Identity PingAccess as the data source when creating the pipeline.
++ Provide the Amazon SQS queue URL and IAM role ARN.
++ Select the destination CloudWatch Logs log group.
++ After you create the pipeline, data will be available in the selected log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
+<a name="pingidentity-pingaccess-ocsf-events"></a>
 
 This integration supports OCSF schema version v1.5.0. The following table shows the mapping between PingAccess audit log types and OCSF event classes.
 
-| Event name                           | OCSF event class     |
-| ------------------------------------ | -------------------- |
-| Access Audit (runtime HTTP activity) | HTTP Activity [4002] |
-| API Audit (admin API operations)     | API Activity [6003]  |
+
+| Event name | OCSF event class | 
+| --- | --- | 
+| Access Audit (runtime HTTP activity) | HTTP Activity [4002] | 
+| API Audit (admin API operations) | API Activity [6003] | 

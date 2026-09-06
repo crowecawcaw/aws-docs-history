@@ -1,22 +1,19 @@
+
+
 # Use `DescribeAlarmsForMetric` with an AWS SDK or CLI
+<a name="example_cloudwatch_DescribeAlarmsForMetric_section"></a>
 
 The following code examples show how to use `DescribeAlarmsForMetric`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
++  [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md) 
 
-- [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
-- [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md "example_cloudwatch_Usage_MetricsAlarms_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
     /// <summary>
@@ -36,25 +33,15 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return alarmsResult.MetricAlarms ?? new List<MetricAlarm>();
     }
-
-
 ```
++  For API details, see [DescribeAlarmsForMetric](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmsForMetric) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DescribeAlarmsForMetric](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmsForMetric.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmsForMetric.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples").
-
-Include the required files.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples). 
+Include the required files.  
 
 ```
 #include <aws/core/Aws.h>
@@ -63,11 +50,8 @@ Include the required files.
 #include <aws/monitoring/model/DescribeAlarmsResult.h>
 #include <iomanip>
 #include <iostream>
-
-
 ```
-
-Describe the alarms.
+Describe the alarms.  
 
 ```
         Aws::CloudWatch::CloudWatchClient cw;
@@ -114,29 +98,20 @@ Describe the alarms.
             request.SetNextToken(next_token);
             done = next_token.empty();
         }
+```
++  For API details, see [DescribeAlarmsForMetric](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/DescribeAlarmsForMetric) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To display information about alarms associated with a metric**  
+The following example uses the `describe-alarms-for-metric` command to display information about any alarms associated with the Amazon EC2 CPUUtilization metric and the instance with the ID i-0c986c72.:  
 
 ```
-
-- For API details, see
-  [DescribeAlarmsForMetric](../../../goto/SdkForCpp/monitoring-2010-08-01/DescribeAlarmsForMetric.md "../../../goto/SdkForCpp/monitoring-2010-08-01/DescribeAlarmsForMetric.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To display information about alarms associated with a metric**
-
-The following example uses the `describe-alarms-for-metric` command to display information about
-any alarms associated with the Amazon EC2 CPUUtilization metric and the instance with the ID i-0c986c72.:
-
+aws cloudwatch describe-alarms-for-metric --metric-name {{CPUUtilization}} --namespace {{AWS/EC2}} --dimensions {{Name=InstanceId,Value=i-0c986c72}}
 ```
-`aws cloudwatch describe-alarms-for-metric --metric-name `CPUUtilization` --namespace `AWS/EC2` --dimensions `Name=InstanceId,Value=i-0c986c72``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -202,23 +177,15 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeAlarmsForMetric](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarms-for-metric.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeAlarmsForMetric](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarms-for-metric.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarms-for-metric.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
-
     /**
      * Checks for a metric alarm in AWS CloudWatch.
      *
@@ -292,25 +259,15 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             }
         }));
     }
-
-
 ```
++  For API details, see [DescribeAlarmsForMetric](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmsForMetric) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeAlarmsForMetric](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmsForMetric.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmsForMetric.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples").
-
-Import the SDK and client modules and call the API.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples). 
+Import the SDK and client modules and call the API.  
 
 ```
 import { DescribeAlarmsCommand } from "@aws-sdk/client-cloudwatch";
@@ -329,32 +286,19 @@ const run = async () => {
 };
 
 export default run();
-
-
 ```
-
-Create the client in a separate module and export it.
+Create the client in a separate module and export it.  
 
 ```
 import { CloudWatchClient } from "@aws-sdk/client-cloudwatch";
 
 export const client = new CloudWatchClient({});
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/cloudwatch-examples-creating-alarms.html#cloudwatch-examples-creating-alarms-describing). 
++  For API details, see [DescribeAlarmsForMetric](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/DescribeAlarmsForMetricCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-creating-alarms.md#cloudwatch-examples-creating-alarms-describing "../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-creating-alarms.md#cloudwatch-examples-creating-alarms-describing").
-- For API details, see
-  [DescribeAlarmsForMetric](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/DescribeAlarmsForMetricCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/DescribeAlarmsForMetricCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples). 
 
 ```
 // Load the AWS SDK for Node.js
@@ -375,24 +319,15 @@ cw.describeAlarms({ StateValue: "INSUFFICIENT_DATA" }, function (err, data) {
     });
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/cloudwatch-examples-creating-alarms.html#cloudwatch-examples-creating-alarms-describing). 
++  For API details, see [DescribeAlarmsForMetric](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/monitoring-2010-08-01/DescribeAlarmsForMetric) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-creating-alarms.md#cloudwatch-examples-creating-alarms-describing "../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-creating-alarms.md#cloudwatch-examples-creating-alarms-describing").
-- For API details, see
-  [DescribeAlarmsForMetric](../../../goto/AWSJavaScriptSDK/monitoring-2010-08-01/DescribeAlarmsForMetric.md "../../../goto/AWSJavaScriptSDK/monitoring-2010-08-01/DescribeAlarmsForMetric.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun checkForMetricAlarm(fileName: String?) {
@@ -426,23 +361,14 @@ suspend fun checkForMetricAlarm(fileName: String?) {
         }
     }
 }
-
-
 ```
++  For API details, see [DescribeAlarmsForMetric](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeAlarmsForMetric](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
 
 ```
 class CloudWatchWrapper:
@@ -467,27 +393,16 @@ class CloudWatchWrapper:
         alarm_iter = metric.alarms.all()
         logger.info("Got alarms for metric %s.%s.", metric_namespace, metric_name)
         return alarm_iter
+```
++  For API details, see [DescribeAlarmsForMetric](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/DescribeAlarmsForMetric) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples). 
 
 ```
-
-- For API details, see
-  [DescribeAlarmsForMetric](../../../goto/boto3/monitoring-2010-08-01/DescribeAlarmsForMetric.md "../../../goto/boto3/monitoring-2010-08-01/DescribeAlarmsForMetric.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples").
-
-```
-
 #
 # @param cloudwatch_client [Aws::CloudWatch::Client]
 #   An initialized CloudWatch client.
@@ -572,27 +487,16 @@ def run_me
 end
 
 run_me if $PROGRAM_NAME == __FILE__
+```
++  For API details, see [DescribeAlarmsForMetric](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/DescribeAlarmsForMetric) in *AWS SDK for Ruby API Reference*. 
 
+------
+#### [ SAP ABAP ]
 
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples). 
 
 ```
-
-- For API details, see
-  [DescribeAlarmsForMetric](../../../goto/SdkForRubyV3/monitoring-2010-08-01/DescribeAlarmsForMetric.md "../../../goto/SdkForRubyV3/monitoring-2010-08-01/DescribeAlarmsForMetric.md")
-  in _AWS SDK for Ruby API Reference_.
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples").
-
-```
-
     TRY.
         oo_result = lo_cwt->describealarmsformetric(          " oo_result is returned for testing purposes. "
           iv_namespace   = iv_namespace
@@ -606,14 +510,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeAlarmsForMetric](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeAlarmsForMetric](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

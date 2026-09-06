@@ -1,15 +1,13 @@
+
+
 # Container Insights performance log events for Amazon ECS
+<a name="Container-Insights-reference-performance-logs-ECS"></a>
 
-The following are examples of the performance log events that Container Insights
-collects from Amazon ECS.
+The following are examples of the performance log events that Container Insights collects from Amazon ECS.
 
-These logs are in CloudWatch Logs, in a log group named
-`/aws/ecs/containerinsights/`CLUSTER_NAME`/performance`.
-Within that log group, each container instance will has a log stream named
-`AgentTelemetry-`CONTAINER_INSTANCE_ID``.
+These logs are in CloudWatch Logs, in a log group named `/aws/ecs/containerinsights/{{CLUSTER_NAME}}/performance`. Within that log group, each container instance will has a log stream named `AgentTelemetry-{{CONTAINER_INSTANCE_ID}}`.
 
-You can query these logs using queries such as `{ $.Type = "Container" }`
-to view all container log events.
+You can query these logs using queries such as `{ $.Type = "Container" }` to view all container log events. 
 
 **Type: Container**
 
@@ -46,9 +44,7 @@ to view all container log events.
 
 **Type: Task**
 
-Even though the units for `StorageReadBytes` and
-`StorageWriteBytes` are in Bytes/Second, the values represent the cumulative
-number of bytes read from and written to storage, respectively.
+Even though the units for `StorageReadBytes` and `StorageWriteBytes` are in Bytes/Second, the values represent the cumulative number of bytes read from and written to storage, respectively. 
 
 ```
 {
@@ -146,7 +142,7 @@ number of bytes read from and written to storage, respectively.
 **Type: Service**
 
 ```
-{
+{   
     "Version": "0",
     "Type": "Service",
     "ServiceName": "myCIService",

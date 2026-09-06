@@ -1,14 +1,17 @@
-# Sample code for canary scripts
 
-This section contains code samples that illustrate some possible functions for
-CloudWatch Synthetics canary scripts.
+
+# Sample code for canary scripts
+<a name="CloudWatch_Synthetics_Canaries_Samples"></a>
+
+This section contains code samples that illustrate some possible functions for CloudWatch Synthetics canary scripts.
 
 ## Samples for Node.js and Playwright
+<a name="Synthetics_Canaries_Samples_nodejs_playwright"></a>
 
 ### Playwright canary with multiple steps
+<a name="Synthetics_canary_example_nodejs_playwright_multistep"></a>
 
-The following script is an example of a Node.js Playwright canary with multiple
-steps.
+The following script is an example of a Node.js Playwright canary with multiple steps.
 
 ```
 import { synthetics } from '@aws/synthetics-playwright';
@@ -56,9 +59,9 @@ export async function handler(event, context) {
 ```
 
 ### Playwright canaries setting cookies
+<a name="Synthetics_canaries_nodejs_playwright_cookies"></a>
 
-The following script is an example of a Node.js Playwright canary setting three
-cookies.
+The following script is an example of a Node.js Playwright canary setting three cookies.
 
 ```
 import { synthetics } from '@aws/synthetics-playwright';
@@ -95,14 +98,14 @@ export const handler = async (event, context) => {
 ```
 
 ## Samples for Node.js and Puppeteer
+<a name="CloudWatch_Synthetics_Canaries_Samples_nodejspup"></a>
 
 ### Setting cookies
+<a name="CloudWatch_Synthetics_Canaries_Samples_cookies"></a>
 
-Web sites rely on cookies to provide custom functionality or track users. By setting
-cookies in CloudWatch Synthetics scripts, you can mimic this custom behavior and validate it.
+Web sites rely on cookies to provide custom functionality or track users. By setting cookies in CloudWatch Synthetics scripts, you can mimic this custom behavior and validate it.
 
-For example, a web site might display a **Login** link for a
-revisiting user instead of a **Register** link.
+For example, a web site might display a **Login** link for a revisiting user instead of a **Register** link.
 
 ```
 var synthetics = require('@aws/synthetics-puppeteer');
@@ -149,12 +152,11 @@ exports.handler = async () => {
 ```
 
 ### Device emulation
+<a name="CloudWatch_Synthetics_Canaries_Samples_device"></a>
 
-You can write scripts that emulate various devices so that you can approximate how a
-page looks and behaves on those devices.
+You can write scripts that emulate various devices so that you can approximate how a page looks and behaves on those devices.
 
-The following sample emulates an iPhone 6 device. For more information about
-emulation, see [page.emulate(options)](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pageemulateoptions "https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pageemulateoptions") in the Puppeteer documentation.
+The following sample emulates an iPhone 6 device. For more information about emulation, see [ page.emulate(options)](https://pptr.dev/#?product=Puppeteer&version=v5.3.1&show=api-pageemulateoptions) in the Puppeteer documentation.
 
 ```
 var synthetics = require('@aws/synthetics-puppeteer');
@@ -194,19 +196,13 @@ exports.handler = async () => {
 ```
 
 ### Multi-step API canary
+<a name="CloudWatch_Synthetics_Canaries_Samples_APIsteps"></a>
 
-This sample code demonstrates an API canary with two HTTP steps: testing the same API
-for positive and negative test cases. The step configuration is passed to enable
-reporting of request/response headers. Additionally, it hides the Authorization header and
-X-Amz-Security-Token, because they contain user credentials.
+This sample code demonstrates an API canary with two HTTP steps: testing the same API for positive and negative test cases. The step configuration is passed to enable reporting of request/response headers. Additionally, it hides the Authorization header and X-Amz-Security-Token, because they contain user credentials. 
 
-When this script is used as a canary, you can view details about each step and
-the associated HTTP requests such as step pass/fail, duration, and performance metrics
-like DNS look up time and first byte time. You can view the number of 2xx, 4xx and 5xx
-for your canary run.
+When this script is used as a canary, you can view details about each step and the associated HTTP requests such as step pass/fail, duration, and performance metrics like DNS look up time and first byte time. You can view the number of 2xx, 4xx and 5xx for your canary run. 
 
 ```
-
 var synthetics = require('@aws/synthetics-puppeteer');
 const log = require('@aws/synthetics-logger');
 
@@ -301,9 +297,9 @@ exports.handler = async () => {
 ```
 
 ## Samples for Python and Selenium
+<a name="CloudWatch_Synthetics_Canaries_Samples_pythonsel"></a>
 
-The following sample Selenium code is a canary that fails with a custom error
-message when a target element is not loaded.
+The following sample Selenium code is a canary that fails with a custom error message when a target element is not loaded.
 
 ```
 from aws_synthetics.selenium import synthetics_webdriver as webdriver

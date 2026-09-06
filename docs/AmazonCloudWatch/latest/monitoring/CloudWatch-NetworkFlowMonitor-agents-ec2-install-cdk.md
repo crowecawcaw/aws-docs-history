@@ -1,7 +1,9 @@
-# Install agents for EC2 instances by using CDK
 
-You can use AWS Cloud Development Kit (AWS CDK) to install the Network Flow Monitor agent as part of your infrastructure-as-code deployment.
-Add the agent installation to your EC2 instance user data in your CDK stack.
+
+# Install agents for EC2 instances by using CDK
+<a name="CloudWatch-NetworkFlowMonitor-agents-ec2-install-cdk"></a>
+
+You can use AWS Cloud Development Kit (AWS CDK) to install the Network Flow Monitor agent as part of your infrastructure-as-code deployment. Add the agent installation to your EC2 instance user data in your CDK stack.
 
 The following example shows how to install the Network Flow Monitor agent on an Amazon Linux instance using CDK with TypeScript:
 

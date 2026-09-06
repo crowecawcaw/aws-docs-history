@@ -1,105 +1,89 @@
+
+
 # Logging Amazon CloudWatch API and console operations with AWS CloudTrail
+<a name="logging_cw_api_calls"></a>
 
-Amazon CloudWatch, CloudWatch Synthetics, CloudWatch RUM, Amazon Q Developer operational investigations, Network Flow Monitor, and Internet Monitor are integrated with AWS CloudTrail, a service that provides a record
+Amazon CloudWatch, CloudWatch Synthetics, CloudWatch RUM, Amazon Q Developer operational investigations, Network Flow Monitor, and Internet Monitor are integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API calls made by or on behalf of your AWS account. The captured calls include calls from the CloudWatch console and code calls to CloudWatch API operations. Using the information collected by CloudTrail, you can determine the request that was made to CloudWatch, the IP address from which the request was made, when it was made, and additional details.
 
-of actions taken by a user, role, or an AWS service. CloudTrail captures API calls made by or on
-behalf of your AWS account. The captured calls include calls from the CloudWatch console and code calls
-to CloudWatch API operations. Using the information collected by CloudTrail, you can
-determine the request that was made to CloudWatch, the IP address from which the request was
-made, when it was made, and additional details.
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root user or user credentials.
++ Whether the request was made on behalf of an IAM Identity Center user.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
+CloudTrail is active in your AWS account when you create the account and you automatically have access to the CloudTrail **Event history**. The CloudTrail **Event history** provides a viewable, searchable, downloadable, and immutable record of the past 90 days of recorded management events in an AWS Region. For more information, see [Working with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. There are no CloudTrail charges for viewing the **Event history**.
 
-- Whether the request was made with root user or user credentials.
-- Whether the request was made on behalf of an IAM Identity Center user.
-- Whether the request was made with temporary security credentials for a role or federated
-  user.
-- Whether the request was made by another AWS service.
-  CloudTrail is active in your AWS account when you create the account and you automatically have
-  access to the CloudTrail **Event history**. The CloudTrail **Event
-  history** provides a viewable, searchable, downloadable, and immutable record of the
-  past 90 days of recorded management events in an AWS Region. For more information, see [Working
-  with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_. There are no CloudTrail
-  charges for viewing the **Event history**.
+For an ongoing record of events in your AWS account past 90 days, create a trail or a [CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) event data store.
 
-For an ongoing record of events in your AWS account past 90 days, create a trail or a
-[CloudTrail
-Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") event data store.
+**CloudTrail trails**  
+A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. All trails created using the AWS Management Console are multi-Region. You can create a single-Region or a multi-Region trail by using the AWS CLI. Creating a multi-Region trail is recommended because you capture activity in all AWS Regions in your account. If you create a single-Region trail, you can view only the events logged in the trail's AWS Region. For more information about trails, see [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) and [Creating a trail for an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html) in the *AWS CloudTrail User Guide*.  
+You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no charge from CloudTrail by creating a trail, however, there are Amazon S3 storage charges. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/). For information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/).
 
-**CloudTrail trails**
-A _trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket. All trails created using the AWS Management Console are multi-Region. You can create a single-Region or a multi-Region trail by using the AWS CLI. Creating a multi-Region trail is recommended because you capture activity in all AWS Regions in your account. If you create a single-Region trail, you can view only the events logged in the trail's AWS Region. For more information about trails, see [Creating a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md") and [Creating a trail for an organization](../../../awscloudtrail/latest/userguide/creating-trail-organization.md "../../../awscloudtrail/latest/userguide/creating-trail-organization.md") in the _AWS CloudTrail User Guide_.
+**CloudTrail Lake event data stores**  
+*CloudTrail Lake* lets you run SQL-based queries on your events. CloudTrail Lake converts existing events in row-based JSON format to [ Apache ORC](https://orc.apache.org/) format. ORC is a columnar storage format that is optimized for fast retrieval of data. Events are aggregated into *event data stores*, which are immutable collections of events based on criteria that you select by applying [advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-concepts.html#adv-event-selectors). The selectors that you apply to an event data store control which events persist and are available for you to query. For more information about CloudTrail Lake, see [Working with AWS CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) in the *AWS CloudTrail User Guide*.  
+CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html#cloudtrail-lake-manage-costs-pricing-option) you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no charge from CloudTrail by creating a trail, however, there are Amazon S3 storage charges. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/"). For information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+**Note**  
+For information about CloudWatch Logs API calls that are logged in CloudTrail, see [ CloudWatch Logs information in CloudTrail](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/logging_cw_api_calls_cwl.html#cwl_info_in_ct).
 
-**CloudTrail Lake event data stores**
-_CloudTrail Lake_ lets you run SQL-based queries on your events. CloudTrail Lake converts existing events in row-based JSON format to [Apache ORC](https://orc.apache.org/ "https://orc.apache.org/") format. ORC is a columnar storage format that is optimized for fast retrieval of data. Events are aggregated into _event data stores_, which are immutable collections of events based on criteria that you select by applying [advanced event selectors](../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors "../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors"). The selectors that you apply to an event data store control which events persist and are available for you to query. For more information about CloudTrail Lake, see [Working with AWS CloudTrail Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") in the _AWS CloudTrail User Guide_.
-
-CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option "../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option") you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
-
-###### Note
-
-For information about CloudWatch Logs API calls that are logged in CloudTrail, see
-[CloudWatch Logs information in CloudTrail](../logs/logging_cw_api_calls_cwl.md#cwl_info_in_ct "../logs/logging_cw_api_calls_cwl.md#cwl_info_in_ct").
-
-###### Topics
-
-- [CloudWatch information in CloudTrail](#cw_info_in_ct "#cw_info_in_ct")
-- [CloudWatch data events in CloudTrail](#CloudWatch-data-plane-events "#CloudWatch-data-plane-events")
-- [Query generation information in CloudTrail](#cwl_query-generation-cloudtrail "#cwl_query-generation-cloudtrail")
-- [Amazon Q Developer operational investigations events in CloudTrail](#Q-Developer-Investigations-Cloudtrail "#Q-Developer-Investigations-Cloudtrail")
-- [Network Flow Monitor in CloudTrail](#CloudWatch-NetworkFlowMonitor-info-in-ct "#CloudWatch-NetworkFlowMonitor-info-in-ct")
-- [Network Flow Monitor data plane events in CloudTrail](#CloudWatch-NetworkFlowMonitor-data-plane-events "#CloudWatch-NetworkFlowMonitor-data-plane-events")
-- [Internet Monitor in CloudTrail](#cw_im_info_in_ct "#cw_im_info_in_ct")
-- [CloudWatch Synthetics information in CloudTrail](#cw_synthetics_info_in_ct "#cw_synthetics_info_in_ct")
-- [CloudWatch RUM information in CloudTrail](#RUM-CloudTrail "#RUM-CloudTrail")
-- [CloudWatch RUM data plane events in CloudTrail](#RUM-data-plane-events "#RUM-data-plane-events")
-- [Network Synthetic Monitor information in CloudTrail](#cw_network_synthetic_monitor_info_in_ct "#cw_network_synthetic_monitor_info_in_ct")
-- [CloudWatch Observability Access Manager information in CloudTrail](#cw_observability_access_manager_info_in_ct "#cw_observability_access_manager_info_in_ct")
-- [CloudWatch Observability Admin information in CloudTrail](#cw_observability_admin_info_in_ct "#cw_observability_admin_info_in_ct")
-- [CloudWatch Application Signals information in CloudTrail](#cw_application_signals_info_in_ct "#cw_application_signals_info_in_ct")
-- [CloudWatch Application Insights information in CloudTrail](#cw_application_insights_info_in_ct "#cw_application_insights_info_in_ct")
+**Topics**
++ [CloudWatch information in CloudTrail](#cw_info_in_ct)
++ [CloudWatch data events in CloudTrail](#CloudWatch-data-plane-events)
++ [Query generation information in CloudTrail](#cwl_query-generation-cloudtrail)
++ [Amazon Q Developer operational investigations events in CloudTrail](#Q-Developer-Investigations-Cloudtrail)
++ [Network Flow Monitor in CloudTrail](#CloudWatch-NetworkFlowMonitor-info-in-ct)
++ [Network Flow Monitor data plane events in CloudTrail](#CloudWatch-NetworkFlowMonitor-data-plane-events)
++ [Internet Monitor in CloudTrail](#cw_im_info_in_ct)
++ [CloudWatch Synthetics information in CloudTrail](#cw_synthetics_info_in_ct)
++ [CloudWatch RUM information in CloudTrail](#RUM-CloudTrail)
++ [CloudWatch RUM data plane events in CloudTrail](#RUM-data-plane-events)
++ [Network Synthetic Monitor information in CloudTrail](#cw_network_synthetic_monitor_info_in_ct)
++ [CloudWatch Observability Access Manager information in CloudTrail](#cw_observability_access_manager_info_in_ct)
++ [CloudWatch Observability Admin information in CloudTrail](#cw_observability_admin_info_in_ct)
++ [CloudWatch Application Signals information in CloudTrail](#cw_application_signals_info_in_ct)
++ [CloudWatch Application Insights information in CloudTrail](#cw_application_insights_info_in_ct)
 
 ## CloudWatch information in CloudTrail
+<a name="cw_info_in_ct"></a>
 
 CloudWatch supports logging the following actions as events in CloudTrail log files:
-
-- [DeleteAlarmActions](../APIReference/API_DeleteAlarmActions.md "../APIReference/API_DeleteAlarmActions.md")
-- [DeleteAnomalyDetector](../APIReference/API_DeleteAnomalyDetector.md "../APIReference/API_DeleteAnomalyDetector.md")
-- [DeleteDashboards](../APIReference/API_DeleteDashboards.md "../APIReference/API_DeleteDashboards.md")
-- [DeleteInsightRules](../APIReference/API_DeleteInsightRules.md "../APIReference/API_DeleteInsightRules.md")
-- [DeleteMetricStream](../APIReference/API_DeleteMetricStream.md "../APIReference/API_DeleteMetricStream.md")
-- [DescribeAlarmHistory](../APIReference/API_DescribeAlarmHistory.md "../APIReference/API_DescribeAlarmHistory.md")
-- [DescribeAlarms](../APIReference/API_DescribeAlarms.md "../APIReference/API_DescribeAlarms.md")
-- [DescribeAlarmsForMetric](../APIReference/API_DescribeAlarmsForMetric.md "../APIReference/API_DescribeAlarmsForMetric.md")
-- [DescribeAnomalyDetectors](../APIReference/API_DescribeAnomalyDetectors.md "../APIReference/API_DescribeAnomalyDetectors.md")
-- [DescribeInsightRules](../APIReference/API_DescribeInsightRules.md "../APIReference/API_DescribeInsightRules.md")
-- [DisableAlarmActions](../APIReference/API_DisableAlarmActions.md "../APIReference/API_DisableAlarmActions.md")
-- [DisableInsightRules](../APIReference/API_DisableInsightRules.md "../APIReference/API_DisableInsightRules.md")
-- [EnableAlarmActions](../APIReference/API_EnableAlarmActions.md "../APIReference/API_EnableAlarmActions.md")
-- [EnableInsightRules](../APIReference/API_EnableInsightRules.md "../APIReference/API_EnableInsightRules.md")
-- [GetDashboard](../APIReference/API_GetDashboard.md "../APIReference/API_GetDashboard.md")
-- [GetInsightRuleReport](../APIReference/API_GetInsightRuleReport.md "../APIReference/API_GetInsightRuleReport.md")
-- [GetMetricStream](../APIReference/API_GetMetricStream.md "../APIReference/API_GetMetricStream.md")
-- [ListDashboards](../APIReference/API_ListDashboards.md "../APIReference/API_ListDashboards.md")
-- [ListManagedInsightRules](../APIReference/API_ListManagedInsightRules.md "../APIReference/API_ListManagedInsightRules.md")
-- [ListMetricStreams](../APIReference/API_ListMetricStreams.md "../APIReference/API_ListMetricStreams.md")
-- [ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md")
-- [PutAnomalyDetector](../APIReference/API_PutAnomalyDetector.md "../APIReference/API_PutAnomalyDetector.md")
-- [PutCompositeAlarm](../APIReference/API_PutCompositeAlarm.md "../APIReference/API_PutCompositeAlarm.md")
-- [PutDashboard](../APIReference/API_PutDashboard.md "../APIReference/API_PutDashboard.md")
-- [PutInsightRule](../APIReference/API_PutInsightRule.md "../APIReference/API_PutInsightRule.md")
-- [PutManagedInsightRules](../APIReference/API_PutManagedInsightRules.md "../APIReference/API_PutManagedInsightRules.md")
-- [PutLogAlarm](../APIReference/API_PutLogAlarm.md "../APIReference/API_PutLogAlarm.md")
-- [PutMetricAlarm](../APIReference/API_PutMetricAlarm.md "../APIReference/API_PutMetricAlarm.md")
-- [PutMetricStream](../APIReference/API_PutMetricStream.md "../APIReference/API_PutMetricStream.md")
-- [SetAlarmState](../APIReference/API_SetAlarmState.md "../APIReference/API_SetAlarmState.md")
-- [StartMetricStreams](../APIReference/API_StartMetricStreams.md "../APIReference/API_StartMetricStreams.md")
-- [StopMetricStreams](../APIReference/API_StopMetricStreams.md "../APIReference/API_StopMetricStreams.md")
-- [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md")
-- [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md")
++ [DeleteAlarmActions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteAlarmActions.html)
++ [DeleteAnomalyDetector](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteAnomalyDetector.html)
++ [DeleteDashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteDashboards.html)
++ [DeleteInsightRules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteInsightRules.html)
++ [DeleteMetricStream](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteMetricStream.html)
++ [DescribeAlarmHistory](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html)
++ [DescribeAlarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html)
++ [DescribeAlarmsForMetric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmsForMetric.html)
++ [DescribeAnomalyDetectors](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAnomalyDetectors.html)
++ [DescribeInsightRules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html)
++ [DisableAlarmActions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DisableAlarmActions.html)
++ [DisableInsightRules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DisableInsightRules.html)
++ [EnableAlarmActions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_EnableAlarmActions.html)
++ [EnableInsightRules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_EnableInsightRules.html)
++ [GetDashboard](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetDashboard.html)
++ [GetInsightRuleReport](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetInsightRuleReport.html)
++ [GetMetricStream](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStream.html)
++ [ListDashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListDashboards.html)
++ [ListManagedInsightRules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListManagedInsightRules.html)
++ [ListMetricStreams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetricStreams.html)
++ [ListTagsForResource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListTagsForResource.html)
++ [PutAnomalyDetector](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutAnomalyDetector.html)
++ [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html)
++ [PutDashboard](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutDashboard.html)
++ [PutInsightRule](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutInsightRule.html)
++ [PutManagedInsightRules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutManagedInsightRules.html)
++ [PutLogAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutLogAlarm.html)
++ [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)
++ [PutMetricStream](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricStream.html)
++ [SetAlarmState](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_SetAlarmState.html)
++ [StartMetricStreams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_StartMetricStreams.html)
++ [StopMetricStreams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_StopMetricStreams.html)
++ [TagResource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html)
++ [UntagResource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html)
 
 ### Example: CloudWatch log file entries
+<a name="understanding-CloudWatch-entries-in-CloudTrail"></a>
 
 The following example shows a CloudTrail log entry that demonstrates the `PutMetricAlarm` action.
 
@@ -139,8 +123,7 @@ The following example shows a CloudTrail log entry that demonstrates the `PutMet
   }
 ```
 
-The following log file entry shows that a user called the CloudWatch Events
-`PutRule` action.
+The following log file entry shows that a user called the CloudWatch Events `PutRule` action.
 
 ```
 {
@@ -182,8 +165,7 @@ The following log file entry shows that a user called the CloudWatch Events
 }
 ```
 
-The following log file entry shows that a user called the CloudWatch Logs
-`CreateExportTask` action.
+The following log file entry shows that a user called the CloudWatch Logs `CreateExportTask` action.
 
 ```
 {
@@ -221,42 +203,27 @@ The following log file entry shows that a user called the CloudWatch Logs
 ```
 
 ## CloudWatch data events in CloudTrail
+<a name="CloudWatch-data-plane-events"></a>
 
-CloudTrail can capture API activities related to the CloudWatch data plane operations on metrics [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md"), [GetMetricWidgetImage](../APIReference/API_GetMetricWidgetImage.md "../APIReference/API_GetMetricWidgetImage.md"), [PutMetricData](../APIReference/API_PutMetricData.md "../APIReference/API_PutMetricData.md"), [GetMetricStatistics](../APIReference/API_GetMetricStatistics.md "../APIReference/API_GetMetricStatistics.md"), and [ListMetrics](../APIReference/API_ListMetrics.md "../APIReference/API_ListMetrics.md") APIs.
+CloudTrail can capture API activities related to the CloudWatch data plane operations on metrics [ GetMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html), [ GetMetricWidgetImage](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricWidgetImage.html), [ PutMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricData.html), [ GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html), and [ ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) APIs.
 
-###### Note
+**Note**  
+PromQL queries are not supported for CloudTrail data events. Only the CloudWatch APIs listed above can be logged as data events in CloudTrail.
 
-PromQL queries are not supported for CloudTrail data events. Only the CloudWatch APIs
-listed above can be logged as data events in CloudTrail.
+[ Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events), also known as data plane operations, give you insight into the resource operations performed on or within a resource. Data events are often high-volume activities. 
 
-[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events"), also known as data plane operations, give you insight into the resource operations performed
-on or within a resource. Data events are often high-volume activities.
+By default, CloudTrail doesn't log data events. The CloudTrail **Event history** doesn't record data events.
 
-By default, CloudTrail doesn't log
-data events. The CloudTrail **Event history** doesn't record data events.
+Additional charges apply for data events. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-Additional charges apply for data events. For more information about CloudTrail pricing, see
-[AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+You can log data events for the CloudWatch resource types by using the CloudTrail console, AWS CLI, or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events-console) and [Logging data events with the AWS Command Line Interface](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-with-the-AWS-CLI) in the *AWS CloudTrail User Guide*.
 
-You can log data events for the CloudWatch resource types by using the CloudTrail console, AWS CLI,
-or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") and [Logging data events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") in the
-_AWS CloudTrail User Guide_.
+Data plane events can be filtered by resource type. Because there are additional costs for using data events in CloudTrail, filtering by resource allows you to have more control over what you log and pay for. 
 
-Data plane events can be filtered by resource type. Because there are additional costs for using
-data events in CloudTrail, filtering by resource allows you to have more control over what you log and pay for.
+Using the information that CloudTrail collects, you can identify any of the metric APIs, the IP address of the requester, the requester's identity, and the date and time of the request. Logging the **GetMetricData**, **GetMetricWidgetImage**, **PutMetricData**, **GetMetricStatistics**, and **ListMetrics** APIs using CloudTrail helps you enable operational and risk auditing, governance, and compliance of your AWS account.
 
-Using the information that CloudTrail collects, you can identify any of the metric APIs, the IP address of the requester, the requester's identity, and the date and time of the
-request. Logging the **GetMetricData**, **GetMetricWidgetImage**, **PutMetricData**, **GetMetricStatistics**, and **ListMetrics** APIs using CloudTrail helps you enable operational and
-risk auditing, governance, and compliance of your AWS account.
-
-###### Note
-
-When you view the **GetMetricData** events in CloudTrail, you might see more calls than the calls that you initiated.
-This is because CloudWatch logs events to CloudTrail for **GetMetricData** actions that are initiated by internal components. For example, you'll
-see **GetMetricData** calls initiated by CloudWatch dashboards to refresh widget data, and **GetMetricData** calls initiated by a
-monitoring account to retrieve data from a source account,
-in cross-account observability. These internally-initiated calls don't incur CloudWatch charges, but they do count toward the number of events
-logged in CloudTrail, and CloudTrail charges according to the number of events logged.
+**Note**  
+When you view the **GetMetricData** events in CloudTrail, you might see more calls than the calls that you initiated. This is because CloudWatch logs events to CloudTrail for **GetMetricData** actions that are initiated by internal components. For example, you'll see **GetMetricData** calls initiated by CloudWatch dashboards to refresh widget data, and **GetMetricData** calls initiated by a monitoring account to retrieve data from a source account, in cross-account observability. These internally-initiated calls don't incur CloudWatch charges, but they do count toward the number of events logged in CloudTrail, and CloudTrail charges according to the number of events logged.
 
 The following is an example of a CloudTrail event for a **GetMetricData** operation.
 
@@ -346,8 +313,8 @@ The following is an example of a CloudTrail event for a **PutMetricData** operat
       "eventVersion": "1.11",
       "userIdentity": {
         "type": "AssumedRole",
-        "principalId": "111122223333:`example`.amazon.com",
-        "arn": "arn:aws:sts::111122223333:assumed-role/cloudwatch.full.access/`example`.amazon.com",
+        "principalId": "111122223333:{{example}}.amazon.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/cloudwatch.full.access/{{example}}.amazon.com",
         "accountId": "111122223333",
         "accessKeyId": "EXAMPLE1234567890",
         "sessionContext": {
@@ -406,12 +373,11 @@ The following is an example of a CloudTrail event for a **PutMetricData** operat
 ```
 
 ## Query generation information in CloudTrail
+<a name="cwl_query-generation-cloudtrail"></a>
 
-CloudTrail logging for Query generator console events is also supported. Query generator is currently supported for
-CloudWatch Metric Insights and CloudWatch Logs Insights. In these CloudTrail events, the `eventSource` is `monitoring.amazonaws.com`.
+CloudTrail logging for Query generator console events is also supported. Query generator is currently supported for CloudWatch Metric Insights and CloudWatch Logs Insights. In these CloudTrail events, the `eventSource` is `monitoring.amazonaws.com`.
 
-The following example shows a
-CloudTrail log entry that demonstrates the **GenerateQuery** action in CloudWatch Metrics Insights.
+The following example shows a CloudTrail log entry that demonstrates the **GenerateQuery** action in CloudWatch Metrics Insights. 
 
 ```
 {
@@ -460,31 +426,31 @@ CloudTrail log entry that demonstrates the **GenerateQuery** action in CloudWatc
     "readOnly": true,
     "eventType": "AwsApiCall",
     "managementEvent": true,
-    "recipientAccountId": "111122223333",
+    "recipientAccountId": "111122223333", 
     "eventCategory": "Management"
 }
 ```
 
 ## Amazon Q Developer operational investigations events in CloudTrail
+<a name="Q-Developer-Investigations-Cloudtrail"></a>
 
 Amazon Q Developer operational investigations supports logging the following actions as events in CloudTrail log files.
-
-- [CreateInvestigationGroup](../../../cloudwatchinvestigations/latest/APIReference/API_CreateInvestigationGroup.md "../../../cloudwatchinvestigations/latest/APIReference/API_CreateInvestigationGroup.md")
-- [GetInvestigationGroup](../../../cloudwatchinvestigations/latest/APIReference/API_GetInvestigationGroup.md "../../../cloudwatchinvestigations/latest/APIReference/API_GetInvestigationGroup.md")
-- [DeleteInvestigationGroup](../../../cloudwatchinvestigations/latest/APIReference/API_DeleteInvestigationGroup.md "../../../cloudwatchinvestigations/latest/APIReference/API_DeleteInvestigationGroup.md")
-- [ListInvestigationGroup](../../../cloudwatchinvestigations/latest/APIReference/API_ListInvestigationGroups.md "../../../cloudwatchinvestigations/latest/APIReference/API_ListInvestigationGroups.md")
-- [PutInvestigationGroupPolicy](../../../cloudwatchinvestigations/latest/APIReference/API_PutInvestigationGroupPolicy.md "../../../cloudwatchinvestigations/latest/APIReference/API_PutInvestigationGroupPolicy.md")
-- [DeleteInvestigationGroupPolicy](../../../cloudwatchinvestigations/latest/APIReference/API_DeleteInvestigationGroupPolicy.md "../../../cloudwatchinvestigations/latest/APIReference/API_DeleteInvestigationGroupPolicy.md")
-- [ListTagsForResource](../../../cloudwatchinvestigations/latest/APIReference/API_ListTagsForResource.md "../../../cloudwatchinvestigations/latest/APIReference/API_ListTagsForResource.md")
-- [GetInvestigationGroupPolicy](../../../cloudwatchinvestigations/latest/APIReference/API_GetInvestigationGroupPolicy.md "../../../cloudwatchinvestigations/latest/APIReference/API_GetInvestigationGroupPolicy.md")
-- [TagResource](../../../cloudwatchinvestigations/latest/APIReference/API_TagResource.md "../../../cloudwatchinvestigations/latest/APIReference/API_TagResource.md")
-- [UntagResource](../../../cloudwatchinvestigations/latest/APIReference/API_UntagResource.md "../../../cloudwatchinvestigations/latest/APIReference/API_UntagResource.md")
-- [UpdateInvestigationGroup](../../../cloudwatchinvestigations/latest/APIReference/API_UpdateInvestigationGroup.md "../../../cloudwatchinvestigations/latest/APIReference/API_UpdateInvestigationGroup.md")
++ [CreateInvestigationGroup](https://docs.aws.amazon.com/cloudwatchinvestigations/latest/APIReference/API_CreateInvestigationGroup.html)
++ [GetInvestigationGroup](https://docs.aws.amazon.com/cloudwatchinvestigations/latest/APIReference/API_GetInvestigationGroup.html)
++ [DeleteInvestigationGroup](https://docs.aws.amazon.com/cloudwatchinvestigations/latest/APIReference/API_DeleteInvestigationGroup.html)
++ [ListInvestigationGroup](https://docs.aws.amazon.com/cloudwatchinvestigations/latest/APIReference/API_ListInvestigationGroups.html)
++ [PutInvestigationGroupPolicy](https://docs.aws.amazon.com/cloudwatchinvestigations/latest/APIReference/API_PutInvestigationGroupPolicy.html)
++ [DeleteInvestigationGroupPolicy](https://docs.aws.amazon.com/cloudwatchinvestigations/latest/APIReference/API_DeleteInvestigationGroupPolicy.html)
++ [ListTagsForResource](https://docs.aws.amazon.com/cloudwatchinvestigations/latest/APIReference/API_ListTagsForResource.html)
++ [GetInvestigationGroupPolicy](https://docs.aws.amazon.com/cloudwatchinvestigations/latest/APIReference/API_GetInvestigationGroupPolicy.html)
++ [TagResource](https://docs.aws.amazon.com/cloudwatchinvestigations/latest/APIReference/API_TagResource.html) 
++ [UntagResource](https://docs.aws.amazon.com/cloudwatchinvestigations/latest/APIReference/API_UntagResource.html)
++ [UpdateInvestigationGroup](https://docs.aws.amazon.com/cloudwatchinvestigations/latest/APIReference/API_UpdateInvestigationGroup.html)
 
 ### Example: Amazon Q Developer operational investigations log file entries
+<a name="understanding-QDeveloper-Investigations-entries"></a>
 
-The following example shows a Amazon Q Developer operational investigations log entry that demonstrates the
-`CreateInvestigationGroup` action.
+The following example shows a Amazon Q Developer operational investigations log entry that demonstrates the `CreateInvestigationGroup` action.
 
 ```
 {
@@ -531,8 +497,7 @@ The following example shows a Amazon Q Developer operational investigations log 
 }
 ```
 
-The following example shows a Amazon Q Developer operational investigations log entry that demonstrates the
-`CreateInvestigationEvent` action.
+The following example shows a Amazon Q Developer operational investigations log entry that demonstrates the `CreateInvestigationEvent` action.
 
 ```
 {
@@ -590,8 +555,7 @@ The following example shows a Amazon Q Developer operational investigations log 
 	}
 ```
 
-The following example shows a Amazon Q Developer operational investigations log entry that demonstrates the
-`UpdateInvestigationEvent` action.
+The following example shows a Amazon Q Developer operational investigations log entry that demonstrates the `UpdateInvestigationEvent` action.
 
 ```
 {
@@ -645,30 +609,29 @@ The following example shows a Amazon Q Developer operational investigations log 
 ```
 
 ## Network Flow Monitor in CloudTrail
+<a name="CloudWatch-NetworkFlowMonitor-info-in-ct"></a>
 
 Network Flow Monitor supports logging the following actions as events in CloudTrail log files.
-
-- [CreateMonitor](../../../networkflowmonitor/2.0/APIReference/API_CreateMonitor.md "../../../networkflowmonitor/2.0/APIReference/API_CreateMonitor.md")
-- [CreateScope](../../../networkflowmonitor/2.0/APIReference/API_CreateScope.md "../../../networkflowmonitor/2.0/APIReference/API_CreateScope.md")
-- [DeleteMonitor](../../../networkflowmonitor/2.0/APIReference/API_DeleteMonitor.md "../../../networkflowmonitor/2.0/APIReference/API_DeleteMonitor.md")
-- [DeleteScope](../../../networkflowmonitor/2.0/APIReference/API_DeleteScope.md "../../../networkflowmonitor/2.0/APIReference/API_DeleteScope.md")
-- [GetMonitor](../../../networkflowmonitor/2.0/APIReference/API_GetMonitor.md "../../../networkflowmonitor/2.0/APIReference/API_GetMonitor.md")
-- [GetScope](../../../networkflowmonitor/2.0/APIReference/API_GetScope.md "../../../networkflowmonitor/2.0/APIReference/API_GetScope.md")
-- [ListMonitors](../../../networkflowmonitor/2.0/APIReference/API_ListMonitors.md "../../../networkflowmonitor/2.0/APIReference/API_ListMonitors.md")
-- [ListScopes](../../../networkflowmonitor/2.0/APIReference/API_ListScopes.md "../../../networkflowmonitor/2.0/APIReference/API_ListScopes.md")
-- [ListTagsForResource](../../../networkflowmonitor/2.0/APIReference/API_ListTagsForResource.md "../../../networkflowmonitor/2.0/APIReference/API_ListTagsForResource.md")
-- [TagResource](../../../networkflowmonitor/2.0/APIReference/API_TagResource.md "../../../networkflowmonitor/2.0/APIReference/API_TagResource.md")
-- [UntagResource](../../../networkflowmonitor/2.0/APIReference/API_UntagResource.md "../../../networkflowmonitor/2.0/APIReference/API_UntagResource.md")
-- [UpdateMonitor](../../../networkflowmonitor/2.0/APIReference/API_UpdateMonitor.md "../../../networkflowmonitor/2.0/APIReference/API_UpdateMonitor.md")
-- [UpdateScope](../../../networkflowmonitor/2.0/APIReference/API_UpdateScope.md "../../../networkflowmonitor/2.0/APIReference/API_UpdateScope.md")
++ [CreateMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_CreateMonitor.html) 
++ [CreateScope](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_CreateScope.html) 
++ [DeleteMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_DeleteMonitor.html) 
++ [DeleteScope](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_DeleteScope.html) 
++ [GetMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetMonitor.html) 
++ [GetScope](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetScope.html) 
++ [ListMonitors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_ListMonitors.html) 
++ [ListScopes](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_ListScopes.html) 
++ [ListTagsForResource](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_ListTagsForResource.html) 
++ [TagResource](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_TagResource.html) 
++ [UntagResource](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_UntagResource.html) 
++ [UpdateMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_UpdateMonitor.html) 
++ [UpdateScope](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_UpdateScope.html) 
 
 ### Example: Network Flow Monitor log file entry
+<a name="understanding-CloudWatch-NFM-entries-in-CloudTrail"></a>
 
-The following example shows a Network Flow Monitor CloudTrail log file entry that demonstrates the
-`CreateMonitor` action.
+The following example shows a Network Flow Monitor CloudTrail log file entry that demonstrates the `CreateMonitor` action.
 
 ```
-
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -786,43 +749,37 @@ The following example shows a Network Flow Monitor CloudTrail log file entry tha
 ```
 
 ## Network Flow Monitor data plane events in CloudTrail
+<a name="CloudWatch-NetworkFlowMonitor-data-plane-events"></a>
 
-CloudTrail can capture API activities related to the CloudWatch-NetworkFlowMonitor data plane operations.
+CloudTrail can capture API activities related to the CloudWatch-NetworkFlowMonitor data plane operations. 
 
-[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events"), also known as data plane operations, give you insight into the resource operations performed
-on or within a resource. Data events are often high-volume activities.
+[ Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events), also known as data plane operations, give you insight into the resource operations performed on or within a resource. Data events are often high-volume activities.
 
-To enable logging of Network Flow Monitor data events in CloudTrail files, you'll need to enable
-the logging of data plane API activity in CloudTrail. See [Logging data events for trails](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") for more information.
+To enable logging of Network Flow Monitor data events in CloudTrail files, you'll need to enable the logging of data plane API activity in CloudTrail. See [ Logging data events for trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for more information.
 
-Data plane events can be filtered by resource type. Because there are additional costs for using
-data events in CloudTrail, filtering by resource allows you to have more control over what you log and pay for.
+Data plane events can be filtered by resource type. Because there are additional costs for using data events in CloudTrail, filtering by resource allows you to have more control over what you log and pay for. 
 
-Using the information that CloudTrail collects, you can identify a specific request to the CloudWatch-NetworkFlowMonitor
-data plane APIs, the IP address of the requester, the requester's identity, and the date and time of the
-request. Logging the data plane APIs using CloudTrail can help you with operational and
-risk auditing, governance, and compliance of your AWS account.
+Using the information that CloudTrail collects, you can identify a specific request to the CloudWatch-NetworkFlowMonitor data plane APIs, the IP address of the requester, the requester's identity, and the date and time of the request. Logging the data plane APIs using CloudTrail can help you with operational and risk auditing, governance, and compliance of your AWS account.
 
 The following are data plane APIs in Network Flow Monitor.
++ [GetQueryResultsMonitorTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.html) 
++ [GetQueryResultsMonitorsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorsTopContributors.html) 
++ [GetQueryResultsWorkloadInsightsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributors.html) 
++ [GetQueryResultsWorkloadInsightsTopContributorsData](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributorsData.html) 
++ [GetQueryStatusMonitorTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryStatusMonitorTopContributors.html) 
++ [GetQueryStatusMonitorsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryStatusMonitorsTopContributors.html) 
++ [GetQueryStatusWorkloadInsightsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryStatusWorkloadInsightsTopContributors.html) 
++ [GetQueryStatusWorkloadInsightsTopContributorsData](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryStatusWorkloadInsightsTopContributorsData.html) 
++ [StartQueryMonitorTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_StartQueryMonitorTopContributors.html) 
++ [StartQueryMonitorsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_StartQueryMonitorsTopContributors.html) 
++ [StartQueryWorkloadInsightsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_StartQueryWorkloadInsightsTopContributors.html) 
++ [StartQueryWorkloadInsightsTopContributorsData](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_StartQueryWorkloadInsightsTopContributorsData.html) 
++ [StopQueryMonitorTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_StopQueryMonitorTopContributors.html) 
++ [StopQueryMonitorsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_StopQueryMonitorsTopContributors.html) 
++ [StopQueryWorkloadInsightsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_StopQueryWorkloadInsightsTopContributors.html) 
++ [StopQueryWorkloadInsightsTopContributorsData](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_StopQueryWorkloadInsightsTopContributorsData.html) 
 
-- [GetQueryResultsMonitorTopContributors](../../../networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.md "../../../networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.md")
-- [GetQueryResultsMonitorsTopContributors](../../../networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorsTopContributors.md "../../../networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorsTopContributors.md")
-- [GetQueryResultsWorkloadInsightsTopContributors](../../../networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributors.md "../../../networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributors.md")
-- [GetQueryResultsWorkloadInsightsTopContributorsData](../../../networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributorsData.md "../../../networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributorsData.md")
-- [GetQueryStatusMonitorTopContributors](../../../networkflowmonitor/2.0/APIReference/API_GetQueryStatusMonitorTopContributors.md "../../../networkflowmonitor/2.0/APIReference/API_GetQueryStatusMonitorTopContributors.md")
-- [GetQueryStatusMonitorsTopContributors](../../../networkflowmonitor/2.0/APIReference/API_GetQueryStatusMonitorsTopContributors.md "../../../networkflowmonitor/2.0/APIReference/API_GetQueryStatusMonitorsTopContributors.md")
-- [GetQueryStatusWorkloadInsightsTopContributors](../../../networkflowmonitor/2.0/APIReference/API_GetQueryStatusWorkloadInsightsTopContributors.md "../../../networkflowmonitor/2.0/APIReference/API_GetQueryStatusWorkloadInsightsTopContributors.md")
-- [GetQueryStatusWorkloadInsightsTopContributorsData](../../../networkflowmonitor/2.0/APIReference/API_GetQueryStatusWorkloadInsightsTopContributorsData.md "../../../networkflowmonitor/2.0/APIReference/API_GetQueryStatusWorkloadInsightsTopContributorsData.md")
-- [StartQueryMonitorTopContributors](../../../networkflowmonitor/2.0/APIReference/API_StartQueryMonitorTopContributors.md "../../../networkflowmonitor/2.0/APIReference/API_StartQueryMonitorTopContributors.md")
-- [StartQueryMonitorsTopContributors](../../../networkflowmonitor/2.0/APIReference/API_StartQueryMonitorsTopContributors.md "../../../networkflowmonitor/2.0/APIReference/API_StartQueryMonitorsTopContributors.md")
-- [StartQueryWorkloadInsightsTopContributors](../../../networkflowmonitor/2.0/APIReference/API_StartQueryWorkloadInsightsTopContributors.md "../../../networkflowmonitor/2.0/APIReference/API_StartQueryWorkloadInsightsTopContributors.md")
-- [StartQueryWorkloadInsightsTopContributorsData](../../../networkflowmonitor/2.0/APIReference/API_StartQueryWorkloadInsightsTopContributorsData.md "../../../networkflowmonitor/2.0/APIReference/API_StartQueryWorkloadInsightsTopContributorsData.md")
-- [StopQueryMonitorTopContributors](../../../networkflowmonitor/2.0/APIReference/API_StopQueryMonitorTopContributors.md "../../../networkflowmonitor/2.0/APIReference/API_StopQueryMonitorTopContributors.md")
-- [StopQueryMonitorsTopContributors](../../../networkflowmonitor/2.0/APIReference/API_StopQueryMonitorsTopContributors.md "../../../networkflowmonitor/2.0/APIReference/API_StopQueryMonitorsTopContributors.md")
-- [StopQueryWorkloadInsightsTopContributors](../../../networkflowmonitor/2.0/APIReference/API_StopQueryWorkloadInsightsTopContributors.md "../../../networkflowmonitor/2.0/APIReference/API_StopQueryWorkloadInsightsTopContributors.md")
-- [StopQueryWorkloadInsightsTopContributorsData](../../../networkflowmonitor/2.0/APIReference/API_StopQueryWorkloadInsightsTopContributorsData.md "../../../networkflowmonitor/2.0/APIReference/API_StopQueryWorkloadInsightsTopContributorsData.md")
-
-The following example shows a CloudTrail log entry that demonstrates the [GetQueryResultsMonitorsTopContributors](../../../networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorsTopContributors.md "../../../networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorsTopContributors.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [GetQueryResultsMonitorsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorsTopContributors.html) action.
 
 ```
 {
@@ -877,7 +834,7 @@ The following example shows a CloudTrail log entry that demonstrates the [GetQue
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the [GetQueryResultsWorkloadInsightsTopContributors](../../../networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributors.md "../../../networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributors.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [GetQueryResultsWorkloadInsightsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributors.html) action.
 
 ```
 {
@@ -932,29 +889,29 @@ The following example shows a CloudTrail log entry that demonstrates the [GetQue
 ```
 
 ## Internet Monitor in CloudTrail
+<a name="cw_im_info_in_ct"></a>
 
 Internet Monitor supports logging the following actions as events in CloudTrail log files.
-
-- [CreateMonitor](../../../internet-monitor/latest/api/API_CreateMonitor.md "../../../internet-monitor/latest/api/API_CreateMonitor.md")
-- [DeleteMonitor](../../../internet-monitor/latest/api/API_DeleteMonitor.md "../../../internet-monitor/latest/api/API_DeleteMonitor.md")
-- [GetHealthEvent](../../../internet-monitor/latest/api/API_GetHealthEvent.md "../../../internet-monitor/latest/api/API_GetHealthEvent.md")
-- [GetMonitor](../../../internet-monitor/latest/api/API_GetMonitor.md "../../../internet-monitor/latest/api/API_GetMonitor.md")
-- [GetQueryResults](../../../internet-monitor/latest/api/API_GetQueryResults.md "../../../internet-monitor/latest/api/API_GetQueryResults.md")
-- [GetQueryStatus](../../../internet-monitor/latest/api/API_GetQueryStatus.md "../../../internet-monitor/latest/api/API_GetQueryStatus.md")
-- [ListHealthEvents](../../../internet-monitor/latest/api/API_ListHealthEvents.md "../../../internet-monitor/latest/api/API_ListHealthEvents.md")
-- [ListInternetEvents](../../../internet-monitor/latest/api/API_ListInternetEvents.md "../../../internet-monitor/latest/api/API_ListInternetEvents.md")
-- [ListMonitors](../../../internet-monitor/latest/api/API_ListMonitors.md "../../../internet-monitor/latest/api/API_ListMonitors.md")
-- [ListTagsForResource](../../../internet-monitor/latest/api/API_ListTagsForResource.md "../../../internet-monitor/latest/api/API_ListTagsForResource.md")
-- [StartQuery](../../../internet-monitor/latest/api/API_StartQuery.md "../../../internet-monitor/latest/api/API_StartQuery.md")
-- [StopQuery](../../../internet-monitor/latest/api/API_StopQuery.md "../../../internet-monitor/latest/api/API_StopQuery.md")
-- [TagResource](../../../internet-monitor/latest/api/API_TagResource.md "../../../internet-monitor/latest/api/API_TagResource.md")
-- [UntagResource](../../../internet-monitor/latest/api/API_UntagResource.md "../../../internet-monitor/latest/api/API_UntagResource.md")
-- [UpdateMonitor](../../../internet-monitor/latest/api/API_UpdateMonitor.md "../../../internet-monitor/latest/api/API_UpdateMonitor.md")
++ [CreateMonitor](https://docs.aws.amazon.com/internet-monitor/latest/api/API_CreateMonitor.html) 
++ [DeleteMonitor](https://docs.aws.amazon.com/internet-monitor/latest/api/API_DeleteMonitor.html) 
++ [GetHealthEvent](https://docs.aws.amazon.com/internet-monitor/latest/api/API_GetHealthEvent.html) 
++ [GetMonitor](https://docs.aws.amazon.com/internet-monitor/latest/api/API_GetMonitor.html) 
++ [GetQueryResults](https://docs.aws.amazon.com/internet-monitor/latest/api/API_GetQueryResults.html) 
++ [GetQueryStatus](https://docs.aws.amazon.com/internet-monitor/latest/api/API_GetQueryStatus.html) 
++ [ListHealthEvents](https://docs.aws.amazon.com/internet-monitor/latest/api/API_ListHealthEvents.html) 
++ [ListInternetEvents](https://docs.aws.amazon.com/internet-monitor/latest/api/API_ListInternetEvents.html) 
++ [ListMonitors](https://docs.aws.amazon.com/internet-monitor/latest/api/API_ListMonitors.html) 
++ [ListTagsForResource](https://docs.aws.amazon.com/internet-monitor/latest/api/API_ListTagsForResource.html) 
++ [StartQuery](https://docs.aws.amazon.com/internet-monitor/latest/api/API_StartQuery.html) 
++ [StopQuery](https://docs.aws.amazon.com/internet-monitor/latest/api/API_StopQuery.html) 
++ [TagResource](https://docs.aws.amazon.com/internet-monitor/latest/api/API_TagResource.html) 
++ [UntagResource](https://docs.aws.amazon.com/internet-monitor/latest/api/API_UntagResource.html) 
++ [UpdateMonitor](https://docs.aws.amazon.com/internet-monitor/latest/api/API_UpdateMonitor.html) 
 
 ### Example: Internet Monitor log file entries
+<a name="understanding-CloudWatch-IM-entries-in-CloudTrail"></a>
 
-The following example shows a CloudTrail Internet Monitor log entry that demonstrates the
-`ListMonitors` action.
+The following example shows a CloudTrail Internet Monitor log entry that demonstrates the `ListMonitors` action.
 
 ```
 {
@@ -998,8 +955,7 @@ The following example shows a CloudTrail Internet Monitor log entry that demonst
     }
 ```
 
-The following example shows a CloudTrail Internet Monitor log entry that demonstrates the
-`CreateMonitor` action.
+The following example shows a CloudTrail Internet Monitor log entry that demonstrates the `CreateMonitor` action.
 
 ```
 {
@@ -1051,36 +1007,36 @@ The following example shows a CloudTrail Internet Monitor log entry that demonst
 ```
 
 ## CloudWatch Synthetics information in CloudTrail
+<a name="cw_synthetics_info_in_ct"></a>
 
 CloudWatch Synthetics supports logging the following actions as events in CloudTrail log files:
-
-- [AssociateResource](../../../AmazonSynthetics/latest/APIReference/API_AssociateResource.md "../../../AmazonSynthetics/latest/APIReference/API_AssociateResource.md")
-- [CreateCanary](../../../AmazonSynthetics/latest/APIReference/API_CreateCanary.md "../../../AmazonSynthetics/latest/APIReference/API_CreateCanary.md")
-- [CreateGroup](../../../AmazonSynthetics/latest/APIReference/API_CreateGroup.md "../../../AmazonSynthetics/latest/APIReference/API_CreateGroup.md")
-- [DeleteCanary](../../../AmazonSynthetics/latest/APIReference/API_DeleteCanary.md "../../../AmazonSynthetics/latest/APIReference/API_DeleteCanary.md")
-- [DeleteGroup](../../../AmazonSynthetics/latest/APIReference/API_DeleteGroup.md "../../../AmazonSynthetics/latest/APIReference/API_DeleteGroup.md")
-- [DescribeCanaries](../../../AmazonSynthetics/latest/APIReference/API_DescribeCanaries.md "../../../AmazonSynthetics/latest/APIReference/API_DescribeCanaries.md")
-- [DescribeCanariesLastRun](../../../AmazonSynthetics/latest/APIReference/API_DescribeCanariesLastRun.md "../../../AmazonSynthetics/latest/APIReference/API_DescribeCanariesLastRun.md")
-- [DescribeRuntimeVersions](../../../AmazonSynthetics/latest/APIReference/API_DescribeRuntimeVersions.md "../../../AmazonSynthetics/latest/APIReference/API_DescribeRuntimeVersions.md")
-- [DisassociateResource](../../../AmazonSynthetics/latest/APIReference/API_DisassociateResource.md "../../../AmazonSynthetics/latest/APIReference/API_DisassociateResource.md")
-- [GetCanary](../../../AmazonSynthetics/latest/APIReference/API_GetCanary.md "../../../AmazonSynthetics/latest/APIReference/API_GetCanary.md")
-- [GetCanaryRuns](../../../AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.md "../../../AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.md")
-- [GetGroup](../../../AmazonSynthetics/latest/APIReference/API_GetGroup.md "../../../AmazonSynthetics/latest/APIReference/API_GetGroup.md")
-- [ListAssociatedGroups](../../../AmazonSynthetics/latest/APIReference/API_ListAssociatedGroups.md "../../../AmazonSynthetics/latest/APIReference/API_ListAssociatedGroups.md")
-- [ListGroupResources](../../../AmazonSynthetics/latest/APIReference/API_ListGroupResources.md "../../../AmazonSynthetics/latest/APIReference/API_ListGroupResources.md")
-- [ListGroups](../../../AmazonSynthetics/latest/APIReference/API_ListGroups.md "../../../AmazonSynthetics/latest/APIReference/API_ListGroups.md")
-- [ListTagsForResource](../../../AmazonSynthetics/latest/APIReference/API_ListTagsForResource.md "../../../AmazonSynthetics/latest/APIReference/API_ListTagsForResource.md")
-- [StartCanary](../../../AmazonSynthetics/latest/APIReference/API_StartCanary.md "../../../AmazonSynthetics/latest/APIReference/API_StartCanary.md")
-- [StartCanaryDryRun](../../../AmazonSynthetics/latest/APIReference/API_StartCanaryDryRun.md "../../../AmazonSynthetics/latest/APIReference/API_StartCanaryDryRun.md")
-- [StopCanary](../../../AmazonSynthetics/latest/APIReference/API_StopCanary.md "../../../AmazonSynthetics/latest/APIReference/API_StopCanary.md")
-- [TagResource](../../../AmazonSynthetics/latest/APIReference/API_TagResource.md "../../../AmazonSynthetics/latest/APIReference/API_TagResource.md")
-- [UntagResource](../../../AmazonSynthetics/latest/APIReference/API_UntagResource.md "../../../AmazonSynthetics/latest/APIReference/API_UntagResource.md")
-- [UpdateCanary](../../../AmazonSynthetics/latest/APIReference/API_UpdateCanary.md "../../../AmazonSynthetics/latest/APIReference/API_UpdateCanary.md")
++ [AssociateResource](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_AssociateResource.html) 
++ [CreateCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html) 
++ [CreateGroup](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateGroup.html) 
++ [DeleteCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html) 
++ [DeleteGroup](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteGroup.html) 
++ [DescribeCanaries](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html) 
++ [DescribeCanariesLastRun](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanariesLastRun.html) 
++ [DescribeRuntimeVersions](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeRuntimeVersions.html) 
++ [DisassociateResource](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DisassociateResource.html) 
++ [GetCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanary.html) 
++ [GetCanaryRuns](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html) 
++ [GetGroup](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetGroup.html) 
++ [ListAssociatedGroups](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_ListAssociatedGroups.html) 
++ [ListGroupResources](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_ListGroupResources.html) 
++ [ListGroups](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_ListGroups.html) 
++ [ListTagsForResource](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_ListTagsForResource.html) 
++ [StartCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_StartCanary.html) 
++ [StartCanaryDryRun](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_StartCanaryDryRun.html) 
++ [StopCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_StopCanary.html) 
++ [TagResource](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html) 
++ [UntagResource](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_UntagResource.html) 
++ [UpdateCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_UpdateCanary.html) 
 
 ### Example: CloudWatch Synthetics log file entries
+<a name="understanding-CloudWatch-Synthetics-entries-in-CloudTrail"></a>
 
-The following example shows a CloudTrail Synthetics log entry that demonstrates the
-`DescribeCanaries` action.
+The following example shows a CloudTrail Synthetics log entry that demonstrates the `DescribeCanaries` action.
 
 ```
 {
@@ -1122,8 +1078,7 @@ The following example shows a CloudTrail Synthetics log entry that demonstrates 
 }
 ```
 
-The following example shows a CloudTrail Synthetics log entry that demonstrates the
-`UpdateCanary` action.
+The following example shows a CloudTrail Synthetics log entry that demonstrates the `UpdateCanary` action.
 
 ```
 {
@@ -1174,8 +1129,7 @@ The following example shows a CloudTrail Synthetics log entry that demonstrates 
 }
 ```
 
-The following example shows a CloudTrail Synthetics log entry that demonstrates the
-`GetCanaryRuns` action.
+The following example shows a CloudTrail Synthetics log entry that demonstrates the `GetCanaryRuns` action.
 
 ```
 {
@@ -1225,34 +1179,35 @@ The following example shows a CloudTrail Synthetics log entry that demonstrates 
 ```
 
 ## CloudWatch RUM information in CloudTrail
+<a name="RUM-CloudTrail"></a>
 
 CloudWatch RUM supports logging the following actions as events in CloudTrail log files:
-
-- [BatchCreateRumMetricDefinitions](../../../cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.md "../../../cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.md")
-- [BatchDeleteRumMetricDefinitions](../../../cloudwatchrum/latest/APIReference/API_BatchDeleteRumMetricDefinitions.md "../../../cloudwatchrum/latest/APIReference/API_BatchDeleteRumMetricDefinitions.md")
-- [BatchGetRumMetricDefinitions](../../../cloudwatchrum/latest/APIReference/API_BatchGetRumMetricDefinitions.md "../../../cloudwatchrum/latest/APIReference/API_BatchGetRumMetricDefinitions.md")
-- [CreateAppMonitor](../../../cloudwatchrum/latest/APIReference/API_CreateAppMonitor.md "../../../cloudwatchrum/latest/APIReference/API_CreateAppMonitor.md")
-- [DeleteAppMonitor](../../../cloudwatchrum/latest/APIReference/API_DeleteAppMonitor.md "../../../cloudwatchrum/latest/APIReference/API_DeleteAppMonitor.md")
-- [DeleteResourcePolicy](../../../cloudwatchrum/latest/APIReference/API_DeleteResourcePolicy.md "../../../cloudwatchrum/latest/APIReference/API_DeleteResourcePolicy.md")
-- [DeleteRumMetricsDestination](../../../cloudwatchrum/latest/APIReference/API_DeleteRumMetricsDestination.md "../../../cloudwatchrum/latest/APIReference/API_DeleteRumMetricsDestination.md")
-- [GetAppMonitor](../../../cloudwatchrum/latest/APIReference/API_GetAppMonitor.md "../../../cloudwatchrum/latest/APIReference/API_GetAppMonitor.md")
-- [GetAppMonitorData](../../../cloudwatchrum/latest/APIReference/API_GetAppMonitorData.md "../../../cloudwatchrum/latest/APIReference/API_GetAppMonitorData.md")
-- [GetResourcePolicy](../../../cloudwatchrum/latest/APIReference/API_GetResourcePolicy.md "../../../cloudwatchrum/latest/APIReference/API_GetResourcePolicy.md")
-- [ListAppMonitors](../../../cloudwatchrum/latest/APIReference/API_ListAppMonitors.md "../../../cloudwatchrum/latest/APIReference/API_ListAppMonitors.md")
-- [ListRumMetricsDestinations](../../../cloudwatchrum/latest/APIReference/API_ListRumMetricsDestinations.md "../../../cloudwatchrum/latest/APIReference/API_ListRumMetricsDestinations.md")
-- [ListTagsForResource](../../../cloudwatchrum/latest/APIReference/API_ListTagsForResource.md "../../../cloudwatchrum/latest/APIReference/API_ListTagsForResource.md")
-- [PutResourcePolicy](../../../cloudwatchrum/latest/APIReference/API_PutResourcePolicy.md "../../../cloudwatchrum/latest/APIReference/API_PutResourcePolicy.md")
-- [PutRumMetricsDestination](../../../cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.md "../../../cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.md")
-- [TagResource](../../../cloudwatchrum/latest/APIReference/API_TagResource.md "../../../cloudwatchrum/latest/APIReference/API_TagResource.md")
-- [UntagResource](../../../cloudwatchrum/latest/APIReference/API_UntagResource.md "../../../cloudwatchrum/latest/APIReference/API_UntagResource.md")
-- [UpdateAppMonitor](../../../cloudwatchrum/latest/APIReference/API_UpdateAppMonitor.md "../../../cloudwatchrum/latest/APIReference/API_UpdateAppMonitor.md")
-- [UpdateRumMetricDefinition](../../../cloudwatchrum/latest/APIReference/API_UpdateRumMetricDefinition.md "../../../cloudwatchrum/latest/APIReference/API_UpdateRumMetricDefinition.md")
++ [BatchCreateRumMetricDefinitions](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.html) 
++ [BatchDeleteRumMetricDefinitions](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchDeleteRumMetricDefinitions.html) 
++ [BatchGetRumMetricDefinitions](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchGetRumMetricDefinitions.html) 
++ [CreateAppMonitor](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_CreateAppMonitor.html) 
++ [DeleteAppMonitor](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_DeleteAppMonitor.html) 
++ [DeleteResourcePolicy](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_DeleteResourcePolicy.html) 
++ [DeleteRumMetricsDestination](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_DeleteRumMetricsDestination.html) 
++ [GetAppMonitor](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_GetAppMonitor.html) 
++ [GetAppMonitorData](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_GetAppMonitorData.html) 
++ [GetResourcePolicy](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_GetResourcePolicy.html) 
++ [ListAppMonitors](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListAppMonitors.html) 
++ [ListRumMetricsDestinations](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListRumMetricsDestinations.html) 
++ [ListTagsForResource](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListTagsForResource.html) 
++ [PutResourcePolicy](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutResourcePolicy.html) 
++ [PutRumMetricsDestination](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html) 
++ [TagResource](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_TagResource.html) 
++ [UntagResource](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_UntagResource.html) 
++ [UpdateAppMonitor](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_UpdateAppMonitor.html) 
++ [UpdateRumMetricDefinition](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_UpdateRumMetricDefinition.html) 
 
 ### Example: CloudWatch RUM log file entries
+<a name="Example-CloudWatch-RUM-entries-in-CloudTrail"></a>
 
 This section contains example CloudTrail entries for some CloudWatch RUM APIs.
 
-The following example shows a CloudTrail log entry that demonstrates the [CreateAppMonitor](../../../cloudwatchrum/latest/APIReference/API_CreateAppMonitor.md "../../../cloudwatchrum/latest/APIReference/API_CreateAppMonitor.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [CreateAppMonitor](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_CreateAppMonitor.html) action.
 
 ```
 {
@@ -1320,7 +1275,7 @@ The following example shows a CloudTrail log entry that demonstrates the [Create
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the [PutRumMetricsDestination](../../../cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.md "../../../cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [PutRumMetricsDestination](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html) action.
 
 ```
 {
@@ -1366,7 +1321,7 @@ The following example shows a CloudTrail log entry that demonstrates the [PutRum
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the [BatchCreateRumMetricsDefinitions](../../../cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.md "../../../cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [BatchCreateRumMetricsDefinitions](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html) action.
 
 ```
 {
@@ -1434,23 +1389,19 @@ The following example shows a CloudTrail log entry that demonstrates the [BatchC
 ```
 
 ## CloudWatch RUM data plane events in CloudTrail
+<a name="RUM-data-plane-events"></a>
 
-CloudTrail can capture API activities related to the CloudWatch RUM data plane operation [PutRumEvents](../../../cloudwatchrum/latest/APIReference/API_PutRumEvents.md "../../../cloudwatchrum/latest/APIReference/API_PutRumEvents.md").
+CloudTrail can capture API activities related to the CloudWatch RUM data plane operation [PutRumEvents](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumEvents.html). 
 
-[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events"), also known as data plane operations, give you insight into the resource operations performed
-on or within a resource. Data events are often high-volume activities.
+[ Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events), also known as data plane operations, give you insight into the resource operations performed on or within a resource. Data events are often high-volume activities.
 
-To enable logging of the **PutRumEvents** data events in CloudTrail files, you'll need to enable
-the logging of data plane API activity in CloudTrail. See [Logging data events for trails](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") for more information.
+To enable logging of the **PutRumEvents** data events in CloudTrail files, you'll need to enable the logging of data plane API activity in CloudTrail. See [ Logging data events for trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for more information.
 
-Data plane events can be filtered by resource type. Because there are additional costs for using
-data events in CloudTrail, filtering by resource allows you to have more control over what you log and pay for.
+Data plane events can be filtered by resource type. Because there are additional costs for using data events in CloudTrail, filtering by resource allows you to have more control over what you log and pay for. 
 
-Using the information that CloudTrail collects, you can identify a specific request to the CloudWatch RUM **PutRumEvents** API, the IP address of the requester, the requester's identity, and the date and time of the
-request. Logging the **PutRumEvents** API using CloudTrail helps you enable operational and
-risk auditing, governance, and compliance of your AWS account.
+Using the information that CloudTrail collects, you can identify a specific request to the CloudWatch RUM **PutRumEvents** API, the IP address of the requester, the requester's identity, and the date and time of the request. Logging the **PutRumEvents** API using CloudTrail helps you enable operational and risk auditing, governance, and compliance of your AWS account.
 
-The following example shows a CloudTrail log entry that demonstrates the [PutRumEvents](../../../cloudwatchrum/latest/APIReference/API_PutRumEvents.md "../../../cloudwatchrum/latest/APIReference/API_PutRumEvents.md") action.
+The following example shows a CloudTrail log entry that demonstrates the [PutRumEvents](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumEvents.html) action.
 
 ```
 {
@@ -1527,26 +1478,26 @@ The following example shows a CloudTrail log entry that demonstrates the [PutRum
 ```
 
 ## Network Synthetic Monitor information in CloudTrail
+<a name="cw_network_synthetic_monitor_info_in_ct"></a>
 
 Network Synthetic Monitor supports logging the following actions as events in CloudTrail log files:
-
-- [CreateMonitor](../../../networkmonitor/latest/APIReference/API_CreateMonitor.md "../../../networkmonitor/latest/APIReference/API_CreateMonitor.md")
-- [CreateProbe](../../../networkmonitor/latest/APIReference/API_CreateProbe.md "../../../networkmonitor/latest/APIReference/API_CreateProbe.md")
-- [DeleteMonitor](../../../networkmonitor/latest/APIReference/API_DeleteMonitor.md "../../../networkmonitor/latest/APIReference/API_DeleteMonitor.md")
-- [DeleteProbe](../../../networkmonitor/latest/APIReference/API_DeleteProbe.md "../../../networkmonitor/latest/APIReference/API_DeleteProbe.md")
-- [GetMonitor](../../../networkmonitor/latest/APIReference/API_GetMonitor.md "../../../networkmonitor/latest/APIReference/API_GetMonitor.md")
-- [GetProbe](../../../networkmonitor/latest/APIReference/API_GetProbe.md "../../../networkmonitor/latest/APIReference/API_GetProbe.md")
-- [ListMonitors](../../../networkmonitor/latest/APIReference/API_ListMonitors.md "../../../networkmonitor/latest/APIReference/API_ListMonitors.md")
-- [ListTagsForResource](../../../networkmonitor/latest/APIReference/API_ListTagsForResource.md "../../../networkmonitor/latest/APIReference/API_ListTagsForResource.md")
-- [TagResource](../../../networkmonitor/latest/APIReference/API_TagResource.md "../../../networkmonitor/latest/APIReference/API_TagResource.md")
-- [UntagResource](../../../networkmonitor/latest/APIReference/API_UntagResource.md "../../../networkmonitor/latest/APIReference/API_UntagResource.md")
-- [UpdateMonitor](../../../networkmonitor/latest/APIReference/API_UpdateMonitor.md "../../../networkmonitor/latest/APIReference/API_UpdateMonitor.md")
-- [UpdateProbe](../../../networkmonitor/latest/APIReference/API_UpdateProbe.md "../../../networkmonitor/latest/APIReference/API_UpdateProbe.md")
++ [CreateMonitor](https://docs.aws.amazon.com/networkmonitor/latest/APIReference/API_CreateMonitor.html) 
++ [CreateProbe](https://docs.aws.amazon.com/networkmonitor/latest/APIReference/API_CreateProbe.html) 
++ [DeleteMonitor](https://docs.aws.amazon.com/networkmonitor/latest/APIReference/API_DeleteMonitor.html) 
++ [DeleteProbe](https://docs.aws.amazon.com/networkmonitor/latest/APIReference/API_DeleteProbe.html) 
++ [GetMonitor](https://docs.aws.amazon.com/networkmonitor/latest/APIReference/API_GetMonitor.html) 
++ [GetProbe](https://docs.aws.amazon.com/networkmonitor/latest/APIReference/API_GetProbe.html) 
++ [ListMonitors](https://docs.aws.amazon.com/networkmonitor/latest/APIReference/API_ListMonitors.html) 
++ [ListTagsForResource](https://docs.aws.amazon.com/networkmonitor/latest/APIReference/API_ListTagsForResource.html) 
++ [TagResource](https://docs.aws.amazon.com/networkmonitor/latest/APIReference/API_TagResource.html) 
++ [UntagResource](https://docs.aws.amazon.com/networkmonitor/latest/APIReference/API_UntagResource.html) 
++ [UpdateMonitor](https://docs.aws.amazon.com/networkmonitor/latest/APIReference/API_UpdateMonitor.html) 
++ [UpdateProbe](https://docs.aws.amazon.com/networkmonitor/latest/APIReference/API_UpdateProbe.html) 
 
 ### Example: Network Synthetic Monitor log file entries
+<a name="understanding-CloudWatch-NetworkSyntheticMonitor-entries-in-CloudTrail"></a>
 
-The following example shows a Network Synthetic Monitor CloudTrail log entry that demonstrates the
-`CreateMonitor` action.
+The following example shows a Network Synthetic Monitor CloudTrail log entry that demonstrates the `CreateMonitor` action.
 
 ```
 {
@@ -1597,29 +1548,29 @@ The following example shows a Network Synthetic Monitor CloudTrail log entry tha
 ```
 
 ## CloudWatch Observability Access Manager information in CloudTrail
+<a name="cw_observability_access_manager_info_in_ct"></a>
 
 CloudWatch Observability Access Manager supports logging the following actions as events in CloudTrail log files:
-
-- [CreateLink](../../../OAM/latest/APIReference/API_CreateLink.md "../../../OAM/latest/APIReference/API_CreateLink.md")
-- [CreateSink](../../../OAM/latest/APIReference/API_CreateSink.md "../../../OAM/latest/APIReference/API_CreateSink.md")
-- [DeleteLink](../../../OAM/latest/APIReference/API_DeleteLink.md "../../../OAM/latest/APIReference/API_DeleteLink.md")
-- [DeleteSink](../../../OAM/latest/APIReference/API_DeleteSink.md "../../../OAM/latest/APIReference/API_DeleteSink.md")
-- [GetLink](../../../OAM/latest/APIReference/API_GetLink.md "../../../OAM/latest/APIReference/API_GetLink.md")
-- [GetSink](../../../OAM/latest/APIReference/API_GetSink.md "../../../OAM/latest/APIReference/API_GetSink.md")
-- [GetSinkPolicy](../../../OAM/latest/APIReference/API_GetSinkPolicy.md "../../../OAM/latest/APIReference/API_GetSinkPolicy.md")
-- [ListAttachedLinks](../../../OAM/latest/APIReference/API_ListAttachedLinks.md "../../../OAM/latest/APIReference/API_ListAttachedLinks.md")
-- [ListLinks](../../../OAM/latest/APIReference/API_ListLinks.md "../../../OAM/latest/APIReference/API_ListLinks.md")
-- [ListSinks](../../../OAM/latest/APIReference/API_ListSinks.md "../../../OAM/latest/APIReference/API_ListSinks.md")
-- [ListTagsForResource](../../../OAM/latest/APIReference/API_ListTagsForResource.md "../../../OAM/latest/APIReference/API_ListTagsForResource.md")
-- [PutSinkPolicy](../../../OAM/latest/APIReference/API_PutSinkPolicy.md "../../../OAM/latest/APIReference/API_PutSinkPolicy.md")
-- [TagResource](../../../OAM/latest/APIReference/API_TagResource.md "../../../OAM/latest/APIReference/API_TagResource.md")
-- [UntagResource](../../../OAM/latest/APIReference/API_UntagResource.md "../../../OAM/latest/APIReference/API_UntagResource.md")
-- [UpdateLink](../../../OAM/latest/APIReference/API_UpdateLink.md "../../../OAM/latest/APIReference/API_UpdateLink.md")
++ [CreateLink](https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateLink.html) 
++ [CreateSink](https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html) 
++ [DeleteLink](https://docs.aws.amazon.com/OAM/latest/APIReference/API_DeleteLink.html) 
++ [DeleteSink](https://docs.aws.amazon.com/OAM/latest/APIReference/API_DeleteSink.html) 
++ [GetLink](https://docs.aws.amazon.com/OAM/latest/APIReference/API_GetLink.html) 
++ [GetSink](https://docs.aws.amazon.com/OAM/latest/APIReference/API_GetSink.html) 
++ [GetSinkPolicy](https://docs.aws.amazon.com/OAM/latest/APIReference/API_GetSinkPolicy.html) 
++ [ListAttachedLinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListAttachedLinks.html) 
++ [ListLinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html) 
++ [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) 
++ [ListTagsForResource](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListTagsForResource.html) 
++ [PutSinkPolicy](https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html) 
++ [TagResource](https://docs.aws.amazon.com/OAM/latest/APIReference/API_TagResource.html) 
++ [UntagResource](https://docs.aws.amazon.com/OAM/latest/APIReference/API_UntagResource.html) 
++ [UpdateLink](https://docs.aws.amazon.com/OAM/latest/APIReference/API_UpdateLink.html) 
 
 ### Example: CloudWatch Observability Access Manager log file entries
+<a name="understanding-CloudWatch-ObservabilityAccessManager-entries-in-CloudTrail"></a>
 
-The following example shows a CloudWatch Observability Access Manager CloudTrail log entry that demonstrates the
-`CreateSink` action.
+The following example shows a CloudWatch Observability Access Manager CloudTrail log entry that demonstrates the `CreateSink` action.
 
 ```
 {
@@ -1669,22 +1620,22 @@ The following example shows a CloudWatch Observability Access Manager CloudTrail
 ```
 
 ## CloudWatch Observability Admin information in CloudTrail
+<a name="cw_observability_admin_info_in_ct"></a>
 
 CloudWatch Observability Admin supports logging the following actions as events in CloudTrail log files:
-
-- [GetTelemetryEvaluationStatus](../../../cloudwatch/latest/observabilityadmin/API_GetTelemetryEvaluationStatus.md "../../../cloudwatch/latest/observabilityadmin/API_GetTelemetryEvaluationStatus.md")
-- [GetTelemetryEvaluationStatusForOrganization](../../../cloudwatch/latest/observabilityadmin/API_GetTelemetryEvaluationStatusForOrganization.md "../../../cloudwatch/latest/observabilityadmin/API_GetTelemetryEvaluationStatusForOrganization.md")
-- [ListResourceTelemetry](../../../cloudwatch/latest/observabilityadmin/API_ListResourceTelemetry.md "../../../cloudwatch/latest/observabilityadmin/API_ListResourceTelemetry.md")
-- [ListResourceTelemetryForOrganization](../../../cloudwatch/latest/observabilityadmin/API_ListResourceTelemetryForOrganization.md "../../../cloudwatch/latest/observabilityadmin/API_ListResourceTelemetryForOrganization.md")
-- [StartTelemetryEvaluation](../../../cloudwatch/latest/observabilityadmin/API_StartTelemetryEvaluation.md "../../../cloudwatch/latest/observabilityadmin/API_StartTelemetryEvaluation.md")
-- [StartTelemetryEvaluationForOrganization](../../../cloudwatch/latest/observabilityadmin/API_StartTelemetryEvaluationForOrganization.md "../../../cloudwatch/latest/observabilityadmin/API_StartTelemetryEvaluationForOrganization.md")
-- [StopTelemetryEvaluation](../../../cloudwatch/latest/observabilityadmin/API_StopTelemetryEvaluation.md "../../../cloudwatch/latest/observabilityadmin/API_StopTelemetryEvaluation.md")
-- [StopTelemetryEvaluationForOrganization](../../../cloudwatch/latest/observabilityadmin/API_StopTelemetryEvaluationForOrganization.md "../../../cloudwatch/latest/observabilityadmin/API_StopTelemetryEvaluationForOrganization.md")
++ [GetTelemetryEvaluationStatus](https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_GetTelemetryEvaluationStatus.html) 
++ [GetTelemetryEvaluationStatusForOrganization](https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_GetTelemetryEvaluationStatusForOrganization.html) 
++ [ListResourceTelemetry](https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_ListResourceTelemetry.html) 
++ [ListResourceTelemetryForOrganization](https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_ListResourceTelemetryForOrganization.html) 
++ [StartTelemetryEvaluation](https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_StartTelemetryEvaluation.html) 
++ [StartTelemetryEvaluationForOrganization](https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_StartTelemetryEvaluationForOrganization.html) 
++ [StopTelemetryEvaluation](https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_StopTelemetryEvaluation.html) 
++ [StopTelemetryEvaluationForOrganization](https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_StopTelemetryEvaluationForOrganization.html) 
 
 ### Example: CloudWatch Observability Admin log file entries
+<a name="understanding-CloudWatch-ObservabilityAdmin-entries-in-CloudTrail"></a>
 
-The following example shows a CloudWatch Observability Admin CloudTrail log entry that demonstrates the
-`StartTelemetryEvaluation` action.
+The following example shows a CloudWatch Observability Admin CloudTrail log entry that demonstrates the `StartTelemetryEvaluation` action.
 
 ```
 {
@@ -1728,30 +1679,30 @@ The following example shows a CloudWatch Observability Admin CloudTrail log entr
 ```
 
 ## CloudWatch Application Signals information in CloudTrail
+<a name="cw_application_signals_info_in_ct"></a>
 
 CloudWatch Application Signals supports logging the following actions as events in CloudTrail log files:
-
-- [BatchGetServiceLevelObjectiveBudgetReport](../../../applicationsignals/latest/APIReference/API_BatchGetServiceLevelObjectiveBudgetReport.md "../../../applicationsignals/latest/APIReference/API_BatchGetServiceLevelObjectiveBudgetReport.md")
-- [BatchUpdateExclusionWindows](../../../applicationsignals/latest/APIReference/API_BatchUpdateExclusionWindows.md "../../../applicationsignals/latest/APIReference/API_BatchUpdateExclusionWindows.md")
-- [CreateServiceLevelObjective](../../../applicationsignals/latest/APIReference/API_CreateServiceLevelObjective.md "../../../applicationsignals/latest/APIReference/API_CreateServiceLevelObjective.md")
-- [DeleteServiceLevelObjective](../../../applicationsignals/latest/APIReference/API_DeleteServiceLevelObjective.md "../../../applicationsignals/latest/APIReference/API_DeleteServiceLevelObjective.md")
-- [GetService](../../../applicationsignals/latest/APIReference/API_GetService.md "../../../applicationsignals/latest/APIReference/API_GetService.md")
-- [GetServiceLevelObjective](../../../applicationsignals/latest/APIReference/API_GetServiceLevelObjective.md "../../../applicationsignals/latest/APIReference/API_GetServiceLevelObjective.md")
-- [ListServiceDependencies](../../../applicationsignals/latest/APIReference/API_ListServiceDependencies.md "../../../applicationsignals/latest/APIReference/API_ListServiceDependencies.md")
-- [ListServiceDependents](../../../applicationsignals/latest/APIReference/API_ListServiceDependents.md "../../../applicationsignals/latest/APIReference/API_ListServiceDependents.md")
-- [ListServiceLevelObjectives](../../../applicationsignals/latest/APIReference/API_ListServiceLevelObjectives.md "../../../applicationsignals/latest/APIReference/API_ListServiceLevelObjectives.md")
-- [ListServiceOperations](../../../applicationsignals/latest/APIReference/API_ListServiceOperations.md "../../../applicationsignals/latest/APIReference/API_ListServiceOperations.md")
-- [ListServices](../../../applicationsignals/latest/APIReference/API_ListServices.md "../../../applicationsignals/latest/APIReference/API_ListServices.md")
-- [ListTagsForResource](../../../applicationsignals/latest/APIReference/API_ListTagsForResource.md "../../../applicationsignals/latest/APIReference/API_ListTagsForResource.md")
-- [StartDiscovery](../../../applicationsignals/latest/APIReference/API_StartDiscovery.md "../../../applicationsignals/latest/APIReference/API_StartDiscovery.md")
-- [TagResource](../../../applicationsignals/latest/APIReference/API_TagResource.md "../../../applicationsignals/latest/APIReference/API_TagResource.md")
-- [UntagResource](../../../applicationsignals/latest/APIReference/API_UntagResource.md "../../../applicationsignals/latest/APIReference/API_UntagResource.md")
-- [UpdateServiceLevelObjective](../../../applicationsignals/latest/APIReference/API_UpdateServiceLevelObjective.md "../../../applicationsignals/latest/APIReference/API_UpdateServiceLevelObjective.md")
++ [BatchGetServiceLevelObjectiveBudgetReport](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_BatchGetServiceLevelObjectiveBudgetReport.html) 
++ [BatchUpdateExclusionWindows](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_BatchUpdateExclusionWindows.html) 
++ [CreateServiceLevelObjective](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_CreateServiceLevelObjective.html) 
++ [DeleteServiceLevelObjective](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_DeleteServiceLevelObjective.html) 
++ [GetService](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_GetService.html) 
++ [GetServiceLevelObjective](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_GetServiceLevelObjective.html) 
++ [ListServiceDependencies](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_ListServiceDependencies.html) 
++ [ListServiceDependents](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_ListServiceDependents.html) 
++ [ListServiceLevelObjectives](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_ListServiceLevelObjectives.html) 
++ [ListServiceOperations](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_ListServiceOperations.html) 
++ [ListServices](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_ListServices.html) 
++ [ListTagsForResource](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_ListTagsForResource.html) 
++ [StartDiscovery](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_StartDiscovery.html) 
++ [TagResource](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_TagResource.html) 
++ [UntagResource](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_UntagResource.html) 
++ [UpdateServiceLevelObjective](https://docs.aws.amazon.com/applicationsignals/latest/APIReference/API_UpdateServiceLevelObjective.html) 
 
 ### Example: CloudWatch Application Signals log file entries
+<a name="understanding-CloudWatch-ApplicationSignals-entries-in-CloudTrail"></a>
 
-The following example shows a CloudWatch Application Signals CloudTrail log entry that demonstrates the
-`CreateServiceLevelObjective` action.
+The following example shows a CloudWatch Application Signals CloudTrail log entry that demonstrates the `CreateServiceLevelObjective` action.
 
 ```
 {
@@ -1800,47 +1751,47 @@ The following example shows a CloudWatch Application Signals CloudTrail log entr
 ```
 
 ## CloudWatch Application Insights information in CloudTrail
+<a name="cw_application_insights_info_in_ct"></a>
 
 CloudWatch Application Insights supports logging the following actions as events in CloudTrail log files:
-
-- [AddWorkload](../../../cloudwatch/latest/APIReference/API_AddWorkload.md "../../../cloudwatch/latest/APIReference/API_AddWorkload.md")
-- [CreateApplication](../../../cloudwatch/latest/APIReference/API_CreateApplication.md "../../../cloudwatch/latest/APIReference/API_CreateApplication.md")
-- [CreateComponent](../../../cloudwatch/latest/APIReference/API_CreateComponent.md "../../../cloudwatch/latest/APIReference/API_CreateComponent.md")
-- [CreateLogPattern](../../../cloudwatch/latest/APIReference/API_CreateLogPattern.md "../../../cloudwatch/latest/APIReference/API_CreateLogPattern.md")
-- [DeleteApplication](../../../cloudwatch/latest/APIReference/API_DeleteApplication.md "../../../cloudwatch/latest/APIReference/API_DeleteApplication.md")
-- [DeleteComponent](../../../cloudwatch/latest/APIReference/API_DeleteComponent.md "../../../cloudwatch/latest/APIReference/API_DeleteComponent.md")
-- [DeleteLogPattern](../../../cloudwatch/latest/APIReference/API_DeleteLogPattern.md "../../../cloudwatch/latest/APIReference/API_DeleteLogPattern.md")
-- [DescribeApplication](../../../cloudwatch/latest/APIReference/API_DescribeApplication.md "../../../cloudwatch/latest/APIReference/API_DescribeApplication.md")
-- [DescribeComponent](../../../cloudwatch/latest/APIReference/API_DescribeComponent.md "../../../cloudwatch/latest/APIReference/API_DescribeComponent.md")
-- [DescribeComponentConfiguration](../../../cloudwatch/latest/APIReference/API_DescribeComponentConfiguration.md "../../../cloudwatch/latest/APIReference/API_DescribeComponentConfiguration.md")
-- [DescribeComponentConfigurationRecommendation](../../../cloudwatch/latest/APIReference/API_DescribeComponentConfigurationRecommendation.md "../../../cloudwatch/latest/APIReference/API_DescribeComponentConfigurationRecommendation.md")
-- [DescribeLogPattern](../../../cloudwatch/latest/APIReference/API_DescribeLogPattern.md "../../../cloudwatch/latest/APIReference/API_DescribeLogPattern.md")
-- [DescribeObservation](../../../cloudwatch/latest/APIReference/API_DescribeObservation.md "../../../cloudwatch/latest/APIReference/API_DescribeObservation.md")
-- [DescribeProblem](../../../cloudwatch/latest/APIReference/API_DescribeProblem.md "../../../cloudwatch/latest/APIReference/API_DescribeProblem.md")
-- [DescribeProblemObservations](../../../cloudwatch/latest/APIReference/API_DescribeProblemObservations.md "../../../cloudwatch/latest/APIReference/API_DescribeProblemObservations.md")
-- [DescribeWorkload](../../../cloudwatch/latest/APIReference/API_DescribeWorkload.md "../../../cloudwatch/latest/APIReference/API_DescribeWorkload.md")
-- [ListApplications](../../../cloudwatch/latest/APIReference/API_ListApplications.md "../../../cloudwatch/latest/APIReference/API_ListApplications.md")
-- [ListComponents](../../../cloudwatch/latest/APIReference/API_ListComponents.md "../../../cloudwatch/latest/APIReference/API_ListComponents.md")
-- [ListConfigurationHistory](../../../cloudwatch/latest/APIReference/API_ListConfigurationHistory.md "../../../cloudwatch/latest/APIReference/API_ListConfigurationHistory.md")
-- [ListLogPatterns](../../../cloudwatch/latest/APIReference/API_ListLogPatterns.md "../../../cloudwatch/latest/APIReference/API_ListLogPatterns.md")
-- [ListLogPatternSets](../../../cloudwatch/latest/APIReference/API_ListLogPatternSets.md "../../../cloudwatch/latest/APIReference/API_ListLogPatternSets.md")
-- [ListProblems](../../../cloudwatch/latest/APIReference/API_ListProblems.md "../../../cloudwatch/latest/APIReference/API_ListProblems.md")
-- [ListTagsForResource](../../../cloudwatch/latest/APIReference/API_ListTagsForResource.md "../../../cloudwatch/latest/APIReference/API_ListTagsForResource.md")
-- [ListWorkloads](../../../cloudwatch/latest/APIReference/API_ListWorkloads.md "../../../cloudwatch/latest/APIReference/API_ListWorkloads.md")
-- [RemoveWorkload](../../../cloudwatch/latest/APIReference/API_RemoveWorkload.md "../../../cloudwatch/latest/APIReference/API_RemoveWorkload.md")
-- [TagResource](../../../cloudwatch/latest/APIReference/API_TagResource.md "../../../cloudwatch/latest/APIReference/API_TagResource.md")
-- [UntagResource](../../../cloudwatch/latest/APIReference/API_UntagResource.md "../../../cloudwatch/latest/APIReference/API_UntagResource.md")
-- [UpdateApplication](../../../cloudwatch/latest/APIReference/API_UpdateApplication.md "../../../cloudwatch/latest/APIReference/API_UpdateApplication.md")
-- [UpdateComponent](../../../cloudwatch/latest/APIReference/API_UpdateComponent.md "../../../cloudwatch/latest/APIReference/API_UpdateComponent.md")
-- [UpdateComponentConfiguration](../../../cloudwatch/latest/APIReference/API_UpdateComponentConfiguration.md "../../../cloudwatch/latest/APIReference/API_UpdateComponentConfiguration.md")
-- [UpdateLogPattern](../../../cloudwatch/latest/APIReference/API_UpdateLogPattern.md "../../../cloudwatch/latest/APIReference/API_UpdateLogPattern.md")
-- [UpdateProblem](../../../cloudwatch/latest/APIReference/API_UpdateProblem.md "../../../cloudwatch/latest/APIReference/API_UpdateProblem.md")
-- [UpdateWorkload](../../../cloudwatch/latest/APIReference/API_UpdateWorkload.md "../../../cloudwatch/latest/APIReference/API_UpdateWorkload.md")
++ [AddWorkload](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_AddWorkload.html) 
++ [CreateApplication](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_CreateApplication.html) 
++ [CreateComponent](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_CreateComponent.html) 
++ [CreateLogPattern](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_CreateLogPattern.html) 
++ [DeleteApplication](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_DeleteApplication.html) 
++ [DeleteComponent](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_DeleteComponent.html) 
++ [DeleteLogPattern](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_DeleteLogPattern.html) 
++ [DescribeApplication](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_DescribeApplication.html) 
++ [DescribeComponent](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_DescribeComponent.html) 
++ [DescribeComponentConfiguration](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_DescribeComponentConfiguration.html) 
++ [DescribeComponentConfigurationRecommendation](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_DescribeComponentConfigurationRecommendation.html) 
++ [DescribeLogPattern](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_DescribeLogPattern.html) 
++ [DescribeObservation](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_DescribeObservation.html) 
++ [DescribeProblem](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_DescribeProblem.html) 
++ [DescribeProblemObservations](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_DescribeProblemObservations.html) 
++ [DescribeWorkload](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_DescribeWorkload.html) 
++ [ListApplications](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_ListApplications.html) 
++ [ListComponents](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_ListComponents.html) 
++ [ListConfigurationHistory](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_ListConfigurationHistory.html) 
++ [ListLogPatterns](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_ListLogPatterns.html) 
++ [ListLogPatternSets](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_ListLogPatternSets.html) 
++ [ListProblems](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_ListProblems.html) 
++ [ListTagsForResource](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_ListTagsForResource.html) 
++ [ListWorkloads](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_ListWorkloads.html) 
++ [RemoveWorkload](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_RemoveWorkload.html) 
++ [TagResource](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_TagResource.html) 
++ [UntagResource](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_UntagResource.html) 
++ [UpdateApplication](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_UpdateApplication.html) 
++ [UpdateComponent](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_UpdateComponent.html) 
++ [UpdateComponentConfiguration](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_UpdateComponentConfiguration.html) 
++ [UpdateLogPattern](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_UpdateLogPattern.html) 
++ [UpdateProblem](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_UpdateProblem.html) 
++ [UpdateWorkload](https://docs.aws.amazon.com/cloudwatch/latest/APIReference/API_UpdateWorkload.html) 
 
 ### Example: CloudWatch Application Insights log file entries
+<a name="understanding-CloudWatch-ApplicationInsights-entries-in-CloudTrail"></a>
 
-The following example shows a CloudWatch Application Insights CloudTrail log entry that demonstrates the
-`CreateApplication` action.
+The following example shows a CloudWatch Application Insights CloudTrail log entry that demonstrates the `CreateApplication` action.
 
 ```
 {

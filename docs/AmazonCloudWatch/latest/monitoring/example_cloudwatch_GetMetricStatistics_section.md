@@ -1,22 +1,19 @@
+
+
 # Use `GetMetricStatistics` with an AWS SDK or CLI
+<a name="example_cloudwatch_GetMetricStatistics_section"></a>
 
 The following code examples show how to use `GetMetricStatistics`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
++  [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md) 
 
-- [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
-- [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md "example_cloudwatch_Usage_MetricsAlarms_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
     /// <summary>
@@ -66,29 +63,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return metricStatistics.Datapoints ?? new List<Datapoint>();
     }
+```
++  For API details, see [GetMetricStatistics](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricStatistics) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To get the CPU utilization per EC2 instance**  
+The following example uses the `get-metric-statistics` command to get the CPU utilization for an EC2 instance with the ID i-abcdef.  
 
 ```
-
-- For API details, see
-  [GetMetricStatistics](../../../goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricStatistics.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricStatistics.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To get the CPU utilization per EC2 instance**
-
-The following example uses the `get-metric-statistics` command to get the CPU utilization for an EC2
-instance with the ID i-abcdef.
-
+aws cloudwatch get-metric-statistics --metric-name {{CPUUtilization}} --start-time {{2014-04-08T23:18:00Z}} --end-time {{2014-04-09T23:18:00Z}} --period {{3600}} --namespace {{AWS/EC2}} --statistics {{Maximum}} --dimensions {{Name=InstanceId,Value=i-abcdef}}
 ```
-`aws cloudwatch get-metric-statistics --metric-name `CPUUtilization` --start-time `2014-04-08T23:18:00Z` --end-time `2014-04-09T23:18:00Z` --period `3600` --namespace `AWS/EC2` --statistics `Maximum` --dimensions `Name=InstanceId,Value=i-abcdef``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -212,31 +200,20 @@ Output:
     "Label": "CPUUtilization"
 }
 ```
-
-**Specifying multiple dimensions**
-
-The following example illustrates how to specify multiple dimensions. Each dimension is specified as a Name/Value pair, with a comma between the name and the value. Multiple dimensions are separated by a space. If a single metric includes multiple dimensions, you must specify a value for every defined dimension.
-
-For more examples using the `get-metric-statistics` command, see Get Statistics for a Metric in the _Amazon CloudWatch Developer Guide_.
+**Specifying multiple dimensions**  
+The following example illustrates how to specify multiple dimensions. Each dimension is specified as a Name/Value pair, with a comma between the name and the value. Multiple dimensions are separated by a space. If a single metric includes multiple dimensions, you must specify a value for every defined dimension.  
+For more examples using the `get-metric-statistics` command, see Get Statistics for a Metric in the *Amazon CloudWatch Developer Guide*.  
 
 ```
-`aws cloudwatch get-metric-statistics --metric-name `Buffers` --namespace `MyNameSpace` --dimensions `Name=InstanceID,Value=i-abcdef` `Name=InstanceType,Value=m1.small` --start-time `2016-10-15T04:00:00Z` --end-time `2016-10-19T07:00:00Z` --statistics `Average` --period `60``
-
+aws cloudwatch get-metric-statistics --metric-name {{Buffers}} --namespace {{MyNameSpace}} --dimensions {{Name=InstanceID,Value=i-abcdef}} {{Name=InstanceType,Value=m1.small}} --start-time {{2016-10-15T04:00:00Z}} --end-time {{2016-10-19T07:00:00Z}} --statistics {{Average}} --period {{60}}
 ```
++  For API details, see [GetMetricStatistics](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/get-metric-statistics.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetMetricStatistics](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/get-metric-statistics.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/get-metric-statistics.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
     /**
@@ -285,24 +262,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
                 throw new RuntimeException("Error while getting metric statistics: " + exception.getMessage(), exception);
             });
     }
-
-
-
 ```
++  For API details, see [GetMetricStatistics](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricStatistics) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetMetricStatistics](../../../goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricStatistics.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricStatistics.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun getAndDisplayMetricStatistics(
@@ -343,23 +310,14 @@ suspend fun getAndDisplayMetricStatistics(
         }
     }
 }
-
-
 ```
++  For API details, see [GetMetricStatistics](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [GetMetricStatistics](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
 
 ```
 class CloudWatchWrapper:
@@ -403,27 +361,16 @@ class CloudWatchWrapper:
             raise
         else:
             return stats
+```
++  For API details, see [GetMetricStatistics](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/GetMetricStatistics) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ SAP ABAP ]
 
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples). 
 
 ```
-
-- For API details, see
-  [GetMetricStatistics](../../../goto/boto3/monitoring-2010-08-01/GetMetricStatistics.md "../../../goto/boto3/monitoring-2010-08-01/GetMetricStatistics.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples").
-
-```
-
     TRY.
         oo_result = lo_cwt->getmetricstatistics(              " oo_result is returned for testing purposes. "
           iv_namespace   = iv_namespace
@@ -436,14 +383,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_cwtinvparamvalueex.
         MESSAGE 'The specified argument was not valid.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetMetricStatistics](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetMetricStatistics](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

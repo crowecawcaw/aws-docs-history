@@ -1,141 +1,97 @@
+
+
 # Source configuration for Tanium
+<a name="tanium-source-setup"></a>
 
 ## Integrating with Tanium
+<a name="tanium-integration"></a>
 
-Tanium is an endpoint management and security platform that provides real-time
-visibility and control across enterprise endpoints. It collects detailed telemetry
-such as endpoint activity, security events, authentication events, and network
-activity. This data can be exported and integrated with AWS services for
-centralized monitoring and analytics. CloudWatch pipelines enable the ingestion of this
-data into CloudWatch Logs for further analysis and alerting.
+Tanium is an endpoint management and security platform that provides real-time visibility and control across enterprise endpoints. It collects detailed telemetry such as endpoint activity, security events, authentication events, and network activity. This data can be exported and integrated with AWS services for centralized monitoring and analytics. CloudWatch pipelines enable the ingestion of this data into CloudWatch Logs for further analysis and alerting.
 
 ## Instructions to setup Tanium Connect, Amazon S3 and Amazon SQS
+<a name="tanium-s3-sqs-setup"></a>
 
 **Prerequisites**
-
-- Access to the AWS Management Console with IAM administrative
-  privileges.
-- Access to the Tanium Console with permissions to configure Tanium
-  Connect.
++ Access to the AWS Management Console with IAM administrative privileges.
++ Access to the Tanium Console with permissions to configure Tanium Connect.
 
 **To set up Tanium Connect, Amazon S3, and Amazon SQS**
 
-1. In the AWS Console, create an Amazon S3 bucket in your desired region.
-   Create separate prefixes (sub-folders) within the bucket for each log
-   type to make sure clear log segregation and easier downstream
-   processing.
-2. Create an Amazon SQS Queue for Event Notifications. Create an Amazon SQS queue
-   in the same AWS region as your Amazon S3 bucket. Configure Amazon S3 Event
-   Notifications on the bucket to send
-   `s3:ObjectCreated:*` events to the Amazon SQS queue. This
-   enables downstream consumers to be notified when new log files are
-   delivered.
-3. Create an IAM User with Programmatic Access. In IAM, create a
-   new user with programmatic (CLI) access only. Attach a policy granting
-   the minimum required permissions like `s3:PutObject`. Scope
-   the policy to the target Amazon S3 bucket and prefixes. Generate an Access
-   Key ID and Secret Access Key for the user. Store these credentials
-   securely (for example, in a secrets manager). These will be needed in
-   the following step.
-4. Configure the Tanium Connect Destination. Log in to the Tanium
-   Console. Navigate to Tanium Connect and create a new connection, select
-   the type of log data and other general information. Select Amazon S3 as the
-   destination. Enter the following details:
+1. In the AWS Console, create an Amazon S3 bucket in your desired region. Create separate prefixes (sub-folders) within the bucket for each log type to make sure clear log segregation and easier downstream processing.
+
+1. Create an Amazon SQS Queue for Event Notifications. Create an Amazon SQS queue in the same AWS region as your Amazon S3 bucket. Configure Amazon S3 Event Notifications on the bucket to send `s3:ObjectCreated:*` events to the Amazon SQS queue. This enables downstream consumers to be notified when new log files are delivered.
+
+1. Create an IAM User with Programmatic Access. In IAM, create a new user with programmatic (CLI) access only. Attach a policy granting the minimum required permissions like `s3:PutObject`. Scope the policy to the target Amazon S3 bucket and prefixes. Generate an Access Key ID and Secret Access Key for the user. Store these credentials securely (for example, in a secrets manager). These will be needed in the following step.
+
+1. Configure the Tanium Connect Destination. Log in to the Tanium Console. Navigate to Tanium Connect and create a new connection, select the type of log data and other general information. Select Amazon S3 as the destination. Enter the following details:
 
    1. AWS Access Key ID
-   2. AWS Secret Access Key
-   3. S3 Bucket Name
-   4. AWS Region
-   5. Object key prefix (matching the sub-folder for the relevant
-      log type)
 
-5. Validate the Configuration. Save the connection and execute a test
-   run. Verify that log data is successfully delivered to the expected Amazon S3
-   bucket and prefix. Confirm that the Amazon SQS queue is receiving event
-   notifications for newly created objects.
+   1. AWS Secret Access Key
+
+   1. S3 Bucket Name
+
+   1. AWS Region
+
+   1. Object key prefix (matching the sub-folder for the relevant log type)
+
+1. Validate the Configuration. Save the connection and execute a test run. Verify that log data is successfully delivered to the expected Amazon S3 bucket and prefix. Confirm that the Amazon SQS queue is receiving event notifications for newly created objects.
 
 ## Configuring the CloudWatch Pipeline
+<a name="tanium-pipeline-config"></a>
 
-When configuring the pipeline to read data from Tanium, choose Tanium as the
-data source. Using Tanium Connect, data from Tanium custom and default reports
-is exported to Amazon S3, with event notifications delivered through Amazon SQS. After you
-create the pipeline, data will be available in the selected CloudWatch Logs log
-group.
+When configuring the pipeline to read data from Tanium, choose Tanium as the data source. Using Tanium Connect, data from Tanium custom and default reports is exported to Amazon S3, with event notifications delivered through Amazon SQS. After you create the pipeline, data will be available in the selected CloudWatch Logs log group.
 
 ## Supported Open Cybersecurity Schema Framework Event Classes
+<a name="tanium-ocsf-support"></a>
 
-This integration supports OCSF schema version v1.5.0 and transforms the
-following report data and maps them to one of the 8 OCSF Classes: Device
-Inventory Info (5001), Vulnerability Finding (2002), Compliance Finding (2003),
-Detection Finding (2004), Authentication (3002), Account Change (3001), Entity
-Management (3004), and Group Management (3006). Out of all the custom reports
-pushed to S3 by the end user, the reports from the following listed datasources
-are transformed to the respective OCSF Classes. The rest of the data is
-ingested in raw format.
+This integration supports OCSF schema version v1.5.0 and transforms the following report data and maps them to one of the 8 OCSF Classes: Device Inventory Info (5001), Vulnerability Finding (2002), Compliance Finding (2003), Detection Finding (2004), Authentication (3002), Account Change (3001), Entity Management (3004), and Group Management (3006). Out of all the custom reports pushed to S3 by the end user, the reports from the following listed datasources are transformed to the respective OCSF Classes. The rest of the data is ingested in raw format.
 
-There is no specific event type in Tanium (except for audit logs). The
-following custom reports are generated by choosing the relevant modules in
-Tanium Connect:
+There is no specific event type in Tanium (except for audit logs). The following custom reports are generated by choosing the relevant modules in Tanium Connect:
++ Tanium Platform
++ Compliance Data – Comply Module
++ Vulnerability Data – Comply Module
++ Discovery Data – Discover Module
++ Threat Response Alerts – Threat Response Module
 
-- Tanium Platform
-- Compliance Data – Comply Module
-- Vulnerability Data – Comply Module
-- Discovery Data – Discover Module
-- Threat Response Alerts – Threat Response Module
-
-The following sections describe the audit log mappings to OCSF event
-classes.
+The following sections describe the audit log mappings to OCSF event classes.
 
 ### Authentication (3002)
+<a name="tanium-authentication-3002"></a>
 
-From audit logs where `object_type_name` =
-"authentication":
-
-- New Session Created
-- New System User Session Created
-- Authentication Failed
-- User Logged Out
-- User Failed to Log Out
+From audit logs where `object_type_name` = "authentication":
++ New Session Created
++ New System User Session Created
++ Authentication Failed
++ User Logged Out
++ User Failed to Log Out
 
 ### Account Change (3001)
+<a name="tanium-account-change-3001"></a>
 
-From audit logs where `object_type_name` = "api\_token" or
-"user":
-
-- `type_name` = CreateObject and
-  `object_type_name` = api\_token
-- `type_name` = DeleteObject and
-  `object_type_name` = api\_token
-- `type_name` = CreateObject and
-  `object_type_name` = user
-- `type_name` = DeleteObject and
-  `object_type_name` = user
-- `type_name` = UpdateObject and
-  `object_type_name` = user
+From audit logs where `object_type_name` = "api\_token" or "user":
++ `type_name` = CreateObject and `object_type_name` = api\_token
++ `type_name` = DeleteObject and `object_type_name` = api\_token
++ `type_name` = CreateObject and `object_type_name` = user
++ `type_name` = DeleteObject and `object_type_name` = user
++ `type_name` = UpdateObject and `object_type_name` = user
 
 ### Entity Management (3004)
+<a name="tanium-entity-management-3004"></a>
 
-From audit logs where `reportName` =
-"TaniumThreatAuditLog":
-
-- action = create
-- action = update
-- action = deleteBulk
+From audit logs where `reportName` = "TaniumThreatAuditLog":
++ action = create
++ action = update
++ action = deleteBulk
 
 ### Group Management (3006)
+<a name="tanium-group-management-3006"></a>
 
-From audit logs where `object_type_name` =
-"user\_group":
-
-- action = UpdateObject and details containing "Assigned role" /
-  "updated with role ids"
-- action = UpdateObject and details containing "removed
-  role"
-- action = UpdateObject and details containing "user ids
-  added"
-- action = UpdateObject and details containing "user ids
-  removed"
-- action = UpdateObject and details containing "persona updated
-  with user groups"
-- action = DeleteObject
-- action = CreateObject
+From audit logs where `object_type_name` = "user\_group":
++ action = UpdateObject and details containing "Assigned role" / "updated with role ids"
++ action = UpdateObject and details containing "removed role"
++ action = UpdateObject and details containing "user ids added"
++ action = UpdateObject and details containing "user ids removed"
++ action = UpdateObject and details containing "persona updated with user groups"
++ action = DeleteObject
++ action = CreateObject

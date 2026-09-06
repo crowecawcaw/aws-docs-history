@@ -1,109 +1,96 @@
+
+
 # Manual installation on Amazon EC2
+<a name="manual-installation"></a>
 
-###### Note
+**Note**  
+Make sure the prerequisites are completed before installing the CloudWatch agent for the first time.
 
-Make sure the prerequisites are completed before installing the CloudWatch agent for the
-first time.
-
-###### Topics
-
-- [Installing on Amazon Linux using the package manager](#amazon-linux-package "#amazon-linux-package")
-- [Installing on Amazon Linux using the command line](#linux-manual-install "#linux-manual-install")
-- [Installing on Windows](#windows-installation "#windows-installation")
-- [Installing on macOS](#macos-installation "#macos-installation")
+**Topics**
++ [Installing on Amazon Linux using the package manager](#amazon-linux-package)
++ [Installing on Amazon Linux using the command line](#linux-manual-install)
++ [Installing on Windows](#windows-installation)
++ [Installing on macOS](#macos-installation)
 
 ## Installing on Amazon Linux using the package manager
+<a name="amazon-linux-package"></a>
 
-The CloudWatch agent is available as a package in Amazon Linux 2023 and Amazon Linux 2.
-If you are using one of these operating systems, you can install the package by entering
-the following command:
+The CloudWatch agent is available as a package in Amazon Linux 2023 and Amazon Linux 2. If you are using one of these operating systems, you can install the package by entering the following command:
 
 ```
 sudo yum install amazon-cloudwatch-agent
 ```
 
-You must also make sure that the IAM role attached to the instance has the
-**CloudWatchAgentServerPolicy** attached.
+You must also make sure that the IAM role attached to the instance has the **CloudWatchAgentServerPolicy** attached.
 
 ## Installing on Amazon Linux using the command line
+<a name="linux-manual-install"></a>
 
-On all supported Linux operating systems, you can download and install the CloudWatch agent
-using the command line.
+On all supported Linux operating systems, you can download and install the CloudWatch agent using the command line.
 
-1. Download the CloudWatch agent. For a Linux server, enter the following
-   command. For `download-link`, use the appropriate download link from the
-   table below.
+1. Download the CloudWatch agent. For a Linux server, enter the following command. For `download-link`, use the appropriate download link from the table below.
 
-```
-wget download-link
-```
+   ```
+   wget download-link
+   ```    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/manual-installation.html)
 
-| Architecture | Platform                             | Download link                                                                                          |
-| ------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| x86-64       | Amazon Linux 2023 and Amazon Linux 2 | https://amazoncloudwatch-agent.s3.amazonaws.com/amazon\_linux/amd64/latest/amazon-cloudwatch-agent.rpm |
-| ARM64        | Amazon Linux 2023 and Amazon Linux 2 | https://amazoncloudwatch-agent.s3.amazonaws.com/amazon\_linux/arm64/latest/amazon-cloudwatch-agent.rpm |
+1. After you have downloaded the package, you can optionally verify the package signature. For more information, see [Verifying the signature of the CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md).
 
-2. After you have downloaded the package, you can optionally verify the package
-   signature. For more information, see [Verifying the signature of the CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md "verify-CloudWatch-Agent-Package-Signature.md").
-3. Install the package. If you downloaded an RPM package on a Linux server, change to
-   the directory containing the package and enter the following:
+1. Install the package. If you downloaded an RPM package on a Linux server, change to the directory containing the package and enter the following:
 
-```
-sudo rpm -U ./amazon-cloudwatch-agent.rpm
-```
+   ```
+   sudo rpm -U ./amazon-cloudwatch-agent.rpm
+   ```
 
-If you downloaded a DEB package on a Linux server, change to the directory
-containing the package and enter the following:
+   If you downloaded a DEB package on a Linux server, change to the directory containing the package and enter the following:
 
-```
-sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
-```
+   ```
+   sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
+   ```
 
 ## Installing on Windows
+<a name="windows-installation"></a>
 
-On Windows Server, you can download and install the CloudWatch agent using the command
-line.
+On Windows Server, you can download and install the CloudWatch agent using the command line.
 
 1. Download the following file:
 
-```
-https://amazoncloudwatch-agent.s3.amazonaws.com/windows/amd64/latest/amazon-cloudwatch-agent.msi
-```
+   ```
+   https://amazoncloudwatch-agent.s3.amazonaws.com/windows/amd64/latest/amazon-cloudwatch-agent.msi
+   ```
 
-2. After you have downloaded the package, you can optionally verify the package
-   signature. For more information, see [Verifying the signature of the CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md "verify-CloudWatch-Agent-Package-Signature.md").
-3. Install the package. Change to the directory containing the package and enter the
-   following:
+1. After you have downloaded the package, you can optionally verify the package signature. For more information, see [Verifying the signature of the CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md).
 
-```
-msiexec /i amazon-cloudwatch-agent.msi
-```
+1. Install the package. Change to the directory containing the package and enter the following:
 
-This command also works from within PowerShell. For more information about MSI
-command options, see [Command-Line Options](https://docs.microsoft.com/en-us/windows/desktop/Msi/command-line-options "https://docs.microsoft.com/en-us/windows/desktop/Msi/command-line-options") in the Microsoft Windows documentation.
+   ```
+   msiexec /i amazon-cloudwatch-agent.msi
+   ```
+
+   This command also works from within PowerShell. For more information about MSI command options, see [Command-Line Options](https://docs.microsoft.com/en-us/windows/desktop/Msi/command-line-options) in the Microsoft Windows documentation.
 
 ## Installing on macOS
+<a name="macos-installation"></a>
 
-On macOS computers, you can download and install the CloudWatch agent using the command
-line.
+On macOS computers, you can download and install the CloudWatch agent using the command line.
 
 1. Download the appropriate package for your architecture:
 
-```
-https://amazoncloudwatch-agent.s3.amazonaws.com/darwin/amd64/latest/amazon-cloudwatch-agent.pkg
-```
+   ```
+   https://amazoncloudwatch-agent.s3.amazonaws.com/darwin/amd64/latest/amazon-cloudwatch-agent.pkg
+   ```
 
-For ARM64 architecture:
+   For ARM64 architecture:
 
-```
-https://amazoncloudwatch-agent.s3.amazonaws.com/darwin/arm64/latest/amazon-cloudwatch-agent.pkg
-```
+   ```
+   https://amazoncloudwatch-agent.s3.amazonaws.com/darwin/arm64/latest/amazon-cloudwatch-agent.pkg
+   ```
 
-2. After you have downloaded the package, you can optionally verify the package
-   signature. For more information, see [Verifying the signature of the CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md "verify-CloudWatch-Agent-Package-Signature.md").
-3. Install the package. Change to the directory containing the package and enter the
-   following:
+1. After you have downloaded the package, you can optionally verify the package signature. For more information, see [Verifying the signature of the CloudWatch agent package](verify-CloudWatch-Agent-Package-Signature.md).
 
-```
-sudo installer -pkg ./amazon-cloudwatch-agent.pkg -target /
-```
+1. Install the package. Change to the directory containing the package and enter the following:
+
+   ```
+   sudo installer -pkg ./amazon-cloudwatch-agent.pkg -target /
+   ```

@@ -1,4 +1,7 @@
+
+
 # Amazon Route 53 health check
+<a name="appinsights-metrics-health-check"></a>
 
 CloudWatch Application Insights supports the following metrics:
 
@@ -10,6 +13,6 @@ HealthCheckPercentageHealthy
 
 HealthCheckStatus
 
-SSLHandshakeTime
+SSLHandshakeTime 
 
 TimeToFirstByte

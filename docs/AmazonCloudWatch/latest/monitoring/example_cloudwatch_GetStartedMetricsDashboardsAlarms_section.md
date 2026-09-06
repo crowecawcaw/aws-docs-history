@@ -1,26 +1,23 @@
+
+
 # Learn core operations for CloudWatch using an AWS SDK
+<a name="example_cloudwatch_GetStartedMetricsDashboardsAlarms_section"></a>
 
 The following code examples show how to:
++ List CloudWatch namespaces and metrics.
++ Get statistics for a metric and for estimated billing.
++ Create and update a dashboard.
++ Create and add data to a metric.
++ Create and trigger an alarm, then view alarm history.
++ Add an anomaly detector.
++ Get a metric image, then clean up resources.
 
-- List CloudWatch namespaces and metrics.
-- Get statistics for a metric and for estimated billing.
-- Create and update a dashboard.
-- Create and add data to a metric.
-- Create and trigger an alarm, then view alarm history.
-- Add an anomaly detector.
-- Get a metric image, then clean up resources.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
 public class CloudWatchScenario
@@ -789,11 +786,8 @@ public class CloudWatchScenario
         return response;
     }
 }
-
-
 ```
-
-Wrapper methods used by the scenario for CloudWatch actions.
+Wrapper methods used by the scenario for CloudWatch actions.  
 
 ```
 /// <summary>
@@ -1281,11 +1275,8 @@ public class CloudWatchWrapper
         return deleteDashboardsResponse.HttpStatusCode == HttpStatusCode.OK;
     }
 }
-
-
 ```
-
-Example settings.json values for the scenario.
+Example settings.json values for the scenario.  
 
 ```
 {
@@ -1377,40 +1368,30 @@ Example settings.json values for the scenario.
     ]
   }
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [DeleteAlarms](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAlarms)
+  + [DeleteAnomalyDetector](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAnomalyDetector)
+  + [DeleteDashboards](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DeleteDashboards)
+  + [DescribeAlarmHistory](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmHistory)
+  + [DescribeAlarms](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarms)
+  + [DescribeAlarmsForMetric](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmsForMetric)
+  + [DescribeAnomalyDetectors](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAnomalyDetectors)
+  + [GetMetricData](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricData)
+  + [GetMetricStatistics](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricStatistics)
+  + [GetMetricWidgetImage](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricWidgetImage)
+  + [ListMetrics](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/ListMetrics)
+  + [PutAnomalyDetector](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/PutAnomalyDetector)
+  + [PutDashboard](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/PutDashboard)
+  + [PutMetricAlarm](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/PutMetricAlarm)
+  + [PutMetricData](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/PutMetricData)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-  - [DeleteAlarms](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAlarms.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAlarms.md")
-  - [DeleteAnomalyDetector](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAnomalyDetector.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAnomalyDetector.md")
-  - [DeleteDashboards](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteDashboards.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteDashboards.md")
-  - [DescribeAlarmHistory](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmHistory.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmHistory.md")
-  - [DescribeAlarms](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarms.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarms.md")
-  - [DescribeAlarmsForMetric](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmsForMetric.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAlarmsForMetric.md")
-  - [DescribeAnomalyDetectors](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAnomalyDetectors.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DescribeAnomalyDetectors.md")
-  - [GetMetricData](../../../goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricData.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricData.md")
-  - [GetMetricStatistics](../../../goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricStatistics.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricStatistics.md")
-  - [GetMetricWidgetImage](../../../goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricWidgetImage.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/GetMetricWidgetImage.md")
-  - [ListMetrics](../../../goto/DotNetSDKV4/monitoring-2010-08-01/ListMetrics.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/ListMetrics.md")
-  - [PutAnomalyDetector](../../../goto/DotNetSDKV4/monitoring-2010-08-01/PutAnomalyDetector.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/PutAnomalyDetector.md")
-  - [PutDashboard](../../../goto/DotNetSDKV4/monitoring-2010-08-01/PutDashboard.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/PutDashboard.md")
-  - [PutMetricAlarm](../../../goto/DotNetSDKV4/monitoring-2010-08-01/PutMetricAlarm.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/PutMetricAlarm.md")
-  - [PutMetricData](../../../goto/DotNetSDKV4/monitoring-2010-08-01/PutMetricData.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/PutMetricData.md")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
-
-Run an interactive scenario demonstrating CloudWatch features.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
+Run an interactive scenario demonstrating CloudWatch features.  
 
 ```
 import org.slf4j.Logger;
@@ -1502,22 +1483,22 @@ public class CloudWatchScenario {
         logger.info(DASHES);
         logger.info("Welcome to the Amazon CloudWatch Basics scenario.");
         logger.info("""
-            Amazon CloudWatch is a comprehensive monitoring and observability service
-            provided by Amazon Web Services (AWS). It is designed to help you monitor your
-            AWS resources, applications, and services, as well as on-premises resources,
+            Amazon CloudWatch is a comprehensive monitoring and observability service 
+            provided by Amazon Web Services (AWS). It is designed to help you monitor your 
+            AWS resources, applications, and services, as well as on-premises resources, 
             in real-time.
-
-            CloudWatch collects and tracks various types of data, including metrics,
-            logs, and events, from your AWS and on-premises resources. It allows you to set
-            alarms and automatically respond to changes in your environment,
-            enabling you to quickly identify and address issues before they impact your
-            applications or services.
-
-            With CloudWatch, you can gain visibility into your entire infrastructure, from the cloud
-            to the edge, and use this information to make informed decisions and optimize your
+                        
+            CloudWatch collects and tracks various types of data, including metrics, 
+            logs, and events, from your AWS and on-premises resources. It allows you to set 
+            alarms and automatically respond to changes in your environment, 
+            enabling you to quickly identify and address issues before they impact your 
+            applications or services. 
+                        
+            With CloudWatch, you can gain visibility into your entire infrastructure, from the cloud 
+            to the edge, and use this information to make informed decisions and optimize your 
             resource utilization.
-
-            This scenario guides you through how to perform Amazon CloudWatch tasks by using the
+                        
+            This scenario guides you through how to perform Amazon CloudWatch tasks by using the 
             AWS SDK for Java v2. Let's get started...
             """);
         waitForInputToContinue(scanner);
@@ -1534,7 +1515,7 @@ public class CloudWatchScenario {
         Double dataPoint = Double.parseDouble("10.0");
         logger.info(DASHES);
         logger.info("""
-        1. List at least five available unique namespaces from Amazon CloudWatch.
+        1. List at least five available unique namespaces from Amazon CloudWatch. 
         Select one from the list.
         """);
         String selectedNamespace;
@@ -1572,10 +1553,10 @@ public class CloudWatchScenario {
         logger.info(DASHES);
         logger.info("2. List available metrics within the selected namespace.");
         logger.info("""
-            A metric is a measure of the performance or health of your AWS resources,
-            applications, or custom resources. Metrics are the basic building blocks of CloudWatch
+            A metric is a measure of the performance or health of your AWS resources, 
+            applications, or custom resources. Metrics are the basic building blocks of CloudWatch 
             and provide data points that represent a specific aspect of your system or application over time.
-
+            
             Select a metric from the list.
             """);
 
@@ -1626,8 +1607,8 @@ public class CloudWatchScenario {
         logger.info(DASHES);
         logger.info("3. Get statistics for the selected metric over the last day.");
         logger.info("""
-            Statistics refer to the various mathematical calculations that can be performed on the
-            collected metrics to derive meaningful insights. Statistics provide a way to summarize and
+            Statistics refer to the various mathematical calculations that can be performed on the 
+            collected metrics to derive meaningful insights. Statistics provide a way to summarize and 
             analyze the data collected for a specific metric over a specified time period.
             """);
         waitForInputToContinue(scanner);
@@ -1730,7 +1711,7 @@ public class CloudWatchScenario {
         logger.info(DASHES);
         logger.info("7. Create a new custom metric by adding data to it.");
         logger.info("""
-            The primary benefit of using a custom metric in Amazon CloudWatch is the ability to
+            The primary benefit of using a custom metric in Amazon CloudWatch is the ability to 
             monitor and collect data that is specific to your application or infrastructure.
             """);
         waitForInputToContinue(scanner);
@@ -1884,14 +1865,14 @@ public class CloudWatchScenario {
         logger.info(DASHES);
         logger.info("15. Add an anomaly detector for the custom metric.");
         logger.info("""
-            An anomaly detector is a feature that automatically detects unusual patterns or deviations in your
-            monitored metrics. It uses machine learning algorithms to analyze the historical behavior
-            of your metrics and establish a baseline.
-
-            The anomaly detector then compares the current metric values against this baseline and
-            identifies any anomalies or outliers that may indicate potential issues or unexpected changes
-            in your system's performance or behavior.
-
+            An anomaly detector is a feature that automatically detects unusual patterns or deviations in your 
+            monitored metrics. It uses machine learning algorithms to analyze the historical behavior 
+            of your metrics and establish a baseline. 
+            
+            The anomaly detector then compares the current metric values against this baseline and 
+            identifies any anomalies or outliers that may indicate potential issues or unexpected changes 
+            in your system's performance or behavior. 
+            
             """);
         waitForInputToContinue(scanner);
         try {
@@ -2020,11 +2001,8 @@ public class CloudWatchScenario {
         }
     }
 }
-
-
 ```
-
-A wrapper class for CloudWatch SDK methods.
+A wrapper class for CloudWatch SDK methods.  
 
 ```
 public class CloudWatchActions {
@@ -2989,42 +2967,32 @@ public class CloudWatchActions {
         return new String(Files.readAllBytes(Paths.get(file)));
     }
 }
+```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [DeleteAlarms](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAlarms)
+  + [DeleteAnomalyDetector](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAnomalyDetector)
+  + [DeleteDashboards](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DeleteDashboards)
+  + [DescribeAlarmHistory](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmHistory)
+  + [DescribeAlarms](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarms)
+  + [DescribeAlarmsForMetric](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmsForMetric)
+  + [DescribeAnomalyDetectors](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAnomalyDetectors)
+  + [GetMetricData](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricData)
+  + [GetMetricStatistics](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricStatistics)
+  + [GetMetricWidgetImage](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricWidgetImage)
+  + [ListMetrics](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/ListMetrics)
+  + [PutAnomalyDetector](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutAnomalyDetector)
+  + [PutDashboard](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutDashboard)
+  + [PutMetricAlarm](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutMetricAlarm)
+  + [PutMetricData](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutMetricData)
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
+Run an interactive scenario demonstrating CloudWatch features.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
-
-  - [DeleteAlarms](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAlarms.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAlarms.md")
-  - [DeleteAnomalyDetector](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAnomalyDetector.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAnomalyDetector.md")
-  - [DeleteDashboards](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteDashboards.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteDashboards.md")
-  - [DescribeAlarmHistory](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmHistory.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmHistory.md")
-  - [DescribeAlarms](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarms.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarms.md")
-  - [DescribeAlarmsForMetric](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmsForMetric.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAlarmsForMetric.md")
-  - [DescribeAnomalyDetectors](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAnomalyDetectors.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DescribeAnomalyDetectors.md")
-  - [GetMetricData](../../../goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricData.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricData.md")
-  - [GetMetricStatistics](../../../goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricStatistics.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricStatistics.md")
-  - [GetMetricWidgetImage](../../../goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricWidgetImage.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/GetMetricWidgetImage.md")
-  - [ListMetrics](../../../goto/SdkForJavaV2/monitoring-2010-08-01/ListMetrics.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/ListMetrics.md")
-  - [PutAnomalyDetector](../../../goto/SdkForJavaV2/monitoring-2010-08-01/PutAnomalyDetector.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/PutAnomalyDetector.md")
-  - [PutDashboard](../../../goto/SdkForJavaV2/monitoring-2010-08-01/PutDashboard.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/PutDashboard.md")
-  - [PutMetricAlarm](../../../goto/SdkForJavaV2/monitoring-2010-08-01/PutMetricAlarm.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/PutMetricAlarm.md")
-  - [PutMetricData](../../../goto/SdkForJavaV2/monitoring-2010-08-01/PutMetricData.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/PutMetricData.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
-
-Run an interactive scenario demonstrating CloudWatch features.
-
-```
-
 /**
  Before running this Kotlin code example, set up your development environment,
  including your credentials.
@@ -3062,16 +3030,16 @@ val DASHES: String? = String(CharArray(80)).replace("\u0000", "-")
 suspend fun main(args: Array<String>) {
     val usage = """
         Usage:
-            <myDate> <costDateWeek> <dashboardName> <dashboardJson> <dashboardAdd> <settings> <metricImage>
+            <myDate> <costDateWeek> <dashboardName> <dashboardJson> <dashboardAdd> <settings> <metricImage>  
 
         Where:
-            myDate - The start date to use to get metric statistics. (For example, 2023-01-11T18:35:24.00Z.)
-            costDateWeek - The start date to use to get AWS Billing and Cost Management statistics. (For example, 2023-01-11T18:35:24.00Z.)
-            dashboardName - The name of the dashboard to create.
-            dashboardJson - The location of a JSON file to use to create a dashboard. (See Readme file.)
-            dashboardAdd - The location of a JSON file to use to update a dashboard. (See Readme file.)
-            settings - The location of a JSON file from which various values are read. (See Readme file.)
-            metricImage - The location of a BMP file that is used to create a graph.
+            myDate - The start date to use to get metric statistics. (For example, 2023-01-11T18:35:24.00Z.) 
+            costDateWeek - The start date to use to get AWS Billing and Cost Management statistics. (For example, 2023-01-11T18:35:24.00Z.) 
+            dashboardName - The name of the dashboard to create. 
+            dashboardJson - The location of a JSON file to use to create a dashboard. (See Readme file.) 
+            dashboardAdd - The location of a JSON file to use to update a dashboard. (See Readme file.) 
+            settings - The location of a JSON file from which various values are read. (See Readme file.) 
+            metricImage - The location of a BMP file that is used to create a graph. 
     """
 
     if (args.size != 7) {
@@ -3819,28 +3787,24 @@ suspend fun listNameSpaces(): ArrayList<String> {
     }
     return nameSpaceList
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [DeleteAlarms](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteAnomalyDetector](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteDashboards](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeAlarmHistory](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeAlarms](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeAlarmsForMetric](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeAnomalyDetectors](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetMetricData](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetMetricStatistics](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetMetricWidgetImage](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListMetrics](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [PutAnomalyDetector](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [PutDashboard](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [PutMetricAlarm](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [PutMetricData](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
 
-  - [DeleteAlarms](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteAnomalyDetector](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteDashboards](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeAlarmHistory](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeAlarms](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeAlarmsForMetric](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeAnomalyDetectors](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetMetricData](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetMetricStatistics](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetMetricWidgetImage](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListMetrics](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [PutAnomalyDetector](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [PutDashboard](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [PutMetricAlarm](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [PutMetricData](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

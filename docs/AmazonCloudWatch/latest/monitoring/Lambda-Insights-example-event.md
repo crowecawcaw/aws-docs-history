@@ -1,20 +1,16 @@
-# Example telemetry event in CloudWatch Lambda Insights
 
-Each invocation of a Lambda function that has Lambda Insights enabled writes a single
-log event to the
-`/aws/lambda-insights` log group.
-Each log event contains metrics in embedded metric format. For more information about embedded metric format,
-see [Embedding metrics within logs](CloudWatch_Embedded_Metric_Format.md "CloudWatch_Embedded_Metric_Format.md").
+
+# Example telemetry event in CloudWatch Lambda Insights
+<a name="Lambda-Insights-example-event"></a>
+
+Each invocation of a Lambda function that has Lambda Insights enabled writes a single log event to the `/aws/lambda-insights` log group. Each log event contains metrics in embedded metric format. For more information about embedded metric format, see [Embedding metrics within logs](CloudWatch_Embedded_Metric_Format.md).
 
 To analyze these log events, you can use the following methods:
++ The Lambda Insights section of the CloudWatch console, as explained in [Viewing your Lambda Insights metrics](Lambda-Insights-view-metrics.md).
++ Log event queries using CloudWatch Logs Insights. For more information, see [ Analyzing Log Data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html).
++ Metrics collected in the `LambdaInsights` namespace, which you graph by using CloudWatch metrics.
 
-- The Lambda Insights section of the CloudWatch console, as explained in
-  [Viewing your Lambda Insights metrics](Lambda-Insights-view-metrics.md "Lambda-Insights-view-metrics.md").
-- Log event queries using CloudWatch Logs Insights. For more information, see [Analyzing Log Data with CloudWatch Logs
-  Insights](../logs/AnalyzingLogData.md "../logs/AnalyzingLogData.md").
-- Metrics collected in the `LambdaInsights` namespace, which you graph by using CloudWatch
-  metrics.
-  The following is an example of a Lambda Insights log event with embedded metric format.
+The following is an example of a Lambda Insights log event with embedded metric format.
 
 ```
 {

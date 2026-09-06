@@ -1,25 +1,26 @@
-# Sinks
 
-Sinks define the destination where processed data is sent. Each pipeline must have
-exactly one sink. Logs pipelines use the `cloudwatch_logs` sink and metrics
-pipelines use the `cloudwatch_metrics` sink.
+
+# Sinks
+<a name="pipeline-sinks"></a>
+
+Sinks define the destination where processed data is sent. Each pipeline must have exactly one sink. Logs pipelines use the `cloudwatch_logs` sink and metrics pipelines use the `cloudwatch_metrics` sink.
 
 ## CloudWatch Logs sink (`cloudwatch_logs`)
+<a name="cloudwatch-logs-sink"></a>
 
-For logs pipelines, the `cloudwatch_logs` sink sends processed log events
-to a CloudWatch Logs log group.
+For logs pipelines, the `cloudwatch_logs` sink sends processed log events to a CloudWatch Logs log group.
 
-| Source Type      | Log group configuration | Behavior                                         |
-| ---------------- | ----------------------- | ------------------------------------------------ |
-| CloudWatch Logs  | Must use `@original`    | Events are sent back to their original log group |
-| S3               | Custom log group path   | Events are sent to the specified log group       |
-| Third-party APIs | Custom log group path   | Events are sent to the specified log group       |
 
-###### Configuration
+| Source Type | Log group configuration | Behavior | 
+| --- | --- | --- | 
+| CloudWatch Logs | Must use @original | Events are sent back to their original log group | 
+| S3 | Custom log group path | Events are sent to the specified log group | 
+| Third-party APIs | Custom log group path | Events are sent to the specified log group | 
 
+**Configuration**  
 Configure the sink with the following parameters:
 
-###### Example Non-CloudWatch Logs source configuration
+**Example Non-CloudWatch Logs source configuration**  
 
 ```
 sink:
@@ -27,34 +28,21 @@ sink:
     log_group: "/aws/my-application/logs"
 ```
 
-###### Example CloudWatch Logs source configuration
+**Example CloudWatch Logs source configuration**  
 
 ```
 sink:
   cloudwatch_logs:
     log_group: "@original"
-```
+```Parameters
 
-###### Parameters
+`log_group` (required)  
+The name of the CloudWatch Logs log group where processed events will be sent. For pipelines with non-`cloudwatch_logs` sources, this must be an existing log group name. For pipelines using the `cloudwatch_logs` source, the ONLY allowed value is `@original`.
 
-`log_group` (required)
+`include_original` (optional)  
+When present, stores a copy of each raw log event before any transformation takes place in the `@original_message` system field of the event. This preserves the original data for audit or compliance purposes. Specify as an empty object (`{}`). Available only for pipelines with `cloudwatch_logs` sources. At least one processor must be configured when this option is enabled.
 
-The name of the CloudWatch Logs log group where processed events will be sent. For
-pipelines with non-`cloudwatch_logs` sources, this must be an
-existing log group name. For pipelines using the `cloudwatch_logs`
-source, the ONLY allowed value is `@original`.
-
-`include_original` (optional)
-
-When present, stores a copy of each raw log event before any
-transformation takes place in the `@original_message` system
-field of the event. This preserves the original data for audit
-or compliance purposes. Specify as an empty object
-(`{}`). Available only for pipelines with
-`cloudwatch_logs` sources. At least one processor must be
-configured when this option is enabled.
-
-###### Example CloudWatch Logs sink with original log preservation
+**Example CloudWatch Logs sink with original log preservation**  
 
 ```
 sink:
@@ -64,60 +52,39 @@ sink:
 ```
 
 ### Requirements and limitations
+<a name="sink-requirements"></a>
 
-Log group existence
+Log group existence  
+If created using the AWS Management Console, CloudWatch will attempt to create the specified log group and appropriate resource policy if it does not exist when using a non-CloudWatch logs source. Otherwise, the specified log group must exist before creating the pipeline. 
 
-If created using the AWS Management Console, CloudWatch will attempt to create the
-specified log group and appropriate resource policy if it does not exist
-when using a non-CloudWatch logs source. Otherwise, the specified log group
-must exist before creating the pipeline.
-
-Event size
-
+Event size  
 Each log event cannot exceed 256 KB in size after processing.
 
-Log group retention
+Log group retention  
+The pipeline uses the retention settings configured on the destination log group.
 
-The pipeline uses the retention settings configured on the destination log
-group.
+Log group resource policy  
+CloudWatch Logs resource policies are required for pipelines that write to log groups, except for pipelines using the `cloudwatch_logs` source. When you use the AWS Management Console to configure the pipeline, CloudWatch will attempt to add the resource policy if needed. If you are creating the pipeline using the AWS CLI or an API, you must create the policy manually and add it using the `logs:PutResourcePolicy` request. For more information, see [Resource policies](pipeline-iam-reference.md#resource-policies).
 
-Log group resource policy
+Cross-Region support  
+The destination log group must be in the same Region as the pipeline.
 
-CloudWatch Logs resource policies are required for pipelines that write to
-log groups, except for pipelines using the `cloudwatch_logs`
-source. When you use the AWS Management Console to configure the pipeline, CloudWatch
-will attempt to add the resource policy if needed. If you are creating the
-pipeline using the AWS CLI or an API, you must create the policy manually and
-add it using the `logs:PutResourcePolicy` request. For more
-information, see [Resource policies](pipeline-iam-reference.md#resource-policies "pipeline-iam-reference.md#resource-policies").
+**Important**  
+For pipelines using the `cloudwatch_logs` source type:  
+You must use `@original` as the log group value.
+Events are always sent back to their original log group.
+The original log group must exist throughout the pipeline's lifecycle.
+Pipelines with processors mutate the log events in the original CloudWatch log group they are intercepted from for logs from AWS services. To preserve the original data, enable `include_original` in the sink configuration. The original log copy is stored in the `@original_message` system field of the event.
 
-Cross-Region support
-
-The destination log group must be in the same Region as the
-pipeline.
-
-###### Important
-
-For pipelines using the `cloudwatch_logs` source type:
-
-- You must use `@original` as the log group value.
-- Events are always sent back to their original log group.
-- The original log group must exist throughout the pipeline's
-  lifecycle.
-- Pipelines with processors mutate the log events in the original CloudWatch log group they are intercepted from for logs from AWS services. To preserve the original data, enable `include_original` in the sink configuration. The original log copy is stored in the `@original_message` system field of the event.
-
-###### Note
-
+**Note**  
 Log events are subject to CloudWatch Logs quotas and limitations.
 
 ## CloudWatch Metrics sink (`cloudwatch_metrics`)
+<a name="cloudwatch-metrics-sink"></a>
 
-For metrics pipelines, the `cloudwatch_metrics` sink stores processed
-metrics in CloudWatch. Processed metrics are queryable through PromQL in Query Studio and
-fully compatible with CloudWatch Alarms, Anomaly Detection, and Dashboards.
+For metrics pipelines, the `cloudwatch_metrics` sink stores processed metrics in CloudWatch. Processed metrics are queryable through PromQL in Query Studio and fully compatible with CloudWatch Alarms, Anomaly Detection, and Dashboards.
 
-###### Configuration
-
+**Configuration**  
 The `cloudwatch_metrics` sink has no parameters:
 
 ```

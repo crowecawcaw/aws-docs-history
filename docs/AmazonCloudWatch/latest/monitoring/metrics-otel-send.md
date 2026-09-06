@@ -1,24 +1,26 @@
-# Publish custom metrics with OpenTelemetry
 
-You can publish custom metrics to CloudWatch using the OpenTelemetry Protocol (OTLP). You can use
-OTel SDKs (Java, Python, Go, .NET, Node.js), the OTel Collector, or any OTLP-compatible
-client.
+
+# Publish custom metrics with OpenTelemetry
+<a name="metrics-otel-send"></a>
+
+You can publish custom metrics to CloudWatch using the OpenTelemetry Protocol (OTLP). You can use OTel SDKs (Java, Python, Go, .NET, Node.js), the OTel Collector, or any OTLP-compatible client.
 
 ## CloudWatch OTLP endpoint
+<a name="metrics-otel-send-endpoint"></a>
 
 Send metrics to the CloudWatch OTLP endpoint in your Region:
 
 ```
-https://monitoring.`region`.amazonaws.com/v1/metrics
+https://monitoring.{{region}}.amazonaws.com/v1/metrics
 ```
 
-Authentication uses standard AWS SigV4 signing. The service name is
-`monitoring`. For more information about the endpoint, authentication options, and
-limits, see [OTLP Endpoints](CloudWatch-OTLPEndpoint.md "CloudWatch-OTLPEndpoint.md").
+Authentication uses standard AWS SigV4 signing. The service name is `monitoring`. For more information about the endpoint, authentication options, and limits, see [OTLP Endpoints](CloudWatch-OTLPEndpoint.md).
 
 ## Quick start: publish your first metric
+<a name="metrics-otel-send-quickstart"></a>
 
 ### Option 1: OTel Collector (recommended for production)
+<a name="metrics-otel-send-collector"></a>
 
 Configure an OTel Collector with the OTLP HTTP exporter and SigV4 authentication:
 
@@ -40,14 +42,14 @@ exporters:
   otlphttp:
     tls:
       insecure: false
-    metrics_endpoint: "https://monitoring.`us-east-1`.amazonaws.com/v1/metrics"
+    metrics_endpoint: "https://monitoring.{{us-east-1}}.amazonaws.com/v1/metrics"
     auth:
       authenticator: sigv4auth
 
 extensions:
   sigv4auth:
     service: "monitoring"
-    region: "`us-east-1`"
+    region: "{{us-east-1}}"
 
 service:
   extensions: [sigv4auth]
@@ -58,10 +60,10 @@ service:
       exporters: [otlphttp]
 ```
 
-For detailed setup instructions, see
-[Getting started](CloudWatch-OTLPGettingStarted.md "CloudWatch-OTLPGettingStarted.md").
+For detailed setup instructions, see [Getting started](CloudWatch-OTLPGettingStarted.md).
 
 ### Option 2: OTel SDK (Python example)
+<a name="metrics-otel-send-python"></a>
 
 ```
 from opentelemetry import metrics
@@ -71,7 +73,7 @@ from opentelemetry.exporter.otlp.proto.http.metric_exporter import OTLPMetricExp
 
 # Point at the CloudWatch OTLP endpoint
 exporter = OTLPMetricExporter(
-    endpoint="https://monitoring.`us-east-1`.amazonaws.com:443/v1/metrics"
+    endpoint="https://monitoring.{{us-east-1}}.amazonaws.com:443/v1/metrics"
 )
 reader = PeriodicExportingMetricReader(exporter, export_interval_millis=60000)
 provider = MeterProvider(metric_readers=[reader])
@@ -84,6 +86,7 @@ counter.add(1, {"method": "GET", "path": "/api/users", "status": "200"})
 ```
 
 ### Option 3: OTel SDK (Java example)
+<a name="metrics-otel-send-java"></a>
 
 ```
 import io.opentelemetry.api.metrics.Meter;
@@ -102,9 +105,9 @@ counter.add(1, Attributes.of(
 ```
 
 ## IAM permissions required
+<a name="metrics-otel-send-iam"></a>
 
-The identity sending metrics needs the `cloudwatch:PutMetricData` permission.
-For SigV4 authentication, attach the following policy:
+The identity sending metrics needs the `cloudwatch:PutMetricData` permission. For SigV4 authentication, attach the following policy:
 
 ```
 {
@@ -116,43 +119,36 @@ For SigV4 authentication, attach the following policy:
 }
 ```
 
-For bearer token authentication, see
-[Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md "CloudWatch-OTLP-MetricsBearerTokenAuth.md").
+For bearer token authentication, see [Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md).
 
 ## Verify metrics are arriving
+<a name="metrics-otel-send-verify"></a>
 
-Open the CloudWatch console, navigate to **Query Studio**, and
-run:
+Open the CloudWatch console, navigate to **Query Studio**, and run:
 
 ```
 http_requests_total
 ```
 
-Metrics typically appear within 1–2 minutes of the first data point being
-sent.
+Metrics typically appear within 1–2 minutes of the first data point being sent.
 
 ## Supported metric types
+<a name="metrics-otel-send-types"></a>
 
-The following table describes the OTel metric types that CloudWatch supports and how to query
-them with PromQL.
+The following table describes the OTel metric types that CloudWatch supports and how to query them with PromQL.
 
-| OTel metric type | PromQL behavior                            |
-| ---------------- | ------------------------------------------ |
-| Counter          | Use `rate()` or `increase()` to query      |
-| Gauge            | Query directly (current value)             |
-| Histogram        | Use `histogram_quantile()` for percentiles |
+
+| OTel metric type | PromQL behavior | 
+| --- | --- | 
+| Counter | Use rate() or increase() to query | 
+| Gauge | Query directly (current value) | 
+| Histogram | Use histogram\_quantile() for percentiles | 
 
 ## Best practices
+<a name="metrics-otel-send-best-practices"></a>
 
 Follow these recommendations when sending metrics through OTLP:
-
-- **Use meaningful metric names** — Follow OTel
-  naming conventions (for example, `http.server.request.duration` or
-  `http_request_duration_seconds`).
-- **Keep label cardinality reasonable** — Avoid
-  request IDs or UUIDs as label values.
-- **Set an appropriate export interval** —
-  60 seconds is standard. Shorter intervals increase cost.
-- **Use resource attributes** — Use resource
-  attributes for static metadata (service name, version, environment) rather than
-  per-data-point labels.
++ **Use meaningful metric names** — Follow OTel naming conventions (for example, `http.server.request.duration` or `http_request_duration_seconds`).
++ **Keep label cardinality reasonable** — Avoid request IDs or UUIDs as label values.
++ **Set an appropriate export interval** — 60 seconds is standard. Shorter intervals increase cost.
++ **Use resource attributes** — Use resource attributes for static metadata (service name, version, environment) rather than per-data-point labels.

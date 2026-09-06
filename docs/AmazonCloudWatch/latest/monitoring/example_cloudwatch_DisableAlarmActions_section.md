@@ -1,22 +1,19 @@
+
+
 # Use `DisableAlarmActions` with an AWS SDK or CLI
+<a name="example_cloudwatch_DisableAlarmActions_section"></a>
 
 The following code examples show how to use `DisableAlarmActions`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Get started with alarms](example_cloudwatch_Scenario_GettingStarted_section.md) 
++  [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md) 
 
-- [Get started with alarms](example_cloudwatch_Scenario_GettingStarted_section.md "example_cloudwatch_Scenario_GettingStarted_section.md")
-- [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md "example_cloudwatch_Usage_MetricsAlarms_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
     /// <summary>
@@ -34,36 +31,23 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return disableAlarmActionsResult.HttpStatusCode == HttpStatusCode.OK;
     }
-
-
 ```
++  For API details, see [DisableAlarmActions](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/DisableAlarmActions) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DisableAlarmActions](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DisableAlarmActions.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DisableAlarmActions.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples").
-
-Include the required files.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples). 
+Include the required files.  
 
 ```
 #include <aws/core/Aws.h>
 #include <aws/monitoring/CloudWatchClient.h>
 #include <aws/monitoring/model/DisableAlarmActionsRequest.h>
 #include <iostream>
-
-
 ```
-
-Disable the alarm actions.
+Disable the alarm actions.  
 
 ```
         Aws::CloudWatch::CloudWatchClient cw;
@@ -83,42 +67,27 @@ Disable the alarm actions.
             std::cout << "Successfully disabled actions for alarm " <<
                 alarm_name << std::endl;
         }
+```
++  For API details, see [DisableAlarmActions](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/DisableAlarmActions) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To disable actions for an alarm**  
+The following example uses the `disable-alarm-actions` command to disable all actions for the alarm named myalarm.:  
 
 ```
-
-- For API details, see
-  [DisableAlarmActions](../../../goto/SdkForCpp/monitoring-2010-08-01/DisableAlarmActions.md "../../../goto/SdkForCpp/monitoring-2010-08-01/DisableAlarmActions.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To disable actions for an alarm**
-
-The following example uses the `disable-alarm-actions` command to disable all actions for the alarm named myalarm.:
-
+aws cloudwatch disable-alarm-actions --alarm-names {{myalarm}}
 ```
-`aws cloudwatch disable-alarm-actions --alarm-names `myalarm``
+This command returns to the prompt if successful.  
++  For API details, see [DisableAlarmActions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/disable-alarm-actions.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This command returns to the prompt if successful.
-
-- For API details, see
-  [DisableAlarmActions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/disable-alarm-actions.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/disable-alarm-actions.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -175,25 +144,15 @@ public class DisableAlarmActions {
         }
     }
 }
-
-
 ```
++  For API details, see [DisableAlarmActions](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/DisableAlarmActions) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DisableAlarmActions](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DisableAlarmActions.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DisableAlarmActions.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples").
-
-Import the SDK and client modules and call the API.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples). 
+Import the SDK and client modules and call the API.  
 
 ```
 import { DisableAlarmActionsCommand } from "@aws-sdk/client-cloudwatch";
@@ -212,34 +171,20 @@ const run = async () => {
 };
 
 export default run();
-
-
 ```
-
-Create the client in a separate module and export it.
+Create the client in a separate module and export it.  
 
 ```
 import { CloudWatchClient } from "@aws-sdk/client-cloudwatch";
 
 export const client = new CloudWatchClient({});
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/cloudwatch-examples-using-alarm-actions.html#cloudwatch-examples-using-alarm-actions-disabling). 
++  For API details, see [DisableAlarmActions](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/DisableAlarmActionsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/cloudwatch-examples-using-alarm-actions.md#cloudwatch-examples-using-alarm-actions-disabling "../../../sdk-for-javascript/v3/developer-guide/cloudwatch-examples-using-alarm-actions.md#cloudwatch-examples-using-alarm-actions-disabling").
-- For API details, see
-  [DisableAlarmActions](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/DisableAlarmActionsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch/command/DisableAlarmActionsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples").
-
-Import the SDK and client modules and call the API.
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/cloudwatch#code-examples). 
+Import the SDK and client modules and call the API.  
 
 ```
 // Load the AWS SDK for Node.js
@@ -260,24 +205,15 @@ cw.disableAlarmActions(
     }
   }
 );
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/cloudwatch-examples-using-alarm-actions.html#cloudwatch-examples-using-alarm-actions-disabling). 
++  For API details, see [DisableAlarmActions](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/monitoring-2010-08-01/DisableAlarmActions) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-using-alarm-actions.md#cloudwatch-examples-using-alarm-actions-disabling "../../../sdk-for-javascript/v2/developer-guide/cloudwatch-examples-using-alarm-actions.md#cloudwatch-examples-using-alarm-actions-disabling").
-- For API details, see
-  [DisableAlarmActions](../../../goto/AWSJavaScriptSDK/monitoring-2010-08-01/DisableAlarmActions.md "../../../goto/AWSJavaScriptSDK/monitoring-2010-08-01/DisableAlarmActions.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
 
 ```
 suspend fun disableActions(alarmName: String) {
@@ -290,23 +226,14 @@ suspend fun disableActions(alarmName: String) {
         println("Successfully disabled actions on alarm $alarmName")
     }
 }
-
-
 ```
++  For API details, see [DisableAlarmActions](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DisableAlarmActions](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
 
 ```
 class CloudWatchWrapper:
@@ -347,24 +274,14 @@ class CloudWatchWrapper:
                 alarm_name,
             )
             raise
-
-
-
 ```
++  For API details, see [DisableAlarmActions](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/DisableAlarmActions) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DisableAlarmActions](../../../goto/boto3/monitoring-2010-08-01/DisableAlarmActions.md "../../../goto/boto3/monitoring-2010-08-01/DisableAlarmActions.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples). 
 
 ```
 # Disables an alarm in Amazon CloudWatch.
@@ -448,26 +365,16 @@ def run_me
 end
 
 run_me if $PROGRAM_NAME == __FILE__
+```
++  For API details, see [DisableAlarmActions](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/DisableAlarmActions) in *AWS SDK for Ruby API Reference*. 
 
+------
+#### [ SAP ABAP ]
+
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples). 
 
 ```
-
-- For API details, see
-  [DisableAlarmActions](../../../goto/SdkForRubyV3/monitoring-2010-08-01/DisableAlarmActions.md "../../../goto/SdkForRubyV3/monitoring-2010-08-01/DisableAlarmActions.md")
-  in _AWS SDK for Ruby API Reference_.
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples").
-
-```
-
     "Disables actions on the specified alarm. "
     TRY.
         lo_cwt->disablealarmactions(
@@ -477,14 +384,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DisableAlarmActions](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DisableAlarmActions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

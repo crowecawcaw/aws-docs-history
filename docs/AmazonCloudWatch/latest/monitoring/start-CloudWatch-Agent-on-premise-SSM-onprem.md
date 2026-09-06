@@ -1,118 +1,105 @@
+
+
 # Starting the CloudWatch agent
+<a name="start-CloudWatch-Agent-on-premise-SSM-onprem"></a>
 
 You can start the CloudWatch agent using either Systems Manager Run Command or the command line.
 
-For information about setting up the agent on a system that has security-enhanced Linux
-(SELinux) enabled, see [Set up the CloudWatch agent with security-enhanced Linux (SELinux)](CloudWatch-Agent-SELinux.md "CloudWatch-Agent-SELinux.md").
+For information about setting up the agent on a system that has security-enhanced Linux (SELinux) enabled, see [Set up the CloudWatch agent with security-enhanced Linux (SELinux)](CloudWatch-Agent-SELinux.md).
 
 ## Start the CloudWatch agent using the command line on Amazon EC2
+<a name="start-CloudWatch-Agent-EC2-commands-fleet"></a>
 
 Follow these steps to use the command line to start the CloudWatch agent on on Amazon EC2.
 
-For information about setting up the agent on a system that has security-enhanced Linux
-(SELinux) enabled, see [Set up the CloudWatch agent with security-enhanced Linux (SELinux)](CloudWatch-Agent-SELinux.md "CloudWatch-Agent-SELinux.md").
+For information about setting up the agent on a system that has security-enhanced Linux (SELinux) enabled, see [Set up the CloudWatch agent with security-enhanced Linux (SELinux)](CloudWatch-Agent-SELinux.md).
 
-###### To use the command line to start the CloudWatch agent on on Amazon EC2
+**To use the command line to start the CloudWatch agent on on Amazon EC2**
 
-1. Copy the agent configuration file that you want to use to the server where you're
-   going to run the agent. Note the pathname where you copy it to.
-2. In this command, `-a fetch-config` causes the agent to load the latest
-   version of the CloudWatch agent configuration file, and `-s` starts the
-   agent.
+1. Copy the agent configuration file that you want to use to the server where you're going to run the agent. Note the pathname where you copy it to.
 
-Enter one of the following commands. Replace
-`configuration-file-path` with the path to the agent
-configuration file. This file is called `config.json` if you created
-it with the wizard, and might be called
-`amazon-cloudwatch-agent.json` if you created it manually.
+1. In this command, `-a fetch-config` causes the agent to load the latest version of the CloudWatch agent configuration file, and `-s` starts the agent.
 
-On an EC2 instance running Linux, enter the following command.
+   Enter one of the following commands. Replace {{configuration-file-path}} with the path to the agent configuration file. This file is called `config.json` if you created it with the wizard, and might be called `amazon-cloudwatch-agent.json` if you created it manually.
 
-```
-sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:`configuration-file-path`
-```
+   On an EC2 instance running Linux, enter the following command. 
 
-On an on-premises server running Linux, enter the following:
+   ```
+   sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:{{configuration-file-path}}
+   ```
 
-```
-sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m onPremise -s -c file:`configuration-file-path`
-```
+   On an on-premises server running Linux, enter the following:
 
-On an EC2 instance running Windows Server, enter the following from the PowerShell
-console:
+   ```
+   sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m onPremise -s -c file:{{configuration-file-path}}
+   ```
 
-```
-& "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m ec2 -s -c file:`configuration-file-path`
-```
+   On an EC2 instance running Windows Server, enter the following from the PowerShell console:
 
-On an on-premises server running Windows Server, enter the following from the
-PowerShell console:
+   ```
+   & "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m ec2 -s -c file:{{configuration-file-path}}
+   ```
 
-```
-& "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m onPremise -s -c file:`configuration-file-path`
-```
+   On an on-premises server running Windows Server, enter the following from the PowerShell console:
+
+   ```
+   & "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m onPremise -s -c file:{{configuration-file-path}}
+   ```
 
 ## Start the CloudWatch agent on an on-premises server
+<a name="start-CloudWatch-Agent-on-premises"></a>
 
 Follow these steps to start the CloudWatch agent on an on-premises server.
 
-###### To use SSM Agent to start the CloudWatch agent on an on-premises server
+**To use SSM Agent to start the CloudWatch agent on an on-premises server**
 
-1. Open the Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
-2. In the navigation pane, choose
-   **Run Command**.
+1. Open the Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/).
 
--or-
+1. In the navigation pane, choose **Run Command**.
 
-If the AWS Systems Manager home page opens, scroll down and
-choose **Explore Run Command**. 3. Choose **Run command**. 4. In the **Command document** list, select the button next to
-**AmazonCloudWatch-ManageAgent**. 5. In the **Targets** area, select the instance where you installed
-the agent. 6. In the **Action** list, choose
-**configure**. 7. In the **Mode** list, choose **onPremise**. 8. In the **Optional Configuration Location** box, enter the name of
-the agent configuration file that you created with the wizard and stored in the
-Parameter Store. 9. Choose **Run**.
+   -or-
 
-The agent starts with the configuration you specified in the configuration
-file.
+   If the AWS Systems Manager home page opens, scroll down and choose **Explore Run Command**.
 
-###### To use the command line to start the CloudWatch agent on an on-premises server
+1. Choose **Run command**.
 
-- In this command, `-a fetch-config` causes the agent to load the latest
-  version of the CloudWatch agent configuration file, and `-s` starts the
-  agent.
+1. In the **Command document** list, select the button next to **AmazonCloudWatch-ManageAgent**.
 
-Linux: If you saved the configuration file in the Systems Manager Parameter Store, enter the
-following:
+1. In the **Targets** area, select the instance where you installed the agent.
 
-```
-sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m onPremise -s -c ssm:`configuration-parameter-store-name`
-```
+1. In the **Action** list, choose **configure**.
 
-Linux: If you saved the configuration file on the local computer, enter the
-following command. Replace `configuration-file-path` with the
-path to the agent configuration file. This file is called
-`config.json` if you created it with the wizard, and might be
-called `amazon-cloudwatch-agent.json` if you created it
-manually.
+1. In the **Mode** list, choose **onPremise**.
 
-```
-sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m onPremise -s -c file:`configuration-file-path`
-```
+1. In the **Optional Configuration Location** box, enter the name of the agent configuration file that you created with the wizard and stored in the Parameter Store.
 
-Windows Server: If you saved the agent configuration file in Systems Manager Parameter Store, enter
-the following from the PowerShell console:
+1. Choose **Run**.
 
-```
-& "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m onPremise -s -c ssm:`configuration-parameter-store-name`
-```
+   The agent starts with the configuration you specified in the configuration file.
 
-Windows Server: If you saved the agent configuration file on the local computer,
-enter the following from the PowerShell console. Replace
-`configuration-file-path` with the path to the agent
-configuration file. This file is called `config.json` if you created
-it with the wizard, and might be called
-`amazon-cloudwatch-agent.json` if you created it manually.
+**To use the command line to start the CloudWatch agent on an on-premises server**
++ In this command, `-a fetch-config` causes the agent to load the latest version of the CloudWatch agent configuration file, and `-s` starts the agent.
 
-```
-& "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m onPremise -s -c file:`configuration-file-path`
-```
+  Linux: If you saved the configuration file in the Systems Manager Parameter Store, enter the following:
+
+  ```
+  sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m onPremise -s -c ssm:{{configuration-parameter-store-name}}
+  ```
+
+  Linux: If you saved the configuration file on the local computer, enter the following command. Replace {{configuration-file-path}} with the path to the agent configuration file. This file is called `config.json` if you created it with the wizard, and might be called `amazon-cloudwatch-agent.json` if you created it manually.
+
+  ```
+  sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m onPremise -s -c file:{{configuration-file-path}}
+  ```
+
+  Windows Server: If you saved the agent configuration file in Systems Manager Parameter Store, enter the following from the PowerShell console:
+
+  ```
+  & "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m onPremise -s -c ssm:{{configuration-parameter-store-name}}
+  ```
+
+  Windows Server: If you saved the agent configuration file on the local computer, enter the following from the PowerShell console. Replace {{configuration-file-path}} with the path to the agent configuration file. This file is called `config.json` if you created it with the wizard, and might be called `amazon-cloudwatch-agent.json` if you created it manually.
+
+  ```
+  & "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m onPremise -s -c file:{{configuration-file-path}}
+  ```

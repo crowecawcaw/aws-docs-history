@@ -1,150 +1,142 @@
-# Searching and analyzing spans
 
-Transaction Search provides you with a visual editor to search and analyze all ingested spans using attributes.
-You can use the visual editor to narrow down transaction spans and create interactive visualizations to troubleshoot issues in your distributed applications.
-You can also use the CloudWatch Logs Insights query language to analyze your spans.
-This topic describes how to access and use the visual editor.
+
+# Searching and analyzing spans
+<a name="CloudWatch-Transaction-Search-search-analyze-spans"></a>
+
+ Transaction Search provides you with a visual editor to search and analyze all ingested spans using attributes. You can use the visual editor to narrow down transaction spans and create interactive visualizations to troubleshoot issues in your distributed applications. You can also use the CloudWatch Logs Insights query language to analyze your spans. This topic describes how to access and use the visual editor. 
 
 ## The visual editor
+<a name="w2aac25c21c17c15b5"></a>
 
-The following procedure describes how to access the visual editor.
+ The following procedure describes how to access the visual editor. 
 
-###### To access the visual editor
+**To access the visual editor**
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. From the navigation pane, choose **Application Signals**, and then choose **Transaction Search**.
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-Use span attributes, such as service name, span duration, and span status to narrow down transaction spans quickly.
-You can access these filters and more on the right side of the visual editor under **Select filters**.
+1.  From the navigation pane, choose **Application Signals**, and then choose **Transaction Search**. 
 
-This visual editor suggests a list of attributes in the span.
-These attributes include attributes added through auto-instrumentation and custom attributes added through custom instrumentation.
+ Use span attributes, such as service name, span duration, and span status to narrow down transaction spans quickly. You can access these filters and more on the right side of the visual editor under **Select filters**. 
 
-![Filter spans by attributes.](images/filter3.png)
+ This visual editor suggests a list of attributes in the span. These attributes include attributes added through auto-instrumentation and custom attributes added through custom instrumentation. 
 
-Select a span key, and enter a value to refine span results.
-You can filter spans using various operations, such as "Equals," "Does Not Equal," and more.
+![Filter spans by attributes.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/filter3.png)
 
-![Filter spans with operators.](images/filter4.png)
+
+ Select a span key, and enter a value to refine span results. You can filter spans using various operations, such as "Equals," "Does Not Equal," and more. 
+
+![Filter spans with operators.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/filter4.png)
+
 
 ### Query formats
+<a name="w2aac25c21c17c15b5c17"></a>
 
-You can run queries in the visual editor using different formats.
-This section describes each of these formats.
+ You can run queries in the visual editor using different formats. This section describes each of these formats. 
 
 #### List
+<a name="w2aac25c21c17c15b5c17b5"></a>
 
-View spans or span events in a list format, which displays information about each span.
-Use this type of analysis to analyze individual spans, understand specific transactions, or identify unique patterns in transaction events.
-Other use cases include the following:
+ View spans or span events in a list format, which displays information about each span. Use this type of analysis to analyze individual spans, understand specific transactions, or identify unique patterns in transaction events. Other use cases include the following: 
 
-###### Use cases
+**Use cases**
++  Troubleshoot customer support tickets 
++  Locate APIs or dependencies, such as database queries taking longer than 1000 milliseconds to execute 
++  Locate spans with errors 
 
-- Troubleshoot customer support tickets
-- Locate APIs or dependencies, such as database queries taking longer than 1000 milliseconds to execute
-- Locate spans with errors
+ The following screenshots show how to troubleshoot a customer support ticket with this type of analysis. 
 
-The following screenshots show how to troubleshoot a customer support ticket with this type of analysis.
+**Example scenario**  
+ In the visual editor, filter on all transaction spans with a particular customer issue. Before you run your query, choose **List** from the **Visualize as** dropdown. 
 
-###### Example scenario
+![Locate spans with List.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/list1.png)
 
-In the visual editor, filter on all transaction spans with a particular customer issue.
-Before you run your query, choose **List** from the **Visualize as** dropdown.
 
-![Locate spans with List.](images/list1.png)
+ The results show a list of spans where you can choose a trace ID to get the end-to-end journey for the transaction and determine the root cause of the issue. 
 
-The results show a list of spans where you can choose a trace ID to get the end-to-end journey for the transaction and determine the root cause of the issue.
+![List results.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/list2.png)
 
-![List results.](images/list2.png)
 
 #### Timeseries
+<a name="w2aac25c21c17c15b5c17b7"></a>
 
-View spans or span events over time.
-Use this type of analysis to look at trends and spikes in transaction activity.
-Other use cases include the following:
+ View spans or span events over time. Use this type of analysis to look at trends and spikes in transaction activity. Other use cases include the following: 
++  Visualize latency 
++  Visualize frequency of spans 
++  Visualize performance 
 
-- Visualize latency
-- Visualize frequency of spans
-- Visualize performance
+ The following screenshots show how you can view p99 latency trends for an API with this type of analysis. 
 
-The following screenshots show how you can view p99 latency trends for an API with this type of analysis.
+**Example scenario**  
+ In the visual editor, filter on the service and API you want to analyze. 
 
-###### Example scenario
+![Filtering on a service.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/timeseries1.png)
 
-In the visual editor, filter on the service and API you want to analyze.
 
-![Filtering on a service.](images/timeseries1.png)
+ Before you run your query, choose **Time series** from the **Visualize as** dropdown. Choose **P99** for the duration statistic from the **Show span as** dropdown. 
 
-Before you run your query, choose **Time series** from the **Visualize as** dropdown.
-Choose **P99** for the duration statistic from the **Show span as** dropdown.
+![Filtering.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/timeseries2.png)
 
-![Filtering.](images/timeseries2.png)
 
-The results show a latency trend for the service, with the x-axis of the graph being time and y-axis being p99 duration.
+ The results show a latency trend for the service, with the x-axis of the graph being time and y-axis being p99 duration. 
 
-![Locate spans with time series.](images/timeseries3.png)
+![Locate spans with time series.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/timeseries3.png)
 
-You can choose a point on the chart to view correlated spans and span events.
 
-![Time series results.](images/timeseries4.png)
+ You can choose a point on the chart to view correlated spans and span events. 
+
+![Time series results.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/timeseries4.png)
+
 
 #### Group analysis
+<a name="w2aac25c21c17c15b5c17b9"></a>
 
-Aggregate spans or span events based on specific attributes, such as account IDs and status codes, to display statistical metrics.
-Use this type of analysis to analyze spans in clusters, compare different groups, and uncover trends at the macro level.
-Other use cases include the following:
+ Aggregate spans or span events based on specific attributes, such as account IDs and status codes, to display statistical metrics. Use this type of analysis to analyze spans in clusters, compare different groups, and uncover trends at the macro level. Other use cases include the following: 
 
-###### Use cases
+**Use cases**
++  Identify top customers impacted by a service outage 
++  Identify availability zones with the most errors 
++  Identify the top slowest database queries 
 
-- Identify top customers impacted by a service outage
-- Identify availability zones with the most errors
-- Identify the top slowest database queries
+ The following screenshots show how you can view the top customers impacted by a service outage with this type of analysis. 
 
-The following screenshots show how you can view the top customers impacted by a service outage with this type of analysis.
+**Example scenario**  
+ In the visual editor, you filter on the service experiencing issues. 
 
-###### Example scenario
+![Filter by service issue.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/groupanalysis1.png)
 
-In the visual editor, you filter on the service experiencing issues.
 
-![Filter by service issue.](images/groupanalysis1.png)
+ Before you run your query, choose **Group Analysis** from the **Visualize as** dropdown. Group your query results by `account.id`, and limit the number of results to 10.. 
 
-Before you run your query, choose **Group Analysis** from the **Visualize as** dropdown.
-Group your query results by `account.id`, and limit the number of results to 10..
+![Locate spans by group analysis.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/groupanalysis2.png)
 
-![Locate spans by group analysis.](images/groupanalysis2.png)
 
-The results show the top 10 customers who experienced the most number of errors.
+ The results show the top 10 customers who experienced the most number of errors. 
 
-![Group analysis results.](images/groupanalysis3.png)
+![Group analysis results.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/groupanalysis3.png)
+
 
 ## CloudWatch Logs Insights
+<a name="w2aac25c21c17c15b7"></a>
 
-You can use [CloudWatch Logs Insights](../logs/AnalyzingLogData.md "../logs/AnalyzingLogData.md") to analyze your spans.
+ You can use [CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html) to analyze your spans. 
 
-###### Example query
-
-The following query shows the top five slowest database queries.
+**Example query**  
+ The following query shows the top five slowest database queries. 
 
 ```
-
 STATS pct(durationNano, 99) as `p99` by attributes.db.statement
 | SORT p99 ASC
 | LIMIT 5
 | DISPLAY p99,attributes.db.statement
-
 ```
 
-###### Example query
-
-The following query shows which top five services are throwing errors.
+**Example query**  
+ The following query shows which top five services are throwing errors. 
 
 ```
-
 FILTER `attributes.http.response.status_code` >= 500
 | STATS count(*) as `count` by attributes.aws.local.service as service
 | SORT count ASC
 | LIMIT 5
 | DISPLAY count,service
-
 ```

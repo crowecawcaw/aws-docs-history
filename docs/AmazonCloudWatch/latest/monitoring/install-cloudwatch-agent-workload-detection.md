@@ -1,12 +1,17 @@
+
+
 # Install and Configure Amazon CloudWatch Agent with Workload Detection in the CloudWatch console
+<a name="install-cloudwatch-agent-workload-detection"></a>
 
 ## Introduction
+<a name="workload-detection-introduction"></a>
 
 You can use the CloudWatch Getting Started console to install and configure the CloudWatch agent on Amazon EC2 instances. The Amazon CloudWatch agent is a lightweight software component that collects system-level metrics, logs, and traces from your Amazon EC2 instances. By automating the collection and delivery of monitoring data to CloudWatch, the agent enables you to gain actionable insights, optimize resource utilization, and make sure your applications are running smoothly with minimal configuration effort.
 
 Configure the CloudWatch agent with pre-defined, workload-specific configurations that leverage automatic workload detection to identify running applications and services on your instances. You can customize data collection with specific metrics, logs, and traces, enabling you to monitor application performance and troubleshoot issues effectively.
 
 ## How it Works
+<a name="workload-detection-how-it-works"></a>
 
 The CloudWatch agent detects workloads running on your Amazon EC2 instances through automatic workload detection capabilities. This feature identifies running applications and services on your instances, enabling intelligent monitoring without manual configuration.
 
@@ -15,22 +20,25 @@ Observability solutions provide pre-defined, workload-specific configurations ta
 When workload detection is enabled, the agent analyzes your instance environment and automatically selects relevant pre-configured monitoring templates. These configurations are optimized by AWS subject-matter experts to capture the most important telemetry data for each workload type, ensuring you have comprehensive observability from the start.
 
 ## Prerequisites
+<a name="workload-detection-prerequisites"></a>
 
 ### SSM Agent installation (required)
+<a name="ssm-agent-installation"></a>
 
-You must have AWS Systems Manager (SSM) agent installed on your Amazon EC2 instances. SSM agent comes pre-installed on most AWS-supplied Amazon Machine Images (AMIs), If you need to manually install or update the SSM agent, refer to the [Systems Manager documentation](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md").
+You must have AWS Systems Manager (SSM) agent installed on your Amazon EC2 instances. SSM agent comes pre-installed on most AWS-supplied Amazon Machine Images (AMIs), If you need to manually install or update the SSM agent, refer to the [Systems Manager documentation](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html).
 
-###### Note
-
-Default Host Management Configuration (DHMC) is a Systems Manager feature that automatically grants Amazon EC2 instances permissions to connect to Systems Manager without requiring you to manually attach an IAM instance profile to each instance. If your Amazon EC2 instances are using DHMC and the CloudWatch agent installation process attaches the CloudWatch policy to your instances, it can take up to 30 minutes for the new policy to take effect. This delay can postpone the publication of metrics, logs, and traces to CloudWatch. To mitigate, you can create your Amazon EC2 instances with an IAM role that contains the [AmazonSSMManagedInstanceCore](../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md "../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md") policy.
+**Note**  
+Default Host Management Configuration (DHMC) is a Systems Manager feature that automatically grants Amazon EC2 instances permissions to connect to Systems Manager without requiring you to manually attach an IAM instance profile to each instance. If your Amazon EC2 instances are using DHMC and the CloudWatch agent installation process attaches the CloudWatch policy to your instances, it can take up to 30 minutes for the new policy to take effect. This delay can postpone the publication of metrics, logs, and traces to CloudWatch. To mitigate, you can create your Amazon EC2 instances with an IAM role that contains the [AmazonSSMManagedInstanceCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html) policy.
 
 ### Workload Detection (Recommended)
+<a name="workload-detection-recommended"></a>
 
-Workload detection is an opt-in feature that automatically identifies running applications and services on your instances. We recommend turning on workload detection to take advantage of pre-configured, workload-specific monitoring templates. You can enable workload detection in the [CloudWatch console settings](https://console.aws.amazon.com/cloudwatch/home#settings "https://console.aws.amazon.com/cloudwatch/home#settings").
+Workload detection is an opt-in feature that automatically identifies running applications and services on your instances. We recommend turning on workload detection to take advantage of pre-configured, workload-specific monitoring templates. You can enable workload detection in the [CloudWatch console settings](https://console.aws.amazon.com/cloudwatch/home#settings).
 
 ## Getting started
+<a name="workload-detection-getting-started"></a>
 
-Open the Getting Started with Amazon CloudWatch agent page in the Amazon CloudWatch console: [https://console.aws.amazon.com/cloudwatch/home#cloudwatch-agent](https://console.aws.amazon.com/cloudwatch/home#cloudwatch-agent "https://console.aws.amazon.com/cloudwatch/home#cloudwatch-agent")
+Open the Getting Started with Amazon CloudWatch agent page in the Amazon CloudWatch console: [https://console.aws.amazon.com/cloudwatch/home\#cloudwatch-agent](https://console.aws.amazon.com/cloudwatch/home#cloudwatch-agent)
 
 **Manual instance deployment for CloudWatch Agent**
 
@@ -53,5 +61,6 @@ Install the CloudWatch agent to collect metrics, logs, and traces from Amazon EC
 Configure the CloudWatch agent with pre-defined, workload-specific configurations. You can customize data collection with specific metrics, logs, and traces, enabling you to monitor application performance and troubleshoot issues effectively.
 
 ## Costs
+<a name="workload-detection-costs"></a>
 
-Additional metrics that you add during this process are billed as custom metrics. For more information about CloudWatch metrics pricing, see [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing "http://aws.amazon.com/cloudwatch/pricing").
+Additional metrics that you add during this process are billed as custom metrics. For more information about CloudWatch metrics pricing, see [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing).

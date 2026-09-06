@@ -1,74 +1,81 @@
+
+
 # Using condition keys to limit access to CloudWatch namespaces
+<a name="iam-cw-condition-keys-namespace"></a>
 
-Use IAM condition keys to limit users to publishing metrics only in the
-CloudWatch namespaces that you specify. This section provides examples that describe
-how to allow and exclude users from publishing metrics in a namespace.
+ Use IAM condition keys to limit users to publishing metrics only in the CloudWatch namespaces that you specify. This section provides examples that describe how to allow and exclude users from publishing metrics in a namespace. 
 
-**Allowing publishing in one namespace
-only**
+**Allowing publishing in one namespace only**
 
-The following policy limits the user to publishing metrics only in the
-namespace named `MyCustomNamespace`.
+The following policy limits the user to publishing metrics only in the namespace named `MyCustomNamespace`.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": {
- "Effect": "Allow",
- "Resource": "*",
- "Action": "cloudwatch:PutMetricData",
- "Condition": {
- "StringEquals": {
- "cloudwatch:namespace": "MyCustomNamespace"
- }
- }
- }
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": {
+        "Effect": "Allow",
+        "Resource": "*",
+        "Action": "cloudwatch:PutMetricData",
+        "Condition": {
+            "StringEquals": {
+                "cloudwatch:namespace": "MyCustomNamespace"
+            }
+        }
+    }
+}
+```
+
+------
 
 **Excluding publishing from a namespace**
 
-The following policy allows the user to publish metrics in any namespace
-except for `CustomNamespace2`.
+The following policy allows the user to publish metrics in any namespace except for `CustomNamespace2`.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Resource": "*",
- "Action": "cloudwatch:PutMetricData"
- },
- {
- "Effect": "Deny",
- "Resource": "*",
- "Action": "cloudwatch:PutMetricData",
- "Condition": {
- "StringEquals": {
- "cloudwatch:namespace": "CustomNamespace2"
- }
- }
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Resource": "*",
+            "Action": "cloudwatch:PutMetricData"
+        },
+        {
+            "Effect": "Deny",
+            "Resource": "*",
+            "Action": "cloudwatch:PutMetricData",
+            "Condition": {
+                "StringEquals": {
+                    "cloudwatch:namespace": "CustomNamespace2"
+                }
+            }
+        }
+    ]
+}
+```
+
+------
 
 **Controlling OTLP ingest**
 
 The following policy allows the user to publish metrics using the OTLP API:
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -79,16 +86,16 @@ JSON
 }
 ```
 
-For disabling dual ingest, that is, only using PutMetricData and deny any OTLP ingest,
-you can use the following policy. It limits the user to publishing metrics using PutMetricData
-in the namespace `MyCustomNamespace` and at the same time implicitly denies any
-OTLP ingest due to the `StringEquals` condition:
+------
 
-JSON
+For disabling dual ingest, that is, only using PutMetricData and deny any OTLP ingest, you can use the following policy. It limits the user to publishing metrics using PutMetricData in the namespace `MyCustomNamespace` and at the same time implicitly denies any OTLP ingest due to the `StringEquals` condition:
+
+------
+#### [ JSON ]
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -104,16 +111,16 @@ JSON
 }
 ```
 
-For enabling dual ingest, that is, to allow both PutMetricData and OTLP ingest,
-you can use the following policy. It limits the user to publishing metrics using PutMetricData
-in the namespace named `MyCustomNamespace` and at the same time allows OTLP ingest
-due to the `StringEqualsIfExists` condition:
+------
 
-JSON
+For enabling dual ingest, that is, to allow both PutMetricData and OTLP ingest, you can use the following policy. It limits the user to publishing metrics using PutMetricData in the namespace named `MyCustomNamespace` and at the same time allows OTLP ingest due to the `StringEqualsIfExists` condition:
+
+------
+#### [ JSON ]
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -128,3 +135,5 @@ JSON
     ]
 }
 ```
+
+------

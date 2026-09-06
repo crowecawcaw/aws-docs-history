@@ -1,24 +1,21 @@
+
+
 # Get started with CloudWatch alarms using an AWS SDK
+<a name="example_cloudwatch_Scenario_GettingStarted_section"></a>
 
 The following code example shows how to:
++ Create an alarm.
++ Disable alarm actions.
++ Describe an alarm.
++ Delete an alarm.
 
-- Create an alarm.
-- Disable alarm actions.
-- Describe an alarm.
-- Delete an alarm.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cwt#code-examples). 
 
 ```
-
     DATA lt_alarmnames TYPE /aws1/cl_cwtalarmnames_w=>tt_alarmnames.
     DATA lo_alarmname TYPE REF TO /aws1/cl_cwtalarmnames_w.
 
@@ -74,17 +71,13 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_cwtresourcenotfound.
         MESSAGE 'Resource being access is not found.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++ For API details, see the following topics in *AWS SDK for SAP ABAP API reference*.
+  + [DeleteAlarms](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [DescribeAlarms](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [DisableAlarmActions](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [PutMetricAlarm](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for SAP ABAP API reference_.
+------
 
-  - [DeleteAlarms](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [DescribeAlarms](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [DisableAlarmActions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [PutMetricAlarm](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

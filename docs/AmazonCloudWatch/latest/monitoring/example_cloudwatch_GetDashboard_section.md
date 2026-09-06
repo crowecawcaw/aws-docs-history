@@ -1,22 +1,19 @@
+
+
 # Use `GetDashboard` with an AWS SDK or CLI
+<a name="example_cloudwatch_GetDashboard_section"></a>
 
 The following code examples show how to use `GetDashboard`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md) 
++  [Using property variables in monitoring dashboards to monitor multiple serverless functions](example_iam_GettingStarted_032_section.md) 
 
-- [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
-- [Using property variables in monitoring dashboards to monitor multiple serverless functions](example_iam_GettingStarted_032_section.md "example_iam_GettingStarted_032_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
 
 ```
     /// <summary>
@@ -34,30 +31,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return dashboardResponse.DashboardBody;
     }
+```
++  For API details, see [GetDashboard](https://docs.aws.amazon.com/goto/DotNetSDKV4/monitoring-2010-08-01/GetDashboard) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To retrieve information about a Dashboard**  
+The following `get-dashboard` example displays information about the dashboard named `Dashboard-A` in the specified account.  
 
 ```
-
-- For API details, see
-  [GetDashboard](../../../goto/DotNetSDKV4/monitoring-2010-08-01/GetDashboard.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/GetDashboard.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To retrieve information about a Dashboard**
-
-The following `get-dashboard` example displays information about the dashboard named `Dashboard-A` in the specified account.
-
+aws cloudwatch get-dashboard \
+    --dashboard-name {{Dashboard-A}}
 ```
-`aws cloudwatch get-dashboard \
- --dashboard-name `Dashboard-A``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -66,57 +54,42 @@ Output:
     "DashboardName": "Dashboard-A"
 }
 ```
+For more information, see [Amazon CloudWatch dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) in the *Amazon CloudWatch User Guide*.  
++  For API details, see [GetDashboard](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/get-dashboard.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Amazon CloudWatch dashboards](CloudWatch_Dashboards.md "CloudWatch_Dashboards.md") in the _Amazon CloudWatch User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [GetDashboard](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/get-dashboard.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/get-dashboard.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns the arn the body of the specified dashboard.**
+**Tools for PowerShell V4**  
+**Example 1: Returns the arn the body of the specified dashboard.**  
 
 ```
 Get-CWDashboard -DashboardName Dashboard1
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 DashboardArn                                          DashboardBody
 ------------                                          -------------
 arn:aws:cloudwatch::123456789012:dashboard/Dashboard1 {...
 ```
++  For API details, see [GetDashboard](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetDashboard](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns the arn the body of the specified dashboard.**
+**Tools for PowerShell V5**  
+**Example 1: Returns the arn the body of the specified dashboard.**  
 
 ```
 Get-CWDashboard -DashboardName Dashboard1
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 DashboardArn                                          DashboardBody
 ------------                                          -------------
 arn:aws:cloudwatch::123456789012:dashboard/Dashboard1 {...
 ```
++  For API details, see [GetDashboard](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetDashboard](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudWatch with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudWatch with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

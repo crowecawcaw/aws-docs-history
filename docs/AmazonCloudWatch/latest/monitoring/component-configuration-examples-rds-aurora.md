@@ -1,7 +1,9 @@
-# Amazon Relational Database Service (RDS) Aurora MySQL
 
-The following example shows a component configuration in JSON format for Amazon RDS
-Aurora MySQL.
+
+# Amazon Relational Database Service (RDS) Aurora MySQL
+<a name="component-configuration-examples-rds-aurora"></a>
+
+The following example shows a component configuration in JSON format for Amazon RDS Aurora MySQL.
 
 ```
 {

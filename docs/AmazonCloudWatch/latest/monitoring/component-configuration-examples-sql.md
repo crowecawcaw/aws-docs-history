@@ -1,7 +1,9 @@
-# SQL Always On Availability Group
 
-The following example shows a component configuration in JSON format for SQL
-Always On Availability Group.
+
+# SQL Always On Availability Group
+<a name="component-configuration-examples-sql"></a>
+
+The following example shows a component configuration in JSON format for SQL Always On Availability Group.
 
 ```
 {
