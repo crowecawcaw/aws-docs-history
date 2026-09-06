@@ -1,16 +1,19 @@
+
+
 # Tool use beyond the browser (Preview)
+<a name="tool-use"></a>
 
 (Preview) Nova Act allows you to integrate external tools beyond the browser, such as an API call or database query, into workflows. This functionality enables developers to integrate remote MCP tools and agentic frameworks, such as Strands Agents, into their workflows.
 
 ## Defining a local tool
+<a name="defining-local-tool"></a>
 
 The first step in the workflow is defining the tool. The tool definition must include all of the necessary context to guide the model on appropriate tool invocation.
 
 To make a Python function available as a tool, you annotate it with the `@tool` decorator. This allows you to include the required context. To do so, define the following within the function’s comments:
-
-- a description of the tool
-- its input parameters
-- its return type
++ a description of the tool
++ its input parameters
++ its return type
 
 Below is an example of a tool defined to return a specific row from an Excel file:
 
@@ -43,6 +46,7 @@ def read_row_as_dict(file_path, row_number):
 ```
 
 ## Using a tool
+<a name="using-tool"></a>
 
 To use a tool with Nova Act, add it to the tools attribute of the Nova Act constructor. Nova Act will decide whether to call a tool given the request.
 
@@ -55,11 +59,11 @@ with NovaAct(
 )
 ```
 
-###### Note
-
+**Note**  
 For best performance, limit the number of tools you provide to the model in a single act command. For higher accuracy, you can be more specific in the prompt to let Nova Act know when you want it to invoke a specific tool. Nova Act performs best if you match the instructions to the tool description. Similar to browser commands, we recommend being prescriptive and succinct in what the agent should do and breaking down larger acts into smaller ones to improve reliability.
 
 ## Returning tool results
+<a name="returning-tool-results"></a>
 
 When Nova Act determines a tool is needed, it will call the tool with the appropriate arguments. Here is an example of how tool results show in the Nova Act logs:
 
@@ -70,10 +74,11 @@ Result for tool call 'read_row_as_dict': {'First Name': 'John', 'Last Name': 'Do
 ```
 
 ## Using MCP with Nova Act
+<a name="using-mcp"></a>
 
 The Model Context Protocol (MCP) is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools. Instead of writing custom adapters for each API or service, you can run an MCP server and integrate its tools with Nova Act automatically through a client bridge. Once connected, Nova Act treats these tools like any other external integration: it decides when to call them, sends the required parameters, and incorporates the results into its response.
 
-Below is an example using the [AWS Documentation MCP Server](https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server "https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server"). This example requires installing the [Strands Agents library](https://strandsagents.com/latest/ "https://strandsagents.com/latest/").
+Below is an example using the [AWS Documentation MCP Server](https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server). This example requires installing the [Strands Agents library](https://strandsagents.com/latest/).
 
 ```
 from mcp import StdioServerParameters, stdio_client

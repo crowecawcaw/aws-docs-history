@@ -1,18 +1,23 @@
+
+
 # Integrating Nova Act with Amazon Bedrock AgentCore
+<a name="bedrock-agentcore"></a>
 
 Amazon Bedrock AgentCore offers purpose-built infrastructure to deploy and operate production AI agents at scale. AgentCore is comprised of several modules that can be used a la carte depending on your requirements. In this guide we show an example of using each integration with Nova Act.
 
 ## AgentCore Runtime (ACR)
+<a name="agentcore-runtime"></a>
 
-When you deploy a Nova Act workflow to ACR, ACR provisions an endpoint which you use to invoke the Nova Act workflow. Deploying Nova Act workflows on ACR has the added benefit of simple integrations with other AgentCore services. ACR is serverless and does not require you to maintain any infrastructure. For a step-by-step guide of deploying a Nova Act workflow to ACR, refer to [this article](https://builder.aws.com/content/32HpPjNanKLl7OZTpn48xhV0mSX/run-your-nova-act-workflow-on-amazon-bedrock-agentcore "https://builder.aws.com/content/32HpPjNanKLl7OZTpn48xhV0mSX/run-your-nova-act-workflow-on-amazon-bedrock-agentcore").
+When you deploy a Nova Act workflow to ACR, ACR provisions an endpoint which you use to invoke the Nova Act workflow. Deploying Nova Act workflows on ACR has the added benefit of simple integrations with other AgentCore services. ACR is serverless and does not require you to maintain any infrastructure. For a step-by-step guide of deploying a Nova Act workflow to ACR, refer to [this article](https://builder.aws.com/content/32HpPjNanKLl7OZTpn48xhV0mSX/run-your-nova-act-workflow-on-amazon-bedrock-agentcore).
 
 ## AgentCore Identity (ACI)
+<a name="agentcore-identity"></a>
 
 ACI allows developers to provide identities for their agents, which can be used to obtain necessary access to resources and to isolate activity to specific agents. Using ACI with Nova Act enables you to securely grant permission to your workflow to access resources when needed to complete an action. A common use case for this is accessing log credentials to login to a web application. ACI also supports injecting user context from the caller which allows your Nova Act workflow to run using a user’s context.
 
 In this example, we use a custom OAuth provider to generate access tokens for a user, and then have Nova Act use this access token to take action on behalf of the user.
 
-First, we create a credential provider using the AWS CLI. Refer to the [Bedrock AgentCore documentation](../../../cli/latest/reference/bedrock-agentcore-control/create-oa-oauth2-credential-provider.md "../../../cli/latest/reference/bedrock-agentcore-control/create-oa-oauth2-credential-provider.md") for more details on how to create these. Below is a partial sample for a `CustomOauth2` provider:
+First, we create a credential provider using the AWS CLI. Refer to the [Bedrock AgentCore documentation](https://docs.aws.amazon.com/cli/latest/reference/bedrock-agentcore-control/create-oa-oauth2-credential-provider.html) for more details on how to create these. Below is a partial sample for a `CustomOauth2` provider:
 
 ```
 aws bedrock-agentcore-control create-oauth2-credential-provider \
@@ -52,18 +57,19 @@ def automate_customer_outreach(*, access_token: str):
 ```
 
 ## AgentCore Browser Tool (ACBT)
+<a name="agentcore-browser-tool"></a>
 
-ACBT provides serverless infrastructure for running a browser in the cloud. ACBT supports features such as live streaming the browser session from the AgentCore AWS Console, as well as the ability for someone to take over the browser for a period of time. Common examples of this include solving a CAPTCHA, or entering sensitive data, before returning control back to the Nova Act workflow. For an example of running Nova Act with ACBT, refer to [this article](https://builder.aws.com/content/32HpPjNanKLl7OZTpn48xhV0mSX/run-your-nova-act-workflow-on-amazon-bedrock-agentcore "https://builder.aws.com/content/32HpPjNanKLl7OZTpn48xhV0mSX/run-your-nova-act-workflow-on-amazon-bedrock-agentcore").
+ACBT provides serverless infrastructure for running a browser in the cloud. ACBT supports features such as live streaming the browser session from the AgentCore AWS Console, as well as the ability for someone to take over the browser for a period of time. Common examples of this include solving a CAPTCHA, or entering sensitive data, before returning control back to the Nova Act workflow. For an example of running Nova Act with ACBT, refer to [this article](https://builder.aws.com/content/32HpPjNanKLl7OZTpn48xhV0mSX/run-your-nova-act-workflow-on-amazon-bedrock-agentcore).
 
 ## AgentCore Observability (ACO)
+<a name="agentcore-observability"></a>
 
 ACO allows developers to instrument and emit OpenTelemetry Data from a Nova Act workflow. You can instrument the Nova Act SDK with OTEL for compatibility with the Observability dashboard.
 
 To do this, follow these steps:
-
-- Install the open telemetry library: `pip install aws-opentelemetry-distro`
-- Import the library in the Nova Act code: `from opentelemetry import baggage, context`
-- Obtain your session ID from your active Nova Act workflow, and pass this into your OTEL session context.
++ Install the open telemetry library: `pip install aws-opentelemetry-distro` 
++ Import the library in the Nova Act code: `from opentelemetry import baggage, context` 
++ Obtain your session ID from your active Nova Act workflow, and pass this into your OTEL session context.
 
 Here is an example of instrumenting a Nova Act workflow and writing the telemetry data to CloudWatch logs:
 
@@ -157,8 +163,8 @@ if __name__ == "__main__":
 ```
 
 ## AgentCore Gateway (ACG)
+<a name="agentcore-gateway"></a>
 
 ACG provides an easy and secure way for developers to build, deploy, discover, and connect to tools at scale. Nova Act integrates with ACG in two ways.
-
-- Nova Act workflows can connect to an existing Gateway for agentic tool use.
-- Nova Act workflows themselves can be exposed on the Gateway as a tool for other agents to use. Refer to the [ACG developer guide](../../../bedrock-agentcore/latest/devguide/gateway-quick-start.md "../../../bedrock-agentcore/latest/devguide/gateway-quick-start.md") for help on getting started.
++ Nova Act workflows can connect to an existing Gateway for agentic tool use.
++ Nova Act workflows themselves can be exposed on the Gateway as a tool for other agents to use. Refer to the [ACG developer guide](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-quick-start.html) for help on getting started.
