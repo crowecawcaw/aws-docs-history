@@ -1,26 +1,16 @@
+
+
 # Monitor Infrastructure Performance using the AWS CLI
+<a name="nmip-performance-cli"></a>
 
-[GetAwsNetworkPerformanceData](../../../AWSEC2/latest/APIReference/API_GetAwsNetworkPerformanceData.md "../../../AWSEC2/latest/APIReference/API_GetAwsNetworkPerformanceData.md") returns network performance metrics. For more information,
-see [GetAwsNetworkPerformanceData](../../../AWSEC2/latest/APIReference/API_GetAwsNetworkPerformanceData.md "../../../AWSEC2/latest/APIReference/API_GetAwsNetworkPerformanceData.md").
+[GetAwsNetworkPerformanceData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetAwsNetworkPerformanceData.html) returns network performance metrics. For more information, see [GetAwsNetworkPerformanceData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetAwsNetworkPerformanceData.html). 
 
-In the following example, network performance is queried between two
-Regions, `us-east-1` and `us-west-2` on
-`2022-10-26` between a start-time of `12:00:00` and an end time of
-`12:30:00`. The request also uses the following parameters:
-
-- `Metric` indicates what type of metric is being requested. In this example,
-  `aggregate-latency`, indicates that the performance metrics are aggregated and
-  returned for latency.
-- `Statistic` is the median value of the metric. In this example, `p50` is
-  the statistic of all the data points gathered within those five minutes.
-
-###### Note
-
+In the following example, network performance is queried between two Regions, `us-east-1` and `us-west-2` on `2022-10-26` between a start-time of `12:00:00` and an end time of `12:30:00`. The request also uses the following parameters:
++ `Metric` indicates what type of metric is being requested. In this example, `aggregate-latency`, indicates that the performance metrics are aggregated and returned for latency.
++  `Statistic` is the median value of the metric. In this example, `p50` is the statistic of all the data points gathered within those five minutes.
+**Note**  
 `p50` is the only supported statistic.
-
-- `Period` indicates the interval at which performance the `metric`
-  is returned. In this example, `aggregated-latency` metrics are returned for every
-  `five-minutes`.
++ `Period` indicates the interval at which performance the `metric` is returned. In this example, `aggregated-latency` metrics are returned for every `five-minutes`.
 
 ```
 aws ec2 --region ap-southeast-3 get-aws-network-performance-data --start-time
