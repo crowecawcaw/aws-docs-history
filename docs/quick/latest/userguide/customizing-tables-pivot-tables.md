@@ -1,168 +1,109 @@
+
+
 # Customizing tables and pivot tables in Amazon Quick Sight
+<a name="customizing-tables-pivot-tables"></a>
 
-Reader customization for tables and pivot tables is enabled by default. You can
-change the visual to fit your analysis needs without requesting updates from the
-dashboard author. Your customizations are private – other readers of the same
-dashboard don't see your changes unless you share them.
+Reader customization for tables and pivot tables is enabled by default. You can change the visual to fit your analysis needs without requesting updates from the dashboard author. Your customizations are private – other readers of the same dashboard don't see your changes unless you share them.
 
-###### For dashboard authors
-
-To disable reader customization, choose **Format Visual**,
-choose **Interactions**, and then turn off **Reader
-Customization**. Republish the dashboard for the change to take
-effect.
+**For dashboard authors**  
+To disable reader customization, choose **Format Visual**, choose **Interactions**, and then turn off **Reader Customization**. Republish the dashboard for the change to take effect.
 
 You can customize tables and pivot tables in the following ways:
++ **Sort columns** – Organize data in ascending or descending order.
++ **Reorder columns** – Rearrange columns to reflect the order that matters most to you.
++ **Hide and show columns** – Focus on relevant data by hiding columns you don't need, and show them again when you do.
++ **Freeze columns** – Keep important columns visible while scrolling horizontally through large datasets.
++ **Add and remove fields** – Include additional fields from the dataset or remove fields you don't need.
++ **Change aggregations** – Modify how a measure is aggregated (for example, change from *Sum* to *Average*).
++ **Modify formatting** – Adjust field formatting directly in the dashboard view.
 
-- **Sort columns** – Organize data in
-  ascending or descending order.
-- **Reorder columns** – Rearrange
-  columns to reflect the order that matters most to you.
-- **Hide and show columns** – Focus on
-  relevant data by hiding columns you don't need, and show them again
-  when you do.
-- **Freeze columns** – Keep important
-  columns visible while scrolling horizontally through large
-  datasets.
-- **Add and remove fields** – Include
-  additional fields from the dataset or remove fields you don't
-  need.
-- **Change aggregations** – Modify how a
-  measure is aggregated (for example, change from _Sum_ to
-  _Average_).
-- **Modify formatting** – Adjust field
-  formatting directly in the dashboard view.
-
-###### Note
-
-Reader customization is supported for tables and pivot tables only. Other
-visual types don't support reader-level customization at this
-time.
+**Note**  
+Reader customization is supported for tables and pivot tables only. Other visual types don't support reader-level customization at this time.
 
 ## Sorting columns
+<a name="customizing-tables-sorting-columns"></a>
 
-To sort data in a table or pivot table, choose the column header that you want
-to sort by. Choose it again to toggle between ascending and descending
-order.
+To sort data in a table or pivot table, choose the column header that you want to sort by. Choose it again to toggle between ascending and descending order.
 
 ## Reordering columns
+<a name="customizing-tables-reordering-columns"></a>
 
-To rearrange columns, choose the column header menu and then choose
-**Move left** or **Move right**.
+To rearrange columns, choose the column header menu and then choose **Move left** or **Move right**.
 
 ## Hiding and showing columns
+<a name="customizing-tables-hiding-showing-columns"></a>
 
-To hide a column, choose the column header menu and then choose
-**Hide**.
+To hide a column, choose the column header menu and then choose **Hide**.
 
-To show hidden columns, choose any column header menu and then choose
-**Show all hidden fields**.
+To show hidden columns, choose any column header menu and then choose **Show all hidden fields**.
 
 ## Freezing columns
+<a name="customizing-tables-freezing-columns"></a>
 
-To freeze a column so that it stays in place while you scroll horizontally,
-choose the column header menu and then choose **Freeze
-column**.
+To freeze a column so that it stays in place while you scroll horizontally, choose the column header menu and then choose **Freeze column**.
 
-This is useful for keeping key identifiers, such as region names or account
-numbers, visible while you review a wide table.
+This is useful for keeping key identifiers, such as region names or account numbers, visible while you review a wide table.
 
 ## Adding and removing fields
+<a name="customizing-tables-adding-removing-fields"></a>
 
-If the author has made additional fields available for customization, you can
-add or remove them from the visual.
+If the author has made additional fields available for customization, you can add or remove them from the visual.
 
-###### To add or remove fields
+**To add or remove fields**
 
-1. On the table or pivot table, choose
-   **Customize**.
-2. In the field list, select the fields you want to add (for example,
-   _City_, _Profit_, or
-   _Quantity_).
-3. To remove a field, clear its selection in the field list.
+1. On the table or pivot table, choose **Customize**.
 
-The available fields are determined by the author. By default, you can add
-back, remove, hide, show, reorder, and change aggregations for the fields that
-are already in the visual. Authors can extend this list to include additional
-fields from the underlying dataset.
+1. In the field list, select the fields you want to add (for example, *City*, *Profit*, or *Quantity*).
+
+1. To remove a field, clear its selection in the field list.
+
+The available fields are determined by the author. By default, you can add back, remove, hide, show, reorder, and change aggregations for the fields that are already in the visual. Authors can extend this list to include additional fields from the underlying dataset.
 
 ## Changing aggregations
+<a name="customizing-tables-changing-aggregations"></a>
 
-After you add or select a measure field, you can change its aggregation type.
-For example, you can change _Order Date_ to aggregate by
-**Quarter**, or change
-_Quantity_ from **Sum** to
-**Average**.
+After you add or select a measure field, you can change its aggregation type. For example, you can change *Order Date* to aggregate by **Quarter**, or change *Quantity* from **Sum** to **Average**.
 
-To change an aggregation, choose the field in the customization panel and then
-select a different aggregation type.
+To change an aggregation, choose the field in the customization panel and then select a different aggregation type.
 
 ## Resetting to the default view
+<a name="customizing-tables-resetting-default-view"></a>
 
-To discard all of your customizations and return to the author's original
-configuration, choose any column header menu and then choose **Reset
-visual**.
+To discard all of your customizations and return to the author's original configuration, choose any column header menu and then choose **Reset visual**.
 
 ## Saving your customizations
+<a name="customizing-tables-saving-customizations"></a>
 
-Your customizations are saved automatically. When you return to the dashboard,
-your personalized view is preserved – you don't need to reapply
-settings each time you open the dashboard.
+Your customizations are saved automatically. When you return to the dashboard, your personalized view is preserved – you don't need to reapply settings each time you open the dashboard.
 
 ## Sharing customized views
+<a name="customizing-tables-sharing-customized-views"></a>
 
-You can share your customized view with other readers in the following
-ways:
-
-- **Share this view** – Generate a
-  link that preserves your current filters, column selections, and
-  ordering. Other users who open the link see the same view. This is
-  useful for ad-hoc collaboration.
-- **Bookmarks** – Save your
-  customizations as a bookmark for recurring use. Bookmarks capture visual
-  customizations and applied filters, so you can return to your preferred
-  view at any time. Bookmarks can be private or shared across
-  teams.
+You can share your customized view with other readers in the following ways:
++ **Share this view** – Generate a link that preserves your current filters, column selections, and ordering. Other users who open the link see the same view. This is useful for ad-hoc collaboration.
++ **Bookmarks** – Save your customizations as a bookmark for recurring use. Bookmarks capture visual customizations and applied filters, so you can return to your preferred view at any time. Bookmarks can be private or shared across teams.
 
 ## Exporting customized views
+<a name="customizing-tables-exporting-customized-views"></a>
 
-You can schedule and export your customized table or pivot table in the
-following formats:
+You can schedule and export your customized table or pivot table in the following formats:
++ PDF
++ CSV
++ Excel
 
-- PDF
-- CSV
-- Excel
-
-This is useful for sharing data with stakeholders who don't have
-Amazon Quick Sight access or for offline analysis.
+This is useful for sharing data with stakeholders who don't have Amazon Quick Sight access or for offline analysis.
 
 ## Embedding behavior
+<a name="customizing-tables-embedding-behavior"></a>
 
-When tables and pivot tables are embedded in an application, customization
-availability and persistence depend on the embedding method.
+When tables and pivot tables are embedded in an application, customization availability and persistence depend on the embedding method.
++ **Visual embedding (registered or anonymous users)** – You can customize the visual. Customizations are not persisted – the original dashboard is displayed when the page reloads.
++ **Dashboard embedding for registered users** – You can customize the visual. If state persistence is enabled through embedding options, your customized view is preserved on reload. If state persistence is not enabled, the original dashboard is displayed.
++ **Dashboard embedding for anonymous users** – You can customize the visual. Customizations are not persisted – the original dashboard is displayed when the page reloads.
 
-- **Visual embedding (registered or anonymous
-  users)** – You can customize the visual.
-  Customizations are not persisted – the original dashboard is
-  displayed when the page reloads.
-- **Dashboard embedding for registered
-  users** – You can customize the visual. If state
-  persistence is enabled through embedding options, your customized view is
-  preserved on reload. If state persistence is not enabled, the original
-  dashboard is displayed.
-- **Dashboard embedding for anonymous
-  users** – You can customize the visual.
-  Customizations are not persisted – the original dashboard is
-  displayed when the page reloads.
-
-The `createSharedView` SDK function supports generating a shared
-view from a customized embedded dashboard.
+The `createSharedView` SDK function supports generating a shared view from a customized embedded dashboard.
 
 ## Limitations
-
-- Reader customization is supported for tables and pivot tables only.
-  Other visual types, such as bar charts, line charts, and KPIs,
-  don't support reader-level customization.
-- The fields available for readers to add or remove are controlled by the
-  dashboard author. If you need access to a field that isn't
-  available, contact the dashboard author.
+<a name="customizing-tables-limitations"></a>
++ Reader customization is supported for tables and pivot tables only. Other visual types, such as bar charts, line charts, and KPIs, don't support reader-level customization.
++ The fields available for readers to add or remove are controlled by the dashboard author. If you need access to a field that isn't available, contact the dashboard author.

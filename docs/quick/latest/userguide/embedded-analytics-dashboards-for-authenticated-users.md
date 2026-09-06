@@ -1,149 +1,105 @@
+
+
 # Embedding Amazon Quick Sight dashboards for registered users
+<a name="embedded-analytics-dashboards-for-authenticated-users"></a>
 
-###### Important
+**Important**  
+Amazon Quick Sight has new API operations for embedding analytics: `GenerateEmbedUrlForAnonymousUser` and `GenerateEmbedUrlForRegisteredUser`.  
+You can still use the `GetDashboardEmbedUrl` and `GetSessionEmbedUrl` API operations to embed dashboards and the Amazon Quick Sight console, but they don't contain the latest embedding capabilities. For more information about embedding using the old API operations, see [Embedding analytics using the GetDashboardEmbedURL and GetSessionEmbedURL API operations](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html).
 
-Amazon Quick Sight has new API operations for embedding analytics:
-`GenerateEmbedUrlForAnonymousUser` and
-`GenerateEmbedUrlForRegisteredUser`.
 
-You can still use the `GetDashboardEmbedUrl` and
-`GetSessionEmbedUrl` API operations to embed dashboards and the
-Amazon Quick Sight console, but they don't contain the latest embedding capabilities.
-For more information about embedding using the old API operations, see [Embedding analytics using the
-GetDashboardEmbedURL and GetSessionEmbedURL
-API operations](../../../quicksight/latest/user/embedded-analytics-deprecated.md "../../../quicksight/latest/user/embedded-analytics-deprecated.md").
+|  | 
+| --- |
+|  Applies to:  Enterprise Edition  | 
 
-|                                           |
-| ----------------------------------------- |
-| **Applies<br>to:*<br>• Enterprise Edition |
 
-|                                               |
-| --------------------------------------------- |
-| Intended audience:<br>Amazon Quick developers |
+|  | 
+| --- |
+|    Intended audience:  Amazon Quick developers  | 
 
-In the following sections, you can find detailed information about how to set up
-embedded Amazon Quick Sight dashboards for registered users of Amazon Quick Sight.
+In the following sections, you can find detailed information about how to set up embedded Amazon Quick Sight dashboards for registered users of Amazon Quick Sight.
 
-###### Topics
-
-- [Step 1: Set up permissions](#embedded-dashboards-for-authenticated-users-step-1 "#embedded-dashboards-for-authenticated-users-step-1")
-- [Step 2: Generate the URL with the authentication code attached](#embedded-dashboards-for-authenticated-users-step-2 "#embedded-dashboards-for-authenticated-users-step-2")
-- [Step 3: Embed the dashboard URL](#embedded-dashboards-for-authenticated-users-step-3 "#embedded-dashboards-for-authenticated-users-step-3")
+**Topics**
++ [Step 1: Set up permissions](#embedded-dashboards-for-authenticated-users-step-1)
++ [Step 2: Generate the URL with the authentication code attached](#embedded-dashboards-for-authenticated-users-step-2)
++ [Step 3: Embed the dashboard URL](#embedded-dashboards-for-authenticated-users-step-3)
 
 ## Step 1: Set up permissions
+<a name="embedded-dashboards-for-authenticated-users-step-1"></a>
 
-In the following section, you can find out how to set up permissions for the
-backend application or web server. This task requires administrative access to
-IAM.
+In the following section, you can find out how to set up permissions for the backend application or web server. This task requires administrative access to IAM.
 
-Each user who accesses a dashboard assumes a role that gives them
-Amazon Quick Sight access and permissions to the dashboard. To make this possible,
-create an IAM role in your AWS account. Associate an IAM policy with the role
-to provide permissions to any user who assumes it. The IAM role needs to provide
-permissions to retrieve embedding URLs for a specific user pool. With the help of
-the wildcard character _\*_, you can grant the permissions to
-generate a URL for all users in a specific namespace, or for a subset of users in
-specific namespaces. For this, you add
-`quicksight:GenerateEmbedUrlForRegisteredUser`.
+Each user who accesses a dashboard assumes a role that gives them Amazon Quick Sight access and permissions to the dashboard. To make this possible, create an IAM role in your AWS account. Associate an IAM policy with the role to provide permissions to any user who assumes it. The IAM role needs to provide permissions to retrieve embedding URLs for a specific user pool. With the help of the wildcard character *\**, you can grant the permissions to generate a URL for all users in a specific namespace, or for a subset of users in specific namespaces. For this, you add `quicksight:GenerateEmbedUrlForRegisteredUser`.
 
-You can create a condition in your IAM policy that limits the domains that
-developers can list in the `AllowedDomains` parameter of a
-`GenerateEmbedUrlForRegisteredUser` API operation. The
-`AllowedDomains` parameter is an optional parameter. It grants you as
-a developer the option to override the static domains that are configured in the
-**Manage Amazon Quick Sight** menu. Instead, you can list up to
-three domains or subdomains that can access the generated URL. This URL is then
-embedded in the website that you create. Only the domains that are listed in the
-parameter can access the embedded visual. Without this condition, you can list any
-domain on the internet in the `AllowedDomains` parameter.
+You can create a condition in your IAM policy that limits the domains that developers can list in the `AllowedDomains` parameter of a `GenerateEmbedUrlForRegisteredUser` API operation. The `AllowedDomains` parameter is an optional parameter. It grants you as a developer the option to override the static domains that are configured in the **Manage Amazon Quick Sight** menu. Instead, you can list up to three domains or subdomains that can access the generated URL. This URL is then embedded in the website that you create. Only the domains that are listed in the parameter can access the embedded visual. Without this condition, you can list any domain on the internet in the `AllowedDomains` parameter. 
 
-To limit the domains that developers can use with this parameter, add an
-`AllowedEmbeddingDomains` condition to your IAM policy. For more
-information about the `AllowedDomains` parameter, see [GenerateEmbedUrlForRegisteredUser](../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md "../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md") in the _Amazon Quick Sight API Reference_.
+To limit the domains that developers can use with this parameter, add an `AllowedEmbeddingDomains` condition to your IAM policy. For more information about the `AllowedDomains` parameter, see [GenerateEmbedUrlForRegisteredUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html) in the *Amazon Quick Sight API Reference*.
 
-###### Security best practice for IAM condition operators
-
-Improperly configured IAM condition operators can allow unauthorized access to your embedded Quick resources through URL variations. When using the `quicksight:AllowedEmbeddingDomains` condition key in your IAM policies, use condition operators that either allow specific domains or deny all domains that are not specifically allowed. For more information about IAM condition operators, see [IAM JSON policy elements: Condition operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md") in the IAM User Guide.
-
-Many different URL variations can point to the same resource. For example, the following URLs all resolve to the same content:
-
-- `https://example.com`
-- `https://example.com/`
-- `https://Example.com`
-  If your policy uses operators that do not account for these URL variations, an attacker can bypass your restrictions by providing equivalent URL variations.
-
+**Security best practice for IAM condition operators**  
+Improperly configured IAM condition operators can allow unauthorized access to your embedded Quick resources through URL variations. When using the `quicksight:AllowedEmbeddingDomains` condition key in your IAM policies, use condition operators that either allow specific domains or deny all domains that are not specifically allowed. For more information about IAM condition operators, see [IAM JSON policy elements: Condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) in the IAM User Guide.  
+Many different URL variations can point to the same resource. For example, the following URLs all resolve to the same content:  
+`https://example.com`
+`https://example.com/`
+`https://Example.com`
+If your policy uses operators that do not account for these URL variations, an attacker can bypass your restrictions by providing equivalent URL variations.  
 You must validate that your IAM policy uses appropriate condition operators to prevent bypass vulnerabilities and ensure that only your intended domains can access your embedded resources.
 
-The following sample policy provides these
-permissions.
+The following sample policy provides these permissions.
 
-Additionally, if you are creating first-time users who will be Amazon Quick Sight
-readers, make sure to add the `quicksight:RegisterUser` permission in the
-policy.
+Additionally, if you are creating first-time users who will be Amazon Quick Sight readers, make sure to add the `quicksight:RegisterUser` permission in the policy.
 
-The following sample policy provides permission to retrieve an embedding URL for
-first-time users who are to be Amazon Quick Sight readers.
+The following sample policy provides permission to retrieve an embedding URL for first-time users who are to be Amazon Quick Sight readers.
 
-Finally, your application's IAM identity must have a trust policy
-associated with it to allow access to the role that you just created. This means
-that when a user accesses your application, your application can assume the role on
-the user's behalf and provision the user in Amazon Quick Sight. The following
-example shows a sample trust policy.
+Finally, your application's IAM identity must have a trust policy associated with it to allow access to the role that you just created. This means that when a user accesses your application, your application can assume the role on the user's behalf and provision the user in Amazon Quick Sight. The following example shows a sample trust policy. 
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowLambdaFunctionsToAssumeThisRole",
- "Effect": "Allow",
- "Principal": {
- "Service": "lambda.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- },
- {
- "Sid": "AllowEC2InstancesToAssumeThisRole",
- "Effect": "Allow",
- "Principal": {
- "Service": "ec2.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "AllowLambdaFunctionsToAssumeThisRole",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "lambda.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+        },
+        {
+            "Sid": "AllowEC2InstancesToAssumeThisRole",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "ec2.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
 ```
 
-For more information regarding trust policies for OpenID Connect or SAML
-authentication, see the following sections of the _IAM User
-Guide:_
+------
 
-- [Creating a
-  Role for Web Identity or OpenID Connect Federation
-  (Console)](../../../IAM/latest/UserGuide/id_roles_create_for-idp_oidc.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp_oidc.md")
-- [Creating a
-  Role for SAML 2.0 Federation (Console)](../../../IAM/latest/UserGuide/id_roles_create_for-idp_saml.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp_saml.md")
+For more information regarding trust policies for OpenID Connect or SAML authentication, see the following sections of the *IAM User Guide: *
++ [Creating a Role for Web Identity or OpenID Connect Federation (Console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html)
++ [Creating a Role for SAML 2.0 Federation (Console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html)
 
 ## Step 2: Generate the URL with the authentication code attached
+<a name="embedded-dashboards-for-authenticated-users-step-2"></a>
 
-In the following section, you can find out how to authenticate your user and get
-the embeddable dashboard URL on your application server. If you plan to embed
-dashboards for IAM or Amazon Quick Sight identity types, share the dashboard with
-the users.
+In the following section, you can find out how to authenticate your user and get the embeddable dashboard URL on your application server. If you plan to embed dashboards for IAM or Amazon Quick Sight identity types, share the dashboard with the users.
 
-When a user accesses your app, the app assumes the IAM role on the user's
-behalf. Then it adds the user to Amazon Quick Sight, if that user doesn't
-already exist. Next, it passes an identifier as the unique role session ID.
+When a user accesses your app, the app assumes the IAM role on the user's behalf. Then it adds the user to Amazon Quick Sight, if that user doesn't already exist. Next, it passes an identifier as the unique role session ID. 
 
-Performing these steps ensures that each viewer of the dashboard is uniquely
-provisioned in Amazon Quick Sight. It also enforces per-user settings, such as the
-row-level security and dynamic defaults for parameters.
+Performing these steps ensures that each viewer of the dashboard is uniquely provisioned in Amazon Quick Sight. It also enforces per-user settings, such as the row-level security and dynamic defaults for parameters.
 
-The following examples perform the IAM authentication on the user's behalf.
-This code runs on your app server.
+The following examples perform the IAM authentication on the user's behalf. This code runs on your app server.
+
+### Java
+<a name="embedded-dashboards-for-authenticated-users-java"></a>
 
 ```
 import com.amazonaws.auth.AWSCredentials;
@@ -202,6 +158,9 @@ import com.amazonaws.auth.AWSCredentials;
         }
     }
 ```
+
+### JavaScript
+<a name="embedded-dashboards-for-authenticated-users-js"></a>
 
 ```
 global.fetch = require('node-fetch');
@@ -275,6 +234,9 @@ global.fetch = require('node-fetch');
     }
 ```
 
+### Python3
+<a name="embedded-dashboards-for-authenticated-users-py"></a>
+
 ```
 import json
 import boto3
@@ -282,7 +244,7 @@ from botocore.exceptions import ClientError
 
 sts = boto3.client('sts')
 
-# Function to generate embedded URL
+# Function to generate embedded URL  
 # accountId: AWS account ID
 # dashboardId: Dashboard ID to embed
 # userArn: arn of registered user
@@ -297,7 +259,7 @@ def getEmbeddingURL(accountId, dashboardId, userArn, allowedDomains, roleArn, se
         )
     except ClientError as e:
         return "Error assuming role: " + str(e)
-    else:
+    else: 
         assumedRoleSession = boto3.Session(
             aws_access_key_id = assumedRole['Credentials']['AccessKeyId'],
             aws_secret_access_key = assumedRole['Credentials']['SecretAccessKey'],
@@ -316,7 +278,7 @@ def getEmbeddingURL(accountId, dashboardId, userArn, allowedDomains, roleArn, se
                 AllowedDomains = allowedDomains,
                 SessionLifetimeInMinutes = 600
             )
-
+            
             return {
                 'statusCode': 200,
                 'headers': {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Content-Type"},
@@ -327,11 +289,12 @@ def getEmbeddingURL(accountId, dashboardId, userArn, allowedDomains, roleArn, se
             return "Error generating embedding url: " + str(e)
 ```
 
-The following example shows the JavaScript (Node.js) that you can use on
-the app server to generate the URL for the embedded dashboard. You can use
-this URL in your website or app to display the dashboard.
+### Node.js
+<a name="embedded-dashboards-for-authenticated-users-node"></a>
 
-###### Example
+The following example shows the JavaScript (Node.js) that you can use on the app server to generate the URL for the embedded dashboard. You can use this URL in your website or app to display the dashboard. 
+
+**Example**  
 
 ```
 const AWS = require('aws-sdk');
@@ -344,7 +307,7 @@ const AWS = require('aws-sdk');
 
     quicksightClient.generateEmbedUrlForRegisteredUser({
         'AwsAccountId': '111122223333',
-        'ExperienceConfiguration': {
+        'ExperienceConfiguration': { 
             'Dashboard': {
                 'InitialDashboardId': '1c1fe111-e2d2-3b30-44ef-a0e111111cde'
             }
@@ -360,23 +323,24 @@ const AWS = require('aws-sdk');
     });
 ```
 
-###### Example
+**Example**  
 
 ```
 //The URL returned is over 900 characters. For this example, we've shortened the string for
     //readability and added ellipsis to indicate that it's incomplete.
-        {
+        { 
             Status: 200,
-            EmbedUrl: 'https://`quicksightdomain`/embed/12345/dashboards/67890...'
-            RequestId: '7bee030e-f191-45c4-97fe-d9faf0e03713'
+            EmbedUrl: 'https://{{quicksightdomain}}/embed/12345/dashboards/67890...'
+            RequestId: '7bee030e-f191-45c4-97fe-d9faf0e03713' 
         }
 ```
 
-The following example shows the .NET/C# code that you can use on the app
-server to generate the URL for the embedded dashboard. You can use this URL
-in your website or app to display the dashboard.
+### .NET/C\#
+<a name="embedded-dashboards-for-authenticated-users-cs"></a>
 
-###### Example
+The following example shows the .NET/C\# code that you can use on the app server to generate the URL for the embedded dashboard. You can use this URL in your website or app to display the dashboard. 
+
+**Example**  
 
 ```
 using System;
@@ -406,7 +370,7 @@ using System;
                         {
                             Dashboard = registeredUserDashboardEmbeddingConfiguration
                         };
-
+                        
                     Console.WriteLine(
                         quicksightClient.GenerateEmbedUrlForRegisteredUserAsync(new GenerateEmbedUrlForRegisteredUserRequest
                         {
@@ -425,168 +389,115 @@ using System;
     }
 ```
 
-To assume the role, choose one of the following AWS Security Token Service (AWS STS) API
-operations:
+### AWS CLI
+<a name="embedded-dashboards-for-authenticated-users-cli"></a>
 
-- [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md")
-  – Use this operation when you're using an IAM identity to
-  assume the role.
-- [AssumeRoleWithWebIdentity](../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md "../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md") – Use this operation
-  when you're using a web identity provider to authenticate your user.
-- [AssumeRoleWithSaml](../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md "../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md") – Use this operation when
-  you're using SAML to authenticate your users.
-  The following example shows the CLI command to set the IAM role. The
-  role needs to have permissions enabled for
-  `quicksight:GenerateEmbedUrlForRegisteredUser`. If you are
-  taking a just-in-time approach to add users when they first open a
-  dashboard, the role also needs permissions enabled for
-  `quicksight:RegisterUser`.
+To assume the role, choose one of the following AWS Security Token Service (AWS STS) API operations:
++ [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) – Use this operation when you're using an IAM identity to assume the role.
++ [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html) – Use this operation when you're using a web identity provider to authenticate your user. 
++ [AssumeRoleWithSaml](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html) – Use this operation when you're using SAML to authenticate your users.
+
+The following example shows the CLI command to set the IAM role. The role needs to have permissions enabled for `quicksight:GenerateEmbedUrlForRegisteredUser`. If you are taking a just-in-time approach to add users when they first open a dashboard, the role also needs permissions enabled for `quicksight:RegisterUser`.
 
 ```
 aws sts assume-role \
-        --role-arn "`arn:aws:iam::111122223333:role/embedding_quicksight_dashboard_role`" \
-        --role-session-name `john.doe@example.com`
+        --role-arn "{{arn:aws:iam::111122223333:role/embedding_quicksight_dashboard_role}}" \
+        --role-session-name {{john.doe@example.com}}
 ```
 
-The `assume-role` operation returns three output parameters:
-the access key, the secret key, and the session token.
+The `assume-role` operation returns three output parameters: the access key, the secret key, and the session token. 
 
-###### Note
+**Note**  
+If you get an `ExpiredToken` error when calling the `AssumeRole` operation, this is probably because the previous `SESSION TOKEN` is still in the environment variables. Clear this by setting the following variables:  
+*AWS\_ACCESS\_KEY\_ID* 
+*AWS\_SECRET\_ACCESS\_KEY* 
+*AWS\_SESSION\_TOKEN* 
 
-If you get an `ExpiredToken` error when calling the
-`AssumeRole` operation, this is probably because the
-previous `SESSION TOKEN` is still in the environment
-variables. Clear this by setting the following variables:
-
-- _AWS\_ACCESS\_KEY\_ID_
-- _AWS\_SECRET\_ACCESS\_KEY_
-- _AWS\_SESSION\_TOKEN_
-  The following example shows how to set these three parameters in the CLI.
-  If you're using a Microsoft Windows machine, use `set` instead of
-  `export`.
+The following example shows how to set these three parameters in the CLI. If you're using a Microsoft Windows machine, use `set` instead of `export`.
 
 ```
-export AWS_ACCESS_KEY_ID     = "`access_key_from_assume_role`"
-    export AWS_SECRET_ACCESS_KEY = "`secret_key_from_assume_role`"
-    export AWS_SESSION_TOKEN     = "`session_token_from_assume_role`"
+export AWS_ACCESS_KEY_ID     = "{{access_key_from_assume_role}}"
+    export AWS_SECRET_ACCESS_KEY = "{{secret_key_from_assume_role}}"
+    export AWS_SESSION_TOKEN     = "{{session_token_from_assume_role}}"
 ```
 
-Running these commands sets the role session ID of the user visiting your
-website to
-`embedding_quicksight_dashboard_role/john.doe@example.com`.
-The role session ID is made up of the role name from `role-arn`
-and the `role-session-name` value. Using the unique role session
-ID for each user ensures that appropriate permissions are set for each user.
-It also prevents any throttling of user access. _Throttling_ is a security feature that prevents the same user
-from accessing Amazon Quick Sight from multiple locations.
+Running these commands sets the role session ID of the user visiting your website to `embedding_quicksight_dashboard_role/john.doe@example.com`. The role session ID is made up of the role name from `role-arn` and the `role-session-name` value. Using the unique role session ID for each user ensures that appropriate permissions are set for each user. It also prevents any throttling of user access. *Throttling* is a security feature that prevents the same user from accessing Amazon Quick Sight from multiple locations. 
 
-The role session ID also becomes the user name in Amazon Quick Sight. You
-can use this pattern to provision your users in Amazon Quick Sight ahead of
-time, or to provision them the first time they access the dashboard.
+The role session ID also becomes the user name in Amazon Quick Sight. You can use this pattern to provision your users in Amazon Quick Sight ahead of time, or to provision them the first time they access the dashboard. 
 
-The following example shows the CLI command that you can use to provision
-a user. For more information about [RegisterUser](../../../quicksight/latest/APIReference/API_RegisterUser.md "../../../quicksight/latest/APIReference/API_RegisterUser.md"), [DescribeUser](../../../quicksight/latest/APIReference/API_DescribeUser.md "../../../quicksight/latest/APIReference/API_DescribeUser.md"), and other Amazon Quick Sight API operations, see
-the [Amazon Quick Sight API Reference](../../../quicksight/latest/APIReference/Welcome.md "../../../quicksight/latest/APIReference/Welcome.md").
+The following example shows the CLI command that you can use to provision a user. For more information about [RegisterUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html), [DescribeUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html), and other Amazon Quick Sight API operations, see the [Amazon Quick Sight API Reference](https://docs.aws.amazon.com/quicksight/latest/APIReference/Welcome.html).
 
 ```
 aws quicksight register-user \
-        --aws-account-id `111122223333` \
-        --namespace `default` \
-        --identity-type `IAM` \
-        --iam-arn "`arn:aws:iam::111122223333:role/embedding_quicksight_dashboard_role`" \
-        --user-role `READER` \
-        --user-name `jhnd` \
-        --session-name "`john.doe@example.com`" \
-        --email `john.doe@example.com` \
-        --region `us-east-1` \
-        --custom-permissions-name `TeamA1`
+        --aws-account-id {{111122223333}} \
+        --namespace {{default}} \
+        --identity-type {{IAM}} \
+        --iam-arn "{{arn:aws:iam::111122223333:role/embedding_quicksight_dashboard_role}}" \
+        --user-role {{READER}} \
+        --user-name {{jhnd}} \
+        --session-name "{{john.doe@example.com}}" \
+        --email {{john.doe@example.com}} \
+        --region {{us-east-1}} \
+        --custom-permissions-name {{TeamA1}}
 ```
 
-If your user is authenticated through Microsoft AD, you don't need to use
-`RegisterUser` to set them up. Instead, they should be
-automatically subscribed the first time they access Amazon Quick Sight. For
-Microsoft AD users, you can use `DescribeUser` to get the user
-ARN.
+If your user is authenticated through Microsoft AD, you don't need to use `RegisterUser` to set them up. Instead, they should be automatically subscribed the first time they access Amazon Quick Sight. For Microsoft AD users, you can use `DescribeUser` to get the user ARN.
 
-The first time a user accesses Amazon Quick Sight, you can also add this
-user to the group that the dashboard is shared with. The following example
-shows the CLI command to add a user to a group.
+The first time a user accesses Amazon Quick Sight, you can also add this user to the group that the dashboard is shared with. The following example shows the CLI command to add a user to a group.
 
 ```
 aws quicksight create-group-membership \
-    --aws-account-id=`111122223333` \
+    --aws-account-id={{111122223333}} \
     --namespace=default \
-    --group-name=`financeusers` \
-    --member-name="`embedding_quicksight_dashboard_role/john.doe@example.com`"
+    --group-name={{financeusers}} \
+    --member-name="{{embedding_quicksight_dashboard_role/john.doe@example.com}}"
 ```
 
-You now have a user of your app who is also a user of Amazon Quick Sight,
-and who has access to the dashboard.
+You now have a user of your app who is also a user of Amazon Quick Sight, and who has access to the dashboard. 
 
-Finally, to get a signed URL for the dashboard, call
-`generate-embed-url-for-registered-user` from the app server.
-This returns the embeddable dashboard URL. The following example shows how
-to generate the URL for an embedded dashboard using a server-side call for
-users authenticated through AWS Managed Microsoft AD or single sign-on (IAM Identity Center).
+Finally, to get a signed URL for the dashboard, call `generate-embed-url-for-registered-user` from the app server. This returns the embeddable dashboard URL. The following example shows how to generate the URL for an embedded dashboard using a server-side call for users authenticated through AWS Managed Microsoft AD or single sign-on (IAM Identity Center).
 
 ```
 aws quicksight generate-embed-url-for-registered-user \
-        --aws-account-id `111122223333` \
-        --session-lifetime-in-minutes `600` \
-        --user-arn `arn:aws:quicksight:us-east-1:111122223333:user/default/embedding_quicksight_visual_role/embeddingsession` \
-        --allowed-domains '["`domain1`","`domain2`"]' \
-        --experience-configuration Dashboard={InitialDashboardId=`1a1ac2b2-3fc3-4b44-5e5d-c6db6778df89`}
-
+        --aws-account-id {{111122223333}} \
+        --session-lifetime-in-minutes {{600}} \
+        --user-arn {{arn:aws:quicksight:us-east-1:111122223333:user/default/embedding_quicksight_visual_role/embeddingsession}} \
+        --allowed-domains '["{{domain1}}","{{domain2}}"]' \
+        --experience-configuration Dashboard={InitialDashboardId={{1a1ac2b2-3fc3-4b44-5e5d-c6db6778df89}}}
 ```
 
-For more information about using this operation, see [GenerateEmbedUrlForRegisteredUser](../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md "../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md"). You can
-use this and other API operations in your own code.
+For more information about using this operation, see [GenerateEmbedUrlForRegisteredUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html). You can use this and other API operations in your own code.
 
 ## Step 3: Embed the dashboard URL
+<a name="embedded-dashboards-for-authenticated-users-step-3"></a>
 
-In the following section, you can find out how you can use the [Amazon Quick Sight Embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk "https://www.npmjs.com/package/amazon-quicksight-embedding-sdk") (JavaScript) to embed the dashboard URL
-from step 3 in your website or application page. With the SDK, you can do the
-following:
+In the following section, you can find out how you can use the [Amazon Quick Sight Embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk) (JavaScript) to embed the dashboard URL from step 3 in your website or application page. With the SDK, you can do the following: 
++ Place the dashboard on an HTML page.
++ Pass parameters into the dashboard.
++ Handle error states with messages that are customized to your application.
 
-- Place the dashboard on an HTML page.
-- Pass parameters into the dashboard.
-- Handle error states with messages that are customized to your
-  application.
+Call the `GenerateEmbedUrlForRegisteredUser` API operation to generate the URL that you can embed in your app. This URL is valid for 5 minutes, and the resulting session is valid for up to 10 hours. The API operation provides the URL with an `auth_code` that enables a single-sign on session. 
 
-Call the `GenerateEmbedUrlForRegisteredUser` API operation to generate
-the URL that you can embed in your app. This URL is valid for 5 minutes, and the
-resulting session is valid for up to 10 hours. The API operation provides the URL
-with an `auth_code` that enables a single-sign on session.
-
-The following shows an example response from
-`generate-embed-url-for-registered-user`.
+The following shows an example response from `generate-embed-url-for-registered-user`.
 
 ```
 //The URL returned is over 900 characters. For this example, we've shortened the string for
 //readability and added ellipsis to indicate that it's incomplete.
     {
         "Status": "200",
-        "EmbedUrl": "https://`quicksightdomain`/embed/12345/dashboards/67890..",
+        "EmbedUrl": "https://{{quicksightdomain}}/embed/12345/dashboards/67890..",
         "RequestId": "7bee030e-f191-45c4-97fe-d9faf0e03713"
     }
 ```
 
-Embed this dashboard in your webpage by using the [Amazon Quick Sight Embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk "https://www.npmjs.com/package/amazon-quicksight-embedding-sdk") or by adding this URL into an iframe.
-If you set a fixed height and width number (in pixels), Amazon Quick Sight uses those
-and doesn't change your visual as your window resizes. If you set a relative
-percent height and width, Amazon Quick Sight provides a responsive layout that is
-modified as your window size changes. By using the Amazon Quick Sight Embedding SDK,
-you can also control parameters within the dashboard and receive callbacks in terms
-of page load completion and errors.
+Embed this dashboard in your webpage by using the [Amazon Quick Sight Embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk) or by adding this URL into an iframe. If you set a fixed height and width number (in pixels), Amazon Quick Sight uses those and doesn't change your visual as your window resizes. If you set a relative percent height and width, Amazon Quick Sight provides a responsive layout that is modified as your window size changes. By using the Amazon Quick Sight Embedding SDK, you can also control parameters within the dashboard and receive callbacks in terms of page load completion and errors. 
 
-The domain that is going to host embedded dashboards must be on the _allow list_, the list of approved domains for your
-Quick subscription. This requirement protects your data by keeping
-unapproved domains from hosting embedded dashboards. For more information about
-adding domains for embedded dashboards, see [Allow
-listing domains at runtime with the Amazon Quick Sight API](../../../quicksight/latest/user/embedding-run-time.md "../../../quicksight/latest/user/embedding-run-time.md").
+The domain that is going to host embedded dashboards must be on the *allow list*, the list of approved domains for your Quick subscription. This requirement protects your data by keeping unapproved domains from hosting embedded dashboards. For more information about adding domains for embedded dashboards, see [Allow listing domains at runtime with the Amazon Quick Sight API](https://docs.aws.amazon.com/quicksight/latest/user/embedding-run-time.html).
 
-The following example shows how to use the generated URL. This code is generated
-on your app server.
+The following example shows how to use the generated URL. This code is generated on your app server.
+
+### SDK 2.0
+<a name="embedded-dashboards-for-authenticated-users-sdkv2"></a>
 
 ```
 <!DOCTYPE html>
@@ -645,7 +556,7 @@ on your app server.
                     locale: "en-US",
                     sheetOptions: {
                         initialSheetId: '<YOUR_SHEETID>',
-                        singleSheet: false,
+                        singleSheet: false,                        
                         emitSizeChangedEventOnSheetChange: false,
                     },
                     toolbarOptions: {
@@ -717,6 +628,9 @@ on your app server.
 </html>
 ```
 
+### SDK 1.0
+<a name="embedded-dashboards-for-authenticated-users-sdkv1"></a>
+
 ```
 <!DOCTYPE html>
 <html>
@@ -775,16 +689,11 @@ on your app server.
 </html>
 ```
 
-For this example to work, make sure to use the Amazon Quick Sight Embedding SDK to
-load the embedded dashboard on your website using JavaScript. To get your copy, do
-one of the following:
+For this example to work, make sure to use the Amazon Quick Sight Embedding SDK to load the embedded dashboard on your website using JavaScript. To get your copy, do one of the following:
++ Download the [Amazon Quick Sight Embedding SDK](https://github.com/awslabs/amazon-quicksight-embedding-sdk#step-3-create-the-quicksight-session-object) from GitHub. This repository is maintained by a group of Amazon Quick Sight developers.
++ Download the latest embedding SDK version from [https://www.npmjs.com/package/amazon-quicksight-embedding-sdk](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk).
++ If you use `npm` for JavaScript dependencies, download and install it by running the following command.
 
-- Download the [Amazon Quick Sight Embedding SDK](https://github.com/awslabs/amazon-quicksight-embedding-sdk#step-3-create-the-quicksight-session-object "https://github.com/awslabs/amazon-quicksight-embedding-sdk#step-3-create-the-quicksight-session-object") from GitHub. This repository is
-  maintained by a group of Amazon Quick Sight developers.
-- Download the latest embedding SDK version from [https://www.npmjs.com/package/amazon-quicksight-embedding-sdk](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk "https://www.npmjs.com/package/amazon-quicksight-embedding-sdk").
-- If you use `npm` for JavaScript dependencies, download and
-  install it by running the following command.
-
-```
-npm install amazon-quicksight-embedding-sdk
-```
+  ```
+  npm install amazon-quicksight-embedding-sdk
+  ```

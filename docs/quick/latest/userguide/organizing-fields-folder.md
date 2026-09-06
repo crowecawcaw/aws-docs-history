@@ -1,157 +1,136 @@
+
+
 # Organizing fields into folders in Amazon QuickSight
+<a name="organizing-fields-folder"></a>
 
-When prepping your data in Quick Sight, you can use folders to organize your fields
-for multiple authors across your enterprise. Arranging fields into folders and
-subfolders can make it easier for authors to find and understand fields in your
-dataset.
+When prepping your data in Quick Sight, you can use folders to organize your fields for multiple authors across your enterprise. Arranging fields into folders and subfolders can make it easier for authors to find and understand fields in your dataset.
 
-You can create folders while preparing your dataset, or when editing a dataset. For
-more information about creating a new dataset and preparing it, see [Creating datasets](creating-data-sets.md "creating-data-sets.md"). For more
-information about opening an existing dataset for data preparation, see [Editing datasets](edit-a-data-set.md "edit-a-data-set.md").
+You can create folders while preparing your dataset, or when editing a dataset. For more information about creating a new dataset and preparing it, see [Creating datasets](creating-data-sets.md). For more information about opening an existing dataset for data preparation, see [Editing datasets](edit-a-data-set.md).
 
-While performing an analysis, authors can expand and collapse folders, search for
-specific fields within folders, and see your descriptions of folders on the folder menu.
-Folders appear at the top of the **Fields** pane in
-alphabetical order.
+While performing an analysis, authors can expand and collapse folders, search for specific fields within folders, and see your descriptions of folders on the folder menu. Folders appear at the top of the **Fields** pane in alphabetical order.
 
 ## Creating a folder
+<a name="organizing-fields-folder-create"></a>
 
-Use the following procedure to create a new folder in the
-**Fields** pane.
+Use the following procedure to create a new folder in the **Fields** pane.
 
-###### To create a new folder
+**To create a new folder**
 
-1. On the data preparation page, in the **Fields** pane,
-   select the three-dot icon, and choose **Add to folder**.
+1. On the data preparation page, in the **Fields** pane, select the three-dot icon, and choose **Add to folder**. 
 
-To select more than one field at a time, press the Ctrl key while you
-select (Command key on Mac). 2. On the **Add to folder** page that appears, choose
-**Create a new folder** and enter a name for the new
-folder. 3. Choose **Apply**.
+   To select more than one field at a time, press the Ctrl key while you select (Command key on Mac).
 
-The folder appears at the top of the **Fields** pane with the
-fields that you chose inside it. Fields inside folders are arranged in alphabetical
-order.
+1. On the **Add to folder** page that appears, choose **Create a new folder** and enter a name for the new folder.
+
+1. Choose **Apply**.
+
+The folder appears at the top of the **Fields** pane with the fields that you chose inside it. Fields inside folders are arranged in alphabetical order.
 
 ## Creating a subfolder
+<a name="organizing-fields-folder-subfolder"></a>
 
-To further organize your data fields in the **Fields** pane, you
-can create subfolders within parent folders.
+To further organize your data fields in the **Fields** pane, you can create subfolders within parent folders. 
 
-###### To create a subfolder
+**To create a subfolder**
 
-1. On the data preparation page, in the **Fields** pane,
-   select the field menu for a field already in a folder and choose
-   **Move to folder**.
-2. On the **Move to folder** page that appears, choose
-   **Create a new folder** and enter a name for the new
-   folder.
-3. Choose **Apply**.
+1. On the data preparation page, in the **Fields** pane, select the field menu for a field already in a folder and choose **Move to folder**.
 
-The subfolder appears within the parent folder at the top of the list of fields.
-Subfolders are arranged in alphabetical order.
+1. On the **Move to folder** page that appears, choose **Create a new folder** and enter a name for the new folder.
+
+1. Choose **Apply**.
+
+The subfolder appears within the parent folder at the top of the list of fields. Subfolders are arranged in alphabetical order.
 
 ## Adding fields to an existing Folder
+<a name="organizing-fields-folder-add"></a>
 
-Use the following procedure to add fields to an existing folder in the
-**Fields** pane.
+Use the following procedure to add fields to an existing folder in the **Fields** pane.
 
-###### To add one or more fields to a folder
+**To add one or more fields to a folder**
 
-1. On the data preparation page, in the **Fields** pane,
-   select the fields that you want to add to a folder.
+1. On the data preparation page, in the **Fields** pane, select the fields that you want to add to a folder. 
 
-To select more than one field at a time, press the Ctrl key while you
-select (Command key on Mac). 2. On the field menu, choose **Add to folder**. 3. On the **Add to folder** page that appears,
-choose a folder for **Existing folder**. 4. Choose **Apply**.
+   To select more than one field at a time, press the Ctrl key while you select (Command key on Mac).
+
+1. On the field menu, choose **Add to folder**.
+
+1. On the **Add to folder** page that appears, choose a folder for **Existing folder**.
+
+1. Choose **Apply**.
 
 The field or fields are added to the folder.
 
 ## Moving fields between folders
+<a name="organizing-fields-folder-move"></a>
 
-Use the following procedure to move fields between folders in the
-**Fields** pane.
+Use the following procedure to move fields between folders in the **Fields** pane.
 
-###### To move fields between folders
+**To move fields between folders**
 
-1. On the data preparation page, in the **Fields** pane,
-   select the fields that you want to move to another folder.
+1. On the data preparation page, in the **Fields** pane, select the fields that you want to move to another folder. 
 
-To select more than one field at a time, press the Ctrl key while you
-select (Command key on Mac). 2. On the field menu, choose **Move to folder**. 3. On the **Move to folder** page that appears, choose a
-folder for **Existing folder**. 4. Choose **Apply**.
+   To select more than one field at a time, press the Ctrl key while you select (Command key on Mac).
+
+1. On the field menu, choose **Move to folder**.
+
+1. On the **Move to folder** page that appears, choose a folder for **Existing folder**.
+
+1. Choose **Apply**.
 
 ## Removing fields from a folder
+<a name="organizing-fields-folder-remove"></a>
 
-Use the following procedure to remove fields from a folder in the
-**Fields** pane. Removing a field from a folder doesn't
-delete the field.
+Use the following procedure to remove fields from a folder in the **Fields** pane. Removing a field from a folder doesn't delete the field.
 
-###### To remove fields from a folder
+**To remove fields from a folder**
 
-1. On the data preparation page, in the **Fields** pane,
-   select the fields that you want to remove.
-2. On the field menu, choose **Remove from folder**.
+1. On the data preparation page, in the **Fields** pane, select the fields that you want to remove.
 
-The fields that you selected are removed from the folder and placed back in the
-list of fields in alphabetical order.
+1. On the field menu, choose **Remove from folder**.
+
+The fields that you selected are removed from the folder and placed back in the list of fields in alphabetical order.
 
 ## Editing a folder name and adding a folder description
+<a name="organizing-fields-folder-edit"></a>
 
-You can edit the name or add a description of a folder to provide context about
-the data fields inside it. The folder name appears in the
-**Fields** pane. While performing an analysis, authors can read
-your folder's description when they select the folder menu in the
-**Fields** pane.
+You can edit the name or add a description of a folder to provide context about the data fields inside it. The folder name appears in the **Fields** pane. While performing an analysis, authors can read your folder's description when they select the folder menu in the **Fields** pane.
 
-###### To edit a folder name or edit or add a description for a folder
+**To edit a folder name or edit or add a description for a folder**
 
-1. On the data preparation page, in the **Fields** pane,
-   select the folder menu for the folder that you want to edit and choose
-   **Edit name & description**.
-2. On the **Edit folder** page that appears, do the
-   following:
+1. On the data preparation page, in the **Fields** pane, select the folder menu for the folder that you want to edit and choose **Edit name & description**.
 
-   - For **Name**, enter a name for the folder.
-   - For **Description**, enter a description of the
-     folder.
+1. On the **Edit folder** page that appears, do the following:
+   + For **Name**, enter a name for the folder.
+   + For **Description**, enter a description of the folder.
 
-3. Choose **Apply**.
+1. Choose **Apply**.
 
 ## Moving folders
+<a name="organizing-fields-folder-move-folder"></a>
 
-You can move folders and subfolders to new or existing folders in the
-**Fields** pane.
+You can move folders and subfolders to new or existing folders in the **Fields** pane. 
 
-###### To move a folder
+**To move a folder**
 
-1. On the data preparation page, in the **Fields** pane,
-   choose **Move folder** on the folder menu.
-2. On the **Move folder** page that appears, do one of the
-   following:
+1. On the data preparation page, in the **Fields** pane, choose **Move folder** on the folder menu.
 
-   - Choose **Create a new folder** and enter a name
-     for the folder.
-   - For **Existing folder,** choose a folder.
+1. On the **Move folder** page that appears, do one of the following: 
+   + Choose **Create a new folder** and enter a name for the folder.
+   + For **Existing folder, **choose a folder.
 
-3. Choose **Apply**.
+1. Choose **Apply**.
 
-The folder appears within the folder that you chose in the
-**Fields** pane.
+The folder appears within the folder that you chose in the **Fields** pane.
 
 ## Removing folders from the fields pane
+<a name="organizing-fields-folder-delete"></a>
 
-Use the following procedure to remove a folder from the
-**Fields** pane.
+Use the following procedure to remove a folder from the **Fields** pane.
 
-###### To remove a folder
+**To remove a folder**
 
-1. On the data preparation page, in the **Fields** pane,
-   choose **Remove folder** on the folder menu.
-2. On the **Remove folder?** page that appears, choose
-   **Remove**.
+1. On the data preparation page, in the **Fields** pane, choose **Remove folder** on the folder menu.
 
-The folder is removed from the **Fields** pane. Any fields that
-were in the folder are placed back in the list of fields in alphabetical order.
-Removing folders doesn't exclude fields from view or delete fields from the
-dataset.
+1. On the **Remove folder?** page that appears, choose **Remove**.
+
+The folder is removed from the **Fields** pane. Any fields that were in the folder are placed back in the list of fields in alphabetical order. Removing folders doesn't exclude fields from view or delete fields from the dataset.

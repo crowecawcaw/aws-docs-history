@@ -1,16 +1,19 @@
-# Ln
 
-`ln` returns the natural logarithm of a given expression.
+
+# Ln
+<a name="ln-function"></a>
+
+`ln` returns the natural logarithm of a given expression. 
 
 ## Syntax
+<a name="ln-function-syntax"></a>
 
 ```
-ln(`expression`)
+ln({{expression}})
 ```
 
 ## Arguments
+<a name="ln-function-arguments"></a>
 
-_expression_
-
-The expression must be numeric. It can be a field name, a literal
-value, or another function.
+ *expression*   
+The expression must be numeric. It can be a field name, a literal value, or another function. 

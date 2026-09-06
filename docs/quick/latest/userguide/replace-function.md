@@ -1,39 +1,36 @@
-# Replace
 
-`replace` replaces part of a string with another string that you
-specify.
+
+# Replace
+<a name="replace-function"></a>
+
+`replace` replaces part of a string with another string that you specify. 
 
 ## Syntax
+<a name="replace-function-syntax"></a>
 
 ```
-replace(`expression`, `substring`, `replacement`)
+replace({{expression}}, {{substring}}, {{replacement}})
 ```
 
 ## Arguments
+<a name="replace-function-arguments"></a>
 
-_expression_
+ *expression*   
+The expression must be a string. It can be the name of a field that uses the string data type, a literal value like **'12 Main Street'**, or a call to another function that outputs a string.
 
-The expression must be a string. It can be the name of a field
-that uses the string data type, a literal value like `'12
- Main Street'`, or a call to another function that
-outputs a string.
+ *substring*   
+The set of characters in *expression* that you want to replace. The substring can occur one or more times in *expression*.
 
-_substring_
-
-The set of characters in _expression_ that you
-want to replace. The substring can occur one or more times in
-_expression_.
-
-_replacement_
-
-The string you want to have substituted for
-_substring_.
+ *replacement*   
+The string you want to have substituted for *substring*.
 
 ## Return type
+<a name="replace-function-return-type"></a>
 
 String
 
 ## Example
+<a name="replace-function-example"></a>
 
 The following example replaces the substring 'and' with 'or'.
 

@@ -1,49 +1,49 @@
+
+
 # Troubleshooting apps in Quick
+<a name="apps-troubleshooting"></a>
 
 This section describes common issues and how to resolve them.
 
 ## Recovering from content policy violations
+<a name="apps-ts-content-policy"></a>
 
-If you receive the error "This request could not be processed due to content policy
-violations":
+If you receive the error "This request could not be processed due to content policy violations":
 
 1. Close the apps in Quick editor.
-2. Wait 15 to 20 minutes for the session to reset.
-3. Reopen the app.
-4. Try a simpler, more focused prompt.
 
-All prompts in the same session after a violation continue to fail until the session
-resets.
+1. Wait 15 to 20 minutes for the session to reset.
+
+1. Reopen the app.
+
+1. Try a simpler, more focused prompt.
+
+All prompts in the same session after a violation continue to fail until the session resets.
 
 ## Recovering from a broken app
+<a name="apps-ts-broken-page"></a>
 
 If an app stops loading or displays errors after an edit:
 
 1. Use the version selector to restore a previous working version.
-2. If the editor is not accessible, close the browser tab, wait 15 to 20 minutes,
-   and reopen.
-3. In a fresh session, try: "Review all app code. Check the existing code
-   against the actual types and interfaces exported by the runtime library. Fix any
-   issues."
-4. If an integration change caused the issue, try: "The prior issue impacting
-   integrations has been resolved. Please try again."
+
+1. If the editor is not accessible, close the browser tab, wait 15 to 20 minutes, and reopen.
+
+1. In a fresh session, try: "Review all app code. Check the existing code against the actual types and interfaces exported by the runtime library. Fix any issues."
+
+1. If an integration change caused the issue, try: "The prior issue impacting integrations has been resolved. Please try again."
 
 ## Fixing connector authentication issues
+<a name="apps-ts-connector-auth"></a>
 
-If you see a "Sign in to connectors" dialog with no sign-in option, one or more
-integrations were not properly registered during app creation. In the editor, ask the
-agent to retry registering each affected connector individually. After successful
-re-registration, publish the updated app.
+If you see a "Sign in to connectors" dialog with no sign-in option, one or more integrations were not properly registered during app creation. In the editor, ask the agent to retry registering each affected connector individually. After successful re-registration, publish the updated app.
 
 ## Debugging complex apps
+<a name="apps-ts-debugging"></a>
 
-You can ask the agent to add a debug panel that logs storage operations, integration
-calls, and state changes. Make the panel visible only to yourself (based on your user
-alias) to keep it hidden from end users.
+You can ask the agent to add a debug panel that logs storage operations, integration calls, and state changes. Make the panel visible only to yourself (based on your user alias) to keep it hidden from end users.
 
 ## File export not working
+<a name="apps-ts-export-not-working"></a>
 
-If an export feature does not work, ask the agent: "Use the
-`downloadFile` function from the runtime library to handle the file export."
-The sandbox blocks direct browser APIs for file creation. For more information, see
-[Sandbox restrictions](security-sandbox-apps.md#apps-sandbox-restrictions "security-sandbox-apps.md#apps-sandbox-restrictions").
+If an export feature does not work, ask the agent: "Use the `downloadFile` function from the runtime library to handle the file export." The sandbox blocks direct browser APIs for file creation. For more information, see [Sandbox restrictions](security-sandbox-apps.md#apps-sandbox-restrictions).

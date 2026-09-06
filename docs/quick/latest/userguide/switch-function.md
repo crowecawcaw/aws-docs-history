@@ -1,82 +1,50 @@
-# switch
 
-`switch` compares a _condition-expression_ with the
-literal labels, within a set of literal label and
-_return-expression_ pairings. It then returns the
-_return-expression_ corresponding to the first literal label
-that's equal to the _condition-expression_. If no label equals to
-the _condition-expression_, `switch` returns the
-_default-expression_. Every
-_return-expression_ and
-_default-expression_ must have the same datatype.
+
+# switch
+<a name="switch-function"></a>
+
+`switch` compares a *condition-expression* with the literal labels, within a set of literal label and *return-expression* pairings. It then returns the *return-expression* corresponding to the first literal label that's equal to the *condition-expression*. If no label equals to the *condition-expression*, `switch` returns the *default-expression*. Every *return-expression* and *default-expression* must have the same datatype.
 
 ## Syntax
+<a name="switch-function-syntax"></a>
 
 ```
-switch(`condition-expression`, `label-1`, `return-expression-1` [, `label-n`, `return-expression-n` ...],
-        `default-expression`)
+switch({{condition-expression}}, {{label-1}}, {{return-expression-1}} [, {{label-n}}, {{return-expression-n}} ...], 
+        {{default-expression}})
 ```
 
 ## Arguments
+<a name="switch-function-arguments"></a>
 
-`switch` requires one or more
-_if_,_then_ expression pairings, and
-requires exactly one expression for the _else_ argument.
+`switch` requires one or more *if*,*then* expression pairings, and requires exactly one expression for the *else* argument. 
 
-_condition-expression_
+ *condition-expression*   
+The expression to be compared with the label-literals. It can be a field name like `address`, a literal value like '`Unknown`', or another scalar function like `toString(salesAmount)`. 
 
-The expression to be compared with the label-literals. It can be a
-field name like `address`, a literal value like
-'`Unknown`', or another scalar function like
-`toString(salesAmount)`.
+ *label*   
+The literal to be compared with the *condition-expression* argument, all of the literals must have the same data type as *condition-expression* argument. `switch` accepts up to 5000 labels. 
 
-_label_
+ *return-expression*   
+The expression to return if the value of its label equals to the value of the *condition-expression*. It can be a field name like `address`, a literal value like '`Unknown`', or another scalar function like `toString(salesAmount)`. All of the *return-expression* arguments must have the same data type as the *default-expression*.
 
-The literal to be compared with the
-_condition-expression_ argument, all of the
-literals must have the same data type as
-_condition-expression_ argument.
-`switch` accepts up to 5000 labels.
-
-_return-expression_
-
-The expression to return if the value of its label equals to the
-value of the _condition-expression_. It can be a
-field name like `address`, a literal value like
-'`Unknown`', or another scalar function like
-`toString(salesAmount)`. All of the
-_return-expression_ arguments must have the
-same data type as the
-_default-expression_.
-
-_default-expression_
-
-The expression to return if no value of any label arguments equals
-to the value of _condition-expression_. It can be
-a field name like `address`, a literal value like
-'`Unknown`', or another scalar function like
-`toString(salesAmount)`. The
-_default-expression_ must have the same data
-type as all of the _return-expression_
-arguments.
+ *default-expression*   
+The expression to return if no value of any label arguments equals to the value of *condition-expression*. It can be a field name like `address`, a literal value like '`Unknown`', or another scalar function like `toString(salesAmount)`. The *default-expression* must have the same data type as all of the *return-expression* arguments.
 
 ## Return type
+<a name="switch-function-return-type"></a>
 
-`switch` returns a value of the same data type as the values in
-_return-expression_. All data returned
-_return-expression_ and
-_default-expression_ must be of the same data type or be
-converted to the same data type.
+`switch` returns a value of the same data type as the values in *return-expression*. All data returned *return-expression* and *default-expression* must be of the same data type or be converted to the same data type. 
 
 ## General Examples
+<a name="switch-function-example"></a>
 
-The following example returns the AWS Region code of input region name.
+The following example returns the AWS Region code of input region name. 
 
 ```
-switch(region_name,
-               "US East (N. Virginia)", "us-east-1",
-               "Europe (Ireland)", "eu-west-1",
-               "US West (N. California)", "us-west-1",
+switch(region_name, 
+               "US East (N. Virginia)", "us-east-1", 
+               "Europe (Ireland)", "eu-west-1", 
+               "US West (N. California)", "us-west-1", 
                "other regions")
 ```
 
@@ -97,33 +65,30 @@ For these field values the following values are returned.
 ```
 
 ## Use switch to replace `ifelse`
+<a name="switch-instead-of-ifelse"></a>
 
-The following `ifelse` use case is an equivalent of the previous
-example, for `ifelse` evaluating whether values of one field equals
-to different literal values, using `switch` instead is a better
-choice.
+The following `ifelse` use case is an equivalent of the previous example, for `ifelse` evaluating whether values of one field equals to different literal values, using `switch` instead is a better choice.
 
 ```
-ifelse(region_name = "US East (N. Virginia)", "us-east-1",
-               region_name = "Europe (Ireland)", "eu-west-1",
-               region_name = "US West (N. California)", "us-west-1",
+ifelse(region_name = "US East (N. Virginia)", "us-east-1", 
+               region_name = "Europe (Ireland)", "eu-west-1", 
+               region_name = "US West (N. California)", "us-west-1", 
                "other regions")
 ```
 
 ## Expression as return value
+<a name="switch-expression-as-return-value"></a>
 
-The following example uses expressions in
-_return-expressions_:
+The following example uses expressions in *return-expressions*:
 
 ```
-switch({origin_city_name},
-               "Albany, NY", {arr_delay} + 20,
+switch({origin_city_name}, 
+               "Albany, NY", {arr_delay} + 20, 
                "Alexandria, LA", {arr_delay} - 10,
-               "New York, NY", {arr_delay} * 2,
+               "New York, NY", {arr_delay} * 2, 
                {arr_delay})
 ```
 
-The preceding example changes the expected delay time for each flight from a
-particular city.
+The preceding example changes the expected delay time for each flight from a particular city.
 
-![An image of the results of the function example, shown in table form.](images/switch-function-example.png)
+![An image of the results of the function example, shown in table form.](http://docs.aws.amazon.com/quick/latest/userguide/images/switch-function-example.png)

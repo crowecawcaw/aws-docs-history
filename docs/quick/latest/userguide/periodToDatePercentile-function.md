@@ -1,67 +1,49 @@
+
+
 # periodToDatePercentile
+<a name="periodToDatePercentile-function"></a>
 
-The `periodToDatePercentile` function calculates the percentile based on
-the actual numbers in measure for a given time granularity (for instance, a quarter) up
-to a point in time, relative to that period. It uses the grouping and sorting that are
-applied in the field wells.
+The `periodToDatePercentile` function calculates the percentile based on the actual numbers in measure for a given time granularity (for instance, a quarter) up to a point in time, relative to that period. It uses the grouping and sorting that are applied in the field wells.
 
-To return the nearest percentile value that is present in your dataset, use
-`periodToDatePercentile`. To return an exact percentile value that might
-not be present in your dataset, use `periodToDatePercentileCont`
-instead.
+To return the nearest percentile value that is present in your dataset, use `periodToDatePercentile`. To return an exact percentile value that might not be present in your dataset, use `periodToDatePercentileCont` instead.
 
 ## Syntax
+<a name="periodToDatePercentile-function-syntax"></a>
 
 ```
-periodToDatePercentile(*measure,
- percentile,
- dateTime,
- period,
- endDate (optional)*)
+periodToDatePercentile(
+	measure, 
+	percentile, 
+	dateTime, 
+	period, 
+	endDate (optional))
 ```
 
 ## Arguments
+<a name="periodToDatePercentile-function-arguments"></a>
 
-_measure_
+ *measure*   
+The argument must be a field. Null values are omitted from the results. Literal values don't work.
 
-The argument must be a field. Null values are omitted from the
-results. Literal values don't work.
+ *percentile*   
+The percentile value can be any numeric constant 0-100. A percentile of 50 computes the median value of the measure.
 
-_percentile_
+ *dateTime*   
+The Date dimension over which you're computing PeriodToDate aggregations.
 
-The percentile value can be any numeric constant 0-100. A percentile
-of 50 computes the median value of the measure.
+ *period*   
+The time period across which you're computing the computation. Granularity of `YEAR` means `YearToDate` computation, `Quarter` means `QuarterToDate`, and so on. Valid granularities include `YEAR`, `QUARTER`, `MONTH`, `WEEK`, `DAY`, `HOUR`, `MINUTE`, and `SECONDS`.
 
-_dateTime_
-
-The Date dimension over which you're computing PeriodToDate
-aggregations.
-
-_period_
-
-The time period across which you're computing the computation.
-Granularity of `YEAR` means `YearToDate`
-computation, `Quarter` means `QuarterToDate`, and
-so on. Valid granularities include `YEAR`,
-`QUARTER`, `MONTH`, `WEEK`,
-`DAY`, `HOUR`, `MINUTE`, and
-`SECONDS`.
-
-_endDate_
-
-(Optional) The date dimension that you're ending computing
-periodToDate aggregations. It defaults to `now()` if
-omitted.
+ *endDate*   
+(Optional) The date dimension that you're ending computing periodToDate aggregations. It defaults to `now()` if omitted.
 
 ## Example
+<a name="periodToDatePercentile-function-example"></a>
 
-The following example calculates the week-to-date, 90th percentile of fare amount
-per payment type for the week of 06-30-21. For simplicity in the example, we
-filtered out only a single payment. 06-30-21 is Wednesday. Quick begins
-the week on Sundays. In our example. that is 06-27-21.
+The following example calculates the week-to-date, 90th percentile of fare amount per payment type for the week of 06-30-21. For simplicity in the example, we filtered out only a single payment. 06-30-21 is Wednesday. Quick begins the week on Sundays. In our example. that is 06-27-21.
 
 ```
 periodToDatePercentile(fare_amount, 90, pickupDatetime, WEEK, parseDate("06-30-2021", "MM-dd-yyyy"))
 ```
 
-![This is an image of the return from the example calculation.](images/PTDPercentileResults.png)
+![This is an image of the return from the example calculation.](http://docs.aws.amazon.com/quick/latest/userguide/images/PTDPercentileResults.png)

@@ -1,96 +1,65 @@
-# rank
 
-The `rank` function calculates the rank of a measure or a dimension in
-comparison to the specified partitions. It counts each item, even duplicates, once and
-assigns a rank "with holes" to make up for duplicate values.
+
+# rank
+<a name="rank-function"></a>
+
+The `rank` function calculates the rank of a measure or a dimension in comparison to the specified partitions. It counts each item, even duplicates, once and assigns a rank "with holes" to make up for duplicate values. 
 
 ## Syntax
+<a name="rank-function-syntax"></a>
 
-The brackets are required. To see which arguments are optional, see the following
-descriptions.
+The brackets are required. To see which arguments are optional, see the following descriptions.
 
 ```
 rank
 (
-  `[ sort_order_field ASC_or_DESC, ... ]`
-  ,`[ partition_field, ... ]`
+  {{[ sort_order_field ASC_or_DESC, ... ]}}
+  ,{{[ partition_field, ... ]}} 
 )
 ```
 
 ## Arguments
+<a name="rank-function-arguments"></a>
 
-_sort order field_
+ *sort order field*   
+One or more aggregated measures and dimensions that you want to sort the data by, separated by commas. You can specify either ascending (**ASC**) or descending (**DESC**) sort order.   
+Each field in the list is enclosed in {} (curly braces), if it is more than one word. The entire list is enclosed in [ ] (square brackets).
 
-One or more aggregated measures and dimensions that you want to sort
-the data by, separated by commas. You can specify either ascending
-(`ASC`) or descending
-(`DESC`) sort order.
+ *partition field*   
+(Optional) One or more dimensions that you want to partition by, separated by commas.   
+Each field in the list is enclosed in {} (curly braces), if it is more than one word. The entire list is enclosed in [ ] (square brackets).
 
-Each field in the list is enclosed in {} (curly braces), if it is more
-than one word. The entire list is enclosed in [ ] (square
-brackets).
-
-_partition field_
-
-(Optional) One or more dimensions that you want to partition by,
-separated by commas.
-
-Each field in the list is enclosed in {} (curly braces), if it is more
-than one word. The entire list is enclosed in [ ] (square
-brackets).
-
-_calculation level_
-
-(Optional) Specifies the calculation level to use:
-
-- `PRE_FILTER`
-  – Prefilter calculations are computed before the dataset
-  filters.
-- `PRE_AGG` –
-  Preaggregate calculations are computed before applying
-  aggregations and top and bottom _N_ filters to the visuals.
-- `POST_AGG_FILTER`
-  – (Default) Table calculations are computed when the
-  visuals display.
-
-This value defaults to `POST_AGG_FILTER` when blank. For
-more information, see [Using level-aware calculations in
-Quick](../../../quicksight/latest/user/level-aware-calculations.md "../../../quicksight/latest/user/level-aware-calculations.md").
+ *calculation level*  
+(Optional) Specifies the calculation level to use:  
++ **`PRE_FILTER`** – Prefilter calculations are computed before the dataset filters.
++ **`PRE_AGG`** – Preaggregate calculations are computed before applying aggregations and top and bottom *N* filters to the visuals.
++ **`POST_AGG_FILTER`** – (Default) Table calculations are computed when the visuals display. 
+This value defaults to `POST_AGG_FILTER` when blank. For more information, see [Using level-aware calculations in Quick](https://docs.aws.amazon.com/quicksight/latest/user/level-aware-calculations.html).
 
 ## Example
+<a name="rank-function-example"></a>
 
-The following example ranks `max(Sales)`, based on a descending sort
-order, by `State` and `City`, within the `State` of
-`WA`. Any cities with the same `max(Sales)` are
-assigned the same rank, but the next rank includes the count of all previously
-existing ranks. For example, if three cities share the same ranking, the fourth city
-is ranked as fourth.
+The following example ranks `max(Sales)`, based on a descending sort order, by `State` and `City`, within the `State` of **WA**. Any cities with the same `max(Sales)` are assigned the same rank, but the next rank includes the count of all previously existing ranks. For example, if three cities share the same ranking, the fourth city is ranked as fourth. 
 
 ```
 rank
 (
-  [max(Sales) DESC],
+  [max(Sales) DESC], 
   [State, City]
 )
 ```
 
-The following example ranks `max(Sales)`, based on an ascending sort
-order, by `State`. Any states with the same `max(Sales)` are
-assigned the same rank, but the next rank includes the count of all previously
-existing ranks. For example, if three states share the same ranking, the fourth
-state is ranked as fourth.
+The following example ranks `max(Sales)`, based on an ascending sort order, by `State`. Any states with the same `max(Sales)` are assigned the same rank, but the next rank includes the count of all previously existing ranks. For example, if three states share the same ranking, the fourth state is ranked as fourth. 
 
 ```
 rank
 (
-  [max(Sales) ASC],
+  [max(Sales) ASC], 
   [State]
 )
 ```
 
-The following example ranks `Customer Region` by total `Billed
- Amount`. The fields in the table calculation are in the field wells of the
-visual.
+The following example ranks `Customer Region` by total `Billed Amount`. The fields in the table calculation are in the field wells of the visual.
 
 ```
 rank(
@@ -98,7 +67,6 @@ rank(
 )
 ```
 
-The following screenshot shows the results of the example, along with the total
-`Billed Amount` so you can see how each region ranks.
+The following screenshot shows the results of the example, along with the total `Billed Amount` so you can see how each region ranks.
 
-![Table showing Customer Region, rank, and Billed Amount with US ranked 1, EMEA ranked 2, APAC ranked 3.](images/rankCalc.png)
+![Table showing Customer Region, rank, and Billed Amount with US ranked 1, EMEA ranked 2, APAC ranked 3.](http://docs.aws.amazon.com/quick/latest/userguide/images/rankCalc.png)

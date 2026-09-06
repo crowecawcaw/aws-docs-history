@@ -1,26 +1,25 @@
+
+
 # Granting everyone in your Amazon Quick account access to a dashboard with the Quick Sight API
+<a name="share-a-dashboard-grant-access-everyone-api"></a>
 
-|                                               |
-| --------------------------------------------- |
-| Intended audience:<br>Amazon Quick developers |
 
-Alternatively, you can grant everyone in your account access to the dashboard
-with the Quick Sight API using the `UpdateDashboardPermissions`
-operation.
+|  | 
+| --- |
+|    Intended audience:  Amazon Quick developers  | 
 
-The following example API request illustrates how to do so using an AWS CLI
-command. It grants link permissions on the dashboard in your account, and allows
-the following operations: `DescribeDashboard`,
-`QueryDashboard` and `ListDashboard`.
+Alternatively, you can grant everyone in your account access to the dashboard with the Quick Sight API using the `UpdateDashboardPermissions` operation. 
+
+The following example API request illustrates how to do so using an AWS CLI command. It grants link permissions on the dashboard in your account, and allows the following operations: `DescribeDashboard`, `QueryDashboard` and `ListDashboard`.
 
 ```
 aws quicksight update-dashboard-permissions \
---aws-account-id `account-id` \
---region `aws-directory-region` \
---dashboard-id `dashboard-id` \
---grant-link-permissions
-	Principal="arn:aws:quicksight:`aws-directory-region`:`account-id`:namespace/default",
-	Actions="quicksight:DescribeDashboard, quicksight:QueryDashboard,
+--aws-account-id {{account-id}} \
+--region {{aws-directory-region}} \
+--dashboard-id {{dashboard-id}} \
+--grant-link-permissions 
+	Principal="arn:aws:quicksight:{{aws-directory-region}}:{{account-id}}:namespace/default",
+	Actions="quicksight:DescribeDashboard, quicksight:QueryDashboard, 
 	quicksight:ListDashboardVersions"
 ```
 
@@ -51,37 +50,30 @@ The response for the preceding request looks similar to the following.
 	}
 ```
 
-You can also prevent all users in your account from accessing the dashboard
-using the same API operation. The following example request illustrates how by
-using a CLI command.
+You can also prevent all users in your account from accessing the dashboard using the same API operation. The following example request illustrates how by using a CLI command.
 
 ```
 aws quicksight update-dashboard-permissions \
---aws-account-id `account-id` \
---region `aws-directory-region` \
---dashboard-id `dashboard-id` \
---revoke-link-permissions
-	Principal="arn:aws:quicksight:`aws-directory-region`:`account-id`:namespace/default",
-	Actions="quicksight:DescribeDashboard, quicksight:QueryDashboard,
+--aws-account-id {{account-id}} \
+--region {{aws-directory-region}} \
+--dashboard-id {{dashboard-id}} \
+--revoke-link-permissions 
+	Principal="arn:aws:quicksight:{{aws-directory-region}}:{{account-id}}:namespace/default",
+	Actions="quicksight:DescribeDashboard, quicksight:QueryDashboard, 
 	quicksight:ListDashboardVersions"
 ```
 
-For more information, see [UpdateDashboardPermissions](../../../quicksight/latest/APIReference/API_UpdateDashboardPermissions.md "../../../quicksight/latest/APIReference/API_UpdateDashboardPermissions.md") in the
-_Amazon Quick API Reference_.
+For more information, see [UpdateDashboardPermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPermissions.html) in the *Amazon Quick API Reference*.
 
-When all users in a Quick user account are granted access to the
-dashboard, the following snippet is added to AWS CloudTrail log as part of the
-`eventName`
-`UpdateDashboardAccess`, and the `eventCategory`
-`Management`.
+When all users in a Quick user account are granted access to the dashboard, the following snippet is added to AWS CloudTrail log as part of the `eventName` `UpdateDashboardAccess`, and the `eventCategory` `Management`.
 
 ```
-"linkPermissionPolicies":
+"linkPermissionPolicies": 
 	[
 		{
 			"principal": "arn:aws:quicksight:AWSDIRECTORYREGION:ACCOUNTID:
 							namespace/default",
-			"actions":
+			"actions": 
 			[
 				"quicksight:DescribeDashboard",
 				"quicksight:ListDashboardVersions",

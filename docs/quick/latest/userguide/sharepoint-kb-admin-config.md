@@ -1,212 +1,195 @@
+
+
 # Set up service credentials
+<a name="sharepoint-kb-admin-config"></a>
 
-Before you create the knowledge base in Amazon Quick, complete the following
-configuration steps in AWS and Microsoft Entra ID. You create a KMS signing key,
-generate a certificate, register an application in Entra, and grant Amazon Quick
-permission to use the key.
+Before you create the knowledge base in Amazon Quick, complete the following configuration steps in AWS and Microsoft Entra ID. You create a KMS signing key, generate a certificate, register an application in Entra, and grant Amazon Quick permission to use the key.
 
-This setup involves multiple systems and might require coordination between
-different administrators in your organization. The following table summarizes
-each step and the role needed to complete it.
+This setup involves multiple systems and might require coordination between different administrators in your organization. The following table summarizes each step and the role needed to complete it.
 
-Setup steps and roles| Step | What you do | Role needed |
-| --- | --- | --- |
-| 1. KMS key | Create an asymmetric signing key in AWS KMS. | AWS administrator (KMS and IAM console<br>access) |
-| 2. Certificate | Generate a self-signed certificate using the KMS public<br>key. | Same as Step 1 (AWS CLI and OpenSSL<br>required) |
-| 3. Entra app | Register an application in Microsoft Entra, assign API<br>permissions, and upload the certificate. | Microsoft 365 Global Admin or Privileged Role<br>Admin |
-| 3b. Sites.Selected (optional) | Create a temporary admin app and grant per-site<br>permissions via the Microsoft Graph API. | Microsoft 365 Global Admin (same as Step 3) |
-| 4. KMS key access | Grant Amazon Quick permission to use the KMS key for<br>signing. | Amazon Quick administrator (Admin Pro) |
-| 5. Create KB | Create the knowledge base in Amazon Quick using the<br>credentials from the previous steps. | Any Amazon Quick user (Author Pro or Admin<br>Pro) |
 
-###### Tip
+**Setup steps and roles**  
 
-In many organizations, a single person with both AWS and Microsoft 365
-administrator access can complete all steps. If responsibilities are split
-across teams, share this table to coordinate the setup.
+| Step | What you do | Role needed | 
+| --- | --- | --- | 
+| 1. KMS key | Create an asymmetric signing key in AWS KMS. | AWS administrator (KMS and IAM console access) | 
+| 2. Certificate | Generate a self-signed certificate using the KMS public key. | Same as Step 1 (AWS CLI and OpenSSL required) | 
+| 3. Entra app | Register an application in Microsoft Entra, assign API permissions, and upload the certificate. | Microsoft 365 Global Admin or Privileged Role Admin | 
+| 3b. Sites.Selected (optional) | Create a temporary admin app and grant per-site permissions via the Microsoft Graph API. | Microsoft 365 Global Admin (same as Step 3) | 
+| 4. KMS key access | Grant Amazon Quick permission to use the KMS key for signing. | Amazon Quick administrator (Admin Pro) | 
+| 5. Create KB | Create the knowledge base in Amazon Quick using the credentials from the previous steps. | Any Amazon Quick user (Author Pro or Admin Pro) | 
+
+**Tip**  
+In many organizations, a single person with both AWS and Microsoft 365 administrator access can complete all steps. If responsibilities are split across teams, share this table to coordinate the setup.
 
 ## Prerequisites
+<a name="sharepoint-kb-admin-config-prerequisites"></a>
 
 Before you begin, make sure that you have the following:
-
-- An AWS account with an active Amazon Quick instance.
-- Access to the AWS KMS console (for creating the signing
-  key).
-- Amazon Quick administrator access (Admin Pro role) for granting
-  KMS key permissions.
-- A Microsoft 365 tenant with SharePoint Online.
-- Global Administrator or Privileged Role Administrator access in
-  Microsoft Entra ID.
-- OpenSSL 3.0 or later and AWS CLI installed locally.
-- The AWS account and Amazon Quick instance must be in the same
-  Region.
++ An AWS account with an active Amazon Quick instance.
++ Access to the AWS KMS console (for creating the signing key).
++ Amazon Quick administrator access (Admin Pro role) for granting KMS key permissions.
++ A Microsoft 365 tenant with SharePoint Online.
++ Global Administrator or Privileged Role Administrator access in Microsoft Entra ID.
++ OpenSSL 3.0 or later and AWS CLI installed locally.
++ The AWS account and Amazon Quick instance must be in the same Region.
 
 ## Permissions
+<a name="sharepoint-kb-admin-config-permissions"></a>
 
 The permissions you assign depend on two choices:
-
-- Whether you plan to enable document-level access control (ACL
-  crawling).
-- Whether you want to grant access to all SharePoint sites or only
-  specific sites.
++ Whether you plan to enable document-level access control (ACL crawling).
++ Whether you want to grant access to all SharePoint sites or only specific sites.
 
 ### Choose your permission scope
+<a name="sharepoint-kb-admin-config-permission-scope"></a>
 
-By default, the Entra app registration uses
-`Sites.Read.All` or `Sites.FullControl.All`, which
-grants access to all SharePoint sites in your tenant. If your organization
-requires least-privilege access, you can use
-`Sites.Selected` instead. With `Sites.Selected`,
-the app can only access sites that you explicitly grant permission
-to.
+By default, the Entra app registration uses `Sites.Read.All` or `Sites.FullControl.All`, which grants access to all SharePoint sites in your tenant. If your organization requires least-privilege access, you can use `Sites.Selected` instead. With `Sites.Selected`, the app can only access sites that you explicitly grant permission to.
 
-Permission scope comparison| Scope | Access | Additional steps |
-| --- | --- | --- |
-| All sites (default) | App can read all SharePoint sites in the<br>tenant. | — |
-| `Sites.Selected` | App can only access sites you explicitly<br>grant. | Requires a temporary admin app and a Microsoft<br>Graph API call for each site. See<br>[Step 3b: Grant site-level permissions (Sites.Selected only)](#sharepoint-kb-admin-sites-selected "#sharepoint-kb-admin-sites-selected"). |
 
-###### Note
+**Permission scope comparison**  
 
-If you use `Sites.Selected`, you must grant access
-for each site individually. Any new sites added to the knowledge
-base in the future also require a separate permission grant.
+| Scope | Access | Additional steps | 
+| --- | --- | --- | 
+| All sites (default) | App can read all SharePoint sites in the tenant. | — | 
+| Sites.Selected | App can only access sites you explicitly grant. | Requires a temporary admin app and a Microsoft Graph API call for each site. See [Step 3b: Grant site-level permissions (Sites.Selected only)](#sharepoint-kb-admin-sites-selected). | 
+
+**Note**  
+If you use `Sites.Selected`, you must grant access for each site individually. Any new sites added to the knowledge base in the future also require a separate permission grant.
 
 **All sites – content only (no ACL)**
 
-Content-only permissions| API | Permission | Type |
-| --- | --- | --- |
-| Microsoft Graph | `Sites.Read.All` | Application |
-| SharePoint REST | `Sites.Read.All` | Application |
+
+**Content-only permissions**  
+
+| API | Permission | Type | 
+| --- | --- | --- | 
+| Microsoft Graph | Sites.Read.All | Application | 
+| SharePoint REST | Sites.Read.All | Application | 
 
 **All sites – with ACL crawling**
 
-ACL crawling permissions| API | Permission | Type |
-| --- | --- | --- |
-| Microsoft Graph | `Sites.Read.All` | Application |
-| Microsoft Graph | `User.Read.All` | Application |
-| Microsoft Graph | `GroupMember.Read.All` | Application |
-| SharePoint REST | `Sites.FullControl.All` | Application |
 
-###### Important
+**ACL crawling permissions**  
 
-Choose either the all-sites permissions in the preceding tables or the
-`Sites.Selected` permissions in the following tables. Do not combine
-both. If you are unsure, start with all-sites. You can create a
-new Entra app registration with `Sites.Selected`
-later if needed.
+| API | Permission | Type | 
+| --- | --- | --- | 
+| Microsoft Graph | Sites.Read.All | Application | 
+| Microsoft Graph | User.Read.All | Application | 
+| Microsoft Graph | GroupMember.Read.All | Application | 
+| SharePoint REST | Sites.FullControl.All | Application | 
 
-**Sites.Selected – content only (no
-ACL)**
+**Important**  
+Choose either the all-sites permissions in the preceding tables or the `Sites.Selected` permissions in the following tables. Do not combine both. If you are unsure, start with all-sites. You can create a new Entra app registration with `Sites.Selected` later if needed.
 
-Sites.Selected content-only permissions| API | Permission | Type |
-| --- | --- | --- |
-| Microsoft Graph | `Sites.Selected` | Application |
-| SharePoint REST | `Sites.Selected` | Application |
+**Sites.Selected – content only (no ACL)**
 
-**Sites.Selected – with ACL
-crawling**
 
-Sites.Selected ACL crawling permissions| API | Permission | Type |
-| --- | --- | --- |
-| Microsoft Graph | `Sites.Selected` | Application |
-| Microsoft Graph | `User.Read.All` | Application |
-| Microsoft Graph | `GroupMember.Read.All` | Application |
-| SharePoint REST | `Sites.Selected` | Application |
+**Sites.Selected content-only permissions**  
 
-###### Note
+| API | Permission | Type | 
+| --- | --- | --- | 
+| Microsoft Graph | Sites.Selected | Application | 
+| SharePoint REST | Sites.Selected | Application | 
 
-OneNote crawling (`Notes.Read.All`) is not supported in
-admin-managed setup. Microsoft retired app-only tokens for OneNote APIs on
-March 31, 2025. Use [User-managed setup](sharepoint-kb-user-managed.md "sharepoint-kb-user-managed.md") for OneNote content.
+**Sites.Selected – with ACL crawling**
+
+
+**Sites.Selected ACL crawling permissions**  
+
+| API | Permission | Type | 
+| --- | --- | --- | 
+| Microsoft Graph | Sites.Selected | Application | 
+| Microsoft Graph | User.Read.All | Application | 
+| Microsoft Graph | GroupMember.Read.All | Application | 
+| SharePoint REST | Sites.Selected | Application | 
+
+**Note**  
+OneNote crawling (`Notes.Read.All`) is not supported in admin-managed setup. Microsoft retired app-only tokens for OneNote APIs on March 31, 2025. Use [User-managed setup](sharepoint-kb-user-managed.md) for OneNote content.
 
 ## Values collected during setup
+<a name="sharepoint-kb-admin-config-values"></a>
 
-The following table summarizes the values you create or collect during setup
-and where you use them.
+The following table summarizes the values you create or collect during setup and where you use them.
 
-Values reference| Value | Created in step | Used in step |
-| --- | --- | --- |
-| KMS Key ARN | 1 (KMS) | 2 (Certificate), 4 (IAM), Quick setup |
-| Certificate file (`certificate.cer`) | 2 (Certificate) | 3 (Entra upload) |
-| Certificate thumbprint (base64url) | 2 (Certificate) | Quick setup |
-| Application (Client) ID | 3 (Entra) | Quick setup |
-| Directory (Tenant) ID | 3 (Entra) | Quick setup |
-| SharePoint domain URL | Your M365 tenant | Quick setup |
+
+**Values reference**  
+
+| Value | Created in step | Used in step | 
+| --- | --- | --- | 
+| KMS Key ARN | 1 (KMS) | 2 (Certificate), 4 (IAM), Quick setup | 
+| Certificate file (certificate.cer) | 2 (Certificate) | 3 (Entra upload) | 
+| Certificate thumbprint (base64url) | 2 (Certificate) | Quick setup | 
+| Application (Client) ID | 3 (Entra) | Quick setup | 
+| Directory (Tenant) ID | 3 (Entra) | Quick setup | 
+| SharePoint domain URL | Your M365 tenant | Quick setup | 
 
 ## Step 1: Create an AWS KMS asymmetric signing key
+<a name="sharepoint-kb-admin-step1-kms"></a>
 
-Amazon Quick uses an AWS KMS asymmetric key to sign OAuth assertions when
-authenticating with Microsoft Entra ID. The private key never leaves KMS. Only
-the public key is exported and embedded in a certificate that gets uploaded to
-your Entra app registration.
+Amazon Quick uses an AWS KMS asymmetric key to sign OAuth assertions when authenticating with Microsoft Entra ID. The private key never leaves KMS. Only the public key is exported and embedded in a certificate that gets uploaded to your Entra app registration.
 
 ### Create the KMS key
+<a name="sharepoint-kb-admin-kms-create"></a>
 
-1. Open the [AWS KMS
-   console](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
-2. In the left navigation, choose **Customer managed
-   keys**.
-3. Choose **Create key**.
+1. Open the [AWS KMS console](https://console.aws.amazon.com/kms).
+
+1. In the left navigation, choose **Customer managed keys**.
+
+1. Choose **Create key**.
 
 ### Configure the key
+<a name="sharepoint-kb-admin-kms-configure"></a>
 
-On the **Configure key** page, set the following
-values:
+On the **Configure key** page, set the following values:
 
-KMS key configuration| Setting | Value |
-| --- | --- |
-| Key type | Asymmetric |
-| Key usage | Sign and verify |
-| Key spec | RSA\_2048 |
-| Key material origin | KMS (recommended) |
-| Regionality | Single-Region key (default). Multi-Region keys<br>are not supported. |
+
+**KMS key configuration**  
+
+| Setting | Value | 
+| --- | --- | 
+| Key type | Asymmetric | 
+| Key usage | Sign and verify | 
+| Key spec | RSA\_2048 | 
+| Key material origin | KMS (recommended) | 
+| Regionality | Single-Region key (default). Multi-Region keys are not supported. | 
 
 ### Add labels
+<a name="sharepoint-kb-admin-kms-labels"></a>
 
-On the **Add labels** page, enter an alias for the key.
-For example: `quick-sharepoint-service-auth`.
+On the **Add labels** page, enter an alias for the key. For example: `quick-sharepoint-service-auth`.
 
-###### Note
+**Note**  
+The key administrator and key usage permissions on the following pages are optional. The defaults are sufficient for this setup. You grant Amazon Quick access to the key separately in Step 4.
 
-The key administrator and key usage permissions on the following
-pages are optional. The defaults are sufficient for this setup. You
-grant Amazon Quick access to the key separately in Step 4.
-
-Choose **Skip to review**, then choose
-**Finish** to create the key.
+Choose **Skip to review**, then choose **Finish** to create the key.
 
 ### Record the Key ARN
+<a name="sharepoint-kb-admin-kms-arn"></a>
 
-After the key is created, open the key detail page and record the
-**Key ARN**. The ARN has the following
-format:
+After the key is created, open the key detail page and record the **Key ARN**. The ARN has the following format:
 
 ```
 arn:aws:kms:us-west-2:123456789012:key/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-You need this value in Steps 2, 4, and when you create the knowledge base
-in Quick.
+You need this value in Steps 2, 4, and when you create the knowledge base in Quick.
 
 ## Step 2: Generate a self-signed certificate
+<a name="sharepoint-kb-admin-step2-certificate"></a>
 
-Microsoft Entra ID requires an X.509 certificate to validate signed
-assertions. Because the KMS private key never leaves AWS KMS, you cannot use
-it directly with OpenSSL. Instead, you generate a temporary local key pair
-and create a certificate signing request. Then, use the OpenSSL
-`-force_pubkey` option to inject the KMS public key into the final
-certificate. The result is a self-signed certificate whose public key matches
-the KMS key pair.
+Microsoft Entra ID requires an X.509 certificate to validate signed assertions. Because the KMS private key never leaves AWS KMS, you cannot use it directly with OpenSSL. Instead, you generate a temporary local key pair and create a certificate signing request. Then, use the OpenSSL `-force_pubkey` option to inject the KMS public key into the final certificate. The result is a self-signed certificate whose public key matches the KMS key pair.
 
 ### Prerequisites
-
-- AWS CLI installed and configured.
-- OpenSSL 3.0 or later.
-- The KMS Key ARN from Step 1.
+<a name="sharepoint-kb-admin-cert-prereqs"></a>
++ AWS CLI installed and configured.
++ OpenSSL 3.0 or later.
++ The KMS Key ARN from Step 1.
 
 ### Generate the certificate
+<a name="sharepoint-kb-admin-cert-generate"></a>
 
-Run the following commands in a terminal. Replace the
-`placeholder` values with your own.
+Run the following commands in a terminal. Replace the {{placeholder}} values with your own.
 
 **Verify OpenSSL version**
 
@@ -220,16 +203,14 @@ Confirm the output shows version 3.0 or later.
 
 ```
 aws kms get-public-key \
-    --key-id `KMS_KEY_ARN` \
-    --region `REGION` \
+    --key-id {{KMS_KEY_ARN}} \
+    --region {{REGION}} \
     --output text \
     --query PublicKey | base64 --decode > public_key.der
 ```
 
-###### Note
-
-On macOS, use `base64 --decode` or `base64
- -D` depending on your shell environment.
+**Note**  
+On macOS, use `base64 --decode` or `base64 -D` depending on your shell environment.
 
 **Convert the public key to PEM format**
 
@@ -249,11 +230,10 @@ openssl genrsa -out temp_private_key.pem 2048
 openssl req -new \
     -key temp_private_key.pem \
     -out cert.csr \
-    -subj "/CN=QuickSharePointServiceAuth/O=`YourOrganization`/C=`US`"
+    -subj "/CN=QuickSharePointServiceAuth/O={{YourOrganization}}/C={{US}}"
 ```
 
-**Generate the certificate with the KMS public
-key**
+**Generate the certificate with the KMS public key**
 
 ```
 openssl x509 -req \
@@ -264,16 +244,10 @@ openssl x509 -req \
     -force_pubkey kms_public_key.pem
 ```
 
-###### Note
+**Note**  
+OpenSSL displays the warning `Signature key and public key of cert do not match`. This is expected because the certificate is signed with the temporary local key but contains the KMS public key. The certificate is valid and works correctly with Microsoft Entra.
 
-OpenSSL displays the warning `Signature key and public key
- of cert do not match`. This is expected because the
-certificate is signed with the temporary local key but contains the
-KMS public key. The certificate is valid and works correctly with
-Microsoft Entra.
-
-**Convert to DER format for Entra
-upload**
+**Convert to DER format for Entra upload**
 
 ```
 openssl x509 -in certificate.pem -outform DER -out certificate.cer
@@ -285,235 +259,188 @@ openssl x509 -in certificate.pem -outform DER -out certificate.cer
 rm -f temp_private_key.pem cert.csr public_key.der kms_public_key.pem certificate.pem
 ```
 
-###### Important
-
-Keep the `certificate.cer` file. You upload it to
-Microsoft Entra ID in Step 3.
+**Important**  
+Keep the `certificate.cer` file. You upload it to Microsoft Entra ID in Step 3.
 
 ### Calculate the certificate thumbprint
+<a name="sharepoint-kb-admin-cert-thumbprint"></a>
 
-Run the following command to calculate the base64url-encoded SHA-1
-thumbprint of the certificate:
+Run the following command to calculate the base64url-encoded SHA-1 thumbprint of the certificate:
 
 ```
 openssl dgst -sha1 -binary certificate.cer | base64 | tr '+/' '-_' | tr -d '='
 ```
 
-Record this value. You enter it when you create the knowledge base in
-Quick.
+Record this value. You enter it when you create the knowledge base in Quick.
 
-###### Note
-
-The base64url-encoded thumbprint is different from the hexadecimal
-thumbprint shown in the Microsoft Entra portal. Quick
-requires the base64url format.
+**Note**  
+The base64url-encoded thumbprint is different from the hexadecimal thumbprint shown in the Microsoft Entra portal. Quick requires the base64url format.
 
 ## Step 3: Register an application in Microsoft Entra ID
+<a name="sharepoint-kb-admin-step3-entra"></a>
 
-This step is required regardless of whether you use all-sites permissions
-or `Sites.Selected`. The only difference is which API permissions
-you assign in the
-[Configure API permissions](#sharepoint-kb-admin-entra-permissions "#sharepoint-kb-admin-entra-permissions") section.
+This step is required regardless of whether you use all-sites permissions or `Sites.Selected`. The only difference is which API permissions you assign in the [Configure API permissions](#sharepoint-kb-admin-entra-permissions) section.
 
 ### Register the application
+<a name="sharepoint-kb-admin-entra-register"></a>
 
-1. Sign in to the [Microsoft Entra admin
-   center](https://entra.microsoft.com/ "https://entra.microsoft.com/").
-2. In the left navigation, expand **Entra ID**
-   and choose **App registrations**.
-3. Choose **New registration**.
-4. For **Name**, enter
-   `QuickSharePointServiceAuth`.
-5. For **Supported account types**, select
-   **Accounts in this organizational directory only
-   (Single tenant)**.
-6. Leave **Redirect URI** blank. A redirect URI
-   is not required because the application uses the client credentials
-   flow, not an interactive sign-in flow.
-7. Choose **Register**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+
+1. In the left navigation, expand **Entra ID** and choose **App registrations**.
+
+1. Choose **New registration**.
+
+1. For **Name**, enter `QuickSharePointServiceAuth`.
+
+1. For **Supported account types**, select **Accounts in this organizational directory only (Single tenant)**.
+
+1. Leave **Redirect URI** blank. A redirect URI is not required because the application uses the client credentials flow, not an interactive sign-in flow.
+
+1. Choose **Register**.
 
 ### Record application details
+<a name="sharepoint-kb-admin-entra-record"></a>
 
-On the application **Overview** page, record the
-following values:
+On the application **Overview** page, record the following values:
 
-Application details| Value | Location |
-| --- | --- |
-| Application (client) ID | Shown on the Overview page under<br>**Essentials**. |
-| Directory (tenant) ID | Shown on the Overview page under<br>**Essentials**. |
+
+**Application details**  
+
+| Value | Location | 
+| --- | --- | 
+| Application (client) ID | Shown on the Overview page under Essentials. | 
+| Directory (tenant) ID | Shown on the Overview page under Essentials. | 
 
 ### Configure API permissions
+<a name="sharepoint-kb-admin-entra-permissions"></a>
 
-Add the permissions that match your use case. Choose the permissions
-from the tables in the
-[Permissions](#sharepoint-kb-admin-config-permissions "#sharepoint-kb-admin-config-permissions") section. Base
-your selection on your permission scope (all sites or Sites.Selected)
-and whether you enable ACL crawling.
+Add the permissions that match your use case. Choose the permissions from the tables in the [Permissions](#sharepoint-kb-admin-config-permissions) section. Base your selection on your permission scope (all sites or Sites.Selected) and whether you enable ACL crawling.
 
 **Content only – Microsoft Graph**
-
-- `Sites.Read.All`
++ `Sites.Read.All`
 
 **Content only – SharePoint**
++ `Sites.Read.All`
 
-- `Sites.Read.All`
-
-**ACL crawling – Microsoft Graph
-(additional)**
-
-- `Sites.Read.All`
-- `User.Read.All`
-- `GroupMember.Read.All`
+**ACL crawling – Microsoft Graph (additional)**
++ `Sites.Read.All`
++ `User.Read.All`
++ `GroupMember.Read.All`
 
 **ACL crawling – SharePoint**
++ `Sites.FullControl.All`
 
-- `Sites.FullControl.All`
+**Note**  
+`Sites.FullControl.All` is required for ACL crawling because the SharePoint REST API requires full control permissions to read site-level and item-level permission assignments. If you are using `Sites.Selected`, see [Step 3b: Grant site-level permissions (Sites.Selected only)](#sharepoint-kb-admin-sites-selected) for the alternative permission set.
 
-###### Note
+1. In the left navigation of your app registration, choose **API permissions**.
 
-`Sites.FullControl.All` is required for ACL crawling
-because the SharePoint REST API requires full control permissions to
-read site-level and item-level permission assignments. If you are
-using `Sites.Selected`, see
-[Step 3b: Grant site-level permissions (Sites.Selected only)](#sharepoint-kb-admin-sites-selected "#sharepoint-kb-admin-sites-selected") for the
-alternative permission set.
+1. Choose **Add a permission**.
 
-1. In the left navigation of your app registration, choose
-   **API permissions**.
-2. Choose **Add a permission**.
-3. Choose **Microsoft Graph**.
-4. Choose **Application permissions**.
-5. Search for and select the required Microsoft Graph permissions
-   for your use case, then choose **Add
-   permissions**.
-6. Choose **Add a permission** again.
-7. Choose **SharePoint** (under Microsoft
-   APIs).
-8. Choose **Application permissions**.
-9. Search for and select the required SharePoint permissions for
-   your use case, then choose **Add
-   permissions**.
+1. Choose **Microsoft Graph**.
 
-###### Important
+1. Choose **Application permissions**.
 
-Select the **Application permissions** tab, not
-**Delegated permissions**. Admin-managed setup uses
-the client credentials flow, which requires application
-permissions.
+1. Search for and select the required Microsoft Graph permissions for your use case, then choose **Add permissions**.
+
+1. Choose **Add a permission** again.
+
+1. Choose **SharePoint** (under Microsoft APIs).
+
+1. Choose **Application permissions**.
+
+1. Search for and select the required SharePoint permissions for your use case, then choose **Add permissions**.
+
+**Important**  
+Select the **Application permissions** tab, not **Delegated permissions**. Admin-managed setup uses the client credentials flow, which requires application permissions.
 
 ### Grant admin consent
+<a name="sharepoint-kb-admin-entra-consent"></a>
 
-1. On the **API permissions** page, choose
-   **Grant admin consent for [Your
-   Organization]**.
-2. Confirm the consent when prompted.
+1. On the **API permissions** page, choose **Grant admin consent for [Your Organization]**.
 
-###### Important
+1. Confirm the consent when prompted.
 
-Admin consent is required for application permissions. Without it,
-the application cannot access SharePoint data.
+**Important**  
+Admin consent is required for application permissions. Without it, the application cannot access SharePoint data.
 
 ### Upload the certificate
+<a name="sharepoint-kb-admin-entra-cert-upload"></a>
 
-1. In the left navigation of your app registration, choose
-   **Certificates & secrets**.
-2. Choose the **Certificates** tab.
-3. Choose **Upload certificate**.
-4. Select the `certificate.cer` file you generated in
-   Step 2.
-5. Choose **Add**.
+1. In the left navigation of your app registration, choose **Certificates & secrets**.
 
-###### Note
+1. Choose the **Certificates** tab.
 
-The Entra portal displays the certificate thumbprint in hexadecimal
-format. This is different from the base64url-encoded thumbprint you
-calculated in Step 2. Use the base64url value when you configure the
-knowledge base in Quick.
+1. Choose **Upload certificate**.
+
+1. Select the `certificate.cer` file you generated in Step 2.
+
+1. Choose **Add**.
+
+**Note**  
+The Entra portal displays the certificate thumbprint in hexadecimal format. This is different from the base64url-encoded thumbprint you calculated in Step 2. Use the base64url value when you configure the knowledge base in Quick.
 
 ## Step 3b: Grant site-level permissions (Sites.Selected only)
+<a name="sharepoint-kb-admin-sites-selected"></a>
 
-If you chose `Sites.Selected` as your permission scope, you
-must explicitly grant your Amazon Quick Entra app access to each SharePoint
-site. This requires a temporary admin app with
-`Sites.FullControl.All` permission to call the Microsoft Graph
-API.
+If you chose `Sites.Selected` as your permission scope, you must explicitly grant your Amazon Quick Entra app access to each SharePoint site. This requires a temporary admin app with `Sites.FullControl.All` permission to call the Microsoft Graph API.
 
-Skip this step if you are using the all-sites permission scope
-(`Sites.Read.All` or
-`Sites.FullControl.All`).
+Skip this step if you are using the all-sites permission scope (`Sites.Read.All` or `Sites.FullControl.All`).
 
 ### Get the Site ID for each SharePoint site
+<a name="sharepoint-kb-admin-sites-selected-siteid"></a>
 
-You need the Site ID for each SharePoint site you want to grant
-access to. To get a Site ID:
+You need the Site ID for each SharePoint site you want to grant access to. To get a Site ID:
 
-1. In your browser, navigate to the SharePoint site (for
-   example,
-   `https://`yourcompany`.sharepoint.com/sites/`SiteName``).
-2. Append `/_api/site/id` to the URL and press
-   Enter. For example:
-   `https://`yourcompany`.sharepoint.com/sites/`SiteName`/_api/site/id`
-3. The page displays an XML response containing the Site ID
-   (a GUID). Record this value.
+1. In your browser, navigate to the SharePoint site (for example, `https://{{yourcompany}}.sharepoint.com/sites/{{SiteName}}`).
 
-Repeat for each site you want to include in the knowledge
-base.
+1. Append `/_api/site/id` to the URL and press Enter. For example: `https://{{yourcompany}}.sharepoint.com/sites/{{SiteName}}/_api/site/id`
+
+1. The page displays an XML response containing the Site ID (a GUID). Record this value.
+
+Repeat for each site you want to include in the knowledge base.
 
 ### Create a temporary admin app
+<a name="sharepoint-kb-admin-sites-selected-admin-app"></a>
 
-The admin app is used only to grant site-level permissions to your
-Amazon Quick app. You can delete it after completing this step.
+The admin app is used only to grant site-level permissions to your Amazon Quick app. You can delete it after completing this step.
 
-1. In the [Microsoft
-   Entra admin center](https://entra.microsoft.com/ "https://entra.microsoft.com/"), go to **App
-   registrations** and choose **New
-   registration**.
-2. For **Name**, enter a descriptive name
-   such as
-   `Quick-SharePoint-PermissionGranter`.
-3. For **Supported account types**, select
-   **Accounts in this organizational directory only
-   (Single tenant)**.
-4. Leave **Redirect URI** blank and choose
-   **Register**.
-5. Record the **Application (client) ID**
-   from the Overview page.
-6. Choose **API permissions**, then
-   **Add a permission**.
-7. Choose **Microsoft Graph**, then
-   **Application permissions**. Search for and
-   select `Sites.FullControl.All`. Choose
-   **Add permissions**.
-8. Choose **Grant admin consent for [Your
-   Organization]** and confirm.
-9. Choose **Certificates & secrets**,
-   then **New client secret**. Enter a
-   description, choose an expiration period, and choose
-   **Add**.
-10. Record the secret **Value** immediately.
-    This value is only displayed once.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), go to **App registrations** and choose **New registration**.
 
-###### Important
+1. For **Name**, enter a descriptive name such as `Quick-SharePoint-PermissionGranter`.
 
-Copy the secret **Value**, not
-the Secret ID. The Value is the longer string used for
-authentication.
+1. For **Supported account types**, select **Accounts in this organizational directory only (Single tenant)**.
+
+1. Leave **Redirect URI** blank and choose **Register**.
+
+1. Record the **Application (client) ID** from the Overview page.
+
+1. Choose **API permissions**, then **Add a permission**.
+
+1. Choose **Microsoft Graph**, then **Application permissions**. Search for and select `Sites.FullControl.All`. Choose **Add permissions**.
+
+1. Choose **Grant admin consent for [Your Organization]** and confirm.
+
+1. Choose **Certificates & secrets**, then **New client secret**. Enter a description, choose an expiration period, and choose **Add**.
+
+1. Record the secret **Value** immediately. This value is only displayed once.
+
+**Important**  
+Copy the secret **Value**, not the Secret ID. The Value is the longer string used for authentication.
 
 ### Get an access token
+<a name="sharepoint-kb-admin-sites-selected-token"></a>
 
-Use the admin app credentials to retrieve an OAuth token from
-Microsoft Entra. Replace the `placeholder`
-values with your admin app's client ID, secret value, and tenant
-ID.
+Use the admin app credentials to retrieve an OAuth token from Microsoft Entra. Replace the {{placeholder}} values with your admin app's client ID, secret value, and tenant ID.
 
 **macOS and Linux (bash)**
 
 ```
-curl -s --location "https://login.microsoftonline.com/`TENANT_ID`/oauth2/v2.0/token" \
+curl -s --location "https://login.microsoftonline.com/{{TENANT_ID}}/oauth2/v2.0/token" \
   --header "Content-Type: application/x-www-form-urlencoded" \
   --data-urlencode "grant_type=client_credentials" \
-  --data-urlencode "client_id=`ADMIN_APP_CLIENT_ID`" \
-  --data-urlencode "client_secret=`ADMIN_APP_SECRET_VALUE`" \
+  --data-urlencode "client_id={{ADMIN_APP_CLIENT_ID}}" \
+  --data-urlencode "client_secret={{ADMIN_APP_SECRET_VALUE}}" \
   --data-urlencode "scope=https://graph.microsoft.com/.default"
 ```
 
@@ -521,40 +448,37 @@ curl -s --location "https://login.microsoftonline.com/`TENANT_ID`/oauth2/v2.0/to
 
 ```
 $tokenResponse = Invoke-RestMethod `
-  -Uri "https://login.microsoftonline.com/`TENANT_ID`/oauth2/v2.0/token" `
+  -Uri "https://login.microsoftonline.com/{{TENANT_ID}}/oauth2/v2.0/token" `
   -Method Post `
   -ContentType "application/x-www-form-urlencoded" `
   -Body @{
     grant_type    = "client_credentials"
-    client_id     = "`ADMIN_APP_CLIENT_ID`"
-    client_secret = "`ADMIN_APP_SECRET_VALUE`"
+    client_id     = "{{ADMIN_APP_CLIENT_ID}}"
+    client_secret = "{{ADMIN_APP_SECRET_VALUE}}"
     scope         = "https://graph.microsoft.com/.default"
   }
 $adminToken = $tokenResponse.access_token
 ```
 
-The response contains an `access_token` field. Record
-this value for the next step.
+The response contains an `access_token` field. Record this value for the next step.
 
 ### Grant site-level permissions
+<a name="sharepoint-kb-admin-sites-selected-grant"></a>
 
-Use the admin token to grant your Amazon Quick Entra app
-`fullcontrol` access to each SharePoint site. Replace the
-`placeholder` values with your Site ID, admin
-token, and the client app ID and display name from Step 3.
+Use the admin token to grant your Amazon Quick Entra app `fullcontrol` access to each SharePoint site. Replace the {{placeholder}} values with your Site ID, admin token, and the client app ID and display name from Step 3.
 
 **macOS and Linux (bash)**
 
 ```
-curl -s --location "https://graph.microsoft.com/v1.0/sites/`SITE_ID`/permissions" \
+curl -s --location "https://graph.microsoft.com/v1.0/sites/{{SITE_ID}}/permissions" \
   --header "Content-Type: application/json" \
-  --header "Authorization: Bearer `ADMIN_TOKEN`" \
+  --header "Authorization: Bearer {{ADMIN_TOKEN}}" \
   --data '{
     "roles": ["fullcontrol"],
     "grantedToIdentities": [{
       "application": {
-        "id": "`CLIENT_APP_ID`",
-        "displayName": "`CLIENT_APP_NAME`"
+        "id": "{{CLIENT_APP_ID}}",
+        "displayName": "{{CLIENT_APP_NAME}}"
       }
     }]
   }'
@@ -568,15 +492,15 @@ $body = @{
     grantedToIdentities = @(
         @{
             application = @{
-                id          = "`CLIENT_APP_ID`"
-                displayName = "`CLIENT_APP_NAME`"
+                id          = "{{CLIENT_APP_ID}}"
+                displayName = "{{CLIENT_APP_NAME}}"
             }
         }
     )
 } | ConvertTo-Json -Depth 10
 
 Invoke-RestMethod `
-  -Uri "https://graph.microsoft.com/v1.0/sites/`SITE_ID`/permissions" `
+  -Uri "https://graph.microsoft.com/v1.0/sites/{{SITE_ID}}/permissions" `
   -Method Post `
   -Headers @{
     "Content-Type"  = "application/json"
@@ -585,67 +509,45 @@ Invoke-RestMethod `
   -Body $body
 ```
 
-A successful response includes `"roles":
- ["fullcontrol"]` and the client app ID in the
-`grantedToIdentities` field.
+A successful response includes `"roles": ["fullcontrol"]` and the client app ID in the `grantedToIdentities` field.
 
-###### Important
-
-Repeat this command for each SharePoint site you want to
-include in the knowledge base. Any new sites added in the future
-also require a separate permission grant.
+**Important**  
+Repeat this command for each SharePoint site you want to include in the knowledge base. Any new sites added in the future also require a separate permission grant.
 
 ### Clean up
+<a name="sharepoint-kb-admin-sites-selected-cleanup"></a>
 
-After you have granted permissions to all required sites, you can
-delete the temporary admin app from the Microsoft Entra admin center.
-The site-level permissions you granted remain in effect
-independently of the admin app.
+After you have granted permissions to all required sites, you can delete the temporary admin app from the Microsoft Entra admin center. The site-level permissions you granted remain in effect independently of the admin app.
 
-###### Note
-
-The temporary admin app is used only in your local environment
-to call the Microsoft Graph API. Amazon Quick never sees or has
-access to the admin app or its credentials. Only the client app
-credentials are provided to Amazon Quick when you create the
-knowledge base.
+**Note**  
+The temporary admin app is used only in your local environment to call the Microsoft Graph API. Amazon Quick never sees or has access to the admin app or its credentials. Only the client app credentials are provided to Amazon Quick when you create the knowledge base.
 
 ## Step 4: Grant Amazon Quick permission to the KMS key
+<a name="sharepoint-kb-admin-step4-iam"></a>
 
-Amazon Quick needs permission to use the KMS key for signing OAuth
-assertions. You grant this permission from the Amazon Quick admin
-console.
+Amazon Quick needs permission to use the KMS key for signing OAuth assertions. You grant this permission from the Amazon Quick admin console.
 
-###### Note
+**Note**  
+This step requires Amazon Quick administrator access (Admin Pro role). If you are not an administrator, ask your Amazon Quick admin to complete this step using the KMS key ARN from Step 1.
 
-This step requires Amazon Quick administrator access (Admin Pro
-role). If you are not an administrator, ask your Amazon Quick admin
-to complete this step using the KMS key ARN from Step 1.
+**Important**  
+If your organization manages its own Amazon Quick IAM service role, the following console steps might not apply. Instead, ensure the role has `kms:Sign` permission on the KMS key ARN from Step 1.
 
-###### Important
+1. In Amazon Quick, choose **Manage account** from the left navigation pane.
 
-If your organization manages its own Amazon Quick IAM service role,
-the following console steps might not apply. Instead, ensure the role
-has `kms:Sign` permission on the KMS key ARN from
-Step 1.
+1. Under **Permissions**, choose **AWS resources**.
 
-1. In Amazon Quick, choose **Manage account**
-   from the left navigation pane.
-2. Under **Permissions**, choose
-   **AWS resources**.
-3. On the AWS resources page, scroll to **AWS Key
-   Management Service** and select the checkbox.
-4. Choose **Select keys**.
-5. In the **Select KMS keys** dialog, enter the
-   KMS key ARN you recorded in Step 1 and choose
-   **Add**.
-6. The key ARN appears in the list. Choose
-   **Finish**.
-7. Choose **Save** at the bottom of the AWS
-   resources page.
+1. On the AWS resources page, scroll to **AWS Key Management Service** and select the checkbox.
+
+1. Choose **Select keys**.
+
+1. In the **Select KMS keys** dialog, enter the KMS key ARN you recorded in Step 1 and choose **Add**.
+
+1. The key ARN appears in the list. Choose **Finish**.
+
+1. Choose **Save** at the bottom of the AWS resources page.
 
 ## Next steps
+<a name="sharepoint-kb-admin-config-next-steps"></a>
 
-After you complete the setup, create the SharePoint Online knowledge base
-connection in Amazon Quick. For instructions, see
-[Create the knowledge base in Amazon Quick](sharepoint-kb-admin-connection.md "sharepoint-kb-admin-connection.md").
+After you complete the setup, create the SharePoint Online knowledge base connection in Amazon Quick. For instructions, see [Create the knowledge base in Amazon Quick](sharepoint-kb-admin-connection.md).

@@ -1,32 +1,22 @@
+
+
 # Step 2: Get the URL with the authentication code attached
+<a name="embedded-analytics-full-console-for-authenticated-users-get-step-2"></a>
 
-###### Important
+**Important**  
+Amazon Quick Sight has new APIs for embedding analytics: `GenerateEmbedUrlForAnonymousUser` and `GenerateEmbedUrlForRegisteredUser`.  
+You can still use the `GetDashboardEmbedUrl` and `GetSessionEmbedUrl` APIs to embed dashboards and the Amazon Quick Sight console, but they do not contain the latest embedding capabilities. For the latest up-to-date embedding experience, see [Embedding Amazon Quick Sight analytics into your applications](https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html).
 
-Amazon Quick Sight has new APIs for embedding analytics:
-`GenerateEmbedUrlForAnonymousUser` and
-`GenerateEmbedUrlForRegisteredUser`.
+In the following section, you can find out how to authenticate your user and get the embeddable console session URL on your application server. 
 
-You can still use the `GetDashboardEmbedUrl` and
-`GetSessionEmbedUrl` APIs to embed dashboards and the
-Amazon Quick Sight console, but they do not contain the latest embedding
-capabilities. For the latest up-to-date embedding experience, see [Embedding Amazon Quick Sight analytics into your
-applications](../../../quicksight/latest/user/embedding-overview.md "../../../quicksight/latest/user/embedding-overview.md").
+When a user accesses your app, the app assumes the IAM role on the user's behalf. Then it adds the user to Amazon Quick Sight, if that user doesn't already exist. Next, it passes an identifier as the unique role session ID. 
 
-In the following section, you can find out how to authenticate your user and get
-the embeddable console session URL on your application server.
+Performing the described steps ensures that each viewer of the console session is uniquely provisioned in Amazon Quick Sight. It also enforces per-user settings, such as the row-level security and dynamic defaults for parameters.
 
-When a user accesses your app, the app assumes the IAM role on the user's
-behalf. Then it adds the user to Amazon Quick Sight, if that user doesn't already
-exist. Next, it passes an identifier as the unique role session ID.
+The following examples perform the IAM authentication on the user's behalf. This code runs on your app server.
 
-Performing the described steps ensures that each viewer of the console session is
-uniquely provisioned in Amazon Quick Sight. It also enforces per-user settings, such
-as the row-level security and dynamic defaults for parameters.
-
-The following examples perform the IAM authentication on the user's behalf. This
-code runs on your app server.
-
-Java
+------
+#### [ Java ]
 
 ```
 import com.amazonaws.auth.AWSCredentials;
@@ -79,7 +69,8 @@ public class GetSessionEmbedUrlQSAuth {
 }
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 global.fetch = require('node-fetch');
@@ -122,7 +113,8 @@ function getSessionEmbedURL(
 }
 ```
 
-Python3
+------
+#### [ Python3 ]
 
 ```
 import json
@@ -145,7 +137,7 @@ def getSessionEmbedURL(accountId, userArn):
             UserArn = userArn,
             SessionLifetimeInMinutes = 600
         )
-
+            
         return {
             'statusCode': 200,
             'headers': {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Content-Type"},
@@ -157,28 +149,28 @@ def getSessionEmbedURL(accountId, userArn):
         return "Error generating embeddedURL: " + str(e)
 ```
 
-Node.js
-The following example shows the JavaScript (Node.js) that you can use
-on the app server to get the URL for the embedded console session. You
-can use this URL in your website or app to display the console session.
+------
+#### [ Node.js ]
 
-###### Example
+The following example shows the JavaScript (Node.js) that you can use on the app server to get the URL for the embedded console session. You can use this URL in your website or app to display the console session. 
+
+**Example**  
 
 ```
 const AWS = require('aws-sdk');
             const https = require('https');
-
+            
             var quicksight = new AWS.Service({
                 apiConfig: require('./quicksight-2018-04-01.min.json'),
                 region: 'us-east-1',
             });
-
+            
             quicksight.GetSessionEmbedUrl({
-                'AwsAccountId': '`111122223333`',
-                'EntryPoint': '`https://url-for-console-page-to-open`',
-                'SessionLifetimeInMinutes': `600`,
-                'UserArn': '`USER_ARN`'
-
+                'AwsAccountId': '{{111122223333}}',
+                'EntryPoint': '{{https://url-for-console-page-to-open}}',
+                'SessionLifetimeInMinutes': {{600}},
+                'UserArn': '{{USER_ARN}}'
+            
             }, function(err, data) {
                 console.log('Errors: ');
                 console.log(err);
@@ -187,7 +179,7 @@ const AWS = require('aws-sdk');
             });
 ```
 
-###### Example
+**Example**  
 
 ```
 //The URL returned is over 900 characters. For this example, we've shortened the string for
@@ -197,15 +189,14 @@ const AWS = require('aws-sdk');
               RequestId: '7bee030e-f191-45c4-97fe-d9faf0e03713' }
 ```
 
-.NET/C#
-The following example shows the .NET/C# code that you can use on the
-app server to get the URL for the embedded console session. You can use
-this URL in your website or app to display the console.
+------
+#### [ .NET/C\# ]
 
-###### Example
+The following example shows the .NET/C\# code that you can use on the app server to get the URL for the embedded console session. You can use this URL in your website or app to display the console. 
+
+**Example**  
 
 ```
-
             var client = new AmazonQuickSightClient(
                 AccessKey,
                 SecretAccessKey,
@@ -216,14 +207,14 @@ this URL in your website or app to display the console.
                 Console.WriteLine(
                     client.GetSessionEmbedUrlAsync(new GetSessionEmbedUrlRequest
                     {
-                'AwsAccountId': '`111122223333`',
-                'EntryPoint': '`https://url-for-console-page-to-open`',
+                'AwsAccountId': '{{111122223333}}',
+                'EntryPoint': '{{https://url-for-console-page-to-open}}',
                 'SessionLifetimeInMinutes': 600,
-                'UserArn': '`USER_ARN`'
-                        AwsAccountId = `111122223333`,
-                        EntryPoint = `https://url-for-console-page-to-open`,
-                        SessionLifetimeInMinutes = `600`,
-                        UserArn = '`USER_ARN`'
+                'UserArn': '{{USER_ARN}}'
+                        AwsAccountId = {{111122223333}},
+                        EntryPoint = {{https://url-for-console-page-to-open}},
+                        SessionLifetimeInMinutes = {{600}},
+                        UserArn = '{{USER_ARN}}'
                     }).Result.EmbedUrl
                 );
             } catch (Exception ex) {
@@ -231,124 +222,82 @@ this URL in your website or app to display the console.
             }
 ```
 
-AWS CLI
-To assume the role, choose one of the following AWS Security Token Service (AWS STS) API
-operations:
+------
+#### [ AWS CLI ]
 
-- [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") – Use this operation when you are
-  using an IAM identity to assume the role.
-- [AssumeRoleWithWebIdentity](../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md "../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md") – Use this
-  operation when you are using a web identity provider to
-  authenticate your user.
-- [AssumeRoleWithSaml](../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md "../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md") – Use this operation when
-  you are using SAML to authenticate your users.
+To assume the role, choose one of the following AWS Security Token Service (AWS STS) API operations:
++ [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) – Use this operation when you are using an IAM identity to assume the role.
++ [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html) – Use this operation when you are using a web identity provider to authenticate your user. 
++ [AssumeRoleWithSaml](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html) – Use this operation when you are using SAML to authenticate your users.
 
-The following example shows the CLI command to set the IAM role. The
-role needs to have permissions enabled for
-`quicksight:GetSessionEmbedUrl`. If you are taking a
-just-in-time approach to add users when they first open
-Amazon Quick Sight, the role also needs permissions enabled for
-`quicksight:RegisterUser`.
+The following example shows the CLI command to set the IAM role. The role needs to have permissions enabled for `quicksight:GetSessionEmbedUrl`. If you are taking a just-in-time approach to add users when they first open Amazon Quick Sight, the role also needs permissions enabled for `quicksight:RegisterUser`.
 
 ```
 aws sts assume-role \
-     --role-arn "`arn:aws:iam::111122223333:role/embedding_quicksight_dashboard_role`" \
-     --role-session-name `john.doe@example.com`
+     --role-arn "{{arn:aws:iam::111122223333:role/embedding_quicksight_dashboard_role}}" \
+     --role-session-name {{john.doe@example.com}}
 ```
 
-The `assume-role` operation returns three output
-parameters: the access key, the secret key, and the session token.
+The `assume-role` operation returns three output parameters: the access key, the secret key, and the session token. 
 
-###### Note
+**Note**  
+If you get an `ExpiredToken` error when calling the `AssumeRole` operation, this is probably because the previous `SESSION TOKEN` is still in the environment variables. Clear this by setting the following variables:  
+*AWS\_ACCESS\_KEY\_ID* 
+*AWS\_SECRET\_ACCESS\_KEY* 
+*AWS\_SESSION\_TOKEN* 
 
-If you get an `ExpiredToken` error when calling the
-`AssumeRole` operation, this is probably because the
-previous `SESSION TOKEN` is still in the environment
-variables. Clear this by setting the following variables:
-
-- _AWS\_ACCESS\_KEY\_ID_
-- _AWS\_SECRET\_ACCESS\_KEY_
-- _AWS\_SESSION\_TOKEN_
-
-The following example shows how to set these three parameters in the
-CLI. If you are using a Microsoft Windows machine, use `set`
-instead of `export`.
+The following example shows how to set these three parameters in the CLI. If you are using a Microsoft Windows machine, use `set` instead of `export`.
 
 ```
-export AWS_ACCESS_KEY_ID     = "`access_key_from_assume_role`"
-export AWS_SECRET_ACCESS_KEY = "`secret_key_from_assume_role`"
-export AWS_SESSION_TOKEN     = "`session_token_from_assume_role`"
+export AWS_ACCESS_KEY_ID     = "{{access_key_from_assume_role}}"
+export AWS_SECRET_ACCESS_KEY = "{{secret_key_from_assume_role}}"
+export AWS_SESSION_TOKEN     = "{{session_token_from_assume_role}}"
 ```
 
-Running these commands sets the role session ID of the user visiting
-your website to
-`embedding_quicksight_console_session_role/john.doe@example.com`.
-The role session ID is made up of the role name from
-`role-arn` and the `role-session-name` value.
-Using the unique role session ID for each user ensures that appropriate
-permissions are set for each user. It also prevents any throttling of
-user access. Throttling is a security feature that prevents the same
-user from accessing Amazon Quick Sight from multiple locations.
+Running these commands sets the role session ID of the user visiting your website to `embedding_quicksight_console_session_role/john.doe@example.com`. The role session ID is made up of the role name from `role-arn` and the `role-session-name` value. Using the unique role session ID for each user ensures that appropriate permissions are set for each user. It also prevents any throttling of user access. Throttling is a security feature that prevents the same user from accessing Amazon Quick Sight from multiple locations. 
 
-The role session ID also becomes the user name in Amazon Quick Sight.
-You can use this pattern to provision your users in Amazon Quick Sight
-ahead of time, or to provision them the first time they access a console
-session.
+The role session ID also becomes the user name in Amazon Quick Sight. You can use this pattern to provision your users in Amazon Quick Sight ahead of time, or to provision them the first time they access a console session. 
 
-The following example shows the CLI command that you can use to
-provision a user. For more information about [RegisterUser](../../../quicksight/latest/APIReference/API_RegisterUser.md "../../../quicksight/latest/APIReference/API_RegisterUser.md"), [DescribeUser](../../../quicksight/latest/APIReference/API_DescribeUser.md "../../../quicksight/latest/APIReference/API_DescribeUser.md"), and other Amazon Quick Sight API operations,
-see the [Amazon Quick Sight API reference](../../../quicksight/latest/APIReference/Welcome.md "../../../quicksight/latest/APIReference/Welcome.md").
+The following example shows the CLI command that you can use to provision a user. For more information about [RegisterUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html), [DescribeUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html), and other Amazon Quick Sight API operations, see the [Amazon Quick Sight API reference](https://docs.aws.amazon.com/quicksight/latest/APIReference/Welcome.html).
 
 ```
 aws quicksight register-user \
-     --aws-account-id `111122223333` \
-     --namespace `default` \
-     --identity-type `IAM` \
-     --iam-arn "`arn:aws:iam::111122223333:role/embedding_quicksight_dashboard_role`" \
-     --user-role `READER` \
-     --user-name `jhnd` \
-     --session-name "`john.doe@example.com`" \
-     --email `john.doe@example.com` \
-     --region `us-east-1` \
-     --custom-permissions-name `TeamA1`
+     --aws-account-id {{111122223333}} \
+     --namespace {{default}} \
+     --identity-type {{IAM}} \
+     --iam-arn "{{arn:aws:iam::111122223333:role/embedding_quicksight_dashboard_role}}" \
+     --user-role {{READER}} \
+     --user-name {{jhnd}} \
+     --session-name "{{john.doe@example.com}}" \
+     --email {{john.doe@example.com}} \
+     --region {{us-east-1}} \
+     --custom-permissions-name {{TeamA1}}
 ```
 
-If the user is authenticated through Microsoft AD, you don't need to
-use `RegisterUser` to set them up. Instead, they should be
-automatically subscribed the first time they access Amazon Quick Sight.
-For Microsoft AD users, you can use `DescribeUser` to get the
-user ARN.
+If the user is authenticated through Microsoft AD, you don't need to use `RegisterUser` to set them up. Instead, they should be automatically subscribed the first time they access Amazon Quick Sight. For Microsoft AD users, you can use `DescribeUser` to get the user ARN.
 
-The first time a user accesses Amazon Quick Sight, you can also add
-this user to the appropriate group. The following example shows the CLI
-command to add a user to a group.
+The first time a user accesses Amazon Quick Sight, you can also add this user to the appropriate group. The following example shows the CLI command to add a user to a group.
 
 ```
 aws quicksight create-group-membership \
-     --aws-account-id=`111122223333` \
-     --namespace=`default` \
-     --group-name=`financeusers` \
-     --member-name="`embedding_quicksight_dashboard_role/john.doe@example.com`"
+     --aws-account-id={{111122223333}} \
+     --namespace={{default}} \
+     --group-name={{financeusers}} \
+     --member-name="{{embedding_quicksight_dashboard_role/john.doe@example.com}}"
 ```
 
-You now have a user of your app who is also a user of
-Amazon Quick Sight, and who has access to the Amazon Quick Sight console
-session.
+You now have a user of your app who is also a user of Amazon Quick Sight, and who has access to the Amazon Quick Sight console session. 
 
-Finally, to get a signed URL for the console session, call
-`get-session-embed-url` from the app server. This returns
-the embeddable console session URL. The following example shows how to
-get the URL for an embedded console session using a server-side call for
-users authenticated through AWS Managed Microsoft AD or Single Sign-on
-(IAM Identity Center).
+Finally, to get a signed URL for the console session, call `get-session-embed-url` from the app server. This returns the embeddable console session URL. The following example shows how to get the URL for an embedded console session using a server-side call for users authenticated through AWS Managed Microsoft AD or Single Sign-on (IAM Identity Center).
 
 ```
 aws quicksight get-dashboard-embed-url \
-     --aws-account-id `111122223333` \
-     --entry-point `the-url-for--the-console-session` \
-     --session-lifetime-in-minutes `600` \
-     --user-arn arn:aws:quicksight:`us-east-1`:`111122223333`:user/default/`embedding_quicksight_dashboard_role`/embeddingsession
+     --aws-account-id {{111122223333}} \
+     --entry-point {{the-url-for--the-console-session}} \
+     --session-lifetime-in-minutes {{600}} \
+     --user-arn arn:aws:quicksight:{{us-east-1}}:{{111122223333}}:user/default/{{embedding_quicksight_dashboard_role}}/embeddingsession
 ```
 
-For more information on using this operation, see [GetSessionEmbedUrl](../../../quicksight/latest/APIReference/API_GetSessionEmbedUrl.md "../../../quicksight/latest/APIReference/API_GetSessionEmbedUrl.md"). You can use this and
-other API operations in your own code.
+For more information on using this operation, see [GetSessionEmbedUrl](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetSessionEmbedUrl.html). You can use this and other API operations in your own code. 
+
+------

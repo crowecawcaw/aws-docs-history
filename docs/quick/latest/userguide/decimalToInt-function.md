@@ -1,29 +1,30 @@
-# decimalToInt
 
-`decimalToInt` converts a decimal value to the integer data type by
-stripping off the decimal point and any numbers after it. `decimalToInt`
-does not round up. For example, `decimalToInt(29.99)` returns
-`29`.
+
+# decimalToInt
+<a name="decimalToInt-function"></a>
+
+`decimalToInt` converts a decimal value to the integer data type by stripping off the decimal point and any numbers after it. `decimalToInt` does not round up. For example, `decimalToInt(29.99)` returns `29`.
 
 ## Syntax
+<a name="decimalToInt-function-syntax"></a>
 
 ```
-decimalToInt(`decimal`)
+decimalToInt({{decimal}})
 ```
 
 ## Arguments
+<a name="decimalToInt-function-arguments"></a>
 
-_decimal_
-
-A field that uses the decimal data type, a literal value like
-`17.62`, or a call to another function that
-outputs a decimal.
+ *decimal*   
+A field that uses the decimal data type, a literal value like **17.62**, or a call to another function that outputs a decimal.
 
 ## Return type
+<a name="decimalToInt-function-return-type"></a>
 
 Integer
 
 ## Example
+<a name="decimalToInt-function-example"></a>
 
 The following example converts a decimal field to an integer.
 

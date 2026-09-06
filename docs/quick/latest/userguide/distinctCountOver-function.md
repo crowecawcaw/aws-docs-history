@@ -1,67 +1,49 @@
-# distinctCountOver
 
-The `distinctCountOver` function calculates the distinct count of the
-operand partitioned by the specified attributes at a specified level. Supported levels
-are `PRE_FILTER` and `PRE_AGG`. The operand must be
-unaggregated.
+
+# distinctCountOver
+<a name="distinctCountOver-function"></a>
+
+The `distinctCountOver` function calculates the distinct count of the operand partitioned by the specified attributes at a specified level. Supported levels are `PRE_FILTER` and `PRE_AGG`. The operand must be unaggregated.
 
 ## Syntax
+<a name="distinctCountOver-function-syntax"></a>
 
-The brackets are required. To see which arguments are optional, see the following
-descriptions.
+The brackets are required. To see which arguments are optional, see the following descriptions.
 
 ```
 distinctCountOver
 (
-  `measure or dimension field`
-  ,`[ partition_field, ... ]`
-  ,`calculation level`
+  {{measure or dimension field}} 
+  ,{{[ partition_field, ... ]}}  
+  ,{{calculation level}} 
 )
 ```
 
 ## Arguments
+<a name="distinctCountOver-function-arguments"></a>
 
-_measure or dimension field_
+ *measure or dimension field*   
+The measure or dimension that you want to do the calculation for, for example `{Sales Amt}`. Valid values are `PRE_FILTER` and `PRE_AGG`.
 
-The measure or dimension that you want to do the calculation for, for
-example `{Sales Amt}`. Valid values are
-`PRE_FILTER` and `PRE_AGG`.
+ *partition field*   
+(Optional) One or more dimensions that you want to partition by, separated by commas.   
+Each field in the list is enclosed in {} (curly braces), if it is more than one word. The entire list is enclosed in [ ] (square brackets).
 
-_partition field_
-
-(Optional) One or more dimensions that you want to partition by,
-separated by commas.
-
-Each field in the list is enclosed in {} (curly braces), if it is more
-than one word. The entire list is enclosed in [ ] (square
-brackets).
-
-_calculation level_
-
-(Optional) Specifies the calculation level to use:
-
-- `PRE_FILTER`
-  – Prefilter calculations are computed before the dataset
-  filters.
-- `PRE_AGG` –
-  Preaggregate calculations are computed before applying
-  aggregations and top and bottom _N_ filters to the visuals.
-
-This value defaults to `POST_AGG_FILTER` when blank.
-`POST_AGG_FILTER` is not a valid level for this operation
-and will result in an error message. For more information, see [Using level-aware calculations in
-Amazon Quick](../../../quicksight/latest/user/level-aware-calculations.md "../../../quicksight/latest/user/level-aware-calculations.md").
+ *calculation level*  
+(Optional) Specifies the calculation level to use:  
++ **`PRE_FILTER`** – Prefilter calculations are computed before the dataset filters.
++ **`PRE_AGG`** – Preaggregate calculations are computed before applying aggregations and top and bottom *N* filters to the visuals.
+This value defaults to `POST_AGG_FILTER` when blank. `POST_AGG_FILTER` is not a valid level for this operation and will result in an error message. For more information, see [Using level-aware calculations in Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/level-aware-calculations.html).
 
 ## Example
+<a name="distinctCountOver-function-example"></a>
 
-The following example gets the distinct count of `Sales` partitioned
-over `City` and `State` at the `PRE_AGG`
-level.
+The following example gets the distinct count of `Sales` partitioned over `City` and `State` at the `PRE_AGG` level.
 
 ```
 distinctCountOver
 (
-  Sales,
+  Sales, 
   [City, State], PRE_AGG
 )
 ```

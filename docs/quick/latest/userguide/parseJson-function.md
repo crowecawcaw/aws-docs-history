@@ -1,61 +1,55 @@
+
+
 # parseJson
+<a name="parseJson-function"></a>
 
-Use `parseJson` to extract values from a JSON object.
+Use `parseJson` to extract values from a JSON object. 
 
-If your dataset is stored in Quick SPICE, you can use
-`parseJson` when you are preparing a data set, but not in calculated
-fields during analysis.
+If your dataset is stored in Quick SPICE, you can use `parseJson` when you are preparing a data set, but not in calculated fields during analysis.
 
-For direct query, you can use `parseJson` both during data preparation
-and analysis. The `parseJson` function applies to either strings or to
-JSON native data types, depending on the dialect, as shown in the following
-table.
+For direct query, you can use `parseJson` both during data preparation and analysis. The `parseJson` function applies to either strings or to JSON native data types, depending on the dialect, as shown in the following table.
 
-| Dialect              | Type                                      |
-| -------------------- | ----------------------------------------- |
-| PostgreSQL           | JSON                                      |
-| Amazon Redshift      | String                                    |
-| Microsoft SQL Server | String                                    |
-| MySQL                | JSON                                      |
-| Teradata             | JSON                                      |
-| Oracle               | String                                    |
-| Presto               | String                                    |
-| Snowflake            | Semistructured data type object and array |
-| Hive                 | String                                    |
+
+| Dialect | Type | 
+| --- | --- | 
+| PostgreSQL | JSON | 
+| Amazon Redshift | String | 
+| Microsoft SQL Server | String | 
+| MySQL | JSON | 
+| Teradata | JSON | 
+| Oracle | String | 
+| Presto | String | 
+| Snowflake | Semistructured data type object and array | 
+| Hive | String | 
 
 ## Syntax
+<a name="parseJson-function-syntax"></a>
 
 ```
-parseJson(`fieldName`, `path`)
+parseJson({{fieldName}}, {{path}})
 ```
 
 ## Arguments
+<a name="parseJson-function-arguments"></a>
 
-_fieldName_
+ *fieldName*   
+The field containing the JSON object that you want to parse.
 
-The field containing the JSON object that you want to
-parse.
-
-_path_
-
-The path to the data element you want to parse from the JSON
-object. Only letters, numbers, and blank spaces are supported in the
-path argument. Valid path syntax includes:
-
-- _$_ – Root object
-- _._ – Child operator
-- _[ ]_ – Subscript operator for
-  array
+ *path*   
+The path to the data element you want to parse from the JSON object. Only letters, numbers, and blank spaces are supported in the path argument. Valid path syntax includes:  
++ *$* – Root object
++ *.* – Child operator
++ *[ ]* – Subscript operator for array
 
 ## Return type
+<a name="parseJson-function-return-type"></a>
 
 String
 
 ## Example
+<a name="parseJson-function-example-query"></a>
 
-The following example evaluates incoming JSON to retrieve a value for item
-quantity. By using this during data preparation, you can create a table out of
-the JSON.
+The following example evaluates incoming JSON to retrieve a value for item quantity. By using this during data preparation, you can create a table out of the JSON.
 
 ```
 parseJson({jsonField}, “$.items.qty”)
@@ -89,10 +83,9 @@ For this example, the following value is returned.
 ```
 
 ## Example
+<a name="parseJson-function-example"></a>
 
-The following example evaluates `JSONObject1` to extract the first
-key value pair (KVP), labeled `"State"`, and assign the value to the
-calculated field that you are creating.
+The following example evaluates `JSONObject1` to extract the first key value pair (KVP), labeled `"State"`, and assign the value to the calculated field that you are creating.
 
 ```
 parseJson(JSONObject1, “$.state”)
@@ -106,7 +99,6 @@ JSONObject1
 {"State":"New York","Product":"Produce","Date Sold":"1/16/2018","Sales Amount":"$3423.39"}
 {"State":"North Carolina","Product":"Bakery Products","Date Sold":"2/1/2018","Sales Amount":"$3226.42"}
 {"State":"Utah","Product":"Water","Date Sold":"4/24/2018","Sales Amount":"$7001.52"}
-
 ```
 
 For these field values, the following rows are returned.
@@ -115,5 +107,4 @@ For these field values, the following rows are returned.
 New York
 North Carolina
 Utah
-
 ```

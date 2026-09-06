@@ -1,17 +1,14 @@
+
+
 # Editing field names and descriptions
+<a name="changing-a-field-name"></a>
 
-You can change any field name and description from what is provided by the data
-source. If you change the name of a field used in a calculated field, make sure also to
-change it in the calculated field function. Otherwise, the function fails.
+You can change any field name and description from what is provided by the data source. If you change the name of a field used in a calculated field, make sure also to change it in the calculated field function. Otherwise, the function fails.
 
-###### To change a field name or description
+**To change a field name or description**
 
-1. In the **Fields** pane of the data prep page, choose the
-   three-dot icon on the field that you want to change. Then choose **Edit
-   name & description**.
-2. Enter the new name or description that you want to change, and choose
-   **Apply**.
-   You can also change the name and description of a field on the data prep page. To do
-   this, select the column header of the field that you want to change in the
-   **Dataset** table in that page's lower half. Then make any changes
-   there.
+1. In the **Fields** pane of the data prep page, choose the three-dot icon on the field that you want to change. Then choose **Edit name & description**.
+
+1. Enter the new name or description that you want to change, and choose **Apply**.
+
+You can also change the name and description of a field on the data prep page. To do this, select the column header of the field that you want to change in the **Dataset** table in that page's lower half. Then make any changes there.

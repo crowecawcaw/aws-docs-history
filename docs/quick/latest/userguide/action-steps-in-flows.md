@@ -1,18 +1,22 @@
-# Action steps
 
-Action steps let your flows perform read or write operations in connected applications. The available operations depend on the action integrations that you have configured or that have been shared with you. For prerequisites, authentication methods, and available integrations, see [Working with integrations](working-with-integrations.md "working-with-integrations.md").
+
+# Action steps
+<a name="action-steps-in-flows"></a>
+
+Action steps let your flows perform read or write operations in connected applications. The available operations depend on the action integrations that you have configured or that have been shared with you. For prerequisites, authentication methods, and available integrations, see [Working with integrations](working-with-integrations.md).
 
 ## Action parameters
+<a name="action-parameters"></a>
 
 Some actions require or accept parameters such as filters or specific input values. To determine which parameters an action accepts, you can ask Quick — for example, "What parameters does list emails accept when filtering emails?"
 
 Parameters can be:
-
-- Supplied directly in the prompt (for example, "List emails with subject containing 'quarterly report'")
-- Referenced from a previous step using @ references (for example, a user input step that collects a search term)
-- Acquired dynamically during flow execution based on the flow context
++ Supplied directly in the prompt (for example, "List emails with subject containing 'quarterly report'")
++ Referenced from a previous step using @ references (for example, a user input step that collects a search term)
++ Acquired dynamically during flow execution based on the flow context
 
 ## Working with list results
+<a name="working-with-list-results"></a>
 
 When you use an action that returns a list of items (for example, listing emails or tickets), the results may not include every item or every detail. This is because many applications return results in batches rather than all at once, and Quick retrieves only the first batch to keep your flow fast and responsive.
 
@@ -20,4 +24,4 @@ If you need the full details for each item in a list, you can use a reasoning gr
 
 When doing this, be mindful of how many items you are processing. A large number of items means more steps to run, which increases the time your flow takes to complete and the amount of data in your results. Where possible, use filters in your initial list action to narrow down the results before processing them.
 
-For configuration instructions, see [Editing flows](editing-flows.md "editing-flows.md").
+For configuration instructions, see [Editing flows](editing-flows.md).

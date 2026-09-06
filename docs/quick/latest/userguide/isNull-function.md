@@ -1,28 +1,30 @@
-# isNull
 
-`isNull` evaluates an expression to see if it is null. If the
-expression is null, `isNull` returns true, and otherwise it returns
-false.
+
+# isNull
+<a name="isNull-function"></a>
+
+`isNull` evaluates an expression to see if it is null. If the expression is null, `isNull` returns true, and otherwise it returns false.
 
 ## Syntax
+<a name="isNull-function-syntax"></a>
 
 ```
-isNull(`expression`)
+isNull({{expression}})
 ```
 
 ## Arguments
+<a name="isNull-function-arguments"></a>
 
-_expression_
-
-The expression to be evaluated as null or not. It can be a field
-name like `address1` or a call to another
-function that outputs a string.
+ *expression*   
+The expression to be evaluated as null or not. It can be a field name like **address1** or a call to another function that outputs a string. 
 
 ## Return type
+<a name="isNull-function-return-type"></a>
 
 Boolean
 
 ## Example
+<a name="isNull-function-example"></a>
 
 The following example evaluates the sales\_amount field for null values.
 
@@ -46,9 +48,8 @@ true
 false
 ```
 
-The following example tests for a NULL value in an `ifelse`
-statement, and returns a human-readable value instead.
+The following example tests for a NULL value in an `ifelse` statement, and returns a human-readable value instead.
 
 ```
-ifelse( isNull({ActiveFlag}) , 'Inactive',  'Active')
+ifelse( isNull({ActiveFlag}) , 'Inactive',  'Active') 
 ```

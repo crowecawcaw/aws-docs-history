@@ -1,8 +1,12 @@
-# User-driven license upgrades FAQ
 
-|                                           |
-| ----------------------------------------- |
-| **Applies<br>to:*<br>• Enterprise Edition |
+
+# User-driven license upgrades FAQ
+<a name="user-driven-upgrades-faqs"></a>
+
+
+|  | 
+| --- |
+|  Applies to:  Enterprise Edition  | 
 
 **What are user-driven license upgrades?**
 
@@ -21,13 +25,12 @@ License downgrades are not supported.
 Usage limits increase immediately to match the new tier. However, current usage does not reset—it carries over to the new tier.
 
 **How long does the approval process take?**
-
-- **Auto-approval:** Approximately 10 minutes
-- **Admin approval:** Typically 1-2 business days, depending on administrator response time
++ **Auto-approval:** Approximately 10 minutes
++ **Admin approval:** Typically 1-2 business days, depending on administrator response time
 
 ## Related topics
-
-- [Managing subscriptions](../../../quicksuite/latest/userguide/managing-subscriptions.md "../../../quicksuite/latest/userguide/managing-subscriptions.md")
-- [Managing user access](../../../quicksuite/latest/userguide/managing-users.md "../../../quicksuite/latest/userguide/managing-users.md")
-- [Understanding license tiers](https://aws.amazon.com/quicksuite/pricing/ "https://aws.amazon.com/quicksuite/pricing/")
-- [Custom permissions](../../../quicksuite/latest/userguide/create-custom-permissions-profile.md "../../../quicksuite/latest/userguide/create-custom-permissions-profile.md")
+<a name="related-topics"></a>
++ [Managing subscriptions](https://docs.aws.amazon.com/quicksuite/latest/userguide/managing-subscriptions.html)
++ [Managing user access](https://docs.aws.amazon.com/quicksuite/latest/userguide/managing-users.html)
++ [Understanding license tiers](https://aws.amazon.com/quicksuite/pricing/)
++ [Custom permissions](https://docs.aws.amazon.com/quicksuite/latest/userguide/create-custom-permissions-profile.html)

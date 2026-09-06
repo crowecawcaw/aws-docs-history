@@ -1,47 +1,38 @@
-# Substring
 
-`substring` returns the characters in a string, starting at the
-location specified by the _start_ argument and proceeding for the
-number of characters specified by the _length_ arguments.
+
+# Substring
+<a name="substring-function"></a>
+
+`substring` returns the characters in a string, starting at the location specified by the *start* argument and proceeding for the number of characters specified by the *length* arguments. 
 
 ## Syntax
+<a name="substring-function-syntax"></a>
 
 ```
-substring(`expression`, `start`, `length`)
+substring({{expression}}, {{start}}, {{length}})
 ```
 
 ## Arguments
+<a name="substring-function-arguments"></a>
 
-_expression_
+ *expression*   
+An expression can be the name of a field that uses the string data type like **address1**, a literal value like **'Unknown'**, or another function like `substring(field_name,1,5)`.
 
-An expression can be the name of a field that uses the string data
-type like `address1`, a literal value like
-`'Unknown'`, or another function like
-`substring(field_name,1,5)`.
+ *start*   
+The character location to start from. *start* is inclusive, so the character at the starting position is the first character in the returned value. The minimum value for *start* is 1. 
 
-_start_
-
-The character location to start from. _start_
-is inclusive, so the character at the starting position is the first
-character in the returned value. The minimum value for _start_ is 1.
-
-_length_
-
-The number of additional characters to include after
-_start_. _length_ is
-inclusive of _start_, so the last character
-returned is (_length_ - 1) after the starting
-character.
+ *length*   
+The number of additional characters to include after *start*. *length* is inclusive of *start*, so the last character returned is (*length* - 1) after the starting character.
 
 ## Return type
+<a name="substring-function-return-type"></a>
 
 String
 
 ## Example
+<a name="substring-function-example"></a>
 
-The following example returns the 13th through 19th characters in a string.
-The beginning of the string is index 1, so you begin counting at the first
-character.
+The following example returns the 13th through 19th characters in a string. The beginning of the string is index 1, so you begin counting at the first character.
 
 ```
 substring('Fantasy and Science Fiction',13,7)

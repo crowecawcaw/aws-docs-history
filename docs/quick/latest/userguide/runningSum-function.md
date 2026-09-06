@@ -1,66 +1,53 @@
-# runningSum
 
-The `runningSum` function calculates a running sum for a measure based on
-the specified dimensions and sort orders.
+
+# runningSum
+<a name="runningSum-function"></a>
+
+The `runningSum` function calculates a running sum for a measure based on the specified dimensions and sort orders. 
 
 ## Syntax
+<a name="runningSum-function-syntax"></a>
 
-The brackets are required. To see which arguments are optional, see the following
-descriptions.
+The brackets are required. To see which arguments are optional, see the following descriptions. 
 
 ```
 runningSum
 (
-  `measure`
-  ,`[ sortorder_field ASC_or_DESC, ... ]`
-  ,`[ partition_field, ... ]`
-**)**
+  {{measure}} 
+  ,{{[ sortorder_field ASC_or_DESC, ... ] }} 
+  ,{{[ partition_field, ... ]}} 
+)
 ```
 
 ## Arguments
+<a name="runningSum-function-arguments"></a>
 
-_measure_
+ *measure*   
+An aggregated measure that you want to see the running sum for. 
 
-An aggregated measure that you want to see the running sum for.
+ *sort order field*   
+One or more measures and dimensions that you want to sort the data by, separated by commas. You can specify either ascending (**ASC**) or descending (**DESC**) sort order.   
+Each field in the list is enclosed in {} (curly braces), if it is more than one word. The entire list is enclosed in [ ] (square brackets).
 
-_sort order field_
-
-One or more measures and dimensions that you want to sort the data by,
-separated by commas. You can specify either ascending
-(`ASC`) or descending
-(`DESC`) sort order.
-
-Each field in the list is enclosed in {} (curly braces), if it is more
-than one word. The entire list is enclosed in [ ] (square
-brackets).
-
-_partition field_
-
-(Optional) One or more dimensions that you want to partition by,
-separated by commas.
-
-Each field in the list is enclosed in {} (curly braces), if it is more
-than one word. The entire list is enclosed in [ ] (square
-brackets).
+ *partition field*  
+(Optional) One or more dimensions that you want to partition by, separated by commas.   
+Each field in the list is enclosed in {} (curly braces), if it is more than one word. The entire list is enclosed in [ ] (square brackets).
 
 ## Example
+<a name="runningSum-function-example"></a>
 
-The following example calculates a running sum of `sum(Sales)`, sorted
-by `Sales`, partitioned by `City` and
-`State`.
+The following example calculates a running sum of `sum(Sales)`, sorted by `Sales`, partitioned by `City` and `State`.
 
 ```
 runningSum
 (
-  sum(Sales),
-  [Sales ASC],
+  sum(Sales), 
+  [Sales ASC], 
   [City, State]
 )
 ```
 
-The following example calculates a running sum of `Billed Amount`,
-sorted by month (`[truncDate("MM",Date) ASC]`). The fields in the table
-calculation are in the field wells of the visual.
+The following example calculates a running sum of `Billed Amount`, sorted by month (`[truncDate("MM",Date) ASC]`). The fields in the table calculation are in the field wells of the visual.
 
 ```
 runningSum
@@ -70,8 +57,6 @@ runningSum
 )
 ```
 
-The following screenshot shows the results of the example. The red labels show how
-each amount is added ( `a + b = c` ) to the next amount, resulting in a
-new total.
+The following screenshot shows the results of the example. The red labels show how each amount is added ( `a + b = c` ) to the next amount, resulting in a new total. 
 
-![Table showing Billed Amount and runningSum by date with labels indicating addition formula.](images/runningSum.png)
+![Table showing Billed Amount and runningSum by date with labels indicating addition formula.](http://docs.aws.amazon.com/quick/latest/userguide/images/runningSum.png)

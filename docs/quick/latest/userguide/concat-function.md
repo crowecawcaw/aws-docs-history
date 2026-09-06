@@ -1,32 +1,34 @@
+
+
 # Concat
+<a name="concat-function"></a>
 
 `concat` concatenates two or more strings.
 
 ## Syntax
+<a name="concat-function-syntax"></a>
 
 ```
-concat(`expression1`, `expression2` [, `expression3` ...])
+concat({{expression1}}, {{expression2}} [, {{expression3}} ...])
 ```
 
 ## Arguments
+<a name="concat-function-arguments"></a>
 
-`concat` takes two or more string expressions as arguments.
+`concat` takes two or more string expressions as arguments. 
 
-_expression_
-
-The expression must be a string. It can be the name of a field
-that uses the string data type, a literal value like `'12
- Main Street'`, or a call to another function that
-outputs a string.
+ *expression*   
+The expression must be a string. It can be the name of a field that uses the string data type, a literal value like **'12 Main Street'**, or a call to another function that outputs a string.
 
 ## Return type
+<a name="concat-function-return-type"></a>
 
 String
 
 ## Examples
+<a name="concat-function-example"></a>
 
-The following example concatenates three string fields and adds appropriate
-spacing.
+The following example concatenates three string fields and adds appropriate spacing.
 
 ```
 concat(salutation, ' ', firstName, ' ', lastName)

@@ -1,40 +1,30 @@
+
+
 # Step 3: Embed the dashboard URL
+<a name="embedded-analytics-dashboards-with-anonymous-users-get-step-3"></a>
 
-###### Important
+**Important**  
+Amazon Quick Sight has new APIs for embedding analytics: `GenerateEmbedUrlForAnonymousUser` and `GenerateEmbedUrlForRegisteredUser`.  
+You can still use the `GetDashboardEmbedUrl` and `GetSessionEmbedUrl` APIs to embed dashboards and the Amazon Quick Sight console, but they do not contain the latest embedding capabilities. For the latest up-to-date embedding experience, see [Embedding Amazon Quick Sight analytics into your applications](https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html).
 
-Amazon Quick Sight has new APIs for embedding analytics:
-`GenerateEmbedUrlForAnonymousUser` and
-`GenerateEmbedUrlForRegisteredUser`.
 
-You can still use the `GetDashboardEmbedUrl` and
-`GetSessionEmbedUrl` APIs to embed dashboards and the
-Amazon Quick Sight console, but they do not contain the latest embedding
-capabilities. For the latest up-to-date embedding experience, see [Embedding Amazon Quick Sight analytics into your
-applications](../../../quicksight/latest/user/embedding-overview.md "../../../quicksight/latest/user/embedding-overview.md").
+|  | 
+| --- |
+|  Applies to:  Enterprise Edition  | 
 
-|                                           |
-| ----------------------------------------- |
-| **Applies<br>to:*<br>• Enterprise Edition |
 
-|                                               |
-| --------------------------------------------- |
-| Intended audience:<br>Amazon Quick developers |
+|  | 
+| --- |
+|    Intended audience:  Amazon Quick developers  | 
 
-In the following section, you can find out how you can use the [Amazon Quick Sight embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk "https://www.npmjs.com/package/amazon-quicksight-embedding-sdk") (JavaScript) to embed the dashboard URL
-from step 2 in your website or application page. With the SDK, you can do the
-following:
+In the following section, you can find out how you can use the [Amazon Quick Sight embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk) (JavaScript) to embed the dashboard URL from step 2 in your website or application page. With the SDK, you can do the following: 
++ Place the dashboard on an HTML page.
++ Pass parameters into the dashboard.
++ Handle error states with messages that are customized to your application.
 
-- Place the dashboard on an HTML page.
-- Pass parameters into the dashboard.
-- Handle error states with messages that are customized to your
-  application.
-  Call the `GetDashboardEmbedUrl` API operation to get the URL that you
-  can embed in your app. This URL is valid for 5 minutes, and the resulting session is
-  valid for 10 hours. The API operation provides the URL with an
-  `auth_code` that enables a single-sign on session.
+Call the `GetDashboardEmbedUrl` API operation to get the URL that you can embed in your app. This URL is valid for 5 minutes, and the resulting session is valid for 10 hours. The API operation provides the URL with an `auth_code` that enables a single-sign on session. 
 
-The following shows an example response from
-`get-dashboard-embed-url`.
+The following shows an example response from `get-dashboard-embed-url`.
 
 ```
 //The URL returned is over 900 characters. For this example, we've shortened the string for
@@ -46,17 +36,9 @@ The following shows an example response from
 }
 ```
 
-Embed this dashboard in your web page by using the Amazon Quick Sight [Embedding
-SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk "https://www.npmjs.com/package/amazon-quicksight-embedding-sdk") or by adding this URL into an iframe. If you set a fixed height and
-width number (in pixels), Amazon Quick Sight uses those and doesn't change your
-visual as your window resizes. If you set a relative percent height and width,
-Amazon Quick Sight provides a responsive layout that is modified as your window size
-changes. By using the Amazon Quick Sight Embedding SDK, you can also control
-parameters within the dashboard and receive callbacks in terms of page load
-completion and errors.
+Embed this dashboard in your web page by using the Amazon Quick Sight [Embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk) or by adding this URL into an iframe. If you set a fixed height and width number (in pixels), Amazon Quick Sight uses those and doesn't change your visual as your window resizes. If you set a relative percent height and width, Amazon Quick Sight provides a responsive layout that is modified as your window size changes. By using the Amazon Quick Sight Embedding SDK, you can also control parameters within the dashboard and receive callbacks in terms of page load completion and errors. 
 
-The following example shows how to use the generated URL. This code resides on
-your app server.
+The following example shows how to use the generated URL. This code resides on your app server.
 
 ```
 <!DOCTYPE html>
@@ -74,7 +56,7 @@ your app server.
             var containerDiv = document.getElementById("embeddingContainer");
             var options = {
                 // replace this dummy url with the one generated via embedding API
-                url: "https://us-east-1.quicksight.aws.amazon.com/sn/dashboards/dashboardId?isauthcode=true&identityprovider=quicksight&code=authcode",
+                url: "https://us-east-1.quicksight.aws.amazon.com/sn/dashboards/dashboardId?isauthcode=true&identityprovider=quicksight&code=authcode",  
                 container: containerDiv,
                 scrolling: "no",
                 height: "700px",
@@ -93,16 +75,11 @@ your app server.
 </html>
 ```
 
-For this example to work, make sure to use the Amazon Quick Sight Embedding SDK to load
-the embedded dashboard on your website using JavaScript. To get your copy, do one of
-the following:
+For this example to work, make sure to use the Amazon Quick Sight Embedding SDK to load the embedded dashboard on your website using JavaScript. To get your copy, do one of the following:
++ Download the [Amazon Quick Sight embedding SDK](https://github.com/awslabs/amazon-quicksight-embedding-sdk#step-3-create-the-quicksight-session-object) from GitHub. This repository is maintained by a group of Amazon Quick Sight developers.
++ Download the latest QuickSight embedding SDK version from [https://www.npmjs.com/package/amazon-quicksight-embedding-sdk](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk).
++ If you use `npm` for JavaScript dependencies, download and install it by running the following command.
 
-- Download the [Amazon Quick Sight embedding SDK](https://github.com/awslabs/amazon-quicksight-embedding-sdk#step-3-create-the-quicksight-session-object "https://github.com/awslabs/amazon-quicksight-embedding-sdk#step-3-create-the-quicksight-session-object") from GitHub. This repository is
-  maintained by a group of Amazon Quick Sight developers.
-- Download the latest QuickSight embedding SDK version from [https://www.npmjs.com/package/amazon-quicksight-embedding-sdk](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk "https://www.npmjs.com/package/amazon-quicksight-embedding-sdk").
-- If you use `npm` for JavaScript dependencies, download and
-  install it by running the following command.
-
-```
-npm install amazon-quicksight-embedding-sdk
-```
+  ```
+  npm install amazon-quicksight-embedding-sdk
+  ```

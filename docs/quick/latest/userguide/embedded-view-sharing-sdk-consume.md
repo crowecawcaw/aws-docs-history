@@ -1,14 +1,14 @@
+
+
 # Consuming a shared Amazon Quick Sight view
+<a name="embedded-view-sharing-sdk-consume"></a>
 
-After you create a new shared view, use the Embedding SDK to make the shared
-view consumable for other users. The examples below set up a consumable shared
-view for an embedded dashboard in Amazon Quick Sight.
+After you create a new shared view, use the Embedding SDK to make the shared view consumable for other users. The examples below set up a consumable shared view for an embedded dashboard in Amazon Quick Sight.
 
-With an appended URL
-Append the `sharedViewId` to the embed URL, under
-`/views/{viewId}`, and expose this URL to your
-users. Users can use this URL to will navigate to that shared
-view.
+------
+#### [ With an appended URL ]
+
+Append the `sharedViewId` to the embed URL, under ` /views/{viewId}`, and expose this URL to your users. Users can use this URL to will navigate to that shared view.
 
 ```
 const response = await dashboardFrame.createSharedView();
@@ -19,9 +19,10 @@ const baseUrl = formattedUrl.href;
 alert("Click to view this QuickSight shared view", baseUrl);
 ```
 
-With the contentOptions SDK
-Pass a `viewId` to the `contentOptions` to
-open the experience with the given `viewId`.
+------
+#### [ With the contentOptions SDK ]
+
+Pass a `viewId` to the `contentOptions` to open the experience with the given `viewId`.
 
 ```
 const contentOptions = {
@@ -37,7 +38,8 @@ const embeddedDashboard = await embeddingContext.embedDashboard(
 );
 ```
 
-With the InitialPath property
+------
+#### [ With the InitialPath property ]
 
 ```
 const shareView = async() => {
@@ -53,7 +55,7 @@ const generateNewEmbedUrl = async (initialPath) => {
             QuickSightConsole: {
             InitialPath: initialPath,
             FeatureConfigurations: {
-                "SharedView": {
+                "SharedView": { 
                     "Enabled": true
                  },
             },
@@ -63,3 +65,5 @@ const generateNewEmbedUrl = async (initialPath) => {
     return result.url;
 };
 ```
+
+------

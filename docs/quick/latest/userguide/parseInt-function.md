@@ -1,34 +1,32 @@
-# parseInt
 
-`parseInt` parses a string to determine if it contains an integer
-value. This function returns all rows that contain a decimal, integer, or null
-value, and skips any rows that don't. If the row contains a decimal value, it
-is returned as the nearest integer, rounded down. For example, a value of '2.99' is
-returned as '2'.
+
+# parseInt
+<a name="parseInt-function"></a>
+
+`parseInt` parses a string to determine if it contains an integer value. This function returns all rows that contain a decimal, integer, or null value, and skips any rows that don't. If the row contains a decimal value, it is returned as the nearest integer, rounded down. For example, a value of '2.99' is returned as '2'.
 
 ## Syntax
+<a name="parseInt-function-syntax"></a>
 
 ```
-parseInt(`expression`)
+parseInt({{expression}})
 ```
 
 ## Arguments
+<a name="parseInt-function-arguments"></a>
 
-_expression_
-
-The expression must be a string. It can be the name of a field
-that uses the string data type, a literal value like
-`'3'`, or a call to another function that
-outputs a string.
+ *expression*   
+The expression must be a string. It can be the name of a field that uses the string data type, a literal value like **'3'**, or a call to another function that outputs a string.
 
 ## Return type
+<a name="parseInt-function-return-type"></a>
 
 Integer
 
 ## Example
+<a name="parseInt-function-example"></a>
 
-The following example evaluates `feeType` to determine if it
-contains integer values.
+The following example evaluates `feeType` to determine if it contains integer values.
 
 ```
 parseInt(feeType)

@@ -1,28 +1,30 @@
-# Strlen
 
-`strlen` returns the number of characters in a string, including
-spaces.
+
+# Strlen
+<a name="strlen-function"></a>
+
+`strlen` returns the number of characters in a string, including spaces.
 
 ## Syntax
+<a name="strlen-function-syntax"></a>
 
 ```
-strlen(`expression`)
+strlen({{expression}})
 ```
 
 ## Arguments
+<a name="strlen-function-arguments"></a>
 
-_expression_
-
-An expression can be the name of a field that uses the string data
-type like `address1`, a literal value like
-`'Unknown'`, or another function like
-`substring(field_name,0,5)`.
+ *expression*   
+An expression can be the name of a field that uses the string data type like **address1**, a literal value like **'Unknown'**, or another function like `substring(field_name,0,5)`.
 
 ## Return type
+<a name="strlen-function-return-type"></a>
 
 Integer
 
 ## Example
+<a name="strlen-function-example"></a>
 
 The following example returns the length of the specified string.
 

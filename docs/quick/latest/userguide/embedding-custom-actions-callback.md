@@ -1,28 +1,15 @@
+
+
 # Adding embedded callback actions at runtime in Amazon Quick Sight
+<a name="embedding-custom-actions-callback"></a>
 
-Use embedded datapoint callback actions to build tighter integrations between your
-software as a service (SaaS) application and your Amazon Quick Sight embedded dashboards
-and visuals. Developers can register datapoints to be called back with the
-Amazon Quick Sight embedding SDK. When you register a callback action for a visual,
-readers can select a datapoint on the visual to receive a callback that provides
-data specific to the selected data point. This information can be used to flag key
-records, compile raw data specific to the datapoint, capture records, and compile
-data for backend processes.
+Use embedded datapoint callback actions to build tighter integrations between your software as a service (SaaS) application and your Amazon Quick Sight embedded dashboards and visuals. Developers can register datapoints to be called back with the Amazon Quick Sight embedding SDK. When you register a callback action for a visual, readers can select a datapoint on the visual to receive a callback that provides data specific to the selected data point. This information can be used to flag key records, compile raw data specific to the datapoint, capture records, and compile data for backend processes.
 
-Embedded callbacks aren't supported for custom visual content, text boxes, or
-insights.
+Embedded callbacks aren't supported for custom visual content, text boxes, or insights.
 
-Before you begin registering datapoints for callback, update the Embedding SDK to
-version 2.3.0. For more information about using the Amazon Quick Sight Embedding SDK,
-see the [amazon-quicksight-embedding-sdk](https://github.com/awslabs/amazon-quicksight-embedding-sdk "https://github.com/awslabs/amazon-quicksight-embedding-sdk") on GitHub.
+Before you begin registering datapoints for callback, update the Embedding SDK to version 2.3.0. For more information about using the Amazon Quick Sight Embedding SDK, see the [amazon-quicksight-embedding-sdk](https://github.com/awslabs/amazon-quicksight-embedding-sdk) on GitHub.
 
-A datapoint callback can be registered to one or more visuals at runtime through
-the Amazon Quick Sight SDK. You can also register a datapoint callback to any
-interaction supported by the [VisualCustomAction](../../../quicksight/latest/APIReference/API_VisualCustomAction.md "../../../quicksight/latest/APIReference/API_VisualCustomAction.md") API structure. This allows the datapoint callback to
-initiate when the user selects the datapoint on the visual or when the datapoint is
-selected from the datapoint context menu. The following example registers a
-datapoint callback that the reader initiates when they select a datapoint on the
-visual.
+A datapoint callback can be registered to one or more visuals at runtime through the Amazon Quick Sight SDK. You can also register a datapoint callback to any interaction supported by the [VisualCustomAction](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_VisualCustomAction.html) API structure. This allows the datapoint callback to initiate when the user selects the datapoint on the visual or when the datapoint is selected from the datapoint context menu. The following example registers a datapoint callback that the reader initiates when they select a datapoint on the visual.
 
 ```
 /const MY_GET_EMBED_URL_ENDPOINT =
@@ -193,21 +180,9 @@ const main = async () => {
 main().catch(console.error);
 ```
 
-You can also configure the preceding example to initiate datapoint callback when
-the user opens the context menu. To do this with the preceding example, set the
-value of `actionTrigger` to
-`ActionTrigger.DATA_POINT_MENU`.
+You can also configure the preceding example to initiate datapoint callback when the user opens the context menu. To do this with the preceding example, set the value of `actionTrigger` to `ActionTrigger.DATA_POINT_MENU`.
 
-After a datapoint callback is registered, it's applied to most datapoints on the
-specified visual or visuals. Callbacks don't apply to totals or subtotals on
-visuals. When a reader interacts with a datapoint, a
-`CALLBACK_OPERATION_INVOKED` message is emitted to the
-Amazon Quick Sight embedding SDK. This message is captured by the
-`onMessage` handler. The message contains the raw and display values
-for the full row of data associated with the datapoint that is selected. It also
-contains the column metadata for all columns in the visual that the datapoint is
-contained in. The following is an example of a
-`CALLBACK_OPERATION_INVOKED` message.
+After a datapoint callback is registered, it's applied to most datapoints on the specified visual or visuals. Callbacks don't apply to totals or subtotals on visuals. When a reader interacts with a datapoint, a `CALLBACK_OPERATION_INVOKED` message is emitted to the Amazon Quick Sight embedding SDK. This message is captured by the `onMessage` handler. The message contains the raw and display values for the full row of data associated with the datapoint that is selected. It also contains the column metadata for all columns in the visual that the datapoint is contained in. The following is an example of a `CALLBACK_OPERATION_INVOKED` message.
 
 ```
 {

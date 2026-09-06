@@ -1,30 +1,32 @@
-# Ceil
 
-`ceil` rounds a decimal value to the next highest integer. For example,
-`ceil(29.02)` returns `30`.
+
+# Ceil
+<a name="ceil-function"></a>
+
+`ceil` rounds a decimal value to the next highest integer. For example, `ceil(29.02)` returns `30`.
 
 ## Syntax
+<a name="ceil-function-syntax"></a>
 
 ```
-ceil(`decimal`)
+ceil({{decimal}})
 ```
 
 ## Arguments
+<a name="ceil-function-arguments"></a>
 
-_decimal_
-
-A field that uses the decimal data type, a literal value like
-`17.62`, or a call to another function that
-outputs a decimal.
+ *decimal*   
+A field that uses the decimal data type, a literal value like **17.62**, or a call to another function that outputs a decimal.
 
 ## Return type
+<a name="ceil-function-return-type"></a>
 
 Integer
 
 ## Example
+<a name="ceil-function-example"></a>
 
-The following example rounds a decimal field to the next highest
-integer.
+The following example rounds a decimal field to the next highest integer.
 
 ```
 ceil(salesAmount)

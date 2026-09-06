@@ -1,18 +1,18 @@
+
+
 # Supported browsers
+<a name="supported-browsers"></a>
 
-Before you start working with Amazon Quick, use the following table to verify that your
-browser is supported for Quick access.
+Before you start working with Amazon Quick, use the following table to verify that your browser is supported for Quick access.
 
-###### Note
+**Note**  
+Amazon Quick ended support for Microsoft Internet Explorer 11 on July 31, 2022. We can no longer ensure that the features and web pages of Quick will function properly on IE 11. Please use one of our supported browsers: Microsoft Edge (Chromium), Google Chrome, or Mozilla Firefox.
 
-Amazon Quick ended support for Microsoft Internet Explorer 11 on July 31, 2022. We
-can no longer ensure that the features and web pages of Quick will function
-properly on IE 11. Please use one of our supported browsers: Microsoft Edge (Chromium),
-Google Chrome, or Mozilla Firefox.
 
-| Browser                       | Version             | Check your version                                                                                                                                  |
-| ----------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Apple Safari**              | 13 or later         | Open Safari. On the menu, choose **Safari**, and then<br>choose **About Safari**. The version number is shown in<br>the dialog box that displays.   |
-| **Google Chrome**             | Last three versions | Open Chrome and type `chrome://version` in your<br>address bar. The version is in the **Google Chrome**<br>field at the top of the results.         |
-| **Microsoft Edge (Chromium)** | Latest version      | Not applicable.                                                                                                                                     |
-| **Mozilla Firefox**           | Last three versions | Open Firefox. On the menu, choose the Help icon, and then choose<br>**About Firefox**. The version number is listed<br>underneath the Firefox name. |
+
+| Browser | Version | Check your version | 
+| --- | --- | --- | 
+|  Apple Safari  | 13 or later | Open Safari. On the menu, choose **Safari**, and then choose **About Safari**. The version number is shown in the dialog box that displays. | 
+|  **Google Chrome**  | Last three versions | Open Chrome and type **chrome://version** in your address bar. The version is in the **Google Chrome** field at the top of the results. | 
+|  Microsoft Edge (Chromium)  | Latest version | Not applicable. | 
+|  **Mozilla Firefox**  | Last three versions | Open Firefox. On the menu, choose the Help icon, and then choose **About Firefox**. The version number is listed underneath the Firefox name. | 

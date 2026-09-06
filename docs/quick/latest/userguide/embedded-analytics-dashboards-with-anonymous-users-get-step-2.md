@@ -1,37 +1,30 @@
+
+
 # Step 2: Get the URL with the authentication code attached
+<a name="embedded-analytics-dashboards-with-anonymous-users-get-step-2"></a>
 
-###### Important
+**Important**  
+Amazon Quick Sight has new APIs for embedding analytics: `GenerateEmbedUrlForAnonymousUser` and `GenerateEmbedUrlForRegisteredUser`.  
+You can still use the `GetDashboardEmbedUrl` and `GetSessionEmbedUrl` APIs to embed dashboards and the Amazon Quick Sight console, but they do not contain the latest embedding capabilities. For the latest up-to-date embedding experience, see [Embedding Amazon Quick Sight analytics into your applications](https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html).
 
-Amazon Quick Sight has new APIs for embedding analytics:
-`GenerateEmbedUrlForAnonymousUser` and
-`GenerateEmbedUrlForRegisteredUser`.
 
-You can still use the `GetDashboardEmbedUrl` and
-`GetSessionEmbedUrl` APIs to embed dashboards and the
-Amazon Quick Sight console, but they do not contain the latest embedding
-capabilities. For the latest up-to-date embedding experience, see [Embedding Amazon Quick Sight analytics into your
-applications](../../../quicksight/latest/user/embedding-overview.md "../../../quicksight/latest/user/embedding-overview.md").
+|  | 
+| --- |
+|  Applies to:  Enterprise Edition  | 
 
-|                                           |
-| ----------------------------------------- |
-| **Applies<br>to:*<br>• Enterprise Edition |
 
-|                                               |
-| --------------------------------------------- |
-| Intended audience:<br>Amazon Quick developers |
+|  | 
+| --- |
+|    Intended audience:  Amazon Quick developers  | 
 
-In the following section, you can find how to authenticate on behalf of the
-anonymous visitor and get the embeddable dashboard URL on your application server.
+In the following section, you can find how to authenticate on behalf of the anonymous visitor and get the embeddable dashboard URL on your application server. 
 
-When a user accesses your app, the app assumes the IAM role on the user's
-behalf. Then it adds the user to Amazon Quick Sight, if that user doesn't already
-exist. Next, it passes an identifier as the unique role session ID.
+When a user accesses your app, the app assumes the IAM role on the user's behalf. Then it adds the user to Amazon Quick Sight, if that user doesn't already exist. Next, it passes an identifier as the unique role session ID. 
 
-The following examples perform the IAM authentication on the user's behalf. It
-passes an identifier as the unique role session ID. This code runs on your app
-server.
+The following examples perform the IAM authentication on the user's behalf. It passes an identifier as the unique role session ID. This code runs on your app server.
 
-Java
+------
+#### [ Java ]
 
 ```
 import com.amazonaws.auth.AWSCredentials;
@@ -93,7 +86,8 @@ public class GetQuicksightEmbedUrlNoAuth {
 }
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 global.fetch = require('node-fetch');
@@ -144,7 +138,8 @@ function getDashboardEmbedURL(
 }
 ```
 
-Python3
+------
+#### [ Python3 ]
 
 ```
 import json
@@ -175,7 +170,7 @@ def getDashboardURL(accountId, dashboardId, quicksightNamespace, resetDisabled, 
             UndoRedoDisabled = undoRedoDisabled,
             ResetDisabled = resetDisabled
         )
-
+            
         return {
             'statusCode': 200,
             'headers': {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Content-Type"},
@@ -187,32 +182,32 @@ def getDashboardURL(accountId, dashboardId, quicksightNamespace, resetDisabled, 
         return "Error generating embeddedURL: " + str(e)
 ```
 
-Node.js
-The following example shows the JavaScript (Node.js) that you can use
-on the app server to get the URL for the embedded dashboard. You can use
-this URL in your website or app to display the dashboard.
+------
+#### [ Node.js ]
 
-###### Example
+The following example shows the JavaScript (Node.js) that you can use on the app server to get the URL for the embedded dashboard. You can use this URL in your website or app to display the dashboard. 
+
+**Example**  
 
 ```
 const AWS = require('aws-sdk');
             const https = require('https');
-
+            
             var quicksight = new AWS.Service({
                 apiConfig: require('./quicksight-2018-04-01.min.json'),
                 region: 'us-east-1',
             });
-
+            
             quicksight.getDashboardEmbedUrl({
                 'AwsAccountId': '111122223333',
-                'DashboardId': '`dashboard-id`',
-                'AdditionalDashboardIds': '`added-dashboard-id-1 added-dashboard-id-2 added-dashboard-id-3`'
-                'Namespace' : '`default`',
+                'DashboardId': '{{dashboard-id}}',
+                'AdditionalDashboardIds': '{{added-dashboard-id-1 added-dashboard-id-2 added-dashboard-id-3}}'
+                'Namespace' : '{{default}}',
                 'IdentityType': 'ANONYMOUS',
                 'SessionLifetimeInMinutes': 100,
                 'UndoRedoDisabled': false,
                 'ResetDisabled': true
-
+            
             }, function(err, data) {
                 console.log('Errors: ');
                 console.log(err);
@@ -221,7 +216,7 @@ const AWS = require('aws-sdk');
             });
 ```
 
-###### Example
+**Example**  
 
 ```
 //The URL returned is over 900 characters. For this example, we've shortened the string for
@@ -231,15 +226,14 @@ const AWS = require('aws-sdk');
               RequestId: '7bee030e-f191-45c4-97fe-d9faf0e03713' }
 ```
 
-.NET/C#
-The following example shows the .NET/C# code that you can use on the
-app server to get the URL for the embedded dashboard. You can use this
-URL in your website or app to display the dashboard.
+------
+#### [ .NET/C\# ]
 
-###### Example
+The following example shows the .NET/C\# code that you can use on the app server to get the URL for the embedded dashboard. You can use this URL in your website or app to display the dashboard. 
+
+**Example**  
 
 ```
-
             var client = new AmazonQuickSightClient(
                 AccessKey,
                 SecretAccessKey,
@@ -250,10 +244,10 @@ URL in your website or app to display the dashboard.
                 Console.WriteLine(
                     client.GetDashboardEmbedUrlAsync(new GetDashboardEmbedUrlRequest
                     {
-                        AwsAccountId = “`111122223333`”,
-                        DashboardId = `"dashboard-id"`,
-                        AdditionalDashboardIds = `"added-dashboard-id-1 added-dashboard-id-2 added-dashboard-id-3"`,
-                        Namespace = `default`,
+                        AwsAccountId = “{{111122223333}}”,
+                        DashboardId = {{"dashboard-id"}},
+                        AdditionalDashboardIds = {{"added-dashboard-id-1 added-dashboard-id-2 added-dashboard-id-3"}},
+                        Namespace = {{default}},
                         IdentityType = IdentityType.ANONYMOUS,
                         SessionLifetimeInMinutes = 600,
                         UndoRedoDisabled = false,
@@ -265,82 +259,55 @@ URL in your website or app to display the dashboard.
             }
 ```
 
-AWS CLI
-To assume the role, choose one of the following AWS Security Token Service (AWS STS) API
-operations:
+------
+#### [ AWS CLI ]
 
-- [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") – Use this operation when you are
-  using an IAM identity to assume the role.
-- [AssumeRoleWithWebIdentity](../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md "../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md") – Use this
-  operation when you are using a web identity provider to
-  authenticate your user.
-- [AssumeRoleWithSaml](../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md "../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md") – Use this operation when
-  you are using Security Assertion Markup Language (SAML) to
-  authenticate your users.
+To assume the role, choose one of the following AWS Security Token Service (AWS STS) API operations:
++ [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) – Use this operation when you are using an IAM identity to assume the role.
++ [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html) – Use this operation when you are using a web identity provider to authenticate your user. 
++ [AssumeRoleWithSaml](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html) – Use this operation when you are using Security Assertion Markup Language (SAML) to authenticate your users.
 
-The following example shows the CLI command to set the IAM role. The
-role needs to have permissions enabled for
-`quicksight:GetDashboardEmbedURL`.
+The following example shows the CLI command to set the IAM role. The role needs to have permissions enabled for `quicksight:GetDashboardEmbedURL`. 
 
 ```
 aws sts assume-role \
-     --role-arn "`arn:aws:iam::`11112222333`:role/`QuickSightEmbeddingAnonymousPolicy``" \
-     --role-session-name `anonymous caller`
+     --role-arn "{{arn:aws:iam::{{11112222333}}:role/{{QuickSightEmbeddingAnonymousPolicy}}}}" \
+     --role-session-name {{anonymous caller}}
 ```
 
-The `assume-role` operation returns three output
-parameters: the access key, the secret key, and the session token.
+The `assume-role` operation returns three output parameters: the access key, the secret key, and the session token. 
 
-###### Note
+**Note**  
+If you get an `ExpiredToken` error when calling the `AssumeRole` operation, this is probably because the previous `SESSION TOKEN` is still in the environment variables. Clear this by setting the following variables:  
+*AWS\_ACCESS\_KEY\_ID* 
+*AWS\_SECRET\_ACCESS\_KEY* 
+*AWS\_SESSION\_TOKEN* 
 
-If you get an `ExpiredToken` error when calling the
-`AssumeRole` operation, this is probably because the
-previous `SESSION TOKEN` is still in the environment
-variables. Clear this by setting the following variables:
-
-- _AWS\_ACCESS\_KEY\_ID_
-- _AWS\_SECRET\_ACCESS\_KEY_
-- _AWS\_SESSION\_TOKEN_
-
-The following example shows how to set these three parameters in the
-CLI. If you are using a Microsoft Windows machine, use `set`
-instead of `export`.
+The following example shows how to set these three parameters in the CLI. If you are using a Microsoft Windows machine, use `set` instead of `export`.
 
 ```
-export AWS_ACCESS_KEY_ID     = "`access_key_from_assume_role`"
-export AWS_SECRET_ACCESS_KEY = "`secret_key_from_assume_role`"
-export AWS_SESSION_TOKEN     = "`session_token_from_assume_role`"
+export AWS_ACCESS_KEY_ID     = "{{access_key_from_assume_role}}"
+export AWS_SECRET_ACCESS_KEY = "{{secret_key_from_assume_role}}"
+export AWS_SESSION_TOKEN     = "{{session_token_from_assume_role}}"
 ```
 
-Running these commands sets the role session ID of the user visiting
-your website to
-`embedding_quicksight_dashboard_role/QuickSightEmbeddingAnonymousPolicy`.
-The role session ID is made up of the role name from
-`role-arn` and the `role-session-name` value.
-Using the unique role session ID for each user ensures that appropriate
-permissions are set for each visiting user. It also keeps each session
-separate and distinct. If you're using an array of web servers, for
-example for load balancing, and a session is reconnected to a different
-server, a new session begins.
+Running these commands sets the role session ID of the user visiting your website to `embedding_quicksight_dashboard_role/QuickSightEmbeddingAnonymousPolicy`. The role session ID is made up of the role name from `role-arn` and the `role-session-name` value. Using the unique role session ID for each user ensures that appropriate permissions are set for each visiting user. It also keeps each session separate and distinct. If you're using an array of web servers, for example for load balancing, and a session is reconnected to a different server, a new session begins.
 
-To get a signed URL for the dashboard, call
-`get-dashboard-embed-url` from the app server. This
-returns the embeddable dashboard URL. The following example shows how to
-get the URL for an embedded dashboard using a server-side call for users
-who are making anonymous visits to your web portal or app.
+To get a signed URL for the dashboard, call `get-dashboard-embed-url` from the app server. This returns the embeddable dashboard URL. The following example shows how to get the URL for an embedded dashboard using a server-side call for users who are making anonymous visits to your web portal or app.
 
 ```
 aws quicksight get-dashboard-embed-url \
-     --aws-account-id `111122223333` \
-     --dashboard-id `dashboard-id` \
-     --additional-dashboard-ids `added-dashboard-id-1 added-dashboard-id-2 added-dashboard-id-3`
-     --namespace `default-or-something-else` \
-     --identity-type `ANONYMOUS` \
-     --session-lifetime-in-minutes `30` \
-     --undo-redo-disabled `true` \
-     --reset-disabled `true` \
-     --user-arn arn:aws:quicksight:`us-east-1`:`111122223333`:user/default/`QuickSightEmbeddingAnonymousPolicy`/embeddingsession
+     --aws-account-id {{111122223333}} \
+     --dashboard-id {{dashboard-id}} \
+     --additional-dashboard-ids {{added-dashboard-id-1 added-dashboard-id-2 added-dashboard-id-3}}
+     --namespace {{default-or-something-else}} \
+     --identity-type {{ANONYMOUS}} \
+     --session-lifetime-in-minutes {{30}} \
+     --undo-redo-disabled {{true}} \
+     --reset-disabled {{true}} \
+     --user-arn arn:aws:quicksight:{{us-east-1}}:{{111122223333}}:user/default/{{QuickSightEmbeddingAnonymousPolicy}}/embeddingsession
 ```
 
-For more information on using this operation, see [GetDashboardEmbedUrl](../../../quicksight/latest/APIReference/API_GetDashboardEmbedUrl.md "../../../quicksight/latest/APIReference/API_GetDashboardEmbedUrl.md"). You can use this
-and other API operations in your own code.
+For more information on using this operation, see [GetDashboardEmbedUrl](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html). You can use this and other API operations in your own code. 
+
+------

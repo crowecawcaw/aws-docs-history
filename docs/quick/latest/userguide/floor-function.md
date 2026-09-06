@@ -1,30 +1,32 @@
-# Floor
 
-`floor` decrements a decimal value to the next lowest integer. For
-example, `floor(29.08)` returns `29`.
+
+# Floor
+<a name="floor-function"></a>
+
+`floor` decrements a decimal value to the next lowest integer. For example, `floor(29.08)` returns `29`.
 
 ## Syntax
+<a name="floor-function-syntax"></a>
 
 ```
-floor(`decimal`)
+floor({{decimal}})
 ```
 
 ## Arguments
+<a name="floor-function-arguments"></a>
 
-_decimal_
-
-A field that uses the decimal data type, a literal value like
-`17.62`, or a call to another function that
-outputs a decimal.
+ *decimal*   
+A field that uses the decimal data type, a literal value like **17.62**, or a call to another function that outputs a decimal.
 
 ## Return type
+<a name="floor-function-return-type"></a>
 
 Integer
 
 ## Example
+<a name="floor-function-example"></a>
 
-The following example decrements a decimal field to the next lowest
-integer.
+The following example decrements a decimal field to the next lowest integer.
 
 ```
 floor(salesAmount)

@@ -1,117 +1,82 @@
+
+
 # Set up and manage Amazon S3 integration
+<a name="s3-setup-manage"></a>
 
 ## Set up Amazon S3 integration
+<a name="s3-integration-setup"></a>
 
-After your administrator has completed the setup tasks, follow these steps to create
-your Amazon S3 knowledge base.
+After your administrator has completed the setup tasks, follow these steps to create your Amazon S3 knowledge base.
 
 1. In the Amazon Quick console, choose **Knowledge**.
-2. Under **Amazon S3**, choose **Add** (the
-   plus **+** button).
-3. On the **Connect S3 bucket** page, choose your data source:
 
-   - To reuse an existing Amazon S3 data source, select it from the dropdown.
-     Then choose **Next** to skip to the knowledge base
-     details step.
-   - To connect a new Amazon S3 bucket, choose **+ Add
-     account** from the dropdown.
+1. Under **Amazon S3**, choose **Add** (the plus **\+** button).
 
-4. If you are connecting a new bucket, fill in the connection details:
+1. On the **Connect S3 bucket** page, choose your data source:
+   + To reuse an existing Amazon S3 data source, select it from the dropdown. Then choose **Next** to skip to the knowledge base details step.
+   + To connect a new Amazon S3 bucket, choose **\+ Add account** from the dropdown.
 
-   - **Name** – A descriptive name for your Amazon S3
-     integration.
-   - **S3 bucket location** – Choose
-     **Quick Suite instance account** to access Amazon S3 buckets
-     in the same AWS account where Amazon Quick is enabled, or choose
-     **Other AWS account** to access buckets in a different
-     account.
-   - **S3 bucket URL** – The Amazon S3 bucket path containing
-     your documents. Your Amazon S3 bucket must be in the same region as your
-     Amazon Quick region.
-     Choose **Next**. The system validates your configuration. If
-     errors occur, review the error message for specific remediation steps.
+1. If you are connecting a new bucket, fill in the connection details:
+   + **Name** – A descriptive name for your Amazon S3 integration.
+   + **S3 bucket location** – Choose **Quick Suite instance account** to access Amazon S3 buckets in the same AWS account where Amazon Quick is enabled, or choose **Other AWS account** to access buckets in a different account.
+   + **S3 bucket URL** – The Amazon S3 bucket path containing your documents. Your Amazon S3 bucket must be in the same region as your Amazon Quick region.
 
-###### Note
+   Choose **Next**. The system validates your configuration. If errors occur, review the error message for specific remediation steps.
+**Note**  
+If you receive an access error, contact your administrator to verify that your user has the required permissions for the Amazon S3 bucket.
 
-If you receive an access error, contact your administrator to verify that
-your user has the required permissions for the Amazon S3 bucket. 5. On the **Create knowledge base** page, complete the
-following:
+1. On the **Create knowledge base** page, complete the following:
+   + **Name** – Enter a descriptive name for your knowledge base.
+   + **Description** – Describe the purpose of this knowledge base (optional).
+   + **Content** – Choose **Add all content** to sync everything from the bucket, or choose **Add specific content** to specify S3 prefixes for the folders and files you want to include. Filters are case-sensitive.
 
-    * **Name** – Enter a descriptive name for your
-     knowledge base.
-    * **Description** – Describe the purpose of this
-     knowledge base (optional).
-    * **Content** – Choose **Add all
-     content** to sync everything from the bucket, or choose
-     **Add specific content** to specify S3 prefixes for
-     the folders and files you want to include. Filters are
-     case-sensitive.
+1. Choose **Next: Additional settings** to configure ACL and metadata options, or choose **Create** to create the knowledge base with default settings.
 
-6. Choose **Next: Additional settings** to configure ACL and
-metadata options, or choose **Create** to create the knowledge
-base with default settings. 7. On the **Additional settings** page, configure ACL management
-and metadata:
+1. On the **Additional settings** page, configure ACL management and metadata:
+**Important**  
+The decision to enable or disable ACLs must be made during knowledge base creation. You cannot change this option after this step. For more information about ACLs, see [Document-level ACLs](s3-acl.md).
+   + To enable document-level ACLs, select **Control document access with ACLs**. When enabled, the following options appear:
+     + **Global ACL file location** – Enter the Amazon S3 path to your global ACL file (e.g. acl.json) if you are using a global ACL configuration file for centralized access control management at the folder level.
+     + **Metadata files folder location** – Enter the Amazon S3 path to your metadata folder if you are using document-level metadata files that include ACL entries.
+     + If your metadata files use the sidecar method (stored in the same folder as the original documents), you can leave both fields blank.
+   + You can optionally specify a **Metadata files folder location** even without ACLs enabled.
 
-###### Important
-
-The decision to enable or disable ACLs must be made during knowledge base
-creation. You cannot change this option after this step. For more information
-about ACLs, see [Document-level ACLs](s3-acl.md "s3-acl.md").
-
-    * To enable document-level ACLs, select **Control document
-     access with ACLs**. When enabled, the following options
-     appear:
-
-
-
-
-    	+ **Global ACL file location** – Enter the Amazon S3
-    	 path to your global ACL file (e.g. acl.json) if you are using a global ACL
-    	 configuration file for centralized access control management at
-    	 the folder level.
-    	+ **Metadata files folder location** – Enter
-    	 the Amazon S3 path to your metadata folder if you are using
-    	 document-level metadata files that include ACL entries.
-    	+ If your metadata files use the sidecar method (stored in the
-    	 same folder as the original documents), you can leave both fields
-    	 blank.
-    * You can optionally specify a **Metadata files folder
-     location** even without ACLs enabled.
-
-8. Choose **Create**.
+1. Choose **Create**.
 
 After you choose create, the data sync starts automatically.
 
 ## Manage knowledge bases
+<a name="s3-integration-knowledge-base"></a>
 
 After setting up your Amazon S3 integration, you can create and manage knowledge bases from your Amazon S3 content.
 
 ### Edit existing knowledge bases
+<a name="s3-edit-knowledge-base"></a>
 
 You can modify your existing Amazon S3 knowledge bases:
 
 1. In the Amazon Quick console, choose **Knowledge bases**.
-2. Select your Amazon S3 knowledge base from the list.
-3. Choose the three-dot icon under **Actions**, then choose
-   **Edit knowledge base**.
-4. Update your configuration settings as needed and choose **Save**.
+
+1. Select your Amazon S3 knowledge base from the list.
+
+1. Choose the three-dot icon under **Actions**, then choose **Edit knowledge base**.
+
+1. Update your configuration settings as needed and choose **Save**.
 
 ### Create additional knowledge bases
+<a name="s3-create-additional-knowledge-base"></a>
 
 You can create multiple knowledge bases from the same Amazon S3 integration:
 
 1. In the Amazon Quick console, choose **Knowledge**.
-2. Choose your existing Amazon S3 integration from the list.
-3. Choose the three-dot icon under **Actions**, then choose
-   **Create knowledge base**.
-4. Configure your knowledge base settings and choose **Create**.
 
-For detailed information about knowledge base configuration options, see [Common configuration settings](knowledge-base-integrations.md#common-configuration-settings "knowledge-base-integrations.md#common-configuration-settings").
+1. Choose your existing Amazon S3 integration from the list.
 
-###### Note
+1. Choose the three-dot icon under **Actions**, then choose **Create knowledge base**.
 
-When you create a knowledge base in Amazon Quick, by default only you can get
-insights from the knowledge base. For shared content, you can provide access to
-different users and groups by updating the knowledge base permissions. To control
-document-level access within a knowledge base, see
-[Document-level ACLs](s3-acl.md "s3-acl.md").
+1. Configure your knowledge base settings and choose **Create**.
+
+For detailed information about knowledge base configuration options, see [Common configuration settings](knowledge-base-integrations.md#common-configuration-settings).
+
+**Note**  
+When you create a knowledge base in Amazon Quick, by default only you can get insights from the knowledge base. For shared content, you can provide access to different users and groups by updating the knowledge base permissions. To control document-level access within a knowledge base, see [Document-level ACLs](s3-acl.md).

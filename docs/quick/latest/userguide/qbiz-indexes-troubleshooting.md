@@ -1,42 +1,42 @@
+
+
 # Troubleshooting
+<a name="qbiz-indexes-troubleshooting"></a>
 
 ## Amazon Q Business not seen in Integrations page
+<a name="qbiz-not-seen-in-integrations"></a>
 
 **Symptoms**
-
-- Amazon Q Business option missing from Integrations page
-- Cannot create new Amazon Q Business integration
++ Amazon Q Business option missing from Integrations page
++ Cannot create new Amazon Q Business integration
 
 **Resolution**
-
-- Only Admin users have access to create a Amazon Q Business/BYOI knowledge base
-- Verify user has Admin persona permissions
++ Only Admin users have access to create a Amazon Q Business/BYOI knowledge base
++ Verify user has Admin persona permissions
 
 ## Failed to fetch Amazon Q Business applications
+<a name="failed-to-fetch-qbiz-applications"></a>
 
 **Resolution**
-
-- Confirm Amazon Q Business is enabled in the Admin console
-- Try logging out and back in to refresh the session, then retry the operation
++ Confirm Amazon Q Business is enabled in the Admin console
++ Try logging out and back in to refresh the session, then retry the operation
 
 ## Amazon Q Business application not seen in the list of applications displayed during knowledge base creation
+<a name="qbiz-application-not-seen-in-list"></a>
 
 **Symptoms**
-
-- Amazon Q Business applications list is empty on Create Knowledge Base page
-- Amazon Q Business applications list is populated but missing expected applications
++ Amazon Q Business applications list is empty on Create Knowledge Base page
++ Amazon Q Business applications list is populated but missing expected applications
 
 **Resolution**
-
-- Check if missing Amazon Q Business applications were granted permissions in the AWS resources page of the Admin console
++ Check if missing Amazon Q Business applications were granted permissions in the AWS resources page of the Admin console
 
 ## Failed to create dataset. Chat instance is not ready. Please try again later
+<a name="failed-to-create-dataset-chat-instance-not-ready"></a>
 
 **Symptoms**
-
-- Knowledge base creation fails with error "Chat instance is not ready. Please try again later"
-- Unable to complete knowledge base creation process
++ Knowledge base creation fails with error "Chat instance is not ready. Please try again later"
++ Unable to complete knowledge base creation process
 
 **Resolution**
-
-- If this is the first time creating a knowledge base in Amazon Quick, wait 5 minutes and retry the operation
++ If this is the first time creating a knowledge base in Amazon Quick, wait 5 minutes and retry the operation

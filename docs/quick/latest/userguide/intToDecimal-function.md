@@ -1,29 +1,32 @@
-# intToDecimal
 
-`intToDecimal` converts an integer value to the decimal data
-type.
+
+# intToDecimal
+<a name="intToDecimal-function"></a>
+
+`intToDecimal` converts an integer value to the decimal data type.
 
 ## Syntax
+<a name="intToDecimal-function-syntax"></a>
 
 ```
-intToDecimal(`integer`)
+intToDecimal({{integer}})
 ```
 
 ## Arguments
+<a name="intToDecimal-function-arguments"></a>
 
-_int_
-
-A field that uses the integer data type, a literal value like
-`14`, or a call to another function that
-outputs an integer.
+ *int*   
+A field that uses the integer data type, a literal value like **14**, or a call to another function that outputs an integer.
 
 ## Return type
+<a name="intToDecimal-function-return-type"></a>
 
 Decimal(Fixed) in the legacy data preparation experience.
 
 Decimal(Float) in the new data preparation experience.
 
 ## Example
+<a name="intToDecimal-function-example"></a>
 
 The following example converts an integer field to a decimal.
 
@@ -47,5 +50,4 @@ For these field values, the following values are returned.
 58.0
 ```
 
-You can apply formatting inside an analysis, for example to format
-`price` as currency.
+You can apply formatting inside an analysis, for example to format `price` as currency. 

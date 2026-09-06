@@ -1,90 +1,56 @@
-# Connecting to integrations in apps in Quick
 
-You can connect your apps in Quick apps to external services and data sources through the
-integration framework in Amazon Quick. The same integration model used elsewhere in
-Quick applies in apps in Quick. The agent registers integrations
-on your app, and you and your users authorize them. For more information about integrations,
-see [Work with integrations in Amazon Quick](working-with-integrations.md "working-with-integrations.md").
+
+# Connecting to integrations in apps in Quick
+<a name="connecting-integrations-apps"></a>
+
+You can connect your apps in Quick apps to external services and data sources through the integration framework in Amazon Quick. The same integration model used elsewhere in Quick applies in apps in Quick. The agent registers integrations on your app, and you and your users authorize them. For more information about integrations, see [Work with integrations in Amazon Quick](working-with-integrations.md).
 
 ## Prerequisites
+<a name="apps-integration-prerequisites"></a>
 
 Before you connect integrations, confirm the following:
-
-- You have an active Amazon Quick account with Author Pro or higher access.
-- Your administrator has enabled the connectors you plan to use.
++ You have an active Amazon Quick account with Author Pro or higher access.
++ Your administrator has enabled the connectors you plan to use.
 
 ## Integration types
+<a name="apps-integration-types"></a>
 
 Quick organizes integrations into two categories:
-
-- **Knowledge integrations** — Connect to
-  data sources that the system can search and reason over. In apps in Quick, this is
-  most commonly a Amazon Quick space used as a knowledge base for an embedded chat
-  experience.
-- **Action integrations** — Connect to
-  external applications and services where your app can read data, write data, or
-  perform operations. Examples include Microsoft Outlook, SharePoint, OneDrive,
-  Slack, Jira, and Asana. Quick provides over 100 pre-built action
-  connectors. You can also create custom connectors using REST API, OpenAPI, or MCP
-  specifications.
++ **Knowledge integrations** — Connect to data sources that the system can search and reason over. In apps in Quick, this is most commonly a Amazon Quick space used as a knowledge base for an embedded chat experience.
++ **Action integrations** — Connect to external applications and services where your app can read data, write data, or perform operations. Examples include Microsoft Outlook, SharePoint, OneDrive, Slack, Jira, and Asana. Quick provides over 100 pre-built action connectors. You can also create custom connectors using REST API, OpenAPI, or MCP specifications.
 
 ## Authentication models
+<a name="apps-auth-models"></a>
 
 Action integrations support two authentication models:
-
-- **User authentication** — The integration
-  uses the credentials of the individual end user. Every user must have their own
-  access to the connected resource.
-- **Service authentication** — The
-  integration uses a service-level credential configured by an administrator. All
-  users of the app share that access. Not all connectors support service
-  authentication.
++ **User authentication** — The integration uses the credentials of the individual end user. Every user must have their own access to the connected resource.
++ **Service authentication** — The integration uses a service-level credential configured by an administrator. All users of the app share that access. Not all connectors support service authentication.
 
 ## Adding an integration to your app
+<a name="apps-adding-integration"></a>
 
 You do not need to set up integrations manually. To add an integration:
 
-1. Ask the agent to use a specific service in your instructions. For example:
-   "Connect to my Outlook calendar and display my meetings for this week."
-2. Authorize the integration when the agent prompts you.
-3. Verify that the integration appears in the Assets view.
+1. Ask the agent to use a specific service in your instructions. For example: "Connect to my Outlook calendar and display my meetings for this week."
 
-When other users open the published app, they authorize their own
-credentials for each registered integration on first use.
+1. Authorize the integration when the agent prompts you.
+
+1. Verify that the integration appears in the Assets view.
+
+When other users open the published app, they authorize their own credentials for each registered integration on first use.
 
 ## How apps in Quick works with other Quick capabilities
+<a name="apps-how-it-works-with-quick"></a>
 
 Apps in Quick connects to several other capabilities within Amazon Quick:
-
-- **Amazon Quick spaces** — An app can read
-  files from a space, write new files to it, and use a space as the knowledge base
-  for an embedded chat experience. For more information, see
-  [Organize, collaborate, and share resources with spaces in Amazon Quick](working-with-spaces.md "working-with-spaces.md").
-- **Amazon Quick Flows** — There is no direct
-  integration between apps in Quick and Quick Flows. Use a space as a shared data
-  layer instead. A flow processes data and saves its output to
-  a space. The app reads from that space and displays the results. For more
-  information, see
-  [Using Amazon Quick automations](using-amazon-quick-automations.md "using-amazon-quick-automations.md").
++ **Amazon Quick spaces** — An app can read files from a space, write new files to it, and use a space as the knowledge base for an embedded chat experience. For more information, see [Organize, collaborate, and share resources with spaces in Amazon Quick](working-with-spaces.md).
++ **Amazon Quick Flows** — There is no direct integration between apps in Quick and Quick Flows. Use a space as a shared data layer instead. A flow processes data and saves its output to a space. The app reads from that space and displays the results. For more information, see [Using Amazon Quick automations](using-amazon-quick-automations.md).
 
 ## Integration tips
+<a name="apps-integration-tips"></a>
++ **Outlook and OneDrive** — These connectors do not reliably resolve the `me` alias in API calls. Instruct the agent to use the user identity API to retrieve the current user's information instead.
++ **Slack** — The Slack connector's API schema does not include all available Slack API operations. Provide specific details about the Slack API operations you need, such as the channel ID and message format.
++ **Integration removal** — You cannot currently remove a registered integration from an app through the settings UI. As a workaround, ask the agent to remove references to the integration in the app code.
 
-- **Outlook and OneDrive** — These connectors
-  do not reliably resolve the `me` alias in API calls. Instruct the
-  agent to use the user identity API to retrieve the current user's information
-  instead.
-- **Slack** — The Slack connector's API
-  schema does not include all available Slack API operations. Provide specific
-  details about the Slack API operations you need, such as the channel ID and
-  message format.
-- **Integration removal** — You cannot
-  currently remove a registered integration from an app through the settings UI. As
-  a workaround, ask the agent to remove references to the integration in the
-  app code.
-
-###### Tip
-
-**Limited integrations in public apps** —
-Public apps do not support connectors, embedded visuals, embedded chat
-experiences, or Amazon Quick spaces. If you plan to publish your app publicly,
-design it to use only shared storage and AI inference.
+**Tip**  
+**Limited integrations in public apps** — Public apps do not support connectors, embedded visuals, embedded chat experiences, or Amazon Quick spaces. If you plan to publish your app publicly, design it to use only shared storage and AI inference.

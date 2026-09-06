@@ -1,70 +1,54 @@
-# periodOverPeriodDifference
 
-The `periodOverPeriodDifference` function calculates the difference of a
-measure over two different time periods as specified by period granularity and offset.
-Unlike a difference calculation, this function uses a date-based offset instead of a
-fixed sized offset. This ensures that only the correct dates are compared, even if data
-points are missing in the dataset.
+
+# periodOverPeriodDifference
+<a name="periodOverPeriodDifference-function"></a>
+
+The `periodOverPeriodDifference` function calculates the difference of a measure over two different time periods as specified by period granularity and offset. Unlike a difference calculation, this function uses a date-based offset instead of a fixed sized offset. This ensures that only the correct dates are compared, even if data points are missing in the dataset.
 
 ## Syntax
+<a name="periodOverPeriodDifference-function-syntax"></a>
 
 ```
-periodOverPeriodDifference(*measure,
- date,
- period,
- offset*)
+periodOverPeriodDifference(
+	measure, 
+	date, 
+	period, 
+	offset)
 ```
 
 ## Arguments
+<a name="periodOverPeriodDifference-function-arguments"></a>
 
-_measure_
+ *measure*   
+An aggregated measure that you want to perform the periodOverPeriod calculation on.
 
-An aggregated measure that you want to perform the periodOverPeriod
-calculation on.
+ *dateTime*   
+The Date dimension over which we are computing Period-Over-Period calculations.
 
-_dateTime_
-
-The Date dimension over which we are computing Period-Over-Period
-calculations.
-
-_period_
-
-(Optional) The time period across which you're computing the
-computation. Granularity of `YEAR` means
-`YearToDate` computation, `Quarter` means
-`QuarterToDate`, and so on. Valid granularities include
-`YEAR`, `QUARTER`, `MONTH`,
-`WEEK`, `DAY`, `HOUR`,
-`MINUTE`, and `SECONDS`.
-
+ *period*   
+(Optional) The time period across which you're computing the computation. Granularity of `YEAR` means `YearToDate` computation, `Quarter` means `QuarterToDate`, and so on. Valid granularities include `YEAR`, `QUARTER`, `MONTH`, `WEEK`, `DAY`, `HOUR`, `MINUTE`, and `SECONDS`.  
 The defaults value is the visual date dimension granularity.
 
-_offset_
-
-(Optional) The offset can be a positive or negative integer
-representing the prior time period (specified by period) that you want
-to compare against. For instance, period of a quarter with offset 1
-means comparing against the previous quarter.
-
+ *offset*   
+(Optional) The offset can be a positive or negative integer representing the prior time period (specified by period) that you want to compare against. For instance, period of a quarter with offset 1 means comparing against the previous quarter.  
 The default value is 1.
 
 ## Example
+<a name="periodOverPeriodDifference-function-example"></a>
 
-The following example uses a calculated field `PeriodOverPeriod` to
-display the sales amount difference of yesterday
+The following example uses a calculated field `PeriodOverPeriod` to display the sales amount difference of yesterday
 
 ```
 periodOverPeriodDifference(sum(Sales), {Order Date})
 ```
 
-![This is an image of the return of the example calculation.](images/MonthOverMonthDifference.png)
+![This is an image of the return of the example calculation.](http://docs.aws.amazon.com/quick/latest/userguide/images/MonthOverMonthDifference.png)
 
-The following example uses a calculated field `PeriodOverPeriod` to
-display the sales amount difference of previous 2 months. Below example is comparing
-sales of `Mar2020` with `Jan2020`.
+
+The following example uses a calculated field `PeriodOverPeriod` to display the sales amount difference of previous 2 months. Below example is comparing sales of `Mar2020` with `Jan2020`.
 
 ```
 periodOverPeriodDifference(sum(Sales),{Order Date}, MONTH, 1)
 ```
 
-![This is an image of the return of the example calculation.](images/MonthOverMonthDifference2.png)
+![This is an image of the return of the example calculation.](http://docs.aws.amazon.com/quick/latest/userguide/images/MonthOverMonthDifference2.png)
