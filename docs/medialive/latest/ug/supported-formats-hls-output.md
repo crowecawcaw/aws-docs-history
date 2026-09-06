@@ -9,27 +9,28 @@ and captions type, and produce these outputs:
 
 ###### Note
 
-You can also produce subtitles without a caption source in your input by
-enabling the Smart Subtitles feature, which uses AWS Elemental Inference to generate
+You can also produce subtitles without a caption source in your input.
+Enable the Smart Subtitles feature, which uses AWS Elemental Inference to generate
 subtitles from the audio. For more information, see [Smart Subtitles using Elemental Inference](elemental-inference-automatic-subtitling.md "elemental-inference-automatic-subtitling.md").
 
-| Source caption container                                                        | Source caption input  | Supported output captions |
-| ------------------------------------------------------------------------------- | --------------------- | ------------------------- |
-| CDI container                                                                   | ARIB                  | None                      |
-| Embedded                                                                        | Burn-inEmbeddedWebVTT |
-| Teletext                                                                        | Teletext              |
-| HLS container                                                                   | Embedded              | Burn-inEmbeddedWebVTT     |
-| SCTE-20                                                                         | Burn-inEmbeddedWebVTT |
-| Link container                                                                  | Embedded              | Burn-inEmbeddedWebVTT     |
-| Teletext                                                                        | Burn-inWebVTT         |
-| MP4 container                                                                   | Ancillary             | Burn-inEmbeddedWebVTT     |
-| Embedded or Embedded+SCTE-20                                                    | Burn-inEmbeddedWebVTT |
-| RTMP container                                                                  | Embedded              | Burn-inEmbeddedWebVTT     |
-| MPEG-TS container (through MediaConnect or through<br>the RTP or SRT protocols) | ARIB                  | None                      |
-| DVB-Sub                                                                         | Burn-inWebVTT         |
-| Embedded or Embedded+SCTE-20                                                    | Burn-inEmbeddedWebVTT |
-| SCTE-20                                                                         | Burn-inEmbeddedWebVTT |
-| SCTE-27                                                                         | Burn-inWebVTT         |
-| Teletext                                                                        | Burn-inWebVTT         |
-| SMPTE 2110                                                                      | Embedded              | Burn-inWebVTT             |
-| Teletext                                                                        | Burn-inWebVTT         |
+| Source caption container                                                                                          | Source caption input  | Supported output captions |
+| ----------------------------------------------------------------------------------------------------------------- | --------------------- | ------------------------- |
+| CDI container                                                                                                     | ARIB                  | None                      |
+| Embedded                                                                                                          | Burn-inEmbeddedWebVTT |
+| Teletext                                                                                                          | Teletext              |
+| HLS container                                                                                                     | Embedded              | Burn-inEmbeddedWebVTT     |
+| SCTE-20                                                                                                           | Burn-inEmbeddedWebVTT |
+| Link container                                                                                                    | Embedded              | Burn-inEmbeddedWebVTT     |
+| Teletext                                                                                                          | Burn-inWebVTT         |
+| MP4 container                                                                                                     | Ancillary             | Burn-inEmbeddedWebVTT     |
+| Embedded or Embedded+SCTE-20                                                                                      | Burn-inEmbeddedWebVTT |
+| RTMP container                                                                                                    | Embedded              | Burn-inEmbeddedWebVTT     |
+| MPEG-TS container (through MediaConnect or through<br>the RTP or SRT protocols)                                   | ARIB                  | None                      |
+| DVB-Sub                                                                                                           | Burn-inWebVTT         |
+| Embedded or Embedded+SCTE-20                                                                                      | Burn-inEmbeddedWebVTT |
+| SCTE-20                                                                                                           | Burn-inEmbeddedWebVTT |
+| SCTE-27                                                                                                           | Burn-inWebVTT         |
+| Teletext                                                                                                          | Burn-inWebVTT         |
+| SMPTE 2110                                                                                                        | Embedded              | Burn-inWebVTT             |
+| Teletext                                                                                                          | Burn-inWebVTT         |
+| All input containers(Smart Subtitles generates subtitles from the source audio, not from captions in the source.) | Smart Subtitles       | WebVTT                    |

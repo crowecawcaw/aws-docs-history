@@ -1,13 +1,8 @@
 # Disabling event clipping
 
-You can disable event clipping in a channel.
-
-On the **Create channel** or **Edit channel page**,
-choose **AWS Elemental Inference settings**. Choose the appropriate
-action:
-
-- To disable all Elemental Inference features, set the **State** field for
-  Elemental Inference to **Disabled**.
-- To disable only the event clipping feature, set the **State**
-  field in **Event clipping** to
-  **Disabled**.
+To disable event clipping, remove the clipping output from the feed in the Elemental Inference
+console. Alternatively, to remove all Elemental Inference features from a channel, edit the
+channel in MediaLive and choose **Remove feed** in the Elemental
+Inference settings section. For more information, see [Work
+with existing Elemental Inference feeds](../../../elemental-inference/latest/userguide/elemental-inference-modify-delete.md "../../../elemental-inference/latest/userguide/elemental-inference-modify-delete.md") in the _AWS Elemental Inference user
+guide_.

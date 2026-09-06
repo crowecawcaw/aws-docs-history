@@ -2,8 +2,11 @@
 
 You set up the smart crop feature in one or more video outputs of a MediaLive channel.
 In each video output where you want the feature, you set the video scaling to
-SMART\_CROP. When you save the channel, MediaLive automatically creates one _feed_ resource in Elemental Inference, in your AWS account. Even if you
-enable more than one Elemental Inference feature, MediaLive creates only one feed.
+SMART\_CROP. You must have an Elemental Inference feed selected in the channel's Elemental
+Inference settings. If the feed already has a cropping output, MediaLive uses it. If
+not, MediaLive creates a cropping output on the feed automatically when you save the
+channel. For information about creating a feed, see [Creating an Elemental Inference workflow](../../../elemental-inference/latest/userguide/elemental-inference-configuration.md "../../../elemental-inference/latest/userguide/elemental-inference-configuration.md") in the _AWS Elemental Inference user
+guide_.
 
 You can set up smart crop in a new MediaLive channel that you are creating. Or you can
 update an existing channel to include smart crop.
@@ -32,10 +35,9 @@ You must enable smart crop in the applicable video outputs.
    for".
 
 Keep in mind that each feature that you enable in a channel results in
-one Elemental Inference output. 2. On the **Create channel** or **Edit channel
-page**, choose **AWS Elemental Inference
-settings**. 3. In **State**, choose **ENABLED**.
-Sections for each Elemental Inference feature appear. 4. In the **Output groups** section of the channel, find
+one Elemental Inference output. 2. On the **Create channel** or **Edit channel page**, navigate to the **Elemental Inference settings** section. For **Elemental Inference feed**, select a feed from the dropdown. If you need to
+create a feed, see [Creating an Elemental Inference workflow](../../../elemental-inference/latest/userguide/elemental-inference-configuration.md "../../../elemental-inference/latest/userguide/elemental-inference-configuration.md") in the _AWS Elemental Inference
+user guide_. 3. In the **Output groups** section of the channel, find
 an output group and one of the outputs that contains the video. Display
 the **Stream settings** section, and choose the
 **Video** section.
@@ -48,16 +50,14 @@ the **Stream settings** section, and choose the
      **Scaling behavior** to
      **SMART\_CROP**.
 
-5. Repeat the previous step in more video outputs, in this output group
+4. Repeat the previous step in more video outputs, in this output group
 and other output groups. Remember that you don't have to set up smart
 crop in every output group, or in every video output in one output
 group.
 
 ## Step B: Review the setup
 
-1. On the **Create channel** or **Edit channel
-   page**, choose **AWS Elemental Inference
-   settings**. The **Smart crop** section
+1. On the **Create channel** or **Edit channel page**, choose **AWS Elemental Inference settings**. The **Smart crop** section
    automatically expands to show a list of output groups and their video
    outputs.
 
@@ -90,14 +90,9 @@ Elemental Inference.
 
 ## Step C: Save or update the channel
 
-Save the channel. MediaLive calls the Elemental Inference `AssociateFeed` endpoint
-to perform these actions:
-
-- To create a smart crop output in the feed.
-- To associate the channel (the resource) with the feed, if this is the
-  first Elemental Inference feature that you are setting up.
-
-You now have a usable feed: resource - feed - output.
+Save the channel. If the selected feed does not already have a cropping
+output, MediaLive automatically creates one. MediaLive associates the feed with the
+channel.
 
 You can start the channel. When the channel is running, MediaLive delivers the
 source stream to Elemental Inference and then retrieves metadata from Elemental Inference that describes

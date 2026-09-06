@@ -9,16 +9,21 @@ console.
 
 If you want Smart Subtitles to transcribe a specific audio track, add an
 audio selector to the input attachment before proceeding to the Elemental
-Inference settings. 2. Navigate to the **Elemental Inference settings**
-section. 3. For **State**, choose **Enabled**. 4. For **Elemental Inference feed**, select the feed that
-contains a subtitling output. If you haven't created a feed yet, choose
-**Create new feed** to configure one.
+Inference settings. 2. Navigate to the **Elemental Inference settings** section. 3. For **Elemental Inference feed**, select a feed that
+contains a subtitling output. If you need to create a new feed, choose
+**Create feed** at the top of the Elemental Inference
+settings section. If you need to update an existing feed, choose
+**Create or update the feed in Elemental Inference**
+beneath the **Subtitling output** dropdown. For more information, see [Creating an Elemental Inference workflow](../../../elemental-inference/latest/userguide/elemental-inference-configuration.md "../../../elemental-inference/latest/userguide/elemental-inference-configuration.md") in the _AWS Elemental Inference user
+guide_.
+After creating or updating the feed, choose **Refresh** to
+see the updated feed list.
 
 If the input attachment has audio selectors, for **Audio selector
 name**, select the audio selector that contains the audio you want
-to transcribe. 5. Under **Smart Subtitles**, choose **Add Smart
+to transcribe. 4. Under **Smart Subtitles**, choose **Add Smart
 Subtitles caption selector**. This adds a caption selector to the
-input attachments. 6. Configure the caption selector:
+input attachments. 5. Configure the caption selector:
 
     * **Caption selector name** – Enter a name
      for the caption selector (for example,
@@ -42,10 +47,11 @@ input attachments. 6. Configure the caption selector:
     	 available.
     * **Subtitling output** – Select a subtitling
      output from the selected feed. If the feed does not have a subtitling
-     output, you must update the feed to add one before
-     proceeding.
+     output, update the feed in the Elemental Inference console to add one, then
+     choose **Refresh** to update the list of
+     outputs.
 
-7. Create a captions output for the subtitles:
+6. Create a captions output for the subtitles:
 
     1. In your output group (HLS, MediaPackage, MediaPackage V2, CMAF
      Ingest, or Microsoft Smooth), add a new output.
@@ -60,12 +66,8 @@ input attachments. 6. Configure the caption selector:
 
 ###### Note
 
-Before configuring Smart Subtitles, you must create an Elemental Inference feed with a
+Before configuring Smart Subtitles, you must have an Elemental Inference feed with a
 subtitling output. You can create the feed in one of the following ways:
 
-- In the MediaLive console, choose **Create new feed** in the
-  Elemental Inference settings section. A side panel opens where you can
-  configure the feed name, enable subtitling, and set the language
-  code.
 - In the Elemental Inference console, create a feed and add a subtitling output.
 - Using the AWS CLI. For instructions, see [Elemental Inference features using AWS CLI](elemental-inference-cli.md "elemental-inference-cli.md").

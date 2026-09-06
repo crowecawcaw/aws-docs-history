@@ -20,14 +20,13 @@ MediaLive implements the following features of AWS Elemental Inference:
 Elemental Inference has its own quotas. All of these quotas apply when you use
 the Elemental Inference features of MediaLive.
 
-For example, there are Elemental Inference quotas relating to feeds and feed outputs. When you
-include Elemental Inference features in a MediaLive channel, feeds and feed outputs are created as
-follows:
+For example, there are Elemental Inference quotas relating to feeds and feed outputs. To
+use Elemental Inference features with an MediaLive channel, select an existing feed. Configure
+the feed with the appropriate outputs for the features you want to use (for example,
+a subtitling output for Smart Subtitles, a cropping output for smart crop, or a
+clipping output for event clipping).
 
-- One feed is created, regardless of the number of enabled features.
-- One output is created for each enabled feature in the channel.
-
-Keep in mind that these feeds and outputs are part of your Elemental Inference quotas.
+Keep in mind that these feeds and outputs count toward your Elemental Inference quotas.
 
 For information about the default values for quotas and which quotas can be changed
 (adjusted) see the Elemental Inference section in [AWS General

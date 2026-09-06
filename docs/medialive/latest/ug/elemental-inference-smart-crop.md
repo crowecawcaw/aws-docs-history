@@ -20,5 +20,5 @@ the video.
 - [Setting up with the MediaLive console](smart-crop-console-create.md "smart-crop-console-create.md")
 - [Viewing the smart crop setup](smart-crop-view.md "smart-crop-view.md")
 - [Modifying smart crop using the MediaLive console](smart-crop-modify-console.md "smart-crop-modify-console.md")
-- [Disabling smart crop using the MediaLive console](smart-crop-disable-console.md "smart-crop-disable-console.md")
+- [Disabling smart crop](smart-crop-disable-console.md "smart-crop-disable-console.md")
 - [Monitoring smart crop activity](smart-crop-monitor.md "smart-crop-monitor.md")

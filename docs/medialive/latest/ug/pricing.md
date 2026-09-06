@@ -57,6 +57,13 @@ video output codec, and video frame rate. You specify the
 characteristics in the video settings of each output in the channel.
 For more information, see [Set up the video encode](creating-a-channel-step6.md "creating-a-channel-step6.md").
 
+If you enable A/B forensic video watermarking for a supported
+output group, MediaLive creates an A variant and a B variant of each video
+output in that output group. Each variant is billed as a separate output,
+so the number of video outputs used for output-based pricing doubles for
+that output group. This doesn't affect outputs in other output groups.
+For more information, see [Creating A/B forensic video watermarks](feature-ab-watermark.md "feature-ab-watermark.md").
+
 - There is a _running input
   charge_ for each input that is attached to a channel that
   is running. The charge applies to both push and pull inputs. It

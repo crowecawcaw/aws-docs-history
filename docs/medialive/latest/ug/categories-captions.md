@@ -14,6 +14,7 @@ captions are included in the output.
 | RTMP CaptionInfo | Object-style            |
 | SCTE-20+Embedded | Embedded                |
 | SCTE-27          | Object-style            |
+| Smart Subtitles  | Sidecar                 |
 | SMPTE-TT         | Stream                  |
 | Teletext         | Object-style            |
 | TTML             | Sidecar                 |
