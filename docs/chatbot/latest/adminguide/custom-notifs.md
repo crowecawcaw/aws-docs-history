@@ -1,47 +1,46 @@
-AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md "service-rename.md")
+
+
+AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Custom notifications using Amazon Q Developer in chat applications
+<a name="custom-notifs"></a>
 
-You can customize messages for your application events or customize default AWS service notifications in Amazon Q Developer in chat applications using custom notifications.
-By customizing notification content, you can promptly receive important application updates with relevant contextual information in your chat channels. This increases visibility for your team and facilitates quicker responses. You can also thread custom notifications
-using the `threadId` parameter shown in [Parameter details](#parameter-details "#parameter-details"). Threaded notifications help you organize notification updates by grouping them in a thread in your chat channel.
+You can customize messages for your application events or customize default AWS service notifications in Amazon Q Developer in chat applications using custom notifications. By customizing notification content, you can promptly receive important application updates with relevant contextual information in your chat channels. This increases visibility for your team and facilitates quicker responses. You can also thread custom notifications using the `threadId` parameter shown in [Parameter details](#parameter-details). Threaded notifications help you organize notification updates by grouping them in a thread in your chat channel. 
 
-###### Note
-
+**Note**  
 To thread notifications, your channel preferences must allow sending notification updates in a thread. You can update your channel preferences by entering `@Amazon Q preferences` in your chat channel.
 
-###### Topics
-
-- [Generating custom notifications](#create-cns "#create-cns")
-- [Event schema](#event-schema "#event-schema")
-- [Custom notification content guidelines](#custom-content "#custom-content")
-- [Testing a custom notification using Amazon Q Developer in chat applications](creating-custom-notifications.md "creating-custom-notifications.md")
-- [Sample custom notifications](#sample-custom-notifs "#sample-custom-notifs")
-- [OpenAPI schema](#open-api "#open-api")
+**Topics**
++ [Generating custom notifications](#create-cns)
++ [Event schema](#event-schema)
++ [Custom notification content guidelines](#custom-content)
++ [Testing a custom notification using Amazon Q Developer in chat applications](creating-custom-notifications.md)
++ [Sample custom notifications](#sample-custom-notifs)
++ [OpenAPI schema](#open-api)
 
 ## Generating custom notifications
+<a name="create-cns"></a>
 
-You can generate custom notifications from Lambda functions, your applications, or by using [Amazon EventBridge input transformers](../../../eventbridge/latest/userguide/eb-input-transformer-tutorial.md#eb-input-transformer-tutorial-create-topic "../../../eventbridge/latest/userguide/eb-input-transformer-tutorial.md#eb-input-transformer-tutorial-create-topic") to modify existing EventBridge events into an Amazon Q Developer in chat applications compatible format.
-If using EventBridge, you map the Amazon SNS topic to the EventBridge rule target and map the topic to a channel used in your Amazon Q Developer in chat applications configuration. Custom notifications use the same Amazon Simple Notification Service-based mechanisms as Amazon Q Developer in chat applications default notifications delivered in your
-chat channels. There are no additional costs to use custom notifications.
+You can generate custom notifications from Lambda functions, your applications, or by using [Amazon EventBridge input transformers](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-input-transformer-tutorial.html#eb-input-transformer-tutorial-create-topic) to modify existing EventBridge events into an Amazon Q Developer in chat applications compatible format. If using EventBridge, you map the Amazon SNS topic to the EventBridge rule target and map the topic to a channel used in your Amazon Q Developer in chat applications configuration. Custom notifications use the same Amazon Simple Notification Service-based mechanisms as Amazon Q Developer in chat applications default notifications delivered in your chat channels. There are no additional costs to use custom notifications.
 
 ## Event schema
+<a name="event-schema"></a>
 
-Amazon Q Developer in chat applications custom notifications must use the following event format:
+ Amazon Q Developer in chat applications custom notifications must use the following event format:
 
 ```
 {
-    "version": String,
-    "source": String,
-    "id": String,
+    "version": String, 
+    "source": String, 
+    "id": String,    
     "content": {
-        "textType": String,
-        "title": String,
-        "description": String,
-        "nextSteps": [ String, String, ... ],
-        "keywords": [ String, String, ... ]
+        "textType": String, 
+        "title": String,  
+        "description": String, 
+        "nextSteps": [ String, String, ... ], 
+        "keywords": [ String, String, ... ] 
     },
-    "metadata": {
+    "metadata": {                     
         "threadId": String,
         "summary": String,
         "eventType": String,
@@ -57,53 +56,50 @@ Amazon Q Developer in chat applications custom notifications must use the follow
 ```
 
 ### Parameter details
+<a name="parameter-details"></a>
 
-| Parameter             | Required | Description                                                                                                                                                                                                                                                                                                           |
-| --------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `version`             | Yes      | Must be `1.0`.                                                                                                                                                                                                                                                                                                        |
-| `source`              | Yes      | Must be `custom`.                                                                                                                                                                                                                                                                                                     |
-| `id`                  | No       | Unique event identifier.                                                                                                                                                                                                                                                                                              |
-| `textType`            | No       | Only `client-markdown` textType is currently supported. When `textType=client-markdown`,<br>Amazon Q Developer in chat applications renders notifications in the target chat platform's markdown. For example, "Example text _123_"<br>in Slack notification content would be formatted using Slack's markdown style. |
-| `title`               | No       | Supports markdown content, including emojis and Slack @mentions using user IDs, for example @userID.<br>Maximum length is 250 characters.                                                                                                                                                                             |
-| `description`         | Yes      | Makes up the message content of your notification. Supports markdown content, including emojis and Slack @mentions using user IDs, for example @userID.<br>Maximum length is 8,000 characters.                                                                                                                        |
-| `nextSteps`           | No       | Used to communicate next step recommendations. Rendered as a bulleted list and supports markdown.<br>Each individual step in the `nextSteps` list has a maximum length of 350 characters.                                                                                                                             |
-| `keywords`            | No       | Used to communicate event tags and categories. Rendered as an inline list of tags.<br>Each individual keyword in the `keywords` list has a maximum length of 75 characters.                                                                                                                                           |
-| `metadata`            | No       | Additional metadata about the event.                                                                                                                                                                                                                                                                                  |
-| `threadId`            | No       | Used to thread messages in Slack and Microsoft Teams. Custom notifications with the same threadId value are grouped together.                                                                                                                                                                                         |
-| `summary`             | No       | Displays a summary on the top-level message when notifications are threaded.                                                                                                                                                                                                                                          |
-| `eventType`           | No       | Specifies the type of event for the custom notification (future release).                                                                                                                                                                                                                                             |
-| `relatedResources`    | No       | An array of strings describing resources related to the custom notification (future release).                                                                                                                                                                                                                         |
-| `additionalContext`   | No       | A String-to-String dictionary used to provide additional information about your custom notification.                                                                                                                                                                                                                  |
-| `enableCustomActions` | No       | If set to false, custom action buttons aren't added to the notification.                                                                                                                                                                                                                                              |
 
-###### Note
+| Parameter | Required | Description | 
+| --- | --- | --- | 
+| `version` | Yes | Must be `1.0`. | 
+| `source` | Yes | Must be `custom`. | 
+| `id` | No | Unique event identifier. | 
+| `textType` | No | Only `client-markdown` textType is currently supported. When `textType=client-markdown`, Amazon Q Developer in chat applications renders notifications in the target chat platform's markdown. For example, "Example text *123*" in Slack notification content would be formatted using Slack's markdown style. | 
+| `title` | No | Supports markdown content, including emojis and Slack @mentions using user IDs, for example @userID.<br />Maximum length is 250 characters. | 
+| `description` | Yes | Makes up the message content of your notification. Supports markdown content, including emojis and Slack @mentions using user IDs, for example @userID.<br />Maximum length is 8,000 characters. | 
+| `nextSteps` | No | Used to communicate next step recommendations. Rendered as a bulleted list and supports markdown.<br />Each individual step in the `nextSteps` list has a maximum length of 350 characters. | 
+| `keywords` | No | Used to communicate event tags and categories. Rendered as an inline list of tags.<br />Each individual keyword in the `keywords` list has a maximum length of 75 characters. | 
+| `metadata` | No | Additional metadata about the event. | 
+| `threadId` | No | Used to thread messages in Slack and Microsoft Teams. Custom notifications with the same threadId value are grouped together. | 
+| `summary` | No | Displays a summary on the top-level message when notifications are threaded. | 
+| `eventType` | No | Specifies the type of event for the custom notification (future release). | 
+| `relatedResources` | No | An array of strings describing resources related to the custom notification (future release). | 
+| `additionalContext` | No | A String-to-String dictionary used to provide additional information about your custom notification. | 
+| `enableCustomActions` | No | If set to false, custom action buttons aren't added to the notification. | 
 
-- `eventType` and `relatedResources` will be available in a future release.
-- @mentions for Microsoft Teams aren't currently supported.
+**Note**  
+ `eventType` and `relatedResources` will be available in a future release. 
+@mentions for Microsoft Teams aren't currently supported. 
 
 ## Custom notification content guidelines
+<a name="custom-content"></a>
 
-Content created for custom notifications should utilize chat client specific syntax. For example, if you want text in your custom notification in Slack to be bold, use Slack markdown.
-For more information on Slack and Microsoft Teams markdown, see [Format your messages](https://slack.com/help/articles/202288908-Format-your-messages "https://slack.com/help/articles/202288908-Format-your-messages")
-and [Use Markdown formatting in Microsoft Teams](https://support.microsoft.com/en-au/office/use-markdown-formatting-in-microsoft-teams-4d10bd65-55e2-4b2d-a1f3-2bebdcd2c772 "https://support.microsoft.com/en-au/office/use-markdown-formatting-in-microsoft-teams-4d10bd65-55e2-4b2d-a1f3-2bebdcd2c772") respectively.
+ Content created for custom notifications should utilize chat client specific syntax. For example, if you want text in your custom notification in Slack to be bold, use Slack markdown. For more information on Slack and Microsoft Teams markdown, see [Format your messages](https://slack.com/help/articles/202288908-Format-your-messages) and [Use Markdown formatting in Microsoft Teams](https://support.microsoft.com/en-au/office/use-markdown-formatting-in-microsoft-teams-4d10bd65-55e2-4b2d-a1f3-2bebdcd2c772) respectively. 
 
-You can add chat platform compatible emojis in your custom notifications. You can also tag team members using @mentions in your custom notifications for Slack.
-Tagged team members are notified when the custom notification is delivered to the chat channel. To tag a team member in Slack, use their user ID. For example, `<@userID>`.
-Tagging team members in Microsoft Teams isn't currently supported.
+ You can add chat platform compatible emojis in your custom notifications. You can also tag team members using @mentions in your custom notifications for Slack. Tagged team members are notified when the custom notification is delivered to the chat channel. To tag a team member in Slack, use their user ID. For example, `<@userID>`. Tagging team members in Microsoft Teams isn't currently supported. 
 
-We attempt to group messages with the same `threadId` into a thread based on your threading time window preferences.
-To indicate new messages in a thread, we add a **Latest Update** message to the thread's parent message. If a `metadata.summary`
-is supplied, it's used as the value of the **Update Summary**. Otherwise, we generate a short message from the new message's content.
+ We attempt to group messages with the same `threadId` into a thread based on your threading time window preferences. To indicate new messages in a thread, we add a **Latest Update** message to the thread's parent message. If a `metadata.summary` is supplied, it's used as the value of the **Update Summary**. Otherwise, we generate a short message from the new message's content. 
 
-###### Note
-
-All custom notifications contain the footer “📬 Custom notification delivered by Amazon Q Developer in chat applications.” to differentiate them from default notifications.
+**Note**  
+ All custom notifications contain the footer “📬 Custom notification delivered by Amazon Q Developer in chat applications.” to differentiate them from default notifications. 
 
 ## Sample custom notifications
+<a name="sample-custom-notifs"></a>
 
 ### Minimalist custom notification
+<a name="minimal-notification"></a>
 
-The following custom notification example creates a simple notification that contains only mandatory schema parameters when published to an Amazon SNS topic.
+ The following custom notification example creates a simple notification that contains only mandatory schema parameters when published to an Amazon SNS topic. 
 
 ```
 {
@@ -116,8 +112,9 @@ The following custom notification example creates a simple notification that con
 ```
 
 ### Complex custom notification
+<a name="maximal-notification"></a>
 
-The following custom notification example creates a complex notification when published to an Amazon SNS topic.
+ The following custom notification example creates a complex notification when published to an Amazon SNS topic. 
 
 ```
   {
@@ -156,8 +153,9 @@ The following custom notification example creates a complex notification when pu
 ```
 
 ## OpenAPI schema
+<a name="open-api"></a>
 
-If you use OpenAPI, you can use the following OpenAPI schema to generate custom notification resources for use in source code.
+ If you use OpenAPI, you can use the following OpenAPI schema to generate custom notification resources for use in source code. 
 
 ```
 openapi: 3.0.0

@@ -1,13 +1,16 @@
-AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md "service-rename.md")
+
+
+AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Sample use cases
+<a name="sample-custom-action"></a>
 
 This page includes examples of functional use cases for custom actions that you can leverage for your specific needs.
 
 ## Custom notifications metadata
+<a name="custom-notifs-metadata"></a>
 
-You can use custom notifications to specify metadata for your custom actions. Custom actions display this information as variables that you define in the payload. Before you run a custom
-action, you're shown a complete summary of that action and its payload. In the following example, a custom notification for allow listing an IP address contains an IP address as metadata:
+ You can use custom notifications to specify metadata for your custom actions. Custom actions display this information as variables that you define in the payload. Before you run a custom action, you're shown a complete summary of that action and its payload. In the following example, a custom notification for allow listing an IP address contains an IP address as metadata: 
 
 ```
 {
@@ -25,18 +28,18 @@ action, you're shown a complete summary of that action and its payload. In the f
 }
 ```
 
-If you create a custom action based on this notification, `{"message": "I'ved allow listed IP address: $IPAddress"}` is shown as an available notification variable that you can use in your payload.
-For example, the following Lambda action payload displays the message and the IP address variable.
+ If you create a custom action based on this notification, `{"message": "I'ved allow listed IP address: $IPAddress"}` is shown as an available notification variable that you can use in your payload. For example, the following Lambda action payload displays the message and the IP address variable. 
 
 ```
 {"message": "I'ved allow listed IP address: $IPAddress"}
 ```
 
 ## Recent Amazon CloudWatch Logs errors
+<a name="cw-errors"></a>
 
-The following example shows how you can use custom actions to display recent errors from an Amazon CloudWatch Logs group in your channel from an Amazon CloudWatch Logs notification.
+ The following example shows how you can use custom actions to display recent errors from an Amazon CloudWatch Logs group in your channel from an Amazon CloudWatch Logs notification.
 
-The following Lambda function returns a list of the most common Amazon CloudWatch Logs errors:
+ The following Lambda function returns a list of the most common Amazon CloudWatch Logs errors: 
 
 ```
 import boto3
@@ -52,7 +55,7 @@ def extract_message(value):
       return structured_message.get('message', value)
     except Exception:
       pass
-
+  
   return value
 
 def take_ellipsis(value, length):
@@ -81,9 +84,9 @@ def lambda_handler(event, context):
     endTime=end_time,
     filterPattern=filter
   )
-
+  
   messages = [extract_message(event['message']) for event in response['events']]
-
+  
   message_counts = Counter(messages)
 
   top_messages = message_counts.most_common(limit)
@@ -97,10 +100,9 @@ def lambda_handler(event, context):
     return f'*Most common errors in `{log_group_name}` within the last hour*\n\n' + message_summary
   else:
     return f'Found no errors matching filter within the last {lookback_minutes} minutes in {log_group_name}'
-
 ```
 
-You can create a Lambda action that invokes this Lambda function and view errors for specific log groups by choosing this function while creating your action and entering the following as the payload:
+ You can create a Lambda action that invokes this Lambda function and view errors for specific log groups by choosing this function while creating your action and entering the following as the payload: 
 
 ```
 {

@@ -1,57 +1,57 @@
-AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md "service-rename.md")
+
+
+AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md)
 
 # Monitoring Amazon Q Developer in chat applications with Amazon CloudWatch
+<a name="monitoring-cloudwatch"></a>
 
-You can monitor Amazon Q Developer in chat applications using CloudWatch, which collects raw data and processes it
-into readable, near real-time metrics. These statistics are kept for 15 months, so that you can access historical
-information and gain a better perspective on how your web application or service is performing. You can also set
-alarms that watch for certain thresholds, and send notifications or take actions when those thresholds are met. For
-more information, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md").
+You can monitor Amazon Q Developer in chat applications using CloudWatch, which collects raw data and processes it into readable, near real-time metrics. These statistics are kept for 15 months, so that you can access historical information and gain a better perspective on how your web application or service is performing. You can also set alarms that watch for certain thresholds, and send notifications or take actions when those thresholds are met. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html).
 
 ## Enabling CloudWatch Metrics
+<a name="enable-cloudwatch"></a>
 
 Amazon CloudWatch metrics are enabled by default.
 
 ## Available metrics and dimensions
+<a name="available-cloudwatch-metrics"></a>
 
 The metrics and dimensions that Amazon Q Developer in chat applications sends to Amazon CloudWatch are listed below.
 
 The `AWS/Chatbot` namespace includes the following metrics.
 
-###### Note
-
+**Note**  
 To get Amazon Q Developer in chat applications metrics, you must specify **US East (N. Virginia)** for the Region.
 
-| Metric                   | Description                                                                                                                                                                                                                                                                              |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `EventsThrottled`        | The number of throttled notifications.<br>Events may be throttled if the number of events received exceeds 10 per second.<br>Units: Count                                                                                                                                                |
-| `EventsProcessed`        | The number of event notifications received by Amazon Q Developer in chat applications.<br>Units: Count                                                                                                                                                                                   |
-| `UnsupportedEvents`      | The number of unsupported events or messages attempted.<br>For a full list of AWS services supported by Amazon Q Developer in chat applications, see [Monitoring AWS services using Amazon Q Developer in chat applications](related-services.md "related-services.md").<br>Units: Count |
-| `MessageDeliverySuccess` | The number of messages successfully delivered to the chat client.<br>Units: Count                                                                                                                                                                                                        |
-| `MessageDeliveryFailure` | The number of messages that failed to deliver to the chat client.<br>Units: Count                                                                                                                                                                                                        |
+
+| Metric | Description | 
+| --- | --- | 
+| `EventsThrottled` | The number of throttled notifications.<br />Events may be throttled if the number of events received exceeds 10 per second.<br />Units: Count | 
+| `EventsProcessed` | The number of event notifications received by Amazon Q Developer in chat applications.<br />Units: Count | 
+| `UnsupportedEvents` | The number of unsupported events or messages attempted.<br />For a full list of AWS services supported by Amazon Q Developer in chat applications, see [Monitoring AWS services using Amazon Q Developer in chat applications](related-services.md).<br />Units: Count | 
+| `MessageDeliverySuccess` | The number of messages successfully delivered to the chat client.<br />Units: Count | 
+| `MessageDeliveryFailure` | The number of messages that failed to deliver to the chat client.<br />Units: Count | 
 
 Amazon Q Developer in chat applications sends the following dimensions to CloudWatch.
 
-| Dimension           | Description                                                                    |
-| ------------------- | ------------------------------------------------------------------------------ |
-| `ConfigurationName` | This dimension filters the data you request by the name of your configuration. |
+
+| Dimension | Description | 
+| --- | --- | 
+| `ConfigurationName` | This dimension filters the data you request by the name of your configuration. | 
 
 ## Viewing Amazon Q Developer in chat applications metrics
+<a name="viewing-cloudwatch-metrics"></a>
 
-You can view metrics in the CloudWatch
-console, which provides a fine-grained and customizable display of your resources, as
-well as the number of running tasks in a service.
+You can view metrics in the CloudWatch console, which provides a fine-grained and customizable display of your resources, as well as the number of running tasks in a service.
 
 ### Viewing Amazon Q Developer in chat applications metrics in the CloudWatch console
+<a name="viewing-metrics-console"></a>
 
-Amazon Q Developer in chat applications metrics can be viewed in the CloudWatch console. The CloudWatch console provides a
-detailed view of Amazon Q Developer in chat applications metrics, and you can tailor the views to suit your needs. For more information about CloudWatch, see the
-[Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md").
+Amazon Q Developer in chat applications metrics can be viewed in the CloudWatch console. The CloudWatch console provides a detailed view of Amazon Q Developer in chat applications metrics, and you can tailor the views to suit your needs. For more information about CloudWatch, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html).
 
-###### To view metrics in the CloudWatch console
+**To view metrics in the CloudWatch console**
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the **Metrics** section in the left navigation, choose
-   **Amazon Q Developer in chat applications**.
-3. Choose the metrics to view.
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
+
+1. In the **Metrics** section in the left navigation, choose **Amazon Q Developer in chat applications**.
+
+1. Choose the metrics to view. 
