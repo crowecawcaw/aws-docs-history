@@ -1,34 +1,37 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Troubleshoot issues with kro capabilities
+<a name="kro-troubleshooting"></a>
 
-###### Note
-
-EKS Capabilities are fully managed and run outside your cluster.
-You do not have direct access to controller namespaces.
-You can configure controller log delivery for visibility into controller behavior.
-See [Access EKS Capabilities controller logs](capabilities-controller-logs.md "capabilities-controller-logs.md").
-Troubleshooting focuses on capability health, RBAC configuration, and resource status.
+**Note**  
+EKS Capabilities are fully managed and run outside your cluster. You do not have direct access to controller namespaces. You can configure controller log delivery for visibility into controller behavior. See [Access EKS Capabilities controller logs](capabilities-controller-logs.md). Troubleshooting focuses on capability health, RBAC configuration, and resource status.
 
 ## Capability is ACTIVE but ResourceGraphDefinitions aren’t working
+<a name="_capability_is_active_but_resourcegraphdefinitions_arent_working"></a>
 
 If your kro capability shows `ACTIVE` status but ResourceGraphDefinitions aren’t creating underlying resources, check the capability health, RBAC permissions, and resource status.
 
-**Check capability health**:
+ **Check capability health**:
 
 You can view capability health and status issues in the EKS console or using the AWS CLI.
 
-**Console**:
+ **Console**:
 
-1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home#/clusters.
-2. Select your cluster name.
-3. Choose the **Observability** tab.
-4. Choose **Monitor cluster**.
-5. Choose the **Capabilities** tab to view health and status for all capabilities.
+1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home\#/clusters.
 
-**AWS CLI**:
+1. Select your cluster name.
+
+1. Choose the **Observability** tab.
+
+1. Choose **Monitor cluster**.
+
+1. Choose the **Capabilities** tab to view health and status for all capabilities.
+
+ ** AWS CLI**:
 
 ```
 # View capability status and health
@@ -40,24 +43,22 @@ aws eks describe-capability \
 # Look for issues in the health section
 ```
 
-**Common causes**:
+ **Common causes**:
++  **RBAC permissions missing**: kro lacks permissions to create underlying Kubernetes resources
++  **Invalid CEL expressions**: Syntax errors in ResourceGraphDefinition
++  **Resource dependencies**: Dependent resources not ready
++  **Schema validation**: Instance doesn’t match RGD schema requirements
 
-- **RBAC permissions missing**: kro lacks permissions to create underlying Kubernetes resources
-- **Invalid CEL expressions**: Syntax errors in ResourceGraphDefinition
-- **Resource dependencies**: Dependent resources not ready
-- **Schema validation**: Instance doesn’t match RGD schema requirements
-
-**Verify RBAC permissions**:
+ **Verify RBAC permissions**:
 
 ```
 # Check if capability has cluster admin policy
 kubectl get accessentry -A | grep kro
 ```
 
-If the capability doesn’t have the required permissions, associate the `AmazonEKSClusterAdminPolicy` with the kro capability’s access entry, or create more restrictive RBAC policies for production use.
-See [Configure kro permissions](kro-permissions.md "kro-permissions.md") for details.
+If the capability doesn’t have the required permissions, associate the `AmazonEKSClusterAdminPolicy` with the kro capability’s access entry, or create more restrictive RBAC policies for production use. See [Configure kro permissions](kro-permissions.md) for details.
 
-**Check ResourceGraphDefinition status**:
+ **Check ResourceGraphDefinition status**:
 
 ```
 # List all RGDs
@@ -71,52 +72,49 @@ kubectl get resourcegraphdefinition my-rgd -o jsonpath='{.status.conditions}'
 ```
 
 ResourceGraphDefinitions have three key status conditions:
-
-- `ResourceGraphAccepted` - Whether the RGD passed validation (CEL syntax, type checking, field existence)
-- `KindReady` - Whether the CRD for your custom API was generated and registered
-- `ControllerReady` - Whether kro is actively watching for instances of your custom API
++  `ResourceGraphAccepted` - Whether the RGD passed validation (CEL syntax, type checking, field existence)
++  `KindReady` - Whether the CRD for your custom API was generated and registered
++  `ControllerReady` - Whether kro is actively watching for instances of your custom API
 
 If `ResourceGraphAccepted` is `False`, check the condition message for validation errors like unknown fields, type mismatches, or circular dependencies.
 
 ## Instances created but underlying resources not appearing
+<a name="_instances_created_but_underlying_resources_not_appearing"></a>
 
 If custom resource instances exist but the underlying Kubernetes resources (Deployments, Services, ConfigMaps) aren’t being created, verify kro has permissions and check for composition errors.
 
-**Check instance status**:
+ **Check instance status**:
 
 ```
 # Describe the instance (replace with your custom resource kind and name)
-kubectl describe `custom-kind my-instance`
+kubectl describe {{custom-kind my-instance}}
 
 # View instance events
-kubectl get events --field-selector involvedObject.name=`my-instance`
+kubectl get events --field-selector involvedObject.name={{my-instance}}
 
 # Check instance status conditions
-kubectl get `custom-kind my-instance` -o jsonpath='{.status.conditions}'
+kubectl get {{custom-kind my-instance}} -o jsonpath='{.status.conditions}'
 
 # Check instance state
-kubectl get `custom-kind my-instance` -o jsonpath='{.status.state}'
+kubectl get {{custom-kind my-instance}} -o jsonpath='{.status.state}'
 ```
 
 Instances have a `state` field showing high-level status:
-
-- `ACTIVE` - Instance is successfully running
-- `IN_PROGRESS` - Instance is being processed or reconciled
-- `FAILED` - Instance failed to reconcile
-- `DELETING` - Instance is being deleted
-- `ERROR` - An error occurred during processing
++  `ACTIVE` - Instance is successfully running
++  `IN_PROGRESS` - Instance is being processed or reconciled
++  `FAILED` - Instance failed to reconcile
++  `DELETING` - Instance is being deleted
++  `ERROR` - An error occurred during processing
 
 Instances also have four status conditions:
++  `InstanceManaged` - Finalizers and labels are properly set
++  `GraphResolved` - Runtime graph created and resources resolved
++  `ResourcesReady` - All resources created and ready
++  `Ready` - Overall instance health (only becomes `True` when all sub-conditions are `True`)
 
-- `InstanceManaged` - Finalizers and labels are properly set
-- `GraphResolved` - Runtime graph created and resources resolved
-- `ResourcesReady` - All resources created and ready
-- `Ready` - Overall instance health (only becomes `True` when all sub-conditions are `True`)
+Focus on the `Ready` condition to determine instance health. If `Ready` is `False`, check the sub-conditions to identify which phase failed.
 
-Focus on the `Ready` condition to determine instance health.
-If `Ready` is `False`, check the sub-conditions to identify which phase failed.
-
-**Verify RBAC permissions**:
+ **Verify RBAC permissions**:
 
 The kro capability needs permissions to create the underlying Kubernetes resources defined in your ResourceGraphDefinitions.
 
@@ -125,35 +123,32 @@ The kro capability needs permissions to create the underlying Kubernetes resourc
 kubectl get accessentry -A | grep kro
 ```
 
-If permissions are missing, associate the `AmazonEKSClusterAdminPolicy` with the kro capability’s access entry, or create more restrictive RBAC policies for production use.
-See [Configure kro permissions](kro-permissions.md "kro-permissions.md") for details.
+If permissions are missing, associate the `AmazonEKSClusterAdminPolicy` with the kro capability’s access entry, or create more restrictive RBAC policies for production use. See [Configure kro permissions](kro-permissions.md) for details.
 
 ## CEL expression errors
+<a name="_cel_expression_errors"></a>
 
-CEL expression errors are caught at ResourceGraphDefinition creation time, not when instances are created.
-kro validates all CEL syntax, type-checks expressions against Kubernetes schemas, and verifies field existence when you create the RGD.
+CEL expression errors are caught at ResourceGraphDefinition creation time, not when instances are created. kro validates all CEL syntax, type-checks expressions against Kubernetes schemas, and verifies field existence when you create the RGD.
 
-**Common CEL validation errors**:
+ **Common CEL validation errors**:
++  **Undefined field reference**: Referencing a field that doesn’t exist in the schema or resource
++  **Type mismatch**: Expression returns wrong type (e.g., string where integer expected)
++  **Invalid syntax**: Missing brackets, quotes, or operators in CEL expression
++  **Unknown resource type**: Referencing a CRD that doesn’t exist in the cluster
 
-- **Undefined field reference**: Referencing a field that doesn’t exist in the schema or resource
-- **Type mismatch**: Expression returns wrong type (e.g., string where integer expected)
-- **Invalid syntax**: Missing brackets, quotes, or operators in CEL expression
-- **Unknown resource type**: Referencing a CRD that doesn’t exist in the cluster
-
-**Check RGD validation status**:
+ **Check RGD validation status**:
 
 ```
 # Check if RGD was accepted
-kubectl get resourcegraphdefinition `my-rgd` -o jsonpath='{.status.conditions[?(@.type=="ResourceGraphAccepted")]}'
+kubectl get resourcegraphdefinition {{my-rgd}} -o jsonpath='{.status.conditions[?(@.type=="ResourceGraphAccepted")]}'
 
 # View detailed validation errors
-kubectl describe resourcegraphdefinition `my-rgd`
-
+kubectl describe resourcegraphdefinition {{my-rgd}}
 ```
 
 If `ResourceGraphAccepted` is `False`, the condition message contains the validation error.
 
-**Example valid CEL expressions**:
+ **Example valid CEL expressions**:
 
 ```
 # Reference schema field
@@ -176,34 +171,32 @@ ${configmap.data.?DATABASE_URL}
 ```
 
 ## Resource dependencies not resolving
+<a name="_resource_dependencies_not_resolving"></a>
 
-kro automatically infers dependencies from CEL expressions and creates resources in the correct order.
-If resources aren’t being created as expected, check the dependency order and resource readiness.
+kro automatically infers dependencies from CEL expressions and creates resources in the correct order. If resources aren’t being created as expected, check the dependency order and resource readiness.
 
-**View computed creation order**:
+ **View computed creation order**:
 
 ```
 # See the order kro will create resources
-kubectl get resourcegraphdefinition `my-rgd` -o jsonpath='{.status.topologicalOrder}'
+kubectl get resourcegraphdefinition {{my-rgd}} -o jsonpath='{.status.topologicalOrder}'
 ```
 
 This shows the computed order based on CEL expression references between resources.
 
-**Check resource readiness**:
+ **Check resource readiness**:
 
 ```
 # View instance status to see which resources are ready
-kubectl get `custom-kind my-instance` -o jsonpath='{.status}'
+kubectl get {{custom-kind my-instance}} -o jsonpath='{.status}'
 
 # Check specific resource status
-kubectl get deployment `my-deployment` -o jsonpath='{.status.conditions}'
+kubectl get deployment {{my-deployment}} -o jsonpath='{.status.conditions}'
 ```
 
-**Verify readyWhen conditions (if used)**:
+ **Verify readyWhen conditions (if used)**:
 
-The `readyWhen` field is optional.
-If not specified, resources are considered ready immediately after creation.
-If you’ve defined `readyWhen` conditions, verify they correctly check for resource readiness:
+The `readyWhen` field is optional. If not specified, resources are considered ready immediately after creation. If you’ve defined `readyWhen` conditions, verify they correctly check for resource readiness:
 
 ```
 resources:
@@ -212,46 +205,46 @@ resources:
       - ${deployment.status.availableReplicas == deployment.spec.replicas}
 ```
 
-**Check resource events**:
+ **Check resource events**:
 
 ```
 # View events for the underlying resources
-kubectl get events -n `namespace` --sort-by='.lastTimestamp'
+kubectl get events -n {{namespace}} --sort-by='.lastTimestamp'
 ```
 
 ## Schema validation failures
+<a name="_schema_validation_failures"></a>
 
 If instances fail to create due to schema validation errors, verify the instance matches the RGD schema requirements.
 
-**Check validation errors**:
+ **Check validation errors**:
 
 ```
 # Attempt to create instance and view error
 kubectl apply -f instance.yaml
 
 # View existing instance validation status
-kubectl describe `custom-kind my-instance` | grep -A 5 "Validation"
+kubectl describe {{custom-kind my-instance}} | grep -A 5 "Validation"
 ```
 
-**Common validation issues**:
+ **Common validation issues**:
++  **Required fields missing**: Instance doesn’t provide all required schema fields
++  **Type mismatch**: Providing string where integer is expected
++  **Invalid enum value**: Using value not in allowed list
++  **Pattern mismatch**: String doesn’t match regex pattern
 
-- **Required fields missing**: Instance doesn’t provide all required schema fields
-- **Type mismatch**: Providing string where integer is expected
-- **Invalid enum value**: Using value not in allowed list
-- **Pattern mismatch**: String doesn’t match regex pattern
-
-**Review RGD schema**:
+ **Review RGD schema**:
 
 ```
 # View the schema definition
-kubectl get resourcegraphdefinition `my-rgd` -o jsonpath='{.spec.schema}'
+kubectl get resourcegraphdefinition {{my-rgd}} -o jsonpath='{.spec.schema}'
 ```
 
 Ensure your instance provides all required fields with correct types.
 
 ## Next steps
-
-- [kro considerations for EKS](kro-considerations.md "kro-considerations.md") - kro considerations and best practices
-- [Configure kro permissions](kro-permissions.md "kro-permissions.md") - Configure RBAC for platform and application teams
-- [kro concepts](kro-concepts.md "kro-concepts.md") - Understand kro concepts and resource lifecycle
-- [Troubleshooting EKS Capabilities](capabilities-troubleshooting.md "capabilities-troubleshooting.md") - General capability troubleshooting guidance
+<a name="_next_steps"></a>
++  [kro considerations for EKS](kro-considerations.md) - kro considerations and best practices
++  [Configure kro permissions](kro-permissions.md) - Configure RBAC for platform and application teams
++  [kro concepts](kro-concepts.md) - Understand kro concepts and resource lifecycle
++  [Troubleshooting EKS Capabilities](capabilities-troubleshooting.md) - General capability troubleshooting guidance

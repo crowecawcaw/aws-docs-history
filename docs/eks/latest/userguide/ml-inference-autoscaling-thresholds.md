@@ -1,26 +1,27 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Identify scaling metric thresholds for AI inference
+<a name="ml-inference-autoscaling-thresholds"></a>
 
-###### Tip
+**Tip**  
+ [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
 
-[Register](https://events.eksworkshop.com/workshops/genai/ "https://events.eksworkshop.com/workshops/genai/") for upcoming Amazon EKS AI/ML workshops.
-
-This section shows how to load test a vLLM inference server on Amazon EKS to identify when it becomes saturated. Use the load test results to configure the queue depth and latency thresholds for horizontal autoscaling in the subsequent [Autoscale AI inference with HPA and KEDA](ml-inference-autoscaling-hpa-keda.md "ml-inference-autoscaling-hpa-keda.md") section.
+This section shows how to load test a vLLM inference server on Amazon EKS to identify when it becomes saturated. Use the load test results to configure the queue depth and latency thresholds for horizontal autoscaling in the subsequent [Autoscale AI inference with HPA and KEDA](ml-inference-autoscaling-hpa-keda.md) section.
 
 The walkthrough uses the following tools:
-
-- [k6](https://k6.io/ "https://k6.io/") (Grafana k6) is an open-source load-testing tool, run as the `grafana/k6` container image, that sends inference requests to the replica at controlled request rates.
-- [Ministral-3-8B-Instruct-2512 model](https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512 "https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512") on a `g6e.4xlarge` instance. You can apply the same methodology to any open source model and GPU type.
++  [k6](https://k6.io/) (Grafana k6) is an open-source load-testing tool, run as the `grafana/k6` container image, that sends inference requests to the replica at controlled request rates.
++  [Ministral-3-8B-Instruct-2512 model](https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512) on a `g6e.4xlarge` instance. You can apply the same methodology to any open source model and GPU type.
 
 ## Prerequisites
+<a name="_prerequisites"></a>
 
 This section builds on two earlier sections in the documentation. Complete both before you start:
-
-- **[Cluster Setup](ml-cluster-setup.md "ml-cluster-setup.md")** provides an EKS cluster with a GPU NodePool, the kube-prometheus-stack [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring "ml-cluster-setup-cli.md#cluster-setup-cli-monitoring") stack (Prometheus and Grafana), and an [Amazon S3 bucket](ml-cluster-setup-cli.md#cluster-setup-cli-model-bucket "ml-cluster-setup-cli.md#cluster-setup-cli-model-bucket") for model weights.
-- **[Load & Serve Models](ml-inference-load-serve-model.md "ml-inference-load-serve-model.md")** deploys the vLLM inference server and creates the [vllm-inference-app ServiceMonitor](ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring "ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring").
++  ** [Cluster Setup](ml-cluster-setup.md) ** provides an EKS cluster with a GPU NodePool, the kube-prometheus-stack [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring) stack (Prometheus and Grafana), and an [Amazon S3 bucket](ml-cluster-setup-cli.md#cluster-setup-cli-model-bucket) for model weights.
++  ** [Load & Serve Models](ml-inference-load-serve-model.md) ** deploys the vLLM inference server and creates the [`vllm-inference-app` ServiceMonitor](ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring).
 
 Confirm each item below before you start, and complete the linked section first if a check fails.
 
@@ -31,7 +32,7 @@ export CLUSTER_NAME=ai-eks-docs
 export AWS_REGION=us-east-2
 ```
 
-Capture the name of the Amazon S3 model bucket that was created in the [Cluster Setup](ml-cluster-setup.md "ml-cluster-setup.md") steps. The load generator passes this value to vLLM.
+Capture the name of the Amazon S3 model bucket that was created in the [Cluster Setup](ml-cluster-setup.md) steps. The load generator passes this value to vLLM.
 
 ```
 MODEL_BUCKET=$(aws s3api list-buckets \
@@ -41,8 +42,9 @@ echo "Model bucket: ${MODEL_BUCKET}"
 ```
 
 ### Confirm the monitoring stack is running
+<a name="_confirm_the_monitoring_stack_is_running"></a>
 
-The kube-prometheus-stack from the [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring "ml-cluster-setup-cli.md#cluster-setup-cli-monitoring") setup runs in the `monitoring` namespace.
+The kube-prometheus-stack from the [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring) setup runs in the `monitoring` namespace.
 
 ```
 kubectl get pods -n monitoring
@@ -57,11 +59,12 @@ kube-prometheus-stack-operator-7b8c9d6f4-q4m7n    1/1     Running   0          3
 prometheus-kube-prometheus-stack-prometheus-0     2/2     Running   0          3h
 ```
 
-If these are missing, complete the [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring "ml-cluster-setup-cli.md#cluster-setup-cli-monitoring") setup before continuing.
+If these are missing, complete the [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring) setup before continuing.
 
 ### Confirm the vLLM model is running
+<a name="_confirm_the_vllm_model_is_running"></a>
 
-The `vllm-inference-app` Deployment and `vllm-inference-svc` Service from [Load & Serve Models](ml-inference-load-serve-model.md "ml-inference-load-serve-model.md") run in the `default` namespace.
+The `vllm-inference-app` Deployment and `vllm-inference-svc` Service from [Load & Serve Models](ml-inference-load-serve-model.md) run in the `default` namespace.
 
 ```
 kubectl get deployment vllm-inference-app
@@ -74,11 +77,12 @@ NAME                 READY   UP-TO-DATE   AVAILABLE   AGE
 vllm-inference-app   1/1     1            1           3h
 ```
 
-If the Deployment is missing or not ready, complete [Load & Serve Models](ml-inference-load-serve-model.md "ml-inference-load-serve-model.md") before continuing.
+If the Deployment is missing or not ready, complete [Load & Serve Models](ml-inference-load-serve-model.md) before continuing.
 
 ### Access Grafana
+<a name="_access_grafana"></a>
 
-You watch the load test in the pre-loaded vLLM dashboard, so make sure the Grafana load balancer you set up in the [Access Grafana](ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer "ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer") section is reachable. Print its URL:
+You watch the load test in the pre-loaded vLLM dashboard, so make sure the Grafana load balancer you set up in the [Access Grafana](ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer) section is reachable. Print its URL:
 
 ```
 echo "http://$(kubectl get ingress kube-prometheus-stack-grafana -n monitoring -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
@@ -91,8 +95,9 @@ kubectl --namespace monitoring get secrets kube-prometheus-stack-grafana -o json
 ```
 
 ### Confirm the vLLM ServiceMonitor exists
+<a name="_confirm_the_vllm_servicemonitor_exists"></a>
 
-The `vllm-inference-app` ServiceMonitor, created in the [Monitor vLLM](ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring "ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring") step, runs in the `default` namespace and tells Prometheus where to scrape vLLM metrics.
+The `vllm-inference-app` ServiceMonitor, created in the [Monitor vLLM](ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring) step, runs in the `default` namespace and tells Prometheus where to scrape vLLM metrics.
 
 ```
 kubectl get servicemonitor vllm-inference-app
@@ -105,9 +110,10 @@ NAME                 AGE
 vllm-inference-app   3h
 ```
 
-If it is missing, complete the [Monitor vLLM](ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring "ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring") step.
+If it is missing, complete the [Monitor vLLM](ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring) step.
 
 ## Step 1: Warm up the GPU
+<a name="_step_1_warm_up_the_gpu"></a>
 
 Even though the model is loaded into GPU memory and the replica reports Ready, the first requests take longer than later ones because vLLM and the GPU finish initializing on the first inferences. vLLM captures CUDA graphs, compiles and autotunes GPU kernels, and allocates its KV cache memory pools, while the GPU raises its clock speeds from idle to their boost range.
 
@@ -115,7 +121,7 @@ These are one-time costs, so measuring thresholds before warm-up records startup
 
 First, create the ConfigMap that holds the warm-up script (`warmup.js`). The script reads the target model from the `MODEL` environment variable, which the Job sets from the `MODEL_BUCKET` value you captured earlier:
 
-###### Example k6 warm-up ConfigMap
+**Example k6 warm-up ConfigMap**  
 
 ```
 cat << 'EOF' | kubectl apply -f -
@@ -143,7 +149,7 @@ EOF
 
 Then run the warm-up Job. A single client sends 100 sequential requests:
 
-###### Example Warm-up Job
+**Example Warm-up Job**  
 
 ```
 cat << EOF | kubectl apply -f -
@@ -180,11 +186,12 @@ Wait for the warm-up to finish (it takes a few minutes):
 kubectl wait --for=condition=complete job/vllm-warmup --timeout=600s
 ```
 
-Open Grafana (open the load balancer hostname; see [Access Grafana](ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer "ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer") for details) and navigate to **Dashboards > GPU Monitoring > Performance Testing - vLLM Load Analysis**. The **vLLM Request Rate** panel shows the burst of warm-up traffic. The **vLLM Average Latency** panel shows that the first request is slower, which is the one-time GPU warm-up cost.
+Open Grafana (open the load balancer hostname; see [Access Grafana](ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer) for details) and navigate to **Dashboards > GPU Monitoring > Performance Testing - vLLM Load Analysis**. The **vLLM Request Rate** panel shows the burst of warm-up traffic. The **vLLM Average Latency** panel shows that the first request is slower, which is the one-time GPU warm-up cost.
 
-**vLLM dashboard showing the GPU warm-up effect on latency**
+ **vLLM dashboard showing the GPU warm-up effect on latency** 
 
-![A short warm-up traffic burst with first-request latency dropping from about 2.6 seconds to a steady baseline as the GPU warms up.](images/ml-inference-autoscaling-thresholds-gpu-warm-up.png)
+![A short warm-up traffic burst with first-request latency dropping from about 2.6 seconds to a steady baseline as the GPU warms up.](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-autoscaling-thresholds-gpu-warm-up.png)
+
 
 Then delete the warm-up Job:
 
@@ -193,6 +200,7 @@ kubectl delete job vllm-warmup
 ```
 
 ## Step 2: Send load at increasing request rates
+<a name="_step_2_send_load_at_increasing_request_rates"></a>
 
 In this step, you run a load test that sends requests to the single vLLM replica at increasing rates: 10, 20, 30, 40, 50, 60, and 70 requests per second. This simulates increasing user demand. The test uses k6 in a constant-arrival-rate model, where the `TARGET_RPS` environment variable sets the target request rate. Each rate runs for 60 seconds to allow metrics to stabilize, followed by a 30-second pause before the next rate increase.
 
@@ -200,7 +208,7 @@ The goal of this test is to identify the saturation point, which is the request 
 
 First, create the ConfigMap that holds the k6 load-test script (`script.js`). The script reads the target model from the `MODEL` environment variable, which each pod sets from the `MODEL_BUCKET` value you captured earlier:
 
-###### Example k6 load test ConfigMap
+**Example k6 load test ConfigMap**  
 
 ```
 cat << 'EOF' | kubectl apply -f -
@@ -250,7 +258,7 @@ EOF
 
 Then run the load test at each request rate. The following loop submits a separate Job for each rate:
 
-###### Example Load test loop
+**Example Load test loop**  
 
 ```
 for RPS in 10 20 30 40 50 60 70; do
@@ -304,28 +312,30 @@ kubectl delete jobs -l app=vllm-loadtest
 ```
 
 ## Step 3: Measure metrics under load
+<a name="_step_3_measure_metrics_under_load"></a>
 
 While the load runs, watch the two metrics that drive autoscaling:
-
-- **Queue depth** (`vllm:num_requests_waiting`) — how many requests are waiting to be processed.
-- **p95 end-to-end latency** (`vllm:e2e_request_latency_seconds`) — the 95th percentile response time.
++  **Queue depth** (`vllm:num_requests_waiting`) — how many requests are waiting to be processed.
++  **p95 end-to-end latency** (`vllm:e2e_request_latency_seconds`) — the 95th percentile response time.
 
 ### View the metrics in Grafana
+<a name="_view_the_metrics_in_grafana"></a>
 
-Open Grafana (open the load balancer hostname and log in as `admin`; see [Access Grafana](ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer "ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer") for details) and navigate to **Dashboards > GPU Monitoring > Performance Testing - vLLM Load Analysis**. This dashboard reads from Amazon Managed Service for Prometheus, so panels can lag the live state by up to a minute because metrics are remote-written in batches.
+Open Grafana (open the load balancer hostname and log in as `admin`; see [Access Grafana](ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer) for details) and navigate to **Dashboards > GPU Monitoring > Performance Testing - vLLM Load Analysis**. This dashboard reads from Amazon Managed Service for Prometheus, so panels can lag the live state by up to a minute because metrics are remote-written in batches.
 
-**Performance Testing - vLLM Load Analysis dashboard during the load test**
+ **Performance Testing - vLLM Load Analysis dashboard during the load test** 
 
-![Six panels showing k6 pod CPU and memory usage per load-test job, vLLM request rate climbing in steps, average latency rising once the replica saturates, tokens generated per request, and queue depth spiking from zero at saturation.](images/ml-inference-autoscaling-thresholds-load-test.png)
+![Six panels showing k6 pod CPU and memory usage per load-test job, vLLM request rate climbing in steps, average latency rising once the replica saturates, tokens generated per request, and queue depth spiking from zero at saturation.](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-autoscaling-thresholds-load-test.png)
+
 
 Based on the load test results, queue depth stayed near zero through 50 concurrent requests. It then increased sharply at 60 concurrent requests, peaking between approximately 150 and 350 queued requests. At the same time, p95 end-to-end latency rose from a steady baseline of about 2.5 seconds to 6–10 seconds. This behavior indicates the onset of sustained overload and suggests that autoscaling should begin before queue depth reaches levels that cause latency to approach 10 seconds. A practical starting point is to trigger scaling when queue depth exceeds 25 requests for 30–60 seconds. As a secondary signal, you can also trigger scaling when p95 end-to-end latency exceeds 5 seconds over the same interval. This helps account for workload patterns where latency increases before queue depth builds up.
 
 ## Step 4: Choose the metrics and thresholds to scale on
+<a name="_step_4_choose_the_metrics_and_thresholds_to_scale_on"></a>
 
 Using the metrics observed at the saturation point, you determine the thresholds used for configuring autoscaling in the next section.
-
-- **Queue depth** (`vllm:num_requests_waiting`) — the number of requests waiting to be processed once a replica becomes saturated. Set the threshold above the point where the queue first remains positive, so transient spikes do not trigger scaling. For the load test in this section, queue depth remained near zero through 50 concurrent requests and increased sharply to approximately 150–350 queued requests at 60 concurrent requests. A practical starting point is to trigger scaling when queue depth exceeds **25 requests** for 30–60 seconds.
-- **Latency** (`vllm:e2e_request_latency_seconds`) — the end-to-end response time as a replica approaches its capacity limit. Set the threshold below your latency SLO, so the autoscaler scales out before user-visible latency becomes unacceptable. For the load test in this section, p95 end-to-end latency remained stable at approximately 2.5 seconds and increased to 6–10 seconds at saturation. As a secondary signal, a practical starting point is to trigger scaling when p95 end-to-end latency exceeds **5 seconds** for 30–60 seconds. This helps account for workload patterns where latency rises before queue depth builds up or when latency increases without queueing.
-- **Scale-down** — the rate at which the autoscaler removes replicas after demand drops. Scale down more slowly than you scale up. For this example, scale down only when queue depth is `0` and p95 end-to-end latency is below 3 seconds for 5 minutes. This prevents the autoscaler from removing replicas during short pauses in traffic and helps avoid oscillation.
++  **Queue depth** (`vllm:num_requests_waiting`) — the number of requests waiting to be processed once a replica becomes saturated. Set the threshold above the point where the queue first remains positive, so transient spikes do not trigger scaling. For the load test in this section, queue depth remained near zero through 50 concurrent requests and increased sharply to approximately 150–350 queued requests at 60 concurrent requests. A practical starting point is to trigger scaling when queue depth exceeds **25 requests** for 30–60 seconds.
++  **Latency** (`vllm:e2e_request_latency_seconds`) — the end-to-end response time as a replica approaches its capacity limit. Set the threshold below your latency SLO, so the autoscaler scales out before user-visible latency becomes unacceptable. For the load test in this section, p95 end-to-end latency remained stable at approximately 2.5 seconds and increased to 6–10 seconds at saturation. As a secondary signal, a practical starting point is to trigger scaling when p95 end-to-end latency exceeds **5 seconds** for 30–60 seconds. This helps account for workload patterns where latency rises before queue depth builds up or when latency increases without queueing.
++  **Scale-down** — the rate at which the autoscaler removes replicas after demand drops. Scale down more slowly than you scale up. For this example, scale down only when queue depth is `0` and p95 end-to-end latency is below 3 seconds for 5 minutes. This prevents the autoscaler from removing replicas during short pauses in traffic and helps avoid oscillation.
 
 These values provide a starting point for configuring autoscaling in the next section. Repeat this process for your own model, GPU type, and request patterns to determine the appropriate thresholds for your deployment.

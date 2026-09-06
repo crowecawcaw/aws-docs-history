@@ -1,63 +1,63 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Static Capacity Node Pools in EKS Auto Mode
+<a name="auto-static-capacity"></a>
 
 Amazon EKS Auto Mode supports static capacity node pools that maintain a fixed number of nodes regardless of pod demand. Static capacity node pools are useful for workloads that require predictable capacity, reserved instances, or specific compliance requirements where you need to maintain a consistent infrastructure footprint.
 
 Unlike dynamic node pools that scale based on pod scheduling demands, static capacity node pools maintain the number of nodes that you have configured.
 
 ## Configure a static capacity node pool
+<a name="_configure_a_static_capacity_node_pool"></a>
 
-To create a static capacity node pool, set the `replicas` field in your NodePool specification. The `replicas` field defines the exact number of nodes that the node pool will maintain. See [Examples](#static-capacity-examples "#static-capacity-examples") for how to configure `replicas`.
+To create a static capacity node pool, set the `replicas` field in your NodePool specification. The `replicas` field defines the exact number of nodes that the node pool will maintain. See [Examples](#static-capacity-examples) for how to configure `replicas`.
 
 ## Static capacity node pool considerations
+<a name="_static_capacity_node_pool_considerations"></a>
 
 Static capacity node pools have several important constraints and behaviors:
 
-**Configuration constraints:**
+ **Configuration constraints:** 
++  **Cannot switch modes**: Once you set `replicas` on a node pool, you cannot remove it. The node pool cannot switch between static and dynamic modes.
++  **Limited resource limits**: Only the `limits.nodes` field is supported in the limits section. CPU and memory limits are not applicable.
++  **No weight field**: The `weight` field cannot be set on static capacity node pools since node selection is not based on priority.
 
-- **Cannot switch modes**: Once you set `replicas` on a node pool, you cannot remove it. The node pool cannot switch between static and dynamic modes.
-- **Limited resource limits**: Only the `limits.nodes` field is supported in the limits section. CPU and memory limits are not applicable.
-- **No weight field**: The `weight` field cannot be set on static capacity node pools since node selection is not based on priority.
-
-**Operational behavior:**
-
-- **No consolidation**: Nodes in static capacity pools are not considered for consolidation.
-- **Scaling operations**: Scale operations bypass node disruption budgets but still respect PodDisruptionBudgets.
-- **Node replacement**: Nodes are still replaced for drift (such as AMI updates) and expiration based on your configuration.
+ **Operational behavior:** 
++  **No consolidation**: Nodes in static capacity pools are not considered for consolidation.
++  **Scaling operations**: Scale operations bypass node disruption budgets but still respect PodDisruptionBudgets.
++  **Node replacement**: Nodes are still replaced for drift (such as AMI updates) and expiration based on your configuration.
 
 ## Best practices
+<a name="_best_practices"></a>
 
-**Capacity planning:**
+ **Capacity planning:** 
++ Set `limits.nodes` higher than `replicas` to allow for temporary scaling during node replacement operations.
++ Consider the maximum capacity needed during node drift or AMI updates when setting limits.
 
-- Set `limits.nodes` higher than `replicas` to allow for temporary scaling during node replacement operations.
-- Consider the maximum capacity needed during node drift or AMI updates when setting limits.
+ **Instance selection:** 
++ Use specific instance types when you have Reserved Instances or specific hardware requirements.
++ Avoid overly restrictive requirements that might limit instance availability during scaling.
 
-**Instance selection:**
+ **Disruption management:** 
++ Configure appropriate disruption budgets to balance availability with maintenance operations.
++ Consider your application’s tolerance for node replacement when setting budget percentages.
 
-- Use specific instance types when you have Reserved Instances or specific hardware requirements.
-- Avoid overly restrictive requirements that might limit instance availability during scaling.
+ **Monitoring:** 
++ Regularly monitor the `status.nodes` field to ensure your desired capacity is maintained.
++ Set up alerts for when the actual node count deviates from the desired replicas.
 
-**Disruption management:**
-
-- Configure appropriate disruption budgets to balance availability with maintenance operations.
-- Consider your application’s tolerance for node replacement when setting budget percentages.
-
-**Monitoring:**
-
-- Regularly monitor the `status.nodes` field to ensure your desired capacity is maintained.
-- Set up alerts for when the actual node count deviates from the desired replicas.
-
-**Zone distribution:**
-
-- For high availability, spread static capacity across multiple Availability Zones.
-- When you create a static capacity node pool that spans multiple availability zones, EKS Auto Mode distributes the nodes across the specified zones, but the distribution is not guaranteed to be even.
-- For predictable and even distribution across availability zones, create separate static capacity node pools, each pinned to a specific availability zone using the `topology.kubernetes.io/zone` requirement.
-- If you need 12 nodes evenly distributed across three zones, create three node pools with 4 replicas each, rather than one node pool with 12 replicas across three zones.
+ **Zone distribution:** 
++ For high availability, spread static capacity across multiple Availability Zones.
++ When you create a static capacity node pool that spans multiple availability zones, EKS Auto Mode distributes the nodes across the specified zones, but the distribution is not guaranteed to be even.
++ For predictable and even distribution across availability zones, create separate static capacity node pools, each pinned to a specific availability zone using the `topology.kubernetes.io/zone` requirement.
++ If you need 12 nodes evenly distributed across three zones, create three node pools with 4 replicas each, rather than one node pool with 12 replicas across three zones.
 
 ## Scale a static capacity node pool
+<a name="_scale_a_static_capacity_node_pool"></a>
 
 You can change the number of replicas in a static capacity node pool using the `kubectl scale` command:
 
@@ -69,6 +69,7 @@ kubectl scale nodepool static-nodepool --replicas=5
 When scaling down, EKS Auto Mode will terminate nodes gracefully, respecting PodDisruptionBudgets and allowing running pods to be rescheduled to remaining nodes.
 
 ## Monitor static capacity node pools
+<a name="_monitor_static_capacity_node_pools"></a>
 
 Use the following commands to monitor your static capacity node pools:
 
@@ -86,26 +87,26 @@ kubectl get nodepool static-nodepool -o jsonpath='{.status.nodes}'
 The `status.nodes` field shows the current number of nodes managed by the node pool, which should match your desired `replicas` count under normal conditions.
 
 ## Troubleshooting
+<a name="_troubleshooting"></a>
 
-**Nodes not reaching desired replicas:**
+ **Nodes not reaching desired replicas:** 
++ Check if the `limits.nodes` value is sufficient
++ Verify that your requirements don’t overly constrain instance selection
++ Review AWS service quotas for the instance types and regions you’re using
 
-- Check if the `limits.nodes` value is sufficient
-- Verify that your requirements don’t overly constrain instance selection
-- Review AWS service quotas for the instance types and regions you’re using
+ **Node replacement taking too long:** 
++ Adjust disruption budgets to allow more concurrent replacements
++ Check if PodDisruptionBudgets are preventing node termination
 
-**Node replacement taking too long:**
-
-- Adjust disruption budgets to allow more concurrent replacements
-- Check if PodDisruptionBudgets are preventing node termination
-
-**Unexpected node termination:**
-
-- Review the `expireAfter` and `terminationGracePeriod` settings
-- Check for manual node terminations or AWS maintenance events
+ **Unexpected node termination:** 
++ Review the `expireAfter` and `terminationGracePeriod` settings
++ Check for manual node terminations or AWS maintenance events
 
 ## Examples
+<a name="static-capacity-examples"></a>
 
 ### Basic static capacity node pool
+<a name="_basic_static_capacity_node_pool"></a>
 
 ```
 apiVersion: karpenter.sh/v1
@@ -135,6 +136,7 @@ spec:
 ```
 
 ### Static capacity with specific instance types
+<a name="_static_capacity_with_specific_instance_types"></a>
 
 ```
 apiVersion: karpenter.sh/v1
@@ -176,6 +178,7 @@ spec:
 ```
 
 ### Multi-zone static capacity node pool
+<a name="_multi_zone_static_capacity_node_pool"></a>
 
 ```
 apiVersion: karpenter.sh/v1
@@ -218,10 +221,11 @@ spec:
 ```
 
 ### Static capacity with capacity reservation
+<a name="_static_capacity_with_capacity_reservation"></a>
 
-The following example shows how to use a static capacity node pool with an EC2 Capacity Reservation. For more information on using EC2 Capacity Reservations with EKS Auto Mode, see [Control deployment of workloads into Capacity Reservations with EKS Auto Mode](auto-odcr.md "auto-odcr.md").
+The following example shows how to use a static capacity node pool with an EC2 Capacity Reservation. For more information on using EC2 Capacity Reservations with EKS Auto Mode, see [Control deployment of workloads into Capacity Reservations with EKS Auto Mode](auto-odcr.md).
 
-`NodeClass` defining the `capacityReservationSelectorTerms`
+ `NodeClass` defining the `capacityReservationSelectorTerms` 
 
 ```
 apiVersion: eks.amazonaws.com/v1
@@ -238,7 +242,7 @@ spec:
   - id: cr-0123456789abcdef0
 ```
 
-`NodePool` referencing the above `NodeClass` and using `karpenter.sh/capacity-type: reserved`.
+ `NodePool` referencing the above `NodeClass` and using `karpenter.sh/capacity-type: reserved`.
 
 ```
 apiVersion: karpenter.sh/v1

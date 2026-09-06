@@ -1,51 +1,56 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Manage `kube-proxy` in Amazon EKS clusters
+<a name="managing-kube-proxy"></a>
 
-###### Tip
+**Tip**  
+With Amazon EKS Auto Mode, you don’t need to install or upgrade networking add-ons. Auto Mode includes pod networking and load balancing capabilities.  
+For more information, see [Automate cluster infrastructure with EKS Auto Mode](automode.md).
 
-With Amazon EKS Auto Mode, you don’t need to install or upgrade networking add-ons. Auto Mode includes pod networking and load balancing capabilities.
+We recommend adding the Amazon EKS type of the add-on to your cluster instead of using the self-managed type of the add-on. If you’re not familiar with the difference between the types, see [Amazon EKS add-ons](eks-add-ons.md). For more information about adding an Amazon EKS add-on to your cluster, see [Create an Amazon EKS add-on](creating-an-add-on.md). If you’re unable to use the Amazon EKS add-on, we encourage you to submit an issue about why you can’t to the [Containers roadmap GitHub repository](https://github.com/aws/containers-roadmap/issues).
 
-For more information, see [Automate cluster infrastructure with EKS Auto Mode](automode.md "automode.md").
-
-We recommend adding the Amazon EKS type of the add-on to your cluster instead of using the self-managed type of the add-on. If you’re not familiar with the difference between the types, see [Amazon EKS add-ons](eks-add-ons.md "eks-add-ons.md"). For more information about adding an Amazon EKS add-on to your cluster, see [Create an Amazon EKS add-on](creating-an-add-on.md "creating-an-add-on.md"). If you’re unable to use the Amazon EKS add-on, we encourage you to submit an issue about why you can’t to the [Containers roadmap GitHub repository](https://github.com/aws/containers-roadmap/issues "https://github.com/aws/containers-roadmap/issues").
-
-The `kube-proxy` add-on is deployed on each Amazon EC2 node in your Amazon EKS cluster. It maintains network rules on your nodes and enables network communication to your Pods. The add-on isn’t deployed to Fargate nodes in your cluster. For more information, see [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/ "https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/") in the Kubernetes documentation.
+The `kube-proxy` add-on is deployed on each Amazon EC2 node in your Amazon EKS cluster. It maintains network rules on your nodes and enables network communication to your Pods. The add-on isn’t deployed to Fargate nodes in your cluster. For more information, see [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) in the Kubernetes documentation.
 
 ## Install as Amazon EKS Add-on
+<a name="_install_as_amazon_eks_add_on"></a>
 
 ## `kube-proxy` versions
+<a name="kube-proxy-versions"></a>
 
 The following table lists the latest version of the Amazon EKS add-on type for each Kubernetes version.
 
-| Kubernetes version | `kube-proxy` version |
-| ------------------ | -------------------- |
-| 1.36               | v1.36.0-eksbuild.17  |
-| 1.35               | v1.35.3-eksbuild.21  |
-| 1.34               | v1.34.6-eksbuild.21  |
-| 1.33               | v1.33.10-eksbuild.21 |
-| 1.32               | v1.32.13-eksbuild.24 |
-| 1.31               | v1.31.14-eksbuild.28 |
 
-###### Note
+| Kubernetes version |  `kube-proxy` version | 
+| --- | --- | 
+| 1.36 | v1.36.0-eksbuild.17 | 
+| 1.35 | v1.35.3-eksbuild.21 | 
+| 1.34 | v1.34.6-eksbuild.21 | 
+| 1.33 | v1.33.10-eksbuild.21 | 
+| 1.32 | v1.32.13-eksbuild.24 | 
+| 1.31 | v1.31.14-eksbuild.28 | 
 
+**Note**  
 If you’re self-managing this add-on, the versions in the table might not be the same as the available self-managed versions.
 
 ## `kube-proxy` container image
+<a name="managing-kube-proxy-images"></a>
 
-The `kube-proxy` container image is based on a [minimal base image](https://gallery.ecr.aws/eks-distro-build-tooling/eks-distro-minimal-base-iptables "https://gallery.ecr.aws/eks-distro-build-tooling/eks-distro-minimal-base-iptables") maintained by Amazon EKS Distro, which contains minimal packages and doesn’t have shells. For more information, see [Amazon EKS Distro](https://distro.eks.amazonaws.com/ "https://distro.eks.amazonaws.com/").
+The `kube-proxy` container image is based on a [minimal base image](https://gallery.ecr.aws/eks-distro-build-tooling/eks-distro-minimal-base-iptables) maintained by Amazon EKS Distro, which contains minimal packages and doesn’t have shells. For more information, see [Amazon EKS Distro](https://distro.eks.amazonaws.com/).
 
 The following table lists the latest available self-managed `kube-proxy` container image version for each Amazon EKS cluster version.
 
-| Version | kube-proxy                   |
-| ------- | ---------------------------- |
-| 1.36    | v1.36.0-eksbuild.17          |
-| 1.35    | v1.35.3-eksbuild.21          |
-| 1.34    | v1.34.6-eksbuild.21          |
-| 1.33    | v1.33.10-minimal-eksbuild.21 |
-| 1.32    | v1.32.13-minimal-eksbuild.24 |
-| 1.31    | v1.31.14-minimal-eksbuild.28 |
 
-When you [update an Amazon EKS add-on type](updating-an-add-on.md "updating-an-add-on.md"), you specify a valid Amazon EKS add-on version, which might not be a version listed in this table. This is because [Amazon EKS add-on](workloads-add-ons-available-eks.md#add-ons-kube-proxy "workloads-add-ons-available-eks.md#add-ons-kube-proxy") versions don’t always match container image versions specified when updating the self-managed type of this add-on. When you update the self-managed type of this add-on, you specify a valid container image version listed in this table.
+| Version | kube-proxy | 
+| --- | --- | 
+| 1.36 | v1.36.0-eksbuild.17 | 
+| 1.35 | v1.35.3-eksbuild.21 | 
+| 1.34 | v1.34.6-eksbuild.21 | 
+| 1.33 | v1.33.10-minimal-eksbuild.21 | 
+| 1.32 | v1.32.13-minimal-eksbuild.24 | 
+| 1.31 | v1.31.14-minimal-eksbuild.28 | 
+
+When you [update an Amazon EKS add-on type](updating-an-add-on.md), you specify a valid Amazon EKS add-on version, which might not be a version listed in this table. This is because [Amazon EKS add-on](workloads-add-ons-available-eks.md#add-ons-kube-proxy) versions don’t always match container image versions specified when updating the self-managed type of this add-on. When you update the self-managed type of this add-on, you specify a valid container image version listed in this table.

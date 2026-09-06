@@ -1,31 +1,34 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # View the health status of your nodes
+<a name="learn-status-conditions"></a>
 
 This topic explains the tools and methods available for monitoring node health status in Amazon EKS clusters. The information covers node conditions, events, and detection cases that help you identify and diagnose node-level issues. Use the commands and patterns described here to inspect node health resources, interpret status conditions, and analyze node events for operational troubleshooting.
 
-You can get some node health information with Kubernetes commands for all nodes. And if you use the node monitoring agent through Amazon EKS Auto Mode or the Amazon EKS managed add-on, you will get a wider variety of node signals to help troubleshoot. Descriptions of detected health issues by the node monitoring agent are also made available in the observability dashboard. For more information, see [Detect node health issues with the EKS node monitoring agent](node-health-nma.md "node-health-nma.md").
+You can get some node health information with Kubernetes commands for all nodes. And if you use the node monitoring agent through Amazon EKS Auto Mode or the Amazon EKS managed add-on, you will get a wider variety of node signals to help troubleshoot. Descriptions of detected health issues by the node monitoring agent are also made available in the observability dashboard. For more information, see [Detect node health issues with the EKS node monitoring agent](node-health-nma.md).
 
 ## Node conditions
+<a name="status-node-conditions"></a>
 
 Node conditions represent terminal issues requiring remediation actions like instance replacement or reboot.
 
-**To get conditions for all nodes:**
+ **To get conditions for all nodes:** 
 
 ```
 kubectl get nodes -o 'custom-columns=NAME:.metadata.name,CONDITIONS:.status.conditions[*].type,STATUS:.status.conditions[*].status'
 ```
 
-**To get detailed conditions for a specific node**
+ **To get detailed conditions for a specific node** 
 
 ```
-kubectl describe node `node-name`
-
+kubectl describe node {{node-name}}
 ```
 
-**Example condition output of a healthy node:**
+ **Example condition output of a healthy node:** 
 
 ```
   - lastHeartbeatTime: "2024-11-21T19:07:40Z"
@@ -36,7 +39,7 @@ kubectl describe node `node-name`
     type: NetworkingReady
 ```
 
-**Example condition of an unhealthy node with a networking problem:**
+ **Example condition of an unhealthy node with a networking problem:** 
 
 ```
   - lastHeartbeatTime: "2024-11-21T19:12:29Z"
@@ -49,10 +52,11 @@ kubectl describe node `node-name`
 ```
 
 ## Node events
+<a name="status-node-events"></a>
 
 Node events indicate temporary issues or sub-optimal configurations.
 
-**To get all events reported by the node monitoring agent**
+ **To get all events reported by the node monitoring agent** 
 
 When the node monitoring agent is available, you can run the following command.
 
@@ -67,26 +71,25 @@ LAST SEEN   TYPE      REASON       OBJECT                                       
 4s          Warning   SoftLockup   node/ip-192-168-71-251.us-west-2.compute.internal   CPU stuck for 23s
 ```
 
-**To get events for all nodes**
+ **To get events for all nodes** 
 
 ```
 kubectl get events --field-selector involvedObject.kind=Node
 ```
 
-**To get events for a specific node**
+ **To get events for a specific node** 
 
 ```
-kubectl get events --field-selector involvedObject.kind=Node,involvedObject.name=`node-name`
-
+kubectl get events --field-selector involvedObject.kind=Node,involvedObject.name={{node-name}}
 ```
 
-**To watch events in real-time**
+ **To watch events in real-time** 
 
 ```
 kubectl get events -w --field-selector involvedObject.kind=Node
 ```
 
-**Example event output:**
+ **Example event output:** 
 
 ```
 LAST SEEN   TYPE     REASON           OBJECT         MESSAGE
@@ -95,10 +98,11 @@ LAST SEEN   TYPE     REASON           OBJECT         MESSAGE
 ```
 
 ## Common troubleshooting commands
+<a name="status-node-troubleshooting"></a>
 
 ```
 # Get comprehensive node status
-kubectl get node `node-name` -o yaml
+kubectl get node {{node-name}} -o yaml
 
 # Watch node status changes
 kubectl get nodes -w

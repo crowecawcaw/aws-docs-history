@@ -1,284 +1,291 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # View cluster insights
+<a name="view-cluster-insights"></a>
 
 Amazon EKS provides three types of insights: **Configuration insights**, **Upgrade insights**, and **Rollback readiness insights**. **Configuration insights** identify misconfigurations in your EKS Hybrid Nodes setup that could impair functionality of your cluster or workloads. **Upgrade insights** identify issues that could impact your ability to upgrade to new versions of Kubernetes. **Rollback readiness insights** identify issues that could impact your ability to roll back to a previous Kubernetes version after an upgrade.
 
 To see the list of insight checks performed and any relevant issues that Amazon EKS has identified, you can use the AWS Management Console, the AWS CLI, AWS SDKs, and Amazon EKS `ListInsights` API operation.
 
 ## View configuration insights (Console)
+<a name="view-config-insights-console"></a>
 
-1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
-2. From the cluster list, choose the name of the Amazon EKS cluster for which you want to see the insights.
-3. Choose **Monitor cluster**.
-4. Choose the **Cluster health** tab.
-5. In the **Configuration insights** table, you will see the following columns:
+1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters).
 
-   - **Name** – The check that was performed by Amazon EKS against the cluster.
-   - **Insight status** – An insight with a status of `Error` means that there is a misconfiguration that is likely impacting cluster functionality. An insight with a status of `Warning` means that the configuration doesn’t match the documented approach, but that cluster functionality might work if you configured it intentionally. An insight with status of `Passing` means Amazon EKS has not found any issues associated with this insight check in your cluster.
-   - **Version** – The applicable version.
-   - **Last refresh time** – The time the status of the insight was last refreshed for this cluster.
-   - **Description** – Information from the insight check, which includes the alert and recommended actions for remediation.
+1. From the cluster list, choose the name of the Amazon EKS cluster for which you want to see the insights.
+
+1. Choose **Monitor cluster**.
+
+1. Choose the **Cluster health** tab.
+
+1. In the **Configuration insights** table, you will see the following columns:
+   +  **Name** – The check that was performed by Amazon EKS against the cluster.
+   +  **Insight status** – An insight with a status of `Error` means that there is a misconfiguration that is likely impacting cluster functionality. An insight with a status of `Warning` means that the configuration doesn’t match the documented approach, but that cluster functionality might work if you configured it intentionally. An insight with status of `Passing` means Amazon EKS has not found any issues associated with this insight check in your cluster.
+   +  **Version** – The applicable version.
+   +  **Last refresh time** – The time the status of the insight was last refreshed for this cluster.
+   +  **Description** – Information from the insight check, which includes the alert and recommended actions for remediation.
 
 ## View upgrade insights (Console)
+<a name="view-upgrade-insights-console"></a>
 
-1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
-2. From the cluster list, choose the name of the Amazon EKS cluster for which you want to see the insights.
-3. Choose **Monitor cluster**.
-4. Choose the **Upgrade insights** tab.
-5. To view the latest data, choose the **Refresh insights** button and wait for the refresh operation to complete.
-6. In the **Upgrade insights** table, you will see the following columns:
+1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters).
 
-   - **Name** – The check that was performed by Amazon EKS against the cluster.
-   - **Insight status** – An insight with a status of "Error" typically means the impacted Kubernetes version is N+1 of the current cluster version, while a status of "Warning" means the insight applies to a future Kubernetes version N+2 or more. An insight with status of "Passing" means Amazon EKS has not found any issues associated with this insight check in your cluster. An insight status of "Unknown" means Amazon EKS is unable to determine if your cluster is impacted by this insight check.
-   - **Version** – The Kubernetes version that the insight checked for possible issues.
-   - **Last refresh time** – The time the status of the insight was last refreshed for this cluster.
-   - **Last transition time** – The time the status of this insight last changed.
-   - **Description** – Information from the insight check, which includes the alert and recommended actions for remediation.
+1. From the cluster list, choose the name of the Amazon EKS cluster for which you want to see the insights.
 
-###### Note
+1. Choose **Monitor cluster**.
 
+1. Choose the **Upgrade insights** tab.
+
+1. To view the latest data, choose the **Refresh insights** button and wait for the refresh operation to complete.
+
+1. In the **Upgrade insights** table, you will see the following columns:
+   +  **Name** – The check that was performed by Amazon EKS against the cluster.
+   +  **Insight status** – An insight with a status of "Error" typically means the impacted Kubernetes version is N\+1 of the current cluster version, while a status of "Warning" means the insight applies to a future Kubernetes version N\+2 or more. An insight with status of "Passing" means Amazon EKS has not found any issues associated with this insight check in your cluster. An insight status of "Unknown" means Amazon EKS is unable to determine if your cluster is impacted by this insight check.
+   +  **Version** – The Kubernetes version that the insight checked for possible issues.
+   +  **Last refresh time** – The time the status of the insight was last refreshed for this cluster.
+   +  **Last transition time** – The time the status of this insight last changed.
+   +  **Description** – Information from the insight check, which includes the alert and recommended actions for remediation.
+
+**Note**  
 Rollback readiness insights appear in the same tab after you perform an upgrade and remain visible during the 7-day rollback eligibility window.
 
 ## View cluster insights (AWS CLI)
+<a name="cluster-insights-cli"></a>
 
 1. To view the latest data, refresh the insights for a specified cluster. Make the following modifications to the command as needed and then run the modified command.
+   + Replace {{region-code}} with the code for your AWS Region.
+   + Replace {{my-cluster}} with the name of your cluster.
 
-   - Replace `region-code` with the code for your AWS Region.
-   - Replace `my-cluster` with the name of your cluster.
+     ```
+     aws eks start-insights-refresh --region {{region-code}} --cluster-name {{my-cluster}}
+     ```
 
-   ```
-   aws eks start-insights-refresh --region `region-code` --cluster-name `my-cluster`
-
-   ```
-
-2. To track the status of an insights refresh, run the following command. Replace `my-cluster` with the name of your cluster.
-
-```
-aws eks describe-insights-refresh --cluster-name `my-cluster`
-
-```
-
-An example output is as follows.
-
-```
-{
-    "message": "Insights refresh is in progress",
-    "status": "IN_PROGRESS",
-    "startedAt": "2025-07-30T13:36:09-07:00"
-}
-```
-
-3. List the insights for a specified cluster. Make the following modifications to the command as needed and then run the modified command.
-
-   - Replace `region-code` with the code for your AWS Region.
-   - Replace `my-cluster` with the name of your cluster.
+1. To track the status of an insights refresh, run the following command. Replace {{my-cluster}} with the name of your cluster.
 
    ```
-   aws eks list-insights --region `region-code` --cluster-name `my-cluster`
-
+   aws eks describe-insights-refresh --cluster-name {{my-cluster}}
    ```
 
    An example output is as follows.
 
    ```
    {
-   "insights":
-       [
-           {
-               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
-               "name": "Deprecated APIs removed in Kubernetes vX.XX",
-               "category": "UPGRADE_READINESS",
-               "kubernetesVersion": "X.XX",
-               "lastRefreshTime": 1734557315.000,
-               "lastTransitionTime": 1734557309.000,
-               "description": "Checks for usage of deprecated APIs that are scheduled for removal in Kubernetes vX.XX. Upgrading your cluster before migrating to the updated APIs supported by vX.XX could cause application impact.",
-               "insightStatus":
-               {
-                   "status": "PASSING",
-                   "reason": "No deprecated API usage detected within the last 30 days.",
-               },
-           },
-           {
-               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
-               "name": "Kubelet version skew",
-               "category": "UPGRADE_READINESS",
-               "kubernetesVersion": "X.XX",
-               "lastRefreshTime": 1734557309.000,
-               "lastTransitionTime": 1734557309.000,
-               "description": "Checks for kubelet versions of worker nodes in the cluster to see if upgrade would cause non compliance with supported Kubernetes kubelet version skew policy.",
-               "insightStatus":
-               {
-                   "status": "UNKNOWN",
-                   "reason": "Unable to determine status of node kubelet versions.",
-               },
-           },
-           {
-               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
-               "name": "Deprecated APIs removed in Kubernetes vX.XX",
-               "category": "UPGRADE_READINESS",
-               "kubernetesVersion": "X.XX",
-               "lastRefreshTime": 1734557315.000,
-               "lastTransitionTime": 1734557309.000,
-               "description": "Checks for usage of deprecated APIs that are scheduled for removal in Kubernetes vX.XX. Upgrading your cluster before migrating to the updated APIs supported by vX.XX could cause application impact.",
-               "insightStatus":
-               {
-                   "status": "PASSING",
-                   "reason": "No deprecated API usage detected within the last 30 days.",
-               },
-           },
-           {
-               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
-               "name": "Cluster health issues",
-               "category": "UPGRADE_READINESS",
-               "kubernetesVersion": "X.XX",
-               "lastRefreshTime": 1734557314.000,
-               "lastTransitionTime": 1734557309.000,
-               "description": "Checks for any cluster health issues that prevent successful upgrade to the next Kubernetes version on EKS.",
-               "insightStatus":
-               {
-                   "status": "PASSING",
-                   "reason": "No cluster health issues detected.",
-               },
-           },
-           {
-               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb",
-               "name": "EKS add-on version compatibility",
-               "category": "UPGRADE_READINESS",
-               "kubernetesVersion": "X.XX",
-               "lastRefreshTime": 1734557314.000,
-               "lastTransitionTime": 1734557309.000,
-               "description": "Checks version of installed EKS add-ons to ensure they are compatible with the next version of Kubernetes. ",
-               "insightStatus": { "status": "PASSING", "reason": "All installed EKS add-on versions are compatible with next Kubernetes version."},
-           },
-           {
-               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLEccccc",
-               "name": "kube-proxy version skew",
-               "category": "UPGRADE_READINESS",
-               "kubernetesVersion": "X.XX",
-               "lastRefreshTime": 1734557314.000,
-               "lastTransitionTime": 1734557309.000,
-               "description": "Checks version of kube-proxy in cluster to see if upgrade would cause non compliance with supported Kubernetes kube-proxy version skew policy.",
-               "insightStatus":
-               {
-                   "status": "PASSING",
-                   "reason": "kube-proxy versions match the cluster control plane version.",
-               },
-           },
-           {
-               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLEddddd",
-               "name": "Deprecated APIs removed in Kubernetes vX.XX",
-               "category": "UPGRADE_READINESS",
-               "kubernetesVersion": "X.XX",
-               "lastRefreshTime": 1734557315.000,
-               "lastTransitionTime": 1734557309.000,
-               "description": "Checks for usage of deprecated APIs that are scheduled for removal in Kubernetes vX.XX. Upgrading your cluster before migrating to the updated APIs supported by vX.XX could cause application impact.",
-               "insightStatus":
-               {
-                   "status": "PASSING",
-                   "reason": "No deprecated API usage detected within the last 30 days.",
-               },
-           },
-           {
-               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
-               "name": "Incompatible API usage",
-               "category": "ROLLBACK_READINESS",
-               "kubernetesVersion": "X.XX",
-               "lastRefreshTime": 1734557315.000,
-               "lastTransitionTime": 1734557309.000,
-               "description": "Checks for usage of APIs that are not compatible with the previous Kubernetes version. Rolling back your cluster before removing incompatible API usage could cause data loss or application impact.",
-               "insightStatus":
-               {
-                   "status": "ERROR",
-                   "reason": "Incompatible API usage detected.",
-               },
-           },
-           {
-               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
-               "name": "Kubelet version rollback compatibility",
-               "category": "ROLLBACK_READINESS",
-               "kubernetesVersion": "X.XX",
-               "lastRefreshTime": 1734557309.000,
-               "lastTransitionTime": 1734557309.000,
-               "description": "Checks for kubelet versions of worker nodes in the cluster to see if rollback would cause non compliance with supported Kubernetes kubelet version skew policy.",
-               "insightStatus":
-               {
-                   "status": "ERROR",
-                   "reason": "At least one node kubelet version matches the cluster control plane version.",
-               },
-           },
-           {
-               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE66666",
-               "name": "EKS add-on version rollback compatibility",
-               "category": "ROLLBACK_READINESS",
-               "kubernetesVersion": "X.XX",
-               "lastRefreshTime": 1734557314.000,
-               "lastTransitionTime": 1734557309.000,
-               "description": "Checks version of installed EKS add-ons to ensure they are compatible with the previous version of Kubernetes.",
-               "insightStatus":
-               {
-                   "status": "PASSING",
-                   "reason": "All installed EKS add-on versions are compatible with previous Kubernetes version.",
-               },
-           },
-       ],
-   "nextToken": null,
+       "message": "Insights refresh is in progress",
+       "status": "IN_PROGRESS",
+       "startedAt": "2025-07-30T13:36:09-07:00"
    }
    ```
 
-4. For descriptive information about an insight, run the following command. Make the following modifications to the command as needed and then run the modified command.
+1. List the insights for a specified cluster. Make the following modifications to the command as needed and then run the modified command.
+   + Replace {{region-code}} with the code for your AWS Region.
+   + Replace {{my-cluster}} with the name of your cluster.
 
-   - Replace `region-code` with the code for your AWS Region.
-   - Replace `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222` with an insight ID retrieved from listing the cluster insights.
-   - Replace `my-cluster` with the name of your cluster.
+     ```
+     aws eks list-insights --region {{region-code}} --cluster-name {{my-cluster}}
+     ```
 
-   ```
-   aws eks describe-insight --region region-code --id `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222` --cluster-name my-cluster
-   ```
+     An example output is as follows.
 
-   An example output is as follows.
+     ```
+     {
+     "insights":
+         [
+             {
+                 "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+                 "name": "Deprecated APIs removed in Kubernetes vX.XX",
+                 "category": "UPGRADE_READINESS",
+                 "kubernetesVersion": "X.XX",
+                 "lastRefreshTime": 1734557315.000,
+                 "lastTransitionTime": 1734557309.000,
+                 "description": "Checks for usage of deprecated APIs that are scheduled for removal in Kubernetes vX.XX. Upgrading your cluster before migrating to the updated APIs supported by vX.XX could cause application impact.",
+                 "insightStatus":
+                 {
+                     "status": "PASSING",
+                     "reason": "No deprecated API usage detected within the last 30 days.",
+                 },
+             },
+             {
+                 "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+                 "name": "Kubelet version skew",
+                 "category": "UPGRADE_READINESS",
+                 "kubernetesVersion": "X.XX",
+                 "lastRefreshTime": 1734557309.000,
+                 "lastTransitionTime": 1734557309.000,
+                 "description": "Checks for kubelet versions of worker nodes in the cluster to see if upgrade would cause non compliance with supported Kubernetes kubelet version skew policy.",
+                 "insightStatus":
+                 {
+                     "status": "UNKNOWN",
+                     "reason": "Unable to determine status of node kubelet versions.",
+                 },
+             },
+             {
+                 "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+                 "name": "Deprecated APIs removed in Kubernetes vX.XX",
+                 "category": "UPGRADE_READINESS",
+                 "kubernetesVersion": "X.XX",
+                 "lastRefreshTime": 1734557315.000,
+                 "lastTransitionTime": 1734557309.000,
+                 "description": "Checks for usage of deprecated APIs that are scheduled for removal in Kubernetes vX.XX. Upgrading your cluster before migrating to the updated APIs supported by vX.XX could cause application impact.",
+                 "insightStatus":
+                 {
+                     "status": "PASSING",
+                     "reason": "No deprecated API usage detected within the last 30 days.",
+                 },
+             },
+             {
+                 "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
+                 "name": "Cluster health issues",
+                 "category": "UPGRADE_READINESS",
+                 "kubernetesVersion": "X.XX",
+                 "lastRefreshTime": 1734557314.000,
+                 "lastTransitionTime": 1734557309.000,
+                 "description": "Checks for any cluster health issues that prevent successful upgrade to the next Kubernetes version on EKS.",
+                 "insightStatus":
+                 {
+                     "status": "PASSING",
+                     "reason": "No cluster health issues detected.",
+                 },
+             },
+             {
+                 "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb",
+                 "name": "EKS add-on version compatibility",
+                 "category": "UPGRADE_READINESS",
+                 "kubernetesVersion": "X.XX",
+                 "lastRefreshTime": 1734557314.000,
+                 "lastTransitionTime": 1734557309.000,
+                 "description": "Checks version of installed EKS add-ons to ensure they are compatible with the next version of Kubernetes. ",
+                 "insightStatus": { "status": "PASSING", "reason": "All installed EKS add-on versions are compatible with next Kubernetes version."},
+             },
+             {
+                 "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLEccccc",
+                 "name": "kube-proxy version skew",
+                 "category": "UPGRADE_READINESS",
+                 "kubernetesVersion": "X.XX",
+                 "lastRefreshTime": 1734557314.000,
+                 "lastTransitionTime": 1734557309.000,
+                 "description": "Checks version of kube-proxy in cluster to see if upgrade would cause non compliance with supported Kubernetes kube-proxy version skew policy.",
+                 "insightStatus":
+                 {
+                     "status": "PASSING",
+                     "reason": "kube-proxy versions match the cluster control plane version.",
+                 },
+             },
+             {
+                 "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLEddddd",
+                 "name": "Deprecated APIs removed in Kubernetes vX.XX",
+                 "category": "UPGRADE_READINESS",
+                 "kubernetesVersion": "X.XX",
+                 "lastRefreshTime": 1734557315.000,
+                 "lastTransitionTime": 1734557309.000,
+                 "description": "Checks for usage of deprecated APIs that are scheduled for removal in Kubernetes vX.XX. Upgrading your cluster before migrating to the updated APIs supported by vX.XX could cause application impact.",
+                 "insightStatus":
+                 {
+                     "status": "PASSING",
+                     "reason": "No deprecated API usage detected within the last 30 days.",
+                 },
+             },
+             {
+                 "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+                 "name": "Incompatible API usage",
+                 "category": "ROLLBACK_READINESS",
+                 "kubernetesVersion": "X.XX",
+                 "lastRefreshTime": 1734557315.000,
+                 "lastTransitionTime": 1734557309.000,
+                 "description": "Checks for usage of APIs that are not compatible with the previous Kubernetes version. Rolling back your cluster before removing incompatible API usage could cause data loss or application impact.",
+                 "insightStatus":
+                 {
+                     "status": "ERROR",
+                     "reason": "Incompatible API usage detected.",
+                 },
+             },
+             {
+                 "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
+                 "name": "Kubelet version rollback compatibility",
+                 "category": "ROLLBACK_READINESS",
+                 "kubernetesVersion": "X.XX",
+                 "lastRefreshTime": 1734557309.000,
+                 "lastTransitionTime": 1734557309.000,
+                 "description": "Checks for kubelet versions of worker nodes in the cluster to see if rollback would cause non compliance with supported Kubernetes kubelet version skew policy.",
+                 "insightStatus":
+                 {
+                     "status": "ERROR",
+                     "reason": "At least one node kubelet version matches the cluster control plane version.",
+                 },
+             },
+             {
+                 "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE66666",
+                 "name": "EKS add-on version rollback compatibility",
+                 "category": "ROLLBACK_READINESS",
+                 "kubernetesVersion": "X.XX",
+                 "lastRefreshTime": 1734557314.000,
+                 "lastTransitionTime": 1734557309.000,
+                 "description": "Checks version of installed EKS add-ons to ensure they are compatible with the previous version of Kubernetes.",
+                 "insightStatus":
+                 {
+                     "status": "PASSING",
+                     "reason": "All installed EKS add-on versions are compatible with previous Kubernetes version.",
+                 },
+             },
+         ],
+     "nextToken": null,
+     }
+     ```
 
-   ```
-   {
-     "insight":
-       {
-         "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
-         "name": "Kubelet version skew",
-         "category": "UPGRADE_READINESS",
-         "kubernetesVersion": "1.27",
-         "lastRefreshTime": 1734557309.000,
-         "lastTransitionTime": 1734557309.000,
-         "description": "Checks for kubelet versions of worker nodes in the cluster to see if upgrade would cause non compliance with supported Kubernetes kubelet version skew policy.",
-         "insightStatus":
-           {
-             "status": "UNKNOWN",
-             "reason": "Unable to determine status of node kubelet versions.",
-           },
-         "recommendation": "Upgrade your worker nodes to match the Kubernetes version of your cluster control plane.",
-         "additionalInfo":
-           {
-             "Kubelet version skew policy": "https://kubernetes.io/releases/version-skew-policy/#kubelet",
-             "Updating a managed node group": "https://docs.aws.amazon.com/eks/latest/userguide/update-managed-node-group.html",
-           },
-         "resources": [],
-         "categorySpecificSummary":
-           { "deprecationDetails": [], "addonCompatibilityDetails": [] },
-       },
-   }
-   ```
+1. For descriptive information about an insight, run the following command. Make the following modifications to the command as needed and then run the modified command.
+   + Replace {{region-code}} with the code for your AWS Region.
+   + Replace {{a1b2c3d4-5678-90ab-cdef-EXAMPLE22222}} with an insight ID retrieved from listing the cluster insights.
+   + Replace {{my-cluster}} with the name of your cluster.
+
+     ```
+     aws eks describe-insight --region region-code --id {{a1b2c3d4-5678-90ab-cdef-EXAMPLE22222}} --cluster-name my-cluster
+     ```
+
+     An example output is as follows.
+
+     ```
+     {
+       "insight":
+         {
+           "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+           "name": "Kubelet version skew",
+           "category": "UPGRADE_READINESS",
+           "kubernetesVersion": "1.27",
+           "lastRefreshTime": 1734557309.000,
+           "lastTransitionTime": 1734557309.000,
+           "description": "Checks for kubelet versions of worker nodes in the cluster to see if upgrade would cause non compliance with supported Kubernetes kubelet version skew policy.",
+           "insightStatus":
+             {
+               "status": "UNKNOWN",
+               "reason": "Unable to determine status of node kubelet versions.",
+             },
+           "recommendation": "Upgrade your worker nodes to match the Kubernetes version of your cluster control plane.",
+           "additionalInfo":
+             {
+               "Kubelet version skew policy": "https://kubernetes.io/releases/version-skew-policy/#kubelet",
+               "Updating a managed node group": "https://docs.aws.amazon.com/eks/latest/userguide/update-managed-node-group.html",
+             },
+           "resources": [],
+           "categorySpecificSummary":
+             { "deprecationDetails": [], "addonCompatibilityDetails": [] },
+         },
+     }
+     ```
 
 The preceding output shows both `UPGRADE_READINESS` and `ROLLBACK_READINESS` insights. Rollback readiness insights are only present for clusters that have been upgraded within the last 7 days.
 
 ### Filter insights by category
+<a name="filter-insights-by-category"></a>
 
 You can filter insights by category to view only a specific type:
 
 ```
 aws eks list-insights \
-  --cluster-name `my-cluster` \
-  --region `region-code` \
+  --cluster-name {{my-cluster}} \
+  --region {{region-code}} \
   --filter '{"categories": ["ROLLBACK_READINESS"]}'
 ```
 
@@ -286,12 +293,13 @@ You can also filter by status to see only blocking issues:
 
 ```
 aws eks list-insights \
-  --cluster-name `my-cluster` \
-  --region `region-code` \
+  --cluster-name {{my-cluster}} \
+  --region {{region-code}} \
   --filter '{"categories": ["ROLLBACK_READINESS"], "statuses": ["ERROR"]}'
 ```
 
 ### View rollback readiness insight details
+<a name="view-rollback-readiness-insight-details"></a>
 
 For rollback readiness insights, the `describe-insight` command returns similar information about affected resources and remediation steps. For example:
 
@@ -319,6 +327,6 @@ For rollback readiness insights, the `describe-insight` command returns similar 
 }
 ```
 
-If you find a rollback readiness insight with `"status": "ERROR"`, you must address the issue before performing the rollback, or use the `--force` flag to bypass insight checks. For more information about the rollback process, see [Roll back a cluster to a previous Kubernetes version](rollback-cluster.md "rollback-cluster.md").
+If you find a rollback readiness insight with `"status": "ERROR"`, you must address the issue before performing the rollback, or use the `--force` flag to bypass insight checks. For more information about the rollback process, see [Roll back a cluster to a previous Kubernetes version](rollback-cluster.md).
 
 If an insight shows `UNKNOWN` status, EKS was unable to evaluate the insight. The rollback is blocked until the insight can be evaluated successfully, or you use the `--force` flag to bypass insight checks.

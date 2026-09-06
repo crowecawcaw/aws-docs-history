@@ -1,10 +1,13 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Fetch control plane raw metrics in Prometheus format
+<a name="view-raw-metrics"></a>
 
-The Kubernetes control plane exposes a number of metrics that are represented in a [Prometheus format](https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md "https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md"). These metrics are useful for monitoring and analysis. They are exposed internally through metrics endpoints, and can be accessed without fully deploying Prometheus. However, deploying Prometheus more easily allows analyzing metrics over time.
+The Kubernetes control plane exposes a number of metrics that are represented in a [Prometheus format](https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md). These metrics are useful for monitoring and analysis. They are exposed internally through metrics endpoints, and can be accessed without fully deploying Prometheus. However, deploying Prometheus more easily allows analyzing metrics over time.
 
 To view the raw metrics output, replace `endpoint` and run the following command.
 
@@ -19,6 +22,7 @@ metric_name{tag="value"[,...]} value
 ```
 
 ## Fetch metrics from the API server
+<a name="fetch-metrics"></a>
 
 The general API server endpoint is exposed on the Amazon EKS control plane. This endpoint is primarily useful when looking at a specific metric.
 
@@ -50,14 +54,15 @@ ssh_tunnel_open_fail_count 0
 This raw output returns verbatim what the API server exposes.
 
 ## Fetch control plane metrics with `metrics.eks.amazonaws.com`
+<a name="fetch-metrics-prometheus"></a>
 
 For clusters that are Kubernetes version `1.28` and above, Amazon EKS also exposes metrics under the API group `metrics.eks.amazonaws.com`. These metrics include control plane components such as `kube-scheduler` and `kube-controller-manager`.
 
-###### Note
-
+**Note**  
 If you have a webhook configuration that could block the creation of the new `APIService` resource `v1.metrics.eks.amazonaws.com` on your cluster, the metrics endpoint feature might not be available. You can verify that in the `kube-apiserver` audit log by searching for the `v1.metrics.eks.amazonaws.com` keyword.
 
 ### Fetch `kube-scheduler` metrics
+<a name="fetch-metrics-scheduler"></a>
 
 To retrieve `kube-scheduler` metrics, use the following command.
 
@@ -104,6 +109,7 @@ kube_pod_resource_request{namespace="kube-system",node="ip-192-168-87-3.us-west-
 ```
 
 ### Fetch `kube-controller-manager` metrics
+<a name="fetch-metrics-controller"></a>
 
 To retrieve `kube-controller-manager` metrics, use the following command.
 
@@ -133,27 +139,30 @@ workqueue_work_duration_seconds_sum{name="replicaset"} 4.265655885000002
 ```
 
 ### Understand the scheduler and controller manager metrics
+<a name="scheduler-controller-metrics"></a>
 
-The following table describes the scheduler and controller manager metrics that are made available for Prometheus style scraping. For more information about these metrics, see [Kubernetes Metrics Reference](https://kubernetes.io/docs/reference/instrumentation/metrics/ "https://kubernetes.io/docs/reference/instrumentation/metrics/") in the Kubernetes documentation.
+The following table describes the scheduler and controller manager metrics that are made available for Prometheus style scraping. For more information about these metrics, see [Kubernetes Metrics Reference](https://kubernetes.io/docs/reference/instrumentation/metrics/) in the Kubernetes documentation.
 
-| Metric                                                      | Control plane component | Description                                                                                                                                                                                            |
-| ----------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| scheduler\_pending\_pods                                    | scheduler               | The number of Pods that are waiting to be scheduled onto a node for execution.                                                                                                                         |
-| scheduler\_schedule\_attempts\_total                        | scheduler               | The number of attempts made to schedule Pods.                                                                                                                                                          |
-| scheduler\_preemption\_attempts\_total                      | scheduler               | The number of attempts made by the scheduler to schedule higher priority Pods by evicting lower priority ones.                                                                                         |
-| scheduler\_preemption\_victims                              | scheduler               | The number of Pods that have been selected for eviction to make room for higher priority Pods.                                                                                                         |
-| scheduler\_pod\_scheduling\_attempts                        | scheduler               | The number of attempts to successfully schedule a Pod.                                                                                                                                                 |
-| scheduler\_scheduling\_attempt\_duration\_seconds           | scheduler               | Indicates how quickly or slowly the scheduler is able to find a suitable place for a Pod to run based on various factors like resource availability and scheduling rules.                              |
-| scheduler\_pod\_scheduling\_sli\_duration\_seconds          | scheduler               | The end-to-end latency for a Pod being scheduled, from the time the Pod enters the scheduling queue. This might involve multiple scheduling attempts.                                                  |
-| kube\_pod\_resource\_limit                                  | scheduler               | Resources limit for workloads on the cluster, broken down by pod. This shows the resource usage the scheduler and kubelet expect per pod for resources along with the unit for the resource if any.    |
-| kube\_pod\_resource\_request                                | scheduler               | Resources requested by workloads on the cluster, broken down by pod. This shows the resource usage the scheduler and kubelet expect per pod for resources along with the unit for the resource if any. |
-| cronjob\_controller\_job\_creation\_skew\_duration\_seconds | controller manager      | The time between when a cronjob is scheduled to be run, and when the corresponding job is created.                                                                                                     |
-| workqueue\_depth                                            | controller manager      | The current depth of queue.                                                                                                                                                                            |
-| workqueue\_adds\_total                                      | controller manager      | The total number of adds handled by workqueue.                                                                                                                                                         |
-| workqueue\_queue\_duration\_seconds                         | controller manager      | The time in seconds an item stays in workqueue before being requested.                                                                                                                                 |
-| workqueue\_work\_duration\_seconds                          | controller manager      | The time in seconds processing an item from workqueue takes.                                                                                                                                           |
+
+| Metric | Control plane component | Description | 
+| --- | --- | --- | 
+| scheduler\_pending\_pods | scheduler | The number of Pods that are waiting to be scheduled onto a node for execution. | 
+| scheduler\_schedule\_attempts\_total | scheduler | The number of attempts made to schedule Pods. | 
+| scheduler\_preemption\_attempts\_total | scheduler | The number of attempts made by the scheduler to schedule higher priority Pods by evicting lower priority ones. | 
+| scheduler\_preemption\_victims | scheduler | The number of Pods that have been selected for eviction to make room for higher priority Pods. | 
+| scheduler\_pod\_scheduling\_attempts | scheduler | The number of attempts to successfully schedule a Pod. | 
+| scheduler\_scheduling\_attempt\_duration\_seconds | scheduler | Indicates how quickly or slowly the scheduler is able to find a suitable place for a Pod to run based on various factors like resource availability and scheduling rules. | 
+| scheduler\_pod\_scheduling\_sli\_duration\_seconds | scheduler | The end-to-end latency for a Pod being scheduled, from the time the Pod enters the scheduling queue. This might involve multiple scheduling attempts. | 
+| kube\_pod\_resource\_limit | scheduler | Resources limit for workloads on the cluster, broken down by pod. This shows the resource usage the scheduler and kubelet expect per pod for resources along with the unit for the resource if any. | 
+| kube\_pod\_resource\_request | scheduler | Resources requested by workloads on the cluster, broken down by pod. This shows the resource usage the scheduler and kubelet expect per pod for resources along with the unit for the resource if any. | 
+| cronjob\_controller\_job\_creation\_skew\_duration\_seconds | controller manager | The time between when a cronjob is scheduled to be run, and when the corresponding job is created. | 
+| workqueue\_depth | controller manager | The current depth of queue. | 
+| workqueue\_adds\_total | controller manager | The total number of adds handled by workqueue. | 
+| workqueue\_queue\_duration\_seconds | controller manager | The time in seconds an item stays in workqueue before being requested. | 
+| workqueue\_work\_duration\_seconds | controller manager | The time in seconds processing an item from workqueue takes. | 
 
 ## Deploy a Prometheus scraper to consistently scrape metrics
+<a name="deploy-prometheus-scraper"></a>
 
 To deploy a Prometheus scraper to consistently scrape the metrics, use the following configuration:
 
@@ -283,4 +292,4 @@ Then you can view the Prometheus dashboard by proxying the port of the Prometheu
 kubectl port-forward pods/prom-pod 9090:9090
 ```
 
-For your Amazon EKS cluster, the core Kubernetes control plane metrics are also ingested into Amazon CloudWatch Metrics under the `AWS/EKS` namespace. To view them, open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/home#logs:prefix=/aws/eks "https://console.aws.amazon.com/cloudwatch/home#logs:prefix=/aws/eks") and select **All metrics** from the left navigation pane. On the **Metrics** selection page, choose the `AWS/EKS` namespace and a metrics dimension for your cluster.
+For your Amazon EKS cluster, the core Kubernetes control plane metrics are also ingested into Amazon CloudWatch Metrics under the `AWS/EKS` namespace. To view them, open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/home#logs:prefix=/aws/eks) and select **All metrics** from the left navigation pane. On the **Metrics** selection page, choose the `AWS/EKS` namespace and a metrics dimension for your cluster.

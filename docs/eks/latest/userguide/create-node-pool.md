@@ -1,43 +1,49 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create a Node Pool for EKS Auto Mode
+<a name="create-node-pool"></a>
 
 Amazon EKS node pools offer a flexible way to manage compute resources in your Kubernetes cluster. This topic demonstrates how to create and configure node pools by using Karpenter, a node provisioning tool that helps optimize cluster scaling and resource utilization. With Karpenter’s NodePool resource, you can define specific requirements for your compute resources, including instance types, availability zones, architectures, and capacity types.
 
-You cannot modify the built-in `system` and `general-purpose` node pools. You can only enable or disable them. For more information, see [Enable or Disable Built-in NodePools](set-builtin-node-pools.md "set-builtin-node-pools.md").
+You cannot modify the built-in `system` and `general-purpose` node pools. You can only enable or disable them. For more information, see [Enable or Disable Built-in NodePools](set-builtin-node-pools.md).
 
 The NodePool specification allows for fine-grained control over your EKS cluster’s compute resources through various supported labels and requirements. These include options for specifying EC2 instance categories, CPU configurations, availability zones, architectures (ARM64/AMD64), and capacity types (spot or on-demand). You can also set resource limits for CPU and memory usage, ensuring your cluster stays within required operational boundaries.
 
 EKS Auto Mode leverages well-known Kubernetes labels to provide consistent and standardized ways of identifying node characteristics. These labels, such as `topology.kubernetes.io/zone` for availability zones and `kubernetes.io/arch` for CPU architecture, follow established Kubernetes conventions. Additionally, EKS-specific labels (prefixed with `eks.amazonaws.com/`) extend this functionality with AWS-specific attributes such as instance types, CPU manufacturers, GPU capabilities, and networking specifications. This standardized labeling system enables seamless integration with existing Kubernetes tools while providing deep AWS infrastructure integration.
 
 ## Create a NodePool
+<a name="_create_a_nodepool"></a>
 
 Follow these steps to create a NodePool for your Amazon EKS cluster:
 
 1. Create a YAML file named `nodepool.yaml` with your required NodePool configuration. You can use the sample configuration below.
-2. Apply the NodePool to your cluster:
 
-```
-kubectl apply -f nodepool.yaml
-```
+1. Apply the NodePool to your cluster:
 
-3. Verify that the NodePool was created successfully:
+   ```
+   kubectl apply -f nodepool.yaml
+   ```
 
-```
-kubectl get nodepools
-```
+1. Verify that the NodePool was created successfully:
 
-4. (Optional) Monitor the NodePool status:
+   ```
+   kubectl get nodepools
+   ```
 
-```
-kubectl describe nodepool default
-```
+1. (Optional) Monitor the NodePool status:
 
-Ensure that your NodePool references a valid NodeClass that exists in your cluster. The NodeClass defines AWS-specific configurations for your compute resources. For more information, see [Create a Node Class for Amazon EKS](create-node-class.md "create-node-class.md").
+   ```
+   kubectl describe nodepool default
+   ```
+
+Ensure that your NodePool references a valid NodeClass that exists in your cluster. The NodeClass defines AWS-specific configurations for your compute resources. For more information, see [Create a Node Class for Amazon EKS](create-node-class.md).
 
 ## Sample NodePool
+<a name="_sample_nodepool"></a>
 
 ```
 apiVersion: karpenter.sh/v1
@@ -79,112 +85,108 @@ spec:
 ```
 
 ## EKS Auto Mode Supported Labels
+<a name="auto-supported-labels"></a>
 
 EKS Auto Mode supports the following well known labels.
 
-###### Note
-
+**Note**  
 EKS Auto Mode uses different labels than Karpenter. Labels related to EC2 managed instances start with `eks.amazonaws.com`.
 
-| Label                                                      | Example      | Description                                                                                                                                                                                                                    |
-| ---------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| topology.kubernetes.io/zone                                | us-east-2a   | AWS region                                                                                                                                                                                                                     |
-| node.kubernetes.io/instance-type                           | g4dn.8xlarge | AWS instance type                                                                                                                                                                                                              |
-| kubernetes.io/arch                                         | amd64        | Architectures are defined by [GOARCH values](https://github.com/golang/go/blob/master/src/internal/syslist/syslist.go#L58 "https://github.com/golang/go/blob/master/src/internal/syslist/syslist.go#L58") on the instance      |
-| karpenter.sh/capacity-type                                 | spot         | Capacity types include `spot`, `on-demand`, and `reserved`. If you do not specify a capacity type, Karpenter prioritizes `reserved`, then `spot`, then `on-demand`.                                                            |
-| eks.amazonaws.com/instance-hypervisor                      | nitro        | Instance types that use a specific hypervisor                                                                                                                                                                                  |
-| eks.amazonaws.com/compute-type                             | auto         | Identifies EKS Auto Mode managed nodes                                                                                                                                                                                         |
-| eks.amazonaws.com/instance-encryption-in-transit-supported | true         | Instance types that support (or not) in-transit encryption                                                                                                                                                                     |
-| eks.amazonaws.com/instance-category                        | g            | Instance types of the same category, usually the string before the generation number                                                                                                                                           |
-| eks.amazonaws.com/instance-generation                      | 4            | Instance type generation number within an instance category                                                                                                                                                                    |
-| eks.amazonaws.com/instance-family                          | g4dn         | Instance types of similar properties but different resource quantities                                                                                                                                                         |
-| eks.amazonaws.com/instance-size                            | 8xlarge      | Instance types of similar resource quantities but different properties                                                                                                                                                         |
-| eks.amazonaws.com/instance-cpu                             | 32           | Number of CPUs on the instance                                                                                                                                                                                                 |
-| eks.amazonaws.com/instance-cpu-manufacturer                | `aws`        | Name of the CPU manufacturer                                                                                                                                                                                                   |
-| eks.amazonaws.com/instance-memory                          | 131072       | Number of mebibytes of memory on the instance                                                                                                                                                                                  |
-| eks.amazonaws.com/instance-ebs-bandwidth                   | 9500         | Number of [maximum megabits](../../../AWSEC2/latest/UserGuide/ebs-optimized.md#ebs-optimization-performance "../../../AWSEC2/latest/UserGuide/ebs-optimized.md#ebs-optimization-performance") of EBS available on the instance |
-| eks.amazonaws.com/instance-network-bandwidth               | 131072       | Number of [baseline megabits](../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md "../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md") available on the instance                               |
-| eks.amazonaws.com/instance-gpu-name                        | t4           | Name of the GPU on the instance, if available                                                                                                                                                                                  |
-| eks.amazonaws.com/instance-gpu-manufacturer                | nvidia       | Name of the GPU manufacturer                                                                                                                                                                                                   |
-| eks.amazonaws.com/instance-gpu-count                       | 1            | Number of GPUs on the instance                                                                                                                                                                                                 |
-| eks.amazonaws.com/instance-gpu-memory                      | 16384        | Number of mebibytes of memory on the GPU                                                                                                                                                                                       |
-| eks.amazonaws.com/instance-local-nvme                      | 900          | Number of gibibytes of local nvme storage on the instance                                                                                                                                                                      |
-| eks.amazonaws.com/capacity-reservation-interruptible       | true         | Whether the capacity reservation is interruptible. Only present on nodes with `karpenter.sh/capacity-type: reserved`.                                                                                                          |
 
-###### Note
+| Label | Example | Description | 
+| --- | --- | --- | 
+| topology.kubernetes.io/zone | us-east-2a |  AWS region | 
+| node.kubernetes.io/instance-type | g4dn.8xlarge |  AWS instance type | 
+| kubernetes.io/arch | amd64 | Architectures are defined by [GOARCH values](https://github.com/golang/go/blob/master/src/internal/syslist/syslist.go#L58) on the instance | 
+| karpenter.sh/capacity-type | spot | Capacity types include `spot`, `on-demand`, and `reserved`. If you do not specify a capacity type, Karpenter prioritizes `reserved`, then `spot`, then `on-demand`. | 
+| eks.amazonaws.com/instance-hypervisor | nitro | Instance types that use a specific hypervisor | 
+| eks.amazonaws.com/compute-type | auto | Identifies EKS Auto Mode managed nodes | 
+| eks.amazonaws.com/instance-encryption-in-transit-supported | true | Instance types that support (or not) in-transit encryption | 
+| eks.amazonaws.com/instance-category | g | Instance types of the same category, usually the string before the generation number | 
+| eks.amazonaws.com/instance-generation | 4 | Instance type generation number within an instance category | 
+| eks.amazonaws.com/instance-family | g4dn | Instance types of similar properties but different resource quantities | 
+| eks.amazonaws.com/instance-size | 8xlarge | Instance types of similar resource quantities but different properties | 
+| eks.amazonaws.com/instance-cpu | 32 | Number of CPUs on the instance | 
+| eks.amazonaws.com/instance-cpu-manufacturer |  `aws`  | Name of the CPU manufacturer | 
+| eks.amazonaws.com/instance-memory | 131072 | Number of mebibytes of memory on the instance | 
+| eks.amazonaws.com/instance-ebs-bandwidth | 9500 | Number of [maximum megabits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html#ebs-optimization-performance) of EBS available on the instance | 
+| eks.amazonaws.com/instance-network-bandwidth | 131072 | Number of [baseline megabits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) available on the instance | 
+| eks.amazonaws.com/instance-gpu-name | t4 | Name of the GPU on the instance, if available | 
+| eks.amazonaws.com/instance-gpu-manufacturer | nvidia | Name of the GPU manufacturer | 
+| eks.amazonaws.com/instance-gpu-count | 1 | Number of GPUs on the instance | 
+| eks.amazonaws.com/instance-gpu-memory | 16384 | Number of mebibytes of memory on the GPU | 
+| eks.amazonaws.com/instance-local-nvme | 900 | Number of gibibytes of local nvme storage on the instance | 
+| eks.amazonaws.com/capacity-reservation-interruptible | true | Whether the capacity reservation is interruptible. Only present on nodes with `karpenter.sh/capacity-type: reserved`. | 
 
-EKS Auto Mode only supports certain instances, and has minimum size requirements. For more information, see [EKS Auto Mode supported instance reference](automode-learn-instances.md#auto-supported-instances "automode-learn-instances.md#auto-supported-instances").
+**Note**  
+EKS Auto Mode only supports certain instances, and has minimum size requirements. For more information, see [EKS Auto Mode supported instance reference](automode-learn-instances.md#auto-supported-instances).
 
 ## EKS Auto Mode Not Supported Labels
+<a name="_eks_auto_mode_not_supported_labels"></a>
 
 EKS Auto Mode does not support the following labels.
-
-- EKS Auto Mode only supports Linux
-
-  - `node.kubernetes.io/windows-build`
-  - `kubernetes.io/os`
++ EKS Auto Mode only supports Linux
+  +  `node.kubernetes.io/windows-build` 
+  +  `kubernetes.io/os` 
 
 ## Disable built-in node pools
+<a name="_disable_built_in_node_pools"></a>
 
-If you create custom node pools, you can disable the built-in node pools. For more information, see [Enable or Disable Built-in NodePools](set-builtin-node-pools.md "set-builtin-node-pools.md").
+If you create custom node pools, you can disable the built-in node pools. For more information, see [Enable or Disable Built-in NodePools](set-builtin-node-pools.md).
 
 ## Cluster without built-in node pools
+<a name="_cluster_without_built_in_node_pools"></a>
 
 You can create a cluster without the built-in node pools. This is helpful when your organization has created customized node pools.
 
-###### Note
+**Note**  
+When you create a cluster without built-in node pools, the `default` NodeClass is not automatically provisioned. You’ll need to create a custom NodeClass. For more information, see [Create a Node Class for Amazon EKS](create-node-class.md).
 
-When you create a cluster without built-in node pools, the `default` NodeClass is not automatically provisioned. You’ll need to create a custom NodeClass. For more information, see [Create a Node Class for Amazon EKS](create-node-class.md "create-node-class.md").
-
-**Overview:**
+ **Overview:** 
 
 1. Create an EKS cluster with both `nodePools` and `nodeRoleArn` values empty.
+   + Sample eksctl `autoModeConfig`:
 
-   - Sample eksctl `autoModeConfig`:
+     ```
+     autoModeConfig:
+       enabled: true
+       nodePools: []
+       # Do not set a nodeRoleARN
+     ```
 
-   ```
-   autoModeConfig:
-     enabled: true
-     nodePools: []
-     # Do not set a nodeRoleARN
-   ```
+     For more information, see [Create an EKS Auto Mode Cluster with the eksctl CLI](automode-get-started-eksctl.md) 
 
-   For more information, see [Create an EKS Auto Mode Cluster with the eksctl CLI](automode-get-started-eksctl.md "automode-get-started-eksctl.md")
+1. Create a custom node class with a node role ARN
+   + For more information, see [Create a Node Class for Amazon EKS](create-node-class.md) 
 
-2. Create a custom node class with a node role ARN
+1. Create an access entry for the custom node class
+   + For more information, see [Create node class access entry](create-node-class.md#auto-node-access-entry) 
 
-   - For more information, see [Create a Node Class for Amazon EKS](create-node-class.md "create-node-class.md")
-
-3. Create an access entry for the custom node class
-
-   - For more information, see [Create node class access entry](create-node-class.md#auto-node-access-entry "create-node-class.md#auto-node-access-entry")
-
-4. Create a custom node pool, as described above.
+1. Create a custom node pool, as described above.
 
 ## Disruption
+<a name="_disruption"></a>
 
-You can configure EKS Auto Mode to disrupt Nodes through your NodePool in multiple ways. You can use `spec.disruption.consolidationPolicy`, `spec.disruption.consolidateAfter`, or `spec.template.spec.expireAfter`. You can also rate limit the disruption of EKS Auto Mode through the NodePool’s `spec.disruption.budgets`. You can also control the time windows and number of simultaneous Nodes disrupted. For instructions on configuring this behavior, see [Disruption](https://karpenter.sh/docs/concepts/disruption/ "https://karpenter.sh/docs/concepts/disruption/") in the Karpenter Documentation.
+You can configure EKS Auto Mode to disrupt Nodes through your NodePool in multiple ways. You can use `spec.disruption.consolidationPolicy`, `spec.disruption.consolidateAfter`, or `spec.template.spec.expireAfter`. You can also rate limit the disruption of EKS Auto Mode through the NodePool’s `spec.disruption.budgets`. You can also control the time windows and number of simultaneous Nodes disrupted. For instructions on configuring this behavior, see [Disruption](https://karpenter.sh/docs/concepts/disruption/) in the Karpenter Documentation.
 
 The `consolidationPolicy` field accepts three values:
++  `WhenEmpty` – Consolidates only empty nodes, so running workloads are never disrupted.
++  `WhenEmptyOrUnderutilized` – Aggressively consolidates for cost, disrupting workloads whenever a node’s pods can be repacked more cheaply.
++  `Balanced` – Scores each consolidation action by weighing disruption cost against cost savings. Skips actions where the disruption outweighs the savings.
 
-- `WhenEmpty` – Consolidates only empty nodes, so running workloads are never disrupted.
-- `WhenEmptyOrUnderutilized` – Aggressively consolidates for cost, disrupting workloads whenever a node’s pods can be repacked more cheaply.
-- `Balanced` – Scores each consolidation action by weighing disruption cost against cost savings. Skips actions where the disruption outweighs the savings.
-
-For details on each value, see [Disruption](https://karpenter.sh/docs/concepts/disruption/ "https://karpenter.sh/docs/concepts/disruption/") in the Karpenter documentation.
+For details on each value, see [Disruption](https://karpenter.sh/docs/concepts/disruption/) in the Karpenter documentation.
 
 You can configure disruption for node pools to:
-
-- Identify when instances are underutilized, and consolidate workloads.
-- Create a node pool disruption budget to rate limit node terminations due to drift, emptiness, and consolidation.
++ Identify when instances are underutilized, and consolidate workloads.
++ Create a node pool disruption budget to rate limit node terminations due to drift, emptiness, and consolidation.
 
 By default, EKS Auto Mode:
-
-- Consolidates underutilized instances.
-- Terminates instances after 336 hours.
-- Sets a single disruption budget of 10% of nodes.
-- Allows Nodes to be replaced due to drift when a new Auto Mode AMI is released, which occurs roughly once per week.
++ Consolidates underutilized instances.
++ Terminates instances after 336 hours.
++ Sets a single disruption budget of 10% of nodes.
++ Allows Nodes to be replaced due to drift when a new Auto Mode AMI is released, which occurs roughly once per week.
 
 ## Termination Grace Period
+<a name="_termination_grace_period"></a>
 
 When a `terminationGracePeriod` is not explicitly defined on an EKS Auto Mode NodePool, the system automatically applies a default 24-hour termination grace period to the associated NodeClaim. While EKS Auto Mode customers will not see a `terminationGracePeriod` defaulted in their custom NodePool configurations, they will observe this default value on the NodeClaim. The functionality remains consistent whether the grace period is explicitly set on the NodePool or defaulted on the NodeClaim, ensuring predictable node termination behavior across the cluster.

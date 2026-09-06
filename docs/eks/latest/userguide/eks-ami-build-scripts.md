@@ -1,28 +1,30 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Build a custom EKS-optimized Amazon Linux AMI
+<a name="eks-ami-build-scripts"></a>
 
-###### Warning
-
+**Warning**  
 Amazon EKS stopped publishing EKS-optimized Amazon Linux 2 (AL2) AMIs on November 26, 2025. AL2023 and Bottlerocket based AMIs for Amazon EKS are available for all supported Kubernetes versions including 1.33 and higher.
 
-Amazon EKS provides open-source build scripts in the [Amazon EKS AMI Build Specification](https://github.com/awslabs/amazon-eks-ami "https://github.com/awslabs/amazon-eks-ami") repository that you can use to view the configurations for `kubelet`, the runtime, the AWS IAM Authenticator for Kubernetes, and build your own AL-based AMI from scratch.
+Amazon EKS provides open-source build scripts in the [Amazon EKS AMI Build Specification](https://github.com/awslabs/amazon-eks-ami) repository that you can use to view the configurations for `kubelet`, the runtime, the AWS IAM Authenticator for Kubernetes, and build your own AL-based AMI from scratch.
 
-This repository contains the specialized [bootstrap script for AL2](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh") and [nodeadm tool for AL2023](https://awslabs.github.io/amazon-eks-ami/nodeadm/ "https://awslabs.github.io/amazon-eks-ami/nodeadm/") that runs at boot time. These scripts configure your instance’s certificate data, control plane endpoint, cluster name, and more. The scripts are considered the source of truth for Amazon EKS-optimized AMI builds, so you can follow the GitHub repository to monitor changes to our AMIs.
+This repository contains the specialized [bootstrap script for AL2](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh) and [nodeadm tool for AL2023](https://awslabs.github.io/amazon-eks-ami/nodeadm/) that runs at boot time. These scripts configure your instance’s certificate data, control plane endpoint, cluster name, and more. The scripts are considered the source of truth for Amazon EKS-optimized AMI builds, so you can follow the GitHub repository to monitor changes to our AMIs.
 
 When building custom AMIs with the EKS-optimized AMIs as the base, it is not recommended or supported to run an operating system upgrade (ie. `dnf upgrade`) or upgrade any of the Kubernetes or GPU packages that are included in the EKS-optimized AMIs, as this risks breaking component compatibility. If you do upgrade the operating system or packages that are included in the EKS-optimized AMIs, it is recommended to thoroughly test in a development or staging environment before deploying to production.
 
-When building custom AMIs for GPU instances, it is recommended to build separate custom AMIs for each instance type generation and family that you will run. The EKS-optimized accelerated AMIs selectively install drivers and packages at runtime based on the underlying instance type generation and family. For more information, see the EKS AMI scripts for [installation](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/provisioners/install-nvidia-driver.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/provisioners/install-nvidia-driver.sh") and [runtime](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/runtime/gpu/nvidia-kmod-load.sh "https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/runtime/gpu/nvidia-kmod-load.sh").
+When building custom AMIs for GPU instances, it is recommended to build separate custom AMIs for each instance type generation and family that you will run. The EKS-optimized accelerated AMIs selectively install drivers and packages at runtime based on the underlying instance type generation and family. For more information, see the EKS AMI scripts for [installation](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/provisioners/install-nvidia-driver.sh) and [runtime](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/runtime/gpu/nvidia-kmod-load.sh).
 
 ## Prerequisites
+<a name="_prerequisites"></a>
++  [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) 
++  [Install HashiCorp Packer v1.9.4\+](https://developer.hashicorp.com/packer/downloads) 
++  [Install GNU Make](https://www.gnu.org/software/make/) 
 
-- [Install the AWS CLI](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md")
-- [Install HashiCorp Packer v1.9.4+](https://developer.hashicorp.com/packer/downloads "https://developer.hashicorp.com/packer/downloads")
-- [Install GNU Make](https://www.gnu.org/software/make/ "https://www.gnu.org/software/make/")
-
-Install the required [Amazon plugin](https://developer.hashicorp.com/packer/integrations/hashicorp/amazon "https://developer.hashicorp.com/packer/integrations/hashicorp/amazon").
+Install the required [Amazon plugin](https://developer.hashicorp.com/packer/integrations/hashicorp/amazon).
 
 ```
 packer plugins install github.com/hashicorp/amazon
@@ -41,17 +43,18 @@ git clone https://github.com/awslabs/amazon-eks-ami.git
 cd amazon-eks-ami
 ```
 
-To view default values and additional options, run the following command. To learn more about the configurations available to customize your AMI, see the template variables on the [Amazon Linux 2023](https://awslabs.github.io/amazon-eks-ami/usage/al2023/ "https://awslabs.github.io/amazon-eks-ami/usage/al2023/") page.
+To view default values and additional options, run the following command. To learn more about the configurations available to customize your AMI, see the template variables on the [Amazon Linux 2023](https://awslabs.github.io/amazon-eks-ami/usage/al2023/) page.
 
 ```
 make help
 ```
 
 ## Create a custom AMI
+<a name="_create_a_custom_ami"></a>
 
 The following are example commands for various custom AMIs.
 
-**EKS NVIDIA AL2 AMI**
+ **EKS NVIDIA AL2 AMI** 
 
 ```
 make k8s=1.32 os_distro=al2 \
@@ -60,7 +63,7 @@ make k8s=1.32 os_distro=al2 \
   enable_efa=true
 ```
 
-**EKS NVIDIA AL2023 AMI**
+ **EKS NVIDIA AL2023 AMI** 
 
 ```
 make k8s=1.36 os_distro=al2023 \
@@ -69,13 +72,11 @@ make k8s=1.36 os_distro=al2023 \
   enable_efa=true
 ```
 
-**EKS NVIDIA AL2023 AMI with NVIDIA driver version 595**
+ **EKS NVIDIA AL2023 AMI with NVIDIA driver version 595** 
 
-###### Important
-
-The G7 EC2 instance type requires NVIDIA driver version 595 or later. The EKS-optimized accelerated AMIs currently include NVIDIA driver version 580, which does not support G7 instances. You must build a custom AMI with NVIDIA driver version 595 to use G7 instances with Amazon EKS.
-
-If you are using Karpenter for node provisioning and auto-scaling, it is recommended to exclude the `g7` instance family from your NodePools that use automatic AMI selection. See [`amiSelectorTerms`](https://karpenter.sh/docs/concepts/nodeclasses/#specamiselectorterms "https://karpenter.sh/docs/concepts/nodeclasses/#specamiselectorterms") in the Karpenter documentation for how to configure your Karpenter NodeClass to use your custom AMI for `g7` instances.
+**Important**  
+The G7 EC2 instance type requires NVIDIA driver version 595 or later. The EKS-optimized accelerated AMIs currently include NVIDIA driver version 580, which does not support G7 instances. You must build a custom AMI with NVIDIA driver version 595 to use G7 instances with Amazon EKS.  
+If you are using Karpenter for node provisioning and auto-scaling, it is recommended to exclude the `g7` instance family from your NodePools that use automatic AMI selection. See [`amiSelectorTerms`](https://karpenter.sh/docs/concepts/nodeclasses/#specamiselectorterms) in the Karpenter documentation for how to configure your Karpenter NodeClass to use your custom AMI for `g7` instances.
 
 ```
 make k8s=1.36 os_distro=al2023 \
@@ -84,7 +85,7 @@ make k8s=1.36 os_distro=al2023 \
   enable_efa=true
 ```
 
-**STIG-Compliant Neuron AL2023 AMI:**
+ **STIG-Compliant Neuron AL2023 AMI:** 
 
 ```
 make k8s=1.31 os_distro=al2023 \
@@ -95,10 +96,9 @@ make k8s=1.31 os_distro=al2023 \
 ```
 
 After you run these commands, Packer will do the following:
-
-- Launch a temporary Amazon EC2 instance.
-- Install Kubernetes components, drivers, and configurations.
-- Create the AMI in your AWS account.
++ Launch a temporary Amazon EC2 instance.
++ Install Kubernetes components, drivers, and configurations.
++ Create the AMI in your AWS account.
 
 The expected output should look like this:
 

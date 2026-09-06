@@ -1,20 +1,23 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an EKS Auto Mode Cluster with the eksctl CLI
+<a name="automode-get-started-eksctl"></a>
 
 This topic shows you how to create an Amazon EKS Auto Mode cluster using the eksctl command line interface (CLI). You can create an Auto Mode cluster either by running a single CLI command or by applying a YAML configuration file. Both methods provide the same functionality, with the YAML approach offering more granular control over cluster settings.
 
 The eksctl CLI simplifies the process of creating and managing EKS Auto Mode clusters by handling the underlying AWS resource creation and configuration. Before proceeding, ensure you have the necessary AWS credentials and permissions configured on your local machine. This guide assumes you’re familiar with basic Amazon EKS concepts and have already installed the required CLI tools.
 
-###### Note
-
-You must install version `0.195.0` or greater of eksctl. For more information, see [eksctl releases](https://github.com/eksctl-io/eksctl/releases "https://github.com/eksctl-io/eksctl/releases") on GitHub.
+**Note**  
+You must install version `0.195.0` or greater of eksctl. For more information, see [eksctl releases](https://github.com/eksctl-io/eksctl/releases) on GitHub.
 
 ## Create an EKS Auto Mode cluster with a CLI command
+<a name="_create_an_eks_auto_mode_cluster_with_a_cli_command"></a>
 
-You must have the `aws` and `eksctl` tools installed. You must be logged into the AWS CLI with sufficient permissions to manage AWS resources including: EC2 instances, EC2 networking, EKS clusters, and IAM roles. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
+You must have the `aws` and `eksctl` tools installed. You must be logged into the AWS CLI with sufficient permissions to manage AWS resources including: EC2 instances, EC2 networking, EKS clusters, and IAM roles. For more information, see [Set up to use Amazon EKS](setting-up.md).
 
 Run the following command to create a new EKS Auto Mode cluster with eksctl:
 
@@ -23,14 +26,15 @@ eksctl create cluster --name=<cluster-name> --enable-auto-mode
 ```
 
 ## Create an EKS Auto Mode cluster with a YAML file
+<a name="_create_an_eks_auto_mode_cluster_with_a_yaml_file"></a>
 
-You must have the `aws` and `eksctl` tools installed. You must be logged into the AWS CLI with sufficient permissions to manage AWS resources including: EC2 instances, EC2 networking, EKS clusters, and IAM roles. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
+You must have the `aws` and `eksctl` tools installed. You must be logged into the AWS CLI with sufficient permissions to manage AWS resources including: EC2 instances, EC2 networking, EKS clusters, and IAM roles. For more information, see [Set up to use Amazon EKS](setting-up.md).
 
-Review the EKS Auto Mode configuration options in the sample ClusterConfig resource below. For the full ClusterConfig specification, see the [eksctl documentation](https://eksctl.io/usage/creating-and-managing-clusters/ "https://eksctl.io/usage/creating-and-managing-clusters/").
+Review the EKS Auto Mode configuration options in the sample ClusterConfig resource below. For the full ClusterConfig specification, see the [eksctl documentation](https://eksctl.io/usage/creating-and-managing-clusters/).
 
-AWS suggests enabling EKS Auto Mode. If this is your first time creating an EKS Auto Mode cluster, leave the `nodeRoleARN` unspecified to create a Node IAM Role for EKS Auto Mode. If you already have a Node IAM Role in your AWS account, AWS suggests reusing it.
+ AWS suggests enabling EKS Auto Mode. If this is your first time creating an EKS Auto Mode cluster, leave the `nodeRoleARN` unspecified to create a Node IAM Role for EKS Auto Mode. If you already have a Node IAM Role in your AWS account, AWS suggests reusing it.
 
-AWS suggests not specifying any value for `nodePools`. EKS Auto Mode will create default node pools. You can use the Kubernetes API to create additional node pools.
+ AWS suggests not specifying any value for `nodePools`. EKS Auto Mode will create default node pools. You can use the Kubernetes API to create additional node pools.
 
 ```
 # cluster.yaml

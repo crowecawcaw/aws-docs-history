@@ -1,38 +1,39 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Use ApplicationSets
+<a name="argocd-applicationsets"></a>
 
 ApplicationSets generate multiple Applications from templates, enabling you to deploy the same application across multiple clusters, environments, or namespaces with a single resource definition.
 
 ## Prerequisites
+<a name="_prerequisites"></a>
++ An EKS cluster with the Argo CD capability created
++ Repository access configured (see [Configure repository access](argocd-configure-repositories.md))
++  `kubectl` configured to communicate with your cluster
 
-- An EKS cluster with the Argo CD capability created
-- Repository access configured (see [Configure repository access](argocd-configure-repositories.md "argocd-configure-repositories.md"))
-- `kubectl` configured to communicate with your cluster
-
-###### Note
-
-Multiple target clusters are not required for ApplicationSets.
-You can use generators other than the cluster generator (like list, git, or matrix generators) to deploy applications without remote clusters.
+**Note**  
+Multiple target clusters are not required for ApplicationSets. You can use generators other than the cluster generator (like list, git, or matrix generators) to deploy applications without remote clusters.
 
 ## How ApplicationSets work
+<a name="_how_applicationsets_work"></a>
 
-ApplicationSets use generators to produce parameters, then apply those parameters to an Application template.
-Each set of generated parameters creates one Application.
+ApplicationSets use generators to produce parameters, then apply those parameters to an Application template. Each set of generated parameters creates one Application.
 
 Common generators for EKS deployments:
++  **List generator** - Explicitly define clusters and parameters for each environment
++  **Cluster generator** - Automatically deploy to all registered clusters
++  **Git generator** - Generate Applications from repository structure
++  **Matrix generator** - Combine generators for multi-dimensional deployments
++  **Merge generator** - Merge parameters from multiple generators
 
-- **List generator** - Explicitly define clusters and parameters for each environment
-- **Cluster generator** - Automatically deploy to all registered clusters
-- **Git generator** - Generate Applications from repository structure
-- **Matrix generator** - Combine generators for multi-dimensional deployments
-- **Merge generator** - Merge parameters from multiple generators
-
-For complete generator reference, see [ApplicationSet Documentation](https://argo-cd.readthedocs.io/en/stable/user-guide/application-set/ "https://argo-cd.readthedocs.io/en/stable/user-guide/application-set/").
+For complete generator reference, see [ApplicationSet Documentation](https://argo-cd.readthedocs.io/en/stable/user-guide/application-set/).
 
 ## List generator
+<a name="_list_generator"></a>
 
 Deploy to multiple clusters with explicit configuration:
 
@@ -70,14 +71,13 @@ spec:
           selfHeal: true
 ```
 
-###### Note
-
-Use `destination.name` with cluster names for better readability.
-The `destination.server` field also works with EKS cluster ARNs if needed.
+**Note**  
+Use `destination.name` with cluster names for better readability. The `destination.server` field also works with EKS cluster ARNs if needed.
 
 This creates three Applications: `guestbook-dev`, `guestbook-staging`, and `guestbook-prod`.
 
 ## Cluster generator
+<a name="_cluster_generator"></a>
 
 Deploy to all registered clusters automatically:
 
@@ -110,7 +110,7 @@ spec:
 
 This automatically creates an Application for each registered cluster.
 
-**Filter clusters**:
+ **Filter clusters**:
 
 Use `matchLabels` to include specific clusters, or `matchExpressions` to exclude clusters:
 
@@ -127,13 +127,13 @@ spec:
 ```
 
 ## Git generators
+<a name="_git_generators"></a>
 
 Git generators create Applications based on repository structure:
++  **Directory generator** - Deploy each directory as a separate Application (useful for microservices)
++  **File generator** - Generate Applications from parameter files (useful for multi-tenant deployments)
 
-- **Directory generator** - Deploy each directory as a separate Application (useful for microservices)
-- **File generator** - Generate Applications from parameter files (useful for multi-tenant deployments)
-
-**Example: Microservices deployment**
+ **Example: Microservices deployment** 
 
 ```
 apiVersion: argoproj.io/v1alpha1
@@ -168,9 +168,10 @@ spec:
         - CreateNamespace=true
 ```
 
-For details on Git generators and file-based configuration, see [Git Generator](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Git/ "https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Git/") in the Argo CD documentation.
+For details on Git generators and file-based configuration, see [Git Generator](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Git/) in the Argo CD documentation.
 
 ## Matrix generator
+<a name="_matrix_generator"></a>
 
 Combine multiple generators to deploy across multiple dimensions (environments × clusters):
 
@@ -207,9 +208,10 @@ spec:
         namespace: 'app-{{environment}}'
 ```
 
-For details on combining generators, see [Matrix Generator](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Matrix/ "https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Matrix/") in the Argo CD documentation.
+For details on combining generators, see [Matrix Generator](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators-Matrix/) in the Argo CD documentation.
 
 ## Multi-region deployment
+<a name="_multi_region_deployment"></a>
 
 Deploy to clusters across multiple regions:
 
@@ -252,45 +254,39 @@ spec:
 ```
 
 ## Manage ApplicationSets
+<a name="_manage_applicationsets"></a>
 
-**View ApplicationSets and generated Applications**:
+ **View ApplicationSets and generated Applications**:
 
 ```
 kubectl get applicationsets -n argocd
 kubectl get applications -n argocd -l argocd.argoproj.io/application-set-name=<applicationset-name>
 ```
 
-**Update an ApplicationSet**:
+ **Update an ApplicationSet**:
 
-Modify the ApplicationSet spec and reapply.
-Argo CD automatically updates all generated Applications:
+Modify the ApplicationSet spec and reapply. Argo CD automatically updates all generated Applications:
 
 ```
 kubectl apply -f applicationset.yaml
 ```
 
-**Delete an ApplicationSet**:
+ **Delete an ApplicationSet**:
 
 ```
 kubectl delete applicationset <name> -n argocd
 ```
 
-###### Warning
+**Warning**  
+Deleting an ApplicationSet deletes all generated Applications. If those Applications have `prune: true`, their resources will also be deleted from target clusters.  
+To preserve deployed resources when deleting an ApplicationSet, set `.syncPolicy.preserveResourcesOnDeletion` to `true` in the ApplicationSet spec. For more information, see [Application Pruning & Resource Deletion](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Application-Deletion/) in the Argo CD documentation.
 
-Deleting an ApplicationSet deletes all generated Applications.
-If those Applications have `prune: true`, their resources will also be deleted from target clusters.
-
-To preserve deployed resources when deleting an ApplicationSet, set `.syncPolicy.preserveResourcesOnDeletion` to `true` in the ApplicationSet spec.
-For more information, see [Application Pruning & Resource Deletion](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Application-Deletion/ "https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Application-Deletion/") in the Argo CD documentation.
-
-###### Important
-
-Argo CD’s ApplicationSets feature has security considerations you should be aware of before using ApplicationSets.
-For more information, see [ApplicationSet Security](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Security/ "https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Security/") in the Argo CD documentation.
+**Important**  
+Argo CD’s ApplicationSets feature has security considerations you should be aware of before using ApplicationSets. For more information, see [ApplicationSet Security](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Security/) in the Argo CD documentation.
 
 ## Additional resources
-
-- [Working with Argo CD Projects](argocd-projects.md "argocd-projects.md") - Organize ApplicationSets with Projects
-- [Create Applications](argocd-create-application.md "argocd-create-application.md") - Understand Application configuration
-- [ApplicationSet Documentation](https://argo-cd.readthedocs.io/en/stable/user-guide/application-set/ "https://argo-cd.readthedocs.io/en/stable/user-guide/application-set/") - Complete generator reference and patterns
-- [Generator Reference](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators/ "https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators/") - Detailed generator specifications
+<a name="_additional_resources"></a>
++  [Working with Argo CD Projects](argocd-projects.md) - Organize ApplicationSets with Projects
++  [Create Applications](argocd-create-application.md) - Understand Application configuration
++  [ApplicationSet Documentation](https://argo-cd.readthedocs.io/en/stable/user-guide/application-set/) - Complete generator reference and patterns
++  [Generator Reference](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Generators/) - Detailed generator specifications

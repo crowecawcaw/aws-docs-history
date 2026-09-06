@@ -1,82 +1,88 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Detect node health issues with the EKS node monitoring agent
+<a name="node-health-nma"></a>
 
 This topic details the node health issues detected by the EKS node monitoring agent, how those issues are surfaced as node conditions or events, and how to configure the node monitoring agent.
 
-The EKS node monitoring agent can be used with or without EKS automatic node repair. For more information on EKS automatic node repair, see [Automatically repair nodes in EKS clusters](node-repair.md "node-repair.md").
+The EKS node monitoring agent can be used with or without EKS automatic node repair. For more information on EKS automatic node repair, see [Automatically repair nodes in EKS clusters](node-repair.md).
 
-The source code for the EKS node monitoring agent is published on GitHub in the [aws/eks-node-monitoring-agent](https://github.com/aws/eks-node-monitoring-agent "https://github.com/aws/eks-node-monitoring-agent") repository.
+The source code for the EKS node monitoring agent is published on GitHub in the [aws/eks-node-monitoring-agent](https://github.com/aws/eks-node-monitoring-agent) repository.
 
 ## Node health issues
+<a name="node-health-issues"></a>
 
 The following tables describe node health issues that can be detected by the node monitoring agent. There are two types of issues:
-
-- Condition – A terminal issue that warrants a remediation action like an instance replacement or reboot. When auto repair is enabled, Amazon EKS will do a repair action, either as a node replacement or reboot. For more information, see [Node conditions](learn-status-conditions.md#status-node-conditions "learn-status-conditions.md#status-node-conditions").
-- Event – A temporary issue or sub-optimal node configuration. No auto repair action will take place. For more information, see [Node events](learn-status-conditions.md#status-node-events "learn-status-conditions.md#status-node-events").
++ Condition – A terminal issue that warrants a remediation action like an instance replacement or reboot. When auto repair is enabled, Amazon EKS will do a repair action, either as a node replacement or reboot. For more information, see [Node conditions](learn-status-conditions.md#status-node-conditions).
++ Event – A temporary issue or sub-optimal node configuration. No auto repair action will take place. For more information, see [Node events](learn-status-conditions.md#status-node-events).
 
 ## AcceleratedHardware node health issues
+<a name="node-health-AcceleratedHardware"></a>
 
 The monitoring condition is `AcceleratedHardwareReady` for issues in the following table that have a severity of “Condition”. The events and conditions in the following table are for NVIDIA and Neuron related node health issues.
 
-| Name                         | Severity  | Description                                                                                                                                                                | Repair Action     |
-| ---------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| DCGMDiagnosticFailure        | Condition | A test case from the DCGM active diagnostics test suite failed.                                                                                                            | None              |
-| DCGMError                    | Condition | Connection to the DCGM host process was lost or could not be established.                                                                                                  | None              |
-| DCGMFieldError[Code]         | Event     | DCGM detected GPU degradation through a field identifier.                                                                                                                  | None              |
-| DCGMHealthCode[Code]         | Event     | A DCGM health check failed in a non-fatal manner.                                                                                                                          | None              |
-| DCGMHealthCode[Code]         | Condition | A DCGM health check failed in a fatal manner.                                                                                                                              | None              |
-| NeuronDMAError               | Condition | A DMA engine encountered an unrecoverable error.                                                                                                                           | Replace           |
-| NeuronHBMUncorrectableError  | Condition | An HBM encountered an uncorrectable error and produced incorrect results.                                                                                                  | Replace           |
-| NeuronNCUncorrectableError   | Condition | A Neuron Core uncorrectable memory error was detected.                                                                                                                     | Replace           |
-| NeuronSRAMUncorrectableError | Condition | An on-chip SRAM encountered a parity error and produced incorrect results.                                                                                                 | Replace           |
-| NvidiaDeviceCountMismatch    | Event     | The number of GPUs visible through NVML is inconsistent with the NVIDIA device count on the filesystem.                                                                    | None              |
-| NvidiaDoubleBitError         | Condition | A double bit error was produced by the GPU driver.                                                                                                                         | Replace           |
-| NvidiaNCCLError              | Event     | A segfault occurred in the NVIDIA Collective Communications library (`libnccl`).                                                                                           | None              |
-| NvidiaNVLinkError            | Condition | NVLink errors were reported by the GPU driver.                                                                                                                             | Replace           |
-| NvidiaPCIeError              | Event     | PCIe replays were triggered to recover from transmission errors.                                                                                                           | None              |
-| NvidiaPageRetirement         | Event     | The GPU driver has marked a memory page for retirement. This may occur if there is a single double bit error or two single bit errors are encountered at the same address. | None              |
-| NvidiaPowerError             | Event     | Power utilization of GPUs breached the allowed thresholds.                                                                                                                 | None              |
-| NvidiaThermalError           | Event     | Thermal status of GPUs breached the allowed thresholds.                                                                                                                    | None              |
-| NvidiaXID[Code]Error         | Condition | A critical GPU error occurred.                                                                                                                                             | Replace or Reboot |
-| NvidiaXID[Code]Warning       | Event     | A non-critical GPU error occurred.                                                                                                                                         | None              |
+
+| Name | Severity | Description | Repair Action | 
+| --- | --- | --- | --- | 
+| DCGMDiagnosticFailure | Condition | A test case from the DCGM active diagnostics test suite failed. | None | 
+| DCGMError | Condition | Connection to the DCGM host process was lost or could not be established. | None | 
+| DCGMFieldError[Code] | Event | DCGM detected GPU degradation through a field identifier. | None | 
+| DCGMHealthCode[Code] | Event | A DCGM health check failed in a non-fatal manner. | None | 
+| DCGMHealthCode[Code] | Condition | A DCGM health check failed in a fatal manner. | None | 
+| NeuronDMAError | Condition | A DMA engine encountered an unrecoverable error. | Replace | 
+| NeuronHBMUncorrectableError | Condition | An HBM encountered an uncorrectable error and produced incorrect results. | Replace | 
+| NeuronNCUncorrectableError | Condition | A Neuron Core uncorrectable memory error was detected. | Replace | 
+| NeuronSRAMUncorrectableError | Condition | An on-chip SRAM encountered a parity error and produced incorrect results. | Replace | 
+| NvidiaDeviceCountMismatch | Event | The number of GPUs visible through NVML is inconsistent with the NVIDIA device count on the filesystem. | None | 
+| NvidiaDoubleBitError | Condition | A double bit error was produced by the GPU driver. | Replace | 
+| NvidiaNCCLError | Event | A segfault occurred in the NVIDIA Collective Communications library (`libnccl`). | None | 
+| NvidiaNVLinkError | Condition | NVLink errors were reported by the GPU driver. | Replace | 
+| NvidiaPCIeError | Event | PCIe replays were triggered to recover from transmission errors. | None | 
+| NvidiaPageRetirement | Event | The GPU driver has marked a memory page for retirement. This may occur if there is a single double bit error or two single bit errors are encountered at the same address. | None | 
+| NvidiaPowerError | Event | Power utilization of GPUs breached the allowed thresholds. | None | 
+| NvidiaThermalError | Event | Thermal status of GPUs breached the allowed thresholds. | None | 
+| NvidiaXID[Code]Error | Condition | A critical GPU error occurred. | Replace or Reboot | 
+| NvidiaXID[Code]Warning | Event | A non-critical GPU error occurred. | None | 
 
 ## NVIDIA XID error codes
+<a name="nvidia-xid-codes"></a>
 
 The node monitoring agent detects NVIDIA XID errors from GPU kernel logs. XID errors fall into two categories:
++  **Well-known XID codes** – Critical errors that set a node condition (`AcceleratedHardwareReady=False`) and trigger auto repair when enabled. The reason code format is `NvidiaXID[Code]Error`. The well-known XID codes that the EKS node monitoring agent detects may not represent the full list of NVIDIA XID codes that require repair actions.
++  **Unknown XID codes** – Logged as Kubernetes events only. These don’t trigger auto repair. The reason code format is `NvidiaXID[Code]Warning`. To investigate unknown XID errors, review your kernel logs with `dmesg | grep -i nvrm`.
 
-- **Well-known XID codes** – Critical errors that set a node condition (`AcceleratedHardwareReady=False`) and trigger auto repair when enabled. The reason code format is `NvidiaXID[Code]Error`. The well-known XID codes that the EKS node monitoring agent detects may not represent the full list of NVIDIA XID codes that require repair actions.
-- **Unknown XID codes** – Logged as Kubernetes events only. These don’t trigger auto repair. The reason code format is `NvidiaXID[Code]Warning`. To investigate unknown XID errors, review your kernel logs with `dmesg | grep -i nvrm`.
-
-For more information on XID errors, see [Xid Errors](https://docs.nvidia.com/deploy/xid-errors/index.html#topic_5_1 "https://docs.nvidia.com/deploy/xid-errors/index.html#topic_5_1") in the _NVIDIA GPU Deployment and Management Documentation_. For more information on the individual XID messages, see [Understanding Xid Messages](https://docs.nvidia.com/deploy/gpu-debug-guidelines/index.html#understanding-xid-messages "https://docs.nvidia.com/deploy/gpu-debug-guidelines/index.html#understanding-xid-messages") in the _NVIDIA GPU Deployment and Management Documentation_.
+For more information on XID errors, see [Xid Errors](https://docs.nvidia.com/deploy/xid-errors/index.html#topic_5_1) in the *NVIDIA GPU Deployment and Management Documentation*. For more information on the individual XID messages, see [Understanding Xid Messages](https://docs.nvidia.com/deploy/gpu-debug-guidelines/index.html#understanding-xid-messages) in the *NVIDIA GPU Deployment and Management Documentation*.
 
 The following table lists the well-known XID codes, their meanings, and the default node repair action if enabled.
 
-| XID Code | Description                                                                                                                                            | Repair Action |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
-| 46       | GPU stopped processing – The GPU stopped processing due to an internal timeout and requires a GPU reset to recover.                                    | Reboot        |
-| 48       | Double Bit ECC Error – An uncorrectable double-bit error occurred in GPU memory, indicating potential hardware degradation.                            | Reboot        |
-| 54       | Auxiliary power not connected – Auxiliary power is not connected to the GPU board, typically indicating that power connectors are not properly seated. | Reboot        |
-| 62       | Internal micro-controller halt – The GPU’s internal micro-controller halted, indicating a firmware or hardware fault that requires a GPU reset.        | Reboot        |
-| 63       | GPU memory remapping event – The GPU driver remapped a portion of GPU memory due to detected errors. This is often recoverable.                        | Reboot        |
-| 64       | GPU memory remapping failure – The GPU was unable to remap defective memory, indicating hardware issues.                                               | Replace       |
-| 74       | NVLink Error – An error occurred on the high-speed NVLink interconnect between GPUs.                                                                   | Replace       |
-| 79       | GPU has fallen off the bus – The GPU is no longer accessible via PCIe, typically indicating a hardware failure or power issue.                         | Replace       |
-| 95       | Uncontained memory error – A memory error occurred that may have affected other applications or system memory.                                         | Reboot        |
-| 109      | Context switch timeout – A GPU context switch did not complete in time, indicating the GPU is hung and requires a reset.                               | Reboot        |
-| 110      | Security fault error – A security fault was detected on the GPU, which requires a GPU reset and, if persistent, hardware investigation.                | Reboot        |
-| 119      | GSP RPC Timeout – Communication with the GPU System Processor timed out, possibly due to firmware issues.                                              | Replace       |
-| 120      | GSP Error – An error occurred in the GPU System Processor.                                                                                             | Replace       |
-| 136      | Link training failed – The GPU failed to establish a healthy NVLink connection during link training.                                                   | Reboot        |
-| 140      | ECC Unrecovered Error – An ECC error escaped containment and may have corrupted data.                                                                  | Reboot        |
-| 142      | NVENC3 Error – The NVENC3 video encoder hardware failed with no automated recovery available. Applies to GB200.                                        | Replace       |
-| 143      | GPU initialization error – The GPU failed to initialize correctly.                                                                                     | Reboot        |
-| 151      | Key rotation error – Confidential computing key rotation failed. Applies to H100, B100, and GB200.                                                     | Replace       |
-| 155      | NVLink software-defined error – A software-defined error was reported on NVLink.                                                                       | Reboot        |
-| 156      | Resource retirement event – The GPU retired a hardware resource due to detected faults.                                                                | Reboot        |
-| 158      | GPU fatal timeout – A fatal timeout occurred on the GPU.                                                                                               | Reboot        |
+
+| XID Code | Description | Repair Action | 
+| --- | --- | --- | 
+| 46 | GPU stopped processing – The GPU stopped processing due to an internal timeout and requires a GPU reset to recover. | Reboot | 
+| 48 | Double Bit ECC Error – An uncorrectable double-bit error occurred in GPU memory, indicating potential hardware degradation. | Reboot | 
+| 54 | Auxiliary power not connected – Auxiliary power is not connected to the GPU board, typically indicating that power connectors are not properly seated. | Reboot | 
+| 62 | Internal micro-controller halt – The GPU’s internal micro-controller halted, indicating a firmware or hardware fault that requires a GPU reset. | Reboot | 
+| 63 | GPU memory remapping event – The GPU driver remapped a portion of GPU memory due to detected errors. This is often recoverable. | Reboot | 
+| 64 | GPU memory remapping failure – The GPU was unable to remap defective memory, indicating hardware issues. | Replace | 
+| 74 | NVLink Error – An error occurred on the high-speed NVLink interconnect between GPUs. | Replace | 
+| 79 | GPU has fallen off the bus – The GPU is no longer accessible via PCIe, typically indicating a hardware failure or power issue. | Replace | 
+| 95 | Uncontained memory error – A memory error occurred that may have affected other applications or system memory. | Reboot | 
+| 109 | Context switch timeout – A GPU context switch did not complete in time, indicating the GPU is hung and requires a reset. | Reboot | 
+| 110 | Security fault error – A security fault was detected on the GPU, which requires a GPU reset and, if persistent, hardware investigation. | Reboot | 
+| 119 | GSP RPC Timeout – Communication with the GPU System Processor timed out, possibly due to firmware issues. | Replace | 
+| 120 | GSP Error – An error occurred in the GPU System Processor. | Replace | 
+| 136 | Link training failed – The GPU failed to establish a healthy NVLink connection during link training. | Reboot | 
+| 140 | ECC Unrecovered Error – An ECC error escaped containment and may have corrupted data. | Reboot | 
+| 142 | NVENC3 Error – The NVENC3 video encoder hardware failed with no automated recovery available. Applies to GB200. | Replace | 
+| 143 | GPU initialization error – The GPU failed to initialize correctly. | Reboot | 
+| 151 | Key rotation error – Confidential computing key rotation failed. Applies to H100, B100, and GB200. | Replace | 
+| 155 | NVLink software-defined error – A software-defined error was reported on NVLink. | Reboot | 
+| 156 | Resource retirement event – The GPU retired a hardware resource due to detected faults. | Reboot | 
+| 158 | GPU fatal timeout – A fatal timeout occurred on the GPU. | Reboot | 
 
 To view the current node conditions related to GPU health, run the following command.
 
@@ -91,110 +97,120 @@ kubectl get events | grep -i "NvidiaXID"
 ```
 
 ## ContainerRuntime node health issues
+<a name="node-health-ContainerRuntime"></a>
 
 The monitoring condition is `ContainerRuntimeReady` for issues in the following table that have a severity of “Condition”.
 
-| Name                              | Severity  | Description                                                                                                                                    | Repair Action |
-| --------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| ContainerRuntimeFailed            | Event     | The container runtime has failed to create a container, likely related to any reported issues if occurring repeatedly.                         | None          |
-| DeprecatedContainerdConfiguration | Event     | A container image using deprecated image manifest version 2, schema 1 was recently pulled onto the node through `containerd`.                  | None          |
-| KubeletFailed                     | Event     | The kubelet entered a failed state.                                                                                                            | None          |
-| LivenessProbeFailures             | Event     | A liveness probe failure was detected, potentially indicating application code issues or insufficient timeout values if occurring repeatedly.  | None          |
-| PodStuckTerminating               | Condition | A Pod is or was stuck terminating for an excessive amount of time, which can be caused by CRI errors preventing pod state progression.         | Replace       |
-| ReadinessProbeFailures            | Event     | A readiness probe failure was detected, potentially indicating application code issues or insufficient timeout values if occurring repeatedly. | None          |
-| [Name]RepeatedRestart             | Event     | A systemd unit is restarting frequently.                                                                                                       | None          |
-| ServiceFailedToStart              | Event     | A systemd unit failed to start.                                                                                                                | None          |
+
+| Name | Severity | Description | Repair Action | 
+| --- | --- | --- | --- | 
+| ContainerRuntimeFailed | Event | The container runtime has failed to create a container, likely related to any reported issues if occurring repeatedly. | None | 
+| DeprecatedContainerdConfiguration | Event | A container image using deprecated image manifest version 2, schema 1 was recently pulled onto the node through `containerd`. | None | 
+| KubeletFailed | Event | The kubelet entered a failed state. | None | 
+| LivenessProbeFailures | Event | A liveness probe failure was detected, potentially indicating application code issues or insufficient timeout values if occurring repeatedly. | None | 
+| PodStuckTerminating | Condition | A Pod is or was stuck terminating for an excessive amount of time, which can be caused by CRI errors preventing pod state progression. | Replace | 
+| ReadinessProbeFailures | Event | A readiness probe failure was detected, potentially indicating application code issues or insufficient timeout values if occurring repeatedly. | None | 
+| [Name]RepeatedRestart | Event | A systemd unit is restarting frequently. | None | 
+| ServiceFailedToStart | Event | A systemd unit failed to start. | None | 
 
 ## Kernel node health issues
+<a name="node-health-Kernel"></a>
 
 The monitoring condition is `KernelReady` for issues in the following table that have a severity of “Condition”.
 
-| Name                     | Severity  | Description                                                                                                                                                                                  | Repair Action |
-| ------------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| AppBlocked               | Event     | The task has been blocked for a long period of time from scheduling, usually caused by being blocked on input or output.                                                                     | None          |
-| AppCrash                 | Event     | An application on the node has crashed.                                                                                                                                                      | None          |
-| ApproachingKernelPidMax  | Event     | The number of processes is approaching the maximum number of PIDs that are available per the current `kernel.pid_max` setting, after which no more processes can be launched.                | None          |
-| ApproachingMaxOpenFiles  | Event     | The number of open files is approaching the maximum number of possible open files given the current kernel settings, after which opening new files will fail.                                | None          |
-| ConntrackExceededKernel  | Event     | Connection tracking exceeded the maximum for the kernel and new connections could not be established, which can result in packet loss.                                                       | None          |
-| ExcessiveZombieProcesses | Event     | Processes which can’t be fully reclaimed are accumulating in large numbers, which indicates application issues and may lead to reaching system process limits.                               | None          |
-| ForkFailedOutOfPIDs      | Condition | A fork or exec call has failed due to the system being out of process IDs or memory, which may be caused by zombie processes or physical memory exhaustion.                                  | Replace       |
-| KernelBug                | Event     | A kernel bug was detected and reported by the Linux kernel itself, though this may sometimes be caused by nodes with high CPU or memory usage leading to delayed event processing.           | None          |
-| LargeEnvironment         | Event     | The number of environment variables for this process is larger than expected, potentially caused by many services with `enableServiceLinks` set to true, which may cause performance issues. | None          |
-| RapidCron                | Event     | A cron job is running faster than every five minutes on this node, which may impact performance if the job consumes significant resources.                                                   | None          |
-| SoftLockup               | Event     | The CPU stalled for a given amount of time.                                                                                                                                                  | None          |
+
+| Name | Severity | Description | Repair Action | 
+| --- | --- | --- | --- | 
+| AppBlocked | Event | The task has been blocked for a long period of time from scheduling, usually caused by being blocked on input or output. | None | 
+| AppCrash | Event | An application on the node has crashed. | None | 
+| ApproachingKernelPidMax | Event | The number of processes is approaching the maximum number of PIDs that are available per the current `kernel.pid_max` setting, after which no more processes can be launched. | None | 
+| ApproachingMaxOpenFiles | Event | The number of open files is approaching the maximum number of possible open files given the current kernel settings, after which opening new files will fail. | None | 
+| ConntrackExceededKernel | Event | Connection tracking exceeded the maximum for the kernel and new connections could not be established, which can result in packet loss. | None | 
+| ExcessiveZombieProcesses | Event | Processes which can’t be fully reclaimed are accumulating in large numbers, which indicates application issues and may lead to reaching system process limits. | None | 
+| ForkFailedOutOfPIDs | Condition | A fork or exec call has failed due to the system being out of process IDs or memory, which may be caused by zombie processes or physical memory exhaustion. | Replace | 
+| KernelBug | Event | A kernel bug was detected and reported by the Linux kernel itself, though this may sometimes be caused by nodes with high CPU or memory usage leading to delayed event processing. | None | 
+| LargeEnvironment | Event | The number of environment variables for this process is larger than expected, potentially caused by many services with `enableServiceLinks` set to true, which may cause performance issues. | None | 
+| RapidCron | Event | A cron job is running faster than every five minutes on this node, which may impact performance if the job consumes significant resources. | None | 
+| SoftLockup | Event | The CPU stalled for a given amount of time. | None | 
 
 ## Networking node health issues
+<a name="node-health-Networking"></a>
 
 The monitoring condition is `NetworkingReady` for issues in the following table that have a severity of “Condition”.
 
-| Name                          | Severity  | Description                                                                                                                                                | Repair Action |
-| ----------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| BandwidthInExceeded           | Event     | Packets have been queued or dropped because the inbound aggregate bandwidth exceeded the maximum for the instance.                                         | None          |
-| BandwidthOutExceeded          | Event     | Packets have been queued or dropped because the outbound aggregate bandwidth exceeded the maximum for the instance.                                        | None          |
-| ConntrackExceeded             | Event     | Connection tracking exceeded the maximum for the instance and new connections could not be established, which can result in packet loss.                   | None          |
-| EFAErrorMetric                | Event     | EFA driver metrics show there is an interface with performance degradation.                                                                                | None          |
-| IPAMDInconsistentState        | Event     | The state of the IPAMD checkpoint on disk does not reflect the IPs in the container runtime.                                                               | None          |
-| IPAMDNoIPs                    | Event     | IPAMD is out of IP addresses.                                                                                                                              | None          |
-| IPAMDNotReady                 | Condition | IPAMD fails to connect to the API server.                                                                                                                  | Replace       |
-| IPAMDNotRunning               | Condition | The Amazon VPC CNI process was not found to be running.                                                                                                    | Replace       |
-| IPAMDRepeatedlyRestart        | Event     | Multiple restarts in the IPAMD service have occurred.                                                                                                      | None          |
-| InterfaceNotRunning           | Condition | This interface appears to not be running or there are network issues.                                                                                      | Replace       |
-| InterfaceNotUp                | Condition | This interface appears to not be up or there are network issues.                                                                                           | Replace       |
-| KubeProxyNotReady             | Event     | Kube-proxy failed to watch or list resources.                                                                                                              | None          |
-| LinkLocalExceeded             | Event     | Packets were dropped because the PPS of traffic to local proxy services exceeded the network interface maximum.                                            | None          |
-| MACAddressPolicyMisconfigured | Event     | The systemd-networkd link configuration has the incorrect `MACAddressPolicy` value.                                                                        | None          |
-| MissingDefaultRoutes          | Event     | There are missing default route rules.                                                                                                                     | None          |
-| MissingIPRoutes               | Event     | There are missing routes for Pod IPs.                                                                                                                      | None          |
-| MissingIPRules                | Event     | There are missing rules for Pod IPs.                                                                                                                       | None          |
-| MissingLoopbackInterface      | Condition | The loopback interface is missing from this instance, causing failure of services depending on local connectivity.                                         | Replace       |
-| NetworkSysctl                 | Event     | This node’s network `sysctl` settings are potentially incorrect.                                                                                           | None          |
-| PPSExceeded                   | Event     | Packets have been queued or dropped because the bidirectional PPS exceeded the maximum for the instance.                                                   | None          |
-| PortConflict                  | Event     | If a Pod uses hostPort, it can write `iptables` rules that override the host’s already bound ports, potentially preventing API server access to `kubelet`. | None          |
-| UnexpectedRejectRule          | Event     | An unexpected `REJECT` or `DROP` rule was found in the `iptables`, potentially blocking expected traffic.                                                  | None          |
+
+| Name | Severity | Description | Repair Action | 
+| --- | --- | --- | --- | 
+| BandwidthInExceeded | Event | Packets have been queued or dropped because the inbound aggregate bandwidth exceeded the maximum for the instance. | None | 
+| BandwidthOutExceeded | Event | Packets have been queued or dropped because the outbound aggregate bandwidth exceeded the maximum for the instance. | None | 
+| ConntrackExceeded | Event | Connection tracking exceeded the maximum for the instance and new connections could not be established, which can result in packet loss. | None | 
+| EFAErrorMetric | Event | EFA driver metrics show there is an interface with performance degradation. | None | 
+| IPAMDInconsistentState | Event | The state of the IPAMD checkpoint on disk does not reflect the IPs in the container runtime. | None | 
+| IPAMDNoIPs | Event | IPAMD is out of IP addresses. | None | 
+| IPAMDNotReady | Condition | IPAMD fails to connect to the API server. | Replace | 
+| IPAMDNotRunning | Condition | The Amazon VPC CNI process was not found to be running. | Replace | 
+| IPAMDRepeatedlyRestart | Event | Multiple restarts in the IPAMD service have occurred. | None | 
+| InterfaceNotRunning | Condition | This interface appears to not be running or there are network issues. | Replace | 
+| InterfaceNotUp | Condition | This interface appears to not be up or there are network issues. | Replace | 
+| KubeProxyNotReady | Event | Kube-proxy failed to watch or list resources. | None | 
+| LinkLocalExceeded | Event | Packets were dropped because the PPS of traffic to local proxy services exceeded the network interface maximum. | None | 
+| MACAddressPolicyMisconfigured | Event | The systemd-networkd link configuration has the incorrect `MACAddressPolicy` value. | None | 
+| MissingDefaultRoutes | Event | There are missing default route rules. | None | 
+| MissingIPRoutes | Event | There are missing routes for Pod IPs. | None | 
+| MissingIPRules | Event | There are missing rules for Pod IPs. | None | 
+| MissingLoopbackInterface | Condition | The loopback interface is missing from this instance, causing failure of services depending on local connectivity. | Replace | 
+| NetworkSysctl | Event | This node’s network `sysctl` settings are potentially incorrect. | None | 
+| PPSExceeded | Event | Packets have been queued or dropped because the bidirectional PPS exceeded the maximum for the instance. | None | 
+| PortConflict | Event | If a Pod uses hostPort, it can write `iptables` rules that override the host’s already bound ports, potentially preventing API server access to `kubelet`. | None | 
+| UnexpectedRejectRule | Event | An unexpected `REJECT` or `DROP` rule was found in the `iptables`, potentially blocking expected traffic. | None | 
 
 ## Storage node health issues
+<a name="node-health-Storage"></a>
 
 The monitoring condition is `StorageReady` for issues in the following table that have a severity of “Condition”.
 
-| Name                          | Severity | Description                                                                                                                                                       | Repair Action |
-| ----------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| EBSInstanceIOPSExceeded       | Event    | Maximum IOPS for the instance was exceeded.                                                                                                                       | None          |
-| EBSInstanceThroughputExceeded | Event    | Maximum Throughput for the instance was exceeded.                                                                                                                 | None          |
-| EBSVolumeIOPSExceeded         | Event    | Maximum IOPS to a particular EBS Volume was exceeded.                                                                                                             | None          |
-| EBSVolumeThroughputExceeded   | Event    | Maximum Throughput to a particular Amazon EBS volume was exceeded.                                                                                                | None          |
-| EtcHostsMountFailed           | Event    | Mounting of the kubelet generated `/etc/hosts` failed due to userdata remounting `/var/lib/kubelet/pods` during `kubelet-container` operation.                    | None          |
-| IODelays                      | Event    | Input or output delay detected in a process, potentially indicating insufficient input-output provisioning if excessive.                                          | None          |
-| KubeletDiskUsageSlow          | Event    | The `kubelet` is reporting slow disk usage while trying to access the filesystem. This potentially indicates insufficient disk input-output or filesystem issues. | None          |
-| XFSSmallAverageClusterSize    | Event    | The XFS Average Cluster size is small, indicating excessive free space fragmentation. This can prevent file creation despite available inodes or free space.      | None          |
+
+| Name | Severity | Description | Repair Action | 
+| --- | --- | --- | --- | 
+| EBSInstanceIOPSExceeded | Event | Maximum IOPS for the instance was exceeded. | None | 
+| EBSInstanceThroughputExceeded | Event | Maximum Throughput for the instance was exceeded. | None | 
+| EBSVolumeIOPSExceeded | Event | Maximum IOPS to a particular EBS Volume was exceeded. | None | 
+| EBSVolumeThroughputExceeded | Event | Maximum Throughput to a particular Amazon EBS volume was exceeded. | None | 
+| EtcHostsMountFailed | Event | Mounting of the kubelet generated `/etc/hosts` failed due to userdata remounting `/var/lib/kubelet/pods` during `kubelet-container` operation. | None | 
+| IODelays | Event | Input or output delay detected in a process, potentially indicating insufficient input-output provisioning if excessive. | None | 
+| KubeletDiskUsageSlow | Event | The `kubelet` is reporting slow disk usage while trying to access the filesystem. This potentially indicates insufficient disk input-output or filesystem issues. | None | 
+| XFSSmallAverageClusterSize | Event | The XFS Average Cluster size is small, indicating excessive free space fragmentation. This can prevent file creation despite available inodes or free space. | None | 
 
 ## Configure the node monitoring agent
+<a name="node-monitoring-agent-configure"></a>
 
-The EKS node monitoring agent is deployed as a DaemonSet. When you deploy it as an EKS add-on, you can customize the installation with following configuration values. For default configurations, reference the EKS node monitoring agent [Helm chart](https://github.com/aws/eks-node-monitoring-agent/blob/main/charts/eks-node-monitoring-agent/values.yaml "https://github.com/aws/eks-node-monitoring-agent/blob/main/charts/eks-node-monitoring-agent/values.yaml").
+The EKS node monitoring agent is deployed as a DaemonSet. When you deploy it as an EKS add-on, you can customize the installation with following configuration values. For default configurations, reference the EKS node monitoring agent [Helm chart](https://github.com/aws/eks-node-monitoring-agent/blob/main/charts/eks-node-monitoring-agent/values.yaml).
 
-| Configuration Option                        | Description                                                        |
-| ------------------------------------------- | ------------------------------------------------------------------ |
-| `monitoringAgent.resources.requests.cpu`    | CPU resource request for the monitoring agent.                     |
-| `monitoringAgent.resources.requests.memory` | Memory resource request for the monitoring agent.                  |
-| `monitoringAgent.resources.limits.cpu`      | CPU resource limit for the monitoring agent.                       |
-| `monitoringAgent.resources.limits.memory`   | Memory resource limit for the monitoring agent.                    |
-| `monitoringAgent.tolerations`               | Tolerations for scheduling the monitoring agent on tainted nodes.  |
-| `monitoringAgent.additionalArgs`            | Additional command-line arguments to pass to the monitoring agent. |
 
-###### Note
+| Configuration Option | Description | 
+| --- | --- | 
+|  `monitoringAgent.resources.requests.cpu`  | CPU resource request for the monitoring agent. | 
+|  `monitoringAgent.resources.requests.memory`  | Memory resource request for the monitoring agent. | 
+|  `monitoringAgent.resources.limits.cpu`  | CPU resource limit for the monitoring agent. | 
+|  `monitoringAgent.resources.limits.memory`  | Memory resource limit for the monitoring agent. | 
+|  `monitoringAgent.tolerations`  | Tolerations for scheduling the monitoring agent on tainted nodes. | 
+|  `monitoringAgent.additionalArgs`  | Additional command-line arguments to pass to the monitoring agent. | 
 
+**Note**  
 You can configure `hostname-override` and `verbosity` as `monitoringAgent.additionalArgs` with EKS add-ons or Helm installation. You currently cannot customize the node monitoring agent’s `probe-address` (`8002`) or `metrics-address` (`8003`) via additional args with EKS add-ons or Helm installation.
 
-The node monitoring agent includes a NVIDIA DCGM (Data Center GPU Manager) server component (`nv-hostengine`) for monitoring NVIDIA GPUs. This component runs only on nodes that are NVIDIA GPU instance types as shown by the `nodeAffinity` in the agent’s [Helm chart](https://github.com/aws/eks-node-monitoring-agent/blob/main/charts/eks-node-monitoring-agent/values.yaml "https://github.com/aws/eks-node-monitoring-agent/blob/main/charts/eks-node-monitoring-agent/values.yaml"). You cannot use an existing NVIDIA DCGM installation with the EKS node monitoring agent, please provide feedback on the EKS roadmap [GitHub issue #2763](https://github.com/aws/containers-roadmap/issues/2763 "https://github.com/aws/containers-roadmap/issues/2763") if you require this functionality.
+The node monitoring agent includes a NVIDIA DCGM (Data Center GPU Manager) server component (`nv-hostengine`) for monitoring NVIDIA GPUs. This component runs only on nodes that are NVIDIA GPU instance types as shown by the `nodeAffinity` in the agent’s [Helm chart](https://github.com/aws/eks-node-monitoring-agent/blob/main/charts/eks-node-monitoring-agent/values.yaml). You cannot use an existing NVIDIA DCGM installation with the EKS node monitoring agent, please provide feedback on the EKS roadmap [GitHub issue \#2763](https://github.com/aws/containers-roadmap/issues/2763) if you require this functionality.
 
 When you deploy the EKS node monitoring agent as an EKS add-on, you can customize the NVIDIA DCGM installation with following configuration values.
 
-| Configuration Option                  | Description                                                 |
-| ------------------------------------- | ----------------------------------------------------------- |
-| `dcgmAgent.resources.requests.cpu`    | CPU resource request for the DCGM agent.                    |
-| `dcgmAgent.resources.requests.memory` | Memory resource request for the DCGM agent.                 |
-| `dcgmAgent.resources.limits.cpu`      | CPU resource limit for the DCGM agent.                      |
-| `dcgmAgent.resources.limits.memory`   | Memory resource limit for the DCGM agent.                   |
-| `dcgmAgent.tolerations`               | Tolerations for scheduling the DCGM agent on tainted nodes. |
+
+| Configuration Option | Description | 
+| --- | --- | 
+|  `dcgmAgent.resources.requests.cpu`  | CPU resource request for the DCGM agent. | 
+|  `dcgmAgent.resources.requests.memory`  | Memory resource request for the DCGM agent. | 
+|  `dcgmAgent.resources.limits.cpu`  | CPU resource limit for the DCGM agent. | 
+|  `dcgmAgent.resources.limits.memory`  | Memory resource limit for the DCGM agent. | 
+|  `dcgmAgent.tolerations`  | Tolerations for scheduling the DCGM agent on tainted nodes. | 
 
 You can use the following AWS CLI commands to get useful information about the versions and schema for the EKS node monitoring agent EKS add-on.
 

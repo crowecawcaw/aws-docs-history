@@ -1,21 +1,23 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure subnet selection for Pod IP addresses
+<a name="cni-subnet-selection"></a>
 
-**Applies to**: Linux nodes with Amazon EC2 instances
+ **Applies to**: Linux nodes with Amazon EC2 instances
 
 The Amazon VPC CNI plugin for Kubernetes creates secondary elastic network interfaces (ENIs) on your nodes and assigns IP addresses from those ENIs to Pods. By default, the VPC CNI creates secondary ENIs in the same subnet as the node’s primary network interface. You can control which subnets the VPC CNI uses for Pod IP addresses through the following methods:
++  **Enhanced subnet discovery** – The VPC CNI automatically discovers and uses subnets tagged with `kubernetes.io/role/cni` in the same VPC and Availability Zone. Requires VPC CNI version 1.18.0 or later. We recommend this method for most use cases.
++  **Custom networking** – Manually specify subnets and security groups per Availability Zone using `ENIConfig` custom resources. For more information, see [Deploy Pods in alternate subnets with custom networking](cni-custom-network.md).
 
-- **Enhanced subnet discovery** – The VPC CNI automatically discovers and uses subnets tagged with `kubernetes.io/role/cni` in the same VPC and Availability Zone. Requires VPC CNI version 1.18.0 or later. We recommend this method for most use cases.
-- **Custom networking** – Manually specify subnets and security groups per Availability Zone using `ENIConfig` custom resources. For more information, see [Deploy Pods in alternate subnets with custom networking](cni-custom-network.md "cni-custom-network.md").
-
-###### Note
-
+**Note**  
 Custom networking takes precedence when both features are enabled.
 
 ## Enhanced subnet discovery
+<a name="cni-subnet-selection-enhanced-discovery"></a>
 
 VPC CNI version 1.18.0 and later enables enhanced subnet discovery by default (`ENABLE_SUBNET_DISCOVERY=true`). The VPC CNI automatically discovers subnets in the same VPC and Availability Zone as the node, then uses them to create secondary ENIs and allocate Pod IP addresses. This expands the available IP address space without manual `ENIConfig` configuration.
 
@@ -28,44 +30,46 @@ kubectl describe ds aws-node -n kube-system | grep ENABLE_SUBNET_DISCOVERY
 To disable this feature, set `ENABLE_SUBNET_DISCOVERY=false` on the `aws-node` DaemonSet.
 
 ## Subnet tag behavior (`kubernetes.io/role/cni`)
+<a name="cni-subnet-selection-tag-behavior"></a>
 
 The `kubernetes.io/role/cni` tag controls how the VPC CNI treats subnets for ENI operations and Pod IP allocation. The tag has different effects depending on whether the VPC CNI is creating a new ENI or reconciling an existing one.
 
-###### Important
-
+**Important**  
 The Cluster-scoped and exclusionary tagging mechanisms are only available starting in version `v1.22.2` of the VPC CNI. Before this version, only the standard opt-in behavior is available via the tag `kubernetes.io/role/cni=1`.
 
 ### Tag values
+<a name="cni-subnet-selection-tag-values"></a>
 
 The following table summarizes how each tag value affects subnet behavior:
 
-| Tag value       | New ENI creation                                                                                                                                                                                                                                          | Existing ENI reconciliation                                                                                                                     |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `1`             | **Opt-in**: The VPC CNI creates new ENIs in this subnet.                                                                                                                                                                                                  | The ENI remains available for Pod IP allocation.                                                                                                |
-| `0`             | **Excluded**: The VPC CNI does not create new ENIs in this subnet.                                                                                                                                                                                        | **Excluded**: The VPC CNI excludes existing ENIs in this subnet from Pod IP allocation. No new Pod IPs are assigned from this ENI.              |
-| Absent (no tag) | **Not used for new ENIs**: The VPC CNI does not select secondary subnets without the tag for new ENI creation. The primary subnet (the subnet the node launched in) is still used for new ENI creation even without the tag, for backwards compatibility. | **No disruption**: Existing ENIs in untagged subnets remain available for Pod IP allocation. The VPC CNI does not remove or exclude these ENIs. |
+
+| Tag value | New ENI creation | Existing ENI reconciliation | 
+| --- | --- | --- | 
+|  `1`  |  **Opt-in**: The VPC CNI creates new ENIs in this subnet. | The ENI remains available for Pod IP allocation. | 
+|  `0`  |  **Excluded**: The VPC CNI does not create new ENIs in this subnet. |  **Excluded**: The VPC CNI excludes existing ENIs in this subnet from Pod IP allocation. No new Pod IPs are assigned from this ENI. | 
+| Absent (no tag) |  **Not used for new ENIs**: The VPC CNI does not select secondary subnets without the tag for new ENI creation. The primary subnet (the subnet the node launched in) is still used for new ENI creation even without the tag, for backwards compatibility. |  **No disruption**: Existing ENIs in untagged subnets remain available for Pod IP allocation. The VPC CNI does not remove or exclude these ENIs. | 
 
 ### Creation versus reconciliation behavior
+<a name="cni-subnet-selection-creation-vs-reconciliation"></a>
 
 The VPC CNI intentionally applies different policies when creating new ENIs and when reconciling existing ENIs:
-
-- **Creation (fail-closed for secondary subnets)**: When the VPC CNI needs to create a new secondary ENI, it only uses secondary subnets explicitly tagged with `kubernetes.io/role/cni=1`. Untagged secondary subnets are never selected for new ENI creation. This ensures new network interfaces are only placed in subnets that administrators have explicitly approved.
-- **Reconciliation (fail-open for untagged subnets)**: When the VPC CNI starts up or reconciles existing ENIs already attached to the node, it does not exclude ENIs because their subnet lacks the `kubernetes.io/role/cni` tag. This prevents disruption to running Pods that already use IP addresses from those ENIs.
++  **Creation (fail-closed for secondary subnets)**: When the VPC CNI needs to create a new secondary ENI, it only uses secondary subnets explicitly tagged with `kubernetes.io/role/cni=1`. Untagged secondary subnets are never selected for new ENI creation. This ensures new network interfaces are only placed in subnets that administrators have explicitly approved.
++  **Reconciliation (fail-open for untagged subnets)**: When the VPC CNI starts up or reconciles existing ENIs already attached to the node, it does not exclude ENIs because their subnet lacks the `kubernetes.io/role/cni` tag. This prevents disruption to running Pods that already use IP addresses from those ENIs.
 
 The VPC CNI uses this design intentionally. Forcibly excluding an already-attached ENI from an untagged subnet would break Pods that currently use IP addresses from that ENI.
 
-###### Important
-
+**Important**  
 To prevent a subnet from serving new Pod IPs — including from existing ENIs — tag the subnet with `kubernetes.io/role/cni=0`. An absent tag only prevents **new** ENI creation in that subnet. It does not exclude existing ENIs from allocation.
 
 ### Primary subnet handling
+<a name="cni-subnet-selection-primary-subnet"></a>
 
 The VPC CNI always includes the node’s primary subnet (the subnet the node launched in) for ENI creation, even without the `kubernetes.io/role/cni` tag. This maintains backward compatibility with existing clusters. The primary subnet behavior:
-
-- Included for ENI creation regardless of tag presence (unless tagged `0`).
-- If tagged with `kubernetes.io/role/cni=0`, the VPC CNI excludes the primary subnet from both new ENI creation and existing ENI allocation.
++ Included for ENI creation regardless of tag presence (unless tagged `0`).
++ If tagged with `kubernetes.io/role/cni=0`, the VPC CNI excludes the primary subnet from both new ENI creation and existing ENI allocation.
 
 ### Cluster-scoped subnet filtering
+<a name="cni-subnet-selection-cluster-tags"></a>
 
 When a subnet is tagged with `kubernetes.io/role/cni=1`, the VPC CNI additionally checks for cluster-specific tags using the key format `cni.networking.k8s.aws/cluster/<cluster-name>`. If a subnet has any cluster tags in this format, only the cluster whose name matches uses that subnet. Subnets with `kubernetes.io/role/cni=1` and no cluster-specific tags are available to all clusters in the VPC.
 
@@ -79,31 +83,36 @@ aws ec2 create-tags --resources subnet-example \
 This is useful when multiple EKS clusters share a VPC and you want each cluster to use different subnets for Pod IP addresses.
 
 ## Recommended workflow
+<a name="cni-subnet-selection-workflow"></a>
 
 To add new subnets for Pod IP addresses:
 
 1. Create new subnets in the same VPC and Availability Zone as your nodes.
-2. Tag the subnets with `kubernetes.io/role/cni=1`.
-3. Ensure the subnets have appropriate route tables and network ACLs.
-4. Verify that the VPC CNI discovers and begins using the new subnets.
+
+1. Tag the subnets with `kubernetes.io/role/cni=1`.
+
+1. Ensure the subnets have appropriate route tables and network ACLs.
+
+1. Verify that the VPC CNI discovers and begins using the new subnets.
 
 To remove a subnet from Pod IP allocation:
 
 1. Tag the subnet with `kubernetes.io/role/cni=0`.
-2. Wait for Pods using IPs from that subnet to terminate or reschedule naturally.
-3. Verify that the VPC CNI stops allocating new Pod IPs from ENIs in that subnet.
 
-###### Important
+1. Wait for Pods using IPs from that subnet to terminate or reschedule naturally.
 
+1. Verify that the VPC CNI stops allocating new Pod IPs from ENIs in that subnet.
+
+**Important**  
 Do not remove the `kubernetes.io/role/cni` tag to stop using a subnet. Removing the tag prevents new ENI creation but does **not** exclude existing ENIs from allocation. To actively exclude a subnet, tag it with `kubernetes.io/role/cni=0`.
 
 ## Considerations
-
-- Enhanced subnet discovery requires Amazon VPC CNI version 1.18.0 or later.
-- The feature requires `ec2:DescribeSubnets` permission in the VPC CNI IAM role. The `AmazonEKS_CNI_Policy` managed policy includes this permission. The IPv6 self-managed IAM policy does **not** include it. If you use a self-managed IAM policy (for example, for IPv6 clusters), add `ec2:DescribeSubnets` manually to enable subnet discovery.
-- The feature works with both secondary IP address mode and prefix delegation mode.
-- All discovered subnets must be in the same VPC as the node.
-- The VPC CNI only creates ENIs in subnets that are in the same Availability Zone as the node.
-- The VPC CNI does not deallocate ENIs that still have IP addresses assigned to Pods, regardless of tag changes.
-- When using shared VPCs (cross-account subnets), tag the subnets in the participant account where the cluster is launched.
-- You can use enhanced subnet discovery together with security groups for Pods, network policies, prefix delegation, and SNAT.
+<a name="cni-subnet-selection-considerations"></a>
++ Enhanced subnet discovery requires Amazon VPC CNI version 1.18.0 or later.
++ The feature requires `ec2:DescribeSubnets` permission in the VPC CNI IAM role. The `AmazonEKS_CNI_Policy` managed policy includes this permission. The IPv6 self-managed IAM policy does **not** include it. If you use a self-managed IAM policy (for example, for IPv6 clusters), add `ec2:DescribeSubnets` manually to enable subnet discovery.
++ The feature works with both secondary IP address mode and prefix delegation mode.
++ All discovered subnets must be in the same VPC as the node.
++ The VPC CNI only creates ENIs in subnets that are in the same Availability Zone as the node.
++ The VPC CNI does not deallocate ENIs that still have IP addresses assigned to Pods, regardless of tag changes.
++ When using shared VPCs (cross-account subnets), tag the subnets in the participant account where the cluster is launched.
++ You can use enhanced subnet discovery together with security groups for Pods, network policies, prefix delegation, and SNAT.

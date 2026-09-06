@@ -1,39 +1,43 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Working with capability resources
+<a name="working-with-capabilities"></a>
 
 List, describe, update, and delete capability resources on your Amazon EKS clusters.
 
 ## EKS capability resources
+<a name="_eks_capability_resources"></a>
 
-EKS capabilities are AWS resources that enable managed functionality on your Amazon EKS cluster.
-Capabilities run in EKS, eliminating the need to install and maintain controllers and other operational components on your worker nodes.
-Capabilities are created for a specific EKS cluster, and remain affiliated with that cluster for their entire lifecycle.
+EKS capabilities are AWS resources that enable managed functionality on your Amazon EKS cluster. Capabilities run in EKS, eliminating the need to install and maintain controllers and other operational components on your worker nodes. Capabilities are created for a specific EKS cluster, and remain affiliated with that cluster for their entire lifecycle.
 
 Each capability resource has:
-
-- A unique name within your cluster
-- A capability type (ACK, ARGOCD, or KRO)
-- An Amazon Resource Name (ARN), specifying both name and type
-- A capability IAM role
-- A status that indicates its current state
-- Configuration, both generic and specific to the capability type
++ A unique name within your cluster
++ A capability type (ACK, ARGOCD, or KRO)
++ An Amazon Resource Name (ARN), specifying both name and type
++ A capability IAM role
++ A status that indicates its current state
++ Configuration, both generic and specific to the capability type
 
 ## Understanding capability status
+<a name="_understanding_capability_status"></a>
 
-Capability resources have a status that indicates their current state.
-You can view capability status and health in the EKS console or using the AWS CLI.
+Capability resources have a status that indicates their current state. You can view capability status and health in the EKS console or using the AWS CLI.
 
-**Console**:
+ **Console**:
 
-1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home#/clusters.
-2. Select your cluster name.
-3. Choose the **Capabilities** tab to view status for all capabilities.
-4. For detailed health information, choose the **Observability** tab, then **Monitor cluster**, then the **Capabilities** tab.
+1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home\#/clusters.
 
-**AWS CLI**:
+1. Select your cluster name.
+
+1. Choose the **Capabilities** tab to view status for all capabilities.
+
+1. For detailed health information, choose the **Observability** tab, then **Monitor cluster**, then the **Capabilities** tab.
+
+ ** AWS CLI**:
 
 ```
 aws eks describe-capability \
@@ -43,69 +47,66 @@ aws eks describe-capability \
 ```
 
 ### Capability statuses
+<a name="_capability_statuses"></a>
 
-**CREATING**: Capability is being set up.
-You can navigate away from the console—the capability will continue creating in the background.
+ **CREATING**: Capability is being set up. You can navigate away from the console—the capability will continue creating in the background.
 
-**ACTIVE**: Capability is running and ready to use.
-If resources aren’t working as expected, check resource status and IAM permissions.
-See [Troubleshooting EKS Capabilities](capabilities-troubleshooting.md "capabilities-troubleshooting.md") for guidance.
+ **ACTIVE**: Capability is running and ready to use. If resources aren’t working as expected, check resource status and IAM permissions. See [Troubleshooting EKS Capabilities](capabilities-troubleshooting.md) for guidance.
 
-**UPDATING**: Configuration changes are being applied.
-Wait for the status to return to `ACTIVE`.
+ **UPDATING**: Configuration changes are being applied. Wait for the status to return to `ACTIVE`.
 
-**DELETING**: Capability is being removed from the cluster.
+ **DELETING**: Capability is being removed from the cluster.
 
-**CREATE\_FAILED**: Setup encountered an error.
-Common causes include:
-
-- IAM role trust policy incorrect or missing
-- IAM role doesn’t exist or isn’t accessible
-- Cluster access issues
-- Invalid configuration parameters
+ **CREATE\_FAILED**: Setup encountered an error. Common causes include:
++ IAM role trust policy incorrect or missing
++ IAM role doesn’t exist or isn’t accessible
++ Cluster access issues
++ Invalid configuration parameters
 
 Check the capability health section for specific error details.
 
-**UPDATE\_FAILED**: Configuration update failed.
-Check the capability health section for details and verify IAM permissions.
+ **UPDATE\_FAILED**: Configuration update failed. Check the capability health section for details and verify IAM permissions.
 
-###### Tip
-
-For detailed troubleshooting guidance, see:
-
-- [Troubleshooting EKS Capabilities](capabilities-troubleshooting.md "capabilities-troubleshooting.md") - General capability troubleshooting
-- [Troubleshoot issues with ACK capabilities](ack-troubleshooting.md "ack-troubleshooting.md") - ACK-specific issues
-- [Troubleshoot issues with Argo CD capabilities](argocd-troubleshooting.md "argocd-troubleshooting.md") - Argo CD-specific issues
-- [Troubleshoot issues with kro capabilities](kro-troubleshooting.md "kro-troubleshooting.md") - kro-specific issues
+**Tip**  
+For detailed troubleshooting guidance, see:  
+ [Troubleshooting EKS Capabilities](capabilities-troubleshooting.md) - General capability troubleshooting
+ [Troubleshoot issues with ACK capabilities](ack-troubleshooting.md) - ACK-specific issues
+ [Troubleshoot issues with Argo CD capabilities](argocd-troubleshooting.md) - Argo CD-specific issues
+ [Troubleshoot issues with kro capabilities](kro-troubleshooting.md) - kro-specific issues
 
 ## Create capabilities
+<a name="_create_capabilities"></a>
 
 To create a capability on your cluster, see the following topics:
-
-- [Create an ACK capability](create-ack-capability.md "create-ack-capability.md") – Create an ACK capability to manage AWS resources using Kubernetes APIs
-- [Create an Argo CD capability](create-argocd-capability.md "create-argocd-capability.md") – Create an Argo CD capability for GitOps continuous delivery
-- [Create a kro capability](create-kro-capability.md "create-kro-capability.md") – Create a kro capability for resource composition and orchestration
++  [Create an ACK capability](create-ack-capability.md) – Create an ACK capability to manage AWS resources using Kubernetes APIs
++  [Create an Argo CD capability](create-argocd-capability.md) – Create an Argo CD capability for GitOps continuous delivery
++  [Create a kro capability](create-kro-capability.md) – Create a kro capability for resource composition and orchestration
 
 ## List capabilities
+<a name="_list_capabilities"></a>
 
 You can list all capability resources on a cluster.
 
 ### Console
+<a name="_console"></a>
 
-1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home#/clusters.
-2. Select your cluster name to open the cluster detail page.
-3. Choose the **Capabilities** tab.
-4. View capability resources under **Managed capabilities**.
+1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home\#/clusters.
+
+1. Select your cluster name to open the cluster detail page.
+
+1. Choose the **Capabilities** tab.
+
+1. View capability resources under **Managed capabilities**.
 
 ### AWS CLI
+<a name="shared_aws_cli"></a>
 
-Use the `list-capabilities` command to view all capabilities on your cluster. Replace `region-code` with the AWS Region that your cluster is in and replace `my-cluster` with the name of your cluster.
+Use the `list-capabilities` command to view all capabilities on your cluster. Replace {{region-code}} with the AWS Region that your cluster is in and replace {{my-cluster}} with the name of your cluster.
 
 ```
 aws eks list-capabilities \
-  --region `region-code` \
-  --cluster-name `my-cluster`
-
+  --region {{region-code}} \
+  --cluster-name {{my-cluster}}
 ```
 
 ```
@@ -142,30 +143,36 @@ aws eks list-capabilities \
 ```
 
 ## Describe a capability
+<a name="_describe_a_capability"></a>
 
 Get detailed information about a specific capability, including its configuration and status.
 
 ### Console
+<a name="_console_2"></a>
 
-1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home#/clusters.
-2. Select your cluster name to open the cluster detail page.
-3. Choose the **Capabilities** tab.
-4. Choose the capability you want to view from **Managed capabilities**.
-5. View the capability details, including status, configuration, and creation time.
+1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home\#/clusters.
+
+1. Select your cluster name to open the cluster detail page.
+
+1. Choose the **Capabilities** tab.
+
+1. Choose the capability you want to view from **Managed capabilities**.
+
+1. View the capability details, including status, configuration, and creation time.
 
 ### AWS CLI
+<a name="shared_aws_cli"></a>
 
-Use the `describe-capability` command to view detailed information. Replace `region-code` with the AWS Region that your cluster is in, replace `my-cluster` with the name of your cluster, and replace `capability-name` with the name you gave your capability when you created it (for example, `my-ack`, `my-argocd`, or `my-kro`).
+Use the `describe-capability` command to view detailed information. Replace {{region-code}} with the AWS Region that your cluster is in, replace {{my-cluster}} with the name of your cluster, and replace {{capability-name}} with the name you gave your capability when you created it (for example, `my-ack`, `my-argocd`, or `my-kro`).
 
 ```
 aws eks describe-capability \
-  --region `region-code` \
-  --cluster-name `my-cluster` \
-  --capability-name `capability-name`
-
+  --region {{region-code}} \
+  --cluster-name {{my-cluster}} \
+  --capability-name {{capability-name}}
 ```
 
-**Example output:**
+ **Example output:** 
 
 ```
 {
@@ -189,78 +196,78 @@ aws eks describe-capability \
 ```
 
 ## Update the configuration of a capability
+<a name="_update_the_configuration_of_a_capability"></a>
 
-You can update certain aspects of a capability’s configuration after creation.
-The specific configuration options vary by capability type.
+You can update certain aspects of a capability’s configuration after creation. The specific configuration options vary by capability type.
 
-###### Note
-
-EKS capability resources are fully managed, including patching and version updates.
-Updating a capability will update resource configuration and will not result in version updates of the managed capability components.
+**Note**  
+EKS capability resources are fully managed, including patching and version updates. Updating a capability will update resource configuration and will not result in version updates of the managed capability components.
 
 ### AWS CLI
+<a name="shared_aws_cli"></a>
 
 Use the `update-capability` command to modify a capability:
 
 ```
 aws eks update-capability \
-  --region `region-code` \
-  --cluster-name `my-cluster` \
-  --capability-name `capability-name` \
-  --role-arn `arn:aws:iam::111122223333:role/NewCapabilityRole`
-
+  --region {{region-code}} \
+  --cluster-name {{my-cluster}} \
+  --capability-name {{capability-name}} \
+  --role-arn {{arn:aws:iam::111122223333:role/NewCapabilityRole}}
 ```
 
-###### Note
-
-Not all capability properties can be updated after creation.
-Refer to the capability-specific documentation for details on what can be modified.
+**Note**  
+Not all capability properties can be updated after creation. Refer to the capability-specific documentation for details on what can be modified.
 
 ## Delete a capability
+<a name="capabilities-delete"></a>
 
 When you no longer need a capability on your cluster, you can delete the capability resource.
 
-###### Important
-
-**Delete cluster resources before deleting the capability.**
-
-Deleting a capability resource does not automatically delete resources created through that capability:
-
-- All Kubernetes Custom Resource Definitions (CRDs) remain installed in your cluster.
-- ACK resources remain in your cluster, and corresponding AWS resources remain in your account
-- Argo CD Applications and their Kubernetes resources remain in your cluster
-- kro ResourceGraphDefinitions and instances remain in your cluster
-  You should delete these resources before deleting the capability to avoid orphaned resources.
-
-You may optionally choose to retain AWS resources associated with ACK Kubernetes resources. See [ACK considerations](ack-considerations.md "ack-considerations.md")
+**Important**  
+ **Delete cluster resources before deleting the capability.**   
+Deleting a capability resource does not automatically delete resources created through that capability:  
+All Kubernetes Custom Resource Definitions (CRDs) remain installed in your cluster.
+ACK resources remain in your cluster, and corresponding AWS resources remain in your account
+Argo CD Applications and their Kubernetes resources remain in your cluster
+kro ResourceGraphDefinitions and instances remain in your cluster
+You should delete these resources before deleting the capability to avoid orphaned resources.  
+You may optionally choose to retain AWS resources associated with ACK Kubernetes resources. See [ACK considerations](ack-considerations.md) 
 
 ### Console
+<a name="_console_3"></a>
 
-1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home#/clusters.
-2. Select your cluster name to open the cluster detail page.
-3. Choose the **Capabilities** tab.
-4. Select the capability you want to delete from the list of **Managed capabilities**.
-5. Choose **Delete capability**.
-6. In the confirmation dialog, type the name of the capability to confirm deletion.
-7. Choose **Delete**.
+1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home\#/clusters.
+
+1. Select your cluster name to open the cluster detail page.
+
+1. Choose the **Capabilities** tab.
+
+1. Select the capability you want to delete from the list of **Managed capabilities**.
+
+1. Choose **Delete capability**.
+
+1. In the confirmation dialog, type the name of the capability to confirm deletion.
+
+1. Choose **Delete**.
 
 ### AWS CLI
+<a name="shared_aws_cli"></a>
 
 Use the `delete-capability` command to delete a capability resource:
 
-Replace `region-code` with the AWS Region that your cluster is in, replace `my-cluster` with the name of your cluster, and replace `capability-name` with the capability name to delete.
+Replace {{region-code}} with the AWS Region that your cluster is in, replace {{my-cluster}} with the name of your cluster, and replace {{capability-name}} with the capability name to delete.
 
 ```
 aws eks delete-capability \
-  --region `region-code` \
-  --cluster-name `my-cluster` \
-  --capability-name `capability-name`
-
+  --region {{region-code}} \
+  --cluster-name {{my-cluster}} \
+  --capability-name {{capability-name}}
 ```
 
 ## Next steps
-
-- [Capability Kubernetes resources](capability-kubernetes-resources.md "capability-kubernetes-resources.md") – Learn about the Kubernetes resources provided by each capability type
-- [ACK concepts](ack-concepts.md "ack-concepts.md") – Understand ACK concepts and resource lifecycle
-- [Working with Argo CD](working-with-argocd.md "working-with-argocd.md") – Working with Argo CD capabilities for GitOps workflows
-- [kro concepts](kro-concepts.md "kro-concepts.md") – Understand kro concepts and resource composition
+<a name="_next_steps"></a>
++  [Capability Kubernetes resources](capability-kubernetes-resources.md) – Learn about the Kubernetes resources provided by each capability type
++  [ACK concepts](ack-concepts.md) – Understand ACK concepts and resource lifecycle
++  [Working with Argo CD](working-with-argocd.md) – Working with Argo CD capabilities for GitOps workflows
++  [kro concepts](kro-concepts.md) – Understand kro concepts and resource composition

@@ -1,12 +1,14 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Manage compute for AI/ML workloads with EKS Auto Mode and Karpenter
+<a name="ml-node-pools"></a>
 
-###### Tip
-
-[Register](https://events.eksworkshop.com/workshops/genai/ "https://events.eksworkshop.com/workshops/genai/") for upcoming Amazon EKS AI/ML workshops.
+**Tip**  
+ [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
 
 This section covers how to manage accelerated compute (AWS Trainium, NVIDIA GPUs) for AI training and inference workloads using Amazon EKS Auto Mode or self-managed Karpenter.
 
@@ -15,71 +17,82 @@ EKS Auto Mode and Karpenter support two provisioning modes: dynamic provisioning
 EKS Auto Mode and Karpenter support all four capacity purchase options (On-Demand, Spot, Capacity Blocks, and ODCRs) and always provision reserved capacity first, followed by Spot or On-Demand.
 
 ## EKS Auto Mode vs Karpenter
+<a name="eks-aiml-auto-mode-vs-karpenter"></a>
 
 Both approaches share the NodePool API, but they differ in operational ownership, resource APIs, operating system support, Spot interruption handling, and configuration flexibility.
 
-| Feature                    | EKS Auto Mode                                                                                                                                          | Self-managed Karpenter                                                                                                                                                  |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Best for                   | Teams who prefer managed infrastructure with minimal operational overhead                                                                              | Teams who prefer full control over node lifecycle, AMIs, OS tuning, and patching.                                                                                       |
-| Operational model          | AWS provisions and manages the Karpenter controller, GPU/Trainium drivers, device plugins, OS patching, and Spot interruption handling.                | You install and operate the Karpenter controller in your cluster and own GPU/Trainium drivers, device plugins, AMI lifecycle, patching, and Spot interruption handling. |
-| Compute options            | On-Demand, Spot, ODCRs, Capacity Blocks for ML                                                                                                         | On-Demand, Spot, ODCRs, Capacity Blocks for ML                                                                                                                          |
-| Resource APIs              | `NodePool` (`karpenter.sh/v1`), `NodeClass` (`eks.amazonaws.com/v1`).                                                                                  | `NodePool` (`karpenter.sh/v1`), `EC2NodeClass` (`karpenter.k8s.aws/v1`).                                                                                                |
-| Node operating system      | Bottlerocket only. NVIDIA GPU, AWS Trainium, and EFA dependencies included.                                                                            | AL2023, Bottlerocket, Windows, or your own AMI.                                                                                                                         |
-| Node lifetime              | 21-day maximum node lifetime for security patching. Workloads must tolerate node rotation.                                                             | You define the node lifecycle through NodePool `expireAfter` and disruption budgets.                                                                                    |
-| Spot interruption handling | Native. No SQS queue or Node Termination Handler required.                                                                                             | Your responsibility to configure and enable.                                                                                                                            |
-| Fast container pulls       | SOCI parallel pull included in all G, P, and Trn family instances                                                                                      | Your responsibility to configure and enable.                                                                                                                            |
-| EC2 placement groups       | Cluster, partition, spread                                                                                                                             | Cluster, partition, spread                                                                                                                                              |
-| Network interface config   | Per interface configuration for type `interface` or `EFA-only`                                                                                         | Per interface configuration for type `interface` or `EFA-only`                                                                                                          |
-| Node repair                | Enabled by default, EKS node monitoring agent included                                                                                                 | Optionally enabled, EKS node monitoring agent self-managed                                                                                                              |
-| Pricing                    | [EKS Auto Mode management fee](https://aws.amazon.com/eks/pricing/ "https://aws.amazon.com/eks/pricing/") in addition to underlying EC2 instance cost. | Open source. You pay for the underlying EC2 instances.                                                                                                                  |
+
+| Feature | EKS Auto Mode | Self-managed Karpenter | 
+| --- | --- | --- | 
+| Best for | Teams who prefer managed infrastructure with minimal operational overhead | Teams who prefer full control over node lifecycle, AMIs, OS tuning, and patching. | 
+| Operational model |  AWS provisions and manages the Karpenter controller, GPU/Trainium drivers, device plugins, OS patching, and Spot interruption handling. | You install and operate the Karpenter controller in your cluster and own GPU/Trainium drivers, device plugins, AMI lifecycle, patching, and Spot interruption handling. | 
+| Compute options | On-Demand, Spot, ODCRs, Capacity Blocks for ML | On-Demand, Spot, ODCRs, Capacity Blocks for ML | 
+| Resource APIs |  `NodePool` (`karpenter.sh/v1`), `NodeClass` (`eks.amazonaws.com/v1`). |  `NodePool` (`karpenter.sh/v1`), `EC2NodeClass` (`karpenter.k8s.aws/v1`). | 
+| Node operating system | Bottlerocket only. NVIDIA GPU, AWS Trainium, and EFA dependencies included. | AL2023, Bottlerocket, Windows, or your own AMI. | 
+| Node lifetime | 21-day maximum node lifetime for security patching. Workloads must tolerate node rotation. | You define the node lifecycle through NodePool `expireAfter` and disruption budgets. | 
+| Spot interruption handling | Native. No SQS queue or Node Termination Handler required. | Your responsibility to configure and enable. | 
+| Fast container pulls | SOCI parallel pull included in all G, P, and Trn family instances | Your responsibility to configure and enable. | 
+| EC2 placement groups | Cluster, partition, spread | Cluster, partition, spread | 
+| Network interface config | Per interface configuration for type `interface` or `EFA-only`  | Per interface configuration for type `interface` or `EFA-only`  | 
+| Node repair | Enabled by default, EKS node monitoring agent included | Optionally enabled, EKS node monitoring agent self-managed | 
+| Pricing |  [EKS Auto Mode management fee](https://aws.amazon.com/eks/pricing/) in addition to underlying EC2 instance cost. | Open source. You pay for the underlying EC2 instances. | 
 
 ## Common AI/ML well-known labels
+<a name="eks-aiml-labels"></a>
 
 EKS Auto Mode and Karpenter expose instance labels that you can use in NodePool `requirements` and Pod `nodeSelector` or `nodeAffinity` to target workloads without hardcoding instance types. The label prefix differs between the two: EKS Auto Mode uses `eks.amazonaws.com/` while self-managed Karpenter uses `karpenter.k8s.aws/`.
 
-The tables below show relevant labels that can be used in NodePools. EKS Auto Mode and Karpenter also apply the labels listed in the [Karpenter documentation](https://karpenter.sh/docs/concepts/scheduling/#labels "https://karpenter.sh/docs/concepts/scheduling/#labels") to nodes as part of the provisioning process that can be further used for workload targeting.
+The tables below show relevant labels that can be used in NodePools. EKS Auto Mode and Karpenter also apply the labels listed in the [Karpenter documentation](https://karpenter.sh/docs/concepts/scheduling/#labels) to nodes as part of the provisioning process that can be further used for workload targeting.
 
-EKS Auto Mode
-For the full list, see [EKS Auto Mode Supported Labels](create-node-pool.md#auto-supported-labels "create-node-pool.md#auto-supported-labels").
+------
+#### [ EKS Auto Mode ]
 
-| Label                                         | Example value | Description                                                             |
-| --------------------------------------------- | ------------- | ----------------------------------------------------------------------- |
-| `eks.amazonaws.com/instance-family`           | `p5`          | Instance types of similar properties but different resource quantities. |
-| `eks.amazonaws.com/instance-category`         | `p`           | Instance category, usually the letter before the generation number.     |
-| `eks.amazonaws.com/instance-generation`       | `5`           | Instance type generation number within a category.                      |
-| `eks.amazonaws.com/instance-gpu-name`         | `h100`        | Name of the GPU on the instance.                                        |
-| `eks.amazonaws.com/instance-gpu-manufacturer` | `nvidia`      | Name of the GPU manufacturer.                                           |
-| `eks.amazonaws.com/instance-gpu-count`        | `8`           | Number of GPUs on the instance.                                         |
-| `eks.amazonaws.com/instance-gpu-memory`       | `81920`       | Mebibytes of memory per GPU.                                            |
-| `karpenter.sh/capacity-type`                  | `reserved`    | Capacity type: `spot`, `on-demand`, or `reserved`.                      |
-| `topology.kubernetes.io/zone`                 | `us-east-1a`  | Availability Zone.                                                      |
+For the full list, see [EKS Auto Mode Supported Labels](https://docs.aws.amazon.com/eks/latest/userguide/create-node-pool.html#auto-supported-labels).
 
-Self-managed Karpenter
-For the full list, see [Karpenter Well-Known Labels](https://karpenter.sh/docs/concepts/scheduling/#well-known-labels "https://karpenter.sh/docs/concepts/scheduling/#well-known-labels").
 
-| Label                                         | Example value | Description                                                             |
-| --------------------------------------------- | ------------- | ----------------------------------------------------------------------- |
-| `karpenter.k8s.aws/instance-family`           | `p5`          | Instance types of similar properties but different resource quantities. |
-| `karpenter.k8s.aws/instance-category`         | `p`           | Instance category, usually the letter before the generation number.     |
-| `karpenter.k8s.aws/instance-generation`       | `5`           | Instance type generation number within a category.                      |
-| `karpenter.k8s.aws/instance-gpu-name`         | `h100`        | Name of the GPU on the instance.                                        |
-| `karpenter.k8s.aws/instance-gpu-manufacturer` | `nvidia`      | Name of the GPU manufacturer.                                           |
-| `karpenter.k8s.aws/instance-gpu-count`        | `8`           | Number of GPUs on the instance.                                         |
-| `karpenter.sh/capacity-type`                  | `reserved`    | Capacity type: `spot`, `on-demand`, or `reserved`.                      |
-| `topology.kubernetes.io/zone`                 | `us-east-1a`  | Availability Zone.                                                      |
-| `kubernetes.io/arch`                          | `amd64`       | CPU architecture.                                                       |
+| Label | Example value | Description | 
+| --- | --- | --- | 
+|  `eks.amazonaws.com/instance-family`  |  `p5`  | Instance types of similar properties but different resource quantities. | 
+|  `eks.amazonaws.com/instance-category`  |  `p`  | Instance category, usually the letter before the generation number. | 
+|  `eks.amazonaws.com/instance-generation`  |  `5`  | Instance type generation number within a category. | 
+|  `eks.amazonaws.com/instance-gpu-name`  |  `h100`  | Name of the GPU on the instance. | 
+|  `eks.amazonaws.com/instance-gpu-manufacturer`  |  `nvidia`  | Name of the GPU manufacturer. | 
+|  `eks.amazonaws.com/instance-gpu-count`  |  `8`  | Number of GPUs on the instance. | 
+|  `eks.amazonaws.com/instance-gpu-memory`  |  `81920`  | Mebibytes of memory per GPU. | 
+|  `karpenter.sh/capacity-type`  |  `reserved`  | Capacity type: `spot`, `on-demand`, or `reserved`. | 
+|  `topology.kubernetes.io/zone`  |  `us-east-1a`  | Availability Zone. | 
+
+------
+#### [ Self-managed Karpenter ]
+
+For the full list, see [Karpenter Well-Known Labels](https://karpenter.sh/docs/concepts/scheduling/#well-known-labels).
+
+
+| Label | Example value | Description | 
+| --- | --- | --- | 
+|  `karpenter.k8s.aws/instance-family`  |  `p5`  | Instance types of similar properties but different resource quantities. | 
+|  `karpenter.k8s.aws/instance-category`  |  `p`  | Instance category, usually the letter before the generation number. | 
+|  `karpenter.k8s.aws/instance-generation`  |  `5`  | Instance type generation number within a category. | 
+|  `karpenter.k8s.aws/instance-gpu-name`  |  `h100`  | Name of the GPU on the instance. | 
+|  `karpenter.k8s.aws/instance-gpu-manufacturer`  |  `nvidia`  | Name of the GPU manufacturer. | 
+|  `karpenter.k8s.aws/instance-gpu-count`  |  `8`  | Number of GPUs on the instance. | 
+|  `karpenter.sh/capacity-type`  |  `reserved`  | Capacity type: `spot`, `on-demand`, or `reserved`. | 
+|  `topology.kubernetes.io/zone`  |  `us-east-1a`  | Availability Zone. | 
+|  `kubernetes.io/arch`  |  `amd64`  | CPU architecture. | 
+
+------
 
 ## Scheduling labels for reserved capacity
+<a name="eks-aiml-scheduling-labels"></a>
 
 When EKS Auto Mode or Karpenter launches a node into a reservation, it adds the following labels. Use them in `nodeSelector`, node affinity, or NodePool requirements to route workloads.
-
-- `karpenter.sh/capacity-type`: `reserved`, `on-demand`, or `spot`. Indicates the capacity backing the node.
-- `karpenter.k8s.aws/capacity-reservation-id`: The specific reservation ID the node was launched into.
-- `karpenter.k8s.aws/capacity-reservation-type`: `default` for ODCRs, `capacity-block` for Capacity Blocks.
++  `karpenter.sh/capacity-type`: `reserved`, `on-demand`, or `spot`. Indicates the capacity backing the node.
++  `karpenter.k8s.aws/capacity-reservation-id`: The specific reservation ID the node was launched into.
++  `karpenter.k8s.aws/capacity-reservation-type`: `default` for ODCRs, `capacity-block` for Capacity Blocks.
 
 The following examples show common scheduling patterns:
 
-**Pin a Pod to one specific reservation (no fallback):**
+ **Pin a Pod to one specific reservation (no fallback):** 
 
 ```
 spec:
@@ -88,7 +101,7 @@ spec:
     karpenter.k8s.aws/capacity-reservation-id: "cr-0123456789abcdef0"
 ```
 
-**Target ODCR nodes only (any ODCR, not Capacity Blocks):**
+ **Target ODCR nodes only (any ODCR, not Capacity Blocks):** 
 
 ```
 spec:
@@ -97,7 +110,7 @@ spec:
     karpenter.k8s.aws/capacity-reservation-type: default
 ```
 
-**Target any reserved capacity (ODCR or Capacity Block):**
+ **Target any reserved capacity (ODCR or Capacity Block):** 
 
 ```
 spec:
@@ -105,7 +118,7 @@ spec:
     karpenter.sh/capacity-type: reserved
 ```
 
-**Prefer reserved but fall back to Spot or On-Demand if unavailable:**
+ **Prefer reserved but fall back to Spot or On-Demand if unavailable:** 
 
 ```
 spec:
@@ -121,37 +134,38 @@ spec:
 ```
 
 ## Reservation expiration behavior
+<a name="eks-aiml-node-pools-expiration"></a>
 
 ODCRs and Capacity Blocks behave differently when the reservation ends. Make sure your scheduling and checkpointing strategy matches the type of reservation backing your workload.
 
-**ODCRs**
+ **ODCRs** 
 
 An instance launched into an ODCR is not in that ODCR indefinitely. The ODCR can expire, be cancelled, or the instance can be manually removed from the ODCR. If any of these occur and EKS Auto Mode / Karpenter detects that the instance no longer belongs to an ODCR, it updates the node’s `karpenter.sh/capacity-type` label from `reserved` to `on-demand`. The instance keeps running as standard On-Demand capacity, and existing Pods continue running uninterrupted.
 
-###### Note
-
+**Note**  
 Any Pod scheduled with a strict `nodeSelector: karpenter.sh/capacity-type: reserved` will not schedule onto the node if it has been relabeled. For workloads to survive an ODCR expiry or cancellation, use the `preferredDuringSchedulingIgnoredDuringExecution` pattern shown above instead of a `nodeSelector`.
 
-**Capacity Blocks**
+ **Capacity Blocks** 
 
 Unlike ODCRs, Capacity Blocks always have an end time, and EC2 terminates Capacity Block instances 30 minutes ahead of the end time (60 minutes for UltraServer instance types). Plan training and inference jobs to complete or save state before the reservation window closes. Pods that use a strict `nodeSelector` for a specific `capacity-reservation-id` go `Pending` once the block expires and will not reschedule elsewhere. Combine checkpointing with the flexible affinity pattern above if you need workloads to move to other capacity during Capacity Block expiry.
-
-- You can use reserved instances until 30 minutes before the Capacity Block end time for most instance types, or 60 minutes before the end time for UltraServer instance types.
-- EKS Auto Mode and Karpenter preemptively begin draining nodes in a Capacity Block 10 minutes before EC2 starts termination, so workloads have time to checkpoint and shut down gracefully.
++ You can use reserved instances until 30 minutes before the Capacity Block end time for most instance types, or 60 minutes before the end time for UltraServer instance types.
++ EKS Auto Mode and Karpenter preemptively begin draining nodes in a Capacity Block 10 minutes before EC2 starts termination, so workloads have time to checkpoint and shut down gracefully.
 
 ## Static capacity NodePools
+<a name="eks-aiml-static-capacity-nodepools"></a>
 
-EKS Auto Mode and Karpenter support _static capacity_ NodePools, which maintain a fixed number of nodes regardless of workload demand. Static pools eliminate cold-start delays for latency-sensitive inference, and let you reserve a minimum infrastructure footprint for your cluster.
+EKS Auto Mode and Karpenter support *static capacity* NodePools, which maintain a fixed number of nodes regardless of workload demand. Static pools eliminate cold-start delays for latency-sensitive inference, and let you reserve a minimum infrastructure footprint for your cluster.
 
 Static capacity is configured by setting the `replicas` field on the NodePool.
 
-**Considerations**
+ **Considerations** 
++ Once `replicas` is set on a NodePool, you cannot remove it. A single NodePool cannot switch between static and dynamic capacity provisioning.
++ Static capacity NodePools are not considered for consolidation. Set `limits.nodes` above `replicas` to allow temporary scaling during AMI drift or expiration.
++ For predictable Availability Zone (AZ) distribution, create one static capacity NodePool per AZ rather than spanning multiple zones in a single pool.
 
-- Once `replicas` is set on a NodePool, you cannot remove it. A single NodePool cannot switch between static and dynamic capacity provisioning.
-- Static capacity NodePools are not considered for consolidation. Set `limits.nodes` above `replicas` to allow temporary scaling during AMI drift or expiration.
-- For predictable Availability Zone (AZ) distribution, create one static capacity NodePool per AZ rather than spanning multiple zones in a single pool.
+------
+#### [ EKS Auto Mode ]
 
-EKS Auto Mode
 The example below shows a static capacity NodePool that uses the default EKS Auto Mode NodeClass and creates a static NodePool with 4 nodes (`replicas`) that can be at most 6 nodes (`limits.nodes`).
 
 ```
@@ -185,7 +199,9 @@ spec:
     nodes: 6   # Allow temporary headroom during node replacement
 ```
 
-Self-managed Karpenter
+------
+#### [ Self-managed Karpenter ]
+
 With self-managed Karpenter, static capacity is gated by the alpha `StaticCapacity` feature (launched in Karpenter version v1.8), which must be enabled in the Helm values:
 
 ```
@@ -227,15 +243,20 @@ spec:
     nodes: 6   # Allow temporary headroom during node replacement
 ```
 
-## Capacity Blocks for ML
+------
 
-[Capacity Blocks for ML](../../../AWSEC2/latest/UserGuide/ec2-capacity-blocks.md "../../../AWSEC2/latest/UserGuide/ec2-capacity-blocks.md") allow you to reserve P-family and Trainium instances for a defined future window. They are pre-paid, so EKS Auto Mode and Karpenter model them as free and prioritize them over On-Demand and Spot. Capacity Blocks for ML can have a reservation duration of 1-14 days or a multiple of 7 days, up to 182 days (6 months).
+## Capacity Blocks for ML
+<a name="eks-aiml-capacity-blocks"></a>
+
+ [Capacity Blocks for ML](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html) allow you to reserve P-family and Trainium instances for a defined future window. They are pre-paid, so EKS Auto Mode and Karpenter model them as free and prioritize them over On-Demand and Spot. Capacity Blocks for ML can have a reservation duration of 1-14 days or a multiple of 7 days, up to 182 days (6 months).
 
 To use Capacity Blocks for ML with EKS Auto Mode or Karpenter, configure `capacityReservationSelectorTerms` with your capacity reservation ID in your NodeClass. You cannot use open reservation matching with Capacity Blocks for ML. A term can specify an ID, a set of tags, or instance match criteria to select against. When specifying tags, it will select all capacity reservations accessible from the account with matching tags. This can be further restricted by specifying an owner account ID.
 
-For more examples, see the [Karpenter documentation](https://karpenter.sh/docs/concepts/nodeclasses/#speccapacityreservationselectorterms "https://karpenter.sh/docs/concepts/nodeclasses/#speccapacityreservationselectorterms").
+For more examples, see the [Karpenter documentation](https://karpenter.sh/docs/concepts/nodeclasses/#speccapacityreservationselectorterms).
 
-EKS Auto Mode
+------
+#### [ EKS Auto Mode ]
+
 Create a `NodeClass` that references your Capacity Block reservation, then create a NodePool that uses it.
 
 With `consolidateAfter: Never` set, Karpenter will not attempt to replace, merge, or terminate nodes to reduce cost or pack workloads more efficiently. This is recommended for Capacity Blocks because the capacity is already pre-paid.
@@ -280,7 +301,9 @@ spec:
           effect: NoSchedule
 ```
 
-Self-managed Karpenter
+------
+#### [ Self-managed Karpenter ]
+
 Create an `EC2NodeClass` that includes AMI, subnet, and security group selectors in addition to `capacityReservationSelectorTerms`, then create a NodePool that uses it.
 
 With `consolidateAfter: Never` set, Karpenter will not attempt to replace, merge, or terminate nodes to reduce cost or pack workloads more efficiently. This is recommended for Capacity Blocks because the capacity is already pre-paid.
@@ -333,17 +356,22 @@ spec:
           effect: NoSchedule
 ```
 
+------
+
 ## On-Demand Capacity Reservations (ODCRs)
+<a name="eks-aiml-odcrs"></a>
 
 ODCRs guarantee capacity in a specific Availability Zone (AZ) without a long-term commitment. You’re billed at standard On-Demand rates whether the capacity is used or not. ODCRs support all NVIDIA GPU families, including G-family instances that aren’t supported by Capacity Blocks for ML. ODCRs are pre-paid, so EKS Auto Mode and Karpenter model them as free and prioritize them over On-Demand and Spot.
 
-ODCRs behave differently from Capacity Blocks for ML at the end of the reservation. When an ODCR expires or is cancelled, the instance keeps running as standard On-Demand. See [Reservation expiration behavior](#eks-aiml-node-pools-expiration "#eks-aiml-node-pools-expiration") for details.
+ODCRs behave differently from Capacity Blocks for ML at the end of the reservation. When an ODCR expires or is cancelled, the instance keeps running as standard On-Demand. See [Reservation expiration behavior](#eks-aiml-node-pools-expiration) for details.
 
 To use ODCRs with EKS Auto Mode or Karpenter, configure `capacityReservationSelectorTerms` with your capacity reservation terms in your NodeClass. A term can specify an ID, a set of tags, or instance match criteria to select against. When specifying tags, it will select all capacity reservations accessible from the account with matching tags. When specifying instance match criteria, it selects reservations by their matching behavior: open (matches all compatible instances) or targeted (matches only explicitly targeted instances). This can be further restricted by specifying an owner account ID.
 
-For more examples, see the [Karpenter documentation](https://karpenter.sh/docs/concepts/nodeclasses/#speccapacityreservationselectorterms "https://karpenter.sh/docs/concepts/nodeclasses/#speccapacityreservationselectorterms").
+For more examples, see the [Karpenter documentation](https://karpenter.sh/docs/concepts/nodeclasses/#speccapacityreservationselectorterms).
 
-EKS Auto Mode
+------
+#### [ EKS Auto Mode ]
+
 Create a `NodeClass` with `capacityReservationSelectorTerms` and a NodePool that prioritizes `reserved` with `on-demand` fallback. Pin `topology.kubernetes.io/zone` to the ODCR’s AZ:
 
 ```
@@ -389,7 +417,9 @@ spec:
           effect: NoSchedule
 ```
 
-Self-managed Karpenter
+------
+#### [ Self-managed Karpenter ]
+
 Create an `EC2NodeClass` with AMI, subnet, and security group selectors in addition to `capacityReservationSelectorTerms`, then create the NodePool:
 
 ```
@@ -439,11 +469,15 @@ spec:
           effect: NoSchedule
 ```
 
+------
+
 ## On-Demand
+<a name="eks-aiml-on-demand"></a>
 
 On-Demand is the default capacity type and can be used with static or dynamic provisioning in EKS Auto Mode and Karpenter. You can explicitly request On-Demand instances by setting `karpenter.sh/capacity-type: on-demand` in your NodePool. EKS Auto Mode and Karpenter select the lowest-priced instance that satisfies the Pod’s resource requests. Use On-Demand for development, prototyping, unpredictable inference scaling, and any workload that needs immediate availability without interruption risk.
 
-EKS Auto Mode
+------
+#### [ EKS Auto Mode ]
 
 ```
 apiVersion: karpenter.sh/v1
@@ -473,7 +507,8 @@ spec:
           effect: NoSchedule
 ```
 
-Self-managed Karpenter
+------
+#### [ Self-managed Karpenter ]
 
 ```
 apiVersion: karpenter.sh/v1
@@ -503,26 +538,30 @@ spec:
           effect: NoSchedule
 ```
 
+------
+
 ## Spot
+<a name="eks-aiml-spot"></a>
 
 Spot offers up to 90% savings versus On-Demand by using spare EC2 capacity. AWS can reclaim Spot instances with a 2-minute interruption notice. Maximize availability by listing multiple instance families on the NodePool. Pair Spot workloads with a `PodDisruptionBudget` and checkpoint to durable storage (Amazon S3 or Amazon EFS) at regular intervals so Pods can save state during the drain window.
 
 Spot is a good fit for fault-tolerant, resumable training and inference workloads where occasional interruption is acceptable in exchange for significant cost savings.
 
 Common candidates include:
-
-- **Hyperparameter tuning and sweeps**: many short, parallel trials that can be retried if interrupted.
-- **Distributed training with checkpointing**: long-running jobs that periodically save state to S3 or FSx and can resume from the last checkpoint after node loss.
-- **Batch and offline inference**: large-scale scoring jobs against datasets where end-to-end latency is measured in hours, not seconds.
-- **Data preprocessing and feature engineering pipelines**: parallel transformations over large datasets.
-- **Model evaluation and benchmarking**: repeatable jobs that produce idempotent results.
-- **Development, prototyping, and notebooks**: interactive experimentation where users can tolerate occasional restarts.
++  **Hyperparameter tuning and sweeps**: many short, parallel trials that can be retried if interrupted.
++  **Distributed training with checkpointing**: long-running jobs that periodically save state to S3 or FSx and can resume from the last checkpoint after node loss.
++  **Batch and offline inference**: large-scale scoring jobs against datasets where end-to-end latency is measured in hours, not seconds.
++  **Data preprocessing and feature engineering pipelines**: parallel transformations over large datasets.
++  **Model evaluation and benchmarking**: repeatable jobs that produce idempotent results.
++  **Development, prototyping, and notebooks**: interactive experimentation where users can tolerate occasional restarts.
 
 Avoid Spot for latency-sensitive real-time inference, SLA-bound production endpoints, and workloads that don’t checkpoint or can’t tolerate restarts.
 
 You can explicitly request Spot instances by setting `karpenter.sh/capacity-type: spot` in your NodePool.
 
-EKS Auto Mode
+------
+#### [ EKS Auto Mode ]
+
 EKS Auto Mode handles Spot interruptions natively. No SQS queue or Node Termination Handler is required.
 
 ```
@@ -561,8 +600,10 @@ spec:
       nvidia.com/gpu: "64"
 ```
 
-Self-managed Karpenter
-Self-managed Karpenter requires you to enable native interruption handling on the Karpenter controller (not on the NodePool) by configuring an interruption queue: an SQS queue that receives EC2 Spot interruption and [Rebalance Recommendation](../../../AWSEC2/latest/UserGuide/rebalance-recommendations.md "../../../AWSEC2/latest/UserGuide/rebalance-recommendations.md") events. You configure this once at install time.
+------
+#### [ Self-managed Karpenter ]
+
+Self-managed Karpenter requires you to enable native interruption handling on the Karpenter controller (not on the NodePool) by configuring an interruption queue: an SQS queue that receives EC2 Spot interruption and [Rebalance Recommendation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/rebalance-recommendations.html) events. You configure this once at install time.
 
 If you install Karpenter directly with Helm, set `settings.interruptionQueue` in your `values.yaml`:
 
@@ -619,3 +660,5 @@ spec:
     resources:
       nvidia.com/gpu: "64"
 ```
+
+------

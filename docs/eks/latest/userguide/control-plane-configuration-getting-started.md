@@ -1,26 +1,28 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure advanced Kubernetes control plane parameters
+<a name="control-plane-configuration-getting-started"></a>
 
-This guide walks you through setting and viewing advanced Kubernetes control plane parameters using the AWS CLI and AWS Management Console. For an explanation of each parameter and its effect on your cluster, see [Advanced Kubernetes control plane configuration](control-plane-configuration.md "control-plane-configuration.md").
+This guide walks you through setting and viewing advanced Kubernetes control plane parameters using the AWS CLI and AWS Management Console. For an explanation of each parameter and its effect on your cluster, see [Advanced Kubernetes control plane configuration](control-plane-configuration.md).
 
 ## Prerequisites
+<a name="_prerequisites"></a>
 
 Before you begin, make sure that you have:
++  **An Amazon EKS cluster running Kubernetes version 1.31 or later** – Advanced Kubernetes control plane configuration is supported on new and existing clusters running Kubernetes version 1.31 or later. All parameters in this topic share this minimum version.
++  ** AWS CLI** – A command line tool for working with AWS services, including Amazon EKS. For more information, see [Installing](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) in the * AWS Command Line Interface User Guide*. After installing the AWS CLI, we recommend that you also configure it. For more information, see [Quick configuration with aws configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config) in the * AWS Command Line Interface User Guide*.
++  **Required IAM permissions** – The IAM principal that you’re using must have permissions to describe and update Amazon EKS clusters. To check the current principal, run the following command:
 
-- **An Amazon EKS cluster running Kubernetes version 1.31 or later** – Advanced Kubernetes control plane configuration is supported on new and existing clusters running Kubernetes version 1.31 or later. All parameters in this topic share this minimum version.
-- **AWS CLI** – A command line tool for working with AWS services, including Amazon EKS. For more information, see [Installing](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md") in the _AWS Command Line Interface User Guide_. After installing the AWS CLI, we recommend that you also configure it. For more information, see [Quick configuration with aws configure](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config") in the _AWS Command Line Interface User Guide_.
-- **Required IAM permissions** – The IAM principal that you’re using must have permissions to describe and update Amazon EKS clusters. To check the current principal, run the following command:
+  ```
+  aws sts get-caller-identity
+  ```
 
-```
-aws sts get-caller-identity
-```
-
-###### Note
-
-We recommend that you complete the steps in this topic in a Bash shell. If you aren’t using a Bash shell, some script commands such as line continuation characters and the way variables are set and used require adjustment for your shell. Additionally, the quoting and escaping rules for your shell might be different. For more information, see [Using quotation marks with strings in the AWS CLI](../../../cli/latest/userguide/cli-usage-parameters-quoting-strings.md "../../../cli/latest/userguide/cli-usage-parameters-quoting-strings.md") in the _AWS Command Line Interface User Guide_.
+**Note**  
+We recommend that you complete the steps in this topic in a Bash shell. If you aren’t using a Bash shell, some script commands such as line continuation characters and the way variables are set and used require adjustment for your shell. Additionally, the quoting and escaping rules for your shell might be different. For more information, see [Using quotation marks with strings in the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html) in the * AWS Command Line Interface User Guide*.
 
 Set your preferred cluster name and region before running the commands in this topic:
 
@@ -30,22 +32,25 @@ export AWS_REGION=us-west-2
 ```
 
 ## Supported values
+<a name="_supported_values"></a>
 
 Amazon EKS validates each parameter against the following ranges and rejects a request outside them.
 
-| Component parameter                                                                                     | Supported values                  | Default               |
-| ------------------------------------------------------------------------------------------------------- | --------------------------------- | --------------------- |
-| `kubeSchedulerConfig.nodeResourcesFit.scoringStrategy.type`                                             | `LeastAllocated`, `MostAllocated` | `LeastAllocated`      |
-| `kubeSchedulerConfig.nodeResourcesFit.scoringStrategy.resources[].weight`                               | `1` to `100`                      | `cpu: 1`, `memory: 1` |
-| `kubeControllerManagerConfig.horizontalPodAutoscalerControllerConfig.horizontalPodAutoscalerSyncPeriod` | `10s` to `15s`                    | `15s`                 |
-| `kubeControllerManagerConfig.podGcControllerConfig.terminatedPodGcThreshold`                            | `10000` to `12500`                | `12500`               |
-| `kubeApiServerConfig.eventTtl`                                                                          | `10m` to `60m`                    | `60m`                 |
-| `kubeApiServerConfig.serviceNodePortRange.minPort`                                                      | `10260` to `32767`                | `30000`               |
-| `kubeApiServerConfig.serviceNodePortRange.maxPort`                                                      | `10260` to `32767`                | `32767`               |
+
+| Component parameter | Supported values | Default | 
+| --- | --- | --- | 
+|  `kubeSchedulerConfig.nodeResourcesFit.scoringStrategy.type`  |  `LeastAllocated`, `MostAllocated`  |  `LeastAllocated`  | 
+|  `kubeSchedulerConfig.nodeResourcesFit.scoringStrategy.resources[].weight`  |  `1` to `100`  |  `cpu: 1`, `memory: 1`  | 
+|  `kubeControllerManagerConfig.horizontalPodAutoscalerControllerConfig.horizontalPodAutoscalerSyncPeriod`  |  `10s` to `15s`  |  `15s`  | 
+|  `kubeControllerManagerConfig.podGcControllerConfig.terminatedPodGcThreshold`  |  `10000` to `12500`  |  `12500`  | 
+|  `kubeApiServerConfig.eventTtl`  |  `10m` to `60m`  |  `60m`  | 
+|  `kubeApiServerConfig.serviceNodePortRange.minPort`  |  `10260` to `32767`  |  `30000`  | 
+|  `kubeApiServerConfig.serviceNodePortRange.maxPort`  |  `10260` to `32767`  |  `32767`  | 
 
 These values apply to the Kubernetes versions available at publication and can change in later versions. To retrieve the current values for a specific version, see the following section.
 
 ## Find the defaults and supported values for a Kubernetes version
+<a name="_find_the_defaults_and_supported_values_for_a_kubernetes_version"></a>
 
 The `DescribeClusterVersions` operation reports the default value and the supported values for every control plane parameter, for each Kubernetes version. Read the values from this operation rather than hardcoding them, particularly if you automate cluster configuration or manage clusters across several Kubernetes versions.
 
@@ -168,7 +173,7 @@ The response includes a `controlPlaneComponentConfig` object, organized by contr
 }
 ```
 
-The preceding response shows the version support dates, Provisioned Control Plane scaling tiers, and the control plane configuration fields. For more information, see [DescribeClusterVersions](../APIReference/API_DescribeClusterVersions.md "../APIReference/API_DescribeClusterVersions.md") in the _Amazon EKS API Reference_.
+The preceding response shows the version support dates, Provisioned Control Plane scaling tiers, and the control plane configuration fields. For more information, see [DescribeClusterVersions](https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeClusterVersions.html) in the *Amazon EKS API Reference*.
 
 To return only the configuration fields, use the `--query` option:
 
@@ -178,10 +183,12 @@ aws eks describe-cluster-versions --cluster-versions 1.35 \
 ```
 
 ## Control plane configuration — AWS CLI
+<a name="control_plane_configuration_shared_aws_cli"></a>
 
 Each control plane component has its own parameter: `--kube-scheduler-config`, `--kube-controller-manager-config`, and `--kube-api-server-config`. You only specify the components you want to customize. Each parameter accepts inline JSON.
 
 ### Create a cluster with control plane parameters
+<a name="_create_a_cluster_with_control_plane_parameters"></a>
 
 The following command creates a cluster that retains new Kubernetes events for 10 minutes instead of the default 60 minutes. Parameters you don’t specify use their default values.
 
@@ -231,6 +238,7 @@ Response:
 ```
 
 ### View the control plane configuration for a cluster
+<a name="_view_the_control_plane_configuration_for_a_cluster"></a>
 
 ```
 aws eks describe-cluster --name "$CLUSTER"
@@ -258,6 +266,7 @@ Response:
 ```
 
 ### Configure the scheduler scoring strategy
+<a name="_configure_the_scheduler_scoring_strategy"></a>
 
 By default, the scheduler uses the `LeastAllocated` strategy, which spreads pods across nodes. The following command changes it to `MostAllocated`, which prefers nodes that already have higher resource allocation and packs pods onto fewer nodes.
 
@@ -293,11 +302,12 @@ Response:
 }
 ```
 
-You can also specify a `resources` array to weight individual resources in the scoring calculation, which is useful when a specific resource is the constraint in your cluster. For more information, see [Advanced Kubernetes control plane configuration](control-plane-configuration.md "control-plane-configuration.md").
+You can also specify a `resources` array to weight individual resources in the scoring calculation, which is useful when a specific resource is the constraint in your cluster. For more information, see [Advanced Kubernetes control plane configuration](control-plane-configuration.md).
 
-The other control plane parameters follow the same pattern, each with its own component flag: `--kube-api-server-config` for `eventTtl` and `serviceNodePortRange`, and `--kube-controller-manager-config` for the Horizontal Pod Autoscaler sync period. For what each parameter does and what to consider before changing it, see [Advanced Kubernetes control plane configuration](control-plane-configuration.md "control-plane-configuration.md").
+The other control plane parameters follow the same pattern, each with its own component flag: `--kube-api-server-config` for `eventTtl` and `serviceNodePortRange`, and `--kube-controller-manager-config` for the Horizontal Pod Autoscaler sync period. For what each parameter does and what to consider before changing it, see [Advanced Kubernetes control plane configuration](control-plane-configuration.md).
 
 ### Update more than one component at a time
+<a name="_update_more_than_one_component_at_a_time"></a>
 
 You can specify multiple component parameters in a single call:
 
@@ -311,6 +321,7 @@ aws eks update-cluster-config \
 Updates merge with your existing configuration. Only the fields you specify change, and fields you omit keep their current values. The preceding command leaves your controller manager configuration unchanged.
 
 ### Monitor a control plane configuration update
+<a name="_monitor_a_control_plane_configuration_update"></a>
 
 A configuration change isn’t in effect when `update-cluster-config` returns. Amazon EKS applies the new configuration through a rolling update of your control plane, which takes several minutes. To block until the change completes:
 
@@ -346,20 +357,30 @@ aws eks describe-update --name "$CLUSTER" \
 The status changes from `InProgress` to `Successful` when the update completes, or to `Failed` if an error occurs. The `errors` field indicates the reason for a failure.
 
 ## Control plane configuration — AWS Management Console
+<a name="control_plane_configuration_shared_consolelong"></a>
 
 To configure advanced Kubernetes control plane parameters when you create a cluster:
 
-1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
-2. Choose **Create cluster**.
-3. Under _Configuration options_, select **Custom configuration**.
-4. Scroll down to **Control plane configuration**.
-5. Choose **Enable control plane configuration**.
-6. Set the parameters you want to configure. Parameters you leave unchanged use their default values.
-7. Select other cluster configuration options as needed. On the final step, choose **Create cluster**. It might take several minutes for cluster creation to complete.
+1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters).
+
+1. Choose **Create cluster**.
+
+1. Under *Configuration options*, select **Custom configuration**.
+
+1. Scroll down to **Control plane configuration**.
+
+1. Choose **Enable control plane configuration**.
+
+1. Set the parameters you want to configure. Parameters you leave unchanged use their default values.
+
+1. Select other cluster configuration options as needed. On the final step, choose **Create cluster**. It might take several minutes for cluster creation to complete.
 
 To configure advanced Kubernetes control plane parameters on an existing cluster:
 
-1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
-2. Choose the cluster you want to update.
-3. Choose the **Overview** tab, then scroll down to **Control plane configuration**.
-4. Choose **Manage**, and then select **Enable control plane configuration** to set the parameters you want to change. Then choose **Save changes**.
+1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters).
+
+1. Choose the cluster you want to update.
+
+1. Choose the **Overview** tab, then scroll down to **Control plane configuration**.
+
+1. Choose **Manage**, and then select **Enable control plane configuration** to set the parameters you want to change. Then choose **Save changes**.

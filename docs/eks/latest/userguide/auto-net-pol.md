@@ -1,143 +1,163 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Use Network Policies with EKS Auto Mode
+<a name="auto-net-pol"></a>
 
 ## Overview
+<a name="_overview"></a>
 
 As customers scale their application environments using EKS, network traffic isolation becomes increasingly fundamental for preventing unauthorized access to resources inside and outside the cluster. This is especially important in a multi-tenant environment with multiple unrelated workloads running side by side in the cluster. Kubernetes network policies enable you to enhance the network security posture for your Kubernetes workloads, and their integrations with cluster-external endpoints. EKS Auto Mode supports different types of network policies.
 
 ### Layer 3 and 4 isolation
+<a name="_layer_3_and_4_isolation"></a>
 
 Standard Kubernetes network policies operate at layers 3 and 4 of the OSI network model and allow you to control traffic flow at the IP address or port level within your Amazon EKS cluster.
 
 #### Use cases
-
-- Segment network traffic between workloads to ensure that only related applications can talk to each other.
-- Isolate tenants at the namespace level using policies to enforce network separation.
+<a name="_use_cases"></a>
++ Segment network traffic between workloads to ensure that only related applications can talk to each other.
++ Isolate tenants at the namespace level using policies to enforce network separation.
 
 ### DNS-based enforcement
+<a name="_dns_based_enforcement"></a>
 
 Customers typically deploy workloads in EKS that are part of a broader distributed environment, some of which have to communicate with systems and services outside the cluster (northbound traffic). These systems and services can be in the AWS cloud or outside AWS altogether. Domain Name System (DNS) based policies allow you to strengthen your security posture by adopting a more stable and predictable approach for preventing unauthorized access from pods to cluster-external resources or endpoints. This mechanism eliminates the need to manually track and allow list specific IP addresses. By securing resources with a DNS-based approach, you also have more flexibility to update external infrastructure without having to relax your security posture or modify network policies amid changes to upstream servers and hosts. You can filter egress traffic to external endpoints using either a Fully Qualified Domain Name (FQDN), or a matching pattern for a DNS domain name. This gives you the added flexibility of extending access to multiple subdomains associated with a particular cluster-external endpoint.
 
 #### Use cases
-
-- Standardize on a DNS-based approach for filtering access from a Kubernetes environment to cluster-external endpoints.
-- Secure access to AWS services in a multi-tenant environment.
-- Manage network access from pods to on-prem workloads in your Hybrid cloud environments.
+<a name="_use_cases_2"></a>
++ Standardize on a DNS-based approach for filtering access from a Kubernetes environment to cluster-external endpoints.
++ Secure access to AWS services in a multi-tenant environment.
++ Manage network access from pods to on-prem workloads in your Hybrid cloud environments.
 
 ### Admin (or cluster-scoped) rules
+<a name="_admin_or_cluster_scoped_rules"></a>
 
 In some cases, like multi-tenant scenarios, customers may have the requirement to enforce a network security standard that applies to the whole cluster. Instead of repetitively defining and maintaining a distinct policy for each namespace, you can use a single policy to centrally manage network access controls for different workloads in the cluster, irrespective of their namespace. These types of policies allow you to extend the scope of enforcement for your network filtering rules applied at layer 3, layer 4, and when using DNS rules.
 
 #### Use cases
-
-- Centrally manage network access controls for all (or a subset of) workloads in your EKS cluster.
-- Define a default network security posture across the cluster.
-- Extend organizational security standards to the scope of the cluster in a more operationally efficient way.
+<a name="_use_cases_3"></a>
++ Centrally manage network access controls for all (or a subset of) workloads in your EKS cluster.
++ Define a default network security posture across the cluster.
++ Extend organizational security standards to the scope of the cluster in a more operationally efficient way.
 
 ## Getting started
+<a name="_getting_started"></a>
 
 ### Prerequisites
-
-- An Amazon EKS cluster with EKS Auto Mode enabled
-- kubectl configured to connect to your cluster
+<a name="_prerequisites"></a>
++ An Amazon EKS cluster with EKS Auto Mode enabled
++ kubectl configured to connect to your cluster
 
 ### Step 1: Enable Network Policy Controller
+<a name="_step_1_enable_network_policy_controller"></a>
 
 To use network policies with EKS Auto Mode, you first need to enable the Network Policy Controller by applying a ConfigMap to your cluster.
 
 1. Create a file named `enable-network-policy.yaml` with the following content:
 
-```
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: amazon-vpc-cni
-  namespace: kube-system
-data:
-  enable-network-policy-controller: "true"
-```
+   ```
+   apiVersion: v1
+   kind: ConfigMap
+   metadata:
+     name: amazon-vpc-cni
+     namespace: kube-system
+   data:
+     enable-network-policy-controller: "true"
+   ```
 
-2. Apply the ConfigMap to your cluster:
+1. Apply the ConfigMap to your cluster:
 
-```
-kubectl apply -f enable-network-policy.yaml
-```
+   ```
+   kubectl apply -f enable-network-policy.yaml
+   ```
 
 ### Step 2: Create and test network policies
+<a name="_step_2_create_and_test_network_policies"></a>
 
-Your EKS Auto Mode cluster is now configured to support Kubernetes network policies. You can test this with the [Stars demo of network policy for Amazon EKS](network-policy-stars-demo.md "network-policy-stars-demo.md").
+Your EKS Auto Mode cluster is now configured to support Kubernetes network policies. You can test this with the [Stars demo of network policy for Amazon EKS](network-policy-stars-demo.md).
 
 ### Step 3: Adjust Network Policy Agent configuration in Node Class (Optional)
+<a name="_step_3_adjust_network_policy_agent_configuration_in_node_class_optional"></a>
 
 You can optionally create a new Node Class to change the default behavior of the Network Policy Agent on the nodes or enable the logging of Network Policy events. To do this, follow these steps:
 
 1. Create or edit a Node Class YAML file (e.g., `nodeclass-network-policy.yaml`) with the following content:
 
-```
-apiVersion: eks.amazonaws.com/v1
-kind: NodeClass
-metadata:
-  name: network-policy-config
-spec:
-  # Optional: Changes default network policy behavior
-  networkPolicy: DefaultAllow
-  # Optional: Enables logging for network policy events
-  networkPolicyEventLogs: Enabled
-  # Include other Node Class configurations as needed
-```
+   ```
+   apiVersion: eks.amazonaws.com/v1
+   kind: NodeClass
+   metadata:
+     name: network-policy-config
+   spec:
+     # Optional: Changes default network policy behavior
+     networkPolicy: DefaultAllow
+     # Optional: Enables logging for network policy events
+     networkPolicyEventLogs: Enabled
+     # Include other Node Class configurations as needed
+   ```
 
-2. Apply the Node Class configuration to your cluster:
+1. Apply the Node Class configuration to your cluster:
 
-```
-kubectl apply -f nodeclass-network-policy.yaml
-```
+   ```
+   kubectl apply -f nodeclass-network-policy.yaml
+   ```
 
-3. Verify that the Node Class has been created:
+1. Verify that the Node Class has been created:
 
-```
-kubectl get nodeclass network-policy-config
-```
+   ```
+   kubectl get nodeclass network-policy-config
+   ```
 
-4. Update your Node Pool to use this Node Class. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md "create-node-pool.md").
+1. Update your Node Pool to use this Node Class. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md).
 
 ## How does it work?
+<a name="_how_does_it_work"></a>
 
 ### DNS-based network policy
+<a name="_dns_based_network_policy"></a>
 
-![Illustration of workflow when a DNS-based policy is applied in EKS Auto](images/apply-dns-policy-1.png)
+![Illustration of workflow when a DNS-based policy is applied in EKS Auto](http://docs.aws.amazon.com/eks/latest/userguide/images/apply-dns-policy-1.png)
 
-![Illustration of workflow when a DNS-based policy is applied in EKS Auto](images/apply-dns-policy-2.png)
+
+![Illustration of workflow when a DNS-based policy is applied in EKS Auto](http://docs.aws.amazon.com/eks/latest/userguide/images/apply-dns-policy-2.png)
+
 
 1. The platform team applies a DNS-based policy to the EKS cluster.
-2. The Network Policy Controller is responsible for monitoring the creation of policies within the cluster and then reconciling policy endpoints. In this use case, the network policy controller instructs the node agent to filter DNS requests based on the allow-listed domains in the created policy. Domain names are allow-listed using the FQDN or a domain name that matches a pattern defined in the Kubernetes resource configuration.
-3. Workload A attempts to resolve the IP for a cluster-external endpoint. The DNS request first goes through a proxy that filters such requests based on the allow list applied through the network policy.
-4. After the DNS request goes through the DNS filter allow list, the proxy forwards it to CoreDNS,
-5. CoreDNS in turn sends the request to the External DNS Resolver (Amazon Route 53 Resolver) to get the list of IP addresses behind the domain name.
-6. The resolved IPs with TTL are returned in the response to the DNS request. These IPs are then written in an eBPF map which is used in the next step for IP layer enforcement.
-7. The eBPF probes attached to the Pod veth interface will then filter egress traffic from Workload A to the cluster-external endpoint based on the rules in place. This ensures pods can only send cluster-external traffic to the IPs of allow listed domains. The validity of these IPs is based on the TTL retrieved from the External DNS Resolver (Amazon Route 53 Resolver).
+
+1. The Network Policy Controller is responsible for monitoring the creation of policies within the cluster and then reconciling policy endpoints. In this use case, the network policy controller instructs the node agent to filter DNS requests based on the allow-listed domains in the created policy. Domain names are allow-listed using the FQDN or a domain name that matches a pattern defined in the Kubernetes resource configuration.
+
+1. Workload A attempts to resolve the IP for a cluster-external endpoint. The DNS request first goes through a proxy that filters such requests based on the allow list applied through the network policy.
+
+1. After the DNS request goes through the DNS filter allow list, the proxy forwards it to CoreDNS,
+
+1. CoreDNS in turn sends the request to the External DNS Resolver (Amazon Route 53 Resolver) to get the list of IP addresses behind the domain name.
+
+1. The resolved IPs with TTL are returned in the response to the DNS request. These IPs are then written in an eBPF map which is used in the next step for IP layer enforcement.
+
+1. The eBPF probes attached to the Pod veth interface will then filter egress traffic from Workload A to the cluster-external endpoint based on the rules in place. This ensures pods can only send cluster-external traffic to the IPs of allow listed domains. The validity of these IPs is based on the TTL retrieved from the External DNS Resolver (Amazon Route 53 Resolver).
 
 #### Using the Application Network Policy
+<a name="_using_the_application_network_policy"></a>
 
 The `ApplicationNetworkPolicy` combines the capabilities of standard Kubernetes network policies with DNS based filtering at a namespace level using a single Custom Resource Definition (CRD). Therefore, the `ApplicationNetworkPolicy` can be used for:
 
 1. Defining restrictions at layers 3 and 4 of the network stack using IP blocks and port numbers.
-2. Defining rules that operate at layer 7 of the network stack and letting you filter traffic based on FQDNs.
 
-###### Important
+1. Defining rules that operate at layer 7 of the network stack and letting you filter traffic based on FQDNs.
 
-DNS based rules defined using the `ApplicationNetworkPolicy` are only applicable to workloads running in EKS Auto Mode-launched EC2 instances.
-`ApplicationNetworkPolicy` supports all fields of the standard Kubernetes `NetworkPolicy`, with an additional FQDN filter for egress rules.
+**Important**  
+DNS based rules defined using the `ApplicationNetworkPolicy` are only applicable to workloads running in EKS Auto Mode-launched EC2 instances. `ApplicationNetworkPolicy` supports all fields of the standard Kubernetes `NetworkPolicy`, with an additional FQDN filter for egress rules.
 
-###### Warning
-
-Do not use the same name for an `ApplicationNetworkPolicy` and a `NetworkPolicy` within the same namespace. If the names collide, the resulting `PolicyEndpoints` objects may not reflect either policy correctly. Both resources are accepted without error, making this issue difficult to diagnose.
-
+**Warning**  
+Do not use the same name for an `ApplicationNetworkPolicy` and a `NetworkPolicy` within the same namespace. If the names collide, the resulting `PolicyEndpoints` objects may not reflect either policy correctly. Both resources are accepted without error, making this issue difficult to diagnose.  
 To resolve a naming conflict, rename either the `ApplicationNetworkPolicy` or the `NetworkPolicy` so they are unique within the namespace, then verify that the corresponding `PolicyEndpoints` objects are updated correctly.
 
 #### Example
+<a name="_example"></a>
 
 You have a workload in your EKS Auto Mode cluster that needs to communicate with an application on-prem which is behind a load balancer with a DNS name. You could achieve this using the following network policy:
 
@@ -171,40 +191,45 @@ spec:
 
 At the Kubernetes network level, this would allow egress from any pods in the "galaxy" namespace labelled with `role: backend` to connect to the domain name **myapp.mydomain.com** on TCP port 8080 and to CoreDNS on port 53. In addition, you would need to set up the network connectivity for egress traffic from your VPC to your corporate data center.
 
-![Illustration of workload in EKS Auto communicating with applications on prem](images/eks-auto-to-on-prem.png)
+![Illustration of workload in EKS Auto communicating with applications on prem](http://docs.aws.amazon.com/eks/latest/userguide/images/eks-auto-to-on-prem.png)
+
 
 ### Determining the CoreDNS IP address
+<a name="_determining_the_coredns_ip_address"></a>
 
 For your application to resolve DNS, it must be allowed to communicate with CoreDNS, which runs locally on each EKS Auto Mode instance. The CoreDNS IP address is derived from the Service CIDR range configured for the cluster, and it remains fixed for the lifetime of the cluster. You can therefore determine it once and reference it directly in your network policies.
 
 1. Retrieve the Service CIDR for your cluster.
 
-For IPv4 clusters:
+   For IPv4 clusters:
 
-```
-aws eks describe-cluster --name my-cluster --query 'cluster.kubernetesNetworkConfig.serviceIpv4Cidr' --output text
-```
+   ```
+   aws eks describe-cluster --name my-cluster --query 'cluster.kubernetesNetworkConfig.serviceIpv4Cidr' --output text
+   ```
 
-For IPv6 clusters:
+   For IPv6 clusters:
 
-```
-aws eks describe-cluster --name my-cluster --query 'cluster.kubernetesNetworkConfig.serviceIpv6Cidr' --output text
-```
+   ```
+   aws eks describe-cluster --name my-cluster --query 'cluster.kubernetesNetworkConfig.serviceIpv6Cidr' --output text
+   ```
 
-2. Derive the CoreDNS IP address from the Service CIDR:
-
-   - **IPv4** — use the `.10` address of the CIDR. For example, `10.100.0.0/16` becomes `10.100.0.10/32`.
-   - **IPv6** — append `a` to the network address. For example, `fd12:3456:789a::/108` becomes `fd12:3456:789a::a/128`.
+1. Derive the CoreDNS IP address from the Service CIDR:
+   +  **IPv4** — use the `.10` address of the CIDR. For example, `10.100.0.0/16` becomes `10.100.0.10/32`.
+   +  **IPv6** — append `a` to the network address. For example, `fd12:3456:789a::/108` becomes `fd12:3456:789a::a/128`.
 
 ### Admin (or cluster) network policy
+<a name="_admin_or_cluster_network_policy"></a>
 
-![Illustration of the evaluation order for network policies in EKS](images/evaluation-order.png)
+![Illustration of the evaluation order for network policies in EKS](http://docs.aws.amazon.com/eks/latest/userguide/images/evaluation-order.png)
+
 
 #### Using the Cluster Network Policy
+<a name="_using_the_cluster_network_policy"></a>
 
 When using a `ClusterNetworkPolicy`, the Admin tier policies are evaluated first and cannot be overridden. When the Admin tier policies have been evaluated, the standard namespace scoped policies are used to execute the applied network segmentation rules. This can be accomplished by using either `ApplicationNetworkPolicy` or `NetworkPolicy`. Lastly, the Baseline tier rules that define the default network restrictions for cluster workloads will be enforced. These Baseline tier rules **can** be overridden by the namespace scoped policies if needed.
 
 #### Example
+<a name="_example_2"></a>
 
 You have an application in your cluster that you want to isolate from other tenant workloads. You can explicitly block cluster traffic from other namespaces to prevent network access to the sensitive workload namespace.
 
@@ -229,37 +254,41 @@ spec:
 ```
 
 ## Considerations
+<a name="_considerations"></a>
 
 ### Understand policy evaluation order
+<a name="_understand_policy_evaluation_order"></a>
 
 The network policy capabilities supported in EKS are evaluated in a specific order to ensure predictable and secure traffic management. Therefore, it’s important to understand the evaluation flow to design an effective network security posture for your environment.
 
-1. **Admin tier policies (evaluated first)**: All Admin tier ClusterNetworkPolicies are evaluated before any other policies. Within the Admin tier, policies are processed in priority order (lowest priority number first). The action type determines what happens next.
+1.  **Admin tier policies (evaluated first)**: All Admin tier ClusterNetworkPolicies are evaluated before any other policies. Within the Admin tier, policies are processed in priority order (lowest priority number first). The action type determines what happens next.
+   +  **Deny action (highest precedence)**: When an Admin policy with a Deny action matches traffic, that traffic is immediately blocked regardless of any other policies. No further ClusterNetworkPolicy or NetworkPolicy rules are processed. This ensures that organization-wide security controls cannot be overridden by namespace-level policies.
+   +  **Allow action**: After Deny rules are evaluated, Admin policies with Allow actions are processed in priority order (lowest priority number first). When an Allow action matches, the traffic is accepted and no further policy evaluation occurs. These policies can grant access across multiple namespaces based on label selectors, providing centralized control over which workloads can access specific resources.
+   +  **Pass action**: Pass actions in Admin tier policies delegate decision-making to lower tiers. When traffic matches a Pass rule, evaluation skips all remaining Admin tier rules for that traffic and proceeds directly to the NetworkPolicy tier. This allows administrators to explicitly delegate control for certain traffic patterns to application teams. For example, you might use Pass rules to delegate intra-namespace traffic management to namespace administrators while maintaining strict controls over external access.
 
-   - **Deny action (highest precedence)**: When an Admin policy with a Deny action matches traffic, that traffic is immediately blocked regardless of any other policies. No further ClusterNetworkPolicy or NetworkPolicy rules are processed. This ensures that organization-wide security controls cannot be overridden by namespace-level policies.
-   - **Allow action**: After Deny rules are evaluated, Admin policies with Allow actions are processed in priority order (lowest priority number first). When an Allow action matches, the traffic is accepted and no further policy evaluation occurs. These policies can grant access across multiple namespaces based on label selectors, providing centralized control over which workloads can access specific resources.
-   - **Pass action**: Pass actions in Admin tier policies delegate decision-making to lower tiers. When traffic matches a Pass rule, evaluation skips all remaining Admin tier rules for that traffic and proceeds directly to the NetworkPolicy tier. This allows administrators to explicitly delegate control for certain traffic patterns to application teams. For example, you might use Pass rules to delegate intra-namespace traffic management to namespace administrators while maintaining strict controls over external access.
+1.  **Network policy tier**: If no Admin tier policy matches with Deny or Allow, or if a Pass action was matched, namespace-scoped ApplicationNetworkPolicy and traditional NetworkPolicy resources are evaluated next. These policies provide fine-grained control within individual namespaces and are managed by application teams. Namespace-scoped policies can only be more restrictive than Admin policies. They cannot override an Admin policy’s Deny decision, but they can further restrict traffic that was allowed or passed by Admin policies.
 
-2. **Network policy tier**: If no Admin tier policy matches with Deny or Allow, or if a Pass action was matched, namespace-scoped ApplicationNetworkPolicy and traditional NetworkPolicy resources are evaluated next. These policies provide fine-grained control within individual namespaces and are managed by application teams. Namespace-scoped policies can only be more restrictive than Admin policies. They cannot override an Admin policy’s Deny decision, but they can further restrict traffic that was allowed or passed by Admin policies.
-3. **Baseline tier Admin policies**: If no Admin or namespace-scoped policies match the traffic, Baseline tier ClusterNetworkPolicies are evaluated. These provide default security postures that can be overridden by namespace-scoped policies, allowing administrators to set organization-wide defaults while giving teams flexibility to customize as needed. Baseline policies are evaluated in priority order (lowest priority number first).
-4. **Default deny (if no policies match)**: This deny-by-default behavior ensures that only explicitly permitted connections are allowed, maintaining a strong security posture.
+1.  **Baseline tier Admin policies**: If no Admin or namespace-scoped policies match the traffic, Baseline tier ClusterNetworkPolicies are evaluated. These provide default security postures that can be overridden by namespace-scoped policies, allowing administrators to set organization-wide defaults while giving teams flexibility to customize as needed. Baseline policies are evaluated in priority order (lowest priority number first).
+
+1.  **Default deny (if no policies match)**: This deny-by-default behavior ensures that only explicitly permitted connections are allowed, maintaining a strong security posture.
 
 ### Applying the principle of least privilege
-
-- **Start with restrictive policies and gradually add permissions as needed** - Begin by implementing deny-by-default policies at the cluster level, then incrementally add allow rules as you validate legitimate connectivity requirements. This approach forces teams to explicitly justify each external connection, creating a more secure and auditable environment.
-- **Regularly audit and remove unused policy rules** - Network policies can accumulate over time as applications evolve, leaving behind obsolete rules that unnecessarily expand your attack surface. Implement a regular review process to identify and remove policy rules that are no longer needed, ensuring your security posture remains tight and maintainable.
-- **Use specific domain names rather than broad patterns when possible** - While wildcard patterns like `*.amazonaws.com` provide convenience, they also grant access to a wide range of services. Whenever feasible, specify exact domain names like `s3.us-west-2.amazonaws.com` to limit access to only the specific services your applications require, reducing the risk of lateral movement if a workload is compromised.
+<a name="_applying_the_principle_of_least_privilege"></a>
++  **Start with restrictive policies and gradually add permissions as needed** - Begin by implementing deny-by-default policies at the cluster level, then incrementally add allow rules as you validate legitimate connectivity requirements. This approach forces teams to explicitly justify each external connection, creating a more secure and auditable environment.
++  **Regularly audit and remove unused policy rules** - Network policies can accumulate over time as applications evolve, leaving behind obsolete rules that unnecessarily expand your attack surface. Implement a regular review process to identify and remove policy rules that are no longer needed, ensuring your security posture remains tight and maintainable.
++  **Use specific domain names rather than broad patterns when possible** - While wildcard patterns like `*.amazonaws.com` provide convenience, they also grant access to a wide range of services. Whenever feasible, specify exact domain names like `s3.us-west-2.amazonaws.com` to limit access to only the specific services your applications require, reducing the risk of lateral movement if a workload is compromised.
 
 ### Using DNS-based policies in EKS
-
-- DNS based rules defined using the `ApplicationNetworkPolicy` are only applicable to workloads running in EKS Auto Mode-launched EC2 instances. If you are running a mixed mode cluster (consisting of both EKS Auto and non EKS Auto worker nodes), your DNS-based rules are only effective in the EKS Auto mode worker nodes (EC2 managed instances).
+<a name="_using_dns_based_policies_in_eks"></a>
++ DNS based rules defined using the `ApplicationNetworkPolicy` are only applicable to workloads running in EKS Auto Mode-launched EC2 instances. If you are running a mixed mode cluster (consisting of both EKS Auto and non EKS Auto worker nodes), your DNS-based rules are only effective in the EKS Auto mode worker nodes (EC2 managed instances).
 
 ### Validating your DNS policies
-
-- **Use staging clusters that mirror production network topology for testing** - Your staging environment should replicate the network architecture, external dependencies, and connectivity patterns of production to ensure accurate policy testing. This includes matching VPC configurations, DNS resolution behavior, and access to the same external services your production workloads require.
-- **Implement automated testing for critical network paths** - Build automated tests that validate connectivity to essential external services as part of your CI/CD pipeline. These tests should verify that legitimate traffic flows are permitted while unauthorized connections are blocked, providing continuous validation that your network policies maintain the correct security posture as your infrastructure evolves.
-- **Monitor application behavior after policy changes** - After deploying new or modified network policies to production, closely monitor application logs, error rates, and performance metrics to quickly identify any connectivity issues. Establish clear rollback procedures so you can rapidly revert policy changes if they cause unexpected application behavior or service disruptions.
+<a name="_validating_your_dns_policies"></a>
++  **Use staging clusters that mirror production network topology for testing** - Your staging environment should replicate the network architecture, external dependencies, and connectivity patterns of production to ensure accurate policy testing. This includes matching VPC configurations, DNS resolution behavior, and access to the same external services your production workloads require.
++  **Implement automated testing for critical network paths** - Build automated tests that validate connectivity to essential external services as part of your CI/CD pipeline. These tests should verify that legitimate traffic flows are permitted while unauthorized connections are blocked, providing continuous validation that your network policies maintain the correct security posture as your infrastructure evolves.
++  **Monitor application behavior after policy changes** - After deploying new or modified network policies to production, closely monitor application logs, error rates, and performance metrics to quickly identify any connectivity issues. Establish clear rollback procedures so you can rapidly revert policy changes if they cause unexpected application behavior or service disruptions.
 
 ### Interaction with Amazon Route 53 DNS firewall
+<a name="_interaction_with_amazon_route_53_dns_firewall"></a>
 
 EKS Admin and Network policies are evaluated first at the pod level when traffic is initiated. If an EKS network policy allows egress to a specific domain, the pod then performs a DNS query that reaches the Route 53 Resolver. At this point, Route 53 DNS Firewall rules are evaluated. If DNS Firewall blocks the domain query, DNS resolution fails and the connection cannot be established, even though the EKS network policy allowed it. This creates complementary security layers: EKS DNS-based network policies provide pod-level egress control for application-specific access requirements and multi-tenant security boundaries, while DNS Firewall provides VPC-wide protection against known malicious domains and enforces organization-wide blocklists.

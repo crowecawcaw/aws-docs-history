@@ -1,29 +1,33 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Getting started with the Amazon EKS Provisioned Control Plane
+<a name="eks-provisioned-control-plane-getting-started"></a>
 
 This guide walks you through the steps to set up and use EKS Provisioned Control Plane using AWS CLI and AWS Management Console.
 
 ## Prerequisites
+<a name="_prerequisites"></a>
 
 Before you begin, ensure you have:
++  ** AWS CLI** – A command line tool for working with AWS services, including Amazon EKS. For more information, see [Installing](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) in the * AWS Command Line Interface User Guide*. After installing the AWS CLI, we recommend that you also configure it. For more information, see [Quick configuration with aws configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config) in the * AWS Command Line Interface User Guide*. Note that AWS CLI v2 is required to use the **update-kubeconfig** option shown in this page.
++  **Required IAM permissions** – The IAM security principal that you’re using must have permissions to work with Amazon EKS IAM roles, service linked roles, AWS CloudFormation, a VPC, and related resources. For more information, see [Actions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelastickubernetesservice.html) and [Using service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) in the *IAM User Guide*. You must complete all steps in this guide as the same user. To check the current user, run the following command:
 
-- **AWS CLI** – A command line tool for working with AWS services, including Amazon EKS. For more information, see [Installing](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md") in the _AWS Command Line Interface User Guide_. After installing the AWS CLI, we recommend that you also configure it. For more information, see [Quick configuration with aws configure](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config") in the _AWS Command Line Interface User Guide_. Note that AWS CLI v2 is required to use the **update-kubeconfig** option shown in this page.
-- **Required IAM permissions** – The IAM security principal that you’re using must have permissions to work with Amazon EKS IAM roles, service linked roles, AWS CloudFormation, a VPC, and related resources. For more information, see [Actions](../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md "../../../service-authorization/latest/reference/list_amazonelastickubernetesservice.md") and [Using service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") in the _IAM User Guide_. You must complete all steps in this guide as the same user. To check the current user, run the following command:
+  ```
+  aws sts get-caller-identity
+  ```
 
-```
-aws sts get-caller-identity
-```
-
-###### Note
-
-We recommend that you complete the steps in this topic in a Bash shell. If you aren’t using a Bash shell, some script commands such as line continuation characters and the way variables are set and used require adjustment for your shell. Additionally, the quoting and escaping rules for your shell might be different. For more information, see [Using quotation marks with strings in the AWS CLI](../../../cli/latest/userguide/cli-usage-parameters-quoting-strings.md "../../../cli/latest/userguide/cli-usage-parameters-quoting-strings.md") in the _AWS Command Line Interface User Guide_.
+**Note**  
+We recommend that you complete the steps in this topic in a Bash shell. If you aren’t using a Bash shell, some script commands such as line continuation characters and the way variables are set and used require adjustment for your shell. Additionally, the quoting and escaping rules for your shell might be different. For more information, see [Using quotation marks with strings in the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html) in the * AWS Command Line Interface User Guide*.
 
 ## EKS Provisioned Control Plane - AWS CLI
+<a name="eks_provisioned_control_plane_shared_aws_cli"></a>
 
 ### Create cluster with EKS Provisioned Control Plane Scaling Tier
+<a name="_create_cluster_with_eks_provisioned_control_plane_scaling_tier"></a>
 
 ```
 aws eks create-cluster --name prod-cluster \
@@ -118,6 +122,7 @@ Response:
 ```
 
 ### View cluster’s Control Plane Scaling Tier
+<a name="_view_clusters_control_plane_scaling_tier"></a>
 
 ```
 aws eks describe-cluster --name prod-cluster
@@ -209,6 +214,7 @@ Response:
 ```
 
 ### Update cluster to use EKS Provisioned Control Plane
+<a name="_update_cluster_to_use_eks_provisioned_control_plane"></a>
 
 ```
 aws eks update-cluster-config --name prod-cluster \
@@ -240,6 +246,7 @@ Response:
 ```
 
 ### View Control Plane Scaling update
+<a name="_view_control_plane_scaling_update"></a>
 
 ```
 aws eks list-updates --name example
@@ -256,6 +263,7 @@ Response:
 ```
 
 ### Exit Provisioned Control Plane to Standard Control Plane
+<a name="_exit_provisioned_control_plane_to_standard_control_plane"></a>
 
 ```
 aws eks update-cluster-config --name prod-cluster \
@@ -287,10 +295,16 @@ Response:
 ```
 
 ## EKS Provisioned Control Plane - AWS Management Console
+<a name="eks_provisioned_control_plane_shared_consolelong"></a>
 
-1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
-2. Choose **Create cluster**.
-3. Under _Configuration options_, select **Custom configuration**.
-4. Scroll down to **Control plane scaling tier**. Select **Use a scaling tier** to enable Provisioned Control Plane.
-5. Select the control plane scaling tier that you would like to provision for the cluster from various scaling tier options such as XL, 2XL, 4XL, and 8XL.
-6. Select other cluster configuration options as needed. On the final step select **Create cluster**. Note it may take several minutes for cluster creation to complete.
+1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters).
+
+1. Choose **Create cluster**.
+
+1. Under *Configuration options*, select **Custom configuration**.
+
+1. Scroll down to **Control plane scaling tier**. Select **Use a scaling tier** to enable Provisioned Control Plane.
+
+1. Select the control plane scaling tier that you would like to provision for the cluster from various scaling tier options such as XL, 2XL, 4XL, and 8XL.
+
+1. Select other cluster configuration options as needed. On the final step select **Create cluster**. Note it may take several minutes for cluster creation to complete.

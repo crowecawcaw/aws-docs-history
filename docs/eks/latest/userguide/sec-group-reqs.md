@@ -1,39 +1,43 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # View Amazon EKS security group requirements for clusters
+<a name="sec-group-reqs"></a>
 
 This topic describes the security group requirements of an Amazon EKS cluster.
 
 ## Default cluster security group
+<a name="security-group-default-rules"></a>
 
-When you create a cluster, Amazon EKS creates a security group that’s named `eks-cluster-sg-`my-cluster`-`uniqueID``. This security group has the following default rules:
+When you create a cluster, Amazon EKS creates a security group that’s named `eks-cluster-sg-{{my-cluster}}-{{uniqueID}} `. This security group has the following default rules:
 
-| Rule type | Protocol | Ports | Source | Destination                        |
-| --------- | -------- | ----- | ------ | ---------------------------------- |
-| Inbound   | All      | All   | Self   |                                    |
-| Outbound  | All      | All   |        | 0.0.0.0/0(`IPv4`) or ::/0 (`IPv6`) |
-| Outbound  | All      | All   |        | Self (for EFA traffic)             |
 
-The default security group includes an outbound rule that allows Elastic Fabric Adapter (EFA) traffic with the destination of the same security group. This enables EFA traffic within the cluster, which is beneficial for AI/ML and High Performance Computing (HPC) workloads. For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](../../../AWSEC2/latest/UserGuide/efa.md "../../../AWSEC2/latest/UserGuide/efa.md") in the _Amazon Elastic Compute Cloud User Guide_.
+| Rule type | Protocol | Ports | Source | Destination | 
+| --- | --- | --- | --- | --- | 
+| Inbound | All | All | Self |  | 
+| Outbound | All | All |  | 0.0.0.0/0(`IPv4`) or ::/0 (`IPv6`) | 
+| Outbound | All | All |  | Self (for EFA traffic) | 
 
-###### Important
+The default security group includes an outbound rule that allows Elastic Fabric Adapter (EFA) traffic with the destination of the same security group. This enables EFA traffic within the cluster, which is beneficial for AI/ML and High Performance Computing (HPC) workloads. For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon Elastic Compute Cloud User Guide*.
 
-If your cluster doesn’t need the outbound rule to `0.0.0.0/0` (IPv4), `::/0` (IPv6), you can remove it. If you remove it, you must still have the minimum rules listed in [Restricting cluster traffic](#security-group-restricting-cluster-traffic "#security-group-restricting-cluster-traffic"). If you remove the inbound or outbound rules that allow traffic to/from the cluster security group itself, Amazon EKS recreates it whenever the cluster is updated.
+**Important**  
+If your cluster doesn’t need the outbound rule to `0.0.0.0/0` (IPv4), `::/0` (IPv6), you can remove it. If you remove it, you must still have the minimum rules listed in [Restricting cluster traffic](#security-group-restricting-cluster-traffic). If you remove the inbound or outbound rules that allow traffic to/from the cluster security group itself, Amazon EKS recreates it whenever the cluster is updated.
 
 Amazon EKS adds the following tags to the security group. If you remove the tags, Amazon EKS adds them back to the security group whenever your cluster is updated.
 
-| Key                                  | Value                                    |
-| ------------------------------------ | ---------------------------------------- |
-| `kubernetes.io/cluster/`my-cluster`` | `owned`                                  |
-| `aws:eks:cluster-name`               | `my-cluster`                             |
-| `Name`                               | `eks-cluster-sg-`my-cluster`-`uniqueid`` |
+
+| Key | Value | 
+| --- | --- | 
+|  `kubernetes.io/cluster/{{my-cluster}} `  |  `owned`  | 
+|  `aws:eks:cluster-name`  |  {{my-cluster}}  | 
+|  `Name`  |  `eks-cluster-sg-{{my-cluster}}-{{uniqueid}} `  | 
 
 Amazon EKS automatically associates this security group to the following resources that it also creates:
-
-- 2–4 elastic network interfaces (referred to for the rest of this document as _network interface_) that are created when you create your cluster.
-- Network interfaces of the nodes in any managed node group that you create.
++ 2–4 elastic network interfaces (referred to for the rest of this document as *network interface*) that are created when you create your cluster.
++ Network interfaces of the nodes in any managed node group that you create.
 
 The default rules allow all traffic to flow freely between your cluster and nodes, and allows all outbound traffic to any destination. When you create a cluster, you can (optionally) specify your own security groups. If you do, then Amazon EKS also associates the security groups that you specify to the network interfaces that it creates for your cluster. However, it doesn’t associate them to any node groups that you create.
 
@@ -44,49 +48,45 @@ aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.cl
 ```
 
 ## Restricting cluster traffic
+<a name="security-group-restricting-cluster-traffic"></a>
 
-If you need to limit the open ports between the EKS control plane and nodes, you can remove the [default outbound rule](#security-group-default-rules "#security-group-default-rules") to `0.0.0.0/0` (IPv4)/`::/0` (IPv6) and add the following minimum rules that are required for the cluster.
+If you need to limit the open ports between the EKS control plane and nodes, you can remove the [default outbound rule](#security-group-default-rules) to `0.0.0.0/0` (IPv4)/`::/0` (IPv6) and add the following minimum rules that are required for the cluster.
 
-If you remove the [default inbound rule](#security-group-default-rules "#security-group-default-rules") that allows all traffic for source self (traffic from the cluster security group), Amazon EKS recreates it when the cluster is updated.
+If you remove the [default inbound rule](#security-group-default-rules) that allows all traffic for source self (traffic from the cluster security group), Amazon EKS recreates it when the cluster is updated.
 
-If you remove the [default outbound rule](#security-group-default-rules "#security-group-default-rules") that allows all traffic for destination self (traffic to the cluster security group), Amazon EKS recreates it when the cluster is updated.
+If you remove the [default outbound rule](#security-group-default-rules) that allows all traffic for destination self (traffic to the cluster security group), Amazon EKS recreates it when the cluster is updated.
 
-| Rule type      | Protocol    | Port  | Destination            |
-| -------------- | ----------- | ----- | ---------------------- |
-| Outbound       | TCP         | 443   | Cluster security group |
-| Outbound       | TCP         | 10250 | Cluster security group |
-| Outbound (DNS) | TCP and UDP | 53    | Cluster security group |
+
+| Rule type | Protocol | Port | Destination | 
+| --- | --- | --- | --- | 
+| Outbound | TCP | 443 | Cluster security group | 
+| Outbound | TCP | 10250 | Cluster security group | 
+| Outbound (DNS) | TCP and UDP | 53 | Cluster security group | 
 
 You must also add rules for the following traffic:
-
-- Any protocol and ports that you expect your nodes to use for inter-node communication.
-- Outbound internet access so that nodes can access the Amazon EKS APIs for cluster introspection and node registration at launch time. If your nodes don’t have internet access, review [Deploy private clusters with limited internet access](private-clusters.md "private-clusters.md") for additional considerations.
-- Node access to pull container images from Amazon ECR or other container registries APIs that they need to pull images from, such as DockerHub. For more information, see [AWS IP address ranges](../../../general/latest/gr/aws-ip-ranges.md "../../../general/latest/gr/aws-ip-ranges.md") in the AWS General Reference.
-- Node access to Amazon S3.
-- Separate rules are required for `IPv4` and `IPv6` addresses.
-- If you are using hybrid nodes, you must add an additional security group to your cluster to allow communication with your on-premises nodes and pods. For more information, see [Prepare networking for hybrid nodes](hybrid-nodes-networking.md "hybrid-nodes-networking.md").
++ Any protocol and ports that you expect your nodes to use for inter-node communication.
++ Outbound internet access so that nodes can access the Amazon EKS APIs for cluster introspection and node registration at launch time. If your nodes don’t have internet access, review [Deploy private clusters with limited internet access](private-clusters.md) for additional considerations.
++ Node access to pull container images from Amazon ECR or other container registries APIs that they need to pull images from, such as DockerHub. For more information, see [AWS IP address ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) in the AWS General Reference.
++ Node access to Amazon S3.
++ Separate rules are required for `IPv4` and `IPv6` addresses.
++ If you are using hybrid nodes, you must add an additional security group to your cluster to allow communication with your on-premises nodes and pods. For more information, see [Prepare networking for hybrid nodes](hybrid-nodes-networking.md).
 
 If you’re considering limiting the rules, we recommend that you thoroughly test all of your Pods before you apply your changed rules to a production cluster.
 
 If you originally deployed a cluster with Kubernetes `1.14` and a platform version of `eks.3` or earlier, then consider the following:
-
-- You might also have control plane and node security groups. When these groups were created, they included the restricted rules listed in the previous table. These security groups are no longer required and can be removed. However, you need to make sure your cluster security group contains the rules that those groups contain.
-- If you deployed the cluster using the API directly or you used a tool such as the AWS CLI or AWS CloudFormation to create the cluster and you didn’t specify a security group at cluster creation, then the default security group for the VPC was applied to the cluster network interfaces that Amazon EKS created.
++ You might also have control plane and node security groups. When these groups were created, they included the restricted rules listed in the previous table. These security groups are no longer required and can be removed. However, you need to make sure your cluster security group contains the rules that those groups contain.
++ If you deployed the cluster using the API directly or you used a tool such as the AWS CLI or AWS CloudFormation to create the cluster and you didn’t specify a security group at cluster creation, then the default security group for the VPC was applied to the cluster network interfaces that Amazon EKS created.
 
 ## Shared security groups
+<a name="_shared_security_groups"></a>
 
 Amazon EKS supports shared security groups.
-
-- **Security Group VPC Associations** associate security groups with multiple VPCs in the same account and region.
-
-  - Learn how to [Associate security groups with multiple VPCs](../../../vpc/latest/userguide/security-group-assoc.md "../../../vpc/latest/userguide/security-group-assoc.md") in the _Amazon VPC User Guide_.
-
-- **Shared security groups** enable you to share security groups with other AWS accounts. The accounts must be in the same AWS organization.
-
-  - Learn how to [Share security groups with organizations](../../../vpc/latest/userguide/security-group-sharing.md "../../../vpc/latest/userguide/security-group-sharing.md") in the _Amazon VPC User Guide_.
-
-- Security groups are always limited to a single AWS region.
++  **Security Group VPC Associations** associate security groups with multiple VPCs in the same account and region.
+  + Learn how to [Associate security groups with multiple VPCs](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-assoc.html) in the *Amazon VPC User Guide*.
++  **Shared security groups** enable you to share security groups with other AWS accounts. The accounts must be in the same AWS organization.
+  + Learn how to [Share security groups with organizations](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-sharing.html) in the *Amazon VPC User Guide*.
++ Security groups are always limited to a single AWS region.
 
 ### Considerations for Amazon EKS
-
-- EKS has the same requirements of shared or multi-VPC security groups as standard security groups.
+<a name="_considerations_for_amazon_eks"></a>
++ EKS has the same requirements of shared or multi-VPC security groups as standard security groups.

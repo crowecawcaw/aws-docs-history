@@ -1,24 +1,31 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create a Node Class for Amazon EKS
+<a name="create-node-class"></a>
 
 Amazon EKS Node Classes are templates that offer granular control over the configuration of your EKS Auto Mode managed nodes. A Node Class defines infrastructure-level settings that apply to groups of nodes in your EKS cluster, including network configuration, storage settings, and resource tagging. This topic explains how to create and configure a Node Class to meet your specific operational requirements.
 
 When you need to customize how EKS Auto Mode provisions and configures EC2 instances beyond the default settings, creating a Node Class gives you precise control over critical infrastructure parameters. For example, you can specify private subnet placement for enhanced security, configure instance ephemeral storage for performance-sensitive workloads, or apply custom tagging for cost allocation.
 
 ## Create a Node Class
+<a name="_create_a_node_class"></a>
 
 To create a `NodeClass`, follow these steps:
 
 1. Create a YAML file (for example, `nodeclass.yaml`) with your Node Class configuration
-2. Apply the configuration to your cluster using `kubectl`
-3. Reference the Node Class in your Node Pool configuration. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md "create-node-pool.md").
 
-You need `kubectl` installed and configured. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
+1. Apply the configuration to your cluster using `kubectl` 
+
+1. Reference the Node Class in your Node Pool configuration. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md).
+
+You need `kubectl` installed and configured. For more information, see [Set up to use Amazon EKS](setting-up.md).
 
 ### Basic Node Class Example
+<a name="_basic_node_class_example"></a>
 
 Here’s an example Node Class:
 
@@ -47,19 +54,21 @@ Apply this configuration by using:
 kubectl apply -f nodeclass.yaml
 ```
 
-Next, reference the Node Class in your Node Pool configuration. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md "create-node-pool.md").
+Next, reference the Node Class in your Node Pool configuration. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md).
 
 ## Create node class access entry
+<a name="auto-node-access-entry"></a>
 
 If you create a custom node class, you need to create an EKS Access Entry to permit the nodes to join the cluster. EKS automatically creates access entries when you use the built-in node class and node pools.
 
-For information about how Access Entries work, see [Grant IAM users access to Kubernetes with EKS access entries](access-entries.md "access-entries.md").
+For information about how Access Entries work, see [Grant IAM users access to Kubernetes with EKS access entries](access-entries.md).
 
 When creating access entries for EKS Auto Mode node classes, you need to use the `EC2` access entry type.
 
 ### Create access entry with CLI
+<a name="_create_access_entry_with_cli"></a>
 
-**To create an access entry for EC2 nodes and associate the EKS Auto Node Policy:**
+ **To create an access entry for EC2 nodes and associate the EKS Auto Node Policy:** 
 
 Update the following CLI commands with your cluster name, and node role ARN. The node role ARN is specified in the node class YAML.
 
@@ -79,8 +88,9 @@ aws eks associate-access-policy \
 ```
 
 ### Create access entry with CloudFormation
+<a name="_create_access_entry_with_cloudformation"></a>
 
-**To create an access entry for EC2 nodes and associate the EKS Auto Node Policy:**
+ **To create an access entry for EC2 nodes and associate the EKS Auto Node Policy:** 
 
 Update the following CloudFormation with your cluster name, and node role ARN. The node role ARN is specified in the node class YAML.
 
@@ -98,9 +108,10 @@ EKSAutoNodeRoleAccessEntry:
   DependsOn: [ <cluster-name> ] # previously defined in CloudFormation
 ```
 
-For information about deploying CloudFormation stacks, see [Getting started with CloudFormation](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.md")
+For information about deploying CloudFormation stacks, see [Getting started with CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/GettingStarted.html) 
 
 ## Node Class Specification
+<a name="auto-node-class-spec"></a>
 
 ```
 apiVersion: eks.amazonaws.com/v1
@@ -240,58 +251,58 @@ spec:
 ```
 
 ## Considerations
-
-- If you want to verify how much local storage an instance has, you can describe the node to see the ephemeral storage resource.
-- **Volume Encryption** - EKS uses the configured custom KMS key to encrypt the read-only root volume of the instance and the read/write data volume.
-- **Replace the node IAM role** - If you change the node IAM role associated with a `NodeClass`, you will need to create a new Access Entry. EKS automatically creates an Access Entry for the node IAM role during cluster creation. The node IAM role requires the `AmazonEKSAutoNodePolicy` EKS Access Policy. For more information, see [Grant IAM users access to Kubernetes with EKS access entries](access-entries.md "access-entries.md").
-- **maximum Pod density** - EKS limits the maximum number of Pods on a node to 110. This limit is applied after the existing max Pods calculation. For more information, see [Choose an optimal Amazon EC2 node instance type](choosing-instance-type.md "choosing-instance-type.md").
-- **Tags** - If you want to propagate tags from Kubernetes to EC2, you need to configure additional IAM permissions. For more information, see [Learn about identity and access in EKS Auto Mode](auto-learn-iam.md "auto-learn-iam.md").
-- **Default node class** - Do not name your custom node class `default`. This is because EKS Auto Mode includes a `NodeClass` called `default` that is automatically provisioned when you enable at least one built-in `NodePool`. For information about enabling built-in `NodePools`, see [Enable or Disable Built-in NodePools](set-builtin-node-pools.md "set-builtin-node-pools.md").
-- **`subnetSelectorTerms` behavior with multiple subnets** - If there are multiple subnets that match the `subnetSelectorTerms` conditions or that you provide by ID, EKS Auto Mode creates nodes distributed across the subnets.
-
-  - If the subnets are in different Availability Zones (AZs), you can use Kubernetes features like [Pod topology spread constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#pod-topology-spread-constraints "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#pod-topology-spread-constraints") and [Topology Aware Routing](https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/ "https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/") to spread Pods and traffic across the zones, respectively.
-  - If there are multiple subnets _in the same AZ_ that match the `subnetSelectorTerms`, EKS Auto Mode creates Pods on each node distributed across the subnets in that AZ. EKS Auto Mode creates secondary network interfaces on each node in the other subnets in the same AZ. It chooses based on the number of available IP addresses in each subnet, to use the subnets more efficiently. However, you can’t specify which subnet EKS Auto Mode uses for each Pod; if you need Pods to run in specific subnets, use [Separate subnets and security groups for Pods](#pod-subnet-selector "#pod-subnet-selector") instead.
-
-- **Placement group strategy restrictions** — Each placement group strategy (cluster, partition, spread) has specific limitations on instance types, AZs, and capacity. For details, see [Placement group strategies](../../../AWSEC2/latest/UserGuide/placement-strategies.md "../../../AWSEC2/latest/UserGuide/placement-strategies.md") in the Amazon EC2 User Guide.
-- **Spread placement group — 7-instance limit** — A rack-level spread placement group allows a maximum of 7 running instances per Availability Zone per group. This creates the following edge cases:
-
-  - **Drift replacement blocked at capacity** — EKS Auto Mode launches a replacement node before terminating the old one. When a spread PG has 7 instances in an AZ, the replacement launch fails and the drifted node remains running until a slot frees up.
-  - **All AZs at capacity** — If every AZ in the spread PG is at its 7-instance limit, no replacements can be scheduled. Drifted or consolidation-candidate nodes stay running indefinitely.
-  - **No fallback outside the placement group** — EKS Auto Mode does not attempt to launch replacement instances outside the placement group.
-  - **Workaround** — Use `WhenEmpty` consolidation policy (`consolidationPolicy: WhenEmpty`). Nodes are deleted only after all non-daemonset pods drain off, freeing a PG slot without needing a replacement launch first. Note that drift always uses replace-then-delete regardless of consolidation policy, so drift remains blocked at capacity.
-
-- **Cluster placement group AZ pinning** — Once the first instance launches into a cluster placement group, the PG is pinned to that AZ. If your NodePool allows multiple AZs, parallel launches during initial scale-up may race: one succeeds and pins the AZ, the rest fail with capacity errors. Pin the AZ in your NodePool requirements to avoid transient failures.
-- **Partition placement group** — Partition placement groups are supported with no additional constraints beyond the standard EC2 limits.
-- **Consolidation can move pods out of a placement group** — If a pod has no placement-group scheduling constraints (such as a `nodeSelector` on `eks.amazonaws.com/placement-group-id`), consolidation may move it to a node outside the PG. Applications that require placement group membership should express this via pod-level constraints.
-- **Nonexistent or deleted placement group** — If a `NodeClass` references a placement group that does not exist or has been deleted, no instances are launched. The placement group ID format is validated at admission, but existence is checked only at launch time. If a placement group is deleted while nodes are running, existing nodes are marked as drifted and remain running indefinitely because drift replacement launches are also blocked.
-- **Hugepages** — For information about configuring hugepages on nodes, see [Configure hugepages on nodes](#hugepages "#hugepages").
+<a name="_considerations"></a>
++ If you want to verify how much local storage an instance has, you can describe the node to see the ephemeral storage resource.
++  **Volume Encryption** - EKS uses the configured custom KMS key to encrypt the read-only root volume of the instance and the read/write data volume.
++  **Replace the node IAM role** - If you change the node IAM role associated with a `NodeClass`, you will need to create a new Access Entry. EKS automatically creates an Access Entry for the node IAM role during cluster creation. The node IAM role requires the `AmazonEKSAutoNodePolicy` EKS Access Policy. For more information, see [Grant IAM users access to Kubernetes with EKS access entries](access-entries.md).
++  **maximum Pod density** - EKS limits the maximum number of Pods on a node to 110. This limit is applied after the existing max Pods calculation. For more information, see [Choose an optimal Amazon EC2 node instance type](choosing-instance-type.md).
++  **Tags** - If you want to propagate tags from Kubernetes to EC2, you need to configure additional IAM permissions. For more information, see [Learn about identity and access in EKS Auto Mode](auto-learn-iam.md).
++  **Default node class** - Do not name your custom node class `default`. This is because EKS Auto Mode includes a `NodeClass` called `default` that is automatically provisioned when you enable at least one built-in `NodePool`. For information about enabling built-in `NodePools`, see [Enable or Disable Built-in NodePools](set-builtin-node-pools.md).
++  ** `subnetSelectorTerms` behavior with multiple subnets** - If there are multiple subnets that match the `subnetSelectorTerms` conditions or that you provide by ID, EKS Auto Mode creates nodes distributed across the subnets.
+  + If the subnets are in different Availability Zones (AZs), you can use Kubernetes features like [Pod topology spread constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#pod-topology-spread-constraints) and [Topology Aware Routing](https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/) to spread Pods and traffic across the zones, respectively.
+  + If there are multiple subnets *in the same AZ* that match the `subnetSelectorTerms`, EKS Auto Mode creates Pods on each node distributed across the subnets in that AZ. EKS Auto Mode creates secondary network interfaces on each node in the other subnets in the same AZ. It chooses based on the number of available IP addresses in each subnet, to use the subnets more efficiently. However, you can’t specify which subnet EKS Auto Mode uses for each Pod; if you need Pods to run in specific subnets, use [Separate subnets and security groups for Pods](#pod-subnet-selector) instead.
++  **Placement group strategy restrictions** — Each placement group strategy (cluster, partition, spread) has specific limitations on instance types, AZs, and capacity. For details, see [Placement group strategies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html) in the Amazon EC2 User Guide.
++  **Spread placement group — 7-instance limit** — A rack-level spread placement group allows a maximum of 7 running instances per Availability Zone per group. This creates the following edge cases:
+  +  **Drift replacement blocked at capacity** — EKS Auto Mode launches a replacement node before terminating the old one. When a spread PG has 7 instances in an AZ, the replacement launch fails and the drifted node remains running until a slot frees up.
+  +  **All AZs at capacity** — If every AZ in the spread PG is at its 7-instance limit, no replacements can be scheduled. Drifted or consolidation-candidate nodes stay running indefinitely.
+  +  **No fallback outside the placement group** — EKS Auto Mode does not attempt to launch replacement instances outside the placement group.
+  +  **Workaround** — Use `WhenEmpty` consolidation policy (`consolidationPolicy: WhenEmpty`). Nodes are deleted only after all non-daemonset pods drain off, freeing a PG slot without needing a replacement launch first. Note that drift always uses replace-then-delete regardless of consolidation policy, so drift remains blocked at capacity.
++  **Cluster placement group AZ pinning** — Once the first instance launches into a cluster placement group, the PG is pinned to that AZ. If your NodePool allows multiple AZs, parallel launches during initial scale-up may race: one succeeds and pins the AZ, the rest fail with capacity errors. Pin the AZ in your NodePool requirements to avoid transient failures.
++  **Partition placement group** — Partition placement groups are supported with no additional constraints beyond the standard EC2 limits.
++  **Consolidation can move pods out of a placement group** — If a pod has no placement-group scheduling constraints (such as a `nodeSelector` on `eks.amazonaws.com/placement-group-id`), consolidation may move it to a node outside the PG. Applications that require placement group membership should express this via pod-level constraints.
++  **Nonexistent or deleted placement group** — If a `NodeClass` references a placement group that does not exist or has been deleted, no instances are launched. The placement group ID format is validated at admission, but existence is checked only at launch time. If a placement group is deleted while nodes are running, existing nodes are marked as drifted and remain running indefinitely because drift replacement launches are also blocked.
++  **Hugepages** — For information about configuring hugepages on nodes, see [Configure hugepages on nodes](#hugepages).
 
 ## Separate subnets and security groups for Pods
+<a name="pod-subnet-selector"></a>
 
 The `podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms` fields enable advanced networking configurations by allowing Pods to use different subnets and security groups than their nodes. Both fields must be specified together. This separation provides enhanced control over network traffic routing and security policies.
 
-###### Note
-
-This feature is different from the [Security Groups for Pods](security-groups-for-pods.md "security-groups-for-pods.md") (SGPP) feature used with the VPC CNI for non-EKS Auto Mode compute. SGPP is not supported in EKS Auto Mode. Instead, use `podSecurityGroupSelectorTerms` in the `NodeClass` to apply separate security groups to Pod traffic. The security groups apply at the `NodeClass` level, meaning all Pods on nodes using that `NodeClass` share the same Pod security groups.
+**Note**  
+This feature is different from the [Security Groups for Pods](security-groups-for-pods.md) (SGPP) feature used with the VPC CNI for non-EKS Auto Mode compute. SGPP is not supported in EKS Auto Mode. Instead, use `podSecurityGroupSelectorTerms` in the `NodeClass` to apply separate security groups to Pod traffic. The security groups apply at the `NodeClass` level, meaning all Pods on nodes using that `NodeClass` share the same Pod security groups.
 
 ### How it works
+<a name="_how_it_works"></a>
 
 When you configure `podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms`:
 
 1. The node’s primary ENI uses the subnets and security groups from `subnetSelectorTerms` and `securityGroupSelectorTerms`. Only the node’s own IP address is assigned to this interface.
-2. EKS Auto Mode creates secondary ENIs in the subnets matching `podSubnetSelectorTerms`, with the security groups from `podSecurityGroupSelectorTerms` attached. Pod IP addresses are allocated from these secondary ENIs using /28 prefixes by default, with automatic fallback to secondary IPs (/32) when a contiguous prefix block is not available. If `ipv4PrefixSize` is set to `"32"` in `advancedNetworking`, only secondary IPs are used.
-3. The security groups specified in `podSecurityGroupSelectorTerms` apply to Pod traffic within the VPC. For traffic destined outside the VPC, Pods use the node’s primary ENI (and its security groups) because source network address translation (SNAT) translates the Pod IP to the node IP. You can modify this behavior with the `snatPolicy` field in the `NodeClass`.
+
+1. EKS Auto Mode creates secondary ENIs in the subnets matching `podSubnetSelectorTerms`, with the security groups from `podSecurityGroupSelectorTerms` attached. Pod IP addresses are allocated from these secondary ENIs using /28 prefixes by default, with automatic fallback to secondary IPs (/32) when a contiguous prefix block is not available. If `ipv4PrefixSize` is set to `"32"` in `advancedNetworking`, only secondary IPs are used.
+
+1. The security groups specified in `podSecurityGroupSelectorTerms` apply to Pod traffic within the VPC. For traffic destined outside the VPC, Pods use the node’s primary ENI (and its security groups) because source network address translation (SNAT) translates the Pod IP to the node IP. You can modify this behavior with the `snatPolicy` field in the `NodeClass`.
 
 ### Use cases
+<a name="_use_cases"></a>
 
 Use `podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms` when you need to:
-
-- Apply different security groups to control traffic for nodes and Pods separately.
-- Separate infrastructure traffic (node-to-node communication) from application traffic (Pod-to-Pod communication).
-- Apply different network configurations to node subnets than Pod subnets.
-- Configure reverse proxies or network filtering specifically for node traffic without affecting Pod traffic. Use `advancedNetworking` and `certificateBundles` to define your reverse proxy and any self-signed or private certificates for the proxy.
++ Apply different security groups to control traffic for nodes and Pods separately.
++ Separate infrastructure traffic (node-to-node communication) from application traffic (Pod-to-Pod communication).
++ Apply different network configurations to node subnets than Pod subnets.
++ Configure reverse proxies or network filtering specifically for node traffic without affecting Pod traffic. Use `advancedNetworking` and `certificateBundles` to define your reverse proxy and any self-signed or private certificates for the proxy.
 
 ### Example configuration
+<a name="_example_configuration"></a>
 
 ```
 apiVersion: eks.amazonaws.com/v1
@@ -323,28 +334,30 @@ spec:
 ```
 
 ### Considerations for separate Pod subnets and security groups
-
-- **Security group scope**: The security groups from `podSecurityGroupSelectorTerms` are attached to the secondary ENIs and apply to Pod traffic within the VPC. When SNAT is enabled (the default `snatPolicy: Random`), traffic leaving the VPC is translated to the node’s primary ENI IP address, so the node’s security groups from `securityGroupSelectorTerms` apply to that traffic instead. If you set `snatPolicy: Disabled`, Pods use their own IP addresses for all traffic, and you must ensure that routing and security groups are configured accordingly.
-- **NodeClass-level granularity**: The Pod security groups apply to all Pods scheduled on nodes using the `NodeClass`. To apply different security groups to different workloads, create separate `NodeClass` and `NodePool` resources and use taints, tolerations, or node selectors to schedule workloads to the appropriate nodes.
-- **Reduced Pod density**: Fewer Pods can run on each node because the primary network interface of the node is reserved for the node IP and can’t be used for Pods.
-- **Subnet selector limitations**: The standard `subnetSelectorTerms` and `securityGroupSelectorTerms` configurations don’t apply to Pod subnet or security group selection.
-- **Network planning**: Ensure adequate IP address space in both node and Pod subnets to support your workload requirements.
-- **Routing configuration**: Verify that the route table and network Access Control List (ACL) of the Pod subnets are properly configured for communication between node and Pod subnets.
-- **Availability Zones**: Verify that you’ve created Pod subnets across multiple AZs. If you are using a specific Pod subnet, it must be in the same AZ as the node subnet AZ.
+<a name="_considerations_for_separate_pod_subnets_and_security_groups"></a>
++  **Security group scope**: The security groups from `podSecurityGroupSelectorTerms` are attached to the secondary ENIs and apply to Pod traffic within the VPC. When SNAT is enabled (the default `snatPolicy: Random`), traffic leaving the VPC is translated to the node’s primary ENI IP address, so the node’s security groups from `securityGroupSelectorTerms` apply to that traffic instead. If you set `snatPolicy: Disabled`, Pods use their own IP addresses for all traffic, and you must ensure that routing and security groups are configured accordingly.
++  **NodeClass-level granularity**: The Pod security groups apply to all Pods scheduled on nodes using the `NodeClass`. To apply different security groups to different workloads, create separate `NodeClass` and `NodePool` resources and use taints, tolerations, or node selectors to schedule workloads to the appropriate nodes.
++  **Reduced Pod density**: Fewer Pods can run on each node because the primary network interface of the node is reserved for the node IP and can’t be used for Pods.
++  **Subnet selector limitations**: The standard `subnetSelectorTerms` and `securityGroupSelectorTerms` configurations don’t apply to Pod subnet or security group selection.
++  **Network planning**: Ensure adequate IP address space in both node and Pod subnets to support your workload requirements.
++  **Routing configuration**: Verify that the route table and network Access Control List (ACL) of the Pod subnets are properly configured for communication between node and Pod subnets.
++  **Availability Zones**: Verify that you’ve created Pod subnets across multiple AZs. If you are using a specific Pod subnet, it must be in the same AZ as the node subnet AZ.
 
 ## Secondary IP Mode for Pods
+<a name="secondary-IP-mode"></a>
 
 The `ipv4PrefixSize` field enables advanced networking configurations by allocating only secondary IP addresses to nodes. This feature doesn’t allocate prefixes (/28) to nodes and maintains only one secondary IP as MinimalIPTarget.
 
 ### Use cases
+<a name="_use_cases_2"></a>
 
 Use `ipv4PrefixSize` when you need to:
-
-- **Reduced IP utilization**: Only one IP address will be warmed up in every node.
-- **Lower pod churning rate**: Pod creation velocity is not a major concern.
-- **No prefix fragmentation**: Prefix-caused fragmentation is a major concern or blocker to use Auto Mode.
++  **Reduced IP utilization**: Only one IP address will be warmed up in every node.
++  **Lower pod churning rate**: Pod creation velocity is not a major concern.
++  **No prefix fragmentation**: Prefix-caused fragmentation is a major concern or blocker to use Auto Mode.
 
 ### Example configuration
+<a name="_example_configuration_2"></a>
 
 ```
 apiVersion: eks.amazonaws.com/v1
@@ -359,21 +372,23 @@ spec:
 ```
 
 ### Considerations for secondary IP mode
-
-- **Reduced Pod creation velocity**: Since only one secondary IP is warmed up, the IPAM service needs more time to provision IPs when more pods are created.
+<a name="_considerations_for_secondary_ip_mode"></a>
++  **Reduced Pod creation velocity**: Since only one secondary IP is warmed up, the IPAM service needs more time to provision IPs when more pods are created.
 
 ## Disable IPv4 egress from IPv6 pods in IPv6 clusters.
+<a name="enableV4Egress"></a>
 
 The `enableV4Egress` field is `true` by default. For Auto Mode IPv6 clusters, the feature can be disabled so that Auto Mode won’t create an egress-only IPv4 interface for IPv6 pods. This is important because the IPv4 egress interface is not subject to Network Policy enforcement. Network policies are only enforced on the Pod’s primary interface (eth0).
 
 ### Use cases
+<a name="_use_cases_3"></a>
 
 Use `enableV4Egress` when you need to:
-
-- **Use IPv6 Cluster**: IPv4 egress traffic is allowed by default.
-- **Use Network Policy**: Currently EKS Network Policy doesn’t support dual stack. Disabling `enableV4Egress` can prevent pod traffic from egressing over IPv4 unexpectedly.
++  **Use IPv6 Cluster**: IPv4 egress traffic is allowed by default.
++  **Use Network Policy**: Currently EKS Network Policy doesn’t support dual stack. Disabling `enableV4Egress` can prevent pod traffic from egressing over IPv4 unexpectedly.
 
 ### Example configuration
+<a name="_example_configuration_3"></a>
 
 ```
 apiVersion: eks.amazonaws.com/v1
@@ -388,32 +403,35 @@ spec:
 ```
 
 ### Considerations for disabling enableV4Egress
-
-- **Network Policy in IPv6 Cluster**: IPv6 clusters allow IPv4 traffic by default. Setting `enableV4Egress: false` blocks IPv4 egress traffic, providing enhanced security especially when used with Network Policies.
+<a name="_considerations_for_disabling_enablev4egress"></a>
++  **Network Policy in IPv6 Cluster**: IPv6 clusters allow IPv4 traffic by default. Setting `enableV4Egress: false` blocks IPv4 egress traffic, providing enhanced security especially when used with Network Policies.
 
 ## Static Network Interface Configuration
+<a name="static-network-interfaces"></a>
 
-The `networkInterfaces` field under `advancedNetworking` enables you to statically define the network interfaces attached to instances at launch. This is primarily used to configure [Elastic Fabric Adapter (EFA)](../../../AWSEC2/latest/UserGuide/efa.md "../../../AWSEC2/latest/UserGuide/efa.md") devices for high-performance inter-node communication in distributed training and inference workloads. This feature can be paired with [static capacity node pools](auto-static-capacity.md "auto-static-capacity.md") to maintain pre-warmed, EFA-ready nodes. For more information about EFA device management in EKS, see [Manage EFA devices on Amazon EKS](device-management-efa.md "device-management-efa.md"). For the recommended EFA configuration for specific instance types, see [Maximize network bandwidth for EFA-enabled instance types](../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md "../../../AWSEC2/latest/UserGuide/efa-acc-inst-types.md") in the _Amazon EC2 User Guide_.
+The `networkInterfaces` field under `advancedNetworking` enables you to statically define the network interfaces attached to instances at launch. This is primarily used to configure [Elastic Fabric Adapter (EFA)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) devices for high-performance inter-node communication in distributed training and inference workloads. This feature can be paired with [static capacity node pools](auto-static-capacity.md) to maintain pre-warmed, EFA-ready nodes. For more information about EFA device management in EKS, see [Manage EFA devices on Amazon EKS](device-management-efa.md). For the recommended EFA configuration for specific instance types, see [Maximize network bandwidth for EFA-enabled instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa-acc-inst-types.html) in the *Amazon EC2 User Guide*.
 
 ### How it works
+<a name="_how_it_works_2"></a>
 
 Each entry in `networkInterfaces` defines a network interface that is attached to the instance during launch. Each entry specifies a `networkCardIndex` (the network card, where `0` is the primary), a `deviceIndex` (the device position on that card), and an `interfaceType` (`interface` for standard IP-based traffic, or `efa-only` for EFA interfaces dedicated to RDMA traffic without IP addresses). The primary ENI (`networkCardIndex: 0`, `deviceIndex: 0`) must use `interfaceType: interface` to support IP-based node communication. The `efa-only` interfaces support only EFA device capabilities for RDMA and cannot be configured with IP addresses.
 
 You can assign IP capacity to interfaces on the primary network card (`networkCardIndex: 0`) using `secondaryIPv4Count` (each unit provides 1 IP address) or `secondaryIPv4PrefixCount` (each unit provides a /28 prefix with 16 IP addresses). Only one of these can be used per interface, and they are only supported on `networkCardIndex: 0`. They cannot be used on `efa-only` interfaces.
 
-###### Important
-
+**Important**  
 When `networkInterfaces` is configured, EKS Auto Mode does not attach additional IPs, prefixes, or ENIs after instance launch. Only the interfaces and IP addresses configured at launch are available to Pods. You must plan your pod density based on the number of IPs configured.
 
 ### Considerations
+<a name="_considerations_2"></a>
 
 IPv6 is not supported with statically defined network interfaces. `associatePublicIPAddress` is not compatible when more than one network interface is defined, so nodes using multiple interfaces cannot have public IPs (either in public-only clusters or mixed public/private clusters).
 
 When using `podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms` with static network interfaces, configure the primary ENI with 0 secondary IPs. The primary ENI uses the node subnet and security groups, while Pod traffic uses the pod subnet configuration on secondary ENIs.
 
 ### Example: EFA-only interfaces for GPU training
+<a name="_example_efa_only_interfaces_for_gpu_training"></a>
 
-The following example shows a `NodeClass` configured with EFA-only interfaces for a GPU instance used in distributed training. The primary interface has a /28 prefix (16 pod IPs) and 4 additional EFA-only interfaces provide RDMA connectivity. This configuration can be paired with a [static capacity node pool](auto-static-capacity.md "auto-static-capacity.md") to maintain pre-warmed, EFA-ready nodes.
+The following example shows a `NodeClass` configured with EFA-only interfaces for a GPU instance used in distributed training. The primary interface has a /28 prefix (16 pod IPs) and 4 additional EFA-only interfaces provide RDMA connectivity. This configuration can be paired with a [static capacity node pool](auto-static-capacity.md) to maintain pre-warmed, EFA-ready nodes.
 
 ```
 apiVersion: eks.amazonaws.com/v1
@@ -451,10 +469,12 @@ spec:
 ```
 
 ## Configure hugepages on nodes
+<a name="hugepages"></a>
 
-Use the `advancedCompute.hugepages` field to pre-allocate hugepages on nodes in the `NodeClass`. Hugepages improve memory-access performance for latency-sensitive workloads such as high-performance computing (HPC), databases, and network-intensive applications. To consume hugepages, configure your Pods to explicitly request hugepage resources. For more information, see [Manage HugePages](https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/ "https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/") in the Kubernetes documentation.
+Use the `advancedCompute.hugepages` field to pre-allocate hugepages on nodes in the `NodeClass`. Hugepages improve memory-access performance for latency-sensitive workloads such as high-performance computing (HPC), databases, and network-intensive applications. To consume hugepages, configure your Pods to explicitly request hugepage resources. For more information, see [Manage HugePages](https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/) in the Kubernetes documentation.
 
 ### Example configuration
+<a name="hugepages-example"></a>
 
 ```
 apiVersion: eks.amazonaws.com/v1
@@ -480,8 +500,8 @@ spec:
 ```
 
 ### Hugepages considerations
+<a name="hugepages-considerations"></a>
 
 Consider the following when configuring hugepages on a NodeClass:
-
-- **Memory reservation**: Hugepages count against the instance’s total memory. Amazon EKS marks instance types as incompatible with the NodeClass when the hugepages reservation would exceed 80% of total memory.
-- **EFA mutual exclusion**: EFA and hugepages cannot coexist on the same NodeClass. If you set `interfaceType: efa-only`, NodeClass validation fails. Amazon EKS does not provision Pods that request `vpc.amazonaws.com/efa` from a hugepages NodeClass. Use a separate NodeClass for EFA workloads.
++  **Memory reservation**: Hugepages count against the instance’s total memory. Amazon EKS marks instance types as incompatible with the NodeClass when the hugepages reservation would exceed 80% of total memory.
++  **EFA mutual exclusion**: EFA and hugepages cannot coexist on the same NodeClass. If you set `interfaceType: efa-only`, NodeClass validation fails. Amazon EKS does not provision Pods that request `vpc.amazonaws.com/efa` from a hugepages NodeClass. Use a separate NodeClass for EFA workloads.

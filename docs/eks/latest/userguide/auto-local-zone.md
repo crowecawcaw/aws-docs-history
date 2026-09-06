@@ -1,33 +1,37 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Deploy EKS Auto Mode nodes onto Local Zones
+<a name="auto-local-zone"></a>
 
 EKS Auto Mode provides simplified cluster management with automatic node provisioning. AWS Local Zones extend AWS infrastructure to geographic locations closer to your end users, reducing latency for latency-sensitive applications. This guide walks you through the process of deploying EKS Auto Mode nodes onto AWS Local Zones, enabling you to run containerized applications with lower latency for users in specific geographic areas.
 
 This guide also demonstrates how to use Kubernetes taints and tolerations to ensure that only specific workloads run on your Local Zone nodes, helping you control costs and optimize resource usage.
 
 ## Prerequisites
+<a name="_prerequisites"></a>
 
 Before you begin deploying EKS Auto Mode nodes onto Local Zones, ensure you have the following prerequisites in place:
-
-- [An existing EKS Auto Mode Cluster](create-auto.md "create-auto.md")
-- [Opted-in to local zone in your AWS account](../../../local-zones/latest/ug/getting-started.md#getting-started-find-local-zone "../../../local-zones/latest/ug/getting-started.md#getting-started-find-local-zone")
++  [An existing EKS Auto Mode Cluster](create-auto.md) 
++  [Opted-in to local zone in your AWS account](https://docs.aws.amazon.com/local-zones/latest/ug/getting-started.html#getting-started-find-local-zone) 
 
 ## Step 1: Create Local Zone Subnet
+<a name="_step_1_create_local_zone_subnet"></a>
 
-The first step in deploying EKS Auto Mode nodes to a Local Zone is creating a subnet in that Local Zone. This subnet provides the network infrastructure for your nodes and allows them to communicate with the rest of your VPC. Follow the [Create a Local Zone subnet](../../../local-zones/latest/ug/getting-started.md#getting-started-create-local-zone-subnet "../../../local-zones/latest/ug/getting-started.md#getting-started-create-local-zone-subnet") instructions (in the AWS Local Zones User Guide) to create a subnet in your chosen Local Zone.
+The first step in deploying EKS Auto Mode nodes to a Local Zone is creating a subnet in that Local Zone. This subnet provides the network infrastructure for your nodes and allows them to communicate with the rest of your VPC. Follow the [Create a Local Zone subnet](https://docs.aws.amazon.com/local-zones/latest/ug/getting-started.html#getting-started-create-local-zone-subnet) instructions (in the AWS Local Zones User Guide) to create a subnet in your chosen Local Zone.
 
-###### Tip
-
+**Tip**  
 Make a note of the name of your local zone subnet.
 
 ## Step 2: Create NodeClass for Local Zone Subnet
+<a name="_step_2_create_nodeclass_for_local_zone_subnet"></a>
 
 After creating your Local Zone subnet, you need to define a NodeClass that references this subnet. The NodeClass is a Kubernetes custom resource that specifies the infrastructure attributes for your nodes, including which subnets, security groups, and storage configurations to use. In the example below, we create a NodeClass called "local-zone" that targets a local zone subnet based on its name. You can also use the subnet ID. You’ll need to adapt this configuration to target your Local Zone subnet.
 
-For more information, see [Create a Node Class for Amazon EKS](create-node-class.md "create-node-class.md").
+For more information, see [Create a Node Class for Amazon EKS](create-node-class.md).
 
 ```
 apiVersion: eks.amazonaws.com/v1
@@ -40,12 +44,13 @@ spec:
 ```
 
 ## Step 3: Create NodePool with NodeClass and Taint
+<a name="_step_3_create_nodepool_with_nodeclass_and_taint"></a>
 
 With your NodeClass configured, you now need to create a NodePool that uses this NodeClass. A NodePool defines the compute characteristics of your nodes, including instance types. The NodePool uses the NodeClass as a reference to determine where to launch instances.
 
 In the example below, we create a NodePool that references our "local-zone" NodeClass. We also add a taint to the nodes to ensure that only pods with a matching toleration can be scheduled on these Local Zone nodes. This is particularly important for Local Zone nodes, which typically have higher costs and should only be used by workloads that specifically benefit from the reduced latency.
 
-For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md "create-node-pool.md").
+For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md).
 
 ```
 apiVersion: karpenter.sh/v1
@@ -79,11 +84,13 @@ spec:
 The taint with key `aws.amazon.com/local-zone` and effect `NoSchedule` ensures that pods without a matching toleration won’t be scheduled on these nodes. This prevents regular workloads from accidentally running in the Local Zone, which could lead to unexpected costs.
 
 ## Step 4: Deploy Workloads with Toleration and Node Affinity
+<a name="_step_4_deploy_workloads_with_toleration_and_node_affinity"></a>
 
 For optimal control over workload placement on Local Zone nodes, use both taints/tolerations and node affinity together. This combined approach provides the following benefits:
 
-1. **Cost Control**: The taint ensures that only pods with explicit tolerations can use potentially expensive Local Zone resources.
-2. **Guaranteed Placement**: Node affinity ensures that your latency-sensitive applications run exclusively in the Local Zone, not on regular cluster nodes.
+1.  **Cost Control**: The taint ensures that only pods with explicit tolerations can use potentially expensive Local Zone resources.
+
+1.  **Guaranteed Placement**: Node affinity ensures that your latency-sensitive applications run exclusively in the Local Zone, not on regular cluster nodes.
 
 Here’s an example of a Deployment configured to run specifically on Local Zone nodes:
 
@@ -131,11 +138,13 @@ spec:
 This Deployment has two key scheduling configurations:
 
 1. The **toleration** allows the pods to be scheduled on nodes with the `aws.amazon.com/local-zone` taint.
-2. The **node affinity** requirement ensures these pods will only run on nodes with the label `node-type: local-zone`.
+
+1. The **node affinity** requirement ensures these pods will only run on nodes with the label `node-type: local-zone`.
 
 Together, these ensure that your latency-sensitive application runs only on Local Zone nodes, and regular applications don’t consume the Local Zone resources unless explicitly configured to do so.
 
 ## Step 5: Verify with AWS Console
+<a name="step_5_verify_with_shared_aws_console"></a>
 
 After setting up your NodeClass, NodePool, and Deployments, you should verify that nodes are being provisioned in your Local Zone as expected and that your workloads are running on them. You can use the AWS Management Console to verify that EC2 instances are being launched in the correct Local Zone subnet.
 

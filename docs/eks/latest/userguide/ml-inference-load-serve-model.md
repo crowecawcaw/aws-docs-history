@@ -1,46 +1,53 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Load & Serve Models on Amazon EKS
+<a name="ml-inference-load-serve-model"></a>
 
-###### Tip
-
-[Register](https://events.eksworkshop.com/workshops/genai/ "https://events.eksworkshop.com/workshops/genai/") for upcoming Amazon EKS AI/ML workshops.
+**Tip**  
+ [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
 
 The steps in this section deploy a large language model (LLM) on Amazon EKS, serve it with vLLM, and interact with the inference endpoint.
 
 The walkthrough uses the following tools:
++  [vLLM](https://docs.vllm.ai/en/latest/) — A high-throughput inference engine optimized for LLM serving and GPU memory management.
++  [Run:ai Model Streamer](https://github.com/run-ai/runai-model-streamer) — Streams model weights directly from Amazon S3 to GPU memory, reducing load time from minutes to seconds.
++  [Open WebUI](https://openwebui.com/) — A self-hosted chat frontend that connects to vLLM’s OpenAI-compatible API.
 
-- [vLLM](https://docs.vllm.ai/en/latest/ "https://docs.vllm.ai/en/latest/") — A high-throughput inference engine optimized for LLM serving and GPU memory management.
-- [Run:ai Model Streamer](https://github.com/run-ai/runai-model-streamer "https://github.com/run-ai/runai-model-streamer") — Streams model weights directly from Amazon S3 to GPU memory, reducing load time from minutes to seconds.
-- [Open WebUI](https://openwebui.com/ "https://openwebui.com/") — A self-hosted chat frontend that connects to vLLM’s OpenAI-compatible API.
-  This section uses the [Ministral-3-8B-Instruct-2512 model](https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512 "https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512"), but you can deploy any AI model that vLLM supports. For a list of supported models, see [Supported models](https://docs.vllm.ai/en/latest/models/supported_models/#text-generation "https://docs.vllm.ai/en/latest/models/supported_models/#text-generation") in the vLLM documentation.
+This section uses the [Ministral-3-8B-Instruct-2512 model](https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512), but you can deploy any AI model that vLLM supports. For a list of supported models, see [Supported models](https://docs.vllm.ai/en/latest/models/supported_models/#text-generation) in the vLLM documentation.
 
-###### Important
+**Important**  
+Use the cluster you created in the [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md) section. The instructions in this walkthrough work for both EKS Auto Mode and self-managed Karpenter.
 
-Use the cluster you created in the [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md "ml-cluster-setup.md") section. The instructions in this walkthrough work for both EKS Auto Mode and self-managed Karpenter.
+![Architecture diagram showing LLM inference workflow with vLLM on Amazon EKS](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-load-serve-model-arch.png)
 
-![Architecture diagram showing LLM inference workflow with vLLM on Amazon EKS](images/ml-inference-load-serve-model-arch.png)
+
 The architecture diagram shows the end-to-end flow:
 
 1. Model weights are downloaded from Hugging Face to Amazon S3.
-2. vLLM streams the model directly from S3 to GPU memory using Run:ai Model Streamer.
-3. Users send inference requests to the vLLM endpoint.
-   When you complete these steps, you have a vLLM inference endpoint that you can use to interact with a Ministral model through a chat frontend application. For additional information on optimizing model loading time on Amazon EKS, see [Accelerate model loading on Amazon EKS](ml-inference-fast-model-loading.md "ml-inference-fast-model-loading.md").
+
+1. vLLM streams the model directly from S3 to GPU memory using Run:ai Model Streamer.
+
+1. Users send inference requests to the vLLM endpoint.
+
+When you complete these steps, you have a vLLM inference endpoint that you can use to interact with a Ministral model through a chat frontend application. For additional information on optimizing model loading time on Amazon EKS, see [Accelerate model loading on Amazon EKS](ml-inference-fast-model-loading.md).
 
 ## Prerequisites
+<a name="_prerequisites"></a>
 
-Complete the steps in the [Cluster setup section](ml-cluster-setup.md "ml-cluster-setup.md").
+Complete the steps in the [Cluster setup section](ml-cluster-setup.md).
 
-If you opened a new terminal, set the cluster name and region you used in the [Cluster Setup via CLI](ml-cluster-setup-cli.md "ml-cluster-setup-cli.md") section:
+If you opened a new terminal, set the cluster name and region you used in the [Cluster Setup via CLI](ml-cluster-setup-cli.md) section:
 
 ```
 export CLUSTER_NAME=ai-eks-docs
 export AWS_REGION=us-east-2
 ```
 
-Look up the model weights bucket you created in the [Model weights S3 bucket](ml-cluster-setup-cli.md#cluster-setup-cli-model-bucket "ml-cluster-setup-cli.md#cluster-setup-cli-model-bucket") step:
+Look up the model weights bucket you created in the [Model weights S3 bucket](ml-cluster-setup-cli.md#cluster-setup-cli-model-bucket) step:
 
 ```
 MODEL_BUCKET=$(aws s3api list-buckets \
@@ -50,12 +57,13 @@ echo "Model bucket: ${MODEL_BUCKET}"
 ```
 
 ## Step 1: Download the model from Hugging Face
+<a name="_step_1_download_the_model_from_hugging_face"></a>
 
 In this step, you deploy a Kubernetes Job that downloads the model from Hugging Face and uploads it to the S3 bucket that you created in the prerequisites section.
 
 To download the model, apply the following Job manifest:
 
-###### Example Model download Job manifest
+**Example Model download Job manifest**  
 
 ```
 cat << EOF | kubectl apply -f -
@@ -154,22 +162,23 @@ Expected output:
 The consolidated.safetensors file contains the model weights (approximately 10.4 GB). The remaining files are configuration and tokenizer files that vLLM requires to serve the model.
 
 ## Step 2: Deploy the inference container
+<a name="_step_2_deploy_the_inference_container"></a>
 
 In this section, you deploy vLLM as a Kubernetes Deployment to serve the model you uploaded to Amazon S3.
 
-This section uses [AWS Deep Learning Containers](https://github.com/aws/deep-learning-containers/tree/master "https://github.com/aws/deep-learning-containers/tree/master") (DLCs), which are Docker images preinstalled with deep learning frameworks and optimized for performance on AWS infrastructure. DLCs include security patches, validated framework versions, and optimized GPU driver configurations.
+This section uses [AWS Deep Learning Containers](https://github.com/aws/deep-learning-containers/tree/master) (DLCs), which are Docker images preinstalled with deep learning frameworks and optimized for performance on AWS infrastructure. DLCs include security patches, validated framework versions, and optimized GPU driver configurations.
 
-This deployment uses the following AWS DLC for [vLLM 0.21.0](https://gallery.ecr.aws/deep-learning-containers/vllm "https://gallery.ecr.aws/deep-learning-containers/vllm") with SOCI support: `public.ecr.aws/deep-learning-containers/vllm:0.21.0-gpu-py312-cu130-ubuntu22.04-ec2-v1.0-soci`.
+This deployment uses the following AWS DLC for [vLLM 0.21.0](https://gallery.ecr.aws/deep-learning-containers/vllm) with SOCI support: `public.ecr.aws/deep-learning-containers/vllm:0.21.0-gpu-py312-cu130-ubuntu22.04-ec2-v1.0-soci`.
 
 The image tag indicates vLLM 0.21.0 with GPU support, Python 3.12, CUDA 13.0, Ubuntu 22.04, optimized for EC2-based workloads, and SOCI-enabled for faster container startup.
 
 This manifest creates a Deployment that runs vLLM on a GPU node and streams the model directly from S3 into GPU memory using Run:ai Model Streamer. The manifest also creates a ClusterIP Service that exposes the vLLM endpoint on port 8000 for in-cluster access.
 
-For additional information on optimizing model loading time on Amazon EKS, see [Accelerate model loading on Amazon EKS](ml-inference-fast-model-loading.md "ml-inference-fast-model-loading.md"). The following example uses `--enforce-eager` to accelerate load times in a getting started scenario. We recommend using other techniques to accelerate model load times as detailed in [The --enforce-eager trade-off](ml-inference-fast-model-loading.md#model-loading-enforce-eager-tradeoff "ml-inference-fast-model-loading.md#model-loading-enforce-eager-tradeoff").
+For additional information on optimizing model loading time on Amazon EKS, see [Accelerate model loading on Amazon EKS](ml-inference-fast-model-loading.md). The following example uses `--enforce-eager` to accelerate load times in a getting started scenario. We recommend using other techniques to accelerate model load times as detailed in [The --enforce-eager trade-off](ml-inference-fast-model-loading.md#model-loading-enforce-eager-tradeoff).
 
 Apply the manifest:
 
-###### Example vLLM Deployment and Service YAML
+**Example vLLM Deployment and Service YAML**  
 
 ```
 cat << EOF | kubectl apply -f -
@@ -254,7 +263,7 @@ NAME                                  READY   STATUS    RESTARTS   AGE
 vllm-inference-app-65df5fddc8-5kmjm   1/1     Running   0          86s
 ```
 
-It may take ~2 minutes for the container image to pull and for vLLM to stream model weights from S3 into GPU memory. Wait until the pod shows `1/1` in the READY column before you proceed.
+It may take \~2 minutes for the container image to pull and for vLLM to stream model weights from S3 into GPU memory. Wait until the pod shows `1/1` in the READY column before you proceed.
 
 The combination of EKS, SOCI, and Run:ai Model Streamer enables fast pod startup. To check the startup time for each stage, view the pod events:
 
@@ -296,10 +305,12 @@ The log confirms that Run:ai Model Streamer loaded the 10.4 GB model weights dir
 The image download time in this example was using a g6e.4xlarge instance, which has 20 Gbps sustained network bandwidth. Image pulls and model loading times will vary on other instance types depending on available network bandwidth.
 
 ## Step 3: Run inference
+<a name="_step_3_run_inference"></a>
 
 With the vLLM Deployment running, validate the inference endpoint and deploy a chat frontend to interact with the model.
 
 ### Run a model validation test
+<a name="_run_a_model_validation_test"></a>
 
 Expose the inference endpoint via port forward:
 
@@ -323,14 +334,15 @@ content-length: 0
 ```
 
 ## Step 4: Monitor vLLM
+<a name="ml-inference-load-serve-model-monitoring"></a>
 
-vLLM exposes Prometheus metrics out of the box, including request rate, token throughput, end-to-end latency, and GPU KV cache utilization. In this section, you use these metrics with the monitoring stack you set up in the [Cluster setup](ml-cluster-setup.md "ml-cluster-setup.md") steps and view them on a pre-provisioned Grafana dashboard.
+vLLM exposes Prometheus metrics out of the box, including request rate, token throughput, end-to-end latency, and GPU KV cache utilization. In this section, you use these metrics with the monitoring stack you set up in the [Cluster setup](ml-cluster-setup.md) steps and view them on a pre-provisioned Grafana dashboard.
 
-###### Important
-
-You must complete the [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring "ml-cluster-setup-cli.md#cluster-setup-cli-monitoring") subsection of the [Cluster Setup via CLI](ml-cluster-setup-cli.md "ml-cluster-setup-cli.md") section before continuing. This step depends on the kube-prometheus-stack being installed and the vLLM Grafana dashboard already provisioned in the values file.
+**Important**  
+You must complete the [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring) subsection of the [Cluster Setup via CLI](ml-cluster-setup-cli.md) section before continuing. This step depends on the kube-prometheus-stack being installed and the vLLM Grafana dashboard already provisioned in the values file.
 
 ### Apply the vLLM ServiceMonitor
+<a name="ml-inference-load-serve-model-monitoring-servicemonitor"></a>
 
 A ServiceMonitor tells Prometheus where to scrape vLLM metrics.
 
@@ -367,6 +379,9 @@ NAME                  AGE
 vllm-inference-app    5s
 ```
 
+#### Generate inference traffic
+<a name="ml-inference-load-serve-model-monitoring-traffic"></a>
+
 To populate the dashboard with metrics, generate inference traffic against the vLLM endpoint you already exposed via port-forward in the validation step.
 
 Discover the served model name:
@@ -397,10 +412,11 @@ curl -s http://localhost:8000/metrics | grep -E '^vllm:(prompt_tokens_total|gene
 The `vllm:prompt_tokens_total` and `vllm:generation_tokens_total` metrics are monotonically increasing counters of input and output tokens served. The `vllm:avg_prompt_throughput_toks_per_s` and `vllm:avg_generation_throughput_toks_per_s` metrics are rolling-average throughput gauges. These same metrics power the Grafana dashboard you open in the following subsection.
 
 ### View the vLLM Grafana dashboard
+<a name="ml-inference-load-serve-model-monitoring-dashboard"></a>
 
-The kube-prometheus-stack values file from the [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring "ml-cluster-setup-cli.md#cluster-setup-cli-monitoring") section already provisions the community [vLLM dashboard (gnetId 25263)](https://grafana.com/grafana/dashboards/25263-vllm-metrics/ "https://grafana.com/grafana/dashboards/25263-vllm-metrics/") under the **GPU Monitoring** folder, so no extra import is needed.
+The kube-prometheus-stack values file from the [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring) section already provisions the community [vLLM dashboard (gnetId 25263)](https://grafana.com/grafana/dashboards/25263-vllm-metrics/) under the **GPU Monitoring** folder, so no extra import is needed.
 
-Access Grafana through the load balancer you set up in the [Access Grafana](ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer "ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer") section. Print its URL:
+Access Grafana through the load balancer you set up in the [Access Grafana](ml-cluster-setup-cli.md#cluster-setup-cli-grafana-loadbalancer) section. Print its URL:
 
 ```
 echo "http://$(kubectl get ingress kube-prometheus-stack-grafana -n monitoring -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')"
@@ -414,19 +430,21 @@ kubectl --namespace monitoring get secrets kube-prometheus-stack-grafana -o json
 
 Navigate to **Dashboards > GPU Monitoring > vLLM Metrics**.
 
-**vLLM Grafana dashboard**
+ **vLLM Grafana dashboard** 
 
-![vLLM Grafana dashboard showing request rate, token throughput, end-to-end latency, and GPU KV cache utilization](images/ml-inference-load-serve-model-vllm-monitoring.png)
+![vLLM Grafana dashboard showing request rate, token throughput, end-to-end latency, and GPU KV cache utilization](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-load-serve-model-vllm-monitoring.png)
+
 
 The dashboard displays request rate, prompt and generation token throughput, latency percentiles, and GPU KV cache utilization for the vLLM inference endpoint.
 
 ## Step 5: Deploy chat application
+<a name="_step_5_deploy_chat_application"></a>
 
 In this step, you deploy Open WebUI as a chat frontend to interact with the model. Open WebUI is an open source, self-hosted AI interface that supports OpenAI-compatible APIs and provides a chat interface with conversation history and markdown rendering. Because vLLM exposes an OpenAI-compatible API, Open WebUI connects to it directly as a backend.
 
 To deploy the Open WebUI application, apply the following manifest:
 
-###### Example Open WebUI Deployment and Service YAML
+**Example Open WebUI Deployment and Service YAML**  
 
 ```
 cat << 'EOF' | kubectl apply -f -
@@ -511,11 +529,9 @@ Expected output:
 pod/open-webui-6cbfc9867f-jf9w9 condition met
 ```
 
-To access the application, expose Open WebUI through an internet-facing AWS Application Load Balancer (ALB) using the `alb`
-`IngressClass` you created in [Set up load balancing](ml-cluster-setup-cli.md#cluster-setup-cli-loadbalancing "ml-cluster-setup-cli.md#cluster-setup-cli-loadbalancing").
+To access the application, expose Open WebUI through an internet-facing AWS Application Load Balancer (ALB) using the `alb` `IngressClass` you created in [Set up load balancing](ml-cluster-setup-cli.md#cluster-setup-cli-loadbalancing).
 
-###### Open WebUI is publicly accessible with no authentication
-
+**Open WebUI is publicly accessible with no authentication**  
 Open WebUI runs with authentication disabled (`WEBUI_AUTH: "False"`), so anyone who reaches the load balancer gets an unauthenticated chat interface backed by your GPU inference endpoint and can consume GPU capacity. Automated scanners find public load balancers within minutes. You **must** restrict access with the `alb.ingress.kubernetes.io/inbound-cidrs` annotation and treat source-IP allowlisting as a minimum safeguard rather than a complete one. For a stronger posture, use an internal scheme, add a TLS certificate, and enable Open WebUI authentication.
 
 Find your public IP address and store it as a `/32` CIDR:
@@ -559,8 +575,7 @@ spec:
 EOF
 ```
 
-###### Health check path
-
+**Health check path**  
 The `healthcheck-path` annotation points the load balancer health checks at the Open WebUI `/health` endpoint, because the ALB default health check matcher expects a 200 response.
 
 The load balancer is created asynchronously and takes a minute or two. Print the URL:
@@ -571,13 +586,14 @@ echo "http://$(kubectl get ingress open-webui -o jsonpath='{.status.loadBalancer
 
 Open the URL in your browser. The chat interface appears and you can interact with the Ministral model.
 
-###### Port-forwarding as an alternative
-
+**Port-forwarding as an alternative**  
 Port-forwarding (`kubectl port-forward svc/open-webui 8080:80`) remains an option for local testing without provisioning a load balancer.
 
-![Screenshot of Open WebUI chat interface showing a conversation with the Ministral model](images/ml-inference-load-serve-model-chatui.png)
+![Screenshot of Open WebUI chat interface showing a conversation with the Ministral model](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-load-serve-model-chatui.png)
+
 
 ## Clean up
+<a name="_clean_up"></a>
 
 To remove the workload resources that you created in this section, delete the Open WebUI application, the vLLM inference server, and the model-download Job:
 
@@ -591,4 +607,4 @@ kubectl delete servicemonitor vllm-inference-app
 kubectl delete job model-download
 ```
 
-For instructions on removing infrastructure resources such as the cluster, NodePool, and S3 bucket, see [Cluster Setup Cleanup](ml-cluster-setup-cli.md#cluster-setup-cli-cleanup "ml-cluster-setup-cli.md#cluster-setup-cli-cleanup").
+For instructions on removing infrastructure resources such as the cluster, NodePool, and S3 bucket, see [Cluster Setup Cleanup](ml-cluster-setup-cli.md#cluster-setup-cli-cleanup).

@@ -1,36 +1,32 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Register target clusters
+<a name="argocd-register-clusters"></a>
 
-Register clusters to enable Argo CD to deploy applications to them.
-You can register the same cluster where Argo CD is running (local cluster) or remote clusters in different accounts or regions. Once a cluster is registered, it will remain in an Unknown connection state until you create an application within that cluster. To create an Argo CD application after your cluster is registered, see [Create Applications](argocd-create-application.md "argocd-create-application.md").
+Register clusters to enable Argo CD to deploy applications to them. You can register the same cluster where Argo CD is running (local cluster) or remote clusters in different accounts or regions. Once a cluster is registered, it will remain in an Unknown connection state until you create an application within that cluster. To create an Argo CD application after your cluster is registered, see [Create Applications](argocd-create-application.md).
 
 ## Prerequisites
-
-- An EKS cluster with the Argo CD capability created
-- `kubectl` configured to communicate with your cluster
-- For remote clusters: appropriate IAM permissions and access entries
+<a name="_prerequisites"></a>
++ An EKS cluster with the Argo CD capability created
++  `kubectl` configured to communicate with your cluster
++ For remote clusters: appropriate IAM permissions and access entries
 
 ## Register the local cluster
+<a name="_register_the_local_cluster"></a>
 
 To deploy applications to the same cluster where Argo CD is running, register it as a deployment target.
 
-###### Important
+**Important**  
+The Argo CD capability does not automatically register the local cluster. You must explicitly register it to deploy applications to the same cluster. You can use the cluster name `in-cluster` for compatibility with most Argo CD examples online.
 
-The Argo CD capability does not automatically register the local cluster.
-You must explicitly register it to deploy applications to the same cluster.
-You can use the cluster name `in-cluster` for compatibility with most Argo CD examples online.
+**Note**  
+An EKS Access Entry is automatically created for the local cluster with the Argo CD Capability Role, but no Kubernetes RBAC permissions are granted by default. This follows the principle of least privilege—you must explicitly configure the permissions Argo CD needs based on your use case. For example, if you only use this cluster as an Argo CD hub to manage remote clusters, it doesn’t need any local deployment permissions. See the Access Entry RBAC requirements section below for configuration options.
 
-###### Note
-
-An EKS Access Entry is automatically created for the local cluster with the Argo CD Capability Role, but no Kubernetes RBAC permissions are granted by default.
-This follows the principle of least privilege—you must explicitly configure the permissions Argo CD needs based on your use case.
-For example, if you only use this cluster as an Argo CD hub to manage remote clusters, it doesn’t need any local deployment permissions.
-See the Access Entry RBAC requirements section below for configuration options.
-
-**Using the Argo CD CLI**:
+ **Using the Argo CD CLI**:
 
 ```
 argocd cluster add <cluster-context-name> \
@@ -38,7 +34,7 @@ argocd cluster add <cluster-context-name> \
   --name local-cluster
 ```
 
-**Using a Kubernetes Secret**:
+ **Using a Kubernetes Secret**:
 
 ```
 apiVersion: v1
@@ -60,52 +56,45 @@ Apply the configuration:
 kubectl apply -f local-cluster.yaml
 ```
 
-###### Note
-
-Use the EKS cluster ARN in the `server` field, not the Kubernetes API server URL.
-The managed capability requires ARNs to identify clusters.
-The default `kubernetes.default.svc` is not supported.
+**Note**  
+Use the EKS cluster ARN in the `server` field, not the Kubernetes API server URL. The managed capability requires ARNs to identify clusters. The default `kubernetes.default.svc` is not supported.
 
 ## Register remote clusters
+<a name="_register_remote_clusters"></a>
 
 To deploy to remote clusters:
 
-**Step 1: Create the access entry on the remote cluster**
+ **Step 1: Create the access entry on the remote cluster** 
 
-Replace `region-code` with the AWS Region that your remote cluster is in, replace `remote-cluster` with the name of your remote cluster, and replace the ARN with your Argo CD capability role ARN.
+Replace {{region-code}} with the AWS Region that your remote cluster is in, replace {{remote-cluster}} with the name of your remote cluster, and replace the ARN with your Argo CD capability role ARN.
 
 ```
 aws eks create-access-entry \
-  --region `region-code` \
-  --cluster-name `remote-cluster` \
-  --principal-arn `arn:aws:iam::111122223333:role/ArgoCDCapabilityRole` \
+  --region {{region-code}} \
+  --cluster-name {{remote-cluster}} \
+  --principal-arn {{arn:aws:iam::111122223333:role/ArgoCDCapabilityRole}} \
   --type STANDARD
 ```
 
-**Step 2: Associate an access policy with Kubernetes RBAC permissions**
+ **Step 2: Associate an access policy with Kubernetes RBAC permissions** 
 
-The Access Entry requires Kubernetes RBAC permissions for Argo CD to deploy applications.
-For getting started quickly, you can use the `AmazonEKSClusterAdminPolicy`:
+The Access Entry requires Kubernetes RBAC permissions for Argo CD to deploy applications. For getting started quickly, you can use the `AmazonEKSClusterAdminPolicy`:
 
 ```
 aws eks associate-access-policy \
-  --region `region-code` \
-  --cluster-name `remote-cluster` \
-  --principal-arn `arn:aws:iam::111122223333:role/ArgoCDCapabilityRole` \
+  --region {{region-code}} \
+  --cluster-name {{remote-cluster}} \
+  --principal-arn {{arn:aws:iam::111122223333:role/ArgoCDCapabilityRole}} \
   --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
   --access-scope type=cluster
 ```
 
-###### Important
+**Important**  
+The `AmazonEKSClusterAdminPolicy` provides full cluster-admin access (equivalent to `system:masters`). This is convenient for getting started but should not be used in production. For production environments, use more restrictive permissions by associating the Access Entry with custom Kubernetes groups and creating appropriate Role or ClusterRole bindings. See the production setup section below for least privilege configuration.
 
-The `AmazonEKSClusterAdminPolicy` provides full cluster-admin access (equivalent to `system:masters`).
-This is convenient for getting started but should not be used in production.
-For production environments, use more restrictive permissions by associating the Access Entry with custom Kubernetes groups and creating appropriate Role or ClusterRole bindings.
-See the production setup section below for least privilege configuration.
+ **Step 3: Register the cluster in Argo CD** 
 
-**Step 3: Register the cluster in Argo CD**
-
-**Using the Argo CD CLI**:
+ **Using the Argo CD CLI**:
 
 ```
 argocd cluster add <cluster-context-name> \
@@ -113,7 +102,7 @@ argocd cluster add <cluster-context-name> \
   --name remote-cluster
 ```
 
-**Using a Kubernetes Secret**:
+ **Using a Kubernetes Secret**:
 
 ```
 apiVersion: v1
@@ -136,18 +125,22 @@ kubectl apply -f remote-cluster.yaml
 ```
 
 ## Cross-account clusters
+<a name="_cross_account_clusters"></a>
 
 To deploy to clusters in different AWS accounts:
 
 1. In the target account, create an Access Entry on the target EKS cluster using the Argo CD IAM Capability Role ARN from the source account as the principal
-2. Associate an access policy with appropriate Kubernetes RBAC permissions
-3. Register the cluster in Argo CD using its EKS cluster ARN
+
+1. Associate an access policy with appropriate Kubernetes RBAC permissions
+
+1. Register the cluster in Argo CD using its EKS cluster ARN
 
 No additional IAM role creation or trust policy configuration is required—EKS Access Entries handle cross-account access.
 
 The cluster ARN format includes the region, so cross-region deployments use the same process as same-region deployments.
 
 ## Verify cluster registration
+<a name="_verify_cluster_registration"></a>
 
 View registered clusters:
 
@@ -158,80 +151,74 @@ kubectl get secrets -n argocd -l argocd.argoproj.io/secret-type=cluster
 Or check cluster status in the Argo CD UI under Settings → Clusters.
 
 ## Private clusters
+<a name="_private_clusters"></a>
 
 The Argo CD capability provides transparent access to fully private EKS clusters without requiring VPC peering or specialized networking configuration.
 
-AWS manages connectivity between the Argo CD capability and private remote clusters automatically.
+ AWS manages connectivity between the Argo CD capability and private remote clusters automatically.
 
 Simply register the private cluster using its ARN—no additional networking setup required.
 
 ## Access entry RBAC requirements
+<a name="_access_entry_rbac_requirements"></a>
 
-When you create an Argo CD capability, an EKS Access Entry is automatically created for the Capability Role, but no Kubernetes RBAC permissions are granted by default.
-This intentional design follows the principle of least privilege—different use cases require different permissions.
+When you create an Argo CD capability, an EKS Access Entry is automatically created for the Capability Role, but no Kubernetes RBAC permissions are granted by default. This intentional design follows the principle of least privilege—different use cases require different permissions.
 
-For example:
-\* If you use the cluster only as an Argo CD hub to manage remote clusters, it doesn’t need local deployment permissions
-\* If you deploy applications locally, it needs read access cluster-wide and write access to specific namespaces
-\* If you need to create CRDs, it requires additional cluster-admin permissions
+For example: \* If you use the cluster only as an Argo CD hub to manage remote clusters, it doesn’t need local deployment permissions \* If you deploy applications locally, it needs read access cluster-wide and write access to specific namespaces \* If you need to create CRDs, it requires additional cluster-admin permissions
 
 You must explicitly configure the permissions Argo CD needs based on your requirements.
 
 ### Minimum permissions for Argo CD
+<a name="_minimum_permissions_for_argo_cd"></a>
 
 Argo CD needs two types of permissions to function without errors:
 
-**Read permissions (cluster-wide)**: Argo CD must be able to read all resource types and Custom Resource Definitions (CRDs) across the cluster for:
+ **Read permissions (cluster-wide)**: Argo CD must be able to read all resource types and Custom Resource Definitions (CRDs) across the cluster for:
++ Resource discovery and health checks
++ Detecting drift between desired and actual state
++ Validating resources before deployment
 
-- Resource discovery and health checks
-- Detecting drift between desired and actual state
-- Validating resources before deployment
-
-**Write permissions (namespace-specific)**: Argo CD needs create, update, and delete permissions for resources defined in Applications:
-
-- Deploy application workloads (Deployments, Services, ConfigMaps, etc.)
-- Apply Custom Resources (CRDs specific to your applications)
-- Manage application lifecycle
+ **Write permissions (namespace-specific)**: Argo CD needs create, update, and delete permissions for resources defined in Applications:
++ Deploy application workloads (Deployments, Services, ConfigMaps, etc.)
++ Apply Custom Resources (CRDs specific to your applications)
++ Manage application lifecycle
 
 ### Quick setup
+<a name="_quick_setup"></a>
 
 For getting started quickly, testing, or development environments, use `AmazonEKSClusterAdminPolicy`:
 
 ```
 aws eks associate-access-policy \
-  --region `region-code` \
-  --cluster-name `my-cluster` \
-  --principal-arn `arn:aws:iam::111122223333:role/ArgoCDCapabilityRole` \
+  --region {{region-code}} \
+  --cluster-name {{my-cluster}} \
+  --principal-arn {{arn:aws:iam::111122223333:role/ArgoCDCapabilityRole}} \
   --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
   --access-scope type=cluster
 ```
 
-###### Important
-
-The `AmazonEKSClusterAdminPolicy` provides full cluster-admin access (equivalent to `system:masters`), including the ability to create CRDs, modify cluster-wide resources, and deploy to any namespace.
-This is convenient for development and POCs but should not be used in production.
-For production, use the least privilege setup below.
+**Important**  
+The `AmazonEKSClusterAdminPolicy` provides full cluster-admin access (equivalent to `system:masters`), including the ability to create CRDs, modify cluster-wide resources, and deploy to any namespace. This is convenient for development and POCs but should not be used in production. For production, use the least privilege setup below.
 
 ### Production setup with least privilege
+<a name="_production_setup_with_least_privilege"></a>
 
 For production environments, create custom Kubernetes RBAC that grants:
++ Cluster-wide read access to all resources (for discovery and health checks)
++ Namespace-specific write access (for deployments)
 
-- Cluster-wide read access to all resources (for discovery and health checks)
-- Namespace-specific write access (for deployments)
-
-**Step 1: Associate Access Entry with a custom Kubernetes group**
+ **Step 1: Associate Access Entry with a custom Kubernetes group** 
 
 ```
 aws eks associate-access-policy \
-  --region `region-code` \
-  --cluster-name `my-cluster` \
-  --principal-arn `arn:aws:iam::111122223333:role/ArgoCDCapabilityRole` \
+  --region {{region-code}} \
+  --cluster-name {{my-cluster}} \
+  --principal-arn {{arn:aws:iam::111122223333:role/ArgoCDCapabilityRole}} \
   --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSEditPolicy \
-  --access-scope type=namespace,namespaces=`app-namespace`
-
+  --access-scope type=namespace,namespaces={{app-namespace}}
 ```
 
-**Step 2: Create ClusterRole for read access**
+ **Step 2: Create ClusterRole for read access** 
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1
@@ -245,7 +232,7 @@ rules:
   verbs: ["get", "list", "watch"]
 ```
 
-**Step 3: Create Role for write access to application namespaces**
+ **Step 3: Create Role for write access to application namespaces** 
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1
@@ -260,7 +247,7 @@ rules:
   verbs: ["*"]
 ```
 
-**Step 4: Bind roles to the Kubernetes group**
+ **Step 4: Bind roles to the Kubernetes group** 
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1
@@ -291,17 +278,14 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-###### Note
+**Note**  
+The group name format for Access Entries is `eks-access-entry:` followed by the principal ARN. Repeat the RoleBinding for each namespace where Argo CD should deploy applications.
 
-The group name format for Access Entries is `eks-access-entry:` followed by the principal ARN.
-Repeat the RoleBinding for each namespace where Argo CD should deploy applications.
-
-###### Important
-
-Argo CD must be able to read all resource types across the cluster for health checks and discovery, even if it only deploys to specific namespaces.
-Without cluster-wide read access, Argo CD will show errors when checking application health.
+**Important**  
+Argo CD must be able to read all resource types across the cluster for health checks and discovery, even if it only deploys to specific namespaces. Without cluster-wide read access, Argo CD will show errors when checking application health.
 
 ## Restrict cluster access with Projects
+<a name="_restrict_cluster_access_with_projects"></a>
 
 Use Projects to control which clusters and namespaces Applications can deploy to by configuring the allowed target clusters and namespaces in `spec.destinations`:
 
@@ -321,12 +305,12 @@ spec:
   - 'https://github.com/example/production-apps'
 ```
 
-For details, see [Working with Argo CD Projects](argocd-projects.md "argocd-projects.md").
+For details, see [Working with Argo CD Projects](argocd-projects.md).
 
 ## Additional resources
-
-- [Working with Argo CD Projects](argocd-projects.md "argocd-projects.md") - Organize applications and enforce security boundaries
-- [Create Applications](argocd-create-application.md "argocd-create-application.md") - Deploy your first application
-- [Use ApplicationSets](argocd-applicationsets.md "argocd-applicationsets.md") - Deploy to multiple clusters with ApplicationSets
-- [Argo CD considerations](argocd-considerations.md "argocd-considerations.md") - Multi-cluster patterns and cross-account setup
-- [Declarative Cluster Setup](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#clusters "https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#clusters") - Upstream cluster configuration reference
+<a name="_additional_resources"></a>
++  [Working with Argo CD Projects](argocd-projects.md) - Organize applications and enforce security boundaries
++  [Create Applications](argocd-create-application.md) - Deploy your first application
++  [Use ApplicationSets](argocd-applicationsets.md) - Deploy to multiple clusters with ApplicationSets
++  [Argo CD considerations](argocd-considerations.md) - Multi-cluster patterns and cross-account setup
++  [Declarative Cluster Setup](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#clusters) - Upstream cluster configuration reference

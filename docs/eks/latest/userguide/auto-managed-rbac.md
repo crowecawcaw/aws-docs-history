@@ -1,8 +1,11 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Grant additional Kubernetes RBAC to EKS Auto Mode managed controllers
+<a name="auto-managed-rbac"></a>
 
 Amazon EKS Auto Mode manages the following controllers on your behalf: load balancing, networking, compute, block storage, and cluster insights. These controllers run on the EKS control plane. They authenticate to your cluster as the `AWSServiceRoleForAmazonEKS` service-linked role, and their in-cluster permissions come from AWS managed access policies attached to that access entry.
 
@@ -11,11 +14,11 @@ You can extend a managed controller’s Kubernetes RBAC yourself. This is useful
 On Amazon EKS Auto Mode clusters, the auto-created access entry for `AWSServiceRoleForAmazonEKS` also declares the Kubernetes group `eks:managed`. Kubernetes RBAC is additive. A `RoleBinding` (or `ClusterRoleBinding`) whose `subjects:` name the `eks:managed` group grants the managed controllers extra permissions on top of the managed access policies.
 
 ## How it works
-
-- The EKS Auto Mode managed controllers connect to your cluster as the service-linked role `AWSServiceRoleForAmazonEKS`.
-- The auto-created access entry for that role declares `kubernetesGroups: ["eks:managed"]`.
-- You author a `Role` (namespaced) or `ClusterRole` (cluster-wide) that describes the additional permission, and a `RoleBinding` / `ClusterRoleBinding` whose `subjects:` name the `eks:managed` group.
-- Kubernetes RBAC combines your binding with the managed access policies, so the managed controllers receive both sets of permissions.
+<a name="_how_it_works"></a>
++ The EKS Auto Mode managed controllers connect to your cluster as the service-linked role `AWSServiceRoleForAmazonEKS`.
++ The auto-created access entry for that role declares `kubernetesGroups: ["eks:managed"]`.
++ You author a `Role` (namespaced) or `ClusterRole` (cluster-wide) that describes the additional permission, and a `RoleBinding` / `ClusterRoleBinding` whose `subjects:` name the `eks:managed` group.
++ Kubernetes RBAC combines your binding with the managed access policies, so the managed controllers receive both sets of permissions.
 
 To confirm the group is present, run:
 
@@ -39,20 +42,21 @@ Expected output:
 ```
 
 ## Scope the grant tightly
+<a name="_scope_the_grant_tightly"></a>
 
 The `eks:managed` group applies to all EKS Auto Mode managed controllers. Scope the extra grant as narrowly as your use case allows so you only expose exactly what a managed controller needs:
-
-- Prefer `Role`+`RoleBinding` (namespaced) over `ClusterRole`+`ClusterRoleBinding` (cluster-wide).
-- Restrict `resources`, `resourceNames`, and `verbs` to the smallest set that unblocks your use case. For example, grant `get` on a single named `Secret` rather than `list, watch` on all `Secret` objects.
-- Delete the `Role` and `RoleBinding` when they are no longer needed.
++ Prefer `Role`\+`RoleBinding` (namespaced) over `ClusterRole`\+`ClusterRoleBinding` (cluster-wide).
++ Restrict `resources`, `resourceNames`, and `verbs` to the smallest set that unblocks your use case. For example, grant `get` on a single named `Secret` rather than `list, watch` on all `Secret` objects.
++ Delete the `Role` and `RoleBinding` when they are no longer needed.
 
 ## Considerations for Amazon EKS Auto Mode
-
-- This mechanism only extends the Kubernetes RBAC of the EKS Auto Mode managed controllers. It does not change the AWS IAM permissions granted by the managed access policies.
-- The `eks:managed` group is present on EKS Auto Mode clusters whose service-linked role is `AWSServiceRoleForAmazonEKS`.
-- A binding to `eks:managed` applies to every EKS Auto Mode managed controller. To keep the practical blast radius small, use `resourceNames` and namespaced `Role` objects. This exposes only the resources you name, and only through the verbs you grant.
-- This is a bridging pattern intended for cases where a managed access policy does not yet cover a permission you need. Where an AWS managed policy already covers the permission, use the managed policy instead.
+<a name="_considerations_for_amazon_eks_auto_mode"></a>
++ This mechanism only extends the Kubernetes RBAC of the EKS Auto Mode managed controllers. It does not change the AWS IAM permissions granted by the managed access policies.
++ The `eks:managed` group is present on EKS Auto Mode clusters whose service-linked role is `AWSServiceRoleForAmazonEKS`.
++ A binding to `eks:managed` applies to every EKS Auto Mode managed controller. To keep the practical blast radius small, use `resourceNames` and namespaced `Role` objects. This exposes only the resources you name, and only through the verbs you grant.
++ This is a bridging pattern intended for cases where a managed access policy does not yet cover a permission you need. Where an AWS managed policy already covers the permission, use the managed policy instead.
 
 ## Example
+<a name="_example"></a>
 
-For a step-by-step walkthrough that grants the EKS Auto Mode load balancer controller `get` on a named OIDC `Secret` — unblocking the `alb.ingress.kubernetes.io/auth-type: oidc` annotation on an ALB `Ingress` — see [Grant the EKS Auto Mode load balancer controller access to a specific Secret](auto-managed-rbac-example.md "auto-managed-rbac-example.md").
+For a step-by-step walkthrough that grants the EKS Auto Mode load balancer controller `get` on a named OIDC `Secret` — unblocking the `alb.ingress.kubernetes.io/auth-type: oidc` annotation on an ALB `Ingress` — see [Grant the EKS Auto Mode load balancer controller access to a specific Secret](auto-managed-rbac-example.md).

@@ -1,17 +1,20 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Optimize Amazon FSx for Lustre performance on nodes (EFA)
+<a name="fsx-csi-tuning-efa"></a>
 
 This topic describes how to set up Elastic Fabric Adapter (EFA) tuning with Amazon EKS and Amazon FSx for Lustre.
 
-###### Note
-
-- For information on creating and deploying the FSx for Lustre CSI driver, see [Deploy the FSx for Lustre driver](fsx-csi-create.md "fsx-csi-create.md").
-- For optimizing standard nodes without EFA, see [Optimize Amazon FSx for Lustre performance on nodes (non-EFA)](fsx-csi-tuning-non-efa.md "fsx-csi-tuning-non-efa.md").
+**Note**  
+For information on creating and deploying the FSx for Lustre CSI driver, see [Deploy the FSx for Lustre driver](fsx-csi-create.md).
+For optimizing standard nodes without EFA, see [Optimize Amazon FSx for Lustre performance on nodes (non-EFA)](fsx-csi-tuning-non-efa.md).
 
 ## Step 1. Create EKS cluster
+<a name="create-eks-cluster"></a>
 
 Create a cluster using the provided configuration file:
 
@@ -116,6 +119,7 @@ managedNodeGroups:
 ```
 
 ## Step 2. Create node group
+<a name="create-node-group"></a>
 
 Create an EFA-enabled node group:
 
@@ -124,9 +128,8 @@ Create an EFA-enabled node group:
 eksctl create nodegroup -f efa-ng.yaml
 ```
 
-###### Important
-
-Adjust these values for your environment in section `# 5. Mount FSx filesystem`.
+**Important**  
+Adjust these values for your environment in section `# 5. Mount FSx filesystem`.  
 
 ```
 FSX_DNS="<your-fsx-filesystem-dns>" # Needs to be adjusted.
@@ -554,6 +557,7 @@ managedNodeGroups:
 ```
 
 ## (Optional) Step 3. Verify EFA setup
+<a name="verify-efa-setup"></a>
 
 SSH into node:
 
@@ -587,8 +591,10 @@ net:
 ```
 
 ## Example deployments
+<a name="example-deployments"></a>
 
 ### a. Create claim.yaml
+<a name="_a_create_claim_yaml"></a>
 
 ```
 #claim.yaml
@@ -614,6 +620,7 @@ kubectl apply -f claim.yaml
 ```
 
 ### b. Create pv.yaml
+<a name="_b_create_pv_yaml"></a>
 
 Update the `<replaceable-placeholders>`:
 
@@ -648,6 +655,7 @@ kubectl apply -f pv.yaml
 ```
 
 ### c. Create pod.yaml
+<a name="_c_create_pod_yaml"></a>
 
 ```
 #pod.yaml
@@ -683,6 +691,7 @@ kubectl apply -f pod.yaml
 ```
 
 ## Additional verification commands
+<a name="verification-commands"></a>
 
 Verify Pod mounts and writes to filesystem:
 
@@ -705,8 +714,8 @@ sudo lnetctl net show -v
 The expected output will show EFA interfaces with traffic statistics.
 
 ## Related information
-
-- [Deploy the FSx for Lustre driver](fsx-csi-create.md "fsx-csi-create.md")
-- [Optimize Amazon FSx for Lustre performance on nodes (non-EFA)](fsx-csi-tuning-non-efa.md "fsx-csi-tuning-non-efa.md")
-- [Amazon FSx for Lustre Performance](../../../fsx/latest/LustreGuide/performance.md "../../../fsx/latest/LustreGuide/performance.md")
-- [Elastic Fabric Adapter](../../../AWSEC2/latest/UserGuide/efa.md "../../../AWSEC2/latest/UserGuide/efa.md")
+<a name="_related_information"></a>
++  [Deploy the FSx for Lustre driver](fsx-csi-create.md) 
++  [Optimize Amazon FSx for Lustre performance on nodes (non-EFA)](fsx-csi-tuning-non-efa.md) 
++  [Amazon FSx for Lustre Performance](https://docs.aws.amazon.com/fsx/latest/LustreGuide/performance.html) 
++  [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) 

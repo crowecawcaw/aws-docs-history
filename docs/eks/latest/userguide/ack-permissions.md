@@ -1,84 +1,84 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure ACK permissions
+<a name="ack-permissions"></a>
 
-ACK requires IAM permissions to create and manage AWS resources on your behalf.
-This topic explains how IAM works with ACK and provides guidance on configuring permissions for different use cases.
+ACK requires IAM permissions to create and manage AWS resources on your behalf. This topic explains how IAM works with ACK and provides guidance on configuring permissions for different use cases.
 
 ## How IAM works with ACK
+<a name="_how_iam_works_with_ack"></a>
 
-ACK uses IAM roles to authenticate with AWS and perform actions on your resources.
-There are two ways to provide permissions to ACK:
+ACK uses IAM roles to authenticate with AWS and perform actions on your resources. There are two ways to provide permissions to ACK:
 
-**Capability Role**: The IAM role you provide when creating the ACK capability.
-This role is used by default for all ACK operations.
+ **Capability Role**: The IAM role you provide when creating the ACK capability. This role is used by default for all ACK operations.
 
-**IAM Role Selectors**: Additional IAM roles that can be mapped to specific namespaces or resources.
-These roles override the Capability Role for resources in their scope.
+ **IAM Role Selectors**: Additional IAM roles that can be mapped to specific namespaces or resources. These roles override the Capability Role for resources in their scope.
 
 When ACK needs to create or manage a resource, it determines which IAM role to use:
 
 1. Check if an IAMRoleSelector matches the resource’s namespace
-2. If a match is found, assume that IAM role
-3. Otherwise, use the Capability Role
+
+1. If a match is found, assume that IAM role
+
+1. Otherwise, use the Capability Role
 
 This approach enables flexible permission management from simple single-role setups to complex multi-account, multi-team configurations.
 
 ## Getting started: Simple permission setup
+<a name="_getting_started_simple_permission_setup"></a>
 
 For development, testing, or simple use cases, you can add all necessary service permissions directly to the Capability Role.
 
 This approach works well when:
-
-- You’re getting started with ACK
-- All resources are in the same AWS account
-- A single team manages all ACK resources
-- You trust all ACK users to have the same permissions
++ You’re getting started with ACK
++ All resources are in the same AWS account
++ A single team manages all ACK resources
++ You trust all ACK users to have the same permissions
 
 ## Production best practice: IAM Role Selectors
+<a name="_production_best_practice_iam_role_selectors"></a>
 
 For production environments, use IAM Role Selectors to implement least-privilege access and namespace-level isolation.
 
-When using IAM Role Selectors, the Capability Role only needs `sts:AssumeRole` and `sts:TagSession` permissions to assume the service-specific roles.
-You don’t need to add any AWS service permissions (like S3 or RDS) to the Capability Role itself—those permissions are granted to the individual IAM roles that the Capability Role assumes.
+When using IAM Role Selectors, the Capability Role only needs `sts:AssumeRole` and `sts:TagSession` permissions to assume the service-specific roles. You don’t need to add any AWS service permissions (like S3 or RDS) to the Capability Role itself—those permissions are granted to the individual IAM roles that the Capability Role assumes.
 
-**Choosing between permission models**:
+ **Choosing between permission models**:
 
 Use **direct permissions** (adding service permissions to the Capability Role) when:
-
-- You’re getting started and want the simplest setup
-- All resources are in the same account as your cluster
-- You have administrative, cluster-wide permission requirements
-- All teams can share the same permissions
++ You’re getting started and want the simplest setup
++ All resources are in the same account as your cluster
++ You have administrative, cluster-wide permission requirements
++ All teams can share the same permissions
 
 Use **IAM Role Selectors** when:
-
-- Managing resources across multiple AWS accounts
-- Different teams or namespaces need different permissions
-- You need fine-grained access control per namespace
-- You want to follow least-privilege security practices
++ Managing resources across multiple AWS accounts
++ Different teams or namespaces need different permissions
++ You need fine-grained access control per namespace
++ You want to follow least-privilege security practices
 
 You can start with direct permissions and migrate to IAM Role Selectors later as your requirements grow.
 
-**Why use IAM Role Selectors in production:**
-
-- **Least privilege**: Each namespace gets only the permissions it needs
-- **Team isolation**: Team A cannot accidentally use Team B’s permissions
-- **Easier auditing**: Clear mapping of which namespace uses which role
-- **Cross-account support**: Required for managing resources in multiple accounts
-- **Separation of concerns**: Different services or environments use different roles
+ **Why use IAM Role Selectors in production:** 
++  **Least privilege**: Each namespace gets only the permissions it needs
++  **Team isolation**: Team A cannot accidentally use Team B’s permissions
++  **Easier auditing**: Clear mapping of which namespace uses which role
++  **Cross-account support**: Required for managing resources in multiple accounts
++  **Separation of concerns**: Different services or environments use different roles
 
 ### Basic IAM Role Selector setup
+<a name="_basic_iam_role_selector_setup"></a>
 
-**Step 1: Create a service-specific IAM role**
+ **Step 1: Create a service-specific IAM role** 
 
 Create an IAM role with permissions for specific AWS services:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -95,7 +95,7 @@ Configure the trust policy to allow the Capability Role to assume it:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -108,13 +108,13 @@ Configure the trust policy to allow the Capability Role to assume it:
 }
 ```
 
-**Step 2: Grant AssumeRole permission to Capability Role**
+ **Step 2: Grant AssumeRole permission to Capability Role** 
 
 Add permission to the Capability Role to assume the service-specific role:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -125,7 +125,7 @@ Add permission to the Capability Role to assume the service-specific role:
 }
 ```
 
-**Step 3: Create IAMRoleSelector**
+ **Step 3: Create IAMRoleSelector** 
 
 Map the IAM role to a namespace:
 
@@ -141,7 +141,7 @@ spec:
       - s3-resources
 ```
 
-**Step 4: Create resources in the mapped namespace**
+ **Step 4: Create resources in the mapped namespace** 
 
 Resources in the `s3-resources` namespace automatically use the specified role:
 
@@ -156,16 +156,17 @@ spec:
 ```
 
 ## Multi-account management
+<a name="_multi_account_management"></a>
 
 Use IAM Role Selectors to manage resources across multiple AWS accounts.
 
-**Step 1: Create cross-account IAM role**
+ **Step 1: Create cross-account IAM role** 
 
 In the target account (444455556666), create a role that trusts the source account’s Capability Role:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -180,13 +181,13 @@ In the target account (444455556666), create a role that trusts the source accou
 
 Attach service-specific permissions to this role.
 
-**Step 2: Grant AssumeRole permission**
+ **Step 2: Grant AssumeRole permission** 
 
 In the source account (111122223333), allow the Capability Role to assume the target account role:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -197,7 +198,7 @@ In the source account (111122223333), allow the Capability Role to assume the ta
 }
 ```
 
-**Step 3: Create IAMRoleSelector**
+ **Step 3: Create IAMRoleSelector** 
 
 Map the cross-account role to a namespace:
 
@@ -213,7 +214,7 @@ spec:
       - production
 ```
 
-**Step 4: Create resources**
+ **Step 4: Create resources** 
 
 Resources in the `production` namespace are created in the target account:
 
@@ -228,32 +229,34 @@ spec:
 ```
 
 ## Session tags
+<a name="_session_tags"></a>
 
-The EKS ACK capability automatically sets session tags on all AWS API requests.
-These tags enable fine-grained access control and auditing by identifying the source of each request.
+The EKS ACK capability automatically sets session tags on all AWS API requests. These tags enable fine-grained access control and auditing by identifying the source of each request.
 
 ### Available session tags
+<a name="_available_session_tags"></a>
 
 The following session tags are included with every AWS API call made by ACK:
 
-| Tag Key                    | Description                                                                   |
-| -------------------------- | ----------------------------------------------------------------------------- |
-| `eks:eks-capability-arn`   | The ARN of the EKS capability making the request                              |
-| `eks:kubernetes-namespace` | The Kubernetes namespace of the resource being managed                        |
-| `eks:kubernetes-api-group` | The Kubernetes API group of the resource (for example, `s3.services.k8s.aws`) |
+
+| Tag Key | Description | 
+| --- | --- | 
+|  `eks:eks-capability-arn`  | The ARN of the EKS capability making the request | 
+|  `eks:kubernetes-namespace`  | The Kubernetes namespace of the resource being managed | 
+|  `eks:kubernetes-api-group`  | The Kubernetes API group of the resource (for example, `s3.services.k8s.aws`) | 
 
 ### Using session tags for access control
+<a name="_using_session_tags_for_access_control"></a>
 
-You can use these session tags in IAM policy conditions to restrict which resources ACK can manage.
-This provides an additional layer of security beyond namespace-based IAM Role Selectors.
+You can use these session tags in IAM policy conditions to restrict which resources ACK can manage. This provides an additional layer of security beyond namespace-based IAM Role Selectors.
 
-**Example: Restrict by namespace**
+ **Example: Restrict by namespace** 
 
 Allow ACK to create S3 buckets only when the request originates from the `production` namespace:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -269,13 +272,13 @@ Allow ACK to create S3 buckets only when the request originates from the `produc
 }
 ```
 
-**Example: Restrict by capability**
+ **Example: Restrict by capability** 
 
 Allow actions only from a specific ACK capability:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -291,16 +294,15 @@ Allow actions only from a specific ACK capability:
 }
 ```
 
-###### Note
-
-Session tags are a difference from self-managed ACK, which does not set these tags by default.
-This enables more granular access control with the managed capability.
+**Note**  
+Session tags are a difference from self-managed ACK, which does not set these tags by default. This enables more granular access control with the managed capability.
 
 ## Advanced IAM Role Selector patterns
+<a name="_advanced_iam_role_selector_patterns"></a>
 
-For advanced configuration including cross-account role mapping, namespace-scoped role selection, and additional examples, see [Granular IAM Roles](https://aws-controllers-k8s.github.io/docs/guides/cross-account "https://aws-controllers-k8s.github.io/docs/guides/cross-account") on the ACK website.
+For advanced configuration including cross-account role mapping, namespace-scoped role selection, and additional examples, see [Granular IAM Roles](https://aws-controllers-k8s.github.io/docs/guides/cross-account) on the ACK website.
 
 ## Next steps
-
-- [ACK concepts](ack-concepts.md "ack-concepts.md") - Understand ACK concepts and resource lifecycle
-- [Security considerations for EKS Capabilities](capabilities-security.md "capabilities-security.md") - Understand security best practices for capabilities
+<a name="_next_steps"></a>
++  [ACK concepts](ack-concepts.md) - Understand ACK concepts and resource lifecycle
++  [Security considerations for EKS Capabilities](capabilities-security.md) - Understand security best practices for capabilities

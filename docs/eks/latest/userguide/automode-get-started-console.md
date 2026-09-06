@@ -1,55 +1,58 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Create an EKS Auto Mode Cluster with the AWS Management Console
+<a name="automode-get-started-console"></a>
 
 Creating an EKS Auto Mode cluster in the AWS Management Console requires less configuration than other options. EKS integrates with AWS IAM and VPC Networking to help you create the resources associated with an EKS cluster.
 
 You have two options to create a cluster in the console:
++ Quick configuration (with EKS Auto Mode)
++ Custom configuration
 
-- Quick configuration (with EKS Auto Mode)
-- Custom configuration
-  In this topic, you will learn how to create an EKS Auto Mode cluster using the Quick configuration option.
+In this topic, you will learn how to create an EKS Auto Mode cluster using the Quick configuration option.
 
 ## Create an EKS Auto Mode cluster using the quick configuration option
+<a name="_create_an_eks_auto_mode_cluster_using_the_quick_configuration_option"></a>
 
 You must be logged into the AWS Management Console with sufficient permissions to manage AWS resources including: EC2 instances, EC2 networking, EKS clusters, and IAM roles.
 
 1. Navigate to the EKS Console
-2. Choose **Create cluster**
-3. Confirm the **Quick configuration** option is selected
-4. Determine the following values, or use the defaults for a test cluster.
 
-   - Cluster **Name**
-   - Kubernetes Version
+1. Choose **Create cluster** 
 
-5. Select the Cluster IAM Role. If this is your first time creating an EKS Auto Mode cluster, use the **Create recommended role** option.
+1. Confirm the **Quick configuration** option is selected
 
-   - Optionally, you can reuse a single Cluster IAM Role in your AWS account for all EKS Auto Mode clusters.
-   - The Cluster IAM Role includes required permissions for EKS Auto Mode to manage resources including EC2 instances, EBS volumes, and EC2 load balancers.
-   - The **Create recommended role** option pre-fills all fields with recommended values. Select **Next** and then **Create**. The role will use the suggested `AmazonEKSAutoClusterRole` name.
-   - If you recently created a new role, use the **Refresh** icon to reload the role selection dropdown.
+1. Determine the following values, or use the defaults for a test cluster.
+   + Cluster **Name** 
+   + Kubernetes Version
 
-6. Select the Node IAM Role. If this is your first time creating an EKS Auto Mode cluster, use the **Create recommended role** option.
+1. Select the Cluster IAM Role. If this is your first time creating an EKS Auto Mode cluster, use the **Create recommended role** option.
+   + Optionally, you can reuse a single Cluster IAM Role in your AWS account for all EKS Auto Mode clusters.
+   + The Cluster IAM Role includes required permissions for EKS Auto Mode to manage resources including EC2 instances, EBS volumes, and EC2 load balancers.
+   + The **Create recommended role** option pre-fills all fields with recommended values. Select **Next** and then **Create**. The role will use the suggested `AmazonEKSAutoClusterRole` name.
+   + If you recently created a new role, use the **Refresh** icon to reload the role selection dropdown.
 
-   - Optionally, you can reuse a single Node IAM Role in your AWS account for all EKS Auto Mode clusters.
-   - The Node IAM Role includes required permissions for Auto Mode nodes to connect to the cluster. The Node IAM Role must include permissions to retrieve ECR images for your containers.
-   - The **Create recommended role** option pre-fills all fields with recommended values. Select **Next** and then **Create**. The role will use the suggested `AmazonEKSAutoNodeRole` name.
-   - If you recently created a new role, use the **Refresh** icon to reload the role selection dropdown.
+1. Select the Node IAM Role. If this is your first time creating an EKS Auto Mode cluster, use the **Create recommended role** option.
+   + Optionally, you can reuse a single Node IAM Role in your AWS account for all EKS Auto Mode clusters.
+   + The Node IAM Role includes required permissions for Auto Mode nodes to connect to the cluster. The Node IAM Role must include permissions to retrieve ECR images for your containers.
+   + The **Create recommended role** option pre-fills all fields with recommended values. Select **Next** and then **Create**. The role will use the suggested `AmazonEKSAutoNodeRole` name.
+   + If you recently created a new role, use the **Refresh** icon to reload the role selection dropdown.
 
-7. Select the VPC for your EKS Auto Mode cluster. Choose the **Create VPC** to create a new VPC for EKS, or choose a VPC you previously created for EKS.
+1. Select the VPC for your EKS Auto Mode cluster. Choose the **Create VPC** to create a new VPC for EKS, or choose a VPC you previously created for EKS.
+   + If you use the VPC Console to create a new VPC, AWS suggests you create at least one NAT Gateway per Availability Zone. Otherwise, you can use all other defaults.
+   + For more information and details of IPv6 cluster requirements, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md).
 
-   - If you use the VPC Console to create a new VPC, AWS suggests you create at least one NAT Gateway per Availability Zone. Otherwise, you can use all other defaults.
-   - For more information and details of IPv6 cluster requirements, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md "creating-a-vpc.md").
+1. (optional) EKS Auto Mode automatically populates the private subnets for your selected VPC. You can remove unwanted subnets.
+   + EKS automatically selects private subnets from the VPC following best practices. You can optionally select additional subnets from the VPC, such as public subnets.
 
-8. (optional) EKS Auto Mode automatically populates the private subnets for your selected VPC. You can remove unwanted subnets.
+1. (optional) Select **View quick configuration defaults** to review all configuration values for the new cluster. The table indicates some values are not editable after the cluster is created.
 
-   - EKS automatically selects private subnets from the VPC following best practices. You can optionally select additional subnets from the VPC, such as public subnets.
-
-9. (optional) Select **View quick configuration defaults** to review all configuration values for the new cluster. The table indicates some values are not editable after the cluster is created.
-10. Select **Create cluster** . Note it may take fifteen minutes for cluster creation to complete.
+1. Select **Create cluster** . Note it may take fifteen minutes for cluster creation to complete.
 
 ## Next Steps
-
-- Learn how to [Deploy a Sample Workload to your EKS Auto Mode cluster](sample-storage-workload.md "sample-storage-workload.md")
+<a name="_next_steps"></a>
++ Learn how to [Deploy a Sample Workload to your EKS Auto Mode cluster](sample-storage-workload.md) 

@@ -1,99 +1,84 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure CNI for hybrid nodes
+<a name="hybrid-nodes-cni"></a>
 
-Cilium is the AWS-supported Container Networking Interface (CNI) for Amazon EKS Hybrid Nodes. You must install a CNI for hybrid nodes to become ready to serve workloads. Hybrid nodes appear with status `Not Ready` until a CNI is running. You can manage the CNI with your choice of tools such as Helm. The instructions on this page cover Cilium lifecycle management (install, upgrade, delete). See [Cilium Ingress and Cilium Gateway Overview](hybrid-nodes-ingress.md#hybrid-nodes-ingress-cilium "hybrid-nodes-ingress.md#hybrid-nodes-ingress-cilium"), [Service type LoadBalancer](hybrid-nodes-ingress.md#hybrid-nodes-ingress-cilium-loadbalancer "hybrid-nodes-ingress.md#hybrid-nodes-ingress-cilium-loadbalancer"), and [Configure Kubernetes Network Policies for hybrid nodes](hybrid-nodes-network-policies.md "hybrid-nodes-network-policies.md") for how to configure Cilium for ingress, load balancing, and network policies.
+Cilium is the AWS-supported Container Networking Interface (CNI) for Amazon EKS Hybrid Nodes. You must install a CNI for hybrid nodes to become ready to serve workloads. Hybrid nodes appear with status `Not Ready` until a CNI is running. You can manage the CNI with your choice of tools such as Helm. The instructions on this page cover Cilium lifecycle management (install, upgrade, delete). See [Cilium Ingress and Cilium Gateway Overview](hybrid-nodes-ingress.md#hybrid-nodes-ingress-cilium), [Service type LoadBalancer](hybrid-nodes-ingress.md#hybrid-nodes-ingress-cilium-loadbalancer), and [Configure Kubernetes Network Policies for hybrid nodes](hybrid-nodes-network-policies.md) for how to configure Cilium for ingress, load balancing, and network policies.
 
 Cilium is not supported by AWS when running on nodes in AWS Cloud. The Amazon VPC CNI is not compatible with hybrid nodes and the VPC CNI is configured with anti-affinity for the `eks.amazonaws.com/compute-type: hybrid` label.
 
-The Calico documentation previously on this page has been moved to the [EKS Hybrid Examples Repository](https://github.com/aws-samples/eks-hybrid-examples "https://github.com/aws-samples/eks-hybrid-examples").
+The Calico documentation previously on this page has been moved to the [EKS Hybrid Examples Repository](https://github.com/aws-samples/eks-hybrid-examples).
 
 ## Version compatibility
+<a name="hybrid-nodes-cilium-version-compatibility"></a>
 
 Cilium versions `v1.17.x` and `v1.18.x` are supported for EKS Hybrid Nodes for every Kubernetes version supported in Amazon EKS.
 
-###### Note
+**Note**  
+ **Cilium v1.18.3 kernel requirement**: Due to the kernel requirement (Linux kernel >= 5.10), Cilium v1.18.3 is not supported on:
++ Ubuntu 20.04
++ Red Hat Enterprise Linux (RHEL) 8
 
-**Cilium v1.18.3 kernel requirement**: Due to the kernel requirement (Linux kernel >= 5.10), Cilium v1.18.3 is not supported on:
+For system requirements, see [Cilium system requirements](https://docs.cilium.io/en/stable/operations/system_requirements/).
 
-- Ubuntu 20.04
-- Red Hat Enterprise Linux (RHEL) 8
-
-For system requirements, see [Cilium system requirements](https://docs.cilium.io/en/stable/operations/system_requirements/ "https://docs.cilium.io/en/stable/operations/system_requirements/").
-
-See [Kubernetes version support](kubernetes-versions.md "kubernetes-versions.md") for the Kubernetes versions supported by Amazon EKS. EKS Hybrid Nodes have the same Kubernetes version support as Amazon EKS clusters with cloud nodes.
+See [Kubernetes version support](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html) for the Kubernetes versions supported by Amazon EKS. EKS Hybrid Nodes have the same Kubernetes version support as Amazon EKS clusters with cloud nodes.
 
 ## Supported capabilities
+<a name="hybrid-nodes-cilium-support"></a>
 
-AWS maintains builds of Cilium for EKS Hybrid Nodes that are based on the open source [Cilium project](https://github.com/cilium/cilium "https://github.com/cilium/cilium"). To receive support from AWS for Cilium, you must be using the AWS-maintained Cilium builds and supported Cilium versions.
+ AWS maintains builds of Cilium for EKS Hybrid Nodes that are based on the open source [Cilium project](https://github.com/cilium/cilium). To receive support from AWS for Cilium, you must be using the AWS-maintained Cilium builds and supported Cilium versions.
 
-AWS provides technical support for the default configurations of the following capabilities of Cilium for use with EKS Hybrid Nodes. If you plan to use functionality outside the scope of AWS support, it is recommended to obtain alternative commercial support for Cilium or have the in-house expertise to troubleshoot and contribute fixes to the Cilium project.
+ AWS provides technical support for the default configurations of the following capabilities of Cilium for use with EKS Hybrid Nodes. If you plan to use functionality outside the scope of AWS support, it is recommended to obtain alternative commercial support for Cilium or have the in-house expertise to troubleshoot and contribute fixes to the Cilium project.
 
-| Cilium Feature                                | Supported by AWS               |
-| --------------------------------------------- | ------------------------------ |
-| Kubernetes network conformance                | Yes                            |
-| Core cluster connectivity                     | Yes                            |
-| IP family                                     | IPv4                           |
-| Lifecycle Management                          | Helm                           |
-| Networking Mode                               | VXLAN encapsulation            |
-| IP Address Management (IPAM)                  | Cilium IPAM Cluster Scope      |
-| Network Policy                                | Kubernetes Network Policy      |
-| Border Gateway Protocol (BGP)                 | Cilium BGP Control Plane       |
-| Kubernetes Ingress                            | Cilium Ingress, Cilium Gateway |
-| Service LoadBalancer IP Allocation            | Cilium Load Balancer IPAM      |
-| Service LoadBalancer IP Address Advertisement | Cilium BGP Control Plane       |
-| kube-proxy replacement                        | Yes                            |
+
+| Cilium Feature | Supported by AWS  | 
+| --- | --- | 
+| Kubernetes network conformance | Yes | 
+| Core cluster connectivity | Yes | 
+| IP family | IPv4 | 
+| Lifecycle Management | Helm | 
+| Networking Mode | VXLAN encapsulation | 
+| IP Address Management (IPAM) | Cilium IPAM Cluster Scope | 
+| Network Policy | Kubernetes Network Policy | 
+| Border Gateway Protocol (BGP) | Cilium BGP Control Plane | 
+| Kubernetes Ingress | Cilium Ingress, Cilium Gateway | 
+| Service LoadBalancer IP Allocation | Cilium Load Balancer IPAM | 
+| Service LoadBalancer IP Address Advertisement | Cilium BGP Control Plane | 
+| kube-proxy replacement | Yes | 
 
 ## Cilium considerations
+<a name="hybrid-nodes-cilium-considerations"></a>
++  **Helm repository** - AWS hosts the Cilium Helm chart in the Amazon Elastic Container Registry Public (Amazon ECR Public) at [Amazon EKS Cilium/Cilium](https://gallery.ecr.aws/eks/cilium/cilium). The available versions include:
+  + Cilium v1.17.9: `oci://public.ecr.aws/eks/cilium/cilium:1.17.9-0` 
+  + Cilium v1.18.3: `oci://public.ecr.aws/eks/cilium/cilium:1.18.3-0` 
 
-- **Helm repository** - AWS hosts the Cilium Helm chart in the Amazon Elastic Container Registry Public (Amazon ECR Public) at [Amazon EKS Cilium/Cilium](https://gallery.ecr.aws/eks/cilium/cilium "https://gallery.ecr.aws/eks/cilium/cilium"). The available versions include:
-
-  - Cilium v1.17.9: `oci://public.ecr.aws/eks/cilium/cilium:1.17.9-0`
-  - Cilium v1.18.3: `oci://public.ecr.aws/eks/cilium/cilium:1.18.3-0`
-
-  The commands in this topic use this repository. Note that certain `helm repo` commands aren’t valid for Helm repositores in Amazon ECR Public, so you can’t refer to this repository from a local Helm repo name. Instead, use the full URI in most commands.
-
-- By default, Cilium is configured to run in overlay / tunnel mode with VXLAN as the [encapsulation method](https://docs.cilium.io/en/stable/network/concepts/routing/#encapsulation "https://docs.cilium.io/en/stable/network/concepts/routing/#encapsulation"). This mode has the fewest requirements on the underlying physical network.
-- By default, Cilium [masquerades](https://docs.cilium.io/en/stable/network/concepts/masquerading/ "https://docs.cilium.io/en/stable/network/concepts/masquerading/") the source IP address of all pod traffic leaving the cluster to the IP address of the node. If you disable masquerading, then your pod CIDRs must be routable on your on-premises network.
-- If you are running webhooks on hybrid nodes, your pod CIDRs must be routable on your on-premises network. If your pod CIDRs are not routable on your on-premises network, then it is recommended to run webhooks on cloud nodes in the same cluster. See [Configure webhooks for hybrid nodes](hybrid-nodes-webhooks.md "hybrid-nodes-webhooks.md") and [Prepare networking for hybrid nodes](hybrid-nodes-networking.md "hybrid-nodes-networking.md") for more information.
-- AWS recommends using Cilium’s built-in BGP functionality to make your pod CIDRs routable on your on-premises network. For more information on how to configure Cilium BGP with hybrid nodes, see [Configure Cilium BGP for hybrid nodes](hybrid-nodes-cilium-bgp.md "hybrid-nodes-cilium-bgp.md").
-- The default IP Address Management (IPAM) in Cilium is called [Cluster Scope](https://docs.cilium.io/en/stable/network/concepts/ipam/cluster-pool/ "https://docs.cilium.io/en/stable/network/concepts/ipam/cluster-pool/"), where the Cilium operator allocates IP addresses for each node based on user-configured pod CIDRs.
+    The commands in this topic use this repository. Note that certain `helm repo` commands aren’t valid for Helm repositores in Amazon ECR Public, so you can’t refer to this repository from a local Helm repo name. Instead, use the full URI in most commands.
++ By default, Cilium is configured to run in overlay / tunnel mode with VXLAN as the [encapsulation method](https://docs.cilium.io/en/stable/network/concepts/routing/#encapsulation). This mode has the fewest requirements on the underlying physical network.
++ By default, Cilium [masquerades](https://docs.cilium.io/en/stable/network/concepts/masquerading/) the source IP address of all pod traffic leaving the cluster to the IP address of the node. If you disable masquerading, then your pod CIDRs must be routable on your on-premises network.
++ If you are running webhooks on hybrid nodes, your pod CIDRs must be routable on your on-premises network. If your pod CIDRs are not routable on your on-premises network, then it is recommended to run webhooks on cloud nodes in the same cluster. See [Configure webhooks for hybrid nodes](hybrid-nodes-webhooks.md) and [Prepare networking for hybrid nodes](hybrid-nodes-networking.md) for more information.
++  AWS recommends using Cilium’s built-in BGP functionality to make your pod CIDRs routable on your on-premises network. For more information on how to configure Cilium BGP with hybrid nodes, see [Configure Cilium BGP for hybrid nodes](hybrid-nodes-cilium-bgp.md).
++ The default IP Address Management (IPAM) in Cilium is called [Cluster Scope](https://docs.cilium.io/en/stable/network/concepts/ipam/cluster-pool/), where the Cilium operator allocates IP addresses for each node based on user-configured pod CIDRs.
 
 ## Install Cilium on hybrid nodes
+<a name="hybrid-nodes-cilium-install"></a>
 
 ### Procedure
+<a name="_procedure"></a>
 
 1. Create a YAML file called `cilium-values.yaml`. The following example configures Cilium to run only on hybrid nodes by setting affinity for the `eks.amazonaws.com/compute-type: hybrid` label for the Cilium agent and operator.
+   + Configure `clusterPoolIpv4PodCIDRList` with the same pod CIDRs you configured for your EKS cluster’s *remote pod networks*. For example, `10.100.0.0/24`. The Cilium operator allocates IP address slices from within the configured `clusterPoolIpv4PodCIDRList` IP space. Your pod CIDR must not overlap with your on-premises node CIDR, your VPC CIDR, or your Kubernetes service CIDR.
+   + Configure `clusterPoolIpv4MaskSize` based on your required pods per node. For example, `25` for a /25 segment size of 128 pods per node.
+   + Do not change `clusterPoolIpv4PodCIDRList` or `clusterPoolIpv4MaskSize` after deploying Cilium on your cluster, see [Expanding the cluster pool](https://docs.cilium.io/en/stable/network/concepts/ipam/cluster-pool/#expanding-the-cluster-pool) for more information.
+   + If you are running Cilium in kube-proxy replacement mode, set `kubeProxyReplacement: "true"` in your Helm values and ensure you do not have an existing kube-proxy deployment running on the same nodes as Cilium.
+   + The example below disables the Envoy Layer 7 (L7) proxy that Cilium uses for L7 network policies and ingress. For more information, see [Configure Kubernetes Network Policies for hybrid nodes](hybrid-nodes-network-policies.md) and [Cilium Ingress and Cilium Gateway Overview](hybrid-nodes-ingress.md#hybrid-nodes-ingress-cilium).
+   + The example below configures `loadBalancer.serviceTopology`: `true` for Service Traffic Distribution to function correctly if you configure it for your services. For more information, see [Configure Service Traffic Distribution](hybrid-nodes-webhooks.md#hybrid-nodes-mixed-service-traffic-distribution).
+   + For a full list of Helm values for Cilium, see the [Helm reference](https://docs.cilium.io/en/stable/helm-reference/) in the Cilium documentation.
 
-   - Configure `clusterPoolIpv4PodCIDRList` with the same pod CIDRs you configured for your EKS cluster’s _remote pod networks_. For example, `10.100.0.0/24`. The Cilium operator allocates IP address slices from within the configured `clusterPoolIpv4PodCIDRList` IP space. Your pod CIDR must not overlap with your on-premises node CIDR, your VPC CIDR, or your Kubernetes service CIDR.
-   - Configure `clusterPoolIpv4MaskSize` based on your required pods per node. For example, `25` for a /25 segment size of 128 pods per node.
-   - Do not change `clusterPoolIpv4PodCIDRList` or `clusterPoolIpv4MaskSize` after deploying Cilium on your cluster, see [Expanding the cluster pool](https://docs.cilium.io/en/stable/network/concepts/ipam/cluster-pool/#expanding-the-cluster-pool "https://docs.cilium.io/en/stable/network/concepts/ipam/cluster-pool/#expanding-the-cluster-pool") for more information.
-   - If you are running Cilium in kube-proxy replacement mode, set `kubeProxyReplacement: "true"` in your Helm values and ensure you do not have an existing kube-proxy deployment running on the same nodes as Cilium.
-   - The example below disables the Envoy Layer 7 (L7) proxy that Cilium uses for L7 network policies and ingress. For more information, see [Configure Kubernetes Network Policies for hybrid nodes](hybrid-nodes-network-policies.md "hybrid-nodes-network-policies.md") and [Cilium Ingress and Cilium Gateway Overview](hybrid-nodes-ingress.md#hybrid-nodes-ingress-cilium "hybrid-nodes-ingress.md#hybrid-nodes-ingress-cilium").
-   - The example below configures `loadBalancer.serviceTopology`: `true` for Service Traffic Distribution to function correctly if you configure it for your services. For more information, see [Configure Service Traffic Distribution](hybrid-nodes-webhooks.md#hybrid-nodes-mixed-service-traffic-distribution "hybrid-nodes-webhooks.md#hybrid-nodes-mixed-service-traffic-distribution").
-   - For a full list of Helm values for Cilium, see the [Helm reference](https://docs.cilium.io/en/stable/helm-reference/ "https://docs.cilium.io/en/stable/helm-reference/") in the Cilium documentation.
-
-   ```
-   affinity:
-     nodeAffinity:
-       requiredDuringSchedulingIgnoredDuringExecution:
-         nodeSelectorTerms:
-         - matchExpressions:
-           - key: eks.amazonaws.com/compute-type
-             operator: In
-             values:
-             - hybrid
-   ipam:
-     mode: cluster-pool
-     operator:
-       clusterPoolIPv4MaskSize: `25`
-       clusterPoolIPv4PodCIDRList:
-       - `POD_CIDR`
-   loadBalancer:
-     serviceTopology: true
-   operator:
+     ```
      affinity:
        nodeAffinity:
          requiredDuringSchedulingIgnoredDuringExecution:
@@ -102,126 +87,150 @@ AWS provides technical support for the default configurations of the following c
              - key: eks.amazonaws.com/compute-type
                operator: In
                values:
-                 - hybrid
-     unmanagedPodWatcher:
-       restart: false
-   loadBalancer:
-     serviceTopology: true
-   envoy:
-     enabled: false
-   kubeProxyReplacement: "false"
+               - hybrid
+     ipam:
+       mode: cluster-pool
+       operator:
+         clusterPoolIPv4MaskSize: {{25}}
+         clusterPoolIPv4PodCIDRList:
+         - {{POD_CIDR}}
+     loadBalancer:
+       serviceTopology: true
+     operator:
+       affinity:
+         nodeAffinity:
+           requiredDuringSchedulingIgnoredDuringExecution:
+             nodeSelectorTerms:
+             - matchExpressions:
+               - key: eks.amazonaws.com/compute-type
+                 operator: In
+                 values:
+                   - hybrid
+       unmanagedPodWatcher:
+         restart: false
+     loadBalancer:
+       serviceTopology: true
+     envoy:
+       enabled: false
+     kubeProxyReplacement: "false"
+     ```
+
+1. Install Cilium on your cluster.
+   + Replace `CILIUM_VERSION` with a Cilium version (for example `1.17.9-0` or `1.18.3-0`). It is recommended to use the latest patch version for the Cilium minor version.
+   + Ensure your nodes meet the kernel requirements for the version you choose. Cilium v1.18.3 requires Linux kernel >= 5.10.
+   + If you are using a specific kubeconfig file, use the `--kubeconfig` flag with the Helm install command.
+
+     ```
+     helm install cilium oci://public.ecr.aws/eks/cilium/cilium \
+         --version {{CILIUM_VERSION}} \
+         --namespace kube-system \
+         --values cilium-values.yaml
+     ```
+
+1. Confirm your Cilium installation was successful with the following commands. You should see the `cilium-operator` deployment and the `cilium-agent` running on each of your hybrid nodes. Additionally, your hybrid nodes should now have status `Ready`. For information on how to configure Cilium BGP to advertise your pod CIDRs to your on-premises network, proceed to [Configure Cilium BGP for hybrid nodes](hybrid-nodes-cilium-bgp.md).
+
+   ```
+   kubectl get pods -n kube-system
    ```
 
-2. Install Cilium on your cluster.
-
-   - Replace `CILIUM_VERSION` with a Cilium version (for example `1.17.9-0` or `1.18.3-0`). It is recommended to use the latest patch version for the Cilium minor version.
-   - Ensure your nodes meet the kernel requirements for the version you choose. Cilium v1.18.3 requires Linux kernel >= 5.10.
-   - If you are using a specific kubeconfig file, use the `--kubeconfig` flag with the Helm install command.
-
    ```
-   helm install cilium oci://public.ecr.aws/eks/cilium/cilium \
-       --version `CILIUM_VERSION` \
-       --namespace kube-system \
-       --values cilium-values.yaml
+   NAME                              READY   STATUS    RESTARTS   AGE
+   cilium-jjjn8                      1/1     Running   0          11m
+   cilium-operator-d4f4d7fcb-sc5xn   1/1     Running   0          11m
    ```
 
-3. Confirm your Cilium installation was successful with the following commands. You should see the `cilium-operator` deployment and the `cilium-agent` running on each of your hybrid nodes. Additionally, your hybrid nodes should now have status `Ready`. For information on how to configure Cilium BGP to advertise your pod CIDRs to your on-premises network, proceed to [Configure Cilium BGP for hybrid nodes](hybrid-nodes-cilium-bgp.md "hybrid-nodes-cilium-bgp.md").
+   ```
+   kubectl get nodes
+   ```
 
-```
-kubectl get pods -n kube-system
-```
-
-```
-NAME                              READY   STATUS    RESTARTS   AGE
-cilium-jjjn8                      1/1     Running   0          11m
-cilium-operator-d4f4d7fcb-sc5xn   1/1     Running   0          11m
-```
-
-```
-kubectl get nodes
-```
-
-```
-NAME                   STATUS   ROLES    AGE   VERSION
-mi-04a2cf999b7112233   Ready    <none>   19m   v1.31.0-eks-a737599
-```
+   ```
+   NAME                   STATUS   ROLES    AGE   VERSION
+   mi-04a2cf999b7112233   Ready    <none>   19m   v1.31.0-eks-a737599
+   ```
 
 ## Upgrade Cilium on hybrid nodes
+<a name="hybrid-nodes-cilium-upgrade"></a>
 
-Before upgrading your Cilium deployment, carefully review the [Cilium upgrade documentation](https://docs.cilium.io/en/v1.17/operations/upgrade/ "https://docs.cilium.io/en/v1.17/operations/upgrade/") and the upgrade notes to understand the changes in the target Cilium version.
+Before upgrading your Cilium deployment, carefully review the [Cilium upgrade documentation](https://docs.cilium.io/en/v1.17/operations/upgrade/) and the upgrade notes to understand the changes in the target Cilium version.
 
-1. Ensure that you have installed the `helm` CLI on your command-line environment. See the [Helm documentation](https://helm.sh/docs/intro/quickstart/ "https://helm.sh/docs/intro/quickstart/") for installation instructions.
-2. Run the Cilium upgrade pre-flight check. Replace `CILIUM_VERSION` with your target Cilium version. We recommend that you run the latest patch version for your Cilium minor version. You can find the latest patch release for a given minor Cilium release in the [Stable Releases section](https://github.com/cilium/cilium#stable-releases "https://github.com/cilium/cilium#stable-releases") of the Cilium documentation.
+1. Ensure that you have installed the `helm` CLI on your command-line environment. See the [Helm documentation](https://helm.sh/docs/intro/quickstart/) for installation instructions.
 
-```
-helm install cilium-preflight oci://public.ecr.aws/eks/cilium/cilium --version CILIUM_VERSION \
-  --namespace=kube-system \
-  --set preflight.enabled=true \
-  --set agent=false \
-  --set operator.enabled=false
-```
+1. Run the Cilium upgrade pre-flight check. Replace `CILIUM_VERSION` with your target Cilium version. We recommend that you run the latest patch version for your Cilium minor version. You can find the latest patch release for a given minor Cilium release in the [Stable Releases section](https://github.com/cilium/cilium#stable-releases) of the Cilium documentation.
 
-3. After applying the `cilium-preflight.yaml`, ensure that the number of `READY` pods is the same number of Cilium pods running.
+   ```
+   helm install cilium-preflight oci://public.ecr.aws/eks/cilium/cilium --version CILIUM_VERSION \
+     --namespace=kube-system \
+     --set preflight.enabled=true \
+     --set agent=false \
+     --set operator.enabled=false
+   ```
 
-```
-kubectl get ds -n kube-system | sed -n '1p;/cilium/p'
-```
+1. After applying the `cilium-preflight.yaml`, ensure that the number of `READY` pods is the same number of Cilium pods running.
 
-```
-NAME                      DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-cilium                    2         2         2       2            2           <none>          1h20m
-cilium-pre-flight-check   2         2         2       2            2           <none>          7m15s
-```
+   ```
+   kubectl get ds -n kube-system | sed -n '1p;/cilium/p'
+   ```
 
-4. Once the number of READY pods are equal, make sure the Cilium pre-flight deployment is also marked as READY 1/1. If it shows READY 0/1, consult the [CNP Validation](https://docs.cilium.io/en/v1.17/operations/upgrade/#cnp-validation "https://docs.cilium.io/en/v1.17/operations/upgrade/#cnp-validation") section and resolve issues with the deployment before continuing with the upgrade.
+   ```
+   NAME                      DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+   cilium                    2         2         2       2            2           <none>          1h20m
+   cilium-pre-flight-check   2         2         2       2            2           <none>          7m15s
+   ```
 
-```
-kubectl get deployment -n kube-system cilium-pre-flight-check -w
-```
+1. Once the number of READY pods are equal, make sure the Cilium pre-flight deployment is also marked as READY 1/1. If it shows READY 0/1, consult the [CNP Validation](https://docs.cilium.io/en/v1.17/operations/upgrade/#cnp-validation) section and resolve issues with the deployment before continuing with the upgrade.
 
-```
-NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
-cilium-pre-flight-check   1/1     1            0           12s
-```
+   ```
+   kubectl get deployment -n kube-system cilium-pre-flight-check -w
+   ```
 
-5. Delete the preflight
+   ```
+   NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+   cilium-pre-flight-check   1/1     1            0           12s
+   ```
 
-```
-helm uninstall cilium-preflight --namespace kube-system
-```
+1. Delete the preflight
 
-6. Before running the `helm upgrade` command, preserve the values for your deployment in a `existing-cilium-values.yaml` or use `--set` command line options for your settings when you run the upgrade command. The upgrade operation overwrites the Cilium ConfigMap, so it is critical that your configuration values are passed when you upgrade.
+   ```
+   helm uninstall cilium-preflight --namespace kube-system
+   ```
 
-```
-helm get values cilium --namespace kube-system -o yaml > existing-cilium-values.yaml
-```
+1. Before running the `helm upgrade` command, preserve the values for your deployment in a `existing-cilium-values.yaml` or use `--set` command line options for your settings when you run the upgrade command. The upgrade operation overwrites the Cilium ConfigMap, so it is critical that your configuration values are passed when you upgrade.
 
-7. During normal cluster operations, all Cilium components should run the same version. The following steps describe how to upgrade all of the components from one stable release to a later stable release. When upgrading from one minor release to another minor release, it is recommended to upgrade to the latest patch release for the existing Cilium minor version first. To minimize disruption, set the `upgradeCompatibility` option to the initial Cilium version that you installed in this cluster.
+   ```
+   helm get values cilium --namespace kube-system -o yaml > existing-cilium-values.yaml
+   ```
 
-```
-helm upgrade cilium oci://public.ecr.aws/eks/cilium/cilium --version `CILIUM_VERSION` \
-  --namespace kube-system \
-  --set upgradeCompatibility=`1.X` \
-  -f existing-cilium-values.yaml
-```
+1. During normal cluster operations, all Cilium components should run the same version. The following steps describe how to upgrade all of the components from one stable release to a later stable release. When upgrading from one minor release to another minor release, it is recommended to upgrade to the latest patch release for the existing Cilium minor version first. To minimize disruption, set the `upgradeCompatibility` option to the initial Cilium version that you installed in this cluster.
 
-8. (Optional) If you need to rollback your upgrade due to issues, run the following commands.
+   ```
+   helm upgrade cilium oci://public.ecr.aws/eks/cilium/cilium --version {{CILIUM_VERSION}} \
+     --namespace kube-system \
+     --set upgradeCompatibility={{1.X}} \
+     -f existing-cilium-values.yaml
+   ```
 
-```
-helm history cilium --namespace kube-system
-helm rollback cilium [REVISION] --namespace kube-system
-```
+1. (Optional) If you need to rollback your upgrade due to issues, run the following commands.
+
+   ```
+   helm history cilium --namespace kube-system
+   helm rollback cilium [REVISION] --namespace kube-system
+   ```
 
 ## Delete Cilium from hybrid nodes
+<a name="hybrid-nodes-cilium-delete"></a>
 
 1. Run the following command to uninstall all Cilium components from your cluster. Note, uninstalling the CNI might impact the health of nodes and pods and shouldn’t be performed on production clusters.
 
-```
-helm uninstall cilium --namespace kube-system
-```
+   ```
+   helm uninstall cilium --namespace kube-system
+   ```
 
-The interfaces and routes configured by Cilium are not removed by default when the CNI is removed from the cluster, see the [GitHub issue](https://github.com/cilium/cilium/issues/34289 "https://github.com/cilium/cilium/issues/34289") for more information. 2. To clean up the on-disk configuration files and resources, if you are using the standard configuration directories, you can remove the files as shown by the [`cni-uninstall.sh` script](https://github.com/cilium/cilium/blob/main/plugins/cilium-cni/cni-uninstall.sh "https://github.com/cilium/cilium/blob/main/plugins/cilium-cni/cni-uninstall.sh") in the Cilium repository on GitHub. 3. To remove the Cilium Custom Resource Definitions (CRDs) from your cluster, you can run the following commands.
+   The interfaces and routes configured by Cilium are not removed by default when the CNI is removed from the cluster, see the [GitHub issue](https://github.com/cilium/cilium/issues/34289) for more information.
 
-```
-kubectl get crds -oname | grep "cilium" | xargs kubectl delete
-```
+1. To clean up the on-disk configuration files and resources, if you are using the standard configuration directories, you can remove the files as shown by the [`cni-uninstall.sh` script](https://github.com/cilium/cilium/blob/main/plugins/cilium-cni/cni-uninstall.sh) in the Cilium repository on GitHub.
+
+1. To remove the Cilium Custom Resource Definitions (CRDs) from your cluster, you can run the following commands.
+
+   ```
+   kubectl get crds -oname | grep "cilium" | xargs kubectl delete
+   ```

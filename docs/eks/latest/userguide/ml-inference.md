@@ -1,82 +1,89 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Run AI/ML inference workloads on Amazon EKS
+<a name="ml-inference"></a>
 
-###### Tip
-
-[Register](https://events.eksworkshop.com/workshops/genai/ "https://events.eksworkshop.com/workshops/genai/") for upcoming Amazon EKS AI/ML workshops.
+**Tip**  
+ [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
 
 Inference is the process of running a trained AI model to generate predictions or outputs from input data. This includes serving large language models (LLMs) that produce text or code, diffusion models that generate images, speech models for voice synthesis and transcription, and video models for real-time analysis or generation. Amazon EKS provides a scalable, portable solution for deploying these inference workloads with NVIDIA GPUs or AWS Trainium accelerators, dynamic scaling, and integration with the broader Kubernetes and AWS landscape of tools and services.
 
 ## Why use Amazon EKS for inference
+<a name="_why_use_amazon_eks_for_inference"></a>
 
 Amazon EKS combines Kubernetes orchestration with AWS infrastructure to address the key challenges of running inference at scale:
-
-- **Dynamic GPU scaling** — Karpenter provisions right-sized GPU instances on demand based on Pod resource requests, scaling from zero when idle and adding capacity as traffic increases. This avoids over-provisioning expensive GPU resources.
-- **Fast cold starts** — SOCI (Seekable OCI) parallel pull downloads and unpacks large container image layers concurrently, reducing image pull times from minutes to seconds. Combined with model streaming from Amazon S3 directly to GPU memory, Pods can start serving in under two minutes.
-- **Automatic GPU failure recovery** — The EKS node monitoring agent detects GPU hardware failures and triggers automatic node replacement, minimizing downtime without manual intervention.
-- **Cost optimization** — Spot instances with On-Demand fallback, right-sized instance selection, and scale-to-zero behavior reduce GPU costs. Reserved capacity (ODCRs) provides additional savings for steady-state workloads.
-- **Open standards and portability** — Inference workloads run on standard Kubernetes APIs (Deployments, Services, HPAs) with open source model servers like vLLM or SGLang, providing portability across environments.
-- **Integrated monitoring** — Prometheus metrics from vLLM or SGLang and the NVIDIA DCGM Exporter provide visibility into request latency, token throughput, GPU utilization, and memory usage through Grafana dashboards.
++  **Dynamic GPU scaling** — Karpenter provisions right-sized GPU instances on demand based on Pod resource requests, scaling from zero when idle and adding capacity as traffic increases. This avoids over-provisioning expensive GPU resources.
++  **Fast cold starts** — SOCI (Seekable OCI) parallel pull downloads and unpacks large container image layers concurrently, reducing image pull times from minutes to seconds. Combined with model streaming from Amazon S3 directly to GPU memory, Pods can start serving in under two minutes.
++  **Automatic GPU failure recovery** — The EKS node monitoring agent detects GPU hardware failures and triggers automatic node replacement, minimizing downtime without manual intervention.
++  **Cost optimization** — Spot instances with On-Demand fallback, right-sized instance selection, and scale-to-zero behavior reduce GPU costs. Reserved capacity (ODCRs) provides additional savings for steady-state workloads.
++  **Open standards and portability** — Inference workloads run on standard Kubernetes APIs (Deployments, Services, HPAs) with open source model servers like vLLM or SGLang, providing portability across environments.
++  **Integrated monitoring** — Prometheus metrics from vLLM or SGLang and the NVIDIA DCGM Exporter provide visibility into request latency, token throughput, GPU utilization, and memory usage through Grafana dashboards.
 
 ## Glossary
+<a name="_glossary"></a>
 
 The following terms are used throughout this section:
-
-- **Inference** — The process of running a trained model to generate outputs (text, embeddings, classifications) from input data.
-- **Model server** — A containerized service that loads a model into memory, receives inference requests, and returns predictions. Examples include [vLLM](https://docs.vllm.ai/en/latest/ "https://docs.vllm.ai/en/latest/"), [SGLang](https://github.com/sgl-project/sglang "https://github.com/sgl-project/sglang"), [Triton Inference Server](https://github.com/triton-inference-server/server "https://github.com/triton-inference-server/server"), and [Text Generation Inference (TGI)](https://github.com/huggingface/text-generation-inference "https://github.com/huggingface/text-generation-inference").
-- **Model weights** — The learned parameters of a trained model, stored as files (typically in SafeTensors or GGUF format) that the model server loads into GPU memory.
-- **Accelerator** — Specialized hardware such as NVIDIA GPUs or AWS Trainium/Inferentia chips that speed up the matrix operations required for inference.
-- **Tensor parallelism** — Splitting a model across multiple GPUs on the same node to serve models that exceed the memory of a single GPU.
-- **KV cache** — A memory buffer that stores previously computed key-value pairs during text generation, avoiding redundant computation for each new token.
++  **Inference** — The process of running a trained model to generate outputs (text, embeddings, classifications) from input data.
++  **Model server** — A containerized service that loads a model into memory, receives inference requests, and returns predictions. Examples include [vLLM](https://docs.vllm.ai/en/latest/), [SGLang](https://github.com/sgl-project/sglang), [Triton Inference Server](https://github.com/triton-inference-server/server), and [Text Generation Inference (TGI)](https://github.com/huggingface/text-generation-inference).
++  **Model weights** — The learned parameters of a trained model, stored as files (typically in SafeTensors or GGUF format) that the model server loads into GPU memory.
++  **Accelerator** — Specialized hardware such as NVIDIA GPUs or AWS Trainium/Inferentia chips that speed up the matrix operations required for inference.
++  **Tensor parallelism** — Splitting a model across multiple GPUs on the same node to serve models that exceed the memory of a single GPU.
++  **KV cache** — A memory buffer that stores previously computed key-value pairs during text generation, avoiding redundant computation for each new token.
 
 ## How inference on Amazon EKS works
+<a name="_how_inference_on_amazon_eks_works"></a>
 
 At a high level, deploying an inference workload on Amazon EKS involves the following steps:
 
-| Step                              | Description                                                                                                                                                                              |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Set up the cluster**            | Create an EKS cluster with GPU-enabled nodes, monitoring, and storage. See [Cluster setup](ml-cluster-setup.md "ml-cluster-setup.md") in the AI/ML on EKS docs.                          |
-| **Store model weights**           | Download model weights from a model registry (such as Hugging Face) and store them in Amazon S3 for fast model loading during cold-start or scale-up events.                             |
-| **Deploy the model server**       | Create a Kubernetes Deployment that runs a model server (such as vLLM) on GPU nodes. The model server streams weights from S3 into GPU memory and exposes an OpenAI-compatible API.      |
-| **Expose the inference endpoint** | Create a Kubernetes Service to provide a stable network endpoint. Use port-forwarding for testing or a load balancer such as AWS Application Load Balancer (ALB) for production traffic. |
-| **Monitor and scale**             | Use Prometheus metrics (request rate, token throughput, latency, KV cache utilization) to monitor performance and configure autoscaling.                                                 |
+
+| Step | Description | 
+| --- | --- | 
+|  **Set up the cluster**  | Create an EKS cluster with GPU-enabled nodes, monitoring, and storage. See [Cluster setup](ml-cluster-setup.md) in the AI/ML on EKS docs. | 
+|  **Store model weights**  | Download model weights from a model registry (such as Hugging Face) and store them in Amazon S3 for fast model loading during cold-start or scale-up events. | 
+|  **Deploy the model server**  | Create a Kubernetes Deployment that runs a model server (such as vLLM) on GPU nodes. The model server streams weights from S3 into GPU memory and exposes an OpenAI-compatible API. | 
+|  **Expose the inference endpoint**  | Create a Kubernetes Service to provide a stable network endpoint. Use port-forwarding for testing or a load balancer such as AWS Application Load Balancer (ALB) for production traffic. | 
+|  **Monitor and scale**  | Use Prometheus metrics (request rate, token throughput, latency, KV cache utilization) to monitor performance and configure autoscaling. | 
 
 ## Inference performance metrics
+<a name="_inference_performance_metrics"></a>
 
 Understanding inference performance requires tracking metrics across latency and throughput:
 
-**Latency metrics**
+ **Latency metrics** 
++  **Time to First Token (TTFT)** — Time from request arrival to the first generated token. Critical for interactive applications.
++  **Time Per Output Token (TPOT)** — Average time to generate each subsequent token after the first.
++  **End-to-end request latency** — Total time from request submission to completion of the full response.
 
-- **Time to First Token (TTFT)** — Time from request arrival to the first generated token. Critical for interactive applications.
-- **Time Per Output Token (TPOT)** — Average time to generate each subsequent token after the first.
-- **End-to-end request latency** — Total time from request submission to completion of the full response.
-
-**Throughput metrics**
-
-- **Requests per second** — Total inference requests served per second across all replicas.
-- **Output tokens per second** — Rate of token generation, measured as total output tokens divided by elapsed time.
-- **GPU utilization** — Percentage of GPU compute cycles actively used for inference.
-- **KV cache utilization** — Percentage of allocated KV cache memory in use, indicating how close the server is to capacity.
+ **Throughput metrics** 
++  **Requests per second** — Total inference requests served per second across all replicas.
++  **Output tokens per second** — Rate of token generation, measured as total output tokens divided by elapsed time.
++  **GPU utilization** — Percentage of GPU compute cycles actively used for inference.
++  **KV cache utilization** — Percentage of allocated KV cache memory in use, indicating how close the server is to capacity.
 
 ## Reducing cold start time
+<a name="_reducing_cold_start_time"></a>
 
-Large inference containers (8-15 GB) and model weights (10-100+ GB) can cause slow Pod startup. The following techniques minimize cold start delays:
-
-- **SOCI parallel pull** — Downloads and unpacks container image layers concurrently rather than sequentially. Enabled by default on EKS Auto Mode for GPU instances.
-- **Model streaming from S3** — Tools like [Run:ai Model Streamer](https://github.com/run-ai/runai-model-streamer "https://github.com/run-ai/runai-model-streamer") stream model weights directly from Amazon S3 to GPU memory, bypassing local disk and reducing load time from minutes to seconds.
-- **Store images in Amazon ECR** — Pulling from a regional ECR repository over a VPC endpoint avoids internet latency for large container images.
-- **Instance store caching** — G-family instances with local NVMe disks can cache container layers and model artifacts, speeding up subsequent pulls on the same node.
+Large inference containers (8-15 GB) and model weights (10-100\+ GB) can cause slow Pod startup. The following techniques minimize cold start delays:
++  **SOCI parallel pull** — Downloads and unpacks container image layers concurrently rather than sequentially. Enabled by default on EKS Auto Mode for GPU instances.
++  **Model streaming from S3** — Tools like [Run:ai Model Streamer](https://github.com/run-ai/runai-model-streamer) stream model weights directly from Amazon S3 to GPU memory, bypassing local disk and reducing load time from minutes to seconds.
++  **Store images in Amazon ECR** — Pulling from a regional ECR repository over a VPC endpoint avoids internet latency for large container images.
++  **Instance store caching** — G-family instances with local NVMe disks can cache container layers and model artifacts, speeding up subsequent pulls on the same node.
 
 ## What you’ll deploy
+<a name="_what_youll_deploy"></a>
 
-The [Load & Serve Model](ml-inference-load-serve-model.md "ml-inference-load-serve-model.md") walkthrough guides you through deploying an end-to-end inference application:
+The [Load & Serve Model](ml-inference-load-serve-model.md) walkthrough guides you through deploying an end-to-end inference application:
 
-1. **Download model weights** — A Kubernetes Job downloads the Ministral-3-8B-Instruct model from Hugging Face and uploads it to your S3 bucket.
-2. **Deploy vLLM** — A Deployment runs vLLM with Run:ai Model Streamer to stream weights from S3 directly into GPU memory, serving an OpenAI-compatible API.
-3. **Monitor with Grafana** — A ServiceMonitor wires vLLM Prometheus metrics into the monitoring stack for real-time dashboards.
-4. **Deploy a chat frontend** — Open WebUI provides a browser-based chat interface connected to the vLLM endpoint.
+1.  **Download model weights** — A Kubernetes Job downloads the Ministral-3-8B-Instruct model from Hugging Face and uploads it to your S3 bucket.
 
-The walkthrough uses the cluster infrastructure from the [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md "ml-cluster-setup.md") section and works with both EKS Auto Mode and self-managed Karpenter paths.
+1.  **Deploy vLLM** — A Deployment runs vLLM with Run:ai Model Streamer to stream weights from S3 directly into GPU memory, serving an OpenAI-compatible API.
+
+1.  **Monitor with Grafana** — A ServiceMonitor wires vLLM Prometheus metrics into the monitoring stack for real-time dashboards.
+
+1.  **Deploy a chat frontend** — Open WebUI provides a browser-based chat interface connected to the vLLM endpoint.
+
+The walkthrough uses the cluster infrastructure from the [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md) section and works with both EKS Auto Mode and self-managed Karpenter paths.

@@ -1,21 +1,25 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Kubernetes concepts for hybrid nodes
+<a name="hybrid-nodes-concepts-kubernetes"></a>
 
 This page details the key Kubernetes concepts that underpin the EKS Hybrid Nodes system architecture.
 
 ## EKS control plane in the VPC
+<a name="hybrid-nodes-concepts-k8s-api"></a>
 
-The IPs of the EKS control plane ENIs are stored in the `kubernetes`
-`Endpoints` object in the `default` namespace. When EKS creates new ENIs or removes older ones, EKS updates this object so the list of IPs is always up-to-date.
+The IPs of the EKS control plane ENIs are stored in the `kubernetes` `Endpoints` object in the `default` namespace. When EKS creates new ENIs or removes older ones, EKS updates this object so the list of IPs is always up-to-date.
 
 You can use these endpoints through the `kubernetes` Service, also in the `default` namespace. This service, of `ClusterIP` type, always gets assigned the first IP of the cluster’s service CIDR. For example, for the service CIDR `172.16.0.0/16`, the service IP will be `172.16.0.1`.
 
 Generally, this is how pods (regardless if running in the cloud or hybrid nodes) access the EKS Kubernetes API server. Pods use the service IP as the destination IP, which gets translated to the actual IPs of one of the EKS control plane ENIs. The primary exception is `kube-proxy`, because it sets up the translation.
 
 ## EKS API server endpoint
+<a name="hybrid-nodes-concepts-k8s-eks-api"></a>
 
 The `kubernetes` service IP isn’t the only way to access the EKS API server. EKS also creates a Route53 DNS name when you create your cluster. This is the `endpoint` field of your EKS cluster when calling the EKS `DescribeCluster` API action.
 
@@ -34,6 +38,7 @@ In a public endpoint access or public and private endpoint access cluster, your 
 This is how the `kubelet` and `kube-proxy` access the Kubernetes API server. If you want all your Kubernetes cluster traffic to flow through the VPC, you either need to configure your cluster in private access mode or modify your on-premises DNS server to resolve the EKS cluster endpoint to the private IPs of the EKS control plane ENIs.
 
 ## `kubelet` endpoint
+<a name="hybrid-nodes-concepts-k8s-kubelet-api"></a>
 
 The `kubelet` exposes several REST endpoints, allowing other parts of the system to interact with and gather information from each node. In most clusters, the majority of traffic to the `kubelet` server comes from the control plane, but certain monitoring agents might also interact with it.
 
@@ -41,7 +46,7 @@ Through this interface, the `kubelet` handles various requests: fetching logs (`
 
 The most common consumer of this API is the Kubernetes API server. When you use any of the `kubectl` commands mentioned previously, `kubectl` makes an API request to the API server, which then calls the `kubelet` API of the node where the pod is running. This is the main reason why the node IP needs to be reachable from the EKS control plane and why, even if your pods are running, you won’t be able to access their logs or `exec` if the node route is misconfigured.
 
-**Node IPs**
+ **Node IPs** 
 
 When the EKS control plane communicates with a node, it uses one of the addresses reported in the `Node` object status (`status.addresses`).
 
@@ -67,55 +72,56 @@ status:
 If your machine has multiple IPs, the kubelet will select one of them following its own logic. You can control the selected IP with the `--node-ip` flag, which you can pass in `nodeadm` config in `spec.kubelet.flags`. Only the IP reported in the `Node` object needs a route from the VPC. Your machines can have other IPs that aren’t reachable from the cloud.
 
 ## `kube-proxy`
+<a name="hybrid-nodes-concepts-k8s-kube-proxy"></a>
 
-`kube-proxy` is responsible for implementing the Service abstraction at the networking layer of each node. It acts as a network proxy and load balancer for traffic destined to Kubernetes Services. By continuously watching the Kubernetes API server for changes related to Services and Endpoints, `kube-proxy` dynamically updates the underlying host’s networking rules to ensure traffic is properly directed.
+ `kube-proxy` is responsible for implementing the Service abstraction at the networking layer of each node. It acts as a network proxy and load balancer for traffic destined to Kubernetes Services. By continuously watching the Kubernetes API server for changes related to Services and Endpoints, `kube-proxy` dynamically updates the underlying host’s networking rules to ensure traffic is properly directed.
 
 In `iptables` mode, `kube-proxy` programs several `netfilter` chains to handle service traffic. The rules form the following hierarchy:
 
-1. **KUBE-SERVICES chain**: The entry point for all service traffic. It has rules matching each service’s `ClusterIP` and port.
-2. **KUBE-SVC-XXX chains**: Service-specific chains has load balancing rules for each service.
-3. **KUBE-SEP-XXX chains**: Endpoint-specific chains has the actual `DNAT` rules.
+1.  **KUBE-SERVICES chain**: The entry point for all service traffic. It has rules matching each service’s `ClusterIP` and port.
 
-Let’s examine what happens for a service `test-server` in the `default` namespace: \* Service ClusterIP: `172.16.31.14` \* Service port: `80` \* Backing pods: `10.2.0.110`, `10.2.1.39`, and `10.2.2.254`
+1.  **KUBE-SVC-XXX chains**: Service-specific chains has load balancing rules for each service.
 
-When we inspect the `iptables` rules (using `iptables-save –0— grep -A10 KUBE-SERVICES`):
+1.  **KUBE-SEP-XXX chains**: Endpoint-specific chains has the actual `DNAT` rules.
+
+Let’s examine what happens for a service `test-server` in the `default` namespace: \* Service ClusterIP: `172.16.31.14` \* Service port: `80` \* Backing pods: `10.2.0.110`, `10.2.1.39`, and `10.2.2.254` 
+
+When we inspect the `iptables` rules (using `iptables-save 0 grep -A10 KUBE-SERVICES`):
 
 1. In the **KUBE-SERVICES** chain, we find a rule matching the service:
 
-```
--A KUBE-SERVICES -d 172.16.31.14/32 -p tcp -m comment --comment "default/test-server cluster IP" -m tcp --dport 80 -j KUBE-SVC-XYZABC123456
-```
+   ```
+   -A KUBE-SERVICES -d 172.16.31.14/32 -p tcp -m comment --comment "default/test-server cluster IP" -m tcp --dport 80 -j KUBE-SVC-XYZABC123456
+   ```
+   + This rule matches packets destined for 172.16.31.14:80
+   + The comment indicates what this rule is for: `default/test-server cluster IP` 
+   + Matching packets jump to the `KUBE-SVC-XYZABC123456` chain
 
-    * This rule matches packets destined for 172.16.31.14:80
-    * The comment indicates what this rule is for: `default/test-server cluster IP`
-    * Matching packets jump to the `KUBE-SVC-XYZABC123456` chain
+1. The **KUBE-SVC-XYZABC123456** chain has probability-based load balancing rules:
 
-2. The **KUBE-SVC-XYZABC123456** chain has probability-based load balancing rules:
+   ```
+   -A KUBE-SVC-XYZABC123456 -m statistic --mode random --probability 0.33333333349 -j KUBE-SEP-POD1XYZABC
+   -A KUBE-SVC-XYZABC123456 -m statistic --mode random --probability 0.50000000000 -j KUBE-SEP-POD2XYZABC
+   -A KUBE-SVC-XYZABC123456 -j KUBE-SEP-POD3XYZABC
+   ```
+   + First rule: 33.3% chance to jump to `KUBE-SEP-POD1XYZABC` 
+   + Second rule: 50% chance of the remaining traffic (33.3% of total) to jump to `KUBE-SEP-POD2XYZABC` 
+   + Last rule: All remaining traffic (33.3% of total) jumps to `KUBE-SEP-POD3XYZABC` 
 
-```
--A KUBE-SVC-XYZABC123456 -m statistic --mode random --probability 0.33333333349 -j KUBE-SEP-POD1XYZABC
--A KUBE-SVC-XYZABC123456 -m statistic --mode random --probability 0.50000000000 -j KUBE-SEP-POD2XYZABC
--A KUBE-SVC-XYZABC123456 -j KUBE-SEP-POD3XYZABC
-```
+1. The individual **KUBE-SEP-XXX** chains perform the DNAT (Destination NAT):
 
-    * First rule: 33.3% chance to jump to `KUBE-SEP-POD1XYZABC`
-    * Second rule: 50% chance of the remaining traffic (33.3% of total) to jump to `KUBE-SEP-POD2XYZABC`
-    * Last rule: All remaining traffic (33.3% of total) jumps to `KUBE-SEP-POD3XYZABC`
-
-3. The individual **KUBE-SEP-XXX** chains perform the DNAT (Destination NAT):
-
-```
--A KUBE-SEP-POD1XYZABC -p tcp -m tcp -j DNAT --to-destination 10.2.0.110:80
--A KUBE-SEP-POD2XYZABC -p tcp -m tcp -j DNAT --to-destination 10.2.1.39:80
--A KUBE-SEP-POD3XYZABC -p tcp -m tcp -j DNAT --to-destination 10.2.2.254:80
-```
-
-    * These DNAT rules rewrite the destination IP and port to direct traffic to specific pods.
-    * Each rule handles about 33.3% of the traffic, providing even load balancing between `10.2.0.110`, `10.2.1.39` and `10.2.2.254`.
+   ```
+   -A KUBE-SEP-POD1XYZABC -p tcp -m tcp -j DNAT --to-destination 10.2.0.110:80
+   -A KUBE-SEP-POD2XYZABC -p tcp -m tcp -j DNAT --to-destination 10.2.1.39:80
+   -A KUBE-SEP-POD3XYZABC -p tcp -m tcp -j DNAT --to-destination 10.2.2.254:80
+   ```
+   + These DNAT rules rewrite the destination IP and port to direct traffic to specific pods.
+   + Each rule handles about 33.3% of the traffic, providing even load balancing between `10.2.0.110`, `10.2.1.39` and `10.2.2.254`.
 
 This multi-level chain structure enables `kube-proxy` to efficiently implement service load balancing and redirection through kernel-level packet manipulation, without requiring a proxy process in the data path.
 
 ### Impact on Kubernetes operations
+<a name="hybrid-nodes-concepts-k8s-operations"></a>
 
 A broken `kube-proxy` on a node prevents that node from routing Service traffic properly, causing timeouts or failed connections for pods that rely on cluster Services. This can be especially disruptive when a node is first registered. The CNI needs to talk to the Kubernetes API server to get information, such as the node’s pod CIDR, before it can configure any pod networking. To do that, it uses the `kubernetes` Service IP. However, if `kube-proxy` hasn’t been able to start or has failed to set the right `iptables` rules, the requests going to the `kubernetes` service IP aren’t translated to the actual IPs of the EKS control plane ENIs. As a consequence, the CNI will enter a crash loop and none of the pods will be able to run properly.
 
@@ -123,7 +129,7 @@ We know pods use the `kubernetes` service IP to communicate with the Kubernetes 
 
 How does `kube-proxy` communicate with the API server?
 
-The `kube-proxy` must be configured to use the actual IP/s of the Kubernetes API server or a DNS name that resolves to them. In the case of EKS, EKS configures the default `kube-proxy` to point to the Route53 DNS name that EKS creates when you create the cluster. You can see this value in the `kube-proxy` ConfigMap in the `kube-system` namespace. The content of this ConfigMap is a `kubeconfig` that gets injected into the `kube-proxy` pod, so look for the `clusters–0—.cluster.server` field. This value will match the `endpoint` field of your EKS cluster (when calling EKS `DescribeCluster` API).
+The `kube-proxy` must be configured to use the actual IP/s of the Kubernetes API server or a DNS name that resolves to them. In the case of EKS, EKS configures the default `kube-proxy` to point to the Route53 DNS name that EKS creates when you create the cluster. You can see this value in the `kube-proxy` ConfigMap in the `kube-system` namespace. The content of this ConfigMap is a `kubeconfig` that gets injected into the `kube-proxy` pod, so look for the `clusters0.cluster.server` field. This value will match the `endpoint` field of your EKS cluster (when calling EKS `DescribeCluster` API).
 
 ```
 apiVersion: v1
@@ -154,22 +160,25 @@ metadata:
 ```
 
 ## Routable remote Pod CIDRs
+<a name="hybrid-nodes-concepts-k8s-pod-cidrs"></a>
 
-The [Networking concepts for hybrid nodes](hybrid-nodes-concepts-networking.md "hybrid-nodes-concepts-networking.md") page details the requirements to run webhooks on hybrid nodes or to have pods running on cloud nodes communicate with pods running on hybrid nodes. The key requirement is that the on-premises router needs to know which node is responsible for a particular pod IP. There are several ways to achieve this, including Border Gateway Protocol (BGP), static routes, and Address Resolution Protocol (ARP) proxying. These are covered in the following sections.
+The [Networking concepts for hybrid nodes](hybrid-nodes-concepts-networking.md) page details the requirements to run webhooks on hybrid nodes or to have pods running on cloud nodes communicate with pods running on hybrid nodes. The key requirement is that the on-premises router needs to know which node is responsible for a particular pod IP. There are several ways to achieve this, including Border Gateway Protocol (BGP), static routes, and Address Resolution Protocol (ARP) proxying. These are covered in the following sections.
 
-**Border Gateway Protocol (BGP)**
+ **Border Gateway Protocol (BGP)** 
 
 If your CNI supports it (such as Cilium and Calico), you can use the BGP mode of your CNI to propagate routes to your per node pod CIDRs from your nodes to your local router. When using the CNI’s BGP mode, your CNI acts as a virtual router, so your local router thinks the pod CIDR belongs to a different subnet and your node is the gateway to that subnet.
 
-![Hybrid nodes BGP routing](images/hybrid-nodes-bgp.png)
+![Hybrid nodes BGP routing](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-bgp.png)
 
-**Static routes**
+
+ **Static routes** 
 
 Or, you can configure static routes in your local router. This is the simplest way to route the on-premises pod CIDR to your VPC, but it is also the most error prone and difficult to maintain. You need to make sure that the routes are always up-to-date with the existing nodes and their assigned pod CIDRs. If your number of nodes is small and infrastructure is static, this is a viable option and removes the need for BGP support in your router. If you opt for this, we recommend to configure your CNI with the pod CIDR slice that you want to assign to each node instead of letting its IPAM decide.
 
-![Hybrid nodes static routing](images/hybrid-nodes-static-routes.png)
+![Hybrid nodes static routing](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-static-routes.png)
 
-**Address Resolution Protocol (ARP) proxying**
+
+ **Address Resolution Protocol (ARP) proxying** 
 
 ARP proxying is another approach to make on-premises pod IPs routable, particularly useful when your hybrid nodes are on the same Layer 2 network as your local router. With ARP proxying enabled, a node responds to ARP requests for pod IPs it hosts, even though those IPs belong to a different subnet.
 
@@ -177,13 +186,13 @@ When a device on your local network tries to reach a pod IP, it first sends an A
 
 For this to work, your CNI must support proxy ARP functionality. Cilium has built-in support for proxy ARP that you can enable through configuration. The key consideration is that the pod CIDR must not overlap with any other network in your environment, as this could cause routing conflicts.
 
-This approach has several advantages:
-\* No need to configure your router with BGP or maintain static routes
-\* Works well in environments where you don’t have control over your router configuration
+This approach has several advantages: \* No need to configure your router with BGP or maintain static routes \* Works well in environments where you don’t have control over your router configuration
 
-![Hybrid nodes ARP proxying](images/hybrid-nodes-arp-proxy.png)
+![Hybrid nodes ARP proxying](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-arp-proxy.png)
+
 
 ## Pod-to-Pod encapsulation
+<a name="hybrid-nodes-concepts-k8s-pod-encapsulation"></a>
 
 In on-premises environments, CNIs typically use encapsulation protocols to create overlay networks that can operate on top of the physical network without the need to re-configure it. This section explains how this encapsulation works. Note that some of the details might vary depending on the CNI you are using.
 
@@ -192,13 +201,17 @@ Encapsulation wraps original pod network packets inside another network packet t
 The most common encapsulation protocol used with Kubernetes is Virtual Extensible LAN (VXLAN), though others (such as `Geneve`) are also available depending on your CNI.
 
 ### VXLAN encapsulation
+<a name="_vxlan_encapsulation"></a>
 
 VXLAN encapsulates Layer 2 Ethernet frames within UDP packets. When a pod sends traffic to another pod on a different node, the CNI performs the following:
 
 1. The CNI intercepts packets from Pod A
-2. The CNI wraps the original packet in a VXLAN header
-3. This wrapped packet is then sent through the node’s regular networking stack to the destination node
-4. The CNI on the destination node unwraps the packet and delivers it to Pod B
+
+1. The CNI wraps the original packet in a VXLAN header
+
+1. This wrapped packet is then sent through the node’s regular networking stack to the destination node
+
+1. The CNI on the destination node unwraps the packet and delivers it to Pod B
 
 Here’s what happens to the packet structure during VXLAN encapsulation:
 
@@ -225,8 +238,9 @@ After VXLAN Encapsulation:
 The VXLAN Network Identifier (VNI) distinguishes between different overlay networks.
 
 ### Pod communication scenarios
+<a name="_pod_communication_scenarios"></a>
 
-**Pods on the same hybrid node**
+ **Pods on the same hybrid node** 
 
 When pods on the same hybrid node communicate, no encapsulation is typically needed. The CNI sets up local routes that direct traffic between pods through the node’s internal virtual interfaces:
 
@@ -236,7 +250,7 @@ Pod A -> veth0 -> node's bridge/routing table -> veth1 -> Pod B
 
 The packet never leaves the node and doesn’t require encapsulation.
 
-**Pods on different hybrid nodes**
+ **Pods on different hybrid nodes** 
 
 Communication between pods on different hybrid nodes requires encapsulation:
 

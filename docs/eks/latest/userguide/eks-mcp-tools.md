@@ -1,285 +1,287 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Amazon EKS MCP Server Tools Reference
+<a name="eks-mcp-tools"></a>
 
-The server exposes the following [MCP tools](https://modelcontextprotocol.io/docs/concepts/tools "https://modelcontextprotocol.io/docs/concepts/tools").
+The server exposes the following [MCP tools](https://modelcontextprotocol.io/docs/concepts/tools).
 
-###### Note
-
+**Note**  
 The Amazon EKS MCP Server is in preview release for Amazon EKS and is subject to change.
 
 ## Read-only tools
+<a name="read_only_tools"></a>
 
 This section describes the read-only tools available for the EKS MCP Server. Note that all read-only Kubernetes API operations can access both:
-
-- **Private clusters** (see [Cluster private endpoint](cluster-endpoint.md#cluster-endpoint-private "cluster-endpoint.md#cluster-endpoint-private"))
-- **Public clusters**
++  **Private clusters** (see [Cluster private endpoint](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html#cluster-endpoint-private))
++  **Public clusters** 
 
 ### search\_eks\_documentation
+<a name="search_eks_documentation"></a>
 
 Search EKS documentation for up-to-date information and guidance. This tool provides access to the latest EKS documentation, including new features and recent enhancements that agents may not be aware of.
 
 Parameters:
-
-- **query** (required): Your specific question or search query related to EKS documentation, features, or best practices.
-- **limit** (optional): Maximum number of documentation results to return (1-10). Default: 5.
++  **query** (required): Your specific question or search query related to EKS documentation, features, or best practices.
++  **limit** (optional): Maximum number of documentation results to return (1-10). Default: 5.
 
 ### search\_eks\_troubleshooting\_guide
+<a name="search_eks_troubleshooting_guide"></a>
 
 Searches the EKS Troubleshooting Guide for troubleshooting information based on a query. It helps identify common problems and provides step-by-step solutions.
 
 Parameters:
-
-- **query** (required): Your specific question or issue description related to EKS troubleshooting.
++  **query** (required): Your specific question or issue description related to EKS troubleshooting.
 
 ### describe\_eks\_resource
+<a name="describe_eks_resource"></a>
 
 Retrieves detailed information about a specific EKS cluster resource including configuration, status, and metadata.
 
 Parameters:
-
-- **cluster\_name** (required): Name of the EKS cluster (required for cluster-scoped resources).
-- **resource\_type** (required): The EKS resource type to describe. Valid values:
-- accessentry (requires cluster\_name and resource\_name as principalArn)
-- addon (requires cluster\_name and resource\_name as addon name)
-- cluster (requires cluster\_name), nodegroup (requires cluster\_name and resource\_name as nodegroup name).
-- **resource\_name** (optional): Name of the specific resource to describe (required for most resource types).
++  **cluster\_name** (required): Name of the EKS cluster (required for cluster-scoped resources).
++  **resource\_type** (required): The EKS resource type to describe. Valid values:
++ accessentry (requires cluster\_name and resource\_name as principalArn)
++ addon (requires cluster\_name and resource\_name as addon name)
++ cluster (requires cluster\_name), nodegroup (requires cluster\_name and resource\_name as nodegroup name).
++  **resource\_name** (optional): Name of the specific resource to describe (required for most resource types).
 
 ### list\_eks\_resources
+<a name="list_eks_resources"></a>
 
 Lists EKS resources of a specific type, returning a summary of all resources of the specified type that are accessible.
 
 Parameters:
-
-- **resource\_type** (required): The EKS resource type to list. Valid values:
-- accessentry (requires cluster\_name)
-- addon (requires cluster\_name)
-- cluster (no additional parameters required)
-- nodegroup (requires cluster\_name).
-- **cluster\_name** (optional): Name of the EKS cluster (required for cluster-scoped resources).
++  **resource\_type** (required): The EKS resource type to list. Valid values:
++ accessentry (requires cluster\_name)
++ addon (requires cluster\_name)
++ cluster (no additional parameters required)
++ nodegroup (requires cluster\_name).
++  **cluster\_name** (optional): Name of the EKS cluster (required for cluster-scoped resources).
 
 ### get\_eks\_insights
+<a name="get_eks_insights"></a>
 
 Retrieves EKS cluster insights and recommendations for optimization. Provides actionable insights for security, performance, and cost optimization based on AWS best practices and cluster analysis.
 
 Parameters:
-
-- **cluster\_name** (required): Name of the EKS cluster.
-- **category** (optional): Optional category to filter insights by (e.g., "MISCONFIGURATION" or "UPGRADE\_READINESS").
-- **insight\_id** (optional): Optional ID of a specific insight to get detailed information for.
-- **next\_token** (optional): Optional token for pagination to get the next set of results.
++  **cluster\_name** (required): Name of the EKS cluster.
++  **category** (optional): Optional category to filter insights by (e.g., "MISCONFIGURATION" or "UPGRADE\_READINESS").
++  **insight\_id** (optional): Optional ID of a specific insight to get detailed information for.
++  **next\_token** (optional): Optional token for pagination to get the next set of results.
 
 ### get\_eks\_vpc\_config
+<a name="get_eks_vpc_config"></a>
 
 Retrieves VPC configuration for an EKS cluster, including subnets, route tables, and network connectivity.
 
 Parameters:
-
-- **cluster\_name** (required): Name of the EKS cluster to get VPC configuration for.
-- **vpc\_id** (optional): ID of the specific VPC to query (optional, will use cluster VPC if not specified).
++  **cluster\_name** (required): Name of the EKS cluster to get VPC configuration for.
++  **vpc\_id** (optional): ID of the specific VPC to query (optional, will use cluster VPC if not specified).
 
 ### get\_k8s\_events
+<a name="get_k8s_events"></a>
 
 Retrieves Kubernetes events related to specific resources for troubleshooting and monitoring.
 
 Parameters:
-
-- **cluster\_name** (required): Name of the EKS cluster where the resource is located.
-- **kind** (required): Kind of the involved object (e.g., "Pod", "Deployment", "Service"). Must match the resource kind exactly.
-- **name** (required): Name of the involved object to get events for.
-- **namespace** (optional): Namespace of the involved object. Required for namespaced resources (like Pods, Deployments). Not required for cluster-scoped resources (like Nodes, PersistentVolumes).
++  **cluster\_name** (required): Name of the EKS cluster where the resource is located.
++  **kind** (required): Kind of the involved object (e.g., "Pod", "Deployment", "Service"). Must match the resource kind exactly.
++  **name** (required): Name of the involved object to get events for.
++  **namespace** (optional): Namespace of the involved object. Required for namespaced resources (like Pods, Deployments). Not required for cluster-scoped resources (like Nodes, PersistentVolumes).
 
 ### get\_pod\_logs
+<a name="get_pod_logs"></a>
 
 Retrieves logs from pods in an EKS cluster with filtering options.
 
 Parameters:
-
-- **cluster\_name** (required): Name of the EKS cluster where the pod is running.
-- **namespace** (required): Kubernetes namespace where the pod is located.
-- **pod\_name** (required): Name of the pod to retrieve logs from.
-- **container\_name** (optional): Name of the specific container to get logs from. Required only if the pod contains multiple containers.
-- **limit\_bytes** (optional): Maximum number of bytes to return. Default: 10KB (10240 bytes).
-- **previous** (optional): Return previous terminated container logs (defaults to false). Useful to get logs for pods that are restarting.
-- **since\_seconds** (optional): Only return logs newer than this many seconds. Useful for getting recent logs without retrieving the entire history.
-- **tail\_lines** (optional): Number of lines to return from the end of the logs. Default: 100.
++  **cluster\_name** (required): Name of the EKS cluster where the pod is running.
++  **namespace** (required): Kubernetes namespace where the pod is located.
++  **pod\_name** (required): Name of the pod to retrieve logs from.
++  **container\_name** (optional): Name of the specific container to get logs from. Required only if the pod contains multiple containers.
++  **limit\_bytes** (optional): Maximum number of bytes to return. Default: 10KB (10240 bytes).
++  **previous** (optional): Return previous terminated container logs (defaults to false). Useful to get logs for pods that are restarting.
++  **since\_seconds** (optional): Only return logs newer than this many seconds. Useful for getting recent logs without retrieving the entire history.
++  **tail\_lines** (optional): Number of lines to return from the end of the logs. Default: 100.
 
 ### list\_api\_versions
+<a name="list_api_versions"></a>
 
 Lists all available API versions in the specified Kubernetes cluster.
 
 Parameters:
-
-- **cluster\_name** (required): Name of the EKS cluster.
++  **cluster\_name** (required): Name of the EKS cluster.
 
 ### list\_k8s\_resources
+<a name="list_k8s_resources"></a>
 
 Lists Kubernetes resources of a specific kind in an EKS cluster.
 
 Parameters:
-
-- **cluster\_name** (required): Name of the EKS cluster where the resources are located.
-- **kind** (required): Kind of the Kubernetes resources to list (e.g., 'Pod', 'Service', 'Deployment'). Use the `list_api_versions` tool to find available resource kinds.
-- **api\_version** (required): API version of the Kubernetes resources (e.g., 'v1', 'apps/v1', 'networking.k8s.io/v1'). Use the `list_api_versions` tool to find available API versions.
-- **field\_selector** (optional): Field selector to filter resources (e.g., 'metadata.name=my-pod,status.phase=Running'). Uses the same syntax as kubectl’s --field-selector flag.
-- **label\_selector** (optional): Label selector to filter resources (e.g., 'app=nginx,tier=frontend'). Uses the same syntax as kubectl’s `--selector` flag.
-- **namespace** (optional): Namespace of the Kubernetes resources to list. If not provided, resources will be listed across all namespaces (for namespaced resources).
++  **cluster\_name** (required): Name of the EKS cluster where the resources are located.
++  **kind** (required): Kind of the Kubernetes resources to list (e.g., 'Pod', 'Service', 'Deployment'). Use the `list_api_versions` tool to find available resource kinds.
++  **api\_version** (required): API version of the Kubernetes resources (e.g., 'v1', 'apps/v1', 'networking.k8s.io/v1'). Use the `list_api_versions` tool to find available API versions.
++  **field\_selector** (optional): Field selector to filter resources (e.g., 'metadata.name=my-pod,status.phase=Running'). Uses the same syntax as kubectl’s --field-selector flag.
++  **label\_selector** (optional): Label selector to filter resources (e.g., 'app=nginx,tier=frontend'). Uses the same syntax as kubectl’s `--selector` flag.
++  **namespace** (optional): Namespace of the Kubernetes resources to list. If not provided, resources will be listed across all namespaces (for namespaced resources).
 
 ### read\_k8s\_resource
+<a name="read_k8s_resource"></a>
 
 Retrieves detailed information about a specific Kubernetes resource in an EKS cluster.
 
 Parameters:
-
-- **api\_version** (required): API version of the Kubernetes resource (e.g., "v1", "apps/v1", "networking.k8s.io/v1").
-- **cluster\_name** (required): Name of the EKS cluster where the resource is located.
-- **kind** (required): Kind of the Kubernetes resource (e.g., "Pod", "Service", "Deployment").
-- **name** (required): Name of the Kubernetes resource to read.
-- **namespace** (optional): Namespace of the Kubernetes resource. Required for namespaced resources. Not required for cluster-scoped resources (like Nodes, PersistentVolumes).
++  **api\_version** (required): API version of the Kubernetes resource (e.g., "v1", "apps/v1", "networking.k8s.io/v1").
++  **cluster\_name** (required): Name of the EKS cluster where the resource is located.
++  **kind** (required): Kind of the Kubernetes resource (e.g., "Pod", "Service", "Deployment").
++  **name** (required): Name of the Kubernetes resource to read.
++  **namespace** (optional): Namespace of the Kubernetes resource. Required for namespaced resources. Not required for cluster-scoped resources (like Nodes, PersistentVolumes).
 
 ### generate\_app\_manifest
+<a name="generate_app_manifest"></a>
 
 Generates standardized Kubernetes deployment and service manifests for containerized applications.
 
 Parameters:
-
-- **app\_name** (required): Name of the application. Used for deployment and service names, and for labels.
-- **image\_uri** (required): Full ECR image URI with tag (e.g., 123456789012.dkr.ecr.region.amazonaws.com/repo:tag). Must include the full repository path and tag.
-- **load\_balancer\_scheme** (optional): AWS load balancer scheme. Valid values:
-- "internal" (private VPC only)
-- "internet-facing" (public access).
-- Default: "internal".
-- **cpu** (optional): CPU request for each container (e.g., "100m" for 0.1 CPU cores, "500m" for half a core). Default: "100m".
-- **memory** (optional): Memory request for each container (e.g., "128Mi" for 128 MiB, "1Gi" for 1 GiB). Default: "128Mi"
-- **namespace** (optional): Kubernetes namespace to deploy the application to. Default: "default".
-- **port** (optional): Container port that the application listens on. Default: 80
-- **replicas** (optional): Number of replicas to deploy. Default: 2
++  **app\_name** (required): Name of the application. Used for deployment and service names, and for labels.
++  **image\_uri** (required): Full ECR image URI with tag (e.g., 123456789012.dkr.ecr.region.amazonaws.com/repo:tag). Must include the full repository path and tag.
++  **load\_balancer\_scheme** (optional): AWS load balancer scheme. Valid values:
++ "internal" (private VPC only)
++ "internet-facing" (public access).
++ Default: "internal".
++  **cpu** (optional): CPU request for each container (e.g., "100m" for 0.1 CPU cores, "500m" for half a core). Default: "100m".
++  **memory** (optional): Memory request for each container (e.g., "128Mi" for 128 MiB, "1Gi" for 1 GiB). Default: "128Mi"
++  **namespace** (optional): Kubernetes namespace to deploy the application to. Default: "default".
++  **port** (optional): Container port that the application listens on. Default: 80
++  **replicas** (optional): Number of replicas to deploy. Default: 2
 
 ### get\_cloudwatch\_logs
+<a name="get_cloudwatch_logs"></a>
 
 Queries CloudWatch logs with filtering based on the input parameters and support for standard log groups used for EKS cluster observability.
 
 Parameters:
-
-- **cluster\_name** (required): Name of the EKS cluster where the resource is located. Used to construct the CloudWatch log group name.
-- **resource\_type** (required): Resource type to search logs for. Valid values: +"pod", "node", "container", "cluster". This determines how logs are filtered.
-- **log\_type** (required): Log type to query. Valid values:
-- "application": Container/application logs
-- "host": Node-level system logs
-- "performance": Performance metrics logs
-- "control-plane": EKS control plane logs
-- "your-log-group-name": Provide a custom CloudWatch log group name directly.
-- **resource\_name** (optional): Resource name to search for in log messages (e.g., pod name, node name, container name). Used to filter logs for the specific resource.
-- **minutes** (optional): Number of minutes to look back for logs. Default: 15. Ignored if start\_time is provided. Use smaller values for recent issues, larger values for historical analysis.
-- **start\_time** (optional): Start time in ISO format (e.g., "2023-01-01T00:00:00Z"). If provided, overrides the minutes parameter.
-- **end\_time** (optional): End time in ISO format (e.g., "2023-01-01T01:00:00Z"). If not provided, defaults to current time.
-- **fields** (optional): Custom fields to include in the query results (defaults to "@timestamp, @message"). Use CloudWatch Logs Insights field syntax.
-- **filter\_pattern** (optional): Additional CloudWatch Logs filter pattern to apply. Uses CloudWatch Logs Insights syntax (e.g., "ERROR", "field=value").
-- **limit** (optional): Maximum number of log entries to return. Use lower values (10-50) for faster queries, higher values (100-1000) for more comprehensive results. Higher values may impact performance.
++  **cluster\_name** (required): Name of the EKS cluster where the resource is located. Used to construct the CloudWatch log group name.
++  **resource\_type** (required): Resource type to search logs for. Valid values: \+"pod", "node", "container", "cluster". This determines how logs are filtered.
++  **log\_type** (required): Log type to query. Valid values:
++ "application": Container/application logs
++ "host": Node-level system logs
++ "performance": Performance metrics logs
++ "control-plane": EKS control plane logs
++ "your-log-group-name": Provide a custom CloudWatch log group name directly.
++  **resource\_name** (optional): Resource name to search for in log messages (e.g., pod name, node name, container name). Used to filter logs for the specific resource.
++  **minutes** (optional): Number of minutes to look back for logs. Default: 15. Ignored if start\_time is provided. Use smaller values for recent issues, larger values for historical analysis.
++  **start\_time** (optional): Start time in ISO format (e.g., "2023-01-01T00:00:00Z"). If provided, overrides the minutes parameter.
++  **end\_time** (optional): End time in ISO format (e.g., "2023-01-01T01:00:00Z"). If not provided, defaults to current time.
++  **fields** (optional): Custom fields to include in the query results (defaults to "@timestamp, @message"). Use CloudWatch Logs Insights field syntax.
++  **filter\_pattern** (optional): Additional CloudWatch Logs filter pattern to apply. Uses CloudWatch Logs Insights syntax (e.g., "ERROR", "field=value").
++  **limit** (optional): Maximum number of log entries to return. Use lower values (10-50) for faster queries, higher values (100-1000) for more comprehensive results. Higher values may impact performance.
 
 ### get\_cloudwatch\_metrics
+<a name="get_cloudwatch_metrics"></a>
 
 Retrieves CloudWatch metrics and data points for EKS cluster monitoring and performance analysis. Handles Container Insights metrics, custom metrics, and configurable time periods and dimensions.
 
 Parameters:
-
-- **cluster\_name** (required): Name of the EKS cluster to get metrics for.
-- **dimensions** (required): Dimensions to use for the CloudWatch metric query as a JSON string. Must include appropriate dimensions for the resource type and metric (e.g., '{"ClusterName": "my-cluster", "PodName": "my-pod", "Namespace": "default"}').
-- **metric\_name** (required): Metric name to retrieve. Common examples:
-- `cpu_usage_total`: Total CPU usage
-- `memory_rss`: Resident Set Size memory usage
-- `network_rx_bytes`: Network bytes received
-- `network_tx_bytes`: Network bytes transmitted
-- **namespace** (required): CloudWatch namespace where the metric is stored. Common values:
-- `"ContainerInsights"`: For container metrics
-- `"AWS/EC2"`: For EC2 instance metrics
-- `"AWS/EKS"`: For EKS control plane metrics
-- **minutes** (optional): Number of minutes to look back for metrics. Default: 15. Ignored if start\_time is provided.
-- **start\_time** (optional): Start time in ISO format (e.g., "2023-01-01T00:00:00Z"). If provided, overrides the minutes parameter.
-- **end\_time** (optional): End time in ISO format (e.g., "2023-01-01T01:00:00Z"). If not provided, defaults to current time.
-- **limit** (optional): Maximum number of data points to return. Higher values (100-1000) provide more granular data but may impact performance. Default: 50.
-- **period** (optional): Period in seconds for the metric data points. Default: 60 (1 minute). Lower values (1-60) provide higher resolution but may be less available.
-- **stat** (optional): Statistic to use for the metric aggregation. Default: "Average". Valid values:
-- `Average`: Mean value during the period
-- `Sum`: Total value during the period
-- `Maximum`: Highest value during the period
-- `Minimum`: Lowest value during the period
-- `SampleCount`: Number of samples during the period.
++  **cluster\_name** (required): Name of the EKS cluster to get metrics for.
++  **dimensions** (required): Dimensions to use for the CloudWatch metric query as a JSON string. Must include appropriate dimensions for the resource type and metric (e.g., '{"ClusterName": "my-cluster", "PodName": "my-pod", "Namespace": "default"}').
++  **metric\_name** (required): Metric name to retrieve. Common examples:
++  `cpu_usage_total`: Total CPU usage
++  `memory_rss`: Resident Set Size memory usage
++  `network_rx_bytes`: Network bytes received
++  `network_tx_bytes`: Network bytes transmitted
++  **namespace** (required): CloudWatch namespace where the metric is stored. Common values:
++  `"ContainerInsights"`: For container metrics
++  `"AWS/EC2"`: For EC2 instance metrics
++  `"AWS/EKS"`: For EKS control plane metrics
++  **minutes** (optional): Number of minutes to look back for metrics. Default: 15. Ignored if start\_time is provided.
++  **start\_time** (optional): Start time in ISO format (e.g., "2023-01-01T00:00:00Z"). If provided, overrides the minutes parameter.
++  **end\_time** (optional): End time in ISO format (e.g., "2023-01-01T01:00:00Z"). If not provided, defaults to current time.
++  **limit** (optional): Maximum number of data points to return. Higher values (100-1000) provide more granular data but may impact performance. Default: 50.
++  **period** (optional): Period in seconds for the metric data points. Default: 60 (1 minute). Lower values (1-60) provide higher resolution but may be less available.
++  **stat** (optional): Statistic to use for the metric aggregation. Default: "Average". Valid values:
++  `Average`: Mean value during the period
++  `Sum`: Total value during the period
++  `Maximum`: Highest value during the period
++  `Minimum`: Lowest value during the period
++  `SampleCount`: Number of samples during the period.
 
 ### get\_eks\_metrics\_guidance
+<a name="get_eks_metrics_guidance"></a>
 
 Get CloudWatch metrics guidance for specific resource types in EKS clusters. Useful for the agent when determining the correct dimensions to use with the get\_cloudwatch\_metrics tool.
 
 Parameters:
-
-- **resource\_type** (required): Type of resource to get metrics for (cluster, node, pod, namespace, service).
++  **resource\_type** (required): Type of resource to get metrics for (cluster, node, pod, namespace, service).
 
 ### get\_policies\_for\_role
+<a name="get_policies_for_role"></a>
 
 Retrieves all policies attached to a specified IAM role, including assume role policy, managed policies, and inline policies.
 
 Parameters:
-
-- **role\_name** (required): Name of the IAM role to get policies for. The role must exist in your AWS account.
++  **role\_name** (required): Name of the IAM role to get policies for. The role must exist in your AWS account.
 
 ## Full access (write) tools
+<a name="full_access_tools"></a>
 
 This section describes the full access (write) tools available for the EKS MCP Server. Note that (as of "today") all write Kubernetes API operations can access only:
-
-- **Public clusters** (endpointPublicAccess=true)
++  **Public clusters** (endpointPublicAccess=true)
 
 ### manage\_k8s\_resource
+<a name="manage_k8s_resource"></a>
 
 Manages a single Kubernetes resource with write operations (create, update, patch, or delete).
 
 Parameters:
-
-- **operation** (required): Operation to perform on the resource. Valid values:
-- `create:` Create a new resource
-- `replace`: Replace an existing resource
-- `patch`: Update specific fields of an existing resource
-- `delete`: Delete an existing resource
-- **Note**: Use read\_k8s\_resource for reading resources and list\_k8s\_resources for listing multiple resources.
-- **cluster\_name** (required): Name of the EKS cluster where the resource is located or will be created.
-- **kind** (required): Kind of the Kubernetes resource (e.g., "Pod", "Service", "Deployment").
-- **api\_version** (required): API version of the Kubernetes resource (e.g., "v1", "apps/v1", "networking.k8s.io/v1").
-- **body** (optional): Resource definition as a JSON string. Required for create, replace, and patch operations. For create and replace, this should be a complete resource definition. For patch, this should contain only the fields to update.
-- **name** (optional): Name of the Kubernetes resource. Required for all operations except create (where it can be specified in the body).
-- **namespace** (optional): Namespace of the Kubernetes resource. Required for namespaced resources. Not required for cluster-scoped resources (like Nodes, PersistentVolumes).
++  **operation** (required): Operation to perform on the resource. Valid values:
++  `create:` Create a new resource
++  `replace`: Replace an existing resource
++  `patch`: Update specific fields of an existing resource
++  `delete`: Delete an existing resource
++  **Note**: Use read\_k8s\_resource for reading resources and list\_k8s\_resources for listing multiple resources.
++  **cluster\_name** (required): Name of the EKS cluster where the resource is located or will be created.
++  **kind** (required): Kind of the Kubernetes resource (e.g., "Pod", "Service", "Deployment").
++  **api\_version** (required): API version of the Kubernetes resource (e.g., "v1", "apps/v1", "networking.k8s.io/v1").
++  **body** (optional): Resource definition as a JSON string. Required for create, replace, and patch operations. For create and replace, this should be a complete resource definition. For patch, this should contain only the fields to update.
++  **name** (optional): Name of the Kubernetes resource. Required for all operations except create (where it can be specified in the body).
++  **namespace** (optional): Namespace of the Kubernetes resource. Required for namespaced resources. Not required for cluster-scoped resources (like Nodes, PersistentVolumes).
 
 ### apply\_yaml
+<a name="apply_yaml"></a>
 
 Applies Kubernetes YAML manifests to an EKS cluster.
 
 Parameters:
-
-- **cluster\_name** (required): Name of the EKS cluster where the resources will be created or updated.
-- **namespace** (required): Kubernetes namespace to apply resources to. Will be used for namespaced resources that do not specify a namespace.
-- **yaml\_content** (required): YAML content to apply to the cluster. Can contain multiple documents separated by '---'.
-- **force** (optional): Whether to update resources if they already exist (similar to kubectl apply). Set to false to only create new resources.
++  **cluster\_name** (required): Name of the EKS cluster where the resources will be created or updated.
++  **namespace** (required): Kubernetes namespace to apply resources to. Will be used for namespaced resources that do not specify a namespace.
++  **yaml\_content** (required): YAML content to apply to the cluster. Can contain multiple documents separated by '---'.
++  **force** (optional): Whether to update resources if they already exist (similar to kubectl apply). Set to false to only create new resources.
 
 ### manage\_eks\_stacks
+<a name="manage_eks_stacks"></a>
 
 Manages EKS CloudFormation stacks with operations for generating templates, deploying, describing, and deleting EKS clusters and their underlying infrastructure. Cluster creation typically takes 15-20 minutes to complete. For deploy and delete operations, the stack must have been created by this tool (i.e., tagged with CreatedBy=EksMcpServer).
 
 Parameters:
-
-- **cluster\_name** (required): Name of the EKS cluster (for generate, deploy, describe and delete operations). This name will be used to derive the CloudFormation stack name and will be embedded in the cluster resources.
-- **operation** (required): Operation to perform. Valid values:
-- `generate`: Generate a CloudFormation template
-- `deploy`: Deploy a CloudFormation stack (requires `template_content`)
-- `describe`: Describe/read a CloudFormation stack (read-only)
-- `delete`: Delete a CloudFormation stack
-- **template\_content** (optional): CloudFormation template content (for deploy operations). This should be the complete YAML or JSON template content. Supports both single resources and multi-document YAML content separated by '---'.
++  **cluster\_name** (required): Name of the EKS cluster (for generate, deploy, describe and delete operations). This name will be used to derive the CloudFormation stack name and will be embedded in the cluster resources.
++  **operation** (required): Operation to perform. Valid values:
++  `generate`: Generate a CloudFormation template
++  `deploy`: Deploy a CloudFormation stack (requires `template_content`)
++  `describe`: Describe/read a CloudFormation stack (read-only)
++  `delete`: Delete a CloudFormation stack
++  **template\_content** (optional): CloudFormation template content (for deploy operations). This should be the complete YAML or JSON template content. Supports both single resources and multi-document YAML content separated by '---'.
 
 ### add\_inline\_policy
+<a name="add_inline_policy"></a>
 
 Adds a new inline policy to an IAM role.
 
 Parameters:
-
-- **permissions** (required): Permissions to include in the policy as JSON strings representing IAM policy statements. Can be either a single JSON string or an array of JSON strings.
-- **policy\_name** (required): Name of the inline policy to create. Must be unique within the role.
-- **role\_name** (required): Name of the IAM role to add the policy to. The role must exist.
++  **permissions** (required): Permissions to include in the policy as JSON strings representing IAM policy statements. Can be either a single JSON string or an array of JSON strings.
++  **policy\_name** (required): Name of the inline policy to create. Must be unique within the role.
++  **role\_name** (required): Name of the IAM role to add the policy to. The role must exist.

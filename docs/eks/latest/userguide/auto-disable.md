@@ -1,37 +1,38 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Disable EKS Auto Mode
+<a name="auto-disable"></a>
 
 You can disable EKS Auto Mode on an existing EKS Cluster. This is a destructive operation.
++ EKS will terminate all EC2 instances operated by EKS Auto Mode.
++ EKS will delete all Load Balancers operated by EKS Auto Mode.
++ EKS will **not** delete EBS volumes provisioned by EKS Auto Mode.
 
-- EKS will terminate all EC2 instances operated by EKS Auto Mode.
-- EKS will delete all Load Balancers operated by EKS Auto Mode.
-- EKS will **not** delete EBS volumes provisioned by EKS Auto Mode.
-  EKS Auto Mode is designed to fully manage the resources that it creates.
-  Manual interventions could result in EKS Auto Mode failing to completely clean up those resources when it is disabled.
-  For example, if you referred to a managed Security Group from external Security Group rules,
-  and forget to remove that reference before you disable EKS Auto Mode for a cluster, the
-  managed Security Group will leak (not be deleted).
-  Steps below describe how to remove a leaked Security Group if that should happen.
+EKS Auto Mode is designed to fully manage the resources that it creates. Manual interventions could result in EKS Auto Mode failing to completely clean up those resources when it is disabled. For example, if you referred to a managed Security Group from external Security Group rules, and forget to remove that reference before you disable EKS Auto Mode for a cluster, the managed Security Group will leak (not be deleted). Steps below describe how to remove a leaked Security Group if that should happen.
 
 ## Disable EKS Auto Mode (AWS Console)
+<a name="disable_eks_auto_mode_shared_aws_console"></a>
 
 1. Open your cluster overview page in the AWS Management Console.
-2. Under **EKS Auto Mode** select **Manage**
-3. Toggle **EKS Auto Mode** to `off`.
 
-If any managed Security Group is not deleted at the end of this process, you can delete it manually using the instructions in [Delete a security group](../../../vpc/latest/userguide/deleting-security-groups.md "../../../vpc/latest/userguide/deleting-security-groups.md").
+1. Under **EKS Auto Mode** select **Manage** 
+
+1. Toggle **EKS Auto Mode** to `off`.
+
+If any managed Security Group is not deleted at the end of this process, you can delete it manually using the instructions in [Delete a security group](https://docs.aws.amazon.com/vpc/latest/userguide/deleting-security-groups.html).
 
 ## Disable EKS Auto Mode (AWS CLI)
+<a name="disable_eks_auto_mode_shared_aws_cli"></a>
 
 Use the following command to disable EKS Auto Mode on an existing cluster.
 
-You need to have the `aws` CLI installed, and be logged in with sufficient permissions to manage EKS clusters. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
+You need to have the `aws` CLI installed, and be logged in with sufficient permissions to manage EKS clusters. For more information, see [Set up to use Amazon EKS](setting-up.md).
 
-###### Note
-
+**Note**  
 The compute, block storage, and load balancing capabilities must all be enabled or disabled in the same request.
 
 ```

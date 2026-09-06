@@ -1,8 +1,11 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Use Service Annotations to configure Network Load Balancers
+<a name="auto-configure-nlb"></a>
 
 Learn how to configure Network Load Balancers (NLB) in Amazon EKS using Kubernetes service annotations. This topic explains the annotations supported by EKS Auto Mode for customizing NLB behavior, including internet accessibility, health checks, SSL/TLS termination, and IP targeting modes.
 
@@ -10,17 +13,15 @@ When you create a Kubernetes service of type `LoadBalancer` in EKS Auto Mode, EK
 
 EKS Auto Mode handles Network Load Balancer provisioning by default for all services of type LoadBalancer - no additional controller installation or configuration is required. The `loadBalancerClass: eks.amazonaws.com/nlb` specification is automatically set as the cluster default, streamlining the deployment process while maintaining compatibility with existing Kubernetes workloads.
 
-###### Note
-
-EKS Auto Mode requires subnet tags to identify public and private subnets.
-
-If you created your cluster with `eksctl`, you already have these tags.
-
-Learn how to [Tag subnets for EKS Auto Mode](tag-subnets-auto.md "tag-subnets-auto.md").
+**Note**  
+EKS Auto Mode requires subnet tags to identify public and private subnets.  
+If you created your cluster with `eksctl`, you already have these tags.  
+Learn how to [Tag subnets for EKS Auto Mode](tag-subnets-auto.md).
 
 ## Sample Service
+<a name="_sample_service"></a>
 
-For more information about the Kubernetes `Service` resource, see [the Kubernetes Documentation](https://kubernetes.io/docs/concepts/services-networking/service/ "https://kubernetes.io/docs/concepts/services-networking/service/").
+For more information about the Kubernetes `Service` resource, see [the Kubernetes Documentation](https://kubernetes.io/docs/concepts/services-networking/service/).
 
 Review the sample `Service` resource below:
 
@@ -46,51 +47,54 @@ spec:
 ```
 
 ## Commonly used annotations
+<a name="_commonly_used_annotations"></a>
 
 The following table lists the supported annotations for Amazon EKS Auto Mode. Amazon EKS Auto Mode does not support all service annotations available in the AWS Load Balancer Controller.
 
-###### Tip
+**Tip**  
+All of the following annotations need to be prefixed with `service.beta.kubernetes.io/` 
 
-All of the following annotations need to be prefixed with `service.beta.kubernetes.io/`
 
-| Field                                                       | Description                                                                                                                                          | Example                                          |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| `aws-load-balancer-type`                                    | Specifies the load balancer type. Use `external` for new deployments.                                                                                | `external`                                       |
-| `aws-load-balancer-nlb-target-type`                         | Specifies whether to route traffic to node instances or directly to pod IPs. Use `instance` for standard deployments or `ip` for direct pod routing. | `instance`                                       |
-| `aws-load-balancer-scheme`                                  | Controls whether the load balancer is internal or internet-facing.                                                                                   | `internet-facing`                                |
-| `aws-load-balancer-healthcheck-protocol`                    | Health check protocol for target group. Common options are `TCP` (default) or `HTTP`.                                                                | `HTTP`                                           |
-| `aws-load-balancer-healthcheck-path`                        | The HTTP path for health checks when using HTTP/HTTPS protocol.                                                                                      | `/healthz`                                       |
-| `aws-load-balancer-healthcheck-port`                        | Port used for health checks. Can be a specific port number or `traffic-port`.                                                                        | `traffic-port`                                   |
-| `aws-load-balancer-subnets`                                 | Specifies which subnets to create the load balancer in. Can use subnet IDs or names.                                                                 | `subnet-xxxx, subnet-yyyy`                       |
-| `aws-load-balancer-ssl-cert`                                | ARN of the SSL certificate from AWS Certificate Manager for HTTPS/TLS.                                                                               | `arn:aws:acm:region:account:certificate/cert-id` |
-| `aws-load-balancer-ssl-ports`                               | Specifies which ports should use SSL/TLS.                                                                                                            | `443, 8443`                                      |
-| `load-balancer-source-ranges`                               | CIDR ranges allowed to access the load balancer.                                                                                                     | `10.0.0.0/24, 192.168.1.0/24`                    |
-| `aws-load-balancer-additional-resource-tags`                | Additional AWS tags to apply to the load balancer and related resources.                                                                             | `Environment=prod,Team=platform`                 |
-| `aws-load-balancer-ip-address-type`                         | Specifies whether the load balancer uses IPv4 or dual-stack (IPv4 + IPv6).                                                                           | `ipv4` or `dualstack`                            |
-| `aws-load-balancer-listener-attributes.${Protocol}-${Port}` | Specifies listener attributes to apply to the listener.                                                                                              | `tcp.idle_timeout.seconds=350`                   |
+| Field | Description | Example | 
+| --- | --- | --- | 
+|  `aws-load-balancer-type`  | Specifies the load balancer type. Use `external` for new deployments. |  `external`  | 
+|  `aws-load-balancer-nlb-target-type`  | Specifies whether to route traffic to node instances or directly to pod IPs. Use `instance` for standard deployments or `ip` for direct pod routing. |  `instance`  | 
+|  `aws-load-balancer-scheme`  | Controls whether the load balancer is internal or internet-facing. |  `internet-facing`  | 
+|  `aws-load-balancer-healthcheck-protocol`  | Health check protocol for target group. Common options are `TCP` (default) or `HTTP`. |  `HTTP`  | 
+|  `aws-load-balancer-healthcheck-path`  | The HTTP path for health checks when using HTTP/HTTPS protocol. |  `/healthz`  | 
+|  `aws-load-balancer-healthcheck-port`  | Port used for health checks. Can be a specific port number or `traffic-port`. |  `traffic-port`  | 
+|  `aws-load-balancer-subnets`  | Specifies which subnets to create the load balancer in. Can use subnet IDs or names. |  `subnet-xxxx, subnet-yyyy`  | 
+|  `aws-load-balancer-ssl-cert`  | ARN of the SSL certificate from AWS Certificate Manager for HTTPS/TLS. |  ` arn:aws:acm:region:account:certificate/cert-id`  | 
+|  `aws-load-balancer-ssl-ports`  | Specifies which ports should use SSL/TLS. |  `443, 8443`  | 
+|  `load-balancer-source-ranges`  | CIDR ranges allowed to access the load balancer. |  `10.0.0.0/24, 192.168.1.0/24`  | 
+|  `aws-load-balancer-additional-resource-tags`  | Additional AWS tags to apply to the load balancer and related resources. |  `Environment=prod,Team=platform`  | 
+|  `aws-load-balancer-ip-address-type`  | Specifies whether the load balancer uses IPv4 or dual-stack (IPv4 \+ IPv6). |  `ipv4` or `dualstack`  | 
+|  `aws-load-balancer-listener-attributes.${Protocol}-${Port}`  | Specifies listener attributes to apply to the listener. |  `tcp.idle_timeout.seconds=350`  | 
 
 ## Considerations
-
-- You must update the Cluster IAM Role to enable tag propagation from Kubernetes to AWS Load Balancer resources. For more information, see [Custom AWS tags for EKS Auto resources](auto-cluster-iam-role.md#tag-prop "auto-cluster-iam-role.md#tag-prop").
-- For information about associating resources with either EKS Auto Mode or the self-managed AWS Load Balancer Controller, see [Migration reference](migrate-auto.md#migration-reference "migrate-auto.md#migration-reference").
-- For information about fixing issues with load balancers, see [Troubleshoot EKS Auto Mode](auto-troubleshoot.md "auto-troubleshoot.md").
-- For more considerations about using the load balancing capability of EKS Auto Mode, see [Load balancing](auto-networking.md#auto-lb-consider "auto-networking.md#auto-lb-consider").
+<a name="_considerations"></a>
++ You must update the Cluster IAM Role to enable tag propagation from Kubernetes to AWS Load Balancer resources. For more information, see [Custom AWS tags for EKS Auto resources](auto-cluster-iam-role.md#tag-prop).
++ For information about associating resources with either EKS Auto Mode or the self-managed AWS Load Balancer Controller, see [Migration reference](migrate-auto.md#migration-reference).
++ For information about fixing issues with load balancers, see [Troubleshoot EKS Auto Mode](auto-troubleshoot.md).
++ For more considerations about using the load balancing capability of EKS Auto Mode, see [Load balancing](auto-networking.md#auto-lb-consider).
 
 When migrating to EKS Auto Mode for load balancing, several changes in service annotations and resource configurations are necessary. The following tables outline key differences between previous and new implementations, including unsupported options and recommended alternatives.
 
 ### Service annotations
+<a name="_service_annotations"></a>
 
-| Previous                                                                         | New           | Description                                                                        |
-| -------------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------------------------- |
-| `service.beta.kubernetes.io/load-balancer-source-ranges`                         | Not supported | Use `spec.loadBalancerSourceRanges` on Service                                     |
-| `service.beta.kubernetes.io/aws-load-balancer-type`                              | Not supported | Use `spec.loadBalancerClass` on Service                                            |
-| `service.beta.kubernetes.io/aws-load-balancer-internal`                          | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-scheme`                          |
-| `service.beta.kubernetes.io/aws-load-balancer-proxy-protocol`                    | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-target-group-attributes` instead |
-| Various load balancer attributes                                                 | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes`                      |
-| `service.beta.kubernetes.io/aws-load-balancer-access-log-enabled`                | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead              |
-| `service.beta.kubernetes.io/aws-load-balancer-access-log-s3-bucket-name`         | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead              |
-| `service.beta.kubernetes.io/aws-load-balancer-access-log-s3-bucket-prefix`       | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead              |
-| `service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled` | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead              |
+
+| Previous | New | Description | 
+| --- | --- | --- | 
+|  `service.beta.kubernetes.io/load-balancer-source-ranges`  | Not supported | Use `spec.loadBalancerSourceRanges` on Service | 
+|  `service.beta.kubernetes.io/aws-load-balancer-type`  | Not supported | Use `spec.loadBalancerClass` on Service | 
+|  `service.beta.kubernetes.io/aws-load-balancer-internal`  | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-scheme`  | 
+|  `service.beta.kubernetes.io/aws-load-balancer-proxy-protocol`  | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-target-group-attributes` instead | 
+| Various load balancer attributes | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes`  | 
+|  `service.beta.kubernetes.io/aws-load-balancer-access-log-enabled`  | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead | 
+|  `service.beta.kubernetes.io/aws-load-balancer-access-log-s3-bucket-name`  | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead | 
+|  `service.beta.kubernetes.io/aws-load-balancer-access-log-s3-bucket-prefix`  | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead | 
+|  `service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled`  | Not supported | Use `service.beta.kubernetes.io/aws-load-balancer-attributes` instead | 
 
 To migrate from deprecated load balancer attribute annotations, consolidate these settings into the `service.beta.kubernetes.io/aws-load-balancer-attributes` annotation. This annotation accepts a comma-separated list of key-value pairs for various load balancer attributes. For example, to specify access logging, and cross-zone load balancing, use the following format:
 
@@ -101,11 +105,13 @@ service.beta.kubernetes.io/aws-load-balancer-attributes: access_logs.s3.enabled=
 This consolidated format provides a more consistent and flexible way to configure load balancer attributes while reducing the number of individual annotations needed. Review your existing Service configurations and update them to use this consolidated format.
 
 ### TargetGroupBinding
+<a name="_targetgroupbinding"></a>
 
-| Previous                       | New                        | Description                                    |
-| ------------------------------ | -------------------------- | ---------------------------------------------- |
-| `elbv2.k8s.aws/v1beta1`        | `eks.amazonaws.com/v1`     | API version change                             |
-| `spec.targetType` optional     | `spec.targetType` required | Explicit target type specification             |
-| `spec.networking.ingress.from` | Not supported              | No longer supports NLB without security groups |
+
+| Previous | New | Description | 
+| --- | --- | --- | 
+|  `elbv2.k8s.aws/v1beta1`  |  `eks.amazonaws.com/v1`  | API version change | 
+|  `spec.targetType` optional |  `spec.targetType` required | Explicit target type specification | 
+|  `spec.networking.ingress.from`  | Not supported | No longer supports NLB without security groups | 
 
 Note: To use the custom TargetGroupBinding feature, you must tag the target group with the `eks:eks-cluster-name` tag with cluster name to grant the controller the necessary IAM permissions. Be aware that the controller will delete the target group when the TargetGroupBinding resource or the cluster is deleted.

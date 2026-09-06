@@ -1,18 +1,23 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # AsciiDoc syntax reference
+<a name="asciidoc-syntax"></a>
 
 AsciiDoc is the preferred markup language for AWS documentation. While the tooling has partial support for Markdown syntax (such as headings and lists), we recommend using AsciiDoc syntax for all content to ensure consistency and proper rendering.
 
-This guide covers common syntax elements you’ll need when contributing to Amazon EKS documentation. For more advanced syntax and detailed information, refer to the [AsciiDoc documentation](https://docs.asciidoctor.org/asciidoc/latest/ "https://docs.asciidoctor.org/asciidoc/latest/").
+This guide covers common syntax elements you’ll need when contributing to Amazon EKS documentation. For more advanced syntax and detailed information, refer to the [AsciiDoc documentation](https://docs.asciidoctor.org/asciidoc/latest/).
 
 ## New page
+<a name="_new_page"></a>
 
-Every new AsciiDoc document should begin with the structure defined in [Create a new page](create-page.md "create-page.md").
+Every new AsciiDoc document should begin with the structure defined in [Create a new page](create-page.md).
 
 ## Headings
+<a name="_headings"></a>
 
 Use headings to organize your content hierarchically:
 
@@ -28,6 +33,7 @@ Use headings to organize your content hierarchically:
 Note: Always use sentence case for headings in AWS documentation.
 
 ## Text formatting
+<a name="_text_formatting"></a>
 
 Format text to emphasize important information:
 
@@ -38,8 +44,10 @@ Use `monospace text` for code, file names, and commands.
 ```
 
 ## Lists
+<a name="_lists"></a>
 
 ### Unordered lists
+<a name="_unordered_lists"></a>
 
 Create bulleted lists for items without a specific sequence:
 
@@ -52,6 +60,7 @@ Create bulleted lists for items without a specific sequence:
 ```
 
 ### Ordered lists
+<a name="_ordered_lists"></a>
 
 Create numbered lists for sequential steps or prioritized items:
 
@@ -64,12 +73,15 @@ Create numbered lists for sequential steps or prioritized items:
 ```
 
 ## Links
+<a name="_links"></a>
 
-See [Insert a link](insert-link.md "insert-link.md") for details on how to properly format links. Markdown-style links are not supported.
+See [Insert a link](insert-link.md) for details on how to properly format links. Markdown-style links are not supported.
 
 ## Code examples
+<a name="_code_examples"></a>
 
 ### Inline code
+<a name="_inline_code"></a>
 
 Use backticks for inline code:
 
@@ -78,6 +90,7 @@ Use the `kubectl get pods` command to list all pods.
 ```
 
 ### Code blocks
+<a name="_code_blocks"></a>
 
 Create code blocks with syntax highlighting and support for attributes (similar to entities):
 
@@ -90,6 +103,7 @@ Create code blocks with syntax highlighting and support for attributes (similar 
 ```
 
 ## Images
+<a name="_images"></a>
 
 Insert images with alt text for accessibility:
 
@@ -98,6 +112,7 @@ image::images/image-file.png[Alt text description]
 ```
 
 ## Tables
+<a name="_tables"></a>
 
 Create tables to organize information:
 
@@ -115,9 +130,10 @@ Create tables to organize information:
 |===
 ```
 
-For more complex tables, see the [AsciiDoc table documentation](https://docs.asciidoctor.org/asciidoc/latest/tables/build-a-basic-table/ "https://docs.asciidoctor.org/asciidoc/latest/tables/build-a-basic-table/").
+For more complex tables, see the [AsciiDoc table documentation](https://docs.asciidoctor.org/asciidoc/latest/tables/build-a-basic-table/).
 
 ## Callouts
+<a name="_callouts"></a>
 
 Use callouts to highlight important information and admonitions:
 
@@ -131,11 +147,11 @@ IMPORTANT: This is an important callout for critical information.
 
 Preview:
 
-###### Note
-
+**Note**  
 This is a note callout.
 
 ## Including other files
+<a name="_including_other_files"></a>
 
 Include content from other files:
 
@@ -144,8 +160,9 @@ Include content from other files:
 ```
 
 ## Attributes (similar to entities)
+<a name="_attributes_similar_to_entities"></a>
 
-Use predefined attributes to maintain consistency. In particular, you MUST use attributes for AWS and `arn:aws:` .
+Use predefined attributes to maintain consistency. In particular, you MUST use attributes for AWS and ` arn:aws: `.
 
 ```
 {aws} provides Amazon EKS as a managed Kubernetes service.
@@ -163,6 +180,7 @@ Use predefined attributes to maintain consistency. In particular, you MUST use a
 For a list of attributes, look in the `../attributes.txt` file.
 
 ## Procedures
+<a name="_procedures"></a>
 
 Format step-by-step procedures:
 

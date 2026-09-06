@@ -1,80 +1,98 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Roll back a cluster to a previous Kubernetes version
+<a name="rollback-cluster"></a>
 
 With Amazon EKS version rollback, you can revert your cluster’s Kubernetes control plane to the previous minor version after performing an in-place upgrade. If you encounter issues after upgrading, such as application incompatibilities, deprecated API usage, or unexpected behavior, you can roll back to restore your cluster to a known good state.
 
 During a rollback, Amazon EKS reverts the Kubernetes API server and control plane components to the previous version while preserving all etcd data, customer workloads, and persistent volumes.
 
 ## What gets rolled back
+<a name="rollback-what-gets-rolled-back"></a>
 
 The following components are rolled back:
-
-- Kubernetes API server version
-- Control plane components and their configurations
-- Platform version (reverts to the latest platform version for the previous Kubernetes version)
-- **EKS Auto Mode worker nodes**. For clusters running EKS Auto Mode, Amazon EKS automatically manages the rollback of Auto Mode worker nodes before reverting the control plane. For more information, see [Rollback EKS Auto Mode clusters](rollback-automode.md "rollback-automode.md").
++ Kubernetes API server version
++ Control plane components and their configurations
++ Platform version (reverts to the latest platform version for the previous Kubernetes version)
++  **EKS Auto Mode worker nodes**. For clusters running EKS Auto Mode, Amazon EKS automatically manages the rollback of Auto Mode worker nodes before reverting the control plane. For more information, see [Rollback EKS Auto Mode clusters](rollback-automode.md).
 
 ## What does NOT get rolled back
+<a name="rollback-what-does-not-get-rolled-back"></a>
 
 The following components are not rolled back:
-
-- **etcd data**. All cluster state, resources, and configurations are preserved.
-- **Customer workloads**. Your pods, deployments, and services continue running.
-- **EKS add-ons**. Add-on versions remain unchanged. You manage these separately.
-- **Persistent volumes and data**. All customer data remains intact.
-- **Self-managed nodes and hybrid nodes**. You are responsible for rolling these back.
-- **Managed node groups**. You must roll back these separately by using the `UpdateNodegroupVersion` API.
++  **etcd data**. All cluster state, resources, and configurations are preserved.
++  **Customer workloads**. Your pods, deployments, and services continue running.
++  **EKS add-ons**. Add-on versions remain unchanged. You manage these separately.
++  **Persistent volumes and data**. All customer data remains intact.
++  **Self-managed nodes and hybrid nodes**. You are responsible for rolling these back.
++  **Managed node groups**. You must roll back these separately by using the `UpdateNodegroupVersion` API.
 
 ## Prerequisites
+<a name="rollback-prerequisites"></a>
 
 Before you can roll back a cluster, all of the following conditions must be met:
 
-| Requirement                                 | Details                                                                                                                                                                                                                                                                      |
-| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **7-day window**                            | You must initiate the rollback within 7 days of the upgrade completing. After 7 days, rollback is no longer available.                                                                                                                                                       |
-| **Upgraded cluster**                        | The cluster must have been upgraded to its current version through in-place upgrade. Clusters created at their current version can’t be rolled back.                                                                                                                         |
-| **Single version only**                     | You can only roll back by one minor version (N to N-1). If you upgraded from 1.31 to 1.32 and then to 1.33, you can only roll back to 1.32, not to 1.31.                                                                                                                     |
-| **Supported version**                       | Version rollback is available for [currently supported Amazon EKS versions](kubernetes-versions.md#kubernetes-release-calendar "kubernetes-versions.md#kubernetes-release-calendar").                                                                                        |
-| **Extended support policy**                 | To roll back to a version that is in extended support, you must first change the cluster’s upgrade policy to `EXTENDED`.                                                                                                                                                     |
-| **No end-of-extended-support auto-upgrade** | If your cluster was automatically upgraded at the end of extended support, you can’t roll back to the previous version. If your cluster was automatically upgraded at the end of standard support, you can roll back but must first change the upgrade policy to `EXTENDED`. |
-| **Cluster status**                          | The cluster must be in `ACTIVE` status. You can’t initiate a rollback while another update is in progress.                                                                                                                                                                   |
-| **EKS feature compatibility**               | If an EKS feature enabled on your cluster is not supported on the previous version, the rollback request fails. This check can’t be bypassed with `--force`.                                                                                                                 |
+
+| Requirement | Details | 
+| --- | --- | 
+|  **7-day window**  | You must initiate the rollback within 7 days of the upgrade completing. After 7 days, rollback is no longer available. | 
+|  **Upgraded cluster**  | The cluster must have been upgraded to its current version through in-place upgrade. Clusters created at their current version can’t be rolled back. | 
+|  **Single version only**  | You can only roll back by one minor version (N to N-1). If you upgraded from 1.31 to 1.32 and then to 1.33, you can only roll back to 1.32, not to 1.31. | 
+|  **Supported version**  | Version rollback is available for [currently supported Amazon EKS versions](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar). | 
+|  **Extended support policy**  | To roll back to a version that is in extended support, you must first change the cluster’s upgrade policy to `EXTENDED`. | 
+|  **No end-of-extended-support auto-upgrade**  | If your cluster was automatically upgraded at the end of extended support, you can’t roll back to the previous version. If your cluster was automatically upgraded at the end of standard support, you can roll back but must first change the upgrade policy to `EXTENDED`. | 
+|  **Cluster status**  | The cluster must be in `ACTIVE` status. You can’t initiate a rollback while another update is in progress. | 
+|  **EKS feature compatibility**  | If an EKS feature enabled on your cluster is not supported on the previous version, the rollback request fails. This check can’t be bypassed with `--force`. | 
 
 In addition to the preceding requirements, certain conditions make rollback impossible even with the `--force` flag. These conditions include the following: the cluster was created at the current version, more than 7 days have passed since the upgrade, the cluster has already been upgraded again to a newer version, or a backward-incompatible EKS feature was enabled at the current version boundary.
 
 ## Summary
+<a name="rollback-summary"></a>
 
 The following is the high-level summary of the Amazon EKS cluster rollback process:
 
 1. Review rollback readiness insights to identify any issues that might affect the rollback.
-2. Resolve any blocking issues (ERROR status insights) or use `--force` to bypass insight checks.
-3. Verify your applications, custom controllers, and third-party tools are compatible with the previous Kubernetes version.
-4. If your worker nodes are running the same Kubernetes version as the control plane, roll back the worker nodes first.
-5. If you have add-ons running versions incompatible with the previous Kubernetes version, downgrade them to a compatible version.
-6. Initiate the control plane rollback.
-7. Monitor the rollback progress.
 
-###### Important
+1. Resolve any blocking issues (ERROR status insights) or use `--force` to bypass insight checks.
 
-For clusters running EKS Auto Mode, step 4 is handled automatically. When you initiate the rollback, Amazon EKS rolls back Auto Mode nodes before the control plane. For more information, see [Rollback EKS Auto Mode clusters](rollback-automode.md "rollback-automode.md").
+1. Verify your applications, custom controllers, and third-party tools are compatible with the previous Kubernetes version.
+
+1. If your worker nodes are running the same Kubernetes version as the control plane, roll back the worker nodes first.
+
+1. If you have add-ons running versions incompatible with the previous Kubernetes version, downgrade them to a compatible version.
+
+1. Initiate the control plane rollback.
+
+1. Monitor the rollback progress.
+
+**Important**  
+For clusters running EKS Auto Mode, step 4 is handled automatically. When you initiate the rollback, Amazon EKS rolls back Auto Mode nodes before the control plane. For more information, see [Rollback EKS Auto Mode clusters](rollback-automode.md).
+
+
 
 ## Step 1: Review rollback readiness insights
+<a name="rollback-step1"></a>
 
 Amazon EKS automatically evaluates your cluster against a set of point-in-time rollback readiness checks and surfaces any issues through cluster insights under the `ROLLBACK_READINESS` category. These insights appear after you perform an upgrade and remain available during the 7-day rollback eligibility window.
 
 ### Viewing rollback readiness insights
+<a name="rollback-viewing-insights"></a>
 
-**AWS Console:**
+ ** AWS Console:** 
 
-1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
-2. Select your cluster.
-3. Choose the **Upgrade insights** tab. Rollback readiness insights appear here after an upgrade.
-4. Review any insights with ERROR or WARNING status.
+1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters).
 
-**AWS CLI:**
+1. Select your cluster.
+
+1. Choose the **Upgrade insights** tab. Rollback readiness insights appear here after an upgrade.
+
+1. Review any insights with ERROR or WARNING status.
+
+ ** AWS CLI:** 
 
 ```
 aws eks list-insights \
@@ -93,6 +111,7 @@ aws eks describe-insight \
 ```
 
 ### Refreshing insights
+<a name="rollback-refreshing-insights"></a>
 
 Amazon EKS refreshes insights every 24 hours. You can manually trigger a refresh after resolving issues by choosing the **Refresh** button in the Amazon EKS console, or by using the CLI:
 
@@ -102,28 +121,31 @@ aws eks start-insights-refresh \
   --region us-west-2
 ```
 
-###### Note
-
+**Note**  
 Amazon EKS automatically refreshes insights when you initiate a rollback to make sure that checks are run against the latest cluster state.
 
 ### Insight status behavior
+<a name="rollback-insight-status"></a>
 
 The following table describes the meaning of each insight status and its effect on rollback:
 
-| Status      | Meaning                                | Effect on rollback                                          |
-| ----------- | -------------------------------------- | ----------------------------------------------------------- |
-| **PASSING** | No issues detected for this check      | Rollback allowed                                            |
-| **WARNING** | Potential issue detected, not blocking | Rollback allowed (advisory only)                            |
-| **ERROR**   | Blocking issue detected                | Rollback blocked until resolved, or use `--force` to bypass |
-| **UNKNOWN** | Unable to determine status             | Rollback blocked until resolved, or use `--force` to bypass |
+
+| Status | Meaning | Effect on rollback | 
+| --- | --- | --- | 
+|  **PASSING**  | No issues detected for this check | Rollback allowed | 
+|  **WARNING**  | Potential issue detected, not blocking | Rollback allowed (advisory only) | 
+|  **ERROR**  | Blocking issue detected | Rollback blocked until resolved, or use `--force` to bypass | 
+|  **UNKNOWN**  | Unable to determine status | Rollback blocked until resolved, or use `--force` to bypass | 
 
 Insights with **ERROR** or **UNKNOWN** status block the rollback. Insights with PASSING or WARNING status don’t prevent you from rolling back.
 
 ### Rollback readiness checks
+<a name="rollback-readiness-checks"></a>
 
 Amazon EKS performs a set of checks as part of rollback readiness insights. These checks evaluate API usage compatibility (including field-level change detection), cluster health, kubelet version skew, kube-proxy version skew, and add-on version compatibility. For clusters running EKS Auto Mode, additional checks evaluate NodePool disruption budgets, do-not-disrupt annotations, and PodDisruptionBudget configurations.
 
 ### Using the --force flag
+<a name="rollback-force-flag"></a>
 
 If rollback readiness insights show ERROR status and you want to proceed without resolving the issues, you can use the `--force` flag to bypass all insight checks:
 
@@ -135,21 +157,25 @@ aws eks update-cluster-version \
   --region us-west-2
 ```
 
-###### Warning
-
+**Warning**  
 Using `--force` bypasses all insight checks (ERROR, WARNING, UNKNOWN) and proceeds directly with the rollback. Amazon EKS can’t guarantee the safety of the rollback when insight checks are bypassed. You accept full responsibility for any issues that arise.
 
 The `--force` flag only bypasses insight checks. It doesn’t bypass prerequisite validations such as the 7-day window, creation version check, or sequential rollback check. For Auto Mode clusters, `--force` doesn’t override disruption controls. NodePool disruption budgets, PDBs, and do-not-disrupt annotations are still honored.
 
+
+
 ## Step 2: Prepare worker nodes
+<a name="rollback-step2"></a>
 
 Before rolling back the control plane, make sure that your worker nodes are compatible with the target version. The Kubernetes version skew policy requires that worker nodes can’t run a version newer than the control plane.
 
 ### EKS Auto Mode
+<a name="rollback-automode-nodes"></a>
 
-No action required. When you initiate the rollback, Amazon EKS automatically rolls back Auto Mode nodes before the control plane. For more information, see [Rollback EKS Auto Mode clusters](rollback-automode.md "rollback-automode.md").
+No action required. When you initiate the rollback, Amazon EKS automatically rolls back Auto Mode nodes before the control plane. For more information, see [Rollback EKS Auto Mode clusters](rollback-automode.md).
 
 ### Managed node groups (MNG)
+<a name="rollback-mng"></a>
 
 You must roll back your managed node groups to the previous version before rolling back the control plane. Use the `UpdateNodegroupVersion` API:
 
@@ -164,35 +190,47 @@ aws eks update-nodegroup-version \
 The node group update respects your configured update settings (`maxUnavailable` or `maxUnavailablePercentage`) and update strategy (Rolling or Force).
 
 ### Self-managed nodes and hybrid nodes
+<a name="rollback-self-managed"></a>
 
 You are responsible for rolling back self-managed nodes and hybrid nodes. Update your node AMIs or configurations to use the previous Kubernetes version before rolling back the control plane.
 
 ### Fargate
+<a name="rollback-fargate"></a>
 
 Version rollback is not supported for Fargate worker nodes. You can roll back the control plane of a cluster that uses Fargate, but Fargate pods running the same Kubernetes version as the control plane trigger the kubelet version skew insight with ERROR status.
 
 Amazon EKS can’t automatically roll back Fargate pods to an older kubelet version.
 
-**Workaround:** If you have Fargate pods running the same Kubernetes version as the control plane, delete those pods before initiating the rollback. Then roll back your control plane. Any remaining pods launch with the rolled-back version when you redeploy them.
+ **Workaround:** If you have Fargate pods running the same Kubernetes version as the control plane, delete those pods before initiating the rollback. Then roll back your control plane. Any remaining pods launch with the rolled-back version when you redeploy them.
 
 Alternatively, use `--force` to bypass the insight check. However, proceeding with a kubelet version skew violation might result in unexpected behavior for your Fargate workloads until those pods are replaced.
 
+
+
 ## Step 3: Roll back the cluster control plane
+<a name="rollback-step3"></a>
 
 You can initiate a rollback by using the AWS Console, AWS CLI, or the EKS API.
 
 ### Roll back a cluster by using the AWS Console
+<a name="rollback-console"></a>
 
-1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
-2. Select your cluster.
-3. Choose the **Actions** dropdown.
-4. Choose **Rollback cluster version**.
-5. Review the rollback summary, including any insight warnings.
-6. Choose **Rollback version**.
+1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters).
 
-The rollback takes several minutes to complete. For Auto Mode clusters, the node rollback phase might take longer. For more information, see [Rollback EKS Auto Mode clusters](rollback-automode.md "rollback-automode.md").
+1. Select your cluster.
+
+1. Choose the **Actions** dropdown.
+
+1. Choose **Rollback cluster version**.
+
+1. Review the rollback summary, including any insight warnings.
+
+1. Choose **Rollback version**.
+
+The rollback takes several minutes to complete. For Auto Mode clusters, the node rollback phase might take longer. For more information, see [Rollback EKS Auto Mode clusters](rollback-automode.md).
 
 ### Roll back a cluster by using the AWS CLI
+<a name="rollback-cli"></a>
 
 Use the existing `update-cluster-version` command with the previous (N-1) Kubernetes version:
 
@@ -227,15 +265,17 @@ Example response:
 }
 ```
 
-###### Note
-
+**Note**  
 Amazon EKS runs an insight refresh before performing the rollback if insight data is stale.
 
+
+
 ## Step 4: Monitor rollback progress
+<a name="rollback-step4"></a>
 
 You can monitor the status of your cluster rollback by using the Amazon EKS console or the AWS CLI.
 
-**AWS CLI:**
+ ** AWS CLI:** 
 
 ```
 aws eks describe-update \
@@ -244,14 +284,18 @@ aws eks describe-update \
   --update-id e4091a28-ea14-48fd-a8c7-975aeb469e8a
 ```
 
-**AWS Console:**
+ ** AWS Console:** 
 
-1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
-2. Select your cluster.
-3. Choose the **Update history** tab.
-4. Locate the update ID associated with the rollback to view its current status.
+1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters).
+
+1. Select your cluster.
+
+1. Choose the **Update history** tab.
+
+1. Locate the update ID associated with the rollback to view its current status.
 
 ### Status transitions
+<a name="rollback-status-transitions"></a>
 
 For standard clusters (without Auto Mode):
 
@@ -260,64 +304,76 @@ InProgress → Successful
 InProgress → Failed
 ```
 
-For Auto Mode clusters, the cluster status remains `ACTIVE` while nodes are rolling back and changes to `UPDATING` only when the control plane rollback begins. Use `describe-update` to track the overall rollback progress. For more information, see [Rollback EKS Auto Mode clusters](rollback-automode.md "rollback-automode.md").
+For Auto Mode clusters, the cluster status remains `ACTIVE` while nodes are rolling back and changes to `UPDATING` only when the control plane rollback begins. Use `describe-update` to track the overall rollback progress. For more information, see [Rollback EKS Auto Mode clusters](rollback-automode.md).
 
 When a `Successful` status is displayed, the rollback is complete.
 
+
+
 ## Considerations and warnings
+<a name="rollback-considerations"></a>
 
 ### Insights are best-effort and point-in-time
+<a name="rollback-insights-best-effort"></a>
 
 Cluster insights are evaluated at the time rollback is triggered. If you make changes to your cluster after insights are checked but before the rollback completes (for example, creating resources using new APIs), those changes are not captured by the initial insight check and might cause issues after rollback completes.
 
 ### etcd data preservation
+<a name="rollback-etcd-preservation"></a>
 
 Amazon EKS preserves etcd data during rollback. Incompatible resources bypassed by using the `--force` flag remain persisted and are not garbage collected.
 
 ### Extended support charges
+<a name="rollback-extended-support-charges"></a>
 
 If you roll back from a version under standard support to a version under extended support, your cluster begins incurring extended support charges. For example, if you upgrade from 1.30 (extended support) to 1.31 (standard support) and then roll back to 1.30, extended support charges resume.
 
 ### Shared responsibility model for rollback
+<a name="rollback-shared-responsibility"></a>
 
 Amazon EKS rolls back the Kubernetes control plane to the desired version. As part of the shared responsibility model, you are responsible for verifying application compatibility with the previous version:
-
-- Amazon EKS is responsible for safely reverting the control plane components.
-- You are responsible for making sure that your applications, configurations, and dependencies are compatible with the previous version.
-- You must review any incompatibilities between versions, assess your cluster for exposure, and mitigate any issues.
++ Amazon EKS is responsible for safely reverting the control plane components.
++ You are responsible for making sure that your applications, configurations, and dependencies are compatible with the previous version.
++ You must review any incompatibilities between versions, assess your cluster for exposure, and mitigate any issues.
 
 ### CloudFormation stack rollback behavior
+<a name="rollback-cloudformation"></a>
 
 If an AWS CloudFormation stack update fails and triggers a stack rollback, the revert to a previous template version that specifies a lower Kubernetes version doesn’t trigger a cluster version rollback. Version rollback must be explicitly initiated through the `UpdateClusterVersion` API, CLI, or console.
 
+
+
 ## Rollback and add-ons
+<a name="rollback-addons"></a>
 
 Amazon EKS doesn’t automatically roll back add-on versions during a cluster version rollback. You must manage add-on versions separately.
 
 Before rolling back the control plane:
 
 1. Check add-on compatibility with the target version by using the rollback readiness insights.
-2. If an add-on version is incompatible with the previous Kubernetes version, downgrade it first:
 
-```
-aws eks update-addon \
-  --cluster-name my-cluster \
-  --addon-name vpc-cni \
-  --addon-version v1.22.4-eksbuild.3 \
-  --region us-west-2
-```
+1. If an add-on version is incompatible with the previous Kubernetes version, downgrade it first:
 
-3. After the control plane rollback completes, verify all add-ons are functioning correctly.
+   ```
+   aws eks update-addon \
+     --cluster-name my-cluster \
+     --addon-name vpc-cni \
+     --addon-version v1.22.4-eksbuild.3 \
+     --region us-west-2
+   ```
 
-###### Note
+1. After the control plane rollback completes, verify all add-ons are functioning correctly.
 
+**Note**  
 Rollback readiness insights only check EKS-managed add-on versions. For self-managed add-ons, you are responsible for validating compatibility with the target version before rolling back.
 
-## Related resources
 
-- [Rollback EKS Auto Mode clusters](rollback-automode.md "rollback-automode.md")
-- [Update existing cluster to new Kubernetes version](update-cluster.md "update-cluster.md")
-- [Prepare for Kubernetes version upgrades and troubleshoot misconfigurations with cluster insights](cluster-insights.md "cluster-insights.md")
-- [Understand the Kubernetes version lifecycle on Amazon EKS](kubernetes-versions.md "kubernetes-versions.md")
-- [Update a managed node group](update-managed-node-group.md "update-managed-node-group.md")
-- [Best practices for cluster upgrades](../best-practices/cluster-upgrades.md "../best-practices/cluster-upgrades.md")
+
+## Related resources
+<a name="rollback-related-resources"></a>
++  [Rollback EKS Auto Mode clusters](rollback-automode.md) 
++  [Update existing cluster to new Kubernetes version](update-cluster.md) 
++  [Prepare for Kubernetes version upgrades and troubleshoot misconfigurations with cluster insights](cluster-insights.md) 
++  [Understand the Kubernetes version lifecycle on Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html) 
++  [Update a managed node group](https://docs.aws.amazon.com/eks/latest/userguide/update-managed-node-group.html) 
++  [Best practices for cluster upgrades](https://docs.aws.amazon.com/eks/latest/best-practices/cluster-upgrades.html) 

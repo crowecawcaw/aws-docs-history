@@ -1,114 +1,116 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Capture network traffic on a managed node using kubectl and S3
+<a name="auto-get-tcpdump"></a>
 
 Learn how to capture network traffic on an Amazon EKS managed node that has the node monitoring agent. The agent runs tcpdump on the node, compresses capture files, and uploads them to your S3 bucket.
 
 ## Prerequisites
+<a name="_prerequisites"></a>
 
 Make sure you have the following:
-
-- An existing Amazon EKS Auto Mode cluster with the node monitoring agent. For more information, see [Detect node health issues and enable automatic node repair](node-health.md "node-health.md").
-- The `kubectl` command-line tool installed and configured to communicate with your cluster.
-- The AWS CLI installed and logged in with sufficient permissions to create S3 buckets and objects.
-- A recent version of Python 3 installed.
-- The AWS SDK for Python 3, Boto 3, installed.
-- The PyYAML library installed (`pip install pyyaml`).
++ An existing Amazon EKS Auto Mode cluster with the node monitoring agent. For more information, see [Detect node health issues and enable automatic node repair](node-health.md).
++ The `kubectl` command-line tool installed and configured to communicate with your cluster.
++ The AWS CLI installed and logged in with sufficient permissions to create S3 buckets and objects.
++ A recent version of Python 3 installed.
++ The AWS SDK for Python 3, Boto 3, installed.
++ The PyYAML library installed (`pip install pyyaml`).
 
 ## Step 1: Create S3 bucket destination (optional)
+<a name="_step_1_create_s3_bucket_destination_optional"></a>
 
-If you don’t already have an S3 bucket to store the capture files, create one. Replace `bucket-name` and `region` with your values.
-
-```
-aws s3api create-bucket --bucket `<bucket-name>` \
-    --region `<region>` \
-    --create-bucket-configuration LocationConstraint=`<region>`
+If you don’t already have an S3 bucket to store the capture files, create one. Replace {{bucket-name}} and {{region}} with your values.
 
 ```
+aws s3api create-bucket --bucket {{<bucket-name>}} \
+    --region {{<region>}} \
+    --create-bucket-configuration LocationConstraint={{<region>}}
+```
 
-###### Note
-
+**Note**  
 The `--create-bucket-configuration` parameter is required for all regions except `us-east-1`.
 
 ## Step 2: Start packet capture
+<a name="_step_2_start_packet_capture"></a>
 
-Use the `start-capture.py` script from the [node monitoring agent repository](https://github.com/aws/eks-node-monitoring-agent "https://github.com/aws/eks-node-monitoring-agent") (`tools/start-capture.py`) to generate pre-signed S3 credentials, create the `NodeDiagnostic` resource, and apply it to your cluster.
+Use the `start-capture.py` script from the [node monitoring agent repository](https://github.com/aws/eks-node-monitoring-agent) (`tools/start-capture.py`) to generate pre-signed S3 credentials, create the `NodeDiagnostic` resource, and apply it to your cluster.
 
 1. Identify the node you want to capture traffic from.
 
-```
-kubectl get nodes
-```
+   ```
+   kubectl get nodes
+   ```
 
-2. Save the [start-capture.py](https://github.com/aws/eks-node-monitoring-agent/blob/main/tools/start-capture.py "https://github.com/aws/eks-node-monitoring-agent/blob/main/tools/start-capture.py") script from the node monitoring agent repository to your local machine, then run it. Replace `<bucket-name>` and `<node-name>` with your values.
+1. Save the [start-capture.py](https://github.com/aws/eks-node-monitoring-agent/blob/main/tools/start-capture.py) script from the node monitoring agent repository to your local machine, then run it. Replace {{<bucket-name>}} and {{<node-name>}} with your values.
 
-```
-python3 start-capture.py --bucket `<bucket-name>` --node `<node-name>`
+   ```
+   python3 start-capture.py --bucket {{<bucket-name>}} --node {{<node-name>}}
+   ```
 
-```
+   Common options:
 
-Common options:
+   ```
+   # Capture for 5 minutes on eth0 with a filter
+   python3 start-capture.py --bucket {{<bucket-name>}} --node {{<node-name>}} \
+       --duration 5m --interface eth0 --filter "tcp port 443"
+   
+   # Preview the YAML without applying
+   python3 start-capture.py --bucket {{<bucket-name>}} --node {{<node-name>}} --dry-run
+   ```
 
-```
-# Capture for 5 minutes on eth0 with a filter
-python3 start-capture.py --bucket `<bucket-name>` --node `<node-name>` \
-    --duration 5m --interface eth0 --filter "tcp port 443"
+   The script requires Python 3 with `boto3` and `pyyaml` installed, and `kubectl` configured for your cluster.
 
-# Preview the YAML without applying
-python3 start-capture.py --bucket `<bucket-name>` --node `<node-name>` --dry-run
-```
+   The script generates a `NodeDiagnostic` resource like the following. This example is provided for reference; note that the `upload` fields require pre-signed S3 POST credentials that are generated programmatically by the script.
 
-The script requires Python 3 with `boto3` and `pyyaml` installed, and `kubectl` configured for your cluster.
-
-The script generates a `NodeDiagnostic` resource like the following. This example is provided for reference; note that the `upload` fields require pre-signed S3 POST credentials that are generated programmatically by the script.
-
-```
-apiVersion: eks.amazonaws.com/v1alpha1
-kind: NodeDiagnostic
-metadata:
-  name: `<node-name>`                    # Required: node instance ID
-spec:
-  packetCapture:
-    duration: "30s"                       # Required: capture duration (max 1h)
-    # interface: "eth0"                   # Optional: default is primary ENI. Use "any" for all interfaces
-    # filter: "tcp port 443"             # Optional: tcpdump filter expression
-    # chunkSizeMB: 10                    # Optional: file rotation size in MB (1-100, default: 10)
-    upload:                               # Required: pre-signed S3 POST credentials
-      url: "https://`<bucket>`.s3.amazonaws.com/"
-      fields:
-        key: "captures/`<node-name>`/${filename}"
-        # ... other pre-signed POST fields (generated by the script)
-```
+   ```
+   apiVersion: eks.amazonaws.com/v1alpha1
+   kind: NodeDiagnostic
+   metadata:
+     name: {{<node-name>}}                    # Required: node instance ID
+   spec:
+     packetCapture:
+       duration: "30s"                       # Required: capture duration (max 1h)
+       # interface: "eth0"                   # Optional: default is primary ENI. Use "any" for all interfaces
+       # filter: "tcp port 443"             # Optional: tcpdump filter expression
+       # chunkSizeMB: 10                    # Optional: file rotation size in MB (1-100, default: 10)
+       upload:                               # Required: pre-signed S3 POST credentials
+         url: "https://{{<bucket>}}.s3.amazonaws.com/"
+         fields:
+           key: "captures/{{<node-name>}}/${filename}"
+           # ... other pre-signed POST fields (generated by the script)
+   ```
 
 ## Step 3: Monitor capture progress
+<a name="_step_3_monitor_capture_progress"></a>
 
 Check the status of the capture.
 
 ```
-kubectl describe nodediagnostic `<node-name>`
-
+kubectl describe nodediagnostic {{<node-name>}}
 ```
 
 The status will show:
-
-- `Running` while the capture is in progress.
-- `Completed` with reason `Success` when the capture finishes and all files are uploaded.
-- `Completed` with reason `Failure` if the capture encountered errors.
++  `Running` while the capture is in progress.
++  `Completed` with reason `Success` when the capture finishes and all files are uploaded.
++  `Completed` with reason `Failure` if the capture encountered errors.
 
 To see the full status including `captureID` (used for S3 path identification):
 
 ```
-kubectl get nodediagnostic `<node-name>` -o jsonpath='{.status.captureStatuses}'
+kubectl get nodediagnostic {{<node-name>}} -o jsonpath='{.status.captureStatuses}'
 ```
 
 ## Step 4: Download capture files from S3
+<a name="_step_4_download_capture_files_from_s3"></a>
 
 Once the status shows `Success`, download the capture files from S3.
 
 ```
-aws s3 cp s3://`<bucket-name>`/captures/ ./captures/ --recursive
+aws s3 cp s3://{{<bucket-name>}}/captures/ ./captures/ --recursive
 ```
 
 The files are gzip-compressed pcap format. Decompress and analyze with tcpdump or Wireshark:
@@ -119,14 +121,15 @@ tcpdump -r captures/capture.pcap0000 -n
 ```
 
 ## Step 5: Clean up
+<a name="_step_5_clean_up"></a>
 
-`NodeDiagnostic` resources are not automatically deleted. Clean up after you have obtained your capture files. Deleting the resource while a capture is running will stop the capture immediately.
+ `NodeDiagnostic` resources are not automatically deleted. Clean up after you have obtained your capture files. Deleting the resource while a capture is running will stop the capture immediately.
 
 ```
-kubectl delete nodediagnostic `<node-name>`
-
+kubectl delete nodediagnostic {{<node-name>}}
 ```
 
 ## Configuration options and behavior
+<a name="_configuration_options_and_behavior"></a>
 
-For the full `packetCapture` spec reference, configuration options, and behavior details, see the [packet capture documentation](https://github.com/aws/eks-node-monitoring-agent/blob/main/docs/packet-capture.adoc "https://github.com/aws/eks-node-monitoring-agent/blob/main/docs/packet-capture.adoc") in the node monitoring agent repository.
+For the full `packetCapture` spec reference, configuration options, and behavior details, see the [packet capture documentation](https://github.com/aws/eks-node-monitoring-agent/blob/main/docs/packet-capture.adoc) in the node monitoring agent repository.

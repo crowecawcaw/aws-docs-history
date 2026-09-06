@@ -1,26 +1,26 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Capability Kubernetes resources
+<a name="capability-kubernetes-resources"></a>
 
-After you enable a capability on your cluster, you will most often interact with it by creating and managing Kubernetes custom resources in your cluster.
-Each capability provides its own set of custom resource definitions (CRDs) that extend the Kubernetes API with capability-specific functionality.
+After you enable a capability on your cluster, you will most often interact with it by creating and managing Kubernetes custom resources in your cluster. Each capability provides its own set of custom resource definitions (CRDs) that extend the Kubernetes API with capability-specific functionality.
 
 ## Argo CD resources
+<a name="_argo_cd_resources"></a>
 
 When you enable the Argo CD capability, you can create and manage the following Kubernetes resources:
 
-**Application**
-
+ **Application**   
 Defines a deployment from a Git repository to a target cluster. `Application` resources specify the source repository, target namespace, and sync policy. You can create up to 3,000 `Application` resources per Argo CD capability instance.
 
-**ApplicationSet**
-
+ **ApplicationSet**   
 Generates multiple `Application` resources from templates, enabling multi-cluster and multi-environment deployments. `ApplicationSet` resources use generators to create `Application` resources dynamically based on cluster lists, Git directories, or other sources.
 
-**AppProject**
-
+ **AppProject**   
 Provides logical grouping and access control for `Application` resources. `AppProject` resources define which repositories, clusters, and namespaces `Application` resources can use, enabling multi-tenancy and security boundaries.
 
 Example `Application` resource:
@@ -42,18 +42,17 @@ spec:
     namespace: production
 ```
 
-For more information about Argo CD resources and concepts, see [Argo CD concepts](argocd-concepts.md "argocd-concepts.md").
+For more information about Argo CD resources and concepts, see [Argo CD concepts](argocd-concepts.md).
 
 ## kro resources
+<a name="_kro_resources"></a>
 
 When you enable the kro capability, you can create and manage the following Kubernetes resources:
 
-**ResourceGraphDefinition (RGD)**
-
+ **ResourceGraphDefinition (RGD)**   
 Defines a custom API that composes multiple Kubernetes and AWS resources into a higher-level abstraction. Platform teams create `ResourceGraphDefinition` resources to provide reusable patterns with guardrails.
 
-**Custom resource instances**
-
+ **Custom resource instances**   
 After creating a `ResourceGraphDefinition` resource, you can create instances of the custom API defined by the `ResourceGraphDefinition`. kro automatically creates and manages the resources specified in the `ResourceGraphDefinition`.
 
 Example `ResourceGraphDefinition` resource:
@@ -98,34 +97,29 @@ spec:
 
 When you apply this instance, kro automatically creates the `Deployment` and `Service` resources defined in the `ResourceGraphDefinition`.
 
-For more information about kro resources and concepts, see [kro concepts](kro-concepts.md "kro-concepts.md").
+For more information about kro resources and concepts, see [kro concepts](kro-concepts.md).
 
 ## ACK resources
+<a name="_ack_resources"></a>
 
-When you enable the ACK capability, you can create and manage AWS resources using Kubernetes custom resources.
-ACK provides over 200 CRDs for more than 50 AWS services, allowing you to define AWS resources alongside your Kubernetes workloads, and manage dedicated AWS infrastructure resources with Kubernetes.
+When you enable the ACK capability, you can create and manage AWS resources using Kubernetes custom resources. ACK provides over 200 CRDs for more than 50 AWS services, allowing you to define AWS resources alongside your Kubernetes workloads, and manage dedicated AWS infrastructure resources with Kubernetes.
 
 Examples of ACK resources:
 
-**S3 Bucket**
+ **S3 Bucket**   
+ `Bucket` resources create and manage Amazon S3 buckets with versioning, encryption, and lifecycle policies.
 
-`Bucket` resources create and manage Amazon S3 buckets with versioning, encryption, and lifecycle policies.
+ **RDS DBInstance**   
+ `DBInstance` resources provision and manage Amazon RDS database instances with automated backups and maintenance windows.
 
-**RDS DBInstance**
+ **DynamoDB Table**   
+ `Table` resources create and manage DynamoDB tables with provisioned or on-demand capacity.
 
-`DBInstance` resources provision and manage Amazon RDS database instances with automated backups and maintenance windows.
+ **IAM Role**   
+ `Role` resources define IAM roles with trust policies and permission policies for AWS service access.
 
-**DynamoDB Table**
-
-`Table` resources create and manage DynamoDB tables with provisioned or on-demand capacity.
-
-**IAM Role**
-
-`Role` resources define IAM roles with trust policies and permission policies for AWS service access.
-
-**Lambda Function**
-
-`Function` resources create and manage Lambda functions with code, runtime, and execution role configuration.
+ **Lambda Function**   
+ `Function` resources create and manage Lambda functions with code, runtime, and execution role configuration.
 
 Example specification of a `Bucket` resource:
 
@@ -144,30 +138,28 @@ spec:
           sseAlgorithm: AES256
 ```
 
-For more information about ACK resources and concepts, see [ACK concepts](ack-concepts.md "ack-concepts.md").
+For more information about ACK resources and concepts, see [ACK concepts](ack-concepts.md).
 
 ## Resource limits
+<a name="_resource_limits"></a>
 
 EKS Capabilities have the following resource limits:
 
-**Argo CD usage limits**:
+ **Argo CD usage limits**:
++ Maximum 3,000 `Application` resources per Argo CD capability instance
++ Maximum 100 remote clusters configured per Argo CD capability instance
 
-- Maximum 3,000 `Application` resources per Argo CD capability instance
-- Maximum 100 remote clusters configured per Argo CD capability instance
+ **Resource configuration limits**:
++ Maximum 150 Kubernetes resources per `Application` resource in Argo CD
++ Maximum 64 Kubernetes resources per `ResourceGraphDefinition` in kro
 
-**Resource configuration limits**:
-
-- Maximum 150 Kubernetes resources per `Application` resource in Argo CD
-- Maximum 64 Kubernetes resources per `ResourceGraphDefinition` in kro
-
-###### Note
-
+**Note**  
 These limits apply to the number of resources managed by each capability instance. If you need higher limits, you can deploy capabilities across multiple clusters.
 
 ## Next steps
+<a name="_next_steps"></a>
 
 For capability-specific tasks and advanced configuration, see the following topics:
-
-- [ACK concepts](ack-concepts.md "ack-concepts.md") – Understand ACK concepts and resource lifecycle
-- [Working with Argo CD](working-with-argocd.md "working-with-argocd.md") – Working with Argo CD capabilities for GitOps workflows
-- [kro concepts](kro-concepts.md "kro-concepts.md") – Understand kro concepts and resource composition
++  [ACK concepts](ack-concepts.md) – Understand ACK concepts and resource lifecycle
++  [Working with Argo CD](working-with-argocd.md) – Working with Argo CD capabilities for GitOps workflows
++  [kro concepts](kro-concepts.md) – Understand kro concepts and resource composition

@@ -1,15 +1,21 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # View a preview of pull request content
+<a name="pr-preview"></a>
 
 The Amazon EKS User Guide GitHub is configured to build and generate a preview of the docs site. This preview doesn’t have the full AWS theme, but it does check the content builds properly and links work.
 
-![GitHub comment with preview URL](images/contribute-preview.png)
+![GitHub comment with preview URL](http://docs.aws.amazon.com/eks/latest/userguide/images/contribute-preview.png)
+
+
 This preview is hosted at a temporary URL by AWS Amplify.
 
 ## View preview
+<a name="_view_preview"></a>
 
 When you submit a pull request, AWS Amplify attempts to build and deploy a preview of the content.
 
@@ -17,22 +23,20 @@ If the build succeeds, **aws-amplify-us-east-1** adds a comment to the pull requ
 
 If the build fails, the repo admins can see the logs and provide feedback.
 
-###### Note
-
+**Note**  
 If you haven’t contributed before, a project maintainer may need to approve running the build.
 
 ## Preview limitations
+<a name="_preview_limitations"></a>
 
 The preview is built as a single large HTML file. It will be displayed as multiple pages when published.
 
-**What works:**
+ **What works:** 
++ Cross references (`xref`)
++ Links to the internet
++ Images
++ Content hosted from `samples/` 
 
-- Cross references (`xref`)
-- Links to the internet
-- Images
-- Content hosted from `samples/`
-
-**What doesn’t work:**
-
-- Links to other AWS content, using `type="documentation"`. This is because this content doesn’t exist in the preview environment.
-- The attribute `{aws}` will not display properly. Its value changes based on the environment.
+ **What doesn’t work:** 
++ Links to other AWS content, using `type="documentation"`. This is because this content doesn’t exist in the preview environment.
++ The attribute `{aws}` will not display properly. Its value changes based on the environment.

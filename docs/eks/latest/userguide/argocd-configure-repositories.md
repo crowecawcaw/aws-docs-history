@@ -1,49 +1,55 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure repository access
+<a name="argocd-configure-repositories"></a>
 
-Before deploying applications, configure Argo CD to access your Git repositories and Helm chart registries.
-Argo CD supports multiple authentication methods for GitHub, GitLab, Bitbucket, AWS CodeCommit, and AWS ECR.
+Before deploying applications, configure Argo CD to access your Git repositories and Helm chart registries. Argo CD supports multiple authentication methods for GitHub, GitLab, Bitbucket, AWS CodeCommit, and AWS ECR.
 
-###### Note
-
-For direct AWS service integrations (ECR Helm charts, CodeCommit repositories, and CodeConnections), you can reference them directly in Application resources without creating Repository configurations.
-The Capability Role must have the required IAM permissions.
-See [Configure Argo CD permissions](argocd-permissions.md "argocd-permissions.md") for details.
+**Note**  
+For direct AWS service integrations (ECR Helm charts, CodeCommit repositories, and CodeConnections), you can reference them directly in Application resources without creating Repository configurations. The Capability Role must have the required IAM permissions. See [Configure Argo CD permissions](argocd-permissions.md) for details.
 
 ## Prerequisites
+<a name="_prerequisites"></a>
++ An EKS cluster with the Argo CD capability created
++ Git repositories containing Kubernetes manifests
++  `kubectl` configured to communicate with your cluster
 
-- An EKS cluster with the Argo CD capability created
-- Git repositories containing Kubernetes manifests
-- `kubectl` configured to communicate with your cluster
-
-###### Note
-
-AWS CodeConnections can connect to Git servers located in AWS Cloud or on-premises.
-For more information, see [AWS CodeConnections](../../../codeconnections/latest/userguide/welcome.md "../../../codeconnections/latest/userguide/welcome.md").
+**Note**  
+ AWS CodeConnections can connect to Git servers located in AWS Cloud or on-premises. For more information, see [AWS CodeConnections](https://docs.aws.amazon.com/codeconnections/latest/userguide/welcome.html).
 
 ## Authentication methods
+<a name="_authentication_methods"></a>
 
-| Method                                        | Use Case                                                                                                     | IAM Permissions Required                                            |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
-| **Direct integration with AWS services**      |
-| CodeCommit                                    | Direct integration with AWS CodeCommit Git repositories. No Repository configuration needed.                 | `codecommit:GitPull`                                                |
-| CodeConnections                               | Connect to GitHub, GitLab, or Bitbucket with managed authentication. Requires connection setup.              | `codeconnections:UseConnection`                                     |
-| ECR OCI Artifacts                             | Direct integration with AWS ECR for OCI Helm charts and manifest images. No Repository configuration needed. | `arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly`        |
-| **Repository configuration with credentials** |
-| AWS Secrets Manager (Username/Token)          | Store personal access tokens or passwords. Enables credential rotation without Kubernetes access.            | `arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess`     |
-| AWS Secrets Manager (SSH Key)                 | Use SSH key authentication. Enables credential rotation without Kubernetes access.                           | `arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess`     |
-| AWS Secrets Manager (GitHub App)              | GitHub App authentication with private key. Enables credential rotation without Kubernetes access.           | `arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess`     |
-| Kubernetes Secret                             | Standard Argo CD method using in-cluster secrets                                                             | None (permissions handled by EKS Access Entry with Kubernetes RBAC) |
+
+<table>
+<thead>
+  <tr><th>Method</th><th>Use Case</th><th>IAM Permissions Required</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="3"> <b>Direct integration with AWS services</b> </td></tr>
+  <tr><td>CodeCommit</td><td>Direct integration with AWS CodeCommit Git repositories. No Repository configuration needed.</td><td> <code>codecommit:GitPull</code> </td></tr>
+  <tr><td>CodeConnections</td><td>Connect to GitHub, GitLab, or Bitbucket with managed authentication. Requires connection setup.</td><td> <code>codeconnections:UseConnection</code> </td></tr>
+  <tr><td>ECR OCI Artifacts</td><td>Direct integration with AWS ECR for OCI Helm charts and manifest images. No Repository configuration needed.</td><td> <code>arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly</code> </td></tr>
+  <tr><td colspan="3"> <b>Repository configuration with credentials</b> </td></tr>
+  <tr><td> AWS Secrets Manager (Username/Token)</td><td>Store personal access tokens or passwords. Enables credential rotation without Kubernetes access.</td><td> <code>arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess</code> </td></tr>
+  <tr><td> AWS Secrets Manager (SSH Key)</td><td>Use SSH key authentication. Enables credential rotation without Kubernetes access.</td><td> <code>arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess</code> </td></tr>
+  <tr><td> AWS Secrets Manager (GitHub App)</td><td>GitHub App authentication with private key. Enables credential rotation without Kubernetes access.</td><td> <code>arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess</code> </td></tr>
+  <tr><td>Kubernetes Secret</td><td>Standard Argo CD method using in-cluster secrets</td><td>None (permissions handled by EKS Access Entry with Kubernetes RBAC)</td></tr>
+</tbody>
+</table>
+
 
 ## Direct access to AWS services
+<a name="direct_access_to_shared_aws_services"></a>
 
-For AWS services, you can reference them directly in Application resources without creating Repository configurations.
-The Capability Role must have the required IAM permissions.
+For AWS services, you can reference them directly in Application resources without creating Repository configurations. The Capability Role must have the required IAM permissions.
 
 ### CodeCommit repositories
+<a name="_codecommit_repositories"></a>
 
 Reference CodeCommit repositories directly in Applications:
 
@@ -55,7 +61,7 @@ metadata:
   namespace: argocd
 spec:
   source:
-    repoURL: https://git-codecommit.`region`.amazonaws.com/v1/repos/`repository-name`
+    repoURL: https://git-codecommit.{{region}}.amazonaws.com/v1/repos/{{repository-name}}
     targetRevision: main
     path: kubernetes/manifests
 ```
@@ -64,7 +70,7 @@ Required Capability Role permissions:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -76,9 +82,9 @@ Required Capability Role permissions:
 ```
 
 ### CodeConnections
+<a name="_codeconnections"></a>
 
-Reference GitHub, GitLab, or Bitbucket repositories through CodeConnections.
-The repository URL format is derived from the CodeConnections connection ARN.
+Reference GitHub, GitLab, or Bitbucket repositories through CodeConnections. The repository URL format is derived from the CodeConnections connection ARN.
 
 The repository URL format is:
 
@@ -90,7 +96,7 @@ metadata:
   namespace: argocd
 spec:
   source:
-    repoURL: https://codeconnections.`region`.amazonaws.com/git-http/`account-id`/`region`/`connection-id`/`owner`/`repository`.git
+    repoURL: https://codeconnections.{{region}}.amazonaws.com/git-http/{{account-id}}/{{region}}/{{connection-id}}/{{owner}}/{{repository}}.git
     targetRevision: main
     path: kubernetes/manifests
 ```
@@ -99,7 +105,7 @@ Required Capability Role permissions:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -111,10 +117,11 @@ Required Capability Role permissions:
 ```
 
 ### ECR Helm charts
+<a name="_ecr_helm_charts"></a>
 
 ECR stores Helm charts as OCI artifacts. Argo CD supports two ways to reference them:
 
-**Helm format** (recommended for Helm charts):
+ **Helm format** (recommended for Helm charts):
 
 ```
 apiVersion: argoproj.io/v1alpha1
@@ -124,9 +131,9 @@ metadata:
   namespace: argocd
 spec:
   source:
-    repoURL: `account-id`.dkr.ecr.`region`.amazonaws.com/`repository-name`
-    targetRevision: `chart-version`
-    chart: `chart-name`
+    repoURL: {{account-id}}.dkr.ecr.{{region}}.amazonaws.com/{{repository-name}}
+    targetRevision: {{chart-version}}
+    chart: {{chart-name}}
     helm:
       valueFiles:
         - values.yaml
@@ -134,7 +141,7 @@ spec:
 
 Note: Do not include the `oci://` prefix when using Helm format. Use the `chart` field to specify the chart name.
 
-**OCI format** (for OCI artifacts with Kubernetes manifests):
+ **OCI format** (for OCI artifacts with Kubernetes manifests):
 
 ```
 apiVersion: argoproj.io/v1alpha1
@@ -144,10 +151,9 @@ metadata:
   namespace: argocd
 spec:
   source:
-    repoURL: oci://`account-id`.dkr.ecr.`region`.amazonaws.com/`repository-name`
-    targetRevision: `artifact-version`
-    path: `path-to-manifests`
-
+    repoURL: oci://{{account-id}}.dkr.ecr.{{region}}.amazonaws.com/{{repository-name}}
+    targetRevision: {{artifact-version}}
+    path: {{path-to-manifests}}
 ```
 
 Note: Include the `oci://` prefix when using OCI format. Use the `path` field instead of `chart`.
@@ -161,21 +167,19 @@ arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
 This policy includes the necessary ECR permissions: `ecr:GetAuthorizationToken`, `ecr:BatchGetImage`, and `ecr:GetDownloadUrlForLayer`.
 
 ## Using AWS Secrets Manager
+<a name="using_shared_aws_secrets_manager"></a>
 
-Store repository credentials in Secrets Manager and reference them in Argo CD Repository configurations.
-Using Secrets Manager enables automated credential rotation without requiring Kubernetes RBAC access—credentials can be rotated using IAM permissions to Secrets Manager, and Argo CD automatically reads the updated values.
+Store repository credentials in Secrets Manager and reference them in Argo CD Repository configurations. Using Secrets Manager enables automated credential rotation without requiring Kubernetes RBAC access—credentials can be rotated using IAM permissions to Secrets Manager, and Argo CD automatically reads the updated values.
 
-###### Note
-
-For credential reuse across multiple repositories (for example, all repositories under a GitHub organization), use repository credential templates with `argocd.argoproj.io/secret-type: repo-creds`.
-This provides better UX than creating individual repository secrets.
-For more information, see [Repository Credentials](https://argo-cd.readthedocs.io/en/stable/operator-manual/argocd-repo-creds-yaml/ "https://argo-cd.readthedocs.io/en/stable/operator-manual/argocd-repo-creds-yaml/") in the Argo CD documentation.
+**Note**  
+For credential reuse across multiple repositories (for example, all repositories under a GitHub organization), use repository credential templates with `argocd.argoproj.io/secret-type: repo-creds`. This provides better UX than creating individual repository secrets. For more information, see [Repository Credentials](https://argo-cd.readthedocs.io/en/stable/operator-manual/argocd-repo-creds-yaml/) in the Argo CD documentation.
 
 ### Username and token authentication
+<a name="_username_and_token_authentication"></a>
 
 For HTTPS repositories with personal access tokens or passwords:
 
-**Create the secret in Secrets Manager**:
+ **Create the secret in Secrets Manager**:
 
 ```
 aws secretsmanager create-secret \
@@ -184,7 +188,7 @@ aws secretsmanager create-secret \
   --secret-string '{"username":"your-username","token":"your-personal-access-token"}'
 ```
 
-**Optional TLS client certificate fields** (for private Git servers):
+ **Optional TLS client certificate fields** (for private Git servers):
 
 ```
 aws secretsmanager create-secret \
@@ -197,11 +201,10 @@ aws secretsmanager create-secret \
   }'
 ```
 
-###### Note
-
+**Note**  
 The `tlsClientCertData` and `tlsClientCertKey` values must be base64 encoded.
 
-**Create a Repository Secret referencing Secrets Manager**:
+ **Create a Repository Secret referencing Secrets Manager**:
 
 ```
 apiVersion: v1
@@ -219,10 +222,11 @@ stringData:
 ```
 
 ### SSH key authentication
+<a name="_ssh_key_authentication"></a>
 
 For SSH-based Git access, store the private key as plaintext (not JSON):
 
-**Create the secret with SSH private key**:
+ **Create the secret with SSH private key**:
 
 ```
 aws secretsmanager create-secret \
@@ -234,7 +238,7 @@ b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
 -----END OPENSSH PRIVATE KEY-----"
 ```
 
-**Create a Repository Secret for SSH**:
+ **Create a Repository Secret for SSH**:
 
 ```
 apiVersion: v1
@@ -252,10 +256,11 @@ stringData:
 ```
 
 ### GitHub App authentication
+<a name="_github_app_authentication"></a>
 
 For GitHub App authentication with a private key:
 
-**Create the secret with GitHub App credentials**:
+ **Create the secret with GitHub App credentials**:
 
 ```
 aws secretsmanager create-secret \
@@ -268,11 +273,10 @@ aws secretsmanager create-secret \
   }'
 ```
 
-###### Note
-
+**Note**  
 The `githubAppPrivateKeySecret` value must be base64 encoded.
 
-**Optional field for GitHub Enterprise**:
+ **Optional field for GitHub Enterprise**:
 
 ```
 aws secretsmanager create-secret \
@@ -285,7 +289,7 @@ aws secretsmanager create-secret \
   }'
 ```
 
-**Create a Repository Secret for GitHub App**:
+ **Create a Repository Secret for GitHub App**:
 
 ```
 apiVersion: v1
@@ -303,11 +307,11 @@ stringData:
 ```
 
 ### Repository credential templates
+<a name="_repository_credential_templates"></a>
 
-For credential reuse across multiple repositories (for example, all repositories under a GitHub organization or user), use repository credential templates with `argocd.argoproj.io/secret-type: repo-creds`.
-This provides better UX than creating individual repository secrets for each repository.
+For credential reuse across multiple repositories (for example, all repositories under a GitHub organization or user), use repository credential templates with `argocd.argoproj.io/secret-type: repo-creds`. This provides better UX than creating individual repository secrets for each repository.
 
-**Create a repository credential template**:
+ **Create a repository credential template**:
 
 ```
 apiVersion: v1
@@ -323,27 +327,26 @@ stringData:
   secretArn: arn:aws:secretsmanager:us-west-2:111122223333:secret:argocd/github-org-AbCdEf
 ```
 
-This credential template applies to all repositories matching the URL prefix `https://github.com/your-org`.
-You can then reference any repository under this organization in Applications without creating additional secrets.
+This credential template applies to all repositories matching the URL prefix `https://github.com/your-org`. You can then reference any repository under this organization in Applications without creating additional secrets.
 
-For more information, see [Repository Credentials](https://argo-cd.readthedocs.io/en/stable/operator-manual/argocd-repo-creds-yaml/ "https://argo-cd.readthedocs.io/en/stable/operator-manual/argocd-repo-creds-yaml/") in the Argo CD documentation.
+For more information, see [Repository Credentials](https://argo-cd.readthedocs.io/en/stable/operator-manual/argocd-repo-creds-yaml/) in the Argo CD documentation.
 
-###### Important
-
-Ensure your IAM Capability Role has the managed policy `arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess` attached, or equivalent permissions including `secretsmanager:GetSecretValue` and KMS decrypt permissions.
-See [Argo CD considerations](argocd-considerations.md "argocd-considerations.md") for IAM policy configuration.
+**Important**  
+Ensure your IAM Capability Role has the managed policy `arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess` attached, or equivalent permissions including `secretsmanager:GetSecretValue` and KMS decrypt permissions. See [Argo CD considerations](argocd-considerations.md) for IAM policy configuration.
 
 ## Using AWS CodeConnections
+<a name="using_shared_aws_codeconnections"></a>
 
-For CodeConnections integration, see [Connect to Git repositories with AWS CodeConnections](integration-codeconnections.md "integration-codeconnections.md").
+For CodeConnections integration, see [Connect to Git repositories with AWS CodeConnections](integration-codeconnections.md).
 
 CodeConnections provides managed authentication for GitHub, GitLab, and Bitbucket without storing credentials.
 
 ## Using Kubernetes Secrets
+<a name="_using_kubernetes_secrets"></a>
 
 Store credentials directly in Kubernetes using the standard Argo CD method.
 
-**For HTTPS with personal access token**:
+ **For HTTPS with personal access token**:
 
 ```
 apiVersion: v1
@@ -360,7 +363,7 @@ stringData:
   password: your-personal-access-token
 ```
 
-**For SSH**:
+ **For SSH**:
 
 ```
 apiVersion: v1
@@ -380,6 +383,7 @@ stringData:
 ```
 
 ## CodeCommit repositories
+<a name="_codecommit_repositories_2"></a>
 
 For AWS CodeCommit, grant your IAM Capability Role CodeCommit permissions (`codecommit:GitPull`).
 
@@ -399,18 +403,18 @@ stringData:
   project: default
 ```
 
-For detailed IAM policy configuration, see [Argo CD considerations](argocd-considerations.md "argocd-considerations.md").
+For detailed IAM policy configuration, see [Argo CD considerations](argocd-considerations.md).
 
 ## Verify repository connection
+<a name="_verify_repository_connection"></a>
 
-Check connection status through the Argo CD UI under Settings → Repositories.
-The UI shows connection status and any authentication errors.
+Check connection status through the Argo CD UI under Settings → Repositories. The UI shows connection status and any authentication errors.
 
 Repository Secrets do not include status information.
 
 ## Additional resources
-
-- [Register target clusters](argocd-register-clusters.md "argocd-register-clusters.md") - Register target clusters for deployments
-- [Create Applications](argocd-create-application.md "argocd-create-application.md") - Create your first Application
-- [Argo CD considerations](argocd-considerations.md "argocd-considerations.md") - IAM permissions and security configuration
-- [Private Repositories](https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/ "https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/") - Upstream repository configuration reference
+<a name="_additional_resources"></a>
++  [Register target clusters](argocd-register-clusters.md) - Register target clusters for deployments
++  [Create Applications](argocd-create-application.md) - Create your first Application
++  [Argo CD considerations](argocd-considerations.md) - IAM permissions and security configuration
++  [Private Repositories](https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/) - Upstream repository configuration reference

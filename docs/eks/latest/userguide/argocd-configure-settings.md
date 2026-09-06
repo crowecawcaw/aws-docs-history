@@ -1,41 +1,36 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Configure Argo CD settings
+<a name="argocd-configure-settings"></a>
 
-The EKS Capability for Argo CD provides a fully managed Argo CD experience.
-Upstream Argo CD offers many optional settings and features, and the capability supports a subset of them.
-For supported settings, you configure them the same way as upstream Argo CD, through the `argocd-cm` ConfigMap in your cluster.
-The capability reads the supported fields from that ConfigMap and applies them to the managed Argo CD instance.
+The EKS Capability for Argo CD provides a fully managed Argo CD experience. Upstream Argo CD offers many optional settings and features, and the capability supports a subset of them. For supported settings, you configure them the same way as upstream Argo CD, through the `argocd-cm` ConfigMap in your cluster. The capability reads the supported fields from that ConfigMap and applies them to the managed Argo CD instance.
 
 The following sections describe how to configure the `argocd-cm` ConfigMap for supported settings.
 
 ## Prerequisites
+<a name="_prerequisites"></a>
 
 Before you configure Argo CD settings, you must have:
-
-- An EKS cluster with the Argo CD capability created (see [Create an Argo CD capability](create-argocd-capability.md "create-argocd-capability.md"))
-- The namespace configured for Argo CD in the capability (by default, the `argocd` namespace)
-- The `kubectl` CLI configured to communicate with your cluster
++ An EKS cluster with the Argo CD capability created (see [Create an Argo CD capability](create-argocd-capability.md))
++ The namespace configured for Argo CD in the capability (by default, the `argocd` namespace)
++ The `kubectl` CLI configured to communicate with your cluster
 
 ## Configure the argocd-cm ConfigMap
+<a name="_configure_the_argocd_cm_configmap"></a>
 
-To configure supported Argo CD settings, create a ConfigMap named `argocd-cm` in your cluster.
-The managed capability reads the supported settings from this ConfigMap and applies them to the managed Argo CD instance.
-For the settings that the capability supports and how it applies them, see [Supported settings](#argocd-supported-settings "#argocd-supported-settings").
+To configure supported Argo CD settings, create a ConfigMap named `argocd-cm` in your cluster. The managed capability reads the supported settings from this ConfigMap and applies them to the managed Argo CD instance. For the settings that the capability supports and how it applies them, see [Supported settings](#argocd-supported-settings).
 
 Create the ConfigMap with the following requirements:
++ Name the ConfigMap `argocd-cm`.
++ Create it in the namespace configured for Argo CD in the capability (the namespace you set in the Argo CD configuration when you created the capability). By default, this is the `argocd` namespace.
++ Apply the label `app.kubernetes.io/part-of: argocd`. This label is required, matching upstream Argo CD behavior.
++ Use the same field format and keys as upstream Argo CD.
 
-- Name the ConfigMap `argocd-cm`.
-- Create it in the namespace configured for Argo CD in the capability (the namespace you set in the Argo CD configuration when you created the capability).
-  By default, this is the `argocd` namespace.
-- Apply the label `app.kubernetes.io/part-of: argocd`.
-  This label is required, matching upstream Argo CD behavior.
-- Use the same field format and keys as upstream Argo CD.
-
-The following example shows the ConfigMap structure, with a setting that displays a banner across the Argo CD UI.
-Add other supported settings under `data` in the same way.
+The following example shows the ConfigMap structure, with a setting that displays a banner across the Argo CD UI. Add other supported settings under `data` in the same way.
 
 ```
 apiVersion: v1
@@ -49,124 +44,107 @@ data:
   ui.bannercontent: "Production cluster"
 ```
 
-###### Important
-
-A ConfigMap is not a secure store.
-Do not put secrets, credentials, or other sensitive information in the `argocd-cm` ConfigMap.
+**Important**  
+A ConfigMap is not a secure store. Do not put secrets, credentials, or other sensitive information in the `argocd-cm` ConfigMap.
 
 ## How the capability applies your settings
+<a name="_how_the_capability_applies_your_settings"></a>
 
-You configure Argo CD by creating an `argocd-cm` ConfigMap in your own cluster.
-The capability applies the supported settings from your ConfigMap to the managed Argo CD instance.
-It applies only supported settings, and ignores any other field or feature that you set.
-Any setting that isn’t listed in [Supported settings](#argocd-supported-settings "#argocd-supported-settings") is unsupported and has no effect.
+You configure Argo CD by creating an `argocd-cm` ConfigMap in your own cluster. The capability applies the supported settings from your ConfigMap to the managed Argo CD instance. It applies only supported settings, and ignores any other field or feature that you set. Any setting that isn’t listed in [Supported settings](#argocd-supported-settings) is unsupported and has no effect.
 
-The capability validates the values that you set.
-If a value is invalid or malformed, the capability ignores that value and keeps running with its default configuration for that setting.
-A mistake in your ConfigMap doesn’t break your managed Argo CD instance.
+The capability validates the values that you set. If a value is invalid or malformed, the capability ignores that value and keeps running with its default configuration for that setting. A mistake in your ConfigMap doesn’t break your managed Argo CD instance.
 
-###### Note
-
-The capability applies the configuration from the `argocd-cm` ConfigMap in your cluster.
-Any principal with write access to this ConfigMap can change the configuration of your managed Argo CD instance.
-Your cluster’s Kubernetes role-based access control (RBAC) governs access to the ConfigMap, not the IAM permissions that control the capability resource.
-As a security best practice, grant permission to modify objects in the Argo CD namespace only to trusted users and service accounts.
-Because Kubernetes RBAC scopes permissions by resource type, you can still grant the access that other users need.
-For example, you can allow developers to create and manage Applications but not modify ConfigMaps.
-This prevents them from changing the `argocd-cm` configuration.
-
-For more information about the shared responsibility model, Kubernetes RBAC, and namespace isolation for the Argo CD capability, see [Security considerations for EKS Capabilities](capabilities-security.md "capabilities-security.md").
-To control access within Argo CD, see [Configure Argo CD permissions](argocd-permissions.md "argocd-permissions.md").
+**Note**  
+The capability applies the configuration from the `argocd-cm` ConfigMap in your cluster. Any principal with write access to this ConfigMap can change the configuration of your managed Argo CD instance. Your cluster’s Kubernetes role-based access control (RBAC) governs access to the ConfigMap, not the IAM permissions that control the capability resource. As a security best practice, grant permission to modify objects in the Argo CD namespace only to trusted users and service accounts. Because Kubernetes RBAC scopes permissions by resource type, you can still grant the access that other users need. For example, you can allow developers to create and manage Applications but not modify ConfigMaps. This prevents them from changing the `argocd-cm` configuration.  
+For more information about the shared responsibility model, Kubernetes RBAC, and namespace isolation for the Argo CD capability, see [Security considerations for EKS Capabilities](capabilities-security.md). To control access within Argo CD, see [Configure Argo CD permissions](argocd-permissions.md).
 
 ## Supported settings
+<a name="argocd-supported-settings"></a>
 
-The following sections list the `argocd-cm` settings that the managed capability supports, grouped by category.
-Each setting uses the same key and format as upstream Argo CD.
-Each table’s **How your value is applied** column shows whether your value appends to or overrides the capability’s default configuration.
-For the full description of each setting, see the [argocd-cm ConfigMap reference](https://argo-cd.readthedocs.io/en/stable/operator-manual/argocd-cm-yaml/ "https://argo-cd.readthedocs.io/en/stable/operator-manual/argocd-cm-yaml/") on the Argo CD documentation website.
+The following sections list the `argocd-cm` settings that the managed capability supports, grouped by category. Each setting uses the same key and format as upstream Argo CD. Each table’s **How your value is applied** column shows whether your value appends to or overrides the capability’s default configuration. For the full description of each setting, see the [argocd-cm ConfigMap reference](https://argo-cd.readthedocs.io/en/stable/operator-manual/argocd-cm-yaml/) on the Argo CD documentation website.
 
 ### User interface
+<a name="_user_interface"></a>
 
 These settings customize the Argo CD UI.
 
-| Setting              | Description                                                                                       | How your value is applied |
-| -------------------- | ------------------------------------------------------------------------------------------------- | ------------------------- |
-| `ui.bannercontent`   | Text for a banner shown across the UI, such as an environment identifier or a maintenance notice. | Overrides                 |
-| `ui.bannerurl`       | URL that the banner links to, such as a runbook or wiki page.                                     | Overrides                 |
-| `ui.bannerpermanent` | Set to `true` to prevent users from dismissing the banner.                                        | Overrides                 |
-| `ui.bannerposition`  | Where the banner appears: `top`, `bottom`, or `both`.                                             | Overrides                 |
-| `ui.cssurl`          | URL of a custom CSS file for branding or styling. The CSS runs in your browser.                   | Overrides                 |
+
+| Setting | Description | How your value is applied | 
+| --- | --- | --- | 
+|  `ui.bannercontent`  | Text for a banner shown across the UI, such as an environment identifier or a maintenance notice. | Overrides | 
+|  `ui.bannerurl`  | URL that the banner links to, such as a runbook or wiki page. | Overrides | 
+|  `ui.bannerpermanent`  | Set to `true` to prevent users from dismissing the banner. | Overrides | 
+|  `ui.bannerposition`  | Where the banner appears: `top`, `bottom`, or `both`. | Overrides | 
+|  `ui.cssurl`  | URL of a custom CSS file for branding or styling. The CSS runs in your browser. | Overrides | 
 
 ### Resource settings
+<a name="_resource_settings"></a>
 
 These settings control how the capability watches, compares, and displays the resources that Argo CD manages.
 
-| Setting                                                        | Description                                                                                                                                                                                                                          | How your value is applied |
-| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- |
-| `resource.customizations.ignoreDifferences.<group>_<kind>`     | Fields to ignore when Argo CD compares Git with the cluster for a resource type, such as replica counts managed by a Horizontal Pod Autoscaler.                                                                                      | Appends                   |
-| `resource.customizations.ignoreDifferences.all`                | Fields to ignore when comparing Git with the cluster, applied to all resource types.                                                                                                                                                 | Appends                   |
-| `resource.customizations.ignoreResourceUpdates.<group>_<kind>` | Fields that Argo CD ignores when deciding whether an update event should trigger reconciliation, which reduces load. The event still occurs, and Argo CD ignores only changes to these fields.                                       | Appends                   |
-| `resource.customizations.ignoreResourceUpdates.all`            | Fields that Argo CD ignores when processing update events, applied to all resource types.                                                                                                                                            | Appends                   |
-| `resource.customizations.knownTypeFields.<group>_<kind>`       | Field types (list, map, or primitive) for a Custom Resource, so that Argo CD calculates accurate diffs instead of showing whole-field replacement.                                                                                   | Appends                   |
-| `resource.customizations.health.<group>_<kind>`                | Custom health check for a resource type, defined as a Lua script. The capability includes built-in health checks for ACK and kro resources. See [Custom health checks](#argocd-custom-health-checks "#argocd-custom-health-checks"). | Overrides                 |
-| `resource.exclusions`                                          | Resource types that Argo CD doesn’t watch, which improves performance for high-churn types.                                                                                                                                          | Appends                   |
-| `resource.inclusions`                                          | Resource types that Argo CD watches. When set, Argo CD watches only the listed types.                                                                                                                                                | Appends                   |
-| `resource.compareoptions`                                      | Options that control how Argo CD calculates diffs, such as `ignoreAggregatedRoles`.                                                                                                                                                  | Overrides                 |
-| `resource.respectRBAC`                                         | Whether the controller watches only the resources that it has RBAC permission to read. Accepts `normal` or `strict`.                                                                                                                 | Overrides                 |
-| `resource.customLabels`                                        | Additional resource labels to display in the UI resource view.                                                                                                                                                                       | Overrides                 |
-| `resource.includeEventLabelKeys`                               | Labels from Applications and Projects to copy onto the Kubernetes events that Argo CD generates.                                                                                                                                     | Overrides                 |
-| `resource.excludeEventLabelKeys`                               | Labels to exclude from the Kubernetes events that Argo CD generates.                                                                                                                                                                 | Overrides                 |
-| `resource.sensitive.mask.annotations`                          | Annotations to mask when the UI or CLI displays Secrets.                                                                                                                                                                             | Overrides                 |
+
+| Setting | Description | How your value is applied | 
+| --- | --- | --- | 
+|  `resource.customizations.ignoreDifferences.<group>_<kind>`  | Fields to ignore when Argo CD compares Git with the cluster for a resource type, such as replica counts managed by a Horizontal Pod Autoscaler. | Appends | 
+|  `resource.customizations.ignoreDifferences.all`  | Fields to ignore when comparing Git with the cluster, applied to all resource types. | Appends | 
+|  `resource.customizations.ignoreResourceUpdates.<group>_<kind>`  | Fields that Argo CD ignores when deciding whether an update event should trigger reconciliation, which reduces load. The event still occurs, and Argo CD ignores only changes to these fields. | Appends | 
+|  `resource.customizations.ignoreResourceUpdates.all`  | Fields that Argo CD ignores when processing update events, applied to all resource types. | Appends | 
+|  `resource.customizations.knownTypeFields.<group>_<kind>`  | Field types (list, map, or primitive) for a Custom Resource, so that Argo CD calculates accurate diffs instead of showing whole-field replacement. | Appends | 
+|  `resource.customizations.health.<group>_<kind>`  | Custom health check for a resource type, defined as a Lua script. The capability includes built-in health checks for ACK and kro resources. See [Custom health checks](#argocd-custom-health-checks). | Overrides | 
+|  `resource.exclusions`  | Resource types that Argo CD doesn’t watch, which improves performance for high-churn types. | Appends | 
+|  `resource.inclusions`  | Resource types that Argo CD watches. When set, Argo CD watches only the listed types. | Appends | 
+|  `resource.compareoptions`  | Options that control how Argo CD calculates diffs, such as `ignoreAggregatedRoles`. | Overrides | 
+|  `resource.respectRBAC`  | Whether the controller watches only the resources that it has RBAC permission to read. Accepts `normal` or `strict`. | Overrides | 
+|  `resource.customLabels`  | Additional resource labels to display in the UI resource view. | Overrides | 
+|  `resource.includeEventLabelKeys`  | Labels from Applications and Projects to copy onto the Kubernetes events that Argo CD generates. | Overrides | 
+|  `resource.excludeEventLabelKeys`  | Labels to exclude from the Kubernetes events that Argo CD generates. | Overrides | 
+|  `resource.sensitive.mask.annotations`  | Annotations to mask when the UI or CLI displays Secrets. | Overrides | 
 
 ### Repository and tool settings
+<a name="_repository_and_tool_settings"></a>
 
 These settings control the manifest tools that Argo CD uses to render your manifests.
 
-| Setting                  | Description                                                                                                                                                                                                              | How your value is applied |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- |
-| `kustomize.enable`       | Whether Kustomize is enabled as a manifest source type.                                                                                                                                                                  | Overrides                 |
-| `helm.enable`            | Whether Helm is enabled as a manifest source type.                                                                                                                                                                       | Overrides                 |
-| `jsonnet.enable`         | Whether Jsonnet is enabled as a manifest source type.                                                                                                                                                                    | Overrides                 |
-| `kustomize.buildOptions` | Global command line flags passed to every `kustomize build`. The capability supports a subset of flags. See [Supported kustomize.buildOptions flags](#argocd-kustomize-build-options "#argocd-kustomize-build-options"). | Overrides                 |
+
+| Setting | Description | How your value is applied | 
+| --- | --- | --- | 
+|  `kustomize.enable`  | Whether Kustomize is enabled as a manifest source type. | Overrides | 
+|  `helm.enable`  | Whether Helm is enabled as a manifest source type. | Overrides | 
+|  `jsonnet.enable`  | Whether Jsonnet is enabled as a manifest source type. | Overrides | 
+|  `kustomize.buildOptions`  | Global command line flags passed to every `kustomize build`. The capability supports a subset of flags. See [Supported kustomize.buildOptions flags](#argocd-kustomize-build-options). | Overrides | 
 
 #### Supported kustomize.buildOptions flags
+<a name="argocd-kustomize-build-options"></a>
 
-For `kustomize.buildOptions`, the capability filters your value to a set of safe, supported flags.
-It doesn’t support flags that let the build read arbitrary files or run arbitrary code.
-It drops any unsupported flag or invalid value individually and applies the remaining supported flags.
-You can write flags in either the `--flag value` or `--flag=value` form.
+For `kustomize.buildOptions`, the capability filters your value to a set of safe, supported flags. It doesn’t support flags that let the build read arbitrary files or run arbitrary code. It drops any unsupported flag or invalid value individually and applies the remaining supported flags. You can write flags in either the `--flag value` or `--flag=value` form.
 
-| Flag                       | Supported values | Notes                                           |
-| -------------------------- | ---------------- | ----------------------------------------------- |
-| `--reorder`                | `legacy`, `none` | Changes the ordering of the rendered YAML only. |
-| `--enable-helm`            | Boolean          | Runs the managed Helm binary from the path.     |
-| `--enable-managedby-label` | Boolean          | Adds labels only.                               |
+
+| Flag | Supported values | Notes | 
+| --- | --- | --- | 
+|  `--reorder`  |  `legacy`, `none`  | Changes the ordering of the rendered YAML only. | 
+|  `--enable-helm`  | Boolean | Runs the managed Helm binary from the path. | 
+|  `--enable-managedby-label`  | Boolean | Adds labels only. | 
 
 The capability drops any other flag, including `--load-restrictor`, `--enable-exec`, and `--enable-alpha-plugins`.
 
 ## Custom health checks
+<a name="argocd-custom-health-checks"></a>
 
-Argo CD assesses the health of the resources it deploys.
-For standard Kubernetes resources such as Deployments and Services, Argo CD has built-in health logic.
-For Custom Resources that Argo CD does not recognize, it has no built-in health logic and reports no health status.
+Argo CD assesses the health of the resources it deploys. For standard Kubernetes resources such as Deployments and Services, Argo CD has built-in health logic. For Custom Resources that Argo CD does not recognize, it has no built-in health logic and reports no health status.
 
-When a Custom Resource has no health check, Argo CD reports no health for it and excludes it from the Application’s overall health.
-As a result, an Application can report `Healthy` even when its resources are still provisioning or have failed.
-This also means that sync waves can advance before those resources are ready, because sync ordering depends on reported health.
+When a Custom Resource has no health check, Argo CD reports no health for it and excludes it from the Application’s overall health. As a result, an Application can report `Healthy` even when its resources are still provisioning or have failed. This also means that sync waves can advance before those resources are ready, because sync ordering depends on reported health.
 
-With custom health checks, you can define health logic for your Custom Resources, so Argo CD reports accurate health and sequences deployments correctly.
-You define custom health checks the same way you do in upstream Argo CD, using the same configuration keys.
-Existing upstream scripts and community examples work with the EKS Capability for Argo CD without modification.
+With custom health checks, you can define health logic for your Custom Resources, so Argo CD reports accurate health and sequences deployments correctly. You define custom health checks the same way you do in upstream Argo CD, using the same configuration keys. Existing upstream scripts and community examples work with the EKS Capability for Argo CD without modification.
 
 ### Built-in health checks for ACK and kro
+<a name="_built_in_health_checks_for_ack_and_kro"></a>
 
-The EKS Capability for Argo CD includes built-in health checks for [AWS Controllers for Kubernetes (ACK)](ack.md "ack.md") and [kro (Kube Resource Orchestrator)](kro.md "kro.md") resources.
-These resources report accurate health with no additional configuration.
+The EKS Capability for Argo CD includes built-in health checks for [AWS Controllers for Kubernetes (ACK)](ack.md) and [kro (Kube Resource Orchestrator)](kro.md) resources. These resources report accurate health with no additional configuration.
 
-To change how the capability assesses the health of an ACK or kro resource, you can define a custom health check for that resource type.
-A custom health check that you define for a resource type overrides the built-in health check for that type.
+To change how the capability assesses the health of an ACK or kro resource, you can define a custom health check for that resource type. A custom health check that you define for a resource type overrides the built-in health check for that type.
 
 ### Write a custom health check
+<a name="_write_a_custom_health_check"></a>
 
 Define a custom health check by adding a Lua script to the `argocd-cm` ConfigMap, using a key in the following format:
 
@@ -174,15 +152,11 @@ Define a custom health check by adding a Lua script to the `argocd-cm` ConfigMap
 resource.customizations.health.<group>_<kind>
 ```
 
-Replace `<group>` with the API group of the Custom Resource and `<kind>` with its kind.
-For example, the key for a Custom Resource with the API group `example.com` and the kind `Database` is `resource.customizations.health.example.com_Database`.
+Replace {{<group>}} with the API group of the Custom Resource and {{<kind>}} with its kind. For example, the key for a Custom Resource with the API group `example.com` and the kind `Database` is `resource.customizations.health.example.com_Database`.
 
-The Lua script has access to the resource object through the global `obj` variable.
-The script must return a table with a `status` field set to one of `Healthy`, `Progressing`, `Degraded`, or `Suspended`.
-The script can also set an optional `message` field to provide a descriptive status message.
+The Lua script has access to the resource object through the global `obj` variable. The script must return a table with a `status` field set to one of `Healthy`, `Progressing`, `Degraded`, or `Suspended`. The script can also set an optional `message` field to provide a descriptive status message.
 
-The following example ConfigMap defines a health check for a `Database` Custom Resource.
-The script reports the resource as `Healthy` when its status phase is `Ready`, and as `Progressing` otherwise:
+The following example ConfigMap defines a health check for a `Database` Custom Resource. The script reports the resource as `Healthy` when its status phase is `Ready`, and as `Progressing` otherwise:
 
 ```
 apiVersion: v1
@@ -206,34 +180,26 @@ data:
     return hs
 ```
 
-For more information about the health check script format, the list of built-in health checks, and community examples that you can adapt, see [Resource Health](https://argo-cd.readthedocs.io/en/stable/operator-manual/health/ "https://argo-cd.readthedocs.io/en/stable/operator-manual/health/") on the Argo CD documentation website.
+For more information about the health check script format, the list of built-in health checks, and community examples that you can adapt, see [Resource Health](https://argo-cd.readthedocs.io/en/stable/operator-manual/health/) on the Argo CD documentation website.
 
 ### Safety and limitations
+<a name="_safety_and_limitations"></a>
 
-With the managed capability, your custom health check scripts run in isolated, fully managed compute.
-The execution environment is isolated per capability and has no access to your cluster’s data or to AWS APIs.
-You do not provision, patch, or operate any part of the execution environment.
+With the managed capability, your custom health check scripts run in isolated, fully managed compute. The execution environment is isolated per capability and has no access to your cluster’s data or to AWS APIs. You do not provision, patch, or operate any part of the execution environment.
 
 Note the following when you write custom health checks for use with the EKS Capability:
++  **Standard Lua libraries are not available.** The `useOpenLibs` option is always disabled, which is the default in upstream Argo CD. Scripts cannot access the operating system or file system. If you migrate a script from self-managed Argo CD that relies on standard Lua libraries, it might not run the same way in the capability. We recommend that you test your health check scripts in a development environment before you use them in production.
 
-- **Standard Lua libraries are not available.**
-  The `useOpenLibs` option is always disabled, which is the default in upstream Argo CD.
-  Scripts cannot access the operating system or file system.
-  If you migrate a script from self-managed Argo CD that relies on standard Lua libraries, it might not run the same way in the capability.
-  We recommend that you test your health check scripts in a development environment before you use them in production.
-
-If health evaluation is temporarily unavailable, the capability reports affected Custom Resources as `Progressing` rather than removing their health status.
-This keeps the affected resources visible in the Application’s health until evaluation recovers.
+If health evaluation is temporarily unavailable, the capability reports affected Custom Resources as `Progressing` rather than removing their health status. This keeps the affected resources visible in the Application’s health until evaluation recovers.
 
 ### Verify a custom health check
+<a name="_verify_a_custom_health_check"></a>
 
 After you apply or update the `argocd-cm` ConfigMap, confirm that the health check is active:
 
-1. In the Argo CD UI, choose an Application that includes a Custom Resource of a kind that you defined a health check for.
-   Confirm that the resource reports the health status your script returns.
-   Alternatively, run `argocd app get `<application-name>`` and review the health status of the resource.
-2. If the resource does not report the expected health, verify the following:
+1. In the Argo CD UI, choose an Application that includes a Custom Resource of a kind that you defined a health check for. Confirm that the resource reports the health status your script returns. Alternatively, run `argocd app get {{<application-name>}} ` and review the health status of the resource.
 
-   - The ConfigMap is named `argocd-cm` and is in the namespace configured for Argo CD in the capability.
-   - The ConfigMap has the required `app.kubernetes.io/part-of: argocd` label.
-   - The health check key uses the correct `<group>_<kind>` for the resource type.
+1. If the resource does not report the expected health, verify the following:
+   + The ConfigMap is named `argocd-cm` and is in the namespace configured for Argo CD in the capability.
+   + The ConfigMap has the required `app.kubernetes.io/part-of: argocd` label.
+   + The health check key uses the correct `<group>_<kind>` for the resource type.

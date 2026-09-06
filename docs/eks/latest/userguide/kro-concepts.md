@@ -1,15 +1,18 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # kro concepts
+<a name="kro-concepts"></a>
 
-kro enables platform teams to create custom Kubernetes APIs that compose multiple resources into higher-level abstractions.
-This topic walks through a practical example, then explains the core concepts you need to understand when working with the EKS Capability for kro.
+kro enables platform teams to create custom Kubernetes APIs that compose multiple resources into higher-level abstractions. This topic walks through a practical example, then explains the core concepts you need to understand when working with the EKS Capability for kro.
 
 ## Getting started with kro
+<a name="_getting_started_with_kro"></a>
 
-After creating the kro capability (see [Create a kro capability](create-kro-capability.md "create-kro-capability.md")), you can start creating custom APIs using ResourceGraphDefinitions in your cluster.
+After creating the kro capability (see [Create a kro capability](create-kro-capability.md)), you can start creating custom APIs using ResourceGraphDefinitions in your cluster.
 
 Here’s a complete example that creates a simple web application abstraction:
 
@@ -76,31 +79,28 @@ spec:
   replicas: 5
 ```
 
-kro automatically creates the Deployment and Service with the appropriate configuration.
-Since `image` isn’t specified, it uses the default value `nginx:latest` from the schema.
+kro automatically creates the Deployment and Service with the appropriate configuration. Since `image` isn’t specified, it uses the default value `nginx:latest` from the schema.
 
 ## Core concepts
+<a name="_core_concepts"></a>
 
-###### Important
-
-kro validates ResourceGraphDefinitions at creation time, not at runtime.
-When you create an RGD, kro validates CEL syntax, type-checks expressions against actual Kubernetes schemas, verifies field existence, and detects circular dependencies.
-This means errors are caught immediately when you create the RGD, before any instances are deployed.
+**Important**  
+kro validates ResourceGraphDefinitions at creation time, not at runtime. When you create an RGD, kro validates CEL syntax, type-checks expressions against actual Kubernetes schemas, verifies field existence, and detects circular dependencies. This means errors are caught immediately when you create the RGD, before any instances are deployed.
 
 ### ResourceGraphDefinition
+<a name="_resourcegraphdefinition"></a>
 
 A ResourceGraphDefinition (RGD) defines a custom Kubernetes API by specifying:
++  **Schema** - The API structure using SimpleSchema format (field names, types, defaults, validation)
++  **Resources** - Templates for the underlying Kubernetes or AWS resources to create
++  **Dependencies** - How resources relate to each other (automatically detected from field references)
 
-- **Schema** - The API structure using SimpleSchema format (field names, types, defaults, validation)
-- **Resources** - Templates for the underlying Kubernetes or AWS resources to create
-- **Dependencies** - How resources relate to each other (automatically detected from field references)
+When you apply an RGD, kro registers a new Custom Resource Definition (CRD) in your cluster. Application teams can then create instances of your custom API, and kro handles creating and managing all the underlying resources.
 
-When you apply an RGD, kro registers a new Custom Resource Definition (CRD) in your cluster.
-Application teams can then create instances of your custom API, and kro handles creating and managing all the underlying resources.
-
-For more information, see [ResourceGraphDefinition Overview](https://kro.run/docs/concepts/rgd/overview/ "https://kro.run/docs/concepts/rgd/overview/") in the kro documentation.
+For more information, see [ResourceGraphDefinition Overview](https://kro.run/docs/concepts/rgd/overview/) in the kro documentation.
 
 ### SimpleSchema format
+<a name="_simpleschema_format"></a>
 
 SimpleSchema provides a simplified way to define API schemas without requiring OpenAPI knowledge:
 
@@ -116,14 +116,14 @@ schema:
 
 SimpleSchema supports `string`, `integer`, `boolean`, and `number` types with constraints like `required`, `default`, `minimum`/`maximum`, `enum`, and `pattern`.
 
-For more information, see [SimpleSchema](https://kro.run/docs/concepts/rgd/schema/ "https://kro.run/docs/concepts/rgd/schema/") in the kro documentation.
+For more information, see [SimpleSchema](https://kro.run/docs/concepts/rgd/schema/) in the kro documentation.
 
 ### CEL expressions
+<a name="_cel_expressions"></a>
 
-kro uses Common Expression Language (CEL) to reference values dynamically and add conditional logic.
-CEL expressions are wrapped in `${` and `}` and can be used in two ways:
+kro uses Common Expression Language (CEL) to reference values dynamically and add conditional logic. CEL expressions are wrapped in `${` and `}` and can be used in two ways:
 
-**Standalone expressions** - The entire field value is a single expression:
+ **Standalone expressions** - The entire field value is a single expression:
 
 ```
 spec:
@@ -133,7 +133,7 @@ spec:
 
 The expression result replaces the entire field value and must match the field’s expected type.
 
-**String templates** - One or more expressions embedded in a string:
+ **String templates** - One or more expressions embedded in a string:
 
 ```
 metadata:
@@ -141,10 +141,9 @@ metadata:
   annotation: "Created by ${schema.spec.owner}"      # Single expression in string
 ```
 
-All expressions in string templates must return strings.
-Use `string()` to convert other types: `"replicas-${string(schema.spec.count)}"`.
+All expressions in string templates must return strings. Use `string()` to convert other types: `"replicas-${string(schema.spec.count)}"`.
 
-**Field references** - Access instance spec values using `schema.spec`:
+ **Field references** - Access instance spec values using `schema.spec`:
 
 ```
 template:
@@ -155,7 +154,7 @@ template:
     replicas: ${schema.spec.replicas}
 ```
 
-**Optional field access** - Use `?` for fields that might not exist:
+ **Optional field access** - Use `?` for fields that might not exist:
 
 ```
 # For ConfigMaps or Secrets with unknown structure
@@ -167,7 +166,7 @@ ready: ${deployment.status.?readyReplicas > 0}
 
 If the field doesn’t exist, the expression returns `null` instead of failing.
 
-**Conditional resources** - Include resources only when conditions are met:
+ **Conditional resources** - Include resources only when conditions are met:
 
 ```
 resources:
@@ -178,11 +177,9 @@ resources:
     # ... ingress configuration
 ```
 
-The `includeWhen` field accepts a list of boolean expressions.
-All conditions must be true for the resource to be created.
-Currently, `includeWhen` can only reference `schema.spec` fields.
+The `includeWhen` field accepts a list of boolean expressions. All conditions must be true for the resource to be created. Currently, `includeWhen` can only reference `schema.spec` fields.
 
-**Transformations** - Transform values using ternary operators and functions:
+ **Transformations** - Transform values using ternary operators and functions:
 
 ```
 template:
@@ -198,7 +195,7 @@ template:
     port: ${string(schema.spec.portNumber)}
 ```
 
-**Cross-resource references** - Reference values from other resources:
+ **Cross-resource references** - Reference values from other resources:
 
 ```
 resources:
@@ -218,15 +215,14 @@ resources:
       BUCKET_ARN: ${bucket.status.ackResourceMetadata.arn}
 ```
 
-When you reference another resource in a CEL expression, it automatically creates a dependency.
-kro ensures the referenced resource is created first.
+When you reference another resource in a CEL expression, it automatically creates a dependency. kro ensures the referenced resource is created first.
 
-For more information, see [CEL Expressions](https://kro.run/docs/concepts/rgd/cel-expressions/ "https://kro.run/docs/concepts/rgd/cel-expressions/") in the kro documentation.
+For more information, see [CEL Expressions](https://kro.run/docs/concepts/rgd/cel-expressions/) in the kro documentation.
 
 ### Resource dependencies
+<a name="_resource_dependencies"></a>
 
-kro automatically infers dependencies from CEL expressions—you don’t specify the order, you describe relationships.
-When one resource references another using a CEL expression, kro creates a dependency and determines the correct creation order.
+kro automatically infers dependencies from CEL expressions—you don’t specify the order, you describe relationships. When one resource references another using a CEL expression, kro creates a dependency and determines the correct creation order.
 
 ```
 resources:
@@ -245,16 +241,15 @@ resources:
       bucket: ${bucket.spec.name}  # Creates dependency: notification depends on bucket
 ```
 
-The expression `${bucket.spec.name}` creates a dependency.
-kro builds a directed acyclic graph (DAG) of all resources and their dependencies, then computes a topological order for creation.
+The expression `${bucket.spec.name}` creates a dependency. kro builds a directed acyclic graph (DAG) of all resources and their dependencies, then computes a topological order for creation.
 
-**Creation order**: Resources are created in topological order (dependencies first).
+ **Creation order**: Resources are created in topological order (dependencies first).
 
-**Parallel creation**: Resources with no dependencies are created simultaneously.
+ **Parallel creation**: Resources with no dependencies are created simultaneously.
 
-**Deletion order**: Resources are deleted in reverse topological order (dependents first).
+ **Deletion order**: Resources are deleted in reverse topological order (dependents first).
 
-**Circular dependencies**: Not allowed—kro rejects ResourceGraphDefinitions with circular dependencies during validation.
+ **Circular dependencies**: Not allowed—kro rejects ResourceGraphDefinitions with circular dependencies during validation.
 
 You can view the computed creation order:
 
@@ -262,9 +257,10 @@ You can view the computed creation order:
 kubectl get resourcegraphdefinition my-rgd -o jsonpath='{.status.topologicalOrder}'
 ```
 
-For more information, see [Graph inference](https://kro.run/docs/concepts/rgd/dependencies-ordering/ "https://kro.run/docs/concepts/rgd/dependencies-ordering/") in the kro documentation.
+For more information, see [Graph inference](https://kro.run/docs/concepts/rgd/dependencies-ordering/) in the kro documentation.
 
 ## Composing with ACK
+<a name="_composing_with_ack"></a>
 
 kro works seamlessly with the EKS Capability for ACK to compose AWS resources with Kubernetes resources:
 
@@ -304,9 +300,9 @@ resources:
 
 This pattern lets you create AWS resources, extract their details (ARNs, URLs, endpoints), and inject them into your application configuration—all managed as a single unit.
 
-For more composition patterns and advanced examples, see [kro considerations for EKS](kro-considerations.md "kro-considerations.md").
+For more composition patterns and advanced examples, see [kro considerations for EKS](kro-considerations.md).
 
 ## Next steps
-
-- [kro considerations for EKS](kro-considerations.md "kro-considerations.md") - Learn about EKS-specific patterns, RBAC, and integration with ACK and Argo CD
-- [kro Documentation](https://kro.run/docs/overview "https://kro.run/docs/overview") - Comprehensive kro documentation including advanced CEL expressions, validation patterns, and troubleshooting
+<a name="_next_steps"></a>
++  [kro considerations for EKS](kro-considerations.md) - Learn about EKS-specific patterns, RBAC, and integration with ACK and Argo CD
++  [kro Documentation](https://kro.run/docs/overview) - Comprehensive kro documentation including advanced CEL expressions, validation patterns, and troubleshooting

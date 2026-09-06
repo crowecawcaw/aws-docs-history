@@ -1,65 +1,68 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Overview of Artificial Intelligence and Machine Learning on Amazon EKS
+<a name="ml-on-eks"></a>
 
-###### Tip
-
-[Register](https://events.eksworkshop.com/workshops/genai/ "https://events.eksworkshop.com/workshops/genai/") for upcoming Amazon EKS AI/ML workshops.
+**Tip**  
+ [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
 
 Amazon Elastic Kubernetes Service (Amazon EKS) is a managed Kubernetes service that empowers organizations to deploy, manage, and scale artificial intelligence (AI) and machine learning (ML) workloads with unparalleled flexibility and control. Because Amazon EKS is built on upstream Kubernetes, you can apply your existing Kubernetes expertise while integrating seamlessly with open source tools and AWS services.
 
 Whether you’re training large-scale models, running real-time online inference, or deploying generative AI applications, Amazon EKS delivers the performance, scalability, and cost efficiency your AI/ML projects demand.
 
 ## Why use Amazon EKS for AI/ML
+<a name="_why_use_amazon_eks_for_aiml"></a>
 
 Amazon EKS provides the control, integrations, performance, and scalability needed for AI/ML projects. Built on upstream Kubernetes and integrated with AWS services, Amazon EKS helps you use existing Kubernetes expertise while orchestrating complex workloads. For teams new to AI/ML deployments, existing Kubernetes skills transfer without steep learning curves.
 
 Amazon EKS supports everything from operating system customizations to compute scaling, and promotes technological flexibility that preserves choice for future infrastructure decisions. The platform provides the performance and tuning options that AI/ML workloads require, including the following features:
-
-- **Full cluster control**: Fine-tune costs and configurations without hidden abstractions.
-- **Sub-second latency**: Run real-time inference workloads in production.
-- **Advanced customizations**: Configure multi-instance GPUs, network tuning, and operating system-level tuning.
-- **Unified orchestration**: Orchestrate across AI/ML pipelines and on-premises, edge, and cloud environments.
-- **Cost optimization**: Use auto scaling, native GPU scheduling, and diverse GPU and accelerator instance types.
++  **Full cluster control**: Fine-tune costs and configurations without hidden abstractions.
++  **Sub-second latency**: Run real-time inference workloads in production.
++  **Advanced customizations**: Configure multi-instance GPUs, network tuning, and operating system-level tuning.
++  **Unified orchestration**: Orchestrate across AI/ML pipelines and on-premises, edge, and cloud environments.
++  **Cost optimization**: Use auto scaling, native GPU scheduling, and diverse GPU and accelerator instance types.
 
 ## Key use cases
+<a name="_key_use_cases"></a>
 
 Amazon EKS supports a wide range of AI/ML workloads, including the following common use cases:
-
-- **Inference**: Self-host models on Amazon EKS for use cases that require low-latency response times.
-- **Batch inference**: Process large datasets efficiently through scheduled jobs.
-- **Model training**: Train complex models on large datasets over extended periods of time.
-- **Model fine-tuning**: Enhance open source models with proprietary domain knowledge.
-- **Retrieval augmented generation (RAG) pipelines**: Integrate retrieval and generation processes.
-- **Agentic AI**: Deploy agents with models hosted on Amazon Bedrock, third parties, or on Amazon EKS.
++  **Inference**: Self-host models on Amazon EKS for use cases that require low-latency response times.
++  **Batch inference**: Process large datasets efficiently through scheduled jobs.
++  **Model training**: Train complex models on large datasets over extended periods of time.
++  **Model fine-tuning**: Enhance open source models with proprietary domain knowledge.
++  **Retrieval augmented generation (RAG) pipelines**: Integrate retrieval and generation processes.
++  **Agentic AI**: Deploy agents with models hosted on Amazon Bedrock, third parties, or on Amazon EKS.
 
 ## Case studies
+<a name="_case_studies"></a>
 
-Customers select Amazon EKS for various reasons, such as optimizing GPU usage or running inference workloads with sub-second latency, as demonstrated in the following case studies. For a list of all case studies for Amazon EKS, see [AWS Customer Success Stories](https://aws.amazon.com/solutions/case-studies/ "https://aws.amazon.com/solutions/case-studies/").
-
-- [BMW Group](https://aws.amazon.com/solutions/case-studies/bmw-eks-case-study/ "https://aws.amazon.com/solutions/case-studies/bmw-eks-case-study/") operates one of the world’s largest connected fleets, with over 25M+ connected vehicles, built its Connected AI Platform on Amazon EKS with Ray for distributed training and Karpenter for GPU autoscaling, reducing model training time from hours to 30 minutes at €5 per training run while supporting 550+ developers across 60+ AI use cases.
-- [Booking.com](https://aws.amazon.com/solutions/case-studies/booking-eks-case-study/ "https://aws.amazon.com/solutions/case-studies/booking-eks-case-study/"), one of the world’s leading travel platforms, migrated its search ranking ML inference system to Amazon EKS to unlock scalability for experimentation, processing up to 250K requests per second with 40 ms p99.9 latency.
-- [Unitary](https://aws.amazon.com/solutions/case-studies/unitary-eks-case-study/?did=cr_card&trk=cr_card "https://aws.amazon.com/solutions/case-studies/unitary-eks-case-study/?did=cr_card&trk=cr_card") processes 26 million videos daily using AI for content moderation. The company requires high-throughput, low-latency inference and achieved an 80% reduction in container boot times, which ensures fast response to scaling events as traffic fluctuates.
-- [Synthesia](https://aws.amazon.com/solutions/case-studies/synthesia-case-study/?did=cr_card&trk=cr_card "https://aws.amazon.com/solutions/case-studies/synthesia-case-study/?did=cr_card&trk=cr_card") offers generative AI video creation as a service for customers to create realistic videos from text prompts. The company achieved a 30x improvement in ML model training throughput.
-- [Ada Support](https://aws.amazon.com/solutions/case-studies/ada-support-eks-case-study/ "https://aws.amazon.com/solutions/case-studies/ada-support-eks-case-study/"), an AI-powered customer service automation company, achieved a 15% reduction in compute costs alongside a 30% increase in compute efficiency.
-- [Snorkel AI](https://aws.amazon.com/blogs/startups/how-snorkel-ai-achieved-over-40-cost-savings-by-scaling-machine-learning-workloads-using-amazon-eks/ "https://aws.amazon.com/blogs/startups/how-snorkel-ai-achieved-over-40-cost-savings-by-scaling-machine-learning-workloads-using-amazon-eks/") equips enterprises to build and adapt foundation models and large language models. The company achieved over 40% cost savings by implementing intelligent scaling mechanisms for GPU resources.
-- [Artera](https://aws.amazon.com/solutions/case-studies/artera-case-study/ "https://aws.amazon.com/solutions/case-studies/artera-case-study/") uses Amazon Elastic File System (Amazon EFS) and Amazon EKS to train ML models that personalize cancer treatment using high-resolution biopsy images.
-- [Anthropic](https://aws.amazon.com/blogs/containers/amazon-eks-enables-ultra-scale-ai-ml-workloads-with-support-for-100k-nodes-per-cluster/ "https://aws.amazon.com/blogs/containers/amazon-eks-enables-ultra-scale-ai-ml-workloads-with-support-for-100k-nodes-per-cluster/") runs their flagship Claude family of foundation models on Amazon EKS and operates some of the largest EKS clusters in production, consisting of AWS Trainium (trn2) instances and NVIDIA GPUs for AI workloads alongside AWS Graviton processors for CPU intensive data processing.
+Customers select Amazon EKS for various reasons, such as optimizing GPU usage or running inference workloads with sub-second latency, as demonstrated in the following case studies. For a list of all case studies for Amazon EKS, see [AWS Customer Success Stories](https://aws.amazon.com/solutions/case-studies/).
++  [BMW Group](https://aws.amazon.com/solutions/case-studies/bmw-eks-case-study/) operates one of the world’s largest connected fleets, with over 25M\+ connected vehicles, built its Connected AI Platform on Amazon EKS with Ray for distributed training and Karpenter for GPU autoscaling, reducing model training time from hours to 30 minutes at €5 per training run while supporting 550\+ developers across 60\+ AI use cases.
++  [Booking.com](https://aws.amazon.com/solutions/case-studies/booking-eks-case-study/), one of the world’s leading travel platforms, migrated its search ranking ML inference system to Amazon EKS to unlock scalability for experimentation, processing up to 250K requests per second with 40 ms p99.9 latency.
++  [Unitary](https://aws.amazon.com/solutions/case-studies/unitary-eks-case-study/?did=cr_card&trk=cr_card) processes 26 million videos daily using AI for content moderation. The company requires high-throughput, low-latency inference and achieved an 80% reduction in container boot times, which ensures fast response to scaling events as traffic fluctuates.
++  [Synthesia](https://aws.amazon.com/solutions/case-studies/synthesia-case-study/?did=cr_card&trk=cr_card) offers generative AI video creation as a service for customers to create realistic videos from text prompts. The company achieved a 30x improvement in ML model training throughput.
++  [Ada Support](https://aws.amazon.com/solutions/case-studies/ada-support-eks-case-study/), an AI-powered customer service automation company, achieved a 15% reduction in compute costs alongside a 30% increase in compute efficiency.
++  [Snorkel AI](https://aws.amazon.com/blogs/startups/how-snorkel-ai-achieved-over-40-cost-savings-by-scaling-machine-learning-workloads-using-amazon-eks/) equips enterprises to build and adapt foundation models and large language models. The company achieved over 40% cost savings by implementing intelligent scaling mechanisms for GPU resources.
++  [Artera](https://aws.amazon.com/solutions/case-studies/artera-case-study/) uses Amazon Elastic File System (Amazon EFS) and Amazon EKS to train ML models that personalize cancer treatment using high-resolution biopsy images.
++  [Anthropic](https://aws.amazon.com/blogs/containers/amazon-eks-enables-ultra-scale-ai-ml-workloads-with-support-for-100k-nodes-per-cluster/) runs their flagship Claude family of foundation models on Amazon EKS and operates some of the largest EKS clusters in production, consisting of AWS Trainium (trn2) instances and NVIDIA GPUs for AI workloads alongside AWS Graviton processors for CPU intensive data processing.
 
 ## Guide structure
+<a name="_guide_structure"></a>
 
 The guide includes a series of hands-on guides you can follow step-by-step to deploy and manage AI/ML workloads on Amazon EKS. Each guide provides instructions and configurations you can implement directly in your environment.
 
 Alongside the instructions, the guide provides the necessary background and foundational concepts for each topic. It also includes the links to relevant AWS documentation and resources for required deeper technical details.
 
 ## Start using AI/ML on Amazon EKS
+<a name="_start_using_aiml_on_amazon_eks"></a>
 
-To begin planning for and using AI/ML platforms and workloads on Amazon EKS, follow the [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md "ml-cluster-setup.md") section to create an Amazon EKS cluster, including the required Kubernetes components, in your AWS account. Once your environment is up and running, you can continue to the next steps:
-
-- [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md "ml-cluster-setup.md"): Create the Amazon EKS cluster, monitoring, and Amazon S3 bucket infrastructure to use throughout this section.
-- [Run AI/ML inference workloads on Amazon EKS](ml-inference.md "ml-inference.md"): Use Amazon EKS to deploy, configure, and start using an inference application with a large language model (LLM).
-- [Amazon EKS cluster configuration for AI/ML workloads](ml-cluster-configuration.md "ml-cluster-configuration.md"): Configure Amazon EKS clusters optimized for AI/ML workloads.
-- [Manage accelerated compute for AI/ML workloads on Amazon EKS](ml-compute-management.md "ml-compute-management.md"): Manage and optimize compute resources for machine learning workloads on Amazon EKS.
-- [Manage hardware devices on Amazon EKS](device-management.md "device-management.md"): Manage specialized hardware devices using Dynamic Resource Allocation (DRA) and device plugins.
+To begin planning for and using AI/ML platforms and workloads on Amazon EKS, follow the [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md) section to create an Amazon EKS cluster, including the required Kubernetes components, in your AWS account. Once your environment is up and running, you can continue to the next steps:
++  [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md): Create the Amazon EKS cluster, monitoring, and Amazon S3 bucket infrastructure to use throughout this section.
++  [Run AI/ML inference workloads on Amazon EKS](ml-inference.md): Use Amazon EKS to deploy, configure, and start using an inference application with a large language model (LLM).
++  [Amazon EKS cluster configuration for AI/ML workloads](ml-cluster-configuration.md): Configure Amazon EKS clusters optimized for AI/ML workloads.
++  [Manage accelerated compute for AI/ML workloads on Amazon EKS](ml-compute-management.md): Manage and optimize compute resources for machine learning workloads on Amazon EKS.
++  [Manage hardware devices on Amazon EKS](device-management.md): Manage specialized hardware devices using Dynamic Resource Allocation (DRA) and device plugins.

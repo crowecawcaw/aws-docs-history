@@ -1,80 +1,87 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Automatically repair nodes in EKS clusters
+<a name="node-repair"></a>
 
 This topic details the EKS automatic node repair behavior and how to configure it to meet your requirements. EKS automatic node repair is enabled by default in EKS Auto Mode, and can be used with EKS managed node groups and Karpenter.
 
 The default EKS automatic node repair actions are summarized in the table below and they apply to the behavior for EKS Auto Mode, EKS managed node groups, and Karpenter. When using EKS Auto Mode or Karpenter all `AcceleratedHardwareReady` repair actions are `Replace`, and only EKS managed node groups support `Reboot` as a repair action.
 
-For a detailed list of node health issues detected by the EKS node monitoring agent and their corresponding node repair actions, see [Detect node health issues with the EKS node monitoring agent](node-health-nma.md "node-health-nma.md").
+For a detailed list of node health issues detected by the EKS node monitoring agent and their corresponding node repair actions, see [Detect node health issues with the EKS node monitoring agent](node-health-nma.md).
 
-| Node Condition           | Description                                                                                                                           | Repair after | Repair action(s)  |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ----------------- |
-| AcceleratedHardwareReady | AcceleratedHardwareReady indicates whether accelerated hardware (GPU, Neuron) on the node is functioning correctly.                   | 10m          | Replace or Reboot |
-| ContainerRuntimeReady    | ContainerRuntimeReady indicates whether the container runtime (containerd, etc.) is functioning correctly and able to run containers. | 30m          | Replace           |
-| DiskPressure             | DiskPressure is a standard Kubernetes condition indicating the node is experiencing disk pressure (low disk space or high I/O).       | N/A          | None              |
-| KernelReady              | KernelReady indicates whether the kernel is functioning correctly without critical errors, panics, or resource exhaustion.            | 30m          | Replace           |
-| MemoryPressure           | MemoryPressure is a standard Kubernetes condition indicating the node is experiencing memory pressure (low available memory).         | N/A          | None              |
-| NetworkingReady          | NetworkingReady indicates whether the node’s networking stack is functioning correctly (interfaces, routing, connectivity).           | 30m          | Replace           |
-| StorageReady             | StorageReady indicates whether the node’s storage subsystem is functioning correctly (disks, filesystems, I/O).                       | 30m          | Replace           |
-| Ready                    | Ready is the standard Kubernetes condition indicating the node is healthy and ready to accept pods.                                   | 30m          | Replace           |
 
-EKS automatic node repair actions are disabled in the following scenarios by default. In-progress node repair actions continue in each scenario. See [Configure automatic node repair](#configure-node-repair "#configure-node-repair") for how to override these default settings.
+| Node Condition | Description | Repair after | Repair action(s) | 
+| --- | --- | --- | --- | 
+| AcceleratedHardwareReady | AcceleratedHardwareReady indicates whether accelerated hardware (GPU, Neuron) on the node is functioning correctly. | 10m | Replace or Reboot | 
+| ContainerRuntimeReady | ContainerRuntimeReady indicates whether the container runtime (containerd, etc.) is functioning correctly and able to run containers. | 30m | Replace | 
+| DiskPressure | DiskPressure is a standard Kubernetes condition indicating the node is experiencing disk pressure (low disk space or high I/O). | N/A | None | 
+| KernelReady | KernelReady indicates whether the kernel is functioning correctly without critical errors, panics, or resource exhaustion. | 30m | Replace | 
+| MemoryPressure | MemoryPressure is a standard Kubernetes condition indicating the node is experiencing memory pressure (low available memory). | N/A | None | 
+| NetworkingReady | NetworkingReady indicates whether the node’s networking stack is functioning correctly (interfaces, routing, connectivity). | 30m | Replace | 
+| StorageReady | StorageReady indicates whether the node’s storage subsystem is functioning correctly (disks, filesystems, I/O). | 30m | Replace | 
+| Ready | Ready is the standard Kubernetes condition indicating the node is healthy and ready to accept pods. | 30m | Replace | 
 
-**EKS managed node groups**
+EKS automatic node repair actions are disabled in the following scenarios by default. In-progress node repair actions continue in each scenario. See [Configure automatic node repair](#configure-node-repair) for how to override these default settings.
 
-- The node group has more than five nodes and more than 20% of the nodes in the node group are unhealthy.
-- A zonal shift for your cluster triggers through the Application Recovery Controller (ARC).
+ **EKS managed node groups** 
++ The node group has more than five nodes and more than 20% of the nodes in the node group are unhealthy.
++ A zonal shift for your cluster triggers through the Application Recovery Controller (ARC).
 
-**EKS Auto Mode and Karpenter**
-
-- More than 20% of the nodes in the NodePool are unhealthy.
-- For standalone NodeClaims, 20% of nodes in the cluster are unhealthy.
+ **EKS Auto Mode and Karpenter** 
++ More than 20% of the nodes in the NodePool are unhealthy.
++ For standalone NodeClaims, 20% of nodes in the cluster are unhealthy.
 
 ## Configure automatic node repair
+<a name="configure-node-repair"></a>
 
 Automatic node repair cannot be configured when using EKS Auto Mode and it is always enabled with the same default settings as Karpenter.
 
 ### Karpenter
+<a name="configure-node-repair-karpenter"></a>
 
-To use automatic node repair with Karpenter, enable the feature gate `NodeRepair=true`. You can enable the feature gates through the `--feature-gates` CLI option or the `FEATURE_GATES` environment variable in the Karpenter deployment. For more information, see the [Karpenter documentation](https://karpenter.sh/docs/concepts/disruption/#node-auto-repair "https://karpenter.sh/docs/concepts/disruption/#node-auto-repair").
+To use automatic node repair with Karpenter, enable the feature gate `NodeRepair=true`. You can enable the feature gates through the `--feature-gates` CLI option or the `FEATURE_GATES` environment variable in the Karpenter deployment. For more information, see the [Karpenter documentation](https://karpenter.sh/docs/concepts/disruption/#node-auto-repair).
 
 ### Managed node groups
+<a name="configure-node-repair-mng"></a>
 
 You can enable automatic node repair when creating new EKS managed node groups or by updating existing EKS managed node groups.
-
-- **Amazon EKS console** – Select the **Enable node auto repair** checkbox for the managed node group. For more information, see [Create a managed node group for your cluster](create-managed-node-group.md "create-managed-node-group.md").
-- **AWS CLI** – Add `--node-repair-config enabled=true` to the [`eks create-nodegroup`](../../../cli/latest/reference/eks/create-nodegroup.md "../../../cli/latest/reference/eks/create-nodegroup.md") or [`eks update-nodegroup-config`](../../../cli/latest/reference/eks/update-nodegroup-config.md "../../../cli/latest/reference/eks/update-nodegroup-config.md") command.
-- **eksctl** – Configure `managedNodeGroups.nodeRepairConfig.enabled: true`, see the example in the [eksctl GitHub](https://github.com/eksctl-io/eksctl/blob/main/examples/44-node-repair.yaml "https://github.com/eksctl-io/eksctl/blob/main/examples/44-node-repair.yaml").
++  **Amazon EKS console** – Select the **Enable node auto repair** checkbox for the managed node group. For more information, see [Create a managed node group for your cluster](create-managed-node-group.md).
++  ** AWS CLI** – Add `--node-repair-config enabled=true` to the [`eks create-nodegroup`](https://docs.aws.amazon.com/cli/latest/reference/eks/create-nodegroup.html) or [`eks update-nodegroup-config`](https://docs.aws.amazon.com/cli/latest/reference/eks/update-nodegroup-config.html) command.
++  **eksctl** – Configure `managedNodeGroups.nodeRepairConfig.enabled: true`, see the example in the [eksctl GitHub](https://github.com/eksctl-io/eksctl/blob/main/examples/44-node-repair.yaml).
 
 When using EKS managed node groups, you can control node auto repair behavior with the following settings.
 
 To control when node auto repair stops taking action, set a threshold based on the number of unhealthy nodes in the node group. Set either the absolute count or percentage, but not both.
 
-| Setting                               | Description                                                                                                        |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `maxUnhealthyNodeThresholdCount`      | The absolute number of unhealthy nodes above which node auto repair stops. Use this to limit the scope of repairs. |
-| `maxUnhealthyNodeThresholdPercentage` | The percentage of unhealthy nodes above which node auto repair stops (0-100).                                      |
+
+| Setting | Description | 
+| --- | --- | 
+|  `maxUnhealthyNodeThresholdCount`  | The absolute number of unhealthy nodes above which node auto repair stops. Use this to limit the scope of repairs. | 
+|  `maxUnhealthyNodeThresholdPercentage`  | The percentage of unhealthy nodes above which node auto repair stops (0-100). | 
 
 To control how many nodes repair at the same time, you can configure repair parallelism. As with the unhealthy node threshold, set either the absolute count or percentage, but not both.
 
-| Setting                              | Description                                                               |
-| ------------------------------------ | ------------------------------------------------------------------------- |
-| `maxParallelNodesRepairedCount`      | The maximum number of nodes to repair concurrently.                       |
-| `maxParallelNodesRepairedPercentage` | The maximum percentage of unhealthy nodes to repair concurrently (0-100). |
+
+| Setting | Description | 
+| --- | --- | 
+|  `maxParallelNodesRepairedCount`  | The maximum number of nodes to repair concurrently. | 
+|  `maxParallelNodesRepairedPercentage`  | The maximum percentage of unhealthy nodes to repair concurrently (0-100). | 
 
 With `nodeRepairConfigOverrides`, you can customize repair behavior for specific conditions. Use this when you need different repair actions or wait times for different issue types.
 
 Each override requires all of the following fields:
 
-| Field                     | Description                                                                                                                                                          |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `nodeMonitoringCondition` | The node condition type reported by the node monitoring agent. For example: `AcceleratedHardwareReady`, `NetworkingReady`, `StorageReady`, `KernelReady`.            |
-| `nodeUnhealthyReason`     | The specific reason code for the unhealthy condition. For example: `NvidiaXID31Error`, `IPAMDNotRunning`.                                                            |
-| `minRepairWaitTimeMins`   | The minimum time in minutes that the condition must persist before the node becomes eligible for repair. Use this to avoid repairing nodes for temporary issues.     |
-| `repairAction`            | The action to take when conditions are met. Valid values: `Replace` (terminate and replace the node), `Reboot` (reboot the node), or `NoAction` (no repair actions). |
+
+| Field | Description | 
+| --- | --- | 
+|  `nodeMonitoringCondition`  | The node condition type reported by the node monitoring agent. For example: `AcceleratedHardwareReady`, `NetworkingReady`, `StorageReady`, `KernelReady`. | 
+|  `nodeUnhealthyReason`  | The specific reason code for the unhealthy condition. For example: `NvidiaXID31Error`, `IPAMDNotRunning`. | 
+|  `minRepairWaitTimeMins`  | The minimum time in minutes that the condition must persist before the node becomes eligible for repair. Use this to avoid repairing nodes for temporary issues. | 
+|  `repairAction`  | The action to take when conditions are met. Valid values: `Replace` (terminate and replace the node), `Reboot` (reboot the node), or `NoAction` (no repair actions). | 
 
 The following AWS CLI example creates a node group with custom repair settings.
 
@@ -106,9 +113,8 @@ aws eks create-nodegroup \
 ```
 
 This configuration does the following:
-
-- Enables node auto repair
-- Stops repair actions when more than 10% of nodes are unhealthy
-- Repairs up to 3 nodes at a time
-- Overrides XID 64 errors (GPU memory remapping failure) to replace the node after 5 minutes. The default is reboot after 10 minutes.
-- Overrides XID 31 errors (GPU memory page fault) to take no action. The default is reboot after 10 minutes.
++ Enables node auto repair
++ Stops repair actions when more than 10% of nodes are unhealthy
++ Repairs up to 3 nodes at a time
++ Overrides XID 64 errors (GPU memory remapping failure) to replace the node after 5 minutes. The default is reboot after 10 minutes.
++ Overrides XID 31 errors (GPU memory page fault) to take no action. The default is reboot after 10 minutes.

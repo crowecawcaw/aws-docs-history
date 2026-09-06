@@ -1,12 +1,16 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Share a target group across two clusters
+<a name="auto-multi-cluster-target-groups-example"></a>
 
-The following example shares one target group between two clusters. The first cluster owns the Application Load Balancer through an Ingress, and the second cluster joins the shared target group through a manually created `TargetGroupBinding`. Before you begin, review [Configure multi-cluster target groups](auto-multi-cluster-target-groups.md "auto-multi-cluster-target-groups.md") to understand how MultiCluster support works and how to enable it.
+The following example shares one target group between two clusters. The first cluster owns the Application Load Balancer through an Ingress, and the second cluster joins the shared target group through a manually created `TargetGroupBinding`. Before you begin, review [Configure multi-cluster target groups](auto-multi-cluster-target-groups.md) to understand how MultiCluster support works and how to enable it.
 
 ## Cluster 1 — own the load balancer through an Ingress
+<a name="_cluster_1_own_the_load_balancer_through_an_ingress"></a>
 
 Deploy your application (for example, a Deployment with a `NodePort` Service), then create an `IngressClass` and an `Ingress` that carries the multi-cluster annotation.
 
@@ -42,12 +46,12 @@ spec:
 ```
 
 The controller provisions the load balancer and generates a `TargetGroupBinding` with `spec.multiClusterTargetGroup: true`. Note the following values from the generated `TargetGroupBinding` and Service — the second cluster needs all three:
-
-- The `targetGroupARN`.
-- The Service `nodePort`.
-- The load balancer security group ID from `spec.networking.ingress[].from[].securityGroup.groupID`.
++ The `targetGroupARN`.
++ The Service `nodePort`.
++ The load balancer security group ID from `spec.networking.ingress[].from[].securityGroup.groupID`.
 
 ## Cluster 2 — join the shared target group through a TargetGroupBinding
+<a name="_cluster_2_join_the_shared_target_group_through_a_targetgroupbinding"></a>
 
 Deploy the same application, pinning the Service to the `nodePort` from cluster 1, then create a `TargetGroupBinding` that references cluster 1’s target group ARN and security group ID.
 

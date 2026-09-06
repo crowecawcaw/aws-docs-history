@@ -1,40 +1,41 @@
-**Help improve this page**
+
+
+ **Help improve this page** 
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
 # Migrate from Karpenter to EKS Auto Mode using kubectl
+<a name="auto-migrate-karpenter"></a>
 
 This topic walks you through the process of migrating workloads from Karpenter to Amazon EKS Auto Mode using kubectl. The migration can be performed gradually, allowing you to move workloads at your own pace while maintaining cluster stability and application availability throughout the transition.
 
 The step-by-step approach outlined below enables you to run Karpenter and EKS Auto Mode side by side during the migration period. This dual-operation strategy helps ensure a smooth transition by allowing you to validate workload behavior on EKS Auto Mode before completely decommissioning Karpenter. You can migrate applications individually or in groups, providing flexibility to accommodate your specific operational requirements and risk tolerance.
 
 ## Prerequisites
+<a name="_prerequisites"></a>
 
 Before beginning the migration, ensure you have:
++ Karpenter v1.1 or later installed on your cluster. For more information, see [Upgrading to 1.1.0\+](https://karpenter.sh/docs/upgrading/upgrade-guide/#upgrading-to-110) in the Karpenter docs.
++  `kubectl` installed and connected to your cluster. For more information, see [Set up to use Amazon EKS](setting-up.md).
 
-- Karpenter v1.1 or later installed on your cluster. For more information, see [Upgrading to 1.1.0+](https://karpenter.sh/docs/upgrading/upgrade-guide/#upgrading-to-110 "https://karpenter.sh/docs/upgrading/upgrade-guide/#upgrading-to-110") in the Karpenter docs.
-- `kubectl` installed and connected to your cluster. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
+This topic assumes you are familiar with Karpenter and NodePools. For more information, see the [Karpenter Documentation.](https://karpenter.sh/) 
 
-This topic assumes you are familiar with Karpenter and NodePools. For more information, see the [Karpenter Documentation.](https://karpenter.sh/ "https://karpenter.sh/")
-
-###### Note
-
+**Note**  
 Some CRDs (e.g., `nodepools.karpenter.sh` and `nodeclaims.karpenter.sh`) are shared between EKS Auto Mode and Karpenter. Don’t update or modify these CRDs during the migration.
 
 ## Step 1: Enable EKS Auto Mode on the cluster
+<a name="_step_1_enable_eks_auto_mode_on_the_cluster"></a>
 
-Enable EKS Auto Mode on your existing cluster using the AWS CLI or Management Console. For more information, see [Enable EKS Auto Mode on an existing cluster](auto-enable-existing.md "auto-enable-existing.md").
+Enable EKS Auto Mode on your existing cluster using the AWS CLI or Management Console. For more information, see [Enable EKS Auto Mode on an existing cluster](auto-enable-existing.md).
 
-###### Note
-
-While enabling EKS Auto Mode, don’t enable the `general purpose` nodepool at this stage during transition. This node pool is not selective.
-
-For more information, see [Enable or Disable Built-in NodePools](set-builtin-node-pools.md "set-builtin-node-pools.md").
+**Note**  
+While enabling EKS Auto Mode, don’t enable the `general purpose` nodepool at this stage during transition. This node pool is not selective.  
+For more information, see [Enable or Disable Built-in NodePools](set-builtin-node-pools.md).
 
 ## Step 2: Create a tainted EKS Auto Mode NodePool
+<a name="_step_2_create_a_tainted_eks_auto_mode_nodepool"></a>
 
-Create a new NodePool for EKS Auto Mode with a taint. This ensures that existing pods won’t automatically schedule on the new EKS Auto Mode nodes. This node pool uses the `default`
-`NodeClass` built into EKS Auto Mode. For more information, see [Create a Node Class for Amazon EKS](create-node-class.md "create-node-class.md").
+Create a new NodePool for EKS Auto Mode with a taint. This ensures that existing pods won’t automatically schedule on the new EKS Auto Mode nodes. This node pool uses the `default` `NodeClass` built into EKS Auto Mode. For more information, see [Create a Node Class for Amazon EKS](create-node-class.md).
 
 Example node pool with taint:
 
@@ -62,6 +63,7 @@ spec:
 Update the requirements for the node pool to match the Karpenter configuration you are migrating from. You need at least one requirement.
 
 ## Step 3: Update workloads for migration
+<a name="_step_3_update_workloads_for_migration"></a>
 
 Identify and update the workloads you want to migrate to EKS Auto Mode. Add both tolerations and node selectors to these workloads:
 
@@ -80,13 +82,15 @@ spec:
 
 This change allows the workload to be scheduled on the new EKS Auto Mode nodes.
 
-EKS Auto Mode uses different labels than Karpenter. Labels related to EC2 managed instances start with `eks.amazonaws.com`. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md "create-node-pool.md").
+EKS Auto Mode uses different labels than Karpenter. Labels related to EC2 managed instances start with `eks.amazonaws.com`. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md).
 
 ## Step 4: Gradually migrate workloads
+<a name="_step_4_gradually_migrate_workloads"></a>
 
 Repeat Step 3 for each workload you want to migrate. This allows you to move workloads individually or in groups, based on your requirements and risk tolerance.
 
 ## Step 5: Remove the original Karpenter NodePool
+<a name="_step_5_remove_the_original_karpenter_nodepool"></a>
 
 Once all workloads have been migrated, you can remove the original Karpenter NodePool:
 
@@ -95,6 +99,7 @@ kubectl delete nodepool <original-nodepool-name>
 ```
 
 ## Step 6: Remove taint from EKS Auto Mode NodePool (Optional)
+<a name="_step_6_remove_taint_from_eks_auto_mode_nodepool_optional"></a>
 
 If you want EKS Auto Mode to become the default for new workloads, you can remove the taint from the EKS Auto Mode NodePool:
 
@@ -114,6 +119,7 @@ spec:
 ```
 
 ## Step 7: Remove node selectors from workloads (Optional)
+<a name="_step_7_remove_node_selectors_from_workloads_optional"></a>
 
 If you’ve removed the taint from the EKS Auto Mode NodePool, you can optionally remove the node selectors from your workloads, as EKS Auto Mode is now the default:
 
@@ -130,5 +136,6 @@ spec:
 ```
 
 ## Step 8: Uninstall Karpenter from your cluster
+<a name="_step_8_uninstall_karpenter_from_your_cluster"></a>
 
-The steps to remove Karpenter depend on how you installed it. For more information, see the [Karpenter install instructions](https://karpenter.sh/docs/getting-started/getting-started-with-karpenter/#create-a-cluster-and-add-karpenter "https://karpenter.sh/docs/getting-started/getting-started-with-karpenter/#create-a-cluster-and-add-karpenter").
+The steps to remove Karpenter depend on how you installed it. For more information, see the [Karpenter install instructions](https://karpenter.sh/docs/getting-started/getting-started-with-karpenter/#create-a-cluster-and-add-karpenter).
