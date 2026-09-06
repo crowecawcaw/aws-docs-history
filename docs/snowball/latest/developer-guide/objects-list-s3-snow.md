@@ -1,28 +1,23 @@
-AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
-secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
+
+
+AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Listing objects in a bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge
+<a name="objects-list-s3-snow"></a>
 
-The following example lists objects in an Amazon S3 compatible storage on Snowball Edge bucket using the AWS CLI. The SDK
-command is `s3-snow:ListObjectsV2`. To use this command, replace each user
-input placeholder with your own information.
-
-```
-aws s3api list-objects-v2 --bucket `sample-bucket` --endpoint-url `s3api-endpoint-ip` --profile `your-profile`
-```
-
-For more information about this command, see [list-objects-v2](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-objects-v2.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-objects-v2.html") in the _AWS CLI Command Reference_.
-
-The following Amazon S3 compatible storage on Snowball Edge example lists objects in a bucket using the SDK for Java. To
-use this command, replace each user input placeholder with your own information.
-
-This example uses [ListObjectsV2](../../../AmazonS3/latest/API/API_ListObjectsV2.md "../../../AmazonS3/latest/API/API_ListObjectsV2.md"), which is the latest revision of the ListObjects API
-operation. We recommend that you use this revised API operation for application
-development. For backward compatibility, Amazon S3 continues to support the prior version of
-this API operation.
+The following example lists objects in an Amazon S3 compatible storage on Snowball Edge bucket using the AWS CLI. The SDK command is `s3-snow:ListObjectsV2`. To use this command, replace each user input placeholder with your own information.
 
 ```
+aws s3api list-objects-v2 --bucket {{sample-bucket}} --endpoint-url {{s3api-endpoint-ip}} --profile {{your-profile}}
+```
 
+For more information about this command, see [list-objects-v2](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-objects-v2.html) in the *AWS CLI Command Reference*.
+
+The following Amazon S3 compatible storage on Snowball Edge example lists objects in a bucket using the SDK for Java. To use this command, replace each user input placeholder with your own information.
+
+This example uses [ListObjectsV2](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html), which is the latest revision of the ListObjects API operation. We recommend that you use this revised API operation for application development. For backward compatibility, Amazon S3 continues to support the prior version of this API operation.
+
+```
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;
@@ -73,5 +68,4 @@ public class ListObjectsV2 {
         }
     }
 }
-
 ```

@@ -1,64 +1,52 @@
-AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
-secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
+
+
+AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Configuring Amazon S3 compatible storage on Snowball Edge event notifications
+<a name="s3-snow-event-notifications"></a>
 
-Amazon S3 compatible storage on Snowball Edge supports Amazon S3 event notifications for object API calls based on the Message Queuing Telemetry Transport (MQTT)
-protocol.
+Amazon S3 compatible storage on Snowball Edge supports Amazon S3 event notifications for object API calls based on the Message Queuing Telemetry Transport (MQTT) protocol.
 
-You can use Amazon S3 compatible storage on Snowball Edge to receive notifications when certain events happen in your S3
-bucket. To enable notifications, add a notification configuration that identifies the
-events that you want the service to publish.
+You can use Amazon S3 compatible storage on Snowball Edge to receive notifications when certain events happen in your S3 bucket. To enable notifications, add a notification configuration that identifies the events that you want the service to publish.
 
 Amazon S3 compatible storage on Snowball Edge supports the following notification types:
++ New object created events
++ Object removal events
++ Object tagging events
 
-- New object created events
-- Object removal events
-- Object tagging events
-
-###### Configure Amazon S3 event notifications
+**Configure Amazon S3 event notifications**
 
 1. Before you begin, you must have MQTT infrastructure in your network.
-2. In your Snowball Edge client, run the `snowballEdge configure`
-   command to set up the Snowball Edge device.
 
-When prompted, enter the following information:
+1. In your Snowball Edge client, run the `snowballEdge configure` command to set up the Snowball Edge device.
 
-    * The path to your manifest file.
-    * The device's unlock code.
-    * The device's endpoint (for example,
-     `https://10.0.0.1`).
+   When prompted, enter the following information:
+   + The path to your manifest file.
+   + The device's unlock code.
+   + The device's endpoint (for example, {{https://10.0.0.1}}).
 
-3. Run the following `put-notification-configuration` command to send
-notifications to an external broker.
+1. Run the following `put-notification-configuration` command to send notifications to an external broker.
 
-```
-snowballEdge put-notification-configuration --broker-endpoint ssl://`mqtt-broker-ip-address`:8883 --enabled true --service-id s3-snow --ca-certificate file:`path-to-mqtt-broker-ca-cert`
-```
+   ```
+   snowballEdge put-notification-configuration --broker-endpoint ssl://{{mqtt-broker-ip-address}}:8883 --enabled true --service-id s3-snow --ca-certificate file:{{path-to-mqtt-broker-ca-cert}}
+   ```
 
-4. Run the following `get-notification-configuration` command to
-   verify that everything is set up correctly:
+1. Run the following `get-notification-configuration` command to verify that everything is set up correctly:
 
-```
-snowballEdge get-notification-configuration --service-id s3-snow
-```
+   ```
+   snowballEdge get-notification-configuration --service-id s3-snow
+   ```
 
-This returns the broker endpoint and enabled field.
-After you configure the entire cluster to send notifications to the MQTT broker in the
-network, every object API call will result in an event notification.
+   This returns the broker endpoint and enabled field.
 
-###### Note
+After you configure the entire cluster to send notifications to the MQTT broker in the network, every object API call will result in an event notification.
 
-You need to subscribe to the topic s3SnowEvents/`Device
- ID` (or `Cluster Id` if it is a
-cluster)/bucketName. You can also use wildcards, for example topic name can be
-`#` or
-`s3SnowEvents/#`.
+**Note**  
+You need to subscribe to the topic s3SnowEvents/{{Device ID}} (or {{Cluster Id}} if it is a cluster)/bucketName. You can also use wildcards, for example topic name can be {{\#}} or {{s3SnowEvents/\#}}.
 
 The following is an example Amazon S3 compatible storage on Snowball Edge event log:
 
 ```
-
 {
     "eventDetails": {
         "additionalEventData": {
@@ -101,8 +89,6 @@ The following is an example Amazon S3 compatible storage on Snowball Edge event 
         }
     }
 }
-
 ```
 
-For more information about Amazon S3 event notifications, see [Amazon S3 Event
-Notifications](../../../AmazonS3/latest/userguide/EventNotifications.md "../../../AmazonS3/latest/userguide/EventNotifications.md").
+For more information about Amazon S3 event notifications, see [Amazon S3 Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html).
