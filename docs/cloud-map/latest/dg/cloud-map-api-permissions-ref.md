@@ -1,192 +1,130 @@
+
+
 # AWS Cloud Map API permissions reference
+<a name="cloud-map-api-permissions-ref"></a>
 
-When you set up access control and write
-a permissions policy that you can attach to an IAM identity (identity-based policies), you
-can use the following list as a reference. The list includes each AWS Cloud Map API action and
-the actions that you must grant permissions access to. You specify the actions in the
-`Action` field for the policy. For details about the resource value you must
-specify in the `Resource` field or the IAM policy, see [Actions, resources, and condition keys for AWS Cloud Map](../../../service-authorization/latest/reference/list_awscloudmap.md "../../../service-authorization/latest/reference/list_awscloudmap.md") in the _Service
-Authorization Reference_.
+When you set up access control and write a permissions policy that you can attach to an IAM identity (identity-based policies), you can use the following list as a reference. The list includes each AWS Cloud Map API action and the actions that you must grant permissions access to. You specify the actions in the `Action` field for the policy. For details about the resource value you must specify in the `Resource` field or the IAM policy, see [Actions, resources, and condition keys for AWS Cloud Map](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscloudmap.html) in the *Service Authorization Reference*. 
 
-You can use AWS Cloud Map–specific condition keys in your IAM policies for some
-operations. For more information, see [Condition keys for AWS Cloud Map](../../../service-authorization/latest/reference/list_awscloudmap.md#awscloudmap-policy-keys "../../../service-authorization/latest/reference/list_awscloudmap.md#awscloudmap-policy-keys") in the _Service Authorization
-Reference_.
+You can use AWS Cloud Map–specific condition keys in your IAM policies for some operations. For more information, see [Condition keys for AWS Cloud Map](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscloudmap.html#awscloudmap-policy-keys) in the *Service Authorization Reference*.
 
-To specify an action, use the `servicediscovery` prefix followed by the API
-action name, for example, `servicediscovery:CreatePublicDnsNamespace` and
-`route53:CreateHostedZone`.
+To specify an action, use the `servicediscovery` prefix followed by the API action name, for example, `servicediscovery:CreatePublicDnsNamespace` and `route53:CreateHostedZone`.
 
 ## Required permissions for AWS Cloud Map actions
+<a name="required-permissions-cloud-map"></a><a name="service-discovery-table"></a>
 
-[CreateHttpNamespace](../api/API_CreateHttpNamespace.md "../api/API_CreateHttpNamespace.md")
+[CreateHttpNamespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateHttpNamespace.html)  
+Required permissions (API action):  
++ `servicediscovery:CreateHttpNamespace`
 
-Required permissions (API action):
+[CreatePrivateDnsNamespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreatePrivateDnsNamespace.html)  
+Required permissions (API action):  
++ `servicediscovery:CreatePrivateDnsNamespace`
++ `route53:CreateHostedZone`
++ `route53:GetHostedZone`
++ `route53:ListHostedZonesByName`
++ `ec2:DescribeVpcs`
++ `ec2:DescribeRegions`
 
-- `servicediscovery:CreateHttpNamespace`
+[CreatePublicDnsNamespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreatePublicDnsNamespace.html)  
+Required permissions (API action):  
++ `servicediscovery:CreatePublicDnsNamespace`
++ `route53:CreateHostedZone`
++ `route53:GetHostedZone`
++ `route53:ListHostedZonesByName`
 
-[CreatePrivateDnsNamespace](../api/API_CreatePrivateDnsNamespace.md "../api/API_CreatePrivateDnsNamespace.md")
+[CreateService](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html)  
+Required Permissions (API Action): `servicediscovery:CreateService`
 
-Required permissions (API action):
+[DeleteNamespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_DeleteNamespace.html)  
+Required permissions (API action):  
++ `servicediscovery:DeleteNamespace`
 
-- `servicediscovery:CreatePrivateDnsNamespace`
-- `route53:CreateHostedZone`
-- `route53:GetHostedZone`
-- `route53:ListHostedZonesByName`
-- `ec2:DescribeVpcs`
-- `ec2:DescribeRegions`
+[DeleteService](https://docs.aws.amazon.com/cloud-map/latest/api/API_DeleteService.html)  
+Required Permissions (API Action): `servicediscovery:DeleteService`
 
-[CreatePublicDnsNamespace](../api/API_CreatePublicDnsNamespace.md "../api/API_CreatePublicDnsNamespace.md")
+[DeleteServiceAttributes](https://docs.aws.amazon.com/cloud-map/latest/api/API_DeleteServiceAttributes.html)  
+Required Permissions (API Action): `servicediscovery:DeleteServiceAttributes`
 
-Required permissions (API action):
+[DeregisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_DeregisterInstance.html)  
+Required permissions (API action):  
++ `servicediscovery:DeregisterInstance`
++ `route53:GetHealthCheck`
++ `route53:DeleteHealthCheck`
++ `route53:UpdateHealthCheck`
 
-- `servicediscovery:CreatePublicDnsNamespace`
-- `route53:CreateHostedZone`
-- `route53:GetHostedZone`
-- `route53:ListHostedZonesByName`
+[DiscoverInstances](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html)  
+Required Permissions (API Action): `servicediscovery:DiscoverInstances`
 
-[CreateService](../api/API_CreateService.md "../api/API_CreateService.md")
+[GetInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_GetInstance.html)  
+Required Permissions (API Action): `servicediscovery:GetInstance`
 
-Required Permissions (API Action):
-`servicediscovery:CreateService`
+[GetInstancesHealthStatus](https://docs.aws.amazon.com/cloud-map/latest/api/API_GetInstancesHealthStatus.html)  
+Required Permissions (API Action): `servicediscovery:GetInstancesHealthStatus`
 
-[DeleteNamespace](../api/API_DeleteNamespace.md "../api/API_DeleteNamespace.md")
+[GetNamespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_GetNamespace.html)  
+Required Permissions (API Action): `servicediscovery:GetNamespace`
 
-Required permissions (API action):
+[GetOperation](https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html)  
+Required Permissions (API Action): `servicediscovery:GetOperation`
 
-- `servicediscovery:DeleteNamespace`
-
-[DeleteService](../api/API_DeleteService.md "../api/API_DeleteService.md")
-
-Required Permissions (API Action):
-`servicediscovery:DeleteService`
-
-[DeleteServiceAttributes](../api/API_DeleteServiceAttributes.md "../api/API_DeleteServiceAttributes.md")
-
-Required Permissions (API Action):
-`servicediscovery:DeleteServiceAttributes`
-
-[DeregisterInstance](../api/API_DeregisterInstance.md "../api/API_DeregisterInstance.md")
-
-Required permissions (API action):
-
-- `servicediscovery:DeregisterInstance`
-- `route53:GetHealthCheck`
-- `route53:DeleteHealthCheck`
-- `route53:UpdateHealthCheck`
-
-[DiscoverInstances](../api/API_DiscoverInstances.md "../api/API_DiscoverInstances.md")
-
-Required Permissions (API Action):
-`servicediscovery:DiscoverInstances`
-
-[GetInstance](../api/API_GetInstance.md "../api/API_GetInstance.md")
-
-Required Permissions (API Action):
-`servicediscovery:GetInstance`
-
-[GetInstancesHealthStatus](../api/API_GetInstancesHealthStatus.md "../api/API_GetInstancesHealthStatus.md")
-
-Required Permissions (API Action):
-`servicediscovery:GetInstancesHealthStatus`
-
-[GetNamespace](../api/API_GetNamespace.md "../api/API_GetNamespace.md")
-
-Required Permissions (API Action):
-`servicediscovery:GetNamespace`
-
-[GetOperation](../api/API_GetOperation.md "../api/API_GetOperation.md")
-
-Required Permissions (API Action):
-`servicediscovery:GetOperation`
-
-[GetService](../api/API_GetService.md "../api/API_GetService.md")
-
+[GetService](https://docs.aws.amazon.com/cloud-map/latest/api/API_GetService.html)  
 Required Permissions (API Action): `servicediscovery:GetService`
 
-[GetServiceAttributes](../api/API_GetServiceAttributes.md "../api/API_GetServiceAttributes.md")
-
+[GetServiceAttributes](https://docs.aws.amazon.com/cloud-map/latest/api/API_GetServiceAttributes.html)  
 Required Permissions (API Action): `servicediscovery:GetServiceAttributes`
 
-[ListInstances](../api/API_ListInstances.md "../api/API_ListInstances.md")
+[ListInstances](https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html)  
+Required Permissions (API Action): `servicediscovery:ListInstances`
 
-Required Permissions (API Action):
-`servicediscovery:ListInstances`
+[ListNamespaces](https://docs.aws.amazon.com/cloud-map/latest/api/API_ListNamespaces.html)  
+Required Permissions (API Action): `servicediscovery:ListNamespaces`
 
-[ListNamespaces](../api/API_ListNamespaces.md "../api/API_ListNamespaces.md")
+[ListOperations](https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html)  
+Required Permissions (API Action): `servicediscovery:ListOperations`
 
-Required Permissions (API Action):
-`servicediscovery:ListNamespaces`
+[ListServices](https://docs.aws.amazon.com/cloud-map/latest/api/API_ListServices.html)  
+Required Permissions (API Action): `servicediscovery:ListServices`
 
-[ListOperations](../api/API_ListOperations.md "../api/API_ListOperations.md")
+[ListTagsForResource](https://docs.aws.amazon.com/cloud-map/latest/api/API_ListTagsForResource.html)  
+Required Permissions (API Action): `servicediscovery:ListTagsForResource`
 
-Required Permissions (API Action):
-`servicediscovery:ListOperations`
+[RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html)  
+Required permissions (API action):  
++ `servicediscovery:RegisterInstance`
++ `route53:GetHealthCheck`
++ `route53:CreateHealthCheck`
++ `route53:UpdateHealthCheck`
++ `ec2:DescribeInstances`
 
-[ListServices](../api/API_ListServices.md "../api/API_ListServices.md")
+[TagResource](https://docs.aws.amazon.com/cloud-map/latest/api/API_TagResource.html)  
+Required Permissions (API Action): `servicediscovery:TagResource`
 
-Required Permissions (API Action):
-`servicediscovery:ListServices`
+[UntagResource](https://docs.aws.amazon.com/cloud-map/latest/api/API_UntagResource.html)  
+Required Permissions (API Action): `servicediscovery:UntagResource`
 
-[ListTagsForResource](../api/API_ListTagsForResource.md "../api/API_ListTagsForResource.md")
+[UpdateHttpNamespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_UpdateHttpNamespace.html)  
+Required Permissions (API Action): `servicediscovery:UpdateHttpNamespace`
 
-Required Permissions (API Action):
-`servicediscovery:ListTagsForResource`
+[UpdateInstanceCustomHealthStatus](https://docs.aws.amazon.com/cloud-map/latest/api/API_UpdateInstanceCustomHealthStatus.html)  
+Required Permissions (API Action): `servicediscovery:UpdateInstanceCustomHealthStatus`
 
-[RegisterInstance](../api/API_RegisterInstance.md "../api/API_RegisterInstance.md")
+[UpdatePrivateDnsNamespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_UpdatePrivateDnsNamespace.html)  
+Required permissions (API action):  
++ `servicediscovery:UpdatePrivateDnsNamespace`
++ `route53:ChangeResourceRecordSets`
 
-Required permissions (API action):
+[UpdatePublicDnsNamespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_UpdatePublicDnsNamespace.html)  
+Required permissions (API action):  
++ `servicediscovery:UpdatePublicDnsNamespace`
++ `route53:ChangeResourceRecordSets`
 
-- `servicediscovery:RegisterInstance`
-- `route53:GetHealthCheck`
-- `route53:CreateHealthCheck`
-- `route53:UpdateHealthCheck`
-- `ec2:DescribeInstances`
+[UpdateService](https://docs.aws.amazon.com/cloud-map/latest/api/API_UpdateService.html)  
+Required permissions (API action):  
++ `servicediscovery:UpdateService`
++ `route53:GetHealthCheck`
++ `route53:CreateHealthCheck`
++ `route53:DeleteHealthCheck`
++ `route53:UpdateHealthCheck`
 
-[TagResource](../api/API_TagResource.md "../api/API_TagResource.md")
-
-Required Permissions (API Action):
-`servicediscovery:TagResource`
-
-[UntagResource](../api/API_UntagResource.md "../api/API_UntagResource.md")
-
-Required Permissions (API Action):
-`servicediscovery:UntagResource`
-
-[UpdateHttpNamespace](../api/API_UpdateHttpNamespace.md "../api/API_UpdateHttpNamespace.md")
-
-Required Permissions (API Action):
-`servicediscovery:UpdateHttpNamespace`
-
-[UpdateInstanceCustomHealthStatus](../api/API_UpdateInstanceCustomHealthStatus.md "../api/API_UpdateInstanceCustomHealthStatus.md")
-
-Required Permissions (API Action):
-`servicediscovery:UpdateInstanceCustomHealthStatus`
-
-[UpdatePrivateDnsNamespace](../api/API_UpdatePrivateDnsNamespace.md "../api/API_UpdatePrivateDnsNamespace.md")
-
-Required permissions (API action):
-
-- `servicediscovery:UpdatePrivateDnsNamespace`
-- `route53:ChangeResourceRecordSets`
-
-[UpdatePublicDnsNamespace](../api/API_UpdatePublicDnsNamespace.md "../api/API_UpdatePublicDnsNamespace.md")
-
-Required permissions (API action):
-
-- `servicediscovery:UpdatePublicDnsNamespace`
-- `route53:ChangeResourceRecordSets`
-
-[UpdateService](../api/API_UpdateService.md "../api/API_UpdateService.md")
-
-Required permissions (API action):
-
-- `servicediscovery:UpdateService`
-- `route53:GetHealthCheck`
-- `route53:CreateHealthCheck`
-- `route53:DeleteHealthCheck`
-- `route53:UpdateHealthCheck`
-
-[UpdateServiceAttributes](../api/API_UpdateServiceAttributes.md "../api/API_UpdateServiceAttributes.md")
-
-Required Permissions (API Action):
-`servicediscovery:UpdateServiceAttributes`
+[UpdateServiceAttributes](https://docs.aws.amazon.com/cloud-map/latest/api/API_UpdateServiceAttributes.html)  
+Required Permissions (API Action): `servicediscovery:UpdateServiceAttributes`
