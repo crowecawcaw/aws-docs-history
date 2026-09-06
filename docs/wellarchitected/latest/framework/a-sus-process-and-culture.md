@@ -1,5 +1,7 @@
+
+
 # Process and culture
+<a name="a-sus-process-and-culture"></a>
 
-###### Question
-
-- [SUS 6 How do your organizational processes support your sustainability goals?](sus-06.md "sus-06.md")
+**Topics**
++ [SUS 6 How do your organizational processes support your sustainability goals?](sus-06.md)

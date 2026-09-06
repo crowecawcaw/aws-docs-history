@@ -1,16 +1,18 @@
-# Resources
 
-Refer to the following resources to learn more about our best practices for Operational
-Excellence.
+
+# Resources
+<a name="oe-resources"></a>
+
+ Refer to the following resources to learn more about our best practices for Operational Excellence. 
 
 ## Documentation
-
-- [DevOps and AWS](https://aws.amazon.com/devops/?ref=wellarchitected-wp "https://aws.amazon.com/devops/?ref=wellarchitected-wp")
+<a name="oe-documentation"></a>
++  [DevOps and AWS](https://aws.amazon.com/devops/?ref=wellarchitected-wp) 
 
 ## Whitepaper
-
-- [Operational Excellence Pillar](../operational-excellence-pillar/welcome.md "../operational-excellence-pillar/welcome.md")
+<a name="oe-wp"></a>
++  [Operational Excellence Pillar](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/welcome.html?ref=wellarchitected-wp) 
 
 ## Video
-
-- [DevOps at Amazon](https://www.youtube.com/watch?v=esEFaY0FDKc&ref=wellarchitected-wp "https://www.youtube.com/watch?v=esEFaY0FDKc&ref=wellarchitected-wp")
+<a name="oe-video"></a>
++  [DevOps at Amazon](https://www.youtube.com/watch?v=esEFaY0FDKc&ref=wellarchitected-wp) 

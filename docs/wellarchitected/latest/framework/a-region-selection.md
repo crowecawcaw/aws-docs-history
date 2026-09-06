@@ -1,5 +1,7 @@
+
+
 # Region selection
+<a name="a-region-selection"></a>
 
-###### Question
-
-- [SUS 1 How do you select Regions for your workload?](w2aac19c17b7b5.md "w2aac19c17b7b5.md")
+**Topics**
++ [SUS 1 How do you select Regions for your workload?](w2aac19c17b7b5.md)

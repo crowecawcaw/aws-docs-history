@@ -1,5 +1,7 @@
+
+
 # Manage demand and supply resources
+<a name="a-manage-demand-and-supply-resources"></a>
 
-###### Question
-
-- [COST 9. How do you manage demand, and supply resources?](cost-09.md "cost-09.md")
+**Topics**
++ [COST 9. How do you manage demand, and supply resources?](cost-09.md)

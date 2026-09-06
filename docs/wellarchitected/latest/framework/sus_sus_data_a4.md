@@ -1,59 +1,44 @@
+
+
 # SUS04-BP03 Use policies to manage the lifecycle of your datasets
+<a name="sus_sus_data_a4"></a>
 
-Manage the lifecycle of all of your data and automatically enforce
-deletion to minimize the total storage required for your workload.
+Manage the lifecycle of all of your data and automatically enforce deletion to minimize the total storage required for your workload.
 
-**Common anti-patterns:**
+ **Common anti-patterns:** 
++  You manually delete data. 
++  You do not delete any of your workload data. 
++  You do not move data to more energy-efficient storage tiers based on its retention and access requirements. 
 
-- You manually delete data.
-- You do not delete any of your workload data.
-- You do not move data to more energy-efficient storage tiers based on its retention and access requirements.
+ **Benefits of establishing this best practice:** Using data lifecycle policies ensures efficient data access and retention in a workload. 
 
-**Benefits of establishing this best practice:** Using data lifecycle policies ensures efficient data access and retention in a workload.
-
-**Level of risk exposed if this best practice
-is not established:** Medium
+ **Level of risk exposed if this best practice is not established:** Medium 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-Datasets usually have different retention and access requirements during their lifecycle.
-For example, your application may need frequent access to some datasets for a limited
-period of time. After that, those datasets are infrequently accessed. To improve the efficiency of data storage and computation over time, implement lifecycle policies, which are rules that define how data is handled over time.
+ Datasets usually have different retention and access requirements during their lifecycle. For example, your application may need frequent access to some datasets for a limited period of time. After that, those datasets are infrequently accessed. To improve the efficiency of data storage and computation over time, implement lifecycle policies, which are rules that define how data is handled over time. 
 
-With lifecycle configuration rules, you can tell the specific storage service to transition a dataset to more energy-efficient storage tiers, archive it, or delete it. This practice minimizes active data storage and retrieval, which leads to lower energy consumption. In addition, practices such as archiving or deleting obsolete data support regulatory compliance and data governance.
+ With lifecycle configuration rules, you can tell the specific storage service to transition a dataset to more energy-efficient storage tiers, archive it, or delete it. This practice minimizes active data storage and retrieval, which leads to lower energy consumption. In addition, practices such as archiving or deleting obsolete data support regulatory compliance and data governance. 
 
 ### Implementation steps
-
-- **Use data classification:** [Classify datasets in your workload.](../sustainability-pillar/sus_sus_data_a2.md "../sustainability-pillar/sus_sus_data_a2.md")
-- **Define handling rules:** Define handling procedures for each data class.
-- **Enable automation:** Set automated lifecycle policies to enforce lifecycle rules.
-  Here are some examples of how to set up automated lifecycle policies
-  for different AWS storage services:
-
-| Storage service                                                                                                                              | How to set automated lifecycle policies                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Amazon S3](https://aws.amazon.com/s3/index.html "https://aws.amazon.com/s3/index.html")                                                     | You can use [Amazon S3 Lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md") to manage your objects throughout their lifecycle.<br>If your access patterns are unknown, changing, or unpredictable, you can use [Amazon S3<br>Intelligent-Tiering](../../../AmazonS3/latest/userguide/intelligent-tiering.md "../../../AmazonS3/latest/userguide/intelligent-tiering.md"), which monitors access patterns and automatically moves objects that<br>have not been accessed to lower-cost access tiers. You can leverage [Amazon S3 Storage Lens](../../../AmazonS3/latest/userguide/storage_lens.md "../../../AmazonS3/latest/userguide/storage_lens.md")<br>metrics to identify optimization opportunities and gaps in lifecycle management. |
-| [Amazon Elastic Block Store](../../../AWSEC2/latest/UserGuide/AmazonEBS.md "../../../AWSEC2/latest/UserGuide/AmazonEBS.md")                  | You can use [Amazon Data Lifecycle Manager](../../../AWSEC2/latest/UserGuide/snapshot-lifecycle.md "../../../AWSEC2/latest/UserGuide/snapshot-lifecycle.md") to automate the creation,<br>retention, and deletion of Amazon EBS snapshots and Amazon EBS-backed AMIs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| [Amazon Elastic File System](../../../efs/latest/ug/whatisefs.md "../../../efs/latest/ug/whatisefs.md")                                      | [Amazon EFS lifecycle management](../../../efs/latest/ug/lifecycle-management-efs.md "../../../efs/latest/ug/lifecycle-management-efs.md") automatically manages file storage for your file systems.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| [Amazon Elastic Container Registry](../../../AmazonECR/latest/userguide/what-is-ecr.md "../../../AmazonECR/latest/userguide/what-is-ecr.md") | [Amazon ECR lifecycle policies](../../../AmazonECR/latest/userguide/LifecyclePolicies.md "../../../AmazonECR/latest/userguide/LifecyclePolicies.md") automate the cleanup of your<br>container images by expiring images based on age or count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| [AWS Elemental MediaStore](../../../mediastore/latest/ug/what-is.md "../../../mediastore/latest/ug/what-is.md")                              | You can use an [object lifecycle policy](../../../mediastore/latest/ug/policies-object-lifecycle.md "../../../mediastore/latest/ug/policies-object-lifecycle.md") that governs how long objects should be stored in the MediaStore container.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-
-- **Delete unused assets:** Delete unused volumes, snapshots, and data that is out of its retention period.
-  Use native service features like [Amazon DynamoDB Time To Live](../../../amazondynamodb/latest/developerguide/TTL.md "../../../amazondynamodb/latest/developerguide/TTL.md") or [Amazon CloudWatch
-  log retention](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention") for deletion.
-- **Aggregate and compress:** Aggregate and compress data where applicable based on lifecycle rules.
+<a name="implementation-steps"></a>
++  **Use data classification:** [Classify datasets in your workload.](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sus_sus_data_a2.html) 
++  **Define handling rules:** Define handling procedures for each data class. 
++  **Enable automation:** Set automated lifecycle policies to enforce lifecycle rules. Here are some examples of how to set up automated lifecycle policies for different AWS storage services:     
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/framework/sus_sus_data_a4.html)
++  **Delete unused assets:** Delete unused volumes, snapshots, and data that is out of its retention period. Use native service features like [Amazon DynamoDB Time To Live](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html) or [Amazon CloudWatch log retention](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#SettingLogRetention) for deletion. 
++  **Aggregate and compress:** Aggregate and compress data where applicable based on lifecycle rules. 
 
 ## Resources
+<a name="resources"></a>
 
-**Related documents:**
+ **Related documents:** 
++  [Optimize your Amazon S3 Lifecycle rules with Amazon S3 Storage Class Analysis](https://docs.aws.amazon.com/AmazonS3/latest/userguide/analytics-storage-class.html) 
++  [Evaluating Resources with AWS Config Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html) 
 
-- [Optimize your Amazon S3 Lifecycle rules with Amazon S3 Storage Class Analysis](../../../AmazonS3/latest/userguide/analytics-storage-class.md "../../../AmazonS3/latest/userguide/analytics-storage-class.md")
-- [Evaluating
-  Resources with AWS Config Rules](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md")
-
-**Related videos:**
-
-- [AWS re:Invent 2021 - Amazon S3 Lifecycle best practices to optimize your storage spend](https://www.youtube.com/watch?v=yGNXn7jOytA "https://www.youtube.com/watch?v=yGNXn7jOytA")
-- [AWS re:Invent 2023 - Optimizing storage price and performance with Amazon S3](https://www.youtube.com/watch?v=RxgYNrXPOLw "https://www.youtube.com/watch?v=RxgYNrXPOLw")
-- [Simplify Your Data Lifecycle and Optimize Storage Costs With Amazon S3 Lifecycle](https://www.youtube.com/watch?v=53eHNSpaMJI "https://www.youtube.com/watch?v=53eHNSpaMJI")
-- [Reduce Your Storage Costs Using Amazon S3 Storage Lens](https://www.youtube.com/watch?v=A8qOBLM6ITY "https://www.youtube.com/watch?v=A8qOBLM6ITY")
+ **Related videos:** 
++ [AWS re:Invent 2021 - Amazon S3 Lifecycle best practices to optimize your storage spend ](https://www.youtube.com/watch?v=yGNXn7jOytA)
++ [AWS re:Invent 2023 - Optimizing storage price and performance with Amazon S3 ](https://www.youtube.com/watch?v=RxgYNrXPOLw)
++  [Simplify Your Data Lifecycle and Optimize Storage Costs With Amazon S3 Lifecycle](https://www.youtube.com/watch?v=53eHNSpaMJI) 
++ [ Reduce Your Storage Costs Using Amazon S3 Storage Lens ](https://www.youtube.com/watch?v=A8qOBLM6ITY)

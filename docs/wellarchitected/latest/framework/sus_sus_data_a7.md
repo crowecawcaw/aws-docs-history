@@ -1,67 +1,44 @@
+
+
 # SUS04-BP06 Use shared file systems or storage to access common data
+<a name="sus_sus_data_a7"></a>
 
-Adopt shared file systems or storage to avoid data duplication and allow for more efficient
-infrastructure for your workload.
+Adopt shared file systems or storage to avoid data duplication and allow for more efficient infrastructure for your workload. 
 
-**Common anti-patterns:**
+ **Common anti-patterns:** 
++  You provision storage for each individual client. 
++  You do not detach data volume from inactive clients. 
++  You do not provide access to storage across platforms and systems. 
 
-- You provision storage for each individual client.
-- You do not detach data volume from inactive clients.
-- You do not provide access to storage across platforms and systems.
+ **Benefits of establishing this best practice:** Using shared file systems or storage allows for sharing data to one or more consumers without having to copy the data. This helps to reduce the storage resources required for the workload. 
 
-**Benefits of establishing this best practice:** Using shared file
-systems or storage allows for sharing data to one or more consumers without having to copy the
-data. This helps to reduce the storage resources required for the workload.
-
-**Level of risk exposed if this best practice is not established:**
-Medium
+ **Level of risk exposed if this best practice is not established:** Medium 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-If you have multiple users or applications accessing the same datasets, using shared
-storage technology is crucial to use efficient infrastructure for your workload. Shared
-storage technology provides a central location to store and manage datasets and avoid data
-duplication. It also enforces consistency of the data across different systems. Moreover,
-shared storage technology allows for more efficient use of compute power, as multiple compute
-resources can access and process data at the same time in parallel.
+ If you have multiple users or applications accessing the same datasets, using shared storage technology is crucial to use efficient infrastructure for your workload. Shared storage technology provides a central location to store and manage datasets and avoid data duplication. It also enforces consistency of the data across different systems. Moreover, shared storage technology allows for more efficient use of compute power, as multiple compute resources can access and process data at the same time in parallel. 
 
-Fetch data from these shared storage services only as needed and detach unused volumes to
-free up resources.
+ Fetch data from these shared storage services only as needed and detach unused volumes to free up resources. 
 
 ### Implementation steps
-
-- **Use shared storage:** Migrate data to shared storage when the data has multiple consumers. Here are some
-  examples of shared storage technology on AWS:
-
-| Storage option                                                                                                                              | When to use                                                                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Amazon EBS<br>Multi-Attach](../../../AWSEC2/latest/UserGuide/ebs-volumes-multi.md "../../../AWSEC2/latest/UserGuide/ebs-volumes-multi.md") | Amazon EBS Multi-Attach allows you to attach a single Provisioned IOPS SSD (io1<br>or io2) volume to multiple instances that are in the same Availability<br>Zone.                                |
-| [Amazon EFS](https://aws.amazon.com/efs/ "https://aws.amazon.com/efs/")                                                                     | See [When to Choose<br>Amazon EFS](https://aws.amazon.com/efs/when-to-choose-efs/ "https://aws.amazon.com/efs/when-to-choose-efs/").                                                              |
-| [Amazon FSx](https://aws.amazon.com/fsx/ "https://aws.amazon.com/fsx/")                                                                     | See [Choosing an Amazon FSx<br>File System](https://aws.amazon.com/fsx/when-to-choose-fsx/ "https://aws.amazon.com/fsx/when-to-choose-fsx/").                                                     |
-| [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/")                                                                        | Applications that do not require a file system structure and are designed to<br>work with object storage can use Amazon S3 as a massively scalable, durable, low-cost<br>object storage solution. |
-
-- **Fetch data as needed:** Copy data to or fetch data from shared file systems only as needed. As an example, you
-  can create an [Amazon FSx for Lustre file system backed by Amazon S3](https://aws.amazon.com/blogs/storage/new-enhancements-for-moving-data-between-amazon-fsx-for-lustre-and-amazon-s3/ "https://aws.amazon.com/blogs/storage/new-enhancements-for-moving-data-between-amazon-fsx-for-lustre-and-amazon-s3/") and only load the subset of data
-  required for processing jobs to Amazon FSx.
-- **Delete unneeded data:** Delete data as appropriate for your usage patterns as outlined in [SUS04-BP03 Use policies to manage the lifecycle of your datasets](sus_sus_data_a4.md "sus_sus_data_a4.md").
-- **Detach inactive clients:** Detach volumes from clients that are not actively using them.
+<a name="implementation-steps"></a>
++  **Use shared storage:** Migrate data to shared storage when the data has multiple consumers. Here are some examples of shared storage technology on AWS:     
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/wellarchitected/latest/framework/sus_sus_data_a7.html)
++  **Fetch data as needed:** Copy data to or fetch data from shared file systems only as needed. As an example, you can create an [Amazon FSx for Lustre file system backed by Amazon S3](https://aws.amazon.com/blogs/storage/new-enhancements-for-moving-data-between-amazon-fsx-for-lustre-and-amazon-s3/) and only load the subset of data required for processing jobs to Amazon FSx.
++  **Delete unneeded data:** Delete data as appropriate for your usage patterns as outlined in [SUS04-BP03 Use policies to manage the lifecycle of your datasets](sus_sus_data_a4.md).
++  **Detach inactive clients:** Detach volumes from clients that are not actively using them. 
 
 ## Resources
+<a name="resources"></a>
 
-**Related documents:**
+ **Related documents:** 
++ [ Linking your file system to an Amazon S3 bucket ](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html)
++ [ Using Amazon EFS for AWS Lambda in your serverless applications ](https://aws.amazon.com/blogs/compute/using-amazon-efs-for-aws-lambda-in-your-serverless-applications/)
++ [ Amazon EFS Intelligent-Tiering Optimizes Costs for Workloads with Changing Access Patterns ](https://aws.amazon.com/blogs/aws/new-amazon-efs-intelligent-tiering-optimizes-costs-for-workloads-with-changing-access-patterns/)
++ [ Using Amazon FSx with your on-premises data repository ](https://docs.aws.amazon.com/fsx/latest/LustreGuide/fsx-on-premises.html)
 
-- [Linking your file system
-  to an Amazon S3 bucket](../../../fsx/latest/LustreGuide/create-dra-linked-data-repo.md "../../../fsx/latest/LustreGuide/create-dra-linked-data-repo.md")
-- [Using Amazon EFS for AWS Lambda in your serverless applications](https://aws.amazon.com/blogs/compute/using-amazon-efs-for-aws-lambda-in-your-serverless-applications/ "https://aws.amazon.com/blogs/compute/using-amazon-efs-for-aws-lambda-in-your-serverless-applications/")
-- [Amazon EFS Intelligent-Tiering Optimizes Costs for Workloads with Changing Access Patterns](https://aws.amazon.com/blogs/aws/new-amazon-efs-intelligent-tiering-optimizes-costs-for-workloads-with-changing-access-patterns/ "https://aws.amazon.com/blogs/aws/new-amazon-efs-intelligent-tiering-optimizes-costs-for-workloads-with-changing-access-patterns/")
-- [Using
-  Amazon FSx with your on-premises data repository](../../../fsx/latest/LustreGuide/fsx-on-premises.md "../../../fsx/latest/LustreGuide/fsx-on-premises.md")
-
-**related videos:**
-
-- [Storage cost optimization
-  with Amazon EFS](https://www.youtube.com/watch?v=0nYAwPsYvBo "https://www.youtube.com/watch?v=0nYAwPsYvBo")
-- [AWS re:Invent 2023 - What's
-  new with AWS file storage](https://www.youtube.com/watch?v=yXIeIKlTFV0 "https://www.youtube.com/watch?v=yXIeIKlTFV0")
-- [AWS re:Invent 2023 - File
-  storage for builders and data scientists on Amazon Elastic File System](https://www.youtube.com/watch?v=g0f6lrmEyRM "https://www.youtube.com/watch?v=g0f6lrmEyRM")
+ **related videos:** 
++ [ Storage cost optimization with Amazon EFS ](https://www.youtube.com/watch?v=0nYAwPsYvBo)
++ [AWS re:Invent 2023 - What's new with AWS file storage](https://www.youtube.com/watch?v=yXIeIKlTFV0)
++ [AWS re:Invent 2023 - File storage for builders and data scientists on Amazon Elastic File System](https://www.youtube.com/watch?v=g0f6lrmEyRM)

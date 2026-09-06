@@ -1,29 +1,28 @@
+
+
 # Further reading
+<a name="further-reading"></a>
 
-[_AWS
-Architecture Center_](https://aws.amazon.com/architecture/ "https://aws.amazon.com/architecture/")
+ [*AWS Architecture Center*](https://aws.amazon.com/architecture/) 
 
-[_AWS
-Cloud Compliance_](https://aws.amazon.com/compliance/?ref=wellarchitected-wp "https://aws.amazon.com/compliance/?ref=wellarchitected-wp")
+ [*AWS Cloud Compliance*](https://aws.amazon.com/compliance/?ref=wellarchitected-wp) 
 
-_[AWS Well-Architected
-Partner program](https://aws.amazon.com/architecture/well-architected/partners/?ref=wellarchitected-wp "https://aws.amazon.com/architecture/well-architected/partners/?ref=wellarchitected-wp")_
+ *[AWS Well-Architected Partner program](https://aws.amazon.com/architecture/well-architected/partners/?ref=wellarchitected-wp)*
 
-_[AWS Well-Architected Tool](https://aws.amazon.com/well-architected-tool/?ref=wellarchitected-wp "https://aws.amazon.com/well-architected-tool/?ref=wellarchitected-wp")_
+* [AWS Well-Architected Tool](https://aws.amazon.com/well-architected-tool/?ref=wellarchitected-wp)* 
 
-_[AWS Well-Architected homepage](https://aws.amazon.com/architecture/well-architected/?ref=wellarchitected-wp "https://aws.amazon.com/architecture/well-architected/?ref=wellarchitected-wp")_
+ *[AWS Well-Architected homepage](https://aws.amazon.com/architecture/well-architected/?ref=wellarchitected-wp)*
 
-_[Operational Excellence Pillar whitepaper](../operational-excellence-pillar/welcome.md "../operational-excellence-pillar/welcome.md")_
+ *[Operational Excellence Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/welcome.html?ref=wellarchitected-wp)*
 
-_[Security Pillar whitepaper](../security-pillar/welcome.md "../security-pillar/welcome.md")_
+ *[Security Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html?ref=wellarchitected-wp)*
 
-_[Reliability Pillar whitepaper](../reliability-pillar/welcome.md "../reliability-pillar/welcome.md")_
+* [Reliability Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html?ref=wellarchitected-wp)* 
 
-_[Performance Efficiency Pillar whitepaper](../performance-efficiency-pillar/welcome.md "../performance-efficiency-pillar/welcome.md")_
+* [Performance Efficiency Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html?ref=wellarchitected-wp)*
 
-_[Cost Optimization Pillar whitepaper](../cost-optimization-pillar/welcome.md "../cost-optimization-pillar/welcome.md")_
+* [Cost Optimization Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html?ref=wellarchitected-wp)* 
 
-_[Sustainability Pillar whitepaper](../sustainability-pillar/welcome.md "../sustainability-pillar/welcome.md")_
+* [Sustainability Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/welcome.html?ref=wellarchitected-wp)* 
 
-_[The Amazon Builders'
-Library](https://aws.amazon.com/builders-library/?ref=wellarchitected-wp "https://aws.amazon.com/builders-library/?ref=wellarchitected-wp")_
+* [The Amazon Builders' Library](https://aws.amazon.com/builders-library/?ref=wellarchitected-wp)* 

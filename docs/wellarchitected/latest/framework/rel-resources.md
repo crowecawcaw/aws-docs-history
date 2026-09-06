@@ -1,19 +1,18 @@
-# Resources
 
-Refer to the following resources to learn more about our best practices for
-Reliability.
+
+# Resources
+<a name="rel-resources"></a>
+
+ Refer to the following resources to learn more about our best practices for Reliability. 
 
 ## Documentation
-
-- [AWS
-  Documentation](../../../index.md "../../../index.md")
-- [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure?ref=wellarchitected-wp "https://aws.amazon.com/about-aws/global-infrastructure?ref=wellarchitected-wp")
-- [AWS Auto Scaling:
-  How Scaling Plans Work](../../../autoscaling/plans/userguide/how-it-works.md "../../../autoscaling/plans/userguide/how-it-works.md")
-- [What Is
-  AWS Backup?](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md")
+<a name="rel-doc"></a>
++  [AWS Documentation](https://docs.aws.amazon.com/index.html?ref=wellarchitected-wp) 
++  [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure?ref=wellarchitected-wp) 
++  [AWS Auto Scaling: How Scaling Plans Work](https://docs.aws.amazon.com/autoscaling/plans/userguide/how-it-works.html?ref=wellarchitected-wp) 
++  [What Is AWS Backup?](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html?ref=wellarchitected-wp) 
 
 ## Whitepaper
-
-- [Reliability Pillar: AWS Well-Architected](../reliability-pillar/welcome.md "../reliability-pillar/welcome.md")
-- [Implementing Microservices on AWS](../../../whitepapers/latest/microservices-on-aws/introduction.md "../../../whitepapers/latest/microservices-on-aws/introduction.md")
+<a name="rel-wp"></a>
++  [Reliability Pillar: AWS Well-Architected](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html?ref=wellarchitected-wp) 
++  [Implementing Microservices on AWS](https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/introduction.html?ref=wellarchitected-wp) 
