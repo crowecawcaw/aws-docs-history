@@ -21,8 +21,7 @@ application performance, operational health, and resource utilization.
 
 ## Operational visibility with metrics, alarms, and dashboards
 
-[Metrics](working_with_metrics.md "working_with_metrics.md") collect and track key performance data at user-defined intervals. [Many AWS services](aws-services-cloudwatch-metrics.md "aws-services-cloudwatch-metrics.md") automatically report metrics into CloudWatch, and you can also [publish
-custom metrics](publishingMetrics.md "publishingMetrics.md") in CloudWatch from your applications.
+[Metrics](working_with_metrics.md "working_with_metrics.md") collect and track key performance data at user-defined intervals. CloudWatch provides two types of metrics: [OpenTelemetry Metrics](metrics-otel-recommended.md "metrics-otel-recommended.md") (recommended) and [CloudWatch Metrics (Classic)](metrics-classic.md "metrics-classic.md"). [Many AWS services](aws-services-cloudwatch-metrics.md "aws-services-cloudwatch-metrics.md") automatically report metrics into CloudWatch, and you can also publish your own custom metrics, either with [OpenTelemetry (OTLP)](metrics-otel-send.md "metrics-otel-send.md") or with the [PutMetricData API](publishingMetrics.md "publishingMetrics.md").
 
 [Dashboards](CloudWatch_Dashboards.md "CloudWatch_Dashboards.md") offer a unified view of your resources and applications with visualizations of your metrics and logs in a single location. You can also
 [share dashboards](cloudwatch-dashboard-sharing.md "cloudwatch-dashboard-sharing.md") across accounts and Regions for enhanced operational awareness. CloudWatch provides [curated automatic dashboards](GettingStarted.md "GettingStarted.md") for many AWS services,

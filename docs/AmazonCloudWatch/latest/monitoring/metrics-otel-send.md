@@ -1,4 +1,4 @@
-# Send metrics using OpenTelemetry
+# Publish custom metrics with OpenTelemetry
 
 You can publish custom metrics to CloudWatch using the OpenTelemetry Protocol (OTLP). You can use
 OTel SDKs (Java, Python, Go, .NET, Node.js), the OTel Collector, or any OTLP-compatible

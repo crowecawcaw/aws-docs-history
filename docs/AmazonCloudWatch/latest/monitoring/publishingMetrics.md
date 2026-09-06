@@ -7,7 +7,7 @@ names, and dimensions.
 ###### Note
 
 For new implementations, we recommend using OpenTelemetry to publish custom metrics.
-For more information, see [Send metrics using OpenTelemetry](metrics-otel-send.md "metrics-otel-send.md").
+For more information, see [Publish custom metrics with OpenTelemetry](metrics-otel-send.md "metrics-otel-send.md").
 
 ###### Topics
 

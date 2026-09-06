@@ -27,7 +27,9 @@ With OpenTelemetry metrics in CloudWatch, you get:
 ###### Topics
 
 - [CloudWatch OpenTelemetry Metrics](metrics-otel-overview.md "metrics-otel-overview.md")
-- [Send metrics using OpenTelemetry](metrics-otel-send.md "metrics-otel-send.md")
+- [Publish custom metrics with OpenTelemetry](metrics-otel-send.md "metrics-otel-send.md")
 - [Query metrics with PromQL](CloudWatch-PromQL.md "CloudWatch-PromQL.md")
+- [Anomaly detection using PromQL](anomaly_detection_promql.md "anomaly_detection_promql.md")
 - [OTel metrics pricing and storage](metrics-otel-pricing.md "metrics-otel-pricing.md")
 - [Migrate from Classic to OTel metrics](metrics-otel-migrate.md "metrics-otel-migrate.md")
+- [AWS vended metrics in OpenTelemetry format](CloudWatch-OTelEnrichment.md "CloudWatch-OTelEnrichment.md")

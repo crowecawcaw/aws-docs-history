@@ -82,6 +82,7 @@ To access CloudWatch dashboards, you need one of the following:
 - [Changing the period override setting or refresh interval](change_dashboard_refresh_interval.md "change_dashboard_refresh_interval.md")
 - [Changing the time range or time zone format](change_dashboard_time_format.md "change_dashboard_time_format.md")
 - [Dashboard Body Structure and Syntax](CloudWatch-Dashboard-Body-Structure.md "CloudWatch-Dashboard-Body-Structure.md")
+- [Graph metrics](graph_metrics.md "graph_metrics.md")
 - [Explore related telemetry](ExploreRelated.md "ExploreRelated.md")
 
 ## Create a cross-account cross-Region dashboard programmatically

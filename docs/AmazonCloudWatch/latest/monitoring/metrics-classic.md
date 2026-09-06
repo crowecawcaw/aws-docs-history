@@ -20,7 +20,6 @@ format, or prefer SQL-based querying with CloudWatch Metrics Insights.
 - [Use metrics explorer to monitor resources by their tags and properties](CloudWatch-Metrics-Explorer.md "CloudWatch-Metrics-Explorer.md")
 - [Use search expressions in graphs](using-search-expressions.md "using-search-expressions.md")
 - [Use metric streams](CloudWatch-Metric-Streams.md "CloudWatch-Metric-Streams.md")
-- [Graphing metrics](graph_metrics.md "graph_metrics.md")
 - [Math expressions with metrics](using-metric-math.md "using-metric-math.md")
 - [Using CloudWatch anomaly detection](CloudWatch_Anomaly_Detection.md "CloudWatch_Anomaly_Detection.md")
 - [Grafana integration](CloudWatch-Grafana-support.md "CloudWatch-Grafana-support.md")

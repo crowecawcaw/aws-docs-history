@@ -53,6 +53,10 @@ A monitor publishes the following metrics:
   number of transmissions that didn't receive an associated response. No response implies that
   the packets were lost along the network path.
 
+Probes that reach destinations across an AWS Transit Gateway inter-Region peering connection send
+more traffic to cover the additional network paths. You can expect up to 240 packets per second (PPS) to
+each of these destinations.
+
 ## Supported communication protocols
 
 Network Synthetic Monitor supports two protocols for probes: ICMP and TCP.
@@ -75,6 +79,10 @@ entire source port range to the configured destination port.
 
 Network Synthetic Monitor publishes a network health indicator (NHI) metric that provides information on
 issues with the AWS network for paths that include destinations connected through Direct Connect.
+
+You can also use the NHI metric for paths that reach a destination in a peered Region. These
+paths cross an AWS Transit Gateway inter-Region peering connection. For these paths, the NHI reflects
+the health of the AWS network path up to the Transit Gateway peering connection.
 
 The NHI binary value is based on a statistical measure of the health of the AWS-controlled
 network path from the AWS hosted resource, where the monitor is deployed, to the Direct

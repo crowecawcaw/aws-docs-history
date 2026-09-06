@@ -19,15 +19,21 @@ and other backends work with CloudWatch out of the box.
 CloudWatch supports two metric models. Both are fully supported – choose based on
 your needs:
 
-|                         | **[OpenTelemetry Metrics (Recommended)](metrics-otel-recommended.md "metrics-otel-recommended.md")** | **[CloudWatch Metrics (Classic)](metrics-classic.md "metrics-classic.md")** |
-| ----------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| **Ingestion**           | OTLP endpoint (OTel SDKs, collectors)                                                                | PutMetricData API, EMF                                                      |
-| **Query language**      | PromQL                                                                                               | CloudWatch Metrics Insights (SQL)                                           |
-| **Labels / Dimensions** | Up to 150 labels per data point                                                                      | Up to 30 dimensions per metric                                              |
-| **Pricing model**       | Per GB ingested                                                                                      | Per metric per month                                                        |
-| **Storage**             | Up to 15 months                                                                                      | Up to 15 months                                                             |
-| **Metric names**        | Open-source native                                                                                   | Proprietary (CloudWatch-format)                                             |
-| **Best for**            | New workloads, containers, high-cardinality                                                          | Existing integrations, low-cardinality AWS service<br>metrics               |
+|                   | **[OpenTelemetry Metrics (Recommended)](metrics-otel-recommended.md "metrics-otel-recommended.md")** | **[CloudWatch Metrics (Classic)](metrics-classic.md "metrics-classic.md")**        |
+| ----------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| **Identity**      | Metric name, up to 150 labels                                                                        | Namespace, metric name, up to 30 dimensions                                        |
+| **Metric types**  | Gauge, sum, histogram, exponential histogram                                                         | Single values, statistic sets                                                      |
+| **Ingestion**     | OTLP endpoint (OTel SDKs, collectors)                                                                | PutMetricData API, EMF                                                             |
+| **Query APIs**    | PromQL query API                                                                                     | GetMetricData, GetMetricStatistics, ListMetrics, CloudWatch Metrics Insights (SQL) |
+| **Alarms**        | PromQL-based CloudWatch alarms                                                                       | Standard CloudWatch alarms                                                         |
+| **Console**       | CloudWatch Query Studio                                                                              | CloudWatch Metrics console                                                         |
+| **Pricing model** | Per GB ingested                                                                                      | Per metric per month                                                               |
+| **Storage**       | Up to 15 months                                                                                      | Up to 15 months (with automatic rollup)                                            |
+| **Metric names**  | Open-source native                                                                                   | Proprietary (CloudWatch-format)                                                    |
+| **Best for**      | New workloads, containers, high-cardinality                                                          | Existing integrations, low-cardinality AWS service<br>metrics                      |
+
+GetMetricData, GetMetricStatistics, ListMetrics, and CloudWatch Metrics Insights operate only on CloudWatch Metrics
+(Classic). Use the PromQL query API for OpenTelemetry Metrics.
 
 ### Getting started
 

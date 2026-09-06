@@ -3,9 +3,9 @@
 ###### Tip
 
 To learn more about OpenTelemetry on CloudWatch, check out the
-[Cloud Operations Enablement workshop and event series](https://aws-experience.com/amer/smb/events/series/Cloud-Operations-Enablement "https://aws-experience.com/amer/smb/events/series/Cloud-Operations-Enablement").
+[Cloud Operations Enablement workshop and event series](https://aws-experience.com/amer/smb/events/series/Cloud-Operations-Enablement "https://aws-experience.com/amer/smb/events/series/Cloud-Operations-Enablement") on the AWS Experience website.
 
-You can enable OTel enrichment to make vended metrics for [supported AWS resources](UsingResourceTagsForTelemetry.md "UsingResourceTagsForTelemetry.md") queryable through PromQL. After you enable OTel enrichment, metrics that contain a
+You can enable OTel enrichment to make vended metrics queryable through PromQL. For the resources and metrics that support this, see [Supported AWS resources and metrics for OpenTelemetry enrichment](CloudWatch-OTelEnrichment-SupportedMetrics.md "CloudWatch-OTelEnrichment-SupportedMetrics.md"). After you enable OTel enrichment, metrics that contain a
 resource identifier dimension (for example, EC2 CPUUtilization with an InstanceId dimension) are
 enriched with resource ARN and resource tag labels and become queryable using PromQL.
 

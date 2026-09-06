@@ -15,6 +15,9 @@ For information about enabling the Advanced mode or the Standard mode of Databas
 
 - [Turning on the Advanced mode of Database Insights for Aurora PostgreSQL Limitless Database](../../../AmazonRDS/latest/AuroraUserGuide/limitless-monitoring.cwdbi.advanced.md "../../../AmazonRDS/latest/AuroraUserGuide/limitless-monitoring.cwdbi.advanced.md") in the _Amazon Aurora User Guide_
 - [Turning on the Standard mode of Database Insights for Aurora PostgreSQL Limitless Database](../../../AmazonRDS/latest/AuroraUserGuide/limitless-monitoring.cwdbi.standard.md "../../../AmazonRDS/latest/AuroraUserGuide/limitless-monitoring.cwdbi.standard.md") in the _Amazon Aurora User Guide_
+  For information about setting up monitoring for a self-managed database, see the following topic.
+
+- [Monitoring Self-Managed PostgreSQL](Database-Insights-Self-Managed-PostgreSQL.md "Database-Insights-Self-Managed-PostgreSQL.md")
 
 ## Required permissions for Database Insights
 

@@ -14,10 +14,11 @@ insights into network performance.
 
 - Use Network Synthetic Monitor to benchmark your changing hybrid network environment with continuous
   real-time packet loss and latency metrics.
-- When you connect by using AWS Direct Connect, Network Synthetic Monitor can help you to rapidly diagnose
-  network degradation within the AWS network with the network health indicator (NHI), which
-  Network Synthetic Monitor writes to your Amazon CloudWatch account. The NHI metric is a binary value, based on a probabilistic score
-  about whether network degradation is within AWS.
+- You can use the network health indicator (NHI) to rapidly diagnose whether network degradation
+  is within the AWS network. The NHI applies to paths that reach a destination through
+  AWS Direct Connect or across an AWS Transit Gateway inter-Region peering connection.
+  Network Synthetic Monitor writes the NHI to your Amazon CloudWatch account. The NHI metric is a binary value: 0 or 100. This value is
+  based on a probabilistic score about whether network degradation is within AWS.
 - Network Synthetic Monitor provides a fully-managed agent approach to monitoring, so you don't need to install
   agents either on VPCs or on-premises. To get started, you just need to specify a VPC subnet and an
   on-premises IP address. You can establish a private connection between your VPC and Network Synthetic Monitor resources

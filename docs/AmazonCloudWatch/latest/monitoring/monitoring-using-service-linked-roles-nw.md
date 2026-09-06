@@ -26,10 +26,10 @@ The policy is grouped into the following sets of permissions:
 - `**cloudwatch**` - This allows the service principal to publish network
   monitoring metrics to CloudWatch resources.
 - `**ec2**` - This allows the service principal to describe VPCs and subnets in
-  your account to create or update monitors and probes. This also allows the service principal
-  to create, modify, and delete security groups, network interfaces, and their associated
-  permissions to configure the monitor or probe to send monitoring traffic to your
-  endpoints.
+  your account to create or update monitors and probes. The service principal can also describe AWS Transit
+  Gateway peering attachments to resolve the destination Region for a probe. It can create, modify, and delete
+  security groups, network interfaces, and their associated permissions. This configures the monitor or probe
+  to send monitoring traffic to your endpoints.
 
 To view the permissions for this policy, see [CloudWatchNetworkMonitorServiceRolePolicy](../../../aws-managed-policy/latest/reference/CloudWatchNetworkMonitorServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/CloudWatchNetworkMonitorServiceRolePolicy.md") in the _AWS Managed Policy Reference_.
 

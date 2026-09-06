@@ -13,6 +13,16 @@ in your AWS account.
 All dashboards are global.
 They are not Region-specific.
 
+###### Opt-in Region propagation delay
+
+You might have recently enabled an [opt-in Region (Region that is disabled by default)](../../../glossary/latest/reference/glos-chap.md#optinregion "../../../glossary/latest/reference/glos-chap.md#optinregion") for your account. If
+so, your existing dashboards can take up to 24 hours to be available in that Region.
+During this period, `GetDashboard` and `ListDashboards`
+requests might return an access denied error. This does not indicate a problem with
+your permissions. Because dashboards are global, you can view them from any other
+enabled Region while propagation completes. Creating and updating dashboards in the
+new Region works immediately.
+
 The following procedure shows you
 how to create a dashboard
 from the CloudWatch console.

@@ -58,4 +58,4 @@ higher multiplier produces wider bounds with fewer false positives. A longer tim
 smooths out short-term spikes. The `clamp_min` function prevents the lower
 bound from going negative for metrics that can't have negative values.
 
-For more information about building anomaly detection bands with PromQL, see [Anomaly detection using PromQL](CloudWatch_Anomaly_Detection.md#anomaly_detection_promql "CloudWatch_Anomaly_Detection.md#anomaly_detection_promql").
+For more information about building anomaly detection bands with PromQL, see [Anomaly detection using PromQL](anomaly_detection_promql.md "anomaly_detection_promql.md").
