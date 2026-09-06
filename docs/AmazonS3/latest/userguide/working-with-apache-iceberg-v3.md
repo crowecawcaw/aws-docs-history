@@ -322,11 +322,12 @@ V3 support for Amazon AWS services is as follows:
 | Service                                                  | V3 Support    | V3 variant support |
 | -------------------------------------------------------- | ------------- | ------------------ |
 | EMR Spark                                                | Release 7.12+ | Release 8.0+       |
-| AWS Glue ETL                                             | Yes           | No                 |
+| AWS Glue ETL                                             | Version 5.1+  | Version 6.0+       |
 | Amazon SageMaker Unified Studio<br>Notebooks             | Yes           | No                 |
 | AWS Glue: Iceberg REST API, Table<br>Maintenance         | Yes           | No                 |
 | Amazon S3 Tables: Iceberg REST API, Table<br>Maintenance | Yes           | Yes\*              |
 | Amazon Athena (Trino)                                    | No            | No                 |
+| Amazon Redshift                                          | Patch 204+    | No                 |
 
 \*Partial Region availability
 

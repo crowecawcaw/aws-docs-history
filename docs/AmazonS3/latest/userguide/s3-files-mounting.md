@@ -14,6 +14,19 @@ client (amazon-efs-utils).
 
 ## Prerequisites to mount on EC2 instances
 
+- Your EC2 instance runs one of the following supported Linux
+  distributions. Windows and macOS are not supported.
+
+  - Amazon Linux 2
+  - Amazon Linux 2023
+  - Red Hat Enterprise Linux (RHEL) 8
+  - Red Hat Enterprise Linux (RHEL) 9
+  - Ubuntu 20.04
+  - Ubuntu 22.04
+  - Ubuntu 24.04
+  - openSUSE Leap
+  - SUSE Linux Enterprise Server (SLES) 15
+
 - You have an S3 file system with at least one mount target
   available.
 - Your EC2 instance is in the same Availability Zone as the mount target

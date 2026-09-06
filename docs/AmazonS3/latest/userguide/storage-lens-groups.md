@@ -120,7 +120,7 @@ replace `example-storage-lens-group` with an
                 "s3:UpdateStorageLensGroup",
                 "s3:GetStorageLensGroup",
                 "s3:ListStorageLensGroups",
-                "s3:DeleteStorageLensGroup,
+                "s3:DeleteStorageLensGroup",
                 "s3:TagResource",
                 "s3:UntagResource",
                 "s3:ListTagsForResource"

@@ -60,8 +60,6 @@ apply.
 
 Interface endpoints for Amazon S3 does not support the following:
 
-- [Federal Information Processing Standard
-  (FIPS) endpoints](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/")
 - [Website endpoints](WebsiteEndpoints.md "WebsiteEndpoints.md")
 - [Legacy global endpoints](VirtualHosting.md#deprecated-global-endpoint "VirtualHosting.md#deprecated-global-endpoint")
 - [S3 dash Region endpoints](VirtualHosting.md "VirtualHosting.md")
@@ -76,6 +74,17 @@ Interface endpoints for Amazon S3 does not support the following:
 
 To create a VPC interface endpoint, see [Create a VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") in the _AWS PrivateLink
 Guide_. To create a VPC gateway endpoint, see [Create a gateway endpoint](../../../vpc/latest/privatelink/vpc-endpoints-s3.md#create-gateway-endpoint-s3 "../../../vpc/latest/privatelink/vpc-endpoints-s3.md#create-gateway-endpoint-s3") in the _AWS PrivateLink Guide_.
+
+###### FIPS endpoints for Amazon S3
+
+To connect to Amazon S3 over AWS PrivateLink with FIPS 140-3 validated cryptographic
+modules, create an interface endpoint. Use the FIPS service name
+`com.amazonaws.`region`.s3-fips`. For example, use
+`com.amazonaws.us-east-1.s3-fips`. FIPS interface endpoints are available in all
+AWS Regions that offer [FIPS
+endpoints](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/") for Amazon S3. These endpoints support access to buckets, access points, and
+Amazon S3 Control API operations. You can configure FIPS interface endpoints to use IPv4, IPv6,
+or dual-stack IP addressing.
 
 ## Accessing Amazon S3 interface endpoints
 
@@ -93,6 +102,11 @@ DNS names: _Regional_ and _zonal_.
   fault containment or to reduce Regional data transfer costs.
 
 Endpoint-specific S3 DNS names can be resolved from the S3 public DNS domain.
+
+If you create an interface endpoint that uses the FIPS service name
+`com.amazonaws.`region`.s3-fips`, Amazon S3 generates
+endpoint-specific DNS names. These names include the `s3-fips` service
+identifier. For example, ``vpce-1a2b3c4d-5e6f`.s3-fips.us-east-1.vpce.amazonaws.com`.
 
 VPC endpoints for Amazon S3 support different types of IP addressing, including: IPv4, IPv6, and Dualstack. See [IP Address types for VPC endpoints](#privatelink-ip-address-types "#privatelink-ip-address-types") and [DNS record IP types for VPC endpoints](#privatelink-dns-record-types "#privatelink-dns-record-types").
 
@@ -158,11 +172,18 @@ managing DNS infrastructure. With private DNS names enabled, Regional S3 DNS que
 to the private IP addresses of AWS PrivateLink for the following endpoints:
 
 - Regional bucket endpoints (for example,
-  `s3.us-east-1.amazonaws.com`)
-- Control endpoints (for example,
-  `s3-control.us-east-1.amazonaws.com`)
+  `s3.us-east-1.amazonaws.com`, or `s3-fips.us-east-1.amazonaws.com`
+  for FIPS)
+- Control endpoints (for example, `s3-control.us-east-1.amazonaws.com`, or
+  `s3-control-fips.us-east-1.amazonaws.com` for FIPS)
 - Access point endpoints (for example,
-  `s3-accesspoint.us-east-1.amazonaws.com`)
+  `s3-accesspoint.us-east-1.amazonaws.com`, or
+  `s3-accesspoint-fips.us-east-1.amazonaws.com` for FIPS)
+
+If you configure the interface endpoint with the `Dualstack` IP
+address type, the FIPS dual-stack endpoints also resolve to the private IP addresses of
+AWS PrivateLink. For example, `s3-fips.dualstack.us-east-1.amazonaws.com` resolves to
+a private IP address.
 
 If you have a gateway endpoint in your VPC, you can automatically route in-VPC
 requests over your existing S3 gateway endpoint and on-premises requests over your interface
