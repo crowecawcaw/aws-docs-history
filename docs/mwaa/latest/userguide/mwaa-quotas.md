@@ -1,25 +1,31 @@
+
+
 # Amazon Managed Workflows for Apache Airflow service endpoints and quotas
+<a name="mwaa-quotas"></a>
 
 Amazon Managed Workflows for Apache Airflow has the following service quotas and endpoints. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account.
 
-###### Contents
-
-- [Service endpoints](mwaa-quotas.md#quotas-endpoints "mwaa-quotas.md#quotas-endpoints")
-- [Service quotas](mwaa-quotas.md#quotas-list "mwaa-quotas.md#quotas-list")
-- [Increasing quotas](mwaa-quotas.md#quotas-increase "mwaa-quotas.md#quotas-increase")
+**Contents**
++ [Service endpoints](#quotas-endpoints)
++ [Service quotas](#quotas-list)
++ [Increasing quotas](#quotas-increase)
 
 ## Service endpoints
+<a name="quotas-endpoints"></a>
 
-To access a list of endpoints for Amazon MWAA, refer to [Amazon Managed Workflows for Apache Airflow endpoints and quotas](../../../general/latest/gr/mwaa.md "../../../general/latest/gr/mwaa.md").
+To access a list of endpoints for Amazon MWAA, refer to [Amazon Managed Workflows for Apache Airflow endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/mwaa.html).
 
 ## Service quotas
+<a name="quotas-list"></a>
 
-| Quota name                 | Description                                                            | Default quota | Adjustable |
-| -------------------------- | ---------------------------------------------------------------------- | ------------- | ---------- |
-| Environments               | The maximum number of Amazon MWAA environments per account per Region. | 10            | Yes        |
-| Workers per environment    | The maximum number of workers per Amazon MWAA environment.             | 25            | Yes        |
-| Webservers per environment | The maximum number of webservers per Amazon MWAA environment.          | 5             | Yes        |
+
+| Quota name | Description | Default quota | Adjustable | 
+| --- | --- | --- | --- | 
+| Environments | The maximum number of Amazon MWAA environments per account per Region. | 10 | Yes | 
+| Workers per environment | The maximum number of workers per Amazon MWAA environment. | 25 | Yes | 
+| Webservers per environment | The maximum number of webservers per Amazon MWAA environment. | 5 | Yes | 
 
 ## Increasing quotas
+<a name="quotas-increase"></a>
 
-You can request an increase to an adjustable quota by submitting a [quota increase request](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/ "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/").
+You can request an increase to an adjustable quota by submitting a [quota increase request](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/).

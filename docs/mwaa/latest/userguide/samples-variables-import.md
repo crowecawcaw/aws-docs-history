@@ -1,41 +1,47 @@
+
+
 # Using a DAG to import variables in the CLI
+<a name="samples-variables-import"></a>
 
 The following sample code imports variables using the CLI on Amazon Managed Workflows for Apache Airflow.
 
-###### Topics
-
-- [Version](#samples-variables-import-version "#samples-variables-import-version")
-- [Prerequisites](#samples-variables-import-prereqs "#samples-variables-import-prereqs")
-- [Permissions](#samples-variables-import-permissions "#samples-variables-import-permissions")
-- [Dependencies](#samples-variables-import-dependencies "#samples-variables-import-dependencies")
-- [Code sample](#samples-variables-import-code "#samples-variables-import-code")
-- [What's next?](#samples-variables-import-next-up "#samples-variables-import-next-up")
+**Topics**
++ [Version](#samples-variables-import-version)
++ [Prerequisites](#samples-variables-import-prereqs)
++ [Permissions](#samples-variables-import-permissions)
++ [Dependencies](#samples-variables-import-dependencies)
++ [Code sample](#samples-variables-import-code)
++ [What's next?](#samples-variables-import-next-up)
 
 ## Version
+<a name="samples-variables-import-version"></a>
 
-You can use the code example on this page with **Apache Airflow v2** in [Python 3.10](https://peps.python.org/pep-0619/ "https://peps.python.org/pep-0619/") and **Apache Airflow v3** in [Python 3.11](https://peps.python.org/pep-0664/ "https://peps.python.org/pep-0664/").
+You can use the code example on this page with **Apache Airflow v2** in [Python 3.10](https://peps.python.org/pep-0619/) and **Apache Airflow v3** in [Python 3.11](https://peps.python.org/pep-0664/).
 
 ## Prerequisites
+<a name="samples-variables-import-prereqs"></a>
 
 No additional permissions are required to use the code example on this page.
 
 ## Permissions
+<a name="samples-variables-import-permissions"></a>
 
-Your AWS account needs access to the `AmazonMWAAAirflowCliAccess` policy. To learn more, refer to [Apache Airflow CLI policy: AmazonMWAAAirflowCliAccess](access-policies.md "access-policies.md").
+Your AWS account needs access to the `AmazonMWAAAirflowCliAccess` policy. To learn more, refer to [Apache Airflow CLI policy: AmazonMWAAAirflowCliAccess](access-policies.md).
 
 ## Dependencies
+<a name="samples-variables-import-dependencies"></a>
 
-To use this code example with Apache Airflow v2 and later, no additional dependencies are required. Use
-[aws-mwaa-docker-images](https://github.com/aws/amazon-mwaa-docker-images "https://github.com/aws/amazon-mwaa-docker-images") to install Apache Airflow.
+To use this code example with Apache Airflow v2 and later, no additional dependencies are required. Use [aws-mwaa-docker-images](https://github.com/aws/amazon-mwaa-docker-images) to install Apache Airflow.
 
 ## Code sample
+<a name="samples-variables-import-code"></a>
 
 The following sample code takes three inputs: your Amazon MWAA environment name (in `mwaa_env`), the AWS Region of your environment (in `aws_region`), and the local file that contains the variables you want to import (in `var_file`).
 
 ```
 import boto3
 import json
-import requests
+import requests 
 import base64
 import getopt
 import sys
@@ -66,7 +72,7 @@ try:
         mwaa_cli_token = client.create_cli_token(
             Name=mwaa_env_name
         )
-
+        
         with open ("{}".format(var_file), "r") as myfile:
             fileconf = myfile.read().replace('\n', '')
 
@@ -98,5 +104,5 @@ except:
 ```
 
 ## What's next?
-
-- Learn how to upload the DAG code in this example to the `dags` folder in your Amazon S3 bucket in [Adding or updating DAGs](configuring-dag-folder.md "configuring-dag-folder.md").
+<a name="samples-variables-import-next-up"></a>
++ Learn how to upload the DAG code in this example to the `dags` folder in your Amazon S3 bucket in [Adding or updating DAGs](configuring-dag-folder.md).
