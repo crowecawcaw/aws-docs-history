@@ -1,81 +1,68 @@
-# LambdaRequestAuthorizationIdentity
 
-This property can be used to specify an IdentitySource in an incoming request for an authorizer. For more information about IdentitySource see the [ApiGateway Authorizer OpenApi extension](../../../apigateway/latest/developerguide/api-gateway-swagger-extensions-authorizer.md "../../../apigateway/latest/developerguide/api-gateway-swagger-extensions-authorizer.md").
+
+# LambdaRequestAuthorizationIdentity
+<a name="sam-property-api-lambdarequestauthorizationidentity"></a>
+
+This property can be used to specify an IdentitySource in an incoming request for an authorizer. For more information about IdentitySource see the [ApiGateway Authorizer OpenApi extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-authorizer.html).
 
 ## Syntax
+<a name="sam-property-api-lambdarequestauthorizationidentity-syntax"></a>
 
 To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-api-lambdarequestauthorizationidentity-syntax.yaml"></a>
 
 ```
-  Context: `List`
-  Headers: `List`
-  QueryStrings: `List`
-  ReauthorizeEvery: `Integer`
-  StageVariables: `List`
-
+  [Context](#sam-api-lambdarequestauthorizationidentity-context): {{List}}
+  [Headers](#sam-api-lambdarequestauthorizationidentity-headers): {{List}}
+  [QueryStrings](#sam-api-lambdarequestauthorizationidentity-querystrings): {{List}}
+  [ReauthorizeEvery](#sam-api-lambdarequestauthorizationidentity-reauthorizeevery): {{Integer}}
+  [StageVariables](#sam-api-lambdarequestauthorizationidentity-stagevariables): {{List}}
 ```
 
 ## Properties
+<a name="sam-property-api-lambdarequestauthorizationidentity-properties"></a>
 
-`Context`
+ `Context`   <a name="sam-api-lambdarequestauthorizationidentity-context"></a>
+Converts the given context strings to the mapping expressions of format `context.contextString`.  
+*Type*: List  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-Converts the given context strings to the mapping expressions of format `context.contextString`.
+ `Headers`   <a name="sam-api-lambdarequestauthorizationidentity-headers"></a>
+Converts the headers to comma-separated string of mapping expressions of format `method.request.header.name`.  
+*Type*: List  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Type_: List
+ `QueryStrings`   <a name="sam-api-lambdarequestauthorizationidentity-querystrings"></a>
+Converts the given query strings to comma-separated string of mapping expressions of format `method.request.querystring.queryString`.  
+*Type*: List  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Required_: No
+ `ReauthorizeEvery`   <a name="sam-api-lambdarequestauthorizationidentity-reauthorizeevery"></a>
+The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches authorizer results. If you specify a value greater than 0, API Gateway caches the authorizer responses. By default, API Gateway sets this property to 300. The maximum value is 3600, or 1 hour.  
+*Type*: Integer  
+*Required*: No  
+*Default*: 300  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`Headers`
-
-Converts the headers to comma-separated string of mapping expressions of format `method.request.header.name`.
-
-_Type_: List
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`QueryStrings`
-
-Converts the given query strings to comma-separated string of mapping expressions of format `method.request.querystring.queryString`.
-
-_Type_: List
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`ReauthorizeEvery`
-
-The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches authorizer results. If you specify a value greater than 0, API Gateway caches the authorizer responses. By default, API Gateway sets this property to 300. The maximum value is 3600, or 1 hour.
-
-_Type_: Integer
-
-_Required_: No
-
-_Default_: 300
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`StageVariables`
-
-Converts the given stage variables to comma-separated string of mapping expressions of format `stageVariables.stageVariable`.
-
-_Type_: List
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
+ `StageVariables`   <a name="sam-api-lambdarequestauthorizationidentity-stagevariables"></a>
+Converts the given stage variables to comma-separated string of mapping expressions of format `stageVariables.stageVariable`.  
+*Type*: List  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Examples
+<a name="sam-property-api-lambdarequestauthorizationidentity--examples"></a>
 
 ### LambdaRequestIdentity
+<a name="sam-property-api-lambdarequestauthorizationidentity--examples--lambdarequestidentity"></a>
 
 #### YAML
+<a name="sam-property-api-lambdarequestauthorizationidentity--examples--lambdarequestidentity--yaml"></a>
 
 ```
 Identity:
@@ -88,5 +75,4 @@ Identity:
   Context:
     - authcontext
   ReauthorizeEvery: 100
-
 ```

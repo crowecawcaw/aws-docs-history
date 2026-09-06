@@ -1,236 +1,146 @@
+
+
 # AWS::Serverless::GraphQLApi
+<a name="sam-resource-graphqlapi"></a>
 
-Use the AWS Serverless Application Model (AWS SAM) `AWS::Serverless::GraphQLApi` resource type to create
-and configure an AWS AppSync GraphQL API for your serverless application.
+Use the AWS Serverless Application Model (AWS SAM) `AWS::Serverless::GraphQLApi` resource type to create and configure an AWS AppSync GraphQL API for your serverless application.
 
-To learn more about AWS AppSync, see [What is AWS AppSync?](../../../appsync/latest/devguide/what-is-appsync.md "../../../appsync/latest/devguide/what-is-appsync.md") in the
-_AWS AppSync Developer Guide_.
+To learn more about AWS AppSync, see [What is AWS AppSync?](https://docs.aws.amazon.com/appsync/latest/devguide/what-is-appsync.html) in the *AWS AppSync Developer Guide*.
 
 ## Syntax
+<a name="sam-resource-graphqlapi-syntax"></a>
 
 ### YAML
+<a name="sam-resource-graphqlapi-syntax-yaml"></a>
 
 ```
-`LogicalId`:
+{{LogicalId}}:
   Type: AWS::Serverless::GraphQLApi
   Properties:
-    ApiKeys: `ApiKeys`
-    Auth: `Auth`
-    Cache: `AWS::AppSync::ApiCache`
-    DataSources: `DataSource`
-    DomainName: `AWS::AppSync::DomainName`
-    Functions: `Function`
-    Logging: `LogConfig`
-    Name: `String`
-    Resolvers: `Resolver`
-    SchemaInline: `String`
-    SchemaUri: `String`
+    ApiKeys: {{ApiKeys}}
+    Auth: {{Auth}}
+    Cache: {{[AWS::AppSync::ApiCache](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html)}}
+    DataSources: {{DataSource}}
+    DomainName: {{[AWS::AppSync::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html)}}
+    Functions: {{Function}}
+    Logging: {{[LogConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-logconfig.html)}}
+    Name: {{String}}
+    Resolvers: {{Resolver}}
+    SchemaInline: {{String}}
+    SchemaUri: {{String}}
     Tags:
-    `- Tag`
-    XrayEnabled: `Boolean`
+    {{- [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)}}
+    XrayEnabled: {{Boolean}}
 ```
 
 ## Properties
+<a name="sam-resource-graphqlapi-properties"></a>
 
-`ApiKeys`
+`ApiKeys`  <a name="sam-graphqlapi-apikeys"></a>
+Create a unique key that can be used to perform GraphQL operations requiring an API key.  
+*Type*: [ApiKeys](sam-property-graphqlapi-apikeys.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn’t have an CloudFormation equivalent.
 
-Create a unique key that can be used to perform GraphQL operations
-requiring an API key.
+`Auth`  <a name="sam-graphqlapi-auth"></a>
+Configure authentication for your GraphQL API.  
+*Type*: [Auth](sam-property-graphqlapi-auth.md)  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn’t have an CloudFormation equivalent.
 
-_Type_: [ApiKeys](sam-property-graphqlapi-apikeys.md "sam-property-graphqlapi-apikeys.md")
+`Cache`  <a name="sam-graphqlapi-cache"></a>
+The input of a `CreateApiCache` operation.  
+*Type*: [AWS::AppSync::ApiCache](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the [AWS::AppSync::ApiCache](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html) resource.
 
-_Required_: No
+`DataSources`  <a name="sam-graphqlapi-datasources"></a>
+Create data sources for functions in AWS AppSync to connect to. AWS SAM supports Amazon DynamoDB and AWS Lambda data sources.  
+*Type*: [DataSource](sam-property-graphqlapi-datasource.md)  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn’t have an CloudFormation equivalent.
 
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an CloudFormation equivalent.
+`DomainName`  <a name="sam-graphqlapi-domainname"></a>
+Custom domain name for your GraphQL API.  
+*Type*: [AWS::AppSync::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the [AWS::AppSync::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html) resource. AWS SAM automatically generates the [AWS::AppSync::DomainNameApiAssociation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html) resource.
 
-`Auth`
+`Functions`  <a name="sam-graphqlapi-functions"></a>
+Configure functions in GraphQL APIs to perform certain operations.  
+*Type*: [Function](sam-property-graphqlapi-function.md)  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn’t have an CloudFormation equivalent.
 
-Configure authentication for your GraphQL API.
-
-_Type_: [Auth](sam-property-graphqlapi-auth.md "sam-property-graphqlapi-auth.md")
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an CloudFormation equivalent.
-
-`Cache`
-
-The input of a `CreateApiCache` operation.
-
-_Type_: [AWS::AppSync::ApiCache](../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-[AWS::AppSync::ApiCache](../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.md") resource.
-
-`DataSources`
-
-Create data sources for functions in AWS AppSync to connect to. AWS SAM supports Amazon DynamoDB
-and AWS Lambda data sources.
-
-_Type_: [DataSource](sam-property-graphqlapi-datasource.md "sam-property-graphqlapi-datasource.md")
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an CloudFormation equivalent.
-
-`DomainName`
-
-Custom domain name for your GraphQL API.
-
-_Type_: [AWS::AppSync::DomainName](../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-[AWS::AppSync::DomainName](../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.md") resource. AWS SAM automatically generates the [AWS::AppSync::DomainNameApiAssociation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.md") resource.
-
-`Functions`
-
-Configure functions in GraphQL APIs to perform certain
-operations.
-
-_Type_: [Function](sam-property-graphqlapi-function.md "sam-property-graphqlapi-function.md")
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an CloudFormation equivalent.
-
-`Logging`
-
-Configures Amazon CloudWatch logging for your GraphQL API.
-
-If you don’t specify this property, AWS SAM will generate
-`CloudWatchLogsRoleArn` and set the following values:
-
-- `ExcludeVerboseContent: true`
-- `FieldLogLevel: ALL`
-
-To opt out of logging, specify the following:
+`Logging`  <a name="sam-graphqlapi-logging"></a>
+Configures Amazon CloudWatch logging for your GraphQL API.  
+If you don’t specify this property, AWS SAM will generate `CloudWatchLogsRoleArn` and set the following values:  
++ `ExcludeVerboseContent: true`
++ `FieldLogLevel: ALL`
+To opt out of logging, specify the following:  
 
 ```
 Logging: false
 ```
+*Type*: [LogConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-logconfig.html)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[LogConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-logconfig)` property of an `AWS::AppSync::GraphQLApi` resource.
 
-_Type_: [LogConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-logconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-logconfig.md")
+`LogicalId`  <a name="sam-graphqlapi-logicalid"></a>
+The unique name of your GraphQL API.  
+*Type*: String  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is passed directly to the `[Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-name)` property of an `AWS::AppSync::GraphQLApi` resource.
 
-_Required_: No
+`Name`  <a name="sam-graphqlapi-name"></a>
+The name of your GraphQL API. Specify this property to override the `LogicalId` value.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-name)` property of an `AWS::AppSync::GraphQLApi` resource.
 
-_CloudFormation compatibility_: This property is passed directly to the
-`LogConfig` property of an `AWS::AppSync::GraphQLApi`
-resource.
+`Resolvers`  <a name="sam-graphqlapi-resolvers"></a>
+Configure resolvers for the fields of your GraphQL API. AWS SAM supports [JavaScript pipeline resolvers](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-overview-js.html#anatomy-of-a-pipeline-resolver-js).  
+*Type*: [Resolver](sam-property-graphqlapi-resolver.md)  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn’t have an CloudFormation equivalent.
 
-`LogicalId`
+`SchemaInline`  <a name="sam-graphqlapi-schemainline"></a>
+The text representation of a GraphQL schema in SDL format.  
+*Type*: String  
+*Required*: Conditional. You must specify `SchemaInline` or `SchemaUri`.  
+*CloudFormation compatibility*: This property is passed directly to the `[Definition](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlschema.html#cfn-appsync-graphqlschema-definition)` property of an `AWS::AppSync::GraphQLSchema` resource.
 
-The unique name of your GraphQL API.
+`SchemaUri`  <a name="sam-graphqlapi-schemauri"></a>
+The schema’s Amazon Simple Storage Service (Amazon S3) bucket URI or path to a local folder.  
+If you specify a path to a local folder, CloudFormation requires that the file is first uploaded to Amazon S3 before deployment. You can use the AWS SAM CLI to facilitate this process. For more information, see [How AWS SAM uploads local files at deployment](deploy-upload-local-files.md).  
+*Type*: String  
+*Required*: Conditional. You must specify `SchemaInline` or `SchemaUri`.  
+*CloudFormation compatibility*: This property is passed directly to the `[DefinitionS3Location](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlschema.html#cfn-appsync-graphqlschema-definitions3location)` property of an `AWS::AppSync::GraphQLSchema` resource.
 
-_Type_: String
+`Tags`  <a name="sam-graphqlapi-tags"></a>
+Tags (key-value pairs) for this GraphQL API. Use tags to identify and categorize resources.  
+*Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-tags)` property of an `AWS::AppSync::GraphQLApi` resource.
 
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is passed directly to the
-`Name` property of an `AWS::AppSync::GraphQLApi`
-resource.
-
-`Name`
-
-The name of your GraphQL API. Specify this property to override the
-`LogicalId` value.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`Name` property of an `AWS::AppSync::GraphQLApi`
-resource.
-
-`Resolvers`
-
-Configure resolvers for the fields of your GraphQL API. AWS SAM
-supports [JavaScript pipeline resolvers](../../../appsync/latest/devguide/resolver-reference-overview-js.md#anatomy-of-a-pipeline-resolver-js "../../../appsync/latest/devguide/resolver-reference-overview-js.md#anatomy-of-a-pipeline-resolver-js").
-
-_Type_: [Resolver](sam-property-graphqlapi-resolver.md "sam-property-graphqlapi-resolver.md")
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an CloudFormation equivalent.
-
-`SchemaInline`
-
-The text representation of a GraphQL schema in SDL
-format.
-
-_Type_: String
-
-_Required_: Conditional. You must specify
-`SchemaInline` or `SchemaUri`.
-
-_CloudFormation compatibility_: This property is passed directly to the
-`Definition` property of an `AWS::AppSync::GraphQLSchema`
-resource.
-
-`SchemaUri`
-
-The schema’s Amazon Simple Storage Service (Amazon S3) bucket URI or path to a local folder.
-
-If you specify a path to a local folder, CloudFormation requires that the file is first
-uploaded to Amazon S3 before deployment. You can use the AWS SAM CLI to facilitate this
-process. For more information, see [How AWS SAM uploads local files at deployment](deploy-upload-local-files.md "deploy-upload-local-files.md").
-
-_Type_: String
-
-_Required_: Conditional. You must specify
-`SchemaInline` or `SchemaUri`.
-
-_CloudFormation compatibility_: This property is passed directly to the
-`DefinitionS3Location` property of an
-`AWS::AppSync::GraphQLSchema` resource.
-
-`Tags`
-
-Tags (key-value pairs) for this GraphQL API. Use tags to identify and
-categorize resources.
-
-_Type_: List of [Tag](../../../AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`Tag` property of an `AWS::AppSync::GraphQLApi`
-resource.
-
-`XrayEnabled`
-
-Indicate whether to use [AWS X-Ray tracing](../../../xray/latest/devguide/aws-xray.md "../../../xray/latest/devguide/aws-xray.md") for this
-resource.
-
-_Type_: Boolean
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`XrayEnabled` property of an `AWS::AppSync::GraphQLApi`
-resource.
+`XrayEnabled`  <a name="sam-graphqlapi-xrayenabled"></a>
+Indicate whether to use [AWS X-Ray tracing](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html) for this resource.  
+*Type*: Boolean  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[XrayEnabled](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-xrayenabled)` property of an `AWS::AppSync::GraphQLApi` resource.
 
 ## Return Values
+<a name="sam-resource-graphqlapi-return-values"></a>
 
-For a list of return values, refer to
-[AWS::Serverless::GraphQLApi](../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.md#aws-resource-appsync-graphqlapi-return-values.html "../../../AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.md#aws-resource-appsync-graphqlapi-return-values.html")
-in the [CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
+For a list of return values, refer to [AWS::Serverless::GraphQLApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#aws-resource-appsync-graphqlapi-return-values.html) in the [CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 ## Examples
+<a name="sam-resource-graphqlapi-examples"></a>
 
 ### GraphQL API with DynamoDB data source
+<a name="sam-resource-graphqlapi-examples-example1"></a>
 
-In this example, we create a GraphQL API that uses a DynamoDB table as a
-data source.
+In this example, we create a GraphQL API that uses a DynamoDB table as a data source.
 
 **schema.graphql**
 
@@ -395,9 +305,9 @@ export function response(ctx) {
 ```
 
 ### GraphQL API with a Lambda function as a data source
+<a name="sam-resource-graphqlapi-examples-example2"></a>
 
-In this example, we create a GraphQL API that uses a Lambda function as a
-data source.
+In this example, we create a GraphQL API that uses a Lambda function as a data source.
 
 **template.yaml**
 

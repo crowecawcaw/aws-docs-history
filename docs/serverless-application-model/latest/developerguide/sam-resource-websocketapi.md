@@ -1,282 +1,173 @@
+
+
 # AWS::Serverless::WebSocketApi
+<a name="sam-resource-websocketapi"></a>
 
-Creates an Amazon API Gateway WebSocket API, which enables you to create two-way interactive communication applications. WebSocket APIs allow the server to send messages to clients without the client having to request them. For more information, see [Working with WebSocket APIs](../../../apigateway/latest/developerguide/apigateway-websocket-api.md "../../../apigateway/latest/developerguide/apigateway-websocket-api.md") in the _API Gateway Developer Guide_.
+Creates an Amazon API Gateway WebSocket API, which enables you to create two-way interactive communication applications. WebSocket APIs allow the server to send messages to clients without the client having to request them. For more information, see [Working with WebSocket APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html) in the *API Gateway Developer Guide*.
 
-We recommend that you use CloudFormation hooks or IAM policies to verify that API Gateway resources have
-authorizers attached to them to control access to them.
+We recommend that you use CloudFormation hooks or IAM policies to verify that API Gateway resources have authorizers attached to them to control access to them.
 
-For more information about using CloudFormation hooks, see [Registering hooks](../../../cloudformation-cli/latest/userguide/registering-hook-python.md "../../../cloudformation-cli/latest/userguide/registering-hook-python.md") in the _CloudFormation CLI user guide_ and
-the [apigw-enforce-authorizer](https://github.com/aws-cloudformation/aws-cloudformation-samples/tree/main/hooks/python-hooks/apigw-enforce-authorizer/ "https://github.com/aws-cloudformation/aws-cloudformation-samples/tree/main/hooks/python-hooks/apigw-enforce-authorizer/") GitHub repository.
+For more information about using CloudFormation hooks, see [Registering hooks](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/registering-hook-python.html) in the *CloudFormation CLI user guide* and the [apigw-enforce-authorizer](https://github.com/aws-cloudformation/aws-cloudformation-samples/tree/main/hooks/python-hooks/apigw-enforce-authorizer/) GitHub repository.
 
-For more information about using IAM policies, see [Require that API routes have authorization](../../../apigateway/latest/developerguide/security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-require-authorization "../../../apigateway/latest/developerguide/security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-require-authorization") in the _API Gateway Developer Guide_.
+For more information about using IAM policies, see [Require that API routes have authorization](https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-require-authorization) in the *API Gateway Developer Guide*.
 
-###### Note
-
-When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources.
-For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+**Note**  
+When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md).
 
 ## Syntax
+<a name="sam-resource-websocketapi-syntax"></a>
 
-To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following
-syntax.
+To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-resource-websocketapi-syntax.yaml"></a>
 
 ```
 Type: AWS::Serverless::WebSocketApi
 Properties:
-  ApiKeySelectionExpression: `String`
-  AccessLogSettings: `AccessLogSettings`
-  Auth: `WebSocketApiAuth`
-  DefaultRouteSettings: `RouteSettings`
-  Description: `String`
-  DisableExecuteApiEndpoint: `Boolean`
-  DisableSchemaValidation: `Boolean`
-  Domain: `WebSocketApiDomainConfiguration`
-  IpAddressType: `String`
-  Name: `String`
-  PropagateTags: `Boolean`
-  Routes: `RouteConfiguration`
-  RouteSelectionExpression: `String`
-  RouteSettings: `RouteSettings`
-  StageName: `String`
-  StageVariables: `Json`
-  Tags: `Map`
-
+  [ApiKeySelectionExpression](#sam-websocketapi-apikeyselectionexpression): {{String}}
+  [AccessLogSettings](#sam-websocketapi-accesslogsettings): {{[AccessLogSettings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-accesslogsettings)}}
+  [Auth](#sam-websocketapi-auth): {{WebSocketApiAuth}}
+  [DefaultRouteSettings](#sam-websocketapi-defaultroutesettings): {{[RouteSettings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-routesettings)}}
+  [Description](#sam-websocketapi-description): {{String}}
+  [DisableExecuteApiEndpoint](#sam-websocketapi-disableexecuteapiendpoint): {{Boolean}}
+  [DisableSchemaValidation](#sam-websocketapi-disableschemavalidation): {{Boolean}}
+  [Domain](#sam-websocketapi-domain): {{WebSocketApiDomainConfiguration}}
+  [IpAddressType](#sam-websocketapi-ipaddresstype): {{String}}
+  [Name](#sam-websocketapi-name): {{String}}
+  [PropagateTags](#sam-websocketapi-propagatetags): {{Boolean}}
+  [Routes](#sam-websocketapi-routes): {{RouteConfiguration}}
+  [RouteSelectionExpression](#sam-websocketapi-routeselectionexpression): {{String}}
+  [RouteSettings](#sam-websocketapi-routesettings): {{[RouteSettings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-routesettings)}}
+  [StageName](#sam-websocketapi-stagename): {{String}}
+  [StageVariables](#sam-websocketapi-stagevariables): {{[Json](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-stagevariables)}}
+  [Tags](#sam-websocketapi-tags): {{Map}}
 ```
 
 ## Properties
+<a name="sam-resource-websocketapi-properties"></a>
 
-`ApiKeySelectionExpression`
+ `ApiKeySelectionExpression`   <a name="sam-websocketapi-apikeyselectionexpression"></a>
+An API key selection expression. For more information, see [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions) in the *API Gateway Developer Guide*.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[ApiKeySelectionExpression](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-apikeyselectionexpression)` property of an `AWS::ApiGatewayV2::Api` resource.
 
-An API key selection expression. For more information, see [API Key Selection Expressions](../../../apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.md#apigateway-websocket-api-apikey-selection-expressions "../../../apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.md#apigateway-websocket-api-apikey-selection-expressions") in the _API Gateway Developer Guide_.
+ `AccessLogSettings`   <a name="sam-websocketapi-accesslogsettings"></a>
+The settings for access logging in a stage.  
+*Type*: [AccessLogSettings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-accesslogsettings)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[AccessLogSettings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-accesslogsettings)` property of an `AWS::ApiGatewayV2::Stage` resource.
 
-_Type_: String
+ `Auth`   <a name="sam-websocketapi-auth"></a>
+Configures authorization for controlling access to your WebSocket API. Authorization is applied to the `$connect` route.  
+For more information, see [Controlling access to WebSocket APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-control-access.html) in the *API Gateway Developer Guide*.  
+*Type*: [WebSocketApiAuth](sam-property-websocketapi-websocketapiauth.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Required_: No
+ `DefaultRouteSettings`   <a name="sam-websocketapi-defaultroutesettings"></a>
+The default route settings for this WebSocket API. These settings apply to all routes unless overridden by the `RouteSettings` property for certain routes.  
+*Type*: [RouteSettings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-routesettings)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[DefaultRouteSettings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-defaultroutesettings)` property of an `AWS::ApiGatewayV2::Stage` resource.
 
-_CloudFormation compatibility_: This property is passed directly to the
-`ApiKeySelectionExpression` property of an
-`AWS::ApiGatewayV2::Api` resource.
+ `Description`   <a name="sam-websocketapi-description"></a>
+A description of the WebSocket API.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-description)` property of an `AWS::ApiGatewayV2::Api` resource.
 
-`AccessLogSettings`
+ `DisableExecuteApiEndpoint`   <a name="sam-websocketapi-disableexecuteapiendpoint"></a>
+Specifies whether clients can invoke your API by using the default `execute-api` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.  
+*Type*: Boolean  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[DisableExecuteApiEndpoint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableexecuteapiendpoint)` property of an `AWS::ApiGatewayV2::Api` resource.
 
-The settings for access logging in a stage.
+ `DisableSchemaValidation`   <a name="sam-websocketapi-disableschemavalidation"></a>
+Avoid validating models when creating a deployment.  
+*Type*: Boolean  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[DisableSchemaValidation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableschemavalidation)` property of an `AWS::ApiGatewayV2::Api` resource.
 
-_Type_: [AccessLogSettings](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.md#cfn-apigatewayv2-stage-accesslogsettings "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.md#cfn-apigatewayv2-stage-accesslogsettings")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`AccessLogSettings` property of an
-`AWS::ApiGatewayV2::Stage` resource.
-
-`Auth`
-
-Configures authorization for controlling access to your WebSocket API. Authorization is applied to the `$connect` route.
-
-For more information, see [Controlling access to WebSocket APIs](../../../apigateway/latest/developerguide/apigateway-websocket-api-control-access.md "../../../apigateway/latest/developerguide/apigateway-websocket-api-control-access.md") in the _API Gateway Developer Guide_.
-
-_Type_: [WebSocketApiAuth](sam-property-websocketapi-websocketapiauth.md "sam-property-websocketapi-websocketapiauth.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
-
-`DefaultRouteSettings`
-
-The default route settings for this WebSocket API. These settings apply to all routes
-unless overridden by the `RouteSettings` property for certain routes.
-
-_Type_: [RouteSettings](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.md#cfn-apigatewayv2-stage-routesettings "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.md#cfn-apigatewayv2-stage-routesettings")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`DefaultRouteSettings` property of an `AWS::ApiGatewayV2::Stage`
-resource.
-
-`Description`
-
-A description of the WebSocket API.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`Description` property of an
-`AWS::ApiGatewayV2::Api` resource.
-
-`DisableExecuteApiEndpoint`
-
-Specifies whether clients can invoke your API by using the default
-`execute-api` endpoint. To require that clients use a custom domain name to
-invoke your API, disable the default endpoint.
-
-_Type_: Boolean
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`DisableExecuteApiEndpoint` property of an
-`AWS::ApiGatewayV2::Api` resource.
-
-`DisableSchemaValidation`
-
-Avoid validating models when creating a deployment.
-
-_Type_: Boolean
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`DisableSchemaValidation` property of an
-`AWS::ApiGatewayV2::Api` resource.
-
-`Domain`
-
-Configures a custom domain for this WebSocket API.
-
-###### Note
-
+ `Domain`   <a name="sam-websocketapi-domain"></a>
+Configures a custom domain for this WebSocket API.  
 WebSocket APIs do not support mutual TLS authentication (MTLS). If you specify `MutualTlsAuthentication` or `OwnershipVerificationCertificateArn`, AWS SAM will return an error.
+*Type*: [WebSocketApiDomainConfiguration](sam-property-websocketapi-websocketapidomainconfiguration.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Type_: [WebSocketApiDomainConfiguration](sam-property-websocketapi-websocketapidomainconfiguration.md "sam-property-websocketapi-websocketapidomainconfiguration.md")
+ `IpAddressType`   <a name="sam-websocketapi-ipaddresstype"></a>
+The IP address type for the API. Valid values are `ipv4` for IPv4 only and `dualstack` for IPv4 and IPv6.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[IpAddressType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-ipaddresstype)` property of an `AWS::ApiGatewayV2::Api` resource.
 
-_Required_: No
+ `Name`   <a name="sam-websocketapi-name"></a>
+A name for the WebSocket API. If you don't specify a name, AWS SAM generates a name for you.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-name)` property of an `AWS::ApiGatewayV2::Api` resource.
 
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
+ `PropagateTags`   <a name="sam-websocketapi-propagatetags"></a>
+If `true`, AWS SAM adds the `Tags` property to the `AWS::ApiGatewayV2::Stage` and `AWS::ApiGatewayV2::DomainName` resources that AWS SAM generates.  
+*Type*: Boolean  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-`IpAddressType`
+ `Routes`   <a name="sam-websocketapi-routes"></a>
+The route configurations for this WebSocket API. Routes define how messages are routed to Lambda functions. Each route consists of a route key and a Lambda function ARN.  
+WebSocket APIs support three predefined routes: `$connect`, `$disconnect`, and `$default`. You can also define custom routes.  
+*Type*: [RouteConfiguration](sam-property-websocketapi-routeconfiguration.md)  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-The IP address type for the API. Valid values are `ipv4` for IPv4 only and `dualstack` for IPv4 and IPv6.
+ `RouteSelectionExpression`   <a name="sam-websocketapi-routeselectionexpression"></a>
+The route selection expression for the WebSocket API. For more information, see [Route Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) in the *API Gateway Developer Guide*.  
+A common value is `$request.body.action`, which routes messages based on an `action` field in the message body.  
+*Type*: String  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is passed directly to the `[RouteSelectionExpression](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-routeselectionexpression)` property of an `AWS::ApiGatewayV2::Api` resource.
 
-_Type_: String
+ `RouteSettings`   <a name="sam-websocketapi-routesettings"></a>
+The route settings for this WebSocket API. These settings override the `DefaultRouteSettings` for specific routes.  
+*Type*: [RouteSettings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-routesettings)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[RouteSettings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-routesettings)` property of an `AWS::ApiGatewayV2::Stage` resource.
 
-_Required_: No
+ `StageName`   <a name="sam-websocketapi-stagename"></a>
+The name of the API stage. If you don't specify a name, AWS SAM uses `default` as the stage name.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[StageName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-stagename)` property of an `AWS::ApiGatewayV2::Stage` resource.
 
-_CloudFormation compatibility_: This property is passed directly to the
-`IpAddressType` property of an
-`AWS::ApiGatewayV2::Api` resource.
+ `StageVariables`   <a name="sam-websocketapi-stagevariables"></a>
+A map that defines the stage variables. Variable names can have alphanumeric and underscore characters, and the values must match `[A-Za-z0-9-._~:/?#&=,]+`.  
+*Type*: [Json](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-stagevariables)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[StageVariables](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-stagevariables)` property of an `AWS::ApiGatewayV2::Stage` resource.
 
-`Name`
-
-A name for the WebSocket API. If you don't specify a name, AWS SAM generates a name for you.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`Name` property of an `AWS::ApiGatewayV2::Api`
-resource.
-
-`PropagateTags`
-
-If `true`, AWS SAM adds the `Tags` property to the
-`AWS::ApiGatewayV2::Stage` and `AWS::ApiGatewayV2::DomainName`
-resources that AWS SAM generates.
-
-_Type_: Boolean
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
-
-`Routes`
-
-The route configurations for this WebSocket API. Routes define how messages are routed to Lambda functions. Each route consists of a route key and a Lambda function ARN.
-
-WebSocket APIs support three predefined routes: `$connect`, `$disconnect`, and `$default`. You can also define custom routes.
-
-_Type_: [RouteConfiguration](sam-property-websocketapi-routeconfiguration.md "sam-property-websocketapi-routeconfiguration.md")
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
-
-`RouteSelectionExpression`
-
-The route selection expression for the WebSocket API. For more information, see [Route Selection Expressions](../../../apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.md#apigateway-websocket-api-route-selection-expressions "../../../apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.md#apigateway-websocket-api-route-selection-expressions") in the _API Gateway Developer Guide_.
-
-A common value is `$request.body.action`, which routes messages based on an `action` field in the message body.
-
-_Type_: String
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is passed directly to the
-`RouteSelectionExpression` property of an
-`AWS::ApiGatewayV2::Api` resource.
-
-`RouteSettings`
-
-The route settings for this WebSocket API. These settings override the
-`DefaultRouteSettings` for specific routes.
-
-_Type_: [RouteSettings](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.md#cfn-apigatewayv2-stage-routesettings "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.md#cfn-apigatewayv2-stage-routesettings")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`RouteSettings` property of an `AWS::ApiGatewayV2::Stage`
-resource.
-
-`StageName`
-
-The name of the API stage. If you don't specify a name, AWS SAM uses `default` as the stage name.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`StageName` property of an `AWS::ApiGatewayV2::Stage`
-resource.
-
-`StageVariables`
-
-A map that defines the stage variables. Variable names can have alphanumeric and
-underscore characters, and the values must match `[A-Za-z0-9-._~:/?#&=,]+`.
-
-_Type_: [Json](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.md#cfn-apigatewayv2-stage-stagevariables "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.md#cfn-apigatewayv2-stage-stagevariables")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`StageVariables` property of an `AWS::ApiGatewayV2::Stage`
-resource.
-
-`Tags`
-
-A map (string to string) that specifies the tags to be added to this WebSocket API. For details about valid keys and values for tags, see [Resource tag](../../../AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.md") in the
-_CloudFormation User Guide_.
-
-_Type_: Map
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
+ `Tags`   <a name="sam-websocketapi-tags"></a>
+A map (string to string) that specifies the tags to be added to this WebSocket API. For details about valid keys and values for tags, see [Resource tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *CloudFormation User Guide*.  
+*Type*: Map  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Return Values
+<a name="sam-resource-websocketapi-return-values"></a>
 
 ### Ref
+<a name="sam-resource-websocketapi-return-values-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref`
-function, `Ref` returns the API ID of the underlying
-`AWS::ApiGatewayV2::Api` resource, for example, `a1bcdef2gh`.
+When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the API ID of the underlying `AWS::ApiGatewayV2::Api` resource, for example, `a1bcdef2gh`.
 
-For more information about using the `Ref` function, see [`Ref`](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.md") in the _AWS CloudFormation User Guide_.
+For more information about using the `Ref` function, see [`Ref`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) in the *AWS CloudFormation User Guide*.
 
 ## Examples
+<a name="sam-resource-websocketapi-examples"></a>
 
 ### Simple WebSocket API
+<a name="sam-resource-websocketapi-examples-simple"></a>
 
 The following example creates a WebSocket API with three routes.
 
@@ -314,10 +205,10 @@ Resources:
       Handler: index.sendMessage
       Runtime: nodejs20.x
       CodeUri: ./src
-
 ```
 
 ### WebSocket API with Lambda Authorizer
+<a name="sam-resource-websocketapi-examples-auth"></a>
 
 The following example creates a WebSocket API with a Lambda authorizer.
 
@@ -358,5 +249,4 @@ Resources:
       Handler: index.sendMessage
       Runtime: nodejs20.x
       CodeUri: ./src
-
 ```

@@ -1,11 +1,11 @@
+
+
 # Using GitHub Actions to deploy with AWS SAM
+<a name="deploying-using-github"></a>
 
-To configure your [GitHub](https://github.com/ "https://github.com/") pipeline to automate the
-build and deployment of your AWS SAM application, you must first install the AWS SAM command line
-interface (CLI) on your host. You can use [GitHub Actions](https://github.com/features/actions "https://github.com/features/actions") in your GitHub workflow to help with this setup.
+To configure your [GitHub](https://github.com/) pipeline to automate the build and deployment of your AWS SAM application, you must first install the AWS SAM command line interface (CLI) on your host. You can use [GitHub Actions](https://github.com/features/actions) in your GitHub workflow to help with this setup.
 
-The following example GitHub workflow sets up an Ubuntu host using a series of GitHub
-Actions, then runs AWS SAM CLI commands to build and deploy an AWS SAM application:
+The following example GitHub workflow sets up an Ubuntu host using a series of GitHub Actions, then runs AWS SAM CLI commands to build and deploy an AWS SAM application:
 
 ```
 on:
@@ -28,4 +28,4 @@ jobs:
       - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
 ```
 
-For a list of available Amazon Elastic Container Registry (Amazon ECR) build container images for different runtimes, see [Image repositories for AWS SAM](serverless-image-repositories.md "serverless-image-repositories.md").
+For a list of available Amazon Elastic Container Registry (Amazon ECR) build container images for different runtimes, see [Image repositories for AWS SAM](serverless-image-repositories.md).

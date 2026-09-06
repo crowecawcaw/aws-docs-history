@@ -1,359 +1,202 @@
+
+
 # AWS::Serverless::StateMachine
+<a name="sam-resource-statemachine"></a>
 
-Creates an AWS Step Functions state machine, which you can use to orchestrate AWS Lambda functions and
-other AWS resources to form complex and robust workflows.
+Creates an AWS Step Functions state machine, which you can use to orchestrate AWS Lambda functions and other AWS resources to form complex and robust workflows.
 
-For more information about Step Functions, see the [AWS Step Functions Developer Guide](../../../step-functions/latest/dg/welcome.md "../../../step-functions/latest/dg/welcome.md").
+For more information about Step Functions, see the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html).
 
-###### Note
-
-When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources.
-For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+**Note**  
+When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md).
 
 ## Syntax
+<a name="sam-resource-statemachine-syntax"></a>
 
-To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following
-syntax.
+To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-resource-statemachine-syntax.yaml"></a>
 
 ```
 Type: AWS::Serverless::StateMachine
 Properties:
-  AutoPublishAlias: `String`
-  UseAliasAsEventTarget: `Boolean`
-  Definition: `Map`
-  DefinitionSubstitutions: `Map`
-  DefinitionUri: `String | S3Location`
-  DeploymentPreference: `DeploymentPreference`
-  Events: `EventSource`
-  Logging: `LoggingConfiguration`
-  Name: `String`
-  PermissionsBoundary: `String`
-  Policies: `String | List | Map`
-  PropagateTags: `Boolean`
-  RolePath: `String`
-  Role: `String`
-  Tags: `Map`
-  Tracing: `TracingConfiguration`
-  Type: `String`
-
+  AutoPublishAlias: {{String}}
+  UseAliasAsEventTarget: {{Boolean}}
+  [Definition](#sam-statemachine-definition): {{Map}}
+  [DefinitionSubstitutions](#sam-statemachine-definitionsubstitutions): {{Map}}
+  [DefinitionUri](#sam-statemachine-definitionuri): {{String | [S3Location](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location)}}
+  DeploymentPreference: {{[DeploymentPreference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html)}}
+  [Events](#sam-statemachine-events): {{EventSource}}
+  [Logging](#sam-statemachine-logging): {{[LoggingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration)}}
+  [Name](#sam-statemachine-name): {{String}}
+  [PermissionsBoundary](#sam-statemachine-permissionsboundary): {{String}}
+  [Policies](#sam-statemachine-policies): {{String | List | Map}}
+  PropagateTags: {{Boolean}}
+  [RolePath](#sam-statemachine-rolepath): {{String}}
+  [Role](#sam-statemachine-role): {{String}}
+  [Tags](#sam-statemachine-tags): {{Map}}
+  [Tracing](#sam-statemachine-tracing): {{[TracingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration)}}
+  [Type](#sam-statemachine-type): {{String}}
 ```
 
 ## Properties
-
-`AutoPublishAlias`
-
-The name of the state machine alias. To learn more about using Step Functions state machine
-aliases, see [Manage continuous
-deployments with versions and aliases](../../../step-functions/latest/dg/concepts-cd-aliasing-versioning.md "../../../step-functions/latest/dg/concepts-cd-aliasing-versioning.md") in the
-_AWS Step Functions Developer Guide_.
-
-Use `DeploymentPreference` to configure deployment preferences for your
-alias. If you don’t specify `DeploymentPreference`, AWS SAM will configure
-traffic to shift to the newer state machine version all at once.
-
-AWS SAM sets the version’s `DeletionPolicy` and
-`UpdateReplacePolicy` to `Retain` by default. Previous versions
-will not be deleted automatically.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `Name` property of an
-`AWS::StepFunctions::StateMachineAlias` resource.
-
-`UseAliasAsEventTarget`
-
-Indicate whether or not to pass the alias, created by using the `AutoPublishAlias` property, to the events source's target defined with [Events](#sam-statemachine-events "#sam-statemachine-events").
-
-Specify `True` to use the alias as the events' target.
-
-_Type_: Boolean
-
-_Required_: No
-
-_Default_: `False`
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
-
-`Definition`
-
-The state machine definition is an object, where the format of the object matches
-the format of your AWS SAM template file, for example, JSON or YAML. State machine
-definitions adhere to the [Amazon States Language](../../../step-functions/latest/dg/concepts-amazon-states-language.md "../../../step-functions/latest/dg/concepts-amazon-states-language.md").
-
-For an example of an inline state machine definition, see [Examples](#sam-resource-statemachine--examples "#sam-resource-statemachine--examples").
-
-You must provide either a `Definition` or a
-`DefinitionUri`.
-
-_Type_: Map
-
-_Required_: Conditional
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
-
-`DefinitionSubstitutions`
-
-A string-to-string map that specifies the mappings for placeholder variables in the
-state machine definition. This enables you to inject values obtained at runtime (for
-example, from intrinsic functions) into the state machine definition.
-
-_Type_: Map
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is similar to the
-`DefinitionSubstitutions` property of an
-`AWS::StepFunctions::StateMachine` resource. If any intrinsic functions are
-specified in an inline state machine definition, AWS SAM adds entries to this property to
-inject them into the state machine definition.
-
-`DefinitionUri`
-
-The Amazon Simple Storage Service (Amazon S3) URI or local file path of the state machine definition written
-in the [Amazon States Language](../../../step-functions/latest/dg/concepts-amazon-states-language.md "../../../step-functions/latest/dg/concepts-amazon-states-language.md").
-
-If you provide a local file path, the template must go through the workflow that
-includes the `sam deploy` or `sam package` command to correctly
-transform the definition. To do this, you must use version 0.52.0 or later of the AWS SAM
-CLI.
-
-You must provide either a `Definition` or a
-`DefinitionUri`.
-
-_Type_: String | [S3Location](../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md#cfn-stepfunctions-statemachine-definitions3location "../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md#cfn-stepfunctions-statemachine-definitions3location")
-
-_Required_: Conditional
-
-_CloudFormation compatibility_: This property is passed directly to the
-`DefinitionS3Location` property of an
-`AWS::StepFunctions::StateMachine` resource.
-
-`DeploymentPreference`
-
-The settings that enable and configure gradual state machine deployments. To learn
-more about Step Functions gradual deployments, see [Manage continuous
-deployments with versions and aliases](../../../step-functions/latest/dg/concepts-cd-aliasing-versioning.md "../../../step-functions/latest/dg/concepts-cd-aliasing-versioning.md") in the
-_AWS Step Functions Developer Guide_.
-
-Specify `AutoPublishAlias` before configuring this property. Your
-`DeploymentPreference` settings will be applied to the alias specified with
-`AutoPublishAlias`.
-
-When you specify `DeploymentPreference`, AWS SAM generates the
-`StateMachineVersionArn` sub-property value automatically.
-
-_Type_: [DeploymentPreference](../../../AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: AWS SAM generates and attaches the
-`StateMachineVersionArn` property value to
-`DeploymentPreference` and passes `DeploymentPreference` to the
-`DeploymentPreference` property of an
-`AWS::StepFunctions::StateMachineAlias` resource.
-
-`Events`
-
-Specifies the events that trigger this state machine. Events consist of a type and a
-set of properties that depend on the type.
-
-_Type_: [EventSource](sam-property-statemachine-statemachineeventsource.md "sam-property-statemachine-statemachineeventsource.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
-
-`Logging`
-
-Defines which execution history events are logged and where they are logged.
-
-_Type_: [LoggingConfiguration](../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md#cfn-stepfunctions-statemachine-loggingconfiguration "../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md#cfn-stepfunctions-statemachine-loggingconfiguration")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`LoggingConfiguration` property of an
-`AWS::StepFunctions::StateMachine` resource.
-
-`Name`
-
-The name of the state machine.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`StateMachineName` property of an
-`AWS::StepFunctions::StateMachine` resource.
-
-`PermissionsBoundary`
-
-The ARN of a permissions boundary to use for this state machine's execution role.
-This property only works if the role is generated for you.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`PermissionsBoundary` property of an `AWS::IAM::Role`
-resource.
-
-`Policies`
-
-Permission policies for this state machine. Policies will be appended to the state
-machine's default AWS Identity and Access Management (IAM) execution role.
-
-This property accepts a single value or list of values. Allowed values
-include:
-
-- [AWS SAM policy templates](serverless-policy-templates.md "serverless-policy-templates.md").
-- The ARN of an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") or [customer managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#customer-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#customer-managed-policies").
-- The name of an AWS managed policy from the following [list](https://github.com/aws/serverless-application-model/blob/develop/samtranslator/internal/data/aws_managed_policies.json "https://github.com/aws/serverless-application-model/blob/develop/samtranslator/internal/data/aws_managed_policies.json").
-- An [inline IAM policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#inline-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#inline-policies") formatted in YAML as a map.
-
-###### Note
-
+<a name="sam-resource-statemachine-properties"></a>
+
+ `AutoPublishAlias`   <a name="sam-statemachine-autopublishalias"></a>
+The name of the state machine alias. To learn more about using Step Functions state machine aliases, see [ Manage continuous deployments with versions and aliases](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-cd-aliasing-versioning.html) in the *AWS Step Functions Developer Guide*.  
+Use `DeploymentPreference` to configure deployment preferences for your alias. If you don’t specify `DeploymentPreference`, AWS SAM will configure traffic to shift to the newer state machine version all at once.  
+AWS SAM sets the version’s `DeletionPolicy` and `UpdateReplacePolicy` to `Retain` by default. Previous versions will not be deleted automatically.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the ` [ Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html#cfn-stepfunctions-statemachinealias-name)` property of an `AWS::StepFunctions::StateMachineAlias` resource.
+
+ `UseAliasAsEventTarget`   <a name="sam-statemachine-usealiasaseventtarget"></a>
+Indicate whether or not to pass the alias, created by using the `AutoPublishAlias` property, to the events source's target defined with [Events](#sam-statemachine-events).  
+Specify `True` to use the alias as the events' target.  
+*Type*: Boolean  
+*Required*: No  
+*Default*: `False`  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
+
+ `Definition`   <a name="sam-statemachine-definition"></a>
+The state machine definition is an object, where the format of the object matches the format of your AWS SAM template file, for example, JSON or YAML. State machine definitions adhere to the [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html).  
+For an example of an inline state machine definition, see [Examples](#sam-resource-statemachine--examples).  
+You must provide either a `Definition` or a `DefinitionUri`.  
+*Type*: Map  
+*Required*: Conditional  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
+
+ `DefinitionSubstitutions`   <a name="sam-statemachine-definitionsubstitutions"></a>
+A string-to-string map that specifies the mappings for placeholder variables in the state machine definition. This enables you to inject values obtained at runtime (for example, from intrinsic functions) into the state machine definition.  
+*Type*: Map  
+*Required*: No  
+*CloudFormation compatibility*: This property is similar to the `[DefinitionSubstitutions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions)` property of an `AWS::StepFunctions::StateMachine` resource. If any intrinsic functions are specified in an inline state machine definition, AWS SAM adds entries to this property to inject them into the state machine definition.
+
+ `DefinitionUri`   <a name="sam-statemachine-definitionuri"></a>
+The Amazon Simple Storage Service (Amazon S3) URI or local file path of the state machine definition written in the [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html).  
+If you provide a local file path, the template must go through the workflow that includes the `sam deploy` or `sam package` command to correctly transform the definition. To do this, you must use version 0.52.0 or later of the AWS SAM CLI.  
+You must provide either a `Definition` or a `DefinitionUri`.  
+*Type*: String \| [S3Location](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location)  
+*Required*: Conditional  
+*CloudFormation compatibility*: This property is passed directly to the `[DefinitionS3Location](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location)` property of an `AWS::StepFunctions::StateMachine` resource.
+
+ `DeploymentPreference`   <a name="sam-statemachine-deploymentpreference"></a>
+The settings that enable and configure gradual state machine deployments. To learn more about Step Functions gradual deployments, see [ Manage continuous deployments with versions and aliases](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-cd-aliasing-versioning.html) in the *AWS Step Functions Developer Guide*.  
+Specify `AutoPublishAlias` before configuring this property. Your `DeploymentPreference` settings will be applied to the alias specified with `AutoPublishAlias`.  
+When you specify `DeploymentPreference`, AWS SAM generates the `StateMachineVersionArn` sub-property value automatically.  
+*Type*: [DeploymentPreference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html)  
+*Required*: No  
+*CloudFormation compatibility*: AWS SAM generates and attaches the `StateMachineVersionArn` property value to `DeploymentPreference` and passes `DeploymentPreference` to the `[DeploymentPreference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html#cfn-stepfunctions-statemachinealias-deploymentpreference)` property of an `AWS::StepFunctions::StateMachineAlias` resource. 
+
+ `Events`   <a name="sam-statemachine-events"></a>
+Specifies the events that trigger this state machine. Events consist of a type and a set of properties that depend on the type.  
+*Type*: [EventSource](sam-property-statemachine-statemachineeventsource.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
+
+ `Logging`   <a name="sam-statemachine-logging"></a>
+Defines which execution history events are logged and where they are logged.  
+*Type*: [LoggingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[LoggingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration)` property of an `AWS::StepFunctions::StateMachine` resource.
+
+ `Name`   <a name="sam-statemachine-name"></a>
+The name of the state machine.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[StateMachineName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename)` property of an `AWS::StepFunctions::StateMachine` resource.
+
+ `PermissionsBoundary`   <a name="sam-statemachine-permissionsboundary"></a>
+The ARN of a permissions boundary to use for this state machine's execution role. This property only works if the role is generated for you.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[PermissionsBoundary](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-permissionsboundary)` property of an `AWS::IAM::Role` resource.
+
+ `Policies`   <a name="sam-statemachine-policies"></a>
+Permission policies for this state machine. Policies will be appended to the state machine's default AWS Identity and Access Management (IAM) execution role.  
+This property accepts a single value or list of values. Allowed values include:  
++ [AWS SAM policy templates](serverless-policy-templates.md).
++ The ARN of an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) or [customer managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#customer-managed-policies).
++ The name of an AWS managed policy from the following [ list](https://github.com/aws/serverless-application-model/blob/develop/samtranslator/internal/data/aws_managed_policies.json).
++ An [ inline IAM policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#inline-policies) formatted in YAML as a map.
 If you set the `Role` property, this property is ignored.
+*Type*: String \| List \| Map  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Type_: String | List | Map
+`PropagateTags`  <a name="sam-statemachine-propagatetags"></a>
+Indicate whether or not to pass tags from the `Tags` property to your [AWS::Serverless::StateMachine](sam-specification-generated-resources-statemachine.md) generated resources. Specify `True` to propagate tags in your generated resources.  
+*Type*: Boolean  
+*Required*: No  
+*Default*: `False`  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Required_: No
+ `Role`   <a name="sam-statemachine-role"></a>
+The ARN of an IAM role to use as this state machine's execution role.  
+*Type*: String  
+*Required*: Conditional  
+*CloudFormation compatibility*: This property is passed directly to the `[ RoleArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn)` property of an `AWS::StepFunctions::StateMachine` resource.
 
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
+ `RolePath`   <a name="sam-statemachine-rolepath"></a>
+The path to the state machine's IAM execution role.  
+Use this property when the role is generated for you. Do not use when the role is specified with the `Role` property.  
+*Type*: String  
+*Required*: Conditional  
+*CloudFormation compatibility*: This property is passed directly to the `[Path](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-path)` property of an `AWS::IAM::Role` resource.
 
-`PropagateTags`
+ `Tags`   <a name="sam-statemachine-tags"></a>
+A string-to-string map that specifies the tags added to the state machine and the corresponding execution role. For information about valid keys and values for tags, see the [Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags) property of an [AWS::StepFunctions::StateMachine](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html) resource.  
+*Type*: Map  
+*Required*: No  
+*CloudFormation compatibility*: This property is similar to the `[Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags)` property of an `AWS::StepFunctions::StateMachine` resource. AWS SAM automatically adds a `stateMachine:createdBy:SAM` tag to this resource, and to the default role that is generated for it.
 
-Indicate whether or not to pass tags from the `Tags` property to your
-[AWS::Serverless::StateMachine](sam-specification-generated-resources-statemachine.md "sam-specification-generated-resources-statemachine.md") generated
-resources. Specify `True` to propagate tags in your generated
-resources.
+ `Tracing`   <a name="sam-statemachine-tracing"></a>
+Selects whether or not AWS X-Ray is enabled for the state machine. For more information about using X-Ray with Step Functions, see [AWS X-Ray and Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-xray-tracing.html) in the *AWS Step Functions Developer Guide*.  
+*Type*: [TracingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[TracingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration)` property of an `AWS::StepFunctions::StateMachine` resource.
 
-_Type_: Boolean
-
-_Required_: No
-
-_Default_: `False`
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
-
-`Role`
-
-The ARN of an IAM role to use as this state machine's execution role.
-
-_Type_: String
-
-_Required_: Conditional
-
-_CloudFormation compatibility_: This property is passed directly to the
-`RoleArn` property of an
-`AWS::StepFunctions::StateMachine` resource.
-
-`RolePath`
-
-The path to the state machine's IAM execution role.
-
-Use this property when the role is generated for you. Do not use when the role is
-specified with the `Role` property.
-
-_Type_: String
-
-_Required_: Conditional
-
-_CloudFormation compatibility_: This property is passed directly to the
-`Path` property of an `AWS::IAM::Role` resource.
-
-`Tags`
-
-A string-to-string map that specifies the tags added to the state machine and the
-corresponding execution role. For information about valid keys and values for tags, see
-the [Tags](../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md#cfn-stepfunctions-statemachine-tags "../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md#cfn-stepfunctions-statemachine-tags") property of an [AWS::StepFunctions::StateMachine](../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md") resource.
-
-_Type_: Map
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is similar to the
-`Tags` property of an `AWS::StepFunctions::StateMachine`
-resource. AWS SAM automatically adds a `stateMachine:createdBy:SAM` tag to this
-resource, and to the default role that is generated for it.
-
-`Tracing`
-
-Selects whether or not AWS X-Ray is enabled for the state machine. For more
-information about using X-Ray with Step Functions, see [AWS X-Ray
-and Step Functions](../../../step-functions/latest/dg/concepts-xray-tracing.md "../../../step-functions/latest/dg/concepts-xray-tracing.md") in the _AWS Step Functions Developer Guide_.
-
-_Type_: [TracingConfiguration](../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md#cfn-stepfunctions-statemachine-tracingconfiguration "../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md#cfn-stepfunctions-statemachine-tracingconfiguration")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`TracingConfiguration` property of an
-`AWS::StepFunctions::StateMachine` resource.
-
-`Type`
-
-The type of the state machine.
-
-_Valid values_: `STANDARD` or
-`EXPRESS`
-
-_Type_: String
-
-_Required_: No
-
-_Default_: `STANDARD`
-
-_CloudFormation compatibility_: This property is passed directly to the
-`StateMachineType` property of an
-`AWS::StepFunctions::StateMachine` resource.
+ `Type`   <a name="sam-statemachine-type"></a>
+The type of the state machine.  
+*Valid values*: `STANDARD` or `EXPRESS`  
+*Type*: String  
+*Required*: No  
+*Default*: `STANDARD`  
+*CloudFormation compatibility*: This property is passed directly to the `[StateMachineType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype)` property of an `AWS::StepFunctions::StateMachine` resource.
 
 ## Return Values
+<a name="sam-resource-statemachine-return-values"></a>
 
 ### Ref
+<a name="sam-resource-statemachine-return-values-ref"></a>
 
-When you provide the logical ID of this resource to the Ref intrinsic function, Ref
-returns the Amazon Resource Name (ARN) of the underlying
-`AWS::StepFunctions::StateMachine` resource.
+When you provide the logical ID of this resource to the Ref intrinsic function, Ref returns the Amazon Resource Name (ARN) of the underlying `AWS::StepFunctions::StateMachine` resource.
 
-For more information about using the `Ref` function, see [`Ref`](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.md") in the _AWS CloudFormation User Guide_.
+For more information about using the `Ref` function, see [`Ref`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) in the *AWS CloudFormation User Guide*. 
 
 ### Fn::GetAtt
+<a name="sam-resource-statemachine-return-values-fn--getatt"></a>
 
-`Fn::GetAtt` returns a value for a specified attribute of this type. The
-following are the available attributes and sample return values.
+`Fn::GetAtt` returns a value for a specified attribute of this type. The following are the available attributes and sample return values. 
 
-For more information about using `Fn::GetAtt`, see [`Fn::GetAtt`](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.md") in the _AWS CloudFormation User Guide_.
+For more information about using `Fn::GetAtt`, see [`Fn::GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) in the *AWS CloudFormation User Guide*. 
 
-`Name`
-
-Returns the name of the state machine, such as
-`HelloWorld-StateMachine`.
+`Name`  <a name="Name-fn::getatt"></a>
+Returns the name of the state machine, such as `HelloWorld-StateMachine`.
 
 ## Examples
+<a name="sam-resource-statemachine--examples"></a>
 
 ### State Machine Definition File
+<a name="sam-resource-statemachine--examples--state-machine-definition-file"></a>
 
-The following is an example of an inline state machine definition that allows a lambda function to invoke state machine.
-Note that this example expects the `Role` property to configure proper policy to allow invocation.
-The `my_state_machine.asl.json` file must be written in the [Amazon
-States Language](../../../step-functions/latest/dg/concepts-amazon-states-language.md "../../../step-functions/latest/dg/concepts-amazon-states-language.md").
+The following is an example of an inline state machine definition that allows a lambda function to invoke state machine. Note that this example expects the `Role` property to configure proper policy to allow invocation. The `my_state_machine.asl.json` file must be written in the [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html).
 
-In this example, the `DefinitionSubstitution` entries allow the state machine
-to include resources that are declared in the AWS SAM template file.
+In this example, the `DefinitionSubstitution` entries allow the state machine to include resources that are declared in the AWS SAM template file.
 
 #### YAML
+<a name="sam-resource-statemachine--examples--state-machine-definition-file--yaml"></a>
 
 ```
 MySampleStateMachine:
@@ -366,18 +209,17 @@ MySampleStateMachine:
     DefinitionSubstitutions:
       MyFunctionArn: !GetAtt MyFunction.Arn
       MyDDBTable: !Ref TransactionTable
-
 ```
 
 ### Inline State Machine Definition
+<a name="sam-resource-statemachine--examples--inline-state-machine-definition"></a>
 
 The following is an example of an inline state machine definition.
 
-In this example, the AWS SAM template file is written in YAML, so the state machine
-definition is also in YAML. To declare an inline state machine definition in JSON, write
-your AWS SAM template file in JSON.
+In this example, the AWS SAM template file is written in YAML, so the state machine definition is also in YAML. To declare an inline state machine definition in JSON, write your AWS SAM template file in JSON.
 
 #### YAML
+<a name="sam-resource-statemachine--examples--inline-state-machine-definition--yaml"></a>
 
 ```
 MySampleStateMachine:
@@ -393,5 +235,4 @@ MySampleStateMachine:
     Role: arn:aws:iam::123456123456:role/service-role/my-sample-role
     Tracing:
       Enabled: true
-
 ```

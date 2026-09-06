@@ -1,30 +1,22 @@
+
+
 # Building Lambda functions with custom runtimes in AWS SAM
+<a name="building-custom-runtimes"></a>
 
-You can use the `sam build` command to build custom
-runtimes required for your Lambda function. You declare your Lambda function to use a custom
-runtime by specifying `Runtime: provided` for the function.
+You can use the `sam build` command to build custom runtimes required for your Lambda function. You declare your Lambda function to use a custom runtime by specifying `Runtime: provided` for the function.
 
-To build a custom runtime, declare the `Metadata` resource attribute with a
-`BuildMethod: makefile` entry. You provide a custom makefile, where you declare a
-build target of the form `build-`function-logical-id`` that
-contains the build commands for your runtime. Your makefile is responsible for compiling the
-custom runtime if necessary, and copying the build artifacts into the proper location required
-for subsequent steps in your workflow. The location of the makefile is specified by the
-`CodeUri` property of the function resource, and must be named
-`Makefile`.
+To build a custom runtime, declare the `Metadata` resource attribute with a `BuildMethod: makefile` entry. You provide a custom makefile, where you declare a build target of the form `build-{{function-logical-id}}` that contains the build commands for your runtime. Your makefile is responsible for compiling the custom runtime if necessary, and copying the build artifacts into the proper location required for subsequent steps in your workflow. The location of the makefile is specified by the `CodeUri` property of the function resource, and must be named `Makefile`.
 
 ## Examples
+<a name="building-custom-runtimes-examples"></a>
 
 ### Example 1: Custom runtime for a function written in Rust
+<a name="building-custom-runtimes-examples-rust"></a>
 
-###### Note
+**Note**  
+We recommend building Lambda functions with Cargo Lambda. To learn more, see [Building Rust Lambda functions with Cargo Lambda in AWS SAM](building-rust.md).
 
-We recommend building Lambda functions with Cargo Lambda. To learn more, see
-[Building Rust Lambda functions with Cargo Lambda in AWS SAM](building-rust.md "building-rust.md").
-
-The following AWS SAM template declares a function that uses a custom runtime for a Lambda
-function written in Rust, and instructs `sam build` to execute the commands for
-the `build-HelloRustFunction` build target.
+The following AWS SAM template declares a function that uses a custom runtime for a Lambda function written in Rust, and instructs `sam build` to execute the commands for the `build-HelloRustFunction` build target.
 
 ```
 Resources:
@@ -40,10 +32,7 @@ Resources:
       BuildMethod: makefile
 ```
 
-The following makefile contains the build target and commands that will be executed.
-Note that the `CodeUri` property is set to `.`, so the makefile must
-be located in the project root directory (that is, the same directory as the application's
-AWS SAM template file). The filename must be `Makefile`.
+The following makefile contains the build target and commands that will be executed. Note that the `CodeUri` property is set to `.`, so the makefile must be located in the project root directory (that is, the same directory as the application's AWS SAM template file). The filename must be `Makefile`.
 
 ```
 build-HelloRustFunction:
@@ -51,14 +40,12 @@ build-HelloRustFunction:
 	cp ./target/x86_64-unknown-linux-musl/release/bootstrap $(ARTIFACTS_DIR)
 ```
 
-For more information about setting up your development environment in order to execute
-the `cargo build` command in the previous `makefile`, see the [Rust Runtime
-for AWS Lambda](https://aws.amazon.com/blogs/opensource/rust-runtime-for-aws-lambda/ "https://aws.amazon.com/blogs/opensource/rust-runtime-for-aws-lambda/") blog post.
+For more information about setting up your development environment in order to execute the `cargo build` command in the previous `makefile`, see the [Rust Runtime for AWS Lambda](https://aws.amazon.com/blogs/opensource/rust-runtime-for-aws-lambda/) blog post.
 
 ### Example 2: Makefile builder for Python3.12 (alternative to using the bundled builder)
+<a name="building-custom-runtimes-examples-python"></a>
 
-You might want to use a library or module that is not included in a bundled builder.
-This example shows a AWS SAM template for a Python3.12 runtime with a makefile builder.
+You might want to use a library or module that is not included in a bundled builder. This example shows a AWS SAM template for a Python3.12 runtime with a makefile builder.
 
 ```
 Resources:
@@ -72,10 +59,7 @@ Resources:
       BuildMethod: makefile
 ```
 
-The following makefile contains the build target and commands that will be executed.
-Note that the `CodeUri` property is set to `hello_world`, so the
-makefile must be located in the root of the `hello_world` subdirectory, and the
-filename must be `Makefile`.
+The following makefile contains the build target and commands that will be executed. Note that the `CodeUri` property is set to `hello_world`, so the makefile must be located in the root of the `hello_world` subdirectory, and the filename must be `Makefile`.
 
 ```
 build-HelloWorldFunction:

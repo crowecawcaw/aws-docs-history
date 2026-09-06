@@ -1,63 +1,49 @@
+
+
 # Locally debug functions with AWS SAM
+<a name="serverless-sam-cli-using-debugging"></a>
 
-You can use AWS SAM with a variety of AWS toolkits and debuggers to test and debug your
-serverless applications locally. Step-through debugging of your Lambda functions allows you
-to identify and fix issues in your application one line or instruction at a time in your local environment.
+You can use AWS SAM with a variety of AWS toolkits and debuggers to test and debug your serverless applications locally. Step-through debugging of your Lambda functions allows you to identify and fix issues in your application one line or instruction at a time in your local environment.
 
-Some of the ways you can perform local step-through debugging includes setting breakpoints,
-inspecting variables, and executing function code one line at a time. Local step-through
-debugging tightens the feedback loop by making it possible for you to find and troubleshoot
-issues that you might run into in the cloud.
+Some of the ways you can perform local step-through debugging includes setting breakpoints, inspecting variables, and executing function code one line at a time. Local step-through debugging tightens the feedback loop by making it possible for you to find and troubleshoot issues that you might run into in the cloud.
 
-You can use AWS Toolkits to debug, and you can also run AWS SAM in debug mode. See the topics in this section for details.
+You can use AWS Toolkits to debug, and you can also run AWS SAM in debug mode. See the topics in this section for details. 
 
 ## Using AWS Toolkits
+<a name="serverless-sam-cli-using-aws-toolkits"></a>
 
-AWS Toolkits are integrated development environment (IDE) plugins that provide you
-with the ability to perform many common debugging tasks, like setting breakpoints,
-inspecting variables, and executing function code one line at a time. AWS Toolkits
-make it easier for you to develop, debug, and deploy serverless applications that are
-built using AWS SAM. They provide an experience for building, testing, debugging,
-deploying, and invoking Lambda functions that's integrated into your IDE.
+AWS Toolkits are integrated development environment (IDE) plugins that provide you with the ability to perform many common debugging tasks, like setting breakpoints, inspecting variables, and executing function code one line at a time. AWS Toolkits make it easier for you to develop, debug, and deploy serverless applications that are built using AWS SAM. They provide an experience for building, testing, debugging, deploying, and invoking Lambda functions that's integrated into your IDE.
 
-For more information about AWS Toolkits that you can use with AWS SAM, see the
-following:
+For more information about AWS Toolkits that you can use with AWS SAM, see the following:
++ [AWS Toolkit for Visual Studio Code](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/)
++ [AWS Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/)
++ [AWS Toolkit for JetBrains](https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/)
 
-- [AWS Toolkit for Visual Studio Code](../../../toolkit-for-vscode/latest/userguide.md "../../../toolkit-for-vscode/latest/userguide.md")
-- [AWS Cloud9](../../../cloud9/latest/user-guide.md "../../../cloud9/latest/user-guide.md")
-- [AWS Toolkit for JetBrains](../../../toolkit-for-jetbrains/latest/userguide.md "../../../toolkit-for-jetbrains/latest/userguide.md")
+There are a variety of AWS Toolkits that work with different combinations of IDEs and runtimes. The following table lists common IDE/runtime combinations that support step-through debugging of AWS SAM applications:
 
-There are a variety of AWS Toolkits that work with different combinations of IDEs and
-runtimes. The following table lists common IDE/runtime combinations that support
-step-through debugging of AWS SAM applications:
 
-| IDE                | Runtime                                           | AWS Toolkit                           | Instructions for step-through debugging                                                                                                                                                                                                |
-| ------------------ | ------------------------------------------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Visual Studio Code | • Node.js<br>• Python<br>• .NET<br>• Java<br>• Go | AWS Toolkit for Visual Studio Code    | [Working with AWS Serverless Application](../../../toolkit-for-vscode/latest/userguide/serverless-apps.md "../../../toolkit-for-vscode/latest/userguide/serverless-apps.md") in the<br>_AWS Toolkit for Visual Studio Code User Guide_ |
-| AWS Cloud9         | • Node.js<br>• Python                             | AWS Cloud9, with AWS Toolkit enabled1 | [Working with AWS serverless applications using the AWS<br>Toolkit](../../../cloud9/latest/user-guide/serverless-apps-toolkit.md "../../../cloud9/latest/user-guide/serverless-apps-toolkit.md") in the<br>_AWS Cloud9 User Guide_.    |
-| WebStorm           | Node.js                                           | AWS Toolkit for JetBrains2            | [Running (invoking) or debugging a local function](../../../toolkit-for-jetbrains/latest/userguide/invoke-lambda.md "../../../toolkit-for-jetbrains/latest/userguide/invoke-lambda.md") in the<br>_AWS Toolkit for JetBrains_          |
-| PyCharm            | Python                                            | AWS Toolkit for JetBrains2            | [Running (invoking) or debugging a local function](../../../toolkit-for-jetbrains/latest/userguide/invoke-lambda.md "../../../toolkit-for-jetbrains/latest/userguide/invoke-lambda.md") in the<br>_AWS Toolkit for JetBrains_          |
-| Rider              | .NET                                              | AWS Toolkit for JetBrains2            | [Running (invoking) or debugging a local function](../../../toolkit-for-jetbrains/latest/userguide/invoke-lambda.md "../../../toolkit-for-jetbrains/latest/userguide/invoke-lambda.md") in the<br>_AWS Toolkit for JetBrains_          |
-| IntelliJ           | Java                                              | AWS Toolkit for JetBrains2            | [Running (invoking) or debugging a local function](../../../toolkit-for-jetbrains/latest/userguide/invoke-lambda.md "../../../toolkit-for-jetbrains/latest/userguide/invoke-lambda.md") in the<br>_AWS Toolkit for JetBrains_          |
-| GoLand             | Go                                                | AWS Toolkit for JetBrains2            | [Running (invoking) or debugging a local function](../../../toolkit-for-jetbrains/latest/userguide/invoke-lambda.md "../../../toolkit-for-jetbrains/latest/userguide/invoke-lambda.md") in the<br>_AWS Toolkit for JetBrains_          |
+| IDE | Runtime | AWS Toolkit | Instructions for step-through debugging | 
+| --- | --- | --- | --- | 
+| Visual Studio Code |  + Node.js<br />+ Python<br />+ .NET<br />+ Java<br />+ Go  | AWS Toolkit for Visual Studio Code | [Working with AWS Serverless Application](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/serverless-apps.html) in the AWS Toolkit for Visual Studio Code User Guide  | 
+| AWS Cloud9 |  + Node.js<br />+ Python  | AWS Cloud9, with AWS Toolkit enabled1 | [Working with AWS serverless applications using the AWS Toolkit](https://docs.aws.amazon.com/cloud9/latest/user-guide/serverless-apps-toolkit.html) in the *AWS Cloud9 User Guide*. | 
+| WebStorm | Node.js | AWS Toolkit for JetBrains2 | [Running (invoking) or debugging a local function](https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/invoke-lambda.html) in the *AWS Toolkit for JetBrains* | 
+| PyCharm | Python | AWS Toolkit for JetBrains2 | [Running (invoking) or debugging a local function](https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/invoke-lambda.html) in the *AWS Toolkit for JetBrains* | 
+| Rider | .NET | AWS Toolkit for JetBrains2 | [Running (invoking) or debugging a local function](https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/invoke-lambda.html) in the *AWS Toolkit for JetBrains* | 
+| IntelliJ | Java | AWS Toolkit for JetBrains2 | [Running (invoking) or debugging a local function](https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/invoke-lambda.html) in the *AWS Toolkit for JetBrains* | 
+| GoLand | Go | AWS Toolkit for JetBrains2 | [Running (invoking) or debugging a local function](https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/invoke-lambda.html) in the *AWS Toolkit for JetBrains* | 
 
 **Notes:**
 
-1. To use AWS Cloud9 to step-through debug AWS SAM applications, the AWS Toolkit must
-   be enabled. For more information, see [Enabling
-   the AWS Toolkit](../../../cloud9/latest/user-guide/toolkit-welcome.md#access-toolkit "../../../cloud9/latest/user-guide/toolkit-welcome.md#access-toolkit") in the _AWS Cloud9 User Guide_.
-2. To use the AWS Toolkit for JetBrains to step-through debug AWS SAM applications, you
-   must first install and configure it by following the instructions found in
-   [Installing the AWS Toolkit for JetBrains](../../../toolkit-for-jetbrains/latest/userguide/setup-toolkit.md "../../../toolkit-for-jetbrains/latest/userguide/setup-toolkit.md") in the
-   _AWS Toolkit for JetBrains_.
+1. To use AWS Cloud9 to step-through debug AWS SAM applications, the AWS Toolkit must be enabled. For more information, see [Enabling the AWS Toolkit](https://docs.aws.amazon.com/cloud9/latest/user-guide/toolkit-welcome.html#access-toolkit) in the *AWS Cloud9 User Guide*.
+
+1. To use the AWS Toolkit for JetBrains to step-through debug AWS SAM applications, you must first install and configure it by following the instructions found in [Installing the AWS Toolkit for JetBrains](https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/setup-toolkit.html) in the *AWS Toolkit for JetBrains*.
 
 ## Running AWS SAM locally in debug mode
+<a name="serverless-sam-cli-running-locally"></a>
 
-In addition to integrating with AWS Toolkits, you can also run AWS SAM in debug mode
-to attach to third-party debuggers like [ptvsd](https://pypi.org/project/ptvsd/ "https://pypi.org/project/ptvsd/") or [delve](https://github.com/go-delve/delve "https://github.com/go-delve/delve").
+In addition to integrating with AWS Toolkits, you can also run AWS SAM in debug mode to attach to third-party debuggers like [ptvsd](https://pypi.org/project/ptvsd/) or [delve](https://github.com/go-delve/delve).
 
-To run AWS SAM in debug mode, use commands [sam local invoke](sam-cli-command-reference-sam-local-invoke.md "sam-cli-command-reference-sam-local-invoke.md") or [sam local start-api](sam-cli-command-reference-sam-local-start-api.md "sam-cli-command-reference-sam-local-start-api.md") with the
-`--debug-port` or `-d` option.
+To run AWS SAM in debug mode, use commands [sam local invoke](sam-cli-command-reference-sam-local-invoke.md) or [sam local start-api](sam-cli-command-reference-sam-local-start-api.md) with the `--debug-port` or `-d` option.
 
 For example:
 
@@ -69,9 +55,5 @@ sam local invoke -d 5858 <function logical id>
 sam local start-api -d 5858
 ```
 
-###### Note
-
-If you're using `sam local start-api`, the local API Gateway instance exposes
-all of your Lambda functions. However, because you can specify a single debug port,
-you can only debug one function at a time. You need to call your API before the
-AWS SAM CLI binds to the port, which allows the debugger to connect.
+**Note**  
+If you're using `sam local start-api`, the local API Gateway instance exposes all of your Lambda functions. However, because you can specify a single debug port, you can only debug one function at a time. You need to call your API before the AWS SAM CLI binds to the port, which allows the debugger to connect.

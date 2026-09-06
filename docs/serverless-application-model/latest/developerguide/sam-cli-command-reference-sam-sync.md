@@ -1,291 +1,175 @@
+
+
 # sam sync
+<a name="sam-cli-command-reference-sam-sync"></a>
 
-This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI)
-`sam sync` command.
+This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam sync` command.
++ For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)
++ For documentation on using the AWS SAM CLI, see [AWS SAM CLI](using-sam-cli.md).
 
-- For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli "what-is-sam-overview.md#what-is-sam-cli")
-- For documentation on using the AWS SAM CLI, see [AWS SAM CLI](using-sam-cli.md "using-sam-cli.md").
-  The `sam sync` command syncs local application changes to the AWS Cloud.
+The `sam sync` command syncs local application changes to the AWS Cloud.
 
 ## Usage
+<a name="sam-cli-command-reference-sam-sync-usage"></a>
 
 ```
-`$` `sam sync `<options>``
+$ sam sync {{<options>}}
 ```
 
 ## Options
+<a name="sam-cli-command-reference-sam-sync-options"></a>
 
-`--base-dir, -s `DIRECTORY``
+`--base-dir, -s {{DIRECTORY}}`  <a name="sam-cli-command-reference-sam-sync-options-base-dir"></a>
+Resolves relative paths to the function's or layer's source code with respect to this directory. Use this option to change how relative paths to source code folders are resolved. By default, relative paths are resolved with respect to the AWS SAM template's location.  
+In addition to the resources in the root application or stack that you're building, this option also applies to nested applications or stacks. Additionally, this option applies to the following resource types and properties:  
++ Resource type: `AWS::Serverless::Function` Property: `CodeUri`
++ Resource type: `AWS::Serverless::Function` Resource attribute: `Metadata` Entry: `DockerContext`
++ Resource type: `AWS::Serverless::LayerVersion` Property: `ContentUri`
++ Resource type: `AWS::Lambda::Function` Property: `Code`
++ Resource type: `AWS::Lambda::LayerVersion` Property: `Content`
 
-Resolves relative paths to the function's or layer's source code with respect to this directory. Use this option
-to change how relative paths to source code folders are resolved. By default, relative paths are resolved with respect to the AWS SAM template's
-location.
+`--build-image {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-build-image"></a>
+The URI for the [container image](serverless-image-repositories.md#serverless-image-repository-uris) that you want to use when building your application. By default, AWS SAM uses the container image repository URI from [Amazon Elastic Container Registry (Amazon ECR) Public](https://docs.aws.amazon.com/AmazonECR/latest/public/what-is-ecr.html). Specify this option to use a different image.  
+You can use this option multiple times in a single command. Each option accepts a string or a key-value pair.  
++ **String** – Specify the URI of the container image that all resources in your application will use. The following is an example:
 
-In addition to the resources in the root application or stack that you're building, this option also applies to
-nested applications or stacks. Additionally, this option applies to the following resource types and
-properties:
+  ```
+  $ sam sync --build-image {{amazon/aws-sam-cli-build-image-python3.8}}
+  ```
++ **Key-value pair** – Specify the resource name as the key and the container image URI to be used with that resource as the value. Use this format to specify a different container image URI for each resource in your application. The following is an example:
 
-- Resource type: `AWS::Serverless::Function` Property:
-  `CodeUri`
-- Resource type: `AWS::Serverless::Function` Resource attribute:
-  `Metadata` Entry: `DockerContext`
-- Resource type: `AWS::Serverless::LayerVersion` Property:
-  `ContentUri`
-- Resource type: `AWS::Lambda::Function` Property:
-  `Code`
-- Resource type: `AWS::Lambda::LayerVersion` Property:
-  `Content`
+  ```
+  $ sam sync --build-image {{Function1=amazon/aws-sam-cli-build-image-python3.8}}
+  ```
+This option only applies if the `--use-container` option is specified, otherwise an error will result.
 
-`--build-image `TEXT``
+`--build-in-source | --no-build-in-source`  <a name="sam-cli-command-reference-sam-sync-options-build-in-source"></a>
+Provides `--build-in-source` to build your project directly in the source folder.  
+The `--build-in-source` option supports the following runtimes and build methods:  
++ **Runtimes** – Any Node.js runtime supported by the `sam init --runtime` option.
++ **Build methods** – `Makefile`, `esbuild`.
+The `--build-in-source` option is not compatible with the following options:  
++ `--use-container `
+*Default*: `--no-build-in-source`
 
-The URI for the [container image](serverless-image-repositories.md#serverless-image-repository-uris "serverless-image-repositories.md#serverless-image-repository-uris") that you want to use when
-building your application. By default, AWS SAM uses the container image repository URI from [Amazon Elastic Container Registry (Amazon ECR) Public](../../../AmazonECR/latest/public/what-is-ecr.md "../../../AmazonECR/latest/public/what-is-ecr.md"). Specify this option to use a
-different image.
+`--capabilities {{LIST}}`  <a name="sam-cli-command-reference-sam-sync-options-capabilities"></a>
+A list of capabilities that you specify to allow CloudFormation to create certain stacks. Some stack templates might include resources that can affect permissions in your AWS account. For example, by creating new AWS Identity and Access Management (IAM) users. Specify this option to override the default values. Valid values include the following:  
++ CAPABILITY\_IAM
++ CAPABILITY\_NAMED\_IAM
++ CAPABILITY\_RESOURCE\_POLICY
++ CAPABILITY\_AUTO\_EXPAND
+*Default*: `CAPABILITY_NAMED_IAM` and `CAPABILITY_AUTO_EXPAND`
 
-You can use this option multiple times in a single command. Each option accepts a string or a key-value
-pair.
+`--code`  <a name="sam-cli-command-reference-sam-sync-options-code"></a>
+By default, AWS SAM syncs all resources in your application. Specify this option to sync only code resources, which include the following:  
++ `AWS::Serverless::Function`
++ `AWS::Lambda::Function`
++ `AWS::Serverless::LayerVersion`
++ `AWS::Lambda::LayerVersion`
++ `AWS::Serverless::Api`
++ `AWS::ApiGateway::RestApi`
++ `AWS::Serverless::HttpApi`
++ `AWS::ApiGatewayV2::Api`
++ `AWS::Serverless::StateMachine`
++ `AWS::StepFunctions::StateMachine`
+To sync code resources, AWS SAM uses AWS service APIs directly, instead of deploying through AWS CloudFormation. To update your CloudFormation stack, run **sam sync --watch** or **sam deploy**.
 
-- **String** – Specify the URI of the container image that all resources
-  in your application will use. The following is an example:
+`--config-env {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-config-env"></a>
+The environment name specifying the default parameter values in the configuration file to use. The default value is "default". For more information about configuration files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md).
 
-```
-`$` `sam sync --build-image `amazon/aws-sam-cli-build-image-python3.8``
-```
+`--config-file {{PATH}}`  <a name="sam-cli-command-reference-sam-sync-options-config-file"></a>
+The path and file name of the configuration file containing default parameter values to use. The default value is "`samconfig.toml`" in the root of the project directory. For more information about configuration files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md).
 
-- **Key-value pair** – Specify the resource name as the key and the
-  container image URI to be used with that resource as the value. Use this format to specify a different
-  container image URI for each resource in your application. The following is an example:
+`--dependency-layer | --no-dependency-layer`  <a name="sam-cli-command-reference-sam-sync-options-dependency-layer"></a>
+Specifies whether to separate dependencies of individual functions into another layer to speed up the sync process.  
+*Default*: `--dependency-layer`
 
-```
-`$` `sam sync --build-image `Function1=amazon/aws-sam-cli-build-image-python3.8``
-```
-
-This option only applies if the `--use-container` option is specified, otherwise an error will
-result.
-
-`--build-in-source | --no-build-in-source`
-
-Provides `--build-in-source` to build your project directly in the source folder.
-
-The `--build-in-source` option supports the following runtimes and build methods:
-
-- **Runtimes** – Any Node.js runtime supported by the
-  `sam init --runtime` option.
-- **Build methods** – `Makefile`, `esbuild`.
-
-The `--build-in-source` option is not compatible with the following options:
-
-- `--use-container`
-
-_Default_: `--no-build-in-source`
-
-`--capabilities `LIST``
-
-A list of capabilities that you specify to allow CloudFormation to create certain stacks. Some stack templates might
-include resources that can affect permissions in your AWS account. For example, by creating new AWS Identity and Access Management (IAM)
-users. Specify this option to override the default values. Valid values include the following:
-
-- CAPABILITY\_IAM
-- CAPABILITY\_NAMED\_IAM
-- CAPABILITY\_RESOURCE\_POLICY
-- CAPABILITY\_AUTO\_EXPAND
-
-_Default_: `CAPABILITY_NAMED_IAM` and `CAPABILITY_AUTO_EXPAND`
-
-`--code`
-
-By default, AWS SAM syncs all resources in your application. Specify this option to sync only code resources, which
-include the following:
-
-- `AWS::Serverless::Function`
-- `AWS::Lambda::Function`
-- `AWS::Serverless::LayerVersion`
-- `AWS::Lambda::LayerVersion`
-- `AWS::Serverless::Api`
-- `AWS::ApiGateway::RestApi`
-- `AWS::Serverless::HttpApi`
-- `AWS::ApiGatewayV2::Api`
-- `AWS::Serverless::StateMachine`
-- `AWS::StepFunctions::StateMachine`
-
-To sync code resources, AWS SAM uses AWS service APIs directly, instead of deploying through AWS CloudFormation. To
-update your CloudFormation stack, run **sam sync --watch** or **sam deploy**.
-
-`--config-env `TEXT``
-
-The environment name specifying the default parameter values in the configuration
-file to use. The default value is "default". For more information about configuration
-files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md "serverless-sam-cli-config.md").
-
-`--config-file `PATH``
-
-The path and file name of the configuration file containing default parameter
-values to use. The default value is "`samconfig.toml`" in the root of
-the project directory. For more information about configuration files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md "serverless-sam-cli-config.md").
-
-`--dependency-layer | --no-dependency-layer`
-
-Specifies whether to separate dependencies of individual functions into another layer to speed up the sync
-process.
-
-_Default_: `--dependency-layer`
-
-`--express | --no-express`
-
-Specifies whether to use CloudFormation Express mode for infrastructure deployments.
-When active, stack operations complete once resource configuration is applied.
-Resources continue becoming ready in the background.
-
-Express mode applies only to the infrastructure sync path. Code-only syncs
-(Lambda function updates, deployments) bypass CloudFormation and are unaffected
-by this option.
-
-The default value is `--no-express`.
-
-###### Upcoming default change
-
+`--express | --no-express`  <a name="sam-cli-command-reference-sam-sync-options-express"></a>
+Specifies whether to use CloudFormation Express mode for infrastructure deployments. When active, stack operations complete once resource configuration is applied. Resources continue becoming ready in the background.  
+Express mode applies only to the infrastructure sync path. Code-only syncs (Lambda function updates, deployments) bypass CloudFormation and are unaffected by this option.  
+The default value is `--no-express`.  
+**Upcoming default change**  
 The default changes to `--express` on September 1, 2026.
 
-`--image-repository `TEXT``
+`--image-repository {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-image-repository"></a>
+The name of the Amazon Elastic Container Registry (Amazon ECR) repository where this command uploads your function's image. Required for functions declared with the `Image` package type.
 
-The name of the Amazon Elastic Container Registry (Amazon ECR) repository where this command uploads your function's image. Required for
-functions declared with the `Image` package type.
-
-`--image-repositories `TEXT``
-
-A mapping of functions to their Amazon ECR repository URI. Reference functions by their logical ID. The following
-is an example:
+`--image-repositories {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-image-repositories"></a>
+A mapping of functions to their Amazon ECR repository URI. Reference functions by their logical ID. The following is an example:  
 
 ```
-`$` `sam sync --image-repositories `Function1=123456789012.dkr.ecr.us-east-1.amazonaws.com/my-repo``
+$ sam sync --image-repositories {{Function1=123456789012.dkr.ecr.us-east-1.amazonaws.com/my-repo}}
 ```
-
 You can specify this option multiple times in a single command.
 
-`--kms-key-id `TEXT``
+`--kms-key-id {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-kms-key-id"></a>
+The ID of an AWS Key Management Service (AWS KMS) key used to encrypt artifacts that are at rest in the Amazon S3 bucket. If you don't specify this option, then AWS SAM uses Amazon S3-managed encryption keys.
 
-The ID of an AWS Key Management Service (AWS KMS) key used to encrypt artifacts that are at rest in the Amazon S3 bucket. If you don't
-specify this option, then AWS SAM uses Amazon S3-managed encryption keys.
-
-`--metadata`
-
+`--metadata`  <a name="sam-cli-command-reference-sam-sync-options-metadata"></a>
 A map of metadata to attach to all artifacts that you reference in your template.
 
-`--notification-arns `LIST``
-
+`--notification-arns {{LIST}}`  <a name="sam-cli-command-reference-sam-sync-options-notification-arns"></a>
 A list of Amazon Simple Notification Service (Amazon SNS) topic ARNs that CloudFormation associates with the stack.
 
-`--no-use-container`
-
+`--no-use-container`  <a name="ref-sam-cli-sync-options-no-use-container"></a>
 An option that allows you to use the IDE toolkit to set default behavior.
 
-`--parameter-overrides`
+`--parameter-overrides`  <a name="sam-cli-command-reference-sam-sync-options-parameter-overrides"></a>
+A string that contains CloudFormation parameter overrides encoded as key-value pairs. Use the same format as the AWS Command Line Interface (AWS CLI). The AWS SAM CLI format is explicit key and value keywords, each override is separated by a space. Here are two examples:  
++ `--parameter-overrides ParameterKey=hello,ParameterValue=world`
++ `--parameter-overrides ParameterKey=hello,ParameterValue=world ParameterKey=example1,ParameterValue=example2 ParameterKey=apple,ParameterValue=banana`
 
-A string that contains CloudFormation parameter overrides encoded as key-value pairs. Use
-the same format as the AWS Command Line Interface (AWS CLI). The AWS SAM CLI format is explicit key and value keywords, each override is separated by a space. Here are two examples:
+`--resource {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-resource"></a>
+Specifies the resource type to sync. To sync multiple resources, you can specify this option multiple times. This option is supported with the `--code` option. The value must be one of the listed resources under `--code`. For example, `--resource AWS::Serverless::Function --resource AWS::Serverless::LayerVersion`.
 
-- `--parameter-overrides ParameterKey=hello,ParameterValue=world`
-- `--parameter-overrides ParameterKey=hello,ParameterValue=world ParameterKey=example1,ParameterValue=example2 ParameterKey=apple,ParameterValue=banana`
+`--resource-id {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-resource-id"></a>
+Specifies the resource ID to sync. To sync multiple resources, you can specify this option multiple times. This option is supported with the `--code` option. For example, `--resource-id Function1 --resource-id Function2`.
 
-`--resource `TEXT``
-
-Specifies the resource type to sync. To sync multiple resources, you can specify this option multiple times.
-This option is supported with the `--code` option. The value must be one of the listed resources under
-`--code`. For example,
-`--resource AWS::Serverless::Function --resource AWS::Serverless::LayerVersion`.
-
-`--resource-id `TEXT``
-
-Specifies the resource ID to sync. To sync multiple resources, you can specify this option multiple times. This
-option is supported with the `--code` option. For example,
-`--resource-id Function1 --resource-id Function2`.
-
-`--role-arn `TEXT``
-
+`--role-arn {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-role-arn"></a>
 The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes when applying the changeset.
 
-``--s3-bucket `TEXT```
+`--s3-bucket {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-s3-bucket"></a>
+The name of the Amazon Simple Storage Service (Amazon S3) bucket where this command uploads your CloudFormation template. If your template is larger than 51,200 bytes, then either the `--s3-bucket` or the `--resolve-s3` option is required. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an error occurs.
 
-The name of the Amazon Simple Storage Service (Amazon S3) bucket where this command uploads your CloudFormation template. If your template is
-larger than 51,200 bytes, then either the `--s3-bucket` or the `--resolve-s3` option is
-required. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an
-error occurs.
+`--s3-prefix {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-s3-prefix"></a>
+The prefix added to the names of the artifacts that you upload to the Amazon S3 bucket. The prefix name is a path name (folder name) for the Amazon S3 bucket. This applies only to functions declared with the `Zip` package type.
 
-`--s3-prefix `TEXT``
-
-The prefix added to the names of the artifacts that you upload to the Amazon S3 bucket. The prefix name is a path
-name (folder name) for the Amazon S3 bucket. This applies only to functions declared with the `Zip` package
-type.
-
-`--save-params`
-
+`--save-params`  <a name="sam-cli-command-reference-sam-sync-options-save-params"></a>
 Saves the parameters that you provide at the command line to the AWS SAM configuration file.
 
-`--skip-deploy-sync | --no-skip-deploy-sync`
+`--skip-deploy-sync | --no-skip-deploy-sync`  <a name="sam-cli-command-reference-sam-sync-options-skip-deploy-sync"></a>
+Specifies `--skip-deploy-sync` to skip the initial infrastructure sync if it isn't required. The AWS SAM CLI will compare your local AWS SAM template with the deployed CloudFormation template and perform a deployment only if a change is detected.  
+Specifies `--no-skip-deploy-sync` to perform an CloudFormation deployment every time `sam sync` is run.  
+To learn more, see [Skip the initial CloudFormation deployment](using-sam-cli-sync.md#using-sam-cli-sync-options-skip-deploy-sync).  
+*Default*: `--skip-deploy-sync`
 
-Specifies `--skip-deploy-sync` to skip the initial infrastructure sync if it isn't required. The
-AWS SAM CLI will compare your local AWS SAM template with the deployed CloudFormation template and perform a deployment only if a
-change is detected.
-
-Specifies `--no-skip-deploy-sync` to perform an CloudFormation deployment every time `sam sync` is
-run.
-
-To learn more, see [Skip the initial CloudFormation deployment](using-sam-cli-sync.md#using-sam-cli-sync-options-skip-deploy-sync "using-sam-cli-sync.md#using-sam-cli-sync-options-skip-deploy-sync").
-
-_Default_: `--skip-deploy-sync`
-
-`--stack-name `TEXT``
-
-The name of the CloudFormation stack for your application.
-
+`--stack-name {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-stack-name"></a>
+The name of the CloudFormation stack for your application.  
 This option is required.
 
-`--tags `LIST``
+`--tags {{LIST}}`  <a name="sam-cli-command-reference-sam-sync-options-tags"></a>
+A list of tags to associate with the stack that is created or updated. CloudFormation also propagates these tags to resources in the stack that support it.
 
-A list of tags to associate with the stack that is created or updated. CloudFormation also propagates these tags to
-resources in the stack that support it.
+`--template-file, --template, -t {{PATH}}`  <a name="sam-cli-command-reference-sam-sync-options-template-file"></a>
+The path and file name where your AWS SAM template is located.  
+If you specify this option, then AWS SAM deploys only the template and the local resources that it points to.
 
-`--template-file, --template, -t `PATH``
+`--use-container, -u`  <a name="sam-cli-command-reference-sam-sync-options-use-container"></a>
+If your functions depend on packages that have natively compiled dependencies, use this option to build your function inside an AWS Lambda-like Docker container.  
+Currently, this option is not compatible with `--dependency-layer`. If you use `--use-container` with `--dependency-layer`, the AWS SAM CLI informs you and continues with `--no-dependency-layer`.
 
-The path and file name where your AWS SAM template is located.
+`--watch`  <a name="sam-cli-command-reference-sam-sync-options-watch"></a>
+Starts a process that watches your local application for changes and automatically syncs them to the AWS Cloud. By default, when you specify this option, AWS SAM syncs all resources in your application as you update them. With this option, AWS SAM performs an initial CloudFormation deployment. Then, AWS SAM uses AWS service APIs to update code resources. AWS SAM uses CloudFormation to update infrastructure resources when you update your AWS SAM template.
 
-###### Note
-
-If you specify this option, then AWS SAM deploys only the template and the local resources that it points
-to.
-
-`--use-container, -u`
-
-If your functions depend on packages that have natively compiled dependencies, use this option to build your
-function inside an AWS Lambda-like Docker container.
-
-###### Note
-
-Currently, this option is not compatible with `--dependency-layer`. If you use
-`--use-container` with `--dependency-layer`, the AWS SAM CLI informs you and continues with
-`--no-dependency-layer`.
-
-`--watch`
-
-Starts a process that watches your local application for changes and automatically syncs them to the AWS Cloud.
-By default, when you specify this option, AWS SAM syncs all resources in your application as you update them. With this
-option, AWS SAM performs an initial CloudFormation deployment. Then, AWS SAM uses AWS service APIs to update code resources.
-AWS SAM uses CloudFormation to update infrastructure resources when you update your AWS SAM template.
-
-`--watch-exclude `TEXT``
-
-Excludes a file or folder from being observed for file changes. To use this option, `--watch` must also be provided.
-
-This option receives a key-value pair:
-
-- **Key** – The logical ID of a Lambda function in your application.
-- **Value** – The associated file name or folder to exclude.
-
-When you update any files or folders specified with the `--watch-exclude` option, the AWS SAM CLI will not initiate a sync. However, when an
-update to other files or folders initiates a sync, these files or folders will be included in that sync.
-
+`--watch-exclude {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-watch-exclude"></a>
+Excludes a file or folder from being observed for file changes. To use this option, `--watch` must also be provided.  
+This option receives a key-value pair:  
++ **Key** – The logical ID of a Lambda function in your application.
++ **Value** – The associated file name or folder to exclude.
+When you update any files or folders specified with the `--watch-exclude` option, the AWS SAM CLI will not initiate a sync. However, when an update to other files or folders initiates a sync, these files or folders will be included in that sync.  
 You can provide this option multiple times in a single command.
 
 ## Examples
+<a name="sam-cli-command-reference-sam-sync-examples"></a>
 
-For examples on using this command, refer to [Options for the sam sync command](using-sam-cli-sync.md#using-sam-cli-sync-options "using-sam-cli-sync.md#using-sam-cli-sync-options").
+For examples on using this command, refer to [Options for the sam sync command](using-sam-cli-sync.md#using-sam-cli-sync-options).

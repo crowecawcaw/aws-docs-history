@@ -1,61 +1,57 @@
+
+
 # CognitoAuthorizer
+<a name="sam-property-api-cognitoauthorizer"></a>
 
 Define a Amazon Cognito User Pool authorizer.
 
-For more information and examples, see [Control API access with your AWS SAM template](serverless-controlling-access-to-apis.md "serverless-controlling-access-to-apis.md").
+For more information and examples, see [Control API access with your AWS SAM template](serverless-controlling-access-to-apis.md).
 
 ## Syntax
+<a name="sam-property-api-cognitoauthorizer-syntax"></a>
 
 To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-api-cognitoauthorizer-syntax.yaml"></a>
 
 ```
-  AuthorizationScopes: `List`
-  Identity: `CognitoAuthorizationIdentity`
-  UserPoolArn: `String | List`
-
+  [AuthorizationScopes](#sam-api-cognitoauthorizer-authorizationscopes): {{List}}
+  [Identity](#sam-api-cognitoauthorizer-identity): {{CognitoAuthorizationIdentity}}
+  [UserPoolArn](#sam-api-cognitoauthorizer-userpoolarn): {{String | List}}
 ```
 
 ## Properties
+<a name="sam-property-api-cognitoauthorizer-properties"></a>
 
-`AuthorizationScopes`
+ `AuthorizationScopes`   <a name="sam-api-cognitoauthorizer-authorizationscopes"></a>
+List of authorization scopes for this authorizer.  
+*Type*: List  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-List of authorization scopes for this authorizer.
+ `Identity`   <a name="sam-api-cognitoauthorizer-identity"></a>
+This property can be used to specify an `IdentitySource` in an incoming request for an authorizer.  
+*Type*: [CognitoAuthorizationIdentity](sam-property-api-cognitoauthorizationidentity.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Type_: List
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`Identity`
-
-This property can be used to specify an `IdentitySource` in an incoming request for an authorizer.
-
-_Type_: [CognitoAuthorizationIdentity](sam-property-api-cognitoauthorizationidentity.md "sam-property-api-cognitoauthorizationidentity.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`UserPoolArn`
-
-The Amazon Cognito user pool ARN(s) to use for authorization. Specify a single ARN as a string, or multiple ARNs as a list to use multiple user pools.
-
-_Type_: String | List
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
+ `UserPoolArn`   <a name="sam-api-cognitoauthorizer-userpoolarn"></a>
+The Amazon Cognito user pool ARN(s) to use for authorization. Specify a single ARN as a string, or multiple ARNs as a list to use multiple user pools.  
+*Type*: String \| List  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Examples
+<a name="sam-property-api-cognitoauthorizer--examples"></a>
 
 ### CognitoAuth
+<a name="sam-property-api-cognitoauthorizer--examples--cognitoauth"></a>
 
 Cognito Auth Example
 
 #### YAML
+<a name="sam-property-api-cognitoauthorizer--examples--cognitoauth--yaml"></a>
 
 ```
 Auth:
@@ -71,5 +67,4 @@ Auth:
       Identity:
         Header: MyAuthorizationHeader
         ValidationExpression: myauthvalidationexpression
-
 ```

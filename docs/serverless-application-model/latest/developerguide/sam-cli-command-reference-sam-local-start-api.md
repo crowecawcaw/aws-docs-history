@@ -1,261 +1,164 @@
+
+
 # sam local start-api
+<a name="sam-cli-command-reference-sam-local-start-api"></a>
 
-This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI)
-`sam local start-api` subcommand.
+This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam local start-api` subcommand.
++ For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)
++ For documentation on using the AWS SAM CLI `sam local start-api` subcommand, see [Introduction to testing with sam local start-api](using-sam-cli-local-start-api.md).
 
-- For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli "what-is-sam-overview.md#what-is-sam-cli")
-- For documentation on using the AWS SAM CLI `sam local start-api` subcommand, see
-  [Introduction to testing with sam local start-api](using-sam-cli-local-start-api.md "using-sam-cli-local-start-api.md").
-  The `sam local start-api` subcommand runs your AWS Lambda functions locally to test through a local HTTP server host.
+The `sam local start-api` subcommand runs your AWS Lambda functions locally to test through a local HTTP server host.
 
 ## Usage
+<a name="ref-sam-cli-local-start-api-usage"></a>
 
 ```
-`$` `sam local start-api `<options>``
+$ sam local start-api {{<options>}}
 ```
 
 ## Options
+<a name="ref-sam-cli-local-start-api-options"></a>
 
-`--add-host `LIST``
+`--add-host {{LIST}}`  <a name="ref-sam-cli-local-start-api-options-add-host"></a>
+Passes a hostname to IP address mapping to the Docker container's host file. This parameter can be passed multiple times.  
 
-Passes a hostname to IP address mapping to the Docker container's host file. This parameter can be passed multiple times.
+**Example**  
+Example: `--add-host {{example.com:127.0.0.1}}`
 
-###### Example
-
-Example: `--add-host `example.com:127.0.0.1``
-
-`--beta-features | --no-beta-features`
-
+`--beta-features | --no-beta-features`  <a name="ref-sam-cli-local-start-api-options-beta-features"></a>
 Allow or deny beta features.
 
-`--config-env `TEXT``
+`--config-env {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-config-env"></a>
+The environment name specifying the default parameter values in the configuration file to use. The default value is "default". For more information about configuration files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md).
 
-The environment name specifying the default parameter values in the configuration
-file to use. The default value is "default". For more information about configuration
-files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md "serverless-sam-cli-config.md").
+`--config-file {{PATH}}`  <a name="ref-sam-cli-local-start-api-options-config-file"></a>
+The path and file name of the configuration file containing default parameter values to use. The default value is "samconfig.toml" in the root of the project directory. For more information about configuration files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md).
 
-`--config-file `PATH``
+`--container-env-vars`  <a name="ref-sam-cli-local-start-api-options-container-env-vars"></a>
+Optional. Pass environment variables to image container when locally debugging.
 
-The path and file name of the configuration file containing default parameter
-values to use. The default value is "samconfig.toml" in the root of the project
-directory. For more information about configuration files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md "serverless-sam-cli-config.md").
+`--container-host {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-container-host"></a>
+Host of locally emulated Lambda container. The default value is `localhost`. If you want to run AWS SAM CLI in a Docker container on macOS, you can specify `host.docker.internal`. If you want to run the container on a different host than AWS SAM CLI, you can specify the IP address of the remote host.
 
-`--container-env-vars`
+`--container-host-interface {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-container-host-interface"></a>
+The IP address of the host network interface that container ports should bind to. The default value is `127.0.0.1`. Use `0.0.0.0` to bind to all interfaces.
 
-Optional. Pass environment variables to image container when locally
-debugging.
+`--container-dns {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-container-dns"></a>
+Specifies a custom DNS server for the Docker container. This parameter can be passed multiple times to specify multiple DNS servers.  
 
-`--container-host `TEXT``
+**Example**  
+Example: `--container-dns {{8.8.8.8}}`
 
-Host of locally emulated Lambda container. The default value is
-`localhost`. If you want to run AWS SAM CLI in a Docker container on macOS,
-you can specify `host.docker.internal`. If you want to run the container on a
-different host than AWS SAM CLI, you can specify the IP address of the remote
-host.
+`--debug`  <a name="ref-sam-cli-local-start-api-options-debug"></a>
+Turns on debug logging to print debug message generated by the AWS SAM CLI and display timestamps.
 
-`--container-host-interface `TEXT``
-
-The IP address of the host network interface that container ports should bind to.
-The default value is `127.0.0.1`. Use `0.0.0.0` to bind to all
-interfaces.
-
-`--container-dns `TEXT``
-
-Specifies a custom DNS server for the Docker container. This parameter can be passed multiple times to specify multiple DNS servers.
-
-###### Example
-
-Example: `--container-dns `8.8.8.8``
-
-`--debug`
-
-Turns on debug logging to print debug message generated by the AWS SAM CLI and
-display timestamps.
-
-`--debug-args `TEXT``
-
+`--debug-args {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-debug-args"></a>
 Additional arguments to be passed to the debugger.
 
-`--debug-function`
+`--debug-function`  <a name="ref-sam-cli-local-start-api-options-debug-function"></a>
+Optional. Specifies the Lambda function to apply debug options to when `--warm-containers` is specified. This parameter applies to `--debug-port`, `--debugger-path`, and `--debug-args`.
 
-Optional. Specifies the Lambda function to apply debug options to when
-`--warm-containers` is specified. This parameter applies to
-`--debug-port`, `--debugger-path`, and
-`--debug-args`.
+`--debug-port, -d {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-debug-port"></a>
+When specified, starts the Lambda function container in debug mode and exposes this port on the local host.
 
-`--debug-port, -d `TEXT``
-
-When specified, starts the Lambda function container in debug mode and exposes this
-port on the local host.
-
-``--debugger-path `TEXT```
-
+`--debugger-path {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-debugger-path"></a>
 The host path to a debugger that will be mounted into the Lambda container.
 
-`--docker-network `TEXT``
+`--docker-network {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-docker-network"></a>
+The name or ID of an existing Docker network that the Lambda Docker containers should connect to, along with the default bridge network. If this isn't specified, the Lambda containers only connect to the default bridge Docker network.
 
-The name or ID of an existing Docker network that the Lambda Docker containers
-should connect to, along with the default bridge network. If this isn't specified, the
-Lambda containers only connect to the default bridge Docker network.
+` --docker-volume-basedir, -v {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-docker-volume-basedir"></a>
+The location of the base directory where the AWS SAM file exists. If Docker is running on a remote machine, you must mount the path where the AWS SAM file exists on the Docker machine, and modify this value to match the remote machine.
 
-`--docker-volume-basedir, -v `TEXT``
+`--env-vars, -n {{PATH}}`  <a name="ref-sam-cli-local-start-api-options-env-vars"></a>
+The JSON or `.env` file that contains values for the Lambda function's environment variables. The file format is automatically detected.
 
-The location of the base directory where the AWS SAM file exists. If Docker is
-running on a remote machine, you must mount the path where the AWS SAM file exists on the
-Docker machine, and modify this value to match the remote machine.
+`--force-image-build`  <a name="ref-sam-cli-local-start-api-options-force-image-build"></a>
+Specifies whether AWS SAM CLI should rebuild the image used for invoking functions with layers.
 
-`--env-vars, -n `PATH``
-
-The JSON or `.env` file that contains values for the Lambda function's environment
-variables. The file format is automatically detected.
-
-`--force-image-build`
-
-Specifies whether AWS SAM CLI should rebuild the image used for invoking functions with
-layers.
-
-`--help`
-
+`--help`  <a name="ref-sam-cli-local-start-api-options-help"></a>
 Shows this message and exits.
 
-`--hook-name `TEXT``
-
-The name of the hook that is used to extend AWS SAM CLI functionality.
-
+`--hook-name {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-hook-name"></a>
+The name of the hook that is used to extend AWS SAM CLI functionality.  
 Accepted values: `terraform`.
 
-`--host `TEXT``
-
+`--host {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-host"></a>
 The local hostname or IP address to bind to (default: '127.0.0.1').
 
-`--invoke-image `TEXT``
+`--invoke-image {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-invoke-image"></a>
+The URI of the container image that you want to use for your Lambda functions.  
+For Lambda functions with `PackageType: Zip`, this overrides the runtime base image. By default, AWS SAM pulls the container image from Amazon ECR Public. Use this option to pull the image from another location.  
+For Lambda functions with `PackageType: Image`, this overrides the `ImageUri` from the built template. Use this to invoke a different application image locally without modifying your template.  
+You can specify this option multiple times. Each instance of this option can take either a string or a key-value pair. If you specify a string, it is the URI of the container image to use for all functions in your application. For example, `sam local start-api --invoke-image public.ecr.aws/sam/emu-python3.13`. If you specify a key-value pair, the key is the resource name, and the value is the URI of the container image to use for that resource. For example, `sam local start-api --invoke-image public.ecr.aws/sam/emu-python3.13 --invoke-image Function1=amazon/aws-sam-cli-emulation-image-python3.13`. With key-value pairs, you can specify different container images for different resources.
 
-The URI of the container image that you want to use for your Lambda functions.
-
-For Lambda functions with `PackageType: Zip`, this overrides the runtime base image. By
-default, AWS SAM pulls the container image from Amazon ECR Public. Use this option to pull the
-image from another location.
-
-For Lambda functions with `PackageType: Image`, this overrides the `ImageUri` from the
-built template. Use this to invoke a different application image locally without modifying your template.
-
-You can specify this option multiple times. Each instance of this option can take
-either a string or a key-value pair. If you specify a string, it is the URI of the
-container image to use for all functions in your application. For example, `sam
- local start-api --invoke-image public.ecr.aws/sam/emu-python3.13`. If you
-specify a key-value pair, the key is the resource name, and the value is the URI of
-the container image to use for that resource. For example, `sam local start-api
- --invoke-image public.ecr.aws/sam/emu-python3.13 --invoke-image
- Function1=amazon/aws-sam-cli-emulation-image-python3.13`. With key-value
-pairs, you can specify different container images for different resources.
-
-`--layer-cache-basedir `DIRECTORY``
-
+`--layer-cache-basedir {{DIRECTORY}}`  <a name="ref-sam-cli-local-start-api-options-layer-cache-basedir"></a>
 Specifies the location basedir where the Layers your template uses are downloaded to.
 
-`--log-file, -l `TEXT``
-
+`--log-file, -l {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-log-file"></a>
 The log file to send runtime logs to.
 
-`--no-memory-limit`
-
+`--no-memory-limit`  <a name="ref-sam-cli-local-start-api-options-no-memory-limit"></a>
 Removes the memory limitation in the container during local invoke, even when memory is configured in the AWS SAM template.
 
-`--no-watch`
-
-Disables file watching when used with `--warm-containers`. When specified,
-the AWS SAM CLI does not monitor your source code or template for changes, and
-warm containers are not automatically restarted on code modifications. To pick up
-local changes, stop and rerun the command.
-
-Use this option when file watching causes high CPU or I/O overhead, such as in
-large monorepos, environments with antivirus software scanning, or projects where
-multiple Lambda functions share a `CodeUri`.
-
+`--no-watch`  <a name="ref-sam-cli-local-start-api-options-no-watch"></a>
+Disables file watching when used with `--warm-containers`. When specified, the AWS SAM CLI does not monitor your source code or template for changes, and warm containers are not automatically restarted on code modifications. To pick up local changes, stop and rerun the command.  
+Use this option when file watching causes high CPU or I/O overhead, such as in large monorepos, environments with antivirus software scanning, or projects where multiple Lambda functions share a `CodeUri`.  
 This option is ignored if `--warm-containers` is not specified.
 
-`--parameter-overrides`
+`--parameter-overrides`  <a name="ref-sam-cli-local-start-api-options-parameter-overrides"></a>
+A string that contains CloudFormation parameter overrides encoded as key-value pairs. Use the same format as the AWS Command Line Interface (AWS CLI). The AWS SAM CLI format is explicit key and value keywords, each override is separated by a space. Here are two examples:  
++ `--parameter-overrides ParameterKey=hello,ParameterValue=world`
++ `--parameter-overrides ParameterKey=hello,ParameterValue=world ParameterKey=example1,ParameterValue=example2 ParameterKey=apple,ParameterValue=banana`
 
-A string that contains CloudFormation parameter overrides encoded as key-value pairs. Use
-the same format as the AWS Command Line Interface (AWS CLI). The AWS SAM CLI format is explicit key and value keywords, each override is separated by a space. Here are two examples:
-
-- `--parameter-overrides ParameterKey=hello,ParameterValue=world`
-- `--parameter-overrides ParameterKey=hello,ParameterValue=world ParameterKey=example1,ParameterValue=example2 ParameterKey=apple,ParameterValue=banana`
-
-`--port, -p `INTEGER``
-
+`--port, -p {{INTEGER}}`  <a name="ref-sam-cli-local-start-api-options-port"></a>
 The local port number to listen on (default: '3000').
 
-`--profile `TEXT``
-
+`--profile {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-profile"></a>
 The specific profile from your credential file that gets AWS credentials.
 
-`--region `TEXT``
-
+`--region {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-region"></a>
 The AWS Region to deploy to. For example, us-east-1.
 
-`--save-params`
-
+`--save-params`  <a name="ref-sam-cli-local-start-api-options-save-params"></a>
 Save the parameters that you provide at the command line to the AWS SAM configuration file.
 
-`--shutdown`
+`--shutdown`  <a name="ref-sam-cli-local-start-api-options-shutdown"></a>
+Emulates a shutdown event after the invoke completes, in order to test extension handling of shutdown behavior.
 
-Emulates a shutdown event after the invoke completes, in order to test extension
-handling of shutdown behavior.
+`--skip-prepare-infra`  <a name="ref-sam-cli-local-start-api-options-skip-prepare-infra"></a>
+Skips the preparation stage if no infrastructure changes have been made. Use with the `--hook-name` option.
 
-`--skip-prepare-infra`
+`--skip-pull-image`  <a name="ref-sam-cli-local-start-api-options-skip-pull-image"></a>
+Specifies whether the CLI should skip pulling down the latest Docker image for the Lambda runtime.
 
-Skips the preparation stage if no infrastructure changes have been made. Use with
-the `--hook-name` option.
-
-`--skip-pull-image`
-
-Specifies whether the CLI should skip pulling down the latest Docker image for the
-Lambda runtime.
-
-`--ssl-cert-file `PATH``
-
+`--ssl-cert-file {{PATH}}`  <a name="ref-sam-cli-local-start-api-options-ssl-cert-file"></a>
 Path to SSL certificate file (default: None). When using this option, the `--ssl-key-file` option must also be used.
 
-`--ssl-key-file `PATH``
-
+`--ssl-key-file {{PATH}}`  <a name="ref-sam-cli-local-start-api-options-static-dir"></a>
 Path to SSL key file (default: None). When using this option, the `--ssl-cert-file` option must also be used.
 
-`--static-dir, -s `TEXT``
+`--static-dir, -s {{TEXT}}`  <a name="ref-sam-cli-local-start-api-options-static-dir"></a>
+Any static asset (for example, CSS/JavaScript/HTML) files located in this directory are presented at `/`.
 
-Any static asset (for example, CSS/JavaScript/HTML) files located in this directory
-are presented at `/`.
-
-`--template, -t `PATH``
-
-The AWS SAM template file.
-
-###### Note
-
+`--template, -t {{PATH}}`  <a name="ref-sam-cli-local-start-api-options-template"></a>
+The AWS SAM template file.  
 If you specify this option, AWS SAM loads only the template and the local resources that it points to.
 
-`--terraform-plan-file`
+`--terraform-plan-file`  <a name="ref-sam-cli-local-start-api-options-terraform-plan-file"></a>
+The relative or absolute path to your local Terraform plan file when using the AWS SAM CLI with Terraform Cloud. This option requires that `--hook-name` be set to `terraform`.
 
-The relative or absolute path to your local Terraform plan file when using the AWS SAM CLI
-with Terraform Cloud. This option requires that `--hook-name` be set to
-`terraform`.
-
-`--warm-containers `[EAGER | LAZY]``
-
-Optional. Specifies how AWS SAM CLI manages containers for each function.
-
-Two options are available:
-
-   `EAGER`: Containers for all functions are loaded at
-startup and persist between invocations.
-
-   `LAZY`: Containers are only loaded when each function
-is first invoked. Those containers persist for additional invocations.
+`--warm-containers {{[EAGER | LAZY]}}`  <a name="ref-sam-cli-local-start-api-options-warm-containers"></a>
+Optional. Specifies how AWS SAM CLI manages containers for each function.  
+Two options are available:  
+   `EAGER`: Containers for all functions are loaded at startup and persist between invocations.  
+   `LAZY`: Containers are only loaded when each function is first invoked. Those containers persist for additional invocations.
 
 ## Example
+<a name="sam-cli-command-reference-sam-local-start-api-examples"></a>
 
 The following example starts a local server, allowing you to test your application via API. For this command to work, the application must be installed and Docker must be running.
 
 ```
-`$` `sam local start-api --port 3000`
+$ sam local start-api --port 3000
 ```

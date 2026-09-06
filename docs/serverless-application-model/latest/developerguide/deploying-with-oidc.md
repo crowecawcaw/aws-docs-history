@@ -1,52 +1,46 @@
-# How to use OIDC authentication with AWS SAM pipelines
 
-AWS Serverless Application Model (AWS SAM) supports OpenID Connect (OIDC) user authentication for Bitbucket, GitHub
-Actions, and GitLab continuous integration and continuous delivery (CI/CD) platforms. With this
-support, you can use authorized CI/CD user accounts from any of these platforms to manage your
-serverless application pipelines. Otherwise, you would need to create and manage multiple
-AWS Identity and Access Management (IAM) users to control access to AWS SAM pipelines.
+
+# How to use OIDC authentication with AWS SAM pipelines
+<a name="deploying-with-oidc"></a>
+
+AWS Serverless Application Model (AWS SAM) supports OpenID Connect (OIDC) user authentication for Bitbucket, GitHub Actions, and GitLab continuous integration and continuous delivery (CI/CD) platforms. With this support, you can use authorized CI/CD user accounts from any of these platforms to manage your serverless application pipelines. Otherwise, you would need to create and manage multiple AWS Identity and Access Management (IAM) users to control access to AWS SAM pipelines.
 
 ## Set up OIDC with AWS SAM pipeline
+<a name="deploying-with-oidc-setup"></a>
 
-During the `sam pipeline bootstrap` configuration process, do the following to
-set up OIDC with your AWS SAM pipeline.
+During the `sam pipeline bootstrap` configuration process, do the following to set up OIDC with your AWS SAM pipeline.
 
 1. When prompted to choose an identity provider, select **OIDC**.
-2. Next, select a supported OIDC provider.
-3. Enter the OIDC provider URL, beginning with `https://`.
 
-###### Note
+1. Next, select a supported OIDC provider.
 
-AWS SAM references this URL when it generates the `AWS::IAM::OIDCProvider`
-resource type. 4. Next, follow the prompts and enter the CI/CD platform information needed to access the
-selected platform. These details vary by platform and can include:
+1. Enter the OIDC provider URL, beginning with **https://**.
+**Note**  
+AWS SAM references this URL when it generates the `AWS::IAM::OIDCProvider` resource type.
 
-    * OIDC client ID.
-    * Code repository name or universally unique identifier (UUID).
-    * Group or Organization name associated with the repository.
-    * GitHub organization that the code repository belongs to.
-    * GitHub repository name.
-    * Branch that deployments will occur from.
+1. Next, follow the prompts and enter the CI/CD platform information needed to access the selected platform. These details vary by platform and can include:
+   + OIDC client ID.
+   + Code repository name or universally unique identifier (UUID).
+   + Group or Organization name associated with the repository.
+   + GitHub organization that the code repository belongs to.
+   + GitHub repository name.
+   + Branch that deployments will occur from.
 
-5. AWS SAM displays a summary of the entered OIDC configuration. Enter the number for a
-setting to edit it, or press **Enter** to continue. 6. When prompted to confirm the creation of resources needed to support the entered OIDC
-connection, press **Y** to continue.
+1. AWS SAM displays a summary of the entered OIDC configuration. Enter the number for a setting to edit it, or press Enter to continue.
 
-AWS SAM generates an `AWS::IAM::OIDCProvider` AWS CloudFormation resource with the
-provided configuration that assumes the pipeline execution role. To learn more about this
-CloudFormation resource type, see [AWS::IAM::OIDCProvider](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.md") in the _AWS CloudFormation User Guide_.
+1. When prompted to confirm the creation of resources needed to support the entered OIDC connection, press Y to continue.
 
-###### Note
+AWS SAM generates an `AWS::IAM::OIDCProvider` AWS CloudFormation resource with the provided configuration that assumes the pipeline execution role. To learn more about this CloudFormation resource type, see [AWS::IAM::OIDCProvider](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html) in the *AWS CloudFormation User Guide*.
 
-If the identity provider (IdP) resource already exists in your AWS account, AWS SAM
-references it instead of creating a new resource.
+**Note**  
+If the identity provider (IdP) resource already exists in your AWS account, AWS SAM references it instead of creating a new resource.
 
 ## Example
+<a name="deploying-with-oidc-setup-example"></a>
 
 The following is an example of setting up OIDC with AWS SAM pipeline.
 
 ```
-
 Select a permissions provider:
     1 - IAM (default)
     2 - OpenID Connect (OIDC)
@@ -93,5 +87,6 @@ Should we proceed with the creation? [y/N]:
 ```
 
 ## Learn more
+<a name="deploying-with-oidc-setup-learn-more"></a>
 
-For more information on using OIDC with AWS SAM pipeline, see [sam pipeline bootstrap](sam-cli-command-reference-sam-pipeline-bootstrap.md "sam-cli-command-reference-sam-pipeline-bootstrap.md").
+For more information on using OIDC with AWS SAM pipeline, see [sam pipeline bootstrap](sam-cli-command-reference-sam-pipeline-bootstrap.md).

@@ -1,174 +1,105 @@
+
+
 # SQS
+<a name="sam-property-function-sqs"></a>
 
-The object describing an `SQS` event source type. For more information, see
-[Using AWS Lambda with Amazon SQS](../../../lambda/latest/dg/with-sqs.md "../../../lambda/latest/dg/with-sqs.md") in the _AWS Lambda Developer Guide_.
+The object describing an `SQS` event source type. For more information, see [Using AWS Lambda with Amazon SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html) in the *AWS Lambda Developer Guide*.
 
-SAM generates [AWS::Lambda::EventSourceMapping](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.md") resource when this event type is
-set
+SAM generates [AWS::Lambda::EventSourceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html) resource when this event type is set
 
 ## Syntax
+<a name="sam-property-function-sqs-syntax"></a>
 
-To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following
-syntax.
+To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-function-sqs-syntax.yaml"></a>
 
 ```
-  BatchSize: `Integer`
-  Enabled: `Boolean`
-  FilterCriteria: `FilterCriteria`
-  FunctionResponseTypes: `List`
-  KmsKeyArn: `String`
-  MaximumBatchingWindowInSeconds: `Integer`
-  MetricsConfig: `MetricsConfig`
-  ProvisionedPollerConfig: `ProvisionedPollerConfig`
-  Queue: `String`
-  ScalingConfig: `ScalingConfig`
-
+  [BatchSize](#sam-function-sqs-batchsize): {{Integer}}
+  [Enabled](#sam-function-sqs-enabled): {{Boolean}}
+  [FilterCriteria](#sam-function-sqs-filtercriteria): {{[FilterCriteria](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html)}}
+  [FunctionResponseTypes](#sam-function-sqs-functionresponsetypes): {{List}}
+  KmsKeyArn: {{String}}
+  [MaximumBatchingWindowInSeconds](#sam-function-sqs-maximumbatchingwindowinseconds): {{Integer}}
+  [MetricsConfig](#sam-function-sqs-metricsconfig): {{[MetricsConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig)}}
+  [ProvisionedPollerConfig](#sam-function-sqs-provisionedpollerconfig): {{[ProvisionedPollerConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig)}}
+  [Queue](#sam-function-sqs-queue): {{String}}
+  ScalingConfig: {{[ScalingConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-scalingconfig.html)}}
 ```
 
 ## Properties
+<a name="sam-property-function-sqs-properties"></a>
 
-`BatchSize`
+ `BatchSize`   <a name="sam-function-sqs-batchsize"></a>
+The maximum number of items to retrieve in a single batch.  
+*Type*: Integer  
+*Required*: No  
+*Default*: 10  
+*CloudFormation compatibility*: This property is passed directly to the `[BatchSize](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize)` property of an `AWS::Lambda::EventSourceMapping` resource.  
+*Minimum*: `1`  
+*Maximum*: `10000`
 
-The maximum number of items to retrieve in a single batch.
+ `Enabled`   <a name="sam-function-sqs-enabled"></a>
+Disables the event source mapping to pause polling and invocation.  
+*Type*: Boolean  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[Enabled](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
-_Type_: Integer
+ `FilterCriteria`   <a name="sam-function-sqs-filtercriteria"></a>
+A object that defines the criteria to determine whether Lambda should process an event. For more information, see [AWS Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) in the *AWS Lambda Developer Guide*.  
+*Type*: [FilterCriteria](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[FilterCriteria](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
-_Required_: No
+ `FunctionResponseTypes`   <a name="sam-function-sqs-functionresponsetypes"></a>
+ A list of the response types currently applied to the event source mapping. For more information, see [ Reporting batch item failures](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-batchfailurereporting) in the *AWS Lambda Developer Guide*.   
+ *Valid values*: `ReportBatchItemFailures`   
+ *Type*: List   
+ *Required*: No   
+ *CloudFormation compatibility*: This property is passed directly to the `[FunctionResponseTypes](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes)` property of an `AWS::Lambda::EventSourceMapping` resource. 
 
-_Default_: 10
+ `KmsKeyArn`   <a name="sam-function-sqs-kmskeyarn"></a>
+The Amazon Resource Name (ARN) of the key to encrypt information related to this event.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[KmsKeyArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-kmskeyarn)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
-_CloudFormation compatibility_: This property is passed directly to the
-`BatchSize` property of an
-`AWS::Lambda::EventSourceMapping` resource.
+ `MaximumBatchingWindowInSeconds`   <a name="sam-function-sqs-maximumbatchingwindowinseconds"></a>
+The maximum amount of time, in seconds, to gather records before invoking the function.  
+*Type*: Integer  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[MaximumBatchingWindowInSeconds](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
-_Minimum_: `1`
+ `MetricsConfig`   <a name="sam-function-sqs-metricsconfig"></a>
+An opt-in configuration to get enhanced metrics for event source mappings that capture each stage of processing. For an example, see [MetricsConfig event](sam-property-function-dynamodb.md#sam-property-function-dynamodb-example-metricsconfigevent).  
+*Type*: [MetricsConfig](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[MetricsConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
-_Maximum_: `10000`
+ `ProvisionedPollerConfig`   <a name="sam-function-sqs-provisionedpollerconfig"></a>
+Configuration to increase the amount of pollers used to compute event source mappings. This configuration allows for a minimum of 2 pollers and a maximum of 2000 pollers. For an example, refer to [ProvisionedPollerConfig example](#sam-property-function-sqs-example-provisionedpollerconfig).  
+*Type*: [ProvisionedPollerConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[ProvisionedPollerConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
-`Enabled`
+ `Queue`   <a name="sam-function-sqs-queue"></a>
+The ARN of the queue.  
+*Type*: String  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is passed directly to the `[EventSourceArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
-Disables the event source mapping to pause polling and invocation.
-
-_Type_: Boolean
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`Enabled` property of an `AWS::Lambda::EventSourceMapping`
-resource.
-
-`FilterCriteria`
-
-A object that defines the criteria to determine whether Lambda should process an
-event. For more information, see [AWS Lambda event filtering](../../../lambda/latest/dg/invocation-eventfiltering.md "../../../lambda/latest/dg/invocation-eventfiltering.md") in
-the _AWS Lambda Developer Guide_.
-
-_Type_: [FilterCriteria](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`FilterCriteria` property of an
-`AWS::Lambda::EventSourceMapping` resource.
-
-`FunctionResponseTypes`
-
-A list of the response types currently applied to the event source mapping. For
-more information, see [Reporting
-batch item failures](../../../lambda/latest/dg/with-sqs.md#services-sqs-batchfailurereporting "../../../lambda/latest/dg/with-sqs.md#services-sqs-batchfailurereporting") in the _AWS Lambda Developer Guide_.
-
-_Valid values_: `ReportBatchItemFailures`
-
-_Type_: List
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`FunctionResponseTypes` property of an
-`AWS::Lambda::EventSourceMapping` resource.
-
-`KmsKeyArn`
-
-The Amazon Resource Name (ARN) of the key to encrypt information related to this event.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`KmsKeyArn`
-property of an `AWS::Lambda::EventSourceMapping` resource.
-
-`MaximumBatchingWindowInSeconds`
-
-The maximum amount of time, in seconds, to gather records before invoking the
-function.
-
-_Type_: Integer
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`MaximumBatchingWindowInSeconds` property of an
-`AWS::Lambda::EventSourceMapping` resource.
-
-`MetricsConfig`
-
-An opt-in configuration to get enhanced metrics for event source mappings that capture each stage of processing. For an example,
-see [MetricsConfig event](sam-property-function-dynamodb.md#sam-property-function-dynamodb-example-metricsconfigevent "sam-property-function-dynamodb.md#sam-property-function-dynamodb-example-metricsconfigevent").
-
-_Type_: [MetricsConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`MetricsConfig` property of an
-`AWS::Lambda::EventSourceMapping` resource.
-
-`ProvisionedPollerConfig`
-
-Configuration to increase the amount of pollers used to compute event source mappings.
-This configuration allows for a minimum of 2 pollers and a maximum of 2000 pollers. For an example,
-refer to [ProvisionedPollerConfig example](#sam-property-function-sqs-example-provisionedpollerconfig "#sam-property-function-sqs-example-provisionedpollerconfig").
-
-_Type_: [ProvisionedPollerConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`ProvisionedPollerConfig` property of an
-`AWS::Lambda::EventSourceMapping` resource.
-
-`Queue`
-
-The ARN of the queue.
-
-_Type_: String
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is passed directly to the
-`EventSourceArn` property of an
-`AWS::Lambda::EventSourceMapping` resource.
-
-`ScalingConfig`
-
-Scaling configuration of SQS pollers to control the invoke rate and set maximum
-concurrent invokes.
-
-_Type_: `ScalingConfig`
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`ScalingConfig` property of an
-`AWS::Lambda::EventSourceMapping` resource.
+ `ScalingConfig`   <a name="sam-function-sqs-scalingconfig"></a>
+Scaling configuration of SQS pollers to control the invoke rate and set maximum concurrent invokes.  
+*Type*: `[ScalingConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-scalingconfig.html)`  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[ ScalingConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-scalingconfig.html)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 ## Examples
+<a name="sam-property-function-sqs--examples"></a>
 
 ### MetricsConfig event
+<a name="sam-property-function-sqs-example-metricsconfigevent"></a>
 
 The following is an example of a resource that uses the `MetricsConfig` property to capture each stage of processing for their event source mappings.
 
@@ -192,6 +123,7 @@ Resources:
 ```
 
 ### Basic SQS event
+<a name="sam-property-function-sqs--examples--sqs-event"></a>
 
 ```
 Events:
@@ -204,10 +136,10 @@ Events:
       FilterCriteria:
         Filters:
           - Pattern: '{"key": ["val1", "val2"]}'
-
 ```
 
 ### Configure partial batch reporting for your SQS queue
+<a name="sam-property-function-sqs--examples--sqs-partial-batch"></a>
 
 ```
 Events:
@@ -222,6 +154,7 @@ Events:
 ```
 
 ### Lambda function with an SQS event that has scaling configured
+<a name="sam-property-function-sqs--examples--sqs-event-scaling"></a>
 
 ```
 MyFunction:
@@ -238,6 +171,7 @@ MyFunction:
 ```
 
 ### ProvisionedPollerConfig example
+<a name="sam-property-function-sqs-example-provisionedpollerconfig"></a>
 
 ```
 MyFunction:

@@ -1,91 +1,92 @@
+
+
 # AWS SAM policy template list
+<a name="serverless-policy-template-list"></a>
 
-The following are the available policy templates, along with the permissions that are
-applied to each one. AWS Serverless Application Model (AWS SAM) automatically populates the placeholder items (such as
-AWS Region and account ID) with the appropriate information.
+The following are the available policy templates, along with the permissions that are applied to each one. AWS Serverless Application Model (AWS SAM) automatically populates the placeholder items (such as AWS Region and account ID) with the appropriate information.
 
-###### Topics
-
-- [AcmGetCertificatePolicy](#acm-get-certificate-policy "#acm-get-certificate-policy")
-- [AMIDescribePolicy](#ami-describe-policy "#ami-describe-policy")
-- [AthenaQueryPolicy](#athena-query-policy "#athena-query-policy")
-- [AWSSecretsManagerGetSecretValuePolicy](#secrets-manager-get-secret-value-policy "#secrets-manager-get-secret-value-policy")
-- [AWSSecretsManagerRotationPolicy](#secrets-manager-rotation-policy "#secrets-manager-rotation-policy")
-- [CloudFormationDescribeStacksPolicy](#cloud-formation-describe-stacks-policy "#cloud-formation-describe-stacks-policy")
-- [CloudWatchDashboardPolicy](#cloudwatch-dashboard-policy "#cloudwatch-dashboard-policy")
-- [CloudWatchDescribeAlarmHistoryPolicy](#cloudwatch-describe-alarm-history-policy "#cloudwatch-describe-alarm-history-policy")
-- [CloudWatchPutMetricPolicy](#cloudwatch-put-metric-policy "#cloudwatch-put-metric-policy")
-- [CodePipelineLambdaExecutionPolicy](#code-pipeline-lambda-execution-policy "#code-pipeline-lambda-execution-policy")
-- [CodePipelineReadOnlyPolicy](#code-pipeline-readonly-policy "#code-pipeline-readonly-policy")
-- [CodeCommitCrudPolicy](#codecommit-crud-policy "#codecommit-crud-policy")
-- [CodeCommitReadPolicy](#codecommit-read-policy "#codecommit-read-policy")
-- [ComprehendBasicAccessPolicy](#comprehend-basic-access-policy "#comprehend-basic-access-policy")
-- [CostExplorerReadOnlyPolicy](#cost-explorer-readonly-policy "#cost-explorer-readonly-policy")
-- [DynamoDBBackupFullAccessPolicy](#ddb-back-full-policy "#ddb-back-full-policy")
-- [DynamoDBCrudPolicy](#dynamo-db-crud-policy "#dynamo-db-crud-policy")
-- [DynamoDBReadPolicy](#dynamo-db-read-policy "#dynamo-db-read-policy")
-- [DynamoDBReconfigurePolicy](#dynamo-db-reconfigure-policy "#dynamo-db-reconfigure-policy")
-- [DynamoDBRestoreFromBackupPolicy](#ddb-restore-from-backup-policy "#ddb-restore-from-backup-policy")
-- [DynamoDBStreamReadPolicy](#dynamo-db-stream-read-policy "#dynamo-db-stream-read-policy")
-- [DynamoDBWritePolicy](#dynamo-db-write-policy "#dynamo-db-write-policy")
-- [EC2CopyImagePolicy](#ec2-copy-image-policy "#ec2-copy-image-policy")
-- [EC2DescribePolicy](#ec2-describe-policy "#ec2-describe-policy")
-- [EcsRunTaskPolicy](#ecs-run-task-policy "#ecs-run-task-policy")
-- [EFSWriteAccessPolicy](#efs-write-access-policy "#efs-write-access-policy")
-- [EKSDescribePolicy](#eks-describe-policy "#eks-describe-policy")
-- [ElasticMapReduceAddJobFlowStepsPolicy](#elastic-map-reduce-add-job-flows-policy "#elastic-map-reduce-add-job-flows-policy")
-- [ElasticMapReduceCancelStepsPolicy](#elastic-map-reduce-cancel-steps-policy "#elastic-map-reduce-cancel-steps-policy")
-- [ElasticMapReduceModifyInstanceFleetPolicy](#elastic-map-reduce-modify-instance-fleet-policy "#elastic-map-reduce-modify-instance-fleet-policy")
-- [ElasticMapReduceModifyInstanceGroupsPolicy](#elastic-map-reduce-modify-instance-groups-policy "#elastic-map-reduce-modify-instance-groups-policy")
-- [ElasticMapReduceSetTerminationProtectionPolicy](#elastic-map-reduce-set-termination-protection-policy "#elastic-map-reduce-set-termination-protection-policy")
-- [ElasticMapReduceTerminateJobFlowsPolicy](#elastic-map-reduce-terminate-job-flows-policy "#elastic-map-reduce-terminate-job-flows-policy")
-- [ElasticsearchHttpPostPolicy](#elastic-search-http-post-policy "#elastic-search-http-post-policy")
-- [EventBridgePutEventsPolicy](#eventbridge-put-events-policy "#eventbridge-put-events-policy")
-- [FilterLogEventsPolicy](#filter-log-events-policy "#filter-log-events-policy")
-- [FirehoseCrudPolicy](#firehose-crud-policy "#firehose-crud-policy")
-- [FirehoseWritePolicy](#firehose-write-policy "#firehose-write-policy")
-- [KinesisCrudPolicy](#kinesis-crud-policy "#kinesis-crud-policy")
-- [KinesisStreamReadPolicy](#kinesis-stream-read-policy "#kinesis-stream-read-policy")
-- [KMSDecryptPolicy](#kms-decrypt-policy "#kms-decrypt-policy")
-- [KMSEncryptPolicy](#kms-encrypt-policy "#kms-encrypt-policy")
-- [LambdaInvokePolicy](#lambda-invoke-policy "#lambda-invoke-policy")
-- [MobileAnalyticsWriteOnlyAccessPolicy](#mobile-analytics-write-only-access-policy "#mobile-analytics-write-only-access-policy")
-- [OrganizationsListAccountsPolicy](#organizations-list-accounts-policy "#organizations-list-accounts-policy")
-- [PinpointEndpointAccessPolicy](#pinpoint-endpoint-access-policy "#pinpoint-endpoint-access-policy")
-- [PollyFullAccessPolicy](#polly-full-access-policy "#polly-full-access-policy")
-- [RekognitionDetectOnlyPolicy](#rekognition-detect-only-policy "#rekognition-detect-only-policy")
-- [RekognitionFacesManagementPolicy](#rekognition-face-management-policy "#rekognition-face-management-policy")
-- [RekognitionFacesPolicy](#rekognition-faces-policy "#rekognition-faces-policy")
-- [RekognitionLabelsPolicy](#rekognition-labels-policy "#rekognition-labels-policy")
-- [RekognitionNoDataAccessPolicy](#rekognition-no-data-access-policy "#rekognition-no-data-access-policy")
-- [RekognitionReadPolicy](#rekognition-read-policy "#rekognition-read-policy")
-- [RekognitionWriteOnlyAccessPolicy](#rekognition-write-only-access-policy "#rekognition-write-only-access-policy")
-- [Route53ChangeResourceRecordSetsPolicy](#route53-change-resource-record-sets-policy "#route53-change-resource-record-sets-policy")
-- [S3CrudPolicy](#s3-crud-policy "#s3-crud-policy")
-- [S3FullAccessPolicy](#s3-full-access-policy "#s3-full-access-policy")
-- [S3ReadPolicy](#s3-read-policy "#s3-read-policy")
-- [S3WritePolicy](#s3-write-policy "#s3-write-policy")
-- [SageMakerCreateEndpointConfigPolicy](#sagemaker-create-endpoint-config-policy "#sagemaker-create-endpoint-config-policy")
-- [SageMakerCreateEndpointPolicy](#sagemaker-create-endpoint-policy "#sagemaker-create-endpoint-policy")
-- [ServerlessRepoReadWriteAccessPolicy](#serverlessrepo-read-write-access-policy "#serverlessrepo-read-write-access-policy")
-- [SESBulkTemplatedCrudPolicy](#ses-bulk-templated-crud-policy "#ses-bulk-templated-crud-policy")
-- [SESBulkTemplatedCrudPolicy\_v2](#ses-bulk-templated-crud-policy-v2 "#ses-bulk-templated-crud-policy-v2")
-- [SESCrudPolicy](#ses-crud-policy "#ses-crud-policy")
-- [SESEmailTemplateCrudPolicy](#ses-email-template-crud-policy "#ses-email-template-crud-policy")
-- [SESSendBouncePolicy](#ses-send-bounce-policy "#ses-send-bounce-policy")
-- [SNSCrudPolicy](#sns-crud-policy "#sns-crud-policy")
-- [SNSPublishMessagePolicy](#sqs-publish-message-policy "#sqs-publish-message-policy")
-- [SQSPollerPolicy](#sqs-poller-policy "#sqs-poller-policy")
-- [SQSSendMessagePolicy](#sqs-send-message-policy "#sqs-send-message-policy")
-- [SSMParameterReadPolicy](#ssm-parameter-read-policy "#ssm-parameter-read-policy")
-- [SSMParameterWithSlashPrefixReadPolicy](#ssm-parameter-slash-read-policy "#ssm-parameter-slash-read-policy")
-- [StepFunctionsExecutionPolicy](#stepfunctions-execution-policy "#stepfunctions-execution-policy")
-- [TextractDetectAnalyzePolicy](#textract-detect-analyze-policy "#textract-detect-analyze-policy")
-- [TextractGetResultPolicy](#textract-get-result-policy "#textract-get-result-policy")
-- [TextractPolicy](#textract-policy "#textract-policy")
-- [VPCAccessPolicy](#vpc-access-policy "#vpc-access-policy")
+**Topics**
++ [AcmGetCertificatePolicy](#acm-get-certificate-policy)
++ [AMIDescribePolicy](#ami-describe-policy)
++ [AthenaQueryPolicy](#athena-query-policy)
++ [AWSSecretsManagerGetSecretValuePolicy](#secrets-manager-get-secret-value-policy)
++ [AWSSecretsManagerRotationPolicy](#secrets-manager-rotation-policy)
++ [CloudFormationDescribeStacksPolicy](#cloud-formation-describe-stacks-policy)
++ [CloudWatchDashboardPolicy](#cloudwatch-dashboard-policy)
++ [CloudWatchDescribeAlarmHistoryPolicy](#cloudwatch-describe-alarm-history-policy)
++ [CloudWatchPutMetricPolicy](#cloudwatch-put-metric-policy)
++ [CodePipelineLambdaExecutionPolicy](#code-pipeline-lambda-execution-policy)
++ [CodePipelineReadOnlyPolicy](#code-pipeline-readonly-policy)
++ [CodeCommitCrudPolicy](#codecommit-crud-policy)
++ [CodeCommitReadPolicy](#codecommit-read-policy)
++ [ComprehendBasicAccessPolicy](#comprehend-basic-access-policy)
++ [CostExplorerReadOnlyPolicy](#cost-explorer-readonly-policy)
++ [DynamoDBBackupFullAccessPolicy](#ddb-back-full-policy)
++ [DynamoDBCrudPolicy](#dynamo-db-crud-policy)
++ [DynamoDBReadPolicy](#dynamo-db-read-policy)
++ [DynamoDBReconfigurePolicy](#dynamo-db-reconfigure-policy)
++ [DynamoDBRestoreFromBackupPolicy](#ddb-restore-from-backup-policy)
++ [DynamoDBStreamReadPolicy](#dynamo-db-stream-read-policy)
++ [DynamoDBWritePolicy](#dynamo-db-write-policy)
++ [EC2CopyImagePolicy](#ec2-copy-image-policy)
++ [EC2DescribePolicy](#ec2-describe-policy)
++ [EcsRunTaskPolicy](#ecs-run-task-policy)
++ [EFSWriteAccessPolicy](#efs-write-access-policy)
++ [EKSDescribePolicy](#eks-describe-policy)
++ [ElasticMapReduceAddJobFlowStepsPolicy](#elastic-map-reduce-add-job-flows-policy)
++ [ElasticMapReduceCancelStepsPolicy](#elastic-map-reduce-cancel-steps-policy)
++ [ElasticMapReduceModifyInstanceFleetPolicy](#elastic-map-reduce-modify-instance-fleet-policy)
++ [ElasticMapReduceModifyInstanceGroupsPolicy](#elastic-map-reduce-modify-instance-groups-policy)
++ [ElasticMapReduceSetTerminationProtectionPolicy](#elastic-map-reduce-set-termination-protection-policy)
++ [ElasticMapReduceTerminateJobFlowsPolicy](#elastic-map-reduce-terminate-job-flows-policy)
++ [ElasticsearchHttpPostPolicy](#elastic-search-http-post-policy)
++ [EventBridgePutEventsPolicy](#eventbridge-put-events-policy)
++ [FilterLogEventsPolicy](#filter-log-events-policy)
++ [FirehoseCrudPolicy](#firehose-crud-policy)
++ [FirehoseWritePolicy](#firehose-write-policy)
++ [KinesisCrudPolicy](#kinesis-crud-policy)
++ [KinesisStreamReadPolicy](#kinesis-stream-read-policy)
++ [KMSDecryptPolicy](#kms-decrypt-policy)
++ [KMSEncryptPolicy](#kms-encrypt-policy)
++ [LambdaInvokePolicy](#lambda-invoke-policy)
++ [MobileAnalyticsWriteOnlyAccessPolicy](#mobile-analytics-write-only-access-policy)
++ [OrganizationsListAccountsPolicy](#organizations-list-accounts-policy)
++ [PinpointEndpointAccessPolicy](#pinpoint-endpoint-access-policy)
++ [PollyFullAccessPolicy](#polly-full-access-policy)
++ [RekognitionDetectOnlyPolicy](#rekognition-detect-only-policy)
++ [RekognitionFacesManagementPolicy](#rekognition-face-management-policy)
++ [RekognitionFacesPolicy](#rekognition-faces-policy)
++ [RekognitionLabelsPolicy](#rekognition-labels-policy)
++ [RekognitionNoDataAccessPolicy](#rekognition-no-data-access-policy)
++ [RekognitionReadPolicy](#rekognition-read-policy)
++ [RekognitionWriteOnlyAccessPolicy](#rekognition-write-only-access-policy)
++ [Route53ChangeResourceRecordSetsPolicy](#route53-change-resource-record-sets-policy)
++ [S3CrudPolicy](#s3-crud-policy)
++ [S3FullAccessPolicy](#s3-full-access-policy)
++ [S3ReadPolicy](#s3-read-policy)
++ [S3WritePolicy](#s3-write-policy)
++ [SageMakerCreateEndpointConfigPolicy](#sagemaker-create-endpoint-config-policy)
++ [SageMakerCreateEndpointPolicy](#sagemaker-create-endpoint-policy)
++ [ServerlessRepoReadWriteAccessPolicy](#serverlessrepo-read-write-access-policy)
++ [SESBulkTemplatedCrudPolicy](#ses-bulk-templated-crud-policy)
++ [SESBulkTemplatedCrudPolicy\_v2](#ses-bulk-templated-crud-policy-v2)
++ [SESCrudPolicy](#ses-crud-policy)
++ [SESEmailTemplateCrudPolicy](#ses-email-template-crud-policy)
++ [SESSendBouncePolicy](#ses-send-bounce-policy)
++ [SNSCrudPolicy](#sns-crud-policy)
++ [SNSPublishMessagePolicy](#sqs-publish-message-policy)
++ [SQSPollerPolicy](#sqs-poller-policy)
++ [SQSSendMessagePolicy](#sqs-send-message-policy)
++ [SSMParameterReadPolicy](#ssm-parameter-read-policy)
++ [SSMParameterWithSlashPrefixReadPolicy](#ssm-parameter-slash-read-policy)
++ [StepFunctionsExecutionPolicy](#stepfunctions-execution-policy)
++ [TextractDetectAnalyzePolicy](#textract-detect-analyze-policy)
++ [TextractGetResultPolicy](#textract-get-result-policy)
++ [TextractPolicy](#textract-policy)
++ [VPCAccessPolicy](#vpc-access-policy)
 
 ## AcmGetCertificatePolicy
+<a name="acm-get-certificate-policy"></a>
 
 Gives a permission to read a certificate from AWS Certificate Manager.
 
@@ -111,6 +112,7 @@ Gives a permission to read a certificate from AWS Certificate Manager.
 ```
 
 ## AMIDescribePolicy
+<a name="ami-describe-policy"></a>
 
 Gives permission to describe Amazon Machine Images (AMIs).
 
@@ -127,6 +129,7 @@ Gives permission to describe Amazon Machine Images (AMIs).
 ```
 
 ## AthenaQueryPolicy
+<a name="athena-query-policy"></a>
 
 Gives permissions to execute Athena queries.
 
@@ -178,6 +181,7 @@ Gives permissions to execute Athena queries.
 ```
 
 ## AWSSecretsManagerGetSecretValuePolicy
+<a name="secrets-manager-get-secret-value-policy"></a>
 
 Gives permission to get the secret value for the specified AWS Secrets Manager secret.
 
@@ -203,6 +207,7 @@ Gives permission to get the secret value for the specified AWS Secrets Manager s
 ```
 
 ## AWSSecretsManagerRotationPolicy
+<a name="secrets-manager-rotation-policy"></a>
 
 Gives permission to rotate a secret in AWS Secrets Manager.
 
@@ -245,6 +250,7 @@ Gives permission to rotate a secret in AWS Secrets Manager.
 ```
 
 ## CloudFormationDescribeStacksPolicy
+<a name="cloud-formation-describe-stacks-policy"></a>
 
 Gives permission to describe CloudFormation stacks.
 
@@ -263,6 +269,7 @@ Gives permission to describe CloudFormation stacks.
 ```
 
 ## CloudWatchDashboardPolicy
+<a name="cloudwatch-dashboard-policy"></a>
 
 Gives permissions to put metrics to operate on CloudWatch dashboards.
 
@@ -282,6 +289,7 @@ Gives permissions to put metrics to operate on CloudWatch dashboards.
 ```
 
 ## CloudWatchDescribeAlarmHistoryPolicy
+<a name="cloudwatch-describe-alarm-history-policy"></a>
 
 Gives permission to describe Amazon CloudWatch alarm history.
 
@@ -298,6 +306,7 @@ Gives permission to describe Amazon CloudWatch alarm history.
 ```
 
 ## CloudWatchPutMetricPolicy
+<a name="cloudwatch-put-metric-policy"></a>
 
 Gives permission to send metrics to CloudWatch.
 
@@ -314,9 +323,9 @@ Gives permission to send metrics to CloudWatch.
 ```
 
 ## CodePipelineLambdaExecutionPolicy
+<a name="code-pipeline-lambda-execution-policy"></a>
 
-Gives permission for a Lambda function invoked by AWS CodePipeline to report the status of the
-job.
+Gives permission for a Lambda function invoked by AWS CodePipeline to report the status of the job.
 
 ```
 "Statement": [
@@ -332,6 +341,7 @@ job.
 ```
 
 ## CodePipelineReadOnlyPolicy
+<a name="code-pipeline-readonly-policy"></a>
 
 Gives read permission to get details about a CodePipeline pipeline.
 
@@ -357,9 +367,9 @@ Gives read permission to get details about a CodePipeline pipeline.
 ```
 
 ## CodeCommitCrudPolicy
+<a name="codecommit-crud-policy"></a>
 
-Gives permissions to create, read, update, and delete objects within a specific CodeCommit
-repository.
+Gives permissions to create, read, update, and delete objects within a specific CodeCommit repository.
 
 ```
 "Statement": [
@@ -444,6 +454,7 @@ repository.
 ```
 
 ## CodeCommitReadPolicy
+<a name="codecommit-read-policy"></a>
 
 Gives permissions to read objects within a specific CodeCommit repository.
 
@@ -501,6 +512,7 @@ Gives permissions to read objects within a specific CodeCommit repository.
 ```
 
 ## ComprehendBasicAccessPolicy
+<a name="comprehend-basic-access-policy"></a>
 
 Gives permission for detecting entities, key phrases, languages, and sentiments.
 
@@ -524,9 +536,9 @@ Gives permission for detecting entities, key phrases, languages, and sentiments.
 ```
 
 ## CostExplorerReadOnlyPolicy
+<a name="cost-explorer-readonly-policy"></a>
 
-Gives read-only permission to the read-only AWS Cost Explorer (Cost Explorer) APIs for billing
-history.
+Gives read-only permission to the read-only AWS Cost Explorer (Cost Explorer) APIs for billing history.
 
 ```
 "Statement": [
@@ -546,6 +558,7 @@ history.
 ```
 
 ## DynamoDBBackupFullAccessPolicy
+<a name="ddb-back-full-policy"></a>
 
 Gives read and write permission to DynamoDB on-demand backups for a table.
 
@@ -590,6 +603,7 @@ Gives read and write permission to DynamoDB on-demand backups for a table.
 ```
 
 ## DynamoDBCrudPolicy
+<a name="dynamo-db-crud-policy"></a>
 
 Gives create, read, update, and delete permissions to an Amazon DynamoDB table.
 
@@ -636,6 +650,7 @@ Gives create, read, update, and delete permissions to an Amazon DynamoDB table.
 ```
 
 ## DynamoDBReadPolicy
+<a name="dynamo-db-read-policy"></a>
 
 Gives read-only permission to a DynamoDB table.
 
@@ -677,6 +692,7 @@ Gives read-only permission to a DynamoDB table.
 ```
 
 ## DynamoDBReconfigurePolicy
+<a name="dynamo-db-reconfigure-policy"></a>
 
 Gives permission to reconfigure a DynamoDB table.
 
@@ -702,6 +718,7 @@ Gives permission to reconfigure a DynamoDB table.
 ```
 
 ## DynamoDBRestoreFromBackupPolicy
+<a name="ddb-restore-from-backup-policy"></a>
 
 Gives permission to restore a DynamoDB table from backup.
 
@@ -749,6 +766,7 @@ Gives permission to restore a DynamoDB table from backup.
 ```
 
 ## DynamoDBStreamReadPolicy
+<a name="dynamo-db-stream-read-policy"></a>
 
 Gives permission to describe and read DynamoDB streams and records.
 
@@ -790,11 +808,12 @@ Gives permission to describe and read DynamoDB streams and records.
         }
       ]
     }
-  }
+  }          
 ]
 ```
 
 ## DynamoDBWritePolicy
+<a name="dynamo-db-write-policy"></a>
 
 Gives write-only permission to a DynamoDB table.
 
@@ -834,6 +853,7 @@ Gives write-only permission to a DynamoDB table.
 ```
 
 ## EC2CopyImagePolicy
+<a name="ec2-copy-image-policy"></a>
 
 Gives permission to copy Amazon EC2 images.
 
@@ -859,6 +879,7 @@ Gives permission to copy Amazon EC2 images.
 ```
 
 ## EC2DescribePolicy
+<a name="ec2-describe-policy"></a>
 
 Gives permission to describe Amazon Elastic Compute Cloud (Amazon EC2) instances.
 
@@ -876,6 +897,7 @@ Gives permission to describe Amazon Elastic Compute Cloud (Amazon EC2) instances
 ```
 
 ## EcsRunTaskPolicy
+<a name="ecs-run-task-policy"></a>
 
 Gives permission to start a new task for a task definition.
 
@@ -901,6 +923,7 @@ Gives permission to start a new task for a task definition.
 ```
 
 ## EFSWriteAccessPolicy
+<a name="efs-write-access-policy"></a>
 
 Gives permission to mount an Amazon EFS file system with write access.
 
@@ -941,6 +964,7 @@ Gives permission to mount an Amazon EFS file system with write access.
 ```
 
 ## EKSDescribePolicy
+<a name="eks-describe-policy"></a>
 
 Gives permission to describe or list Amazon Elastic Kubernetes Service (Amazon EKS) clusters.
 
@@ -958,6 +982,7 @@ Gives permission to describe or list Amazon Elastic Kubernetes Service (Amazon E
 ```
 
 ## ElasticMapReduceAddJobFlowStepsPolicy
+<a name="elastic-map-reduce-add-job-flows-policy"></a>
 
 Gives permission to add new steps to a running cluster.
 
@@ -981,6 +1006,7 @@ Gives permission to add new steps to a running cluster.
 ```
 
 ## ElasticMapReduceCancelStepsPolicy
+<a name="elastic-map-reduce-cancel-steps-policy"></a>
 
 Gives permission to cancel a pending step or steps in a running cluster.
 
@@ -1004,9 +1030,9 @@ Gives permission to cancel a pending step or steps in a running cluster.
 ```
 
 ## ElasticMapReduceModifyInstanceFleetPolicy
+<a name="elastic-map-reduce-modify-instance-fleet-policy"></a>
 
-Gives permission to list details and modify capacities for instance fleets within a
-cluster.
+Gives permission to list details and modify capacities for instance fleets within a cluster.
 
 ```
 "Statement": [
@@ -1031,9 +1057,9 @@ cluster.
 ```
 
 ## ElasticMapReduceModifyInstanceGroupsPolicy
+<a name="elastic-map-reduce-modify-instance-groups-policy"></a>
 
-Gives permission to list details and modify settings for instance groups within a
-cluster.
+Gives permission to list details and modify settings for instance groups within a cluster.
 
 ```
 "Statement": [
@@ -1058,6 +1084,7 @@ cluster.
 ```
 
 ## ElasticMapReduceSetTerminationProtectionPolicy
+<a name="elastic-map-reduce-set-termination-protection-policy"></a>
 
 Gives permission to set termination protection for a cluster.
 
@@ -1081,6 +1108,7 @@ Gives permission to set termination protection for a cluster.
 ```
 
 ## ElasticMapReduceTerminateJobFlowsPolicy
+<a name="elastic-map-reduce-terminate-job-flows-policy"></a>
 
 Gives permission to shut down a cluster.
 
@@ -1104,6 +1132,7 @@ Gives permission to shut down a cluster.
 ```
 
 ## ElasticsearchHttpPostPolicy
+<a name="elastic-search-http-post-policy"></a>
 
 Gives POST and PUT permission to Amazon OpenSearch Service.
 
@@ -1130,6 +1159,7 @@ Gives POST and PUT permission to Amazon OpenSearch Service.
 ```
 
 ## EventBridgePutEventsPolicy
+<a name="eventbridge-put-events-policy"></a>
 
 Gives permissions to send events to Amazon EventBridge.
 
@@ -1153,6 +1183,7 @@ Gives permissions to send events to Amazon EventBridge.
 ```
 
 ## FilterLogEventsPolicy
+<a name="filter-log-events-policy"></a>
 
 Gives permission to filter CloudWatch Logs events from a specified log group.
 
@@ -1178,6 +1209,7 @@ Gives permission to filter CloudWatch Logs events from a specified log group.
 ```
 
 ## FirehoseCrudPolicy
+<a name="firehose-crud-policy"></a>
 
 Gives permission to create, write, update, and delete a Firehose delivery stream.
 
@@ -1208,6 +1240,7 @@ Gives permission to create, write, update, and delete a Firehose delivery stream
 ```
 
 ## FirehoseWritePolicy
+<a name="firehose-write-policy"></a>
 
 Gives permission to write to a Firehose delivery stream.
 
@@ -1234,6 +1267,7 @@ Gives permission to write to a Firehose delivery stream.
 ```
 
 ## KinesisCrudPolicy
+<a name="kinesis-crud-policy"></a>
 
 Gives permission to create, publish, and delete an Amazon Kinesis stream.
 
@@ -1272,6 +1306,7 @@ Gives permission to create, publish, and delete an Amazon Kinesis stream.
 ```
 
 ## KinesisStreamReadPolicy
+<a name="kinesis-stream-read-policy"></a>
 
 Gives permission to list and read an Amazon Kinesis stream.
 
@@ -1310,9 +1345,9 @@ Gives permission to list and read an Amazon Kinesis stream.
 ```
 
 ## KMSDecryptPolicy
+<a name="kms-decrypt-policy"></a>
 
-Gives permission to decrypt with an AWS Key Management Service (AWS KMS) key. Note that `keyId`
-must be an AWS KMS key ID, and not a key alias.
+Gives permission to decrypt with an AWS Key Management Service (AWS KMS) key. Note that `keyId` must be an AWS KMS key ID, and not a key alias.
 
 ```
 "Statement": [
@@ -1334,9 +1369,9 @@ must be an AWS KMS key ID, and not a key alias.
 ```
 
 ## KMSEncryptPolicy
+<a name="kms-encrypt-policy"></a>
 
-Gives permission to encrypt with an AWS KMS key. Note that keyId must be an AWS KMS key ID,
-and not a key alias.
+Gives permission to encrypt with an AWS KMS key. Note that keyId must be an AWS KMS key ID, and not a key alias.
 
 ```
 "Statement": [
@@ -1358,6 +1393,7 @@ and not a key alias.
 ```
 
 ## LambdaInvokePolicy
+<a name="lambda-invoke-policy"></a>
 
 Gives permission to invoke an AWS Lambda function, alias, or version.
 
@@ -1383,6 +1419,7 @@ Gives permission to invoke an AWS Lambda function, alias, or version.
 ```
 
 ## MobileAnalyticsWriteOnlyAccessPolicy
+<a name="mobile-analytics-write-only-access-policy"></a>
 
 Gives write-only permission to put event data for all application resources.
 
@@ -1399,6 +1436,7 @@ Gives write-only permission to put event data for all application resources.
 ```
 
 ## OrganizationsListAccountsPolicy
+<a name="organizations-list-accounts-policy"></a>
 
 Gives read-only permission to list child account names and IDs.
 
@@ -1415,6 +1453,7 @@ Gives read-only permission to list child account names and IDs.
 ```
 
 ## PinpointEndpointAccessPolicy
+<a name="pinpoint-endpoint-access-policy"></a>
 
 Gives permission to get and update endpoints for an Amazon Pinpoint application.
 
@@ -1442,6 +1481,7 @@ Gives permission to get and update endpoints for an Amazon Pinpoint application.
 ```
 
 ## PollyFullAccessPolicy
+<a name="polly-full-access-policy"></a>
 
 Gives full access permission to Amazon Polly lexicon resources.
 
@@ -1484,6 +1524,7 @@ Gives full access permission to Amazon Polly lexicon resources.
 ```
 
 ## RekognitionDetectOnlyPolicy
+<a name="rekognition-detect-only-policy"></a>
 
 Gives permission to detect faces, labels, and text.
 
@@ -1503,6 +1544,7 @@ Gives permission to detect faces, labels, and text.
 ```
 
 ## RekognitionFacesManagementPolicy
+<a name="rekognition-face-management-policy"></a>
 
 Gives permission to add, delete, and search faces in an Amazon Rekognition collection.
 
@@ -1532,6 +1574,7 @@ Gives permission to add, delete, and search faces in an Amazon Rekognition colle
 ```
 
 ## RekognitionFacesPolicy
+<a name="rekognition-faces-policy"></a>
 
 Gives permission to compare and detect faces and labels.
 
@@ -1549,6 +1592,7 @@ Gives permission to compare and detect faces and labels.
 ```
 
 ## RekognitionLabelsPolicy
+<a name="rekognition-labels-policy"></a>
 
 Gives permission to detect object and moderation labels.
 
@@ -1566,6 +1610,7 @@ Gives permission to detect object and moderation labels.
 ```
 
 ## RekognitionNoDataAccessPolicy
+<a name="rekognition-no-data-access-policy"></a>
 
 Gives permission to compare and detect faces and labels.
 
@@ -1594,6 +1639,7 @@ Gives permission to compare and detect faces and labels.
 ```
 
 ## RekognitionReadPolicy
+<a name="rekognition-read-policy"></a>
 
 Gives permission to list and search faces.
 
@@ -1622,6 +1668,7 @@ Gives permission to list and search faces.
 ```
 
 ## RekognitionWriteOnlyAccessPolicy
+<a name="rekognition-write-only-access-policy"></a>
 
 Gives permission to create collection and index faces.
 
@@ -1648,6 +1695,7 @@ Gives permission to create collection and index faces.
 ```
 
 ## Route53ChangeResourceRecordSetsPolicy
+<a name="route53-change-resource-record-sets-policy"></a>
 
 Gives permission to change resource record sets in Route 53.
 
@@ -1673,9 +1721,9 @@ Gives permission to change resource record sets in Route 53.
 ```
 
 ## S3CrudPolicy
+<a name="s3-crud-policy"></a>
 
-Gives create, read, update, and delete permission to act on the objects in an Amazon S3
-bucket.
+Gives create, read, update, and delete permission to act on the objects in an Amazon S3 bucket.
 
 ```
 "Statement": [
@@ -1719,6 +1767,7 @@ bucket.
 ```
 
 ## S3FullAccessPolicy
+<a name="s3-full-access-policy"></a>
 
 Gives full access permission to act on the objects in an Amazon S3 bucket.
 
@@ -1778,6 +1827,7 @@ Gives full access permission to act on the objects in an Amazon S3 bucket.
 ```
 
 ## S3ReadPolicy
+<a name="s3-read-policy"></a>
 
 Gives read-only permission to read objects in an Amazon Simple Storage Service (Amazon S3) bucket.
 
@@ -1819,6 +1869,7 @@ Gives read-only permission to read objects in an Amazon Simple Storage Service (
 ```
 
 ## S3WritePolicy
+<a name="s3-write-policy"></a>
 
 Gives write permission to write objects into an Amazon S3 bucket.
 
@@ -1858,6 +1909,7 @@ Gives write permission to write objects into an Amazon S3 bucket.
 ```
 
 ## SageMakerCreateEndpointConfigPolicy
+<a name="sagemaker-create-endpoint-config-policy"></a>
 
 Gives permission to create an endpoint configuration in SageMaker AI.
 
@@ -1883,6 +1935,7 @@ Gives permission to create an endpoint configuration in SageMaker AI.
 ```
 
 ## SageMakerCreateEndpointPolicy
+<a name="sagemaker-create-endpoint-policy"></a>
 
 Gives permission to create an endpoint in SageMaker AI.
 
@@ -1908,6 +1961,7 @@ Gives permission to create an endpoint in SageMaker AI.
 ```
 
 ## ServerlessRepoReadWriteAccessPolicy
+<a name="serverlessrepo-read-write-access-policy"></a>
 
 Gives permission to create and list applications in the AWS Serverless Application Repository (AWS SAM) service.
 
@@ -1932,14 +1986,12 @@ Gives permission to create and list applications in the AWS Serverless Applicati
 ```
 
 ## SESBulkTemplatedCrudPolicy
+<a name="ses-bulk-templated-crud-policy"></a>
 
-Gives permission to send Amazon SES email, templated email, and templated bulk emails and to
-verify identity.
+Gives permission to send Amazon SES email, templated email, and templated bulk emails and to verify identity.
 
-###### Note
-
-The `ses:SendTemplatedEmail` action requires a template ARN. Use
-`SESBulkTemplatedCrudPolicy_v2` instead.
+**Note**  
+ The `ses:SendTemplatedEmail` action requires a template ARN. Use `SESBulkTemplatedCrudPolicy_v2` instead.
 
 ```
 "Statement": [
@@ -1968,6 +2020,7 @@ The `ses:SendTemplatedEmail` action requires a template ARN. Use
 ```
 
 ## SESBulkTemplatedCrudPolicy\_v2
+<a name="ses-bulk-templated-crud-policy-v2"></a>
 
 Gives permission to send Amazon SES email, templated email, and templated bulk emails and to verify identity.
 
@@ -2016,6 +2069,7 @@ Gives permission to send Amazon SES email, templated email, and templated bulk e
 ```
 
 ## SESCrudPolicy
+<a name="ses-crud-policy"></a>
 
 Gives permission to send email and verify identity.
 
@@ -2044,6 +2098,7 @@ Gives permission to send email and verify identity.
 ```
 
 ## SESEmailTemplateCrudPolicy
+<a name="ses-email-template-crud-policy"></a>
 
 Gives permission to create, get, list, update, and delete Amazon SES email templates.
 
@@ -2065,6 +2120,7 @@ Gives permission to create, get, list, update, and delete Amazon SES email templ
 ```
 
 ## SESSendBouncePolicy
+<a name="ses-send-bounce-policy"></a>
 
 Gives SendBounce permission to an Amazon Simple Email Service (Amazon SES) identity.
 
@@ -2090,6 +2146,7 @@ Gives SendBounce permission to an Amazon Simple Email Service (Amazon SES) ident
 ```
 
 ## SNSCrudPolicy
+<a name="sns-crud-policy"></a>
 
 Gives permission to create, publish, and subscribe to Amazon SNS topics.
 
@@ -2119,6 +2176,7 @@ Gives permission to create, publish, and subscribe to Amazon SNS topics.
 ```
 
 ## SNSPublishMessagePolicy
+<a name="sqs-publish-message-policy"></a>
 
 Gives permission to publish a message to an Amazon Simple Notification Service (Amazon SNS) topic.
 
@@ -2144,6 +2202,7 @@ Gives permission to publish a message to an Amazon Simple Notification Service (
 ```
 
 ## SQSPollerPolicy
+<a name="sqs-poller-policy"></a>
 
 Gives permission to poll an Amazon Simple Queue Service (Amazon SQS) queue.
 
@@ -2174,6 +2233,7 @@ Gives permission to poll an Amazon Simple Queue Service (Amazon SQS) queue.
 ```
 
 ## SQSSendMessagePolicy
+<a name="sqs-send-message-policy"></a>
 
 Gives permission to send message to an Amazon SQS queue.
 
@@ -2199,14 +2259,12 @@ Gives permission to send message to an Amazon SQS queue.
 ```
 
 ## SSMParameterReadPolicy
+<a name="ssm-parameter-read-policy"></a>
 
-Gives permission to access a parameter from an Amazon EC2 Systems Manager (SSM) parameter store to load secrets in this
-account. Use when parameter name doesn't have slash prefix.
+Gives permission to access a parameter from an Amazon EC2 Systems Manager (SSM) parameter store to load secrets in this account. Use when parameter name doesn't have slash prefix.
 
-###### Note
-
-If you are not using default key, you will also need the `KMSDecryptPolicy`
-policy.
+**Note**  
+If you are not using default key, you will also need the `KMSDecryptPolicy` policy.
 
 ```
 "Statement": [
@@ -2239,14 +2297,12 @@ policy.
 ```
 
 ## SSMParameterWithSlashPrefixReadPolicy
+<a name="ssm-parameter-slash-read-policy"></a>
 
-Gives permission to access a parameter from an Amazon EC2 Systems Manager (SSM) parameter store to load secrets in this
-account. Use when parameter name has slash prefix.
+Gives permission to access a parameter from an Amazon EC2 Systems Manager (SSM) parameter store to load secrets in this account. Use when parameter name has slash prefix.
 
-###### Note
-
-If you are not using default key, you will also need the `KMSDecryptPolicy`
-policy.
+**Note**  
+If you are not using default key, you will also need the `KMSDecryptPolicy` policy.
 
 ```
 "Statement": [
@@ -2279,6 +2335,7 @@ policy.
 ```
 
 ## StepFunctionsExecutionPolicy
+<a name="stepfunctions-execution-policy"></a>
 
 Gives permission to start a Step Functions state machine execution.
 
@@ -2304,6 +2361,7 @@ Gives permission to start a Step Functions state machine execution.
 ```
 
 ## TextractDetectAnalyzePolicy
+<a name="textract-detect-analyze-policy"></a>
 
 Gives access to detect and analyze documents with Amazon Textract.
 
@@ -2323,6 +2381,7 @@ Gives access to detect and analyze documents with Amazon Textract.
 ```
 
 ## TextractGetResultPolicy
+<a name="textract-get-result-policy"></a>
 
 Gives access to get detected and analyzed documents from Amazon Textract.
 
@@ -2340,6 +2399,7 @@ Gives access to get detected and analyzed documents from Amazon Textract.
 ```
 
 ## TextractPolicy
+<a name="textract-policy"></a>
 
 Gives full access to Amazon Textract.
 
@@ -2356,6 +2416,7 @@ Gives full access to Amazon Textract.
 ```
 
 ## VPCAccessPolicy
+<a name="vpc-access-policy"></a>
 
 Gives access to create, delete, describe, and detach elastic network interfaces.
 

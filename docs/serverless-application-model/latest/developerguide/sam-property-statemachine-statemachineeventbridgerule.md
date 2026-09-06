@@ -1,178 +1,108 @@
+
+
 # EventBridgeRule
+<a name="sam-property-statemachine-statemachineeventbridgerule"></a>
 
-The object describing an `EventBridgeRule` event source type, which sets your
-state machine as the target for an Amazon EventBridge rule. For more information, see [What Is
-Amazon EventBridge?](../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md "../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md") in the _Amazon EventBridge User Guide_.
+The object describing an `EventBridgeRule` event source type, which sets your state machine as the target for an Amazon EventBridge rule. For more information, see [What Is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html) in the *Amazon EventBridge User Guide*.
 
-AWS SAM generates an [AWS::Events::Rule](../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.md") resource when this event type is set.
+AWS SAM generates an [AWS::Events::Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html) resource when this event type is set.
 
 ## Syntax
+<a name="sam-property-statemachine-statemachineeventbridgerule-syntax"></a>
 
-To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following
-syntax.
+To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-statemachine-statemachineeventbridgerule-syntax.yaml"></a>
 
 ```
-  DeadLetterConfig: `DeadLetterConfig`
-  EventBusName: `String`
-  Input: `String`
-  InputPath: `String`
-  InputTransformer: `InputTransformer`
-  Pattern: `EventPattern`
-  RetryPolicy: `RetryPolicy`
-  RuleName: `String`
-  State: `String`
-  Target: `Target`
-
+  DeadLetterConfig: {{DeadLetterConfig}}
+  EventBusName: {{String}}
+  Input: {{String}}
+  InputPath: {{String}}
+  InputTransformer: {{[InputTransformer](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-inputtransformer.html)}}
+  Pattern: {{[EventPattern](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventpattern)}}
+  RetryPolicy: {{[RetryPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy)}}
+  RuleName: {{String}}
+  State: {{String}}
+  Target: {{Target}}
 ```
 
 ## Properties
+<a name="sam-property-statemachine-statemachineeventbridgerule-properties"></a>
 
-`DeadLetterConfig`
+ `DeadLetterConfig`   <a name="sam-statemachine-statemachineeventbridgerule-deadletterconfig"></a>
+Configure the Amazon Simple Queue Service (Amazon SQS) queue where EventBridge sends events after a failed target invocation. Invocation can fail, for example, when sending an event to a Lambda function that doesn't exist, or when EventBridge has insufficient permissions to invoke the Lambda function. For more information, see [Event retry policy and using dead-letter queues](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html) in the *Amazon EventBridge User Guide*.  
+*Type*: [DeadLetterConfig](sam-property-statemachine-statemachinedeadletterconfig.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is similar to the `[DeadLetterConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-deadletterconfig)` property of the `AWS::Events::Rule` `Target` data type. The AWS SAM version of this property includes additional subproperties, in case you want AWS SAM to create the dead-letter queue for you.
 
-Configure the Amazon Simple Queue Service (Amazon SQS) queue where EventBridge sends events after a failed target
-invocation. Invocation can fail, for example, when sending an event to a Lambda function
-that doesn't exist, or when EventBridge has insufficient permissions to invoke the Lambda
-function. For more information, see [Event retry policy
-and using dead-letter queues](../../../eventbridge/latest/userguide/rule-dlq.md "../../../eventbridge/latest/userguide/rule-dlq.md") in the _Amazon EventBridge User Guide_.
+ `EventBusName`   <a name="sam-statemachine-statemachineeventbridgerule-eventbusname"></a>
+The event bus to associate with this rule. If you omit this property, AWS SAM uses the default event bus.  
+*Type*: String  
+*Required*: No  
+*Default*: Default event bus  
+*CloudFormation compatibility*: This property is passed directly to the `[EventBusName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventbusname)` property of an `AWS::Events::Rule` resource.
 
-_Type_: [DeadLetterConfig](sam-property-statemachine-statemachinedeadletterconfig.md "sam-property-statemachine-statemachinedeadletterconfig.md")
+ `Input`   <a name="sam-statemachine-statemachineeventbridgerule-input"></a>
+Valid JSON text passed to the target. If you use this property, nothing from the event text itself is passed to the target.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[Input](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-input)` property of an `AWS::Events::Rule Target` resource.
 
-_Required_: No
+ `InputPath`   <a name="sam-statemachine-statemachineeventbridgerule-inputpath"></a>
+When you don't want to pass the entire matched event to the target, use the `InputPath` property to describe which part of the event to pass.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[InputPath](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-inputpath)` property of an `AWS::Events::Rule Target` resource.
 
-_CloudFormation compatibility_: This property is similar to the
-`DeadLetterConfig` property of the `AWS::Events::Rule`
-`Target` data type. The AWS SAM version of this property includes additional
-subproperties, in case you want AWS SAM to create the dead-letter queue for you.
+`InputTransformer`  <a name="sam-statemachine-statemachineeventbridgerule-inputtransformer"></a>
+Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target. For more information, see [ Amazon EventBridge input transformation](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-transform-target-input.html) in the *Amazon EventBridge User Guide*.  
+*Type*: [InputTransformer](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-inputtransformer)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[InputTransformer](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-inputtransformer.html) ` property of an `AWS::Events::Rule` `Target` data type.
 
-`EventBusName`
+ `Pattern`   <a name="sam-statemachine-statemachineeventbridgerule-pattern"></a>
+Describes which events are routed to the specified target. For more information, see [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) in the *Amazon EventBridge User Guide*.  
+*Type*: [EventPattern](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventpattern)  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is passed directly to the `[EventPattern](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventpattern)` property of an `AWS::Events::Rule` resource.
 
-The event bus to associate with this rule. If you omit this property, AWS SAM uses the
-default event bus.
+ `RetryPolicy`   <a name="sam-statemachine-statemachineeventbridgerule-retrypolicy"></a>
+A `RetryPolicy` object that includes information about the retry policy settings. For more information, see [Event retry policy and using dead-letter queues](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html) in the *Amazon EventBridge User Guide*.  
+*Type*: [RetryPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[RetryPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy)` property of the `AWS::Events::Rule` `Target` data type.
 
-_Type_: String
+ `RuleName`   <a name="sam-statemachine-statemachineeventbridgerule-rulename"></a>
+The name of the rule.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-name)` property of an `AWS::Events::Rule` resource.
 
-_Required_: No
+`State`  <a name="sam-statemachine-statemachineeventbridgerule-state"></a>
+The state of the rule.  
+*Valid values*: `[ DISABLED | ENABLED ]`  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[State](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-state)` property of an `AWS::Events::Rule` resource.
 
-_Default_: Default event bus
-
-_CloudFormation compatibility_: This property is passed directly to the
-`EventBusName` property of an `AWS::Events::Rule`
-resource.
-
-`Input`
-
-Valid JSON text passed to the target. If you use this property, nothing from the
-event text itself is passed to the target.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`Input` property of an `AWS::Events::Rule Target`
-resource.
-
-`InputPath`
-
-When you don't want to pass the entire matched event to the target, use the
-`InputPath` property to describe which part of the event to pass.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`InputPath` property of an `AWS::Events::Rule Target`
-resource.
-
-`InputTransformer`
-
-Settings to enable you to provide custom input to a target based on certain event data. You can extract one or
-more key-value pairs from the event and then use that data to send customized input to the target. For more
-information, see [Amazon EventBridge input transformation](../../../eventbridge/latest/userguide/eb-transform-target-input.md "../../../eventbridge/latest/userguide/eb-transform-target-input.md") in the _Amazon EventBridge User Guide_.
-
-_Type_: [InputTransformer](../../../AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.md#cfn-events-rule-target-inputtransformer "../../../AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.md#cfn-events-rule-target-inputtransformer")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`InputTransformer` property of an `AWS::Events::Rule` `Target` data type.
-
-`Pattern`
-
-Describes which events are routed to the specified target. For more information, see
-[Events and Event Patterns in EventBridge](../../../eventbridge/latest/userguide/eventbridge-and-event-patterns.md "../../../eventbridge/latest/userguide/eventbridge-and-event-patterns.md") in the _Amazon EventBridge User Guide_.
-
-_Type_: [EventPattern](../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.md#cfn-events-rule-eventpattern "../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.md#cfn-events-rule-eventpattern")
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is passed directly to the
-`EventPattern` property of an `AWS::Events::Rule`
-resource.
-
-`RetryPolicy`
-
-A `RetryPolicy` object that includes information about the retry policy
-settings. For more information, see [Event retry policy
-and using dead-letter queues](../../../eventbridge/latest/userguide/rule-dlq.md "../../../eventbridge/latest/userguide/rule-dlq.md") in the _Amazon EventBridge User Guide_.
-
-_Type_: [RetryPolicy](../../../AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.md#cfn-events-rule-target-retrypolicy "../../../AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.md#cfn-events-rule-target-retrypolicy")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`RetryPolicy` property of the `AWS::Events::Rule`
-`Target` data type.
-
-`RuleName`
-
-The name of the rule.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`Name` property of an `AWS::Events::Rule` resource.
-
-`State`
-
-The state of the rule.
-
-_Valid values_: `[ DISABLED | ENABLED ]`
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`State` property of an `AWS::Events::Rule` resource.
-
-`Target`
-
-The AWS resource that EventBridge invokes when a rule is triggered. You can use this
-property to specify the logical ID of the target. If this property is not specified,
-then AWS SAM generates the logical ID of the target.
-
-_Type_: [Target](sam-property-statemachine-statemachinetarget.md "sam-property-statemachine-statemachinetarget.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is similar to the
-`Targets` property of an `AWS::Events::Rule` resource. The
-AWS SAM version of this property only allows you to specify the logical ID of a single
-target.
+ `Target`   <a name="sam-statemachine-statemachineeventbridgerule-target"></a>
+The AWS resource that EventBridge invokes when a rule is triggered. You can use this property to specify the logical ID of the target. If this property is not specified, then AWS SAM generates the logical ID of the target.  
+*Type*: [Target](sam-property-statemachine-statemachinetarget.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is similar to the `[Targets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-targets)` property of an `AWS::Events::Rule` resource. The AWS SAM version of this property only allows you to specify the logical ID of a single target.
 
 ## Examples
+<a name="sam-property-statemachine-statemachineeventbridgerule--examples"></a>
 
 ### EventBridgeRule
+<a name="sam-property-statemachine-statemachineeventbridgerule--examples--eventbridgerule"></a>
 
 The following is an example of an `EventBridgeRule` event source type.
 
 #### YAML
+<a name="sam-property-statemachine-statemachineeventbridgerule--examples--eventbridgerule--yaml"></a>
 
 ```
 EBRule:
@@ -183,5 +113,4 @@ EBRule:
       detail:
         state:
           - terminated
-
 ```

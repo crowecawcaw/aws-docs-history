@@ -1,278 +1,147 @@
+
+
 # sam build
+<a name="sam-cli-command-reference-sam-build"></a>
 
-This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI)
-`sam build` command.
+This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam build` command.
++ For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)
++ For documentation on using the AWS SAM CLI `sam build` command, see [Introduction to building with AWS SAM](using-sam-cli-build.md).
 
-- For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli "what-is-sam-overview.md#what-is-sam-cli")
-- For documentation on using the AWS SAM CLI `sam build` command, see [Introduction to building with AWS SAM](using-sam-cli-build.md "using-sam-cli-build.md").
-  The `sam build` command prepares an application for subsequent steps in the developer workflow, such as
-  local testing or deploying to the AWS Cloud.
+The `sam build` command prepares an application for subsequent steps in the developer workflow, such as local testing or deploying to the AWS Cloud.
 
 ## Usage
+<a name="ref-sam-cli-build-usage"></a>
 
 ```
-`$` `sam build `<arguments>` `<options>``
+$ sam build {{<arguments>}} {{<options>}}
 ```
 
 ## Arguments
+<a name="ref-sam-cli-build-args"></a>
 
-**Resource ID**
-
-Optional. Instructs AWS SAM to build a single resource declared in an [AWS SAM
-template](what-is-sam-overview.md#what-is-sam-template "what-is-sam-overview.md#what-is-sam-template"). The build artifacts for the specified resource will be the only ones available
-for subsequent commands in the workflow, i.e. `sam package` and `sam
- deploy`.
+**Resource ID**  <a name="ref-sam-cli-build-args-resource-id"></a>
+Optional. Instructs AWS SAM to build a single resource declared in an [AWS SAM template](what-is-sam-overview.md#what-is-sam-template). The build artifacts for the specified resource will be the only ones available for subsequent commands in the workflow, i.e. `sam package` and `sam deploy`.
 
 ## Options
+<a name="ref-sam-cli-build-options"></a>
 
-`--base-dir, -s `DIRECTORY``
+`--base-dir, -s {{DIRECTORY}}`  <a name="ref-sam-cli-build-options-base-dir"></a>
+Resolves relative paths to the function's or layer's source code with respect to this directory. Use this option if you want to change how relative paths to source code folders are resolved. By default, relative paths are resolved with respect to the AWS SAM template's location.  
+In addition to the resources in the root application or stack you are building, this option also applies nested applications or stacks.  
+This option applies to the following resource types and properties:  
++ Resource type: `AWS::Serverless::Function` Property: `CodeUri`
++ Resource type: `AWS::Serverless::Function` Resource attribute: `Metadata` Entry: `DockerContext`
++ Resource type: `AWS::Serverless::LayerVersion` Property: `ContentUri`
++ Resource type: `AWS::Lambda::Function` Property: `Code`
++ Resource type: `AWS::Lambda::LayerVersion` Property: `Content`
 
-Resolves relative paths to the function's or layer's source code with respect to
-this directory. Use this option if you want to change how relative paths to source code
-folders are resolved. By default, relative paths are resolved with respect to the AWS SAM
-template's location.
-
-In addition to the resources in the root application or stack
-you are building, this option also applies nested applications or
-stacks.
-
-This option applies to the following resource types and
-properties:
-
-- Resource type: `AWS::Serverless::Function` Property:
-  `CodeUri`
-- Resource type: `AWS::Serverless::Function` Resource attribute:
-  `Metadata` Entry: `DockerContext`
-- Resource type: `AWS::Serverless::LayerVersion` Property:
-  `ContentUri`
-- Resource type: `AWS::Lambda::Function` Property:
-  `Code`
-- Resource type: `AWS::Lambda::LayerVersion` Property:
-  `Content`
-
-`--beta-features | --no-beta-features`
-
+`--beta-features | --no-beta-features`  <a name="ref-sam-cli-build-options-beta-features"></a>
 Allow or deny beta features.
 
-`--build-dir, -b `DIRECTORY``
+`--build-dir, -b {{DIRECTORY}}`  <a name="ref-sam-cli-build-options-build-dir"></a>
+The path to a directory where the built artifacts are stored. This directory and all of its content are removed with this option.
 
-The path to a directory where the built artifacts are stored. This directory and
-all of its content are removed with this option.
+`--build-image {{TEXT}}`  <a name="ref-sam-cli-build-options-build-image"></a>
+The URI of the container image that you want to pull for the build. By default, AWS SAM pulls the container image from Amazon ECR Public. Use this option to pull the image from another location.  
+You can specify this option multiple times. Each instance of this option can take either a string or a key-value pair. If you specify a string, it is the URI of the container image to use for all resources in your application. For example, `sam build --use-container --build-image amazon/aws-sam-cli-build-image-python3.8`. If you specify a key-value pair, the key is the resource name, and the value is the URI of the container image to use for that resource. For example `sam build --use-container --build-image Function1=amazon/aws-sam-cli-build-image-python3.8`. With key-value pairs, you can specify different container images for different resources.  
+This option only applies if the `--use-container` option is specified, otherwise an error will result.
 
-`--build-image `TEXT``
+`--build-in-source | --no-build-in-source`  <a name="ref-sam-cli-build-options-build-in-source"></a>
+Provide `--build-in-source` to build your project directly in the source folder.  
+The `--build-in-source` option supports the following runtimes and build methods:  
++ **Runtimes** – Any Node.js runtime supported by the `sam init --runtime` option.
++ **Build methods** – `Makefile`, `esbuild`.
+The `--build-in-source` option is not compatible with the following options:  
++ `--hook-name`
++ `--use-container `
+*Default*: `--no-build-in-source`
 
-The URI of the container image that you want to pull for the build. By default,
-AWS SAM pulls the container image from Amazon ECR Public. Use this option to pull the image
-from another location.
+`--cached | --no-cached`  <a name="ref-sam-cli-build-options-cached"></a>
+Enable or disable cached builds. Use this option to reuse build artifacts that haven't changed from previous builds. AWS SAM evaluates whether you've changed any files in your project directory. By default, builds are not cached. If the `--no-cached` option is invoked, it overrides the `cached = true` setting in samconfig.toml.  
+AWS SAM doesn't evaluate whether you've changed third-party modules that your project depends on, where you haven't provided a specific version. For example, if your Python function includes a `requirements.txt` file with the entry `requests=1.x`, and the latest request module version changes from `1.1` to `1.2`, then AWS SAM doesn't pull the latest version until you run a non-cached build.
 
-You can specify this option multiple times. Each instance of this option can take
-either a string or a key-value pair. If you specify a string, it is the URI of the
-container image to use for all resources in your application. For example, `sam
- build --use-container --build-image amazon/aws-sam-cli-build-image-python3.8`.
-If you specify a key-value pair, the key is the resource name, and the value is the
-URI of the container image to use for that resource. For example `sam build
- --use-container --build-image
- Function1=amazon/aws-sam-cli-build-image-python3.8`. With key-value pairs, you
-can specify different container images for different resources.
+`--cache-dir`  <a name="ref-sam-cli-build-options-cached-dir"></a>
+The directory where the cache artifacts are stored when `--cached` is specified. The default cache directory is `.aws-sam/cache`.
 
-This option only applies if the `--use-container` option is specified,
-otherwise an error will result.
+`--config-env {{TEXT}}`  <a name="ref-sam-cli-build-options-config-env"></a>
+The environment name specifying the default parameter values in the configuration file to use. The default value is "default". For more information about configuration files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md).
 
-`--build-in-source | --no-build-in-source`
+`--config-file {{PATH}}`  <a name="ref-sam-cli-build-options-config-file"></a>
+The path and file name of the configuration file containing default parameter values to use. The default value is "`samconfig.toml`" in the root of the project directory. For more information about configuration files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md).
 
-Provide `--build-in-source` to build your project directly in the source folder.
+`--container-env-var, -e {{TEXT}}`  <a name="ref-sam-cli-build-options-container-env-var"></a>
+Environment variables to pass to the build container. You can specify this option multiple times. Each instance of this option takes a key-value pair, where the key is the resource and environment variable, and the value is the environment variable's value. For example: `--container-env-var Function1.GITHUB_TOKEN=TOKEN1 --container-env-var Function2.GITHUB_TOKEN=TOKEN2`.  
+This option only applies if the `--use-container` option is specified, otherwise an error will result.
 
-The `--build-in-source` option supports the following runtimes and build methods:
+`--container-env-var-file, -ef {{PATH}}`  <a name="ref-sam-cli-build-options-container-env-var-file"></a>
+The path and file name of a JSON file that contains values for the container's environment variables. For more information about container environment variable files, see [Container environment variable file](serverless-sam-cli-using-build.md#serverless-sam-cli-using-container-environment-file).  
+This option only applies if the `--use-container` option is specified, otherwise an error will result.
 
-- **Runtimes** – Any Node.js runtime supported by the
-  `sam init --runtime` option.
-- **Build methods** – `Makefile`, `esbuild`.
+`--debug`  <a name="ref-sam-cli-build-options-debug"></a>
+Turns on debug logging to print debug messages that the AWS SAM CLI generates, and to display timestamps.
 
-The `--build-in-source` option is not compatible with the following options:
+`--docker-network {{TEXT}}`  <a name="ref-sam-cli-build-options-docker-network"></a>
+Specifies the name or ID of an existing Docker network that Lambda Docker containers should connect to, along with the default bridge network. If not specified, the Lambda containers connect only to the default bridge Docker network.
 
-- `--hook-name`
-- `--use-container`
+`--exclude, -x`  <a name="ref-sam-cli-build-options-exclude"></a>
+The Name of the resource(s) to exclude from the `sam build`. For example, if your template contains `Function1`, `Function2`, and `Function3` and you run `sam build --exclude Function2`, only `Function1` and `Function3` will be built.
 
-_Default_: `--no-build-in-source`
-
-`--cached | --no-cached`
-
-Enable or disable cached builds. Use this option to reuse build artifacts that
-haven't changed from previous builds. AWS SAM evaluates whether you've changed any files
-in your project directory. By default, builds are not cached. If the
-`--no-cached` option is invoked, it overrides the `cached =
- true` setting in samconfig.toml.
-
-###### Note
-
-AWS SAM
-doesn't evaluate whether you've changed third-party modules that your project depends
-on, where you haven't provided a specific version. For example, if your Python function
-includes a `requirements.txt` file with the entry
-`requests=1.x`, and the latest request module version changes from
-`1.1` to `1.2`, then AWS SAM doesn't pull the latest version until
-you run a non-cached build.
-
-`--cache-dir`
-
-The directory where the cache artifacts are stored when `--cached` is
-specified. The default cache directory is `.aws-sam/cache`.
-
-`--config-env `TEXT``
-
-The environment name specifying the default parameter values in the configuration
-file to use. The default value is "default". For more information about configuration
-files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md "serverless-sam-cli-config.md").
-
-`--config-file `PATH``
-
-The path and file name of the configuration file containing default parameter
-values to use. The default value is "`samconfig.toml`" in the root of
-the project directory. For more information about configuration files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md "serverless-sam-cli-config.md").
-
-`--container-env-var, -e `TEXT``
-
-Environment variables to pass to the build container. You can specify this option
-multiple times. Each instance of this option takes a key-value pair, where the key is
-the resource and environment variable, and the value is the environment variable's
-value. For example: `--container-env-var Function1.GITHUB_TOKEN=TOKEN1
- --container-env-var Function2.GITHUB_TOKEN=TOKEN2`.
-
-This option only
-applies if the `--use-container` option is specified, otherwise an error
-will result.
-
-`--container-env-var-file, -ef `PATH``
-
-The path and file name of a JSON file that contains values for the container's
-environment variables. For more information about container environment variable files,
-see [Container environment variable file](serverless-sam-cli-using-build.md#serverless-sam-cli-using-container-environment-file "serverless-sam-cli-using-build.md#serverless-sam-cli-using-container-environment-file").
-
-This
-option only applies if the `--use-container` option is specified, otherwise
-an error will result.
-
-`--debug`
-
-Turns on debug logging to print debug messages that the AWS SAM CLI generates, and to
-display timestamps.
-
-`--docker-network `TEXT``
-
-Specifies the name or ID of an existing Docker network that Lambda Docker containers
-should connect to, along with the default bridge network. If not specified, the Lambda
-containers connect only to the default bridge Docker network.
-
-`--exclude, -x`
-
-The Name of the resource(s) to exclude from the `sam build`. For example, if your
-template contains `Function1`, `Function2`, and
-`Function3` and you run `sam build --exclude Function2`, only
-`Function1` and `Function3` will be built.
-
-`--help`
-
+`--help`  <a name="ref-sam-cli-build-options-help"></a>
 Shows this message and exits.
 
-`--hook-name `TEXT``
-
-The name of the hook that is used to extend AWS SAM CLI functionality.
-
+`--hook-name {{TEXT}}`  <a name="ref-sam-cli-build-options-hook-name"></a>
+The name of the hook that is used to extend AWS SAM CLI functionality.  
 Accepted values: `terraform`.
 
-`--manifest , -m `PATH``
+`--manifest , -m {{PATH}}`  <a name="ref-sam-cli-build-options-manifest"></a>
+The path to a custom dependency manifest file (for example, package.json) to use instead of the default.
 
-The path to a custom dependency manifest file (for example, package.json) to use
-instead of the default.
+`--mount-symlinks`  <a name="ref-sam-cli-build-options-mount-symlinks"></a>
+Ensures the AWS SAM CLI always mounts symlinks that are present in the files to build or invoke. This applies only to symlinks on the top level directory (that is, symlinks that are directly on the function's root). By default, symlinks are not mounted except for those needed to use `build-in-source` for `node_modules` in NodeJS.
 
-`--mount-symlinks`
+`--no-use-container`  <a name="ref-sam-cli-build-options-no-use-container"></a>
+An option that allows you to use the IDE toolkit to set default behavior. You can also use `sam build --no-use-container` to run a build in your local machine instead of a docker container.
 
-Ensures the AWS SAM CLI always mounts symlinks that are present in the files to build or invoke. This applies only to symlinks on the top level directory (that is, symlinks that are directly on the function's root).
-By default, symlinks are not mounted except for those needed to use `build-in-source` for `node_modules` in NodeJS.
+`--output {{[ text | json ]}}`  <a name="ref-sam-cli-build-options-output"></a>
+The format of the command output:  
++ `text` – Prints regular, human-readable output. This is the default value.
++ `json` – Prints structured, machine-readable output. Use this format when you want to consume the output programmatically, such as in CI/CD pipelines, IDE extensions, and AI-assisted tools.
+When you specify `--output json`, the AWS SAM CLI prints a single JSON object after the command completes. On success, this object includes fields such as the build status, the build directory, the template file, and a list of the resources that were built. On failure, it includes an `error` object that describes what went wrong.
 
-`--no-use-container`
+`--parallel`  <a name="ref-sam-cli-build-options-parallel"></a>
+Enables parallel builds. Use this option to build your AWS SAM template's functions and layers in parallel. By default, the functions and layers are built in sequence.
 
-An option that allows you to use the IDE toolkit to set default behavior. You can also use
-`sam build --no-use-container` to run a build in your local machine instead of a docker container.
+`--parameter-overrides`  <a name="ref-sam-cli-build-options-parameter-overrides"></a>
+(Optional) A string that contains CloudFormation parameter overrides encoded as key-value pairs. Uses the same format as the AWS Command Line Interface (AWS CLI). For example: '`ParameterKey`=`KeyPairName`, `ParameterValue`=`MyKey` `ParameterKey`=`InstanceType`, `ParameterValue`=`t1.micro`'. This option is not compatible with `--hook-name`.
 
-`--output `[ text | json ]``
-
-The format of the command output:
-
-- `text` – Prints regular, human-readable output. This is the
-  default value.
-- `json` – Prints structured, machine-readable output. Use this
-  format when you want to consume the output programmatically, such as in CI/CD
-  pipelines, IDE extensions, and AI-assisted tools.
-
-When you specify `--output json`, the AWS SAM CLI prints a single
-JSON object after the command completes. On success, this object includes fields such as the
-build status, the build directory, the template file, and a list of the resources that were
-built. On failure, it includes an `error` object that describes what went
-wrong.
-
-`--parallel`
-
-Enables parallel builds. Use this option to build your AWS SAM template's functions
-and layers in parallel. By default, the functions and layers are built in
-sequence.
-
-`--parameter-overrides`
-
-(Optional) A string that contains CloudFormation parameter overrides encoded as key-value
-pairs. Uses the same format as the AWS Command Line Interface (AWS CLI). For example:
-'`ParameterKey`=`KeyPairName`,
-`ParameterValue`=`MyKey`
-`ParameterKey`=`InstanceType`,
-`ParameterValue`=`t1.micro`'. This option is not compatible with
-`--hook-name`.
-
-`--profile `TEXT``
-
+`--profile {{TEXT}}`  <a name="ref-sam-cli-build-options-profile"></a>
 The specific profile from your credential file that gets AWS credentials.
 
-`--region `TEXT``
-
+`--region {{TEXT}}`  <a name="ref-sam-cli-build-options-region"></a>
 The AWS Region to deploy to. For example, us-east-1.
 
-`--save-params`
-
+`--save-params`  <a name="ref-sam-cli-build-options-save-params"></a>
 Save the parameters that you provide at the command line to the AWS SAM configuration file.
 
-`--skip-prepare-infra`
-
+`--skip-prepare-infra`  <a name="ref-sam-cli-build-options-skip-prepare-infra"></a>
 Skips the preparation stage if no infrastructure changes have been made. Use with the `--hook-name` option.
 
-`--skip-pull-image`
+`--skip-pull-image`  <a name="ref-sam-cli-build-options-skip-pull-image"></a>
+Specifies whether the command should skip pulling down the latest Docker image for the Lambda runtime.
 
-Specifies whether the command should skip pulling down the latest Docker image for
-the Lambda runtime.
+`--template-file, --template, -t {{PATH}}`  <a name="ref-sam-cli-build-options-template-file"></a>
+The path and file name of AWS SAM template file `[default: template.[yaml|yml]]`. This option is not compatible with `--hook-name`.
 
-`--template-file, --template, -t `PATH``
+`--terraform-project-root-path`  <a name="ref-sam-cli-build-options-terraform-project-root-path"></a>
+The relative or absolute path to the top-level directory containing your Terraform configuration files or function source code. If these files are located outside of the directory containing your Terraform root module, use this option to specify its absolute or relative path. This option requires that `--hook-name` be set to `terraform`.
 
-The path and file name of AWS SAM template file `[default:
- template.[yaml|yml]]`. This option is not compatible with
-`--hook-name`.
+`--use-buildkit | --no-use-buildkit`  <a name="ref-sam-cli-build-options-use-buildkit"></a>
+Enable or disable using the BuildKit plugin for container image builds. This will use the Finch or Docker CLIs. By default, builds uses the legacy builder from the SDK. If the `--no-use-buildkit` option is invoked, it overrides the `use-buildkit = true` setting in samconfig.toml.
 
-`--terraform-project-root-path`
-
-The relative or absolute path to the top-level directory containing your Terraform configuration files or function source code.
-If these files are located outside of the directory containing your Terraform root module, use this option to specify its absolute or relative path.
-This option requires that `--hook-name` be set to `terraform`.
-
-`--use-buildkit | --no-use-buildkit`
-
-Enable or disable using the BuildKit plugin for container image builds.
-This will use the Finch or Docker CLIs.
-By default, builds uses the legacy builder from the SDK. If the
-`--no-use-buildkit` option is invoked, it overrides the
-`use-buildkit = true` setting in samconfig.toml.
-
-`--use-container`, `-u`
-
-If your functions depend on packages that have natively compiled dependencies, use
-this option to build your function inside a Lambda-like Docker container.
+`--use-container`, `-u`  <a name="ref-sam-cli-build-options-use-container"></a>
+If your functions depend on packages that have natively compiled dependencies, use this option to build your function inside a Lambda-like Docker container.
 
 ## Example
+<a name="sam-cli-command-reference-sam-build-examples"></a>
 
-For a detailed example and in-depth walkthrough on using the `sam build` subcommand, refer to [Introduction to building with AWS SAM](using-sam-cli-build.md "using-sam-cli-build.md").
+For a detailed example and in-depth walkthrough on using the `sam build` subcommand, refer to [Introduction to building with AWS SAM](using-sam-cli-build.md).

@@ -1,302 +1,177 @@
+
+
 # SelfManagedKafka
+<a name="sam-property-function-selfmanagedkafka"></a>
 
-The object describing a `SelfManagedKafka` event source type. For more
-information, see [Using AWS Lambda with
-self-managed Apache Kafka](../../../lambda/latest/dg/with-kafka.md "../../../lambda/latest/dg/with-kafka.md") in the _AWS Lambda Developer Guide_.
+The object describing a `SelfManagedKafka` event source type. For more information, see [Using AWS Lambda with self-managed Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html) in the *AWS Lambda Developer Guide*.
 
-AWS Serverless Application Model (AWS SAM) generates an [AWS::Lambda::EventSourceMapping](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.md") resource when this event type is
-set.
+AWS Serverless Application Model (AWS SAM) generates an [AWS::Lambda::EventSourceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html) resource when this event type is set.
 
-To use Schema Registry, you need to define specific IAM role permissions for your function. See [Complete setup with IAM roles](sam-property-function-msk.md#sam-property-function-msk-example-complete "sam-property-function-msk.md#sam-property-function-msk-example-complete") for an example of the required configuration.
+To use Schema Registry, you need to define specific IAM role permissions for your function. See [Complete setup with IAM roles](sam-property-function-msk.md#sam-property-function-msk-example-complete) for an example of the required configuration.
 
 ## Syntax
+<a name="sam-property-function-selfmanagedkafka-syntax"></a>
 
 To declare this entity in your AWS SAM template, use the following syntax.
 
 ### YAML
+<a name="sam-property-function-selfmanagedkafka-syntax.yaml"></a>
 
 ```
-  BatchSize: `Integer`
-  BisectBatchOnFunctionError: `Boolean`
-  ConsumerGroupId: `String`
-  DestinationConfig: `DestinationConfig`
-  Enabled: `Boolean`
-  FilterCriteria: `FilterCriteria`
-  KafkaBootstrapServers: `List`
-  FunctionResponseTypes: `List`
-  KmsKeyArn: `String`
-  LoggingConfig: `LoggingConfig`
-  MaximumRecordAgeInSeconds: `Integer`
-  MaximumRetryAttempts: `Integer`
-  MetricsConfig: `MetricsConfig`
-  ProvisionedPollerConfig: `ProvisionedPollerConfig`
-  SchemaRegistryConfig: `SchemaRegistryConfig`
-  SourceAccessConfigurations: `SourceAccessConfigurations`
-  StartingPosition: `String`
-  StartingPositionTimestamp: `Double`
-  Topics: `List`
-
+  [BatchSize](#sam-function-selfmanagedkafka-batchsize): {{Integer}}
+  [BisectBatchOnFunctionError](#sam-function-selfmanagedkafka-bisectbatchonfunctionerror): {{Boolean}}
+  [ConsumerGroupId](#sam-function-selfmanagedkafka-consumergroupid): {{String}}
+  DestinationConfig: {{[DestinationConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html)}}
+  [Enabled](#sam-function-selfmanagedkafka-enabled): {{Boolean}}
+  [FilterCriteria](#sam-function-selfmanagedkafka-filtercriteria): {{[FilterCriteria](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html)}}
+  [KafkaBootstrapServers](#sam-function-selfmanagedkafka-kafkabootstrapservers): {{List}}
+  [FunctionResponseTypes](#sam-function-selfmanagedkafka-functionresponsetypes): {{List}}
+  KmsKeyArn: {{String}}
+  [LoggingConfig](#sam-function-selfmanagedkafka-loggingconfig): {{LoggingConfig}}
+  [MaximumRecordAgeInSeconds](#sam-function-selfmanagedkafka-maximumrecordageinseconds): {{Integer}}
+  [MaximumRetryAttempts](#sam-function-selfmanagedkafka-maximumretryattempts): {{Integer}}
+  [MetricsConfig](#sam-function-selfmanagedkafka-metricsconfig): {{MetricsConfig}}
+  [ProvisionedPollerConfig](#sam-function-selfmanagedkafka-provisionedpollerconfig): {{[ProvisionedPollerConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig)}}
+  [SchemaRegistryConfig](#sam-function-selfmanagedkafka-schemaregistryconfig): {{[SchemaRegistryConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-schemaregistryconfig.html)}}
+  [SourceAccessConfigurations](#sam-function-selfmanagedkafka-sourceaccessconfigurations): {{[SourceAccessConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations)}}
+  StartingPosition: {{String}}
+  StartingPositionTimestamp: {{Double}}
+  [Topics](#sam-function-selfmanagedkafka-topics): {{List}}
 ```
 
 ## Properties
-
-`BatchSize`
-
-The maximum number of records in each batch that Lambda pulls from your stream and
-sends to your function.
-
-_Type_: Integer
-
-_Required_: No
-
-_Default_: 100
-
-_CloudFormation compatibility_: This property is passed directly to the
-`BatchSize` property of an
-`AWS::Lambda::EventSourceMapping` resource.
-
-_Minimum_: `1`
-
-_Maximum_: `10000`
-
-`BisectBatchOnFunctionError`
-
-If the function returns an error, split the batch in two and retry.
-
-_Type_: Boolean
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `BisectBatchOnFunctionError` property of an `AWS::Lambda::EventSourceMapping` resource.
-
-`ConsumerGroupId`
-
-A string that configures how events will be read from Kafka topics.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`SelfManagedKafkaEventSourceConfig` property of an
-`AWS::Lambda::EventSourceMapping` resource.
-
-`DestinationConfig`
-
-A configuration object that specifies the destination of an event after Lambda processes it.
-
-Use this property to specify the destination of failed invocations from the self-managed Kafka event
-source.
-
-_Type_: [DestinationConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`DestinationConfig` property of an `AWS::Lambda::EventSourceMapping` resource.
-
-`Enabled`
-
-Disables the event source mapping to pause polling and invocation.
-
-_Type_: Boolean
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`Enabled` property of an `AWS::Lambda::EventSourceMapping`
-resource.
-
-`FilterCriteria`
-
-A object that defines the criteria to determine whether Lambda should process an
-event. For more information, see [AWS Lambda event filtering](../../../lambda/latest/dg/invocation-eventfiltering.md "../../../lambda/latest/dg/invocation-eventfiltering.md") in
-the _AWS Lambda Developer Guide_.
-
-_Type_: [FilterCriteria](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`FilterCriteria` property of an
-`AWS::Lambda::EventSourceMapping` resource.
-
-`KafkaBootstrapServers`
-
-The list of bootstrap servers for your Kafka brokers. Include the port, for example
-`broker.example.com:`xxxx``
-
-_Type_: List
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
-
-`FunctionResponseTypes`
-
-A list of the response types currently applied to the event source mapping. For more information, see [Reporting batch item failures](../../../lambda/latest/dg/kafka-retry-configurations.md "../../../lambda/latest/dg/kafka-retry-configurations.md") in the _AWS Lambda Developer Guide_.
-
-_Valid values_: `ReportBatchItemFailures`
-
-_Type_: List
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `FunctionResponseTypes` property of an `AWS::Lambda::EventSourceMapping` resource.
-
-`KmsKeyArn`
-
-The Amazon Resource Name (ARN) of the key to encrypt information related to this event.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`KmsKeyArn`
-property of an `AWS::Lambda::EventSourceMapping` resource.
-
-`LoggingConfig`
-
-The logging configuration for your event source.
-
-_Type_: [LoggingConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-loggingconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-loggingconfig.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`LoggingConfig`
-property of an `AWS::Lambda::EventSourceMapping` resource.
-
-`MaximumRecordAgeInSeconds`
-
-The maximum age of a record that Lambda sends to a function for processing.
-
-_Type_: Integer
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`MaximumRecordAgeInSeconds`
-property of an `AWS::Lambda::EventSourceMapping` resource.
-
-`MetricsConfig`
-
-The metrics configuration for your event source.
-
-_Type_: [MetricsConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`MetricsConfig`
-property of an `AWS::Lambda::EventSourceMapping` resource.
-
-`MaximumRetryAttempts`
-
-The maximum number of times to retry when the function returns an error.
-
-_Type_: Integer
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `MaximumRetryAttempts` property of an `AWS::Lambda::EventSourceMapping` resource.
-
-`ProvisionedPollerConfig`
-
-Configuration to increase the amount of pollers used to compute event source mappings. This configuration allows for a minumum of 1 poller and a maximum of 2000 pollers.
-For an example, refer to [ProvisionedPollerConfig example](#sam-property-function-selfmanagedkafka-example-provisionedpollerconfig "#sam-property-function-selfmanagedkafka-example-provisionedpollerconfig")
-
-_Type_: [ProvisionedPollerConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`ProvisionedPollerConfig` property of an
-`AWS::Lambda::EventSourceMapping` resource.
-
-`SchemaRegistryConfig`
-
-Configuration for using a schema registry with the self-managed Kafka event source.
-
-###### Note
-
+<a name="sam-property-function-selfmanagedkafka-properties"></a>
+
+ `BatchSize`   <a name="sam-function-selfmanagedkafka-batchsize"></a>
+The maximum number of records in each batch that Lambda pulls from your stream and sends to your function.  
+*Type*: Integer  
+*Required*: No  
+*Default*: 100  
+*CloudFormation compatibility*: This property is passed directly to the `[BatchSize](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize)` property of an `AWS::Lambda::EventSourceMapping` resource.  
+*Minimum*: `1`  
+*Maximum*: `10000`
+
+ `BisectBatchOnFunctionError`   <a name="sam-function-selfmanagedkafka-bisectbatchonfunctionerror"></a>
+If the function returns an error, split the batch in two and retry.  
+*Type*: Boolean  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[BisectBatchOnFunctionError](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror)` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+ `ConsumerGroupId`   <a name="sam-function-selfmanagedkafka-consumergroupid"></a>
+A string that configures how events will be read from Kafka topics.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[SelfManagedKafkaEventSourceConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig)` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+ `DestinationConfig`   <a name="sam-function-selfmanagedkafka-destinationconfig"></a>
+A configuration object that specifies the destination of an event after Lambda processes it.  
+Use this property to specify the destination of failed invocations from the self-managed Kafka event source.  
+*Type*: [DestinationConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[ DestinationConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig)` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+ `Enabled`   <a name="sam-function-selfmanagedkafka-enabled"></a>
+Disables the event source mapping to pause polling and invocation.  
+*Type*: Boolean  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[Enabled](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled)` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+ `FilterCriteria`   <a name="sam-function-selfmanagedkafka-filtercriteria"></a>
+A object that defines the criteria to determine whether Lambda should process an event. For more information, see [AWS Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) in the *AWS Lambda Developer Guide*.  
+*Type*: [FilterCriteria](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[FilterCriteria](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-filtercriteria)` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+ `KafkaBootstrapServers`   <a name="sam-function-selfmanagedkafka-kafkabootstrapservers"></a>
+The list of bootstrap servers for your Kafka brokers. Include the port, for example `broker.example.com:{{xxxx}}`  
+*Type*: List  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
+
+ `FunctionResponseTypes`   <a name="sam-function-selfmanagedkafka-functionresponsetypes"></a>
+A list of the response types currently applied to the event source mapping. For more information, see [Reporting batch item failures](https://docs.aws.amazon.com/lambda/latest/dg/kafka-retry-configurations.html) in the *AWS Lambda Developer Guide*.  
+*Valid values*: `ReportBatchItemFailures`  
+*Type*: List  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[FunctionResponseTypes](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes)` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+ `KmsKeyArn`   <a name="sam-function-selfmanagedkafka-kmskeyarn"></a>
+The Amazon Resource Name (ARN) of the key to encrypt information related to this event.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[KmsKeyArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-kmskeyarn)` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+ `LoggingConfig`   <a name="sam-function-selfmanagedkafka-loggingconfig"></a>
+The logging configuration for your event source.  
+*Type*: [LoggingConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-loggingconfig)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[LoggingConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-loggingconfig)` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+ `MaximumRecordAgeInSeconds`   <a name="sam-function-selfmanagedkafka-maximumrecordageinseconds"></a>
+The maximum age of a record that Lambda sends to a function for processing.  
+*Type*: Integer  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[MaximumRecordAgeInSeconds](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds)` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+ `MetricsConfig`   <a name="sam-function-selfmanagedkafka-metricsconfig"></a>
+The metrics configuration for your event source.  
+*Type*: [MetricsConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[MetricsConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-metricsconfig)` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+ `MaximumRetryAttempts`   <a name="sam-function-selfmanagedkafka-maximumretryattempts"></a>
+The maximum number of times to retry when the function returns an error.  
+*Type*: Integer  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[MaximumRetryAttempts](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts)` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+ `ProvisionedPollerConfig`   <a name="sam-function-selfmanagedkafka-provisionedpollerconfig"></a>
+Configuration to increase the amount of pollers used to compute event source mappings. This configuration allows for a minumum of 1 poller and a maximum of 2000 pollers. For an example, refer to [ProvisionedPollerConfig example](#sam-property-function-selfmanagedkafka-example-provisionedpollerconfig)  
+*Type*: [ProvisionedPollerConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[ProvisionedPollerConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-provisionedpollerconfig)` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+`SchemaRegistryConfig`  <a name="sam-function-selfmanagedkafka-schemaregistryconfig"></a>
+Configuration for using a schema registry with the self-managed Kafka event source.  
 This feature requires `ProvisionedPollerConfig` to be configured.
+*Type*: [SchemaRegistryConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-schemaregistryconfig)  
+*Required*: No  
+*CloudFormation compatibility:* This property is passed directly to the `[SelfManagedKafkaEventSourceConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
-_Type_: [SchemaRegistryConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-schemaregistryconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-schemaregistryconfig.md")
+ `SourceAccessConfigurations`   <a name="sam-function-selfmanagedkafka-sourceaccessconfigurations"></a>
+An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.  
+*Valid values*: `BASIC_AUTH | CLIENT_CERTIFICATE_TLS_AUTH | SASL_SCRAM_256_AUTH | SASL_SCRAM_512_AUTH | SERVER_ROOT_CA_CERTIFICATE`  
+*Type*: List of [SourceAccessConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration)  
+*Required*: Yes  
+*CloudFormation compatibility:* This property is part of the `[SelfManagedKafkaEventSourceConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
-_Required_: No
+ `StartingPosition`   <a name="sam-function-selfmanagedkafka-startingposition"></a>
+The position in a stream from which to start reading.  
++ `AT_TIMESTAMP` – Specify a time from which to start reading records.
++ `LATEST` – Read only new records.
++ `TRIM_HORIZON` – Process all available records.
+*Valid values*: `AT_TIMESTAMP` \| `LATEST` \| `TRIM_HORIZON`  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[StartingPosition](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
-_CloudFormation compatibility:_ This property is passed directly to the
-`SelfManagedKafkaEventSourceConfig`
-property of an `AWS::Lambda::EventSourceMapping` resource.
+ `StartingPositionTimestamp`   <a name="sam-function-selfmanagedkafka-startingpositiontimestamp"></a>
+The time from which to start reading, in Unix time seconds. Define `StartingPositionTimestamp` when `StartingPosition` is specified as `AT_TIMESTAMP`.  
+*Type*: Double  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[StartingPositionTimestamp](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
-`SourceAccessConfigurations`
-
-An array of the authentication protocol, VPC components, or virtual host to secure
-and define your event source.
-
-_Valid values_: `BASIC_AUTH | CLIENT_CERTIFICATE_TLS_AUTH |
- SASL_SCRAM_256_AUTH | SASL_SCRAM_512_AUTH | SERVER_ROOT_CA_CERTIFICATE`
-
-_Type_: List of [SourceAccessConfiguration](../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.md")
-
-_Required_: Yes
-
-_CloudFormation compatibility:_ This property is part of the
-`SelfManagedKafkaEventSourceConfig`
-property of an `AWS::Lambda::EventSourceMapping` resource.
-
-`StartingPosition`
-
-The position in a stream from which to start reading.
-
-- `AT_TIMESTAMP` – Specify a time from which to start reading
-  records.
-- `LATEST` – Read only new records.
-- `TRIM_HORIZON` – Process all available records.
-
-_Valid values_: `AT_TIMESTAMP` |
-`LATEST` | `TRIM_HORIZON`
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`StartingPosition` property of an
-`AWS::Lambda::EventSourceMapping` resource.
-
-`StartingPositionTimestamp`
-
-The time from which to start reading, in Unix time seconds. Define
-`StartingPositionTimestamp` when `StartingPosition` is specified
-as `AT_TIMESTAMP`.
-
-_Type_: Double
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`StartingPositionTimestamp` property of an
-`AWS::Lambda::EventSourceMapping` resource.
-
-`Topics`
-
-The name of the Kafka topic.
-
-_Type_: List
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is passed directly to the
-`Topics` property of an `AWS::Lambda::EventSourceMapping`
-resource.
+ `Topics`   <a name="sam-function-selfmanagedkafka-topics"></a>
+The name of the Kafka topic.  
+*Type*: List  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is passed directly to the `[Topics](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
 ## Examples
+<a name="sam-property-function-selfmanagedkafka--examples"></a>
 
 ### Complete setup with IAM roles
+<a name="sam-property-function-selfmanagedkafka-example-complete"></a>
 
 The following example shows a complete setup including the required IAM role configuration for using Schema Registry:
 
@@ -312,7 +187,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Action: [sts:AssumeRole]
           Effect: Allow
@@ -389,6 +264,7 @@ Resources:
 ```
 
 ### ProvisionedPollerConfig example
+<a name="sam-property-function-selfmanagedkafka-example-provisionedpollerconfig"></a>
 
 ```
 ProvisionedPollerConfig:
@@ -397,10 +273,12 @@ ProvisionedPollerConfig:
 ```
 
 ### Self-managed Kafka event source
+<a name="sam-property-function-selfmanagedkafka--examples--self-managed-kafka-event-source"></a>
 
 The following is an example of a `SelfManagedKafka` event source type.
 
 #### YAML
+<a name="sam-property-function-selfmanagedkafka--examples--self-managed-kafka-event-source--yaml"></a>
 
 ```
 Events:
@@ -416,10 +294,10 @@ Events:
            URI: arn:aws:secretsmanager:us-west-2:123456789012:secret:my-path/my-secret-name-1a2b3c
       Topics:
         - MyKafkaTopic
-
 ```
 
 ### Self-managed Kafka Event Source with AWS Glue Schema Registry
+<a name="sam-property-function-selfmanagedkafka-example-schemaregistry"></a>
 
 The following is an example of a `SelfManagedKafka` event source type configured with AWS Glue Schema Registry.
 
@@ -449,6 +327,7 @@ Events:
 ```
 
 ### Self-managed Kafka Event Source with Confluent Schema Registry
+<a name="sam-property-function-selfmanagedkafka-example-schemaregistry-confluent"></a>
 
 The following is an example of a `SelfManagedKafka` event source type configured with Confluent Schema Registry.
 

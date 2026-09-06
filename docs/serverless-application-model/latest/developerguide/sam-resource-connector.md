@@ -1,115 +1,87 @@
+
+
 # AWS::Serverless::Connector
+<a name="sam-resource-connector"></a>
 
-Configures permissions between two resources. For an introduction to connectors, see [Managing resource permissions with AWS SAM connectors](managing-permissions-connectors.md "managing-permissions-connectors.md").
+Configures permissions between two resources. For an introduction to connectors, see [Managing resource permissions with AWS SAM connectors](managing-permissions-connectors.md).
 
-For more information on generated AWS CloudFormation resources, see [CloudFormation resources generated when you specify AWS::Serverless::Connector](sam-specification-generated-resources-connector.md "sam-specification-generated-resources-connector.md").
+For more information on generated AWS CloudFormation resources, see [CloudFormation resources generated when you specify AWS::Serverless::Connector](sam-specification-generated-resources-connector.md).
 
-To provide feedback on connectors, [submit a new issue](https://github.com/aws/serverless-application-model/issues/new?assignees=&labels=area%2Fconnectors,stage%2Fneeds-triage&template=other.md&title=%28Feature%20Request%29 "https://github.com/aws/serverless-application-model/issues/new?assignees=&labels=area%2Fconnectors,stage%2Fneeds-triage&template=other.md&title=%28Feature%20Request%29") at the _serverless-application-model AWS GitHub repository_.
+To provide feedback on connectors, [submit a new issue](https://github.com/aws/serverless-application-model/issues/new?assignees=&labels=area%2Fconnectors,stage%2Fneeds-triage&template=other.md&title=%28Feature%20Request%29) at the *serverless-application-model AWS GitHub repository*.
 
-###### Note
-
-When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information,
-see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+**Note**  
+When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md).
 
 ## Syntax
+<a name="sam-resource-connector-syntax"></a>
 
 To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use any of the following syntaxes.
 
-###### Note
-
-We recommend using the embedded connectors syntax for most use cases. Being embedded within the source resource
-makes it easier to read and maintain over time. When you need to reference a source resource that is not within the
-same AWS SAM template, such as a resource in a nested stack or a shared resource, use the
-`AWS::Serverless::Connector` syntax.
+**Note**  
+We recommend using the embedded connectors syntax for most use cases. Being embedded within the source resource makes it easier to read and maintain over time. When you need to reference a source resource that is not within the same AWS SAM template, such as a resource in a nested stack or a shared resource, use the `AWS::Serverless::Connector` syntax.
 
 ### Embedded connectors
+<a name="sam-resource-connector-syntax-embedded"></a>
 
 ```
-`<source-resource-logical-id>`:
+{{<source-resource-logical-id>}}:
   Connectors:
-    `<connector-logical-id`:
+    {{<connector-logical-id}}:
       Properties:
-        Destination: `ResourceReference` | `List of ResourceReference`
-        Permissions: `List`
-        SourceReference: `SourceReference`
+        [Destination](#sam-connector-destination): {{ResourceReference}} | {{List of ResourceReference}}
+        [Permissions](#sam-connector-permissions): {{List}}
+        [SourceReference](#sam-connector-sourcereference): {{SourceReference}}
 ```
 
 ### AWS::Serverless::Connector
+<a name="sam-resource-connector-syntax-connector"></a>
 
 ```
 Type: AWS::Serverless::Connector
 Properties:
-  Destination: `ResourceReference` | `List of ResourceReference`
-  Permissions: `List`
-  Source: `ResourceReference`
+  [Destination](#sam-connector-destination): {{ResourceReference}} | {{List of ResourceReference}}
+  [Permissions](#sam-connector-permissions): {{List}}
+  [Source](#sam-connector-source): {{ResourceReference}}
 ```
 
 ## Properties
+<a name="sam-resource-connector-properties"></a>
 
-`Destination`
+ `Destination`   <a name="sam-connector-destination"></a>
+The destination resource.  
+*Type*: [ ResourceReference](sam-property-connector-resourcereference.md) \| List of [ResourceReference](sam-property-connector-resourcereference.md)  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-The destination resource.
+ `Permissions`   <a name="sam-connector-permissions"></a>
+The permission type that the source resource is allowed to perform on the destination resource.  
+`Read` includes AWS Identity and Access Management (IAM) actions that allow reading data from the resource.  
+`Write` inclues IAM actions that allow initiating and writing data to a resource.  
+*Valid values*: `Read` or `Write`  
+*Type*: List  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Type_: [ResourceReference](sam-property-connector-resourcereference.md "sam-property-connector-resourcereference.md") | List of [ResourceReference](sam-property-connector-resourcereference.md "sam-property-connector-resourcereference.md")
+ `Source`   <a name="sam-connector-source"></a>
+The source resource. Required when using the `AWS::Serverless::Connector` syntax.  
+*Type*: [ResourceReference](sam-property-connector-resourcereference.md)  
+*Required*: Conditional  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
-
-`Permissions`
-
-The permission type that the source resource is allowed to perform on the
-destination resource.
-
-`Read` includes AWS Identity and Access Management (IAM) actions that allow reading data from
-the resource.
-
-`Write` inclues IAM actions that allow initiating and writing data to a
-resource.
-
-_Valid values_: `Read` or
-`Write`
-
-_Type_: List
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
-
-`Source`
-
-The source resource. Required when using the `AWS::Serverless::Connector` syntax.
-
-_Type_: [ResourceReference](sam-property-connector-resourcereference.md "sam-property-connector-resourcereference.md")
-
-_Required_: Conditional
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
-
-`SourceReference`
-
-The source resource.
-
-###### Note
-
+ `SourceReference`   <a name="sam-connector-sourcereference"></a>
+The source resource.  
 Use with the embedded connectors syntax when defining additional properties for the source resource.
-
-_Type_: [SourceReference](sam-property-connector-sourcereference.md "sam-property-connector-sourcereference.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
+*Type*: [SourceReference](sam-property-connector-sourcereference.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Examples
+<a name="sam-resource-connector-examples"></a>
 
 ### Embedded connectors
+<a name="sam-resource-connector-examples-embedded"></a>
 
-The following example uses embedded connectors to define a `Write` data connection between an
-AWS Lambda function and Amazon DynamoDB table:
+The following example uses embedded connectors to define a `Write` data connection between an AWS Lambda function and Amazon DynamoDB table:
 
 ```
 Transform: AWS::Serverless-2016-10-31
@@ -129,8 +101,7 @@ Resources:
     ...
 ```
 
-The following example uses embedded connectors to define `Read` and `Write`
-permissions:
+The following example uses embedded connectors to define `Read` and `Write` permissions:
 
 ```
 Transform: AWS::Serverless-2016-10-31
@@ -151,8 +122,7 @@ Resources:
     ...
 ```
 
-The following example uses embedded connectors to define a source resource with a property other than
-`Id`:
+The following example uses embedded connectors to define a source resource with a property other than `Id`:
 
 ```
 Transform: AWS::Serverless-2016-10-31
@@ -177,9 +147,9 @@ Resources:
 ```
 
 ### AWS::Serverless::Connector
+<a name="sam-resource-connector--examples-connector"></a>
 
-The following example uses the [AWS::Serverless::Connector](sam-resource-connector.md "sam-resource-connector.md") resource to have an AWS Lambda function read from,
-and write to an Amazon DynamoDB table:
+The following example uses the [AWS::Serverless::Connector](#sam-resource-connector) resource to have an AWS Lambda function read from, and write to an Amazon DynamoDB table:
 
 ```
 MyConnector:
@@ -194,8 +164,7 @@ MyConnector:
       - Write
 ```
 
-The following example uses the [AWS::Serverless::Connector](sam-resource-connector.md "sam-resource-connector.md") resource to have a Lambda function write to an
-Amazon SNS topic, with both resources in the same template:
+The following example uses the [AWS::Serverless::Connector](#sam-resource-connector) resource to have a Lambda function write to an Amazon SNS topic, with both resources in the same template:
 
 ```
 MyConnector:
@@ -209,9 +178,7 @@ MyConnector:
       - Write
 ```
 
-The following example uses the [AWS::Serverless::Connector](sam-resource-connector.md "sam-resource-connector.md") resource to have an Amazon SNS topic write to a Lambda
-function, which then writes to an Amazon DynamoDB table, with all resources in the same
-template:
+The following example uses the [AWS::Serverless::Connector](#sam-resource-connector) resource to have an Amazon SNS topic write to a Lambda function, which then writes to an Amazon DynamoDB table, with all resources in the same template:
 
 ```
 Transform: AWS::Serverless-2016-10-31
@@ -232,8 +199,8 @@ Resources:
         const AWS = require('aws-sdk');
         exports.handler = async (event, context) => {
           const docClient = new AWS.DynamoDB.DocumentClient();
-          await docClient.put({
-            TableName: process.env.TABLE_NAME,
+          await docClient.put({ 
+            TableName: process.env.TABLE_NAME, 
             Item: {
               id: context.awsRequestId,
               event: JSON.stringify(event)
@@ -250,9 +217,9 @@ Resources:
   TopicToFunctionConnector:
     Type: AWS::Serverless::Connector
     Properties:
-      Source:
+      Source: 
         Id: Topic
-      Destination:
+      Destination: 
         Id: Function
       Permissions:
         - Write
@@ -260,9 +227,9 @@ Resources:
   FunctionToTableConnector:
     Type: AWS::Serverless::Connector
     Properties:
-      Source:
+      Source: 
         Id: Function
-      Destination:
+      Destination: 
         Id: Table
       Permissions:
         - Write
@@ -287,7 +254,7 @@ The following is the transformed AWS CloudFormation template from the example ab
   },
   "Properties": {
     "PolicyDocument": {
-      "Version": "2012-10-17",
+      "Version": "2012-10-17",		 	 	 
       "Statement": [
         {
           "Effect": "Allow",

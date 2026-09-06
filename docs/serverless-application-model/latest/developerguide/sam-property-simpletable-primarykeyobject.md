@@ -1,57 +1,54 @@
+
+
 # PrimaryKeyObject
+<a name="sam-property-simpletable-primarykeyobject"></a>
 
 The object describing the properties of a primary key.
 
 ## Syntax
+<a name="sam-property-simpletable-primarykeyobject-syntax"></a>
 
 To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-simpletable-primarykeyobject-syntax.yaml"></a>
 
 ```
-  Name: `String`
-  Type: `String`
-
+  [Name](#sam-simpletable-primarykeyobject-name): {{String}}
+  [Type](#sam-simpletable-primarykeyobject-type): {{String}}
 ```
 
 ## Properties
+<a name="sam-property-simpletable-primarykeyobject-properties"></a>
 
-`Name`
+ `Name`   <a name="sam-simpletable-primarykeyobject-name"></a>
+Attribute name of the primary key.  
+*Type*: String  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is passed directly to the `[AttributeName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename)` property of the `AWS::DynamoDB::Table` `AttributeDefinition` data type.  
+*Additional notes*: This property is also passed to the [AttributeName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html#aws-properties-dynamodb-keyschema-attributename) property of an `AWS::DynamoDB::Table KeySchema` data type.
 
-Attribute name of the primary key.
-
-_Type_: String
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is passed directly to the `AttributeName` property of the `AWS::DynamoDB::Table` `AttributeDefinition` data type.
-
-_Additional notes_: This property is also passed to the [AttributeName](../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.md#aws-properties-dynamodb-keyschema-attributename "../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.md#aws-properties-dynamodb-keyschema-attributename") property of an `AWS::DynamoDB::Table KeySchema` data type.
-
-`Type`
-
-The data type for the primary key.
-
-_Valid values_: `String`, `Number`, `Binary`
-
-_Type_: String
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is passed directly to the `AttributeType` property of the `AWS::DynamoDB::Table` `AttributeDefinition` data type.
+ `Type`   <a name="sam-simpletable-primarykeyobject-type"></a>
+The data type for the primary key.  
+*Valid values*: `String`, `Number`, `Binary`  
+*Type*: String  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is passed directly to the `[AttributeType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename-attributetype)` property of the `AWS::DynamoDB::Table` `AttributeDefinition` data type.
 
 ## Examples
+<a name="sam-property-simpletable-primarykeyobject--examples"></a>
 
 ### PrimaryKey
+<a name="sam-property-simpletable-primarykeyobject--examples--primarykey"></a>
 
 Primary key example.
 
 #### YAML
+<a name="sam-property-simpletable-primarykeyobject--examples--primarykey--yaml"></a>
 
 ```
 Properties:
   PrimaryKey:
     Name: MyPrimaryKey
     Type: String
-
 ```

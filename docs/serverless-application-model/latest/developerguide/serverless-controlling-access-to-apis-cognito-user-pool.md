@@ -1,7 +1,9 @@
-# Amazon Cognito user pool example for AWS SAM
 
-You can control access to your APIs by defining Amazon Cognito user pools within your AWS SAM
-template. To do this, you use the [ApiAuth](sam-property-api-apiauth.md "sam-property-api-apiauth.md") data type.
+
+# Amazon Cognito user pool example for AWS SAM
+<a name="serverless-controlling-access-to-apis-cognito-user-pool"></a>
+
+You can control access to your APIs by defining Amazon Cognito user pools within your AWS SAM template. To do this, you use the [ApiAuth](sam-property-api-apiauth.md) data type.
 
 The following is an example AWS SAM template section for a user pool:
 
@@ -45,7 +47,7 @@ Resources:
         - AttributeDataType: String
           Name: email
           Required: false
-
+  
   MyCognitoUserPoolClient:
     Type: AWS::Cognito::UserPoolClient
     Properties:
@@ -54,6 +56,4 @@ Resources:
       GenerateSecret: false
 ```
 
-For more information about Amazon Cognito user pools, see [Control access
-to a REST API using Amazon Cognito user pools as authorizer](../../../apigateway/latest/developerguide/apigateway-integrate-with-cognito.md "../../../apigateway/latest/developerguide/apigateway-integrate-with-cognito.md") in the
-_API Gateway Developer Guide_.
+For more information about Amazon Cognito user pools, see [Control access to a REST API using Amazon Cognito user pools as authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html) in the *API Gateway Developer Guide*.

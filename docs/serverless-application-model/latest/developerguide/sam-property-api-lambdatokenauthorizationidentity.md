@@ -1,66 +1,59 @@
-# LambdaTokenAuthorizationIdentity
 
-This property can be used to specify an IdentitySource in an incoming request for an authorizer. For more information about IdentitySource see the [ApiGateway Authorizer OpenApi extension](../../../apigateway/latest/developerguide/api-gateway-swagger-extensions-authorizer.md "../../../apigateway/latest/developerguide/api-gateway-swagger-extensions-authorizer.md").
+
+# LambdaTokenAuthorizationIdentity
+<a name="sam-property-api-lambdatokenauthorizationidentity"></a>
+
+This property can be used to specify an IdentitySource in an incoming request for an authorizer. For more information about IdentitySource see the [ApiGateway Authorizer OpenApi extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-authorizer.html).
 
 ## Syntax
+<a name="sam-property-api-lambdatokenauthorizationidentity-syntax"></a>
 
-To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
+ To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax. 
 
 ### YAML
+<a name="sam-property-api-lambdatokenauthorizationidentity-syntax.yaml"></a>
 
 ```
-  Header: `String`
-  ReauthorizeEvery: `Integer`
-  ValidationExpression: `String`
-
+  [Header](#sam-api-lambdatokenauthorizationidentity-header): {{String}}
+  [ReauthorizeEvery](#sam-api-lambdatokenauthorizationidentity-reauthorizeevery): {{Integer}}
+  [ValidationExpression](#sam-api-lambdatokenauthorizationidentity-validationexpression): {{String}}
 ```
 
 ## Properties
+<a name="sam-property-api-lambdatokenauthorizationidentity-properties"></a>
 
-`Header`
+ `Header`   <a name="sam-api-lambdatokenauthorizationidentity-header"></a>
+Specify the header name for Authorization in the OpenApi definition.  
+*Type*: String  
+*Required*: No  
+*Default*: Authorization  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-Specify the header name for Authorization in the OpenApi definition.
+ `ReauthorizeEvery`   <a name="sam-api-lambdatokenauthorizationidentity-reauthorizeevery"></a>
+The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches authorizer results. If you specify a value greater than 0, API Gateway caches the authorizer responses. By default, API Gateway sets this property to 300. The maximum value is 3600, or 1 hour.  
+*Type*: Integer  
+*Required*: No  
+*Default*: 300  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Type_: String
-
-_Required_: No
-
-_Default_: Authorization
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`ReauthorizeEvery`
-
-The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches authorizer results. If you specify a value greater than 0, API Gateway caches the authorizer responses. By default, API Gateway sets this property to 300. The maximum value is 3600, or 1 hour.
-
-_Type_: Integer
-
-_Required_: No
-
-_Default_: 300
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`ValidationExpression`
-
-Specify a validation expression for validating the incoming Identity.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
+ `ValidationExpression`   <a name="sam-api-lambdatokenauthorizationidentity-validationexpression"></a>
+Specify a validation expression for validating the incoming Identity.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Examples
+<a name="sam-property-api-lambdatokenauthorizationidentity--examples"></a>
 
 ### LambdaTokenIdentity
+<a name="sam-property-api-lambdatokenauthorizationidentity--examples--lambdatokenidentity"></a>
 
 #### YAML
+<a name="sam-property-api-lambdatokenauthorizationidentity--examples--lambdatokenidentity--yaml"></a>
 
 ```
 Identity:
   Header: MyCustomAuthHeader
   ValidationExpression: Bearer.*
   ReauthorizeEvery: 30
-
 ```

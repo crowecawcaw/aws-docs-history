@@ -1,11 +1,10 @@
+
+
 # CloudFormation resources generated when AWS::Serverless::Application is specified
+<a name="sam-specification-generated-resources-application"></a>
 
-When an `AWS::Serverless::Application` is specified, AWS Serverless Application Model
-(AWS SAM) generates an `AWS::CloudFormation::Stack` base CloudFormation resource.
+When an `AWS::Serverless::Application` is specified, AWS Serverless Application Model (AWS SAM) generates an `AWS::CloudFormation::Stack` base CloudFormation resource.
 
-**`AWS::CloudFormation::Stack`**
-
-_`LogicalId`:_ `<application‑LogicalId>`
-
-_Referenceable property:_ N/A (you must use the
-`LogicalId` to reference this CloudFormation resource)
+**`AWS::CloudFormation::Stack`**  
+*`LogicalId`: *`{{<application‑LogicalId>}}`   
+*Referenceable property: *N/A (you must use the `LogicalId` to reference this CloudFormation resource)

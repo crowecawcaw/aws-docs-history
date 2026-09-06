@@ -1,40 +1,36 @@
-# SourceReference
 
-A reference to a source resource that the [AWS::Serverless::Connector](sam-resource-connector.md "sam-resource-connector.md") resource type uses.
+
+# SourceReference
+<a name="sam-property-connector-sourcereference"></a>
+
+A reference to a source resource that the [AWS::Serverless::Connector](sam-resource-connector.md) resource type uses.
 
 ## Syntax
+<a name="sam-property-connector-sourcereference-syntax"></a>
 
 To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-connector-sourcereference-syntax.yaml"></a>
 
 ```
-Qualifier: `String`
+[Qualifier](#sam-connector-sourcereference-qualifier): {{String}}
 ```
 
 ## Properties
+<a name="sam-property-connector-sourcereference-properties"></a>
 
-`Qualifier`
-
-A qualifier for a resource that narrows its scope. `Qualifier` replaces the `*`
-value at the end of a resource constraint ARN.
-
-###### Note
-
-Qualifier definition varies per resource type. For a list of supported source and destination resource
-types, see [AWS SAM connector reference](reference-sam-connector.md "reference-sam-connector.md").
-
-_Type_: String
-
-_Required_: Conditional
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation
-equivalent.
+ `Qualifier`   <a name="sam-connector-sourcereference-qualifier"></a>
+A qualifier for a resource that narrows its scope. `Qualifier` replaces the `*` value at the end of a resource constraint ARN.  
+Qualifier definition varies per resource type. For a list of supported source and destination resource types, see [AWS SAM connector reference](reference-sam-connector.md).
+*Type*: String  
+*Required*: Conditional  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Examples
+<a name="sam-property-connector-sourcereference--examples"></a>
 
-**The following example uses embedded connectors to define a source resource with a property
-other than `Id`:**
+**The following example uses embedded connectors to define a source resource with a property other than `Id`:**
 
 ```
 Transform: AWS::Serverless-2016-10-31

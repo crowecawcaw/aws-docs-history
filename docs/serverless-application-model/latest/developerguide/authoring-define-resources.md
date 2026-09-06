@@ -1,26 +1,25 @@
-# Define application resources in your AWS SAM template
 
-You define the AWS resources your serverless application uses in the `Resources` section of your AWS SAM template.
-When you define a resource, you identify what the resource is, how it interacts with other resources,
-and how it can be accessed (that is, the permissions of the resource).
+
+# Define application resources in your AWS SAM template
+<a name="authoring-define-resources"></a>
+
+You define the AWS resources your serverless application uses in the `Resources` section of your AWS SAM template. When you define a resource, you identify what the resource is, how it interacts with other resources, and how it can be accessed (that is, the permissions of the resource).
 
 The `Resources` section of your AWS SAM template can contain a combination of CloudFormation resources and AWS SAM resources. Additionally, you can use AWS SAM's short-hand syntax for the following resources:
 
-| AWS SAM short-hand syntax                                                                    | What it does with a related AWS resource                                                                                                                                                                                                       |
-| -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [AWS::Serverless::Api](sam-resource-api.md "sam-resource-api.md")                            | Creates a collection of API Gateway resources and methods that can be invoked through HTTPS endpoints.                                                                                                                                         |
-| [AWS::Serverless::Application](sam-resource-application.md "sam-resource-application.md")    | Embeds a serverless application from the [AWS Serverless Application Repository](https://serverlessrepo.aws.amazon.com/applications "https://serverlessrepo.aws.amazon.com/applications") or from an Amazon S3 bucket as a nested application. |
-| [AWS::Serverless::Connector](sam-resource-connector.md "sam-resource-connector.md")          | Configures permissions between two resources. For an introduction to connectors, see [Managing resource permissions with AWS SAM connectors](managing-permissions-connectors.md "managing-permissions-connectors.md").                         |
-| [AWS::Serverless::Function](sam-resource-function.md "sam-resource-function.md")             | Creates an AWS Lambda function, an AWS Identity and Access Management (IAM) execution role, and event source<br>mappings that trigger the function.                                                                                            |
-| [AWS::Serverless::GraphQLApi](sam-resource-graphqlapi.md "sam-resource-graphqlapi.md")       | creates and configures an AWS AppSync GraphQL API for your serverless application.                                                                                                                                                             |
-| [AWS::Serverless::HttpApi](sam-resource-httpapi.md "sam-resource-httpapi.md")                | Creates an Amazon API Gateway HTTP API, which enables you to create RESTful APIs with lower latency<br>and lower costs than REST APIs.                                                                                                         |
-| [AWS::Serverless::LayerVersion](sam-resource-layerversion.md "sam-resource-layerversion.md") | Creates a Lambda LayerVersion that contains library or runtime code needed by a Lambda Function.                                                                                                                                               |
-| [AWS::Serverless::SimpleTable](sam-resource-simpletable.md "sam-resource-simpletable.md")    | Creates a DynamoDB table with a single attribute primary key.                                                                                                                                                                                  |
-| [AWS::Serverless::StateMachine](sam-resource-statemachine.md "sam-resource-statemachine.md") | Creates an AWS Step Functions state machine, which you can use to orchestrate AWS Lambda functions and<br>other AWS resources to form complex and robust workflows.                                                                            |
 
-The above resources are also listed in
-[AWS SAM resources and properties](sam-specification-resources-and-properties.md "sam-specification-resources-and-properties.md").
+| AWS SAM short-hand syntax | What it does with a related AWS resource | 
+| --- | --- | 
+| [AWS::Serverless::Api](sam-resource-api.md) | Creates a collection of API Gateway resources and methods that can be invoked through HTTPS endpoints. | 
+| [AWS::Serverless::Application](sam-resource-application.md) | Embeds a serverless application from the [AWS Serverless Application Repository](https://serverlessrepo.aws.amazon.com/applications) or from an Amazon S3 bucket as a nested application. | 
+| [AWS::Serverless::Connector](sam-resource-connector.md) | Configures permissions between two resources. For an introduction to connectors, see [Managing resource permissions with AWS SAM connectors](managing-permissions-connectors.md). | 
+| [AWS::Serverless::Function](sam-resource-function.md) | Creates an AWS Lambda function, an AWS Identity and Access Management (IAM) execution role, and event source mappings that trigger the function. | 
+| [AWS::Serverless::GraphQLApi](sam-resource-graphqlapi.md) | creates and configures an AWS AppSync GraphQL API for your serverless application. | 
+| [AWS::Serverless::HttpApi](sam-resource-httpapi.md) | Creates an Amazon API Gateway HTTP API, which enables you to create RESTful APIs with lower latency and lower costs than REST APIs. | 
+| [AWS::Serverless::LayerVersion](sam-resource-layerversion.md) | Creates a Lambda LayerVersion that contains library or runtime code needed by a Lambda Function. | 
+| [AWS::Serverless::SimpleTable](sam-resource-simpletable.md) | Creates a DynamoDB table with a single attribute primary key. | 
+| [AWS::Serverless::StateMachine](sam-resource-statemachine.md) | Creates an AWS Step Functions state machine, which you can use to orchestrate AWS Lambda functions and other AWS resources to form complex and robust workflows. | 
 
-For reference information for all the AWS resource and property types CloudFormation and AWS SAM support, see
-[AWS resource and property
-types reference](../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md "../../../AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.md") in the _AWS CloudFormation User Guide_.
+The above resources are also listed in [AWS SAM resources and properties](sam-specification-resources-and-properties.md).
+
+For reference information for all the AWS resource and property types CloudFormation and AWS SAM support, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the *AWS CloudFormation User Guide*.

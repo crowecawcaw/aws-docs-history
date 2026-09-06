@@ -1,48 +1,42 @@
+
+
 # Building Rust Lambda functions with Cargo Lambda in AWS SAM
+<a name="building-rust"></a>
 
 Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) with your Rust AWS Lambda functions.
 
-###### Topics
-
-- [Prerequisites](#building-rust-prerequisites "#building-rust-prerequisites")
-- [Configuring AWS SAM to use with Rust Lambda functions](#building-rust-configure "#building-rust-configure")
-- [Examples](#building-rust-examples "#building-rust-examples")
-- [Optimizing Rust builds in GitHub Actions](#building-rust-optimize-ci "#building-rust-optimize-ci")
+**Topics**
++ [Prerequisites](#building-rust-prerequisites)
++ [Configuring AWS SAM to use with Rust Lambda functions](#building-rust-configure)
++ [Examples](#building-rust-examples)
++ [Optimizing Rust builds in GitHub Actions](#building-rust-optimize-ci)
 
 ## Prerequisites
+<a name="building-rust-prerequisites"></a>
 
-**Rust language**
+**Rust language**  
+To install Rust, see [Install Rust](https://www.rust-lang.org/tools/install) in the *Rust language website*.
 
-To install Rust, see [Install
-Rust](https://www.rust-lang.org/tools/install "https://www.rust-lang.org/tools/install") in the _Rust language website_.
+**Cargo Lambda**  
+The AWS SAM CLI requires installation of [Cargo Lambda](https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html), a subcommand for Cargo. For installation instructions, see [Installation](https://www.cargo-lambda.info/guide/installation.html) in the *Cargo Lambda documentation*.
 
-**Cargo Lambda**
-
-The AWS SAM CLI requires installation of [Cargo Lambda](https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html "https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html"), a subcommand for Cargo. For installation instructions, see
-[Installation](https://www.cargo-lambda.info/guide/installation.html "https://www.cargo-lambda.info/guide/installation.html") in the
-_Cargo Lambda documentation_.
-
-**Docker**
-
-Building and testing Rust Lambda functions requires Docker. For installation
-instructions, see [Installing Docker](install-docker.md "install-docker.md").
+**Docker**  
+Building and testing Rust Lambda functions requires Docker. For installation instructions, see [Installing Docker](install-docker.md).
 
 ## Configuring AWS SAM to use with Rust Lambda functions
+<a name="building-rust-configure"></a>
 
 ### Step 1: Configure your AWS SAM template
+<a name="building-rust-configure-template"></a>
 
 Configure your AWS SAM template with the following:
++ **Binary** – Optional. Specify when a single Cargo package defines more than one binary, to identify which binary to build for this function. You don't need this property when each function is its own Cargo package, such as in a Cargo workspace.
++ **BuildMethod** – `rust-cargolambda`.
++ **CodeUri** – path to your `Cargo.toml` file.
++ **Handler** – `bootstrap`.
++ **Runtime** – `provided.al2023`.
 
-- **Binary** – Optional. Specify when a single Cargo package
-  defines more than one binary, to identify which binary to build for this function. You don't need this property when
-  each function is its own Cargo package, such as in a Cargo workspace.
-- **BuildMethod** – `rust-cargolambda`.
-- **CodeUri** – path to your `Cargo.toml` file.
-- **Handler** – `bootstrap`.
-- **Runtime** – `provided.al2023`.
-
-To learn more about custom runtimes, see [Custom AWS Lambda runtimes](../../../lambda/latest/dg/runtimes-custom.md "../../../lambda/latest/dg/runtimes-custom.md") in the
-_AWS Lambda Developer Guide_.
+To learn more about custom runtimes, see [Custom AWS Lambda runtimes](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html) in the *AWS Lambda Developer Guide*.
 
 Here is an example of a configured AWS SAM template:
 
@@ -64,35 +58,36 @@ Resources:
 ```
 
 ### Step 2: Use the AWS SAM CLI with your Rust Lambda function
+<a name="building-rust-configure-cli"></a>
 
-Use any AWS SAM CLI command with your AWS SAM template. For more information, see [AWS SAM CLI](using-sam-cli.md "using-sam-cli.md").
+Use any AWS SAM CLI command with your AWS SAM template. For more information, see [AWS SAM CLI](using-sam-cli.md).
 
 ## Examples
+<a name="building-rust-examples"></a>
 
 ### Hello World example
+<a name="building-rust-examples-hello"></a>
 
-**In this example, we build the sample Hello World application using Rust
-as our runtime.**
+**In this example, we build the sample Hello World application using Rust as our runtime.**
 
-First, we initialize a new serverless application using `sam init`. During the interactive flow, we
-select the **Hello World application** and choose the **Rust** runtime.
+First, we initialize a new serverless application using `sam init`. During the interactive flow, we select the **Hello World application** and choose the **Rust** runtime.
 
 ```
-`$` `sam init`
+$ sam init
 ...
 Which template source would you like to use?
         1 - AWS Quick Start Templates
         2 - Custom Template Location
-Choice: `1`
+Choice: {{1}}
 
 Choose an AWS Quick Start application template
         1 - Hello World Example
         2 - Multi-step workflow
         3 - Serverless API
         ...
-Template: `1`
+Template: {{1}}
 
-Use the most popular runtime and package type? (Python and zip) [y/N]: `ENTER`
+Use the most popular runtime and package type? (Python and zip) [y/N]: {{ENTER}}
 
 Which runtime would you like to use?
         1 - dotnet8
@@ -106,7 +101,7 @@ Which runtime would you like to use?
         22 - ruby3.2
         23 - rust (provided.al2)
         24 - rust (provided.al2023)
-Runtime: `24`
+Runtime: {{24}}
 
 Based on your selections, the only Package type available is Zip.
 We will proceed to selecting the Package type as Zip.
@@ -114,12 +109,12 @@ We will proceed to selecting the Package type as Zip.
 Based on your selections, the only dependency manager available is cargo.
 We will proceed copying the template using cargo.
 
-Would you like to enable X-Ray tracing on the function(s) in your application?  [y/N]: `ENTER`
+Would you like to enable X-Ray tracing on the function(s) in your application?  [y/N]: {{ENTER}}
 
 Would you like to enable monitoring using CloudWatch Application Insights?
-For more info, please view https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.html [y/N]: `ENTER`
+For more info, please view https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.html [y/N]: {{ENTER}}
 
-Project name [sam-app]: `hello-rust`
+Project name [sam-app]: {{hello-rust}}
 
     -----------------------
     Generating application:
@@ -131,9 +126,9 @@ Project name [sam-app]: `hello-rust`
     Application Template: hello-world
     Output Directory: .
     Configuration file: hello-rust/samconfig.toml
-
+    
     Next steps can be found in the README file at hello-rust/README.md
-
+        
 
 Commands you can use next
 =========================
@@ -165,9 +160,9 @@ Transform: AWS::Serverless-2016-10-31
 ...
 Resources:
   HelloWorldFunction:
-    Type: AWS::Serverless::Function
+    Type: AWS::Serverless::Function 
     Metadata:
-      BuildMethod: rust-cargolambda
+      BuildMethod: rust-cargolambda 
     Properties:
       CodeUri: ./rust_app
       Handler: bootstrap
@@ -182,20 +177,15 @@ Resources:
             Method: get
 ```
 
-Next, we run `sam build` to build our application and prepare for deployment. The AWS SAM CLI creates a
-`.aws-sam` directory and organizes our build artifacts there. Our function is built using
-Cargo Lambda and stored as an executable binary at
-`.aws-sam/build/HelloWorldFunction/bootstrap`.
+Next, we run `sam build` to build our application and prepare for deployment. The AWS SAM CLI creates a `.aws-sam` directory and organizes our build artifacts there. Our function is built using Cargo Lambda and stored as an executable binary at `.aws-sam/build/HelloWorldFunction/bootstrap`.
 
-###### Note
-
-If you plan on running the **sam local invoke** command in MacOS, you need to build functions different before invoking. To do this, use the following command:
-
-- **SAM\_BUILD\_MODE=debug sam build**
-  This command is only needed if local testing will be done. This is not recommended when building for deployment.
+**Note**  
+If you plan on running the **sam local invoke** command in MacOS, you need to build functions different before invoking. To do this, use the following command:  
+**SAM\_BUILD\_MODE=debug sam build**
+This command is only needed if local testing will be done. This is not recommended when building for deployment.
 
 ```
-`hello-rust$` `sam build`
+hello-rust$ sam build
 Starting Build use cache
 Cache is invalid, running build and copying resources for following functions (HelloWorldFunction)
 Building codeuri: /Users/.../hello-rust/rust_app runtime: provided.al2023 metadata: {'BuildMethod': 'rust-cargolambda'} architecture: x86_64 functions: HelloWorldFunction
@@ -218,7 +208,7 @@ Commands you can use next
 Next, we deploy our application using `sam deploy --guided`.
 
 ```
-`hello-rust$` `sam deploy --guided`
+hello-rust$ sam deploy --guided
 
 Configuring SAM deploy
 ======================
@@ -228,18 +218,18 @@ Configuring SAM deploy
 
         Setting default arguments for 'sam deploy'
         =========================================
-        Stack Name [hello-rust]: `ENTER`
-        AWS Region [us-west-2]: `ENTER`
+        Stack Name [hello-rust]: {{ENTER}}
+        AWS Region [us-west-2]: {{ENTER}}
         #Shows you resources changes to be deployed and require a 'Y' to initiate deploy
-        Confirm changes before deploy [Y/n]: `ENTER`
+        Confirm changes before deploy [Y/n]: {{ENTER}}
         #SAM needs permission to be able to create roles to connect to the resources in your template
-        Allow SAM CLI IAM role creation [Y/n]: `ENTER`
+        Allow SAM CLI IAM role creation [Y/n]: {{ENTER}}
         #Preserves the state of previously provisioned resources when an operation fails
-        Disable rollback [y/N]: `ENTER`
-        HelloWorldFunction may not have authorization defined, Is this okay? [y/N]: `y`
-        Save arguments to configuration file [Y/n]: `ENTER`
-        SAM configuration file [samconfig.toml]: `ENTER`
-        SAM configuration environment [default]: `ENTER`
+        Disable rollback [y/N]: {{ENTER}}
+        HelloWorldFunction may not have authorization defined, Is this okay? [y/N]: {{y}}
+        Save arguments to configuration file [Y/n]: {{ENTER}}
+        SAM configuration file [samconfig.toml]: {{ENTER}}
+        SAM configuration environment [default]: {{ENTER}}
 
         Looking for resources needed for deployment:
 
@@ -268,11 +258,11 @@ Waiting for changeset to be created..
 
 CloudFormation stack changeset
 ---------------------------------------------------------------------------------------------------------
-Operation                  LogicalResourceId          ResourceType               Replacement
+Operation                  LogicalResourceId          ResourceType               Replacement              
 ---------------------------------------------------------------------------------------------------------
-+ Add                      HelloWorldFunctionHelloW   AWS::Lambda::Permission    N/A
-                           orldPermissionProd
-...
++ Add                      HelloWorldFunctionHelloW   AWS::Lambda::Permission    N/A                      
+                           orldPermissionProd                                                             
+...                    
 ---------------------------------------------------------------------------------------------------------
 
 Changeset created successfully. arn:aws:cloudformation:us-west-2:012345678910:changeSet/samcli-deploy1681427201/f0ef1563-5ab6-4b07-9361-864ca3de6ad6
@@ -280,35 +270,35 @@ Changeset created successfully. arn:aws:cloudformation:us-west-2:012345678910:ch
 
 Previewing CloudFormation changeset before deployment
 ======================================================
-Deploy this changeset? [y/N]: `y`
+Deploy this changeset? [y/N]: {{y}}
 
 2023-04-13 13:07:17 - Waiting for stack create/update to complete
 
 CloudFormation events from stack operations (refresh every 5.0 seconds)
 ---------------------------------------------------------------------------------------------------------
-ResourceStatus             ResourceType               LogicalResourceId          ResourceStatusReason
+ResourceStatus             ResourceType               LogicalResourceId          ResourceStatusReason     
 ---------------------------------------------------------------------------------------------------------
-CREATE_IN_PROGRESS         AWS::IAM::Role             HelloWorldFunctionRole     -
-CREATE_IN_PROGRESS         AWS::IAM::Role             HelloWorldFunctionRole     Resource creation
+CREATE_IN_PROGRESS         AWS::IAM::Role             HelloWorldFunctionRole     -                        
+CREATE_IN_PROGRESS         AWS::IAM::Role             HelloWorldFunctionRole     Resource creation        
 ...
 ---------------------------------------------------------------------------------------------------------
 
 CloudFormation outputs from deployed stack
 ---------------------------------------------------------------------------------------------------------
-Outputs
+Outputs                                                                                                 
 ---------------------------------------------------------------------------------------------------------
-Key                 HelloWorldFunctionIamRole
-Description         Implicit IAM Role created for Hello World function
-Value               arn:aws:iam::012345678910:role/hello-rust-HelloWorldFunctionRole-10II2P13AUDUY
+Key                 HelloWorldFunctionIamRole                                                           
+Description         Implicit IAM Role created for Hello World function                                  
+Value               arn:aws:iam::012345678910:role/hello-rust-HelloWorldFunctionRole-10II2P13AUDUY      
 
-Key                 HelloWorldApi
-Description         API Gateway endpoint URL for Prod stage for Hello World function
-Value               https://ggdxec9le9.execute-api.us-west-2.amazonaws.com/Prod/hello/
+Key                 HelloWorldApi                                                                       
+Description         API Gateway endpoint URL for Prod stage for Hello World function                    
+Value               https://ggdxec9le9.execute-api.us-west-2.amazonaws.com/Prod/hello/                  
 
-Key                 HelloWorldFunction
-Description         Hello World Lambda Function ARN
-Value               arn:aws:lambda:us-west-2:012345678910:function:hello-rust-HelloWorldFunction-
-yk4HzGzYeZBj
+Key                 HelloWorldFunction                                                                  
+Description         Hello World Lambda Function ARN                                                     
+Value               arn:aws:lambda:us-west-2:012345678910:function:hello-rust-HelloWorldFunction-       
+yk4HzGzYeZBj                                                                                            
 ---------------------------------------------------------------------------------------------------------
 
 
@@ -318,12 +308,11 @@ Successfully created/updated stack - hello-rust in us-west-2
 To test, we can invoke our Lambda function using the API endpoint.
 
 ```
-`$` `curl https://ggdxec9le9.execute-api.us-west-2.amazonaws.com/Prod/hello/`
+$ curl https://ggdxec9le9.execute-api.us-west-2.amazonaws.com/Prod/hello/
 Hello World!%
 ```
 
-To test our function locally, first we ensure our function’s `Architectures` property matches our
-local machine.
+To test our function locally, first we ensure our function’s `Architectures` property matches our local machine.
 
 ```
 ...
@@ -341,12 +330,10 @@ Resources:
 ...
 ```
 
-Since we modified our architecture from `x86_64` to `arm64` in this example, we run
-`sam build` to update our build artifacts. We then run `sam local invoke` to locally invoke our
-function.
+Since we modified our architecture from `x86_64` to `arm64` in this example, we run `sam build` to update our build artifacts. We then run `sam local invoke` to locally invoke our function.
 
 ```
-`hello-rust$` `sam local invoke`
+hello-rust$ sam local invoke
 Invoking bootstrap (provided.al2023)
 Local image was not found.
 Removing rapid images for repo public.ecr.aws/sam/emulation-provided.al2023
@@ -360,8 +347,9 @@ REPORT RequestId: fbc55e6e-0068-45f9-9f01-8e2276597fc6  Init Duration: 0.68 ms  
 ```
 
 ### Single Lambda function project
+<a name="building-rust-examples-single"></a>
 
-**Here is an example of a serverless application containing one Rust Lambda function.**
+**Here is an example of a serverless application containing one Rust Lambda function. **
 
 Project directory structure:
 
@@ -393,14 +381,11 @@ Resources:
 ```
 
 ### Multiple Lambda function project
+<a name="building-rust-examples-multiple"></a>
 
-**Here is an example of a serverless application containing multiple Rust Lambda
-functions, organized as a Cargo workspace.**
+**Here is an example of a serverless application containing multiple Rust Lambda functions, organized as a Cargo workspace.**
 
-We recommend a Cargo workspace for applications with multiple Rust Lambda functions. Each function is
-its own package, so functions can declare independent dependencies while sharing common code through a library package.
-Each package produces a single binary named after the package, so you don't need to set the `Binary` build
-property.
+We recommend a Cargo workspace for applications with multiple Rust Lambda functions. Each function is its own package, so functions can declare independent dependencies while sharing common code through a library package. Each package produces a single binary named after the package, so you don't need to set the `Binary` build property.
 
 Project directory structure:
 
@@ -474,21 +459,12 @@ Resources:
       Runtime: provided.al2023
 ```
 
-###### Note
+**Note**  
+The AWS SAM CLI builds every function in the workspace into the workspace's shared `target` directory, so Cargo compiles shared dependencies once instead of once for each function. This behavior requires AWS SAM CLI version 1.165.0 or later. On earlier versions, each function is built in its own `target` directory and the full dependency tree is recompiled for every function, which makes builds slower as you add functions.
 
-The AWS SAM CLI builds every function in the workspace into the workspace's shared
-`target` directory, so Cargo compiles shared dependencies once instead of once for
-each function. This behavior requires AWS SAM CLI version 1.165.0 or later. On earlier versions, each
-function is built in its own `target` directory and the full dependency tree is recompiled for every
-function, which makes builds slower as you add functions.
+Give each function package a unique binary name. Package names are unique within a workspace, so the default binary name is already unique. If you override the binary name with a `[[bin]]` section, don't give two packages the same binary name. They compile to the same path in the shared `target` directory and overwrite each other. The AWS SAM CLI logs a warning when it detects this.
 
-Give each function package a unique binary name. Package names are unique within a workspace, so the default binary name
-is already unique. If you override the binary name with a `[[bin]]` section, don't give two packages the same
-binary name. They compile to the same path in the shared `target` directory and overwrite each other. The
-AWS SAM CLI logs a warning when it detects this.
-
-Alternatively, a single package can define multiple binaries. In that case, use the `Binary` build property to
-select the binary for each function:
+Alternatively, a single package can define multiple binaries. In that case, use the `Binary` build property to select the binary for each function:
 
 ```
 Resources:
@@ -505,46 +481,24 @@ Resources:
 ```
 
 ## Optimizing Rust builds in GitHub Actions
+<a name="building-rust-optimize-ci"></a>
 
-Rust builds are compute intensive, and a continuous integration runner starts with no compiled artifacts. Applications with
-several functions that share large dependencies, such as an AWS SDK, can spend most of their build time
-compiling the same dependencies. The following practices reduce build time in GitHub Actions.
+Rust builds are compute intensive, and a continuous integration runner starts with no compiled artifacts. Applications with several functions that share large dependencies, such as an AWS SDK, can spend most of their build time compiling the same dependencies. The following practices reduce build time in GitHub Actions.
 
-**Use AWS SAM CLI version 1.165.0 or later for workspaces**
+**Use AWS SAM CLI version 1.165.0 or later for workspaces**  
+Version 1.165.0 and later build every member of a Cargo workspace into the workspace's shared `target` directory, so shared dependencies are compiled once per build instead of once for each function. Specify the minimum version when you install the AWS SAM CLI so that a build doesn't silently fall back to the slower behavior.
 
-Version 1.165.0 and later build every member of a Cargo workspace into the workspace's shared
-`target` directory, so shared dependencies are compiled once per build instead of once for each
-function. Specify the minimum version when you install the AWS SAM CLI so that a build doesn't
-silently fall back to the slower behavior.
+**Cache the Cargo registry and `target` directory**  
+Cache the Cargo registry (`~/.cargo/registry` and `~/.cargo/git/db`) and the workspace `target` directory between runs, so that unchanged dependencies are restored instead of recompiled. Use a separate cache for each compilation target. A job that cross-compiles release artifacts for `arm64` produces different artifacts than a job that compiles natively for `x86_64`, so a shared cache never matches.
 
-**Cache the Cargo registry and `target` directory**
+**Include build settings in the cache key**  
+Cargo includes settings such as `opt-level` and `codegen-units` in the fingerprint that it uses to decide whether a compiled artifact can be reused. If you change the `[profile.release]` section of your workspace `Cargo.toml` file without changing the cache key, the cache is restored but every crate is recompiled anyway. Include a hash of the workspace `Cargo.toml` file in the cache key so that changing a profile setting starts a new cache.
 
-Cache the Cargo registry (`~/.cargo/registry` and
-`~/.cargo/git/db`) and the workspace `target` directory between runs, so that
-unchanged dependencies are restored instead of recompiled. Use a separate cache for each compilation target. A job
-that cross-compiles release artifacts for `arm64` produces different artifacts than a job that compiles
-natively for `x86_64`, so a shared cache never matches.
+**Commit your `Cargo.lock` file**  
+Lambda functions are executables, so commit your `Cargo.lock` file. This gives you reproducible builds and a stable cache key that changes only when your dependencies change.
 
-**Include build settings in the cache key**
-
-Cargo includes settings such as `opt-level` and `codegen-units` in the
-fingerprint that it uses to decide whether a compiled artifact can be reused. If you change the
-`[profile.release]` section of your workspace `Cargo.toml` file without changing the
-cache key, the cache is restored but every crate is recompiled anyway. Include a hash of the workspace
-`Cargo.toml` file in the cache key so that changing a profile setting starts a new cache.
-
-**Commit your `Cargo.lock` file**
-
-Lambda functions are executables, so commit your `Cargo.lock` file. This gives you reproducible
-builds and a stable cache key that changes only when your dependencies change.
-
-**Tune the release profile for build time and cold start**
-
-Your function code is recompiled on every run, because it changes more often than your dependencies. The default
-release profile optimizes for runtime throughput, which many Lambda functions don't need. Optimizing for size produces
-smaller binaries, which also helps cold start time, and increasing the number of code generation units increases
-parallelism during compilation. Leave link time optimization (`lto`) disabled, because it makes compilation
-slower. Add the following to your workspace `Cargo.toml` file:
+**Tune the release profile for build time and cold start**  
+Your function code is recompiled on every run, because it changes more often than your dependencies. The default release profile optimizes for runtime throughput, which many Lambda functions don't need. Optimizing for size produces smaller binaries, which also helps cold start time, and increasing the number of code generation units increases parallelism during compilation. Leave link time optimization (`lto`) disabled, because it makes compilation slower. Add the following to your workspace `Cargo.toml` file:  
 
 ```
 [profile.release]
@@ -553,19 +507,12 @@ codegen-units = 256
 lto = false
 strip = true
 ```
+Measure the effect on your own application. These settings trade a small amount of runtime performance for build time and binary size.
 
-Measure the effect on your own application. These settings trade a small amount of runtime performance for build
-time and binary size.
+**Avoid duplicate workflow runs**  
+A workflow that runs on both `push` and `pull_request` events runs twice for the same commit. GitHub Actions caches are scoped by branch and pull request, so the two runs write to different cache scopes and neither reuses the other's cache. Use a concurrency group that is keyed on the head commit, so that only one run builds each commit.
 
-**Avoid duplicate workflow runs**
-
-A workflow that runs on both `push` and `pull_request` events runs twice for the same commit.
-GitHub Actions caches are scoped by branch and pull request, so the two runs write to different cache
-scopes and neither reuses the other's cache. Use a concurrency group that is keyed on the head commit, so that only one
-run builds each commit.
-
-The following workflow builds a Cargo workspace of Rust Lambda functions for `arm64`, and applies
-the preceding practices:
+The following workflow builds a Cargo workspace of Rust Lambda functions for `arm64`, and applies the preceding practices:
 
 ```
 name: Build
@@ -612,5 +559,4 @@ jobs:
         run: sam build
 ```
 
-The `restore-keys` entry lets a run start from the most recent cache when the key doesn't match exactly, so that a
-dependency change reuses the crates that didn't change instead of compiling everything again.
+The `restore-keys` entry lets a run start from the most recent cache when the key doesn't match exactly, so that a dependency change reuses the crates that didn't change instead of compiling everything again.

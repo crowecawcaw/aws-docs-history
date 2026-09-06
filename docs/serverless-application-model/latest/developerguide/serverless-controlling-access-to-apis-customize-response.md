@@ -1,10 +1,11 @@
+
+
 # Customized response example for AWS SAM
+<a name="serverless-controlling-access-to-apis-customize-response"></a>
 
-You can customize some API Gateway error responses by defining response headers within your
-AWS SAM template. To do this, you use the [Gateway Response Object](https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#gateway-response-object "https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#gateway-response-object") data type.
+You can customize some API Gateway error responses by defining response headers within your AWS SAM template. To do this, you use the [Gateway Response Object](https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#gateway-response-object) data type.
 
-The following is an example AWS SAM template that creates a customized response for the
-`DEFAULT_5XX` error.
+The following is an example AWS SAM template that creates a customized response for the `DEFAULT_5XX` error.
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -23,7 +24,7 @@ Resources:
               ErrorHeader: "'MyCustomErrorHeader'"
           ResponseTemplates:
             application/json: "{\"message\": \"Error on the $context.resourcePath resource\" }"
-
+              
   GetFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -41,5 +42,4 @@ Resources:
             RestApiId: !Ref MyApi
 ```
 
-For more information about API Gateway responses, see [Gateway responses in API Gateway](../../../apigateway/latest/developerguide/api-gateway-gatewayResponse-definition.md "../../../apigateway/latest/developerguide/api-gateway-gatewayResponse-definition.md") in the
-_API Gateway Developer Guide_.
+For more information about API Gateway responses, see [Gateway responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-gatewayResponse-definition.html) in the *API Gateway Developer Guide*.

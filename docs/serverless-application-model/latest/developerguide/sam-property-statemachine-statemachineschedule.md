@@ -1,158 +1,110 @@
+
+
 # Schedule
+<a name="sam-property-statemachine-statemachineschedule"></a>
 
-The object describing a `Schedule` event source type, which sets your state machine as the target of an EventBridge rule that triggers on a schedule. For more information, see [What Is Amazon EventBridge?](../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md "../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md") in the _Amazon EventBridge User Guide_.
+The object describing a `Schedule` event source type, which sets your state machine as the target of an EventBridge rule that triggers on a schedule. For more information, see [What Is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html) in the *Amazon EventBridge User Guide*.
 
-AWS Serverless Application Model (AWS SAM) generates an [AWS::Events::Rule](../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.md") resource when this event type is set.
+AWS Serverless Application Model (AWS SAM) generates an [AWS::Events::Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html) resource when this event type is set.
 
 ## Syntax
+<a name="sam-property-statemachine-statemachineschedule-syntax"></a>
 
 To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-statemachine-statemachineschedule-syntax.yaml"></a>
 
 ```
-  DeadLetterConfig: `DeadLetterConfig`
-  Description: `String`
-  Enabled: `Boolean`
-  Input: `String`
-  Name: `String`
-  RetryPolicy: `RetryPolicy`
-  RoleArn: `String`
-  Schedule: `String`
-  State: `String`
-  Target: `Target`
-
+  [DeadLetterConfig](#sam-statemachine-statemachineschedule-deadletterconfig): {{DeadLetterConfig}}
+  [Description](#sam-statemachine-statemachineschedule-description): {{String}}
+  [Enabled](#sam-statemachine-statemachineschedule-enabled): {{Boolean}}
+  [Input](#sam-statemachine-statemachineschedule-input): {{String}}
+  [Name](#sam-statemachine-statemachineschedule-name): {{String}}
+  [RetryPolicy](#sam-statemachine-statemachineschedule-retrypolicy): {{[RetryPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy)}}
+  [RoleArn](#sam-statemachine-statemachineschedulev-rolearn): {{String}}
+  [Schedule](#sam-statemachine-statemachineschedule-schedule): {{String}}
+  [State](#sam-statemachine-statemachineschedule-state): {{String}}
+  Target: {{Target}}
 ```
 
 ## Properties
+<a name="sam-property-statemachine-statemachineschedule-properties"></a>
 
-`DeadLetterConfig`
+ `DeadLetterConfig`   <a name="sam-statemachine-statemachineschedule-deadletterconfig"></a>
+Configure the Amazon Simple Queue Service (Amazon SQS) queue where EventBridge sends events after a failed target invocation. Invocation can fail, for example, when sending an event to a Lambda function that doesn't exist, or when EventBridge has insufficient permissions to invoke the Lambda function. For more information, see [Event retry policy and using dead-letter queues](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html) in the *Amazon EventBridge User Guide*.  
+*Type*: [DeadLetterConfig](sam-property-statemachine-statemachinescheduledeadletterconfig.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is similar to the `[DeadLetterConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-deadletterconfig)` property of the `AWS::Events::Rule` `Target` data type. The AWS SAM version of this property includes additional subproperties, in case you want AWS SAM to create the dead-letter queue for you.
 
-Configure the Amazon Simple Queue Service (Amazon SQS) queue where EventBridge sends events after a failed target invocation. Invocation can fail, for example, when sending an event to a Lambda function that doesn't exist, or when EventBridge has insufficient permissions to invoke the Lambda function. For more information, see [Event retry policy and using dead-letter queues](../../../eventbridge/latest/userguide/rule-dlq.md "../../../eventbridge/latest/userguide/rule-dlq.md") in the _Amazon EventBridge User Guide_.
+ `Description`   <a name="sam-statemachine-statemachineschedule-description"></a>
+A description of the rule.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[Description](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-description)` property of an `AWS::Events::Rule` resource.
 
-_Type_: [DeadLetterConfig](sam-property-statemachine-statemachinescheduledeadletterconfig.md "sam-property-statemachine-statemachinescheduledeadletterconfig.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is similar to the `DeadLetterConfig` property of the `AWS::Events::Rule` `Target` data type. The AWS SAM version of this property includes additional subproperties, in case you want AWS SAM to create the dead-letter queue for you.
-
-`Description`
-
-A description of the rule.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `Description` property of an `AWS::Events::Rule` resource.
-
-`Enabled`
-
-Indicates whether the rule is enabled.
-
-To disable the rule, set this property to `false`.
-
-###### Note
-
+ `Enabled`   <a name="sam-statemachine-statemachineschedule-enabled"></a>
+Indicates whether the rule is enabled.  
+To disable the rule, set this property to `false`.  
 Specify either the `Enabled` or `State` property, but not both.
+*Type*: Boolean  
+*Required*: No  
+*CloudFormation compatibility*: This property is similar to the `[State](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-state)` property of an `AWS::Events::Rule` resource. If this property is set to `true` then AWS SAM passes `ENABLED`, otherwise it passes `DISABLED`.
 
-_Type_: Boolean
+ `Input`   <a name="sam-statemachine-statemachineschedule-input"></a>
+Valid JSON text passed to the target. If you use this property, nothing from the event text itself is passed to the target.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[Input](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-input)` property of an `AWS::Events::Rule Target` resource.
 
-_Required_: No
+ `Name`   <a name="sam-statemachine-statemachineschedule-name"></a>
+The name of the rule. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the rule name.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-name)` property of an `AWS::Events::Rule` resource.
 
-_CloudFormation compatibility_: This property is similar to the `State` property of an `AWS::Events::Rule` resource. If this property is set to `true` then AWS SAM passes `ENABLED`, otherwise it passes `DISABLED`.
+ `RetryPolicy`   <a name="sam-statemachine-statemachineschedule-retrypolicy"></a>
+A `RetryPolicy` object that includes information about the retry policy settings. For more information, see [Event retry policy and using dead-letter queues](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html) in the *Amazon EventBridge User Guide*.  
+*Type*: [RetryPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[RetryPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-retrypolicy)` property of the `AWS::Events::Rule` `Target` data type.
 
-`Input`
+ `RoleArn`   <a name="sam-statemachine-statemachineschedulev-rolearn"></a>
+The ARN of the IAM role that EventBridge Scheduler will use for the target when the schedule is invoked.  
+*Type*: [RoleArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-rolearn)  
+*Required*: No. If not provided, a new role will be created and used.  
+*CloudFormation compatibility*: This property is passed directly to the `[RoleArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-rolearn)` property of the `AWS::Scheduler::Schedule` `Target` data type.
 
-Valid JSON text passed to the target. If you use this property, nothing from the event text itself is passed to the target.
+ `Schedule`   <a name="sam-statemachine-statemachineschedule-schedule"></a>
+The scheduling expression that determines when and how often the rule runs. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html).  
+*Type*: String  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is passed directly to the `[ScheduleExpression](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-scheduleexpression)` property of an `AWS::Events::Rule` resource.
 
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `Input` property of an `AWS::Events::Rule Target` resource.
-
-`Name`
-
-The name of the rule. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the rule name.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `Name` property of an `AWS::Events::Rule` resource.
-
-`RetryPolicy`
-
-A `RetryPolicy` object that includes information about the retry policy settings. For more information, see [Event retry policy and using dead-letter queues](../../../eventbridge/latest/userguide/rule-dlq.md "../../../eventbridge/latest/userguide/rule-dlq.md") in the _Amazon EventBridge User Guide_.
-
-_Type_: [RetryPolicy](../../../AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.md#cfn-events-rule-target-retrypolicy "../../../AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.md#cfn-events-rule-target-retrypolicy")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `RetryPolicy` property of the `AWS::Events::Rule` `Target` data type.
-
-`RoleArn`
-
-The ARN of the IAM role that EventBridge Scheduler will use for the target when the
-schedule is invoked.
-
-_Type_: [RoleArn](../../../AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.md#cfn-scheduler-schedule-target-rolearn "../../../AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.md#cfn-scheduler-schedule-target-rolearn")
-
-_Required_: No. If not provided, a new role will be created and used.
-
-_CloudFormation compatibility_: This property is passed directly to the
-`RoleArn` property of the `AWS::Scheduler::Schedule`
-`Target` data type.
-
-`Schedule`
-
-The scheduling expression that determines when and how often the rule runs. For more information, see [Schedule Expressions for Rules](../../../eventbridge/latest/userguide/eb-create-rule-schedule.md "../../../eventbridge/latest/userguide/eb-create-rule-schedule.md").
-
-_Type_: String
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is passed directly to the `ScheduleExpression` property of an `AWS::Events::Rule` resource.
-
-`State`
-
-The state of the rule.
-
-_Accepted values:_ `DISABLED | ENABLED`
-
-###### Note
-
+ `State`   <a name="sam-statemachine-statemachineschedule-state"></a>
+The state of the rule.  
+*Accepted values:* `DISABLED | ENABLED`  
 Specify either the `Enabled` or `State` property, but not both.
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[State](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-state)` property of an `AWS::Events::Rule` resource.
 
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `State` property of an `AWS::Events::Rule` resource.
-
-`Target`
-
-The AWS resource that EventBridge invokes when a rule is triggered. You can use this property to specify the
-logical ID of the target. If this property is not specified, then AWS SAM generates the logical ID of the
-target.
-
-_Type_: [Target](sam-property-statemachine-statemachinetarget.md "sam-property-statemachine-statemachinetarget.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is similar to the
-`Targets`
-property of an `AWS::Events::Rule` resource. The AWS SAM version of this property only allows you to
-specify the logical ID of a single target.
+ `Target`   <a name="sam-statemachine-statemachineschedule-target"></a>
+The AWS resource that EventBridge invokes when a rule is triggered. You can use this property to specify the logical ID of the target. If this property is not specified, then AWS SAM generates the logical ID of the target.  
+*Type*: [Target](sam-property-statemachine-statemachinetarget.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is similar to the `[Targets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-targets)` property of an `AWS::Events::Rule` resource. The AWS SAM version of this property only allows you to specify the logical ID of a single target.
 
 ## Examples
+<a name="sam-property-statemachine-statemachineschedule--examples"></a>
 
 ### CloudWatch Schedule Event
+<a name="sam-property-statemachine-statemachineschedule--examples--cloudwatch-schedule-event"></a>
 
 CloudWatch Schedule Event Example
 
 #### YAML
+<a name="sam-property-statemachine-statemachineschedule--examples--cloudwatch-schedule-event--yaml"></a>
 
 ```
 CWSchedule:
@@ -162,5 +114,4 @@ CWSchedule:
     Name: TestSchedule
     Description: test schedule
     Enabled: false
-
 ```

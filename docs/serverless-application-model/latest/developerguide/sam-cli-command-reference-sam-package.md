@@ -1,157 +1,101 @@
+
+
 # sam package
+<a name="sam-cli-command-reference-sam-package"></a>
 
 The AWS Serverless Application Model Command Line Interface (AWS SAM CLI) packages an AWS SAM application.
 
-This command creates a `.zip` file of your code and
-dependencies, and uploads the file to Amazon Simple Storage Service (Amazon S3). AWS SAM enables encryption for all files
-stored in Amazon S3. It then returns a copy of your AWS SAM template, replacing references to local
-artifacts with the Amazon S3 location where the command uploaded the artifacts.
+This command creates a `.zip` file of your code and dependencies, and uploads the file to Amazon Simple Storage Service (Amazon S3). AWS SAM enables encryption for all files stored in Amazon S3. It then returns a copy of your AWS SAM template, replacing references to local artifacts with the Amazon S3 location where the command uploaded the artifacts.
 
-By default when you use this command, the AWS SAM CLI assumes that your current working
-directory is your project's root directory. The AWS SAM CLI first tries to locate a template file
-built using the [sam build](sam-cli-command-reference-sam-build.md "sam-cli-command-reference-sam-build.md") command, located in the
-`.aws-sam` subfolder, and named `template.yaml`. Next, the AWS SAM CLI tries
-to locate a template file named `template.yaml` or `template.yml` in the
-current working directory. If you specify the `--template` option, AWS SAM CLI's default
-behavior is overridden, and will package just that AWS SAM template and the local resources it
-points to.
+By default when you use this command, the AWS SAM CLI assumes that your current working directory is your project's root directory. The AWS SAM CLI first tries to locate a template file built using the [sam build](sam-cli-command-reference-sam-build.md) command, located in the `.aws-sam` subfolder, and named `template.yaml`. Next, the AWS SAM CLI tries to locate a template file named `template.yaml` or `template.yml` in the current working directory. If you specify the `--template` option, AWS SAM CLI's default behavior is overridden, and will package just that AWS SAM template and the local resources it points to.
 
-###### Note
-
-[sam deploy](sam-cli-command-reference-sam-deploy.md "sam-cli-command-reference-sam-deploy.md") now implicitly performs the functionality
-of `sam package`. You can use the [sam deploy](sam-cli-command-reference-sam-deploy.md "sam-cli-command-reference-sam-deploy.md") command directly to package and deploy
-your application.
+**Note**  
+[sam deploy](sam-cli-command-reference-sam-deploy.md) now implicitly performs the functionality of `sam package`. You can use the [sam deploy](sam-cli-command-reference-sam-deploy.md) command directly to package and deploy your application.
 
 ## Usage
+<a name="sam-cli-command-reference-sam-package-usage"></a>
 
 ```
-`$` `sam package `<arguments>` `<options>``
+$ sam package {{<arguments>}} {{<options>}}
 ```
 
 ## Arguments
+<a name="sam-cli-command-reference-sam-package-args"></a>
 
-**Resource ID**
-
-The ID of the Lambda function to package.
-
-This argument is optional. If your application contains a single Lambda function, the AWS SAM CLI will package it.
-If your application contains multiple functions, provide the ID of the function to package a single function.
-
-_Valid values_: The resource's logical ID or resource ARN.
+**Resource ID**  <a name="sam-cli-command-reference-sam-package-args-resource-id"></a>
+The ID of the Lambda function to package.  
+This argument is optional. If your application contains a single Lambda function, the AWS SAM CLI will package it. If your application contains multiple functions, provide the ID of the function to package a single function.  
+*Valid values*: The resource's logical ID or resource ARN.
 
 ## Options
+<a name="sam-cli-command-reference-sam-package-options"></a>
 
-`--config-env `TEXT``
+`--config-env {{TEXT}}`  <a name="sam-cli-command-reference-sam-package-options-config-env"></a>
+The environment name specifying the default parameter values in the configuration file to use. The default value is "default". For more information about configuration files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md).
 
-The environment name specifying the default parameter values in the configuration file
-to use. The default value is "default". For more information about configuration files, see
-[AWS SAM CLI configuration file](serverless-sam-cli-config.md "serverless-sam-cli-config.md").
+`--config-file {{PATH}}`  <a name="sam-cli-command-reference-sam-package-options-config-file"></a>
+The path and file name of the configuration file containing default parameter values to use. The default value is "samconfig.toml" in the root of the project directory. For more information about configuration files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md).
 
-`--config-file `PATH``
+`--debug`  <a name="sam-cli-command-reference-sam-package-options-debug"></a>
+Turns on debug logging to print debug message generated by the AWS SAM CLI and display timestamps.
 
-The path and file name of the configuration file containing default parameter values to
-use. The default value is "samconfig.toml" in the root of the project directory. For more
-information about configuration files, see [AWS SAM CLI configuration file](serverless-sam-cli-config.md "serverless-sam-cli-config.md").
+`--force-upload`  <a name="sam-cli-command-reference-sam-package-options-force-upload"></a>
+Override existing files in the Amazon S3 bucket. Specify this flag to upload artifacts even if they match existing artifacts in the Amazon S3 bucket.
 
-`--debug`
-
-Turns on debug logging to print debug message generated by the AWS SAM CLI and display
-timestamps.
-
-`--force-upload`
-
-Override existing files in the Amazon S3 bucket. Specify this flag to upload artifacts even
-if they match existing artifacts in the Amazon S3 bucket.
-
-`--help`
-
+`--help`  <a name="sam-cli-command-reference-sam-package-options-help"></a>
 Shows this message and exits.
 
-`--image-repository `TEXT``
+`--image-repository {{TEXT}}`  <a name="sam-cli-command-reference-sam-package-options-image-repository"></a>
+The URI of the Amazon Elastic Container Registry (Amazon ECR) repository where this command uploads your function's image. Required for functions declared with the `Image` package type.
 
-The URI of the Amazon Elastic Container Registry (Amazon ECR) repository where this command uploads your function's
-image. Required for functions declared with the `Image` package type.
+`--kms-key-id {{TEXT}}`  <a name="sam-cli-command-reference-sam-package-options-kms-key-id"></a>
+The ID of an AWS Key Management Service (AWS KMS) key used to encrypt artifacts that are at rest in the Amazon S3 bucket. If this option is not specified, then AWS SAM uses Amazon S3-managed encryption keys.
 
-`--kms-key-id `TEXT``
+`--metadata`  <a name="sam-cli-command-reference-sam-package-options-metadata"></a>
+(Optional) A map of metadata to attach to all artifacts that are referenced in your template.
 
-The ID of an AWS Key Management Service (AWS KMS) key used to encrypt artifacts that are at rest in the
-Amazon S3 bucket. If this option is not specified, then AWS SAM uses Amazon S3-managed encryption
-keys.
-
-`--metadata`
-
-(Optional) A map of metadata to attach to all artifacts that are referenced in your
-template.
-
-`--no-progressbar`
-
+`--no-progressbar`  <a name="sam-cli-command-reference-sam-package-options-no-progressbar"></a>
 Do not display a progress bar when uploading artifacts to Amazon S3.
 
-`--output-template-file `PATH``
+`--output-template-file {{PATH}}`  <a name="sam-cli-command-reference-sam-package-options-output-template-file"></a>
+The path to the file where the command writes the packaged template. If you don't specify a path, the command writes the template to the standard output.
 
-The path to the file where the command writes the packaged template. If you don't
-specify a path, the command writes the template to the standard output.
-
-`--profile `TEXT``
-
+`--profile {{TEXT}}`  <a name="sam-cli-command-reference-sam-package-options-profile"></a>
 The specific profile from your credential file that gets AWS credentials.
 
-`--region `TEXT``
-
+`--region {{TEXT}}`  <a name="sam-cli-command-reference-sam-package-options-region"></a>
 The AWS Region to deploy to. For example, us-east-1.
 
-`--resolve-s3`
+`--resolve-s3`  <a name="sam-cli-command-reference-sam-package-options-resolve-s3"></a>
+Automatically create an Amazon S3 bucket to use for packaging. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an error will result.
 
-Automatically create an Amazon S3 bucket to use for packaging. If you specify both the
-`--s3-bucket` and `--resolve-s3` options, then an error will
-result.
+`--s3-bucket {{TEXT}}`  <a name="sam-cli-command-reference-sam-package-options-s3-bucket"></a>
+The name of the Amazon S3 bucket where this command uploads your artifact. If your artifact is larger than 51,200 bytes, then either the `--s3-bucket` or the `--resolve-s3` option is required. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an error will result.
 
-`--s3-bucket `TEXT``
+`--s3-prefix {{TEXT}}`  <a name="sam-cli-command-reference-sam-package-options-s3-prefix"></a>
+Prefix added to the artifacts name that are uploaded to the Amazon S3 bucket. The prefix name is a path name (folder name) for the Amazon S3 bucket. This only applies for functions declared with `Zip` package type.
 
-The name of the Amazon S3 bucket where this command uploads your artifact. If your
-artifact is larger than 51,200 bytes, then either the `--s3-bucket` or the
-`--resolve-s3` option is required. If you specify both the
-`--s3-bucket` and `--resolve-s3` options, then an error will
-result.
-
-`--s3-prefix `TEXT``
-
-Prefix added to the artifacts name that are uploaded to the Amazon S3 bucket. The prefix name
-is a path name (folder name) for the Amazon S3 bucket. This only applies for functions declared
-with `Zip` package type.
-
-`--save-params`
-
+`--save-params`  <a name="sam-cli-command-reference-sam-package-options-save-params"></a>
 Save the parameters that you provide at the command line to the AWS SAM configuration file.
 
-`--signing-profiles `LIST``
+`--signing-profiles {{LIST}}`  <a name="sam-cli-command-reference-sam-package-options-signing-profiles"></a>
+(Optional) The list of signing profiles to sign your deployment packages with. This parameter takes a list of key-value pairs, where the key is the name of the function or layer to sign, and the value is the signing profile, with an optional profile owner delimited with `:`. For example, `FunctionNameToSign=SigningProfileName1 LayerNameToSign=SigningProfileName2:SigningProfileOwner`.
 
-(Optional) The list of signing profiles to sign your deployment packages with. This
-parameter takes a list of key-value pairs, where the key is the name of the function or layer
-to sign, and the value is the signing profile, with an optional profile owner delimited with
-`:`. For example, `FunctionNameToSign=SigningProfileName1
- LayerNameToSign=SigningProfileName2:SigningProfileOwner`.
+`--template-file, --template, -t {{PATH}}`  <a name="sam-cli-command-reference-sam-package-options-template-file"></a>
+The path and file name where your AWS SAM template is located.  
+If you specify this option, AWS SAM packages only the template and the local resources that it points to.
 
-`--template-file, --template, -t `PATH``
-
-The path and file name where your AWS SAM template is located.
-
-###### Note
-
-If you specify this option, AWS SAM packages only the template and the local
-resources that it points to.
-
-`--use-json`
-
+`--use-json`  <a name="sam-cli-command-reference-sam-package-options-use-json"></a>
 Output JSON for the CloudFormation template. YAML is used by default.
 
 ## Example
+<a name="sam-cli-command-reference-sam-package-examples"></a>
 
 The following example creates and packages artifacts for a Lambda function and CodeDeploy applications. Artifacts are uploaded to an Amazon S3 bucket. The output of the command is a new file called `package.yml`.
 
 ```
-`$` `sam package \
- --template-file template.yml \
- --output-template-file package.yml \
- --s3-bucket `amzn-s3-demo-bucket``
+$ sam package \
+  --template-file template.yml \
+  --output-template-file package.yml \
+  --s3-bucket {{amzn-s3-demo-bucket}}
 ```

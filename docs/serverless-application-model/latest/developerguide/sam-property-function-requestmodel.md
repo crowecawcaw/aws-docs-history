@@ -1,70 +1,62 @@
-# RequestModel
 
-Configures a Request Model for a specific Api+Path+Method.
+
+# RequestModel
+<a name="sam-property-function-requestmodel"></a>
+
+Configures a Request Model for a specific Api\+Path\+Method.
 
 ## Syntax
+<a name="sam-property-function-requestmodel-syntax"></a>
 
 To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-function-requestmodel-syntax.yaml"></a>
 
 ```
-  Model: `String`
-  Required: `Boolean`
-  ValidateBody: `Boolean`
-  ValidateParameters: `Boolean`
-
+  [Model](#sam-function-requestmodel-model): {{String}}
+  [Required](#sam-function-requestmodel-required): {{Boolean}}
+  [ValidateBody](#sam-function-requestmodel-validatebody): {{Boolean}}
+  [ValidateParameters](#sam-function-requestmodel-validateparameters): {{Boolean}}
 ```
 
 ## Properties
+<a name="sam-property-function-requestmodel-properties"></a>
 
-`Model`
+ `Model`   <a name="sam-function-requestmodel-model"></a>
+Name of a model defined in the Models property of the [AWS::Serverless::Api](sam-resource-api.md).  
+*Type*: String  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-Name of a model defined in the Models property of the [AWS::Serverless::Api](sam-resource-api.md "sam-resource-api.md").
+ `Required`   <a name="sam-function-requestmodel-required"></a>
+Adds a `required` property in the parameters section of the OpenApi definition for the given API endpoint.  
+*Type*: Boolean  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Type_: String
+ `ValidateBody`   <a name="sam-function-requestmodel-validatebody"></a>
+Specifies whether API Gateway uses the `Model` to validate the request body. For more information, see [Enable request validation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.  
+*Type*: Boolean  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`Required`
-
-Adds a `required` property in the parameters section of the OpenApi definition for the given API endpoint.
-
-_Type_: Boolean
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`ValidateBody`
-
-Specifies whether API Gateway uses the `Model` to validate the request body. For more information, see [Enable request validation in API Gateway](../../../apigateway/latest/developerguide/api-gateway-method-request-validation.md "../../../apigateway/latest/developerguide/api-gateway-method-request-validation.md") in the _API Gateway Developer Guide_.
-
-_Type_: Boolean
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`ValidateParameters`
-
-Specifies whether API Gateway uses the `Model` to validate request path parameters, query strings, and headers. For more information, see [Enable request validation in API Gateway](../../../apigateway/latest/developerguide/api-gateway-method-request-validation.md "../../../apigateway/latest/developerguide/api-gateway-method-request-validation.md") in the _API Gateway Developer Guide_.
-
-_Type_: Boolean
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
+ `ValidateParameters`   <a name="sam-function-requestmodel-validateparameters"></a>
+Specifies whether API Gateway uses the `Model` to validate request path parameters, query strings, and headers. For more information, see [Enable request validation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.  
+*Type*: Boolean  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Examples
+<a name="sam-property-function-requestmodel--examples"></a>
 
 ### Request Model
+<a name="sam-property-function-requestmodel--examples--request-model"></a>
 
 Request Model Example
 
 #### YAML
+<a name="sam-property-function-requestmodel--examples--request-model--yaml"></a>
 
 ```
 RequestModel:
@@ -72,5 +64,4 @@ RequestModel:
   Required: true
   ValidateBody: true
   ValidateParameters: true
-
 ```

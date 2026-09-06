@@ -1,12 +1,11 @@
+
+
 # Define resource attributes with connectors in AWS SAM
+<a name="connector-usage-resource-attributes"></a>
 
-Resource attributes can be defined for resources to specify additional behaviors and relationships. To learn
-more about resource attributes, see [Resource attribute reference](../../../AWSCloudFormation/latest/UserGuide/aws-product-attribute-reference.md "../../../AWSCloudFormation/latest/UserGuide/aws-product-attribute-reference.md")
-in the _AWS CloudFormation User Guide_.
+Resource attributes can be defined for resources to specify additional behaviors and relationships. To learn more about resource attributes, see [Resource attribute reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-product-attribute-reference.html) in the *AWS CloudFormation User Guide*.
 
-You can add resource attributes to your embedded connector by defining them on the same level as your
-connector properties. When your AWS SAM template is transformed at deployment, attributes will pass through to the
-generated resources.
+You can add resource attributes to your embedded connector by defining them on the same level as your connector properties. When your AWS SAM template is transformed at deployment, attributes will pass through to the generated resources.
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -23,4 +22,4 @@ Resources:
           ...
 ```
 
-For more information on using connectors, refer to [AWS SAM connector reference](reference-sam-connector.md "reference-sam-connector.md").
+For more information on using connectors, refer to [AWS SAM connector reference](reference-sam-connector.md).

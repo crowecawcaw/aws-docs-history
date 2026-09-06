@@ -1,206 +1,145 @@
+
+
 # sam remote invoke
+<a name="sam-cli-command-reference-remote-invoke"></a>
 
 This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam remote invoke` command.
++ For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)
++ For documentation on using the AWS SAM CLI `sam remote invoke` command, see [Introduction to testing in the cloud with sam remote invoke](using-sam-cli-remote-invoke.md).
 
-- For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli "what-is-sam-overview.md#what-is-sam-cli")
-- For documentation on using the AWS SAM CLI `sam remote invoke` command, see
-  [Introduction to testing in the cloud with sam remote invoke](using-sam-cli-remote-invoke.md "using-sam-cli-remote-invoke.md").
-  The `sam remote invoke` command invokes supported resources in the AWS Cloud.
+The `sam remote invoke` command invokes supported resources in the AWS Cloud.
 
 ## Usage
+<a name="sam-cli-command-reference-remote-invoke-usage"></a>
 
 ```
-`$` `sam remote invoke `<arguments> <options>``
+$ sam remote invoke {{<arguments> <options>}}
 ```
 
 ## Arguments
+<a name="sam-cli-command-reference-remote-invoke-args"></a>
 
-**Resource ID**
-
-The ID of the suppored resource to invoke.
-
-This argument accepts the following values:
-
-- **Amazon Resource Name (ARN)** – The ARN of the resource.
-
-###### Tip
-
-Use `sam list stack-outputs --stack-name `<stack-name>`` to obtain the ARN of your resources.
-
-- **Logical ID** – The logical ID of the resource. You must also provide the AWS CloudFormation stack name using the
-  `--stack-name` option.
-- **Physical ID** – The physical ID of the resource. This ID gets created when you deploy a resource using CloudFormation.
-
-###### Tip
-
-Use `sam list resources --stack-name `<stack-name>`` to obtain the physical ID of your resources.
-
-**When you provide an ARN or physical ID:**
-
-If you provide an ARN or physical ID, do not provide a stack name. When the stack name is provided using the `--stack-name` option, or when the stack name
-is defined in your configuration file, the AWS SAM CLI will automatically process your resource ID as a logical ID value from the CloudFormation stack.
-
-**When you don't provide a resource ID:**
-
-If you don't provide a resource ID, but do provide a stack name with the `--stack-name` option, the AWS SAM CLI will attempt to automatically invoke
-a resource in your CloudFormation stack using the following logic:
+**Resource ID**  <a name="sam-cli-command-reference-remote-invoke-args-resource-id"></a>
+The ID of the suppored resource to invoke.  
+This argument accepts the following values:  
++ **Amazon Resource Name (ARN)** – The ARN of the resource.
+**Tip**  
+Use `sam list stack-outputs --stack-name {{<stack-name>}}` to obtain the ARN of your resources.
++ **Logical ID** – The logical ID of the resource. You must also provide the AWS CloudFormation stack name using the `--stack-name` option.
++ **Physical ID** – The physical ID of the resource. This ID gets created when you deploy a resource using CloudFormation.
+**Tip**  
+Use `sam list resources --stack-name {{<stack-name>}}` to obtain the physical ID of your resources.  
+**When you provide an ARN or physical ID:**  
+If you provide an ARN or physical ID, do not provide a stack name. When the stack name is provided using the `--stack-name` option, or when the stack name is defined in your configuration file, the AWS SAM CLI will automatically process your resource ID as a logical ID value from the CloudFormation stack.  
+**When you don't provide a resource ID:**  
+If you don't provide a resource ID, but do provide a stack name with the `--stack-name` option, the AWS SAM CLI will attempt to automatically invoke a resource in your CloudFormation stack using the following logic:  
 
 1. The AWS SAM CLI will identify resource types in the following order and move to the next step once the resource type is found in your stack:
 
    1. Lambda
-   2. Step Functions
-   3. Amazon SQS
-   4. Kinesis Data Streams
 
-2. If the resource type has a single resource in your stack, the AWS SAM CLI will invoke it. If multiple resources of the resource type exists in your
-   stack, the AWS SAM CLI will return an error.
+   1. Step Functions
 
-The following are examples of what the AWS SAM CLI will do:
+   1. Amazon SQS
 
-- **Stack that contains two Lambda functions and an Amazon SQS queue** – The AWS SAM CLI will locate the Lambda resource
-  type and return and error since the stack contains more than one Lambda function.
-- **Stack that contains a Lambda function and two Amazon Kinesis Data Streams applications** – The AWS SAM CLI will locate the
-  Lambda function and invoke it since the stack contains a single Lambda resource.
-- **Stack that contains a single Amazon SQS queue and two Kinesis Data Streams applications** – The AWS SAM CLI will locate the
-  Amazon SQS queue and invoke it since the stack contains a single Amazon SQS queue.
+   1. Kinesis Data Streams
+
+1. If the resource type has a single resource in your stack, the AWS SAM CLI will invoke it. If multiple resources of the resource type exists in your stack, the AWS SAM CLI will return an error.
+The following are examples of what the AWS SAM CLI will do:  
++ **Stack that contains two Lambda functions and an Amazon SQS queue** – The AWS SAM CLI will locate the Lambda resource type and return and error since the stack contains more than one Lambda function.
++ **Stack that contains a Lambda function and two Amazon Kinesis Data Streams applications** – The AWS SAM CLI will locate the Lambda function and invoke it since the stack contains a single Lambda resource.
++ **Stack that contains a single Amazon SQS queue and two Kinesis Data Streams applications** – The AWS SAM CLI will locate the Amazon SQS queue and invoke it since the stack contains a single Amazon SQS queue.
 
 ## Options
+<a name="sam-cli-command-reference-remote-invoke-options"></a>
 
-`--beta-features | --no-beta-features`
-
+`--beta-features | --no-beta-features`  <a name="sam-cli-command-reference-remote-invoke-options-beta-features"></a>
 Allow or deny beta features.
 
-`--config-env `TEXT``
+`--config-env {{TEXT}}`  <a name="sam-cli-command-reference-remote-invoke-options-config-env"></a>
+Specify the environment to use from your AWS SAM CLI configuration file.  
+*Default*: `default`
 
-Specify the environment to use from your AWS SAM CLI configuration file.
+`--config-file {{FILENAME}}`  <a name="sam-cli-command-reference-remote-invoke-options-config-file"></a>
+Specify the path and file name of your configuration file.  
+For more information about configuration files, see [Configuring the AWS SAM CLI](using-sam-cli-configure.md).  
+*Default*: `samconfig.toml` at the root of your project directory. 
 
-_Default_: `default`
+`--debug`  <a name="sam-cli-command-reference-remote-invoke-options-debug"></a>
+Activate debug logging. This prints debug messages and timestamps generated by the AWS SAM CLI.
 
-`--config-file `FILENAME``
-
-Specify the path and file name of your configuration file.
-
-For more information about configuration files, see [Configuring the AWS SAM CLI](using-sam-cli-configure.md "using-sam-cli-configure.md").
-
-_Default_: `samconfig.toml` at the root of
-your project directory.
-
-`--debug`
-
-Activate debug logging. This prints debug messages and timestamps generated by the
-AWS SAM CLI.
-
-`--event, -e `TEXT``
-
+`--event, -e {{TEXT}}`  <a name="sam-cli-command-reference-remote-invoke-options-event"></a>
 The event to send to the target resource.
 
-`--event-file `FILENAME``
-
+`--event-file {{FILENAME}}`  <a name="sam-cli-command-reference-remote-invoke-options-event-file"></a>
 The path to a file that contains the event to send to the target resource.
 
-`--help, -h`
-
+`--help, -h`  <a name="sam-cli-command-reference-remote-invoke-options-help"></a>
 Show the help message and exit.
 
-`--output `[ text | json ]``
+`--output {{[ text | json ]}}`  <a name="sam-cli-command-reference-remote-invoke-options-output"></a>
+Output the results of your invocation in a specific output format.  
+`json` – The request metadata and resource response are returned in JSON structure. The response contains the full SDK output.  
+`text` – The request metadata is returned in text structure. The resource response is returned in the output format of the invoked resource.
 
-Output the results of your invocation in a specific output format.
+`--parameter`  <a name="sam-cli-command-reference-remote-invoke-options-parameter"></a>
+Additional [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) parameters that you can pass to the resource being invoked.    
+**Amazon Kinesis Data Streams**  <a name="sam-cli-command-reference-remote-invoke-options-parameter-kinesis"></a>
+The following additional parameters can be used to put a record in the Kinesis data stream:  
++ `ExplicitHashKey='{{string}}'`
++ `PartitionKey='{{string}}'`
++ `SequenceNumberForOrdering='{{string}}'`
++ `StreamARN='{{string}}'`
+For a description of each parameter, see [Kinesis.Client.put\_record](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis/client/put_record.html).  
+**AWS Lambda**  <a name="sam-cli-command-reference-remote-invoke-options-parameter-lambda"></a>
+The following additional parameters can be used to invoke a Lambda resource and receive a buffered response:  
++ `ClientContext='{{base64-encoded string}}'`
++ `InvocationType='{{[ DryRun | Event | RequestResponse ]}}'`
++ `LogType='{{[ None | Tail ]}}'`
++ `Qualifier='{{string}}'`
+The following additional parameters can be used to invoke a Lambda resource with response streaming:  
++ `ClientContext='{{base64-encoded string}}'`
++ `InvocationType='{{[ DryRun | RequestResponse ]}}'`
++ `LogType='{{[ None | Tail ]}}'`
++ `Qualifier='{{string}}'`
+For a description of each parameter, see the following:  
++ Lambda with buffered response – [Lambda.Client.invoke](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke.html)
++ Lambda with response streaming – [Lambda.Client.invoke\_with\_response\_stream](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke_with_response_stream.html)  
+**Amazon Simple Queue Service (Amazon SQS)**  <a name="sam-cli-command-reference-remote-invoke-options-parameter-sqs"></a>
+The following additional parameters can be used to send a message to an Amazon SQS queue:  
++ `DelaySeconds={{integer}}`
++ `MessageAttributes='{{json string}}'`
++ `MessageDeduplicationId='{{string}}'`
++ `MessageGroupId='{{string}}'`
++ `MessageSystemAttributes='{{json string}}'`
+For a description of each parameter, see [SQS.Client.send\_message](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs/client/send_message.html).  
+**AWS Step Functions**  <a name="sam-cli-command-reference-remote-invoke-options-parameter-sf"></a>
+The following additional parameters can be used to start a state machine execution:  
++ `name='{{string}}'`
++ `traceHeader='{{string}}'`
+For a description of each parameter, see [SFN.Client.start\_execution](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/stepfunctions/client/start_execution.html).
 
-`json` – The request metadata and resource response are returned in
-JSON structure. The response contains the full SDK output.
-
-`text` – The request metadata is returned in text structure. The
-resource response is returned in the output format of the invoked resource.
-
-`--parameter`
-
-Additional [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html") parameters that you can pass to the resource being
-invoked.
-
-**Amazon Kinesis Data Streams**
-
-The following additional parameters can be used to put a record in the Kinesis data stream:
-
-- `ExplicitHashKey='`string`'`
-- `PartitionKey='`string`'`
-- `SequenceNumberForOrdering='`string`'`
-- `StreamARN='`string`'`
-
-For a description of each parameter, see [Kinesis.Client.put\_record](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis/client/put_record.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis/client/put_record.html").
-
-**AWS Lambda**
-
-The following additional parameters can be used to invoke a Lambda resource and
-receive a buffered response:
-
-- `ClientContext='`base64-encoded string`'`
-- `InvocationType='`[ DryRun | Event | RequestResponse ]`'`
-- `LogType='`[ None | Tail ]`'`
-- `Qualifier='`string`'`
-
-The following additional parameters can be used to invoke a Lambda resource with
-response streaming:
-
-- `ClientContext='`base64-encoded string`'`
-- `InvocationType='`[ DryRun | RequestResponse ]`'`
-- `LogType='`[ None | Tail ]`'`
-- `Qualifier='`string`'`
-
-For a description of each parameter, see the following:
-
-- Lambda with buffered response – [Lambda.Client.invoke](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke.html")
-- Lambda with response streaming – [Lambda.Client.invoke\_with\_response\_stream](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke_with_response_stream.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke_with_response_stream.html")
-
-**Amazon Simple Queue Service (Amazon SQS)**
-
-The following additional parameters can be used to send a message to an Amazon SQS queue:
-
-- `DelaySeconds=`integer``
-- `MessageAttributes='`json string`'`
-- `MessageDeduplicationId='`string`'`
-- `MessageGroupId='`string`'`
-- `MessageSystemAttributes='`json string`'`
-
-For a description of each parameter, see [SQS.Client.send\_message](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs/client/send_message.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs/client/send_message.html").
-
-**AWS Step Functions**
-
-The following additional parameters can be used to start a state machine execution:
-
-- `name='`string`'`
-- `traceHeader='`string`'`
-
-For a description of each parameter, see [SFN.Client.start\_execution](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/stepfunctions/client/start_execution.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/stepfunctions/client/start_execution.html").
-
-`--profile `TEXT``
-
+`--profile {{TEXT}}`  <a name="sam-cli-command-reference-remote-invoke-options-profile"></a>
 The specific profile from your credential file to get AWS credentials.
 
-`--region `TEXT``
-
+`--region {{TEXT}}`  <a name="sam-cli-command-reference-remote-invoke-options-region"></a>
 The AWS Region of the resource. For example, `us-east-1`.
 
-`--stack-name `TEXT``
-
+`--stack-name {{TEXT}}`  <a name="sam-cli-command-reference-remote-invoke-options-stack-name"></a>
 The name of the CloudFormation stack that the resource belongs to.
 
-`--tenant-id `TEXT``
+`--tenant-id {{TEXT}}`  <a name="ref-sam-cli-local-invoke-options-tenancyconfig"></a>
+The tenant ID for multi-tenant Lambda functions. Used to ensure compute isolation between different tenants. Required when invoking functions configured with tenant isolation mode.
 
-The tenant ID for multi-tenant Lambda functions. Used to ensure compute isolation between different tenants.
-Required when invoking functions configured with tenant isolation mode.
-
-`--test-event-name `NAME``
-
-The name of the shareable test event to pass to your Lambda function.
-
-###### Note
-
+`--test-event-name {{NAME}}`  <a name="sam-cli-command-reference-remote-invoke-options-test-event-name"></a>
+The name of the shareable test event to pass to your Lambda function.  
 This option only supports Lambda functions.
 
 ## Example
+<a name="sam-cli-command-reference-remote-invoke-examples"></a>
 
 The following example invokes supported resources in the AWS Cloud and activates debug logging, which prints debug messages and timestamps generated by the AWS SAM CLI:
 
 ```
-`$` `sam remote invoke--debug`
+$ sam remote invoke--debug
 ```

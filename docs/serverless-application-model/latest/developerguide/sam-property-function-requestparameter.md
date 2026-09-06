@@ -1,55 +1,54 @@
-# RequestParameter
 
-Configure Request Parameter for a specific Api+Path+Method.
+
+# RequestParameter
+<a name="sam-property-function-requestparameter"></a>
+
+Configure Request Parameter for a specific Api\+Path\+Method.
 
 Either `Required` or `Caching` property needs to be specified for request parameter
 
 ## Syntax
+<a name="sam-property-function-requestparameter-syntax"></a>
 
 To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-function-requestparameter-syntax.yaml"></a>
 
 ```
-  Caching: `Boolean`
-  Required: `Boolean`
-
+  [Caching](#sam-function-requestparameter-caching): {{Boolean}}
+  [Required](#sam-function-requestparameter-required): {{Boolean}}
 ```
 
 ## Properties
+<a name="sam-property-function-requestparameter-properties"></a>
 
-`Caching`
+ `Caching`   <a name="sam-function-requestparameter-caching"></a>
+Adds `cacheKeyParameters` section to the API Gateway OpenApi definition  
+*Type*: Boolean  
+*Required*: Conditional  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-Adds `cacheKeyParameters` section to the API Gateway OpenApi definition
-
-_Type_: Boolean
-
-_Required_: Conditional
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`Required`
-
-This field specifies whether a parameter is required
-
-_Type_: Boolean
-
-_Required_: Conditional
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
+ `Required`   <a name="sam-function-requestparameter-required"></a>
+This field specifies whether a parameter is required  
+*Type*: Boolean  
+*Required*: Conditional  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Examples
+<a name="sam-property-function-requestparameter--examples"></a>
 
 ### Request Parameter
+<a name="sam-property-function-requestparameter--examples--request-parameter"></a>
 
 Example of setting Request Parameters
 
 #### YAML
+<a name="sam-property-function-requestparameter--examples--request-parameter--yaml"></a>
 
 ```
 RequestParameters:
   - method.request.header.Authorization:
       Required: true
       Caching: true
-
 ```

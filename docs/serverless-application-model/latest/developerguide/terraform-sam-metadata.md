@@ -1,35 +1,39 @@
+
+
 # sam metadata resource
+<a name="terraform-sam-metadata"></a>
 
-This page contains reference information for the **sam metadata resource**
-resource type used with Terraform projects.
+This page contains reference information for the **sam metadata resource** resource type used with Terraform projects.
++ For an introduction to using the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) with Terraform, see [What is AWS SAM CLI support for Terraform?](terraform-support.md#what-is-terraform-support).
++ To use the AWS SAM CLI with Terraform, see [Using the AWS SAM CLI with Terraform for local debugging and testing](using-samcli-terraform.md).
 
-- For an introduction to using the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) with
-  Terraform, see [What is AWS SAM CLI support for Terraform?](terraform-support.md#what-is-terraform-support "terraform-support.md#what-is-terraform-support").
-- To use the AWS SAM CLI with Terraform, see [Using the AWS SAM CLI with Terraform for local debugging and testing](using-samcli-terraform.md "using-samcli-terraform.md").
-
-###### Topics
-
-- [Arguments](#terraform-sam-metadata-arguments "#terraform-sam-metadata-arguments")
-- [Examples](#terraform-sam-metadata-examples "#terraform-sam-metadata-examples")
+**Topics**
++ [Arguments](#terraform-sam-metadata-arguments)
++ [Examples](#terraform-sam-metadata-examples)
 
 ## Arguments
+<a name="terraform-sam-metadata-arguments"></a>
 
-| Argument               | Description                                                                                                                                                                                                                                                                                                               |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `built_output_path`    | The path to your AWS Lambda function's built artifacts.                                                                                                                                                                                                                                                                   |
-| `docker_build_args`    | Decoded string of the Docker build arguments JSON object. This argument is<br>optional.                                                                                                                                                                                                                                   |
-| `docker_context`       | The path to the directory containing the Docker image build context.                                                                                                                                                                                                                                                      |
-| `docker_file`          | The path to the Docker file. This path is relative to the<br>`docker_context` path.<br>This argument is optional. Default value is `Dockerfile`.                                                                                                                                                                          |
-| `docker_tag`           | The value of the created Docker image tag. This value is optional.                                                                                                                                                                                                                                                        |
-| `depends_on`           | The path to the building resource for your Lambda function or layer. To learn<br>more, see [The *_depends\_on_<br>• argument](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on "https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on") in the _Terraform registry_.   |
-| `original_source_code` | The path to where your Lambda function is defined. This value can be a string,<br>array of strings, or a decoded JSON object as a string.<br>• For string arrays, only the first value is used since multiple code paths<br>are not supported.<br>• For JSON objects, the `source_code_property` must also be<br>defined. |
-| `resource_name`        | The Lambda function name.                                                                                                                                                                                                                                                                                                 |
-| `resource_type`        | The format of your Lambda function package type. Accepted values are:<br>• `IMAGE_LAMBDA_FUNCTION`<br>• `LAMBDA_LAYER`<br>• `ZIP_LAMBDA_FUNCTION`                                                                                                                                                                         |
-| `source_code_property` | The path to the Lambda resource code in the JSON object. Define this property when<br>`original_source_code` is a JSON object.                                                                                                                                                                                            |
+
+
+| Argument | Description | 
+| --- | --- | 
+| built\_output\_path | The path to your AWS Lambda function's built artifacts. | 
+| docker\_build\_args | Decoded string of the Docker build arguments JSON object. This argument is optional. | 
+| docker\_context | The path to the directory containing the Docker image build context. | 
+| docker\_file | The path to the Docker file. This path is relative to the `docker_context` path.<br />This argument is optional. Default value is `Dockerfile`. | 
+| docker\_tag | The value of the created Docker image tag. This value is optional. | 
+| depends\_on | The path to the building resource for your Lambda function or layer. To learn more, see [The **depends\_on** argument](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on) in the Terraform registry. | 
+| original\_source\_code | The path to where your Lambda function is defined. This value can be a string, array of strings, or a decoded JSON object as a string.+  For string arrays, only the first value is used since multiple code paths are not supported. <br />+  For JSON objects, the `source_code_property` must also be defined.  | 
+| resource\_name | The Lambda function name. | 
+| resource\_type | The format of your Lambda function package type. Accepted values are:+  `IMAGE_LAMBDA_FUNCTION` <br />+  `LAMBDA_LAYER` <br />+  `ZIP_LAMBDA_FUNCTION`  | 
+| source\_code\_property | The path to the Lambda resource code in the JSON object. Define this property when original\_source\_code is a JSON object. | 
 
 ## Examples
+<a name="terraform-sam-metadata-examples"></a>
 
 ### sam metadata resource referencing a Lambda function using the ZIP package type
+<a name="terraform-sam-metadata-examples-example1"></a>
 
 ```
 # Lambda function resource
@@ -59,6 +63,7 @@ resource "null_resource" "sam_metadata_function_example" {
 ```
 
 ### sam metadata resource referencing a Lambda function using the image package type
+<a name="terraform-sam-metadata-examples-example2"></a>
 
 ```
 resource "null_resource" "sam_metadata_function {
@@ -74,6 +79,7 @@ resource "null_resource" "sam_metadata_function {
 ```
 
 ### sam metadata resource referencing a Lambda layer
+<a name="terraform-sam-metadata-examples-example3"></a>
 
 ```
 resource "null_resource" "sam_metadata_layer1" {

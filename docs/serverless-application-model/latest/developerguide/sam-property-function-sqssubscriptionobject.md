@@ -1,85 +1,71 @@
+
+
 # SqsSubscriptionObject
+<a name="sam-property-function-sqssubscriptionobject"></a>
 
 Specify an existing SQS queue option to SNS event
 
 ## Syntax
+<a name="sam-property-function-sqssubscriptionobject-syntax"></a>
 
 To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-function-sqssubscriptionobject-syntax.yaml"></a>
 
 ```
-  BatchSize: `String`
-  Enabled: `Boolean`
-  QueueArn: `String`
-  QueuePolicyLogicalId: `String`
-  QueueUrl: `String`
-
+  [BatchSize](#sam-function-sqssubscriptionobject-batchsize): {{String}}
+  [Enabled](#sam-function-sqssubscriptionobject-enabled): {{Boolean}}
+  [QueueArn](#sam-function-sqssubscriptionobject-queuearn): {{String}}
+  [QueuePolicyLogicalId](#sam-function-sqssubscriptionobject-queuepolicylogicalid): {{String}}
+  [QueueUrl](#sam-function-sqssubscriptionobject-queueurl): {{String}}
 ```
 
 ## Properties
+<a name="sam-property-function-sqssubscriptionobject-properties"></a>
 
-`BatchSize`
+ `BatchSize`   <a name="sam-function-sqssubscriptionobject-batchsize"></a>
+The maximum number of items to retrieve in a single batch for the SQS queue.  
+*Type*: String  
+*Required*: No  
+*Default*: 10  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-The maximum number of items to retrieve in a single batch for the SQS queue.
+ `Enabled`   <a name="sam-function-sqssubscriptionobject-enabled"></a>
+Disables the SQS event source mapping to pause polling and invocation.  
+*Type*: Boolean  
+*Required*: No  
+*Default*: True  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Type_: String
+ `QueueArn`   <a name="sam-function-sqssubscriptionobject-queuearn"></a>
+Specify an existing SQS queue arn.  
+*Type*: String  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Required_: No
+ `QueuePolicyLogicalId`   <a name="sam-function-sqssubscriptionobject-queuepolicylogicalid"></a>
+Give a custom logicalId name for the [AWS::SQS::QueuePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html) resource.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Default_: 10
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`Enabled`
-
-Disables the SQS event source mapping to pause polling and invocation.
-
-_Type_: Boolean
-
-_Required_: No
-
-_Default_: True
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`QueueArn`
-
-Specify an existing SQS queue arn.
-
-_Type_: String
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`QueuePolicyLogicalId`
-
-Give a custom logicalId name for the [AWS::SQS::QueuePolicy](../../../AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.md") resource.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`QueueUrl`
-
-Specify the queue URL associated with the `QueueArn` property.
-
-_Type_: String
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
+ `QueueUrl`   <a name="sam-function-sqssubscriptionobject-queueurl"></a>
+Specify the queue URL associated with the `QueueArn` property.  
+*Type*: String  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Examples
+<a name="sam-property-function-sqssubscriptionobject--examples"></a>
 
 ### Existing SQS for SNS event
+<a name="sam-property-function-sqssubscriptionobject--examples--existing-sqs-for-sns-event"></a>
 
 Example to add existing SQS queue for subscibing to an SNS topic.
 
 #### YAML
+<a name="sam-property-function-sqssubscriptionobject--examples--existing-sqs-for-sns-event--yaml"></a>
 
 ```
 QueuePolicyLogicalId: CustomQueuePolicyLogicalId
@@ -88,5 +74,4 @@ QueueArn:
 QueueUrl:
   Ref: MyCustomQueue
 BatchSize: 5
-
 ```

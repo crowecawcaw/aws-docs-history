@@ -1,4 +1,7 @@
+
+
 # Define Read and Write permissions in AWS SAM
+<a name="connector-usage-define"></a>
 
 In AWS SAM, `Read` and `Write` permissions can be provisioned within a single connector:
 
@@ -21,4 +24,4 @@ Resources:
     Type: AWS::DynamoDB::Table
 ```
 
-For more information on using connectors, refer to [AWS SAM connector reference](reference-sam-connector.md "reference-sam-connector.md").
+For more information on using connectors, refer to [AWS SAM connector reference](reference-sam-connector.md).

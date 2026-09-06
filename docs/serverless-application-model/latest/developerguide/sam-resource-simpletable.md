@@ -1,135 +1,95 @@
+
+
 # AWS::Serverless::SimpleTable
+<a name="sam-resource-simpletable"></a>
 
-Creates a DynamoDB table with a single attribute primary key. It is useful when data only
-needs to be accessed via a primary key.
+Creates a DynamoDB table with a single attribute primary key. It is useful when data only needs to be accessed via a primary key.
 
-For more advanced features, use an [AWS::DynamoDB::Table](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md") resource in CloudFormation. These resouces can be used in AWS SAM. They are comprehensive and provide further customization, including
-[key schema](../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-keyschema.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-keyschema.md") and
-[resource policy](../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.md") customization.
+For more advanced features, use an [AWS::DynamoDB::Table](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html) resource in CloudFormation. These resouces can be used in AWS SAM. They are comprehensive and provide further customization, including [key schema](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-keyschema.html) and [resource policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html) customization.
 
-###### Note
-
-When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources.
-For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md "sam-specification-generated-resources.md").
+**Note**  
+When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md).
 
 ## Syntax
+<a name="sam-resource-simpletable-syntax"></a>
 
-To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following
-syntax.
+To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-resource-simpletable-syntax.yaml"></a>
 
 ```
 Type: AWS::Serverless::SimpleTable
 Properties:
-  PointInTimeRecoverySpecification: `PointInTimeRecoverySpecification`
-  PrimaryKey: `PrimaryKeyObject`
-  ProvisionedThroughput: `ProvisionedThroughputObject`
-  SSESpecification: `SSESpecification`
-  TableName: `String`
-  Tags: `Map`
-
+  PointInTimeRecoverySpecification: {{[PointInTimeRecoverySpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html)}}
+  [PrimaryKey](#sam-simpletable-primarykey): {{PrimaryKeyObject}}
+  [ProvisionedThroughput](#sam-simpletable-provisionedthroughput): {{ProvisionedThroughputObject}}
+  [SSESpecification](#sam-simpletable-ssespecification): {{[SSESpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html)}}
+  [TableName](#sam-simpletable-tablename): {{String}}
+  [Tags](#sam-simpletable-tags): {{Map}}
 ```
 
 ## Properties
+<a name="sam-resource-simpletable-properties"></a>
 
-`PointInTimeRecoverySpecification`
+ `PointInTimeRecoverySpecification`   <a name="sam-simpletable-pointintimerecoveryspecification"></a>
+The settings used to enable point in time recovery.  
+*Type*: [ PointInTimeRecoverySpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[PointInTimeRecoverySpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html)` property of an `AWS::DynamoDB::Table` resource.
 
-The settings used to enable point in time recovery.
+ `PrimaryKey`   <a name="sam-simpletable-primarykey"></a>
+Attribute name and type to be used as the table's primary key. If not provided, the primary key will be a `String` with a value of `id`.  
+The value of this property cannot be modified after this resource is created.
+*Type*: [PrimaryKeyObject](sam-property-simpletable-primarykeyobject.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Type_: [PointInTimeRecoverySpecification](../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.md")
+ `ProvisionedThroughput`   <a name="sam-simpletable-provisionedthroughput"></a>
+Read and write throughput provisioning information.  
+If `ProvisionedThroughput` is not specified `BillingMode` will be specified as `PAY_PER_REQUEST`.  
+*Type*: [ProvisionedThroughputObject](sam-property-simpletable-provisionedthroughputobject.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[ProvisionedThroughput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-provisionedthroughput.html)` property of an `AWS::DynamoDB::Table` resource.
 
-_Required_: No
+ `SSESpecification`   <a name="sam-simpletable-ssespecification"></a>
+Specifies the settings to enable server-side encryption.  
+*Type*: [SSESpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[SSESpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html)` property of an `AWS::DynamoDB::Table` resource.
 
-_CloudFormation compatibility_: This property is passed directly to the `PointInTimeRecoverySpecification` property of an `AWS::DynamoDB::Table` resource.
+ `TableName`   <a name="sam-simpletable-tablename"></a>
+Name for the DynamoDB Table.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[TableName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename)` property of an `AWS::DynamoDB::Table` resource.
 
-`PrimaryKey`
-
-Attribute name and type to be used as the table's primary key. If not provided, the
-primary key will be a `String` with a value of `id`.
-
-###### Note
-
-The value of this property cannot be modified after this resource is
-created.
-
-_Type_: [PrimaryKeyObject](sam-property-simpletable-primarykeyobject.md "sam-property-simpletable-primarykeyobject.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent.
-
-`ProvisionedThroughput`
-
-Read and write throughput provisioning information.
-
-If `ProvisionedThroughput` is not specified `BillingMode` will
-be specified as `PAY_PER_REQUEST`.
-
-_Type_: [ProvisionedThroughputObject](sam-property-simpletable-provisionedthroughputobject.md "sam-property-simpletable-provisionedthroughputobject.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`ProvisionedThroughput` property of an
-`AWS::DynamoDB::Table` resource.
-
-`SSESpecification`
-
-Specifies the settings to enable server-side encryption.
-
-_Type_: [SSESpecification](../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`SSESpecification` property of an `AWS::DynamoDB::Table`
-resource.
-
-`TableName`
-
-Name for the DynamoDB Table.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`TableName` property of an `AWS::DynamoDB::Table`
-resource.
-
-`Tags`
-
-A map (string to string) that specifies the tags to be added to this SimpleTable.
-For details about valid keys and values for tags, see [Resource tag](../../../AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.md") in the
-_AWS CloudFormation User Guide_.
-
-_Type_: Map
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is similar to the
-`Tags` property of an `AWS::DynamoDB::Table` resource. The
-Tags property in SAM consists of Key:Value pairs; in CloudFormation it consists of a
-list of Tag objects.
+ `Tags`   <a name="sam-simpletable-tags"></a>
+A map (string to string) that specifies the tags to be added to this SimpleTable. For details about valid keys and values for tags, see [Resource tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide*.  
+*Type*: Map  
+*Required*: No  
+*CloudFormation compatibility*: This property is similar to the `[Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tags)` property of an `AWS::DynamoDB::Table` resource. The Tags property in SAM consists of Key:Value pairs; in CloudFormation it consists of a list of Tag objects.
 
 ## Return Values
+<a name="sam-resource-simpletable-return-values"></a>
 
 ### Ref
+<a name="sam-resource-simpletable-return-values-ref"></a>
 
-When the logical ID of this resource is provided to the Ref intrinsic function, it
-returns the resource name of the underlying DynamoDB table.
+When the logical ID of this resource is provided to the Ref intrinsic function, it returns the resource name of the underlying DynamoDB table.
 
-For more information about using the `Ref` function, see [`Ref`](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.md") in the _AWS CloudFormation User Guide_.
+For more information about using the `Ref` function, see [`Ref`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) in the *AWS CloudFormation User Guide*. 
 
 ## Examples
+<a name="sam-resource-simpletable--examples"></a>
 
 ### SimpleTableExample
+<a name="sam-resource-simpletable--examples--simpletableexample"></a>
 
 Example of a SimpleTable
 
 #### YAML
+<a name="sam-resource-simpletable--examples--simpletableexample--yaml"></a>
 
 ```
 Properties:
@@ -138,10 +98,9 @@ Properties:
     Name: MyPrimaryKey
     Type: String
   ProvisionedThroughput:
-    ReadCapacityUnits: `5`
-    WriteCapacityUnits: `5`
+    ReadCapacityUnits: {{5}}
+    WriteCapacityUnits: {{5}}
   Tags:
     Department: Engineering
     AppType: Serverless
-
 ```

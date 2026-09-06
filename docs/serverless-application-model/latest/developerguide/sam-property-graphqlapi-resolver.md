@@ -1,177 +1,103 @@
-# Resolver
 
-Configure resolvers for the fields of your GraphQL API. AWS Serverless Application Model (AWS SAM)
-supports [JavaScript pipeline
-resolvers](../../../appsync/latest/devguide/resolver-reference-overview-js.md "../../../appsync/latest/devguide/resolver-reference-overview-js.md").
+
+# Resolver
+<a name="sam-property-graphqlapi-resolver"></a>
+
+Configure resolvers for the fields of your GraphQL API. AWS Serverless Application Model (AWS SAM) supports [JavaScript pipeline resolvers](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-overview-js.html).
 
 ## Syntax
+<a name="sam-property-graphqlapi-resolver-syntax"></a>
 
-To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following
-syntax.
+To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-graphqlapi-resolver-syntax-yaml"></a>
 
 ```
-`OperationType`:
-  `LogicalId`:
-    Caching: `CachingConfig`
-    CodeUri: `String`
-    FieldName: `String`
-    InlineCode: `String`
-    MaxBatchSize: `Integer`
-    Pipeline: `List`
-    Runtime: `Runtime`
-    Sync: `SyncConfig`
+{{OperationType}}:
+  {{LogicalId}}:
+    Caching: {{[CachingConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html)}}
+    CodeUri: {{String}}
+    FieldName: {{String}}
+    InlineCode: {{String}} 
+    MaxBatchSize: {{Integer}}
+    Pipeline: {{List}}
+    Runtime: {{Runtime}}
+    Sync: {{[SyncConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html)}}
 ```
 
 ## Properties
+<a name="sam-property-graphqlapi-resolver-properties"></a>
 
-`Caching`
+`Caching`  <a name="sam-graphqlapi-resolver-caching"></a>
+The caching configuration for the resolver that has caching activated.  
+*Type*: [CachingConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[CachingConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-cachingconfig)` property of an `AWS::AppSync::Resolver` resource.
 
-The caching configuration for the resolver that has caching activated.
+`CodeUri`  <a name="sam-graphqlapi-resolver-codeuri"></a>
+The resolver function code’s Amazon Simple Storage Service (Amazon S3) URI or path to a local folder.  
+If you specify a path to a local folder, CloudFormation requires that the file is first uploaded to Amazon S3 before deployment. You can use the AWS SAM CLI to facilitate this process. For more information, see [How AWS SAM uploads local files at deployment](deploy-upload-local-files.md).  
+If neither `CodeUri` or `InlineCode` are provided, AWS SAM will generate `InlineCode` that redirects the request to the first pipeline function and receives the response from the last pipeline function.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[CodeS3Location](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-codes3location)` property of an `AWS::AppSync::Resolver` resource.
 
-_Type_: [CachingConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.md")
+`FieldName`  <a name="sam-graphqlapi-resolver-fieldname"></a>
+The name of your resolver. Specify this property to override the `LogicalId` value.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[FieldName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-fieldname)` property of an `AWS::AppSync::Resolver` resource.
 
-_Required_: No
+`InlineCode`  <a name="sam-graphqlapi-resolver-inlinecode"></a>
+The resolver code that contains the request and response functions.  
+If neither `CodeUri` or `InlineCode` are provided, AWS SAM will generate `InlineCode` that redirects the request to the first pipeline function and receives the response from the last pipeline function.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[Code](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-code)` property of an `AWS::AppSync::Resolver` resource.
 
-_CloudFormation compatibility_: This property is passed directly to the
-`CachingConfig` property of an `AWS::AppSync::Resolver`
-resource.
+`LogicalId`  <a name="sam-graphqlapi-resolver-logicalid"></a>
+The unique name for your resolver. In a GraphQL schema, your resolver name should match the field name that its used for. Use that same field name for `LogicalId`.  
+*Type*: String  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn’t have an CloudFormation equivalent.
 
-`CodeUri`
+`MaxBatchSize`  <a name="sam-graphqlapi-resolver-maxbatchsize"></a>
+The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a `BatchInvoke` operation.  
+*Type*: Integer  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[MaxBatchSize](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-maxbatchsize)` property of an `AWS::AppSync::Resolver` resource.
 
-The resolver function code’s Amazon Simple Storage Service (Amazon S3) URI or path to a local folder.
+`OperationType`  <a name="sam-graphqlapi-resolver-operationtype"></a>
+The GraphQL operation type that is associated with your resolver. For example, `Query`, `Mutation`, or `Subscription`. You can nest multiple resolvers by `LogicalId` within a single `OperationType`.  
+*Type*: String  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is passed directly to the `[TypeName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-typename)` property of an `AWS::AppSync::Resolver` resource.
 
-If you specify a path to a local folder, CloudFormation requires that the file is first
-uploaded to Amazon S3 before deployment. You can use the AWS SAM CLI to facilitate this
-process. For more information, see [How AWS SAM uploads local files at deployment](deploy-upload-local-files.md "deploy-upload-local-files.md").
+`Pipeline`  <a name="sam-graphqlapi-resolver-pipeline"></a>
+Functions linked with the pipeline resolver. Specify functions by logical ID in a list.  
+*Type*: List  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent. It is similar to the `[PipelineConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-pipelineconfig)` property of an `AWS::AppSync::Resolver` resource.
 
-If neither `CodeUri` or `InlineCode` are provided, AWS SAM will
-generate `InlineCode` that redirects the request to the first pipeline
-function and receives the response from the last pipeline function.
+`Runtime`  <a name="sam-graphqlapi-resolver-runtime"></a>
+The runtime of your pipeline resolver or function. Specifies the name and version to use.  
+*Type*: [Runtime](sam-property-graphqlapi-resolver-runtime.md)  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent. It is similar to the `[Runtime](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-runtime)` property of an `AWS::AppSync::Resolver` resource.
 
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`CodeS3Location` property of an `AWS::AppSync::Resolver`
-resource.
-
-`FieldName`
-
-The name of your resolver. Specify this property to override the
-`LogicalId` value.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`FieldName` property of an `AWS::AppSync::Resolver`
-resource.
-
-`InlineCode`
-
-The resolver code that contains the request and response functions.
-
-If neither `CodeUri` or `InlineCode` are provided, AWS SAM will
-generate `InlineCode` that redirects the request to the first pipeline
-function and receives the response from the last pipeline function.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`Code` property of an `AWS::AppSync::Resolver`
-resource.
-
-`LogicalId`
-
-The unique name for your resolver. In a GraphQL schema, your resolver
-name should match the field name that its used for. Use that same field name for
-`LogicalId`.
-
-_Type_: String
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn’t have an CloudFormation equivalent.
-
-`MaxBatchSize`
-
-The maximum number of resolver request inputs that will be sent to a single
-AWS Lambda function in a `BatchInvoke` operation.
-
-_Type_: Integer
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`MaxBatchSize` property of an `AWS::AppSync::Resolver`
-resource.
-
-`OperationType`
-
-The GraphQL operation type that is associated with your resolver. For
-example, `Query`, `Mutation`, or `Subscription`. You
-can nest multiple resolvers by `LogicalId` within a single
-`OperationType`.
-
-_Type_: String
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is passed directly to the
-`TypeName` property of an `AWS::AppSync::Resolver`
-resource.
-
-`Pipeline`
-
-Functions linked with the pipeline resolver. Specify functions by logical ID in a
-list.
-
-_Type_: List
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent. It is similar to the `PipelineConfig` property of an `AWS::AppSync::Resolver`
-resource.
-
-`Runtime`
-
-The runtime of your pipeline resolver or function. Specifies the name and version to
-use.
-
-_Type_: [Runtime](sam-property-graphqlapi-resolver-runtime.md "sam-property-graphqlapi-resolver-runtime.md")
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and
-doesn't have an CloudFormation equivalent. It is similar to the `Runtime` property of an `AWS::AppSync::Resolver`
-resource.
-
-`Sync`
-
-Describes a Sync configuration for a resolver.
-
-Specifies which Conflict Detection strategy and Resolution strategy to use when the
-resolver is invoked.
-
-_Type_: [SyncConfig](../../../AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the
-`SyncConfig` property of an `AWS::AppSync::Resolver`
-resource.
+`Sync`  <a name="sam-graphqlapi-resolver-sync"></a>
+Describes a Sync configuration for a resolver.  
+Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.  
+*Type*: [SyncConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html)  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[SyncConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-syncconfig)` property of an `AWS::AppSync::Resolver` resource.
 
 ## Examples
+<a name="sam-property-graphqlapi-resolver-examples"></a>
 
 ### Use the AWS SAM generated resolver function code and save fields as variables
+<a name="sam-property-graphqlapi-resolver-examples-example1"></a>
 
 Here is the GraphQL schema for our example:
 
@@ -224,9 +150,7 @@ Resources:
             - createPostItem
 ```
 
-In our AWS SAM template, we don’t specify `CodeUri` or `InlineCode`.
-At deployment, AWS SAM automatically generates the following inline code for our
-resolver:
+In our AWS SAM template, we don’t specify `CodeUri` or `InlineCode`. At deployment, AWS SAM automatically generates the following inline code for our resolver:
 
 ```
 export function request(ctx) {
@@ -238,12 +162,9 @@ export function response(ctx) {
 }
 ```
 
-This default resolver code redirects the request to the first pipeline function and
-receives the response from the last pipeline function.
+This default resolver code redirects the request to the first pipeline function and receives the response from the last pipeline function.
 
-In our first pipeline function, we can use the provided `args` field to parse
-the request object and create our variables. We can then use these variables within our
-function. Here is an example of our `preprocessPostItem` function:
+In our first pipeline function, we can use the provided `args` field to parse the request object and create our variables. We can then use these variables within our function. Here is an example of our `preprocessPostItem` function:
 
 ```
 import { util } from "@aws-appsync/utils";
@@ -252,9 +173,9 @@ export function request(ctx) {
   const author = ctx.args.author;
   const title = ctx.args.title;
   const content = ctx.args.content;
-
+  
   // Use variables to process data
-
+  
 }
 
 export function response(ctx) {

@@ -1,59 +1,55 @@
-# EventInvokeConfiguration
 
-Configuration options for [asynchronous](../../../lambda/latest/dg/invocation-async.md "../../../lambda/latest/dg/invocation-async.md") Lambda Alias or Version invocations.
+
+# EventInvokeConfiguration
+<a name="sam-property-function-eventinvokeconfiguration"></a>
+
+Configuration options for [asynchronous](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html) Lambda Alias or Version invocations.
 
 ## Syntax
+<a name="sam-property-function-eventinvokeconfiguration-syntax"></a>
 
 To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-function-eventinvokeconfiguration-syntax.yaml"></a>
 
 ```
-  DestinationConfig: `EventInvokeDestinationConfiguration`
-  MaximumEventAgeInSeconds: `Integer`
-  MaximumRetryAttempts: `Integer`
-
+  [DestinationConfig](#sam-function-eventinvokeconfiguration-destinationconfig): {{EventInvokeDestinationConfiguration}}
+  [MaximumEventAgeInSeconds](#sam-function-eventinvokeconfiguration-maximumeventageinseconds): {{Integer}}
+  [MaximumRetryAttempts](#sam-function-eventinvokeconfiguration-maximumretryattempts): {{Integer}}
 ```
 
 ## Properties
+<a name="sam-property-function-eventinvokeconfiguration-properties"></a>
 
-`DestinationConfig`
+ `DestinationConfig`   <a name="sam-function-eventinvokeconfiguration-destinationconfig"></a>
+A configuration object that specifies the destination of an event after Lambda processes it.  
+*Type*: [EventInvokeDestinationConfiguration](sam-property-function-eventinvokedestinationconfiguration.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is similar to the `[DestinationConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig.html)` property of an `AWS::Lambda::EventInvokeConfig` resource. SAM requires an extra parameter, "Type", that does not exist in CloudFormation.
 
-A configuration object that specifies the destination of an event after Lambda processes it.
+ `MaximumEventAgeInSeconds`   <a name="sam-function-eventinvokeconfiguration-maximumeventageinseconds"></a>
+The maximum age of a request that Lambda sends to a function for processing.  
+*Type*: Integer  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[MaximumEventAgeInSeconds](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-maximumeventageinseconds)` property of an `AWS::Lambda::EventInvokeConfig` resource.
 
-_Type_: [EventInvokeDestinationConfiguration](sam-property-function-eventinvokedestinationconfiguration.md "sam-property-function-eventinvokedestinationconfiguration.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is similar to the `DestinationConfig` property of an `AWS::Lambda::EventInvokeConfig` resource. SAM requires an extra parameter, "Type", that does not exist in CloudFormation.
-
-`MaximumEventAgeInSeconds`
-
-The maximum age of a request that Lambda sends to a function for processing.
-
-_Type_: Integer
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `MaximumEventAgeInSeconds` property of an `AWS::Lambda::EventInvokeConfig` resource.
-
-`MaximumRetryAttempts`
-
-The maximum number of times to retry before the function returns an error.
-
-_Type_: Integer
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `MaximumRetryAttempts` property of an `AWS::Lambda::EventInvokeConfig` resource.
+ `MaximumRetryAttempts`   <a name="sam-function-eventinvokeconfiguration-maximumretryattempts"></a>
+The maximum number of times to retry before the function returns an error.  
+*Type*: Integer  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[MaximumRetryAttempts](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-maximumretryattempts)` property of an `AWS::Lambda::EventInvokeConfig` resource.
 
 ## Examples
+<a name="sam-property-function-eventinvokeconfiguration--examples"></a>
 
 ### MaximumEventAgeInSeconds
+<a name="sam-property-function-eventinvokeconfiguration--examples--maximumeventageinseconds"></a>
 
 MaximumEventAgeInSeconds example
 
 #### YAML
+<a name="sam-property-function-eventinvokeconfiguration--examples--maximumeventageinseconds--yaml"></a>
 
 ```
 EventInvokeConfig:
@@ -66,5 +62,4 @@ EventInvokeConfig:
     OnFailure:
       Type: Lambda
       Destination: !GetAtt DestinationLambda.Arn
-
 ```

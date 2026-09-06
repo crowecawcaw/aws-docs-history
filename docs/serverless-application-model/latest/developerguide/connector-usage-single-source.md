@@ -1,4 +1,7 @@
+
+
 # Create multiple connectors from a single source in AWS SAM
+<a name="connector-usage-single-source"></a>
 
 Within a source resource, you can define multiple connectors, each with a different destination resource.
 
@@ -42,4 +45,4 @@ Resources:
 ...
 ```
 
-For more information on using connectors, refer to [AWS SAM connector reference](reference-sam-connector.md "reference-sam-connector.md").
+For more information on using connectors, refer to [AWS SAM connector reference](reference-sam-connector.md).

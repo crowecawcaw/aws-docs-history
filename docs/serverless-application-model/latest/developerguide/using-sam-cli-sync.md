@@ -1,77 +1,66 @@
-# Introduction to using sam sync to sync to AWS Cloud
 
-The AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam sync` command provides options to quickly
-sync local application changes to the AWS Cloud. Use `sam sync` when developing your applications
-to:
+
+# Introduction to using sam sync to sync to AWS Cloud
+<a name="using-sam-cli-sync"></a>
+
+The AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam sync` command provides options to quickly sync local application changes to the AWS Cloud. Use `sam sync` when developing your applications to:
 
 1. Automatically detect and sync local changes to the AWS Cloud.
-2. Customize what local changes are synced to the AWS Cloud.
-3. Prepare your application in the cloud for testing and validation.
-   With `sam sync`, you can create a rapid development workflow that shortens the time it takes to sync
-   your local changes to the cloud for testing and validation.
 
-###### Note
+1. Customize what local changes are synced to the AWS Cloud.
 
-The `sam sync` command is recommended for development environments. For production environments,
-we recommend using `sam deploy` or configuring a _continuous integration and delivery
-(CI/CD)_ pipeline. To learn more, see [Deploy your application and resources with AWS SAM](serverless-deploying.md "serverless-deploying.md").
+1. Prepare your application in the cloud for testing and validation.
 
-The `sam sync` command is a part of AWS SAM Accelerate. _AWS SAM
-Accelerate_ provides tools that you can use to speed up the experience of developing and testing
-serverless applications in the AWS Cloud.
+With `sam sync`, you can create a rapid development workflow that shortens the time it takes to sync your local changes to the cloud for testing and validation.
 
-###### Topics
+**Note**  
+The `sam sync` command is recommended for development environments. For production environments, we recommend using `sam deploy` or configuring a *continuous integration and delivery (CI/CD)* pipeline. To learn more, see [Deploy your application and resources with AWS SAM](serverless-deploying.md).
 
-- [Automatically detect and sync local changes to the AWS Cloud](#using-sam-cli-sync-auto "#using-sam-cli-sync-auto")
-- [Customize what local changes are synced to the AWS Cloud](#using-sam-cli-sync-customize "#using-sam-cli-sync-customize")
-- [Prepare your application in the cloud for testing and validation](#using-sam-cli-sync-test "#using-sam-cli-sync-test")
-- [Options for the sam sync command](#using-sam-cli-sync-options "#using-sam-cli-sync-options")
-- [Troubleshooting](#using-sam-cli-sync-troubleshooting "#using-sam-cli-sync-troubleshooting")
-- [Examples](#using-sam-cli-sync-examples "#using-sam-cli-sync-examples")
-- [Learn more](#using-sam-cli-sync-learn "#using-sam-cli-sync-learn")
+The `sam sync` command is a part of AWS SAM Accelerate. *AWS SAM Accelerate* provides tools that you can use to speed up the experience of developing and testing serverless applications in the AWS Cloud.
+
+**Topics**
++ [Automatically detect and sync local changes to the AWS Cloud](#using-sam-cli-sync-auto)
++ [Customize what local changes are synced to the AWS Cloud](#using-sam-cli-sync-customize)
++ [Prepare your application in the cloud for testing and validation](#using-sam-cli-sync-test)
++ [Options for the sam sync command](#using-sam-cli-sync-options)
++ [Troubleshooting](#using-sam-cli-sync-troubleshooting)
++ [Examples](#using-sam-cli-sync-examples)
++ [Learn more](#using-sam-cli-sync-learn)
 
 ## Automatically detect and sync local changes to the AWS Cloud
+<a name="using-sam-cli-sync-auto"></a>
 
-Run `sam sync` with the `--watch` option to begin syncing your application to the
-AWS Cloud. This does the following:
+Run `sam sync` with the `--watch` option to begin syncing your application to the AWS Cloud. This does the following:
 
-1. **Build your application** – This process is similar to using the
-   `sam build` command.
-2. **Deploy your application** – The AWS SAM CLI deploys your application to
-   AWS CloudFormation using your default settings. The following default values are used:
+1. **Build your application ** – This process is similar to using the `sam build` command.
 
-   1. AWS credentials and general configuration settings found in your `.aws` user
-      folder.
-   2. Application deployment settings found in your application’s `samconfig.toml` file.
-      If default values can’t be found, the AWS SAM CLI will inform you and exit the sync process.
+1. **Deploy your application** – The AWS SAM CLI deploys your application to AWS CloudFormation using your default settings. The following default values are used:
 
-3. **Watch for local changes** – The AWS SAM CLI remains running and watches for
-   local changes to your application. This is what the `--watch` option provides.
+   1. AWS credentials and general configuration settings found in your `.aws` user folder.
 
-This option may be turned on by default. For default values, see your application’s
-`samconfig.toml` file. The following is an example file:
+   1. Application deployment settings found in your application’s `samconfig.toml` file.
 
-```
-...
-[default.sync]
-[default.sync.parameters]
-watch = true
-...
-```
+   If default values can’t be found, the AWS SAM CLI will inform you and exit the sync process.
 
-4. **Sync local changes to the AWS Cloud** – When you make local changes, the
-   AWS SAM CLI detects and syncs those changes to the AWS Cloud through the quickest method available. Depending on the
-   type of change, the following may occur:
+1. **Watch for local changes** – The AWS SAM CLI remains running and watches for local changes to your application. This is what the `--watch` option provides.
 
-   1. If your updated resource supports AWS service APIs, the AWS SAM CLI will use it to deploy your changes.
-      This results in a quick sync to update your resource in the AWS Cloud.
-   2. If your updated resource doesn’t support AWS service APIs, the AWS SAM CLI will perform an CloudFormation deployment.
-      This updates your entire application in the AWS Cloud. While not as quick, it does prevent you from having to
-      manually initiate a deployment.
+   This option may be turned on by default. For default values, see your application’s `samconfig.toml` file. The following is an example file:
 
-Since the `sam sync` command automatically updates your application in the AWS Cloud, it is
-recommended for development environments only. When you run `sam sync`, you will be asked to
-confirm:
+   ```
+   ...
+   [default.sync]
+   [default.sync.parameters]
+   watch = true
+   ...
+   ```
+
+1. **Sync local changes to the AWS Cloud** – When you make local changes, the AWS SAM CLI detects and syncs those changes to the AWS Cloud through the quickest method available. Depending on the type of change, the following may occur:
+
+   1. If your updated resource supports AWS service APIs, the AWS SAM CLI will use it to deploy your changes. This results in a quick sync to update your resource in the AWS Cloud.
+
+   1. If your updated resource doesn’t support AWS service APIs, the AWS SAM CLI will perform an CloudFormation deployment. This updates your entire application in the AWS Cloud. While not as quick, it does prevent you from having to manually initiate a deployment.
+
+Since the `sam sync` command automatically updates your application in the AWS Cloud, it is recommended for development environments only. When you run `sam sync`, you will be asked to confirm:
 
 ```
 **The sync command should only be used against a development stack**.
@@ -79,151 +68,141 @@ confirm:
 Confirm that you are synchronizing a development stack.
 
 Enter Y to proceed with the command, or enter N to cancel:
- [Y/n]: ENTER
+ [Y/n]: {{ENTER}}
 ```
 
 ## Customize what local changes are synced to the AWS Cloud
+<a name="using-sam-cli-sync-customize"></a>
 
-Provide options to customize what local changes are synced to the AWS Cloud. This can speed up the time it takes
-to see your local changes in the cloud for testing and validation.
+Provide options to customize what local changes are synced to the AWS Cloud. This can speed up the time it takes to see your local changes in the cloud for testing and validation.
 
-For example, provide the `--code` option to sync only code changes, such as AWS Lambda function code.
-During development, if you are focused specifically on Lambda code, this will get your changes into the cloud
-quickly for testing and validation. The following is an example:
+For example, provide the `--code` option to sync only code changes, such as AWS Lambda function code. During development, if you are focused specifically on Lambda code, this will get your changes into the cloud quickly for testing and validation. The following is an example:
 
 ```
-`$` `sam sync --code --watch`
+$ sam sync --code --watch
 ```
 
-To sync only code changes for a specific Lambda function or layer, use the `--resource-id` option.
-The following is an example:
+To sync only code changes for a specific Lambda function or layer, use the `--resource-id` option. The following is an example:
 
 ```
-`$` `sam sync --code --resource-id `HelloWorldFunction` --resource-id `HelloWorldLayer``
+$ sam sync --code --resource-id {{HelloWorldFunction}} --resource-id {{HelloWorldLayer}}
 ```
 
 ## Prepare your application in the cloud for testing and validation
+<a name="using-sam-cli-sync-test"></a>
 
-The `sam sync` command automatically finds the quickest method available to update your application
-in the AWS Cloud. This can speed up your development and cloud testing workflows. By utilizing AWS service APIs, you
-can quickly develop, sync, and test supported resources. For a hands-on example, see [Module 6 - AWS SAM Accelerate](https://s12d.com/sam-ws-en-accelerate "https://s12d.com/sam-ws-en-accelerate") in _The Complete AWS SAM
-Workshop_.
+The `sam sync` command automatically finds the quickest method available to update your application in the AWS Cloud. This can speed up your development and cloud testing workflows. By utilizing AWS service APIs, you can quickly develop, sync, and test supported resources. For a hands-on example, see [Module 6 - AWS SAM Accelerate](https://s12d.com/sam-ws-en-accelerate) in *The Complete AWS SAM Workshop*.
 
 ## Options for the sam sync command
+<a name="using-sam-cli-sync-options"></a>
 
-The following are some of the main options you can use to modify the `sam sync` command. For a list
-of all options, see [sam sync](sam-cli-command-reference-sam-sync.md "sam-cli-command-reference-sam-sync.md").
+The following are some of the main options you can use to modify the `sam sync` command. For a list of all options, see [sam sync](sam-cli-command-reference-sam-sync.md).
 
 ### Perform a one-time CloudFormation deployment
+<a name="using-sam-cli-sync-options-single-deploy"></a>
 
 Use the `--no-watch` option to turn off automatic syncing. The following is an example:
 
 ```
-`$` `sam sync --no-watch`
+$ sam sync --no-watch
 ```
 
-The AWS SAM CLI will perform a one-time CloudFormation deployment. This command groups together the actions performed by the
-`sam build` and `sam deploy` commands.
+The AWS SAM CLI will perform a one-time CloudFormation deployment. This command groups together the actions performed by the `sam build` and `sam deploy` commands.
 
 ### Skip the initial CloudFormation deployment
+<a name="using-sam-cli-sync-options-skip-deploy-sync"></a>
 
 You can customize whether an CloudFormation deployment is required each time `sam sync` is run.
++ Provide `--no-skip-deploy-sync` to require an CloudFormation deployment each time `sam sync` is run. This ensures that your local infrastructure is synced to CloudFormation, preventing drift. Using this option does add additional time to your development and testing workflow.
++ Provide `--skip-deploy-sync` to make CloudFormation deployment optional. The AWS SAM CLI will compare your local AWS SAM template with your deployed CloudFormation template and will skip the initial CloudFormation deployment if a change isn't detected. Skipping CloudFormation deployment can save you time when syncing local changes to the AWS Cloud.
 
-- Provide `--no-skip-deploy-sync` to require an CloudFormation deployment each time
-  `sam sync` is run. This ensures that your local infrastructure is synced to CloudFormation, preventing drift.
-  Using this option does add additional time to your development and testing workflow.
-- Provide `--skip-deploy-sync` to make CloudFormation deployment optional. The AWS SAM CLI will compare
-  your local AWS SAM template with your deployed CloudFormation template and will skip the initial CloudFormation deployment if a change
-  isn't detected. Skipping CloudFormation deployment can save you time when syncing local changes to the AWS Cloud.
-
-If no change is detected, the AWS SAM CLI will still perform an CloudFormation deployment in the following scenarios:
-
-    + If its been 7 days or more since your last CloudFormation deployment.
-    + If a large number of Lambda function code changes are detected, making CloudFormation deployment the quickest method
-     to update your application.
+  If no change is detected, the AWS SAM CLI will still perform an CloudFormation deployment in the following scenarios:
+  + If its been 7 days or more since your last CloudFormation deployment.
+  + If a large number of Lambda function code changes are detected, making CloudFormation deployment the quickest method to update your application.
 
 The following is an example:
 
 ```
-`$` `sam sync --skip-deploy-sync`
+$ sam sync --skip-deploy-sync
 ```
 
 ### Sync a resource from a nested stack
+<a name="using-sam-cli-sync-options-nested-stack"></a>
 
-###### To sync a resource from a nested stack
+**To sync a resource from a nested stack**
 
 1. Provide the root stack using `--stack-name`.
-2. Identify the resource in the nested stack using the following format:
-   `nestedStackId/resourceId`.
-3. Provide the resource in the nested stack using `--resource-id`.
 
-The following is an example:
+1. Identify the resource in the nested stack using the following format: `{{nestedStackId/resourceId}}`.
 
-```
-`$` `sam sync --code --stack-name `sam-app` --resource-id `myNestedStack/HelloWorldFunction``
-```
+1. Provide the resource in the nested stack using `--resource-id`.
 
-For more information about creating nested applications, see [Reuse code and resources using nested applications in AWS SAM](serverless-sam-template-nested-applications.md "serverless-sam-template-nested-applications.md").
+   The following is an example:
+
+   ```
+   $ sam sync --code --stack-name {{sam-app}} --resource-id {{myNestedStack/HelloWorldFunction}}
+   ```
+
+For more information about creating nested applications, see [Reuse code and resources using nested applications in AWS SAM](serverless-sam-template-nested-applications.md).
 
 ### Specify a specific CloudFormation stack to update
+<a name="using-sam-cli-sync-options-stack-name"></a>
 
-To specify a specific CloudFormation stack to update, provide the `--stack-name` option. The following
-is an example:
+To specify a specific CloudFormation stack to update, provide the `--stack-name` option. The following is an example:
 
 ```
-`$` `sam sync --stack-name `dev-sam-app``
+$ sam sync --stack-name {{dev-sam-app}}
 ```
 
 ### Speed up build times by building your project in the source folder
+<a name="using-sam-cli-sync-options-source"></a>
 
-For supported runtimes and build methods, you can use the `--build-in-source` option to build your project directly in the source folder. By default, the
-AWS SAM CLI builds in a temporary directory, which involves copying over source code and project files. With `--build-in-source`, the AWS SAM
-CLI builds directly in your source folder, which speeds up the build process by removing the need to copy files to a temporary directory.
+For supported runtimes and build methods, you can use the `--build-in-source` option to build your project directly in the source folder. By default, the AWS SAM CLI builds in a temporary directory, which involves copying over source code and project files. With `--build-in-source`, the AWS SAM CLI builds directly in your source folder, which speeds up the build process by removing the need to copy files to a temporary directory.
 
-For a list of supported runtimes and build methods, see `--build-in-source`.
+For a list of supported runtimes and build methods, see ` --build-in-source`.
 
 ### Specify files and folders that won't initiate a sync
+<a name="using-sam-cli-sync-options-exclude"></a>
 
-Use the `--watch-exclude` option to specify any file or folder that won't initiate a sync when updated. For more information about this option,
-see `--watch-exclude`.
+Use the `--watch-exclude` option to specify any file or folder that won't initiate a sync when updated. For more information about this option, see `--watch-exclude`.
 
 The following is an example that excludes the `package-lock.json` file associated with our `HelloWorldFunction` function:
 
 ```
-`$` `sam sync --watch --watch-exclude `HelloWorldFunction=package-lock.json``
+$ sam sync --watch --watch-exclude {{HelloWorldFunction=package-lock.json}}
 ```
 
 When this command is run, the AWS SAM CLI will initiate the sync process. This includes the following:
++ Run `sam build` to build your functions and prepare your application for deployment.
++ Run `sam deploy` to deploy your application.
++ Watch for changes to your application.
 
-- Run `sam build` to build your functions and prepare your application for deployment.
-- Run `sam deploy` to deploy your application.
-- Watch for changes to your application.
-
-When we modify the `package-lock.json` file, the AWS SAM CLI won't initiate a sync. When another file is updated, the
-AWS SAM CLI will initiate a sync, which will include the `package-lock.json` file.
+When we modify the `package-lock.json` file, the AWS SAM CLI won't initiate a sync. When another file is updated, the AWS SAM CLI will initiate a sync, which will include the `package-lock.json` file.
 
 The following is an example of specifying a Lambda function of a child stack:
 
 ```
-`$` `sam sync --watch --watch-exclude `ChildStackA/MyFunction=database.sqlite3``
+$ sam sync --watch --watch-exclude {{ChildStackA/MyFunction=database.sqlite3}}
 ```
 
 ## Troubleshooting
+<a name="using-sam-cli-sync-troubleshooting"></a>
 
-To troubleshoot the AWS SAM CLI, see [AWS SAM CLI troubleshooting](sam-cli-troubleshooting.md "sam-cli-troubleshooting.md").
+To troubleshoot the AWS SAM CLI, see [AWS SAM CLI troubleshooting](sam-cli-troubleshooting.md).
 
 ## Examples
+<a name="using-sam-cli-sync-examples"></a>
 
 ### Using sam sync to update the Hello World application
+<a name="using-sam-cli-sync-examples-example1"></a>
 
-In this example, we start by initializing the sample Hello World application. To learn more about this application,
-see [Tutorial: Deploy a Hello World application with AWS SAM](serverless-getting-started-hello-world.md "serverless-getting-started-hello-world.md").
+In this example, we start by initializing the sample Hello World application. To learn more about this application, see [Tutorial: Deploy a Hello World application with AWS SAM](serverless-getting-started-hello-world.md).
 
 Running `sam sync` begins the build and deployment process.
 
 ```
-`$` `sam sync`
-
+$ sam sync
+				
 The SAM CLI will use the AWS Lambda, Amazon API Gateway, and AWS StepFunctions APIs to upload your code without
 performing a CloudFormation deployment. This will cause drift in your CloudFormation stack.
 **The sync command should only be used against a development stack**.
@@ -323,9 +302,7 @@ Infra sync completed.
 CodeTrigger not created as CodeUri or DefinitionUri is missing for ServerlessRestApi.
 ```
 
-Once deployment is complete, we modify the `HelloWorldFunction` code. The AWS SAM CLI detects this change
-and syncs our application to the AWS Cloud. Since AWS Lambda supports AWS service APIs, a quick sync is
-performed.
+Once deployment is complete, we modify the `HelloWorldFunction` code. The AWS SAM CLI detects this change and syncs our application to the AWS Cloud. Since AWS Lambda supports AWS service APIs, a quick sync is performed.
 
 ```
 Syncing Lambda Function HelloWorldFunction...
@@ -335,8 +312,7 @@ Running PythonPipBuilder:CopySource
 Finished syncing Lambda Function HelloWorldFunction.
 ```
 
-Next, we modify our API endpoint in the application’s AWS SAM template. We change `/hello` to
-`/helloworld`.
+Next, we modify our API endpoint in the application’s AWS SAM template. We change `/hello` to `/helloworld`.
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -351,12 +327,11 @@ Resources:
         HelloWorld:
           Type: Api
           Properties:
-            Path: `/helloworld`
+            Path: {{/helloworld}}
             Method: get
 ```
 
-Since the Amazon API Gateway resource doesn’t support the AWS service API, the AWS SAM CLI automatically performs an
-CloudFormation deployment. The following is an example output:
+Since the Amazon API Gateway resource doesn’t support the AWS service API, the AWS SAM CLI automatically performs an CloudFormation deployment. The following is an example output:
 
 ```
 Queued infra sync. Waiting for in progress code syncs to complete...
@@ -453,5 +428,6 @@ Infra sync completed.
 ```
 
 ## Learn more
+<a name="using-sam-cli-sync-learn"></a>
 
-For a description of all `sam sync` options, see [sam sync](sam-cli-command-reference-sam-sync.md "sam-cli-command-reference-sam-sync.md").
+For a description of all `sam sync` options, see [sam sync](sam-cli-command-reference-sam-sync.md).

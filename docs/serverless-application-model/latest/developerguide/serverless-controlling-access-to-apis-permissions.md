@@ -1,7 +1,9 @@
-# IAM permission example for AWS SAM
 
-You can control access to your APIs by defining IAM permissions within your AWS SAM
-template. To do this, you use the [ApiAuth](sam-property-api-apiauth.md "sam-property-api-apiauth.md") data type.
+
+# IAM permission example for AWS SAM
+<a name="serverless-controlling-access-to-apis-permissions"></a>
+
+You can control access to your APIs by defining IAM permissions within your AWS SAM template. To do this, you use the [ApiAuth](sam-property-api-apiauth.md) data type.
 
 The following is an example AWS SAM template that uses for IAM permissions:
 
@@ -33,5 +35,4 @@ Resources:
           return {'body': 'Hello World!', 'statusCode': 200}
 ```
 
-For more information about IAM permissions, see [Control access for invoking an API](../../../apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.md "../../../apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.md")
-in the _API Gateway Developer Guide_.
+For more information about IAM permissions, see [Control access for invoking an API](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html) in the *API Gateway Developer Guide*.

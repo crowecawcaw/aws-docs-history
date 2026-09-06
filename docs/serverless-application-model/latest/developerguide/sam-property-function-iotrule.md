@@ -1,55 +1,54 @@
+
+
 # IoTRule
+<a name="sam-property-function-iotrule"></a>
 
 The object describing an `IoTRule` event source type.
 
-Creates an [AWS::IoT::TopicRule](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.md") resource to declare an AWS IoT rule. For more information see [CloudFormation documentation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.md")
+Creates an [AWS::IoT::TopicRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html) resource to declare an AWS IoT rule. For more information see [CloudFormation documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html)
 
 ## Syntax
+<a name="sam-property-function-iotrule-syntax"></a>
 
 To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-function-iotrule-syntax.yaml"></a>
 
 ```
-  AwsIotSqlVersion: `String`
-  Sql: `String`
-
+  [AwsIotSqlVersion](#sam-function-iotrule-awsiotsqlversion): {{String}}
+  [Sql](#sam-function-iotrule-sql): {{String}}
 ```
 
 ## Properties
+<a name="sam-property-function-iotrule-properties"></a>
 
-`AwsIotSqlVersion`
+ `AwsIotSqlVersion`   <a name="sam-function-iotrule-awsiotsqlversion"></a>
+The version of the SQL rules engine to use when evaluating the rule.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[AwsIotSqlVersion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-awsiotsqlversion)` property of an `AWS::IoT::TopicRule TopicRulePayload` resource.
 
-The version of the SQL rules engine to use when evaluating the rule.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `AwsIotSqlVersion` property of an `AWS::IoT::TopicRule TopicRulePayload` resource.
-
-`Sql`
-
-The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](../../../iot/latest/developerguide/iot-rules.md#aws-iot-sql-reference "../../../iot/latest/developerguide/iot-rules.md#aws-iot-sql-reference") in the _AWS IoT Developer Guide_.
-
-_Type_: String
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is passed directly to the `Sql` property of an `AWS::IoT::TopicRule TopicRulePayload` resource.
+ `Sql`   <a name="sam-function-iotrule-sql"></a>
+The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the *AWS IoT Developer Guide*.  
+*Type*: String  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is passed directly to the `[Sql](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-sql)` property of an `AWS::IoT::TopicRule TopicRulePayload` resource.
 
 ## Examples
+<a name="sam-property-function-iotrule--examples"></a>
 
 ### IOT Rule
+<a name="sam-property-function-iotrule--examples--iot-rule"></a>
 
 IOT Rule Example
 
 #### YAML
+<a name="sam-property-function-iotrule--examples--iot-rule--yaml"></a>
 
 ```
 IoTRule:
   Type: IoTRule
   Properties:
     Sql: SELECT * FROM 'topic/test'
-
 ```

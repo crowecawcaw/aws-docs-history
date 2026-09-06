@@ -1,113 +1,86 @@
+
+
 # LambdaAuthorizer
+<a name="sam-property-httpapi-lambdaauthorizer"></a>
 
 Configure a Lambda authorizer to control access to your Amazon API Gateway HTTP API with an AWS Lambda function.
 
-For more information and examples, see [Working with AWS Lambda authorizers for HTTP APIs](../../../apigateway/latest/developerguide/http-api-lambda-authorizer.md "../../../apigateway/latest/developerguide/http-api-lambda-authorizer.md") in the _API Gateway Developer Guide_.
+For more information and examples, see [Working with AWS Lambda authorizers for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html) in the *API Gateway Developer Guide*.
 
 ## Syntax
+<a name="sam-property-httpapi-lambdaauthorizer-syntax"></a>
 
 To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-httpapi-lambdaauthorizer-syntax.yaml"></a>
 
 ```
-  AuthorizerPayloadFormatVersion: `String`
-  EnableFunctionDefaultPermissions: `Boolean`
-  EnableSimpleResponses: `Boolean`
-  FunctionArn: `String`
-  FunctionInvokeRole: `String`
-  Identity: `LambdaAuthorizationIdentity`
-
+  [AuthorizerPayloadFormatVersion](#sam-httpapi-lambdaauthorizer-authorizerpayloadformatversion): {{String}}
+  EnableFunctionDefaultPermissions: {{Boolean}}
+  [EnableSimpleResponses](#sam-httpapi-lambdaauthorizer-enablesimpleresponses): {{Boolean}}
+  [FunctionArn](#sam-httpapi-lambdaauthorizer-functionarn): {{String}}
+  [FunctionInvokeRole](#sam-httpapi-lambdaauthorizer-functioninvokerole): {{String}}
+  [Identity](#sam-httpapi-lambdaauthorizer-identity): {{LambdaAuthorizationIdentity}}
 ```
 
 ## Properties
+<a name="sam-property-httpapi-lambdaauthorizer-properties"></a>
 
-`AuthorizerPayloadFormatVersion`
+ `AuthorizerPayloadFormatVersion`   <a name="sam-httpapi-lambdaauthorizer-authorizerpayloadformatversion"></a>
+Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.  
+This is passed through to the `authorizerPayloadFormatVersion` section of an `x-amazon-apigateway-authorizer` in the `securitySchemes` section of an OpenAPI definition.  
+*Valid values*: `1.0` or `2.0`  
+*Type*: String  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+ `EnableFunctionDefaultPermissions`   <a name="sam-httpapi-lambdaauthorizer-enablefunctiondefaultpermissions"></a>
+By default, the HTTP API resource is not granted permission to invoke the Lambda authorizer. Specify this property as `true` to automatically create permissions between your HTTP API resource and your Lambda authorizer.  
+*Type*: Boolean  
+*Required*: No  
+*Default value*: `false`  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-This is passed through to the `authorizerPayloadFormatVersion` section of an `x-amazon-apigateway-authorizer` in the `securitySchemes` section of an OpenAPI definition.
+ `EnableSimpleResponses`   <a name="sam-httpapi-lambdaauthorizer-enablesimpleresponses"></a>
+Specifies whether a Lambda authorizer returns a response in a simple format. By default, a Lambda authorizer must return an AWS Identity and Access Management (IAM) policy. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.  
+This is passed through to the `enableSimpleResponses` section of an `x-amazon-apigateway-authorizer` in the `securitySchemes` section of an OpenAPI definition.  
+*Type*: Boolean  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Valid values_: `1.0` or `2.0`
+ `FunctionArn`   <a name="sam-httpapi-lambdaauthorizer-functionarn"></a>
+The Amazon Resource Name (ARN) of the Lambda function that provides authorization for the API.  
+This is passed through to the `authorizerUri` section of an `x-amazon-apigateway-authorizer` in the `securitySchemes` section of an OpenAPI definition.  
+*Type*: String  
+*Required*: Yes  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Type_: String
+ `FunctionInvokeRole`   <a name="sam-httpapi-lambdaauthorizer-functioninvokerole"></a>
+The ARN of the IAM role that has the credentials required for API Gateway to invoke the authorizer function. Specify this parameter if your function's resource-based policy doesn't grant API Gateway `lambda:InvokeFunction` permission.  
+This is passed through to the `authorizerCredentials` section of an `x-amazon-apigateway-authorizer` in the `securitySchemes` section of an OpenAPI definition.  
+For more information, see [Create a Lambda authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html#http-api-lambda-authorizer.example-create) in the *API Gateway Developer Guide*.  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`EnableFunctionDefaultPermissions`
-
-By default, the HTTP API resource is not granted permission to invoke the Lambda authorizer. Specify this
-property as `true` to automatically create permissions between your HTTP API resource and your Lambda
-authorizer.
-
-_Type_: Boolean
-
-_Required_: No
-
-_Default value_: `false`
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation
-equivalent.
-
-`EnableSimpleResponses`
-
-Specifies whether a Lambda authorizer returns a response in a simple format. By default, a Lambda authorizer must return an AWS Identity and Access Management (IAM) policy. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
-
-This is passed through to the `enableSimpleResponses` section of an `x-amazon-apigateway-authorizer` in the `securitySchemes` section of an OpenAPI definition.
-
-_Type_: Boolean
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`FunctionArn`
-
-The Amazon Resource Name (ARN) of the Lambda function that provides authorization for the API.
-
-This is passed through to the `authorizerUri` section of an `x-amazon-apigateway-authorizer` in the `securitySchemes` section of an OpenAPI definition.
-
-_Type_: String
-
-_Required_: Yes
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`FunctionInvokeRole`
-
-The ARN of the IAM role that has the credentials required for API Gateway to invoke the authorizer function. Specify this parameter if your function's resource-based policy doesn't grant API Gateway `lambda:InvokeFunction` permission.
-
-This is passed through to the `authorizerCredentials` section of an `x-amazon-apigateway-authorizer` in the `securitySchemes` section of an OpenAPI definition.
-
-For more information, see [Create a Lambda authorizer](../../../apigateway/latest/developerguide/http-api-lambda-authorizer.md#http-api-lambda-authorizer.example-create "../../../apigateway/latest/developerguide/http-api-lambda-authorizer.md#http-api-lambda-authorizer.example-create") in the _API Gateway Developer Guide_.
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
-
-`Identity`
-
-Specifies an `IdentitySource` in an incoming request for an authorizer.
-
-This is passed through to the `identitySource` section of an `x-amazon-apigateway-authorizer` in the `securitySchemes` section of an OpenAPI definition.
-
-_Type_: [LambdaAuthorizationIdentity](sam-property-httpapi-lambdaauthorizationidentity.md "sam-property-httpapi-lambdaauthorizationidentity.md")
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
+ `Identity`   <a name="sam-httpapi-lambdaauthorizer-identity"></a>
+Specifies an `IdentitySource` in an incoming request for an authorizer.  
+This is passed through to the `identitySource` section of an `x-amazon-apigateway-authorizer` in the `securitySchemes` section of an OpenAPI definition.  
+*Type*: [LambdaAuthorizationIdentity](sam-property-httpapi-lambdaauthorizationidentity.md)  
+*Required*: No  
+*CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
 ## Examples
+<a name="sam-property-httpapi-lambdaauthorizer--examples"></a>
 
 ### LambdaAuthorizer
+<a name="sam-property-httpapi-lambdaauthorizer--examples--lambdaauthorizer"></a>
 
 LambdaAuthorizer example
 
 #### YAML
+<a name="sam-property-httpapi-lambdaauthorizer--examples--lambdaauthorizer--yaml"></a>
 
 ```
 Auth:
@@ -125,5 +98,4 @@ Auth:
       Identity:
         Headers:
           - Authorization
-
 ```

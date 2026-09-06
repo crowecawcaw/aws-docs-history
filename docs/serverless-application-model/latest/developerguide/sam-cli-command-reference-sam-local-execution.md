@@ -1,41 +1,38 @@
+
+
 # sam local execution
+<a name="sam-cli-command-reference-sam-local-execution"></a>
 
-This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI)
-`sam local execution` command.
+This page provides reference information for the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam local execution` command.
 
-For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli "what-is-sam-overview.md#what-is-sam-cli")
+For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)
 
 The `sam local execution` command allows you to manage and inspect local durable function executions during development and testing.
 
-###### Note
-
+**Note**  
 These commands may not require access to AWS credentials.
 
 ## Usage
+<a name="sam-cli-command-reference-sam-local-execution-usage"></a>
 
 ```
-`$` `sam local execution `<subcommand>` `<options>``
+$ sam local execution {{<subcommand>}} {{<options>}}
 ```
 
 ## Options
+<a name="sam-cli-command-reference-sam-local-execution-options"></a>
 
-`--help, -h`
-
+`--help, -h`  <a name="sam-cli-command-reference-sam-local-execution-options-help"></a>
 Show this message and exit.
 
 ## Subcommands
+<a name="sam-cli-command-reference-sam-local-execution-subcommands"></a>
 
-`get`
+`get`  <a name="sam-cli-command-reference-sam-local-execution-subcommands-get"></a>
+Get details of a durable function execution. For more information, see [sam local execution get](sam-cli-command-reference-sam-local-execution-get.md).
 
-Get details of a durable function execution. For more information, see
-[sam local execution get](sam-cli-command-reference-sam-local-execution-get.md "sam-cli-command-reference-sam-local-execution-get.md").
+`history`  <a name="sam-cli-command-reference-sam-local-execution-subcommands-history"></a>
+Get execution history of a durable function execution. For more information, see [sam local execution history](sam-cli-command-reference-sam-local-execution-history.md).
 
-`history`
-
-Get execution history of a durable function execution. For more information, see
-[sam local execution history](sam-cli-command-reference-sam-local-execution-history.md "sam-cli-command-reference-sam-local-execution-history.md").
-
-`stop`
-
-Stop a durable function execution. For more information, see
-[sam local execution stop](sam-cli-command-reference-sam-local-execution-stop.md "sam-cli-command-reference-sam-local-execution-stop.md").
+`stop`  <a name="sam-cli-command-reference-sam-local-execution-subcommands-stop"></a>
+Stop a durable function execution. For more information, see [sam local execution stop](sam-cli-command-reference-sam-local-execution-stop.md).

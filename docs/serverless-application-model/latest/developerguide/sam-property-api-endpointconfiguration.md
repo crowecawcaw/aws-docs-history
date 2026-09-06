@@ -1,64 +1,57 @@
+
+
 # EndpointConfiguration
+<a name="sam-property-api-endpointconfiguration"></a>
 
 The endpoint type of a REST API.
 
 ## Syntax
+<a name="sam-property-api-endpointconfiguration-syntax"></a>
 
 To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
+<a name="sam-property-api-endpointconfiguration-syntax.yaml"></a>
 
 ```
-  IpAddressType: `String`
-  Type: `String`
-  VPCEndpointIds: `List`
-
-
+  [IpAddressType](#sam-api-endpointconfiguration-ipaddresstype): {{String}}
+  [Type](#sam-api-endpointconfiguration-type): {{String}}
+  [VPCEndpointIds](#sam-api-endpointconfiguration-vpcendpointids): {{List}}
 ```
 
 ## Properties
+<a name="sam-property-api-endpointconfiguration-properties"></a>
 
-`IpAddressType`
+ `IpAddressType`   <a name="sam-api-endpointconfiguration-ipaddresstype"></a>
+The IP address types that can invoke an API (RestApi).  
+*Valid values*: `ipv4` or `dualstack`  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[IpAddressType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-ipaddresstype)` property of the `AWS::ApiGateway::RestApi` `EndpointConfiguration` data type.
 
-The IP address types that can invoke an API (RestApi).
+ `Type`   <a name="sam-api-endpointconfiguration-type"></a>
+The endpoint type of a REST API.  
+*Valid values*: `EDGE` or `REGIONAL` or `PRIVATE`  
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[Types](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-types)` property of the `AWS::ApiGateway::RestApi` `EndpointConfiguration` data type.
 
-_Valid values_: `ipv4` or `dualstack`
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `IpAddressType` property of the `AWS::ApiGateway::RestApi` `EndpointConfiguration` data type.
-
-`Type`
-
-The endpoint type of a REST API.
-
-_Valid values_: `EDGE` or `REGIONAL` or `PRIVATE`
-
-_Type_: String
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `Types` property of the `AWS::ApiGateway::RestApi` `EndpointConfiguration` data type.
-
-`VPCEndpointIds`
-
-A list of VPC endpoint IDs of a REST API against which to create Route53 aliases.
-
-_Type_: List
-
-_Required_: No
-
-_CloudFormation compatibility_: This property is passed directly to the `VpcEndpointIds` property of the `AWS::ApiGateway::RestApi` `EndpointConfiguration` data type.
+ `VPCEndpointIds`   <a name="sam-api-endpointconfiguration-vpcendpointids"></a>
+A list of VPC endpoint IDs of a REST API against which to create Route53 aliases.  
+*Type*: List  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the `[VpcEndpointIds](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-vpcendpointids)` property of the `AWS::ApiGateway::RestApi` `EndpointConfiguration` data type.
 
 ## Examples
+<a name="sam-property-api-endpointconfiguration--examples"></a>
 
 ### EndpointConfiguration
+<a name="sam-property-api-endpointconfiguration--examples--endpointconfiguration"></a>
 
 Endpoint Configuration example
 
 #### YAML
+<a name="sam-property-api-endpointconfiguration--examples--endpointconfiguration--yaml"></a>
 
 ```
 EndpointConfiguration:
@@ -66,5 +59,4 @@ EndpointConfiguration:
   VPCEndpointIds:
     - vpce-123a123a
     - vpce-321a321a
-
 ```
