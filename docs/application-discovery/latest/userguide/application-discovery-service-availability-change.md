@@ -1,24 +1,30 @@
-AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
+
+
+AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # AWS Application Discovery Service availability change
+<a name="application-discovery-service-availability-change"></a>
 
 After careful consideration, we decided to close AWS Application Discovery Service to new customers starting November 7, 2025. If you would like to use the service, sign up prior to that date. Existing customers can continue to use the service as normal.
 
 This topic provides information about the availability change and guidance for transitioning to AWS Transform.
 
 ## Service availability details
+<a name="service-availability-details"></a>
 
 Application Discovery Service will stop accepting new customers starting November 7, 2025. AWS Transform is our next-generation, agentic AI service that provides similar capabilities and enhanced VM discovery and assessment capabilities. Existing Application Discovery Service customers can continue using the service to complete their ongoing discovery projects, which typically have a 4-month lifecycle. The service's core functionality for discovering and collecting data about on-premises servers and applications is now available in AWS Transform with improved features, requiring no customer effort for transition.
 
 Until November 7, 2025, we will continue to maintain Application Discovery Service's security and reliability. While we will not be adding new features to the service, we remain committed to providing security updates and maintaining service availability to ensure your ongoing migration projects continue to run smoothly. Our focus is on ensuring a stable environment for existing customers to complete their in-flight migration initiatives while preparing for the enhanced capabilities available in AWS Transform.
 
 ## AWS Transform transition
+<a name="aws-transform-transition"></a>
 
 AWS Transform is our recommended solution that brings together all Application Discovery Service capabilities while introducing powerful new features. It provides comprehensive discovery and assessment capabilities through agent-based and agentless collectors, with enhanced VMware environment analysis. The service enables automated application dependency mapping and wave planning, while offering improved discovery logic with what-if analysis and cost estimates. With advanced features including integrated storage and database discovery, consolidated 3P tool integration, and comprehensive VM configuration analysis, AWS Transform is designed to make customers' migration assessment and planning process more efficient and successful.
 
-Transitioning to AWS Transform is straightforward, with no data migration required. Existing discovery projects in Application Discovery Service will continue to function normally until completion. When customers are ready to start new discovery projects, they can begin using AWS Transform directly - all the discovery and assessment capabilities from Application Discovery Service are available there with enhanced features. To begin using AWS Transform please refer to the [Getting Started Guide](../../../transform/latest/userguide/what-is-service.md "../../../transform/latest/userguide/what-is-service.md"). AWS Support team is available through the AWS Support console to assist with AWS Transform access or questions about ongoing discovery projects.
+Transitioning to AWS Transform is straightforward, with no data migration required. Existing discovery projects in Application Discovery Service will continue to function normally until completion. When customers are ready to start new discovery projects, they can begin using AWS Transform directly - all the discovery and assessment capabilities from Application Discovery Service are available there with enhanced features. To begin using AWS Transform please refer to the [Getting Started Guide](https://docs.aws.amazon.com/transform/latest/userguide/what-is-service.html). AWS Support team is available through the AWS Support console to assist with AWS Transform access or questions about ongoing discovery projects.
 
 ## Frequently asked questions
+<a name="frequently-asked-questions"></a>
 
 **What does this mean for the service (are you going to shut the service down)?**
 
@@ -40,4 +46,4 @@ AWS Transform is the recommended alternative service. Launched in 2025, AWS Tran
 
 No formal migration process is required. Existing projects can continue in Application Discovery Service until completion. For new projects, customers can start directly in AWS Transform, which provides all the familiar capabilities of Application Discovery Service with enhanced features. No data migration is needed, and AWS Support is available to assist with the transition.
 
-If you have additional questions, please contact us through [AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/") or read our FAQs.
+If you have additional questions, please contact us through [AWS Support](https://aws.amazon.com/contact-us/) or read our FAQs.

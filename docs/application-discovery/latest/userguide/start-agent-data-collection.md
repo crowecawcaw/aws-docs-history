@@ -1,42 +1,42 @@
-AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
+
+
+AWS Application Discovery Service is no longer open to new customers. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html).
 
 # Starting and stopping Discovery Agent data collection
+<a name="start-agent-data-collection"></a>
 
-After the Discovery Agent is deployed and configured, if data collections stops you can
-restart it. You can start or stop data collection through the console by following the
-steps in [Starting and stopping data collectors in the AWS Migration Hub console](start-stop-data_collection.md "start-stop-data_collection.md"), or by making API calls through the
-AWS CLI. Before starting be sure to generate [access keys](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md")
-needed to manage the Discovery Agent.
+After the Discovery Agent is deployed and configured, if data collections stops you can restart it. You can start or stop data collection through the console by following the steps in [Starting and stopping data collectors in the AWS Migration Hub console](start-stop-data_collection.md), or by making API calls through the AWS CLI. Before starting be sure to generate [access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) needed to manage the Discovery Agent.
 
-###### To install the AWS CLI and start or stop data collection
+**To install the AWS CLI and start or stop data collection**
 
-1. If you have not already done so, install the AWS CLI appropriate to your OS type
-   (Windows or Mac/Linux). See the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md") for instructions.
-2. Open the Command prompt (Windows) or Terminal (MAC/Linux).
+1. If you have not already done so, install the AWS CLI appropriate to your OS type (Windows or Mac/Linux). See the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/) for instructions.
+
+1. Open the Command prompt (Windows) or Terminal (MAC/Linux).
 
    1. Type `aws configure` and press Enter.
-   2. Enter your AWS Access Key ID and AWS Secret Access Key.
-   3. Enter your home Region for the Default Region Name, for example
-      `us-west-2`. (We are
-      assuming that `us-west-2` is your home Region in this
-      example.)
-   4. Enter `text` for Default Output Format.
 
-3. To find the ID of the agent you want to stop or start data collection for,
-   type the following command:
+   1. Enter your AWS Access Key ID and AWS Secret Access Key.
 
-```
-aws discovery describe-agents
-```
+   1. Enter your home Region for the Default Region Name, for example {{`us-west-2`}}. (We are assuming that `us-west-2` is your home Region in this example.)
 
-4. To start data collection by the agent, type the following command:
+   1. Enter `text` for Default Output Format.
 
-```
-aws discovery start-data-collection-by-agent-ids --agent-ids `<agent ID>`
-```
+1. To find the ID of the agent you want to stop or start data collection for, type the following command:
 
-To stop data collection by the agent, type the following command:
+   ```
+   aws discovery describe-agents
+   ```
 
-```
-aws discovery stop-data-collection-by-agent-ids --agent-ids `<agent ID>`
-```
+1. To start data collection by the agent, type the following command:
+
+   ```
+   aws discovery start-data-collection-by-agent-ids --agent-ids {{<agent ID>}}
+   ```
+
+   To stop data collection by the agent, type the following command:
+
+   ```
+   aws discovery stop-data-collection-by-agent-ids --agent-ids {{<agent ID>}}
+   ```
+
+   
