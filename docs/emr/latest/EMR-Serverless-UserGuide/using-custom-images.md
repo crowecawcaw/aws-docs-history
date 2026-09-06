@@ -1,17 +1,19 @@
+
+
 # Using custom images with EMR Serverless
+<a name="using-custom-images"></a>
 
-###### Topics
-
-- [Use a custom Python version](#image-python "#image-python")
-- [Use a custom Java version](#image-java "#image-java")
-- [Build a data science image](#image-data-science "#image-data-science")
-- [Processing geospatial data with Apache Sedona](#image-sedona "#image-sedona")
-- [Licensing information for using custom images](concepts-licensing-images.md "concepts-licensing-images.md")
+**Topics**
++ [Use a custom Python version](#image-python)
++ [Use a custom Java version](#image-java)
++ [Build a data science image](#image-data-science)
++ [Processing geospatial data with Apache Sedona](#image-sedona)
++ [Licensing information for using custom images](concepts-licensing-images.md)
 
 ## Use a custom Python version
+<a name="image-python"></a>
 
-You can build a custom image to use a different version of Python. To use Python
-version 3.10 for Spark jobs, for example, run the following command:
+You can build a custom image to use a different version of Python. To use Python version 3.10 for Spark jobs, for example, run the following command:
 
 ```
 FROM public.ecr.aws/emr-serverless/spark/emr-6.9.0:latest
@@ -29,8 +31,7 @@ make altinstall
 USER hadoop:hadoop
 ```
 
-Before you submit the Spark job, set your properties to use the Python virtual
-environment, as follows.
+Before you submit the Spark job, set your properties to use the Python virtual environment, as follows.
 
 ```
 --conf spark.emr-serverless.driverEnv.PYSPARK_DRIVER_PYTHON=/usr/local/bin/python3.10
@@ -39,9 +40,9 @@ environment, as follows.
 ```
 
 ## Use a custom Java version
+<a name="image-java"></a>
 
-The following example demonstrates how to build a custom image to use Java 11 for your
-Spark jobs.
+The following example demonstrates how to build a custom image to use Java 11 for your Spark jobs.
 
 ```
 FROM public.ecr.aws/emr-serverless/spark/emr-6.9.0:latest
@@ -55,18 +56,17 @@ RUN amazon-linux-extras install java-openjdk11
 USER hadoop:hadoop
 ```
 
-Before you submit the Spark job, set Spark properties to use Java 11, as
-follows.
+Before you submit the Spark job, set Spark properties to use Java 11, as follows.
 
 ```
---conf spark.executorEnv.JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.16.0.8-1.amzn2.0.1.x86_64
+--conf spark.executorEnv.JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.16.0.8-1.amzn2.0.1.x86_64 
 --conf spark.emr-serverless.driverEnv.JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.16.0.8-
 ```
 
 ## Build a data science image
+<a name="image-data-science"></a>
 
-The following example shows how to include common, data science Python packages, such
-as Pandas and NumPy.
+The following example shows how to include common, data science Python packages, such as Pandas and NumPy.
 
 ```
 FROM public.ecr.aws/emr-serverless/spark/emr-6.9.0:latest
@@ -75,7 +75,7 @@ USER root
 
 # python packages
 RUN pip3 install boto3 pandas numpy
-RUN pip3 install -U scikit-learn==0.23.2 scipy
+RUN pip3 install -U scikit-learn==0.23.2 scipy 
 RUN pip3 install sk-dist
 RUN pip3 install xgboost
 
@@ -84,9 +84,9 @@ USER hadoop:hadoop
 ```
 
 ## Processing geospatial data with Apache Sedona
+<a name="image-sedona"></a>
 
-The following example shows how to build an image to include Apache Sedona for
-geospatial processing.
+The following example shows how to build an image to include Apache Sedona for geospatial processing.
 
 ```
 FROM public.ecr.aws/emr-serverless/spark/emr-6.9.0:latest

@@ -1,26 +1,30 @@
+
+
 # Disk Encryption with KMS CMK
+<a name="disk-encryption-cmk"></a>
 
 EMR Serverless encrypts all disks attached to workers by default using service-owned encryption keys. You can optionally choose to encrypt these disks using your own AWS KMS customer managed keys (CMKs). This provides you with more control over your encryption keys, including the ability to establish and maintain key policies, and audit key usage.
 
 You can configure disk encryption either when creating an application or when submitting individual jobs. When enabled at the application level, all jobs on that application inherit the encryption settings. You can also override the application's default by specifying a disk encryption configuration when submitting a job.
 
-###### Note
-
-EMR Serverless disk encryption only supports symmetric KMS keys. Asymmetric KMS keys are not supported. You must use a symmetric encryption KMS key that was created in AWS KMS. For more information on AWS KMS, see [What is AWS KMS?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md")
+**Note**  
+EMR Serverless disk encryption only supports symmetric KMS keys. Asymmetric KMS keys are not supported. You must use a symmetric encryption KMS key that was created in AWS KMS. For more information on AWS KMS, see [What is AWS KMS?](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)
 
 ## Using Encryption Context
+<a name="disk-encryption-context"></a>
 
 Optionally, EMR Serverless uses encryption context to provide additional authenticated data for encryption operations. The encryption context is a set of key-value pairs that can contain non-secret additional authenticated data. The encryption context is cryptographically bound to the encrypted data, so the same encryption context is required to decrypt the data.
 
 In EMR Serverless, you can specify the custom encryption context when configuring disk encryption. This encryption context is included in AWS CloudTrail logs to help you identify and understand your KMS operations.
 
-###### Note
-
+**Note**  
 Do not store sensitive information in encryption context as it appears in plaintext in AWS CloudTrail logs.
 
 ## Configuring Disk Encryption with Customer Managed Keys
+<a name="disk-encryption-configure"></a>
 
 ### CreateApplication
+<a name="disk-encryption-create-app"></a>
 
 To encrypt disks with your own KMS key, include the `diskEncryptionConfiguration` parameter when creating an EMR Serverless application.
 
@@ -39,6 +43,7 @@ aws emr-serverless create-application \
 ```
 
 ### UpdateApplication
+<a name="disk-encryption-update-app"></a>
 
 To update the KMS key ARN and/or encryption context, specify the `diskEncryptionConfiguration` parameter with the new values when updating an application.
 
@@ -54,11 +59,11 @@ aws emr-serverless update-application \
   }'
 ```
 
-###### Note
-
+**Note**  
 To unset configured disk encryption on an application, pass an empty `diskEncryptionConfiguration` during update application.
 
 ### StartJobRun
+<a name="disk-encryption-start-job"></a>
 
 To encrypt disks with your own KMS key, use the `diskEncryptionConfiguration` configuration when you submit a job run.
 
@@ -74,14 +79,15 @@ To encrypt disks with your own KMS key, use the `diskEncryptionConfiguration` co
 ```
 
 ### Public Livy endpoints
+<a name="disk-encryption-livy"></a>
 
 To encrypt disks with your own KMS key when creating Spark sessions through public Livy endpoints, specify the encryption configuration in the session's `conf` object.
 
 ```
 data = {
-    "kind": "pyspark",
-    "heartbeatTimeoutInSecond": 60,
-    "conf": {
+    "kind": "pyspark", 
+    "heartbeatTimeoutInSecond": 60, 
+    "conf": { 
         "emr-serverless.session.executionRoleArn": "role_arn",
         "spark.emr-serverless.disk.encryptionKeyArn": "key-arn",
         "spark.emr-serverless.disk.encryptionContext": "key1:value1,key2:value2"  # Optional
@@ -93,13 +99,14 @@ request = AWSRequest(method='POST', url=endpoint + "/sessions", data=json.dumps(
 ```
 
 ## Required permissions for disk encryption
+<a name="disk-encryption-permissions"></a>
 
 ### Encryption key permissions for EMR Serverless
+<a name="disk-encryption-key-permissions"></a>
 
 When you encrypt disks with your own encryption key, you must configure the following KMS key permissions for the `emr-serverless.amazonaws.com` principal:
-
-- `kms:GenerateDataKey` : To generate data keys for encrypting disk volumes
-- `kms:Decrypt` : To decrypt data keys when accessing encrypted disk contents
++ `kms:GenerateDataKey` : To generate data keys for encrypting disk volumes
++ `kms:Decrypt` : To decrypt data keys when accessing encrypted disk contents
 
 ```
 {
@@ -131,7 +138,7 @@ The job runtime role must have the following permissions in its IAM policy:
 ```
 {
     "Sid": "Enable GDK and Decrypt",
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": {
         "Effect": "Allow",
         "Action": [
@@ -144,14 +151,15 @@ The job runtime role must have the following permissions in its IAM policy:
 ```
 
 ### Required user permissions
+<a name="disk-encryption-user-permissions"></a>
 
 The user who submits the job must have permissions to use the key. You can specify the permissions in either the KMS key policy or the IAM policy for the user, group, or role. If the user who submits the job lacks the KMS key permissions, EMR Serverless rejects the job run submission.
 
 #### Example key policy
+<a name="disk-encryption-example-key-policy"></a>
 
 The following key policy provides the permissions to `kms:DescribeKey`, `kms:GenerateDataKey` and `kms:Decrypt`:
-
-- `kms:DescribeKey` : To verify that the customer managed KMS key is enabled and SYMMETRIC before using it.
++ `kms:DescribeKey` : To verify that the customer managed KMS key is enabled and SYMMETRIC before using it.
 
 ```
 {
@@ -188,12 +196,13 @@ The following key policy provides the permissions to `kms:DescribeKey`, `kms:Gen
 As a security best practice, we recommend that you add an `kms:viaService` condition key to the KMS key policy. It limits use of the KMS key to validation requests from just emr-serverless.
 
 #### Example IAM policy
+<a name="disk-encryption-example-iam-policy"></a>
 
 The following IAM policy provides the permissions to `kms:DescribeKey`, `kms:GenerateDataKey` and `kms:Decrypt`.
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": {
         "Effect": "Allow",
         "Action": [
@@ -207,12 +216,14 @@ The following IAM policy provides the permissions to `kms:DescribeKey`, `kms:Gen
 ```
 
 ## Monitoring Key Usage
+<a name="disk-encryption-monitoring"></a>
 
 You can monitor the use of your customer managed keys in EMR Serverless through AWS CloudTrail. AWS CloudTrail captures all API calls to AWS KMS as events, including calls from the EMR Serverless console, EMR Serverless API, AWS CLI, or AWS SDK.
 
-The information captured includes the encryption context you specified, which can help you identify and audit the specific EMR Serverless resources that used your KMS key. For example, you might see events similar to the following in AWS CloudTrail. For more information about using AWS CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+The information captured includes the encryption context you specified, which can help you identify and audit the specific EMR Serverless resources that used your KMS key. For example, you might see events similar to the following in AWS CloudTrail. For more information about using AWS CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ### GenerateDataKey
+<a name="disk-encryption-monitoring-gdk"></a>
 
 Sample event for GenerateDataKey operations when EMR Serverless is creating encrypted disk volumes
 
@@ -259,6 +270,7 @@ Sample event for GenerateDataKey operations when EMR Serverless is creating encr
 ```
 
 ### Decrypt
+<a name="disk-encryption-monitoring-decrypt"></a>
 
 Sample event for Decrypt operations when EMR Serverless is accessing encrypted data.
 
@@ -305,8 +317,8 @@ Sample event for Decrypt operations when EMR Serverless is accessing encrypted d
 ```
 
 ## Learn More
+<a name="disk-encryption-learn-more"></a>
 
 The following resources provide more information about data encryption at rest.
-
-- For more information about AWS KMS basic concepts, see the [AWS KMS Developer Guide](../../../kms/latest/developerguide.md "../../../kms/latest/developerguide.md").
-- For more information about Security best practices for AWS KMS, see the [AWS KMS Developer Guide](../../../kms/latest/developerguide/best-practices.md "../../../kms/latest/developerguide/best-practices.md").
++ For more information about AWS KMS basic concepts, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/).
++ For more information about Security best practices for AWS KMS, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/best-practices.html).

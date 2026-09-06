@@ -1,61 +1,59 @@
-# Connecting to DynamoDB with Amazon EMR Serverless
 
-In this tutorial, you upload a subset of data from the [United States Board on
-Geographic Names](https://www.usgs.gov/us-board-on-geographic-names "https://www.usgs.gov/us-board-on-geographic-names") to an Amazon S3 bucket and then use Hive or Spark on
-Amazon EMR Serverless to copy the data to an Amazon DynamoDB table for querying.
+
+# Connecting to DynamoDB with Amazon EMR Serverless
+<a name="using-ddb-connector"></a>
+
+In this tutorial, you upload a subset of data from the [United States Board on Geographic Names](https://www.usgs.gov/us-board-on-geographic-names) to an Amazon S3 bucket and then use Hive or Spark on Amazon EMR Serverless to copy the data to an Amazon DynamoDB table for querying. 
 
 ## Step 1: Upload data to an Amazon S3 bucket
+<a name="using-ddb-connector-s3"></a>
 
-To create an Amazon S3 bucket, follow the instructions in [Creating a bucket](../../../AmazonS3/latest/user-guide/create-bucket.md "../../../AmazonS3/latest/user-guide/create-bucket.md") in
-the _Amazon Simple Storage Service Console User Guide_. Replace references to
-`amzn-s3-demo-bucket` with the name of
-your newly created bucket. Now your EMR Serverless application is ready to run
-jobs.
+To create an Amazon S3 bucket, follow the instructions in [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service Console User Guide*. Replace references to `{{amzn-s3-demo-bucket}}` with the name of your newly created bucket. Now your EMR Serverless application is ready to run jobs.
 
-1. Download the sample data archive `features.zip` with the
-   following command.
+1. Download the sample data archive `features.zip` with the following command.
 
-```
-wget https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/samples/features.zip
-```
+   ```
+   wget https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/samples/features.zip
+   ```
 
-2. Extract the `features.txt` file from the archive and access the
-   first the few lines in the file:
+1. Extract the `features.txt` file from the archive and access the first the few lines in the file:
 
-```
-unzip features.zip
-head features.txt
-```
+   ```
+   unzip features.zip
+   head features.txt
+   ```
 
-The result should appear similar to the following.
+   The result should appear similar to the following.
 
-```
-1535908|Big Run|Stream|WV|38.6370428|-80.8595469|794
-875609|Constable Hook|Cape|NJ|40.657881|-74.0990309|7
-1217998|Gooseberry Island|Island|RI|41.4534361|-71.3253284|10
-26603|Boone Moore Spring|Spring|AZ|34.0895692|-111.410065|3681
-1506738|Missouri Flat|Flat|WA|46.7634987|-117.0346113|2605
-1181348|Minnow Run|Stream|PA|40.0820178|-79.3800349|1558
-1288759|Hunting Creek|Stream|TN|36.343969|-83.8029682|1024
-533060|Big Charles Bayou|Bay|LA|29.6046517|-91.9828654|0
-829689|Greenwood Creek|Stream|NE|41.596086|-103.0499296|3671
-541692|Button Willow Island|Island|LA|31.9579389|-93.0648847|98
-```
+   ```
+   1535908|Big Run|Stream|WV|38.6370428|-80.8595469|794
+   875609|Constable Hook|Cape|NJ|40.657881|-74.0990309|7
+   1217998|Gooseberry Island|Island|RI|41.4534361|-71.3253284|10
+   26603|Boone Moore Spring|Spring|AZ|34.0895692|-111.410065|3681
+   1506738|Missouri Flat|Flat|WA|46.7634987|-117.0346113|2605
+   1181348|Minnow Run|Stream|PA|40.0820178|-79.3800349|1558
+   1288759|Hunting Creek|Stream|TN|36.343969|-83.8029682|1024
+   533060|Big Charles Bayou|Bay|LA|29.6046517|-91.9828654|0
+   829689|Greenwood Creek|Stream|NE|41.596086|-103.0499296|3671
+   541692|Button Willow Island|Island|LA|31.9579389|-93.0648847|98
+   ```
 
-The fields in each line here indicate a unique identifier, name, type of
-natural feature, state, latitude in degrees, longitude in degrees, and
-height in feet. 3. Upload your data to Amazon S3
+   The fields in each line here indicate a unique identifier, name, type of natural feature, state, latitude in degrees, longitude in degrees, and height in feet.
 
-```
-aws s3 cp features.txt s3://`amzn-s3-demo-bucket`/features/
-```
+1. Upload your data to Amazon S3
+
+   ```
+   aws s3 cp features.txt s3://{{amzn-s3-demo-bucket}}/features/
+   ```
 
 ## Step 2: Create a Hive table
+<a name="using-ddb-connector-create-table"></a>
 
-Use Apache Spark or Hive to create a new Hive table that contains the uploaded
-data in Amazon S3.
+Use Apache Spark or Hive to create a new Hive table that contains the uploaded data in Amazon S3.
 
-Spark
+------
+#### [ Spark ]
+
 To create a Hive table with Spark, run the following command.
 
 ```
@@ -63,7 +61,7 @@ import org.apache.spark.sql.SparkSession
 
 val sparkSession = SparkSession.builder().enableHiveSupport().getOrCreate()
 
-sparkSession.sql("CREATE TABLE `hive_features` \
+sparkSession.sql("CREATE TABLE {{hive_features}} \
     (feature_id BIGINT, \
     feature_name STRING, \
     feature_class STRING, \
@@ -74,23 +72,23 @@ sparkSession.sql("CREATE TABLE `hive_features` \
     ROW FORMAT DELIMITED \
     FIELDS TERMINATED BY '|' \
     LINES TERMINATED BY '\n' \
-    LOCATION 's3://`amzn-s3-demo-bucket`/features';")
+    LOCATION 's3://{{amzn-s3-demo-bucket}}/features';")
 ```
 
-You now have a populated Hive table with data from the
-`features.txt` file. To verify that your data is in the
-table, run a Spark SQL query as shown in the following example.
+You now have a populated Hive table with data from the `features.txt` file. To verify that your data is in the table, run a Spark SQL query as shown in the following example.
 
 ```
 sparkSession.sql(
-    "SELECT state_alpha, COUNT(*) FROM `hive_features` GROUP BY state_alpha;")
+    "SELECT state_alpha, COUNT(*) FROM {{hive_features}} GROUP BY state_alpha;")
 ```
 
-Hive
+------
+#### [ Hive ]
+
 To create a Hive table with Hive, run the following command.
 
 ```
-CREATE TABLE `hive_features`
+CREATE TABLE {{hive_features}}
     (feature_id             BIGINT,
     feature_name            STRING ,
     feature_class           STRING ,
@@ -101,27 +99,26 @@ CREATE TABLE `hive_features`
     ROW FORMAT DELIMITED
     FIELDS TERMINATED BY '|'
     LINES TERMINATED BY '\n'
-    LOCATION 's3://`amzn-s3-demo-bucket`/features';
+    LOCATION 's3://{{amzn-s3-demo-bucket}}/features';
 ```
 
-You now have a Hive table that contains data from the
-`features.txt` file. To verify that your data is in the
-table, run a HiveQL query, as shown in the following example.
+You now have a Hive table that contains data from the `features.txt` file. To verify that your data is in the table, run a HiveQL query, as shown in the following example.
 
 ```
-SELECT state_alpha, COUNT(*) FROM `hive_features` GROUP BY state_alpha;
+SELECT state_alpha, COUNT(*) FROM {{hive_features}} GROUP BY state_alpha;
 ```
+
+------
 
 ## Step 3: Copy data to DynamoDB
+<a name="using-ddb-connector-copy"></a>
 
 Use Spark or Hive to copy data to a new DynamoDB table.
 
-Spark
-To copy data from the Hive table that you created in the previous step
-to DynamoDB, follow **Steps 1-3** in [Copy data to DynamoDB](../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.CopyDataToDDB.md "../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.CopyDataToDDB.md"). This creates a new DynamoDB table called
-`Features`. You can then read data directly from the text
-file and copy it to your DynamoDB table, as the following example
-shows.
+------
+#### [ Spark ]
+
+To copy data from the Hive table that you created in the previous step to DynamoDB, follow **Steps 1-3** in [Copy data to DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.CopyDataToDDB.html). This creates a new DynamoDB table called `Features`. You can then read data directly from the text file and copy it to your DynamoDB table, as the following example shows.
 
 ```
 import com.amazonaws.services.dynamodbv2.model.AttributeValue
@@ -136,31 +133,31 @@ import scala.collection.JavaConverters._
 object EmrServerlessDynamoDbTest {
 
     def main(args: Array[String]): Unit = {
-
+    
         jobConf.set("dynamodb.input.tableName", "Features")
         jobConf.set("dynamodb.output.tableName", "Features")
-        jobConf.set("dynamodb.region", "`region`")
+        jobConf.set("dynamodb.region", "{{region}}")
 
         jobConf.set("mapred.output.format.class", "org.apache.hadoop.dynamodb.write.DynamoDBOutputFormat")
         jobConf.set("mapred.input.format.class", "org.apache.hadoop.dynamodb.read.DynamoDBInputFormat")
-
-        val rdd = sc.textFile("s3://`amzn-s3-demo-bucket`/ddb-connector/")
+    
+        val rdd = sc.textFile("s3://{{amzn-s3-demo-bucket}}/ddb-connector/")
             .map(row => {
                 val line = row.split("\\|")
                 val item = new DynamoDBItemWritable()
-
+                
                 val elevInFt = if (line.length > 6) {
                     new AttributeValue().withN(line(6))
                 } else {
                     new AttributeValue().withNULL(true)
                 }
-
+                
                 item.setItem(Map(
-                    "feature_id" -> new AttributeValue().withN(line(0)),
-                    "feature_name" -> new AttributeValue(line(1)),
-                    "feature_class" -> new AttributeValue(line(2)),
-                    "state_alpha" -> new AttributeValue(line(3)),
-                    "prim_lat_dec" -> new AttributeValue().withN(line(4)),
+                    "feature_id" -> new AttributeValue().withN(line(0)), 
+                    "feature_name" -> new AttributeValue(line(1)), 
+                    "feature_class" -> new AttributeValue(line(2)), 
+                    "state_alpha" -> new AttributeValue(line(3)), 
+                    "prim_lat_dec" -> new AttributeValue().withN(line(4)), 
                     "prim_long_dec" -> new AttributeValue().withN(line(5)),
                     "elev_in_ft" -> elevInFt)
                     .asJava)
@@ -171,31 +168,32 @@ object EmrServerlessDynamoDbTest {
 }
 ```
 
-Hive
-To copy data from the Hive table that you created in the previous step
-to DynamoDB, follow the instructions in [Copy data to DynamoDB](../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.CopyDataToDDB.md "../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.CopyDataToDDB.md").
+------
+#### [ Hive ]
+
+To copy data from the Hive table that you created in the previous step to DynamoDB, follow the instructions in [Copy data to DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.CopyDataToDDB.html).
+
+------
 
 ## Step 4: Query data from DynamoDB
+<a name="using-ddb-connector-query"></a>
 
 Use Spark or Hive to query your DynamoDB table.
 
-Spark
-To query data from the DynamoDB table that you created in the previous
-step, use either Spark SQL or the Spark MapReduce API.
+------
+#### [ Spark ]
 
-###### Example– Query your DynamoDB table with Spark SQL
+To query data from the DynamoDB table that you created in the previous step, use either Spark SQL or the Spark MapReduce API.
 
-The following Spark SQL query returns a list of all the feature
-types in alphabetical order.
+**Example – Query your DynamoDB table with Spark SQL**  
+The following Spark SQL query returns a list of all the feature types in alphabetical order.  
 
 ```
 val dataFrame = sparkSession.sql("SELECT DISTINCT feature_class \
     FROM ddb_features \
     ORDER BY feature_class;")
 ```
-
-The following Spark SQL query returns a list of all lakes that
-begin with the letter _M_.
+The following Spark SQL query returns a list of all lakes that begin with the letter *M*.  
 
 ```
 val dataFrame = sparkSession.sql("SELECT feature_name, state_alpha \
@@ -204,9 +202,7 @@ val dataFrame = sparkSession.sql("SELECT feature_name, state_alpha \
     AND feature_name LIKE 'M%' \
     ORDER BY feature_name;")
 ```
-
-The following Spark SQL query returns a list of all states with at
-least three features that are higher than one mile.
+The following Spark SQL query returns a list of all states with at least three features that are higher than one mile.  
 
 ```
 val dataFrame = sparkSession.dql("SELECT state_alpha, feature_class, COUNT(*) \
@@ -217,10 +213,8 @@ val dataFrame = sparkSession.dql("SELECT state_alpha, feature_class, COUNT(*) \
     ORDER BY state_alpha, feature_class;")
 ```
 
-###### Example– Query your DynamoDB table with the Spark MapReduce API
-
-The following MapReduce query returns a list of all the feature
-types in alphabetical order.
+**Example – Query your DynamoDB table with the Spark MapReduce API**  
+The following MapReduce query returns a list of all the feature types in alphabetical order.  
 
 ```
 val df = sc.hadoopRDD(jobConf, classOf[DynamoDBInputFormat], classOf[Text], classOf[DynamoDBItemWritable])
@@ -230,9 +224,7 @@ val df = sc.hadoopRDD(jobConf, classOf[DynamoDBInputFormat], classOf[Text], clas
     .sortBy(value => value)
     .toDF("feature_class")
 ```
-
-The following MapReduce query returns a list of all lakes that
-begin with the letter _M_.
+The following MapReduce query returns a list of all lakes that begin with the letter *M*.  
 
 ```
 val df = sc.hadoopRDD(jobConf, classOf[DynamoDBInputFormat], classOf[Text], classOf[DynamoDBItemWritable])
@@ -243,9 +235,7 @@ val df = sc.hadoopRDD(jobConf, classOf[DynamoDBInputFormat], classOf[Text], clas
     .sortBy(_._1)
     .toDF("feature_name", "state_alpha")
 ```
-
-The following MapReduce query returns a list of all states with at
-least three features that are higher than one mile.
+The following MapReduce query returns a list of all states with at least three features that are higher than one mile.  
 
 ```
 val df = sc.hadoopRDD(jobConf, classOf[DynamoDBInputFormat], classOf[Text], classOf[DynamoDBItemWritable])
@@ -259,6 +249,9 @@ val df = sc.hadoopRDD(jobConf, classOf[DynamoDBInputFormat], classOf[Text], clas
     .toDF("state_alpha", "feature_class", "count")
 ```
 
-Hive
-To query data from the DynamoDB table that you created in the previous
-step, follow the instructions in [Query the data in the DynamoDB table](../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.QueryDataInDynamoDB.md "../../../amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.QueryDataInDynamoDB.md").
+------
+#### [ Hive ]
+
+To query data from the DynamoDB table that you created in the previous step, follow the instructions in [Query the data in the DynamoDB table](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/EMRforDynamoDB.Tutorial.QueryDataInDynamoDB.html).
+
+------

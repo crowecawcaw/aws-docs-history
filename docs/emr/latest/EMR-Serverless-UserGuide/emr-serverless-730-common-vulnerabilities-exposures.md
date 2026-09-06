@@ -1,184 +1,186 @@
-# 7.3.0 common vulnerabilities and exposures
 
-The following table lists all CVEs that don't impact EMR Serverless applications that run on recommended configurations of Amazon EMR 7.3.0.
-Amazon EMR is dependent on upstream open-source for availability of fixes and will provide the latest stable version as
-part of the Core Engine components within 90 days of Amazon EMR verifying the fixes.
+
+# 7.3.0 common vulnerabilities and exposures
+<a name="emr-serverless-730-common-vulnerabilities-exposures"></a>
+
+The following table lists all CVEs that don't impact EMR Serverless applications that run on recommended configurations of Amazon EMR 7.3.0. Amazon EMR is dependent on upstream open-source for availability of fixes and will provide the latest stable version as part of the Core Engine components within 90 days of Amazon EMR verifying the fixes.
 
 This table was updated on August 21, 2026.
 
-| CVE ID         | Severity | CVE details URL                                                                                                                                      |
-| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CVE-2015-1832  | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2015-1832](https://nvd.nist.gov/vuln/detail/CVE-2015-1832 "https://nvd.nist.gov/vuln/detail/CVE-2015-1832")    |
-| CVE-2017-15095 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2017-15095](https://nvd.nist.gov/vuln/detail/CVE-2017-15095 "https://nvd.nist.gov/vuln/detail/CVE-2017-15095") |
-| CVE-2017-17485 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2017-17485](https://nvd.nist.gov/vuln/detail/CVE-2017-17485 "https://nvd.nist.gov/vuln/detail/CVE-2017-17485") |
-| CVE-2017-7525  | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2017-7525](https://nvd.nist.gov/vuln/detail/CVE-2017-7525 "https://nvd.nist.gov/vuln/detail/CVE-2017-7525")    |
-| CVE-2018-11307 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-11307](https://nvd.nist.gov/vuln/detail/CVE-2018-11307 "https://nvd.nist.gov/vuln/detail/CVE-2018-11307") |
-| CVE-2018-14718 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-14718](https://nvd.nist.gov/vuln/detail/CVE-2018-14718 "https://nvd.nist.gov/vuln/detail/CVE-2018-14718") |
-| CVE-2018-14719 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-14719](https://nvd.nist.gov/vuln/detail/CVE-2018-14719 "https://nvd.nist.gov/vuln/detail/CVE-2018-14719") |
-| CVE-2018-14720 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-14720](https://nvd.nist.gov/vuln/detail/CVE-2018-14720 "https://nvd.nist.gov/vuln/detail/CVE-2018-14720") |
-| CVE-2018-14721 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-14721](https://nvd.nist.gov/vuln/detail/CVE-2018-14721 "https://nvd.nist.gov/vuln/detail/CVE-2018-14721") |
-| CVE-2018-19360 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-19360](https://nvd.nist.gov/vuln/detail/CVE-2018-19360 "https://nvd.nist.gov/vuln/detail/CVE-2018-19360") |
-| CVE-2018-19361 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-19361](https://nvd.nist.gov/vuln/detail/CVE-2018-19361 "https://nvd.nist.gov/vuln/detail/CVE-2018-19361") |
-| CVE-2018-19362 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-19362](https://nvd.nist.gov/vuln/detail/CVE-2018-19362 "https://nvd.nist.gov/vuln/detail/CVE-2018-19362") |
-| CVE-2018-7489  | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-7489](https://nvd.nist.gov/vuln/detail/CVE-2018-7489 "https://nvd.nist.gov/vuln/detail/CVE-2018-7489")    |
-| CVE-2019-10202 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-10202](https://nvd.nist.gov/vuln/detail/CVE-2019-10202 "https://nvd.nist.gov/vuln/detail/CVE-2019-10202") |
-| CVE-2019-14379 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-14379](https://nvd.nist.gov/vuln/detail/CVE-2019-14379 "https://nvd.nist.gov/vuln/detail/CVE-2019-14379") |
-| CVE-2019-14540 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-14540](https://nvd.nist.gov/vuln/detail/CVE-2019-14540 "https://nvd.nist.gov/vuln/detail/CVE-2019-14540") |
-| CVE-2019-16335 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-16335](https://nvd.nist.gov/vuln/detail/CVE-2019-16335 "https://nvd.nist.gov/vuln/detail/CVE-2019-16335") |
-| CVE-2019-16942 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-16942](https://nvd.nist.gov/vuln/detail/CVE-2019-16942 "https://nvd.nist.gov/vuln/detail/CVE-2019-16942") |
-| CVE-2019-16943 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-16943](https://nvd.nist.gov/vuln/detail/CVE-2019-16943 "https://nvd.nist.gov/vuln/detail/CVE-2019-16943") |
-| CVE-2019-17267 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-17267](https://nvd.nist.gov/vuln/detail/CVE-2019-17267 "https://nvd.nist.gov/vuln/detail/CVE-2019-17267") |
-| CVE-2019-17531 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-17531](https://nvd.nist.gov/vuln/detail/CVE-2019-17531 "https://nvd.nist.gov/vuln/detail/CVE-2019-17531") |
-| CVE-2019-20330 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-20330](https://nvd.nist.gov/vuln/detail/CVE-2019-20330 "https://nvd.nist.gov/vuln/detail/CVE-2019-20330") |
-| CVE-2020-8840  | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2020-8840](https://nvd.nist.gov/vuln/detail/CVE-2020-8840 "https://nvd.nist.gov/vuln/detail/CVE-2020-8840")    |
-| CVE-2020-9546  | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2020-9546](https://nvd.nist.gov/vuln/detail/CVE-2020-9546 "https://nvd.nist.gov/vuln/detail/CVE-2020-9546")    |
-| CVE-2020-9547  | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2020-9547](https://nvd.nist.gov/vuln/detail/CVE-2020-9547 "https://nvd.nist.gov/vuln/detail/CVE-2020-9547")    |
-| CVE-2020-9548  | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2020-9548](https://nvd.nist.gov/vuln/detail/CVE-2020-9548 "https://nvd.nist.gov/vuln/detail/CVE-2020-9548")    |
-| CVE-2022-37865 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2022-37865](https://nvd.nist.gov/vuln/detail/CVE-2022-37865 "https://nvd.nist.gov/vuln/detail/CVE-2022-37865") |
-| CVE-2022-39135 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2022-39135](https://nvd.nist.gov/vuln/detail/CVE-2022-39135 "https://nvd.nist.gov/vuln/detail/CVE-2022-39135") |
-| CVE-2022-46337 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2022-46337](https://nvd.nist.gov/vuln/detail/CVE-2022-46337 "https://nvd.nist.gov/vuln/detail/CVE-2022-46337") |
-| CVE-2024-47561 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2024-47561](https://nvd.nist.gov/vuln/detail/CVE-2024-47561 "https://nvd.nist.gov/vuln/detail/CVE-2024-47561") |
-| CVE-2024-52046 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2024-52046](https://nvd.nist.gov/vuln/detail/CVE-2024-52046 "https://nvd.nist.gov/vuln/detail/CVE-2024-52046") |
-| CVE-2024-53990 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2024-53990](https://nvd.nist.gov/vuln/detail/CVE-2024-53990 "https://nvd.nist.gov/vuln/detail/CVE-2024-53990") |
-| CVE-2025-30065 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2025-30065](https://nvd.nist.gov/vuln/detail/CVE-2025-30065 "https://nvd.nist.gov/vuln/detail/CVE-2025-30065") |
-| CVE-2018-12022 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2018-12022](https://nvd.nist.gov/vuln/detail/CVE-2018-12022 "https://nvd.nist.gov/vuln/detail/CVE-2018-12022") |
-| CVE-2018-12023 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2018-12023](https://nvd.nist.gov/vuln/detail/CVE-2018-12023 "https://nvd.nist.gov/vuln/detail/CVE-2018-12023") |
-| CVE-2018-5968  | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2018-5968](https://nvd.nist.gov/vuln/detail/CVE-2018-5968 "https://nvd.nist.gov/vuln/detail/CVE-2018-5968")    |
-| CVE-2019-10172 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2019-10172](https://nvd.nist.gov/vuln/detail/CVE-2019-10172 "https://nvd.nist.gov/vuln/detail/CVE-2019-10172") |
-| CVE-2019-12086 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2019-12086](https://nvd.nist.gov/vuln/detail/CVE-2019-12086 "https://nvd.nist.gov/vuln/detail/CVE-2019-12086") |
-| CVE-2019-14439 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2019-14439](https://nvd.nist.gov/vuln/detail/CVE-2019-14439 "https://nvd.nist.gov/vuln/detail/CVE-2019-14439") |
-| CVE-2019-14892 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2019-14892](https://nvd.nist.gov/vuln/detail/CVE-2019-14892 "https://nvd.nist.gov/vuln/detail/CVE-2019-14892") |
-| CVE-2019-14893 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2019-14893](https://nvd.nist.gov/vuln/detail/CVE-2019-14893 "https://nvd.nist.gov/vuln/detail/CVE-2019-14893") |
-| CVE-2020-10650 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-10650](https://nvd.nist.gov/vuln/detail/CVE-2020-10650 "https://nvd.nist.gov/vuln/detail/CVE-2020-10650") |
-| CVE-2020-10672 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-10672](https://nvd.nist.gov/vuln/detail/CVE-2020-10672 "https://nvd.nist.gov/vuln/detail/CVE-2020-10672") |
-| CVE-2020-10673 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-10673](https://nvd.nist.gov/vuln/detail/CVE-2020-10673 "https://nvd.nist.gov/vuln/detail/CVE-2020-10673") |
-| CVE-2020-10968 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-10968](https://nvd.nist.gov/vuln/detail/CVE-2020-10968 "https://nvd.nist.gov/vuln/detail/CVE-2020-10968") |
-| CVE-2020-10969 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-10969](https://nvd.nist.gov/vuln/detail/CVE-2020-10969 "https://nvd.nist.gov/vuln/detail/CVE-2020-10969") |
-| CVE-2020-11111 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-11111](https://nvd.nist.gov/vuln/detail/CVE-2020-11111 "https://nvd.nist.gov/vuln/detail/CVE-2020-11111") |
-| CVE-2020-11112 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-11112](https://nvd.nist.gov/vuln/detail/CVE-2020-11112 "https://nvd.nist.gov/vuln/detail/CVE-2020-11112") |
-| CVE-2020-11113 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-11113](https://nvd.nist.gov/vuln/detail/CVE-2020-11113 "https://nvd.nist.gov/vuln/detail/CVE-2020-11113") |
-| CVE-2020-11619 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-11619](https://nvd.nist.gov/vuln/detail/CVE-2020-11619 "https://nvd.nist.gov/vuln/detail/CVE-2020-11619") |
-| CVE-2020-11620 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-11620](https://nvd.nist.gov/vuln/detail/CVE-2020-11620 "https://nvd.nist.gov/vuln/detail/CVE-2020-11620") |
-| CVE-2020-13936 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-13936](https://nvd.nist.gov/vuln/detail/CVE-2020-13936 "https://nvd.nist.gov/vuln/detail/CVE-2020-13936") |
-| CVE-2020-13949 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-13949](https://nvd.nist.gov/vuln/detail/CVE-2020-13949 "https://nvd.nist.gov/vuln/detail/CVE-2020-13949") |
-| CVE-2020-14060 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-14060](https://nvd.nist.gov/vuln/detail/CVE-2020-14060 "https://nvd.nist.gov/vuln/detail/CVE-2020-14060") |
-| CVE-2020-14061 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-14061](https://nvd.nist.gov/vuln/detail/CVE-2020-14061 "https://nvd.nist.gov/vuln/detail/CVE-2020-14061") |
-| CVE-2020-14062 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-14062](https://nvd.nist.gov/vuln/detail/CVE-2020-14062 "https://nvd.nist.gov/vuln/detail/CVE-2020-14062") |
-| CVE-2020-14195 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-14195](https://nvd.nist.gov/vuln/detail/CVE-2020-14195 "https://nvd.nist.gov/vuln/detail/CVE-2020-14195") |
-| CVE-2020-24616 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-24616](https://nvd.nist.gov/vuln/detail/CVE-2020-24616 "https://nvd.nist.gov/vuln/detail/CVE-2020-24616") |
-| CVE-2020-24750 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-24750](https://nvd.nist.gov/vuln/detail/CVE-2020-24750 "https://nvd.nist.gov/vuln/detail/CVE-2020-24750") |
-| CVE-2020-25649 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-25649](https://nvd.nist.gov/vuln/detail/CVE-2020-25649 "https://nvd.nist.gov/vuln/detail/CVE-2020-25649") |
-| CVE-2020-28052 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-28052](https://nvd.nist.gov/vuln/detail/CVE-2020-28052 "https://nvd.nist.gov/vuln/detail/CVE-2020-28052") |
-| CVE-2020-35490 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-35490](https://nvd.nist.gov/vuln/detail/CVE-2020-35490 "https://nvd.nist.gov/vuln/detail/CVE-2020-35490") |
-| CVE-2020-35491 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-35491](https://nvd.nist.gov/vuln/detail/CVE-2020-35491 "https://nvd.nist.gov/vuln/detail/CVE-2020-35491") |
-| CVE-2020-35728 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-35728](https://nvd.nist.gov/vuln/detail/CVE-2020-35728 "https://nvd.nist.gov/vuln/detail/CVE-2020-35728") |
-| CVE-2020-36179 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-36179](https://nvd.nist.gov/vuln/detail/CVE-2020-36179 "https://nvd.nist.gov/vuln/detail/CVE-2020-36179") |
-| CVE-2020-36180 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-36180](https://nvd.nist.gov/vuln/detail/CVE-2020-36180 "https://nvd.nist.gov/vuln/detail/CVE-2020-36180") |
-| CVE-2020-36181 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-36181](https://nvd.nist.gov/vuln/detail/CVE-2020-36181 "https://nvd.nist.gov/vuln/detail/CVE-2020-36181") |
-| CVE-2020-36182 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-36182](https://nvd.nist.gov/vuln/detail/CVE-2020-36182 "https://nvd.nist.gov/vuln/detail/CVE-2020-36182") |
-| CVE-2020-36183 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-36183](https://nvd.nist.gov/vuln/detail/CVE-2020-36183 "https://nvd.nist.gov/vuln/detail/CVE-2020-36183") |
-| CVE-2020-36184 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-36184](https://nvd.nist.gov/vuln/detail/CVE-2020-36184 "https://nvd.nist.gov/vuln/detail/CVE-2020-36184") |
-| CVE-2020-36185 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-36185](https://nvd.nist.gov/vuln/detail/CVE-2020-36185 "https://nvd.nist.gov/vuln/detail/CVE-2020-36185") |
-| CVE-2020-36186 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-36186](https://nvd.nist.gov/vuln/detail/CVE-2020-36186 "https://nvd.nist.gov/vuln/detail/CVE-2020-36186") |
-| CVE-2020-36187 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-36187](https://nvd.nist.gov/vuln/detail/CVE-2020-36187 "https://nvd.nist.gov/vuln/detail/CVE-2020-36187") |
-| CVE-2020-36188 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-36188](https://nvd.nist.gov/vuln/detail/CVE-2020-36188 "https://nvd.nist.gov/vuln/detail/CVE-2020-36188") |
-| CVE-2020-36189 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-36189](https://nvd.nist.gov/vuln/detail/CVE-2020-36189 "https://nvd.nist.gov/vuln/detail/CVE-2020-36189") |
-| CVE-2020-36518 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2020-36518](https://nvd.nist.gov/vuln/detail/CVE-2020-36518 "https://nvd.nist.gov/vuln/detail/CVE-2020-36518") |
-| CVE-2021-20190 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2021-20190](https://nvd.nist.gov/vuln/detail/CVE-2021-20190 "https://nvd.nist.gov/vuln/detail/CVE-2021-20190") |
-| CVE-2021-22569 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2021-22569](https://nvd.nist.gov/vuln/detail/CVE-2021-22569 "https://nvd.nist.gov/vuln/detail/CVE-2021-22569") |
-| CVE-2021-22570 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2021-22570](https://nvd.nist.gov/vuln/detail/CVE-2021-22570 "https://nvd.nist.gov/vuln/detail/CVE-2021-22570") |
-| CVE-2021-31684 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2021-31684](https://nvd.nist.gov/vuln/detail/CVE-2021-31684 "https://nvd.nist.gov/vuln/detail/CVE-2021-31684") |
-| CVE-2021-33503 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2021-33503](https://nvd.nist.gov/vuln/detail/CVE-2021-33503 "https://nvd.nist.gov/vuln/detail/CVE-2021-33503") |
-| CVE-2021-35515 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2021-35515](https://nvd.nist.gov/vuln/detail/CVE-2021-35515 "https://nvd.nist.gov/vuln/detail/CVE-2021-35515") |
-| CVE-2021-35516 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2021-35516](https://nvd.nist.gov/vuln/detail/CVE-2021-35516 "https://nvd.nist.gov/vuln/detail/CVE-2021-35516") |
-| CVE-2021-35517 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2021-35517](https://nvd.nist.gov/vuln/detail/CVE-2021-35517 "https://nvd.nist.gov/vuln/detail/CVE-2021-35517") |
-| CVE-2021-36090 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2021-36090](https://nvd.nist.gov/vuln/detail/CVE-2021-36090 "https://nvd.nist.gov/vuln/detail/CVE-2021-36090") |
-| CVE-2022-25647 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2022-25647](https://nvd.nist.gov/vuln/detail/CVE-2022-25647 "https://nvd.nist.gov/vuln/detail/CVE-2022-25647") |
-| CVE-2022-3509  | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2022-3509](https://nvd.nist.gov/vuln/detail/CVE-2022-3509 "https://nvd.nist.gov/vuln/detail/CVE-2022-3509")    |
-| CVE-2022-3510  | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2022-3510](https://nvd.nist.gov/vuln/detail/CVE-2022-3510 "https://nvd.nist.gov/vuln/detail/CVE-2022-3510")    |
-| CVE-2022-36364 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2022-36364](https://nvd.nist.gov/vuln/detail/CVE-2022-36364 "https://nvd.nist.gov/vuln/detail/CVE-2022-36364") |
-| CVE-2022-37866 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2022-37866](https://nvd.nist.gov/vuln/detail/CVE-2022-37866 "https://nvd.nist.gov/vuln/detail/CVE-2022-37866") |
-| CVE-2022-40150 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2022-40150](https://nvd.nist.gov/vuln/detail/CVE-2022-40150 "https://nvd.nist.gov/vuln/detail/CVE-2022-40150") |
-| CVE-2022-40897 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2022-40897](https://nvd.nist.gov/vuln/detail/CVE-2022-40897 "https://nvd.nist.gov/vuln/detail/CVE-2022-40897") |
-| CVE-2022-41404 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2022-41404](https://nvd.nist.gov/vuln/detail/CVE-2022-41404 "https://nvd.nist.gov/vuln/detail/CVE-2022-41404") |
-| CVE-2022-42003 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2022-42003](https://nvd.nist.gov/vuln/detail/CVE-2022-42003 "https://nvd.nist.gov/vuln/detail/CVE-2022-42003") |
-| CVE-2022-42004 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2022-42004](https://nvd.nist.gov/vuln/detail/CVE-2022-42004 "https://nvd.nist.gov/vuln/detail/CVE-2022-42004") |
-| CVE-2022-45685 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2022-45685](https://nvd.nist.gov/vuln/detail/CVE-2022-45685 "https://nvd.nist.gov/vuln/detail/CVE-2022-45685") |
-| CVE-2022-45693 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2022-45693](https://nvd.nist.gov/vuln/detail/CVE-2022-45693 "https://nvd.nist.gov/vuln/detail/CVE-2022-45693") |
-| CVE-2022-46751 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2022-46751](https://nvd.nist.gov/vuln/detail/CVE-2022-46751 "https://nvd.nist.gov/vuln/detail/CVE-2022-46751") |
-| CVE-2023-0286  | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2023-0286](https://nvd.nist.gov/vuln/detail/CVE-2023-0286 "https://nvd.nist.gov/vuln/detail/CVE-2023-0286")    |
-| CVE-2023-1370  | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2023-1370](https://nvd.nist.gov/vuln/detail/CVE-2023-1370 "https://nvd.nist.gov/vuln/detail/CVE-2023-1370")    |
-| CVE-2023-1436  | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2023-1436](https://nvd.nist.gov/vuln/detail/CVE-2023-1436 "https://nvd.nist.gov/vuln/detail/CVE-2023-1436")    |
-| CVE-2023-34455 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2023-34455](https://nvd.nist.gov/vuln/detail/CVE-2023-34455 "https://nvd.nist.gov/vuln/detail/CVE-2023-34455") |
-| CVE-2023-34610 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2023-34610](https://nvd.nist.gov/vuln/detail/CVE-2023-34610 "https://nvd.nist.gov/vuln/detail/CVE-2023-34610") |
-| CVE-2023-39410 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2023-39410](https://nvd.nist.gov/vuln/detail/CVE-2023-39410 "https://nvd.nist.gov/vuln/detail/CVE-2023-39410") |
-| CVE-2023-43642 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2023-43642](https://nvd.nist.gov/vuln/detail/CVE-2023-43642 "https://nvd.nist.gov/vuln/detail/CVE-2023-43642") |
-| CVE-2023-43804 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2023-43804](https://nvd.nist.gov/vuln/detail/CVE-2023-43804 "https://nvd.nist.gov/vuln/detail/CVE-2023-43804") |
-| CVE-2023-50782 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2023-50782](https://nvd.nist.gov/vuln/detail/CVE-2023-50782 "https://nvd.nist.gov/vuln/detail/CVE-2023-50782") |
-| CVE-2023-52428 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2023-52428](https://nvd.nist.gov/vuln/detail/CVE-2023-52428 "https://nvd.nist.gov/vuln/detail/CVE-2023-52428") |
-| CVE-2024-13009 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2024-13009](https://nvd.nist.gov/vuln/detail/CVE-2024-13009 "https://nvd.nist.gov/vuln/detail/CVE-2024-13009") |
-| CVE-2024-23945 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2024-23945](https://nvd.nist.gov/vuln/detail/CVE-2024-23945 "https://nvd.nist.gov/vuln/detail/CVE-2024-23945") |
-| CVE-2024-25638 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2024-25638](https://nvd.nist.gov/vuln/detail/CVE-2024-25638 "https://nvd.nist.gov/vuln/detail/CVE-2024-25638") |
-| CVE-2024-36114 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2024-36114](https://nvd.nist.gov/vuln/detail/CVE-2024-36114 "https://nvd.nist.gov/vuln/detail/CVE-2024-36114") |
-| CVE-2024-47554 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2024-47554](https://nvd.nist.gov/vuln/detail/CVE-2024-47554 "https://nvd.nist.gov/vuln/detail/CVE-2024-47554") |
-| CVE-2024-6345  | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2024-6345](https://nvd.nist.gov/vuln/detail/CVE-2024-6345 "https://nvd.nist.gov/vuln/detail/CVE-2024-6345")    |
-| CVE-2024-7254  | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2024-7254](https://nvd.nist.gov/vuln/detail/CVE-2024-7254 "https://nvd.nist.gov/vuln/detail/CVE-2024-7254")    |
-| CVE-2025-24970 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2025-24970](https://nvd.nist.gov/vuln/detail/CVE-2025-24970 "https://nvd.nist.gov/vuln/detail/CVE-2025-24970") |
-| CVE-2025-27553 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2025-27553](https://nvd.nist.gov/vuln/detail/CVE-2025-27553 "https://nvd.nist.gov/vuln/detail/CVE-2025-27553") |
-| CVE-2025-30749 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2025-30749](https://nvd.nist.gov/vuln/detail/CVE-2025-30749 "https://nvd.nist.gov/vuln/detail/CVE-2025-30749") |
-| CVE-2025-30754 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2025-30754](https://nvd.nist.gov/vuln/detail/CVE-2025-30754 "https://nvd.nist.gov/vuln/detail/CVE-2025-30754") |
-| CVE-2025-30761 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2025-30761](https://nvd.nist.gov/vuln/detail/CVE-2025-30761 "https://nvd.nist.gov/vuln/detail/CVE-2025-30761") |
-| CVE-2025-46762 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2025-46762](https://nvd.nist.gov/vuln/detail/CVE-2025-46762 "https://nvd.nist.gov/vuln/detail/CVE-2025-46762") |
-| CVE-2025-47273 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2025-47273](https://nvd.nist.gov/vuln/detail/CVE-2025-47273 "https://nvd.nist.gov/vuln/detail/CVE-2025-47273") |
-| CVE-2025-4802  | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2025-4802](https://nvd.nist.gov/vuln/detail/CVE-2025-4802 "https://nvd.nist.gov/vuln/detail/CVE-2025-4802")    |
-| CVE-2025-48734 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2025-48734](https://nvd.nist.gov/vuln/detail/CVE-2025-48734 "https://nvd.nist.gov/vuln/detail/CVE-2025-48734") |
-| CVE-2025-50106 | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2025-50106](https://nvd.nist.gov/vuln/detail/CVE-2025-50106 "https://nvd.nist.gov/vuln/detail/CVE-2025-50106") |
-| CVE-2025-5222  | HIGH     | [https://nvd.nist.gov/vuln/detail/CVE-2025-5222](https://nvd.nist.gov/vuln/detail/CVE-2025-5222 "https://nvd.nist.gov/vuln/detail/CVE-2025-5222")    |
-| CVE-2018-10237 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2018-10237](https://nvd.nist.gov/vuln/detail/CVE-2018-10237 "https://nvd.nist.gov/vuln/detail/CVE-2018-10237") |
-| CVE-2018-1313  | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2018-1313](https://nvd.nist.gov/vuln/detail/CVE-2018-1313 "https://nvd.nist.gov/vuln/detail/CVE-2018-1313")    |
-| CVE-2019-12384 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2019-12384](https://nvd.nist.gov/vuln/detail/CVE-2019-12384 "https://nvd.nist.gov/vuln/detail/CVE-2019-12384") |
-| CVE-2019-12814 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2019-12814](https://nvd.nist.gov/vuln/detail/CVE-2019-12814 "https://nvd.nist.gov/vuln/detail/CVE-2019-12814") |
-| CVE-2020-13955 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2020-13955](https://nvd.nist.gov/vuln/detail/CVE-2020-13955 "https://nvd.nist.gov/vuln/detail/CVE-2020-13955") |
-| CVE-2020-13956 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2020-13956](https://nvd.nist.gov/vuln/detail/CVE-2020-13956 "https://nvd.nist.gov/vuln/detail/CVE-2020-13956") |
-| CVE-2020-17521 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2020-17521](https://nvd.nist.gov/vuln/detail/CVE-2020-17521 "https://nvd.nist.gov/vuln/detail/CVE-2020-17521") |
-| CVE-2020-29582 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2020-29582](https://nvd.nist.gov/vuln/detail/CVE-2020-29582 "https://nvd.nist.gov/vuln/detail/CVE-2020-29582") |
-| CVE-2021-27568 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2021-27568](https://nvd.nist.gov/vuln/detail/CVE-2021-27568 "https://nvd.nist.gov/vuln/detail/CVE-2021-27568") |
-| CVE-2021-29425 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2021-29425](https://nvd.nist.gov/vuln/detail/CVE-2021-29425 "https://nvd.nist.gov/vuln/detail/CVE-2021-29425") |
-| CVE-2021-41186 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2021-41186](https://nvd.nist.gov/vuln/detail/CVE-2021-41186 "https://nvd.nist.gov/vuln/detail/CVE-2021-41186") |
-| CVE-2022-24329 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2022-24329](https://nvd.nist.gov/vuln/detail/CVE-2022-24329 "https://nvd.nist.gov/vuln/detail/CVE-2022-24329") |
-| CVE-2022-3171  | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2022-3171](https://nvd.nist.gov/vuln/detail/CVE-2022-3171 "https://nvd.nist.gov/vuln/detail/CVE-2022-3171")    |
-| CVE-2022-40149 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2022-40149](https://nvd.nist.gov/vuln/detail/CVE-2022-40149 "https://nvd.nist.gov/vuln/detail/CVE-2022-40149") |
-| CVE-2022-40896 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2022-40896](https://nvd.nist.gov/vuln/detail/CVE-2022-40896 "https://nvd.nist.gov/vuln/detail/CVE-2022-40896") |
-| CVE-2023-23931 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2023-23931](https://nvd.nist.gov/vuln/detail/CVE-2023-23931 "https://nvd.nist.gov/vuln/detail/CVE-2023-23931") |
-| CVE-2023-2976  | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2023-2976](https://nvd.nist.gov/vuln/detail/CVE-2023-2976 "https://nvd.nist.gov/vuln/detail/CVE-2023-2976")    |
-| CVE-2023-33201 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2023-33201](https://nvd.nist.gov/vuln/detail/CVE-2023-33201 "https://nvd.nist.gov/vuln/detail/CVE-2023-33201") |
-| CVE-2023-33202 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2023-33202](https://nvd.nist.gov/vuln/detail/CVE-2023-33202 "https://nvd.nist.gov/vuln/detail/CVE-2023-33202") |
-| CVE-2023-34453 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2023-34453](https://nvd.nist.gov/vuln/detail/CVE-2023-34453 "https://nvd.nist.gov/vuln/detail/CVE-2023-34453") |
-| CVE-2023-34454 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2023-34454](https://nvd.nist.gov/vuln/detail/CVE-2023-34454 "https://nvd.nist.gov/vuln/detail/CVE-2023-34454") |
-| CVE-2023-3635  | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2023-3635](https://nvd.nist.gov/vuln/detail/CVE-2023-3635 "https://nvd.nist.gov/vuln/detail/CVE-2023-3635")    |
-| CVE-2023-45803 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2023-45803](https://nvd.nist.gov/vuln/detail/CVE-2023-45803 "https://nvd.nist.gov/vuln/detail/CVE-2023-45803") |
-| CVE-2023-49083 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2023-49083](https://nvd.nist.gov/vuln/detail/CVE-2023-49083 "https://nvd.nist.gov/vuln/detail/CVE-2023-49083") |
-| CVE-2023-51074 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2023-51074](https://nvd.nist.gov/vuln/detail/CVE-2023-51074 "https://nvd.nist.gov/vuln/detail/CVE-2023-51074") |
-| CVE-2024-0727  | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-0727](https://nvd.nist.gov/vuln/detail/CVE-2024-0727 "https://nvd.nist.gov/vuln/detail/CVE-2024-0727")    |
-| CVE-2024-23944 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-23944](https://nvd.nist.gov/vuln/detail/CVE-2024-23944 "https://nvd.nist.gov/vuln/detail/CVE-2024-23944") |
-| CVE-2024-23953 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-23953](https://nvd.nist.gov/vuln/detail/CVE-2024-23953 "https://nvd.nist.gov/vuln/detail/CVE-2024-23953") |
-| CVE-2024-25710 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-25710](https://nvd.nist.gov/vuln/detail/CVE-2024-25710 "https://nvd.nist.gov/vuln/detail/CVE-2024-25710") |
-| CVE-2024-26308 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-26308](https://nvd.nist.gov/vuln/detail/CVE-2024-26308 "https://nvd.nist.gov/vuln/detail/CVE-2024-26308") |
-| CVE-2024-29025 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-29025](https://nvd.nist.gov/vuln/detail/CVE-2024-29025 "https://nvd.nist.gov/vuln/detail/CVE-2024-29025") |
-| CVE-2024-29131 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-29131](https://nvd.nist.gov/vuln/detail/CVE-2024-29131 "https://nvd.nist.gov/vuln/detail/CVE-2024-29131") |
-| CVE-2024-29133 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-29133](https://nvd.nist.gov/vuln/detail/CVE-2024-29133 "https://nvd.nist.gov/vuln/detail/CVE-2024-29133") |
-| CVE-2024-29857 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-29857](https://nvd.nist.gov/vuln/detail/CVE-2024-29857 "https://nvd.nist.gov/vuln/detail/CVE-2024-29857") |
-| CVE-2024-29869 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-29869](https://nvd.nist.gov/vuln/detail/CVE-2024-29869 "https://nvd.nist.gov/vuln/detail/CVE-2024-29869") |
-| CVE-2024-30171 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-30171](https://nvd.nist.gov/vuln/detail/CVE-2024-30171 "https://nvd.nist.gov/vuln/detail/CVE-2024-30171") |
-| CVE-2024-31141 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-31141](https://nvd.nist.gov/vuln/detail/CVE-2024-31141 "https://nvd.nist.gov/vuln/detail/CVE-2024-31141") |
-| CVE-2024-3651  | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-3651](https://nvd.nist.gov/vuln/detail/CVE-2024-3651 "https://nvd.nist.gov/vuln/detail/CVE-2024-3651")    |
-| CVE-2024-37891 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-37891](https://nvd.nist.gov/vuln/detail/CVE-2024-37891 "https://nvd.nist.gov/vuln/detail/CVE-2024-37891") |
-| CVE-2024-47535 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-47535](https://nvd.nist.gov/vuln/detail/CVE-2024-47535 "https://nvd.nist.gov/vuln/detail/CVE-2024-47535") |
-| CVE-2024-6763  | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-6763](https://nvd.nist.gov/vuln/detail/CVE-2024-6763 "https://nvd.nist.gov/vuln/detail/CVE-2024-6763")    |
-| CVE-2024-8184  | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-8184](https://nvd.nist.gov/vuln/detail/CVE-2024-8184 "https://nvd.nist.gov/vuln/detail/CVE-2024-8184")    |
-| CVE-2024-9823  | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2024-9823](https://nvd.nist.gov/vuln/detail/CVE-2024-9823 "https://nvd.nist.gov/vuln/detail/CVE-2024-9823")    |
-| CVE-2025-25193 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2025-25193](https://nvd.nist.gov/vuln/detail/CVE-2025-25193 "https://nvd.nist.gov/vuln/detail/CVE-2025-25193") |
-| CVE-2025-30474 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2025-30474](https://nvd.nist.gov/vuln/detail/CVE-2025-30474 "https://nvd.nist.gov/vuln/detail/CVE-2025-30474") |
-| CVE-2025-49128 | MEDIUM   | [https://nvd.nist.gov/vuln/detail/CVE-2025-49128](https://nvd.nist.gov/vuln/detail/CVE-2025-49128 "https://nvd.nist.gov/vuln/detail/CVE-2025-49128") |
-| CVE-2020-8908  | LOW      | [https://nvd.nist.gov/vuln/detail/CVE-2020-8908](https://nvd.nist.gov/vuln/detail/CVE-2020-8908 "https://nvd.nist.gov/vuln/detail/CVE-2020-8908")    |
-| CVE-2024-23454 | LOW      | [https://nvd.nist.gov/vuln/detail/CVE-2024-23454](https://nvd.nist.gov/vuln/detail/CVE-2024-23454 "https://nvd.nist.gov/vuln/detail/CVE-2024-23454") |
+
+| CVE ID | Severity | CVE details URL | 
+| --- | --- | --- | 
+| CVE-2015-1832 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2015-1832](https://nvd.nist.gov/vuln/detail/CVE-2015-1832) | 
+| CVE-2017-15095 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2017-15095](https://nvd.nist.gov/vuln/detail/CVE-2017-15095) | 
+| CVE-2017-17485 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2017-17485](https://nvd.nist.gov/vuln/detail/CVE-2017-17485) | 
+| CVE-2017-7525 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2017-7525](https://nvd.nist.gov/vuln/detail/CVE-2017-7525) | 
+| CVE-2018-11307 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-11307](https://nvd.nist.gov/vuln/detail/CVE-2018-11307) | 
+| CVE-2018-14718 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-14718](https://nvd.nist.gov/vuln/detail/CVE-2018-14718) | 
+| CVE-2018-14719 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-14719](https://nvd.nist.gov/vuln/detail/CVE-2018-14719) | 
+| CVE-2018-14720 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-14720](https://nvd.nist.gov/vuln/detail/CVE-2018-14720) | 
+| CVE-2018-14721 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-14721](https://nvd.nist.gov/vuln/detail/CVE-2018-14721) | 
+| CVE-2018-19360 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-19360](https://nvd.nist.gov/vuln/detail/CVE-2018-19360) | 
+| CVE-2018-19361 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-19361](https://nvd.nist.gov/vuln/detail/CVE-2018-19361) | 
+| CVE-2018-19362 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-19362](https://nvd.nist.gov/vuln/detail/CVE-2018-19362) | 
+| CVE-2018-7489 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2018-7489](https://nvd.nist.gov/vuln/detail/CVE-2018-7489) | 
+| CVE-2019-10202 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-10202](https://nvd.nist.gov/vuln/detail/CVE-2019-10202) | 
+| CVE-2019-14379 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-14379](https://nvd.nist.gov/vuln/detail/CVE-2019-14379) | 
+| CVE-2019-14540 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-14540](https://nvd.nist.gov/vuln/detail/CVE-2019-14540) | 
+| CVE-2019-16335 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-16335](https://nvd.nist.gov/vuln/detail/CVE-2019-16335) | 
+| CVE-2019-16942 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-16942](https://nvd.nist.gov/vuln/detail/CVE-2019-16942) | 
+| CVE-2019-16943 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-16943](https://nvd.nist.gov/vuln/detail/CVE-2019-16943) | 
+| CVE-2019-17267 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-17267](https://nvd.nist.gov/vuln/detail/CVE-2019-17267) | 
+| CVE-2019-17531 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-17531](https://nvd.nist.gov/vuln/detail/CVE-2019-17531) | 
+| CVE-2019-20330 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2019-20330](https://nvd.nist.gov/vuln/detail/CVE-2019-20330) | 
+| CVE-2020-8840 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2020-8840](https://nvd.nist.gov/vuln/detail/CVE-2020-8840) | 
+| CVE-2020-9546 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2020-9546](https://nvd.nist.gov/vuln/detail/CVE-2020-9546) | 
+| CVE-2020-9547 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2020-9547](https://nvd.nist.gov/vuln/detail/CVE-2020-9547) | 
+| CVE-2020-9548 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2020-9548](https://nvd.nist.gov/vuln/detail/CVE-2020-9548) | 
+| CVE-2022-37865 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2022-37865](https://nvd.nist.gov/vuln/detail/CVE-2022-37865) | 
+| CVE-2022-39135 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2022-39135](https://nvd.nist.gov/vuln/detail/CVE-2022-39135) | 
+| CVE-2022-46337 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2022-46337](https://nvd.nist.gov/vuln/detail/CVE-2022-46337) | 
+| CVE-2024-47561 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2024-47561](https://nvd.nist.gov/vuln/detail/CVE-2024-47561) | 
+| CVE-2024-52046 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2024-52046](https://nvd.nist.gov/vuln/detail/CVE-2024-52046) | 
+| CVE-2024-53990 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2024-53990](https://nvd.nist.gov/vuln/detail/CVE-2024-53990) | 
+| CVE-2025-30065 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2025-30065](https://nvd.nist.gov/vuln/detail/CVE-2025-30065) | 
+| CVE-2018-12022 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2018-12022](https://nvd.nist.gov/vuln/detail/CVE-2018-12022) | 
+| CVE-2018-12023 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2018-12023](https://nvd.nist.gov/vuln/detail/CVE-2018-12023) | 
+| CVE-2018-5968 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2018-5968](https://nvd.nist.gov/vuln/detail/CVE-2018-5968) | 
+| CVE-2019-10172 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2019-10172](https://nvd.nist.gov/vuln/detail/CVE-2019-10172) | 
+| CVE-2019-12086 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2019-12086](https://nvd.nist.gov/vuln/detail/CVE-2019-12086) | 
+| CVE-2019-14439 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2019-14439](https://nvd.nist.gov/vuln/detail/CVE-2019-14439) | 
+| CVE-2019-14892 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2019-14892](https://nvd.nist.gov/vuln/detail/CVE-2019-14892) | 
+| CVE-2019-14893 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2019-14893](https://nvd.nist.gov/vuln/detail/CVE-2019-14893) | 
+| CVE-2020-10650 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-10650](https://nvd.nist.gov/vuln/detail/CVE-2020-10650) | 
+| CVE-2020-10672 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-10672](https://nvd.nist.gov/vuln/detail/CVE-2020-10672) | 
+| CVE-2020-10673 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-10673](https://nvd.nist.gov/vuln/detail/CVE-2020-10673) | 
+| CVE-2020-10968 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-10968](https://nvd.nist.gov/vuln/detail/CVE-2020-10968) | 
+| CVE-2020-10969 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-10969](https://nvd.nist.gov/vuln/detail/CVE-2020-10969) | 
+| CVE-2020-11111 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-11111](https://nvd.nist.gov/vuln/detail/CVE-2020-11111) | 
+| CVE-2020-11112 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-11112](https://nvd.nist.gov/vuln/detail/CVE-2020-11112) | 
+| CVE-2020-11113 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-11113](https://nvd.nist.gov/vuln/detail/CVE-2020-11113) | 
+| CVE-2020-11619 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-11619](https://nvd.nist.gov/vuln/detail/CVE-2020-11619) | 
+| CVE-2020-11620 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-11620](https://nvd.nist.gov/vuln/detail/CVE-2020-11620) | 
+| CVE-2020-13936 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-13936](https://nvd.nist.gov/vuln/detail/CVE-2020-13936) | 
+| CVE-2020-13949 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-13949](https://nvd.nist.gov/vuln/detail/CVE-2020-13949) | 
+| CVE-2020-14060 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-14060](https://nvd.nist.gov/vuln/detail/CVE-2020-14060) | 
+| CVE-2020-14061 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-14061](https://nvd.nist.gov/vuln/detail/CVE-2020-14061) | 
+| CVE-2020-14062 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-14062](https://nvd.nist.gov/vuln/detail/CVE-2020-14062) | 
+| CVE-2020-14195 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-14195](https://nvd.nist.gov/vuln/detail/CVE-2020-14195) | 
+| CVE-2020-24616 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-24616](https://nvd.nist.gov/vuln/detail/CVE-2020-24616) | 
+| CVE-2020-24750 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-24750](https://nvd.nist.gov/vuln/detail/CVE-2020-24750) | 
+| CVE-2020-25649 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-25649](https://nvd.nist.gov/vuln/detail/CVE-2020-25649) | 
+| CVE-2020-28052 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-28052](https://nvd.nist.gov/vuln/detail/CVE-2020-28052) | 
+| CVE-2020-35490 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-35490](https://nvd.nist.gov/vuln/detail/CVE-2020-35490) | 
+| CVE-2020-35491 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-35491](https://nvd.nist.gov/vuln/detail/CVE-2020-35491) | 
+| CVE-2020-35728 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-35728](https://nvd.nist.gov/vuln/detail/CVE-2020-35728) | 
+| CVE-2020-36179 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-36179](https://nvd.nist.gov/vuln/detail/CVE-2020-36179) | 
+| CVE-2020-36180 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-36180](https://nvd.nist.gov/vuln/detail/CVE-2020-36180) | 
+| CVE-2020-36181 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-36181](https://nvd.nist.gov/vuln/detail/CVE-2020-36181) | 
+| CVE-2020-36182 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-36182](https://nvd.nist.gov/vuln/detail/CVE-2020-36182) | 
+| CVE-2020-36183 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-36183](https://nvd.nist.gov/vuln/detail/CVE-2020-36183) | 
+| CVE-2020-36184 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-36184](https://nvd.nist.gov/vuln/detail/CVE-2020-36184) | 
+| CVE-2020-36185 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-36185](https://nvd.nist.gov/vuln/detail/CVE-2020-36185) | 
+| CVE-2020-36186 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-36186](https://nvd.nist.gov/vuln/detail/CVE-2020-36186) | 
+| CVE-2020-36187 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-36187](https://nvd.nist.gov/vuln/detail/CVE-2020-36187) | 
+| CVE-2020-36188 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-36188](https://nvd.nist.gov/vuln/detail/CVE-2020-36188) | 
+| CVE-2020-36189 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-36189](https://nvd.nist.gov/vuln/detail/CVE-2020-36189) | 
+| CVE-2020-36518 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2020-36518](https://nvd.nist.gov/vuln/detail/CVE-2020-36518) | 
+| CVE-2021-20190 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2021-20190](https://nvd.nist.gov/vuln/detail/CVE-2021-20190) | 
+| CVE-2021-22569 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2021-22569](https://nvd.nist.gov/vuln/detail/CVE-2021-22569) | 
+| CVE-2021-22570 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2021-22570](https://nvd.nist.gov/vuln/detail/CVE-2021-22570) | 
+| CVE-2021-31684 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2021-31684](https://nvd.nist.gov/vuln/detail/CVE-2021-31684) | 
+| CVE-2021-33503 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2021-33503](https://nvd.nist.gov/vuln/detail/CVE-2021-33503) | 
+| CVE-2021-35515 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2021-35515](https://nvd.nist.gov/vuln/detail/CVE-2021-35515) | 
+| CVE-2021-35516 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2021-35516](https://nvd.nist.gov/vuln/detail/CVE-2021-35516) | 
+| CVE-2021-35517 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2021-35517](https://nvd.nist.gov/vuln/detail/CVE-2021-35517) | 
+| CVE-2021-36090 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2021-36090](https://nvd.nist.gov/vuln/detail/CVE-2021-36090) | 
+| CVE-2022-25647 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2022-25647](https://nvd.nist.gov/vuln/detail/CVE-2022-25647) | 
+| CVE-2022-3509 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2022-3509](https://nvd.nist.gov/vuln/detail/CVE-2022-3509) | 
+| CVE-2022-3510 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2022-3510](https://nvd.nist.gov/vuln/detail/CVE-2022-3510) | 
+| CVE-2022-36364 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2022-36364](https://nvd.nist.gov/vuln/detail/CVE-2022-36364) | 
+| CVE-2022-37866 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2022-37866](https://nvd.nist.gov/vuln/detail/CVE-2022-37866) | 
+| CVE-2022-40150 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2022-40150](https://nvd.nist.gov/vuln/detail/CVE-2022-40150) | 
+| CVE-2022-40897 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2022-40897](https://nvd.nist.gov/vuln/detail/CVE-2022-40897) | 
+| CVE-2022-41404 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2022-41404](https://nvd.nist.gov/vuln/detail/CVE-2022-41404) | 
+| CVE-2022-42003 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2022-42003](https://nvd.nist.gov/vuln/detail/CVE-2022-42003) | 
+| CVE-2022-42004 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2022-42004](https://nvd.nist.gov/vuln/detail/CVE-2022-42004) | 
+| CVE-2022-45685 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2022-45685](https://nvd.nist.gov/vuln/detail/CVE-2022-45685) | 
+| CVE-2022-45693 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2022-45693](https://nvd.nist.gov/vuln/detail/CVE-2022-45693) | 
+| CVE-2022-46751 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2022-46751](https://nvd.nist.gov/vuln/detail/CVE-2022-46751) | 
+| CVE-2023-0286 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2023-0286](https://nvd.nist.gov/vuln/detail/CVE-2023-0286) | 
+| CVE-2023-1370 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2023-1370](https://nvd.nist.gov/vuln/detail/CVE-2023-1370) | 
+| CVE-2023-1436 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2023-1436](https://nvd.nist.gov/vuln/detail/CVE-2023-1436) | 
+| CVE-2023-34455 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2023-34455](https://nvd.nist.gov/vuln/detail/CVE-2023-34455) | 
+| CVE-2023-34610 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2023-34610](https://nvd.nist.gov/vuln/detail/CVE-2023-34610) | 
+| CVE-2023-39410 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2023-39410](https://nvd.nist.gov/vuln/detail/CVE-2023-39410) | 
+| CVE-2023-43642 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2023-43642](https://nvd.nist.gov/vuln/detail/CVE-2023-43642) | 
+| CVE-2023-43804 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2023-43804](https://nvd.nist.gov/vuln/detail/CVE-2023-43804) | 
+| CVE-2023-50782 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2023-50782](https://nvd.nist.gov/vuln/detail/CVE-2023-50782) | 
+| CVE-2023-52428 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2023-52428](https://nvd.nist.gov/vuln/detail/CVE-2023-52428) | 
+| CVE-2024-13009 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2024-13009](https://nvd.nist.gov/vuln/detail/CVE-2024-13009) | 
+| CVE-2024-23945 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2024-23945](https://nvd.nist.gov/vuln/detail/CVE-2024-23945) | 
+| CVE-2024-25638 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2024-25638](https://nvd.nist.gov/vuln/detail/CVE-2024-25638) | 
+| CVE-2024-36114 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2024-36114](https://nvd.nist.gov/vuln/detail/CVE-2024-36114) | 
+| CVE-2024-47554 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2024-47554](https://nvd.nist.gov/vuln/detail/CVE-2024-47554) | 
+| CVE-2024-6345 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2024-6345](https://nvd.nist.gov/vuln/detail/CVE-2024-6345) | 
+| CVE-2024-7254 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2024-7254](https://nvd.nist.gov/vuln/detail/CVE-2024-7254) | 
+| CVE-2025-24970 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-24970](https://nvd.nist.gov/vuln/detail/CVE-2025-24970) | 
+| CVE-2025-27553 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-27553](https://nvd.nist.gov/vuln/detail/CVE-2025-27553) | 
+| CVE-2025-30749 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-30749](https://nvd.nist.gov/vuln/detail/CVE-2025-30749) | 
+| CVE-2025-30754 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-30754](https://nvd.nist.gov/vuln/detail/CVE-2025-30754) | 
+| CVE-2025-30761 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-30761](https://nvd.nist.gov/vuln/detail/CVE-2025-30761) | 
+| CVE-2025-46762 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-46762](https://nvd.nist.gov/vuln/detail/CVE-2025-46762) | 
+| CVE-2025-47273 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-47273](https://nvd.nist.gov/vuln/detail/CVE-2025-47273) | 
+| CVE-2025-4802 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-4802](https://nvd.nist.gov/vuln/detail/CVE-2025-4802) | 
+| CVE-2025-48734 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-48734](https://nvd.nist.gov/vuln/detail/CVE-2025-48734) | 
+| CVE-2025-50106 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-50106](https://nvd.nist.gov/vuln/detail/CVE-2025-50106) | 
+| CVE-2025-5222 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-5222](https://nvd.nist.gov/vuln/detail/CVE-2025-5222) | 
+| CVE-2018-10237 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2018-10237](https://nvd.nist.gov/vuln/detail/CVE-2018-10237) | 
+| CVE-2018-1313 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2018-1313](https://nvd.nist.gov/vuln/detail/CVE-2018-1313) | 
+| CVE-2019-12384 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2019-12384](https://nvd.nist.gov/vuln/detail/CVE-2019-12384) | 
+| CVE-2019-12814 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2019-12814](https://nvd.nist.gov/vuln/detail/CVE-2019-12814) | 
+| CVE-2020-13955 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2020-13955](https://nvd.nist.gov/vuln/detail/CVE-2020-13955) | 
+| CVE-2020-13956 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2020-13956](https://nvd.nist.gov/vuln/detail/CVE-2020-13956) | 
+| CVE-2020-17521 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2020-17521](https://nvd.nist.gov/vuln/detail/CVE-2020-17521) | 
+| CVE-2020-29582 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2020-29582](https://nvd.nist.gov/vuln/detail/CVE-2020-29582) | 
+| CVE-2021-27568 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2021-27568](https://nvd.nist.gov/vuln/detail/CVE-2021-27568) | 
+| CVE-2021-29425 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2021-29425](https://nvd.nist.gov/vuln/detail/CVE-2021-29425) | 
+| CVE-2021-41186 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2021-41186](https://nvd.nist.gov/vuln/detail/CVE-2021-41186) | 
+| CVE-2022-24329 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2022-24329](https://nvd.nist.gov/vuln/detail/CVE-2022-24329) | 
+| CVE-2022-3171 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2022-3171](https://nvd.nist.gov/vuln/detail/CVE-2022-3171) | 
+| CVE-2022-40149 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2022-40149](https://nvd.nist.gov/vuln/detail/CVE-2022-40149) | 
+| CVE-2022-40896 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2022-40896](https://nvd.nist.gov/vuln/detail/CVE-2022-40896) | 
+| CVE-2023-23931 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2023-23931](https://nvd.nist.gov/vuln/detail/CVE-2023-23931) | 
+| CVE-2023-2976 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2023-2976](https://nvd.nist.gov/vuln/detail/CVE-2023-2976) | 
+| CVE-2023-33201 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2023-33201](https://nvd.nist.gov/vuln/detail/CVE-2023-33201) | 
+| CVE-2023-33202 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2023-33202](https://nvd.nist.gov/vuln/detail/CVE-2023-33202) | 
+| CVE-2023-34453 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2023-34453](https://nvd.nist.gov/vuln/detail/CVE-2023-34453) | 
+| CVE-2023-34454 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2023-34454](https://nvd.nist.gov/vuln/detail/CVE-2023-34454) | 
+| CVE-2023-3635 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2023-3635](https://nvd.nist.gov/vuln/detail/CVE-2023-3635) | 
+| CVE-2023-45803 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2023-45803](https://nvd.nist.gov/vuln/detail/CVE-2023-45803) | 
+| CVE-2023-49083 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2023-49083](https://nvd.nist.gov/vuln/detail/CVE-2023-49083) | 
+| CVE-2023-51074 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2023-51074](https://nvd.nist.gov/vuln/detail/CVE-2023-51074) | 
+| CVE-2024-0727 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-0727](https://nvd.nist.gov/vuln/detail/CVE-2024-0727) | 
+| CVE-2024-23944 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-23944](https://nvd.nist.gov/vuln/detail/CVE-2024-23944) | 
+| CVE-2024-23953 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-23953](https://nvd.nist.gov/vuln/detail/CVE-2024-23953) | 
+| CVE-2024-25710 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-25710](https://nvd.nist.gov/vuln/detail/CVE-2024-25710) | 
+| CVE-2024-26308 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-26308](https://nvd.nist.gov/vuln/detail/CVE-2024-26308) | 
+| CVE-2024-29025 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-29025](https://nvd.nist.gov/vuln/detail/CVE-2024-29025) | 
+| CVE-2024-29131 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-29131](https://nvd.nist.gov/vuln/detail/CVE-2024-29131) | 
+| CVE-2024-29133 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-29133](https://nvd.nist.gov/vuln/detail/CVE-2024-29133) | 
+| CVE-2024-29857 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-29857](https://nvd.nist.gov/vuln/detail/CVE-2024-29857) | 
+| CVE-2024-29869 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-29869](https://nvd.nist.gov/vuln/detail/CVE-2024-29869) | 
+| CVE-2024-30171 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-30171](https://nvd.nist.gov/vuln/detail/CVE-2024-30171) | 
+| CVE-2024-31141 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-31141](https://nvd.nist.gov/vuln/detail/CVE-2024-31141) | 
+| CVE-2024-3651 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-3651](https://nvd.nist.gov/vuln/detail/CVE-2024-3651) | 
+| CVE-2024-37891 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-37891](https://nvd.nist.gov/vuln/detail/CVE-2024-37891) | 
+| CVE-2024-47535 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-47535](https://nvd.nist.gov/vuln/detail/CVE-2024-47535) | 
+| CVE-2024-6763 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-6763](https://nvd.nist.gov/vuln/detail/CVE-2024-6763) | 
+| CVE-2024-8184 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-8184](https://nvd.nist.gov/vuln/detail/CVE-2024-8184) | 
+| CVE-2024-9823 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-9823](https://nvd.nist.gov/vuln/detail/CVE-2024-9823) | 
+| CVE-2025-25193 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2025-25193](https://nvd.nist.gov/vuln/detail/CVE-2025-25193) | 
+| CVE-2025-30474 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2025-30474](https://nvd.nist.gov/vuln/detail/CVE-2025-30474) | 
+| CVE-2025-49128 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2025-49128](https://nvd.nist.gov/vuln/detail/CVE-2025-49128) | 
+| CVE-2020-8908 | LOW | [https://nvd.nist.gov/vuln/detail/CVE-2020-8908](https://nvd.nist.gov/vuln/detail/CVE-2020-8908) | 
+| CVE-2024-23454 | LOW | [https://nvd.nist.gov/vuln/detail/CVE-2024-23454](https://nvd.nist.gov/vuln/detail/CVE-2024-23454) | 

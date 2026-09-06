@@ -1,38 +1,30 @@
+
+
 # Automating EMR Serverless with Amazon EventBridge
+<a name="using-eventbridge"></a>
 
-You can use Amazon EventBridge to automate your AWS services and respond
-automatically to system events, such as application availability issues or resource
-changes. EventBridge delivers a near real-time stream of system events that describe changes in
-your AWS resources. You can write simple rules to indicate which events are of
-interest to you, and what automated actions to take when an event matches a rule. With
-EventBridge, you can automatically:
+You can use Amazon EventBridge to automate your AWS services and respond automatically to system events, such as application availability issues or resource changes. EventBridge delivers a near real-time stream of system events that describe changes in your AWS resources. You can write simple rules to indicate which events are of interest to you, and what automated actions to take when an event matches a rule. With EventBridge, you can automatically:
++ Invoke an AWS Lambda function
++ Relay an event to Amazon Kinesis Data Streams
++ Activate an AWS Step Functions state machine
++ Notify an Amazon SNS topic or an Amazon SQS queue
 
-- Invoke an AWS Lambda function
-- Relay an event to Amazon Kinesis Data Streams
-- Activate an AWS Step Functions state machine
-- Notify an Amazon SNS topic or an Amazon SQS queue
-  For example, when you use EventBridge with EMR Serverless, you can activate an AWS Lambda
-  function when an ETL job succeed or notify an Amazon SNS topic when an ETL job fails.
+For example, when you use EventBridge with EMR Serverless, you can activate an AWS Lambda function when an ETL job succeed or notify an Amazon SNS topic when an ETL job fails.
 
 EMR Serverless emits four kinds of events:
-
-- Application state change events – Events that emit every state change
-  of an application. For more information about application states, refer to [Application states](applications.md#application-states "applications.md#application-states").
-- Job run state change events – Events that emit every state change of a
-  job run. For more information about, refer to [Job run states](job-states.md "job-states.md").
-- Job run retry events – Events that emit every retry of a job run from Amazon EMR Serverless releases 7.1.0 and higher.
-- Job resource utilization update events – Events that emit resource utilization updates for a job run at
-  close to 30-minute intervals.
++ Application state change events – Events that emit every state change of an application. For more information about application states, refer to [Application states](applications.md#application-states).
++ Job run state change events – Events that emit every state change of a job run. For more information about, refer to [Job run states](job-states.md).
++ Job run retry events – Events that emit every retry of a job run from Amazon EMR Serverless releases 7.1.0 and higher.
++ Job resource utilization update events – Events that emit resource utilization updates for a job run at close to 30-minute intervals.
 
 ## Sample EMR Serverless EventBridge events
+<a name="using-eventbridge-examples"></a>
 
-Events reported by EMR Serverless have a value of `aws.emr-serverless`
-assigned to `source`, as in the following examples.
+Events reported by EMR Serverless have a value of `aws.emr-serverless` assigned to `source`, as in the following examples.
 
 **Application state change event**
 
-The following example event shows an application in the `CREATING`
-state.
+The following example event shows an application in the `CREATING` state.
 
 ```
 {
@@ -66,8 +58,7 @@ state.
 
 **Job run state change event**
 
-The following example event shows a job run that moves from the
-`SCHEDULED` state to the `RUNNING` state.
+The following example event shows a job run that moves from the `SCHEDULED` state to the `RUNNING` state.
 
 ```
 {
@@ -128,8 +119,7 @@ The following is an example of a job run retry event.
 
 **Job Resource Utilization Update**
 
-The following example event shows the final resource utilization update for a job that moved to a
-terminal state after running.
+The following example event shows the final resource utilization update for a job that moved to a terminal state after running.
 
 ```
 {

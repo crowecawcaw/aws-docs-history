@@ -1,28 +1,22 @@
+
+
 # Submitting EMR Serverless jobs from Airflow
+<a name="using-airflow"></a>
 
-The Amazon Provider in Apache Airflow provides EMR Serverless operators. For more
-information about operators, refer to [Amazon EMR Serverless Operators](https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/operators/emr_serverless.html "https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/operators/emr_serverless.html") in the Apache Airflow documentation.
+The Amazon Provider in Apache Airflow provides EMR Serverless operators. For more information about operators, refer to [Amazon EMR Serverless Operators](https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/operators/emr_serverless.html) in the Apache Airflow documentation.
 
-You can use `EmrServerlessCreateApplicationOperator` to create a Spark or Hive
-application. You can also use `EmrServerlessStartJobOperator` to start one or
-more jobs with the your new application.
+You can use `EmrServerlessCreateApplicationOperator` to create a Spark or Hive application. You can also use `EmrServerlessStartJobOperator` to start one or more jobs with the your new application. 
 
-To use the operator with Amazon Managed Workflows for Apache Airflow (MWAA) with Airflow
-2.2.2, add the following line to your `requirements.txt` file and update your
-MWAA environment to use the new file.
+To use the operator with Amazon Managed Workflows for Apache Airflow (MWAA) with Airflow 2.2.2, add the following line to your `requirements.txt` file and update your MWAA environment to use the new file. 
 
 ```
 apache-airflow-providers-amazon==6.0.0
 boto3>=1.23.9
 ```
 
-Note that EMR Serverless support was added to release 5.0.0 of the Amazon provider.
-Release 6.0.0 is the last version compatible with Airflow 2.2.2. You can use later versions
-with Airflow 2.4.3 on MWAA.
+Note that EMR Serverless support was added to release 5.0.0 of the Amazon provider. Release 6.0.0 is the last version compatible with Airflow 2.2.2. You can use later versions with Airflow 2.4.3 on MWAA.
 
-The following abbreviated example shows how to create an application, run multiple Spark
-jobs, and then stop the application. A full example is available in the [EMR Serverless Samples](https://github.com/aws-samples/emr-serverless-samples/tree/main/airflow "https://github.com/aws-samples/emr-serverless-samples/tree/main/airflow") GitHub repository. For additional details of
-`sparkSubmit` configuration, refer to [Using Spark configurations when you run EMR Serverless jobs](jobs-spark.md "jobs-spark.md").
+The following abbreviated example shows how to create an application, run multiple Spark jobs, and then stop the application. A full example is available in the [EMR Serverless Samples](https://github.com/aws-samples/emr-serverless-samples/tree/main/airflow) GitHub repository. For additional details of `sparkSubmit` configuration, refer to [Using Spark configurations when you run EMR Serverless jobs](jobs-spark.md).
 
 ```
 from datetime import datetime
@@ -35,12 +29,12 @@ from airflow.providers.amazon.aws.operators.emr import (
 )
 
 # Replace these with your correct values
-JOB_ROLE_ARN = "arn:aws:iam::`account-id`:role/emr_serverless_default_role"
-S3_LOGS_BUCKET = "`amzn-s3-demo-bucket`"
+JOB_ROLE_ARN = "arn:aws:iam::{{account-id}}:role/emr_serverless_default_role"
+S3_LOGS_BUCKET = "{{amzn-s3-demo-bucket}}"
 
 DEFAULT_MONITORING_CONFIG = {
     "monitoringConfiguration": {
-        "s3MonitoringConfiguration": {"logUri": f"s3://`amzn-s3-demo-bucket`/logs/"}
+        "s3MonitoringConfiguration": {"logUri": f"s3://{{amzn-s3-demo-bucket}}/logs/"}
     },
 }
 

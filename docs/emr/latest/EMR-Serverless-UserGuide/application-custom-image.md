@@ -1,75 +1,64 @@
+
+
 # Customizing an EMR Serverless image
+<a name="application-custom-image"></a>
 
-Starting with Amazon EMR 6.9.0, use custom images to package application dependencies
-and runtime environments into a single container with Amazon EMR Serverless. This simplifies how
-you manage workload dependencies and makes your packages more portable. When you customize
-your EMR Serverless image, it provides the following benefits:
+Starting with Amazon EMR 6.9.0, use custom images to package application dependencies and runtime environments into a single container with Amazon EMR Serverless. This simplifies how you manage workload dependencies and makes your packages more portable. When you customize your EMR Serverless image, it provides the following benefits:
++ Installs and configures packages that are optimized to your workloads. These packages are not widely available in the public distribution of Amazon EMR runtime environments.
++ Integrates EMR Serverless with current established build, test, and deployment processes within your organization, including local development and testing.
++ Applies established security processes, such as image scanning, that meet compliance and governance requirements within your organization.
++ Lets you use your own versions of JDK and Python for your applications.
 
-- Installs and configures packages that are optimized to your workloads. These packages
-  are not widely available in the public distribution of Amazon EMR runtime
-  environments.
-- Integrates EMR Serverless with current established build, test, and deployment
-  processes within your organization, including local development and testing.
-- Applies established security processes, such as image scanning, that meet compliance
-  and governance requirements within your organization.
-- Lets you use your own versions of JDK and Python for your applications.
-  EMR Serverless provides images that use as your base when you create your own
-  images. The base image provides the essential jars, configuration, and libraries for the image
-  to interact with EMR Serverless. You can find the base image in the [Amazon ECR Public Gallery](https://gallery.ecr.aws/emr-serverless/ "https://gallery.ecr.aws/emr-serverless/"). Use the image
-  that matches your application type (Spark or Hive) and release version. For example, if you
-  create an application on Amazon EMR release 6.9.0, use the following images.
+EMR Serverless provides images that use as your base when you create your own images. The base image provides the essential jars, configuration, and libraries for the image to interact with EMR Serverless. You can find the base image in the [Amazon ECR Public Gallery](https://gallery.ecr.aws/emr-serverless/). Use the image that matches your application type (Spark or Hive) and release version. For example, if you create an application on Amazon EMR release 6.9.0, use the following images.
 
-| Type  | Image                                                  |
-| ----- | ------------------------------------------------------ |
-| Spark | `public.ecr.aws/emr-serverless/spark/emr-6.9.0:latest` |
-| Hive  | `public.ecr.aws/emr-serverless/hive/emr-6.9.0:latest`  |
+
+| Type | Image | 
+| --- | --- | 
+| Spark | `public.ecr.aws/emr-serverless/spark/emr-6.9.0:latest` | 
+| Hive | `public.ecr.aws/emr-serverless/hive/emr-6.9.0:latest` | 
 
 ## Prerequisites
+<a name="worker-configs"></a>
 
 Before you create an EMR Serverless custom image, complete these prerequisites.
 
-1. Create an Amazon ECR repository in the same AWS Region that you use to launch
-   EMR Serverless applications. To create an Amazon ECR private repository, refer to [Creating
-   a private repository](../../../AmazonECR/latest/userguide/repository-create.md "../../../AmazonECR/latest/userguide/repository-create.md").
-2. To grant users access to your Amazon ECR repository, add the following policies to users
-   and roles that create or update EMR Serverless applications with images from this
-   repository.
+1. Create an Amazon ECR repository in the same AWS Region that you use to launch EMR Serverless applications. To create an Amazon ECR private repository, refer to [Creating a private repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-create.html).
 
-JSON
+1. To grant users access to your Amazon ECR repository, add the following policies to users and roles that create or update EMR Serverless applications with images from this repository. 
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "ECRRepositoryListGetPolicy",
- "Effect": "Allow",
- "Action": [
- "ecr:GetDownloadUrlForLayer",
- "ecr:BatchGetImage",
- "ecr:DescribeImages"
- ],
- "Resource": [
- "arn:aws:ecr:*:123456789012:repository/my-repo"
- ]
- }
- ]
-}`
+------
+#### [ JSON ]
 
-```
+****  
 
-For more examples of Amazon ECR identity-based policies, refer to [Amazon Elastic Container Registry
-identity-based policy examples](../../../AmazonECR/latest/userguide/security_iam_id-based-policy-examples.md "../../../AmazonECR/latest/userguide/security_iam_id-based-policy-examples.md").
+   ```
+   {
+     "Version":"2012-10-17",		 	 	 
+     "Statement": [
+       {
+         "Sid": "ECRRepositoryListGetPolicy",
+         "Effect": "Allow",
+         "Action": [
+           "ecr:GetDownloadUrlForLayer",
+           "ecr:BatchGetImage",
+           "ecr:DescribeImages"
+         ],
+         "Resource": [
+           "arn:aws:ecr:*:123456789012:repository/my-repo"
+         ]
+       }
+     ]
+   }
+   ```
+
+------
+
+   For more examples of Amazon ECR identity-based policies, refer to [Amazon Elastic Container Registry identity-based policy examples](https://docs.aws.amazon.com/AmazonECR/latest/userguide/security_iam_id-based-policy-examples.html).
 
 ## Step 1: Create a custom image from EMR Serverless base images
+<a name="create-image"></a>
 
-First, create a [Dockerfile](https://docs.docker.com/engine/reference/builder/ "https://docs.docker.com/engine/reference/builder/") that begins with a `FROM` instruction that uses your
-preferred base image. After the `FROM` instruction, include any
-modification that you want to make to the image. The base image automatically sets the
-`USER` to `hadoop`. This setting does not have permissions for all
-the modifications you include. As a workaround, set the `USER` to
-`root`, modify your image, and then set the `USER` back to
-`hadoop:hadoop`. To refer to samples for common use cases, refer to [Using custom images with EMR Serverless](using-custom-images.md "using-custom-images.md").
+First, create a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that begins with a `FROM` instruction that uses your preferred base image. After the `FROM` instruction, include any modification that you want to make to the image. The base image automatically sets the `USER` to `hadoop`. This setting does not have permissions for all the modifications you include. As a workaround, set the `USER` to `root`, modify your image, and then set the `USER` back to `hadoop:hadoop`. To refer to samples for common use cases, refer to [Using custom images with EMR Serverless](using-custom-images.md).
 
 ```
 # Dockerfile
@@ -86,22 +75,20 @@ After you have the Dockerfile, build the image with the following command.
 
 ```
 # build the docker image
-docker build . -t `aws-account-id`.dkr.ecr.`region`.amazonaws.com/`my-repository`[:tag]or[@digest]
+docker build . -t {{aws-account-id}}.dkr.ecr.{{region}}.amazonaws.com/{{my-repository}}[:tag]or[@digest]
 ```
 
 ## Step 2: Validate image locally
+<a name="validate"></a>
 
-EMR Serverless provides an offline tool that can statically check your custom image to
-validate basic files, environment variables, and correct image configurations. For
-information on how to install and run the tool, refer to [the Amazon EMR Serverless
-Image CLI GitHub](https://github.com/awslabs/amazon-emr-serverless-image-cli "https://github.com/awslabs/amazon-emr-serverless-image-cli").
+EMR Serverless provides an offline tool that can statically check your custom image to validate basic files, environment variables, and correct image configurations. For information on how to install and run the tool, refer to [the Amazon EMR Serverless Image CLI GitHub](https://github.com/awslabs/amazon-emr-serverless-image-cli).
 
 After you install the tool, run the following command to validate an image:
 
 ```
 amazon-emr-serverless-image \
 validate-image -r emr-6.9.0 -t spark \
--i `aws-account-id`.dkr.ecr.`region`.amazonaws.com/`my-repository`:tag/@digest
+-i {{aws-account-id}}.dkr.ecr.{{region}}.amazonaws.com/{{my-repository}}:tag/@digest
 ```
 
 The output appears similar to the following.
@@ -137,142 +124,126 @@ Overall Custom Image Validation Succeeded.
 ```
 
 ## Step 3: Upload the image to your Amazon ECR repository
+<a name="upload-image"></a>
 
-Push your Amazon ECR image to your Amazon ECR repository with the following commands. Ensure you
-have the correct IAM permissions to push the image to your repository. For more
-information, refer to [Pushing an image](../../../AmazonECR/latest/userguide/image-push.md "../../../AmazonECR/latest/userguide/image-push.md") in the
-_Amazon ECR User Guide_.
+Push your Amazon ECR image to your Amazon ECR repository with the following commands. Ensure you have the correct IAM permissions to push the image to your repository. For more information, refer to [Pushing an image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-push.html) in the *Amazon ECR User Guide*.
 
 ```
 # login to ECR repo
-aws ecr get-login-password --region region | docker login --username AWS --password-stdin `aws-account-id`.dkr.ecr.`region`.amazonaws.com
+aws ecr get-login-password --region region | docker login --username AWS --password-stdin {{aws-account-id}}.dkr.ecr.{{region}}.amazonaws.com
 
 # push the docker image
-docker push `aws-account-id`.dkr.ecr.`region`.amazonaws.com/`my-repository`:tag/@digest
+docker push {{aws-account-id}}.dkr.ecr.{{region}}.amazonaws.com/{{my-repository}}:tag/@digest
 ```
 
 ## Step 4: Create or update an application with custom images
+<a name="create-app"></a>
 
-Choose the AWS Management Console tab or AWS CLI tab according to how you want to launch your
-application, then complete the following steps.
+Choose the AWS Management Console tab or AWS CLI tab according to how you want to launch your application, then complete the following steps.
 
-Console
+------
+#### [ Console ]
 
-1. Sign in to the EMR Studio console at [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr"). Navigate to
-   your application, or create a new application with the instructions in [Create
-   an application](studio.md#studio-create-app "studio.md#studio-create-app").
-2. To specify custom images when you create or update an EMR Serverless
-   application, select **Custom settings** in the application setup
-   options.
-3. In the **Custom image settings** section, select the
-   **Use the custom image with this application** check
-   box.
-4. Paste the Amazon ECR image URI into the **Image URI** field.
-   EMR Serverless uses this image for all worker types for the application.
-   Alternatively, you can choose **Different custom images** and
-   paste different Amazon ECR image URIs for each worker type.
+1. Sign in to the EMR Studio console at [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr). Navigate to your application, or create a new application with the instructions in [Create an application](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/studio.html#studio-create-app).
 
-CLI
+1. To specify custom images when you create or update an EMR Serverless application, select **Custom settings** in the application setup options.
 
-- Create an application with the `image-configuration` parameter.
-  EMR Serverless applies this setting to all worker types.
+1. In the **Custom image settings** section, select the **Use the custom image with this application** check box.
 
-```
-aws emr-serverless create-application \
---release-label emr-6.9.0 \
---type SPARK \
---image-configuration '{
-    "imageUri": "`aws-account-id`.dkr.ecr.`region`.amazonaws.com/`my-repository`:tag/@digest"
-}'
-```
+1. Paste the Amazon ECR image URI into the **Image URI** field. EMR Serverless uses this image for all worker types for the application. Alternatively, you can choose **Different custom images** and paste different Amazon ECR image URIs for each worker type.
 
-To create an application with different image settings for each worker type,
-use the `worker-type-specifications` parameter.
+------
+#### [ CLI ]
++ Create an application with the `image-configuration` parameter. EMR Serverless applies this setting to all worker types.
 
-```
-aws emr-serverless create-application \
---release-label emr-6.9.0 \
---type SPARK \
---worker-type-specifications '{
-    "Driver": {
-        "imageConfiguration": {
-            "imageUri": "`aws-account-id`.dkr.ecr.`region`.amazonaws.com/`my-repository`:tag/@digest"
-        }
-    },
-    "Executor" : {
-        "imageConfiguration": {
-            "imageUri": "`aws-account-id`.dkr.ecr.`region`.amazonaws.com/`my-repository`:tag/@digest"
-        }
-    }
-}'
-```
+  ```
+  aws emr-serverless create-application \
+  --release-label emr-6.9.0 \
+  --type SPARK \
+  --image-configuration '{
+      "imageUri": "{{aws-account-id}}.dkr.ecr.{{region}}.amazonaws.com/{{my-repository}}:tag/@digest"
+  }'
+  ```
 
-To update an application, use the `image-configuration` parameter.
-EMR Serverless applies this setting to all worker types.
+  To create an application with different image settings for each worker type, use the `worker-type-specifications` parameter.
 
-```
-aws emr-serverless update-application \
---application-id `application-id` \
---image-configuration '{
-    "imageUri": "`aws-account-id`.dkr.ecr.`region`.amazonaws.com/`my-repository`:tag/@digest"
-}'
-```
+  ```
+  aws emr-serverless create-application \
+  --release-label emr-6.9.0 \
+  --type SPARK \
+  --worker-type-specifications '{
+      "Driver": {
+          "imageConfiguration": {
+              "imageUri": "{{aws-account-id}}.dkr.ecr.{{region}}.amazonaws.com/{{my-repository}}:tag/@digest"
+          }
+      },
+      "Executor" : {
+          "imageConfiguration": {
+              "imageUri": "{{aws-account-id}}.dkr.ecr.{{region}}.amazonaws.com/{{my-repository}}:tag/@digest"
+          }
+      }
+  }'
+  ```
+
+  To update an application, use the `image-configuration` parameter. EMR Serverless applies this setting to all worker types.
+
+  ```
+  aws emr-serverless update-application \
+  --application-id {{application-id}} \
+  --image-configuration '{
+      "imageUri": "{{aws-account-id}}.dkr.ecr.{{region}}.amazonaws.com/{{my-repository}}:tag/@digest"
+  }'
+  ```
+
+------
 
 ## Step 5: Allow EMR Serverless to access the custom image repository
+<a name="access-repo"></a>
 
-Add the following resource policy to the Amazon ECR repository to allow the EMR Serverless
-service principal to use the `get`, `describe`, and
-`download` requests from this repository.
+Add the following resource policy to the Amazon ECR repository to allow the EMR Serverless service principal to use the `get`, `describe`, and `download` requests from this repository.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "EmrServerlessCustomImageSupport",
- "Effect": "Allow",
- "Principal": {
- "Service": "emr-serverless.amazonaws.com"
- },
- "Action": [
- "ecr:BatchGetImage",
- "ecr:DescribeImages",
- "ecr:GetDownloadUrlForLayer"
- ],
- "Resource": "arn:aws:ecr:*:123456789012:repository/my-repo",
- "Condition": {
- "ArnLike": {
- "aws:SourceArn": "arn:aws:emr-serverless:*:123456789012:/applications/*"
- }
- }
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Sid": "EmrServerlessCustomImageSupport",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "emr-serverless.amazonaws.com"
+      },
+      "Action": [
+        "ecr:BatchGetImage",
+        "ecr:DescribeImages",
+        "ecr:GetDownloadUrlForLayer"
+      ],
+      "Resource": "arn:aws:ecr:*:123456789012:repository/my-repo",
+      "Condition": {
+        "ArnLike": {
+          "aws:SourceArn": "arn:aws:emr-serverless:*:123456789012:/applications/*"
+        }
+      }
+    }
+  ]
+}
+```
 
-As a security best practice, add an `aws:SourceArn` condition key to the
-repository policy. The IAM global condition key `aws:SourceArn` ensures that
-EMR Serverless uses the repository only for an application ARN. For more information on
-Amazon ECR repository policies, refer to [Creating a private
-repository](../../../AmazonECR/latest/userguide/repository-policies.md "../../../AmazonECR/latest/userguide/repository-policies.md").
+------
+
+As a security best practice, add an `aws:SourceArn` condition key to the repository policy. The IAM global condition key `aws:SourceArn` ensures that EMR Serverless uses the repository only for an application ARN. For more information on Amazon ECR repository policies, refer to [Creating a private repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html).
 
 ## Considerations and limitations
+<a name="considerations"></a>
 
 When you work with custom images, consider the following:
-
-- Use the correct base image that matches the type (Spark or Hive) and release label
-  (for example, `emr-6.9.0`) for your application.
-- EMR Serverless ignores `[CMD]` or `[ENTRYPOINT]` instructions
-  in the Docker file. Use common instructions in the Docker file, such as
-  `[COPY]`, `[RUN]`, and `[WORKDIR]`.
-- Do not modify environment variables `JAVA_HOME`,
-  `SPARK_HOME`, `HIVE_HOME`, `TEZ_HOME` when you create
-  a custom image.
-- Custom images can't exceed 10 GB in size.
-- If you modify binaries or jars in the Amazon EMR base images, this can cause application
-  or job launch failures.
-- The Amazon ECR repository must be in the same AWS Region that you use to launch
-  EMR Serverless applications.
++ Use the correct base image that matches the type (Spark or Hive) and release label (for example, `emr-6.9.0`) for your application.
++ EMR Serverless ignores `[CMD]` or `[ENTRYPOINT]` instructions in the Docker file. Use common instructions in the Docker file, such as `[COPY]`, `[RUN]`, and `[WORKDIR]`.
++ Do not modify environment variables `JAVA_HOME`, `SPARK_HOME`, `HIVE_HOME`, `TEZ_HOME` when you create a custom image.
++ Custom images can't exceed 10 GB in size.
++ If you modify binaries or jars in the Amazon EMR base images, this can cause application or job launch failures.
++ The Amazon ECR repository must be in the same AWS Region that you use to launch EMR Serverless applications.
