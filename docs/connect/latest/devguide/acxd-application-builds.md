@@ -1,17 +1,20 @@
+
+
 # Application Builds
+<a name="acxd-application-builds"></a>
 
 A build creates an immutable package of your application's flow logic, language settings, and configuration. A build compiles an application's flows and configuration into a deployable artifact.
 
-###### Contents
-
-- [Quick Start](#acxd-application-builds-quick-start "#acxd-application-builds-quick-start")
-- [ListApplicationBuilds](#acxd-application-builds-listapplicationbuilds "#acxd-application-builds-listapplicationbuilds")
-- [CreateApplicationBuild](#acxd-application-builds-createapplicationbuild "#acxd-application-builds-createapplicationbuild")
-- [GetApplicationBuild](#acxd-application-builds-getapplicationbuild "#acxd-application-builds-getapplicationbuild")
-- [GetApplicationBuildDiff](#acxd-application-builds-getapplicationbuilddiff "#acxd-application-builds-getapplicationbuilddiff")
-- [Request Parameters](#acxd-application-builds-request-parameters "#acxd-application-builds-request-parameters")
+**Topics**
++ [Quick Start](#acxd-application-builds-quick-start)
++ [ListApplicationBuilds](#acxd-application-builds-listapplicationbuilds)
++ [CreateApplicationBuild](#acxd-application-builds-createapplicationbuild)
++ [GetApplicationBuild](#acxd-application-builds-getapplicationbuild)
++ [GetApplicationBuildDiff](#acxd-application-builds-getapplicationbuilddiff)
++ [Request Parameters](#acxd-application-builds-request-parameters)
 
 ## Quick Start
+<a name="acxd-application-builds-quick-start"></a>
 
 This example creates an application, attaches a flow, builds it, and checks build status.
 
@@ -46,18 +49,22 @@ console.log(status.status); // "PENDING" | "BUILT" | "FAILED"
 ```
 
 ## ListApplicationBuilds
+<a name="acxd-application-builds-listapplicationbuilds"></a>
 
 Lists builds for an application.
 
 ### Input
+<a name="w2aac18c13d127b9b5"></a>
 
-| Parameter               | Type    | Required |
-| ----------------------- | ------- | -------- |
-| `applicationIdentifier` | string  | Yes      |
-| `nextToken`             | string  | No       |
-| `maxResults`            | integer | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| applicationIdentifier | string | Yes | 
+| nextToken | string | No | 
+| maxResults | integer | No | 
 
 ### Sample Request
+<a name="w2aac18c13d127b9b7"></a>
 
 ```
 await client.send(new ListApplicationBuildsCommand({
@@ -66,6 +73,7 @@ await client.send(new ListApplicationBuildsCommand({
 ```
 
 ### Output
+<a name="w2aac18c13d127b9b9"></a>
 
 ```
 {
@@ -92,25 +100,29 @@ await client.send(new ListApplicationBuildsCommand({
 ```
 
 ### Errors
-
-- `ResourceNotFoundException` (404)
-- `ValidationException` (400)
-- `InternalServerException` (500)
+<a name="w2aac18c13d127b9c11"></a>
++ `ResourceNotFoundException` (404)
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## CreateApplicationBuild
+<a name="acxd-application-builds-createapplicationbuild"></a>
 
 Starts a new build. A validation check runs automatically, review the results to catch errors before deploying. Builds are immutable once created.
 
 ### Input
+<a name="w2aac18c13d127c11b5"></a>
 
-| Parameter               | Type   | Required |
-| ----------------------- | ------ | -------- |
-| `applicationIdentifier` | string | Yes      |
-| `version`               | string | No       |
-| `description`           | string | No       |
-| `languageSettings`      | array  | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| applicationIdentifier | string | Yes | 
+| version | string | No | 
+| description | string | No | 
+| languageSettings | array | No | 
 
 ### Sample Request
+<a name="w2aac18c13d127c11b7"></a>
 
 ```
 await client.send(new CreateApplicationBuildCommand({
@@ -124,6 +136,7 @@ await client.send(new CreateApplicationBuildCommand({
 ```
 
 ### Output
+<a name="w2aac18c13d127c11b9"></a>
 
 ```
 {
@@ -146,23 +159,27 @@ await client.send(new CreateApplicationBuildCommand({
 ```
 
 ### Errors
-
-- `ResourceNotFoundException` (404)
-- `ValidationException` (400)
-- `InternalServerException` (500)
+<a name="w2aac18c13d127c11c11"></a>
++ `ResourceNotFoundException` (404)
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## GetApplicationBuild
+<a name="acxd-application-builds-getapplicationbuild"></a>
 
 Gets build details and status. A build transitions from PENDING → BUILT (success) or FAILED. Failed builds include details on what caused the error.
 
 ### Input
+<a name="w2aac18c13d127c13b5"></a>
 
-| Parameter               | Type   | Required |
-| ----------------------- | ------ | -------- |
-| `applicationIdentifier` | string | Yes      |
-| `buildIdentifier`       | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| applicationIdentifier | string | Yes | 
+| buildIdentifier | string | Yes | 
 
 ### Sample Request
+<a name="w2aac18c13d127c13b7"></a>
 
 ```
 await client.send(new GetApplicationBuildCommand({
@@ -172,6 +189,7 @@ await client.send(new GetApplicationBuildCommand({
 ```
 
 ### Output
+<a name="w2aac18c13d127c13b9"></a>
 
 ```
 {
@@ -194,24 +212,28 @@ await client.send(new GetApplicationBuildCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="w2aac18c13d127c13c11"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## GetApplicationBuildDiff
+<a name="acxd-application-builds-getapplicationbuilddiff"></a>
 
 Gets the diff between two builds showing what changed.
 
 ### Input
+<a name="w2aac18c13d127c15b5"></a>
 
-| Parameter                 | Type   | Required |
-| ------------------------- | ------ | -------- |
-| `applicationIdentifier`   | string | Yes      |
-| `buildIdentifier`         | string | Yes      |
-| `previousBuildIdentifier` | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| applicationIdentifier | string | Yes | 
+| buildIdentifier | string | Yes | 
+| previousBuildIdentifier | string | Yes | 
 
 ### Sample Request
+<a name="w2aac18c13d127c15b7"></a>
 
 ```
 await client.send(new GetApplicationBuildDiffCommand({
@@ -222,6 +244,7 @@ await client.send(new GetApplicationBuildDiffCommand({
 ```
 
 ### Output
+<a name="w2aac18c13d127c15b9"></a>
 
 ```
 {
@@ -239,69 +262,50 @@ await client.send(new GetApplicationBuildDiffCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="w2aac18c13d127c15c11"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## Request Parameters
+<a name="acxd-application-builds-request-parameters"></a>
 
-`applicationIdentifier`
-
-Type: String
-
+`applicationIdentifier`  
+Type: String  
 The application ID that owns the builds.
 
-`buildIdentifier`
-
-Type: String
-
+`buildIdentifier`  
+Type: String  
 The unique identifier for a build (assigned on creation) and used in Get and Diff operations.
 
-`previousBuildIdentifier`
-
-Type: String
-
+`previousBuildIdentifier`  
+Type: String  
 The build ID to compare against when generating a diff.
 
-`status`
-
-Type: String
-
+`status`  
+Type: String  
 The current build status. One of: `PENDING`, `BUILT`, `FAILED`.
 
-`version`
-
-Type: String
-
+`version`  
+Type: String  
 A version label for the build. Max 16 characters.
 
-`description`
-
-Type: String
-
+`description`  
+Type: String  
 Build description. Max 200 characters.
 
-`languageSettings`
-
-Type: Array
-
+`languageSettings`  
+Type: Array  
 Per-language build configuration. Each entry: `{ "languageCode": "en-US", "useNativeLanguage": true, "region": "global" }`. See Application languageSettings.
 
-`createdAt`
-
-Type: String
-
+`createdAt`  
+Type: String  
 When the build was created (ISO 8601).
 
-`updatedAt`
-
-Type: String
-
+`updatedAt`  
+Type: String  
 When the build was last modified (ISO 8601).
 
-`updatedBy`
-
-Type: String
-
+`updatedBy`  
+Type: String  
 The identity of who last modified the build.

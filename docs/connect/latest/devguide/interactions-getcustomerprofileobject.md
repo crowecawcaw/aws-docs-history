@@ -1,24 +1,26 @@
+
+
 # GetCustomerProfileObject
+<a name="interactions-getcustomerprofileobject"></a>
 
-Retrieve a customer profile object of the desired type, based on recency or any search identifier. Customer Profiles must be enabled for
-your Connect Customer instance.
+Retrieve a customer profile object of the desired type, based on recency or any search identifier. Customer Profiles must be enabled for your Connect Customer instance.
 
-See [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") in the _Connect Customer Customer Profiles API Reference_.
+See [ListProfileObjects](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileObjects.html) in the *Connect Customer Customer Profiles API Reference*.
 
 ## Parameter object
+<a name="getcustomerprofileobject-parameter"></a>
 
-A `ProfileId` and `ObjectType` must be present. Either `UseLatest`, or
-`IdentifierName` and `IdentifierValue` must be present.
+A `ProfileId` and `ObjectType` must be present. Either `UseLatest`, or `IdentifierName` and `IdentifierValue` must be present.
 
 ```
 {
     "ProfileRequestData": {
         "ProfileId": Profile owning the object,
         "ObjectType": Type of object being retrieved,
-
+        
         "IdentifierName": Optional name of search identifier,
         "IdentifierValue": Optional value of search identifier,
-        "UseLatest": true / false
+        "UseLatest": true / false 
     },
    "ProfileResponseData": {
        All of these fields are optional.
@@ -110,17 +112,16 @@ A `ProfileId` and `ObjectType` must be present. Either `UseLatest`, or
 ```
 
 ## Results and conditions
+<a name="getcustomerprofileobject-results"></a>
 
-None. Conditions are not supported. If an error does not occur, the response's
-attributes are available dynamically under the `$.Customer` path based on
-the attributes included in `ProfileResponseData`.
+None. Conditions are not supported. If an error does not occur, the response's attributes are available dynamically under the `$.Customer` path based on the attributes included in `ProfileResponseData`.
 
 ## Errors
-
-- NoneFoundError - if no profiles were found for the associated profile
-  search key.
-- NoMatchingError - if no other Error matches.
+<a name="getcustomerprofileobject-errors"></a>
++ NoneFoundError - if no profiles were found for the associated profile search key.
++ NoMatchingError - if no other Error matches.
 
 ## Corresponding block in the UI
+<a name="getcustomerprofileobject-ui"></a>
 
-[Customer profiles block](../adminguide/customer-profiles-block.md "../adminguide/customer-profiles-block.md")
+[Customer profiles block](https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles-block.html) 

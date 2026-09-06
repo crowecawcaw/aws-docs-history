@@ -1,40 +1,43 @@
+
+
 # Flows
+<a name="acxd-flows"></a>
 
-A flow represents the structured path a conversation follows to fulfill a user's intent,
-whether that's answering FAQs, completing a task, or guiding a user toward an action. Each flow
-combines logic, prompts, and responses into a graph of connected nodes. Once attached to an
-application and deployed, the application can execute the flow and automate the corresponding
-task. A single flow can be shared across multiple applications in your workspace.
+A flow represents the structured path a conversation follows to fulfill a user's intent, whether that's answering FAQs, completing a task, or guiding a user toward an action. Each flow combines logic, prompts, and responses into a graph of connected nodes. Once attached to an application and deployed, the application can execute the flow and automate the corresponding task. A single flow can be shared across multiple applications in your workspace.
 
-###### Contents
-
-- [ListFlows](#acxd-flows-listflows "#acxd-flows-listflows")
-- [CreateFlow](#acxd-flows-createflow "#acxd-flows-createflow")
-- [GetFlow](#acxd-flows-getflow "#acxd-flows-getflow")
-- [UpdateFlow](#acxd-flows-updateflow "#acxd-flows-updateflow")
-- [DeleteFlow](#acxd-flows-deleteflow "#acxd-flows-deleteflow")
-- [Request Parameters](#acxd-flows-request-parameters "#acxd-flows-request-parameters")
-- [Attached Slot](#acxd-flows-attached-slot "#acxd-flows-attached-slot")
-- [Flow Node](#acxd-flows-flow-node "#acxd-flows-flow-node")
+**Topics**
++ [ListFlows](#acxd-flows-listflows)
++ [CreateFlow](#acxd-flows-createflow)
++ [GetFlow](#acxd-flows-getflow)
++ [UpdateFlow](#acxd-flows-updateflow)
++ [DeleteFlow](#acxd-flows-deleteflow)
++ [Request Parameters](#acxd-flows-request-parameters)
++ [Attached Slot](#acxd-flows-attached-slot)
++ [Flow Node](#acxd-flows-flow-node)
 
 ## ListFlows
+<a name="acxd-flows-listflows"></a>
 
 Lists all flows in the workspace. Returns summary information without node details.
 
 ### Input
+<a name="acxd-flows-listflows-input"></a>
 
-| Parameter    | Type    | Required |
-| ------------ | ------- | -------- |
-| `nextToken`  | string  | No       |
-| `maxResults` | integer | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| nextToken | string | No | 
+| maxResults | integer | No | 
 
 ### Sample Request
+<a name="acxd-flows-listflows-sample-request"></a>
 
 ```
 await client.send(new ListFlowsCommand({}));
 ```
 
 ### Output
+<a name="acxd-flows-listflows-output"></a>
 
 ```
 {
@@ -58,34 +61,37 @@ await client.send(new ListFlowsCommand({}));
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `InternalServerException` (500)
-- `ThrottlingException` (429)
+<a name="acxd-flows-listflows-errors"></a>
++ `ValidationException` (400)
++ `InternalServerException` (500)
++ `ThrottlingException` (429)
 
 ## CreateFlow
+<a name="acxd-flows-createflow"></a>
 
-Creates a new flow with nodes (conversation logic), and optional slot types and context
-variables.
+Creates a new flow with nodes (conversation logic), and optional slot types and context variables.
 
 ### Input
+<a name="acxd-flows-createflow-input"></a>
 
-| Parameter          | Type    | Required |
-| ------------------ | ------- | -------- |
-| `flowId`           | string  | Yes      |
-| `description`      | string  | No       |
-| `nodes`            | object  | Yes      |
-| `aiDescription`    | string  | No       |
-| `untrained`        | boolean | No       |
-| `mainLanguageCode` | string  | No       |
-| `languageCode`     | enum    | No       |
-| `languageCodes`    | array   | No       |
-| `slotTypes`        | array   | No       |
-| `contextVariables` | array   | No       |
-| `mcp`              | object  | No       |
-| `metadata`         | object  | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| flowId | string | Yes | 
+| description | string | No | 
+| nodes | object | Yes | 
+| aiDescription | string | No | 
+| untrained | boolean | No | 
+| mainLanguageCode | string | No | 
+| languageCode | enum | No | 
+| languageCodes | array | No | 
+| slotTypes | array | No | 
+| contextVariables | array | No | 
+| mcp | object | No | 
+| metadata | object | No | 
 
 ### Sample Request
+<a name="acxd-flows-createflow-sample-request"></a>
 
 ```
 const created = await client.send(new CreateFlowCommand({
@@ -117,6 +123,7 @@ const created = await client.send(new CreateFlowCommand({
 ```
 
 ### Output
+<a name="acxd-flows-createflow-output"></a>
 
 ```
 {
@@ -162,25 +169,28 @@ const created = await client.send(new CreateFlowCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ConflictException` (409)
-- `InternalServerException` (500)
-- `ThrottlingException` (429)
+<a name="acxd-flows-createflow-errors"></a>
++ `ValidationException` (400)
++ `ConflictException` (409)
++ `InternalServerException` (500)
++ `ThrottlingException` (429)
 
 ## GetFlow
+<a name="acxd-flows-getflow"></a>
 
-Gets the full flow definition including all nodes, attached slots, and context
-variables.
+Gets the full flow definition including all nodes, attached slots, and context variables.
 
 ### Input
+<a name="acxd-flows-getflow-input"></a>
 
-| Parameter        | Type   | Required |
-| ---------------- | ------ | -------- |
-| `flowIdentifier` | string | Yes      |
-| `languageCode`   | string | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| flowIdentifier | string | Yes | 
+| languageCode | string | No | 
 
 ### Sample Request
+<a name="acxd-flows-getflow-sample-request"></a>
 
 ```
 const fetched = await client.send(new GetFlowCommand({
@@ -189,6 +199,7 @@ const fetched = await client.send(new GetFlowCommand({
 ```
 
 ### Output
+<a name="acxd-flows-getflow-output"></a>
 
 ```
 {
@@ -234,35 +245,38 @@ const fetched = await client.send(new GetFlowCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
-- `ThrottlingException` (429)
+<a name="acxd-flows-getflow-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
++ `ThrottlingException` (429)
 
 ## UpdateFlow
+<a name="acxd-flows-updateflow"></a>
 
-Updates an existing flow. Only include fields you want to change. Changes do not affect
-deployed applications until a new build is created.
+Updates an existing flow. Only include fields you want to change. Changes do not affect deployed applications until a new build is created.
 
 ### Input
+<a name="acxd-flows-updateflow-input"></a>
 
-| Parameter          | Type    | Required |
-| ------------------ | ------- | -------- |
-| `flowIdentifier`   | string  | Yes      |
-| `nodes`            | object  | No       |
-| `description`      | string  | No       |
-| `aiDescription`    | string  | No       |
-| `untrained`        | boolean | No       |
-| `mainLanguageCode` | string  | No       |
-| `languageCode`     | enum    | No       |
-| `languageCodes`    | array   | No       |
-| `slotTypes`        | array   | No       |
-| `contextVariables` | array   | No       |
-| `mcp`              | object  | No       |
-| `metadata`         | object  | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| flowIdentifier | string | Yes | 
+| nodes | object | No | 
+| description | string | No | 
+| aiDescription | string | No | 
+| untrained | boolean | No | 
+| mainLanguageCode | string | No | 
+| languageCode | enum | No | 
+| languageCodes | array | No | 
+| slotTypes | array | No | 
+| contextVariables | array | No | 
+| mcp | object | No | 
+| metadata | object | No | 
 
 ### Sample Request
+<a name="acxd-flows-updateflow-sample-request"></a>
 
 ```
 await client.send(new UpdateFlowCommand({
@@ -294,6 +308,7 @@ await client.send(new UpdateFlowCommand({
 ```
 
 ### Output
+<a name="acxd-flows-updateflow-output"></a>
 
 ```
 {
@@ -339,24 +354,28 @@ await client.send(new UpdateFlowCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `ConflictException` (409)
-- `InternalServerException` (500)
-- `ThrottlingException` (429)
+<a name="acxd-flows-updateflow-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `ConflictException` (409)
++ `InternalServerException` (500)
++ `ThrottlingException` (429)
 
 ## DeleteFlow
+<a name="acxd-flows-deleteflow"></a>
 
 Deletes a flow. If the flow is attached to applications, detach it first.
 
 ### Input
+<a name="acxd-flows-deleteflow-input"></a>
 
-| Parameter        | Type   | Required |
-| ---------------- | ------ | -------- |
-| `flowIdentifier` | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| flowIdentifier | string | Yes | 
 
 ### Sample Request
+<a name="acxd-flows-deleteflow-sample-request"></a>
 
 ```
 await client.send(new DeleteFlowCommand({
@@ -365,17 +384,19 @@ await client.send(new DeleteFlowCommand({
 ```
 
 ### Output
+<a name="acxd-flows-deleteflow-output"></a>
 
 No response body.
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
-- `ThrottlingException` (429)
+<a name="acxd-flows-deleteflow-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
++ `ThrottlingException` (429)
 
 ## Request Parameters
+<a name="acxd-flows-request-parameters"></a>
 
 `flowId`
 
@@ -399,8 +420,7 @@ Flow description. Max 200 characters.
 
 Type: String
 
-AI-readable description of what this flow does. Max 1000 characters. Used by generative
-features to understand flow purpose.
+AI-readable description of what this flow does. Max 1000 characters. Used by generative features to understand flow purpose.
 
 `untrained`
 
@@ -499,15 +519,17 @@ Type: Integer
 Max items per page (1–500). See Common Types.
 
 ## Attached Slot
+<a name="acxd-flows-attached-slot"></a>
 
-| Field           | Type    | Required |
-| --------------- | ------- | -------- |
-| `name`          | string  | Yes      |
-| `type`          | string  | Yes      |
-| `sensitive`     | boolean | No       |
-| `examples`      | array   | No       |
-| `aiDescription` | string  | No       |
-| `regex`         | string  | No       |
+
+| Field | Type | Required | 
+| --- | --- | --- | 
+| name | string | Yes | 
+| type | string | Yes | 
+| sensitive | boolean | No | 
+| examples | array | No | 
+| aiDescription | string | No | 
+| regex | string | No | 
 
 `name`
 
@@ -546,17 +568,19 @@ Type: String
 Optional regex pattern for validation. Max 300 characters.
 
 ## Flow Node
+<a name="acxd-flows-flow-node"></a>
 
-| Field            | Type   | Required |
-| ---------------- | ------ | -------- |
-| `nodeId`         | string | Yes      |
-| `type`           | enum   | Yes      |
-| `childNodes`     | array  | No       |
-| `dataRequests`   | array  | No       |
-| `messages`       | array  | No       |
-| `modalities`     | object | No       |
-| `canvasMetadata` | object | No       |
-| `metadata`       | object | No       |
+
+| Field | Type | Required | 
+| --- | --- | --- | 
+| nodeId | string | Yes | 
+| type | enum | Yes | 
+| childNodes | array | No | 
+| dataRequests | array | No | 
+| messages | array | No | 
+| modalities | object | No | 
+| canvasMetadata | object | No | 
+| metadata | object | No | 
 
 `nodeId`
 
@@ -568,13 +592,7 @@ Unique node identifier.
 
 Type: String
 
-The node type. One of: `basic`, `start`, `end`,
-`user_input`, `user_choice`, `choice`,
-`data_request`, `redirect`, `escalate`, `split`,
-`loop`, `define`, `wait`, `transform`,
-`note`, `knowledge_base`, `generative_text`,
-`generative_task`, `generative_journey`, `multimodal`,
-`intent_capture`, `application_handoff`.
+The node type. One of: `basic`, `start`, `end`, `user_input`, `user_choice`, `choice`, `data_request`, `redirect`, `escalate`, `split`, `loop`, `define`, `wait`, `transform`, `note`, `knowledge_base`, `generative_text`, `generative_task`, `generative_journey`, `multimodal`, `intent_capture`, `application_handoff`.
 
 `childNodes`
 
@@ -610,8 +628,4 @@ Visual editor position and display settings: `{ "x": 100, "y": 200, "width": 300
 
 Type: Object
 
-Node-type-specific configuration. The fields available depend on the node `type`.
-Contains configuration like `generativeText`, `choice`,
-`redirect`, `knowledgeBase`, `loop`, `multimodal`,
-`stateModifications`, `tags`, `name`, `timeout`,
-etc.
+Node-type-specific configuration. The fields available depend on the node `type`. Contains configuration like `generativeText`, `choice`, `redirect`, `knowledgeBase`, `loop`, `multimodal`, `stateModifications`, `tags`, `name`, `timeout`, etc.

@@ -1,11 +1,9 @@
-# Example test
 
-The following example demonstrates a JSON string representing the content of a test case configuration. It
-illustrates a simple test case that mocks the hours of operation when the test is initiated and then validates
-that a welcome prompt is played. Additionally, it simulates a contact's DTMF input to be placed in a queue and
-connected to an agent. The test will then verify if the queue placement is correct before concluding the test
-case. Overall, this test case configuration consists of three interactions with three simulated actions. Following is
-an example of the JSON representation for this test case.
+
+# Example test
+<a name="testing-language-example"></a>
+
+The following example demonstrates a JSON string representing the content of a test case configuration. It illustrates a simple test case that mocks the hours of operation when the test is initiated and then validates that a welcome prompt is played. Additionally, it simulates a contact's DTMF input to be placed in a queue and connected to an agent. The test will then verify if the queue placement is correct before concluding the test case. Overall, this test case configuration consists of three interactions with three simulated actions. Following is an example of the JSON representation for this test case.
 
 ```
 {

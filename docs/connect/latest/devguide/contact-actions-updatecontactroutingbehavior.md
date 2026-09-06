@@ -1,9 +1,12 @@
-# UpdateContactRoutingBehavior
 
-Updates the contact's routing details. This can move the contact forward or backward
-in queue, or specify a queue priority.
+
+# UpdateContactRoutingBehavior
+<a name="contact-actions-updatecontactroutingbehavior"></a>
+
+Updates the contact's routing details. This can move the contact forward or backward in queue, or specify a queue priority. 
 
 ## Parameter object
+<a name="updatecontactroutingbehavior-parameter"></a>
 
 ```
 {
@@ -13,19 +16,21 @@ in queue, or specify a queue priority.
 ```
 
 ## Results and conditions
+<a name="updatecontactroutingbehavior-results"></a>
 
 None.
 
 ## Errors
+<a name="updatecontactroutingbehavior-errors"></a>
 
 None.
 
 ## Restrictions
+<a name="updatecontactroutingbehavior-restrictions"></a>
 
-This is supported only in inbound contact flows. It is not supported in transfer
-flows, whisper flows, customer queue flows, or hold flows.
+This is supported only in inbound contact flows. It is not supported in transfer flows, whisper flows, customer queue flows, or hold flows. 
 
 ## Corresponding block in the UI
+<a name="updatecontactroutingbehavior-ui"></a>
 
-[Change routing
-priority / age](../adminguide/change-routing-priority.md "../adminguide/change-routing-priority.md")
+[Change routing priority / age](https://docs.aws.amazon.com/connect/latest/adminguide/change-routing-priority.html) 

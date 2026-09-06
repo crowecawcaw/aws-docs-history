@@ -1,12 +1,14 @@
+
+
 # Integration association actions
+<a name="integration-association-api"></a>
 
 The following API actions are available for integration associations:
++ [CreateIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html)
++ [DeleteIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html)
++ [ListIntegrationAssociations](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListIntegrationAssociations.html)
 
-- [CreateIntegrationAssociation](../APIReference/API_CreateIntegrationAssociation.md "../APIReference/API_CreateIntegrationAssociation.md")
-- [DeleteIntegrationAssociation](../APIReference/API_DeleteIntegrationAssociation.md "../APIReference/API_DeleteIntegrationAssociation.md")
-- [ListIntegrationAssociations](../APIReference/API_ListIntegrationAssociations.md "../APIReference/API_ListIntegrationAssociations.md")
-  To create a CloudFormation template for instance associations, see the following topic:
+To create a CloudFormation template for instance associations, see the following topic:
++ [AWS::Connect::IntegrationAssociation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html)
 
-- [AWS::Connect::IntegrationAssociation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.md")
-  For more information about integration associations, see [Set up pre-built integrations](../adminguide/crm.md "../adminguide/crm.md") in
-  the _Connect Customer Administrator Guide_.
+For more information about integration associations, see [Set up pre-built integrations](https://docs.aws.amazon.com/connect/latest/adminguide/crm.html) in the *Connect Customer Administrator Guide*. 

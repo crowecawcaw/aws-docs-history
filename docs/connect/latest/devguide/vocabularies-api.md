@@ -1,13 +1,14 @@
+
+
 # Vocabulary actions
+<a name="vocabularies-api"></a>
 
 The following API actions are available for vocabularies:
++ [AssociateDefaultVocabulary](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateDefaultVocabulary.html)
++ [CreateVocabulary](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateVocabulary.html)
++ [DeleteVocabulary](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteVocabulary.html)
++ [DescribeVocabulary](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeVocabulary.html)
++ [ListDefaultVocabularies](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListDefaultVocabularies.html)
++ [SearchVocabularies](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchVocabularies.html)
 
-- [AssociateDefaultVocabulary](../APIReference/API_AssociateDefaultVocabulary.md "../APIReference/API_AssociateDefaultVocabulary.md")
-- [CreateVocabulary](../APIReference/API_CreateVocabulary.md "../APIReference/API_CreateVocabulary.md")
-- [DeleteVocabulary](../APIReference/API_DeleteVocabulary.md "../APIReference/API_DeleteVocabulary.md")
-- [DescribeVocabulary](../APIReference/API_DescribeVocabulary.md "../APIReference/API_DescribeVocabulary.md")
-- [ListDefaultVocabularies](../APIReference/API_ListDefaultVocabularies.md "../APIReference/API_ListDefaultVocabularies.md")
-- [SearchVocabularies](../APIReference/API_SearchVocabularies.md "../APIReference/API_SearchVocabularies.md")
-  For more information about custom vocabularies, see [Add custom
-  vocabularies](../adminguide/add-custom-vocabulary.md "../adminguide/add-custom-vocabulary.md") in the _Connect Customer Administrator
-  Guide_.
+For more information about custom vocabularies, see [Add custom vocabularies](https://docs.aws.amazon.com/connect/latest/adminguide/add-custom-vocabulary.html) in the *Connect Customer Administrator Guide*. 

@@ -1,51 +1,46 @@
+
+
 # Resource integrations
+<a name="resource-integrations"></a>
 
 ## CloudFormation
+<a name="cloudformation-integration"></a>
 
-Connect Customer is integrated with [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/AWS_Connect.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Connect.md"), a service that allows you to treat infrastructure as code. Use CloudFormation to model, provision, and manage AWS and third-party
-resources.
+Connect Customer is integrated with [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Connect.html), a service that allows you to treat infrastructure as code. Use CloudFormation to model, provision, and manage AWS and third-party resources. 
 
-The following Connect Customer resource APIs support CloudFormation
-templates:
-
-- [AWS::Connect::ApprovedOrigin](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.md")
-- [AWS::Connect::ContactFlow](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.md")
-- [AWS::Connect::ContactFlowModule](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.md")
-- [AWS::Connect::EvaluationForm](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.md")
-- [AWS::Connect::HoursOfOperation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.md")
-- [AWS::Connect::Instance](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.md")
-- [AWS::Connect::InstanceStorageConfig](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.md")
-- [AWS::Connect::IntegrationAssociation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.md")
-- [AWS::Connect::PhoneNumber](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.md")
-- [AWS::Connect::Prompt](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-prompt.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-prompt.md")
-- [AWS::Connect::Queue](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.md")
-- [AWS::Connect::QuickConnect](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.md")
-- [AWS::Connect::RoutingProfile](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.md")
-- [AWS::Connect::Rule](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.md")
-- [AWS::Connect::SecurityKey](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.md")
-- [AWS::Connect::TaskTemplate](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.md")
-- [AWS::Connect::TrafficDistributionGroup](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-trafficdistributiongroup.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-trafficdistributiongroup.md")
-- [AWS::Connect::User](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.md")
-- [AWS::Connect::UserHierarchyGroup](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.md")
-- [AWS::Connect::View](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-view.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-view.md")
-- [AWS::Connect::ViewVersion](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-viewversion.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-viewversion.md")
+The following Connect Customer resource APIs support CloudFormation templates:
++ [AWS::Connect::ApprovedOrigin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.html)
++ [AWS::Connect::ContactFlow](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html)
++ [AWS::Connect::ContactFlowModule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html)
++ [AWS::Connect::EvaluationForm](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html)
++ [AWS::Connect::HoursOfOperation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html)
++ [AWS::Connect::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.html)
++ [AWS::Connect::InstanceStorageConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html)
++ [AWS::Connect::IntegrationAssociation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html)
++ [AWS::Connect::PhoneNumber](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html)
++ [AWS::Connect::Prompt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-prompt.html)
++ [AWS::Connect::Queue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html)
++ [AWS::Connect::QuickConnect](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html)
++ [AWS::Connect::RoutingProfile](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html)
++ [AWS::Connect::Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html)
++ [AWS::Connect::SecurityKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.html)
++ [AWS::Connect::TaskTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html)
++ [AWS::Connect::TrafficDistributionGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-trafficdistributiongroup.html)
++ [AWS::Connect::User](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html)
++ [AWS::Connect::UserHierarchyGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html)
++ [AWS::Connect::View](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-view.html)
++ [AWS::Connect::ViewVersion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-viewversion.html)
 
 ## CloudTrail
+<a name="cloudtrail-integration"></a>
 
-Connect Customer is integrated with AWS CloudTrail, a service that provides a
-record of the Connect Customer API calls that a user, role, or AWS
-service makes. CloudTrail captures Connect Customer API calls as events. All
-public Connect Customer APIs support CloudTrail.
+Connect Customer is integrated with AWS CloudTrail, a service that provides a record of the Connect Customer API calls that a user, role, or AWS service makes. CloudTrail captures Connect Customer API calls as events. All public Connect Customer APIs support CloudTrail. 
 
-For more information, see [Logging Connect Customer API calls with AWS CloudTrail.](../adminguide/logging-using-cloudtrail.md "../adminguide/logging-using-cloudtrail.md")
+For more information, see [Logging Connect Customer API calls with AWS CloudTrail.](https://docs.aws.amazon.com/connect/latest/adminguide/logging-using-cloudtrail.html) 
 
 ## EventBridge
+<a name="eventbridge-integration"></a>
 
-Connect Customer is integrated with Amazon EventBridge, a service that provides a
-record of the Connect Customer API calls that a user, role, or AWS
-service makes. All public Connect Customer APIs support EventBridge, with events
-published to CloudTrail consumable in EventBridge.
+Connect Customer is integrated with Amazon EventBridge, a service that provides a record of the Connect Customer API calls that a user, role, or AWS service makes. All public Connect Customer APIs support EventBridge, with events published to CloudTrail consumable in EventBridge. 
 
-Some Connect Customer resources are integrated directly into EventBridge. For
-more information, see [EventBridge
-events emitted by Connect Customer.](../adminguide/connect-eventbridge-events.md "../adminguide/connect-eventbridge-events.md")
+Some Connect Customer resources are integrated directly into EventBridge. For more information, see [EventBridge events emitted by Connect Customer.](https://docs.aws.amazon.com/connect/latest/adminguide/connect-eventbridge-events.html) 

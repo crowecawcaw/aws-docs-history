@@ -1,7 +1,9 @@
-# API Reference
 
-All operations follow the Command pattern. Import the client and the command, then
-call client.send(command).
+
+# API Reference
+<a name="acxd-api-reference"></a>
+
+All operations follow the Command pattern. Import the client and the command, then call client.send(command).
 
 ```
 import { AgenticCXDesignerClient, <CommandName> } from "amazon-connect-acxd-sdk";
@@ -28,202 +30,200 @@ const response = await client.send(new ListApplicationsCommand({
 The following section lists the API operations by resource.
 
 **API Token Operations**
++ `ListApiTokens`
++ `CreateApiToken`
++ `DeleteApiToken`
 
-- `ListApiTokens`
-- `CreateApiToken`
-- `DeleteApiToken`
-  **Application Operations**
+**Application Operations**
++ `ListApplications`
++ `CreateApplication`
++ `GetApplication`
++ `UpdateApplication`
++ `DeleteApplication`
 
-- `ListApplications`
-- `CreateApplication`
-- `GetApplication`
-- `UpdateApplication`
-- `DeleteApplication`
-  **Application Build Operations**
+**Application Build Operations**
++ `ListApplicationBuilds`
++ `CreateApplicationBuild`
++ `GetApplicationBuild`
++ `GetApplicationBuildDiff`
 
-- `ListApplicationBuilds`
-- `CreateApplicationBuild`
-- `GetApplicationBuild`
-- `GetApplicationBuildDiff`
-  **Application Deployment Operations**
+**Application Deployment Operations**
++ `ListApplicationDeployments`
++ `CreateApplicationDeployment`
++ `GetApplicationDeployment`
++ `UpdateApplicationDeployment`
++ `DeleteApplicationDeployment`
 
-- `ListApplicationDeployments`
-- `CreateApplicationDeployment`
-- `GetApplicationDeployment`
-- `UpdateApplicationDeployment`
-- `DeleteApplicationDeployment`
-  **Analytics Tag Operations**
+**Analytics Tag Operations**
++ `ListAnalyticsTags`
++ `CreateAnalyticsTag`
++ `UpdateAnalyticsTag`
++ `DeleteAnalyticsTag`
 
-- `ListAnalyticsTags`
-- `CreateAnalyticsTag`
-- `UpdateAnalyticsTag`
-- `DeleteAnalyticsTag`
-  **Context Variables Operations**
+**Context Variables Operations**
++ `ListContextVariables`
++ `CreateContextVariable`
++ `UpdateContextVariable`
++ `DeleteContextVariable`
 
-- `ListContextVariables`
-- `CreateContextVariable`
-- `UpdateContextVariable`
-- `DeleteContextVariable`
-  **Conversation Operations**
+**Conversation Operations**
++ `ListConversations`
++ `GetConversation`
 
-- `ListConversations`
-- `GetConversation`
-  **Data Request Operations**
+**Data Request Operations**
++ `ListDataRequests`
++ `CreateDataRequest`
++ `GetDataRequest`
++ `UpdateDataRequest`
++ `DeleteDataRequest`
 
-- `ListDataRequests`
-- `CreateDataRequest`
-- `GetDataRequest`
-- `UpdateDataRequest`
-- `DeleteDataRequest`
-  **Downloads Operations**
+**Downloads Operations**
++ `GetDownload`
 
-- `GetDownload`
-  **Flow Operations**
+**Flow Operations**
++ `ListFlows`
++ `CreateFlow`
++ `GetFlow`
++ `UpdateFlow`
++ `DeleteFlow`
 
-- `ListFlows`
-- `CreateFlow`
-- `GetFlow`
-- `UpdateFlow`
-- `DeleteFlow`
-  **Guardrail Operations**
+**Guardrail Operations**
++ `ListGuardrails`
++ `CreateGuardrail`
++ `GetGuardrail`
++ `UpdateGuardrail`
++ `DeleteGuardrail`
++ `TestGuardrail`
++ `ListGuardrailEvents`
 
-- `ListGuardrails`
-- `CreateGuardrail`
-- `GetGuardrail`
-- `UpdateGuardrail`
-- `DeleteGuardrail`
-- `TestGuardrail`
-- `ListGuardrailEvents`
-  **Knowledge Base Operations**
+**Knowledge Base Operations**
++ `ListKnowledgeBases`
++ `CreateKnowledgeBase`
++ `GetKnowledgeBase`
++ `UpdateKnowledgeBase`
++ `DeleteKnowledgeBase`
++ `CloneKnowledgeBase`
++ `PublishKnowledgeBase`
++ `GetKnowledgeBasePublication`
++ `ListKnowledgeBasePublications`
 
-- `ListKnowledgeBases`
-- `CreateKnowledgeBase`
-- `GetKnowledgeBase`
-- `UpdateKnowledgeBase`
-- `DeleteKnowledgeBase`
-- `CloneKnowledgeBase`
-- `PublishKnowledgeBase`
-- `GetKnowledgeBasePublication`
-- `ListKnowledgeBasePublications`
-  **Knowledge Base Article Operations**
+**Knowledge Base Article Operations**
++ `ListKnowledgeBaseArticles`
++ `CreateKnowledgeBaseArticle`
++ `GetKnowledgeBaseArticle`
++ `UpdateKnowledgeBaseArticle`
++ `DeleteKnowledgeBaseArticle`
 
-- `ListKnowledgeBaseArticles`
-- `CreateKnowledgeBaseArticle`
-- `GetKnowledgeBaseArticle`
-- `UpdateKnowledgeBaseArticle`
-- `DeleteKnowledgeBaseArticle`
-  **Knowledge Base Document Operations**
+**Knowledge Base Document Operations**
++ `ListKnowledgeBaseDocuments`
++ `GetKnowledgeBaseDocument`
++ `PutKnowledgeBaseDocument`
++ `DeleteKnowledgeBaseDocument`
 
-- `ListKnowledgeBaseDocuments`
-- `GetKnowledgeBaseDocument`
-- `PutKnowledgeBaseDocument`
-- `DeleteKnowledgeBaseDocument`
-  **Live Sync Script Operations**
+**Live Sync Script Operations**
++ `ListLiveSyncScripts`
++ `CreateLiveSyncScript`
++ `GetLiveSyncScript`
++ `UpdateLiveSyncScript`
++ `DeleteLiveSyncScript`
++ `ListLiveSyncScriptBuilds`
++ `CreateLiveSyncScriptBuild`
++ `GetLiveSyncScriptBuild`
++ `ListLiveSyncScriptDeployments`
++ `CreateLiveSyncScriptDeployment`
++ `GetLiveSyncScriptDeployment`
++ `UpdateLiveSyncScriptDeployment`
++ `DeleteLiveSyncScriptDeployment`
 
-- `ListLiveSyncScripts`
-- `CreateLiveSyncScript`
-- `GetLiveSyncScript`
-- `UpdateLiveSyncScript`
-- `DeleteLiveSyncScript`
-- `ListLiveSyncScriptBuilds`
-- `CreateLiveSyncScriptBuild`
-- `GetLiveSyncScriptBuild`
-- `ListLiveSyncScriptDeployments`
-- `CreateLiveSyncScriptDeployment`
-- `GetLiveSyncScriptDeployment`
-- `UpdateLiveSyncScriptDeployment`
-- `DeleteLiveSyncScriptDeployment`
-  **Log Operations**
+**Log Operations**
++ `QueryLogs`
 
-- `QueryLogs`
-  **Modality Operations**
+**Modality Operations**
++ `ListModalities`
++ `CreateModality`
++ `GetModality`
++ `UpdateModality`
++ `DeleteModality`
 
-- `ListModalities`
-- `CreateModality`
-- `GetModality`
-- `UpdateModality`
-- `DeleteModality`
-  **Programmatic User Operations**
+**Programmatic User Operations**
++ `ListProgrammaticUsers`
++ `CreateProgrammaticUser`
++ `GetProgrammaticUser`
++ `UpdateProgrammaticUser`
++ `DeleteProgrammaticUser`
 
-- `ListProgrammaticUsers`
-- `CreateProgrammaticUser`
-- `GetProgrammaticUser`
-- `UpdateProgrammaticUser`
-- `DeleteProgrammaticUser`
-  **Role Operations**
+**Role Operations**
++ `ListRoles`
++ `CreateRole`
++ `GetRole`
++ `UpdateRole`
++ `DeleteRole`
++ `GetRolePermissions`
 
-- `ListRoles`
-- `CreateRole`
-- `GetRole`
-- `UpdateRole`
-- `DeleteRole`
-- `GetRolePermissions`
-  **Secret Operations**
+**Secret Operations**
++ `ListSecrets`
++ `CreateSecret`
++ `GetSecret`
++ `UpdateSecret`
++ `DeleteSecret`
 
-- `ListSecrets`
-- `CreateSecret`
-- `GetSecret`
-- `UpdateSecret`
-- `DeleteSecret`
-  **Slot Type Operations**
+**Slot Type Operations**
++ `ListSlotTypes`
++ `CreateSlotType`
++ `GetSlotType`
++ `UpdateSlotType`
++ `DeleteSlotType`
 
-- `ListSlotTypes`
-- `CreateSlotType`
-- `GetSlotType`
-- `UpdateSlotType`
-- `DeleteSlotType`
-  **Team Operations**
+**Team Operations**
++ `GetTeam`
 
-- `GetTeam`
-  **Trail Operations**
+**Trail Operations**
++ `StartTrailQuery`
++ `GetTrailQueryResults`
 
-- `StartTrailQuery`
-- `GetTrailQueryResults`
-  **User Operations**
+**User Operations**
++ `ListUsers`
++ `CreateUser`
++ `GetUser`
++ `UpdateUser`
++ `DeleteUser`
 
-- `ListUsers`
-- `CreateUser`
-- `GetUser`
-- `UpdateUser`
-- `DeleteUser`
-  **Version Operations**
+**Version Operations**
++ `ListResourceVersions`
++ `GetResourceVersion`
 
-- `ListResourceVersions`
-- `GetResourceVersion`
-  **Workspace Operations**
+**Workspace Operations**
++ `ListWorkspaces`
++ `CreateWorkspace`
++ `GetWorkspace`
++ `UpdateWorkspace`
++ `DeleteWorkspace`
 
-- `ListWorkspaces`
-- `CreateWorkspace`
-- `GetWorkspace`
-- `UpdateWorkspace`
-- `DeleteWorkspace`
-
-###### Contents
-
-- [Analytics Tags](acxd-analytics-tags.md "acxd-analytics-tags.md")
-- [API Tokens](acxd-api-tokens.md "acxd-api-tokens.md")
-- [Applications](acxd-applications.md "acxd-applications.md")
-- [Application Builds](acxd-application-builds.md "acxd-application-builds.md")
-- [Application Deployments](acxd-application-deployments.md "acxd-application-deployments.md")
-- [Context Variables](acxd-context-variables.md "acxd-context-variables.md")
-- [Conversations](acxd-conversations.md "acxd-conversations.md")
-- [Data Requests](acxd-data-requests.md "acxd-data-requests.md")
-- [Downloads](acxd-downloads.md "acxd-downloads.md")
-- [Flows](acxd-flows.md "acxd-flows.md")
-- [Guardrails](acxd-guardrails.md "acxd-guardrails.md")
-- [Knowledge Bases](acxd-knowledge-bases.md "acxd-knowledge-bases.md")
-- [Knowledge Base Articles](acxd-knowledge-base-articles.md "acxd-knowledge-base-articles.md")
-- [KnowledgeBase Documents](acxd-knowledge-base-documents.md "acxd-knowledge-base-documents.md")
-- [Live Sync Scripts](acxd-live-sync-scripts.md "acxd-live-sync-scripts.md")
-- [Logs](acxd-logs.md "acxd-logs.md")
-- [Modalities](acxd-modalities.md "acxd-modalities.md")
-- [Programmatic Users](acxd-programmatic-users.md "acxd-programmatic-users.md")
-- [Roles](acxd-roles.md "acxd-roles.md")
-- [Secrets](acxd-secrets.md "acxd-secrets.md")
-- [Slot Types](acxd-slot-types.md "acxd-slot-types.md")
-- [Team](acxd-team.md "acxd-team.md")
-- [Trails](acxd-trails.md "acxd-trails.md")
-- [Users](acxd-users.md "acxd-users.md")
-- [Versions](acxd-versions.md "acxd-versions.md")
-- [Workspaces](acxd-workspaces.md "acxd-workspaces.md")
-- [Common Types](acxd-common-types.md "acxd-common-types.md")
+**Topics**
++ [Analytics Tags](acxd-analytics-tags.md)
++ [API Tokens](acxd-api-tokens.md)
++ [Applications](acxd-applications.md)
++ [Application Builds](acxd-application-builds.md)
++ [Application Deployments](acxd-application-deployments.md)
++ [Context Variables](acxd-context-variables.md)
++ [Conversations](acxd-conversations.md)
++ [Data Requests](acxd-data-requests.md)
++ [Downloads](acxd-downloads.md)
++ [Flows](acxd-flows.md)
++ [Guardrails](acxd-guardrails.md)
++ [Knowledge Bases](acxd-knowledge-bases.md)
++ [Knowledge Base Articles](acxd-knowledge-base-articles.md)
++ [KnowledgeBase Documents](acxd-knowledge-base-documents.md)
++ [Live Sync Scripts](acxd-live-sync-scripts.md)
++ [Logs](acxd-logs.md)
++ [Modalities](acxd-modalities.md)
++ [Programmatic Users](acxd-programmatic-users.md)
++ [Roles](acxd-roles.md)
++ [Secrets](acxd-secrets.md)
++ [Slot Types](acxd-slot-types.md)
++ [Team](acxd-team.md)
++ [Trails](acxd-trails.md)
++ [Users](acxd-users.md)
++ [Versions](acxd-versions.md)
++ [Workspaces](acxd-workspaces.md)
++ [Common Types](acxd-common-types.md)

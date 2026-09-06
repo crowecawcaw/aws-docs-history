@@ -1,21 +1,21 @@
+
+
 # Application Deployments
+<a name="acxd-application-deployments"></a>
 
-Deploying an application pushes a successful build to the channels where users interact:
-chat, voice, IVR, website, mobile, or MCP clients. Only one build is live per application at a
-time. Deploying a new build deactivates the previous one. You can roll back to any previous
-build at any time.
+Deploying an application pushes a successful build to the channels where users interact: chat, voice, IVR, website, mobile, or MCP clients. Only one build is live per application at a time. Deploying a new build deactivates the previous one. You can roll back to any previous build at any time.
 
-###### Contents
-
-- [Quick Start](#acxd-application-deployments-quick-start "#acxd-application-deployments-quick-start")
-- [ListApplicationDeployments](#acxd-application-deployments-listapplicationdeployments "#acxd-application-deployments-listapplicationdeployments")
-- [CreateApplicationDeployment](#acxd-application-deployments-createapplicationdeployment "#acxd-application-deployments-createapplicationdeployment")
-- [GetApplicationDeployment](#acxd-application-deployments-getapplicationdeployment "#acxd-application-deployments-getapplicationdeployment")
-- [UpdateApplicationDeployment](#acxd-application-deployments-updateapplicationdeployment "#acxd-application-deployments-updateapplicationdeployment")
-- [DeleteApplicationDeployment](#acxd-application-deployments-deleteapplicationdeployment "#acxd-application-deployments-deleteapplicationdeployment")
-- [Request Parameters](#acxd-application-deployments-request-parameters "#acxd-application-deployments-request-parameters")
+**Topics**
++ [Quick Start](#acxd-application-deployments-quick-start)
++ [ListApplicationDeployments](#acxd-application-deployments-listapplicationdeployments)
++ [CreateApplicationDeployment](#acxd-application-deployments-createapplicationdeployment)
++ [GetApplicationDeployment](#acxd-application-deployments-getapplicationdeployment)
++ [UpdateApplicationDeployment](#acxd-application-deployments-updateapplicationdeployment)
++ [DeleteApplicationDeployment](#acxd-application-deployments-deleteapplicationdeployment)
++ [Request Parameters](#acxd-application-deployments-request-parameters)
 
 ## Quick Start
+<a name="acxd-application-deployments-quick-start"></a>
 
 ```
 // 1. Create Application
@@ -77,16 +77,18 @@ const deployments = await client.send(new ListApplicationDeploymentsCommand({
 ```
 
 ## ListApplicationDeployments
+<a name="acxd-application-deployments-listapplicationdeployments"></a>
 
 Lists deployments for an application.
 
 **Input**
 
-| Parameter               | Type    | Required |
-| ----------------------- | ------- | -------- |
-| `applicationIdentifier` | string  | Yes      |
-| `nextToken`             | string  | No       |
-| `maxResults`            | integer | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| applicationIdentifier | string | Yes | 
+| nextToken | string | No | 
+| maxResults | integer | No | 
 
 **Sample Request**
 
@@ -120,27 +122,27 @@ await client.send(new ListApplicationDeploymentsCommand({
 ```
 
 **Errors**
-
-- `ResourceNotFoundException` (404)
-- `ValidationException` (400)
-- `InternalServerException` (500)
++ `ResourceNotFoundException` (404)
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## CreateApplicationDeployment
+<a name="acxd-application-deployments-createapplicationdeployment"></a>
 
-Deploys a build to an environment, making it live for end users on all configured
-channels.
+Deploys a build to an environment, making it live for end users on all configured channels.
 
 **Input**
 
-| Parameter               | Type         | Required |
-| ----------------------- | ------------ | -------- |
-| `applicationIdentifier` | string       | Yes      |
-| `buildIdentifier`       | string       | Yes      |
-| `description`           | string       | No       |
-| `environment`           | string, enum | No       |
-| `languageCodes`         | array        | No       |
-| `analyticsTags`         | array        | No       |
-| `contextAttributes`     | array        | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| applicationIdentifier | string | Yes | 
+| buildIdentifier | string | Yes | 
+| description | string | No | 
+| environment | string, enum | No | 
+| languageCodes | array | No | 
+| analyticsTags | array | No | 
+| contextAttributes | array | No | 
 
 **Sample Request**
 
@@ -175,21 +177,22 @@ await client.send(new CreateApplicationDeploymentCommand({
 ```
 
 **Errors**
-
-- `ResourceNotFoundException` (404)
-- `ValidationException` (400)
-- `InternalServerException` (500)
++ `ResourceNotFoundException` (404)
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## GetApplicationDeployment
+<a name="acxd-application-deployments-getapplicationdeployment"></a>
 
 Gets deployment details and status.
 
 **Input**
 
-| Parameter               | Type   | Required |
-| ----------------------- | ------ | -------- |
-| `applicationIdentifier` | string | Yes      |
-| `deploymentIdentifier`  | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| applicationIdentifier | string | Yes | 
+| deploymentIdentifier | string | Yes | 
 
 **Sample Request**
 
@@ -219,28 +222,28 @@ await client.send(new GetApplicationDeploymentCommand({
 ```
 
 **Errors**
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## UpdateApplicationDeployment
+<a name="acxd-application-deployments-updateapplicationdeployment"></a>
 
-Updates a deployment (e.g., deploy a different build, change environment, or roll back to
-a previous version).
+Updates a deployment (e.g., deploy a different build, change environment, or roll back to a previous version).
 
 **Input**
 
-| Parameter               | Type         | Required |
-| ----------------------- | ------------ | -------- |
-| `applicationIdentifier` | string       | Yes      |
-| `deploymentIdentifier`  | string       | Yes      |
-| `buildIdentifier`       | string       | Yes      |
-| `description`           | string       | No       |
-| `environment`           | string, enum | No       |
-| `languageCodes`         | array        | No       |
-| `analyticsTags`         | array        | No       |
-| `contextAttributes`     | array        | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| applicationIdentifier | string | Yes | 
+| deploymentIdentifier | string | Yes | 
+| buildIdentifier | string | Yes | 
+| description | string | No | 
+| environment | string, enum | No | 
+| languageCodes | array | No | 
+| analyticsTags | array | No | 
+| contextAttributes | array | No | 
 
 **Sample Request**
 
@@ -275,22 +278,22 @@ await client.send(new UpdateApplicationDeploymentCommand({
 ```
 
 **Errors**
-
-- `ResourceNotFoundException` (404)
-- `ValidationException` (400)
-- `InternalServerException` (500)
++ `ResourceNotFoundException` (404)
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## DeleteApplicationDeployment
+<a name="acxd-application-deployments-deleteapplicationdeployment"></a>
 
-Removes a deployment, taking the application offline. The application stays offline until
-you redeploy.
+Removes a deployment, taking the application offline. The application stays offline until you redeploy.
 
 **Input**
 
-| Parameter               | Type   | Required |
-| ----------------------- | ------ | -------- |
-| `applicationIdentifier` | string | Yes      |
-| `deploymentIdentifier`  | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| applicationIdentifier | string | Yes | 
+| deploymentIdentifier | string | Yes | 
 
 **Sample Request**
 
@@ -306,12 +309,12 @@ await client.send(new DeleteApplicationDeploymentCommand({
 No response body.
 
 **Errors**
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## Request Parameters
+<a name="acxd-application-deployments-request-parameters"></a>
 
 **applicationIdentifier**
 
@@ -323,8 +326,7 @@ The application ID that owns the deployments.
 
 Type: String
 
-The unique identifier for a deployment (assigned on creation) and is used in Get, Update,
-and Delete operations.
+The unique identifier for a deployment (assigned on creation) and is used in Get, Update, and Delete operations.
 
 **buildIdentifier**
 
@@ -342,8 +344,7 @@ The current deployment status (e.g., `pending`, `deployed`).
 
 Type: String
 
-The target environment. One of: `development`, `qa`,
-`staging`, `production`.
+The target environment. One of: `development`, `qa`, `staging`, `production`.
 
 **description**
 
@@ -361,15 +362,13 @@ Languages to deploy (e.g., `["en-US", "es-ES"]`).
 
 Type: Array
 
-Analytics tag references to attach to this deployment:
-`[{ "label": "tag_name" }]`.
+Analytics tag references to attach to this deployment: `[{ "label": "tag_name" }]`.
 
 **contextAttributes**
 
 Type: Array
 
-Context attribute values for this deployment:
-`[{ "key": "attribute_name", "value": "..." }]`. Max 50 entries.
+Context attribute values for this deployment: `[{ "key": "attribute_name", "value": "..." }]`. Max 50 entries.
 
 **createdAt**
 

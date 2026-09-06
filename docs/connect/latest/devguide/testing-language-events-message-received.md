@@ -1,29 +1,26 @@
+
+
 # Message received
+<a name="testing-language-events-message-received"></a>
 
 Observes when the system plays a prompt or send any voice response to the simulated customer. This event can match messages using different criteria.
 
 ## Parameters
-
-- Identifier - Unique identifier for the event (API need to specify this identifier in order for the UI to render properly)
-- Type - Must always be `MessageReceived`.
-- Actor - Must always be `System`. This indicates the event
-  originate from the testing system.
-- Properties - Empty object. Object containing the following message
-  details:
-
-  - PromptId (Optional): Specific prompt ID or ARN to match
-  - Text (Optional): Text content of the message to match
-  - SSML (Optional): SSML content to match
-  - Media (Optional): External media source details
-
-    - Uri: Location of the media file
-    - SourceType: Source from which media is fetched such as S3
-    - MediaType: Type of media such as "audio/mpeg"
-
-  - MatchingCriteria - Defines how to match the message:
-
-    - Similarity: Uses semantic matching to find similar messages
-    - Inclusion: Checks if the observed message contains the specified text
+<a name="testing-language-events-message-received-parameters"></a>
++ Identifier - Unique identifier for the event (API need to specify this identifier in order for the UI to render properly)
++ Type - Must always be `MessageReceived`.
++ Actor - Must always be `System`. This indicates the event originate from the testing system.
++ Properties - Empty object. Object containing the following message details:
+  + PromptId (Optional): Specific prompt ID or ARN to match
+  + Text (Optional): Text content of the message to match
+  + SSML (Optional): SSML content to match
+  + Media (Optional): External media source details
+    + Uri: Location of the media file
+    + SourceType: Source from which media is fetched such as S3
+    + MediaType: Type of media such as "audio/mpeg"
+  + MatchingCriteria - Defines how to match the message:
+    + Similarity: Uses semantic matching to find similar messages
+    + Inclusion: Checks if the observed message contains the specified text
 
 ```
 {

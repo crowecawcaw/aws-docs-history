@@ -1,7 +1,9 @@
+
+
 # Use cases actions
+<a name="use-cases-api"></a>
 
 The following API actions are available for use cases:
-
-- [CreateUseCase](../APIReference/API_CreateUseCase.md "../APIReference/API_CreateUseCase.md")
-- [DeleteUseCase](../APIReference/API_DeleteUseCase.md "../APIReference/API_DeleteUseCase.md")
-- [ListUseCases](../APIReference/API_ListUseCases.md "../APIReference/API_ListUseCases.md")
++ [CreateUseCase](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateUseCase.html)
++ [DeleteUseCase](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUseCase.html)
++ [ListUseCases](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListUseCases.html)

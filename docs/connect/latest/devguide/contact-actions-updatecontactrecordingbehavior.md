@@ -1,9 +1,12 @@
-# UpdateContactRecordingBehavior
 
-Sets contact recording behavior, including analysis behavior and which participants of
-the contact to record.
+
+# UpdateContactRecordingBehavior
+<a name="contact-actions-updatecontactrecordingbehavior"></a>
+
+Sets contact recording behavior, including analysis behavior and which participants of the contact to record. 
 
 ## Parameter object
+<a name="updatecontactrecordingbehavior-parameter"></a>
 
 ```
 {
@@ -11,7 +14,7 @@ the contact to record.
         "RecordedParticipants": [ ] a list of participants to record, chosen from "Agent" and "Customer". An empty list disables recording. Must be set statically.
         "ScreenRecordedParticipants": [ ] a list of participants for which to record their screen, can only include "Agent". Must be set statically.
         "IVRRecordingBehavior": Can be either "Enabled" or "Disabled". Must be set statically.
-    },
+    },    
     "AnalyticsBehavior": { an object that holds the analytics behavior. Can only be set if the RecordedParticipants contains both Agent and Customer
         "Enabled": either "True" or "False". Must be set statically.
         "AnalyticsLanguage": Must be one of languages supported by Contact Lens post-call analysis. Must be set statically. Use the format xx-XX, for example, en-US for US English.
@@ -25,7 +28,7 @@ the contact to record.
           },
          "Voice": {
             "AnalyticsModes": ["RealTime"]  Can be set to RealTime and PostContact
-          }
+          } 
        },
         "SummaryConfiguration": {
             "SummaryModes": ["PostContact"] Optional parameter to enable post-contact summary. At present we only support "PostContact".
@@ -37,66 +40,38 @@ the contact to record.
 }
 ```
 
-###### Notes
+**Notes**
++ `AnalyticsRedactionMaskMode`: Optional, String. Allowed values:
+  + `PII`: All PII data is replaced with `[PII]`. For example, Jane Doe is replaced with `[PII]`
+  + `EntityType`: Each PII entity is replaced with its type. For example, Jane Doe is replaced with `[NAME]`.
+  + If no value is provided, the default `PII` is used.
++ `AnalyticsRedactionEntities`: Optional, Array of strings. 
+  + Valid values include: "BANK\_ACCOUNT\_NUMBER", "BANK\_ROUTING", "CREDIT\_DEBIT\_NUMBER", "CREDIT\_DEBIT\_CVV", "CREDIT\_DEBIT\_EXPIRY", "INTERNATIONAL\_BANK\_ACCOUNT\_NUMBER", "PIN", "SWIFT\_CODE", "CA\_HEALTH\_NUMBER", "UK\_NATIONAL\_HEALTH\_SERVICE\_NUMBER", "CA\_SOCIAL\_INSURANCE\_NUMBER", "SSN", "UK\_NATIONAL\_INSURANCE\_NUMBER", "PASSPORT\_NUMBER", "DRIVER\_ID", "IN\_AADHAAR", "NAME", "AGE", "EMAIL", "PHONE", "ADDRESS", "US\_INDIVIDUAL\_TAX\_IDENTIFICATION\_NUMBER", "UK\_UNIQUE\_TAXPAYER\_REFERENCE\_NUMBER", "IN\_PERMANENT\_ACCOUNT\_NUMBER", "IN\_NREGA", "AWS\_ACCESS\_KEY", "AWS\_SECRET\_KEY", "IP\_ADDRESS", "MAC\_ADDRESS", "PASSWORD", "URL", "USERNAME", "LICENSE\_PLATE", "VEHICLE\_IDENTIFICATION\_NUMBER", "IN\_VOTER\_NUMBER", "DATE\_TIME", "AGENT\_DISPLAY\_NAME", "CUSTOMER\_DISPLAY\_NAME", "ATTACHMENT\_NAME".
+  + An empty array is not allowed. 
+  + If `AnalyticsRedactionEntities` is not present, the default "redact all PII data" is used.
 
-- `AnalyticsRedactionMaskMode`: Optional, String. Allowed
-  values:
+For more information on sensitive data redaction, see [Enable redaction of sensitive data](https://docs.aws.amazon.com/connect/latest/adminguide/enable-redaction.html) in the *Connect Customer Administrator's Guide*.
 
-  - `PII`: All PII data is replaced with
-    `[PII]`. For example, Jane Doe is replaced with
-    `[PII]`
-  - `EntityType`: Each PII entity is replaced with its
-    type. For example, Jane Doe is replaced with
-    `[NAME]`.
-  - If no value is provided, the default `PII` is
-    used.
-
-- `AnalyticsRedactionEntities`: Optional, Array of strings.
-
-  - Valid values include: "BANK\_ACCOUNT\_NUMBER", "BANK\_ROUTING",
-    "CREDIT\_DEBIT\_NUMBER", "CREDIT\_DEBIT\_CVV", "CREDIT\_DEBIT\_EXPIRY",
-    "INTERNATIONAL\_BANK\_ACCOUNT\_NUMBER", "PIN", "SWIFT\_CODE",
-    "CA\_HEALTH\_NUMBER", "UK\_NATIONAL\_HEALTH\_SERVICE\_NUMBER",
-    "CA\_SOCIAL\_INSURANCE\_NUMBER", "SSN", "UK\_NATIONAL\_INSURANCE\_NUMBER",
-    "PASSPORT\_NUMBER", "DRIVER\_ID", "IN\_AADHAAR", "NAME", "AGE",
-    "EMAIL", "PHONE", "ADDRESS",
-    "US\_INDIVIDUAL\_TAX\_IDENTIFICATION\_NUMBER",
-    "UK\_UNIQUE\_TAXPAYER\_REFERENCE\_NUMBER",
-    "IN\_PERMANENT\_ACCOUNT\_NUMBER", "IN\_NREGA", "AWS\_ACCESS\_KEY",
-    "AWS\_SECRET\_KEY", "IP\_ADDRESS", "MAC\_ADDRESS", "PASSWORD", "URL",
-    "USERNAME", "LICENSE\_PLATE", "VEHICLE\_IDENTIFICATION\_NUMBER",
-    "IN\_VOTER\_NUMBER", "DATE\_TIME", "AGENT\_DISPLAY\_NAME",
-    "CUSTOMER\_DISPLAY\_NAME", "ATTACHMENT\_NAME".
-  - An empty array is not allowed.
-  - If `AnalyticsRedactionEntities` is not present, the
-    default "redact all PII data" is used.
-
-For more information on sensitive data redaction, see [Enable redaction of
-sensitive data](../adminguide/enable-redaction.md "../adminguide/enable-redaction.md") in the _Connect Customer Administrator's
-Guide_.
-
-For a list of languages supported by Contact Lens post-call analysis, see [Contact
-Lens supported languages](../adminguide/supported-languages-contact-lens.md "../adminguide/supported-languages-contact-lens.md"). For the 4-character language code to use, see
-[Supported languages](../../../transcribe/latest/dg/supported-languages.md "../../../transcribe/latest/dg/supported-languages.md") in the _Amazon Transcribe Developer
-Guide_.
+For a list of languages supported by Contact Lens post-call analysis, see [Contact Lens supported languages](https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages-contact-lens.html). For the 4-character language code to use, see [Supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) in the *Amazon Transcribe Developer Guide*.
 
 ## Results and conditions
+<a name="updatecontactrecordingbehavior-results"></a>
 
 None.
 
 ## Errors
+<a name="updatecontactrecordingbehavior-errors"></a>
 
 None.
 
 ## Restrictions
+<a name="updatecontactrecordingbehavior-restrictions"></a>
 
-This is supported only in contact flows, transfer flows, outbound whispers, and
-customer queue flows. This is not supported in agent/customer whispers or hold
-flows.
+This is supported only in contact flows, transfer flows, outbound whispers, and customer queue flows. This is not supported in agent/customer whispers or hold flows. 
 
 Analytics is only supported by the voice channel.
 
 ## Corresponding block in the UI
+<a name="updatecontactrecordingbehavior-ui"></a>
 
-[Set recording and
-analytics behavior](../adminguide/set-recording-behavior.md "../adminguide/set-recording-behavior.md")
+[Set recording and analytics behavior](https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html) 

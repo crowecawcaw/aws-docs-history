@@ -1,21 +1,20 @@
-# Working with Attachments
 
-This topic explains how to work with attachments for Chat and Cases in Connect Customer.
-For Chat Attachments, refer to the first section on the Connect Customer Participant
-Service API. For Case Attachments, refer to the second section on the Connect Customer
-service’s Attached Files APIs.
+
+# Working with Attachments
+<a name="working-with-acps-api"></a>
+
+This topic explains how to work with attachments for Chat and Cases in Connect Customer. For Chat Attachments, refer to the first section on the Connect Customer Participant Service API. For Case Attachments, refer to the second section on the Connect Customer service’s Attached Files APIs.
 
 ## Uploading Attachments with the Participant Service
+<a name="uploading-attachments"></a>
 
-There are three basic steps for uploading a file using the Connect Customer Participant Service
-API.
+There are three basic steps for uploading a file using the Connect Customer Participant Service API. 
 
-1. HTTP POST file metadata to `StartAttachmentUpload` API, which will
-   provide a signed Amazon S3 URL and attachment ID for uploading the file directly to
-   Amazon S3.
-2. HTTP PUT file data to the signed Amazon S3 URL.
-3. HTTP POST attachment ID to `CompleteAttachmentUpload` to finalize
-   the upload to Amazon S3.
+1. HTTP POST file metadata to `StartAttachmentUpload` API, which will provide a signed Amazon S3 URL and attachment ID for uploading the file directly to Amazon S3.
+
+1. HTTP PUT file data to the signed Amazon S3 URL.
+
+1. HTTP POST attachment ID to `CompleteAttachmentUpload` to finalize the upload to Amazon S3.
 
 Below is a basic JavaScript implementation for reference purposes.
 
@@ -85,19 +84,17 @@ async function completeAttachmentUpload(requestData){
 }
 ```
 
-For an example of a real world implementation, view the [Connect Customer ChatJS JavaScript client](https://github.com/amazon-connect/amazon-connect-chatjs/blob/master/src/client/client.js#L164-L219 "https://github.com/amazon-connect/amazon-connect-chatjs/blob/master/src/client/client.js#L164-L219") on GitHub.
+For an example of a real world implementation, view the [Connect Customer ChatJS JavaScript client](https://github.com/amazon-connect/amazon-connect-chatjs/blob/master/src/client/client.js#L164-L219) on GitHub.
 
 ## Uploading Attached Files with the Connect Service
+<a name="uploading-attachments-connect-service"></a>
 
-The same basic steps follow from the Participant service instructions, for usage with
-the Connect Customer service’s attached file APIs.
+The same basic steps follow from the Participant service instructions, for usage with the Connect Customer service’s attached file APIs.
 
-1. Call the `StartAttachedFileUpload` API with the required attached file
-   information, which will provide a signed Amazon S3 URL, headers, and file ID for
-   uploading the file directly to Amazon S3.
+1. Call the `StartAttachedFileUpload` API with the required attached file information, which will provide a signed Amazon S3 URL, headers, and file ID for uploading the file directly to Amazon S3.
 
-   1. If you are attaching a file to a Case, the calling identity must also have
-      the `cases:CreateRelatedItem` permission on the target Case resource.
+   1. If you are attaching a file to a Case, the calling identity must also have the `cases:CreateRelatedItem` permission on the target Case resource.
 
-2. Using your http client of choice, PUT file data to the signed Amazon S3 URL, ensuring that you add the headers as required from the response of Step 1.
-3. Call the `CompleteAttachedFileUpload` to finalize the upload to Amazon S3.
+1. Using your http client of choice, PUT file data to the signed Amazon S3 URL, ensuring that you add the headers as required from the response of Step 1.
+
+1. Call the `CompleteAttachedFileUpload` to finalize the upload to Amazon S3.

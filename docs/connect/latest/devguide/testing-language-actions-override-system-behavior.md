@@ -1,41 +1,37 @@
+
+
 # Override system behavior
+<a name="testing-language-actions-override-system-behavior"></a>
 
 Modifies how specific flow actions behave during test execution. This allows you to mock external dependencies, substitute resources, or simulate specific scenarios without modifying the actual flow.
 
 ## InvokeLambdaFunction
+<a name="testing-language-actions-override-lambda"></a>
 
 Override Lambda function behavior by substituting with a different function or mocking the response.
 
 ### Substitute resource strategy
+<a name="testing-language-actions-override-lambda-substitute"></a>
 
 Redirects Lambda invocations to a different function ARN.
 
 #### Parameters
-
-- Identifier: Unique identifier for the action
-- Type: Must be `OverrideSystemBehavior`
-- Parameters:
-
-  - ActionType: Must be `OverrideSystemBehavior`
-  - Behavior: Object defining the behavior to override
-
-    - Type: Must be `FlowAction`
-    - Properties:
-
-      - ActionType: Must be `InvokeLambdaFunction`
-      - ActionParameters:
-
-        - LambdaFunctionARN: The ARN of the Lambda function to override
-
-      - Strategy: Object defining the override strategy
-
-        - Type: Must be `SubstituteResource`
-        - SubstituteArn: ARN of the replacement Lambda function to use
-
-- Transitions:
-
-  - NextAction: The unique identifier for the next
-    action
+<a name="testing-language-actions-override-lambda-substitute-parameters"></a>
++ Identifier: Unique identifier for the action
++ Type: Must be `OverrideSystemBehavior`
++ Parameters:
+  + ActionType: Must be `OverrideSystemBehavior`
+  + Behavior: Object defining the behavior to override
+    + Type: Must be `FlowAction`
+    + Properties:
+      + ActionType: Must be `InvokeLambdaFunction`
+      + ActionParameters:
+        + LambdaFunctionARN: The ARN of the Lambda function to override
+      + Strategy: Object defining the override strategy
+        + Type: Must be `SubstituteResource`
+        + SubstituteArn: ARN of the replacement Lambda function to use
++ Transitions:
+  + NextAction: The unique identifier for the next action
 
 ```
 {
@@ -47,10 +43,10 @@ Redirects Lambda invocations to a different function ARN.
             "Type": "FlowAction",
             "Properties": {
                 "ActionType" : "InvokeLambdaFunction",
-                "ActionParameters": {
+                "ActionParameters": { 
                     "LambdaFunctionARN" : "string"
                 },
-                "Strategy": {
+                "Strategy": { 
                     "Type": "SubstituteResource",
                     "SubstituteArn": "string"
                 }
@@ -62,6 +58,7 @@ Redirects Lambda invocations to a different function ARN.
 ```
 
 #### Mock response strategy - Success
+<a name="testing-language-actions-override-lambda-mock-success"></a>
 
 ```
 {
@@ -73,14 +70,14 @@ Redirects Lambda invocations to a different function ARN.
             "Type": "FlowAction",
             "Properties": {
                 "ActionType" : "InvokeLambdaFunction",
-                "ActionParameters": {
+                "ActionParameters": { 
                     "LambdaFunctionARN" : "string"
-
+         
                 },
-                "Strategy": {
+                "Strategy": { 
                     "Type": "MockResponse",
                     "Response": {
-                        "Type" : "ExecutionResult",
+                        "Type" : "ExecutionResult", 
                         "ExecutionResult" : {
                             "DelaySeconds" : Number,
                             "LoadedData" : "serialized JSON"
@@ -95,6 +92,7 @@ Redirects Lambda invocations to a different function ARN.
 ```
 
 #### Mock response strategy - Error
+<a name="testing-language-actions-override-lambda-mock-error"></a>
 
 Simulates a Lambda function error without actual invocation.
 
@@ -108,13 +106,13 @@ Simulates a Lambda function error without actual invocation.
             "Type": "FlowAction",
             "Properties": {
                 "ActionType" : "InvokeLambdaFunction",
-                "ActionParameters": {
+                "ActionParameters": { 
                     "LambdaFunctionARN" : "lambda-arn-to-mock"
                 },
-                "Strategy": {
+                "Strategy": { 
                     "Type": "MockResponse",
                     "Response": {
-                        "Type" : "Error",
+                        "Type" : "Error", 
                         "Error" : {
                             "DelaySeconds" :  Number,
                             "Value" : "TimeLimitExceeded|NoMatchingError"
@@ -129,39 +127,32 @@ Simulates a Lambda function error without actual invocation.
 ```
 
 ## CheckHoursOfOperation
+<a name="testing-language-actions-override-hours"></a>
 
 Override hours of operation checks to test different time-based scenarios.
 
 ### Substitute resource strategy
+<a name="testing-language-actions-override-hours-substitute"></a>
 
 Redirects hours of operation checks to a different hours of operation configuration.
 
 #### Parameters
-
-- Identifier - Unique identifier for the action
-- Type - Must be `OverrideSystemBehavior`
-- Parameters:
-
-  - ActionType: Must be `OverrideSystemBehavior`
-  - Behavior: Object defining the behavior to override
-
-    - Type: Must be `FlowAction`
-    - Properties
-
-      - ActionType: Must be `CheckHoursOfOperation`
-      - ActionParameters:
-
-        - HoursOfOperationId: The ID/ARN of the hours of operation to override
-
-      - Strategy:
-
-        - Type: Must be `SubstituteResource`
-        - SubstituteArn: ARN of the replacement hours of operation resource
-
-- Transitions:
-
-  - NextAction: The unique identifier for the next
-    action
+<a name="testing-language-actions-override-hours-substitute-parameters"></a>
++ Identifier - Unique identifier for the action
++ Type - Must be `OverrideSystemBehavior`
++ Parameters:
+  + ActionType: Must be `OverrideSystemBehavior`
+  + Behavior: Object defining the behavior to override
+    + Type: Must be `FlowAction`
+    + Properties
+      + ActionType: Must be `CheckHoursOfOperation`
+      + ActionParameters:
+        + HoursOfOperationId: The ID/ARN of the hours of operation to override
+      + Strategy:
+        + Type: Must be `SubstituteResource`
+        + SubstituteArn: ARN of the replacement hours of operation resource
++ Transitions:
+  + NextAction: The unique identifier for the next action
 
 ```
 {
@@ -173,10 +164,10 @@ Redirects hours of operation checks to a different hours of operation configurat
             "Type": "FlowAction",
             "Properties": {
                 "ActionType" : "CheckHoursOfOperation",
-                "ActionParameters": {
+                "ActionParameters": { 
                     "HoursOfOperationId" : "string"
                 },
-                "Strategy": {
+                "Strategy": { 
                     "Type": "SubstituteResource",
                     "SubstituteArn": "string"
                 }
@@ -188,6 +179,7 @@ Redirects hours of operation checks to a different hours of operation configurat
 ```
 
 #### Mock response strategy - Success
+<a name="testing-language-actions-override-hours-mock-success"></a>
 
 Returns a predefined hours of operation check result.
 
@@ -223,6 +215,7 @@ Returns a predefined hours of operation check result.
 ```
 
 #### Mock response strategy - Error
+<a name="testing-language-actions-override-hours-mock-error"></a>
 
 Simulates an error during hours of operation check.
 
@@ -258,38 +251,31 @@ Simulates an error during hours of operation check.
 ```
 
 ## ConnectParticipantWithLexBot
+<a name="testing-language-actions-override-lex"></a>
 
 Override Lex bot behaviors to use a different bot for testing or mock responses.
 
 ### Substitute resource strategy
+<a name="testing-language-actions-override-lex-substitute"></a>
 
 #### Parameters
-
-- Identifier - Unique identifier for the action
-- Type - Must be `OverrideSystemBehavior`
-- Parameters
-
-  - ActionType - Must be `OverrideSystemBehavior`
-  - Behavior:
-
-    - Type: Must be `FlowAction`
-    - Properties:
-
-      - ActionType - Must be `ConnectParticipantWithLexBot`
-      - ActionParameters:
-
-        - LexV2Bot: Object containing the bot to override
-
-          - AliasArn: ARN of the Lex bot alias to override
-
-      - Strategy:
-
-        - Type: Must be `SubstituteResource`
-        - SubstituteArn: ARN of the replacement Lex bot alias
-
-- Transitions:
-
-  - NextAction: The unique identifier for the next action
+<a name="testing-language-actions-override-lex-substitute-parameters"></a>
++ Identifier - Unique identifier for the action
++ Type - Must be `OverrideSystemBehavior`
++ Parameters
+  + ActionType - Must be `OverrideSystemBehavior`
+  + Behavior:
+    + Type: Must be `FlowAction`
+    + Properties:
+      + ActionType - Must be `ConnectParticipantWithLexBot`
+      + ActionParameters:
+        + LexV2Bot: Object containing the bot to override
+          + AliasArn: ARN of the Lex bot alias to override
+      + Strategy:
+        + Type: Must be `SubstituteResource`
+        + SubstituteArn: ARN of the replacement Lex bot alias
++ Transitions:
+  + NextAction: The unique identifier for the next action
 
 ```
 {
@@ -318,6 +304,7 @@ Override Lex bot behaviors to use a different bot for testing or mock responses.
 ```
 
 #### Mock response strategy - Success
+<a name="testing-language-actions-override-lex-mock-success"></a>
 
 Returns a predefined successful response without invoking the actual Lex bot.
 
@@ -354,6 +341,7 @@ Returns a predefined successful response without invoking the actual Lex bot.
 ```
 
 #### Mock response strategy - Error
+<a name="testing-language-actions-override-lex-mock-error"></a>
 
 Simulates a Lex bot with error without actual invocation.
 
@@ -388,38 +376,32 @@ Simulates a Lex bot with error without actual invocation.
 ```
 
 ## TransferContactToQueue
+<a name="testing-language-actions-override-transfer"></a>
 
 Override queue transfer behavior to substitute queues or simulate transfer failures.
 
 ### Substitute resource strategy
+<a name="testing-language-actions-override-transfer-substitute"></a>
 
 Redirects queue transfers to a different queue.
 
 #### Parameters
-
-- Identifier - Unique identifier for the action
-- Type - Must be `OverrideSystemBehavior`
-- Parameters
-
-  - ActionType - Must be `OverrideSystemBehavior`
-  - Behavior
-
-    - Type: `FlowAction`
-    - Properties
-
-      - ActionType - Must be `TransferContactToQueue`
-      - ActionParameters:
-
-        - QueueId: ID/ARN of the queue to override
-
-      - Strategy:
-
-        - Type: Must be `SubstituteResource`
-        - SubstituteArn: ARN of the replacement queue
-
-- Transitions:
-
-  - NextAction: The unique identifier for the next action
+<a name="testing-language-actions-override-transfer-substitute-parameters"></a>
++ Identifier - Unique identifier for the action
++ Type - Must be `OverrideSystemBehavior`
++ Parameters
+  + ActionType - Must be `OverrideSystemBehavior`
+  + Behavior
+    + Type: `FlowAction`
+    + Properties
+      + ActionType - Must be `TransferContactToQueue`
+      + ActionParameters:
+        + QueueId: ID/ARN of the queue to override
+      + Strategy:
+        + Type: Must be `SubstituteResource`
+        + SubstituteArn: ARN of the replacement queue
++ Transitions:
+  + NextAction: The unique identifier for the next action
 
 ```
 {
@@ -446,6 +428,7 @@ Redirects queue transfers to a different queue.
 ```
 
 #### Mock response strategy - Error
+<a name="testing-language-actions-override-transfer-mock-error"></a>
 
 Simulates queue transfer failures for testing error paths.
 
@@ -481,36 +464,30 @@ Simulates queue transfer failures for testing error paths.
 ```
 
 ## DequeueAndTransferToQueue
+<a name="testing-language-actions-override-dequeue"></a>
 
 Override behavior when dequeuing a contact and transferring to another queue.
 
 ### Substitute resource strategy
+<a name="testing-language-actions-override-dequeue-substitute"></a>
 
 #### Parameters
-
-- Identifier - Unique identifier for the action
-- Type - Must be `OverrideSystemBehavior`
-- Parameters
-
-  - ActionType - Must be `OverrideSystemBehavior`
-  - Behavior:
-
-    - Type: `FlowAction`
-    - Properties:
-
-      - ActionType - Must be `DequeueAndTransferToQueue`
-      - ActionParameters:
-
-        - QueueId: ID/ARN of the queue to override
-
-      - Strategy:
-
-        - Type: Must be `SubstituteResource`
-        - SubstituteArn: ARN of the replacement queue
-
-- Transitions
-
-  - NextAction: The unique identifier for the next action
+<a name="testing-language-actions-override-dequeue-substitute-parameters"></a>
++ Identifier - Unique identifier for the action
++ Type - Must be `OverrideSystemBehavior`
++ Parameters
+  + ActionType - Must be `OverrideSystemBehavior`
+  + Behavior:
+    + Type: `FlowAction`
+    + Properties:
+      + ActionType - Must be `DequeueAndTransferToQueue`
+      + ActionParameters:
+        + QueueId: ID/ARN of the queue to override
+      + Strategy:
+        + Type: Must be `SubstituteResource`
+        + SubstituteArn: ARN of the replacement queue
++ Transitions
+  + NextAction: The unique identifier for the next action
 
 ```
 {
@@ -537,6 +514,7 @@ Override behavior when dequeuing a contact and transferring to another queue.
 ```
 
 #### Mock response strategy - Error
+<a name="testing-language-actions-override-dequeue-mock-error"></a>
 
 Simulates dequeue and transfer failures.
 

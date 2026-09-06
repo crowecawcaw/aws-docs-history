@@ -1,30 +1,32 @@
+
+
 # Applications
+<a name="acxd-applications"></a>
 
-Manage conversational AI applications, the top-level container for flows, builds, and
-deployments. Each application bundles your flows, knowledge bases, language settings,
-guardrails, and integrations into a single deployable package within your workspace.
+Manage conversational AI applications, the top-level container for flows, builds, and deployments. Each application bundles your flows, knowledge bases, language settings, guardrails, and integrations into a single deployable package within your workspace.
 
-###### Contents
-
-- [ListApplications](#acxd-applications-listapplications "#acxd-applications-listapplications")
-- [CreateApplication](#acxd-applications-createapplication "#acxd-applications-createapplication")
-- [GetApplication](#acxd-applications-getapplication "#acxd-applications-getapplication")
-- [UpdateApplication](#acxd-applications-updateapplication "#acxd-applications-updateapplication")
-- [DeleteApplication](#acxd-applications-deleteapplication "#acxd-applications-deleteapplication")
-- [Request Parameters](#acxd-applications-request-parameters "#acxd-applications-request-parameters")
-- [Application Settings](#acxd-applications-application-settings "#acxd-applications-application-settings")
-- [Deployment Settings](#acxd-applications-deployment-settings "#acxd-applications-deployment-settings")
+**Topics**
++ [ListApplications](#acxd-applications-listapplications)
++ [CreateApplication](#acxd-applications-createapplication)
++ [GetApplication](#acxd-applications-getapplication)
++ [UpdateApplication](#acxd-applications-updateapplication)
++ [DeleteApplication](#acxd-applications-deleteapplication)
++ [Request Parameters](#acxd-applications-request-parameters)
++ [Application Settings](#acxd-applications-application-settings)
++ [Deployment Settings](#acxd-applications-deployment-settings)
 
 ## ListApplications
+<a name="acxd-applications-listapplications"></a>
 
 Lists all applications in the workspace.
 
 **Input**
 
-| Parameter    | Type    | Required |
-| ------------ | ------- | -------- |
-| `nextToken`  | string  | No       |
-| `maxResults` | integer | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| nextToken | string | No | 
+| maxResults | integer | No | 
 
 **Sample Request**
 
@@ -59,25 +61,25 @@ await client.send(new ListApplicationsCommand({}));
 ```
 
 **Errors**
-
-- `ValidationException` (400)
-- `InternalServerException` (500)
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## CreateApplication
+<a name="acxd-applications-createapplication"></a>
 
-Creates a new application. An application can start empty and you can attach flows,
-configure settings, and build it to make it runnable.
+Creates a new application. An application can start empty and you can attach flows, configure settings, and build it to make it runnable.
 
 **Input**
 
-| Parameter            | Type   | Required |
-| -------------------- | ------ | -------- |
-| `name`               | string | Yes      |
-| `flows`              | array  | No       |
-| `settings`           | object | Yes      |
-| `description`        | string | No       |
-| `metadata`           | object | No       |
-| `deploymentSettings` | object | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| name | string | Yes | 
+| flows | array | No | 
+| settings | object | Yes | 
+| description | string | No | 
+| metadata | object | No | 
+| deploymentSettings | object | No | 
 
 **Sample Request**
 
@@ -145,21 +147,21 @@ await client.send(new CreateApplicationCommand({
 ```
 
 **Errors**
-
-- `ValidationException` (400)
-- `ConflictException` (409)
-- `InternalServerException` (500)
++ `ValidationException` (400)
++ `ConflictException` (409)
++ `InternalServerException` (500)
 
 ## GetApplication
+<a name="acxd-applications-getapplication"></a>
 
-Gets full application details including flows, settings, guardrails, and deployment
-configuration.
+Gets full application details including flows, settings, guardrails, and deployment configuration.
 
 **Input**
 
-| Parameter               | Type   | Required |
-| ----------------------- | ------ | -------- |
-| `applicationIdentifier` | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| applicationIdentifier | string | Yes | 
 
 **Sample Request**
 
@@ -222,26 +224,27 @@ await client.send(new GetApplicationCommand({
 ```
 
 **Errors**
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## UpdateApplication
+<a name="acxd-applications-updateapplication"></a>
 
 Updates an application. Only include fields you want to change.
 
 **Input**
 
-| Parameter               | Type   | Required |
-| ----------------------- | ------ | -------- |
-| `applicationIdentifier` | string | Yes      |
-| `name`                  | string | No       |
-| `flows`                 | array  | No       |
-| `settings`              | object | No       |
-| `description`           | string | No       |
-| `metadata`              | object | No       |
-| `deploymentSettings`    | object | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| applicationIdentifier | string | Yes | 
+| name | string | No | 
+| flows | array | No | 
+| settings | object | No | 
+| description | string | No | 
+| metadata | object | No | 
+| deploymentSettings | object | No | 
 
 **Sample Request**
 
@@ -307,21 +310,21 @@ Returns the full updated application.
 ```
 
 **Errors**
-
-- `ResourceNotFoundException` (404)
-- `ValidationException` (400)
-- `InternalServerException` (500)
++ `ResourceNotFoundException` (404)
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## DeleteApplication
+<a name="acxd-applications-deleteapplication"></a>
 
-Deletes an application. This removes the application and all its builds and
-deployments.
+Deletes an application. This removes the application and all its builds and deployments.
 
 **Input**
 
-| Parameter               | Type   | Required |
-| ----------------------- | ------ | -------- |
-| `applicationIdentifier` | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| applicationIdentifier | string | Yes | 
 
 **Sample Request**
 
@@ -336,19 +339,18 @@ await client.send(new DeleteApplicationCommand({
 No response body.
 
 **Errors**
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## Request Parameters
+<a name="acxd-applications-request-parameters"></a>
 
 **`applicationIdentifier`**
 
 Type: String
 
-The unique identifier for the application (assigned on creation) that is used in Get,
-Update, and Delete operations.
+The unique identifier for the application (assigned on creation) that is used in Get, Update, and Delete operations.
 
 **`name`**
 
@@ -366,8 +368,7 @@ Application description. Max 200 characters.
 
 Type: Array
 
-List of flow references attached to this application. Each entry is an object with a
-`flowId` field.
+List of flow references attached to this application. Each entry is an object with a `flowId` field.
 
 ```
 [
@@ -380,8 +381,7 @@ List of flow references attached to this application. Each entry is an object wi
 
 Type: Object
 
-Application settings controlling language, NLP, guardrails, and runtime behavior. See
-Application Settings.
+Application settings controlling language, NLP, guardrails, and runtime behavior. See Application Settings.
 
 **`deploymentSettings`**
 
@@ -414,21 +414,23 @@ Type: String
 The identity of who last modified the application.
 
 ## Application Settings
+<a name="acxd-applications-application-settings"></a>
 
-| Field                     | Type    | Required |
-| ------------------------- | ------- | -------- |
-| `languageCode`            | string  | No       |
-| `languageCodes`           | array   | No       |
-| `languageSettings`        | array   | No       |
-| `defaultFlows`            | object  | No       |
-| `guardrails`              | array   | No       |
-| `lifecycleHooks`          | object  | No       |
-| `thresholds`              | object  | No       |
-| `conversationTTL`         | integer | No       |
-| `autoCorrection`          | boolean | No       |
-| `childDirected`           | boolean | No       |
-| `repeatOnIncomprehension` | boolean | No       |
-| `clusters`                | object  | No       |
+
+| Field | Type | Required | 
+| --- | --- | --- | 
+| languageCode | string | No | 
+| languageCodes | array | No | 
+| languageSettings | array | No | 
+| defaultFlows | object | No | 
+| guardrails | array | No | 
+| lifecycleHooks | object | No | 
+| thresholds | object | No | 
+| conversationTTL | integer | No | 
+| autoCorrection | boolean | No | 
+| childDirected | boolean | No | 
+| repeatOnIncomprehension | boolean | No | 
+| clusters | object | No | 
 
 **`languageCode`**
 
@@ -448,13 +450,14 @@ Type: Array
 
 Per-language configuration. Each entry contains:
 
-| Field               | Type    | Required |
-| ------------------- | ------- | -------- |
-| `languageCode`      | string  | Yes      |
-| `useNativeLanguage` | boolean | No       |
-| `useLex3pAsr`       | boolean | No       |
-| `projectId`         | string  | No       |
-| `voice`             | string  | No       |
+
+| Field | Type | Required | 
+| --- | --- | --- | 
+| languageCode | string | Yes | 
+| useNativeLanguage | boolean | No | 
+| useLex3pAsr | boolean | No | 
+| projectId | string | No | 
+| voice | string | No | 
 
 **`languageSettings.languageCode`**
 
@@ -490,8 +493,7 @@ Voice identifier for text-to-speech output in this language.
 
 Type: Object
 
-Default flow assignments for system events. Each field is an object with `flowId`
-and optional `quickReplies`.
+Default flow assignments for system events. Each field is an object with `flowId` and optional `quickReplies`.
 
 **`defaultFlows.welcome`**
 
@@ -650,6 +652,7 @@ Type: Object
 How long to retain cluster data. `{ "count": 30, "resolution": "DAY" }` (1–90 days).
 
 ## Deployment Settings
+<a name="acxd-applications-deployment-settings"></a>
 
 **`oneClickDeployEnabled`**
 
@@ -661,8 +664,7 @@ Enable automatic deployment on build success.
 
 Type: String
 
-Target environment for automatic deployments. One of: `development`, `qa`,
-`staging`, `production`.
+Target environment for automatic deployments. One of: `development`, `qa`, `staging`, `production`.
 
 **`contextAttributes`**
 

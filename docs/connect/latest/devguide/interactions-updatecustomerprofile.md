@@ -1,11 +1,14 @@
+
+
 # UpdateCustomerProfile
+<a name="interactions-updatecustomerprofile"></a>
 
-Update a customer profile that was previously created or retrieved in the flow. Customer Profiles
-must be enabled for your Connect Customer instance.
+Update a customer profile that was previously created or retrieved in the flow. Customer Profiles must be enabled for your Connect Customer instance.
 
-See [UpdateProfile](../../../customerprofiles/latest/APIReference/API_UpdateProfile.md "../../../customerprofiles/latest/APIReference/API_UpdateProfile.md") in the _Connect Customer Customer Profiles API Reference_.
+See [UpdateProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateProfile.html) in the *Connect Customer Customer Profiles API Reference*.
 
 ## Parameter object
+<a name="updatecustomerprofile-parameter"></a>
 
 ```
 {
@@ -131,15 +134,15 @@ See [UpdateProfile](../../../customerprofiles/latest/APIReference/API_UpdateProf
 ```
 
 ## Results and conditions
+<a name="updatecustomerprofile-results"></a>
 
-None. Conditions are not supported. If an error does not occur, the response's
-attributes are available dynamically under the `$.Customer` path based on
-the attributes included in `ProfileResponseData`.
+None. Conditions are not supported. If an error does not occur, the response's attributes are available dynamically under the `$.Customer` path based on the attributes included in `ProfileResponseData`.
 
 ## Errors
-
-- NoMatchingError - if no other Error matches.
+<a name="updatecustomerprofile-errors"></a>
++ NoMatchingError - if no other Error matches.
 
 ## Corresponding block in the UI
+<a name="updatecustomerprofile-ui"></a>
 
-[Customer profiles block](../adminguide/customer-profiles-block.md "../adminguide/customer-profiles-block.md")
+[Customer profiles block](https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles-block.html) 

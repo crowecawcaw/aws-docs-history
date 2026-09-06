@@ -1,10 +1,14 @@
+
+
 # CreateCustomerProfile
+<a name="interactions-createcustomerprofile"></a>
 
 Create a customer profile. Customer Profiles must be enabled for your Connect Customer instance.
 
-See [CreateProfile](../../../customerprofiles/latest/APIReference/API_CreateProfile.md "../../../customerprofiles/latest/APIReference/API_CreateProfile.md") in the _Connect Customer Customer Profiles API Reference_.
+See [CreateProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateProfile.html) in the *Connect Customer Customer Profiles API Reference*.
 
 ## Parameter object
+<a name="createcustomerprofile-parameter"></a>
 
 ```
 {
@@ -130,15 +134,15 @@ See [CreateProfile](../../../customerprofiles/latest/APIReference/API_CreateProf
 ```
 
 ## Results and conditions
+<a name="createcustomerprofile-results"></a>
 
-None. Conditions are not supported. If an error does not occur, the response's
-attributes are available dynamically under the `$.Customer` path based on
-the attributes included in `ProfileResponseData`.
+None. Conditions are not supported. If an error does not occur, the response's attributes are available dynamically under the `$.Customer` path based on the attributes included in `ProfileResponseData`.
 
 ## Errors
-
-- NoMatchingError - if no other Error matches.
+<a name="createcustomerprofile-errors"></a>
++ NoMatchingError - if no other Error matches.
 
 ## Corresponding block in the UI
+<a name="createcustomerprofile-ui"></a>
 
-[Customer profiles block](../adminguide/customer-profiles-block.md "../adminguide/customer-profiles-block.md")
+[Customer profiles block](https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles-block.html) 

@@ -1,10 +1,13 @@
+
+
 # Files actions
+<a name="files-api"></a>
 
-The following API actions are available for Files:
+ The following API actions are available for Files:
++ [StartAttachedFileUpload](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartAttachedFileUpload.html)
++ [CompleteAttachedFileUpload](https://docs.aws.amazon.com/connect/latest/APIReference/API_CompleteAttachedFileUpload.html)
++ [GetAttachedFile](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetAttachedFile.html)
++ [BatchGetAttachedFileMetadata](https://docs.aws.amazon.com/connect/latest/APIReference/API_BatchGetAttachedFileMetadata.html)
++ [DeleteAttachedFile](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteAttachedFile.html)
 
-- [StartAttachedFileUpload](../APIReference/API_StartAttachedFileUpload.md "../APIReference/API_StartAttachedFileUpload.md")
-- [CompleteAttachedFileUpload](../APIReference/API_CompleteAttachedFileUpload.md "../APIReference/API_CompleteAttachedFileUpload.md")
-- [GetAttachedFile](../APIReference/API_GetAttachedFile.md "../APIReference/API_GetAttachedFile.md")
-- [BatchGetAttachedFileMetadata](../APIReference/API_BatchGetAttachedFileMetadata.md "../APIReference/API_BatchGetAttachedFileMetadata.md")
-- [DeleteAttachedFile](../APIReference/API_DeleteAttachedFile.md "../APIReference/API_DeleteAttachedFile.md")
-  For more information about attached files, see [Enable attachments to share files using chat and upload files to cases](../adminguide/enable-attachments.md "../adminguide/enable-attachments.md") in the _Connect Customer Administrator Guide_.
+For more information about attached files, see [Enable attachments to share files using chat and upload files to cases ](https://docs.aws.amazon.com/connect/latest/adminguide/enable-attachments.html) in the *Connect Customer Administrator Guide*. 

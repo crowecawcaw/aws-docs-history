@@ -1,11 +1,14 @@
+
+
 # GetCustomerProfile
+<a name="interactions-getcustomerprofile"></a>
 
-Retrieve a customer profile based any search identifier, up to five total. Customer Profiles must be enabled for
-your Connect Customer instance.
+Retrieve a customer profile based any search identifier, up to five total. Customer Profiles must be enabled for your Connect Customer instance.
 
-See [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") in the _Connect Customer Customer Profiles API Reference_.
+See [SearchProfiles](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html) in the *Connect Customer Customer Profiles API Reference*.
 
 ## Parameter object
+<a name="getcustomerprofile-parameter"></a>
 
 At least one search identifier must be present.
 
@@ -13,10 +16,10 @@ At least one search identifier must be present.
 {
     "ProfileRequestData": {
         Requires either IdentiferName and IdentifierValue, or SearchCriteria.
-
+       
         "IdentifierName": Name to search for profiles with one identifier,
         "IdentiferValue": Value to search for profiles with one identifier,
-
+        
         "SearchCriteria": [
             {
                 "IdentifierName": Name to search for profiles with multiple identifiers,
@@ -25,7 +28,7 @@ At least one search identifier must be present.
         ],
         Required when using SearchCriteria
         "LogicalOperator": AND or OR
-
+        
     },
    "ProfileResponseData": {
        All of these fields are optional.
@@ -90,19 +93,17 @@ At least one search identifier must be present.
 ```
 
 ## Results and conditions
+<a name="getcustomerprofile-results"></a>
 
-None. Conditions are not supported. If an error does not occur, the response's
-attributes are available dynamically under the `$.Customer` path based on
-the attributes included in `ProfileResponseData`.
+None. Conditions are not supported. If an error does not occur, the response's attributes are available dynamically under the `$.Customer` path based on the attributes included in `ProfileResponseData`.
 
 ## Errors
-
-- MultipleFoundError - if multiple profiles were found for the associated
-  profile search key.
-- NoneFoundError - if no profiles were found for the associated profile
-  search key.
-- NoMatchingError - if no other Error matches.
+<a name="getcustomerprofile-errors"></a>
++ MultipleFoundError - if multiple profiles were found for the associated profile search key.
++ NoneFoundError - if no profiles were found for the associated profile search key.
++ NoMatchingError - if no other Error matches.
 
 ## Corresponding block in the UI
+<a name="getcustomerprofile-ui"></a>
 
-[Customer profiles block](../adminguide/customer-profiles-block.md "../adminguide/customer-profiles-block.md")
+[Customer profiles block](https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles-block.html) 

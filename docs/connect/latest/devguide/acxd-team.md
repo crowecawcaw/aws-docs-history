@@ -1,26 +1,32 @@
+
+
 # Team
+<a name="acxd-team"></a>
 
 Manage account-level team settings. Each account has a single team resource.
 
-###### Contents
-
-- [GetTeam](#acxd-team-getteam "#acxd-team-getteam")
+**Topics**
++ [GetTeam](#acxd-team-getteam)
 
 ## GetTeam
+<a name="acxd-team-getteam"></a>
 
 Gets the team settings for the authenticated account.
 
 ### Input
+<a name="acxd-team-getteam-input"></a>
 
 No parameters.
 
 ### Sample Request
+<a name="acxd-team-getteam-sample-request"></a>
 
 ```
 await client.send(new GetTeamCommand({}));
 ```
 
 ### Output
+<a name="acxd-team-getteam-output"></a>
 
 ```
 {
@@ -32,7 +38,7 @@ await client.send(new GetTeamCommand({}));
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="acxd-team-getteam-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)

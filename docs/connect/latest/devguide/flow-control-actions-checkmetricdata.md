@@ -1,12 +1,12 @@
-# CheckMetricData
 
-A shortcut single action to avoid using GetMetricData and Compare for a set of simple
-metrics. This action loads the specified metric data for the specified queue, and allows
-comparisons to the loaded value. For example, it loads number of contacts in queue, age
-of oldest contact in queue, number of agents staffed on the queue, number of agents
-available on the queue, or number of agents online on the queue.
+
+# CheckMetricData
+<a name="flow-control-actions-checkmetricdata"></a>
+
+A shortcut single action to avoid using GetMetricData and Compare for a set of simple metrics. This action loads the specified metric data for the specified queue, and allows comparisons to the loaded value. For example, it loads number of contacts in queue, age of oldest contact in queue, number of agents staffed on the queue, number of agents available on the queue, or number of agents online on the queue. 
 
 ## Parameter object
+<a name="checkmetricdata-parameter"></a>
 
 ```
 {
@@ -17,27 +17,21 @@ available on the queue, or number of agents online on the queue.
 ```
 
 ## Execution results and conditions
+<a name="checkmetricdata-results"></a>
 
-A number, representing the value of the metric that was requested. This can be
-used for conditions. If the MetricType is NumberOfAgents\* then the only supported
-condition is "NumberGreaterThan 0", otherwise Equals and any Number\* Operands are
-allowed.
+A number, representing the value of the metric that was requested. This can be used for conditions. If the MetricType is NumberOfAgents\* then the only supported condition is "NumberGreaterThan 0", otherwise Equals and any Number\* Operands are allowed.
 
 ## Errors
-
-- NoMatchingError - if no other Error matches.
-- NoMatchingCondition - if no other Condition matches (only supported if the
-  MetricType is OldestContactInQueueAgeSeconds or
-  NumberOfContactsInQueue).
+<a name="checkmetricdata-errors"></a>
++ NoMatchingError - if no other Error matches.
++ NoMatchingCondition - if no other Condition matches (only supported if the MetricType is OldestContactInQueueAgeSeconds or NumberOfContactsInQueue).
 
 ## Restrictions
+<a name="checkmetricdata-restrictions"></a>
 
-This action is only usable in flows, queue and agent transfers, and customer queue
-flows. It is not available in any type of whisper or hold flows.
+This action is only usable in flows, queue and agent transfers, and customer queue flows. It is not available in any type of whisper or hold flows. 
 
 ## Corresponding block in the UI
-
-- [Check
-  staffing](../adminguide/check-staffing.md "../adminguide/check-staffing.md")
-- [Check queue
-  status](../adminguide/check-queue-status.md "../adminguide/check-queue-status.md")
+<a name="checkmetricdata-ui"></a>
++ [Check staffing](https://docs.aws.amazon.com/connect/latest/adminguide/check-staffing.html) 
++ [Check queue status](https://docs.aws.amazon.com/connect/latest/adminguide/check-queue-status.html) 

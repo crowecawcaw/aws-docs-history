@@ -1,37 +1,43 @@
+
+
 # Users
+<a name="acxd-users"></a>
 
-Manage users in the account. Users are human identities (as opposed to
-programmatic users which are machine identities).
+Manage users in the account. Users are human identities (as opposed to programmatic users which are machine identities).
 
-###### Contents
-
-- [ListUsers](#acxd-users-listusers "#acxd-users-listusers")
-- [CreateUser](#acxd-users-createuser "#acxd-users-createuser")
-- [GetUser](#acxd-users-getuser "#acxd-users-getuser")
-- [UpdateUser](#acxd-users-updateuser "#acxd-users-updateuser")
-- [DeleteUser](#acxd-users-deleteuser "#acxd-users-deleteuser")
-- [Request Parameters](#acxd-users-request-parameters "#acxd-users-request-parameters")
-- [User Role Assignment](#acxd-users-user-role-assignment "#acxd-users-user-role-assignment")
-- [Default Role](#acxd-users-default-role "#acxd-users-default-role")
+**Topics**
++ [ListUsers](#acxd-users-listusers)
++ [CreateUser](#acxd-users-createuser)
++ [GetUser](#acxd-users-getuser)
++ [UpdateUser](#acxd-users-updateuser)
++ [DeleteUser](#acxd-users-deleteuser)
++ [Request Parameters](#acxd-users-request-parameters)
++ [User Role Assignment](#acxd-users-user-role-assignment)
++ [Default Role](#acxd-users-default-role)
 
 ## ListUsers
+<a name="acxd-users-listusers"></a>
 
 Lists all users.
 
 ### Input
+<a name="acxd-users-listusers-input"></a>
 
-| Parameter    | Type    | Required |
-| ------------ | ------- | -------- |
-| `nextToken`  | string  | No       |
-| `maxResults` | integer | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| nextToken | string | No | 
+| maxResults | integer | No | 
 
 ### Sample Request
+<a name="acxd-users-listusers-sample-request"></a>
 
 ```
 await client.send(new ListUsersCommand({}));
 ```
 
 ### Output
+<a name="acxd-users-listusers-output"></a>
 
 ```
 {
@@ -59,30 +65,34 @@ await client.send(new ListUsersCommand({}));
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `InternalServerException` (500)
+<a name="acxd-users-listusers-errors"></a>
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## CreateUser
+<a name="acxd-users-createuser"></a>
 
 Creates a new user.
 
 ### Input
+<a name="acxd-users-createuser-input"></a>
 
-| Parameter        | Type   | Required |
-| ---------------- | ------ | -------- |
-| `userId`         | string | Yes      |
-| `cxnRole`        | string | Yes      |
-| `userArn`        | string | Yes      |
-| `username`       | string | Yes      |
-| `firstName`      | string | No       |
-| `lastName`       | string | No       |
-| `email`          | string | No       |
-| `applicationIds` | array  | No       |
-| `roles`          | array  | No       |
-| `defaultRole`    | object | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| userId | string | Yes | 
+| cxnRole | string | Yes | 
+| userArn | string | Yes | 
+| username | string | Yes | 
+| firstName | string | No | 
+| lastName | string | No | 
+| email | string | No | 
+| applicationIds | array | No | 
+| roles | array | No | 
+| defaultRole | object | No | 
 
 ### Sample Request
+<a name="acxd-users-createuser-sample-request"></a>
 
 ```
 await client.send(new CreateUserCommand({
@@ -102,6 +112,7 @@ await client.send(new CreateUserCommand({
 ```
 
 ### Output
+<a name="acxd-users-createuser-output"></a>
 
 ```
 {
@@ -131,22 +142,26 @@ await client.send(new CreateUserCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ConflictException` (409)
-- `InternalServerException` (500)
+<a name="acxd-users-createuser-errors"></a>
++ `ValidationException` (400)
++ `ConflictException` (409)
++ `InternalServerException` (500)
 
 ## GetUser
+<a name="acxd-users-getuser"></a>
 
 Gets a single user by ID.
 
 ### Input
+<a name="acxd-users-getuser-input"></a>
 
-| Parameter | Type   | Required |
-| --------- | ------ | -------- |
-| `userId`  | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| userId | string | Yes | 
 
 ### Sample Request
+<a name="acxd-users-getuser-sample-request"></a>
 
 ```
 await client.send(new GetUserCommand({
@@ -155,6 +170,7 @@ await client.send(new GetUserCommand({
 ```
 
 ### Output
+<a name="acxd-users-getuser-output"></a>
 
 ```
 {
@@ -184,30 +200,34 @@ await client.send(new GetUserCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="acxd-users-getuser-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## UpdateUser
+<a name="acxd-users-updateuser"></a>
 
 Updates a user. Only include fields you want to change.
 
 ### Input
+<a name="acxd-users-updateuser-input"></a>
 
-| Parameter        | Type   | Required |
-| ---------------- | ------ | -------- |
-| `userId`         | string | Yes      |
-| `cxnRole`        | string | No       |
-| `userArn`        | string | No       |
-| `firstName`      | string | No       |
-| `lastName`       | string | No       |
-| `email`          | string | No       |
-| `applicationIds` | array  | No       |
-| `roles`          | array  | No       |
-| `defaultRole`    | object | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| userId | string | Yes | 
+| cxnRole | string | No | 
+| userArn | string | No | 
+| firstName | string | No | 
+| lastName | string | No | 
+| email | string | No | 
+| applicationIds | array | No | 
+| roles | array | No | 
+| defaultRole | object | No | 
 
 ### Sample Request
+<a name="acxd-users-updateuser-sample-request"></a>
 
 ```
 await client.send(new UpdateUserCommand({
@@ -226,6 +246,7 @@ await client.send(new UpdateUserCommand({
 ```
 
 ### Output
+<a name="acxd-users-updateuser-output"></a>
 
 ```
 {
@@ -255,22 +276,26 @@ await client.send(new UpdateUserCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="acxd-users-updateuser-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## DeleteUser
+<a name="acxd-users-deleteuser"></a>
 
 Deletes a user.
 
 ### Input
+<a name="acxd-users-deleteuser-input"></a>
 
-| Parameter | Type   | Required |
-| --------- | ------ | -------- |
-| `userId`  | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| userId | string | Yes | 
 
 ### Sample Request
+<a name="acxd-users-deleteuser-sample-request"></a>
 
 ```
 await client.send(new DeleteUserCommand({
@@ -279,154 +304,116 @@ await client.send(new DeleteUserCommand({
 ```
 
 ### Output
+<a name="acxd-users-deleteuser-output"></a>
 
 No response body.
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="acxd-users-deleteuser-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## Request Parameters
+<a name="acxd-users-request-parameters"></a>
 
-`userId`
-
-Type: String
-
+`userId`  
+Type: String  
 The user identifier.
 
-`cxnRole`
+`cxnRole`  
+Type: String  
+The user's account-level role. One of: `member`, `administrator`, `owner`.
 
-Type: String
-
-The user's account-level role. One of: `member`,
-`administrator`, `owner`.
-
-`userArn`
-
-Type: String
-
+`userArn`  
+Type: String  
 The user's Amazon Connect ARN.
 
-`username`
-
-Type: String
-
+`username`  
+Type: String  
 Username. 1–128 characters.
 
-`firstName`
-
-Type: String
-
+`firstName`  
+Type: String  
 First name. 1–36 characters.
 
-`lastName`
-
-Type: String
-
+`lastName`  
+Type: String  
 Last name. Max 36 characters.
 
-`email`
-
-Type: String
-
+`email`  
+Type: String  
 Email address. 3–256 characters.
 
-`applicationIds`
-
-Type: Array
-
+`applicationIds`  
+Type: Array  
 Workspace IDs the user can access.
 
-`roles`
-
-Type: Array
-
+`roles`  
+Type: Array  
 Per-workspace role assignments. See User Role Assignment.
 
-`defaultRole`
-
-Type: Object
-
+`defaultRole`  
+Type: Object  
 Default role when no workspace-specific role applies. See Default Role.
 
-`createdAt`
-
-Type: String
-
+`createdAt`  
+Type: String  
 When the user was created (ISO 8601).
 
-`updatedAt`
-
-Type: String
-
+`updatedAt`  
+Type: String  
 When the user was last modified (ISO 8601).
 
-`updatedBy`
-
-Type: String
-
+`updatedBy`  
+Type: String  
 The identity of who last modified the user.
 
-`nextToken`
-
-Type: String
-
+`nextToken`  
+Type: String  
 Pagination token. See Common Types.
 
-`maxResults`
-
-Type: Integer
-
+`maxResults`  
+Type: Integer  
 Max items per page (1–100). See Common Types.
 
 ## User Role Assignment
+<a name="acxd-users-user-role-assignment"></a>
 
-| Field           | Type   | Required |
-| --------------- | ------ | -------- |
-| `applicationId` | string | Yes      |
-| `role`          | string | Yes      |
-| `roleId`        | string | No       |
 
-`applicationId`
+| Field | Type | Required | 
+| --- | --- | --- | 
+| applicationId | string | Yes | 
+| role | string | Yes | 
+| roleId | string | No | 
 
-Type: String
-
+`applicationId`  
+Type: String  
 The workspace this assignment applies to.
 
-`role`
+`role`  
+Type: String  
+Pre-defined role name. One of: `administrator`, `developer`, `contentManager`, `readOnly`.
 
-Type: String
-
-Pre-defined role name. One of: `administrator`,
-`developer`, `contentManager`, `readOnly`.
-
-`roleId`
-
-Type: String
-
+`roleId`  
+Type: String  
 Custom role ID (alternative to `role`). Created via the Roles API.
 
 ## Default Role
+<a name="acxd-users-default-role"></a>
 
-The fallback role applied when the user accesses a workspace without a specific role
-assignment.
+The fallback role applied when the user accesses a workspace without a specific role assignment.
 
-| Field    | Type   | Required |
-| -------- | ------ | -------- |
-| `role`   | string | Yes      |
-| `roleId` | string | No       |
 
-`role`
+| Field | Type | Required | 
+| --- | --- | --- | 
+| role | string | Yes | 
+| roleId | string | No | 
 
-Type: String
+`role`  
+Type: String  
+Pre-defined role name. One of: `administrator`, `developer`, `contentManager`, `readOnly`.
 
-Pre-defined role name. One of: `administrator`,
-`developer`, `contentManager`, `readOnly`.
-
-`roleId`
-
-Type: String
-
+`roleId`  
+Type: String  
 Custom role ID (alternative to `role`).

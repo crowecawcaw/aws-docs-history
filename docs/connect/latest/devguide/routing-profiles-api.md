@@ -1,22 +1,24 @@
+
+
 # Routing profile actions
+<a name="routing-profiles-api"></a>
 
 The following API actions are available for routing profiles:
++ [AssociateRoutingProfileQueues](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateRoutingProfileQueues.html)
++ [CreateRoutingProfile](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateRoutingProfile.html)
++ [DeleteRoutingProfile](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteRoutingProfile.html)
++ [DescribeRoutingProfile](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html)
++ [DisassociateRoutingProfileQueues](https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateRoutingProfileQueues.html)
++ [ListRoutingProfileManualAssignmentQueues](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListRoutingProfileManualAssignmentQueues.html)
++ [ListRoutingProfiles](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListRoutingProfiles.html)
++ [ListRoutingProfileQueues](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListRoutingProfileQueues.html)
++ [SearchRoutingProfiles](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html)
++ [UpdateRoutingProfileConcurrency](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateRoutingProfileConcurrency.html)
++ [UpdateRoutingProfileDefaultOutboundQueue](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateRoutingProfileDefaultOutboundQueue.html)
++ [UpdateRoutingProfileName](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateRoutingProfileName.html)
++ [UpdateRoutingProfileQueues](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateRoutingProfileQueues.html)
 
-- [AssociateRoutingProfileQueues](../APIReference/API_AssociateRoutingProfileQueues.md "../APIReference/API_AssociateRoutingProfileQueues.md")
-- [CreateRoutingProfile](../APIReference/API_CreateRoutingProfile.md "../APIReference/API_CreateRoutingProfile.md")
-- [DeleteRoutingProfile](../APIReference/API_DeleteRoutingProfile.md "../APIReference/API_DeleteRoutingProfile.md")
-- [DescribeRoutingProfile](../APIReference/API_DescribeRoutingProfile.md "../APIReference/API_DescribeRoutingProfile.md")
-- [DisassociateRoutingProfileQueues](../APIReference/API_DisassociateRoutingProfileQueues.md "../APIReference/API_DisassociateRoutingProfileQueues.md")
-- [ListRoutingProfileManualAssignmentQueues](../APIReference/API_ListRoutingProfileManualAssignmentQueues.md "../APIReference/API_ListRoutingProfileManualAssignmentQueues.md")
-- [ListRoutingProfiles](../APIReference/API_ListRoutingProfiles.md "../APIReference/API_ListRoutingProfiles.md")
-- [ListRoutingProfileQueues](../APIReference/API_ListRoutingProfileQueues.md "../APIReference/API_ListRoutingProfileQueues.md")
-- [SearchRoutingProfiles](../APIReference/API_SearchRoutingProfiles.md "../APIReference/API_SearchRoutingProfiles.md")
-- [UpdateRoutingProfileConcurrency](../APIReference/API_UpdateRoutingProfileConcurrency.md "../APIReference/API_UpdateRoutingProfileConcurrency.md")
-- [UpdateRoutingProfileDefaultOutboundQueue](../APIReference/API_UpdateRoutingProfileDefaultOutboundQueue.md "../APIReference/API_UpdateRoutingProfileDefaultOutboundQueue.md")
-- [UpdateRoutingProfileName](../APIReference/API_UpdateRoutingProfileName.md "../APIReference/API_UpdateRoutingProfileName.md")
-- [UpdateRoutingProfileQueues](../APIReference/API_UpdateRoutingProfileQueues.md "../APIReference/API_UpdateRoutingProfileQueues.md")
-  To create a CloudFormation template for routing profiles, see the following topic:
+To create a CloudFormation template for routing profiles, see the following topic:
++ [AWS::Connect::RoutingProfile](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html)
 
-- [AWS::Connect::RoutingProfile](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.md")
-  For more information about routing profiles, see [Create a routing
-  profile](../adminguide/routing-profiles.md "../adminguide/routing-profiles.md") in the _Connect Customer Administrator Guide_.
+For more information about routing profiles, see [Create a routing profile](https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html) in the *Connect Customer Administrator Guide*. 

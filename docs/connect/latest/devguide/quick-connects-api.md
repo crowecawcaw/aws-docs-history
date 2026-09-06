@@ -1,19 +1,21 @@
+
+
 # Quick connect actions
+<a name="quick-connects-api"></a>
 
 The following API actions are available for quick connects:
++ [AssociateQueueQuickConnects](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateQueueQuickConnects.html)
++ [CreateQuickConnect](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateQuickConnect.html)
++ [DeleteQuickConnect](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html)
++ [DescribeQuickConnect](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeQuickConnect.html)
++ [DisassociateQueueQuickConnects](https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateQueueQuickConnects.html)
++ [ListQueueQuickConnects](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListQueueQuickConnects.html)
++ [ListQuickConnects](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListQuickConnects.html)
++ [SearchQuickConnects](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchQuickConnects.html)
++ [UpdateQuickConnectConfig](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQuickConnectConfig.html)
++ [UpdateQuickConnectName](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQuickConnectName.html)
 
-- [AssociateQueueQuickConnects](../APIReference/API_AssociateQueueQuickConnects.md "../APIReference/API_AssociateQueueQuickConnects.md")
-- [CreateQuickConnect](../APIReference/API_CreateQuickConnect.md "../APIReference/API_CreateQuickConnect.md")
-- [DeleteQuickConnect](../APIReference/API_DeleteQuickConnect.md "../APIReference/API_DeleteQuickConnect.md")
-- [DescribeQuickConnect](../APIReference/API_DescribeQuickConnect.md "../APIReference/API_DescribeQuickConnect.md")
-- [DisassociateQueueQuickConnects](../APIReference/API_DisassociateQueueQuickConnects.md "../APIReference/API_DisassociateQueueQuickConnects.md")
-- [ListQueueQuickConnects](../APIReference/API_ListQueueQuickConnects.md "../APIReference/API_ListQueueQuickConnects.md")
-- [ListQuickConnects](../APIReference/API_ListQuickConnects.md "../APIReference/API_ListQuickConnects.md")
-- [SearchQuickConnects](../APIReference/API_SearchQuickConnects.md "../APIReference/API_SearchQuickConnects.md")
-- [UpdateQuickConnectConfig](../APIReference/API_UpdateQuickConnectConfig.md "../APIReference/API_UpdateQuickConnectConfig.md")
-- [UpdateQuickConnectName](../APIReference/API_UpdateQuickConnectName.md "../APIReference/API_UpdateQuickConnectName.md")
-  To create a CloudFormation template for quick connects, see the following topic:
+To create a CloudFormation template for quick connects, see the following topic:
++ [AWS::Connect::QuickConnect](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html)
 
-- [AWS::Connect::QuickConnect](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.md")
-  For more information about quick connects, see [Create quick connects](../adminguide/quick-connects.md "../adminguide/quick-connects.md") in
-  the _Connect Customer Administrator Guide_.
+For more information about quick connects, see [Create quick connects](https://docs.aws.amazon.com/connect/latest/adminguide/quick-connects.html) in the *Connect Customer Administrator Guide*. 

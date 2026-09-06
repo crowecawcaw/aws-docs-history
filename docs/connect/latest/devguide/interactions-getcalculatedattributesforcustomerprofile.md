@@ -1,9 +1,12 @@
-# GetCalculatedAttributesForCustomerProfile
 
-Retrieve calculated attributes for a customer profile. Customer Profiles must be enabled for
-your Connect Customer instance.
+
+# GetCalculatedAttributesForCustomerProfile
+<a name="interactions-getcalculatedattributesforcustomerprofile"></a>
+
+Retrieve calculated attributes for a customer profile. Customer Profiles must be enabled for your Connect Customer instance.
 
 ## Parameter object
+<a name="getcalculatedattributesforcustomerprofile-parameter"></a>
 
 A `ProfileId` must be present.
 
@@ -22,17 +25,16 @@ A `ProfileId` must be present.
 ```
 
 ## Results and conditions
+<a name="getcalculatedattributesforcustomerprofile-results"></a>
 
-None. Conditions are not supported. If an error does not occur, the response's
-attributes are available dynamically under the `$.Customer` path based on
-the attributes included in `ProfileResponseData`.
+None. Conditions are not supported. If an error does not occur, the response's attributes are available dynamically under the `$.Customer` path based on the attributes included in `ProfileResponseData`.
 
 ## Errors
-
-- NoneFoundError - if no profiles were found for the associated profile
-  search key.
-- NoMatchingError - if no other Error matches.
+<a name="getcalculatedattributesforcustomerprofile-errors"></a>
++ NoneFoundError - if no profiles were found for the associated profile search key.
++ NoMatchingError - if no other Error matches.
 
 ## Corresponding block in the UI
+<a name="getcalculatedattributesforcustomerprofile-ui"></a>
 
-[Customer profiles block](../adminguide/customer-profiles-block.md "../adminguide/customer-profiles-block.md")
+[Customer profiles block](https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles-block.html) 

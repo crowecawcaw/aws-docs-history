@@ -1,8 +1,12 @@
-# Compare
 
-Allows comparisons against the specified value.
+
+# Compare
+<a name="flow-control-actions-compare"></a>
+
+Allows comparisons against the specified value. 
 
 ## Parameter object
+<a name="compare-parameter"></a>
 
 ```
 {
@@ -11,18 +15,20 @@ Allows comparisons against the specified value.
 ```
 
 ## Execution results and conditions
+<a name="compare-results"></a>
 
 The value specified for comparison. This can be used for conditions.
 
 ## Errors
-
-- NoMatchingCondition - if no other Condition matches.
+<a name="compare-errors"></a>
++ NoMatchingCondition - if no other Condition matches. 
 
 ## Restrictions
+<a name="compare-restrictions"></a>
 
-This action is available in every type of flow.
+This action is available in every type of flow. 
 
 ## Corresponding block in the UI
+<a name="compare-ui"></a>
 
-[Check contact
-attributes](../adminguide/check-contact-attributes.md "../adminguide/check-contact-attributes.md")
+[Check contact attributes](https://docs.aws.amazon.com/connect/latest/adminguide/check-contact-attributes.html) 

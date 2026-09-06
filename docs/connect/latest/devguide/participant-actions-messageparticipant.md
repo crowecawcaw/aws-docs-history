@@ -1,9 +1,12 @@
-# MessageParticipant
 
-Sends a message to the participant. This is an audio prompt or text-to-speech for
-voice contacts, or a text message for other channels.
+
+# MessageParticipant
+<a name="participant-actions-messageparticipant"></a>
+
+Sends a message to the participant. This is an audio prompt or text-to-speech for voice contacts, or a text message for other channels. 
 
 ## Parameter object
+<a name="messageparticipant-parameter"></a>
 
 ```
 {
@@ -19,21 +22,23 @@ voice contacts, or a text message for other channels.
 ```
 
 ## Results and conditions
+<a name="messageparticipant-results"></a>
 
 None. No conditions are supported.
 
 ## Errors
+<a name="messageparticipant-errors"></a>
 
 NoMatchingError - If an error occurred and no other error matched.
 
 ## Restrictions
+<a name="messageparticipant-restrictions"></a>
 
-This action is supported in contact flows, transfer flows, whisper flows, and
-customer queue flows. It is not supported in hold flows.
+This action is supported in contact flows, transfer flows, whisper flows, and customer queue flows. It is not supported in hold flows.
 
-"PromptId" and "SSML" are only supported for the voice channel. All other channels
-support only the "Text" option.
+"PromptId" and "SSML" are only supported for the voice channel. All other channels support only the "Text" option.
 
 ## Corresponding block in the UI
+<a name="messageparticipant-ui"></a>
 
-[Play](../adminguide/play.md "../adminguide/play.md")
+[Play](https://docs.aws.amazon.com/connect/latest/adminguide/play.html) 

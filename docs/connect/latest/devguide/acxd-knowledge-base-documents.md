@@ -1,29 +1,34 @@
+
+
 # KnowledgeBase Documents
+<a name="acxd-knowledge-base-documents"></a>
 
-Manage uploaded files within a knowledge base. Documents are registered via the
-API and uploaded via pre-signed URLs.
+Manage uploaded files within a knowledge base. Documents are registered via the API and uploaded via pre-signed URLs.
 
-###### Contents
-
-- [ListKnowledgeBaseDocuments](#acxd-knowledge-base-documents-listknowledgebasedocuments "#acxd-knowledge-base-documents-listknowledgebasedocuments")
-- [GetKnowledgeBaseDocument](#acxd-knowledge-base-documents-getknowledgebasedocument "#acxd-knowledge-base-documents-getknowledgebasedocument")
-- [PutKnowledgeBaseDocument](#acxd-knowledge-base-documents-putknowledgebasedocument "#acxd-knowledge-base-documents-putknowledgebasedocument")
-- [DeleteKnowledgeBaseDocument](#acxd-knowledge-base-documents-deleteknowledgebasedocument "#acxd-knowledge-base-documents-deleteknowledgebasedocument")
-- [Request Parameters](#acxd-knowledge-base-documents-request-parameters "#acxd-knowledge-base-documents-request-parameters")
+**Topics**
++ [ListKnowledgeBaseDocuments](#acxd-knowledge-base-documents-listknowledgebasedocuments)
++ [GetKnowledgeBaseDocument](#acxd-knowledge-base-documents-getknowledgebasedocument)
++ [PutKnowledgeBaseDocument](#acxd-knowledge-base-documents-putknowledgebasedocument)
++ [DeleteKnowledgeBaseDocument](#acxd-knowledge-base-documents-deleteknowledgebasedocument)
++ [Request Parameters](#acxd-knowledge-base-documents-request-parameters)
 
 ## ListKnowledgeBaseDocuments
+<a name="acxd-knowledge-base-documents-listknowledgebasedocuments"></a>
 
 Lists all documents in a knowledge base.
 
 ### Input
+<a name="acxd-knowledge-base-documents-listknowledgebasedocuments-input"></a>
 
-| Parameter         | Type    | Required |
-| ----------------- | ------- | -------- |
-| `knowledgeBaseId` | string  | Yes      |
-| `nextToken`       | string  | No       |
-| `maxResults`      | integer | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| knowledgeBaseId | string | Yes | 
+| nextToken | string | No | 
+| maxResults | integer | No | 
 
 ### Sample Request
+<a name="acxd-knowledge-base-documents-listknowledgebasedocuments-sample-request"></a>
 
 ```
 client.send(new ListKnowledgeBaseDocumentsCommand({
@@ -32,6 +37,7 @@ client.send(new ListKnowledgeBaseDocumentsCommand({
 ```
 
 ### Output
+<a name="acxd-knowledge-base-documents-listknowledgebasedocuments-output"></a>
 
 ```
 {
@@ -49,23 +55,27 @@ client.send(new ListKnowledgeBaseDocumentsCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="acxd-knowledge-base-documents-listknowledgebasedocuments-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## GetKnowledgeBaseDocument
+<a name="acxd-knowledge-base-documents-getknowledgebasedocument"></a>
 
 Gets a pre-signed download URL for a document.
 
 ### Input
+<a name="acxd-knowledge-base-documents-getknowledgebasedocument-input"></a>
 
-| Parameter         | Type   | Required |
-| ----------------- | ------ | -------- |
-| `knowledgeBaseId` | string | Yes      |
-| `documentId`      | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| knowledgeBaseId | string | Yes | 
+| documentId | string | Yes | 
 
 ### Sample Request
+<a name="acxd-knowledge-base-documents-getknowledgebasedocument-sample-request"></a>
 
 ```
 await client.send(new GetKnowledgeBaseDocumentCommand({
@@ -75,6 +85,7 @@ await client.send(new GetKnowledgeBaseDocumentCommand({
 ```
 
 ### Output
+<a name="acxd-knowledge-base-documents-getknowledgebasedocument-output"></a>
 
 ```
 {
@@ -83,26 +94,29 @@ await client.send(new GetKnowledgeBaseDocumentCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="acxd-knowledge-base-documents-getknowledgebasedocument-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## PutKnowledgeBaseDocument
+<a name="acxd-knowledge-base-documents-putknowledgebasedocument"></a>
 
-Registers a document and returns a pre-signed upload URL. Use the returned URL
-and fields to upload the file content.
+Registers a document and returns a pre-signed upload URL. Use the returned URL and fields to upload the file content.
 
 ### Input
+<a name="acxd-knowledge-base-documents-putknowledgebasedocument-input"></a>
 
-| Parameter          | Type   | Required |
-| ------------------ | ------ | -------- |
-| `knowledgeBaseId`  | string | Yes      |
-| `documentId`       | string | Yes      |
-| `contentType`      | string | Yes      |
-| `customerMetadata` | object | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| knowledgeBaseId | string | Yes | 
+| documentId | string | Yes | 
+| contentType | string | Yes | 
+| customerMetadata | object | No | 
 
 ### Sample Request
+<a name="acxd-knowledge-base-documents-putknowledgebasedocument-sample-request"></a>
 
 ```
 await client.send(new PutKnowledgeBaseDocumentCommand({
@@ -114,6 +128,7 @@ await client.send(new PutKnowledgeBaseDocumentCommand({
 ```
 
 ### Output
+<a name="acxd-knowledge-base-documents-putknowledgebasedocument-output"></a>
 
 ```
 {
@@ -126,29 +141,31 @@ await client.send(new PutKnowledgeBaseDocumentCommand({
 }
 ```
 
-###### Note
-
-Use the returned `url` and `fields` to perform a multipart form upload of
-your document content.
+**Note**  
+Use the returned `url` and `fields` to perform a multipart form upload of your document content.
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="acxd-knowledge-base-documents-putknowledgebasedocument-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## DeleteKnowledgeBaseDocument
+<a name="acxd-knowledge-base-documents-deleteknowledgebasedocument"></a>
 
 Deletes a document.
 
 ### Input
+<a name="acxd-knowledge-base-documents-deleteknowledgebasedocument-input"></a>
 
-| Parameter         | Type   | Required |
-| ----------------- | ------ | -------- |
-| `knowledgeBaseId` | string | Yes      |
-| `documentId`      | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| knowledgeBaseId | string | Yes | 
+| documentId | string | Yes | 
 
 ### Sample Request
+<a name="acxd-knowledge-base-documents-deleteknowledgebasedocument-sample-request"></a>
 
 ```
 await client.send(new DeleteKnowledgeBaseDocumentCommand({
@@ -158,76 +175,55 @@ await client.send(new DeleteKnowledgeBaseDocumentCommand({
 ```
 
 ### Output
+<a name="acxd-knowledge-base-documents-deleteknowledgebasedocument-output"></a>
 
 No response body.
 
 ### Errors
-
-- `ResourceNotFoundException` (404)
-- `ValidationException` (400)
-- `InternalServerException` (500)
+<a name="acxd-knowledge-base-documents-deleteknowledgebasedocument-errors"></a>
++ `ResourceNotFoundException` (404)
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## Request Parameters
+<a name="acxd-knowledge-base-documents-request-parameters"></a>
 
-`knowledgeBaseId`
-
-Type: String
-
+`knowledgeBaseId`  
+Type: String  
 The knowledge base that contains the documents.
 
-`documentId`
+`documentId`  
+Type: String  
+The document identifier. User-provided, max 255 characters (e.g., a filename like `product-guide-v2.pdf` ).
 
-Type: String
-
-The document identifier. User-provided, max 255 characters (e.g., a filename like
-`product-guide-v2.pdf` ).
-
-`contentType`
-
-Type: String
-
+`contentType`  
+Type: String  
 MIME type of the document (e.g., `application/pdf` , `text/plain` , `text/html` ).
 
-`customerMetadata`
+`customerMetadata`  
+Type: Object  
+Free-form metadata for the document (structure defined by the knowledge base's `metadataSchema` ).
 
-Type: Object
+`uploadStatus`  
+Type: String  
+The document's upload status. One of: `PENDING` (registered but not yet uploaded), `UPLOADED` (file received), `DELETED` .
 
-Free-form metadata for the document (structure defined by the knowledge base's
-`metadataSchema` ).
-
-`uploadStatus`
-
-Type: String
-
-The document's upload status. One of: `PENDING` (registered but not yet uploaded),
-`UPLOADED` (file received), `DELETED` .
-
-`url`
-
-Type: String
-
+`url`  
+Type: String  
 Pre-signed S3 URL for upload or download.
 
-`fields`
-
-Type: Object
-
+`fields`  
+Type: Object  
 Form fields required for multipart upload (returned by PutKnowledgeBaseDocument).
 
-`createdAt`
-
-Type: String
-
+`createdAt`  
+Type: String  
 When the document was registered (ISO 8601).
 
-`nextToken`
-
-Type: String
-
+`nextToken`  
+Type: String  
 Pagination token. See Common Types.
 
-`maxResults`
-
-Type: Integer
-
+`maxResults`  
+Type: Integer  
 Max items per page (1–100). See Common Types.

@@ -1,16 +1,15 @@
+
+
 # Voice actions
+<a name="voice-api"></a>
 
 The following API actions are available for voice:
++ [ResumeContactRecording](https://docs.aws.amazon.com/connect/latest/APIReference/API_ResumeContactRecording.html)
++ [StartContactRecording](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactRecording.html)
++ [StartOutboundVoiceContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundVoiceContact.html)
++ [StopContactRecording](https://docs.aws.amazon.com/connect/latest/APIReference/API_StopContactRecording.html)
++ [SuspendContactRecording](https://docs.aws.amazon.com/connect/latest/APIReference/API_SuspendContactRecording.html)
 
-- [ResumeContactRecording](../APIReference/API_ResumeContactRecording.md "../APIReference/API_ResumeContactRecording.md")
-- [StartContactRecording](../APIReference/API_StartContactRecording.md "../APIReference/API_StartContactRecording.md")
-- [StartOutboundVoiceContact](../APIReference/API_StartOutboundVoiceContact.md "../APIReference/API_StartOutboundVoiceContact.md")
-- [StopContactRecording](../APIReference/API_StopContactRecording.md "../APIReference/API_StopContactRecording.md")
-- [SuspendContactRecording](../APIReference/API_SuspendContactRecording.md "../APIReference/API_SuspendContactRecording.md")
-  For more information, see the following topics in the _Connect Customer
-  Administrator Guide_:
-
-- [Monitor live
-  conversations](../adminguide/monitor-conversations.md "../adminguide/monitor-conversations.md")
-- [Review
-  recorded conversations](../adminguide/review-recorded-conversations.md "../adminguide/review-recorded-conversations.md")
+For more information, see the following topics in the *Connect Customer Administrator Guide*: 
++ [Monitor live conversations](https://docs.aws.amazon.com/connect/latest/adminguide/monitor-conversations.html) 
++ [Review recorded conversations](https://docs.aws.amazon.com/connect/latest/adminguide/review-recorded-conversations.html) 

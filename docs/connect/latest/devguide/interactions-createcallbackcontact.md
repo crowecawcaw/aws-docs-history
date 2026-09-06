@@ -1,10 +1,12 @@
-# CreateCallbackContact
 
-Creates a new callback contact. If no customer number is specified, and this is run in
-context of a contact, the contact's CustomerCallbackNumber is used as the customer
-number. If you specify a ContactFlowId, then InitialCallDelaySeconds parameter is ignored.
+
+# CreateCallbackContact
+<a name="interactions-createcallbackcontact"></a>
+
+Creates a new callback contact. If no customer number is specified, and this is run in context of a contact, the contact's CustomerCallbackNumber is used as the customer number. If you specify a ContactFlowId, then InitialCallDelaySeconds parameter is ignored.
 
 ## Parameter object
+<a name="createcallbackcontact-parameter"></a>
 
 ```
 {
@@ -16,22 +18,23 @@ number. If you specify a ContactFlowId, then InitialCallDelaySeconds parameter i
     "ContactFlowId": [Optional] A contactFlow ID or contactFlow ARN. Callback contact created will execute this flow post creation, if specified. This must be either defined fully statically or as a single valid JSONPath identifier.
     "CallerId": [Optional] A caller ID representing the phone number to use for the callback. This is what the customer sees when dialed. Must be a valid phone number claimed in your Connect Customer instance. This must be either defined fully statically or as a single valid JSONPath identifier.
 }
-
 ```
 
 ## Results and conditions
+<a name="createcallbackcontact-results"></a>
 
-None. No conditions are supported.
+None. No conditions are supported. 
 
 ## Errors
-
-- NoMatchingError - if no other Error matches.
+<a name="createcallbackcontact-errors"></a>
++ NoMatchingError - if no other Error matches.
 
 ## Restrictions
+<a name="createcallbackcontact-restrictions"></a>
 
-This action is supported in contact flows, transfer flows, and customer queue
-flows. It is not supported in whisper flows or hold flows.
+This action is supported in contact flows, transfer flows, and customer queue flows. It is not supported in whisper flows or hold flows.
 
 ## Corresponding block in the UI
+<a name="createcallbackcontact-ui"></a>
 
-[Set callback number](../adminguide/set-callback-number.md "../adminguide/set-callback-number.md")
+[Set callback number](https://docs.aws.amazon.com/connect/latest/adminguide/set-callback-number.html) 

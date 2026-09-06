@@ -1,29 +1,28 @@
+
+
 # Send Instruction
+<a name="testing-language-actions-send-instruction"></a>
 
 Simulates customer input during the test execution. This action allows you to send DTMF tones or voice input as if a customer were interacting with the flow.
 
 ## DTMF input
+<a name="testing-language-actions-send-instruction-dtmf"></a>
 
 Simulates a customer pressing keys on their phone keypad.
 
 ### Parameters
-
-- Identifier: Unique identifier for the action
-- Type: Must be `SendInstruction`
-- Parameters:
-
-  - ActionType: Must be `SendInstruction`
-  - Actor: `Customer` indicates this simulates customer behavior
-  - Instruction: Object defining the instruction type
-
-    - Type: Must be `DtmfInput`
-    - Properties:
-
-      - Value: String or number representing the DTMF input (e.g., "1", "#", "\*")
-
-- Transitions:
-
-  - NextAction: The unique identifier for the next action
+<a name="testing-language-actions-send-instruction-dtmf-parameters"></a>
++ Identifier: Unique identifier for the action
++ Type: Must be `SendInstruction`
++ Parameters:
+  + ActionType: Must be `SendInstruction`
+  + Actor: `Customer` indicates this simulates customer behavior
+  + Instruction: Object defining the instruction type
+    + Type: Must be `DtmfInput`
+    + Properties:
+      + Value: String or number representing the DTMF input (e.g., "1", "\#", "\*")
++ Transitions:
+  + NextAction: The unique identifier for the next action
 
 ```
 {
@@ -44,29 +43,25 @@ Simulates a customer pressing keys on their phone keypad.
 ```
 
 ## Text and Utterance Input
+<a name="testing-language-actions-send-instruction-text-utterance"></a>
 
 Simulates customer voice or text input. This is used for Lex bot or AI agent interactions.
 
 ### Parameters
-
-- Identifier: Unique identifier for the action
-- Type: Must be `SendInstruction`
-- Parameters:
-
-  - ActionType: Must be `SendInstruction`
-  - Actor: `Customer` indicates this simulates customer behavior
-  - Instruction: Object defining the instruction
-
-    - Type: Must be `Utterance`
-    - Properties:
-
-      - Text (Optional): Plain text input to send
-      - SSML (Optional): SSML-formatted input to send
-      - LanguageCode: Language code for the input (e.g., "en-US")
-
-- Transitions:
-
-  - NextAction: The unique identifier for the next action
+<a name="testing-language-actions-send-instruction-text-utterance-parameters"></a>
++ Identifier: Unique identifier for the action
++ Type: Must be `SendInstruction`
++ Parameters:
+  + ActionType: Must be `SendInstruction`
+  + Actor: `Customer` indicates this simulates customer behavior
+  + Instruction: Object defining the instruction
+    + Type: Must be `Utterance`
+    + Properties:
+      + Text (Optional): Plain text input to send
+      + SSML (Optional): SSML-formatted input to send
+      + LanguageCode: Language code for the input (e.g., "en-US")
++ Transitions:
+  + NextAction: The unique identifier for the next action
 
 ```
 {
@@ -89,25 +84,22 @@ Simulates customer voice or text input. This is used for Lex bot or AI agent int
 ```
 
 ## Disconnect
+<a name="testing-language-actions-send-instruction-disconnect"></a>
 
 Simulates customer ending the call.
 
 ### Parameters
-
-- Identifier: Unique identifier for the action
-- Type: Must be `SendInstruction`
-- Parameters:
-
-  - ActionType: Must be `SendInstruction`
-  - Actor: `Customer` indicates this simulates customer behavior
-  - Instruction: Object defining the instruction
-
-    - ActionType: Must be `SendInstruction`
-    - Type: Must be `Disconnect`
-
-- Transitions:
-
-  - NextAction: The unique identifier for the next action
+<a name="testing-language-actions-send-instruction-disconnect-parameters"></a>
++ Identifier: Unique identifier for the action
++ Type: Must be `SendInstruction`
++ Parameters:
+  + ActionType: Must be `SendInstruction`
+  + Actor: `Customer` indicates this simulates customer behavior
+  + Instruction: Object defining the instruction
+    + ActionType: Must be `SendInstruction`
+    + Type: Must be `Disconnect`
++ Transitions:
+  + NextAction: The unique identifier for the next action
 
 ```
 {

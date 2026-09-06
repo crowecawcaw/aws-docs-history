@@ -1,23 +1,26 @@
+
+
 # Workspace actions
+<a name="workspaces-api"></a>
 
 The following API actions are available for workspaces:
++ [AssociateWorkspace](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateWorkspace.html)
++ [CreateWorkspace](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateWorkspace.html)
++ [CreateWorkspacePage](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateWorkspacePage.html)
++ [DeleteWorkspace](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteWorkspace.html)
++ [DeleteWorkspaceMedia](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteWorkspaceMedia.html)
++ [DeleteWorkspacePage](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteWorkspacePage.html)
++ [DescribeWorkspace](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeWorkspace.html)
++ [DisassociateWorkspace](https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateWorkspace.html)
++ [ImportWorkspaceMedia](https://docs.aws.amazon.com/connect/latest/APIReference/API_ImportWorkspaceMedia.html)
++ [ListWorkspaceMedia](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListWorkspaceMedia.html)
++ [ListWorkspacePages](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListWorkspacePages.html)
++ [ListWorkspaces](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListWorkspaces.html)
++ [SearchWorkspaceAssociations](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchWorkspaceAssociations.html)
++ [SearchWorkspaces](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchWorkspaces.html)
++ [UpdateWorkspaceMetadata](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateWorkspaceMetadata.html)
++ [UpdateWorkspacePage](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateWorkspacePage.html)
++ [UpdateWorkspaceTheme](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateWorkspaceTheme.html)
++ [UpdateWorkspaceVisibility](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateWorkspaceVisibility.html)
 
-- [AssociateWorkspace](../APIReference/API_AssociateWorkspace.md "../APIReference/API_AssociateWorkspace.md")
-- [CreateWorkspace](../APIReference/API_CreateWorkspace.md "../APIReference/API_CreateWorkspace.md")
-- [CreateWorkspacePage](../APIReference/API_CreateWorkspacePage.md "../APIReference/API_CreateWorkspacePage.md")
-- [DeleteWorkspace](../APIReference/API_DeleteWorkspace.md "../APIReference/API_DeleteWorkspace.md")
-- [DeleteWorkspaceMedia](../APIReference/API_DeleteWorkspaceMedia.md "../APIReference/API_DeleteWorkspaceMedia.md")
-- [DeleteWorkspacePage](../APIReference/API_DeleteWorkspacePage.md "../APIReference/API_DeleteWorkspacePage.md")
-- [DescribeWorkspace](../APIReference/API_DescribeWorkspace.md "../APIReference/API_DescribeWorkspace.md")
-- [DisassociateWorkspace](../APIReference/API_DisassociateWorkspace.md "../APIReference/API_DisassociateWorkspace.md")
-- [ImportWorkspaceMedia](../APIReference/API_ImportWorkspaceMedia.md "../APIReference/API_ImportWorkspaceMedia.md")
-- [ListWorkspaceMedia](../APIReference/API_ListWorkspaceMedia.md "../APIReference/API_ListWorkspaceMedia.md")
-- [ListWorkspacePages](../APIReference/API_ListWorkspacePages.md "../APIReference/API_ListWorkspacePages.md")
-- [ListWorkspaces](../APIReference/API_ListWorkspaces.md "../APIReference/API_ListWorkspaces.md")
-- [SearchWorkspaceAssociations](../APIReference/API_SearchWorkspaceAssociations.md "../APIReference/API_SearchWorkspaceAssociations.md")
-- [SearchWorkspaces](../APIReference/API_SearchWorkspaces.md "../APIReference/API_SearchWorkspaces.md")
-- [UpdateWorkspaceMetadata](../APIReference/API_UpdateWorkspaceMetadata.md "../APIReference/API_UpdateWorkspaceMetadata.md")
-- [UpdateWorkspacePage](../APIReference/API_UpdateWorkspacePage.md "../APIReference/API_UpdateWorkspacePage.md")
-- [UpdateWorkspaceTheme](../APIReference/API_UpdateWorkspaceTheme.md "../APIReference/API_UpdateWorkspaceTheme.md")
-- [UpdateWorkspaceVisibility](../APIReference/API_UpdateWorkspaceVisibility.md "../APIReference/API_UpdateWorkspaceVisibility.md")
-  For more information about workspaces, see [Workspaces](../adminguide/amazon-connect-workspaces.md "../adminguide/amazon-connect-workspaces.md") in the _Connect Customer Administrator Guide_.
+For more information about workspaces, see [Workspaces](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-workspaces.html) in the *Connect Customer Administrator Guide*.

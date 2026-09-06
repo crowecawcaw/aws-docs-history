@@ -1,8 +1,12 @@
-# UpdateContactMediaStreamingBehavior
 
-Enables or disables contact media streaming for a set of participants.
+
+# UpdateContactMediaStreamingBehavior
+<a name="contact-actions-updatecontactmediastreamingbehavior"></a>
+
+Enables or disables contact media streaming for a set of participants. 
 
 ## Parameter object
+<a name="updatecontactmediastreamingbehavior-parameter"></a>
 
 ```
 {
@@ -15,26 +19,25 @@ Enables or disables contact media streaming for a set of participants.
     ],
     "MediaStreamType": The type of media to enable or disable from the stream. Currently, only "Audio" is supported. Must be defined statically.
 }
-
 ```
 
 ## Results and conditions
+<a name="updatecontactmediastreamingbehavior-results"></a>
 
 None.
 
 ## Errors
-
-- NoMatchingError - if no other Error matches.
+<a name="updatecontactmediastreamingbehavior-errors"></a>
++ NoMatchingError - if no other Error matches.
 
 ## Restrictions
+<a name="updatecontactmediastreamingbehavior-restrictions"></a>
 
-This is supported in contact flows, customer queue flows, transfer flows, and
-whisper flows. It is not supported in hold flows.
+This is supported in contact flows, customer queue flows, transfer flows, and whisper flows. It is not supported in hold flows. 
 
 This is supported only by the voice channel.
 
 ## Corresponding block in the UI
+<a name="updatecontactmediastreamingbehavior-ui"></a>
 
-[Start media
-streaming](../adminguide/start-media-streaming.md "../adminguide/start-media-streaming.md") and [Stop media
-streaming](../adminguide/stop-media-streaming.md "../adminguide/stop-media-streaming.md")
+[Start media streaming](https://docs.aws.amazon.com/connect/latest/adminguide/start-media-streaming.html) and [Stop media streaming](https://docs.aws.amazon.com/connect/latest/adminguide/stop-media-streaming.html) 

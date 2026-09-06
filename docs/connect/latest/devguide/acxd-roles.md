@@ -1,39 +1,45 @@
+
+
 # Roles
+<a name="acxd-roles"></a>
 
-Manage permission roles that can be assigned to programmatic users. Roles define
-what actions a user can perform within a workspace.
+Manage permission roles that can be assigned to programmatic users. Roles define what actions a user can perform within a workspace.
 
-###### Contents
-
-- [ListRoles](#acxd-roles-listroles "#acxd-roles-listroles")
-- [CreateRole](#acxd-roles-createrole "#acxd-roles-createrole")
-- [GetRole](#acxd-roles-getrole "#acxd-roles-getrole")
-- [UpdateRole](#acxd-roles-updaterole "#acxd-roles-updaterole")
-- [DeleteRole](#acxd-roles-deleterole "#acxd-roles-deleterole")
-- [GetRolePermissions](#acxd-roles-getrolepermissions "#acxd-roles-getrolepermissions")
-- [Request Parameters](#acxd-roles-request-parameters "#acxd-roles-request-parameters")
-- [Role Permission](#acxd-roles-role-permission "#acxd-roles-role-permission")
-- [Condition Catalog](#acxd-roles-condition-catalog "#acxd-roles-condition-catalog")
+**Topics**
++ [ListRoles](#acxd-roles-listroles)
++ [CreateRole](#acxd-roles-createrole)
++ [GetRole](#acxd-roles-getrole)
++ [UpdateRole](#acxd-roles-updaterole)
++ [DeleteRole](#acxd-roles-deleterole)
++ [GetRolePermissions](#acxd-roles-getrolepermissions)
++ [Request Parameters](#acxd-roles-request-parameters)
++ [Role Permission](#acxd-roles-role-permission)
++ [Condition Catalog](#acxd-roles-condition-catalog)
 
 ## ListRoles
+<a name="acxd-roles-listroles"></a>
 
 Lists all roles.
 
 ### Input
+<a name="acxd-roles-listroles-input"></a>
 
-| Parameter    | Type    | Required |
-| ------------ | ------- | -------- |
-| `type`       | string  | No       |
-| `nextToken`  | string  | No       |
-| `maxResults` | integer | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| type | string | No | 
+| nextToken | string | No | 
+| maxResults | integer | No | 
 
 ### Sample Request
+<a name="acxd-roles-listroles-sample-request"></a>
 
 ```
 await client.send(new ListRolesCommand({}));
 ```
 
 ### Output
+<a name="acxd-roles-listroles-output"></a>
 
 ```
 {
@@ -61,25 +67,29 @@ await client.send(new ListRolesCommand({}));
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `InternalServerException` (500)
+<a name="acxd-roles-listroles-errors"></a>
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## CreateRole
+<a name="acxd-roles-createrole"></a>
 
 Creates a new custom role.
 
 ### Input
+<a name="acxd-roles-createrole-input"></a>
 
-| Parameter          | Type   | Required |
-| ------------------ | ------ | -------- |
-| `name`             | string | Yes      |
-| `type`             | string | No       |
-| `description`      | string | No       |
-| `permissions`      | array  | No       |
-| `conditionCatalog` | array  | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| name | string | Yes | 
+| type | string | No | 
+| description | string | No | 
+| permissions | array | No | 
+| conditionCatalog | array | No | 
 
 ### Sample Request
+<a name="acxd-roles-createrole-sample-request"></a>
 
 ```
 await client.send(new CreateRoleCommand({
@@ -98,6 +108,7 @@ await client.send(new CreateRoleCommand({
 ```
 
 ### Output
+<a name="acxd-roles-createrole-output"></a>
 
 ```
 {
@@ -120,22 +131,26 @@ await client.send(new CreateRoleCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ConflictException` (409)
-- `InternalServerException` (500)
+<a name="acxd-roles-createrole-errors"></a>
++ `ValidationException` (400)
++ `ConflictException` (409)
++ `InternalServerException` (500)
 
 ## GetRole
+<a name="acxd-roles-getrole"></a>
 
 Gets a single role by ID.
 
 ### Input
+<a name="acxd-roles-getrole-input"></a>
 
-| Parameter | Type   | Required |
-| --------- | ------ | -------- |
-| `roleId`  | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| roleId | string | Yes | 
 
 ### Sample Request
+<a name="acxd-roles-getrole-sample-request"></a>
 
 ```
 await client.send(new GetRoleCommand({
@@ -144,6 +159,7 @@ await client.send(new GetRoleCommand({
 ```
 
 ### Output
+<a name="acxd-roles-getrole-output"></a>
 
 ```
 {
@@ -166,27 +182,31 @@ await client.send(new GetRoleCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="acxd-roles-getrole-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## UpdateRole
+<a name="acxd-roles-updaterole"></a>
 
 Updates an existing role. Only include fields you want to change.
 
 ### Input
+<a name="acxd-roles-updaterole-input"></a>
 
-| Parameter          | Type   | Required |
-| ------------------ | ------ | -------- |
-| `roleId`           | string | Yes      |
-| `name`             | string | No       |
-| `type`             | string | No       |
-| `description`      | string | No       |
-| `permissions`      | array  | No       |
-| `conditionCatalog` | array  | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| roleId | string | Yes | 
+| name | string | No | 
+| type | string | No | 
+| description | string | No | 
+| permissions | array | No | 
+| conditionCatalog | array | No | 
 
 ### Sample Request
+<a name="acxd-roles-updaterole-sample-request"></a>
 
 ```
 await client.send(new UpdateRoleCommand({
@@ -207,6 +227,7 @@ await client.send(new UpdateRoleCommand({
 ```
 
 ### Output
+<a name="acxd-roles-updaterole-output"></a>
 
 ```
 {
@@ -230,22 +251,26 @@ await client.send(new UpdateRoleCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="acxd-roles-updaterole-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## DeleteRole
+<a name="acxd-roles-deleterole"></a>
 
 Deletes a custom role. Fails if the role is still assigned to programmatic users.
 
 ### Input
+<a name="acxd-roles-deleterole-input"></a>
 
-| Parameter | Type   | Required |
-| --------- | ------ | -------- |
-| `roleId`  | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| roleId | string | Yes | 
 
 ### Sample Request
+<a name="acxd-roles-deleterole-sample-request"></a>
 
 ```
 await client.send(new DeleteRoleCommand({
@@ -254,27 +279,32 @@ await client.send(new DeleteRoleCommand({
 ```
 
 ### Output
+<a name="acxd-roles-deleterole-output"></a>
 
 No response body.
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `ConflictException` (409) role still assigned to users
-- `InternalServerException` (500)
+<a name="acxd-roles-deleterole-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `ConflictException` (409) role still assigned to users
++ `InternalServerException` (500)
 
 ## GetRolePermissions
+<a name="acxd-roles-getrolepermissions"></a>
 
 Gets the list of all available permissions that can be assigned to roles.
 
 ### Input
+<a name="acxd-roles-getrolepermissions-input"></a>
 
-| Parameter | Type   | Required |
-| --------- | ------ | -------- |
-| `type`    | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| type | string | Yes | 
 
 ### Sample Request
+<a name="acxd-roles-getrolepermissions-sample-request"></a>
 
 ```
 await client.send(new GetRolePermissionsCommand({
@@ -283,6 +313,7 @@ await client.send(new GetRolePermissionsCommand({
 ```
 
 ### Output
+<a name="acxd-roles-getrolepermissions-output"></a>
 
 ```
 {
@@ -304,143 +335,108 @@ await client.send(new GetRolePermissionsCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `InternalServerException` (500)
+<a name="acxd-roles-getrolepermissions-errors"></a>
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## Request Parameters
+<a name="acxd-roles-request-parameters"></a>
 
-`roleId`
-
-Type: String
-
+`roleId`  
+Type: String  
 The role ID.
 
-`name`
+`name`  
+Type: String  
+Role name. Alphanumeric \+ spaces/dashes, 3–36 characters.
 
-Type: String
-
-Role name. Alphanumeric + spaces/dashes, 3–36 characters.
-
-`type`
-
-Type: String
-
+`type`  
+Type: String  
 The role type. One of: `studio`, `voicecompass`, `voiceinsights`.
 
-`description`
-
-Type: String
-
+`description`  
+Type: String  
 Role description. Max 200 characters.
 
-`permissions`
-
-Type: Array
-
+`permissions`  
+Type: Array  
 Permission assignments. See Role Permission.
 
-`conditionCatalog`
-
-Type: Array
-
+`conditionCatalog`  
+Type: Array  
 Conditional permission rules for fine-grained access control. See Condition Catalog.
 
-`nextToken`
-
-Type: String
-
+`nextToken`  
+Type: String  
 Pagination token. See Common Types.
 
-`maxResults`
-
-Type: Integer
-
+`maxResults`  
+Type: Integer  
 Max items per page (1–100). See Common Types.
 
-`createdAt`
-
-Type: String
-
+`createdAt`  
+Type: String  
 When the role was created (ISO 8601).
 
-`updatedAt`
-
-Type: String
-
+`updatedAt`  
+Type: String  
 When the role was last modified (ISO 8601).
 
-`updatedBy`
-
-Type: String
-
+`updatedBy`  
+Type: String  
 The identity of who last modified the role.
 
 ## Role Permission
+<a name="acxd-roles-role-permission"></a>
 
-| Field          | Type   | Required |
-| -------------- | ------ | -------- |
-| `permissionId` | string | Yes      |
-| `effect`       | string | Yes      |
-| `conditionId`  | string | No       |
 
-`permissionId`
+| Field | Type | Required | 
+| --- | --- | --- | 
+| permissionId | string | Yes | 
+| effect | string | Yes | 
+| conditionId | string | No | 
 
-Type: String
+`permissionId`  
+Type: String  
+The permission identifier (e.g., `ds:CreateFlow`, `ds:ListApplications`). Use GetRolePermissions to discover available values.
 
-The permission identifier (e.g., `ds:CreateFlow`, `ds:ListApplications`). Use
-GetRolePermissions to discover available values.
-
-`effect`
-
-Type: String
-
+`effect`  
+Type: String  
 Whether to allow or deny this permission. One of: `allow`, `deny`.
 
-`conditionId`
-
-Type: String
-
-Optional reference to a condition in the condition catalog. When present, the
-permission only applies when the condition is met.
+`conditionId`  
+Type: String  
+Optional reference to a condition in the condition catalog. When present, the permission only applies when the condition is met.
 
 ## Condition Catalog
+<a name="acxd-roles-condition-catalog"></a>
 
-Conditions enable fine-grained access control (e.g., restrict a user to specific
-languages or resources).
+Conditions enable fine-grained access control (e.g., restrict a user to specific languages or resources).
 
-| Field           | Type   | Required |
-| --------------- | ------ | -------- |
-| `categoryId`    | string | No       |
-| `subcategoryId` | string | No       |
-| `conditionId`   | string | No       |
-| `conditions`    | object | No       |
 
-`categoryId`
+| Field | Type | Required | 
+| --- | --- | --- | 
+| categoryId | string | No | 
+| subcategoryId | string | No | 
+| conditionId | string | No | 
+| conditions | object | No | 
 
-Type: String
-
+`categoryId`  
+Type: String  
 Category grouping for the condition.
 
-`subcategoryId`
-
-Type: String
-
+`subcategoryId`  
+Type: String  
 Subcategory grouping.
 
-`conditionId`
-
-Type: String
-
+`conditionId`  
+Type: String  
 Unique condition ID. Referenced by permissions via `conditionId`.
 
-`conditions`
-
-Type: Object
-
-The condition logic. Either a single condition or a composite:
-
-Single condition:
+`conditions`  
+Type: Object  
+The condition logic. Either a single condition or a composite:  
+Single condition:  
 
 ```
 {
@@ -451,8 +447,7 @@ Single condition:
   }
 }
 ```
-
-Composite condition (multiple conditions combined):
+Composite condition (multiple conditions combined):  
 
 ```
 {
@@ -467,29 +462,35 @@ Composite condition (multiple conditions combined):
 ```
 
 ### Condition Operand Types
+<a name="acxd-roles-condition-operand-types"></a>
 
-| Type           | Description                                 |
-| -------------- | ------------------------------------------- |
-| `languageCode` | The language of the resource being accessed |
-| `resourceId`   | The ID of the resource being accessed       |
-| `constant`     | A literal value to compare against          |
+
+| Type | Description | 
+| --- | --- | 
+| languageCode | The language of the resource being accessed | 
+| resourceId | The ID of the resource being accessed | 
+| constant | A literal value to compare against | 
 
 ### Condition Operators
+<a name="acxd-roles-condition-operators"></a>
 
-| Operator       | Description         |
-| -------------- | ------------------- |
-| `EQ`           | Equals              |
-| `NEQ`          | Not equals          |
-| `PREFIX`       | Starts with         |
-| `NOT_PREFIX`   | Does not start with |
-| `SUFFIX`       | Ends with           |
-| `NOT_SUFFIX`   | Does not end with   |
-| `CONTAINS`     | Contains            |
-| `NOT_CONTAINS` | Does not contain    |
+
+| Operator | Description | 
+| --- | --- | 
+| EQ | Equals | 
+| NEQ | Not equals | 
+| PREFIX | Starts with | 
+| NOT\_PREFIX | Does not start with | 
+| SUFFIX | Ends with | 
+| NOT\_SUFFIX | Does not end with | 
+| CONTAINS | Contains | 
+| NOT\_CONTAINS | Does not contain | 
 
 ### Boolean Operators
+<a name="acxd-roles-boolean-operators"></a>
 
-| Operator | Description                         |
-| -------- | ----------------------------------- |
-| `AND`    | All conditions must be true         |
-| `OR`     | At least one condition must be true |
+
+| Operator | Description | 
+| --- | --- | 
+| AND | All conditions must be true | 
+| OR | At least one condition must be true | 

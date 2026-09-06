@@ -1,20 +1,20 @@
+
+
 # Task actions
+<a name="tasks-api"></a>
 
 The following API actions are available for tasks:
++ [CreateTaskTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTaskTemplate.html)
++ [DeleteTaskTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTaskTemplate.html)
++ [GetTaskTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetTaskTemplate.html)
++ [ListTaskTemplates](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListTaskTemplates.html)
++ [StartTaskContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartTaskContact.html)
++ [UpdateTaskTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTaskTemplate.html)
 
-- [CreateTaskTemplate](../APIReference/API_CreateTaskTemplate.md "../APIReference/API_CreateTaskTemplate.md")
-- [DeleteTaskTemplate](../APIReference/API_DeleteTaskTemplate.md "../APIReference/API_DeleteTaskTemplate.md")
-- [GetTaskTemplate](../APIReference/API_GetTaskTemplate.md "../APIReference/API_GetTaskTemplate.md")
-- [ListTaskTemplates](../APIReference/API_ListTaskTemplates.md "../APIReference/API_ListTaskTemplates.md")
-- [StartTaskContact](../APIReference/API_StartTaskContact.md "../APIReference/API_StartTaskContact.md")
-- [UpdateTaskTemplate](../APIReference/API_UpdateTaskTemplate.md "../APIReference/API_UpdateTaskTemplate.md")
-  To create a CloudFormation template for tasks, see the following topic:
+To create a CloudFormation template for tasks, see the following topic:
++ [AWS::Connect::TaskTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html)
 
-- [AWS::Connect::TaskTemplate](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.md")
-  For more information about tasks, see the following topics in the _Connect Customer Administrator Guide_:
-
-- [Tasks](../adminguide/tasks.md "../adminguide/tasks.md")
-- [Set up
-  tasks](../adminguide/concepts-getting-started-tasks.md "../adminguide/concepts-getting-started-tasks.md")
-- [Set up
-  applications for task creation](../adminguide/integrate-external-apps-tasks.md "../adminguide/integrate-external-apps-tasks.md")
+For more information about tasks, see the following topics in the *Connect Customer Administrator Guide*:
++ [Tasks](https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html)
++ [Set up tasks](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html)
++ [Set up applications for task creation](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-external-apps-tasks.html)

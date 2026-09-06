@@ -1,19 +1,21 @@
+
+
 # Queue actions
+<a name="queues-api"></a>
 
 The following API actions are available for queues:
++ [CreateQueue](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateQueue.html)
++ [DeleteQueue](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQueue.html)
++ [DescribeQueue](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeQueue.html)
++ [ListQueues](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListQueues.html)
++ [SearchQueues](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchQueues.html)
++ [UpdateQueueHoursOfOperation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueHoursOfOperation.html)
++ [UpdateQueueMaxContacts](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueMaxContacts.html)
++ [UpdateQueueName](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueName.html)
++ [UpdateQueueOutboundCallerConfig](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueOutboundCallerConfig.html)
++ [UpdateQueueStatus](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueStatus.html)
 
-- [CreateQueue](../APIReference/API_CreateQueue.md "../APIReference/API_CreateQueue.md")
-- [DeleteQueue](../APIReference/API_DeleteQueue.md "../APIReference/API_DeleteQueue.md")
-- [DescribeQueue](../APIReference/API_DescribeQueue.md "../APIReference/API_DescribeQueue.md")
-- [ListQueues](../APIReference/API_ListQueues.md "../APIReference/API_ListQueues.md")
-- [SearchQueues](../APIReference/API_SearchQueues.md "../APIReference/API_SearchQueues.md")
-- [UpdateQueueHoursOfOperation](../APIReference/API_UpdateQueueHoursOfOperation.md "../APIReference/API_UpdateQueueHoursOfOperation.md")
-- [UpdateQueueMaxContacts](../APIReference/API_UpdateQueueMaxContacts.md "../APIReference/API_UpdateQueueMaxContacts.md")
-- [UpdateQueueName](../APIReference/API_UpdateQueueName.md "../APIReference/API_UpdateQueueName.md")
-- [UpdateQueueOutboundCallerConfig](../APIReference/API_UpdateQueueOutboundCallerConfig.md "../APIReference/API_UpdateQueueOutboundCallerConfig.md")
-- [UpdateQueueStatus](../APIReference/API_UpdateQueueStatus.md "../APIReference/API_UpdateQueueStatus.md")
-  To create a CloudFormation template for queues, see the following topic:
+To create a CloudFormation template for queues, see the following topic:
++ [AWS::Connect::Queue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html)
 
-- [AWS::Connect::Queue](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.md")
-  For more information about queues, see [Set up routing](../adminguide/connect-queues.md "../adminguide/connect-queues.md") in the
-  _Connect Customer Administrator Guide_.
+For more information about queues, see [Set up routing](https://docs.aws.amazon.com/connect/latest/adminguide/connect-queues.html) in the *Connect Customer Administrator Guide*. 

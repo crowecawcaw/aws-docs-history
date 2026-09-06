@@ -1,17 +1,19 @@
+
+
 # Email actions
+<a name="email-api"></a>
 
-The following API actions are available for email:
+ The following API actions are available for email:
++ [AssociateEmailAddressAlias](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateEmailAddressAlias.html)
++ [CreateEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateEmailAddress.html)
++ [DeleteEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteEmailAddress.html)
++ [DescribeEmailAddress](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html)
++ [DisassociateEmailAddressAlias](https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateEmailAddressAlias.html)
++ [SearchEmailAddresses](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchEmailAddresses.html)
++ [SendOutboundEmail](https://docs.aws.amazon.com/connect/latest/APIReference/API_SendOutboundEmail.html)
++ [StartEmailContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartEmailContact.html)
++ [StartOutboundEmailContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundEmailContact.html)
++ [UpdateEmailAddressMetadata](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateEmailAddressMetadata.html)
++ [UpdateQueueOutboundEmailConfig](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueOutboundEmailConfig.html)
 
-- [AssociateEmailAddressAlias](../APIReference/API_AssociateEmailAddressAlias.md "../APIReference/API_AssociateEmailAddressAlias.md")
-- [CreateEmailAddress](../APIReference/API_CreateEmailAddress.md "../APIReference/API_CreateEmailAddress.md")
-- [DeleteEmailAddress](../APIReference/API_DeleteEmailAddress.md "../APIReference/API_DeleteEmailAddress.md")
-- [DescribeEmailAddress](../APIReference/API_DescribeEmailAddress.md "../APIReference/API_DescribeEmailAddress.md")
-- [DisassociateEmailAddressAlias](../APIReference/API_DisassociateEmailAddressAlias.md "../APIReference/API_DisassociateEmailAddressAlias.md")
-- [SearchEmailAddresses](../APIReference/API_SearchEmailAddresses.md "../APIReference/API_SearchEmailAddresses.md")
-- [SendOutboundEmail](../APIReference/API_SendOutboundEmail.md "../APIReference/API_SendOutboundEmail.md")
-- [StartEmailContact](../APIReference/API_StartEmailContact.md "../APIReference/API_StartEmailContact.md")
-- [StartOutboundEmailContact](../APIReference/API_StartOutboundEmailContact.md "../APIReference/API_StartOutboundEmailContact.md")
-- [UpdateEmailAddressMetadata](../APIReference/API_UpdateEmailAddressMetadata.md "../APIReference/API_UpdateEmailAddressMetadata.md")
-- [UpdateQueueOutboundEmailConfig](../APIReference/API_UpdateQueueOutboundEmailConfig.md "../APIReference/API_UpdateQueueOutboundEmailConfig.md")
-  For more information about email, see [Set up email in Connect Customer](../adminguide/setup-email-channel.md "../adminguide/setup-email-channel.md")
-  in the _Connect Customer Administrator Guide_.
+For more information about email, see [Set up email in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html) in the *Connect Customer Administrator Guide*. 

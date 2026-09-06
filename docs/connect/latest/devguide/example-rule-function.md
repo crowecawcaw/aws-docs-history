@@ -1,11 +1,11 @@
+
+
 # Example rule function in Connect Customer Rule Function language
+<a name="example-rule-function"></a>
 
-The following example shows a simple rule that would be evaluated to `true`
-if "refund" is mentioned by the customer who is in a specific queue.
+The following example shows a simple rule that would be evaluated to `true` if "refund" is mentioned by the customer who is in a specific queue. 
 
-To learn how to use conditions correctly, we recommend creating a new rule in the
-Connect Customer console, and then calling the [DescribeRule](../APIReference/API_DescribeRule.md "../APIReference/API_DescribeRule.md") API for
-it.
+To learn how to use conditions correctly, we recommend creating a new rule in the Connect Customer console, and then calling the [DescribeRule](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRule.html) API for it.
 
 ```
 {
@@ -33,7 +33,7 @@ it.
       {
         "Operator": "CONTAINS_ANY",
         "Operands": [
-          "11111111-1234-5678-9123-12345678012" // QueueId
+          "11111111-1234-5678-9123-12345678012" // QueueId 
         ],
         "ComparisonValue": "$.ContactLens.RealTimeCall.Queue.QueueId",
         "Negate": false

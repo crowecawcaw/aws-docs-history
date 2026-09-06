@@ -1,14 +1,16 @@
+
+
 # Predefined attributes actions
+<a name="predefined-attributes-api"></a>
 
 The following API actions are available for predefined attributes:
++ [CreatePredefinedAttribute](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreatePredefinedAttribute.html)
++ [DescribePredefinedAttribute](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePredefinedAttribute.html)
++ [ListPredefinedAttributes](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPredefinedAttributes.html)
++ [SearchPredefinedAttributes](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchPredefinedAttributes.html)
++ [UpdatePredefinedAttribute](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePredefinedAttribute.html)
 
-- [CreatePredefinedAttribute](../APIReference/API_CreatePredefinedAttribute.md "../APIReference/API_CreatePredefinedAttribute.md")
-- [DescribePredefinedAttribute](../APIReference/API_DescribePredefinedAttribute.md "../APIReference/API_DescribePredefinedAttribute.md")
-- [ListPredefinedAttributes](../APIReference/API_ListPredefinedAttributes.md "../APIReference/API_ListPredefinedAttributes.md")
-- [SearchPredefinedAttributes](../APIReference/API_SearchPredefinedAttributes.md "../APIReference/API_SearchPredefinedAttributes.md")
-- [UpdatePredefinedAttribute](../APIReference/API_UpdatePredefinedAttribute.md "../APIReference/API_UpdatePredefinedAttribute.md")
-  To create a CloudFormation template for predefined attributes, see the following topic:
+To create a CloudFormation template for predefined attributes, see the following topic:
++ [AWS::Connect::PredefinedAttribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html)
 
-- [AWS::Connect::PredefinedAttribute](../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.md")
-  For more information about predefined attributes, see [Create predefined attributes for routing contacts to agents](../adminguide/predefined-attributes.md "../adminguide/predefined-attributes.md") in the _Connect Customer
-  Administrator Guide_.
+For more information about predefined attributes, see [Create predefined attributes for routing contacts to agents](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html) in the *Connect Customer Administrator Guide*. 

@@ -1,36 +1,41 @@
+
+
 # Secrets
+<a name="acxd-secrets"></a>
 
-Store sensitive values (API keys, credentials, connection strings) encrypted at rest.
-Secrets can be referenced in data requests and integrations without exposing the
-value.
+Store sensitive values (API keys, credentials, connection strings) encrypted at rest. Secrets can be referenced in data requests and integrations without exposing the value.
 
-###### Contents
-
-- [ListSecrets](#acxd-secrets-listsecrets "#acxd-secrets-listsecrets")
-- [CreateSecret](#acxd-secrets-createsecret "#acxd-secrets-createsecret")
-- [GetSecret](#acxd-secrets-getsecret "#acxd-secrets-getsecret")
-- [UpdateSecret](#acxd-secrets-updatesecret "#acxd-secrets-updatesecret")
-- [DeleteSecret](#acxd-secrets-deletesecret "#acxd-secrets-deletesecret")
-- [Request Parameters](#acxd-secrets-request-parameters "#acxd-secrets-request-parameters")
+**Topics**
++ [ListSecrets](#acxd-secrets-listsecrets)
++ [CreateSecret](#acxd-secrets-createsecret)
++ [GetSecret](#acxd-secrets-getsecret)
++ [UpdateSecret](#acxd-secrets-updatesecret)
++ [DeleteSecret](#acxd-secrets-deletesecret)
++ [Request Parameters](#acxd-secrets-request-parameters)
 
 ## ListSecrets
+<a name="acxd-secrets-listsecrets"></a>
 
 Lists all secrets in the workspace. Values are never included in list responses.
 
 ### Input
+<a name="w2aac18c13d159b7b5"></a>
 
-| Parameter    | Type    | Required |
-| ------------ | ------- | -------- |
-| `nextToken`  | string  | No       |
-| `maxResults` | integer | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| nextToken | string | No | 
+| maxResults | integer | No | 
 
 ### Sample Request
+<a name="w2aac18c13d159b7b7"></a>
 
 ```
 await client.send(new ListSecretsCommand({}));
 ```
 
 ### Output
+<a name="w2aac18c13d159b7b9"></a>
 
 ```
 {
@@ -49,25 +54,29 @@ await client.send(new ListSecretsCommand({}));
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `InternalServerException` (500)
+<a name="w2aac18c13d159b7c11"></a>
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## CreateSecret
+<a name="acxd-secrets-createsecret"></a>
 
 Creates a new secret.
 
 ### Input
+<a name="w2aac18c13d159b9b5"></a>
 
-| Parameter     | Type    | Required |
-| ------------- | ------- | -------- |
-| `name`        | string  | Yes      |
-| `secretValue` | string  | Yes      |
-| `description` | string  | No       |
-| `isSensitive` | boolean | No       |
-| `metadata`    | object  | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| name | string | Yes | 
+| secretValue | string | Yes | 
+| description | string | No | 
+| isSensitive | boolean | No | 
+| metadata | object | No | 
 
 ### Sample Request
+<a name="w2aac18c13d159b9b7"></a>
 
 ```
 await client.send(new CreateSecretCommand({
@@ -79,6 +88,7 @@ await client.send(new CreateSecretCommand({
 ```
 
 ### Output
+<a name="w2aac18c13d159b9b9"></a>
 
 ```
 {
@@ -94,22 +104,26 @@ await client.send(new CreateSecretCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ConflictException` (409) a secret with this name already exists
-- `InternalServerException` (500)
+<a name="w2aac18c13d159b9c11"></a>
++ `ValidationException` (400)
++ `ConflictException` (409) a secret with this name already exists
++ `InternalServerException` (500)
 
 ## GetSecret
+<a name="acxd-secrets-getsecret"></a>
 
 Gets a single secret by name, including its value.
 
 ### Input
+<a name="w2aac18c13d159c11b5"></a>
 
-| Parameter          | Type   | Required |
-| ------------------ | ------ | -------- |
-| `secretIdentifier` | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| secretIdentifier | string | Yes | 
 
 ### Sample Request
+<a name="w2aac18c13d159c11b7"></a>
 
 ```
 await client.send(new GetSecretCommand({
@@ -118,6 +132,7 @@ await client.send(new GetSecretCommand({
 ```
 
 ### Output
+<a name="w2aac18c13d159c11b9"></a>
 
 ```
 {
@@ -133,25 +148,29 @@ await client.send(new GetSecretCommand({
 ```
 
 ### Errors
-
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="w2aac18c13d159c11c11"></a>
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## UpdateSecret
+<a name="acxd-secrets-updatesecret"></a>
 
 Updates an existing secret. Only include fields you want to change.
 
 ### Input
+<a name="w2aac18c13d159c13b5"></a>
 
-| Parameter          | Type    | Required |
-| ------------------ | ------- | -------- |
-| `secretIdentifier` | string  | Yes      |
-| `secretValue`      | string  | No       |
-| `description`      | string  | No       |
-| `isSensitive`      | boolean | No       |
-| `metadata`         | object  | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| secretIdentifier | string | Yes | 
+| secretValue | string | No | 
+| description | string | No | 
+| isSensitive | boolean | No | 
+| metadata | object | No | 
 
 ### Sample Request
+<a name="w2aac18c13d159c13b7"></a>
 
 ```
 const updated = await client.send(new UpdateSecretCommand({
@@ -162,6 +181,7 @@ const updated = await client.send(new UpdateSecretCommand({
 ```
 
 ### Output
+<a name="w2aac18c13d159c13b9"></a>
 
 ```
 {
@@ -177,22 +197,26 @@ const updated = await client.send(new UpdateSecretCommand({
 ```
 
 ### Errors
-
-- `ResourceNotFoundException` (404)
-- `ValidationException` (400)
-- `InternalServerException` (500)
+<a name="w2aac18c13d159c13c11"></a>
++ `ResourceNotFoundException` (404)
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## DeleteSecret
+<a name="acxd-secrets-deletesecret"></a>
 
 Deletes a secret.
 
 ### Input
+<a name="w2aac18c13d159c15b5"></a>
 
-| Parameter          | Type   | Required |
-| ------------------ | ------ | -------- |
-| `secretIdentifier` | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| secretIdentifier | string | Yes | 
 
 ### Sample Request
+<a name="w2aac18c13d159c15b7"></a>
 
 ```
 await client.send(new DeleteSecretCommand({
@@ -201,79 +225,58 @@ await client.send(new DeleteSecretCommand({
 ```
 
 ### Output
+<a name="w2aac18c13d159c15b9"></a>
 
 No response body.
 
 ### Errors
-
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="w2aac18c13d159c15c11"></a>
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## Request Parameters
+<a name="acxd-secrets-request-parameters"></a>
 
-`name`
+`name`  
+Type: String  
+The secret name. Alphanumeric \+ underscores, 3–100 characters.
 
-Type: String
-
-The secret name. Alphanumeric + underscores, 3–100 characters.
-
-`secretIdentifier`
-
-Type: String
-
+`secretIdentifier`  
+Type: String  
 The secret name used in Get, Update, and Delete operations.
 
-`secretValue`
+`secretValue`  
+Type: String  
+The secret value. 1–4096 characters. This value is encrypted at rest and never logged.
 
-Type: String
-
-The secret value. 1–4096 characters. This value is encrypted at rest and never
-logged.
-
-`description`
-
-Type: String
-
+`description`  
+Type: String  
 Description. Max 200 characters.
 
-`isSensitive`
-
-Type: Boolean
-
+`isSensitive`  
+Type: Boolean  
 Whether this secret contains sensitive data.
 
-`metadata`
-
-Type: Object
-
+`metadata`  
+Type: Object  
 Organizational metadata. See Common Types.
 
-`createdAt`
-
-Type: String
-
+`createdAt`  
+Type: String  
 When the secret was created (ISO 8601).
 
-`updatedAt`
-
-Type: String
-
+`updatedAt`  
+Type: String  
 When the secret was last modified (ISO 8601).
 
-`lastUpdatedBy`
-
-Type: String
-
+`lastUpdatedBy`  
+Type: String  
 The identity of who last modified the secret.
 
-`nextToken`
-
-Type: String
-
+`nextToken`  
+Type: String  
 Pagination token. See Common Types.
 
-`maxResults`
-
-Type: Integer
-
+`maxResults`  
+Type: Integer  
 Max items per page (1–500). See Common Types.

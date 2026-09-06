@@ -1,8 +1,12 @@
-# UpdateRoutingCriteria
 
-Sets the routing criteria for the contact.
+
+# UpdateRoutingCriteria
+<a name="flow-control-actions-updateroutingcriteria"></a>
+
+Sets the routing criteria for the contact. 
 
 ## Parameter object
+<a name="updateroutingcriteria-parameter"></a>
 
 ```
 {
@@ -26,18 +30,21 @@ Sets the routing criteria for the contact.
 ```
 
 ## Results and conditions
+<a name="updateroutingcriteria-results"></a>
 
 None. No conditions are supported.
 
 ## Errors
+<a name="updateroutingcriteria-errors"></a>
 
 NoMatchingError - if no other Error matches.
 
 ## Restrictions
+<a name="updateroutingcriteria-restrictions"></a>
 
-This action is supported on all channels and in only in Inbound flow, Customer
-Queue flow, Transfer to Agent flow, and Transfer to Queue flow types.
+This action is supported on all channels and in only in Inbound flow, Customer Queue flow, Transfer to Agent flow, and Transfer to Queue flow types.
 
 ## Corresponding block in the UI
+<a name="updateroutingcriteria-ui"></a>
 
-[Set routing criteria](../adminguide/set-routing-criteria.md "../adminguide/set-routing-criteria.md")
+[Set routing criteria](https://docs.aws.amazon.com/connect/latest/adminguide/set-routing-criteria.html) 

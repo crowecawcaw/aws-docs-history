@@ -1,30 +1,35 @@
+
+
 # Knowledge Base Articles
+<a name="acxd-knowledge-base-articles"></a>
 
-Manage structured Q&A content within a knowledge base. Articles contain a question
-and one or more response messages.
+Manage structured Q&A content within a knowledge base. Articles contain a question and one or more response messages.
 
-###### Contents
-
-- [ListKnowledgeBaseArticles](#acxd-knowledge-base-articles-listknowledgebasearticles "#acxd-knowledge-base-articles-listknowledgebasearticles")
-- [CreateKnowledgeBaseArticle](#acxd-knowledge-base-articles-createknowledgebasearticle "#acxd-knowledge-base-articles-createknowledgebasearticle")
-- [GetKnowledgeBaseArticle](#acxd-knowledge-base-articles-getknowledgebasearticle "#acxd-knowledge-base-articles-getknowledgebasearticle")
-- [UpdateKnowledgeBaseArticle](#acxd-knowledge-base-articles-updateknowledgebasearticle "#acxd-knowledge-base-articles-updateknowledgebasearticle")
-- [DeleteKnowledgeBaseArticle](#acxd-knowledge-base-articles-deleteknowledgebasearticle "#acxd-knowledge-base-articles-deleteknowledgebasearticle")
-- [Request Parameters](#acxd-knowledge-base-articles-request-parameters "#acxd-knowledge-base-articles-request-parameters")
+**Topics**
++ [ListKnowledgeBaseArticles](#acxd-knowledge-base-articles-listknowledgebasearticles)
++ [CreateKnowledgeBaseArticle](#acxd-knowledge-base-articles-createknowledgebasearticle)
++ [GetKnowledgeBaseArticle](#acxd-knowledge-base-articles-getknowledgebasearticle)
++ [UpdateKnowledgeBaseArticle](#acxd-knowledge-base-articles-updateknowledgebasearticle)
++ [DeleteKnowledgeBaseArticle](#acxd-knowledge-base-articles-deleteknowledgebasearticle)
++ [Request Parameters](#acxd-knowledge-base-articles-request-parameters)
 
 ## ListKnowledgeBaseArticles
+<a name="acxd-knowledge-base-articles-listknowledgebasearticles"></a>
 
 Lists all articles in a knowledge base.
 
 ### Input
+<a name="acxd-knowledge-base-articles-listknowledgebasearticles-input"></a>
 
-| Parameter         | Type    | Required |
-| ----------------- | ------- | -------- |
-| `knowledgeBaseId` | string  | Yes      |
-| `nextToken`       | string  | No       |
-| `maxResults`      | integer | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| knowledgeBaseId | string | Yes | 
+| nextToken | string | No | 
+| maxResults | integer | No | 
 
 ### Sample Request
+<a name="acxd-knowledge-base-articles-listknowledgebasearticles-sample-request"></a>
 
 ```
 await client.send(new ListKnowledgeBaseArticlesCommand({
@@ -33,6 +38,7 @@ await client.send(new ListKnowledgeBaseArticlesCommand({
 ```
 
 ### Output
+<a name="acxd-knowledge-base-articles-listknowledgebasearticles-output"></a>
 
 ```
 {
@@ -56,27 +62,31 @@ await client.send(new ListKnowledgeBaseArticlesCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="acxd-knowledge-base-articles-listknowledgebasearticles-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## CreateKnowledgeBaseArticle
+<a name="acxd-knowledge-base-articles-createknowledgebasearticle"></a>
 
 Creates a new article in a knowledge base.
 
 ### Input
+<a name="acxd-knowledge-base-articles-createknowledgebasearticle-input"></a>
 
-| Parameter         | Type   | Required |
-| ----------------- | ------ | -------- |
-| `knowledgeBaseId` | string | Yes      |
-| `question`        | object | Yes      |
-| `responses`       | array  | Yes      |
-| `articleMetadata` | object | No       |
-| `payload`         | string | No       |
-| `tags`            | array  | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| knowledgeBaseId | string | Yes | 
+| question | object | Yes | 
+| responses | array | Yes | 
+| articleMetadata | object | No | 
+| payload | string | No | 
+| tags | array | No | 
 
 ### Sample Request
+<a name="acxd-knowledge-base-articles-createknowledgebasearticle-sample-request"></a>
 
 ```
 await client.send(new CreateKnowledgeBaseArticleCommand({
@@ -91,6 +101,7 @@ await client.send(new CreateKnowledgeBaseArticleCommand({
 ```
 
 ### Output
+<a name="acxd-knowledge-base-articles-createknowledgebasearticle-output"></a>
 
 ```
 {
@@ -120,23 +131,27 @@ await client.send(new CreateKnowledgeBaseArticleCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="acxd-knowledge-base-articles-createknowledgebasearticle-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## GetKnowledgeBaseArticle
+<a name="acxd-knowledge-base-articles-getknowledgebasearticle"></a>
 
 Gets a single article by ID.
 
 ### Input
+<a name="acxd-knowledge-base-articles-getknowledgebasearticle-input"></a>
 
-| Parameter         | Type   | Required |
-| ----------------- | ------ | -------- |
-| `knowledgeBaseId` | string | Yes      |
-| `articleId`       | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| knowledgeBaseId | string | Yes | 
+| articleId | string | Yes | 
 
 ### Sample Request
+<a name="acxd-knowledge-base-articles-getknowledgebasearticle-sample-request"></a>
 
 ```
 await client.send(new GetKnowledgeBaseArticleCommand({
@@ -146,6 +161,7 @@ await client.send(new GetKnowledgeBaseArticleCommand({
 ```
 
 ### Output
+<a name="acxd-knowledge-base-articles-getknowledgebasearticle-output"></a>
 
 ```
 {
@@ -175,28 +191,32 @@ await client.send(new GetKnowledgeBaseArticleCommand({
 ```
 
 ### Errors
-
-- `ValidationException` (400)
-- `ResourceNotFoundException` (404)
-- `InternalServerException` (500)
+<a name="acxd-knowledge-base-articles-getknowledgebasearticle-errors"></a>
++ `ValidationException` (400)
++ `ResourceNotFoundException` (404)
++ `InternalServerException` (500)
 
 ## UpdateKnowledgeBaseArticle
+<a name="acxd-knowledge-base-articles-updateknowledgebasearticle"></a>
 
 Updates an existing article. Only include fields you want to change.
 
 ### Input
+<a name="acxd-knowledge-base-articles-updateknowledgebasearticle-input"></a>
 
-| Parameter         | Type   | Required |
-| ----------------- | ------ | -------- |
-| `knowledgeBaseId` | string | Yes      |
-| `articleId`       | string | Yes      |
-| `question`        | object | No       |
-| `responses`       | array  | No       |
-| `articleMetadata` | object | No       |
-| `payload`         | string | No       |
-| `tags`            | array  | No       |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| knowledgeBaseId | string | Yes | 
+| articleId | string | Yes | 
+| question | object | No | 
+| responses | array | No | 
+| articleMetadata | object | No | 
+| payload | string | No | 
+| tags | array | No | 
 
 ### Sample Request
+<a name="acxd-knowledge-base-articles-updateknowledgebasearticle-sample-request"></a>
 
 ```
 await client.send(new UpdateKnowledgeBaseArticleCommand({
@@ -212,6 +232,7 @@ await client.send(new UpdateKnowledgeBaseArticleCommand({
 ```
 
 ### Output
+<a name="acxd-knowledge-base-articles-updateknowledgebasearticle-output"></a>
 
 ```
 {
@@ -241,23 +262,27 @@ await client.send(new UpdateKnowledgeBaseArticleCommand({
 ```
 
 ### Errors
-
-- `ResourceNotFoundException` (404)
-- `ValidationException` (400)
-- `InternalServerException` (500)
+<a name="acxd-knowledge-base-articles-updateknowledgebasearticle-errors"></a>
++ `ResourceNotFoundException` (404)
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## DeleteKnowledgeBaseArticle
+<a name="acxd-knowledge-base-articles-deleteknowledgebasearticle"></a>
 
 Deletes an article.
 
 ### Input
+<a name="acxd-knowledge-base-articles-deleteknowledgebasearticle-input"></a>
 
-| Parameter         | Type   | Required |
-| ----------------- | ------ | -------- |
-| `knowledgeBaseId` | string | Yes      |
-| `articleId`       | string | Yes      |
+
+| Parameter | Type | Required | 
+| --- | --- | --- | 
+| knowledgeBaseId | string | Yes | 
+| articleId | string | Yes | 
 
 ### Sample Request
+<a name="acxd-knowledge-base-articles-deleteknowledgebasearticle-sample-request"></a>
 
 ```
 await client.send(new DeleteKnowledgeBaseArticleCommand({
@@ -267,60 +292,68 @@ await client.send(new DeleteKnowledgeBaseArticleCommand({
 ```
 
 ### Output
+<a name="acxd-knowledge-base-articles-deleteknowledgebasearticle-output"></a>
 
 No response body.
 
 ### Errors
-
-- `ResourceNotFoundException` (404)
-- `ValidationException` (400)
-- `InternalServerException` (500)
+<a name="acxd-knowledge-base-articles-deleteknowledgebasearticle-errors"></a>
++ `ResourceNotFoundException` (404)
++ `ValidationException` (400)
++ `InternalServerException` (500)
 
 ## Request Parameters
+<a name="acxd-knowledge-base-articles-request-parameters"></a>
 
 ### knowledgeBaseId
+<a name="acxd-knowledge-base-articles-request-parameters-knowledgebaseid"></a>
 
 Type: String
 
 The knowledge base that contains the articles.
 
 ### articleId
+<a name="acxd-knowledge-base-articles-request-parameters-articleid"></a>
 
 Type: String
 
 The article ID.
 
 ### question
+<a name="acxd-knowledge-base-articles-request-parameters-question"></a>
 
 Type: Object
 
 ### question.text
+<a name="acxd-knowledge-base-articles-request-parameters-question-text"></a>
 
 Type: String
 
-Required. The article's question or title. This is what gets matched against user
-queries.
+Required. The article's question or title. This is what gets matched against user queries.
 
 ### question.messageId
+<a name="acxd-knowledge-base-articles-request-parameters-question-messageid"></a>
 
 Type: String
 
 Generated upon Create.
 
 ### question.skipTranslation
+<a name="acxd-knowledge-base-articles-request-parameters-question-skiptranslation"></a>
 
 Type: Boolean
 
 ### question.translated
+<a name="acxd-knowledge-base-articles-request-parameters-question-translated"></a>
 
 Type: Boolean
 
 ### responses
+<a name="acxd-knowledge-base-articles-request-parameters-responses"></a>
 
 Type: Array
 
-Response messages returned when this article matches. Each entry is a message
-object with a `body` field.
+Response messages returned when this article matches. Each entry is a message object with a `body` field.
 
 **Example:**
 
@@ -332,49 +365,56 @@ object with a `body` field.
 ```
 
 ### articleMetadata
+<a name="acxd-knowledge-base-articles-request-parameters-articlemetadata"></a>
 
 Type: Object
 
-Free-form metadata for the article (structure defined by the knowledge base's
-`metadataSchema`).
+Free-form metadata for the article (structure defined by the knowledge base's `metadataSchema`).
 
 ### payload
+<a name="acxd-knowledge-base-articles-request-parameters-payload"></a>
 
 Type: String
 
 Raw content for the article. Max 10,000 characters.
 
 ### tags
+<a name="acxd-knowledge-base-articles-request-parameters-tags"></a>
 
 Type: Array
 
 Classification tags for the article (max 5, each max 256 characters).
 
 ### createdAt
+<a name="acxd-knowledge-base-articles-request-parameters-createdat"></a>
 
 Type: String
 
 When the article was created (ISO 8601).
 
 ### updatedAt
+<a name="acxd-knowledge-base-articles-request-parameters-updatedat"></a>
 
 Type: String
 
 When the article was last modified (ISO 8601).
 
 ### lastUpdatedBy
+<a name="acxd-knowledge-base-articles-request-parameters-lastupdatedby"></a>
 
 Type: String
 
 The identity of who last modified the article.
 
 ### nextToken
+<a name="acxd-knowledge-base-articles-request-parameters-nexttoken"></a>
 
 Type: String
 
 Pagination token. See Common Types.
 
 ### maxResults
+<a name="acxd-knowledge-base-articles-request-parameters-maxresults"></a>
 
 Type: Integer
 
