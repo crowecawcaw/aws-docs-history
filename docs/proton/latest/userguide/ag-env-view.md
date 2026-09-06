@@ -1,33 +1,33 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # View environment data
+<a name="ag-env-view"></a>
 
-You can view environment detail data using either the AWS Proton console or the
-AWS CLI.
+You can view environment detail data using either the AWS Proton console or the AWS CLI.
 
-AWS Management Console
-You can view lists of environments with details and individual
-environments with detail data by using the [AWS Proton
-console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/").
+------
+#### [ AWS Management Console ]
 
-1. To view a list of your environments, choose **Environments** in
-   the navigation pane.
-2. To view detail data, choose the name of an environment.
+**You can view lists of environments with details and individual environments with detail data by using the [AWS Proton console](https://console.aws.amazon.com/proton/).**
 
-View your environment detail data.
+1. To view a list of your environments, choose **Environments** in the navigation pane.
 
-AWS CLI
-Use the AWS CLI _get_ or
-_list_ environment details.
+1. To view detail data, choose the name of an environment.
+
+   View your environment detail data.
+
+------
+#### [ AWS CLI ]
+
+**Use the AWS CLI *get* or *list* environment details.**
 
 Run the following command:
 
 ```
-`$` `aws proton get-environment \
- --name "`MySimpleEnv`"`
+$ aws proton get-environment \
+    --name "{{MySimpleEnv}}"
 ```
 
 Response:
@@ -49,3 +49,5 @@ Response:
     }
 }
 ```
+
+------

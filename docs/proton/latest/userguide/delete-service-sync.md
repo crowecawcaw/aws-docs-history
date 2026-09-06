@@ -1,32 +1,31 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Delete a service sync configuration
+<a name="delete-service-sync"></a>
 
 You can delete a service sync configuration using the console or AWS CLI.
 
-AWS Management Console
+------
+#### [ AWS Management Console ]
 
-###### Delete a service sync configuration using the console
+**Delete a service sync configuration using the console**
 
-1. On the service details page, choose the **Service sync**
-   tab.
-2. In the **Service sync details** section, choose
-   **Disconnect** to disconnect your repository. After your
-   repository is disconnected, we no longer sync the service from that
-   repository.
+1. On the service details page, choose the **Service sync** tab.
 
-AWS CLI
-The following example commands and responses show how to use
-the AWS CLI to delete service synced configurations.
+1. In the **Service sync details** section, choose **Disconnect** to disconnect your repository. After your repository is disconnected, we no longer sync the service from that repository.
+
+------
+#### [ AWS CLI ]
+
+**The following example commands and responses show how to use the AWS CLI to delete service synced configurations.**
 
 Run the following command.
 
 ```
-`$` `aws proton delete-service-sync-config \
- --service-name "`service name`"`
+$ aws proton delete-service-sync-config \
+    --service-name "{{service name}}"
 ```
 
 The response is as follows.
@@ -43,7 +42,7 @@ The response is as follows.
 }
 ```
 
-###### Note
+**Note**  
+Service sync doesn't delete service instances. It only deletes the configuration.
 
-Service sync doesn't delete service instances. It only deletes the
-configuration.
+------

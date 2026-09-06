@@ -1,44 +1,45 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # View template data
+<a name="template-view"></a>
 
-You can view lists of templates with details and view individual templates with detail data by using the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/") and AWS CLI.
+You can view lists of templates with details and view individual templates with detail data by using the [AWS Proton console](https://console.aws.amazon.com/proton/) and AWS CLI.
 
-_Customer managed_ environment template data includes the `provisioned` parameter with the value
-`CUSTOMER_MANAGED`.
+*Customer managed* environment template data includes the `provisioned` parameter with the value `CUSTOMER_MANAGED`.
 
-If a service template _doesn't_ include a service pipeline, the service template data includes the
-`pipelineProvisioning` parameter with the value `CUSTOMER_MANAGED`.
+If a service template *doesn't* include a service pipeline, the service template data includes the `pipelineProvisioning` parameter with the value `CUSTOMER_MANAGED`.
 
-For more information, see [Register and publish templates](template-create.md "template-create.md").
+For more information, see [Register and publish templates](template-create.md).
 
 You can use the console or the AWS CLI to list and view template data.
 
-AWS Management Console
+------
+#### [ AWS Management Console ]
 
-###### Use the console to list and view templates.
+**Use the console to list and view templates.**
 
 1. To view a list of templates, choose **(Environment or Service) templates**.
-2. To view detail data choose the name of a template.
 
-View the detail data of the template, a list of the major and minor versions of the template, a list of the AWS Proton resources that were
-deployed using template versions and template tags.
+1. To view detail data choose the name of a template.
 
-The recommended major version and minor version is labeled as **Recommended**.
+   View the detail data of the template, a list of the major and minor versions of the template, a list of the AWS Proton resources that were deployed using template versions and template tags.
 
-AWS CLI
-Use the AWS CLI to list and view templates.
+   The recommended major version and minor version is labeled as **Recommended**.
+
+------
+#### [ AWS CLI ]
+
+**Use the AWS CLI to list and view templates.**
 
 Run the following command:
 
 ```
-`$` `aws proton get-environment-template-version \
- --template-name "`simple-env`" \
- --major-version "`1`" \
- --minor-version "`0`"`
+$ aws proton get-environment-template-version \
+    --template-name "{{simple-env}}" \
+    --major-version "{{1}}" \
+    --minor-version "{{0}}"
 ```
 
 Response:
@@ -64,7 +65,7 @@ Response:
 Run the following command:
 
 ```
-`$` `aws proton list-environment-templates`
+$ aws proton list-environment-templates
 ```
 
 Response:
@@ -79,7 +80,7 @@ Response:
             "displayName": "VPC",
             "lastModifiedAt": "2020-11-10T18:35:05.763000+00:00",
             "name": "simple-env-3",
-            "recommendedVersion": "1.0"
+            "recommendedVersion": "1.0"            
         },
         {
             "arn": "arn:aws:proton:region-id:123456789012:environment-template/simple-env-1",
@@ -88,7 +89,7 @@ Response:
             "displayName": "simple-env-1",
             "lastModifiedAt": "2020-11-10T00:14:06.881000+00:00",
             "name": "simple-env-1",
-            "recommendedVersion": "1.0"
+            "recommendedVersion": "1.0"           
         }
     ]
 }
@@ -99,10 +100,10 @@ View a minor version of a service template.
 Run the following command:
 
 ```
-`$` `aws proton get-service-template-version \
- --template-name "`fargate-service`" \
- --major-version "`1`" \
- --minor-version "`0`"`
+$ aws proton get-service-template-version \
+    --template-name "{{fargate-service}}" \
+    --major-version "{{1}}" \
+    --minor-version "{{0}}"
 ```
 
 Response:
@@ -135,8 +136,8 @@ View a service template without a service pipeline as shown in the next example 
 Run the following command:
 
 ```
-`$` `aws proton get-service-template \
- --name "`simple-svc-template-cli`"`
+$ aws proton get-service-template \
+    --name "{{simple-svc-template-cli}}"
 ```
 
 Response:
@@ -154,3 +155,5 @@ Response:
     }
 }
 ```
+
+------

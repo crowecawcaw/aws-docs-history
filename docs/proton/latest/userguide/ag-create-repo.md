@@ -1,53 +1,52 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Create a link to your repository
+<a name="ag-create-repo"></a>
 
-You can create a link to your repository using the console or CLI. When you create a
-repository link, AWS Proton creates a [service linked
-role](using-service-linked-roles.md "using-service-linked-roles.md") for you.
+You can create a link to your repository using the console or CLI. When you create a repository link, AWS Proton creates a [service linked role](using-service-linked-roles.md) for you.
 
-AWS Management Console
-Create a link to your repository as shown in the following
-console steps.
+------
+#### [ AWS Management Console ]
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose
-   **Repositories**.
-2. Choose **Create repository**.
-3. In the **Link new repository** page, in the
-   **Repository details** section:
+**Create a link to your repository as shown in the following console steps.**
+
+1. In the [AWS Proton console](https://console.aws.amazon.com/proton/), choose **Repositories**.
+
+1. Choose **Create repository**.
+
+1. In the **Link new repository** page, in the **Repository details** section:
 
    1. Choose your repository provider.
-   2. Choose one of your existing connections. If you don't have one, choose
-      **Add a new CodeStar connection** to create a connection, and
-      then go back to the AWS Proton console, refresh the connection list, and choose your
-      new connection.
-   3. Choose from your connected source code repositories.
 
-4. _[optional]_ In the **Tags** section, choose
-   **Add new tag** one or more times, and enter
-   **Key** and **Value** pairs.
-5. Choose **Create repository**.
-6. View the detail data for your linked repository.
+   1. Choose one of your existing connections. If you don't have one, choose **Add a new CodeStar connection** to create a connection, and then go back to the AWS Proton console, refresh the connection list, and choose your new connection.
 
-AWS CLI
-Create and register a link to your repository.
+   1. Choose from your connected source code repositories.
+
+1. *[optional]* In the **Tags** section, choose **Add new tag** one or more times, and enter **Key** and **Value** pairs.
+
+1. Choose **Create repository**.
+
+1. View the detail data for your linked repository.
+
+------
+#### [ AWS CLI ]
+
+**Create and register a link to your repository.**
 
 Run the following command:
 
 ```
-`$` `aws proton create-repository \
- --name `myrepos/environments` \
- --connection-arn "arn:aws:codestar-connections:`region-id`:`123456789012`:connection/`a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`" \
- --provider "`GITHUB`" \
- --encryption-key "arn:aws:kms:`region-id`:`123456789012`:key/`bPxRfiCYEXAMPLEKEY`" \
- --tags key=`mytag1`,value=`value1` key=`mytag2`,value=`value2``
+$ aws proton create-repository \
+    --name {{myrepos/environments}} \
+    --connection-arn "arn:aws:codestar-connections:{{region-id}}:{{123456789012}}:connection/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}" \
+    --provider "{{GITHUB}}" \
+    --encryption-key "arn:aws:kms:{{region-id}}:{{123456789012}}:key/{{bPxRfiCYEXAMPLEKEY}}" \
+    --tags key={{mytag1}},value={{value1}} key={{mytag2}},value={{value2}}
 ```
 
-The last two parameters, **--encryption-key** and
-**--tags**, are optional.
+The last two parameters, **--encryption-key** and **--tags**, are optional.
 
 Response:
 
@@ -63,14 +62,13 @@ Response:
 }
 ```
 
-After you create a repository link, you can view a list of AWS and customer
-managed tags, as shown in the following example command. AWS Proton automatically
-generates AWS managed tags for you. You can also modify and create customer managed
-tags using the AWS CLI. For more information, see [AWS Proton resources and tagging](resources.md "resources.md").
+After you create a repository link, you can view a list of AWS and customer managed tags, as shown in the following example command. AWS Proton automatically generates AWS managed tags for you. You can also modify and create customer managed tags using the AWS CLI. For more information, see [AWS Proton resources and tagging](resources.md).
 
 Command:
 
 ```
-`$` `aws proton list-tags-for-resource \
- --resource-arn "arn:aws:proton:`region-id`:`123456789012`:repository/`github:myrepos/environments`"`
+$ aws proton list-tags-for-resource \
+    --resource-arn "arn:aws:proton:{{region-id}}:{{123456789012}}:repository/{{github:myrepos/environments}}"
 ```
+
+------

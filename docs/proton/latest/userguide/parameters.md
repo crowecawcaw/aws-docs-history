@@ -1,104 +1,95 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # AWS Proton parameters
+<a name="parameters"></a>
 
-You can define and use parameters in your infrastructure as code (IaC) files to make them flexible and re-usable. You read a parameter value in your
-IaC files by referring to the parameter's name in the AWS Proton _parameter namespace_. AWS Proton injects parameter values into the rendered
-IaC files that it generates during resource provisioning. To process AWS CloudFormation IaC parameters, AWS Proton uses [Jinja](https://jinja.palletsprojects.com/en/2.11.x/ "https://jinja.palletsprojects.com/en/2.11.x/"). To process Terraform IaC parameters, AWS Proton generates a Terraform parameter value file
-and relies on the parametrization ability built into HCL.
+You can define and use parameters in your infrastructure as code (IaC) files to make them flexible and re-usable. You read a parameter value in your IaC files by referring to the parameter's name in the AWS Proton *parameter namespace*. AWS Proton injects parameter values into the rendered IaC files that it generates during resource provisioning. To process AWS CloudFormation IaC parameters, AWS Proton uses [Jinja](https://jinja.palletsprojects.com/en/2.11.x/). To process Terraform IaC parameters, AWS Proton generates a Terraform parameter value file and relies on the parametrization ability built into HCL.
 
-With [CodeBuild provisioning](ag-works-prov-methods.md#ag-works-prov-methods-codebuild "ag-works-prov-methods.md#ag-works-prov-methods-codebuild"), AWS Proton generates an input file that your
-code can import. The file is a JSON or HCL file, depending on a property in your template's manifest. For more information, see [CodeBuild provisioning parameter details and examples](parameters-codebuild.md "parameters-codebuild.md").
+With [CodeBuild provisioning](ag-works-prov-methods.md#ag-works-prov-methods-codebuild), AWS Proton generates an input file that your code can import. The file is a JSON or HCL file, depending on a property in your template's manifest. For more information, see [CodeBuild provisioning parameter details and examples](parameters-codebuild.md).
 
 You can refer to parameters in your environment, service, and component IaC files or provisioning code with the following requirements:
++ The length of each parameter name doesn't exceed 100 characters.
++ The length of the parameter namespace and resource name combined doesn't exceed the character limit for the resource name.
 
-- The length of each parameter name doesn't exceed 100 characters.
-- The length of the parameter namespace and resource name combined doesn't exceed the character limit for the resource name.
-  AWS Proton provisioning fails if these quotas are exceeded.
+AWS Proton provisioning fails if these quotas are exceeded.
 
 ## Parameter types
+<a name="param-name-types"></a>
 
 The following parameter types are available to you for reference in AWS Proton IaC files:
 
-Input parameter
+**Input parameter**  
+Environments and service instances can take input parameters that you define in a [schema file](ag-schema.md) that you associate with the environment or service template. You can refer to a resource's input parameters in the resource's IaC file. Component IaC files can refer to input parameters of the service instance that the component is attached to.  
+AWS Proton checks input parameter names against your schema file, and matches them with the parameters that are referenced in your IaC files to inject the input values that you provide in a spec file during resource provisioning.
 
-Environments and service instances can take input parameters that you define in a [schema file](ag-schema.md "ag-schema.md") that you
-associate with the environment or service template. You can refer to a resource's input parameters in the resource's IaC file. Component IaC files
-can refer to input parameters of the service instance that the component is attached to.
+**Output parameter**  
+You can define outputs in any of your IaC files. An output can be, for example, a name, ID, or ARN of one of the resources that the template provisions, or it can be a way to pass through one of the template's inputs. You can refer to these outputs in IaC files of other resources.  
+In CloudFormation IaC files,define output parameters in the `Outputs:` block. In a Terraform IaC file, define each output parameter using an `output` statement.
 
-AWS Proton checks input parameter names against your schema file, and matches them with the parameters that are referenced in your IaC files to
-inject the input values that you provide in a spec file during resource provisioning.
-
-Output parameter
-
-You can define outputs in any of your IaC files. An output can be, for example, a name, ID, or ARN of one of the resources that the template
-provisions, or it can be a way to pass through one of the template's inputs. You can refer to these outputs in IaC files of other
-resources.
-
-In CloudFormation IaC files,define output parameters in the `Outputs:` block. In a Terraform IaC file, define each output parameter
-using an `output` statement.
-
-Resource parameter
-
-AWS Proton automatically creates AWS Proton resource parameters. These parameters expose properties of the AWS Proton resource object. An example of a
-resource parameter is `environment.name`.
+**Resource parameter**  
+AWS Proton automatically creates AWS Proton resource parameters. These parameters expose properties of the AWS Proton resource object. An example of a resource parameter is `environment.name`.
 
 ## Using AWS Proton parameters in your IaC files
+<a name="param-name-spaces"></a>
 
-To read a parameter value in an IaC file, you refer to the parameter's name in the AWS Proton parameter namespace. For AWS CloudFormation IaC files, you use
-_Jinja_ syntax and surround the parameter with pairs of curly braces and quotation marks.
+To read a parameter value in an IaC file, you refer to the parameter's name in the AWS Proton parameter namespace. For AWS CloudFormation IaC files, you use *Jinja* syntax and surround the parameter with pairs of curly braces and quotation marks.
 
 The following table shows the reference syntax for each supported template language, with an example.
 
-| Template language | Syntax                     | Example: environment input named "VPC"                                                                                                                                                        |
-| ----------------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CloudFormation    | `"{{ `parameter-name` }}"` | `"{{ environment.inputs.VPC }}"`                                                                                                                                                              |
-| Terraform         | `var.`parameter-name``     | `var.environment.inputs.VPC`<br>[Generated Terraform variable definitions](ag-infrastructure-tmp-files-terraform.md#compiled-tform "ag-infrastructure-tmp-files-terraform.md#compiled-tform") |
 
-###### Note
+| Template language | Syntax | Example: environment input named "VPC" | 
+| --- | --- | --- | 
+| CloudFormation | `"{{ {{parameter-name}} }}"` | `"{{ environment.inputs.VPC }}"` | 
+| Terraform | `var.{{parameter-name}}` | `var.environment.inputs.VPC`<br />[Generated Terraform variable definitions](ag-infrastructure-tmp-files-terraform.md#compiled-tform) | 
 
-If you use [CloudFormation dynamic parameters](../../../AWSCloudFormation/latest/UserGuide/dynamic-references.md "../../../AWSCloudFormation/latest/UserGuide/dynamic-references.md") in
-your IaC file, you must [escape them](https://jinja.palletsprojects.com/en/2.11.x/templates/#escaping "https://jinja.palletsprojects.com/en/2.11.x/templates/#escaping") to prevent Jinja
-misinterpretation errors. For more information, see [Troubleshooting AWS Proton](ag-troubleshooting.md "ag-troubleshooting.md")
+**Note**  
+If you use [CloudFormation dynamic parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) in your IaC file, you must [escape them](https://jinja.palletsprojects.com/en/2.11.x/templates/#escaping) to prevent Jinja misinterpretation errors. For more information, see [Troubleshooting AWS Proton](ag-troubleshooting.md)
 
-The following table lists namespace names for all AWS Proton resource parameters. Each template file type can use a different subset of the parameter
-namespace.
+The following table lists namespace names for all AWS Proton resource parameters. Each template file type can use a different subset of the parameter namespace.
 
-| Template file | Parameter type                                                                                                                | Parameter name                                                                            | Description                                          |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| Environment   | resource                                                                                                                      | `environment.**name**`                                                                    | Environment name                                     |
-| input         | `environment.inputs.`input-name``                                                                                             | Schema-defined environment inputs                                                         |
-| Service       | resource                                                                                                                      | `environment.**name**`<br>`environment.**account\_id**`                                   | Environment name and AWS account ID                  |
-| output        | `environment.outputs.`output-name``                                                                                           | Environment IaC file outputs                                                              |
-| resource      | `service.**branch\_name**`<br>`service.**name**`<br>`service.**repository\_connection\_arn**`<br>`service.**repository\_id**` | Service name and code repository                                                          |
-| resource      | `service_instance.**name**`                                                                                                   | Service instance name                                                                     |
-| input         | `service_instance.inputs.`input-name``                                                                                        | Schema-defined service instance inputs                                                    |
-| resource      | `service_instance.components.default.**name**`                                                                                | Attached default component name                                                           |
-| output        | `service_instance.components.default.outputs.`output-name``                                                                   | Attached default component IaC file outputs                                               |
-| Pipeline      | resource                                                                                                                      | `service_instance.environment.**name**`<br>`service_instance.environment.**account\_id**` | Service instance environment name and AWS account ID |
-| output        | `service_instance.environment.outputs.`output-name``                                                                          | Service instance environment IaC file outputs                                             |
-| input         | `pipeline.inputs.`input-name``                                                                                                | Schema-defined pipeline inputs                                                            |
-| resource      | `service.**branch\_name**`<br>`service.**name**`<br>`service.**repository\_connection\_arn**`<br>`service.**repository\_id**` | Service name and code repository                                                          |
-| input         | `service_instance.inputs.`input-name``                                                                                        | Schema-defined service instance inputs                                                    |
-| collection    | `{% for service_instance in **service\_instances*<br>• %}...{% endfor %}`                                                     | A collection of service instances that you can loop through                               |
-| Component     | resource                                                                                                                      | `environment.**name**`<br>`environment.**account\_id**`                                   | Environment name and AWS account account ID          |
-| output        | `environment.outputs.`output-name``                                                                                           | Environment IaC file outputs                                                              |
-| resource      | `service.**branch\_name**`<br>`service.**name**`<br>`service.**repository\_connection\_arn**`<br>`service.**repository\_id**` | Service name and code repository (attached components)                                    |
-| resource      | `service_instance.**name**`                                                                                                   | Service instance name (attached components)                                               |
-| input         | `service_instance.inputs.`input-name``                                                                                        | Schema-defined service instance inputs (attached components)                              |
-| resource      | `component.**name**`                                                                                                          | Component name                                                                            |
 
-For more information and examples, see the subtopics about parameters in IaC template files for different resource types and template
-languages.
 
-###### Topics
+- ** Environment **
+  - **Parameter type:** resource / **Parameter name:** `environment.name` / **Description:** Environment name
+  - **Parameter type:** input / **Parameter name:** `environment.inputs.{{input-name}}` / **Description:** Schema-defined environment inputs
 
-- [Environment CloudFormation IaC file parameter details and examples](env-parameters.md "env-parameters.md")
-- [Service CloudFormation IaC file parameter details and examples](svc-parameters.md "svc-parameters.md")
-- [Component CloudFormation IaC file parameter details and examples](comp-parameters.md "comp-parameters.md")
-- [Parameter filters for CloudFormation IaC files](parameter-filters.md "parameter-filters.md")
-- [CodeBuild provisioning parameter details and examples](parameters-codebuild.md "parameters-codebuild.md")
-- [Terraform infrastructure as code (IaC) file parameter details and examples](env-parameters-tform.md "env-parameters-tform.md")
+- ** Service **
+  - **Parameter type:** resource / **Parameter name:** `environment.name`<br />`environment.account_id` / **Description:** Environment name and AWS account ID
+  - **Parameter type:** output / **Parameter name:** `environment.outputs.{{output-name}}` / **Description:** Environment IaC file outputs
+  - **Parameter type:** resource / **Parameter name:** `service.branch_name`<br />`service.name`<br />`service.repository_connection_arn`<br />`service.repository_id` / **Description:** Service name and code repository
+  - **Parameter type:** resource / **Parameter name:** `service_instance.name` / **Description:** Service instance name
+  - **Parameter type:** input / **Parameter name:** `service_instance.inputs.{{input-name}}` / **Description:** Schema-defined service instance inputs
+  - **Parameter type:** resource / **Parameter name:** `service_instance.components.default.name` / **Description:** Attached default component name
+  - **Parameter type:** output / **Parameter name:** `service_instance.components.default.outputs.{{output-name}}` / **Description:** Attached default component IaC file outputs
+
+- ** Pipeline **
+  - **Parameter type:** resource / **Parameter name:** `service_instance.environment.name`<br />`service_instance.environment.account_id` / **Description:** Service instance environment name and AWS account ID
+  - **Parameter type:** output / **Parameter name:** `service_instance.environment.outputs.{{output-name}}` / **Description:** Service instance environment IaC file outputs
+  - **Parameter type:** input / **Parameter name:** `pipeline.inputs.{{input-name}}` / **Description:** Schema-defined pipeline inputs
+  - **Parameter type:** resource / **Parameter name:** `service.branch_name`<br />`service.name`<br />`service.repository_connection_arn`<br />`service.repository_id` / **Description:** Service name and code repository
+  - **Parameter type:** input / **Parameter name:** `service_instance.inputs.{{input-name}}` / **Description:** Schema-defined service instance inputs
+  - **Parameter type:** collection / **Parameter name:** `{% for service_instance in service_instances %}...{% endfor %}` / **Description:** A collection of service instances that you can loop through
+
+- ** Component **
+  - **Parameter type:** resource / **Parameter name:** `environment.name`<br />`environment.account_id` / **Description:** Environment name and AWS account account ID
+  - **Parameter type:** output / **Parameter name:** `environment.outputs.{{output-name}}` / **Description:** Environment IaC file outputs
+  - **Parameter type:** resource / **Parameter name:** `service.branch_name`<br />`service.name`<br />`service.repository_connection_arn`<br />`service.repository_id` / **Description:** Service name and code repository (attached components)
+  - **Parameter type:** resource / **Parameter name:** `service_instance.name` / **Description:** Service instance name (attached components)
+  - **Parameter type:** input / **Parameter name:** `service_instance.inputs.{{input-name}}` / **Description:** Schema-defined service instance inputs (attached components)
+  - **Parameter type:** resource / **Parameter name:** `component.name` / **Description:** Component name
+
+
+
+For more information and examples, see the subtopics about parameters in IaC template files for different resource types and template languages.
+
+**Topics**
++ [Parameter types](#param-name-types)
++ [Using AWS Proton parameters in your IaC files](#param-name-spaces)
++ [Environment CloudFormation IaC file parameter details and examples](env-parameters.md)
++ [Service CloudFormation IaC file parameter details and examples](svc-parameters.md)
++ [Component CloudFormation IaC file parameter details and examples](comp-parameters.md)
++ [Parameter filters for CloudFormation IaC files](parameter-filters.md)
++ [CodeBuild provisioning parameter details and examples](parameters-codebuild.md)
++ [Terraform infrastructure as code (IaC) file parameter details and examples](env-parameters-tform.md)

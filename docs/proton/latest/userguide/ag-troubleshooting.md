@@ -1,21 +1,19 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Troubleshooting AWS Proton
+<a name="ag-troubleshooting"></a>
 
 Learn to troubleshoot issues with AWS Proton.
 
-###### Topics
-
-- [Deployment errors that reference CloudFormation dynamic parameters](#cfn-dynamic-params "#cfn-dynamic-params")
+**Topics**
++ [Deployment errors that reference CloudFormation dynamic parameters](#cfn-dynamic-params)
 
 ## Deployment errors that reference CloudFormation dynamic parameters
+<a name="cfn-dynamic-params"></a>
 
-If you see deployment errors that reference your [CloudFormation dynamic variables](../../../AWSCloudFormation/latest/UserGuide/dynamic-references.md "../../../AWSCloudFormation/latest/UserGuide/dynamic-references.md"), verify
-that they are [Jinja escaped](https://jinja.palletsprojects.com/en/2.11.x/templates/#escaping "https://jinja.palletsprojects.com/en/2.11.x/templates/#escaping"). These errors can be caused by Jinja misinterpretation of your dynamic variables. The CloudFormation dynamic parameter
-syntax is very similar the Jinja syntax you use with your AWS Proton parameters.
+If you see deployment errors that reference your [CloudFormation dynamic variables](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html), verify that they are [Jinja escaped](https://jinja.palletsprojects.com/en/2.11.x/templates/#escaping). These errors can be caused by Jinja misinterpretation of your dynamic variables. The CloudFormation dynamic parameter syntax is very similar the Jinja syntax you use with your AWS Proton parameters.
 
 Example CloudFormation dynamic variable syntax:
 
@@ -42,36 +40,33 @@ MyRDSInstance:
 ```
 
 To escape the CloudFormation dynamic parameters you can use two different methods:
++ Enclose a block between `{% raw %} and {% endraw %}`:
 
-- Enclose a block between `{% raw %} and {% endraw %}`:
+  ```
+  '{% raw %}'
+  MyRDSInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBName: 'MyRDSInstance'
+        AllocatedStorage: '20'
+        DBInstanceClass: db.t2.micro
+        Engine: mysql
+        MasterUsername: '{{resolve:secretsmanager:MyRDSSecret:SecretString:username}}'
+        MasterUserPassword: '{{resolve:secretsmanager:MyRDSSecret:SecretString:password}}'
+  '{% endraw %}'
+  ```
++ Enclose a parameter between `"{{ }}"`:
 
-```
-'{% raw %}'
-MyRDSInstance:
-  Type: AWS::RDS::DBInstance
-  Properties:
-    DBName: 'MyRDSInstance'
-      AllocatedStorage: '20'
-      DBInstanceClass: db.t2.micro
-      Engine: mysql
-      MasterUsername: '{{resolve:secretsmanager:MyRDSSecret:SecretString:username}}'
-      MasterUserPassword: '{{resolve:secretsmanager:MyRDSSecret:SecretString:password}}'
-'{% endraw %}'
-```
+  ```
+  MyRDSInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBName: 'MyRDSInstance'
+        AllocatedStorage: '20'
+        DBInstanceClass: db.t2.micro
+        Engine: mysql
+        MasterUsername: "{{ '{{resolve:secretsmanager:MyRDSSecret:SecretString:username}}' }}"
+        MasterUserPassword: "{{ '{{resolve:secretsmanager:MyRDSSecret:SecretString:password}}' }}"
+  ```
 
-- Enclose a parameter between `"{{ }}"`:
-
-```
-MyRDSInstance:
-  Type: AWS::RDS::DBInstance
-  Properties:
-    DBName: 'MyRDSInstance'
-      AllocatedStorage: '20'
-      DBInstanceClass: db.t2.micro
-      Engine: mysql
-      MasterUsername: "{{ '{{resolve:secretsmanager:MyRDSSecret:SecretString:username}}' }}"
-      MasterUserPassword: "{{ '{{resolve:secretsmanager:MyRDSSecret:SecretString:password}}' }}"
-
-```
-
-For information, see [Jinja escaping](https://jinja.palletsprojects.com/en/2.11.x/templates/#escaping "https://jinja.palletsprojects.com/en/2.11.x/templates/#escaping").
+For information, see [Jinja escaping](https://jinja.palletsprojects.com/en/2.11.x/templates/#escaping).

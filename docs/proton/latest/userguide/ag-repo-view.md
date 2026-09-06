@@ -1,28 +1,30 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # View linked repository data
+<a name="ag-repo-view"></a>
 
-You can list and view linked repository details using the console or the AWS CLI. For
-repository links that are used to sync git repositories with AWS Proton, you can retrieve
-repository sync definition and status using the AWS CLI.
+You can list and view linked repository details using the console or the AWS CLI. For repository links that are used to sync git repositories with AWS Proton, you can retrieve repository sync definition and status using the AWS CLI.
 
-AWS Management Console
-List and view linked repository details using the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/").
+------
+#### [ AWS Management Console ]
 
-1. To list of your linked repositories, choose **Repositories** in
-   the navigation pane.
-2. To view detail data, choose the name of a repository.
+**List and view linked repository details using the [AWS Proton console](https://console.aws.amazon.com/proton/).**
 
-AWS CLI
-List your linked repositories.
+1. To list of your linked repositories, choose **Repositories** in the navigation pane.
+
+1. To view detail data, choose the name of a repository.
+
+------
+#### [ AWS CLI ]
+
+**List your linked repositories.**
 
 Run the following command:
 
 ```
-`$` `aws proton list-repositories`
+$ aws proton list-repositories
 ```
 
 Response:
@@ -44,14 +46,14 @@ Response:
 }
 ```
 
-View the details of a linked repository.
+**View the details of a linked repository.**
 
 Run the following command:
 
 ```
-`$` `aws proton get-repository \
- --name `myrepos/templates` \
- --provider "`GITHUB`"`
+$ aws proton get-repository \
+    --name {{myrepos/templates}} \
+    --provider "{{GITHUB}}"
 ```
 
 Response:
@@ -66,33 +68,32 @@ Response:
 }
 ```
 
-List your synced repositories.
+**List your synced repositories.**
 
-The following example lists repositories that you configured for template
-sync.
+The following example lists repositories that you configured for template sync.
 
 Run the following command:
 
 ```
-`$` `aws proton list-repository-sync-definitions \
- --branch "`main`" \
- --repository-name `myrepos/templates` \
- --repository-provider "`GITHUB`" \
- --sync-type "TEMPLATE_SYNC"`
+$ aws proton list-repository-sync-definitions \
+    --branch "{{main}}" \
+    --repository-name {{myrepos/templates}} \
+    --repository-provider "{{GITHUB}}" \
+    --sync-type "TEMPLATE_SYNC"
 ```
 
-View repository sync status.
+**View repository sync status.**
 
 The following example retrieves sync status of a template sync repository.
 
 Run the following command:
 
 ```
-`$` `aws proton get-repository-sync-status \
- --branch "`main`" \
- --repository-name `myrepos/templates` \
- --repository-provider "`GITHUB`" \
- --sync-type "TEMPLATE_SYNC"`
+$ aws proton get-repository-sync-status \
+    --branch "{{main}}" \
+    --repository-name {{myrepos/templates}} \
+    --repository-provider "{{GITHUB}}" \
+    --sync-type "TEMPLATE_SYNC"
 ```
 
 Response:
@@ -123,3 +124,5 @@ Response:
     }
 }
 ```
+
+------

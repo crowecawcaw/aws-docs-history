@@ -1,49 +1,63 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Edit a service
+<a name="ag-svc-update"></a>
 
 You can make the following edits to an AWS Proton service.
-
-- Edit the service description.
-- Edit a service by adding and removing service instances.
++ Edit the service description.
++ Edit a service by adding and removing service instances.
 
 ## Edit service description
+<a name="ag-svc-metadata"></a>
 
 You can use the console or the AWS CLI to edit a service description.
 
-AWS Management Console
-Edit a service using the console as described in the following steps.
+------
+#### [ AWS Management Console ]
 
-###### In the list of services.
+**Edit a service using the console as described in the following steps.**
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Services**.
-2. In the list of services, choose the radio button to the left of the service that you want to update.
-3. Choose **Edit**.
-4. In the **Configure service** page, fill out the form and choose **Next**.
-5. In the **Configure custom settings** page, choose **Next**.
-6. Review your edits and choose **Save changes**.
+**In the list of services.**
 
-###### In the service detail page.
+1. In the [AWS Proton console](https://console.aws.amazon.com/proton/), choose **Services**.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **Services**.
-2. In the list of services, choose the name of the service that you want to edit.
-3. In the service detail page, choose **Edit**.
-4. In the **Configure service** page, fill out the form and choose **Next**.
-5. In the **Configure custom settings** page, fill out the form and choose **Next**.
-6. Review your edits and choose **Save changes**.
+1. In the list of services, choose the radio button to the left of the service that you want to update.
 
-AWS CLI
-Edit a description as shown in the following CLI example command and response.
+1. Choose **Edit**.
+
+1. In the **Configure service** page, fill out the form and choose **Next**.
+
+1. In the **Configure custom settings** page, choose **Next**.
+
+1. Review your edits and choose **Save changes**.
+
+**In the service detail page.**
+
+1. In the [AWS Proton console](https://console.aws.amazon.com/proton/), choose **Services**.
+
+1. In the list of services, choose the name of the service that you want to edit.
+
+1. In the service detail page, choose **Edit**.
+
+1. In the **Configure service** page, fill out the form and choose **Next**.
+
+1. In the **Configure custom settings** page, fill out the form and choose **Next**.
+
+1. Review your edits and choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+**Edit a description as shown in the following CLI example command and response.**
 
 Command:
 
 ```
-`$` `aws proton update-service \
- --name "`MySimpleService`" \
- --description "`Edit by updating description`"`
+$ aws proton update-service \
+    --name "{{MySimpleService}}" \
+    --description "{{Edit by updating description}}"
 ```
 
 Response:
@@ -65,56 +79,56 @@ Response:
 }
 ```
 
+------
+
 ## Edit a service to add or remove service instances
+<a name="ag-svc-update-instances"></a>
 
-For an AWS Proton service, you can add or delete service instances by submitting an edited spec. The following conditions must be met for a successful
-request:
+For an AWS Proton service, you can add or delete service instances by submitting an edited spec. The following conditions must be met for a successful request:
++ Your service and pipeline aren't already being edited or deleted when you submit the edit request.
++ Your edited spec doesn't include edits that modify the service pipeline or edits to existing service instances that *aren't* to be deleted.
++ Your edited spec doesn't remove any existing service instance that has an attached component. To delete such a service instance, you should first update the component to detach it from its service instance. For more information about components, see [AWS Proton components](ag-components.md).
 
-- Your service and pipeline aren't already being edited or deleted when you submit the edit request.
-- Your edited spec doesn't include edits that modify the service pipeline or edits to existing service instances that _aren't_
-  to be deleted.
-- Your edited spec doesn't remove any existing service instance that has an attached component. To delete such a service instance, you should
-  first update the component to detach it from its service instance. For more information about components, see [AWS Proton components](ag-components.md "ag-components.md").
+Deletion-failed instances are service instances in the `DELETE_FAILED` state. When you request a service edit, AWS Proton attempts to remove the deletion-failed instances for you, as part of the edit process. If any of your service instances failed to delete, there might still be resources that are associated with the instances, even though they aren't visible from the console or AWS CLI. Check your deletion-failed instance infrastructure resources and clean them up so that AWS Proton can remove them for you.
 
-Deletion-failed instances are service instances in the `DELETE_FAILED` state. When you request a service edit, AWS Proton attempts to remove
-the deletion-failed instances for you, as part of the edit process. If any of your service instances failed to delete, there might still be resources
-that are associated with the instances, even though they aren't visible from the console or AWS CLI. Check your deletion-failed instance infrastructure
-resources and clean them up so that AWS Proton can remove them for you.
-
-For the quota of service instances for a service, see [AWS Proton quotas](ag-limits.md "ag-limits.md"). You also must maintain at least 1
-service instance for your service after it's created. During the update process, AWS Proton makes a count of the existing service instances and the
-instances to be added or removed. Deletion-failed instances are included in this count and you must account for them when you edit your
-`spec`.
+For the quota of service instances for a service, see [AWS Proton quotas](ag-limits.md). You also must maintain at least 1 service instance for your service after it's created. During the update process, AWS Proton makes a count of the existing service instances and the instances to be added or removed. Deletion-failed instances are included in this count and you must account for them when you edit your `spec`.
 
 ### Use the console or AWS CLI to add or remove service instances
+<a name="ag-svc-update-console-cli"></a>
 
-AWS Management Console
-Edit your service to add or remove service instances using the console.
+------
+#### [ AWS Management Console ]
 
-In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/")
+**Edit your service to add or remove service instances using the console.**
+
+In the [AWS Proton console](https://console.aws.amazon.com/proton/)
 
 1. In the navigation pane, choose **Services**.
-2. Select the service that you want to edit.
-3. Choose **Edit**.
-4. (Optional) On the **Configure service** page, edit the service name or description, and then choose
-   **Next**.
-5. On the **Configure custom settings** page, choose **Delete** to delete a service instance and choose
-   **Add new instance** to add a service instance and fill out the form.
-6. Choose **Next**.
-7. Review your update and choose **Save changes**.
-8. A modal asks you to verify deletion of service instances. Follow the instructions and choose **Yes, delete**.
-9. On the service detail page, view the status details for your service.
 
-AWS CLI
-Add and delete service instances with an edited `spec` as shown in the following AWS CLI example commands
-and responses.
+1. Select the service that you want to edit.
 
-When you use the CLI, your `spec` must _exclude_ the service instances to delete and
-_include_ both the service instances to add and the existing service instances that you _haven't_
-marked for deletion.
+1. Choose **Edit**.
 
-The following listing shows the example `spec` before the edit and a list of the service instances deployed by the spec. This
-spec was used in the previous example for editing a service description.
+1. (Optional) On the **Configure service** page, edit the service name or description, and then choose **Next**.
+
+1. On the **Configure custom settings** page, choose **Delete** to delete a service instance and choose **Add new instance** to add a service instance and fill out the form.
+
+1. Choose **Next**.
+
+1. Review your update and choose **Save changes**.
+
+1. A modal asks you to verify deletion of service instances. Follow the instructions and choose **Yes, delete**.
+
+1. On the service detail page, view the status details for your service.
+
+------
+#### [ AWS CLI ]
+
+**Add and delete service instances with an edited `spec` as shown in the following AWS CLI example commands and responses.**
+
+When you use the CLI, your `spec` must *exclude* the service instances to delete and *include* both the service instances to add and the existing service instances that you *haven't* marked for deletion.
+
+The following listing shows the example `spec` before the edit and a list of the service instances deployed by the spec. This spec was used in the previous example for editing a service description.
 
 Spec:
 
@@ -135,17 +149,15 @@ instances:
     environment: "simple-env"
     spec:
       my_sample_service_instance_required_input: "789"
-
 ```
 
-The following example CLI `list-service-instances` command and response shows the active instances prior to adding or deleting
-a service instance.
+The following example CLI `list-service-instances` command and response shows the active instances prior to adding or deleting a service instance.
 
 Command:
 
 ```
-`$` `aws proton list-service-instances \
- --service-name "`MySimpleService`"`
+$ aws proton list-service-instances \
+    --service-name "{{MySimpleService}}"
 ```
 
 Response:
@@ -184,8 +196,7 @@ Response:
 }
 ```
 
-The following listing shows the example edited `spec` used to delete and add an instance. The existing instance named
-`my-instance` is removed and a new instance named `yet-another-instance` is added.
+The following listing shows the example edited `spec` used to delete and add an instance. The existing instance named `my-instance` is removed and a new instance named `yet-another-instance` is added.
 
 Spec:
 
@@ -205,15 +216,11 @@ instances:
     environment: "simple-env"
     spec:
       my_sample_service_instance_required_input: "789"
-
 ```
 
-You can use `"${Proton::CURRENT_VAL}"` to indicate which parameter values to preserve from the original `spec`, if
-the values exist in the `spec`. Use `get-service` to view the original `spec` for a service, as described in
-[View service data](ag-svc-view.md "ag-svc-view.md").
+You can use `"${Proton::CURRENT_VAL}"` to indicate which parameter values to preserve from the original `spec`, if the values exist in the `spec`. Use `get-service` to view the original `spec` for a service, as described in [View service data](ag-svc-view.md).
 
-The following listing shows how you can use `"${Proton::CURRENT_VAL}"` to ensure that your `spec`
-_doesn't_ include parameter values changes for the existing services instances to remain.
+The following listing shows how you can use `"${Proton::CURRENT_VAL}"` to ensure that your `spec` *doesn't* include parameter values changes for the existing services instances to remain.
 
 Spec:
 
@@ -233,7 +240,6 @@ instances:
     environment: "simple-env"
     spec:
       my_sample_service_instance_required_input: "789"
-
 ```
 
 The next listing shows the CLI command and response to edit the service.
@@ -241,10 +247,10 @@ The next listing shows the CLI command and response to edit the service.
 Command:
 
 ```
-`$` `aws proton update-service
- --name "`MySimpleService`" \
- --description "`Edit by adding and deleting a service instance`" \
- --spec "`file://spec.yaml`"`
+$ aws proton update-service 
+    --name "{{MySimpleService}}" \
+    --description "{{Edit by adding and deleting a service instance}}" \
+    --spec "{{file://spec.yaml}}"
 ```
 
 Response:
@@ -266,14 +272,13 @@ Response:
 }
 ```
 
-The following `list-service-instances` command and response confirms that the existing instance named `my-instance`
-is removed and a new instance named `yet-another-instance` is added.
+The following `list-service-instances` command and response confirms that the existing instance named `my-instance` is removed and a new instance named `yet-another-instance` is added.
 
 Command:
 
 ```
-`$` `aws proton list-service-instances \
- --service-name "`MySimpleService`"`
+$ aws proton list-service-instances \
+    --service-name "{{MySimpleService}}"
 ```
 
 Response:
@@ -311,33 +316,28 @@ Response:
 }
 ```
 
+------
+
 ### What happens when you add or remove service instances
+<a name="ag-svc-add-delete"></a>
 
 After you submit a service edit to delete and add service instances, AWS Proton takes the following actions.
-
-- Sets the service to `UPDATE_IN_PROGRESS`.
-- If the service has a pipeline, sets its status to `IN_PROGRESS` and blocks pipeline actions.
-- Sets any service instances that are to be deleted to `DELETE_IN_PROGRESS`.
-- Blocks service actions.
-- Blocks actions on service instances that are marked for deletion.
-- Creates new service instances.
-- Deletes instances that you listed for deletion.
-- Attempts to remove deletion-failed instances.
-- After additions and deletions are complete, re-provisions the service pipeline (if there is one), sets your service to `ACTIVE` and
-  enables service and pipeline actions.
++ Sets the service to `UPDATE_IN_PROGRESS`.
++ If the service has a pipeline, sets its status to `IN_PROGRESS` and blocks pipeline actions.
++ Sets any service instances that are to be deleted to `DELETE_IN_PROGRESS`.
++ Blocks service actions.
++ Blocks actions on service instances that are marked for deletion.
++ Creates new service instances.
++ Deletes instances that you listed for deletion.
++ Attempts to remove deletion-failed instances.
++ After additions and deletions are complete, re-provisions the service pipeline (if there is one), sets your service to `ACTIVE` and enables service and pipeline actions.
 
 AWS Proton attempts to re-mediate failure modes as follows.
-
-- If one or more service instances _failed to be created_, AWS Proton tries to de-provision all of the newly created service
-  instances and reverts the `spec` to the previous state. It _doesn't_ delete any service instances and it
-  _doesn't_ modify the pipeline in any way.
-- If one or more service instances _failed to be deleted_, AWS Proton re-provisions the pipeline without the deleted instances.
-  The `spec` is updated to include the added instances and to exclude the instances that were marked for deletion.
-- If the _pipeline fails provisioning_, a rollback _isn't_ attempted and both the service and pipeline
-  reflect a failed update state.
++ If one or more service instances *failed to be created*, AWS Proton tries to de-provision all of the newly created service instances and reverts the `spec` to the previous state. It *doesn't* delete any service instances and it *doesn't* modify the pipeline in any way.
++ If one or more service instances *failed to be deleted*, AWS Proton re-provisions the pipeline without the deleted instances. The `spec` is updated to include the added instances and to exclude the instances that were marked for deletion.
++ If the *pipeline fails provisioning*, a rollback *isn't* attempted and both the service and pipeline reflect a failed update state.
 
 ### Tagging and service edits
+<a name="ag-svc-update-tagging"></a>
 
-When you add service instances as part of your service edit, AWS managed tags propagate to and are automatically created for the new instances
-and provisioned resources. If you create new tags, those tags are only applied to the new instances. Existing service customer managed tags also
-propagate to the new instances. For more information, see [AWS Proton resources and tagging](resources.md "resources.md").
+When you add service instances as part of your service edit, AWS managed tags propagate to and are automatically created for the new instances and provisioned resources. If you create new tags, those tags are only applied to the new instances. Existing service customer managed tags also propagate to the new instances. For more information, see [AWS Proton resources and tagging](resources.md).

@@ -1,35 +1,30 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # CodeBuild provisioning template bundle
+<a name="ag-infrastructure-tmp-files-codebuild"></a>
 
-With CodeBuild provisioning, instead of using IaC templates to render IaC files and run them using an IaC provisioning engine, AWS Proton simply runs
-your shell commands. To do that, AWS Proton creates an AWS CodeBuild project for the environment, in the environment account, and starts a job to run your
-commands for each AWS Proton resource creation or update. When you author a template bundle, you provide a manifest that specifies infrastructure
-provisioning and deprovisioning commands, and any programs, scripts, and other files that these commands may need. Your commands can read inputs that
-AWS Proton provides, and are responsible for provisioning or deprovisioning infrastructure and generating output values.
+With CodeBuild provisioning, instead of using IaC templates to render IaC files and run them using an IaC provisioning engine, AWS Proton simply runs your shell commands. To do that, AWS Proton creates an AWS CodeBuild project for the environment, in the environment account, and starts a job to run your commands for each AWS Proton resource creation or update. When you author a template bundle, you provide a manifest that specifies infrastructure provisioning and deprovisioning commands, and any programs, scripts, and other files that these commands may need. Your commands can read inputs that AWS Proton provides, and are responsible for provisioning or deprovisioning infrastructure and generating output values.
 
-The manifest also specifies how AWS Proton should render the input file that your code can input and get input values from. It can be rendered into JSON
-or HCL. For more information about input parameters, see [CodeBuild provisioning parameter details and examples](parameters-codebuild.md "parameters-codebuild.md"). For more information about manifest files, see [Wrap up template files for AWS Proton](ag-wrap-up.md "ag-wrap-up.md").
+The manifest also specifies how AWS Proton should render the input file that your code can input and get input values from. It can be rendered into JSON or HCL. For more information about input parameters, see [CodeBuild provisioning parameter details and examples](parameters-codebuild.md). For more information about manifest files, see [Wrap up template files for AWS Proton](ag-wrap-up.md).
 
-###### Note
-
+**Note**  
 You can use CodeBuild provisioning with environments and services. At this time you can't provision components this way.
 
 ## Example: using the AWS CDK with CodeBuild provisioning
+<a name="ag-infrastructure-tmp-files-codebuild.example"></a>
 
-As an example to using CodeBuild provisioning, you can include code that uses the AWS Cloud Development Kit (AWS CDK) to provision (_deploy_) and
-deprovision (_destroy_) AWS resources, and a manifest that installs the CDK and runs your CDK code.
+As an example to using CodeBuild provisioning, you can include code that uses the AWS Cloud Development Kit (AWS CDK) to provision (*deploy*) and deprovision (*destroy*) AWS resources, and a manifest that installs the CDK and runs your CDK code.
 
-The following sections list example files you can include in a CodeBuild provisioning template bundle that provisions an environment using the
-AWS CDK.
+The following sections list example files you can include in a CodeBuild provisioning template bundle that provisions an environment using the AWS CDK.
 
-The following manifest file specifies CodeBuild provisioning, and includes the commands necessary to install and use the AWS CDK, output file
-processing, and reporting outputs back to AWS Proton.
+### Manifest
+<a name="ag-infrastructure-tmp-files-codebuild.example.manifest"></a>
 
-###### Example infrastructure/manifest.yaml
+The following manifest file specifies CodeBuild provisioning, and includes the commands necessary to install and use the AWS CDK, output file processing, and reporting outputs back to AWS Proton.
+
+**Example infrastructure/manifest.yaml**  
 
 ```
 infrastructure:
@@ -57,10 +52,12 @@ infrastructure:
             SecurityGroupIds: "{{ environment.inputs.codebuild_security_groups }}"
 ```
 
-The following schema file defines parameters for the environment. Your AWS CDK code can refer to values of these parameters during
-deployment.
+### Schema
+<a name="ag-infrastructure-tmp-files-codebuild.example.schema"></a>
 
-###### Example schema/schema.yaml
+The following schema file defines parameters for the environment. Your AWS CDK code can refer to values of these parameters during deployment.
+
+**Example schema/schema.yaml**  
 
 ```
 schema:
@@ -83,9 +80,12 @@ schema:
         - my_other_sample_input
 ```
 
+### AWS CDK files
+<a name="ag-infrastructure-tmp-files-codebuild.example.cdkcode"></a>
+
 The following files are an example to a Node.js CDK project.
 
-###### Example infrastructure/package.json
+**Example infrastructure/package.json**  
 
 ```
 {
@@ -117,7 +117,7 @@ The following files are an example to a Node.js CDK project.
 }
 ```
 
-###### Example infrastructure/tsconfig.json
+**Example infrastructure/tsconfig.json**  
 
 ```
 {
@@ -154,7 +154,7 @@ The following files are an example to a Node.js CDK project.
 }
 ```
 
-###### Example infrastructure/cdk.json
+**Example infrastructure/cdk.json**  
 
 ```
 {
@@ -192,7 +192,7 @@ The following files are an example to a Node.js CDK project.
 }
 ```
 
-###### Example infrastructure/bin/ProtonEnvironment.ts
+**Example infrastructure/bin/ProtonEnvironment.ts**  
 
 ```
 #!/usr/bin/env node
@@ -204,7 +204,7 @@ const app = new cdk.App();
 new ProtonEnvironmentStack(app, 'ProtonEnvironmentStack', {});
 ```
 
-###### Example infrastructure/lib/ProtonEnvironmentStack.ts
+**Example infrastructure/lib/ProtonEnvironmentStack.ts**  
 
 ```
 import { Stack, StackProps } from 'aws-cdk-lib';
@@ -232,12 +232,12 @@ export class ProtonEnvironmentStack extends Stack {
 }
 ```
 
-When you create an environment using a CodeBuild-based provisioning template, AWS Proton
-renders an input file with [input
-parameter values](parameters.md "parameters.md") that you provided. Your code can refer to these values. The
-following file is an example to a rendered input file.
+### Rendered input file
+<a name="ag-infrastructure-tmp-files-codebuild.example.manifest"></a>
 
-###### Example infrastructure/proton-inputs.json
+When you create an environment using a CodeBuild-based provisioning template, AWS Proton renders an input file with [input parameter values](https://docs.aws.amazon.com/proton/latest/userguide/parameters.html) that you provided. Your code can refer to these values. The following file is an example to a rendered input file.
+
+**Example infrastructure/proton-inputs.json**  
 
 ```
 {

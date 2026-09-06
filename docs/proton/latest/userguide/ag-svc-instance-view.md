@@ -1,31 +1,34 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # View service instance data
+<a name="ag-svc-instance-view"></a>
 
 Learn to view AWS Proton service instance detail data. You can use the console or the AWS CLI.
 
-A service instance belongs to a service. You can only create or delete an instance within the context of service [edit](ag-svc-update.md "ag-svc-update.md"), [create](ag-create-svc.md "ag-create-svc.md") and [delete](ag-svc-delete.md "ag-svc-delete.md") actions. To learn how to add and remove
-instances from a service, see [Edit a service](ag-svc-update.md "ag-svc-update.md").
+A service instance belongs to a service. You can only create or delete an instance within the context of service [edit](ag-svc-update.md), [create](ag-create-svc.md) and [delete](ag-svc-delete.md) actions. To learn how to add and remove instances from a service, see [Edit a service](ag-svc-update.md).
 
-AWS Management Console
-List and view service instance details using the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/") as shown in
-the following steps.
+------
+#### [ AWS Management Console ]
+
+**List and view service instance details using the [AWS Proton console](https://console.aws.amazon.com/proton/) as shown in the following steps.**
 
 1. To view a list of your service instances, choose **Services instances** in the navigation pane.
-2. To view detail data, choose the name of a service instance.
 
-View your service instance detail data.
+1. To view detail data, choose the name of a service instance.
 
-AWS CLI
-List and view service instance details as shown in the following CLI example commands and responses.
+   View your service instance detail data.
+
+------
+#### [ AWS CLI ]
+
+**List and view service instance details as shown in the following CLI example commands and responses.**
 
 Command:
 
 ```
-`$` `aws proton list-service-instances`
+$ aws proton list-service-instances
 ```
 
 Response:
@@ -53,9 +56,9 @@ Response:
 Command:
 
 ```
-`$` `aws proton get-service-instance \
- --name "`instance-one`" \
- --service-name "`simple-svc`"`
+$ aws proton get-service-instance \
+    --name "{{instance-one}}" \
+    --service-name "{{simple-svc}}"
 ```
 
 Response:
@@ -78,3 +81,5 @@ Response:
     }
 }
 ```
+
+------

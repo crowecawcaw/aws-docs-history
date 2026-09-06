@@ -1,30 +1,33 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # View service data
+<a name="ag-svc-view"></a>
 
 You can view and list service detail data using the AWS Proton console or the AWS CLI.
 
-AWS Management Console
-List and view service details using the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/") as shown in the
-following steps.
+------
+#### [ AWS Management Console ]
+
+**List and view service details using the [AWS Proton console](https://console.aws.amazon.com/proton/) as shown in the following steps.**
 
 1. To view a list of your services, choose **Services** in the navigation pane.
-2. To view detail data, choose the name of a service.
 
-View your service detail data.
+1. To view detail data, choose the name of a service.
 
-AWS CLI
-View the details of a service with a service pipeline as shown in the following CLI example command and
-response.
+   View your service detail data.
+
+------
+#### [ AWS CLI ]
+
+**View the details of a service with a service pipeline as shown in the following CLI example command and response.**
 
 Command:
 
 ```
-`$` `aws proton get-service \
- --name "`simple-svc`"`
+$ aws proton get-service \
+    --name "{{simple-svc}}"
 ```
 
 Response:
@@ -57,14 +60,13 @@ Response:
 }
 ```
 
-View the details of a service without a service pipeline as shown in the following CLI example command and
-response.
+**View the details of a service without a service pipeline as shown in the following CLI example command and response.**
 
 Command:
 
 ```
-`$` `aws proton get-service \
- --name "`simple-svc-no-pipeline`"`
+$ aws proton get-service \
+    --name "{{simple-svc-no-pipeline}}"
 ```
 
 Response:
@@ -82,3 +84,5 @@ Response:
     }
 }
 ```
+
+------

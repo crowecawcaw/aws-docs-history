@@ -1,80 +1,90 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Delete templates
+<a name="template-delete"></a>
 
 Templates can be deleted using the console and AWS CLI.
 
 You can delete a minor version of an environment template if there are no environments deployed to that version.
 
-You can delete a minor version of a service template if there are no service instances or pipelines deployed to that version. Your pipeline can be
-deployed to a different template version than your service instance. For example, if your service instance is updated to version 1.1 from 1.0 and your
-pipeline is still deployed to version 1.0, you can’t delete service template 1.0.
+You can delete a minor version of a service template if there are no service instances or pipelines deployed to that version. Your pipeline can be deployed to a different template version than your service instance. For example, if your service instance is updated to version 1.1 from 1.0 and your pipeline is still deployed to version 1.0, you can’t delete service template 1.0.
 
-AWS Management Console
+------
+#### [ AWS Management Console ]
+
 You can use the console to delete the entire template or individual minor and major versions of a template.
 
 Use the console to delete templates as follows.
 
-###### Note
+**Note**  
+When you delete the entire template, you also delete the major and minor versions of the template.
 
-###### When using the console to delete templates.
+**In the list of (environment or service) templates.**
 
-- When you delete the entire template, you also delete the major and minor versions of the template.
+1. In the [AWS Proton console](https://console.aws.amazon.com/proton/), choose **(Environment or Service) Templates**.
 
-###### In the list of (environment or service) templates.
+1. In the list of templates, select the radio button to the left of the template you want to delete.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **(Environment or Service)
-   Templates**.
-2. In the list of templates, select the radio button to the left of the template you want to delete.
+   You can only delete an entire template if there are no AWS Proton resources deployed to its versions.
 
-You can only delete an entire template if there are no AWS Proton resources deployed to its versions. 3. Choose **Actions** and then **Delete** to delete the entire template. 4. A modal prompts you to confirm the delete action. 5. Follow the instructions and choose **Yes, delete**.
+1. Choose **Actions** and then **Delete** to delete the entire template.
 
-###### In the (environment or service) template detail page.
+1. A modal prompts you to confirm the delete action.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **(Environment or Service)
-   Templates**.
-2. In the list of templates, choose the name of the template that you want to entirely delete or delete individual major or minor versions of
-   it.
-3. ###### To delete the entire template.
+1. Follow the instructions and choose **Yes, delete**.
 
-You can only delete an entire template if there are no AWS Proton resources deployed to its versions.
+**In the (environment or service) template detail page.**
 
-    1. Choose **Delete**, top right corner of page.
-    2. A modal prompts you to confirm the delete action.
-    3. Follow the instructions and choose **Yes, delete**.
+1. In the [AWS Proton console](https://console.aws.amazon.com/proton/), choose **(Environment or Service) Templates**.
 
-4. ###### To delete major or minor versions of a template.
+1. In the list of templates, choose the name of the template that you want to entirely delete or delete individual major or minor versions of it.
 
-You can only delete a minor version of a template if there are no AWS Proton resources deployed to that version.
+1. 
 
-    1. In the **Template versions** section, select the radio button to the left of the version that you want to
-     delete.
-    2. Choose **Delete** in the **Template versions** section.
-    3. A modal prompts you to confirm the delete action.
-    4. Follow the instructions and choose **Yes, delete**.
+**To delete the entire template.**
 
-AWS CLI
-AWS CLI template delete operations _don't_ include the deletion of other versions of a template. When using the AWS CLI, delete
-templates with the following conditions.
+   You can only delete an entire template if there are no AWS Proton resources deployed to its versions.
 
-- Delete an entire template if no minor or major versions of the template exist.
-- Delete a major version when you delete the last remaining minor version.
-- Delete a minor version of a template if there are no AWS Proton resources deployed to that version.
-- Delete the recommended minor version of a template if no other minor versions of the template exist and there are no AWS Proton resources
-  deployed to that version.
+   1. Choose **Delete**, top right corner of page.
 
-The following example commands and responses show how to use the AWS CLI to delete templates.
+   1. A modal prompts you to confirm the delete action.
+
+   1. Follow the instructions and choose **Yes, delete**.
+
+1. 
+
+**To delete major or minor versions of a template.**
+
+   You can only delete a minor version of a template if there are no AWS Proton resources deployed to that version.
+
+   1. In the **Template versions** section, select the radio button to the left of the version that you want to delete.
+
+   1. Choose **Delete** in the **Template versions** section.
+
+   1. A modal prompts you to confirm the delete action.
+
+   1. Follow the instructions and choose **Yes, delete**.
+
+------
+#### [ AWS CLI ]
+
+AWS CLI template delete operations *don't* include the deletion of other versions of a template. When using the AWS CLI, delete templates with the following conditions.
++ Delete an entire template if no minor or major versions of the template exist.
++ Delete a major version when you delete the last remaining minor version.
++ Delete a minor version of a template if there are no AWS Proton resources deployed to that version.
++ Delete the recommended minor version of a template if no other minor versions of the template exist and there are no AWS Proton resources deployed to that version.
+
+**The following example commands and responses show how to use the AWS CLI to delete templates.**
 
 Run the following command:
 
 ```
-`$` `aws proton delete-environment-template-version \
- --template-name "`simple-env`" \
- --major-version "`1`" \
- --minor-version "`0`"`
+$ aws proton delete-environment-template-version \
+    --template-name "{{simple-env}}" \
+    --major-version "{{1}}" \
+    --minor-version "{{0}}"
 ```
 
 Response:
@@ -98,8 +108,8 @@ Response:
 Run the following command:
 
 ```
-`$` `aws proton delete-environment-template \
- --name "`simple-env`"`
+$ aws proton delete-environment-template \
+    --name "{{simple-env}}"
 ```
 
 Response:
@@ -121,10 +131,10 @@ Response:
 Run the following command:
 
 ```
-`$` `aws proton delete-service-template-version \
- --template-name "`fargate-service`" \
- --major-version "`1`" \
- --minor-version "`0`"`
+$ aws proton delete-service-template-version \
+    --template-name "{{fargate-service}}" \
+    --major-version "{{1}}" \
+    --minor-version "{{0}}"
 ```
 
 Response:
@@ -144,3 +154,5 @@ Response:
     }
 }
 ```
+
+------

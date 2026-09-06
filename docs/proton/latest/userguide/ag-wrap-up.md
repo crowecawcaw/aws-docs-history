@@ -1,22 +1,18 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Wrap up template files for AWS Proton
+<a name="ag-wrap-up"></a>
 
-After preparing your environment and service infrastructure as code (IaC) files and their respective schema files, you must organize them in
-directories. You must also create a manifest YAML file. The manifest file lists the IaC files in a directory, the rendering engine, and the template
-language used to develop the IaC in this template.
+After preparing your environment and service infrastructure as code (IaC) files and their respective schema files, you must organize them in directories. You must also create a manifest YAML file. The manifest file lists the IaC files in a directory, the rendering engine, and the template language used to develop the IaC in this template.
 
-###### Note
-
-A manifest file can also be used independently of template bundles, as a direct input to _directly defined components_. In this
-case, it always specifies a single IaC template file, for both CloudFormation and Terraform. For more information about components, see [AWS Proton components](ag-components.md "ag-components.md").
+**Note**  
+A manifest file can also be used independently of template bundles, as a direct input to *directly defined components*. In this case, it always specifies a single IaC template file, for both CloudFormation and Terraform. For more information about components, see [AWS Proton components](ag-components.md).
 
 The manifest file needs to adhere to the format and content shown in the following example.
 
-CloudFormation manifest file format:
+**CloudFormation manifest file format:**
 
 With CloudFormation, you list a single file.
 
@@ -28,12 +24,11 @@ infrastructure:
       template_language: cloudformation
 ```
 
-Terraform manifest file format:
+**Terraform manifest file format:**
 
 With terraform, you can explicitly list a single file or use the wildcard `*` to list each of the files in a directory.
 
-###### Note
-
+**Note**  
 The wildcard only includes files whose names end with `.tf`. Other files are ignored.
 
 ```
@@ -44,16 +39,14 @@ infrastructure:
       template_language: terraform
 ```
 
-CodeBuild-based provisioning manifest file format:
+**CodeBuild-based provisioning manifest file format:**
 
 With CodeBuild-based provisioning, you specify provisioning and deprovisioning shell commands.
 
-###### Note
-
+**Note**  
 In addition to the manifest, your bundle should include any files that your commands depend on.
 
-The following example manifest uses CodeBuild-based provisioning to provision (_deploy_) and deprovision (_destroy_)
-resources using the AWS Cloud Development Kit (AWS CDK) (AWS CDK). The template bundle should also include the CDK code.
+The following example manifest uses CodeBuild-based provisioning to provision (*deploy*) and deprovision (*destroy*) resources using the AWS Cloud Development Kit (AWS CDK) (AWS CDK). The template bundle should also include the CDK code.
 
 During provisioning, AWS Proton creates an input file with values for input parameters that you defined in the template's schema with the name `proton-input.json`.
 
@@ -83,25 +76,18 @@ infrastructure:
             SecurityGroupIds: "{{ environment.inputs.codebuild_security_groups }}"
 ```
 
-After you set up the directories and manifest files for your environment or service template bundle, you gzip the directories into a tar ball and
-upload them to an Amazon Simple Storage Service (Amazon S3) bucket where AWS Proton can retrieve them, or to a [template sync Git
-repository](ag-template-sync-configs.md "ag-template-sync-configs.md").
+After you set up the directories and manifest files for your environment or service template bundle, you gzip the directories into a tar ball and upload them to an Amazon Simple Storage Service (Amazon S3) bucket where AWS Proton can retrieve them, or to a [template sync Git repository](ag-template-sync-configs.md).
 
-When you create a minor version of an environment or a service template that you registered with AWS Proton, you provide the path to your environment or
-service template bundle tar ball that's located in your S3 bucket. AWS Proton saves it with the new template minor version. You can select the new template
-minor version to create or update environments or services with AWS Proton.
+When you create a minor version of an environment or a service template that you registered with AWS Proton, you provide the path to your environment or service template bundle tar ball that's located in your S3 bucket. AWS Proton saves it with the new template minor version. You can select the new template minor version to create or update environments or services with AWS Proton.
 
 ## Environment template bundle wrap up
+<a name="environment-wrap-up"></a>
 
 There are two types of environment template bundles that you create for AWS Proton.
++ To create an environment template bundle for a *standard* environment template, organize the schema, infrastructure as code (IaC) files and manifest file in directories as shown in the following environment template bundle directory structure.
++ To create an environment template bundle for a *customer managed* environment template, provide only the schema file and directory. *Don't* include the infrastructure directory and files. AWS Proton throws an error if the infrastructure directory and files are included.
 
-- To create an environment template bundle for a _standard_ environment template, organize the schema, infrastructure as code
-  (IaC) files and manifest file in directories as shown in the following environment template bundle directory structure.
-- To create an environment template bundle for a _customer managed_ environment template, provide only the schema file and
-  directory. _Don't_ include the infrastructure directory and files. AWS Proton throws an error if the infrastructure directory and
-  files are included.
-
-For more information, see [Register and publish templates](template-create.md "template-create.md").
+For more information, see [Register and publish templates](template-create.md).
 
 CloudFormation environment template bundle directory structure:
 
@@ -124,19 +110,16 @@ Terraform environment template bundle directory structure:
 ```
 
 ## Service template bundle wrap up
+<a name="service-wrap-up"></a>
 
-To create a service template bundle, you must organize the schema, infrastructure as code (IaC) files, and manifest files into directories as shown
-in the service template bundle directory structure example.
+To create a service template bundle, you must organize the schema, infrastructure as code (IaC) files, and manifest files into directories as shown in the service template bundle directory structure example.
 
-If you _don’t_ include a service pipeline in your template bundle, _don't_ include the pipeline directory and
-files and set `"pipelineProvisioning": "CUSTOMER_MANAGED"` when you create the service template that is to be associated with this template
-bundle.
+If you *don’t* include a service pipeline in your template bundle, *don't* include the pipeline directory and files and set `"pipelineProvisioning": "CUSTOMER_MANAGED"` when you create the service template that is to be associated with this template bundle.
 
-###### Note
-
+**Note**  
 You can't modify `pipelineProvisioning` after the service template is created.
 
-For more information, see [Register and publish templates](template-create.md "template-create.md").
+For more information, see [Register and publish templates](template-create.md).
 
 CloudFormation service template bundle directory structure:
 

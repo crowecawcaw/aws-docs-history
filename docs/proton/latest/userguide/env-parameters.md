@@ -1,63 +1,50 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Environment CloudFormation IaC file parameter details and examples
+<a name="env-parameters"></a>
 
-You can define and reference parameters in your environment infrastructure as code (IaC) files. For a detailed description of AWS Proton parameters,
-parameter types, the parameter namespace, and how to use parameters in your IaC files, see [AWS Proton parameters](parameters.md "parameters.md").
+You can define and reference parameters in your environment infrastructure as code (IaC) files. For a detailed description of AWS Proton parameters, parameter types, the parameter namespace, and how to use parameters in your IaC files, see [AWS Proton parameters](parameters.md).
 
 ## Define environment parameters
+<a name="env-parameters.define"></a>
 
 You can define both input and output parameters for environment IaC files.
++ **Input parameters** – Define environment input parameters in your [schema file](ag-schema.md).
 
-- Input parameters – Define environment input parameters in your [schema
-  file](ag-schema.md "ag-schema.md").
+  The following list includes examples of environment input parameters for typical use cases.
+  + VPC CIDR values
+  + Load balancer settings
+  + Database settings
+  + A health check timeout
 
-The following list includes examples of environment input parameters for typical use cases.
-
-    + VPC CIDR values
-    + Load balancer settings
-    + Database settings
-    + A health check timeout
-
-As an administrator, you can provide values for input parameters when you [create an environment](ag-create-env.md "ag-create-env.md"):
-
-    + Use the console to fill out a schema-based form that AWS Proton provides.
-    + Use the CLI to provide a spec that includes the values.
-
-- Output parameters – Define environment outputs in your environment IaC files. You can then refer to these
-  outputs in IaC files of other resources.
+  As an administrator, you can provide values for input parameters when you [create an environment](ag-create-env.md):
+  + Use the console to fill out a schema-based form that AWS Proton provides.
+  + Use the CLI to provide a spec that includes the values.
++ **Output parameters** – Define environment outputs in your environment IaC files. You can then refer to these outputs in IaC files of other resources.
 
 ## Read parameter values in environment IaC files
+<a name="env-parameters.refer"></a>
 
-You can read parameters related to the environment in environment IaC files. You read a parameter value by referencing the parameter's name in the
-AWS Proton parameter namespace.
+You can read parameters related to the environment in environment IaC files. You read a parameter value by referencing the parameter's name in the AWS Proton parameter namespace.
++ **Input parameters** – Read an environment input value by referencing `environment.inputs.{{input-name}}`.
++ **Resource parameters** – Read AWS Proton resource parameters by referencing names such as `environment.name`.
 
-- Input parameters – Read an environment input value by referencing
-  `environment.inputs.`input-name``.
-- Resource parameters – Read AWS Proton resource parameters by referencing names such as
-  `environment.name`.
-
-###### Note
-
+**Note**  
 No output parameters of other resources are available to environment IaC files.
 
 ## Example environment and service IaC files with parameters
+<a name="env-parameters.example"></a>
 
-The following example demonstrates parameter definition and reference in an environment IaC file. The example then shows how environment output
-parameters defined in the environment IaC file can be referenced in a service IaC file.
+The following example demonstrates parameter definition and reference in an environment IaC file. The example then shows how environment output parameters defined in the environment IaC file can be referenced in a service IaC file.
 
-###### Example Environment CloudFormation IaC file
-
-Note the following in this example:
-
-- The `environment.inputs.` namespace refers to environment input parameters.
-- The Amazon EC2 Systems Manager (SSM) parameter `StoreInputValue` concatenates the environment inputs.
-- The `MyEnvParameterValue` output exposes the same input parameter concatenation as an output parameter. Three additional output
-  parameters also expose the input parameters individually.
-- Six additional output parameters expose resources that the environment provisions.
+**Example Environment CloudFormation IaC file**  
+Note the following in this example:  
++ The `environment.inputs.` namespace refers to environment input parameters.
++ The Amazon EC2 Systems Manager (SSM) parameter `StoreInputValue` concatenates the environment inputs.
++ The `MyEnvParameterValue` output exposes the same input parameter concatenation as an output parameter. Three additional output parameters also expose the input parameters individually.
++ Six additional output parameters expose resources that the environment provisions.
 
 ```
 Resources:
@@ -68,7 +55,7 @@ Resources:
       Value: "{{ environment.inputs.my_sample_input }} {{ environment.inputs.my_other_sample_input}} {{ environment.inputs.another_optional_input }}"
               # input parameter references
 
-# These output values are available to service infrastructure as code files as outputs, when given the
+# These output values are available to service infrastructure as code files as outputs, when given the 
 # the 'environment.outputs' namespace, for example, service_instance.environment.outputs.ClusterName.
 Outputs:
   MyEnvParameterValue:                                        # output definition
@@ -99,10 +86,8 @@ Outputs:
     Value: !Ref 'ContainerSecurityGroup'                      #   provisioned resource
 ```
 
-###### Example Service CloudFormation IaC file
-
-The `environment.outputs.` namespace refers to environment outputs from an environment IaC file. For example, the name
-`environment.outputs.ClusterName` reads the value of the `ClusterName` environment output parameter.
+**Example Service CloudFormation IaC file**  
+The `environment.outputs.` namespace refers to environment outputs from an environment IaC file. For example, the name `environment.outputs.ClusterName` reads the value of the `ClusterName` environment output parameter.  
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -138,7 +123,7 @@ Resources:
     Properties:
       Family: '{{service_instance.name}}' # resource parameter
       Cpu: !FindInMap [TaskSize, {{service_instance.inputs.task_size}}, cpu] # input parameter
-      Memory: !FindInMap [TaskSize, {{service_instance.inputs.task_size}}, memory]
+      Memory: !FindInMap [TaskSize, {{service_instance.inputs.task_size}}, memory] 
       NetworkMode: awsvpc
       RequiresCompatibilities:
         - FARGATE

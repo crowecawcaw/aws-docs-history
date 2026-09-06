@@ -1,54 +1,53 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # Update a template
+<a name="template-update"></a>
 
 You can update a template as described in the following list.
++ Edit the `description` or `display name` of a template when you use either the console or AWS CLI. You *can't* edit the `name` of a template.
++ Update the status of a template minor version when you use either the console or AWS CLI. You can only change the status from `DRAFT` to `PUBLISHED`.
++ Edit the display name and description of a minor or major version of a template when you use the AWS CLI.
 
-- Edit the `description` or `display name` of a template when you use either the console or AWS CLI. You
-  _can't_ edit the `name` of a template.
-- Update the status of a template minor version when you use either the console or AWS CLI. You can only change the status from `DRAFT` to
-  `PUBLISHED`.
-- Edit the display name and description of a minor or major version of a template when you use the AWS CLI.
+------
+#### [ AWS Management Console ]
 
-AWS Management Console
 Edit a template description and display name using the console as described in the following steps.
 
-###### In the list of templates.
+**In the list of templates.**
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **(Environment or Service)
-   Templates**.
-2. In the list of templates, choose the radio button to the left of the template that you want to update the description or display name
-   for.
-3. Choose **Actions** and then **Edit**.
-4. In the **Edit (environment or service) template** page, in the **Template details** section, enter your
-   edits in the form and choose **Save changes**.
+1. In the [AWS Proton console](https://console.aws.amazon.com/proton/), choose **(Environment or Service) Templates**.
 
-Change the status of a minor version of a template using the console to publish a template as described in the following. You can only change
-the status from `DRAFT` to `PUBLISHED`.
+1. In the list of templates, choose the radio button to the left of the template that you want to update the description or display name for.
 
-###### In the (environment or service) template detail page.
+1. Choose **Actions** and then **Edit**.
 
-1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), choose **(Environment or Service)
-   templates**.
-2. In the list of templates, choose the name of the template that you want to update the status of a minor version from
-   **Draft** to **Published**.
-3. In the (environment or service) template detail page, in the **Template versions** section, select the radio button to the
-   left of the minor version that you want to publish.
-4. Choose **Publish** in the **Template versions** section. The status changes from
-   **Draft** to **Published**.
+1. In the **Edit (environment or service) template** page, in the **Template details** section, enter your edits in the form and choose **Save changes**.
 
-AWS CLI
+Change the status of a minor version of a template using the console to publish a template as described in the following. You can only change the status from `DRAFT` to `PUBLISHED`.
+
+**In the (environment or service) template detail page.**
+
+1. In the [AWS Proton console](https://console.aws.amazon.com/proton/), choose **(Environment or Service) templates**.
+
+1. In the list of templates, choose the name of the template that you want to update the status of a minor version from **Draft** to **Published**.
+
+1. In the (environment or service) template detail page, in the **Template versions** section, select the radio button to the left of the minor version that you want to publish.
+
+1. Choose **Publish** in the **Template versions** section. The status changes from **Draft** to **Published**.
+
+------
+#### [ AWS CLI ]
+
 The following example command and response shows how you can edit the description of an environment template.
 
 Run the following command.
 
 ```
-`$` `aws proton update-environment-template \
- --name "`simple-env`" \
- --description "`A single VPC with public access`"`
+$ aws proton update-environment-template \
+    --name "{{simple-env}}" \
+    --description "{{A single VPC with public access}}"
 ```
 
 Response:
@@ -72,5 +71,6 @@ Response:
 }
 ```
 
-You can also use the AWS CLI to update service templates. See [Register and publish service templates](template-create.md#svc-template-v1 "template-create.md#svc-template-v1"), step 5, for an
-example of updating the status of a minor version of a service template.
+You can also use the AWS CLI to update service templates. See [Register and publish service templates](template-create.md#svc-template-v1), step 5, for an example of updating the status of a minor version of a service template.
+
+------

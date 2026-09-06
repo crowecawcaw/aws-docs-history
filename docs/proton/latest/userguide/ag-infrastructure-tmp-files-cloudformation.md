@@ -1,35 +1,27 @@
-End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October
-7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure
-will remain intact. For more information, see [AWS Proton Service Deprecation and Migration
-Guide](proton-end-of-support.md "proton-end-of-support.md").
+
+
+End of support notice: On October 7, 2026, AWS will end support for AWS Proton. After October 7, 2026, you will no longer be able to access the AWS Proton console or AWS Proton resources. Your deployed infrastructure will remain intact. For more information, see [AWS Proton Service Deprecation and Migration Guide](https://docs.aws.amazon.com/proton/latest/userguide/proton-end-of-support.html).
 
 # CloudFormation IaC files
+<a name="ag-infrastructure-tmp-files-cloudformation"></a>
 
-Learn how to use AWS CloudFormation infrastructure as code files with AWS Proton. CloudFormation is an infrastructure as code (IaC) service that helps you model and set up
-your AWS resources. You define your infrastructure resources in templates, using Jinja on top of the CloudFormation template file format for
-parametrization. AWS Proton expands parameters and renders the full CloudFormation template. CloudFormation provisions the defined resources as CloudFormation stack. For
-more information, see [What is CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") in _the CloudFormation
-User Guide_.
+Learn how to use AWS CloudFormation infrastructure as code files with AWS Proton. CloudFormation is an infrastructure as code (IaC) service that helps you model and set up your AWS resources. You define your infrastructure resources in templates, using Jinja on top of the CloudFormation template file format for parametrization. AWS Proton expands parameters and renders the full CloudFormation template. CloudFormation provisions the defined resources as CloudFormation stack. For more information, see [What is CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) in *the CloudFormation User Guide*.
 
-AWS Proton supports [AWS-managed provisioning](ag-works-prov-methods.md#ag-works-prov-methods-direct "ag-works-prov-methods.md#ag-works-prov-methods-direct") for CloudFormation IaC.
+AWS Proton supports [AWS-managed provisioning](ag-works-prov-methods.md#ag-works-prov-methods-direct) for CloudFormation IaC.
 
 ## Start with your own existing infrastructure as code files
+<a name="iac-tmp-files"></a>
 
-You can adapt _your own existing_ infrastructure as code (IaC) files for use with AWS Proton.
+You can adapt *your own existing* infrastructure as code (IaC) files for use with AWS Proton.
 
-The following CloudFormation examples, [Example 1](#ag-env-cfn-example "#ag-env-cfn-example"), and [Example 2](#ag-svc-cfn-example "#ag-svc-cfn-example"),
-represent _your own existing_ CloudFormation IaC files. CloudFormation can use these files to create two different CloudFormation
-stacks.
+The following CloudFormation examples, [Example 1](#ag-env-cfn-example), and [Example 2](#ag-svc-cfn-example), represent *your own existing* CloudFormation IaC files. CloudFormation can use these files to create two different CloudFormation stacks.
 
-In [Example 1](#ag-env-cfn-example "#ag-env-cfn-example"), the CloudFormation IaC file is configured to provision infrastructure to be shared among
-container applications. In this example, input parameters are added so that you can use the same IaC file to create multiple sets of provisioned
-infrastructure. Each set can have different names along with a different set of VPC and subnet CIDR values. As either an administrator or a developer,
-you provide values for these parameters when you use an IaC file to provision infrastructure resources with CloudFormation. For your convenience, these
-input parameters are marked with comments and referenced multiple times in the example. The _outputs_ are defined at the end of the
-template. They can be referenced in other CloudFormation IaC files.
+In [Example 1](#ag-env-cfn-example), the CloudFormation IaC file is configured to provision infrastructure to be shared among container applications. In this example, input parameters are added so that you can use the same IaC file to create multiple sets of provisioned infrastructure. Each set can have different names along with a different set of VPC and subnet CIDR values. As either an administrator or a developer, you provide values for these parameters when you use an IaC file to provision infrastructure resources with CloudFormation. For your convenience, these input parameters are marked with comments and referenced multiple times in the example. The *outputs* are defined at the end of the template. They can be referenced in other CloudFormation IaC files.
 
-In [Example 2](#ag-svc-cfn-example "#ag-svc-cfn-example"), the CloudFormation IaC file is configured to deploy an application to the infrastructure
-that's provisioned from _Example 1_. The parameters are commented for your convenience.
+In [Example 2](#ag-svc-cfn-example), the CloudFormation IaC file is configured to deploy an application to the infrastructure that's provisioned from *Example 1*. The parameters are commented for your convenience.
+
+### Example 1: CloudFormation IaC file
+<a name="ag-env-cfn-example"></a>
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -54,7 +46,7 @@ Resources:
     Properties:
       EnableDnsSupport: true
       EnableDnsHostnames: true
-      CidrBlock:
+      CidrBlock: 
         Ref: 'VpcCIDR'
 
   # Two public subnets, where containers will have public IP addresses
@@ -152,35 +144,37 @@ Outputs:
   ECSTaskExecutionRole:                                       # output
     Description: The ARN of the ECS role
     Value: !GetAtt 'ECSTaskExecutionRole.Arn'
-    Export:
+    Export: 
       Name:
         Fn::Sub: "${AWS::StackName}-ECSTaskExecutionRole"
   VpcId:                                                      # output
     Description: The ID of the VPC that this stack is deployed in
     Value: !Ref 'VPC'
-    Export:
-      Name:
+    Export: 
+      Name: 
         Fn::Sub: "${AWS::StackName}-VPC"
   PublicSubnetOne:                                            # output
     Description: Public subnet one
     Value: !Ref 'PublicSubnetOne'
-    Export:
+    Export: 
       Name:
         Fn::Sub: "${AWS::StackName}-PublicSubnetOne"
   PublicSubnetTwo:                                            # output
     Description: Public subnet two
     Value: !Ref 'PublicSubnetTwo'
-    Export:
+    Export: 
       Name:
         Fn::Sub: "${AWS::StackName}-PublicSubnetTwo"
   ContainerSecurityGroup:                                     # output
     Description: A security group used to allow Fargate containers to receive traffic
     Value: !Ref 'ContainerSecurityGroup'
-    Export:
+    Export: 
       Name:
         Fn::Sub: "${AWS::StackName}-ContainerSecurityGroup"
-
 ```
+
+### Example 2: CloudFormation IaC file
+<a name="ag-svc-cfn-example"></a>
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -251,7 +245,7 @@ Resources:
           !Sub "${StackName}-ECSTaskExecutionRole"    # output parameter from another CloudFormation template
               awslogs-region: !Ref 'AWS::Region'
               awslogs-stream-prefix: !Ref 'TaskNameInput'
-
+                
 
   # The service_instance. The service is a resource which allows you to run multiple
   # copies of a type of task, and gather up their logs and metrics, as well
@@ -278,14 +272,14 @@ Resources:
           Subnets:
             - Fn::ImportValue:r CloudFormation template
       TaskRoleArn: !Ref "AWS::NoValue"
-      ContainerDefinitions:
+      ContainerDefinitions:        
         - Name: !Ref 'TaskNameInput'
           Cpu: !FindInMap [TaskSizeMap, !Ref 'TaskSizeInput', cpu]
           Memory: !FindInMap [TaskSizeMap, !Ref 'TaskSizeInput', memory]
           Image: !Ref 'ContainerImageInput'             # input parameter
           PortMappings:
             - ContainerPort: !Ref 'ContainerPortInput'  # input parameter
-
+          
           LogConfiguration:
             LogDriver: 'awslogs'
             Options:
@@ -540,20 +534,18 @@ Outputs:
 You can adapt these files for use with AWS Proton.
 
 ## Bring your infrastructure as code to AWS Proton
+<a name="proton-tmp-files"></a>
 
-With slight modifications, you can use [Example 1](#ag-env-cfn-example "#ag-env-cfn-example") as an infrastructure as code (IaC) file for an
-environment template bundle that AWS Proton uses to deploy an environment (as shown in [Example 3](#ag-proton-env-cfn-example "#ag-proton-env-cfn-example")).
+With slight modifications, you can use [Example 1](#ag-env-cfn-example) as an infrastructure as code (IaC) file for an environment template bundle that AWS Proton uses to deploy an environment (as shown in [Example 3](#ag-proton-env-cfn-example)).
 
-Instead of using the CloudFormation parameters, you use [Jinja](https://jinja.palletsprojects.com/en/2.11.x/templates/ "https://jinja.palletsprojects.com/en/2.11.x/templates/") syntax to reference
-parameters that you have defined in an [Open API](https://swagger.io/docs/specification/data-models/ "https://swagger.io/docs/specification/data-models/") based [schema file](ag-schema.md "ag-schema.md"). These input parameters are commented for your convenience and referenced multiple times in the IaC file.
-This way, AWS Proton can audit and check parameter values. It can also match and insert output parameter values in one IaC file to parameters in another
-IaC file.
+Instead of using the CloudFormation parameters, you use [Jinja](https://jinja.palletsprojects.com/en/2.11.x/templates/) syntax to reference parameters that you have defined in an [Open API](https://swagger.io/docs/specification/data-models/) based [schema file](ag-schema.md). These input parameters are commented for your convenience and referenced multiple times in the IaC file. This way, AWS Proton can audit and check parameter values. It can also match and insert output parameter values in one IaC file to parameters in another IaC file.
 
-As administrator, you can add the AWS Proton `environment.inputs.` namespace to the input parameters. When you reference environment IaC
-file outputs in a service IaC file, you can add the `environment.outputs.` namespace to the outputs (for example,
-`environment.outputs.ClusterName`). Last, you surround them with curly braces and quotation marks.
+As administrator, you can add the AWS Proton `environment.inputs.` namespace to the input parameters. When you reference environment IaC file outputs in a service IaC file, you can add the `environment.outputs.` namespace to the outputs (for example, `environment.outputs.ClusterName`). Last, you surround them with curly braces and quotation marks.
 
 With these modifications, your CloudFormation IaC files can be used by AWS Proton.
+
+### Example 3: AWS Proton environment infrastructure as code file
+<a name="ag-proton-env-cfn-example"></a>
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -658,7 +650,7 @@ Resources:
       ManagedPolicyArns:
         - 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'
 
-# These output values are available to service infrastructure as code files as outputs, when given the
+# These output values are available to service infrastructure as code files as outputs, when given the 
 # the 'service_instance.environment.outputs.' namespace, for example, service_instance.environment.outputs.ClusterName.
 
 Outputs:
@@ -680,16 +672,14 @@ Outputs:
   ContainerSecurityGroup:                                 # output
     Description: A security group used to allow Fargate containers to receive traffic
     Value: !Ref 'ContainerSecurityGroup'
-
 ```
 
-The IaC files in [Example 1](#ag-env-cfn-example "#ag-env-cfn-example") and [Example 3](#ag-proton-env-cfn-example "#ag-proton-env-cfn-example") produce
-slightly different CloudFormation stacks. Parameters are displayed differently in the stack template files. The _Example 1_ CloudFormation
-stack template file displays the parameter labels (keys) in the stack template view. The _Example 3_ AWS Proton CloudFormation
-infrastructure stack template file displays the parameter values. AWS Proton input parameters _don’t_ appear in the console CloudFormation
-stack parameters view.
+The IaC files in [Example 1](#ag-env-cfn-example) and [Example 3](#ag-proton-env-cfn-example) produce slightly different CloudFormation stacks. Parameters are displayed differently in the stack template files. The *Example 1* CloudFormation stack template file displays the parameter labels (keys) in the stack template view. The *Example 3* AWS Proton CloudFormation infrastructure stack template file displays the parameter values. AWS Proton input parameters *don’t* appear in the console CloudFormation stack parameters view.
 
-In [Example 4](#ag-proton-svc-cfn-example "#ag-proton-svc-cfn-example"), the AWS Proton service IaC file corresponds with [Example 2](#ag-svc-cfn-example "#ag-svc-cfn-example").
+In [Example 4](#ag-proton-svc-cfn-example), the AWS Proton service IaC file corresponds with [Example 2](#ag-svc-cfn-example).
+
+### Example 4: AWS Proton service instance IaC file
+<a name="ag-proton-svc-cfn-example"></a>
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -725,7 +715,7 @@ Resources:
     Properties:
       Family: '{{service_instance.name}}'
       Cpu: !FindInMap [TaskSize, {{service_instance.inputs.task_size}}, cpu] # input parameter
-      Memory: !FindInMap [TaskSize, {{service_instance.inputs.task_size}}, memory]
+      Memory: !FindInMap [TaskSize, {{service_instance.inputs.task_size}}, memory] 
       NetworkMode: awsvpc
       RequiresCompatibilities:
         - FARGATE
@@ -997,8 +987,10 @@ Outputs:
     Value: !Sub "http://${PublicLoadBalancer.DNSName}"
 ```
 
-In [Example 5](#ag-proton-pipeline-cfn-example "#ag-proton-pipeline-cfn-example"), the AWS Proton pipeline IaC file provisions the pipeline infrastructure to support
-the service instances provisioned by [Example 4](#ag-proton-svc-cfn-example "#ag-proton-svc-cfn-example").
+In [Example 5](#ag-proton-pipeline-cfn-example), the AWS Proton pipeline IaC file provisions the pipeline infrastructure to support the service instances provisioned by [Example 4](#ag-proton-svc-cfn-example).
+
+### Example 5: AWS Proton service pipeline IaC file
+<a name="ag-proton-pipeline-cfn-example"></a>
 
 ```
 Resources:
@@ -1137,7 +1129,7 @@ Resources:
             Effect: Allow
             Principal:
               Service: codebuild.amazonaws.com
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
   PublishRoleDefaultPolicy:
     Type: AWS::IAM::Policy
     Properties:
@@ -1247,7 +1239,7 @@ Resources:
               Fn::GetAtt:
                 - PipelineArtifactsBucketEncryptionKey
                 - Arn
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
       PolicyName: PublishRoleDefaultPolicy
       Roles:
         - Ref: PublishRole
@@ -1261,7 +1253,7 @@ Resources:
             Effect: Allow
             Principal:
               Service: codebuild.amazonaws.com
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
   DeploymentRoleDefaultPolicy:
     Type: AWS::IAM::Policy
     Properties:
@@ -1346,7 +1338,7 @@ Resources:
               Fn::GetAtt:
                 - PipelineArtifactsBucketEncryptionKey
                 - Arn
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
       PolicyName: DeploymentRoleDefaultPolicy
       Roles:
         - Ref: DeploymentRole
@@ -1442,7 +1434,7 @@ Resources:
                   - DeploymentRole
                   - Arn
             Resource: "*"
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
     UpdateReplacePolicy: Delete
     DeletionPolicy: Delete
   PipelineArtifactsBucket:
@@ -1484,7 +1476,7 @@ Resources:
             Effect: Allow
             Principal:
               Service: codepipeline.amazonaws.com
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
   PipelineRoleDefaultPolicy:
     Type: AWS::IAM::Policy
     Properties:
@@ -1534,7 +1526,7 @@ Resources:
               Fn::GetAtt:
                 - PipelineDeployCodePipelineActionRole
                 - Arn
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
       PolicyName: PipelineRoleDefaultPolicy
       Roles:
         - Ref: PipelineRole
@@ -1629,7 +1621,7 @@ Resources:
                     - ":iam::"
                     - Ref: AWS::AccountId
                     - :root
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
   PipelineBuildCodePipelineActionRoleDefaultPolicy:
     Type: AWS::IAM::Policy
     Properties:
@@ -1644,7 +1636,7 @@ Resources:
               Fn::GetAtt:
                 - BuildProject
                 - Arn
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
       PolicyName: PipelineBuildCodePipelineActionRoleDefaultPolicy
       Roles:
         - Ref: PipelineBuildCodePipelineActionRole
@@ -1664,7 +1656,7 @@ Resources:
                     - ":iam::"
                     - Ref: AWS::AccountId
                     - :root
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
   PipelineDeployCodePipelineActionRoleDefaultPolicy:
     Type: AWS::IAM::Policy
     Properties:
@@ -1685,7 +1677,7 @@ Resources:
                   - ":"
                   - Ref: AWS::AccountId
                   - ":project/Deploy*"
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
       PolicyName: PipelineDeployCodePipelineActionRoleDefaultPolicy
       Roles:
         - Ref: PipelineDeployCodePipelineActionRole
@@ -1714,7 +1706,7 @@ Outputs:
             Effect: Allow
             Principal:
               Service: codebuild.amazonaws.com
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
   PublishRoleDefaultPolicy:
     Type: AWS::IAM::Policy
     Properties:
@@ -1824,7 +1816,7 @@ Outputs:
               Fn::GetAtt:
                 - PipelineArtifactsBucketEncryptionKey
                 - Arn
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
       PolicyName: PublishRoleDefaultPolicy
       Roles:
         - Ref: PublishRole
@@ -1838,7 +1830,7 @@ Outputs:
             Effect: Allow
             Principal:
               Service: codebuild.amazonaws.com
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
   DeploymentRoleDefaultPolicy:
     Type: AWS::IAM::Policy
     Properties:
@@ -1923,7 +1915,7 @@ Outputs:
               Fn::GetAtt:
                 - PipelineArtifactsBucketEncryptionKey
                 - Arn
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
       PolicyName: DeploymentRoleDefaultPolicy
       Roles:
         - Ref: DeploymentRole
@@ -2019,7 +2011,7 @@ Outputs:
                   - DeploymentRole
                   - Arn
             Resource: "*"
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
     UpdateReplacePolicy: Delete
     DeletionPolicy: Delete
   PipelineArtifactsBucket:
@@ -2059,7 +2051,7 @@ Outputs:
             Effect: Allow
             Principal:
               Service: codepipeline.amazonaws.com
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
   PipelineRoleDefaultPolicy:
     Type: AWS::IAM::Policy
     Properties:
@@ -2109,7 +2101,7 @@ Outputs:
               Fn::GetAtt:
                 - PipelineDeployCodePipelineActionRole
                 - Arn
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
       PolicyName: PipelineRoleDefaultPolicy
       Roles:
         - Ref: PipelineRole
@@ -2204,7 +2196,7 @@ Outputs:
                     - ":iam::"
                     - Ref: AWS::AccountId
                     - :root
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
   PipelineBuildCodePipelineActionRoleDefaultPolicy:
     Type: AWS::IAM::Policy
     Properties:
@@ -2219,7 +2211,7 @@ Outputs:
               Fn::GetAtt:
                 - BuildProject
                 - Arn
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
       PolicyName: PipelineBuildCodePipelineActionRoleDefaultPolicy
       Roles:
         - Ref: PipelineBuildCodePipelineActionRole
@@ -2239,7 +2231,7 @@ Outputs:
                     - ":iam::"
                     - Ref: AWS::AccountId
                     - :root
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
   PipelineDeployCodePipelineActionRoleDefaultPolicy:
     Type: AWS::IAM::Policy
     Properties:
@@ -2260,7 +2252,7 @@ Outputs:
                   - ":"
                   - Ref: AWS::AccountId
                   - ":project/Deploy*"
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
       PolicyName: PipelineDeployCodePipelineActionRoleDefaultPolicy
       Roles:
         - Ref: PipelineDeployCodePipelineActionRole
