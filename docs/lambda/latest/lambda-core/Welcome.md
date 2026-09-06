@@ -24,4 +24,4 @@ _AWS General Reference._
 When making the API calls, you will need to authenticate your request by providing a signature. Lambda supports signature version 4. For more information, see [Signature Version 4 signing process](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") in the
 _AWS General Reference._
 
-This document was last published on August 28, 2026.
+This document was last published on September 4, 2026.
