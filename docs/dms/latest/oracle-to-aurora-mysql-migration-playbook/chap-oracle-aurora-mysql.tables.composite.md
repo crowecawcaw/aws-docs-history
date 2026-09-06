@@ -1,16 +1,22 @@
+
+
 # Oracle composite indexes and MySQL multiple-column indexes
+<a name="chap-oracle-aurora-mysql.tables.composite"></a>
 
 With AWS DMS, you can optimize database performance by creating composite indexes in Oracle databases and multiple-column indexes in MySQL databases. A composite index (Oracle) or multiple-column index (MySQL) is a database index built from multiple columns in a table, allowing queries to be satisfied by utilizing the index entries alone.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                  | Key differences |
-| ------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| Five star feature compatibility | Five star automation level         | [Indexes](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.indexes "chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.indexes") | N/A             |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Five star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-5.png)  |  ![Five star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-5.png)  |  [Indexes](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.indexes)  | N/A | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.tables.composite.oracle"></a>
 
 An index created on multiple table columns is known as a multi-column, concatenated, or composite index. The main purpose of composite indexes is to improve the performance of data retrieval for `SELECT` statements when filtering on all, or some, of the composite index columns. When using composite indexes, it is beneficial to place the most restrictive columns at the first position of the index to improve query performance. Column placement order is crucial when using composite indexes because the most prevalent columns are accessed first.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.tables.composite.oracle.examples"></a>
 
 Create a composite index on the `HR.EMPLOYEES` table.
 
@@ -25,9 +31,10 @@ Drop a composite index.
 DROP INDEX IDX_EMP_COMPI;
 ```
 
-For more information, see [Composite Indexes](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/indexes-and-index-organized-tables.html#GUID-ABE1DE2A-59CC-4ADE-86A5-426B16459464 "https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/indexes-and-index-organized-tables.html#GUID-ABE1DE2A-59CC-4ADE-86A5-426B16459464") in the _Oracle documentation_.
+For more information, see [Composite Indexes](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/indexes-and-index-organized-tables.html#GUID-ABE1DE2A-59CC-4ADE-86A5-426B16459464) in the *Oracle documentation*.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.tables.composite.mysql"></a>
 
 MySQL multiple-column indexes are similar to composite indexes in Oracle.
 
@@ -36,6 +43,7 @@ These indexes are beneficial when queries filter on all indexed columns, the fir
 You can specify up to 16 columns when creating a multiple-column index.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.tables.composite.mysql.examples"></a>
 
 Create a multiple-column index on the EMPLOYEES table.
 
@@ -50,4 +58,4 @@ Drop a multiple-column index.
 DROP INDEX IDX_EMP_COMPI;
 ```
 
-For more information, see [Multiple-Column Indexes](https://dev.mysql.com/doc/refman/5.7/en/multiple-column-indexes.html "https://dev.mysql.com/doc/refman/5.7/en/multiple-column-indexes.html") in the _MySQL documentation_.
+For more information, see [Multiple-Column Indexes](https://dev.mysql.com/doc/refman/5.7/en/multiple-column-indexes.html) in the *MySQL documentation*.

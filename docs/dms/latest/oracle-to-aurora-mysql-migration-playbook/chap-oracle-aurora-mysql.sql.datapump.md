@@ -1,35 +1,40 @@
+
+
 # Oracle DBMS\_DATAPUMP and MySQL integration with Amazon S3
+<a name="chap-oracle-aurora-mysql.sql.datapump"></a>
 
 With AWS DMS, you can migrate data from Oracle databases to Amazon S3 using Oracle `DBMS_DATAPUMP`, and load data from Amazon S3 into MySQL-compatible databases. Oracle `DBMS_DATAPUMP` provides a way to transfer data objects between Oracle databases or export them to an operating system file. MySQL integration with Amazon S3 lets you use an Amazon S3 bucket as a data source or destination for loading and unloading data.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences    |
-| ------------------------------ | ---------------------------------- | ------------------------- | ------------------ |
-| One star feature compatibility | No automation                      | N/A                       | No equivalent tool |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | No equivalent tool | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.sql.datapump.oracle"></a>
 
 The `DBMS_DATAPUMP` package provides Oracle Data Pump functionality that can be run within the database.
 
 The `DBMS_DATAPUMP` package subprograms are:
-
-- `ADD_FILE` — Adds a relevant file to the dump file set.
-- `ATTACH` — Connects the DATAPUMP job.
-- `DATA_FILTER` — Filters rows.
-- `DETACH` — Disconnects from a DATAPUMP operation.
-- `GET_DUMPFILE_INFO` — Retrieves information about a specified dump file.
-- `GET_STATUS` — Retrieves status of the running DATAPUMP operation.
-- `LOG_ENTRY` — Writes a message into the log file.
-- `METADATA_FILTER` — Filters the items to be include in the operation.
-- `METADATA_REMAP` — Remaps the object to new names.
-- `METADATA_TRANSFORM` — Specifies transformations to be applied to objects.
-- `OPEN` — Declares a new job.
-- `SET_PARALLEL` — Set the parallelism of the job.
-- `SET_PARAMETER` — Specifies job processing options.
-- `START_JOB` — Runs a job.
-- `STOP_JOB` — Terminates a job.
-- `WAIT_FOR_JOB` — Runs a job until it either completes normally or stops.
++  `ADD_FILE` — Adds a relevant file to the dump file set.
++  `ATTACH` — Connects the DATAPUMP job.
++  `DATA_FILTER` — Filters rows.
++  `DETACH` — Disconnects from a DATAPUMP operation.
++  `GET_DUMPFILE_INFO` — Retrieves information about a specified dump file.
++  `GET_STATUS` — Retrieves status of the running DATAPUMP operation.
++  `LOG_ENTRY` — Writes a message into the log file.
++  `METADATA_FILTER` — Filters the items to be include in the operation.
++  `METADATA_REMAP` — Remaps the object to new names.
++  `METADATA_TRANSFORM` — Specifies transformations to be applied to objects.
++  `OPEN` — Declares a new job.
++  `SET_PARALLEL` — Set the parallelism of the job.
++  `SET_PARAMETER` — Specifies job processing options.
++  `START_JOB` — Runs a job.
++  `STOP_JOB` — Terminates a job.
++  `WAIT_FOR_JOB` — Runs a job until it either completes normally or stops.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.sql.datapump.oracle.examples"></a>
 
 The following example shows how to export the `HR` schema. It assumes all directories have already been created and the user has all required privileges.
 
@@ -92,9 +97,10 @@ END;
 /
 ```
 
-For more information, see [Overview of Oracle Data Pump](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-overview.html#GUID-17FAE261-0972-4220-A2E4-44D479F519D4 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-overview.html#GUID-17FAE261-0972-4220-A2E4-44D479F519D4") in the _Oracle documentation_.
+For more information, see [Overview of Oracle Data Pump](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-overview.html#GUID-17FAE261-0972-4220-A2E4-44D479F519D4) in the *Oracle documentation*.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.sql.datapump.mysql"></a>
 
 There is no feature in MySQL fully equivalent to the Oracle `DBMS_DATAPUMP` package, but there are tools and features that achieve the same functionality.
 
@@ -102,25 +108,27 @@ To export data from the database to the file system, use the `SELECT INTO OUTFIL
 
 To achieve the most functionality, this feature can be mixed with metadata tables and events to handle the operations.
 
-For more information, see [Oracle External Tables and MySQL Integration with Amazon S3](chap-oracle-aurora-mysql.special.external.md "chap-oracle-aurora-mysql.special.external.md").
+For more information, see [Oracle External Tables and MySQL Integration with Amazon S3](chap-oracle-aurora-mysql.special.external.md).
 
 ## Summary
+<a name="chap-oracle-aurora-mysql.sql.datapump.summary"></a>
 
-| Feature                                                 | Oracle DBMS\_DATAPUMP | Aurora integration with S3            |
-| ------------------------------------------------------- | --------------------- | ------------------------------------- |
-| Add a relevant file to the dump file set                | `ADD_FILE`            | Use metadata table                    |
-| Connect the `DATAPUMP` job                              | `ATTACH`              | Query session status                  |
-| Filter rows to be handled                               | `DATA_FILTER`         | Use `WHERE` clause in your `SELECT`   |
-| Disconnect from `DATAPUMP` operation                    | `DETACH`              | Not required                          |
-| Retrieve information about a specified dump file        | `GET_DUMPFILE_INFO`   | Use metadata table                    |
-| Retrieve the status of the running `DATAPUMP` operation | `GET_STATUS`          | Query session status                  |
-| Write a message into the log file                       | `LOG_ENTRY`           | Write to metadata tables              |
-| Filter the items included in the operation              | `METADATA_FILTER`     | Export the objects                    |
-| Remap the object to new names                           | `METADATA_REMAP`      | `LOAD DATA INTO` different table name |
-| Specified transformations to be applied to objects      | `METADATA_TRANSFORM`  | Not required                          |
-| Declare a new job                                       | `OPEN`                | Use `LOAD DATA` or `SAVE OUTFILE`     |
-| Set the parallelism of the job                          | `SET_PARALLEL`        | Use parallel in your `SELECT`         |
-| Specify job-processing options                          | `SET_PARAMETER`       | Not required                          |
-| Run a job                                               | `START_JOB`           | Use `LOAD DATA` or `SAVE OUTFILE`     |
-| Terminate a job                                         | `STOP_JOB`            | Kill session                          |
-| Run a job until it either completes normally or stops   | `WAIT_FOR_JOB`        | Use `LOAD DATA` or `SAVE OUTFILE`     |
+
+| Feature | Oracle DBMS\_DATAPUMP | Aurora integration with S3 | 
+| --- | --- | --- | 
+| Add a relevant file to the dump file set |  `ADD_FILE`  | Use metadata table | 
+| Connect the `DATAPUMP` job |  `ATTACH`  | Query session status | 
+| Filter rows to be handled |  `DATA_FILTER`  | Use `WHERE` clause in your `SELECT`  | 
+| Disconnect from `DATAPUMP` operation |  `DETACH`  | Not required | 
+| Retrieve information about a specified dump file |  `GET_DUMPFILE_INFO`  | Use metadata table | 
+| Retrieve the status of the running `DATAPUMP` operation |  `GET_STATUS`  | Query session status | 
+| Write a message into the log file |  `LOG_ENTRY`  | Write to metadata tables | 
+| Filter the items included in the operation |  `METADATA_FILTER`  | Export the objects | 
+| Remap the object to new names |  `METADATA_REMAP`  |  `LOAD DATA INTO` different table name | 
+| Specified transformations to be applied to objects |  `METADATA_TRANSFORM`  | Not required | 
+| Declare a new job |  `OPEN`  | Use `LOAD DATA` or `SAVE OUTFILE`  | 
+| Set the parallelism of the job |  `SET_PARALLEL`  | Use parallel in your `SELECT`  | 
+| Specify job-processing options |  `SET_PARAMETER`  | Not required | 
+| Run a job |  `START_JOB`  | Use `LOAD DATA` or `SAVE OUTFILE`  | 
+| Terminate a job |  `STOP_JOB`  | Kill session | 
+| Run a job until it either completes normally or stops |  `WAIT_FOR_JOB`  | Use `LOAD DATA` or `SAVE OUTFILE`  | 

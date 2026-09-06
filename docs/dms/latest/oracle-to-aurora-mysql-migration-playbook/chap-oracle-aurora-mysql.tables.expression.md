@@ -1,18 +1,24 @@
+
+
 # Oracle function-based indexes and MySQL indexing on generated columns
+<a name="chap-oracle-aurora-mysql.tables.expression"></a>
 
 With AWS DMS, you can improve query performance by creating indexes on computed values or expressions in your databases. Oracle function-based indexes and MySQL indexes on generated columns let you index data derived from an expression or function, rather than just indexing on a column’s stored values. This can significantly speed up queries that filter or sort on calculated values.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                  | Key differences                                                      |
-| ------------------------------ | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| Two star feature compatibility | No automation                      | [Indexes](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.indexes "chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.indexes") | MySQL doesn’t support functional indexes, a workaround is available. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [Indexes](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.indexes)  | MySQL doesn’t support functional indexes, a workaround is available. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.tables.expression.oracle"></a>
 
 Function-based indexes allow functions to be used in the `WHERE` clause of queries on indexed columns. Function-based indexes store the output of a function applied on the values of a table column. The Oracle query optimizer only uses a function-based index when the function is used as part of a query.
 
 Oracle updates the index for each DML to ensure that the value that returns from the function is correct.
 
 ### Example
+<a name="chap-oracle-aurora-mysql.tables.expression.oracle.example"></a>
 
 Create a function-based index.
 
@@ -27,9 +33,10 @@ CREATE INDEX EVNT_BY_DAY ON SYSTEM_EVENTS(
   EXTRACT(DAY FROM EVENT_TIME));
 ```
 
-For more information, see [Indexes and Index-Organized Tables](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/indexes-and-index-organized-tables.html#GUID-797E49E6-2DCE-4FD4-8E4A-6E761F1383D1 "https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/indexes-and-index-organized-tables.html#GUID-797E49E6-2DCE-4FD4-8E4A-6E761F1383D1") and [CREATE INDEX](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-INDEX.html#GUID-1F89BBC0-825F-4215-AF71-7588E31D8BFE "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-INDEX.html#GUID-1F89BBC0-825F-4215-AF71-7588E31D8BFE") in the _Oracle documentation_.
+For more information, see [Indexes and Index-Organized Tables](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/indexes-and-index-organized-tables.html#GUID-797E49E6-2DCE-4FD4-8E4A-6E761F1383D1) and [CREATE INDEX](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-INDEX.html#GUID-1F89BBC0-825F-4215-AF71-7588E31D8BFE) in the *Oracle documentation*.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.tables.expression.mysql"></a>
 
 MySQL does not directly support a feature equivalent to Oracle function-based indexes. However, workarounds exist that can offer similar functionality. Specifically, you can create secondary indexes on MySQL generated columns. Implementing this workaround may require modification of existing SQL queries.
 
@@ -52,6 +59,7 @@ You can mix `VIRTUAL` and `STORED` columns within a table.
 When you insert data to the table, make sure that you don’t reference the generated columns in your insert statement.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.tables.expression.mysql.examples"></a>
 
 Create a generated column that calculates the yearly salary based on the monthly salary, and create a secondary index on that column.
 
@@ -107,8 +115,7 @@ SELECT ID FROM EMPS WHERE
 SELECT ID FROM EMPS WHERE FIRST_NAME='Jacob';
 ```
 
-###### Note
-
+**Note**  
 For the preceding example, generated columns were not necessary. However, the generated columns were provided as an example. Instead, you can use a B-tree index created on the column prefix to achieve the same results.
 
 ```
@@ -116,4 +123,4 @@ CREATE TABLE EMPS (ID INT, FULL_NAME CHAR(40));
 CREATE INDEX FBI_NAME_PREF_IDX ON EMPS (FULL_NAME(20));
 ```
 
-For more information, see [CREATE TABLE and Generated Columns](https://dev.mysql.com/doc/refman/5.7/en/create-table-generated-columns.html "https://dev.mysql.com/doc/refman/5.7/en/create-table-generated-columns.html") in the _MySQL documentation_.
+For more information, see [CREATE TABLE and Generated Columns](https://dev.mysql.com/doc/refman/5.7/en/create-table-generated-columns.html) in the *MySQL documentation*.

@@ -1,16 +1,22 @@
+
+
 # Oracle and MySQL INSERT FROM SELECT statement
+<a name="chap-oracle-aurora-mysql.sql.ifs"></a>
 
 The following sections provide details on running the `INSERT FROM SELECT` statement, including syntax examples and best practices for efficient data transfer.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                         |
-| ------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | N/A                       | MySQL doesn’t support `ERROR LOG` and subquery options. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  | N/A | MySQL doesn’t support `ERROR LOG` and subquery options. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.sql.ifs.oracle"></a>
 
 You can insert multiple records into a table from another table using the `INSERT FROM SELECT` statement, which is a derivative of the basic `INSERT` statement. The column ordering and data types must match between the target and the source tables.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.sql.ifs.oracle.examples"></a>
 
 Simple `INSERT FROM SELECT` (explicit).
 
@@ -53,13 +59,15 @@ LOG ERRORS INTO errlog ('Cannot Perform Insert') REJECT LIMIT 100;
 
 When inserting an existing `EMPLOYEE ID` into the `EMPS` table, the insert doesn’t fail because the invalid records are redirected to the `ERRLOG` table.
 
-For more information, see [INSERT](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/INSERT.html#GUID-903F8043-0254-4EE9-ACC1-CB8AC0AF3423 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/INSERT.html#GUID-903F8043-0254-4EE9-ACC1-CB8AC0AF3423") in the _Oracle documentation_.
+For more information, see [INSERT](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/INSERT.html#GUID-903F8043-0254-4EE9-ACC1-CB8AC0AF3423) in the *Oracle documentation*.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.sql.ifs.mysql"></a>
 
 MySQL is compatible with the Oracle `INSERT FROM SELECT` syntax except for a few features specific to Oracle. For example, the `conditional_insert_clause (ALL | FIRST | ELSE)`. MySQL doesn’t support the Oracle `error_logging_clause` feature. Generally, you can use `ON DUPLICATE KEY UPDATE` to handle duplicate rows.
 
 ### Syntax
+<a name="chap-oracle-aurora-mysql.sql.ifs.mysql.syntax"></a>
 
 ```
 INSERT [LOW_PRIORITY | HIGH_PRIORITY] [IGNORE]
@@ -80,6 +88,7 @@ assignment_list:
 ```
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.sql.ifs.mysql.examples"></a>
 
 Simple `INSERT FROM SELECT` (explicit).
 
@@ -118,4 +127,4 @@ EMPS.FIRST_NAME=EMPLOYEES.FIRST_NAME,
 EMPS.SALARY=EMPLOYEES.SALARY;
 ```
 
-For more information, see [INSERT …​ SELECT Statement](https://dev.mysql.com/doc/refman/8.0/en/insert-select.html "https://dev.mysql.com/doc/refman/8.0/en/insert-select.html") in the _MySQL documentation_.
+For more information, see [INSERT …​ SELECT Statement](https://dev.mysql.com/doc/refman/8.0/en/insert-select.html) in the *MySQL documentation*.

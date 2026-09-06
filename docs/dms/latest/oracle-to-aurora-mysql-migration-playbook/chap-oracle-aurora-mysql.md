@@ -1,4 +1,7 @@
+
+
 # Migration playbook from Oracle to Amazon Aurora MySQL overview
+<a name="chap-oracle-aurora-mysql"></a>
 
 The first section of this document provides an overview of AWS Schema Conversion Tool (AWS SCT) and AWS Database Migration Service (AWS DMS) tools for automating the migration of schema, objects and data. The remainder of the document contains individual sections for the source database features and their Aurora counterparts. Each section provides a short overview of the feature, examples, and potential workaround solutions for incompatibilities.
 
@@ -9,18 +12,17 @@ The migration quick tips section provides a list of tips for administrators or d
 Note that not all of the source database features are fully compatible with Aurora or have simple workarounds. From a migration perspective, this document doesn’t yet cover all source database features and capabilities.
 
 This database migration playbook covers the following topics:
++  [Migration tools and services](chap-oracle-aurora-mysql.tools.md) 
++  [SQL and PL/SQL](chap-oracle-aurora-mysql.sql.md) 
++  [Special features and future content](chap-oracle-aurora-mysql.special.md) 
++  [High availability and disaster recovery](chap-oracle-aurora-mysql.hadr.md) 
++  [Configuration](chap-oracle-aurora-mysql.configuration.md) 
++  [Performance tuning](chap-oracle-aurora-mysql.tuning.md) 
++  [Security](chap-oracle-aurora-mysql.security.md) 
++  [Storage](chap-oracle-aurora-mysql.storage.md) 
++  [Monitoring](chap-oracle-aurora-mysql.monitoring.md) 
++  [Migration quick tips](chap-oracle-aurora-mysql.tips.md) 
 
-- [Migration tools and services](chap-oracle-aurora-mysql.tools.md "chap-oracle-aurora-mysql.tools.md")
-- [SQL and PL/SQL](chap-oracle-aurora-mysql.sql.md "chap-oracle-aurora-mysql.sql.md")
-- [Special features and future content](chap-oracle-aurora-mysql.special.md "chap-oracle-aurora-mysql.special.md")
-- [High availability and disaster recovery](chap-oracle-aurora-mysql.hadr.md "chap-oracle-aurora-mysql.hadr.md")
-- [Configuration](chap-oracle-aurora-mysql.configuration.md "chap-oracle-aurora-mysql.configuration.md")
-- [Performance tuning](chap-oracle-aurora-mysql.tuning.md "chap-oracle-aurora-mysql.tuning.md")
-- [Security](chap-oracle-aurora-mysql.security.md "chap-oracle-aurora-mysql.security.md")
-- [Storage](chap-oracle-aurora-mysql.storage.md "chap-oracle-aurora-mysql.storage.md")
-- [Monitoring](chap-oracle-aurora-mysql.monitoring.md "chap-oracle-aurora-mysql.monitoring.md")
-- [Migration quick tips](chap-oracle-aurora-mysql.tips.md "chap-oracle-aurora-mysql.tips.md")
-
-**Disclaimer**
+ **Disclaimer** 
 
 The various code snippets, commands, guides, best practices, and scripts included in this document should be used for reference only and are provided as-is without warranty. Test all of the code, commands, best practices, and scripts outlined in this document in a non-production environment first. Amazon and its affiliates are not responsible for any direct or indirect damage that may occur from the information contained in this document.

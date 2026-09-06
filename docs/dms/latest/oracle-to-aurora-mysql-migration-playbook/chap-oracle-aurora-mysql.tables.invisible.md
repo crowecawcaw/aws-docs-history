@@ -1,24 +1,29 @@
+
+
 # Oracle and MySQL invisible indexes
+<a name="chap-oracle-aurora-mysql.tables.invisible"></a>
 
 With AWS DMS, you can create and manage invisible indexes in Oracle and MySQL databases, providing a way to evaluate the potential benefits of an index before making it visible and impacting workload performance.
 
-| Feature compatibility | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                  | Key differences                          |
-| --------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| No compatibility      | No automation                      | [Indexes](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.indexes "chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.indexes") | MySQL doesn’t support invisible indexes. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![No compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [Indexes](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.indexes)  | MySQL doesn’t support invisible indexes. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.tables.invisible.oracle"></a>
 
 In Oracle, the invisible index feature gives database administrators the ability to create indexes, or change existing indexes, that are ignored by the optimizer. They are maintained during DML operations and are kept relevant, but are different from usable indexes.
 
 The most common use cases for invisible indexes are:
-
-- Testing the effect of a dropped index without actually dropping it.
-- Using a specific index for certain operations or modules of an application without affecting the overall application.
-- Adding an index to a set of columns on which an index already exists.
++ Testing the effect of a dropped index without actually dropping it.
++ Using a specific index for certain operations or modules of an application without affecting the overall application.
++ Adding an index to a set of columns on which an index already exists.
 
 Database administrators can force the optimizer to use invisible indexes by changing the `OPTIMIZER_USE_INVISIBLE_INDEXES` parameter to true. You can use invisible indexes if they are specified as a `HINT`.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.tables.invisible.oracle.examples"></a>
 
 Change an index to an invisible index.
 
@@ -45,12 +50,13 @@ SELECT TABLE_OWNER, INDEX_NAME FROM DBA_INDEXES
   WHERE VISIBILITY = 'INVISIBLE';
 ```
 
-For more information, see [Understand When to Use Unusable or Invisible Indexes](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-indexes.html#GUID-3A66938F-73C6-4173-844E-3938A0DBBB54 "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-indexes.html#GUID-3A66938F-73C6-4173-844E-3938A0DBBB54") in the _Oracle documentation_.
+For more information, see [Understand When to Use Unusable or Invisible Indexes](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-indexes.html#GUID-3A66938F-73C6-4173-844E-3938A0DBBB54) in the *Oracle documentation*.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.tables.invisible.mysql"></a>
 
-Amazon Relational Database Service (Amazon RDS) for MySQL version 8 supports invisible indexes. An invisible index is not used by the optimizer at all but is otherwise maintained normally. Indexes are visible by default.
+ Amazon Relational Database Service (Amazon RDS) for MySQL version 8 supports invisible indexes. An invisible index is not used by the optimizer at all but is otherwise maintained normally. Indexes are visible by default.
 
 Invisible indexes make it possible to test the effect of removing an index on query performance without making a destructive change that must be undone should the index turn out to be required.
 
-For more information, see [Invisible Indexes](https://dev.mysql.com/doc/refman/8.0/en/invisible-indexes.html "https://dev.mysql.com/doc/refman/8.0/en/invisible-indexes.html") in the _MySQL documentation_.
+For more information, see [Invisible Indexes](https://dev.mysql.com/doc/refman/8.0/en/invisible-indexes.html) in the *MySQL documentation*.

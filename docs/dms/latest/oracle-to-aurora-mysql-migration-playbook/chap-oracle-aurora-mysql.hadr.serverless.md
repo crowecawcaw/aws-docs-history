@@ -1,4 +1,7 @@
+
+
 # Migrate to Aurora MySQL Serverless
+<a name="chap-oracle-aurora-mysql.hadr.serverless"></a>
 
 Another great option can be Amazon Aurora MySQL using Serverless option, this option it currently available only with Aurora MySQL 5.6 compatible.
 
@@ -11,26 +14,26 @@ For some use cases, this option can be very easy to integrate and it has a big a
 You can set the minimum and maximum capacity units required. By doing that, your MySQL serverless instance will scale in/out automatically according to the current workload.
 
 You can choose the following capacity units:
-
-- CPU: 2, RAM: 4 GB
-- CPU: 4, RAM: 8 GB
-- CPU: 8, RAM: 16 GB
-- CPU: 16, RAM: 32 GB
-- CPU: 32, RAM: 64 GB
-- CPU: 64, RAM: 122 GB
-- CPU: 128, RAM: 244 GB
-- CPU: 256, RAM: 488 GB
++ CPU: 2, RAM: 4 GB
++ CPU: 4, RAM: 8 GB
++ CPU: 8, RAM: 16 GB
++ CPU: 16, RAM: 32 GB
++ CPU: 32, RAM: 64 GB
++ CPU: 64, RAM: 122 GB
++ CPU: 128, RAM: 244 GB
++ CPU: 256, RAM: 488 GB
 
 ## How it works
+<a name="chap-oracle-aurora-mysql.hadr.serverless.howitworks"></a>
++ Create an Aurora storage volume replicated across multiple AZs.
++ Create an endpoint in your VPC for the application to connect to.
++ Configure an invisible to the customer network load balancer behind that endpoint.
++ Configure multi-tenant request routers to route database traffic to the underlying instances.
++ Provision the initial minimum instance capacity.
 
-- Create an Aurora storage volume replicated across multiple AZs.
-- Create an endpoint in your VPC for the application to connect to.
-- Configure an invisible to the customer network load balancer behind that endpoint.
-- Configure multi-tenant request routers to route database traffic to the underlying instances.
-- Provision the initial minimum instance capacity.
+![Aurora MySQL Serverless](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-hadr-serverless.png)
 
-![Aurora MySQL Serverless](images/oracle-aurora-mysql-hadr-serverless.png)
 
 This option can be easier than using Oracle RAC because with this option you don’t need to add or remove servers from the cluster. Also, you don’t need to spend on unused hardware, it can scale to even more than you thought you will need when the cluster was created.
 
-For more information, see [Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless/ "https://aws.amazon.com/rds/aurora/serverless/").
+For more information, see [Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless/).

@@ -1,46 +1,47 @@
+
+
 # Oracle automatic indexing
+<a name="chap-oracle-aurora-mysql.tables.autoindex"></a>
 
 With AWS DMS, you can leverage Oracle automatic indexing to optimize database performance and reduce manual tuning efforts.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                  | Key differences                                      |
-| ------------------------------ | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| One star feature compatibility | No automation                      | [Indexes](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.indexes "chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.indexes") | MySQL doesn’t provide an automatic indexing feature. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [Indexes](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.indexes)  | MySQL doesn’t provide an automatic indexing feature. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.tables.autoindex.oracle"></a>
 
 Oracle 19 introduces the automatic indexing feature. This feature automates the index management tasks by automatically creating, rebuilding, and dropping indexes based on the changes in application workload, thus improving database performance.
 
 Important functionality provided by automatic indexing:
++ Automatic indexing process runs in the background at a predefined time interval and analyzes application workload. It identifies the tables/columns that are candidates for new indexes and creates new indexes.
++ The auto indexes as initially created as invisible indexes. These invisible auto indexes are verified against SQL statements and if the performance is improved, then these indexes are converted as visible indexes.
++ Identify and drop any existing under-performing auto indexes or any auto indexes not used for long period.
++ Rebuilds the auto indexes that are marked unusable due to DDL operations.
++ Provides package DBMS\_AUTO\_INDEX to configure automatic indexing and for generating reports related to automatic indexing operations.
 
-- Automatic indexing process runs in the background at a predefined time interval and analyzes application workload. It identifies the tables/columns that are candidates for new indexes and creates new indexes.
-- The auto indexes as initially created as invisible indexes. These invisible auto indexes are verified against SQL statements and if the performance is improved, then these indexes are converted as visible indexes.
-- Identify and drop any existing under-performing auto indexes or any auto indexes not used for long period.
-- Rebuilds the auto indexes that are marked unusable due to DDL operations.
-- Provides package DBMS\_AUTO\_INDEX to configure automatic indexing and for generating reports related to automatic indexing operations.
-
-###### Note
-
+**Note**  
 Up-to-date table statistics are very important for the auto indexing to function efficiently. Tables without statistics or with stale statistics aren’t considered for auto indexing.
 
 Oracle uses the `DBMS_AUTO_INDEX` package to configure auto indexes and generating reports. Following are some of the configuration options which can be set by using `CONFIGURE` procedure of `DBMS_AUTO_INDEX` package:
-
-- Turning on and turning off automatic indexing in a database.
-- Specifying schemas and tables that can use auto indexes.
-- Specifying a retention period for unused auto indexes. By default, the unused auto indexes are deleted after 373 days.
-- Specifying a retention period for unused non-auto indexes.
-- Specifying a tablespace and a percentage of tablespace to store auto indexes.
++ Turning on and turning off automatic indexing in a database.
++ Specifying schemas and tables that can use auto indexes.
++ Specifying a retention period for unused auto indexes. By default, the unused auto indexes are deleted after 373 days.
++ Specifying a retention period for unused non-auto indexes.
++ Specifying a tablespace and a percentage of tablespace to store auto indexes.
 
 Following are some of the reports related to automatic indexing operations which you can generate using `REPORT_ACTIVITY` and `REPORT_LAST_ACTIVITY` functions of the `DBMS_AUTO_INDEX` package.
++ Report of automatic indexing operations for a specific period.
++ Report of the last automatic indexing operation.
 
-- Report of automatic indexing operations for a specific period.
-- Report of the last automatic indexing operation.
-
-For more information, see [Managing Indexes](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-indexes.html#GUID-E4149397-FF37-4367-A12F-675433715904 "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-indexes.html#GUID-E4149397-FF37-4367-A12F-675433715904") in the _Oracle documentation_.
+For more information, see [Managing Indexes](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-indexes.html#GUID-E4149397-FF37-4367-A12F-675433715904) in the *Oracle documentation*.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.tables.autoindex.mysql"></a>
 
-Currently, Amazon Aurora MySQL doesn’t provide a comparable alternative for automatic indexing. The most reasonable option would be to run a scheduled set of queries to estimate if additional indexes are
-needed.
+Currently, Amazon Aurora MySQL doesn’t provide a comparable alternative for automatic indexing. The most reasonable option would be to run a scheduled set of queries to estimate if additional indexes are needed.
 
 The following queries can help determine that.
 

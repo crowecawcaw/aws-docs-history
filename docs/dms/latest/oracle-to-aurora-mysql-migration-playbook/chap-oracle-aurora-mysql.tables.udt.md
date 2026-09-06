@@ -1,24 +1,29 @@
+
+
 # Oracle user-defined types
+<a name="chap-oracle-aurora-mysql.tables.udt"></a>
 
 With AWS DMS, you can migrate Oracle user-defined types (UDTs) to compatible AWS database services. Oracle UDTs are custom data types that extend the built-in scalar data types, allowing you to store complex data structures, such as objects and collections.
 
-| Feature compatibility | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                     | Key differences                                  |
-| --------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| No compatibility      | No automation                      | [User-Defined Types](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.udt "chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.udt") | Aurora MySQL doesn’t support user-defined types. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![No compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [User-Defined Types](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.udt)  |  Aurora MySQL doesn’t support user-defined types. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.tables.udt.oracle"></a>
 
 Oracle refers to user-defined types (UDTs) as `OBJECT TYPES`. These types are managed using PL/SQL. User-defined types enable the creation of application-dedicated, complex data types that are based on, and extend, the built-in Oracle data types.
 
 The `CREATE TYPE` statement supports creation of the following types:
-
-- Objects types
-- Varying array or `varray` types
-- Nested table types
-- Incomplete types
-- Additional types such as an SQLJ object type, which is a Java class mapped to SQL user-defined type
++ Objects types
++ Varying array or `varray` types
++ Nested table types
++ Incomplete types
++ Additional types such as an SQLJ object type, which is a Java class mapped to SQL user-defined type
 
 ## Examples
+<a name="chap-oracle-aurora-mysql.tables.udt.oracle.examples"></a>
 
 Create an Oracle Object Type to store an employee phone number.
 
@@ -62,8 +67,9 @@ EMP_ID  EMP_NAME    STATE  CITY         STREET             ZIP_CODE
 1       John Smith  AL     Gulf Shores  3033 Joyce Street  36542
 ```
 
-For more information, see [CREATE TYPE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TYPE.html#GUID-E72E3EE6-DE95-4F58-8941-E2F76D0EAE80 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TYPE.html#GUID-E72E3EE6-DE95-4F58-8941-E2F76D0EAE80") and [CREATE TYPE BODY](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TYPE-BODY.html#GUID-C4F1591A-6F62-4897-9039-2C3F066F1E9D "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TYPE-BODY.html#GUID-C4F1591A-6F62-4897-9039-2C3F066F1E9D") in the _Oracle documentation_.
+For more information, see [CREATE TYPE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TYPE.html#GUID-E72E3EE6-DE95-4F58-8941-E2F76D0EAE80) and [CREATE TYPE BODY](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TYPE-BODY.html#GUID-C4F1591A-6F62-4897-9039-2C3F066F1E9D) in the *Oracle documentation*.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.tables.udt.mysql"></a>
 
 Currently, Amazon Aurora MySQL doesn’t provide a directly comparable alternative for user-defined types.

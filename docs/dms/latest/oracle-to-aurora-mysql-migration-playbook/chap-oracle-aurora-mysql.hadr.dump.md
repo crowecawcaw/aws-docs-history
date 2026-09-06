@@ -1,12 +1,17 @@
+
+
 # Oracle SQL\*Loader and MySQL mysqlimport and LOAD DATA
+<a name="chap-oracle-aurora-mysql.hadr.dump"></a>
 
 With AWS DMS, you can efficiently migrate data from flat files into AWS databases using Oracle SQL\*Loader, MySQL mysqlimport, and `LOAD DATA` commands. These utilities facilitate bulk data loading from external files into database tables.
 
-| Feature compatibility    | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences            |
-| ------------------------ | ---------------------------------- | ------------------------- | -------------------------- |
-| No feature compatibility | N/A                                | N/A                       | The tool isn’t compatible. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![No feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  | N/A | N/A | The tool isn’t compatible. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.hadr.dump.oracle"></a>
 
 SQL\*Loader is a powerful utility that imports data from external files into database tables. It has strong parsing engine with few limitations on data formats.
 
@@ -15,6 +20,7 @@ You can use SQL\*Loader with or without a control file. A control file enables h
 The outputs of SQL\*Loader include the imported database data, a log file, a bad file or rejected records, and a discard file, if this option is turned on.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.hadr.dump.oracle.examples"></a>
 
 Oracle SQL\*Loader is well suited for large databases with a limited number of objects. The process of exporting from a source database and loading to a target database is very specific to the schema. The following example creates sample schema objects, exports from a source, and loads into a target database.
 
@@ -67,15 +73,15 @@ Import data using SQL\*Loader. Use the appropriate user name and password for th
 sqlldr cust_dba@targetdb control=sqlldr_1.ctl BINDSIZE=10485760 READSIZE=10485760 ROWSS=1000
 ```
 
-For more information, see [SQL\*Loader](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-sql-loader.html#GUID-8D037494-07FA-4226-B507-E1B2ED10C144 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-sql-loader.html#GUID-8D037494-07FA-4226-B507-E1B2ED10C144") in the _Oracle documentation_.
+For more information, see [SQL\*Loader](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-sql-loader.html#GUID-8D037494-07FA-4226-B507-E1B2ED10C144) in the *Oracle documentation*.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.hadr.dump.mysql"></a>
 
 You can use the two following options as a replacement for the Oracle SQL\*Loader utility:
-
-- **MySQL Import** using an export file similar to a control file.
-- **Load from Amazon S3 File** using a table-formatted file on Amazon S3 and loading it into a MySQL database.
++  **MySQL Import** using an export file similar to a control file.
++  **Load from Amazon S3 File** using a table-formatted file on Amazon S3 and loading it into a MySQL database.
 
 MySQL Import is a good option when you can use a tool from another server or a client. The `LOAD DATA` command can be combined with metadata tables and EVENT objects to schedule loads.
 
-For more information, see [Loading data into an Amazon Aurora MySQL DB cluster from text files in an Amazon S3 bucket](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.md") in the _User Guide for Aurora_ and [mysqlimport — A Data Import Program](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html "https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html") in the _MySQL documentation_.
+For more information, see [Loading data into an Amazon Aurora MySQL DB cluster from text files in an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.html) in the *User Guide for Aurora* and [mysqlimport — A Data Import Program](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html) in the *MySQL documentation*.

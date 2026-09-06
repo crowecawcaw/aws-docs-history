@@ -1,36 +1,40 @@
+
+
 # Oracle XML DB and MySQL XML
+<a name="chap-oracle-aurora-mysql.special.xmldb"></a>
 
 With AWS DMS, you can migrate data between different database engines, including Oracle XML DB and MySQL XML. Oracle XML DB is a feature that provides XML support for storing, processing, and managing XML data in an Oracle database. MySQL XML extends the MySQL server by providing an XML data type for storing XML documents, in addition to functions for extracting and searching XML data.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                      | Key differences                                                            |
-| -------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Three star feature compatibility | Three star automation level        | [XML](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.xml "chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.xml") | Different paradigm and syntax will require application or drivers rewrite. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  [XML](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.xml)  | Different paradigm and syntax will require application or drivers rewrite. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.special.xmldb.oracle"></a>
 
 Oracle XML DB is a set of Oracle Database technologies providing XML capabilities for database administrators and developers. It provides native XML support and other features including the native `XMLType` and `XMLIndex`.
 
-`XMLType` represents an XML document in the database that is accessible from SQL. It supports standards such as XML Schema, XPath, XQuery, XSLT, and DOM.
+ `XMLType` represents an XML document in the database that is accessible from SQL. It supports standards such as XML Schema, XPath, XQuery, XSLT, and DOM.
 
-`XMLIndex` supports all forms of XML data from highly structured to completely unstructured.
+ `XMLIndex` supports all forms of XML data from highly structured to completely unstructured.
 
 XML data can be schema-based or non-schema-based. Schema-based XML adheres to an XSD Schema Definition and must be validated. Non-schema-based XML data doesn’t require validation.
 
 According to the Oracle documentation, the aspects you should consider when using XML are:
-
-- The ways that you intend to store your XML data.
-- The structure of your XML data.
-- The languages used to implement your application.
-- The ways you intend to process your XML data.
++ The ways that you intend to store your XML data.
++ The structure of your XML data.
++ The languages used to implement your application.
++ The ways you intend to process your XML data.
 
 The most common features are:
-
-- **Storage model** — Binary XML.
-- **Indexing** — XML search index, `XMLIndex` with structured component.
-- **Database language** — SQL, with SQL/XML functions.
-- **XML languages** — XQuery and XSLT.
++  **Storage model** — Binary XML.
++  **Indexing** — XML search index, `XMLIndex` with structured component.
++  **Database language** — SQL, with SQL/XML functions.
++  **XML languages** — XQuery and XSLT.
 
 ### Storage model — Binary XML
+<a name="chap-oracle-aurora-mysql.special.xmldb.oracle.binary"></a>
 
 Also called post-parse persistence, it is the default storage model for Oracle XML DB. It is a post-parse, binary format designed specifically for XML data. Binary XML is XML schema-aware and the storage is very flexible.
 
@@ -38,9 +42,10 @@ You can use it for XML schema-based documents or for documents that are not base
 
 This storage model also provides efficient partial updating and streaming query evaluation.
 
-The other storage option is object-relational storage and is more efficient when using XML as structured data with a minimum amount of changes and different queries. For more information, see [Oracle XML DB Developer’s Guide](https://docs.oracle.com/en/database/oracle/oracle-database/19/adxdb/xml-db-developers-guide.pdf "https://docs.oracle.com/en/database/oracle/oracle-database/19/adxdb/xml-db-developers-guide.pdf").
+The other storage option is object-relational storage and is more efficient when using XML as structured data with a minimum amount of changes and different queries. For more information, see [Oracle XML DB Developer’s Guide](https://docs.oracle.com/en/database/oracle/oracle-database/19/adxdb/xml-db-developers-guide.pdf).
 
 ### Indexing — XML search index, XMLIndex with structured component
+<a name="chap-oracle-aurora-mysql.special.xmldb.oracle.indexing"></a>
 
 XML Search Index provides full-text search over XML data. Oracle recommends storing XMLType data as Binary XML and to use XQuery Full Text (XQFT).
 
@@ -49,6 +54,7 @@ If you are not using binary storage and your data is structured XML, you can use
 If you want to use predicates such as `XMLExists` in your `WHERE` clause, you must create an XML search index.
 
 #### Examples
+<a name="chap-oracle-aurora-mysql.special.xmldb.oracle.indexing.examples"></a>
 
 The following example creates a SQL directory object, which is a logical name in the database for a physical directory on the host computer. This directory contains XML files. The example inserts XML content from the `purOrder.xml` file into the orders table.
 
@@ -92,8 +98,10 @@ VALUES(100, '<?xml version="1.0"?>
 Create an XML search index and query it with XQuery:
 
 1. After the user gets all the privileges needed and set the right parameter in the Oracle text schema.
-2. Create Oracle text section and preference.
-3. Create the XML search index (regular index associated with the objects).
+
+1. Create Oracle text section and preference.
+
+1. Create the XML search index (regular index associated with the objects).
 
 ```
 BEGIN
@@ -124,16 +132,19 @@ WHERE XMLExists('/PurchaseOrder/LineItems/LineItem/Description
   [. contains text "Big" ftand "Street"]'
 ```
 
-`XMLIndex` with structured component is used for queries that project fixed structured islands of XML content, even if the surrounding data is relatively unstructured. A structured `XMLIndex` component organizes such islands in a relational format.
+ `XMLIndex` with structured component is used for queries that project fixed structured islands of XML content, even if the surrounding data is relatively unstructured. A structured `XMLIndex` component organizes such islands in a relational format.
 
 Make sure that you define the parts of XML data that you search in queries. This applies to XML schema-based and non-schema-based data.
 
 Create an `XMLIndex` with a structured component:
 
 1. Create the base `XMLIndex` on `po_binxml` table. `OBJECT_VALUE` is the XML data stored in the table. All definitions of XML types and Objects are from the XDB schema in the database.
-2. Use `DBMS_XMLINDEX.register` parameter to add another structure to the index.
-3. Create tables (`po_idx_tab` and `po_index_lineitem`) to store index data as structured data. Next to each table name there is the root of the PATH in the XML data (/PurchaseOrder and /LineItem). After that, each column is another PATH in this root. Note that in the `po_idx_tab` table the last column is XMLType. It takes everything under this PATH and saves it in XML datatype.
-4. Add the group of structure to the index.
+
+1. Use `DBMS_XMLINDEX.register` parameter to add another structure to the index.
+
+1. Create tables (`po_idx_tab` and `po_index_lineitem`) to store index data as structured data. Next to each table name there is the root of the PATH in the XML data (/PurchaseOrder and /LineItem). After that, each column is another PATH in this root. Note that in the `po_idx_tab` table the last column is XMLType. It takes everything under this PATH and saves it in XML datatype.
+
+1. Add the group of structure to the index.
 
 ```
 CREATE INDEX po_xmlindex_ix ON po_binxml (OBJECT_VALUE)
@@ -159,22 +170,23 @@ END;
 ALTER INDEX po_xmlindex_ix PARAMETERS('PARAM myparam');
 ```
 
-For more information, see [Indexes for XMLType Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB") in the _Oracle documentation_.
+For more information, see [Indexes for XMLType Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB) in the *Oracle documentation*.
 
 ### SQL/XML functions
+<a name="chap-oracle-aurora-mysql.special.xmldb.oracle.functions"></a>
 
 Oracle Database provides two main SQL/XML groups:
-
-- SQL/XML publishing functions.
-- SQL/XML query and update functions.
++ SQL/XML publishing functions.
++ SQL/XML query and update functions.
 
 #### SQL/XML publishing functions
+<a name="chap-oracle-aurora-mysql.special.xmldb.oracle.functions.publish"></a>
 
 SQL/XML publishing functions are SQL results generated from XML data. They are also called SQL/XML generation functions.
 
-**XMLQuery** is used in `SELECT` clauses to return the result as XMLType data. See the previous example for creating an XML search index.
+ **XMLQuery** is used in `SELECT` clauses to return the result as XMLType data. See the previous example for creating an XML search index.
 
-**XMLTable** is used in `FROM` clauses to get results using XQuery, and insert the results into a virtual table. This function can insert data into existing database table.
+ **XMLTable** is used in `FROM` clauses to get results using XQuery, and insert the results into a virtual table. This function can insert data into existing database table.
 
 ```
 SELECT po.reference, li.*
@@ -192,7 +204,7 @@ quantity NUMBER(12, 2) PATH 'Part/@Quantity',
 unitprice NUMBER(8, 4) PATH 'Part/@UnitPrice') li;
 ```
 
-`XMLExists` is used in `WHERE` clauses to check if an XQuery expression returns a non-empty query sequence. If it does, it returns `TRUE`. Otherwise, it returns `FALSE`. In the following example, the query searches the `purchaseorder` table for `PurchaseOrders` that where the `SpecialInstructions` tag is set to `Expedite`.
+ `XMLExists` is used in `WHERE` clauses to check if an XQuery expression returns a non-empty query sequence. If it does, it returns `TRUE`. Otherwise, it returns `FALSE`. In the following example, the query searches the `purchaseorder` table for `PurchaseOrders` that where the `SpecialInstructions` tag is set to `Expedite`.
 
 ```
 SELECT OBJECT_VALUE FROM purchaseorder
@@ -200,7 +212,7 @@ SELECT OBJECT_VALUE FROM purchaseorder
   PASSING OBJECT_VALUE);
 ```
 
-`XMLCast` is used in `SELECT` clauses to convert scalar values returned from XQuery to `NUMBER`, `VARCHAR2`, `CHAR`, `CLOB`, `BLOB`, `REF`, or `XMLType`. For example, after finding the objects that have `SpecialInstructions` set to `Expedite`, `XMLCast` returns the Reference in each item as `VARCHAR2(100)`.
+ `XMLCast` is used in `SELECT` clauses to convert scalar values returned from XQuery to `NUMBER`, `VARCHAR2`, `CHAR`, `CLOB`, `BLOB`, `REF`, or `XMLType`. For example, after finding the objects that have `SpecialInstructions` set to `Expedite`, `XMLCast` returns the Reference in each item as `VARCHAR2(100)`.
 
 ```
 SELECT XMLCast(XMLQuery('/PurchaseOrder/Reference'
@@ -211,9 +223,10 @@ SELECT XMLCast(XMLQuery('/PurchaseOrder/Reference'
   PASSING OBJECT_VALUE);
 ```
 
-For more information, see [XMLELEMENT](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLELEMENT.html#GUID-DEA75423-00EA-4034-A246-4A774ADC988E "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLELEMENT.html#GUID-DEA75423-00EA-4034-A246-4A774ADC988E") in the _Oracle documentation_.
+For more information, see [XMLELEMENT](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLELEMENT.html#GUID-DEA75423-00EA-4034-A246-4A774ADC988E) in the *Oracle documentation*.
 
 #### SQL/XML query and update functions
+<a name="chap-oracle-aurora-mysql.special.xmldb.oracle.functions.query"></a>
 
 SQL/XML query and update functions are used to query and update XML content as part of regular SQL operations.
 
@@ -229,21 +242,24 @@ WHERE XMLExists('$p/PurchaseOrder[Reference="DAUSTIN-20021009123335811PDT"]'
   PASSING po.OBJECT_VALUE AS "p");
 ```
 
-For more information, see [XMLQUERY](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB") in the _Oracle documentation_.
+For more information, see [XMLQUERY](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB) in the *Oracle documentation*.
 
 ### SQL and PL/SQL
+<a name="chap-oracle-aurora-mysql.special.xmldb.oracle.sql"></a>
 
-Conversion of SQL and PL/SQL is covered in the [SQL and PL/SQL](chap-oracle-aurora-mysql.sql.md "chap-oracle-aurora-mysql.sql.md") topic.
+Conversion of SQL and PL/SQL is covered in the [SQL and PL/SQL](chap-oracle-aurora-mysql.sql.md) topic.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.special.xmldb.mysql"></a>
 
-Aurora MySQL support for unstructured data is the opposite of Oracle. There is minimal support for XML, but a native JSON data type and more than 25 dedicated JSON functions.
+ Aurora MySQL support for unstructured data is the opposite of Oracle. There is minimal support for XML, but a native JSON data type and more than 25 dedicated JSON functions.
 
 ### XML support
+<a name="chap-oracle-aurora-mysql.special.xmldb.mysql.support"></a>
 
-Aurora MySQL supports two XML functions: `ExtractValue` and `UpdateXML`.
+ Aurora MySQL supports two XML functions: `ExtractValue` and `UpdateXML`.
 
-`ExtractValue` accepts an XML document, or fragment, and an XPATH expression. The function returns the character data of the child or element matched by the `XPATH` expression. If there is more than one match, the function returns the content of child nodes as a space delimited character string. `ExtractValue` returns only `CDATA` and doesn’t return tags and sub-tags contained within a matching tag or its content.
+ `ExtractValue` accepts an XML document, or fragment, and an XPATH expression. The function returns the character data of the child or element matched by the `XPATH` expression. If there is more than one match, the function returns the content of child nodes as a space delimited character string. `ExtractValue` returns only `CDATA` and doesn’t return tags and sub-tags contained within a matching tag or its content.
 
 Consider the following example.
 
@@ -273,22 +289,23 @@ For the preceding example, the result looks as shown following.
 <Person>Jack</Person>
 ```
 
-###### Note
-
-Aurora MySQL doesn’t support MySQL `LOAD XML` syntax. For more information, see [Loading data into an Aurora MySQL DB cluster from text files in an Amazon S3 bucket](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.md") in the _User Guide for Aurora_.
+**Note**  
+ Aurora MySQL doesn’t support MySQL `LOAD XML` syntax. For more information, see [Loading data into an Aurora MySQL DB cluster from text files in an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.html) in the *User Guide for Aurora*.
 
 ## Summary
+<a name="chap-oracle-aurora-mysql.special.xmldb.summary"></a>
 
-| Description                                                                        | Oracle                                                                                                                                                                                                                                                                                                                                                             | Aurora MySQL                                                                                                                                                                                                                                                                                                                                                           |
-| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| XML functions                                                                      | `XMLQuery`, `XPath`, `XMLTable`, `XMLExists`, and `XMLCast`                                                                                                                                                                                                                                                                                                        | `ExtractValue` and `UpdateXML`                                                                                                                                                                                                                                                                                                                                         |
-| Create a table with XML                                                            | `CREATE TABLE test OF XMLType;` or `CREATE TABLE test (doc XMLType);`                                                                                                                                                                                                                                                                                              | Not supported                                                                                                                                                                                                                                                                                                                                                          |
-| Insert data into xml column                                                        | `<br>INSERT INTO test<br>VALUES ('<?xml version="1.0"?><br><PO pono="1"> <PNAME>Po_1</PNAME><br><CUSTNAME>John</CUSTNAME><br><SHIPADDR><br><STREET>1033, Main Street</STREET><br><CITY>Sunnyvale</CITY><br><STATE>CA</STATE><br></SHIPADDR> </PO>')<br>`                                                                                                           | XML data can be loaded into regular tables from S3. For more information, see [Loading data into an Aurora MySQL DB cluster from text files in an Amazon S3 bucket](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.md") in the _User Guide for Aurora_. |
-| Create Index                                                                       | `<br>CREATE INDEX test_idx ON test (OBJECT_VALUE)<br>INDEXTYPE IS XDB.XMLIndex<br>PARAMETERS ('PATH TABLE path_tab');<br>BEGIN<br>DBMS_XMLINDEX.registerParameter(<br>'myparam', 'ADD_GROUP GROUP a_item<br>XMLTable test_idx_tab ''/Path'' COLUMNS tag<br>VARCHAR2(30) PATH ''tag''');<br>END;<br>/<br>ALTER INDEX test_idx PARAMETERS<br>('PARAM myparam');<br>` | Requires adding always generated computed and persisted columns with JSON expressions and indexing them explicitly. The optimizer can make use of JSON expressions only.                                                                                                                                                                                               |
-| Create a full-text index                                                           | After preference and section created in Oracle Text<br>`<br>CREATE INDEX test_idx ON test (OBJECT_VALUE)<br>INDEXTYPE IS CTXSYS.CONTEXT<br>PARAMETERS('storage pref section group secgroup');<br>`                                                                                                                                                                 | N/A                                                                                                                                                                                                                                                                                                                                                                    |
-| Query using XQuery                                                                 | `<br>SELECT XMLQuery('for $i in<br>/PurchaseOrder/LineItems/LineItem/Description<br>where $i[. contains text "Big"]<br>return <Title>{$i}</Title>'<br>PASSING OBJECT_VALUE RETURNING CONTENT)<br>FROM xml_tbl;<br>`                                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                    |
-| Query using XPath                                                                  | `<br>select sys.XMLType.extract<br>(doc,'/student/firstname/text()') firstname<br>from test;<br>`                                                                                                                                                                                                                                                                  | Because there is no XML data type, doc uses `VARCHAR` to store the XML content<br>[source]<br>----<br>select ExtractValue<br>(doc,'//student//firstname')<br>firstname from test;<br>----                                                                                                                                                                              |
-| Function to check if tag exists and function to cast and return a string data type | `<br>SELECT XMLCast(XMLQuery<br>('/PurchaseOrder/Reference'<br>PASSING OBJECT_VALUE<br>RETURNING CONTENT) AS VARCHAR2(100))<br>"REFERENCE"<br>FROM purchaseorder<br>WHERE XMLExists('/PurchaseOrder[SpecialInstructions="Expedite"]'<br>PASSING OBJECT_VALUE);<br>`                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                    |
-| Validate schema using XSD                                                          | Supported                                                                                                                                                                                                                                                                                                                                                          | Not supported                                                                                                                                                                                                                                                                                                                                                          |
 
-For more information, see [XML Functions](https://dev.mysql.com/doc/refman/5.7/en/xml-functions.html "https://dev.mysql.com/doc/refman/5.7/en/xml-functions.html") in the _MySQL documentation_.
+| Description | Oracle | Aurora MySQL | 
+| --- | --- | --- | 
+| XML functions |  `XMLQuery`, `XPath`, `XMLTable`, `XMLExists`, and `XMLCast`  |  `ExtractValue` and `UpdateXML`  | 
+| Create a table with XML |  `CREATE TABLE test OF XMLType;` or `CREATE TABLE test (doc XMLType);`  | Not supported | 
+| Insert data into xml column |  <pre>INSERT INTO test<br />VALUES ('<?xml version="1.0"?><br /><PO pono="1"> <PNAME>Po_1</PNAME><br /><CUSTNAME>John</CUSTNAME><br /><SHIPADDR><br />  <STREET>1033, Main Street</STREET><br />  <CITY>Sunnyvale</CITY><br />  <STATE>CA</STATE><br /></SHIPADDR> </PO>')</pre>  | XML data can be loaded into regular tables from S3. For more information, see [Loading data into an Aurora MySQL DB cluster from text files in an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.html) in the *User Guide for Aurora*. | 
+| Create Index |  <pre>CREATE INDEX test_idx ON test (OBJECT_VALUE)<br />INDEXTYPE IS XDB.XMLIndex<br />PARAMETERS ('PATH TABLE path_tab');<br /><br />BEGIN<br />DBMS_XMLINDEX.registerParameter(<br />'myparam', 'ADD_GROUP GROUP a_item<br />XMLTable test_idx_tab ''/Path'' COLUMNS tag<br />VARCHAR2(30) PATH ''tag''');<br />END;<br />/<br /><br />ALTER INDEX test_idx PARAMETERS<br />('PARAM myparam');</pre>  | Requires adding always generated computed and persisted columns with JSON expressions and indexing them explicitly. The optimizer can make use of JSON expressions only. | 
+| Create a full-text index | After preference and section created in Oracle Text<pre>CREATE INDEX test_idx ON test (OBJECT_VALUE)<br />INDEXTYPE IS CTXSYS.CONTEXT<br />PARAMETERS('storage pref section group secgroup');</pre> | N/A | 
+| Query using XQuery |  <pre>SELECT XMLQuery('for $i in<br />/PurchaseOrder/LineItems/LineItem/Description<br />where $i[. contains text "Big"]<br />return <Title>{$i}</Title>'<br />PASSING OBJECT_VALUE RETURNING CONTENT)<br />FROM xml_tbl;</pre>  | N/A | 
+| Query using XPath |  <pre>select sys.XMLType.extract<br />(doc,'/student/firstname/text()') firstname<br />from test;</pre>  | Because there is no XML data type, doc uses `VARCHAR` to store the XML content [source] ---- select ExtractValue (doc,'//student//firstname') firstname from test; ---- | 
+| Function to check if tag exists and function to cast and return a string data type |  <pre>SELECT XMLCast(XMLQuery<br />('/PurchaseOrder/Reference'<br />  PASSING OBJECT_VALUE<br />  RETURNING CONTENT) AS VARCHAR2(100))<br />"REFERENCE"<br />  FROM purchaseorder<br />  WHERE XMLExists('/PurchaseOrder[SpecialInstructions="Expedite"]'<br />  PASSING OBJECT_VALUE);</pre>  | N/A | 
+| Validate schema using XSD | Supported | Not supported | 
+
+For more information, see [XML Functions](https://dev.mysql.com/doc/refman/5.7/en/xml-functions.html) in the *MySQL documentation*.

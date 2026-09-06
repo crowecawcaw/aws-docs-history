@@ -1,28 +1,31 @@
+
+
 # Oracle UTL\_FILE and MySQL integration with Amazon S3
+<a name="chap-oracle-aurora-mysql.sql.utl"></a>
 
 With AWS DMS, you can seamlessly migrate Oracle databases utilizing `UTL_FILE` and MySQL databases with Amazon S3 integration to AWS. The following sections outline the steps to configure and utilize `UTL_FILE` with Oracle and MySQL integration with Amazon S3 through AWS DMS.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                              |
-| ------------------------------ | ---------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------- |
-| Two star feature compatibility | No automation                      | N/A                       | MySQL doesn’t support `UTL_FILE` but Aurora MySQL has a built-in integration with Amazon S3. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | MySQL doesn’t support `UTL_FILE` but Aurora MySQL has a built-in integration with Amazon S3. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.sql.utl.oracle"></a>
 
 Oracle `UTL_FILE` PL/SQL package enables you to access files stored outside of the database such as files stored on the operating system, the database server, or a connected storage volume. `UTL_FILE.FOPEN`, `UTL_FILE.GET_LINE`, and `UTL_FILE.PUT_LINE` are procedures within the `UTL_FILE` package used to open, read, and write files.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.sql.utl.oracle.examples"></a>
 
 Run an anonymous PL/SQL block that reads a single line from file1 and writes it to file2.
-
-- Use `UTL_FILE.FILE_TYPE` to create a handle for the file.
-- Use `UTL_FILE.FOPEN` to open stream access to the file and specify:
-
-  - The logical Oracle directory object pointing to the O/S folder where the file resides.
-  - The file name.
-  - The file access mode: 'A'=append mode, 'W'=write mode
-
-- Use `UTL_FILE.GET_LINE` to read a line from the input file into a variable.
-- Use `UTL_FILE.PUT_LINE` to write a single line to the output file.
++ Use `UTL_FILE.FILE_TYPE` to create a handle for the file.
++ Use `UTL_FILE.FOPEN` to open stream access to the file and specify:
+  + The logical Oracle directory object pointing to the O/S folder where the file resides.
+  + The file name.
+  + The file access mode: 'A'=append mode, 'W'=write mode
++ Use `UTL_FILE.GET_LINE` to read a line from the input file into a variable.
++ Use `UTL_FILE.PUT_LINE` to write a single line to the output file.
 
 ```
 DECLARE
@@ -39,27 +42,26 @@ END;
 /
 ```
 
-For more information, see [UTL\_FILE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4") in the _Oracle documentation_.
+For more information, see [UTL\_FILE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4) in the *Oracle documentation*.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.sql.utl.mysql"></a>
 
 Aurora MySQL provides similar functionality to Oracle `UTL_FILE` with Amazon S3 integration.
 
 There two important integration aspects between Aurora MySQL and Amazon S3:
++ Saving data to an S3 file.
++ Loading data from an S3 file.
 
-- Saving data to an S3 file.
-- Loading data from an S3 file.
-
-###### Note
-
+**Note**  
 Make sure that Aurora MySQL has permissions to the S3 bucket.
 
 ### Saving data to Amazon S3
+<a name="chap-oracle-aurora-mysql.sql.utl.mysql.saving"></a>
 
 You can use the `SELECT INTO OUTFILE S3` statement to query data from an Amazon Aurora MySQL DB cluster and save it directly to text files stored in an Amazon S3 bucket. You can use this approach to avoid transferring data first to the client and then copying the data from the client to Amazon S3.
 
-###### Note
-
+**Note**  
 The default file size threshold is 6 GB. If the data selected by the statement is less than the file size threshold, a single file is created. Otherwise, multiple files are created.
 
 If the `SELECT` statement failed, files already uploaded to Amazon S3 remain in the specified Amazon S3 bucket. You can use another statement to upload the remaining data instead of starting over.
@@ -69,6 +71,7 @@ If the amount of data to be selected is more than 25 GB, it is recommended to us
 Metadata, such as table schema or file metadata, isn’t uploaded by Aurora MySQL to Amazon S3.
 
 #### Examples
+<a name="chap-oracle-aurora-mysql.sql.utl.mysql.saving.examples"></a>
 
 The following statement selects all data in the employees table and saves it to an Amazon S3 bucket in a different region from the Aurora MySQL DB cluster. The statement creates data files in which each field is terminated by a comma `,` character and each row is terminated by a newline `\n` character. The statement returns an error if files that match the `sample_employee_data` file prefix already exist in the specified Amazon S3 bucket.
 
@@ -104,15 +107,17 @@ FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n'
 MANIFEST ON OVERWRITE ON;
 ```
 
-For more information, see [Saving data from an Amazon Aurora MySQL DB cluster into text files in an Amazon S3 bucket](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.SaveIntoS3.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.SaveIntoS3.md") in the _User Guide for Aurora_.
+For more information, see [Saving data from an Amazon Aurora MySQL DB cluster into text files in an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.SaveIntoS3.html) in the *User Guide for Aurora*.
 
 ### Load XML from Amazon S3
+<a name="chap-oracle-aurora-mysql.sql.utl.mysql.load"></a>
 
 Use the `LOAD DATA FROM S3` or `LOAD XML FROM S3` statement to load data from files stored in an Amazon S3 bucket.
 
 The `LOAD DATA FROM S3` statement can load data from any text file format supported by the MySQL `LOAD DATA INFILE` statement such as comma-delimited text data. Compressed files are not supported.
 
 #### Examples
+<a name="chap-oracle-aurora-mysql.sql.utl.mysql.load.examples"></a>
 
 The following example runs the `LOAD DATA FROM S3` statement with the manifest file named `customer.manifest`. After the statement completes, an entry for each successfully loaded file is written to the `aurora_s3_load_history` table.
 
@@ -134,13 +139,14 @@ select * from mysql.aurora_s3_load_history where load_prefix = 'S3_URI';
 
 The following table describes the fields in the `aurora_s3_load_history` table.
 
-| Field           | Description                                                                                                                                                                                                                                                                                                                                                                     |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| load\_prefix    | The URI specified in the load statement. This URI can map to any of the following:<br>• A single data file for a `LOAD DATA FROM S3 FILE` statement.<br>• An Amazon S3 prefix that maps to multiple data files for a `LOAD DATA FROM S3 PREFIX` statement.<br>• A single manifest file containing the names of files to be loaded for a `LOAD DATA FROM S3 MANIFEST` statement. |
-| file\_name      | The name of a file that was loaded into Aurora from Amazon S3 using the URI identified in the `load_prefix` field.                                                                                                                                                                                                                                                              |
-| version\_number | The version number of the file identified by the `file_name` field that was loaded if the Amazon S3 bucket has a version number.                                                                                                                                                                                                                                                |
-| bytes\_loaded   | The size in bytes of the file loaded.                                                                                                                                                                                                                                                                                                                                           |
-| load\_timestamp | The timestamp when the `LOAD DATA FROM S3` statement completed.                                                                                                                                                                                                                                                                                                                 |
+
+| Field | Description | 
+| --- | --- | 
+| load\_prefix | The URI specified in the load statement. This URI can map to any of the following:+  A single data file for a `LOAD DATA FROM S3 FILE` statement. <br />+  An Amazon S3 prefix that maps to multiple data files for a `LOAD DATA FROM S3 PREFIX` statement. <br />+  A single manifest file containing the names of files to be loaded for a `LOAD DATA FROM S3 MANIFEST` statement.  | 
+| file\_name | The name of a file that was loaded into Aurora from Amazon S3 using the URI identified in the `load_prefix` field. | 
+| version\_number | The version number of the file identified by the `file_name` field that was loaded if the Amazon S3 bucket has a version number. | 
+| bytes\_loaded | The size in bytes of the file loaded. | 
+| load\_timestamp | The timestamp when the `LOAD DATA FROM S3` statement completed. | 
 
 The following statement loads data from an Amazon S3 bucket in the same region as the Aurora DB cluster. It reads the comma-delimited data in the `customerdata.txt` file residing in the `dbbucket` Amazon S3 bucket and then loads the data into the table `store-schema.customer-table`.
 
@@ -215,4 +221,4 @@ SET column3 = CURRENT_TIMESTAMP;
 
 You can use subqueries in the right side of `SET` assignments. For a subquery that returns a value to be assigned to a column, you can use only a scalar subquery. Also, you cannot use a subquery to select from the table that is being loaded.
 
-For more information, see [Loading data into an Amazon Aurora MySQL DB cluster from text files in an Amazon S3 bucket](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.md") in the _User Guide for Aurora_.
+For more information, see [Loading data into an Amazon Aurora MySQL DB cluster from text files in an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.html) in the *User Guide for Aurora*.

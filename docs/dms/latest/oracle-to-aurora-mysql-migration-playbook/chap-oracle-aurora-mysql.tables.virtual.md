@@ -1,12 +1,17 @@
+
+
 # Oracle virtual columns and MySQL generated columns
+<a name="chap-oracle-aurora-mysql.tables.virtual"></a>
 
 With AWS DMS, you can seamlessly migrate databases that utilize virtual columns (Oracle) or generated columns (MySQL) to compatible target databases. Virtual columns and generated columns define values derived from other columns or expressions, providing a means to store computed data without modifying the base tables. This functionality is beneficial for applications relying on calculated fields, auditing requirements, or data denormalization strategies.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                       | Key differences                |
-| ------------------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| Four star feature compatibility | Three star automation level        | [Creating Table](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.tables "chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.tables") | Different paradigm and syntax. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  [Creating Table](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.tables)  | Different paradigm and syntax. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.tables.virtual.oracle"></a>
 
 Oracle virtual columns appear as normal columns, but their values are calculated instead of being stored in the database. You can’t create virtual columns based on other virtual columns and can only reference columns from the same table. When you create a virtual column, you can either explicitly specify the data type or let the database select the data type based on the expression.
 
@@ -35,6 +40,7 @@ The keyword `AS` after the column name indicates the column is created as a virt
 A virtual column doesn’t need to be specified in an `INSERT` statement.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.tables.virtual.oracle.examples"></a>
 
 Create a table that includes two virtual columns.
 
@@ -74,22 +80,22 @@ EMAIL           FINAL_SALARY
 jsmith@aws.com  10250
 ```
 
-For more information, see [CREATE TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6") in the _Oracle documentation_.
+For more information, see [CREATE TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6) in the *Oracle documentation*.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.tables.virtual.mysql"></a>
 
-The syntax and functionality of generated columns are similar to virtual columns. They appear as normal columns, but their values are calculated. Generated columns cannot be created based on other Generated
-Columns and can only reference columns from the same table. When you create generated columns, make sure that you explicitly specify the data type of the column.
-
-- Unlike Oracle, you can create generated columns based on other generated columns preceding them in the field list.
-- You can use generated columns with constraints, indexes, table partitioning.
-- Functions in expressions must be deterministic at the time of table creation.
-- Generated columns can’t be manipulated by DML operations.
-- Generated columns can be used in a `WHERE` clause and as part of DML commands.
-- When you create an index on a generated column, the generated values are stored in the index.
-- The output of a generated column expression must be a scalar value.
+The syntax and functionality of generated columns are similar to virtual columns. They appear as normal columns, but their values are calculated. Generated columns cannot be created based on other Generated Columns and can only reference columns from the same table. When you create generated columns, make sure that you explicitly specify the data type of the column.
++ Unlike Oracle, you can create generated columns based on other generated columns preceding them in the field list.
++ You can use generated columns with constraints, indexes, table partitioning.
++ Functions in expressions must be deterministic at the time of table creation.
++ Generated columns can’t be manipulated by DML operations.
++ Generated columns can be used in a `WHERE` clause and as part of DML commands.
++ When you create an index on a generated column, the generated values are stored in the index.
++ The output of a generated column expression must be a scalar value.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.tables.virtual.mysql.examples"></a>
 
 Create a table that includes two generated columns.
 
@@ -131,4 +137,4 @@ email           FINAL_SALARY
 jsmith@aws.com  10250
 ```
 
-For more information, see [CREATE TABLE and Generated Columns](https://dev.mysql.com/doc/refman/5.7/en/create-table-generated-columns.html "https://dev.mysql.com/doc/refman/5.7/en/create-table-generated-columns.html") and [Secondary Indexes and Generated Columns](https://dev.mysql.com/doc/refman/5.7/en/create-table-secondary-indexes.html "https://dev.mysql.com/doc/refman/5.7/en/create-table-secondary-indexes.html") in the _MySQL documentation_.
+For more information, see [CREATE TABLE and Generated Columns](https://dev.mysql.com/doc/refman/5.7/en/create-table-generated-columns.html) and [Secondary Indexes and Generated Columns](https://dev.mysql.com/doc/refman/5.7/en/create-table-secondary-indexes.html) in the *MySQL documentation*.

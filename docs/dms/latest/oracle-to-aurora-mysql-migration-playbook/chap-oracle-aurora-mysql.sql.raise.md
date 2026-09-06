@@ -1,16 +1,22 @@
+
+
 # Oracle DBMS\_OUTPUT and MySQL SELECT
+<a name="chap-oracle-aurora-mysql.sql.raise"></a>
 
 Oracle `DBMS_OUTPUT` is a package that lets you send messages from stored procedures, functions, and anonymous blocks to a message buffer. MySQL `SELECT` is a statement used to retrieve data from one or more tables in a MySQL database. The following sections will provide details on using `DBMS_OUTPUT` in Oracle and `SELECT` statements in MySQL with AWS DMS.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                     | Key differences                                                         |
-| -------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Three star feature compatibility | No automation                      | [DBMS\_OUTPUT](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.output "chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.output") | Different paradigm and syntax requires application and drivers rewrite. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [DBMS\_OUTPUT](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.output)  | Different paradigm and syntax requires application and drivers rewrite. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.sql.raise.oracle"></a>
 
 The Oracle `DBMS_OUTPUT` package is typically used for debugging or for displaying output messages from PL/SQL procedures.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.sql.raise.oracle.examples"></a>
 
 In the following example, `DBMS_OUTPUT` with `PUT_LINE` is used with a combination of bind variables to dynamically construct a string and print a notification to the screen from within an Oracle PL/SQL procedure. In order to display notifications on to the screen, you must configure the session with `SET SERVEROUPUT ON`.
 
@@ -37,13 +43,15 @@ END;
 
 In addition to the output of information on the screen, the `PUT` and `PUT_LINE` procedures in the `DBMS_OUTPUT` package enable you to place information in a buffer that can be read later by another PL/SQL procedure or package. You can display the previously buffered information using the `GET_LINE` and `GET_LINES` procedures.
 
-For more information, see [DBMS\_OUTPUT](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_OUTPUT.html#GUID-C1400094-18D5-4F36-A2C9-D28B0E12FD8C "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_OUTPUT.html#GUID-C1400094-18D5-4F36-A2C9-D28B0E12FD8C") in the _Oracle documentation_.
+For more information, see [DBMS\_OUTPUT](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_OUTPUT.html#GUID-C1400094-18D5-4F36-A2C9-D28B0E12FD8C) in the *Oracle documentation*.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.sql.raise.mysql"></a>
 
 You can use `SELECT` to display output messages in Aurora MySQL.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.sql.raise.mysql.examples"></a>
 
 ```
 delimiter //
@@ -71,8 +79,7 @@ OUTPUT: After count
 Query OK, 0 rows affected (0.22 sec)
 ```
 
-###### Note
-
+**Note**  
 Use double quotation marks with `SELECT` for cleaner display. Otherwise, messages are displayed twice, both as header and value.
 
-For more information, see [SELECT Statement](https://dev.mysql.com/doc/refman/5.7/en/select.html "https://dev.mysql.com/doc/refman/5.7/en/select.html") in the _MySQL documentation_.
+For more information, see [SELECT Statement](https://dev.mysql.com/doc/refman/5.7/en/select.html) in the *MySQL documentation*.

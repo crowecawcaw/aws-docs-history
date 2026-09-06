@@ -1,22 +1,26 @@
+
+
 # Oracle and MySQL user-defined functions
+<a name="chap-oracle-aurora-mysql.sql.udfs"></a>
 
 The following sections will provide details on assessing, preparing, and running the migration of user-defined functions (UDFs) using AWS DMS.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                                              | Key differences                |
-| -------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| Three star feature compatibility | Four star automation level         | [Stored Procedures](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.storedprocedures "chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.storedprocedures") | Syntax and option differences. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Stored Procedures](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.storedprocedures)  | Syntax and option differences. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.sql.udfs.oracle"></a>
 
 You can create an Oracle UDF using PL/SQL, Java, or C. UDFs are useful for providing functionality not available in SQL or SQL built-in functions. They can appear in SQL statements wherever built-in SQL functions can appear.
 
 You can use UDFs in the following cases:
++ To return a single value from a `SELECT` statement (scalar function).
++ While performing DML operations.
++ In `WHERE`, `GROUP BY`, `ORDER BY`, `HAVING`, `CONNECT BY`, and `START WITH` clauses.
 
-- To return a single value from a `SELECT` statement (scalar function).
-- While performing DML operations.
-- In `WHERE`, `GROUP BY`, `ORDER BY`, `HAVING`, `CONNECT BY`, and `START WITH` clauses.
-
-**Examples**
+ **Examples** 
 
 Create a simple Oracle UDF with arguments for employee `HIRE_DATE` and `SALARY` as `INPUT` parameters and calculate the overall salary over the employee’s years of service for the company.
 
@@ -49,31 +53,27 @@ EMPLOYEE_ID FIRST_NAME TOTAL_SALARY
 …
 ```
 
-For more information, see [CREATE FUNCTION](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-FUNCTION.html#GUID-156AEDAC-ADD0-4E46-AA56-6D1F7CA63306 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-FUNCTION.html#GUID-156AEDAC-ADD0-4E46-AA56-6D1F7CA63306") in the _Oracle documentation_.
+For more information, see [CREATE FUNCTION](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-FUNCTION.html#GUID-156AEDAC-ADD0-4E46-AA56-6D1F7CA63306) in the *Oracle documentation*.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.sql.udfs.mysql"></a>
 
 Aurora MySQL supports user-defined scalar functions only. There is no support for table-valued functions.
 
 Aurora MySQL doesn’t permit stored functions to contain explicit SQL transaction statements such as `COMMIT` and `ROLLBACK`.
 
 In Aurora MySQL, you can explicitly specify several options with the `CREATE FUNCTION` statement. These characteristics are saved with the function definition and are viewable with the `SHOW CREATE FUNCTION` statement.
-
-- The `DETERMINISTIC` option must be explicitly stated. Otherwise, the engine assumes it is not deterministic.
-
-###### Note
-
++ The `DETERMINISTIC` option must be explicitly stated. Otherwise, the engine assumes it is not deterministic.
+**Note**  
 MySQL doesn’t check the validity of the deterministic property declaration. If you wrongly specify a function as `DETERMINISTIC` when it is not, unexpected results and errors may occur.
-
-- `CONTAINS` SQL indicates the function code does not contain statements that read or modify data.
-- `READS SQL DATA` indicates the function code contains statements that read data such as `SELECT` but not statements that modify data such as `INSERT`, `DELETE`, or `UPDATE`.
-- `MODIFIES SQL DATA` indicates the function code contains statements that may modify data.
-
-###### Note
-
++  `CONTAINS` SQL indicates the function code does not contain statements that read or modify data.
++  `READS SQL DATA` indicates the function code contains statements that read data such as `SELECT` but not statements that modify data such as `INSERT`, `DELETE`, or `UPDATE`.
++  `MODIFIES SQL DATA` indicates the function code contains statements that may modify data.
+**Note**  
 These options are advisory only. The server doesn’t constrain the function code based on the declaration. This feature is useful for code management.
 
 ### Syntax
+<a name="chap-oracle-aurora-mysql.sql.udfs.mysql.syntax"></a>
 
 ```
 CREATE FUNCTION <Function Name> ([<Function Parameter>[,...]])
@@ -87,6 +87,7 @@ COMMENT '<Comment>' | LANGUAGE SQL | [NOT] DETERMINISTIC
 ```
 
 ### Migration considerations
+<a name="chap-oracle-aurora-mysql.sql.udfs.mysql.considerations"></a>
 
 For scalar functions, migration should be straightforward with respect to the function syntax. Rules in Aurora MySQL regarding functions are much more lenient than Oracle.
 
@@ -95,6 +96,7 @@ A function in Aurora MySQL may modify data and schema. Function determinism must
 The `AS` keyword, which is mandatory in Oracle before the function’s code body, is not valid Aurora MySQL syntax and must be removed.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.sql.udfs.mysql.examples"></a>
 
 Create a scalar function to change the first character of a string to upper case.
 
@@ -111,15 +113,17 @@ Mixedcase
 ```
 
 ## Summary
+<a name="chap-oracle-aurora-mysql.sql.udfs.summary"></a>
 
 The following table identifies similarities, differences, and key migration considerations.
 
-| Oracle                           | Aurora MySQL               | Comment                                                                                                                   |
-| -------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Scalar UDF                       | Scalar UDF                 | Use `CREATE FUNCTION` with similar syntax, remove the `AS` keyword.                                                       |
-| Inline table-valued UDF          | N/A                        | Use views and replace parameters with `WHERE` filter predicates.                                                          |
-| Multi-statement table-valued UDF | N/A                        | Use stored procedures to populate tables and read from the table directly.                                                |
-| UDF determinism implicit         | Explicit declaration       | Use the `DETERMINISTIC` characteristic explicitly to denote a deterministic function, which enables engine optimizations. |
-| UDF boundaries local only        | Can change data and schema | UDF rules are more lenient, avoid unexpected changes from function invocation.                                            |
 
-For more information, see [CREATE PROCEDURE and CREATE FUNCTION Statements](https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html "https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html") in the _MySQL documentation_.
+| Oracle | Aurora MySQL | Comment | 
+| --- | --- | --- | 
+| Scalar UDF | Scalar UDF | Use `CREATE FUNCTION` with similar syntax, remove the `AS` keyword. | 
+| Inline table-valued UDF | N/A | Use views and replace parameters with `WHERE` filter predicates. | 
+| Multi-statement table-valued UDF | N/A | Use stored procedures to populate tables and read from the table directly. | 
+| UDF determinism implicit | Explicit declaration | Use the `DETERMINISTIC` characteristic explicitly to denote a deterministic function, which enables engine optimizations. | 
+| UDF boundaries local only | Can change data and schema | UDF rules are more lenient, avoid unexpected changes from function invocation. | 
+
+For more information, see [CREATE PROCEDURE and CREATE FUNCTION Statements](https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html) in the *MySQL documentation*.

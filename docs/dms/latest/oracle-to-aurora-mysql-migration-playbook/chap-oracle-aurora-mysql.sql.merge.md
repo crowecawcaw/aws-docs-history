@@ -1,18 +1,24 @@
+
+
 # Oracle MERGE statement and MySQL equivalent
+<a name="chap-oracle-aurora-mysql.sql.merge"></a>
 
 With AWS DMS, you can perform Oracle `MERGE` statements and the MySQL equivalent to conditionally insert, update, or delete rows in a target table based on the results of a join with a source table.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                            | Key differences                                                                |
-| -------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| Three star feature compatibility | No automation                      | [Merge](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.merge "chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.merge") | Aurora MySQL doesn’t support the `MERGE` statement. A workaround is available. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  [Merge](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.merge)  | Aurora MySQL doesn’t support the `MERGE` statement. A workaround is available. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.sql.merge.oracle"></a>
 
 The `MERGE` statement provides a means to specify single SQL statements that conditionally perform `INSERT`, `UPDATE`, or `DELETE` operations on a target table—a task that would otherwise require multiple logical statements.
 
 The `MERGE` statement selects record(s) from the source table and then, by specifying a logical structure, automatically performs multiple DML operations on the target table. Its main advantage is to help avoid the use of multiple inserts, updates or deletes. It is important to note that `MERGE` is a deterministic statement. That is, once a row has been processed by the MERGE statement, it can’t be processed again using the same `MERGE` statement. `MERGE` is also sometimes known as `UPSERT`.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.sql.merge.oracle.examples"></a>
 
 Use `MERGE` to insert or update employees who are entitled to a bonus (by year).
 
@@ -45,19 +51,21 @@ EMPLOYEE_ID BONUS_YEAR SALARY BONUS
 115         2017       3100   1550
 ```
 
-For more information, see [MERGE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/MERGE.html#GUID-5692CCB7-24D9-4C0E-81A7-A22436DC968F "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/MERGE.html#GUID-5692CCB7-24D9-4C0E-81A7-A22436DC968F") in the _Oracle documentation_.
+For more information, see [MERGE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/MERGE.html#GUID-5692CCB7-24D9-4C0E-81A7-A22436DC968F) in the *Oracle documentation*.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.sql.merge.mysql"></a>
 
 Aurora MySQL doesn’t support the `MERGE` statement. However, it provides two other statements for merging data: `REPLACE`, and `INSERT…​ ON DUPLICATE KEY UPDATE`.
 
-`REPLACE` deletes a row and inserts a new row if a duplicate key conflict occurs. `INSERT…​ ON DUPLICATE KEY UPDATE` performs an in-place update. Both `REPLACE` and `ON DUPLICATE KEY UPDATE` rely on an existing primary key and unique constraints. It is not possible to define custom `MATCH` conditions as with the `MERGE` statement in Oracle.
+ `REPLACE` deletes a row and inserts a new row if a duplicate key conflict occurs. `INSERT…​ ON DUPLICATE KEY UPDATE` performs an in-place update. Both `REPLACE` and `ON DUPLICATE KEY UPDATE` rely on an existing primary key and unique constraints. It is not possible to define custom `MATCH` conditions as with the `MERGE` statement in Oracle.
 
-`REPLACE` provides a function similar to `INSERT`. The difference is that `REPLACE` first deletes an existing row if a duplicate key violation for a `PRIMARY KEY` or `UNIQUE` constraint occurs.
+ `REPLACE` provides a function similar to `INSERT`. The difference is that `REPLACE` first deletes an existing row if a duplicate key violation for a `PRIMARY KEY` or `UNIQUE` constraint occurs.
 
-`REPLACE` is a MySQL extension that is not ANSI compliant. It either performs only an `INSERT` when no duplicate key violations occur, or it performs a `DELETE` and then an `INSERT` if violations occur.
+ `REPLACE` is a MySQL extension that is not ANSI compliant. It either performs only an `INSERT` when no duplicate key violations occur, or it performs a `DELETE` and then an `INSERT` if violations occur.
 
 ### Syntax
+<a name="chap-oracle-aurora-mysql.sql.merge.mysql.syntax"></a>
 
 ```
 REPLACE [INTO] <Table Name> (<Column List>) VALUES v(<Values List>)
@@ -72,6 +80,7 @@ REPLACE [INTO] <Table Name> (<Column List>) SELECT ...
 ```
 
 ### INSERT …​ ON DUPLICATE KEY UPDATE
+<a name="chap-oracle-aurora-mysql.sql.merge.mysql.insert"></a>
 
 The `ON DUPLICATE KEY UPDATE` clause of the `INSERT` statement acts as a dual DML hybrid. Similar to `REPLACE`, it executes the assignments in the `SET` clause instead of raising a duplicate key error. `ON DUPLICATE KEY UPDATE` is a MySQL extension that in not ANSI compliant.
 
@@ -91,12 +100,12 @@ UPDATE <Assignment List: ColumnName = Value...>
 ```
 
 ### Migration considerations
+<a name="chap-oracle-aurora-mysql.sql.merge.mysql.considerations"></a>
 
 Neither `REPLACE` nor `INSERT …​ ON DUPLICATE KEY UPDATE` provide a full functional replacement for the `MERGE` statement in Oracle. The key differences are:
-
-- Key violation conditions are mandated by the primary key or unique constraints that exist on the target table. They can’t be defined using an explicit predicate.
-- There is no alternative for the `WHEN NOT MATCHED BY SOURCE` clause.
-- There is no alternative for the `OUTPUT` clause.
++ Key violation conditions are mandated by the primary key or unique constraints that exist on the target table. They can’t be defined using an explicit predicate.
++ There is no alternative for the `WHEN NOT MATCHED BY SOURCE` clause.
++ There is no alternative for the `OUTPUT` clause.
 
 The key difference between `REPLACE` and `INSERT ON DUPLICATE KEY UPDATE` is that with `REPLACE`, the violating row is deleted or attempted to be deleted. If foreign keys are in place, the `DELETE` operation may fail, which may fail the entire transaction.
 
@@ -105,6 +114,7 @@ For `INSERT …​ ON DUPLICATE KEY UPDATE`, the update is performed on the exis
 It should be straightforward to replace most `MERGE` statements with either `REPLACE` or `INSERT…​ ON DUPLICATE KEY UPDATE`. Alternatively, break down the operations into their constituent `INSERT`, `UPDATE`, and `DELETE` statements.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.sql.merge.mysql.examples"></a>
 
 Use `REPLACE` to create a simple one-way, two-table sync.
 
@@ -182,15 +192,17 @@ Col1  Col2
 ```
 
 ## Summary
+<a name="chap-oracle-aurora-mysql.sql.merge.summary"></a>
 
 The following table describes similarities, differences, and key migration considerations.
 
-| Oracle MERGE feature                                           | Migrate to Aurora MySQL                                                                 | Comments                                                                                                                                                                                                                                                                                                                     |
-| -------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Define source set in `USING` clause.                           | Define source set in a `SELECT` query or in a table.                                    |                                                                                                                                                                                                                                                                                                                              |
-| Define logical duplicate key condition with an `ON` predicate. | Duplicate key condition mandated by primary key and unique constraints on target table. |                                                                                                                                                                                                                                                                                                                              |
-| `WHEN MATCHED THEN UPDATE`                                     | `REPLACE` or `INSERT…​ ON DUPLICATE KEY UPDATE`                                         | When using `REPLACE`, the violating row is deleted, or attempted to be deleted. If there are foreign keys in place, the `DELETE` operation may fail, which may fail the entire transaction. With `INSERT …​ ON DUPLICATE KEY UPDATE`, the update is performed on the existing row in place, without attempting to delete it. |
-| `WHEN MATCHED THEN DELETE`                                     | `DELETE FROM Target WHERE Key IN (SELECT Key FROM Source)`                              |                                                                                                                                                                                                                                                                                                                              |
-| `WHEN NOT MATCHED THEN INSERT`                                 | `REPLACE` or `INSERT…​ ON DUPLICATE KEY UPDATE`                                         | When using REPLACE, the violating row is deleted, or attempted to be deleted. If there are foreign keys in place, the `DELETE` operation may fail, which may fail the entire transaction. With `INSERT …​ ON DUPLICATE KEY UPDATE`, the update is performed on the existing row in place, without attempting to delete it.   |
 
-For more information, see [REPLACE Statement](https://dev.mysql.com/doc/refman/5.7/en/replace.html "https://dev.mysql.com/doc/refman/5.7/en/replace.html") and [INSERT …​ ON DUPLICATE KEY UPDATE Statement](https://dev.mysql.com/doc/refman/5.7/en/insert-on-duplicate.html "https://dev.mysql.com/doc/refman/5.7/en/insert-on-duplicate.html") in the _MySQL documentation_.
+| Oracle MERGE feature | Migrate to Aurora MySQL | Comments | 
+| --- | --- | --- | 
+| Define source set in `USING` clause. | Define source set in a `SELECT` query or in a table. |  | 
+| Define logical duplicate key condition with an `ON` predicate. | Duplicate key condition mandated by primary key and unique constraints on target table. |  | 
+|  `WHEN MATCHED THEN UPDATE`  |  `REPLACE` or `INSERT…​ ON DUPLICATE KEY UPDATE`  | When using `REPLACE`, the violating row is deleted, or attempted to be deleted. If there are foreign keys in place, the `DELETE` operation may fail, which may fail the entire transaction. With `INSERT …​ ON DUPLICATE KEY UPDATE`, the update is performed on the existing row in place, without attempting to delete it. | 
+|  `WHEN MATCHED THEN DELETE`  |  `DELETE FROM Target WHERE Key IN (SELECT Key FROM Source)`  |  | 
+|  `WHEN NOT MATCHED THEN INSERT`  |  `REPLACE` or `INSERT…​ ON DUPLICATE KEY UPDATE`  | When using REPLACE, the violating row is deleted, or attempted to be deleted. If there are foreign keys in place, the `DELETE` operation may fail, which may fail the entire transaction. With `INSERT …​ ON DUPLICATE KEY UPDATE`, the update is performed on the existing row in place, without attempting to delete it. | 
+
+For more information, see [REPLACE Statement](https://dev.mysql.com/doc/refman/5.7/en/replace.html) and [INSERT …​ ON DUPLICATE KEY UPDATE Statement](https://dev.mysql.com/doc/refman/5.7/en/insert-on-duplicate.html) in the *MySQL documentation*.

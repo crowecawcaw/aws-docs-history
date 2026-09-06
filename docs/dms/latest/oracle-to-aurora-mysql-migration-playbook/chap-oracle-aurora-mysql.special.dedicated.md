@@ -1,47 +1,48 @@
+
+
 # Oracle Resource Manager and dedicated Amazon Aurora MySQL clusters
+<a name="chap-oracle-aurora-mysql.special.dedicated"></a>
 
 With AWS DMS, you can migrate Oracle Resource Manager databases to dedicated Aurora MySQL clusters.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                    |
-| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------------ |
-| Three star feature compatibility | N/A                                | N/A                       | Distribute load, applications, or users across multiple instances. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Distribute load, applications, or users across multiple instances. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-mysql.special.dedicated.oracle"></a>
 
 Oracle Resource Manager enables enhanced management of multiple concurrent workloads running under a single Oracle database. Using Oracle Resource Manager, you can partition server resources for different workloads.
 
 Resource Manager helps with sharing server and database resources without causing excessive resource contention and helps to eliminate scenarios involving inappropriate allocation of resources across different database sessions.
 
 Oracle Resource Manager enables you to:
-
-- Guarantee a minimum amount of CPU cycles for certain sessions regardless of other running operations.
-- Distribute available CPU by allocating percentages of CPU time to different session groups.
-- Limit the degree of parallelism of any operation performed by members of a user group.
-- Manage the order of parallel statements in the parallel statement queue.
-- Limit the number of parallel running servers that a user group can use.
-- Create an active session pool. An active session pool consists of a specified maximum number of user sessions allowed to be concurrently active within a user group.
-- Monitor used database/server resources by dictionary views.
-- Manage runaway sessions or calls and prevent them from overloading the database.
-- Prevent the running of operations that the optimizer estimates will run for a longer time than a specified limit.
-- Limit the amount of time that a session can be connected but idle, thus forcing inactive sessions to disconnect and potentially freeing memory resources.
-- Allow a database to use different resource plans, based on changing workload requirements.
-- Manage CPU allocation when there is more than one instance on a server in an Oracle Real Application Cluster environment (also called instance caging).
++ Guarantee a minimum amount of CPU cycles for certain sessions regardless of other running operations.
++ Distribute available CPU by allocating percentages of CPU time to different session groups.
++ Limit the degree of parallelism of any operation performed by members of a user group.
++ Manage the order of parallel statements in the parallel statement queue.
++ Limit the number of parallel running servers that a user group can use.
++ Create an active session pool. An active session pool consists of a specified maximum number of user sessions allowed to be concurrently active within a user group.
++ Monitor used database/server resources by dictionary views.
++ Manage runaway sessions or calls and prevent them from overloading the database.
++ Prevent the running of operations that the optimizer estimates will run for a longer time than a specified limit.
++ Limit the amount of time that a session can be connected but idle, thus forcing inactive sessions to disconnect and potentially freeing memory resources.
++ Allow a database to use different resource plans, based on changing workload requirements.
++ Manage CPU allocation when there is more than one instance on a server in an Oracle Real Application Cluster environment (also called instance caging).
 
 Oracle Resource Manager introduces three concepts:
++  **Consumer Group** — A collection of sessions grouped together based on resource requirements. The Oracle Resource Manager allocates server resources to resource consumer groups, not to the individual sessions.
++  **Resource Plan** — Specifies how the database allocates its resources to different Consumer Groups. You will need to specify how the database allocates resources by activating a specific resource plan.
++  **Resource Plan Directive** — Associates a resource consumer group with a plan and specifies how resources are to be allocated to that resource consumer group.
 
-- **Consumer Group** — A collection of sessions grouped together based on resource requirements. The Oracle Resource Manager allocates server resources to resource consumer groups, not to the individual sessions.
-- **Resource Plan** — Specifies how the database allocates its resources to different Consumer Groups. You will need to specify how the database allocates resources by activating a specific resource plan.
-- **Resource Plan Directive** — Associates a resource consumer group with a plan and specifies how resources are to be allocated to that resource consumer group.
-
-###### Note
-
-Only one Resource Plan can be active at any given time.
-
-Resource Directives control the resources allocated to a Consumer Group belong to a Resource Plan.
-
+**Note**  
+Only one Resource Plan can be active at any given time.  
+Resource Directives control the resources allocated to a Consumer Group belong to a Resource Plan.  
 The Resource Plan can refer to Subplans to create even more complex Resource Plans.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.special.dedicated.oracle.examples"></a>
 
 Create a simple Resource Plan. To use the Oracle Resource Manager, you need to assign a plan name to the `RESOURCE_MANAGER_PLAN` parameter. Using an empty string will disable the Resource Manager.
 
@@ -63,12 +64,12 @@ END;
 /
 ```
 
-For more information, see [Managing Resources with Oracle Database Resource Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-resources-with-oracle-database-resource-manager.html#GUID-2BEF5482-CF97-4A85-BD90-9195E41E74EF "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-resources-with-oracle-database-resource-manager.html#GUID-2BEF5482-CF97-4A85-BD90-9195E41E74EF") in the _Oracle documentation_.
+For more information, see [Managing Resources with Oracle Database Resource Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-resources-with-oracle-database-resource-manager.html#GUID-2BEF5482-CF97-4A85-BD90-9195E41E74EF) in the *Oracle documentation*.
 
 ## MySQL usage
+<a name="chap-oracle-aurora-mysql.special.dedicated.mysql"></a>
 
-MySQL doesn’t have built-in resource management capabilities that are equivalent to the functionality provided by Oracle Resource Manager. However, due to the elasticity and flexibility provided by cloud economics, workarounds could be applicable and such capabilities might not be as of similar importance to monolithic
-on-premises databases.
+MySQL doesn’t have built-in resource management capabilities that are equivalent to the functionality provided by Oracle Resource Manager. However, due to the elasticity and flexibility provided by cloud economics, workarounds could be applicable and such capabilities might not be as of similar importance to monolithic on-premises databases.
 
 The Oracle Resource Manager primarily exists because traditionally, Oracle databases were installed on very powerful monolithic servers that powered multiple applications simultaneously. The monolithic model made the most sense in an environment where the licensing for the Oracle database was per-CPU and where Oracle databases were deployed on physical hardware. In these scenarios, it made sense to consolidate as many workloads as possible into few servers. In cloud databases, the strict requirement to maximize the usage of each individual server is often not as important and a different approach can be employed:
 
@@ -76,37 +77,46 @@ Individual Amazon Aurora clusters can be deployed, with varying sizes, each dedi
 
 The following diagram shows the traditional Oracle model where maximizing the usage of each physical Oracle server was essential due to physical hardware constraints and the per-CPU core licensing model.
 
-![Traditional Oracle model](images/pb-traditional-oracle-model.png)
+![Traditional Oracle model](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-traditional-oracle-model.png)
+
 
 With Amazon Aurora, you can deploy separate and dedicated database clusters. Each cluster is dedicated to a specific application or workload creating isolation between multiple connected sessions and applications. The following diagram shows this architecture.
 
-![Separate and dedicated database clusters](images/pb-aurora-dedicated-database-clusters.png)
+![Separate and dedicated database clusters](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-aurora-dedicated-database-clusters.png)
+
 
 Each Amazon Aurora instance (primary or replica) can be scaled independently in terms of CPU and memory resources using the different instance types. Because multiple Amazon Aurora instances can be instantly deployed and much less overhead is associated with the deployment and management of Aurora instances when compared to physical servers, separating different workloads to different instance classes could be a suitable solution for controlling resource management.
 
-For instance types and resources, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
+For instance types and resources, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/).
 
 In addition, each Amazon Aurora primary or replica instance can also be directly accessed from your applications using its own endpoint. This capability is especially useful if you have multiple Aurora read-replicas for a given cluster and you wish to utilize different Aurora replicas to segment your workload.
 
 ### Examples
+<a name="chap-oracle-aurora-mysql.special.dedicated.mysql.examples"></a>
 
 Suppose that you were using a single Oracle Database for multiple separate applications and used Oracle Resource Manager to enforce a workload separation, allocating a specific amount of server resources for each application. With Amazon Aurora, you might want to create multiple separate databases for each individual application. Adding additional replica instances to an existing Amazon Aurora cluster is easy.
 
 1. Sign in to your AWS console and choose **RDS**.
-2. Choose **Databases** and select the Amazon Aurora cluster that you want to scale-out by adding an additional reader.
-3. Choose **Actions** and then choose **Add reader**.
-4. Select the instance class depending on the amount of compute resources your application requires.
-5. Choose **Create Aurora Replica**.
+
+1. Choose **Databases** and select the Amazon Aurora cluster that you want to scale-out by adding an additional reader.
+
+1. Choose **Actions** and then choose **Add reader**.
+
+1. Select the instance class depending on the amount of compute resources your application requires.
+
+1. Choose **Create Aurora Replica**.
 
 ## Summary
+<a name="chap-oracle-aurora-mysql.special.dedicated.summary"></a>
 
-| Oracle Resource Manager                                                         | Amazon Aurora instances                                                                                                                                                                                                                                                                                            |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Set the maximum CPU usage for a resource group                                  | Create a dedicated Aurora Instance for a specific application                                                                                                                                                                                                                                                      |
-| Limit the degree of parallelism for specific queries                            | N/A                                                                                                                                                                                                                                                                                                                |
-| Limit parallel runs                                                             | N/A                                                                                                                                                                                                                                                                                                                |
-| Limit the number of active sessions                                             | Manually detect the number of connections that are open from a specific application and restrict connectivity either with database procedures or within the application Data Access Layer (DAL).<br>`<br>select count(*) from information_schema.processlist<br>where user='USER_NAME' and COMMAND<>'Sleep';<br>`  |
-| Restrict maximum runtime of queries                                             | `<br>SET max_execution_time TO X;<br>`                                                                                                                                                                                                                                                                             |
-| Limit the maximum idle time for sessions                                        | Manually detect the number of connections that are open from a specific application and restrict connectivity either with database procedures or within the application DAL.<br>`<br>select count(*)<br>from information_schema.processlist<br>where user='USER_NAME'<br>and COMMAND='Sleep'<br>and TIME > X;<br>` |
-| Limit the time that an idle session holding open locks can block other sessions | Manually detect the number of connections that are open from a specific application and restrict connectivity either with database procedures or within the application DAL.<br>`<br>select count(*)<br>from information_schema.processlist<br>where user='USER_NAME'<br>and COMMAND='Sleep';<br>`                 |
-| Use instance caging in a multi-node Oracle RAC Environment                      | You can achieve similar capabilities by separating different applications to different Aurora clusters or, for read-only workloads, separate Aurora read replicas within the same Aurora cluster.                                                                                                                  |
+
+| Oracle Resource Manager |  Amazon Aurora instances | 
+| --- | --- | 
+| Set the maximum CPU usage for a resource group | Create a dedicated Aurora Instance for a specific application | 
+| Limit the degree of parallelism for specific queries | N/A | 
+| Limit parallel runs | N/A | 
+| Limit the number of active sessions | Manually detect the number of connections that are open from a specific application and restrict connectivity either with database procedures or within the application Data Access Layer (DAL).<pre>select count(*) from information_schema.processlist<br />where user='USER_NAME' and COMMAND<>'Sleep';</pre> | 
+| Restrict maximum runtime of queries |  <pre>SET max_execution_time TO X;</pre>  | 
+| Limit the maximum idle time for sessions | Manually detect the number of connections that are open from a specific application and restrict connectivity either with database procedures or within the application DAL.<pre>select count(*)<br />  from information_schema.processlist<br />  where user='USER_NAME'<br />    and COMMAND='Sleep'<br />    and TIME > X;</pre> | 
+| Limit the time that an idle session holding open locks can block other sessions | Manually detect the number of connections that are open from a specific application and restrict connectivity either with database procedures or within the application DAL.<pre>select count(*)<br />  from information_schema.processlist<br />  where user='USER_NAME'<br />    and COMMAND='Sleep';</pre> | 
+| Use instance caging in a multi-node Oracle RAC Environment | You can achieve similar capabilities by separating different applications to different Aurora clusters or, for read-only workloads, separate Aurora read replicas within the same Aurora cluster. | 
