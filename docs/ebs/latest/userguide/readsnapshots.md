@@ -1,45 +1,37 @@
+
+
 # Read Amazon EBS snapshots with EBS direct APIs
+<a name="readsnapshots"></a>
 
 The following steps describe how to use the EBS direct APIs to read snapshots:
 
-1. Use the ListSnapshotBlocks action to view all block indexes and block tokens of
-   blocks in a snapshot. Or use the ListChangedBlocks action to view only the block indexes
-   and block tokens of blocks that are different between two snapshots of the same volume
-   and snapshot lineage. These actions help you identify the block tokens and block indexes
-   of blocks for which you might want to get data.
-2. Use the GetSnapshotBlock action, and specify the block index and block token of the
-   block for which you want to get data.
+1. Use the ListSnapshotBlocks action to view all block indexes and block tokens of blocks in a snapshot. Or use the ListChangedBlocks action to view only the block indexes and block tokens of blocks that are different between two snapshots of the same volume and snapshot lineage. These actions help you identify the block tokens and block indexes of blocks for which you might want to get data.
 
-###### Note
+1. Use the GetSnapshotBlock action, and specify the block index and block token of the block for which you want to get data.
 
+**Note**  
 You can't use EBS direct APIs with archived snapshots.
 
 The following examples show how to read snapshots using the EBS direct APIs.
 
-###### Topics
-
-- [List blocks in a snapshot](#list-blocks "#list-blocks")
-- [List blocks that are different between two snapshots](#list-different-blocks "#list-different-blocks")
-- [Get block data from a snapshot](#get-block-data "#get-block-data")
+**Topics**
++ [List blocks in a snapshot](#list-blocks)
++ [List blocks that are different between two snapshots](#list-different-blocks)
++ [Get block data from a snapshot](#get-block-data)
 
 ## List blocks in a snapshot
+<a name="list-blocks"></a>
 
-AWS CLI
-The following [list-snapshot-blocks](../../../cli/latest/reference/ebs/list-snapshot-blocks.md "../../../cli/latest/reference/ebs/list-snapshot-blocks.md")
-example command returns the block indexes and block tokens of blocks that are in
-snapshot `snap-0987654321`. The `--starting-block-index` parameter
-limits the results to block indexes greater than `1000`, and the
-`--max-results` parameter limits the results to the first `100`
-blocks.
+------
+#### [ AWS CLI ]
+
+The following [list-snapshot-blocks](https://docs.aws.amazon.com/cli/latest/reference/ebs/list-snapshot-blocks.html) example command returns the block indexes and block tokens of blocks that are in snapshot `snap-0987654321`. The `--starting-block-index` parameter limits the results to block indexes greater than `1000`, and the `--max-results` parameter limits the results to the first `100` blocks.
 
 ```
-`aws ebs list-snapshot-blocks --snapshot-id `snap-0987654321` --starting-block-index `1000` --max-results `100``
+aws ebs list-snapshot-blocks --snapshot-id {{snap-0987654321}} --starting-block-index {{1000}} --max-results {{100}}
 ```
 
-The following example response for the previous command lists the block indexes and
-block tokens in the snapshot. Use the `get-snapshot-block` command and
-specify the block index and block token of the block for which you want to get data. The
-block tokens are valid until the expiry time listed.
+The following example response for the previous command lists the block indexes and block tokens in the snapshot. Use the `get-snapshot-block` command and specify the block index and block token of the block for which you want to get data. The block tokens are valid until the expiry time listed.
 
 ```
 {
@@ -76,27 +68,21 @@ block tokens are valid until the expiry time listed.
   }
 ```
 
-AWS API
-The following [ListSnapshotBlocks](../APIReference/API_ListSnapshotBlocks.md "../APIReference/API_ListSnapshotBlocks.md")
-example request returns the block indexes and block tokens of blocks that are in
-snapshot `snap-0acEXAMPLEcf41648`. The `startingBlockIndex`
-parameter limits the results to block indexes greater than `1000`, and the
-`maxResults` parameter limits the results to the first `100`
-blocks.
+------
+#### [ AWS API ]
+
+The following [ListSnapshotBlocks](https://docs.aws.amazon.com/ebs/latest/APIReference/API_ListSnapshotBlocks.html) example request returns the block indexes and block tokens of blocks that are in snapshot `snap-0acEXAMPLEcf41648`. The `startingBlockIndex` parameter limits the results to block indexes greater than `1000`, and the `maxResults` parameter limits the results to the first `100` blocks.
 
 ```
-GET /snapshots/`snap-0acEXAMPLEcf41648`/blocks?maxResults=`100`&startingBlockIndex=`1000` HTTP/1.1
-  Host: `ebs.us-east-2.amazonaws.com`
+GET /snapshots/{{snap-0acEXAMPLEcf41648}}/blocks?maxResults={{100}}&startingBlockIndex={{1000}} HTTP/1.1
+  Host: {{ebs.us-east-2.amazonaws.com}}
   Accept-Encoding: identity
-  User-Agent: `<User agent parameter>`
+  User-Agent: {{<User agent parameter>}}
   X-Amz-Date: 20200617T231953Z
-  Authorization: `<Authentication parameter>`
+  Authorization: {{<Authentication parameter>}}
 ```
 
-The following example response for the previous request lists the block indexes and
-block tokens in the snapshot. Use the GetSnapshotBlock action and specify the block
-index and block token of the block for which you want to get data. The block tokens are
-valid until the expiry time listed.
+The following example response for the previous request lists the block indexes and block tokens in the snapshot. Use the GetSnapshotBlock action and specify the block index and block token of the block for which you want to get data. The block tokens are valid until the expiry time listed. 
 
 ```
 HTTP/1.1 200 OK
@@ -105,7 +91,7 @@ HTTP/1.1 200 OK
   Content-Length: 2472
   Date: Wed, 17 Jun 2020 23:19:56 GMT
   Connection: keep-alive
-
+  
   {
       "BlockSize": 524288,
       "Blocks": [
@@ -132,56 +118,35 @@ HTTP/1.1 200 OK
   }
 ```
 
+------
+
 ## List blocks that are different between two snapshots
+<a name="list-different-blocks"></a>
 
-Keep the following in mind when making **paginated requests**
-to list the changed blocks between two snapshots:
+Keep the following in mind when making **paginated requests** to list the changed blocks between two snapshots:
++ The response can include one or more empty `ChangedBlocks` arrays. For example:
+  + Snapshot 1 — full snapshot with 1000 blocks with block indexes `0` - `999`.
+  + Snapshot 2 — incremental snapshot with only one changed block with block index `999`.
 
-- The response can include one or more empty `ChangedBlocks` arrays. For
-  example:
+  Listing the changed blocks for these snapshots with `StartingBlockIndex = 0` and `MaxResults = 100` returns an empty array of `ChangedBlocks`. You must request the remaining results using `nextToken` until the changed block is returned in the tenth result set, which includes blocks with block indexes `900` - `999`.
++ The response can skip unwritten blocks in the snapshots. For example:
+  + Snapshot 1 — full snapshot with 1000 blocks with block indexes `2000` - `2999`.
+  + Snapshot 2 — incremental snapshot with only one changed block with block index `2000`.
 
-  - Snapshot 1 — full snapshot with 1000 blocks with block indexes
-    `0` - `999`.
-  - Snapshot 2 — incremental snapshot with only one changed block with
-    block index `999`.
-    Listing the changed blocks for these snapshots with `StartingBlockIndex = 0`
-    and `MaxResults = 100` returns an empty array of `ChangedBlocks`.
-    You must request the remaining results using `nextToken` until the changed
-    block is returned in the tenth result set, which includes blocks with block indexes
-    `900` - `999`.
+  Listing the changed blocks for these snapshots with `StartingBlockIndex = 0` and `MaxResults = 100`, the response skips block indexes `0` - `1999` and includes block index `2000`. The response will not include empty `ChangedBlocks` arrays.
 
-- The response can skip unwritten blocks in the snapshots. For example:
+------
+#### [ AWS CLI ]
 
-  - Snapshot 1 — full snapshot with 1000 blocks with block indexes
-    `2000` - `2999`.
-  - Snapshot 2 — incremental snapshot with only one changed block with block
-    index `2000`.
-    Listing the changed blocks for these snapshots with `StartingBlockIndex = 0`
-    and `MaxResults = 100`, the response skips block indexes `0` -
-    `1999` and includes block index `2000`. The response will not include
-    empty `ChangedBlocks` arrays.
-
-AWS CLI
-The following [list-changed-blocks](../../../cli/latest/reference/ebs/list-changed-blocks.md "../../../cli/latest/reference/ebs/list-changed-blocks.md")
-example command returns the block indexes and block tokens of blocks that are different
-between snapshots `snap-1234567890` and `snap-0987654321`. The
-`--starting-block-index` parameter limits the results to block indexes
-greater than `0`, and the `--max-results` parameter limits the
-results to the first `500` blocks..
+The following [list-changed-blocks](https://docs.aws.amazon.com/cli/latest/reference/ebs/list-changed-blocks.html) example command returns the block indexes and block tokens of blocks that are different between snapshots `snap-1234567890` and `snap-0987654321`. The `--starting-block-index` parameter limits the results to block indexes greater than `0`, and the `--max-results` parameter limits the results to the first `500` blocks..
 
 ```
-`aws ebs list-changed-blocks --first-snapshot-id `snap-1234567890` --second-snapshot-id `snap-0987654321` --starting-block-index `0` --max-results `500``
+aws ebs list-changed-blocks --first-snapshot-id {{snap-1234567890}} --second-snapshot-id {{snap-0987654321}} --starting-block-index {{0}} --max-results {{500}}
 ```
 
-The following example response for the previous command shows that block indexes 0,
-6000, 6001, 6002, and 6003 are different between the two snapshots. Additionally, block
-indexes 6001, 6002, and 6003 exist only in the first snapshot ID specified, and not in
-the second snapshot ID because there is no second block token listed in the
-response.
+The following example response for the previous command shows that block indexes 0, 6000, 6001, 6002, and 6003 are different between the two snapshots. Additionally, block indexes 6001, 6002, and 6003 exist only in the first snapshot ID specified, and not in the second snapshot ID because there is no second block token listed in the response.
 
-Use the `get-snapshot-block` command and specify the block index and
-block token of the block for which you want to get data. The block tokens are valid
-until the expiry time listed.
+Use the `get-snapshot-block` command and specify the block index and block token of the block for which you want to get data. The block tokens are valid until the expiry time listed.
 
 ```
 {
@@ -217,33 +182,23 @@ until the expiry time listed.
   }
 ```
 
-AWS API
-The following [ListChangedBlocks](../APIReference/API_ListChangedBlocks.md "../APIReference/API_ListChangedBlocks.md")
-example request returns the block indexes and block tokens of blocks that are different
-between snapshots `snap-0acEXAMPLEcf41648` and
-`snap-0c9EXAMPLE1b30e2f`. The `startingBlockIndex` parameter
-limits the results to block indexes greater than `0`, and the
-`maxResults` parameter limits the results to the first `500`
-blocks.
+------
+#### [ AWS API ]
+
+The following [ListChangedBlocks](https://docs.aws.amazon.com/ebs/latest/APIReference/API_ListChangedBlocks.html) example request returns the block indexes and block tokens of blocks that are different between snapshots `snap-0acEXAMPLEcf41648` and `snap-0c9EXAMPLE1b30e2f`. The `startingBlockIndex` parameter limits the results to block indexes greater than `0`, and the `maxResults` parameter limits the results to the first `500` blocks.
 
 ```
-GET /snapshots/`snap-0c9EXAMPLE1b30e2f`/changedblocks?firstSnapshotId=`snap-0acEXAMPLEcf41648`&maxResults=`500`&startingBlockIndex=`0` HTTP/1.1
+GET /snapshots/{{snap-0c9EXAMPLE1b30e2f}}/changedblocks?firstSnapshotId={{snap-0acEXAMPLEcf41648}}&maxResults={{500}}&startingBlockIndex={{0}} HTTP/1.1
   Host: ebs.us-east-2.amazonaws.com
   Accept-Encoding: identity
-  User-Agent: `<User agent parameter>`
+  User-Agent: {{<User agent parameter>}}
   X-Amz-Date: 20200617T232546Z
-  Authorization: `<Authentication parameter>`
+  Authorization: {{<Authentication parameter>}}
 ```
 
-The following example response for the previous request shows that block indexes
-`0`, `3072`, `6002`, and `6003` are
-different between the two snapshots. Additionally, block indexes `6002`, and
-`6003` exist only in the first snapshot ID specified, and not in the second
-snapshot ID because there is no second block token listed in the response.
+The following example response for the previous request shows that block indexes `0`, `3072`, `6002`, and `6003` are different between the two snapshots. Additionally, block indexes `6002`, and `6003` exist only in the first snapshot ID specified, and not in the second snapshot ID because there is no second block token listed in the response.
 
-Use the `GetSnapshotBlock` action and specify the block index and block
-token of the block for which you want to get data. The block tokens are valid until the
-expiry time listed.
+Use the `GetSnapshotBlock` action and specify the block index and block token of the block for which you want to get data. The block tokens are valid until the expiry time listed. 
 
 ```
 HTTP/1.1 200 OK
@@ -252,7 +207,7 @@ HTTP/1.1 200 OK
   Content-Length: 1456
   Date: Wed, 17 Jun 2020 23:25:47 GMT
   Connection: keep-alive
-
+  
   {
       "BlockSize": 524288,
       "ChangedBlocks": [
@@ -281,26 +236,21 @@ HTTP/1.1 200 OK
   }
 ```
 
+------
+
 ## Get block data from a snapshot
+<a name="get-block-data"></a>
 
-AWS CLI
-The following [get-snapshot-block](../../../cli/latest/reference/ebs/get-snapshot-block.md "../../../cli/latest/reference/ebs/get-snapshot-block.md")
-example command returns the data in the block index `6001` with block token
-`AAABASBpSJ2UAD3PLxJnCt6zun4/T4sU25Bnb8jB5Q6FRXHFqAIAqE04hJoR`, in snapshot
-`snap-1234567890`. The binary data is output to the
-`data` file in the `C:\Temp` directory on a Windows
-computer. If you run the command on a Linux or Unix computer, replace the output path
-with `/tmp/data` to output the data to the `data` file in
-the `/tmp` directory.
+------
+#### [ AWS CLI ]
+
+The following [get-snapshot-block](https://docs.aws.amazon.com/cli/latest/reference/ebs/get-snapshot-block.html) example command returns the data in the block index `6001` with block token `AAABASBpSJ2UAD3PLxJnCt6zun4/T4sU25Bnb8jB5Q6FRXHFqAIAqE04hJoR`, in snapshot `snap-1234567890`. The binary data is output to the `data` file in the `C:\Temp` directory on a Windows computer. If you run the command on a Linux or Unix computer, replace the output path with `/tmp/data` to output the data to the `data` file in the `/tmp` directory.
 
 ```
-`aws ebs get-snapshot-block --snapshot-id `snap-1234567890` --block-index `6001` --block-token `AAABASBpSJ2UAD3PLxJnCt6zun4/T4sU25Bnb8jB5Q6FRXHFqAIAqE04hJoR` `C:/Temp/data``
+aws ebs get-snapshot-block --snapshot-id {{snap-1234567890}} --block-index {{6001}} --block-token {{AAABASBpSJ2UAD3PLxJnCt6zun4/T4sU25Bnb8jB5Q6FRXHFqAIAqE04hJoR}} {{C:/Temp/data}}
 ```
 
-The following example response for the previous command shows the size of the data
-returned, the checksum to validate the data, and the algorithm of the checksum. The
-binary data is automatically saved to the directory and file you specified in the
-request command.
+The following example response for the previous command shows the size of the data returned, the checksum to validate the data, and the algorithm of the checksum. The binary data is automatically saved to the directory and file you specified in the request command.
 
 ```
 {
@@ -310,25 +260,21 @@ request command.
   }
 ```
 
-AWS API
-The following [GetSnapshotBlock](../APIReference/API_GetSnapshotBlock.md "../APIReference/API_GetSnapshotBlock.md")
-example request returns the data in the block index `3072` with block token
-`AAUBARGCaufCqBRZC8tEkPYGGkSv3vqvOjJ2xKDi3ljDFiytUxBLXYgTmkid`, in snapshot
-`snap-0c9EXAMPLE1b30e2f`.
+------
+#### [ AWS API ]
+
+The following [GetSnapshotBlock](https://docs.aws.amazon.com/ebs/latest/APIReference/API_GetSnapshotBlock.html) example request returns the data in the block index `3072` with block token `AAUBARGCaufCqBRZC8tEkPYGGkSv3vqvOjJ2xKDi3ljDFiytUxBLXYgTmkid`, in snapshot `snap-0c9EXAMPLE1b30e2f`.
 
 ```
-GET /snapshots/`snap-0c9EXAMPLE1b30e2f`/blocks/`3072`?blockToken=`AAUBARGCaufCqBRZC8tEkPYGGkSv3vqvOjJ2xKDi3ljDFiytUxBLXYgTmkid` HTTP/1.1
+GET /snapshots/{{snap-0c9EXAMPLE1b30e2f}}/blocks/{{3072}}?blockToken={{AAUBARGCaufCqBRZC8tEkPYGGkSv3vqvOjJ2xKDi3ljDFiytUxBLXYgTmkid}} HTTP/1.1
   Host: ebs.us-east-2.amazonaws.com
   Accept-Encoding: identity
-  User-Agent: `<User agent parameter>`
+  User-Agent: {{<User agent parameter>}}
   X-Amz-Date: 20200617T232838Z
-  Authorization: `<Authentication parameter>`
+  Authorization: {{<Authentication parameter>}}
 ```
 
-The following example response for the previous request shows the size of the data
-returned, the checksum to validate the data, and the algorithm used to generate the
-checksum. The binary data is transmitted in the body of the response and is represented
-as `BlockData` in the following example.
+The following example response for the previous request shows the size of the data returned, the checksum to validate the data, and the algorithm used to generate the checksum. The binary data is transmitted in the body of the response and is represented as {{BlockData}} in the following example.
 
 ```
 HTTP/1.1 200 OK
@@ -340,6 +286,8 @@ HTTP/1.1 200 OK
   Content-Length: 524288
   Date: Wed, 17 Jun 2020 23:28:38 GMT
   Connection: keep-alive
-
-  `BlockData`
+  
+  {{BlockData}}
 ```
+
+------

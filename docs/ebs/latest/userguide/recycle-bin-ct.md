@@ -1,75 +1,55 @@
+
+
 # Monitor Recycle Bin using AWS CloudTrail
+<a name="recycle-bin-ct"></a>
 
-The Recycle Bin service is integrated with AWS CloudTrail. CloudTrail is a service that provides a
-record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls
-performed in Recycle Bin as events. If you create a trail, you can enable continuous delivery
-of CloudTrail events to an Amazon Simple Storage Service (Amazon S3) bucket. If you don't configure a trail, you can still
-view the most recent management events in the CloudTrail console in **Event history**.
-You can use the information collected by CloudTrail to determine the request that was made to
-Recycle Bin, the IP address from which the request was made, who made the request, when it
-was made, and additional details.
+The Recycle Bin service is integrated with AWS CloudTrail. CloudTrail is a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls performed in Recycle Bin as events. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon Simple Storage Service (Amazon S3) bucket. If you don't configure a trail, you can still view the most recent management events in the CloudTrail console in **Event history**. You can use the information collected by CloudTrail to determine the request that was made to Recycle Bin, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-For more information about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+For more information about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## Recycle Bin information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When supported event
-activity occurs in Recycle Bin, that activity is recorded in a CloudTrail event along with
-other AWS service events in **Event history**. You can view, search, and
-download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event
-History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When supported event activity occurs in Recycle Bin, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 
-For an ongoing record of events in your AWS account, including events for Recycle Bin,
-create a trail. A _trail_ enables CloudTrail to deliver log files to an S3 bucket.
-By default, when you create a trail in the console, the trail applies to all AWS Regions.
-The trail logs events from all Regions in the AWS partition and delivers the log files to
-the S3 bucket that you specify. Additionally, you can configure other AWS services to further
-analyze and act upon the event data collected in CloudTrail logs. For more information, see
-[Overview for creating a
-trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md") in the _AWS CloudTrail User Guide_.
+For an ongoing record of events in your AWS account, including events for Recycle Bin, create a trail. A *trail* enables CloudTrail to deliver log files to an S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see [Overview for creating a trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) in the *AWS CloudTrail User Guide*.
 
 ### Supported API actions
+<a name="supported-actions"></a>
 
-For Recycle Bin, you can use CloudTrail to log the following API actions as _management
-events._
+For Recycle Bin, you can use CloudTrail to log the following API actions as *management events.*
++ CreateRule
++ UpdateRule
++ GetRules
++ ListRule
++ DeleteRule
++ TagResource
++ UntagResource
++ ListTagsForResource
++ LockRule
++ UnlockRule
 
-- CreateRule
-- UpdateRule
-- GetRules
-- ListRule
-- DeleteRule
-- TagResource
-- UntagResource
-- ListTagsForResource
-- LockRule
-- UnlockRule
-
-For more information about logging management events, see [Logging
-management events for trails](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md") in the _CloudTrail User Guide_.
+For more information about logging management events, see [Logging management events for trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html) in the *CloudTrail User Guide*.
 
 ### Identity information
+<a name="identity-information"></a>
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root user or user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-- Whether the request was made with root user or user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentityElement](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [ CloudTrail userIdentityElement](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Understand Recycle Bin log file entries
+<a name="understanding-rbin-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an S3 bucket that you
-specify. CloudTrail log files contain one or more log entries. An event represents a single request from
-any source and includes information about the requested action, the date and time of the action,
-request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls,
-so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
 The following are example CloudTrail log entries.
 
-CreateRule
+------
+#### [ CreateRule ]
 
 ```
 {
@@ -127,7 +107,8 @@ CreateRule
 	}
 ```
 
-GetRule
+------
+#### [ GetRule ]
 
 ```
 {
@@ -178,7 +159,8 @@ GetRule
 	}
 ```
 
-ListRules
+------
+#### [ ListRules ]
 
 ```
 {
@@ -234,7 +216,8 @@ ListRules
 	}
 ```
 
-UpdateRule
+------
+#### [ UpdateRule ]
 
 ```
 {
@@ -291,7 +274,8 @@ UpdateRule
 	}
 ```
 
-DeleteRule
+------
+#### [ DeleteRule ]
 
 ```
 {
@@ -342,7 +326,8 @@ DeleteRule
 	}
 ```
 
-TagResource
+------
+#### [ TagResource ]
 
 ```
 {
@@ -399,7 +384,8 @@ TagResource
 	}
 ```
 
-UntagResource
+------
+#### [ UntagResource ]
 
 ```
 {
@@ -453,7 +439,8 @@ UntagResource
 	}
 ```
 
-ListTagsForResource
+------
+#### [ ListTagsForResource ]
 
 ```
 {
@@ -504,7 +491,8 @@ ListTagsForResource
 	}
 ```
 
-LockRule
+------
+#### [ LockRule ]
 
 ```
 {
@@ -578,7 +566,8 @@ LockRule
 	}
 ```
 
-UnlockRule
+------
+#### [ UnlockRule ]
 
 ```
 {
@@ -646,3 +635,5 @@ UnlockRule
 	}
 	}
 ```
+
+------

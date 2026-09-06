@@ -1,59 +1,41 @@
+
+
 # Create an inventory of your EBS volumes
+<a name="ebs-data-inventory"></a>
 
-Amazon EBS provides scalable, high-performance block storage resources that can be
-used with EC2 instances. You can attach an EBS volume to an EC2 instance. You can
-also detach an EBS volume from an EC2 instance.
+Amazon EBS provides scalable, high-performance block storage resources that can be used with EC2 instances. You can attach an EBS volume to an EC2 instance. You can also detach an EBS volume from an EC2 instance.
 
-The following are the key characteristics of EBS storage.
-A system administrator can get information about these characteristics for your
-EBS resources and use it to configure functionally equivalent storage for servers
-that you run on premises or servers from another Cloud Provider. A system
-administrator can also retrieve the data stored in your EBS resources and then
-store the data on premises or in storage from another Cloud Provider.
+The following are the key characteristics of EBS storage. A system administrator can get information about these characteristics for your EBS resources and use it to configure functionally equivalent storage for servers that you run on premises or servers from another Cloud Provider. A system administrator can also retrieve the data stored in your EBS resources and then store the data on premises or in storage from another Cloud Provider.
 
-| Characteristic                                                                              | Description                                                                                                                                            |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Volumes](#ebs-data-volumes "#ebs-data-volumes")                                            | An EBS volume is a durable, block-level storage device that you<br>can attach to an instance, format, and mount.                                       |
-| [I/O performance](#ebs-data-io-performance "#ebs-data-io-performance")                      | Amazon EBS provides multiple volume types, which differ in terms of<br>performance characteristics and price.                                          |
-| [Contents of your EBS data volumes](#ebs-data-transfer-files "#ebs-data-transfer-files")    | The only way to directly access the data on a volume is from the instance.                                                                             |
-| [Snapshots](#ebs-data-snapshots "#ebs-data-snapshots")                                      | An EBS snapshot is a point-in-time copy of the data on an EBS volume.<br>Snapshots are stored in Amazon S3, in buckets that you can't access directly. |
-| [Contents of your EBS snapshots](#ebs-data-snapshot-contents "#ebs-data-snapshot-contents") | You can read data from your snapshots, or use them to create volumes.                                                                                  |
+
+| Characteristic | Description | 
+| --- | --- | 
+| [Volumes](#ebs-data-volumes) | An EBS volume is a durable, block-level storage device that you can attach to an instance, format, and mount. | 
+| [I/O performance](#ebs-data-io-performance) | Amazon EBS provides multiple volume types, which differ in terms of performance characteristics and price. | 
+| [Contents of your EBS data volumes](#ebs-data-transfer-files) | The only way to directly access the data on a volume is from the instance. | 
+| [Snapshots](#ebs-data-snapshots) | An EBS snapshot is a point-in-time copy of the data on an EBS volume. Snapshots are stored in Amazon S3, in buckets that you can't access directly. | 
+| [Contents of your EBS snapshots](#ebs-data-snapshot-contents) | You can read data from your snapshots, or use them to create volumes. | 
 
 ## Volumes
+<a name="ebs-data-volumes"></a>
 
-When you create an EBS volume, you select an Availability Zone for the volume. You
-must attach an EBS volume to an EC2 instance in the same Availability Zone. You can
-create volumes when you launch an EC2 instance, or create them first and then attach them to
-an instance. If a volume is attached to an instance, its status is `in-use`.
-If a volume is not attached to an instance, its status is `available`.
+When you create an EBS volume, you select an Availability Zone for the volume. You must attach an EBS volume to an EC2 instance in the same Availability Zone. You can create volumes when you launch an EC2 instance, or create them first and then attach them to an instance. If a volume is attached to an instance, its status is `in-use`. If a volume is not attached to an instance, its status is `available`.
 
-###### Why these matter
+**Why these matter**  
+EBS root volumes contain the operating system for your EC2 instances. EBS data volumes can contain business critical data. You can list your EBS volumes across all Regions and whether they are attached to EC2 instances.
 
-EBS root volumes contain the operating system for your EC2 instances. EBS data volumes
-can contain business critical data. You can list your EBS volumes across all Regions and
-whether they are attached to EC2 instances.
+**To get a summary of your EBS volumes across all Regions**
 
-###### To get a summary of your EBS volumes across all Regions
+You can use [Amazon EC2 Global View](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/global-view.html) to list your EBS volumes across all Regions.
 
-You can use [Amazon EC2 Global View](../../../AWSEC2/latest/UserGuide/global-view.md "../../../AWSEC2/latest/UserGuide/global-view.md")
-to list your EBS volumes across all Regions.
+1. Open the Amazon EC2 Global View console at [https://console.aws.amazon.com/ec2globalview/home](https://console.aws.amazon.com/ec2globalview/home).
 
-1. Open the Amazon EC2 Global View console at [https://console.aws.amazon.com/ec2globalview/home](https://console.aws.amazon.com/ec2globalview/home "https://console.aws.amazon.com/ec2globalview/home").
-2. On the **Region explorer** tab, under **Summary**,
-   check the resource count for **Volumes**, which includes
-   the number of volumes and the number of Regions. Choose the underlined text
-   to see how the volume count is spread across Regions.
-3. On the **Global search** tab, select the client filter
-   **Resource type = Volume**. You can filter the results
-   further by specifying a Region or a tag.
+1. On the **Region explorer** tab, under **Summary**, check the resource count for **Volumes**, which includes the number of volumes and the number of Regions. Choose the underlined text to see how the volume count is spread across Regions.
 
-###### To describe the EBS volumes that are in use
+1. On the **Global search** tab, select the client filter **Resource type = Volume**. You can filter the results further by specifying a Region or a tag.
 
-Use the [describe-volumes](../../../cli/latest/reference/ec2/describe-volumes.md "../../../cli/latest/reference/ec2/describe-volumes.md") command.
-You must run this command in each Region where you have EBS volumes.
-The `--filters` parameter scopes the results to volumes that are `in-use`.
-The `--query` parameter displays only the specified fields in the output.
-You can include additional fields as needed.
+**To describe the EBS volumes that are in use**  
+Use the [describe-volumes](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html) command. You must run this command in each Region where you have EBS volumes. The `--filters` parameter scopes the results to volumes that are `in-use`. The `--query` parameter displays only the specified fields in the output. You can include additional fields as needed.
 
 ```
 aws ec2 describe-volumes \
@@ -62,8 +44,7 @@ aws ec2 describe-volumes \
     --output table
 ```
 
-The following is example output. The columns are volume ID, volume size, ID of the attached
-instance, and the device name.
+The following is example output. The columns are volume ID, volume size, ID of the attached instance, and the device name.
 
 ```
 ---------------------------------------------------------------------
@@ -77,42 +58,25 @@ instance, and the device name.
 +------------------------+-----+-----------------------+------------+
 ```
 
-###### To describe the EBS volumes that are not in use
-
-In the previous command, modify the filter to find volumes with a status of
-`available` as follows.
+**To describe the EBS volumes that are not in use**  
+In the previous command, modify the filter to find volumes with a status of `available` as follows.
 
 ```
 --filters Name=status,Values=available
 ```
 
-If a volume is unused, you should determine whether it has data that you need. For example,
-you can delete volumes that were created for testing purposes or to troubleshoot an issue.
-A volume might also be available if the block device that attached the volume to the instance
-was [configured to persist](../../../AWSEC2/latest/UserGuide/preserving-volumes-on-termination.md "../../../AWSEC2/latest/UserGuide/preserving-volumes-on-termination.md") after instance termination. If this is the case, verify
-whether the data on the volume is still needed.
+If a volume is unused, you should determine whether it has data that you need. For example, you can delete volumes that were created for testing purposes or to troubleshoot an issue. A volume might also be available if the block device that attached the volume to the instance was [configured to persist](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) after instance termination. If this is the case, verify whether the data on the volume is still needed.
 
 ## I/O performance
+<a name="ebs-data-io-performance"></a>
 
-The volume type that you specify for an EBS volume determines its performance. Depending on
-the volume type, you can specify a combination of size, IOPS, and throughput for your
-volumes. For information about the maximum provisioned IOPS and throughput for each
-volume type, see [Amazon EBS volume
-types](../../../AWSEC2/latest/UserGuide/ebs-volume-types.md "../../../AWSEC2/latest/UserGuide/ebs-volume-types.md").
+The volume type that you specify for an EBS volume determines its performance. Depending on the volume type, you can specify a combination of size, IOPS, and throughput for your volumes. For information about the maximum provisioned IOPS and throughput for each volume type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html).
 
-###### Why this matters
+**Why this matters**  
+After you determine the performance of your EBS volumes, you can decide the minimum specifications required for functionally equivalent storage.
 
-After you determine the performance of your EBS volumes, you can decide
-the minimum specifications required for functionally equivalent storage.
-
-###### To get information about the performance of your volumes
-
-Use the [describe-volumes](../../../cli/latest/reference/ec2/describe-volumes.md "../../../cli/latest/reference/ec2/describe-volumes.md")
-command to describe the performance for your volumes that are in use. The
-`--query` parameter displays only the specified fields in the output.
-You can include additional fields as needed. For information about EBS-optimized
-performance, refer to [Amazon EC2 instance type specifications](../../../ec2/latest/instancetypes/ec2-instance-type-specifications.md "../../../ec2/latest/instancetypes/ec2-instance-type-specifications.md") in the
-_Amazon EC2 Instance Types Guide_.
+**To get information about the performance of your volumes**  
+Use the [describe-volumes](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html) command to describe the performance for your volumes that are in use. The `--query` parameter displays only the specified fields in the output. You can include additional fields as needed. For information about EBS-optimized performance, refer to [Amazon EC2 instance type specifications](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-type-specifications.html) in the *Amazon EC2 Instance Types Guide*.
 
 ```
 aws ec2 describe-volumes \
@@ -136,58 +100,39 @@ The following is example output. The columns are volume ID, volume type, IOPS, a
 ```
 
 ## Contents of your EBS data volumes
+<a name="ebs-data-transfer-files"></a>
 
-Amazon EBS does not have access to the data that you store on your EBS volumes. You are
-responsible for backing up your data volumes. For example, you can create point-in-time
-snapshots, known as EBS snapshots.
+Amazon EBS does not have access to the data that you store on your EBS volumes. You are responsible for backing up your data volumes. For example, you can create point-in-time snapshots, known as EBS snapshots.
 
-You can also connect to your EC2 instances and transfer files from your EBS volumes
-to your own computer. There are many tools available to help you do this. The following
-are examples.
+You can also connect to your EC2 instances and transfer files from your EBS volumes to your own computer. There are many tools available to help you do this. The following are examples.
 
-###### Why this matters
+**Why this matters**  
+If you have business critical data on your EBS volumes, you can copy it to functionally equivalent storage.
 
-If you have business critical data on your EBS volumes, you can copy it to
-functionally equivalent storage.
+**To transfer files from a volume attached to a Linux instance**  
+Connect to your Linux instance and use SCP. For more information, see [Transfer files using SCP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/linux-file-transfer-scp.html).
 
-###### To transfer files from a volume attached to a Linux instance
-
-Connect to your Linux instance and use SCP. For more information, see [Transfer files using
-SCP](../../../AWSEC2/latest/UserGuide/linux-file-transfer-scp.md "../../../AWSEC2/latest/UserGuide/linux-file-transfer-scp.md").
-
-###### To transfer files from a volume attached to a Windows instance
-
-Connect to your Windows instance and use RDP. For more information, see
-[Transfer files using RDP](../../../AWSEC2/latest/UserGuide/connect-to-linux-instanceWindowsFileTransfer.md "../../../AWSEC2/latest/UserGuide/connect-to-linux-instanceWindowsFileTransfer.md").
+**To transfer files from a volume attached to a Windows instance**  
+Connect to your Windows instance and use RDP. For more information, see [Transfer files using RDP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-linux-instanceWindowsFileTransfer.html).
 
 ## Snapshots
+<a name="ebs-data-snapshots"></a>
 
-You can back up your EBS data volumes by creating EBS snapshots. You can create
-EBS snapshots using [Amazon EBS](ebs-snapshots.md "ebs-snapshots.md"),
-[Amazon Data Lifecycle Manager](snapshot-lifecycle.md "snapshot-lifecycle.md"), or [AWS Backup](../../../aws-backup/latest/devguide/working-with-supported-services.md#working-with-ebs "../../../aws-backup/latest/devguide/working-with-supported-services.md#working-with-ebs").
+You can back up your EBS data volumes by creating EBS snapshots. You can create EBS snapshots using [Amazon EBS](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html), [Amazon Data Lifecycle Manager](https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-lifecycle.html), or [AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/working-with-supported-services.html#working-with-ebs).
 
-###### Why this matters
+**Why this matters**  
+If you have business critical data on your EBS volumes, most likely you're creating backups in the form of EBS snapshots. You can find the most recent snapshots of your volumes and verify that they reflect the current data on the volumes.
 
-If you have business critical data on your EBS volumes, most likely you're
-creating backups in the form of EBS snapshots. You can find the most recent
-snapshots of your volumes and verify that they reflect the current data on
-the volumes.
-
-###### To describe the snapshots for a specific volume
-
-Use the [describe-snapshots](../../../cli/latest/reference/ec2/describe-snapshots.md "../../../cli/latest/reference/ec2/describe-snapshots.md")
-command. The `--filters` parameter scopes the results to snapshots
-for the specified volume. The `--query` parameter displays only the
-specified fields in the output. You can include additional fields as needed.
+**To describe the snapshots for a specific volume**  
+Use the [describe-snapshots](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html) command. The `--filters` parameter scopes the results to snapshots for the specified volume. The `--query` parameter displays only the specified fields in the output. You can include additional fields as needed.
 
 ```
 aws ec2 describe-snapshots \
-    --filters Name=volume-id,Values=`vol-00622ef8c2ac8b762` \
+    --filters Name=volume-id,Values={{vol-00622ef8c2ac8b762}} \
     --query Snapshots[*].[SnapshotId,CompletionTime,Description] --output table
 ```
 
-The following is example output. The columns are snapshot ID, completion date, and whether the
-volume is encrypted.
+The following is example output. The columns are snapshot ID, completion date, and whether the volume is encrypted.
 
 ```
 -------------------------------------------------------------------------
@@ -198,44 +143,37 @@ volume is encrypted.
 ```
 
 ## Contents of your EBS snapshots
+<a name="ebs-data-snapshot-contents"></a>
 
-You can't download or export the contents of an EBS snapshot to another format.
-However, you can access the data in your snapshots by using the EBS direct APIs,
-or by creating an EBS volume from the snapshot and transferring the files.
+You can't download or export the contents of an EBS snapshot to another format. However, you can access the data in your snapshots by using the EBS direct APIs, or by creating an EBS volume from the snapshot and transferring the files.
 
-###### Why this matters
+**Why this matters**  
+If you have business critical data on your EBS volumes, most likely you're creating backups in the form of EBS snapshots. You can retrieve this data and copy it to functionally equivalent storage.
 
-If you have business critical data on your EBS volumes, most likely you're
-creating backups in the form of EBS snapshots. You can retrieve this data and
-copy it to functionally equivalent storage.
+**Option 1: To read data from your snapshots**  
+Use the [EBS direct APIs](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-accessing-snapshot.html).
 
-###### Option 1: To read data from your snapshots
+**Option 2: To create a volume from a snapshot and transfer the data**
 
-Use the [EBS direct APIs](ebs-accessing-snapshot.md "ebs-accessing-snapshot.md").
+1. Use the [create-volume](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-volume.html) command to create a volume from the snapshot.
 
-###### Option 2: To create a volume from a snapshot and transfer the data
+   ```
+    aws ec2 create-volume \
+       --volume-type {{gp3}} \
+       --snapshot-id {{snap-0ad439c50efabb47c}} \
+       --iops {{6000}} \
+       --availability-zone {{us-east-2b}}
+   ```
 
-1. Use the [create-volume](../../../cli/latest/reference/ec2/create-volume.md "../../../cli/latest/reference/ec2/create-volume.md") command to create a volume from the snapshot.
+1. Use the [attach-volume](https://docs.aws.amazon.com/cli/latest/reference/ec2/attach-volume.html) command to attach the volume to an instance.
 
-```
- aws ec2 create-volume \
-    --volume-type `gp3` \
-    --snapshot-id `snap-0ad439c50efabb47c` \
-    --iops `6000` \
-    --availability-zone `us-east-2b`
-```
+   ```
+    aws ec2 attach-volume \
+       --device {{/dev/sdf}} \
+       --instance-id {{i-0b1bf24fd4f297ab9}} \
+       --volume-id {{vol-1234567890abcdef0}}
+   ```
 
-2. Use the [attach-volume](../../../cli/latest/reference/ec2/attach-volume.md "../../../cli/latest/reference/ec2/attach-volume.md")
-   command to attach the volume to an instance.
+1. Connect to your instance and [format and mount](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html) the volume.
 
-```
- aws ec2 attach-volume \
-    --device `/dev/sdf` \
-    --instance-id `i-0b1bf24fd4f297ab9` \
-    --volume-id `vol-1234567890abcdef0`
-```
-
-3. Connect to your instance and [format and mount](ebs-using-volumes.md "ebs-using-volumes.md")
-   the volume.
-4. [Transfer the files](#ebs-data-transfer-files "#ebs-data-transfer-files") on the volume
-   to your own computer.
+1. [Transfer the files](#ebs-data-transfer-files) on the volume to your own computer.

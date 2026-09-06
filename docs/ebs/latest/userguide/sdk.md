@@ -1,26 +1,25 @@
+
+
 # AWS SDK code examples for EBS direct APIs
+<a name="sdk"></a>
 
-The following code examples show how to use EBS direct APIs with an AWS software development kit (SDK).
+The following code examples show how to use EBS direct APIs with an AWS software development kit (SDK). 
 
-###### Actions
-
-- [StartSnapshot](#sdk-StartSnapshot "#sdk-StartSnapshot")
-- [PutSnapshotBlock](#sdk-PutSnapshotBlock "#sdk-PutSnapshotBlock")
-- [CompleteSnapshot](#sdk-CompleteSnapshot "#sdk-CompleteSnapshot")
+**Topics**
++ [StartSnapshot](#sdk-StartSnapshot)
++ [PutSnapshotBlock](#sdk-PutSnapshotBlock)
++ [CompleteSnapshot](#sdk-CompleteSnapshot)
 
 ## Use `StartSnapshot` with an AWS SDK or CLI
+<a name="sdk-StartSnapshot"></a>
 
 The following code example shows how to use `StartSnapshot`.
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ebs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ebs#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ebs#code-examples). 
 
 ```
 async fn start(client: &Client, description: &str) -> Result<String, Error> {
@@ -34,27 +33,21 @@ async fn start(client: &Client, description: &str) -> Result<String, Error> {
 
     Ok(snapshot.snapshot_id.unwrap())
 }
-
-
 ```
++  For API details, see [StartSnapshot](https://docs.rs/aws-sdk-ebs/latest/aws_sdk_ebs/client/struct.Client.html#method.start_snapshot) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [StartSnapshot](https://docs.rs/aws-sdk-ebs/latest/aws_sdk_ebs/client/struct.Client.html#method.start_snapshot "https://docs.rs/aws-sdk-ebs/latest/aws_sdk_ebs/client/struct.Client.html#method.start_snapshot")
-  in _AWS SDK for Rust API reference_.
+------
 
 ## Use `PutSnapshotBlock` with an AWS SDK or CLI
+<a name="sdk-PutSnapshotBlock"></a>
 
 The following code example shows how to use `PutSnapshotBlock`.
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ebs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ebs#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ebs#code-examples). 
 
 ```
 async fn add_block(
@@ -77,27 +70,21 @@ async fn add_block(
 
     Ok(())
 }
-
-
 ```
++  For API details, see [PutSnapshotBlock](https://docs.rs/aws-sdk-ebs/latest/aws_sdk_ebs/client/struct.Client.html#method.put_snapshot_block) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [PutSnapshotBlock](https://docs.rs/aws-sdk-ebs/latest/aws_sdk_ebs/client/struct.Client.html#method.put_snapshot_block "https://docs.rs/aws-sdk-ebs/latest/aws_sdk_ebs/client/struct.Client.html#method.put_snapshot_block")
-  in _AWS SDK for Rust API reference_.
+------
 
 ## Use `CompleteSnapshot` with an AWS SDK or CLI
+<a name="sdk-CompleteSnapshot"></a>
 
 The following code example shows how to use `CompleteSnapshot`.
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ebs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ebs#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ebs#code-examples). 
 
 ```
 async fn finish(client: &Client, id: &str) -> Result<(), Error> {
@@ -114,10 +101,7 @@ async fn finish(client: &Client, id: &str) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [CompleteSnapshot](https://docs.rs/aws-sdk-ebs/latest/aws_sdk_ebs/client/struct.Client.html#method.complete_snapshot) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CompleteSnapshot](https://docs.rs/aws-sdk-ebs/latest/aws_sdk_ebs/client/struct.Client.html#method.complete_snapshot "https://docs.rs/aws-sdk-ebs/latest/aws_sdk_ebs/client/struct.Client.html#method.complete_snapshot")
-  in _AWS SDK for Rust API reference_.
+------

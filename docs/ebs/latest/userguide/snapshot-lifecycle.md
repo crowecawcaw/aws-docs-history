@@ -1,32 +1,32 @@
+
+
 # Automate backups with Amazon Data Lifecycle Manager
+<a name="snapshot-lifecycle"></a>
 
-You can use Amazon Data Lifecycle Manager to automate the creation, retention, and deletion of EBS snapshots and
-EBS-backed AMIs. When you automate snapshot and AMI management, it helps you to:
+You can use Amazon Data Lifecycle Manager to automate the creation, retention, and deletion of EBS snapshots and EBS-backed AMIs. When you automate snapshot and AMI management, it helps you to:
++ Protect valuable data by enforcing a regular backup schedule.
++ Create standardized AMIs that can be refreshed at regular intervals.
++ Retain backups as required by auditors or internal compliance.
++ Reduce storage costs by deleting outdated backups.
++ Create disaster recovery backup policies that back up data to isolated Regions or accounts.
 
-- Protect valuable data by enforcing a regular backup schedule.
-- Create standardized AMIs that can be refreshed at regular intervals.
-- Retain backups as required by auditors or internal compliance.
-- Reduce storage costs by deleting outdated backups.
-- Create disaster recovery backup policies that back up data to isolated Regions
-  or accounts.
-  Combined with Amazon EventBridge and AWS CloudTrail monitoring, Amazon Data Lifecycle Manager provides a complete backup
-  solution for Amazon EC2 instances and EBS volumes at no additional cost.
+Combined with Amazon EventBridge and AWS CloudTrail monitoring, Amazon Data Lifecycle Manager provides a complete backup solution for Amazon EC2 instances and EBS volumes at no additional cost.
 
-###### Important
+**Important**  
+Amazon Data Lifecycle Manager can't manage snapshots or AMIs created by any other means.
+Amazon Data Lifecycle Manager can't automate the creation, retention, and deletion of instance store-backed AMIs.
 
-- Amazon Data Lifecycle Manager can't manage snapshots or AMIs created by any other means.
-- Amazon Data Lifecycle Manager can't automate the creation, retention, and deletion of instance
-  store-backed AMIs.
-  Amazon Data Lifecycle Manager is assessed as a service capability of Amazon Elastic Block Store (Amazon EBS). Any [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/") (FedRAMP,
-  HIPAA BAA, SOC, etc) which lists Amazon EBS will also apply to Amazon Data Lifecycle Manager.
+Amazon Data Lifecycle Manager is assessed as a service capability of Amazon Elastic Block Store (Amazon EBS). Any [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/) (FedRAMP, HIPAA BAA, SOC, etc) which lists Amazon EBS will also apply to Amazon Data Lifecycle Manager.
 
 ## Quotas
+<a name="dlm-quotas"></a>
 
 Your AWS account has the following quotas related to Amazon Data Lifecycle Manager:
 
-| Description                                     | Quota |
-| ----------------------------------------------- | ----- |
-| Custom lifecycle policies per Region            | 100   |
-| Default policies for EBS snapshots per Region   | 1     |
-| Default policies for EBS-backed AMIs per Region | 1     |
-| Tags per resource                               | 45    |
+
+| Description | Quota | 
+| --- | --- | 
+| Custom lifecycle policies per Region | 100 | 
+| Default policies for EBS snapshots per Region | 1 | 
+| Default policies for EBS-backed AMIs per Region | 1 | 
+| Tags per resource | 45 | 

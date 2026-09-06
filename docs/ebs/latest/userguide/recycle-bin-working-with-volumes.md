@@ -1,42 +1,35 @@
+
+
 # Recover deleted volumes from the Recycle Bin
+<a name="recycle-bin-working-with-volumes"></a>
 
 This topic explains how to recover Amazon EBS volumes from the Recycle Bin.
 
-###### Topics
-
-- [Permissions for working with volumes in the Recycle Bin](#volume-perms "#volume-perms")
-- [View volumes in the Recycle Bin](#recycle-bin-view-volumes "#recycle-bin-view-volumes")
-- [Restore volumes from the Recycle Bin](#recycle-bin-restore-volumes "#recycle-bin-restore-volumes")
+**Topics**
++ [Permissions for working with volumes in the Recycle Bin](#volume-perms)
++ [View volumes in the Recycle Bin](#recycle-bin-view-volumes)
++ [Restore volumes from the Recycle Bin](#recycle-bin-restore-volumes)
 
 ## Permissions for working with volumes in the Recycle Bin
+<a name="volume-perms"></a>
 
-By default, users don't have permission to work with volumes that are in the
-Recycle Bin. To allow users to work with these resources, you must create IAM policies
-that grant permission to use specific resources and API actions. After the policies are
-created, you must add permissions to your users, groups, or roles.
+By default, users don't have permission to work with volumes that are in the Recycle Bin. To allow users to work with these resources, you must create IAM policies that grant permission to use specific resources and API actions. After the policies are created, you must add permissions to your users, groups, or roles.
 
-To view and recover volumes that are in the Recycle Bin, users must have
-the following permissions:
+To view and recover volumes that are in the Recycle Bin, users must have the following permissions:
++ `ec2:ListVolumesInRecycleBin`
++ `ec2:RestoreVolumeFromRecycleBin`
 
-- `ec2:ListVolumesInRecycleBin`
-- `ec2:RestoreVolumeFromRecycleBin`
+To manage tags for volumes in the Recycle Bin, users need the following additional permissions.
++ `ec2:CreateTags`
++ `ec2:DeleteTags`
 
-To manage tags for volumes in the Recycle Bin, users need the following additional
-permissions.
+To use the Recycle Bin console, users need the `ec2:DescribeTags` permission.
 
-- `ec2:CreateTags`
-- `ec2:DeleteTags`
-
-To use the Recycle Bin console, users need the `ec2:DescribeTags`
-permission.
-
-The following is an example IAM policy. It includes the `ec2:DescribeTags` permission
-for console users, and it includes the `ec2:CreateTags` and `ec2:DeleteTags`
-permissions for managing tags. If the permissions are not needed, you can remove them from the policy.
+The following is an example IAM policy. It includes the `ec2:DescribeTags` permission for console users, and it includes the `ec2:CreateTags` and `ec2:DeleteTags` permissions for managing tags. If the permissions are not needed, you can remove them from the policy.
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "AllowRecycleBinVolumeOperations",
@@ -45,7 +38,7 @@ permissions for managing tags. If the permissions are not needed, you can remove
         "ec2:ListVolumesInRecycleBin",
         "ec2:RestoreVolumeFromRecycleBin"
       ],
-      "Resource": "arn:aws:ec2:*:`123456789012`:volume/*"
+      "Resource": "arn:aws:ec2:*:{{123456789012}}:volume/*"
     },
     {
       "Sid": "AllowVolumeTagOperations",
@@ -55,67 +48,59 @@ permissions for managing tags. If the permissions are not needed, you can remove
         "ec2:DeleteTags",
         "ec2:DescribeTags"
       ],
-      "Resource": "arn:aws:ec2:*:`123456789012`:volume/*"
+      "Resource": "arn:aws:ec2:*:{{123456789012}}:volume/*"
     }
   ]
 }
 ```
 
 To provide access, add permissions to your users, groups, or roles:
++ Users and groups in AWS IAM Identity Center:
 
-- Users and groups in AWS IAM Identity Center:
+  Create a permission set. Follow the instructions in [Create a permission set](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) in the *AWS IAM Identity Center User Guide*.
++ Users managed in IAM through an identity provider:
 
-Create a permission set. Follow the instructions in [Create a permission set](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md") in the _AWS IAM Identity Center User Guide_.
+  Create a role for identity federation. Follow the instructions in [Create a role for a third-party identity provider (federation)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html) in the *IAM User Guide*.
++ IAM users:
+  + Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in the *IAM User Guide*.
+  + (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*.
 
-- Users managed in IAM through an identity provider:
-
-Create a role for identity federation. Follow the instructions in [Create a role for a third-party identity provider (federation)](../../../IAM/latest/UserGuide/id_roles_create_for-idp.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp.md")
-in the _IAM User Guide_.
-
-- IAM users:
-
-  - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
-  - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
-
-For more information about the permissions needed to use Recycle Bin, see [Permissions for working with Recycle Bin and retention rules](recycle-bin-perms.md#rule-perms "recycle-bin-perms.md#rule-perms").
+For more information about the permissions needed to use Recycle Bin, see [Permissions for working with Recycle Bin and retention rules](recycle-bin-perms.md#rule-perms).
 
 ## View volumes in the Recycle Bin
+<a name="recycle-bin-view-volumes"></a>
 
 While a volume is in the Recycle Bin, you can view limited information about it, including:
-
-- The ID of the volume.
-- The size of the volume.
-- The volume type.
-- The date and time when the volume was deleted and it entered Recycle Bin.
-- The date and time when the retention period expires. The volume will be permanently
-  deleted from the Recycle Bin at this time.
++ The ID of the volume.
++ The size of the volume.
++ The volume type.
++ The date and time when the volume was deleted and it entered Recycle Bin.
++ The date and time when the retention period expires. The volume will be permanently deleted from the Recycle Bin at this time.
 
 You can view the volumes in the Recycle Bin using one of the following methods.
 
-Recycle Bin console
+------
+#### [ Recycle Bin console ]
 
-###### To view volumes in the Recycle Bin using the console
+**To view volumes in the Recycle Bin using the console**
 
-1. Open the Recycle Bin console at [https://console.aws.amazon.com/rbin/home/](https://console.aws.amazon.com/rbin/home/ "https://console.aws.amazon.com/rbin/home/")
-2. In the navigation pane, choose **Recycle Bin**.
-3. The grid lists all of the volumes that are currently in the Recycle Bin. To view the
-   details for a specific volume, select it in the grid and choose **Actions**,
-   **View details**.
+1. Open the Recycle Bin console at [https://console.aws.amazon.com/rbin/home/](https://console.aws.amazon.com/rbin/home/)
 
-AWS CLI
+1. In the navigation pane, choose **Recycle Bin**.
 
-###### To view volumes in the Recycle Bin using the AWS CLI
+1. The grid lists all of the volumes that are currently in the Recycle Bin. To view the details for a specific volume, select it in the grid and choose **Actions**, **View details**.
 
-Use the [list-volumes-in-recycle-bin](../../../cli/latest/reference/ec2/list-volumes-in-recycle-bin.md "../../../cli/latest/reference/ec2/list-volumes-in-recycle-bin.md") AWS CLI command. Include the `--volume-id` option to
-view a specific volume. Or omit the `--volume-id` option to view all volumes in the
-Recycle Bin.
+------
+#### [ AWS CLI ]
+
+**To view volumes in the Recycle Bin using the AWS CLI**  
+Use the [ list-volumes-in-recycle-bin](https://docs.aws.amazon.com/cli/latest/reference/ec2/list-volumes-in-recycle-bin.html) AWS CLI command. Include the `--volume-id` option to view a specific volume. Or omit the `--volume-id` option to view all volumes in the Recycle Bin.
 
 ```
-aws ec2 list-volumes-in-recycle-bin --volume-id `volume_id`
+aws ec2 list-volumes-in-recycle-bin --volume-id {{volume_id}}
 ```
 
-For example, the following command provides information about volume `vol-01234567890abcdef`
-in the Recycle Bin.
+For example, the following command provides information about volume `vol-01234567890abcdef` in the Recycle Bin.
 
 ```
 aws ec2 list-volumes-in-recycle-bin --volume-id vol-01234567890abcdef
@@ -135,38 +120,39 @@ Example output:
 }
 ```
 
-## Restore volumes from the Recycle Bin
+------
 
-You can't use a volume in any way while it is in the Recycle Bin. To use the volume,
-you must first restore it. When you restore a volume from the Recycle Bin, the volume is
-immediately available for use, and it is removed from the Recycle Bin. You can use a restored
-volume in the same way that you use any other volume in your account.
+## Restore volumes from the Recycle Bin
+<a name="recycle-bin-restore-volumes"></a>
+
+You can't use a volume in any way while it is in the Recycle Bin. To use the volume, you must first restore it. When you restore a volume from the Recycle Bin, the volume is immediately available for use, and it is removed from the Recycle Bin. You can use a restored volume in the same way that you use any other volume in your account.
 
 You can restore a volume from the Recycle Bin using one of the following methods.
 
-Recycle Bin console
+------
+#### [ Recycle Bin console ]
 
-###### To restore a volume from the Recycle Bin using the console
+**To restore a volume from the Recycle Bin using the console**
 
-1. Open the Recycle Bin console at [https://console.aws.amazon.com/rbin/home/](https://console.aws.amazon.com/rbin/home/ "https://console.aws.amazon.com/rbin/home/")
-2. In the navigation pane, choose **Recycle Bin**.
-3. The grid lists all of the volumes that are currently in the Recycle Bin. Select
-   the volume to restore and choose **Recover**.
-4. When prompted, choose **Recover**.
+1. Open the Recycle Bin console at [https://console.aws.amazon.com/rbin/home/](https://console.aws.amazon.com/rbin/home/)
 
-AWS CLI
+1. In the navigation pane, choose **Recycle Bin**.
 
-###### To restore a deleted volume from the Recycle Bin using the AWS CLI
+1. The grid lists all of the volumes that are currently in the Recycle Bin. Select the volume to restore and choose **Recover**.
 
-Use the [restore-volume-from-recycle-bin](../../../cli/latest/reference/ec2/restore-volume-from-recycle-bin.md "../../../cli/latest/reference/ec2/restore-volume-from-recycle-bin.md") AWS CLI command. For `--volume-id`,
-specify the ID of the volume to restore.
+1. When prompted, choose **Recover**.
+
+------
+#### [ AWS CLI ]
+
+**To restore a deleted volume from the Recycle Bin using the AWS CLI**  
+Use the [ restore-volume-from-recycle-bin](https://docs.aws.amazon.com/cli/latest/reference/ec2/restore-volume-from-recycle-bin.html) AWS CLI command. For `--volume-id`, specify the ID of the volume to restore.
 
 ```
-aws ec2 restore-volume-from-recycle-bin --volume-id `volume_id`
+aws ec2 restore-volume-from-recycle-bin --volume-id {{volume_id}}
 ```
 
-For example, the following command restores volume `vol-01234567890abcdef` from the
-Recycle Bin.
+For example, the following command restores volume `vol-01234567890abcdef` from the Recycle Bin.
 
 ```
 aws ec2 restore-volume-from-recycle-bin --volume-id vol-01234567890abcdef
@@ -185,3 +171,5 @@ Example output:
     "Encrypted": false
 }
 ```
+
+------
