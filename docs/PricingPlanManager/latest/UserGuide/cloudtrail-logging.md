@@ -1,14 +1,18 @@
+
+
 # Logging AWS Flat-Rate Plans Activity Using AWS CloudTrail
+<a name="cloudtrail-logging"></a>
 
-AWS Flat-Rate Plans is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") to record all console actions as events. CloudTrail captures details about each action, including the source IP address, timestamp, and user identity. Each CloudTrail event identifies whether the action was performed by:
+AWS Flat-Rate Plans is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) to record all console actions as events. CloudTrail captures details about each action, including the source IP address, timestamp, and user identity. Each CloudTrail event identifies whether the action was performed by:
++ Root user or IAM user credentials
++ IAM Identity Center user
++ Temporary security credentials (role or federated user)
++ Another AWS service
 
-- Root user or IAM user credentials
-- IAM Identity Center user
-- Temporary security credentials (role or federated user)
-- Another AWS service
-  For flat-rate plans, the `eventSource` is `pricingplanmanager.amazonaws.com`.
+For flat-rate plans, the `eventSource` is `pricingplanmanager.amazonaws.com`.
 
 ## Example CloudTrail Event for CreateSubscription
+<a name="example-event"></a>
 
 The following example shows a CloudTrail log entry that demonstrates the action.
 
@@ -73,6 +77,6 @@ The following example shows a CloudTrail log entry that demonstrates the action.
 }
 ```
 
-For more information about CloudTrail, including how to view and manage event logs, see [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+For more information about CloudTrail, including how to view and manage event logs, see [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
-###### Example
+**Example**  

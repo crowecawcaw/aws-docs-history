@@ -1,10 +1,14 @@
+
+
 # Monitoring and Managing Costs
+<a name="monitoring-costs"></a>
 
 ## AWS Cost Explorer
+<a name="cost-explorer"></a>
 
 Flat-rate plans appear in Cost Explorer as charge line items.
 
-**Example Cost Explorer Display**
+ **Example Cost Explorer Display** 
 
 ```
 Service                        Service total    November 2025
@@ -12,21 +16,24 @@ CloudFront Flat-Rate Plans     $15.00           $15.00
 ```
 
 ### Available Filtering Options
-
-- Group by Dimension: Service, Linked Account, Region, Usage Type
-- Service Filter: Select "CloudFront Flat-Rate Plans" from "Choose services" dropdown
-- Linked Account Filter: Filter by specific AWS accounts
-- Region Filter: Filter by AWS regions
-- Date Range: Customizable with Monthly/Daily granularity
-- Export: Download as CSV for analysis
+<a name="_available_filtering_options"></a>
++ Group by Dimension: Service, Linked Account, Region, Usage Type
++ Service Filter: Select "CloudFront Flat-Rate Plans" from "Choose services" dropdown
++ Linked Account Filter: Filter by specific AWS accounts
++ Region Filter: Filter by AWS regions
++ Date Range: Customizable with Monthly/Daily granularity
++ Export: Download as CSV for analysis
 
 ## Cost Allocation Tags
+<a name="cost-allocation"></a>
 
 ### Tag Applicability
+<a name="tag-applicability"></a>
 
 For flat-rate plans, only tags applied to the primary billable resource will appear in billing reports. Tags on associated resources that are included in the flat-rate plan do not generate separate charges and therefore do not appear in flat-rate plan billing reports.
 
 ### Tagging Strategy
+<a name="tagging-strategy"></a>
 
 ```
 Cost Center: CC-12345
@@ -38,29 +45,39 @@ Owner: jane.doe@example.com
 ```
 
 ### Activation Steps
+<a name="activation-steps"></a>
 
 1. Apply tags to resources with flat-rate plans
-2. Activate cost allocation tags in Billing and Cost Management console
-3. Wait 24 hours for tags to appear in Cost Explorer
-4. Create filtered views by tag values
+
+1. Activate cost allocation tags in Billing and Cost Management console
+
+1. Wait 24 hours for tags to appear in Cost Explorer
+
+1. Create filtered views by tag values
 
 ## AWS Cost and Usage Reports (CUR)
+<a name="cur-reports"></a>
 
-###### Note
-
+**Note**  
 Flat-rate plans appear in CUR as charge line items only. No usage metrics (requests, data transfer, etc.) are available in CUR for flat-rate plans.
 
 ### Configuration
+<a name="cur-configuration"></a>
 
 1. Enable CUR in Billing and Cost Management console
-2. Configure S3 bucket for report delivery
-3. Include resource IDs and tags
-4. Set daily granularity
-5. Enable report versioning
+
+1. Configure S3 bucket for report delivery
+
+1. Include resource IDs and tags
+
+1. Set daily granularity
+
+1. Enable report versioning
 
 ### Example Queries
+<a name="example-queries"></a>
 
-**Monthly flat-rate charges (example: CloudFront)**
+ **Monthly flat-rate charges (example: CloudFront)** 
 
 ```
 SELECT
@@ -74,7 +91,7 @@ GROUP BY month, line_item_usage_account_id, line_item_usage_account_name
 ORDER BY month, total_cost DESC;
 ```
 
-**Charges by plan tier**
+ **Charges by plan tier** 
 
 ```
 SELECT
@@ -89,7 +106,7 @@ GROUP BY plan_tier, plan_description
 ORDER BY total_cost DESC;
 ```
 
-**Resource-level charges**
+ **Resource-level charges** 
 
 ```
 SELECT
@@ -104,7 +121,7 @@ GROUP BY line_item_resource_id, plan_tier, plan_description
 ORDER BY total_cost DESC;
 ```
 
-**Department-level charges (requires cost allocation tags)**
+ **Department-level charges (requires cost allocation tags)** 
 
 ```
 SELECT
@@ -119,6 +136,5 @@ GROUP BY department, plan_tier
 ORDER BY department, total_cost DESC;
 ```
 
-###### Note
-
+**Note**  
 Replace `<service_code>` with the appropriate service code for your flat-rate plan (e.g., `CloudFrontPlans` for CloudFront). The `line_item_resource_id` represents the primary billable resource. Tags applied to this resource will appear in CUR reports. Tags on associated resources included in the flat-rate plan will not appear.

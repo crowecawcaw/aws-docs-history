@@ -1,10 +1,14 @@
+
+
 # Understanding Your Bill
+<a name="understanding-bill"></a>
 
 ## AWS Invoice
+<a name="aws-invoice"></a>
 
 Flat-rate plans appear as consolidated line items on your AWS invoice, grouped by service package and a consolidated charge line item for all plan tiers.
 
-**Example Invoice**
+ **Example Invoice** 
 
 ```
 Service: CloudFront Flat-Rate Plans
@@ -18,10 +22,11 @@ Active plans: 2x Free, 1x Pro, 3x Business, and 1x Premium
 ```
 
 ## Bills Page
+<a name="bills-page"></a>
 
 Flat-rate plans appear on the Bills page with a hierarchical structure.
 
-**Example Bills Page Display**
+ **Example Bills Page Display** 
 
 ```
 CloudFront Flat-Rate Plans                                          USD 1015.00
@@ -32,17 +37,19 @@ CloudFront Flat-Rate Plans                                          USD 1015.00
 ```
 
 ### Key Display Elements
-
-- Service Name: `CloudFront Flat-Rate Plans`
-- Usage Quantity: Shows billing period fraction (e.g., "1.000 Count" for full month, "0.554 Count" for mid-cycle activation)
-- Amount: Pro-rated charges based on billing period
-- No Usage Metrics: Only charge information is displayed, not requests or data transfer
-- Plan Aggregation: Multiple plans of the same tier are aggregated into a single line
-- Mid-Cycle Charges: For pro-rated or partial month charges, the count reflects the portion of the month the plan was active. For example, two Premium plans activated on the 20th and 24th of a 30-day month would show counts of 0.367 and 0.233 respectively, totaling 0.600 Count.
+<a name="display-elements"></a>
++ Service Name: `CloudFront Flat-Rate Plans` 
++ Usage Quantity: Shows billing period fraction (e.g., "1.000 Count" for full month, "0.554 Count" for mid-cycle activation)
++ Amount: Pro-rated charges based on billing period
++ No Usage Metrics: Only charge information is displayed, not requests or data transfer
++ Plan Aggregation: Multiple plans of the same tier are aggregated into a single line
++ Mid-Cycle Charges: For pro-rated or partial month charges, the count reflects the portion of the month the plan was active. For example, two Premium plans activated on the 20th and 24th of a 30-day month would show counts of 0.367 and 0.233 respectively, totaling 0.600 Count.
 
 ## Pro-Ration Calculations
+<a name="pro-ration"></a>
 
 ### Mid-Cycle Upgrades
+<a name="mid-cycle-upgrades"></a>
 
 ```
 Daily rate = Monthly cost ÷ Days in month
@@ -61,5 +68,6 @@ Net charge for the month: $116.49
 ```
 
 ### Mid-Cycle Downgrades
+<a name="mid-cycle-downgrades"></a>
 
 Downgrades take effect at the next billing cycle with no mid-cycle pro-ration.
