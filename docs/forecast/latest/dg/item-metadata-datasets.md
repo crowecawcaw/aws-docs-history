@@ -1,66 +1,49 @@
-Amazon Forecast is no longer available to new customers. Existing customers of
-Amazon Forecast can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
+
+
+ Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Using Item Metadata Datasets
+<a name="item-metadata-datasets"></a>
 
-An _item metadata dataset_ contains categorical data that
-provides valuable context for the items in a target time-series dataset. Unlike related
-time-series datasets, item metadata datasets provide information that is static. That is,
-the data values remain constant over time, like an item's color or brand. Item metadata
-datasets are optional additions to your dataset groups. You can use an item metadata only if
-every item in your target time-series dataset is present in the corresponding item metadata
-dataset.
+An *item metadata dataset* contains categorical data that provides valuable context for the items in a target time-series dataset. Unlike related time-series datasets, item metadata datasets provide information that is static. That is, the data values remain constant over time, like an item's color or brand. Item metadata datasets are optional additions to your dataset groups. You can use an item metadata only if every item in your target time-series dataset is present in the corresponding item metadata dataset.
 
-Item metadata might include the brand, color, model, category, place of origin, or other
-supplemental feature of a particular item. For example, an item metadata dataset might
-provide context for some of the demand data found in a target time-series dataset that
-represents the sales of black Amazon e-readers with 32 GB of storage. Because these
-characteristics don't change from day-to-day or hour-to-hour, they belong in an item
-metadata dataset.
+Item metadata might include the brand, color, model, category, place of origin, or other supplemental feature of a particular item. For example, an item metadata dataset might provide context for some of the demand data found in a target time-series dataset that represents the sales of black Amazon e-readers with 32 GB of storage. Because these characteristics don't change from day-to-day or hour-to-hour, they belong in an item metadata dataset.
 
-Item metadata is useful for discovering and tracking descriptive patterns across your
-time-series data. If you include an item metadata dataset in your dataset group, Forecast can
-train the model to make more accurate predictions based on similarities across items. For
-example, you might find that virtual assistant products made by Amazon are more likely to
-sell out than those created by other companies, and then plan your supply chain
-accordingly.
+Item metadata is useful for discovering and tracking descriptive patterns across your time-series data. If you include an item metadata dataset in your dataset group, Forecast can train the model to make more accurate predictions based on similarities across items. For example, you might find that virtual assistant products made by Amazon are more likely to sell out than those created by other companies, and then plan your supply chain accordingly.
 
-Item metadata is especially useful in coldstart forecasting scenarios, in which you have
-no historical data with which to make predictions, but do have historical data on
-items with similar metadata attributes. The item metadata enables Forecast to leverage similar items to your coldstart items to produce a forecast.
+Item metadata is especially useful in coldstart forecasting scenarios, in which you have no historical data with which to make predictions, but do have historical data on items with similar metadata attributes. The item metadata enables Forecast to leverage similar items to your coldstart items to produce a forecast.
 
 When you include item metadata, Forecast creates coldstart forecasts based on similar time series, which can create a more accurate forecast. Coldstart forecasts are generated for items that are in the item metadata dataset but not in the trailing time series. First, Forecast generates forecasts for the non-coldstart items, which are items with historical data in the trailing time series. Next, for each coldstart item, its nearest neighbors are found using the item metadata dataset. Then, these nearest neighbors are used to create a coldstart forecast.
 
-Each row in an item metadata dataset can contain up to 10 metadata fields, one of which
-must be an identification field to match the metadata to an item in the target time series.
-As with all dataset types, the values of each field are designated by a dataset
-schema.
+Each row in an item metadata dataset can contain up to 10 metadata fields, one of which must be an identification field to match the metadata to an item in the target time series. As with all dataset types, the values of each field are designated by a dataset schema.
 
-###### Python notebooks
+**Python notebooks**  
+For a step-by-step guide on using item metadata, see [Incorporating Item Metadata](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Incorporating_Item_Metadata_Dataset_to_your_Predictor/Incorporating_Item_Metadata_Dataset_to_your_Predictor.ipynb).
 
-For a step-by-step guide on using item metadata, see [Incorporating Item Metadata](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Incorporating_Item_Metadata_Dataset_to_your_Predictor/Incorporating_Item_Metadata_Dataset_to_your_Predictor.ipynb "https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Incorporating_Item_Metadata_Dataset_to_your_Predictor/Incorporating_Item_Metadata_Dataset_to_your_Predictor.ipynb").
-
-###### Topics
-
-- [Example: Item Metadata File and Schema](#item-metadata-example "#item-metadata-example")
-- [Legacy Predictors and Item Metadata](#item-metadata-legacy "#item-metadata-legacy")
-- [See Also](#item-metadata-see-also "#item-metadata-see-also")
+**Topics**
++ [Example: Item Metadata File and Schema](#item-metadata-example)
++ [Legacy Predictors and Item Metadata](#item-metadata-legacy)
++ [See Also](#item-metadata-see-also)
 
 ## Example: Item Metadata File and Schema
+<a name="item-metadata-example"></a>
 
-The following table shows a section of a correctly configured item metadata dataset
-file that describes Amazon e-readers. For this example, assume that the header row
-represents the dataset's schema, and that each listed item is in a corresponding target
-time-series dataset.
+The following table shows a section of a correctly configured item metadata dataset file that describes Amazon e-readers. For this example, assume that the header row represents the dataset's schema, and that each listed item is in a corresponding target time-series dataset.
 
-| `item_id` | `brand` | `model`     | `color` | `waterproof` |
-| --------- | ------- | ----------- | ------- | ------------ |
-| 1         | amazon  | paperwhite  | black   | yes          |
-| 2         | amazon  | paperwhite  | blue    | yes          |
-| 3         | amazon  | base\_model | black   | no           |
-| 4         | amazon  | base\_model | white   | no           |
-| ...       |
+
+<table>
+<thead>
+  <tr><th><code>item_id</code></th><th><code>brand</code></th><th><code>model</code></th><th><code>color</code></th><th><code>waterproof</code></th></tr>
+</thead>
+<tbody>
+  <tr><td>1</td><td>amazon</td><td>paperwhite</td><td>black</td><td>yes</td></tr>
+  <tr><td>2</td><td>amazon</td><td>paperwhite</td><td>blue</td><td>yes</td></tr>
+  <tr><td>3</td><td>amazon</td><td>base_model</td><td>black</td><td>no</td></tr>
+  <tr><td>4</td><td>amazon</td><td>base_model</td><td>white</td><td>no</td></tr>
+  <tr><td colspan="5">...</td></tr>
+</tbody>
+</table>
+
 
 The following is the same information represented in CSV format.
 
@@ -102,17 +85,14 @@ The following is the schema for this example dataset.
 ```
 
 ## Legacy Predictors and Item Metadata
+<a name="item-metadata-legacy"></a>
 
-###### Note
+**Note**  
+To upgrade an existing predictor to AutoPredictor, see [Upgrading to AutoPredictor](howitworks-predictor.md#upgrading-autopredictor)
 
-To upgrade an existing predictor to AutoPredictor, see [Upgrading to AutoPredictor](howitworks-predictor.md#upgrading-autopredictor "howitworks-predictor.md#upgrading-autopredictor")
-
-When using a legacy predictor, you can use item metadata when training a predictor
-with the [CNN-QR](aws-forecast-algo-cnnqr.md "aws-forecast-algo-cnnqr.md") or [DeepAR+](aws-forecast-recipe-deeparplus.md "aws-forecast-recipe-deeparplus.md") algorithms. When using
-AutoML, you can provide Item metadata and Forecast will only use those time series where
-applicable
+When using a legacy predictor, you can use item metadata when training a predictor with the [CNN-QR](aws-forecast-algo-cnnqr.md) or [DeepAR\+](aws-forecast-recipe-deeparplus.md) algorithms. When using AutoML, you can provide Item metadata and Forecast will only use those time series where applicable
 
 ## See Also
+<a name="item-metadata-see-also"></a>
 
-For an in-depth walkthrough on using item metadata datasets, see [Incorporating Item Metadata Datasets into Your Predictor](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Incorporating_Item_Metadata_Dataset_to_your_Predictor/Incorporating_Item_Metadata_Dataset_to_your_Predictor.ipynb "https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Incorporating_Item_Metadata_Dataset_to_your_Predictor/Incorporating_Item_Metadata_Dataset_to_your_Predictor.ipynb") in the [Amazon Forecast Samples
-GitHub Repository](https://github.com/aws-samples/amazon-forecast-samples "https://github.com/aws-samples/amazon-forecast-samples").
+For an in-depth walkthrough on using item metadata datasets, see [Incorporating Item Metadata Datasets into Your Predictor](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Incorporating_Item_Metadata_Dataset_to_your_Predictor/Incorporating_Item_Metadata_Dataset_to_your_Predictor.ipynb) in the [Amazon Forecast Samples GitHub Repository](https://github.com/aws-samples/amazon-forecast-samples).

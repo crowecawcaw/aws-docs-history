@@ -1,89 +1,60 @@
-Amazon Forecast is no longer available to new customers. Existing customers of
-Amazon Forecast can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
+
+
+ Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Handling Missing Values
+<a name="howitworks-missing-values"></a>
 
-A common issue in time-series forecasting data is the presence of missing values. Your
-data might contain missing values for a number of reasons, including measurement failures,
-formatting problems, human errors, or a lack of information to record. For instance, if
-you're forecasting product demand for a retail store and an item is sold out or unavailable,
-there would be no sales data to record while that item is out of stock. If prevalent enough,
-missing values can significantly impact a model's accuracy.
+A common issue in time-series forecasting data is the presence of missing values. Your data might contain missing values for a number of reasons, including measurement failures, formatting problems, human errors, or a lack of information to record. For instance, if you're forecasting product demand for a retail store and an item is sold out or unavailable, there would be no sales data to record while that item is out of stock. If prevalent enough, missing values can significantly impact a model's accuracy.
 
-Amazon Forecast provides a number of filling methods to handle missing values in your target
-time series and related time series datasets. Filling is the process of adding standardized
-values to missing entries in your dataset.
+Amazon Forecast provides a number of filling methods to handle missing values in your target time series and related time series datasets. Filling is the process of adding standardized values to missing entries in your dataset.
 
 Forecast supports the following filling methods:
++ **Middle filling** – Fills any missing values between the item start and item end date of a data set.
++ **Back filling** – Fills any missing values between the last recorded data point and global end date of a dataset.
++ **Future filling (related time series only)** – Fills any missing values between the global end date and the end of the forecast horizon.
 
-- **Middle filling** – Fills any missing values
-  between the item start and item end date of a data set.
-- **Back filling** – Fills any missing values
-  between the last recorded data point and global end date of a dataset.
-- **Future filling (related time series only)**
-  – Fills any missing values between the global end date and the end of the
-  forecast horizon.
-  The following image provides a visual representation of different filling methods.
+The following image provides a visual representation of different filling methods.
 
-![Timeline showing three items with front fill, middle fill, back fill, and future fill periods between global start and end dates.](images/Filling_types.PNG)
+![Timeline showing three items with front fill, middle fill, back fill, and future fill periods between global start and end dates.](http://docs.aws.amazon.com/forecast/latest/dg/images/Filling_types.PNG)
+
 
 ## Choosing Filling Logic
+<a name="choosing-missing-values"></a>
 
-When choosing a filling logic, you should consider how the logic will be interpreted
-by your model. For instance, in a retail scenario, recording 0 sales of an available
-item is different from recording 0 sales of an unavailable item, as the latter does not
-imply a lack of customer interest in the item. Because of this, `0` filling
-in the target time series might cause the predictor to be under-biased in its
-predictions, while `NaN` filling might ignore actual occurrences of 0
-available items being sold and cause the predictor to be over-biased.
+When choosing a filling logic, you should consider how the logic will be interpreted by your model. For instance, in a retail scenario, recording 0 sales of an available item is different from recording 0 sales of an unavailable item, as the latter does not imply a lack of customer interest in the item. Because of this, `0` filling in the target time series might cause the predictor to be under-biased in its predictions, while `NaN` filling might ignore actual occurrences of 0 available items being sold and cause the predictor to be over-biased.
 
-The following time-series graphs illustrate how choosing the wrong filling value can
-significantly affect the accuracy of your model. Graphs A and B plot the demand for an
-item that is partially out-of-stock, with the black lines representing actual sales
-data. Missing values in A1 are filled with `0`, leading to relatively
-under-biased predictions (represented by the dotted lines) in A2. Similarly, missing
-values in B1 are filled with `NaN`, which leads to predictions that are more
-exact in B2.
+The following time-series graphs illustrate how choosing the wrong filling value can significantly affect the accuracy of your model. Graphs A and B plot the demand for an item that is partially out-of-stock, with the black lines representing actual sales data. Missing values in A1 are filled with `0`, leading to relatively under-biased predictions (represented by the dotted lines) in A2. Similarly, missing values in B1 are filled with `NaN`, which leads to predictions that are more exact in B2.
 
-![Two time-series graphs comparing zero-filled versus NaN-filled missing values and their predictions.](images/filling_values.PNG)
+![Two time-series graphs comparing zero-filled versus NaN-filled missing values and their predictions.](http://docs.aws.amazon.com/forecast/latest/dg/images/filling_values.PNG)
+
 
 For a list of supported filling logic, see the following section.
 
 ## Target Time Series and Related Time Series Filling Logic
+<a name="filling-restrictions"></a>
 
-You can perform filling on both target time series and related time series datasets.
-Each dataset type has different filling guidelines and restrictions.
+You can perform filling on both target time series and related time series datasets. Each dataset type has different filling guidelines and restrictions.
 
-Filling Guidelines| Dataset type | Filling by default? | Supported filling methods | Default filling logic | Accepted filling logic |
-| --- | --- | --- | --- | --- |
-| **Target time series** | Yes | Middle and back filling | 0 | • `zero` - 0 filling.<br>• `value` - an integer or float number.<br>• `nan` - not a number.<br>• `mean` - the mean value from the data<br>series.<br>• `median` - the median value from the data<br>series.<br>• `min` - the minimum value from the data<br>series.<br>• `max` - the maximum value from the data<br>series. |
-| **Related time series** | No | Middle, back, and future filling | No default | • `zero` - 0 filling.<br>• `value` - an integer or float value.<br>• `mean` - the mean value from the data<br>series.<br>• `median` - the median value from the data<br>series.<br>• `min` - the minimum value from the data<br>series.<br>• `max` - the maximum value from the data<br>series. |
 
-###### Important
+**Filling Guidelines**  
 
-For both target and related time series datasets, `mean`,
-`median`, `min`, and `max` are calculated based
-on a rolling window of the 64 most recent data entries before the missing
-values.
+| Dataset type | Filling by default? | Supported filling methods | Default filling logic | Accepted filling logic | 
+| --- | --- | --- | --- | --- | 
+| Target time series | Yes | Middle and back filling | 0 |  +  `zero` - 0 filling. <br />+  `value` - an integer or float number. <br />+  `nan` - not a number. <br />+  `mean` - the mean value from the data series. <br />+  `median` - the median value from the data series. <br />+  `min` - the minimum value from the data series. <br />+  `max` - the maximum value from the data series.   | 
+| Related time series | No | Middle, back, and future filling | No default |  +  `zero` - 0 filling. <br />+  `value` - an integer or float value. <br />+  `mean` - the mean value from the data series. <br />+  `median` - the median value from the data series. <br />+  `min` - the minimum value from the data series. <br />+  `max` - the maximum value from the data series.   | 
+
+**Important**  
+For both target and related time series datasets, `mean`, `median`, `min`, and `max` are calculated based on a rolling window of the 64 most recent data entries before the missing values.
 
 ## Missing Value Syntax
+<a name="filling-syntax"></a>
 
-To perform missing value filling, specify the types of filling to implement when you
-call the [CreatePredictor](API_CreatePredictor.md "API_CreatePredictor.md") operation. Filling
-logic is specified in [FeaturizationMethod](API_FeaturizationMethod.md "API_FeaturizationMethod.md")
-objects.
+To perform missing value filling, specify the types of filling to implement when you call the [CreatePredictor](API_CreatePredictor.md) operation. Filling logic is specified in [FeaturizationMethod](API_FeaturizationMethod.md) objects.
 
-The following excerpt demonstrates a correctly formatted
-`FeaturizationMethod` object for a target time series attribute and
-related time series attribute (`target_value` and `price`
-respectively).
+The following excerpt demonstrates a correctly formatted `FeaturizationMethod` object for a target time series attribute and related time series attribute (`target_value` and `price` respectively).
 
-To set a filling method to a specific value, set the fill parameter to
-`value` and define the value in a corresponding `_value`
-parameter. As shown below, backfilling for the related time series is set to a value of
-2 with the following: `"backfill": "value"` and
-`"backfill_value":"2"`.
+ To set a filling method to a specific value, set the fill parameter to `value` and define the value in a corresponding `_value` parameter. As shown below, backfilling for the related time series is set to a value of 2 with the following: `"backfill": "value"` and `"backfill_value":"2"`. 
 
 ```
 [
@@ -109,7 +80,7 @@ parameter. As shown below, backfilling for the related time series is set to a v
                     "middlefill": "median",
                     "backfill": "value",
                     "backfill_value": "2",
-                    "futurefill": "max"
+                    "futurefill": "max"               
                     }
             }
         ]

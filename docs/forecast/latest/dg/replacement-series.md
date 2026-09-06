@@ -1,128 +1,165 @@
-Amazon Forecast is no longer available to new customers. Existing customers of
-Amazon Forecast can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
+
+
+ Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Replacement Dataset
+<a name="replacement-series"></a>
 
-A replacement dataset is a modified version of the baseline related time series that contains only the values
-that you want to change in a what-if forecast. The replacement dataset must contain the forecast dimensions, item
-identifiers, and timestamps in the baseline related time series, as well as at least 1 changed time series. This
-dataset is merged with the baseline related time series to create a transformed dataset that is used for the
-what-if forecast. The replacement dataset must be in CSV format.
+A replacement dataset is a modified version of the baseline related time series that contains only the values that you want to change in a what-if forecast. The replacement dataset must contain the forecast dimensions, item identifiers, and timestamps in the baseline related time series, as well as at least 1 changed time series. This dataset is merged with the baseline related time series to create a transformed dataset that is used for the what-if forecast. The replacement dataset must be in CSV format.
 
 This dataset should not contain duplicate timestamps for the same time series.
 
-What follows are several examples of how you can specify a replacement time series and how those
-specifications are interpreted. Consider the case where you are forecasting daily and the forecast horizon is
-2022-08-01 through 2022-08-03. The baseline related time series for all examples is given in the following
-table.
+What follows are several examples of how you can specify a replacement time series and how those specifications are interpreted. Consider the case where you are forecasting daily and the forecast horizon is 2022-08-01 through 2022-08-03. The baseline related time series for all examples is given in the following table.
 
-| item\_id | timestamp  | price | stock\_count |
-| -------- | ---------- | ----- | ------------ |
-| item\_1  | 2022-08-01 | 100   | 50           |
-| item\_1  | 2022-08-02 | 100   | 50           |
-| item\_1  | 2022-08-03 | 100   | 50           |
-| item\_2  | 2022-08-01 | 75    | 500          |
-| item\_2  | 2022-08-02 | 75    | 500          |
-| item\_2  | 2022-08-03 | 75    | 500          |
 
-Unchanged values
+| item\_id | timestamp | price | stock\_count | 
+| --- | --- | --- | --- | 
+| item\_1 | 2022-08-01 | 100 | 50 | 
+| item\_1 | 2022-08-02 | 100 | 50 | 
+| item\_1 | 2022-08-03 | 100 | 50 | 
+| item\_2 | 2022-08-01 | 75 | 500 | 
+| item\_2 | 2022-08-02 | 75 | 500 | 
+| item\_2 | 2022-08-03 | 75 | 500 | 
+
+------
+#### [ Unchanged values ]
+
 To apply a 10% discount on item\_1 for 2022-08-02 and 2022-08-03, it is sufficient to specify the following for the replacement dataset:
 
-Replacement dataset| item\_id | timestamp | price |
-| --- | --- | --- |
-| item\_1 | 2022-08-02 | 90 |
-| item\_1 | 2022-08-03 | 90 |
 
-However, it's also valid to specify unchanged values in the replacement dataset.
-When used as replacement datasets, each of the following three tables will yield the
-same results as the previously provided table.
+**Replacement dataset**  
 
-Replacement dataset with an unchanged column| item\_id | timestamp | price | stock\_count |
-| --- | --- | --- | --- |
-| item\_1 | 2022-08-02 | 90 | 50 |
-| item\_1 | 2022-08-03 | 90 | 50 |
+| item\_id | timestamp | price | 
+| --- | --- | --- | 
+| item\_1 | 2022-08-02 | 90 | 
+| item\_1 | 2022-08-03 | 90 | 
 
-Replacement dataset with unchanged rows| item\_id | timestamp | price |
-| --- | --- | --- |
-| item\_1 | 2022-08-01 | 100 |
-| item\_1 | 2022-08-02 | 90 |
-| item\_1 | 2022-08-03 | 90 |
-| item\_2 | 2022-08-01 | 75 |
-| item\_2 | 2022-08-02 | 75 |
-| item\_2 | 2022-08-03 | 75 |
+However, it's also valid to specify unchanged values in the replacement dataset. When used as replacement datasets, each of the following three tables will yield the same results as the previously provided table.
 
-Replacement dataset with unchanged rows and columns| item\_id | timestamp | price | stock\_count |
-| --- | --- | --- | --- |
-| item\_1 | 2022-08-01 | 100 | 50 |
-| item\_1 | 2022-08-02 | 90 | 50 |
-| item\_1 | 2022-08-03 | 90 | 50 |
-| item\_2 | 2022-08-01 | 75 | 500 |
-| item\_2 | 2022-08-02 | 75 | 500 |
-| item\_2 | 2022-08-03 | 75 | 500 |
 
-Missing values
+**Replacement dataset with an unchanged column**  
+
+| item\_id | timestamp | price | stock\_count | 
+| --- | --- | --- | --- | 
+| item\_1 | 2022-08-02 | 90 | 50 | 
+| item\_1 | 2022-08-03 | 90 | 50 | 
+
+
+**Replacement dataset with unchanged rows**  
+
+| item\_id | timestamp | price | 
+| --- | --- | --- | 
+| item\_1 | 2022-08-01 | 100 | 
+| item\_1 | 2022-08-02 | 90 | 
+| item\_1 | 2022-08-03 | 90 | 
+| item\_2 | 2022-08-01 | 75 | 
+| item\_2 | 2022-08-02 | 75 | 
+| item\_2 | 2022-08-03 | 75 | 
+
+
+**Replacement dataset with unchanged rows and columns**  
+
+| item\_id | timestamp | price | stock\_count | 
+| --- | --- | --- | --- | 
+| item\_1 | 2022-08-01 | 100 | 50 | 
+| item\_1 | 2022-08-02 | 90 | 50 | 
+| item\_1 | 2022-08-03 | 90 | 50 | 
+| item\_2 | 2022-08-01 | 75 | 500 | 
+| item\_2 | 2022-08-02 | 75 | 500 | 
+| item\_2 | 2022-08-03 | 75 | 500 | 
+
+------
+#### [ Missing values ]
+
 Missing values in the replacement time series are replaced with values from the baseline related time series. Consider the scenario where you apply a 10% discount on item\_1 for 2022-08-02 and 2022-08-03 and increase the stock of item\_2 on 2022-08-01. This replacement dataset is sufficient:
 
-Replacement dataset with missing values| item\_id | timestamp | price | stock\_count |
-| --- | --- | --- | --- |
-| item\_1 | 2022-08-02 | 90 | |
-| item\_1 | 2022-08-03 | 90 | |
-| item\_2 | 2022-08-01 | | 5000 |
+
+**Replacement dataset with missing values**  
+
+| item\_id | timestamp | price | stock\_count | 
+| --- |--- |--- |--- |
+| item\_1 | 2022-08-02 | 90 |  | 
+| --- |--- |--- |--- |
+| item\_1 | 2022-08-03 | 90 |  | 
+| --- |--- |--- |--- |
+| item\_2 | 2022-08-01 |  | 5000 | 
+| --- |--- |--- |--- |
 
 The values missing from this table are imputed from the baseline related time series.
 
-Extraneous values
+------
+#### [ Extraneous values ]
+
 Extraneous values in the replacement time series are ignored when creating a what-if forecast. That is, values in the replacement dataset that do not correspond to values in the baseline related time series are not modeled. Consider this replacement dataset:
 
-Replacement dataset with extraneous values| item\_id | timestamp | price | stock\_count |
-| --- | --- | --- | --- |
-| item\_1 | 2022-08-01 | 100 | 50 |
-| item\_1 | 2022-08-02 | 100 | 50 |
-| item\_1 | 2022-08-03 | 100 | 50 |
-| item\_2 | 2022-08-01 | 75 | 500 |
-| item\_2 | 2022-08-02 | 75 | 500 |
-| item\_2 | 2022-08-03 | 75 | 500 |
-| item\_3 | 2022-08-01 | 50 | 125 |
-| item\_3 | 2022-08-02 | 50 | 125 |
-| item\_3 | 2022-08-03 | 50 | 125 |
+
+**Replacement dataset with extraneous values**  
+
+| item\_id | timestamp | price | stock\_count | 
+| --- |--- |--- |--- |
+| item\_1 | 2022-08-01 | 100 | 50 | 
+| item\_1 | 2022-08-02 | 100 | 50 | 
+| item\_1 | 2022-08-03 | 100 | 50 | 
+| item\_2 | 2022-08-01 | 75 | 500 | 
+| item\_2 | 2022-08-02 | 75 | 500 | 
+| item\_2 | 2022-08-03 | 75 | 500 | 
+| item\_3 | 2022-08-01 | 50 | 125 | 
+| --- |--- |--- |--- |
+| item\_3 | 2022-08-02 | 50 | 125 | 
+| --- |--- |--- |--- |
+| item\_3 | 2022-08-03 | 50 | 125 | 
+| --- |--- |--- |--- |
 
 The rows containing item\_3 are ignored and are not part of the what-if analysis.
 
-Historical changes
+------
+#### [ Historical changes ]
+
 Changes in the replacement dataset that are outside of the forecast horizon are ignored. Consider this replacement dataset:
 
-Replacement dataset with values outside the forecast horizon| item\_id | timestamp | price | stock\_count |
-| --- | --- | --- | --- |
-| item\_1 | 2022-07-31 | 100 | 50 |
-| item\_1 | 2022-08-01 | 100 | 50 |
-| item\_1 | 2022-08-02 | 100 | 50 |
-| item\_1 | 2022-08-03 | 100 | 50 |
-| item\_1 | 2022-08-04 | 100 | 50 |
-| item\_2 | 2022-07-31 | 75 | 500 |
-| item\_2 | 2022-08-01 | 75 | 500 |
-| item\_2 | 2022-08-02 | 75 | 500 |
-| item\_2 | 2022-08-03 | 75 | 500 |
-| item\_3 | 2022-08-04 | 75 | 500 |
+
+**Replacement dataset with values outside the forecast horizon**  
+
+| item\_id | timestamp | price | stock\_count | 
+| --- |--- |--- |--- |
+| item\_1 | 2022-07-31 | 100 | 50 | 
+| --- |--- |--- |--- |
+| item\_1 | 2022-08-01 | 100 | 50 | 
+| item\_1 | 2022-08-02 | 100 | 50 | 
+| item\_1 | 2022-08-03 | 100 | 50 | 
+| item\_1 | 2022-08-04 | 100 | 50 | 
+| --- |--- |--- |--- |
+| item\_2 | 2022-07-31 | 75 | 500 | 
+| --- |--- |--- |--- |
+| item\_2 | 2022-08-01 | 75 | 500 | 
+| item\_2 | 2022-08-02 | 75 | 500 | 
+| item\_2 | 2022-08-03 | 75 | 500 | 
+| item\_3 | 2022-08-04 | 75 | 500 | 
+| --- |--- |--- |--- |
 
 The rows containing 2022-07-31 and 2022-08-04 are ignored and are not part of the what-if analysis.
 
+------
+
 ## Forecast dimensions
+<a name="forecast-dimensions"></a>
 
 If you include forecast dimensions in your dataset, then you must include them in the replacement dataset. Consider this baseline related time series:
 
-| item\_id | store\_id | timestamp  | price | stock\_count |
-| -------- | --------- | ---------- | ----- | ------------ |
-| item\_1  | store\_1  | 2022-08-01 | 100   | 50           |
-| item\_1  | store\_1  | 2022-08-02 | 100   | 50           |
-| item\_1  | store\_1  | 2022-08-03 | 100   | 50           |
-| item\_1  | store\_2  | 2022-08-01 | 75    | 500          |
-| item\_1  | store\_2  | 2022-08-02 | 75    | 500          |
-| item\_1  | store\_2  | 2022-08-03 | 75    | 500          |
+
+| item\_id | store\_id | timestamp | price | stock\_count | 
+| --- | --- | --- | --- | --- | 
+| item\_1 | store\_1 | 2022-08-01 | 100 | 50 | 
+| item\_1 | store\_1 | 2022-08-02 | 100 | 50 | 
+| item\_1 | store\_1 | 2022-08-03 | 100 | 50 | 
+| item\_1 | store\_2 | 2022-08-01 | 75 | 500 | 
+| item\_1 | store\_2 | 2022-08-02 | 75 | 500 | 
+| item\_1 | store\_2 | 2022-08-03 | 75 | 500 | 
 
 Therefore, the replacement dataset for a 10% discount in all stores on 2022-08-02 would be the following:
 
-| item\_id | store\_id | timestamp  | price |
-| -------- | --------- | ---------- | ----- |
-| item\_1  | store\_1  | 2022-08-02 | 90    |
-| item\_1  | store\_2  | 2022-08-02 | 67.5  |
+
+| item\_id | store\_id | timestamp | price | 
+| --- | --- | --- | --- | 
+| item\_1 | store\_1 | 2022-08-02 | 90 | 
+| item\_1 | store\_2 | 2022-08-02 | 67.5 | 

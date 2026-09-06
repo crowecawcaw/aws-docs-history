@@ -1,27 +1,25 @@
-Amazon Forecast is no longer available to new customers. Existing customers of
-Amazon Forecast can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
+
+
+ Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Schema
+<a name="API_Schema"></a>
 
 Defines the fields of a dataset.
 
 ## Contents
+<a name="API_Schema_Contents"></a>
 
-**Attributes**
-
-An array of attributes specifying the name and type of each field in a dataset.
-
-Type: Array of [SchemaAttribute](API_SchemaAttribute.md "API_SchemaAttribute.md") objects
-
-Array Members: Minimum number of 1 item. Maximum number of 100 items.
-
+ ** Attributes **   <a name="forecast-Type-Schema-Attributes"></a>
+An array of attributes specifying the name and type of each field in a dataset.  
+Type: Array of [SchemaAttribute](API_SchemaAttribute.md) objects  
+Array Members: Minimum number of 1 item. Maximum number of 100 items.  
 Required: No
 
 ## See Also
+<a name="API_Schema_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/forecast-2018-06-26/Schema.md "../../../goto/SdkForCpp/forecast-2018-06-26/Schema.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/forecast-2018-06-26/Schema.md "../../../goto/SdkForJavaV2/forecast-2018-06-26/Schema.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/forecast-2018-06-26/Schema.md "../../../goto/SdkForRubyV3/forecast-2018-06-26/Schema.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/forecast-2018-06-26/Schema) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/forecast-2018-06-26/Schema) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/forecast-2018-06-26/Schema) 

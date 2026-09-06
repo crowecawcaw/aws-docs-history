@@ -1,62 +1,49 @@
-Amazon Forecast is no longer available to new customers. Existing customers of
-Amazon Forecast can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
+
+
+ Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Viewing Monitoring Results
+<a name="predictor-monitoring-results"></a>
 
-After you generate a forecast and then import more data, you can view the results of
-predictor monitoring. You can see a visualization of results with the Forecast console or
-you can programmatically retrieve results with the [ListMonitorEvaluations](API_ListMonitorEvaluations.md "API_ListMonitorEvaluations.md")
-operation.
+After you generate a forecast and then import more data, you can view the results of predictor monitoring. You can see a visualization of results with the Forecast console or you can programmatically retrieve results with the [ListMonitorEvaluations](API_ListMonitorEvaluations.md) operation. 
 
-The Forecast console displays graphs of results for each [predictor metric](metrics.md "metrics.md").
-Graphs include how each metric
-has changed over the lifetime of your predictor and predictor events, such as retraining.
+ The Forecast console displays graphs of results for each [predictor metric](metrics.md). Graphs include how each metric has changed over the lifetime of your predictor and predictor events, such as retraining. 
 
-The [ListMonitorEvaluations](API_ListMonitorEvaluations.md "API_ListMonitorEvaluations.md") operation returns metric results and predictor events for different windows of time.
+ The [ListMonitorEvaluations](API_ListMonitorEvaluations.md) operation returns metric results and predictor events for different windows of time. 
 
-Console
+------
+#### [ Console ]
 
-###### To view predictor monitoring results
+**To view predictor monitoring results**
 
-1. Sign in to the AWS Management Console and open the Amazon Forecast console at [https://console.aws.amazon.com/forecast/](https://console.aws.amazon.com/forecast/ "https://console.aws.amazon.com/forecast/").
-2. From **Dataset groups**, choose your dataset
-   group.
-3. In the navigation pane, choose
-   **Predictors**.
-4. Choose the predictor and choose the **Monitoring** tab.
+1. Sign in to the AWS Management Console and open the Amazon Forecast console at [https://console.aws.amazon.com/forecast/](https://console.aws.amazon.com/forecast/).
 
-   - The **Monitoring results** section shows how
-     different accuracy metrics have changed over time. Use the dropdown list
-     to change which metric the graph tracks.
-   - The **Monitoring history**
-     section lists the details for the different events tracked in the results.
-     The following is an example of a graph of how the `Avg
- wQL` score for a predictor has changed over time. In this
-     graph, notice that the `Avg wQL` value is increasing over
-     time. This increase indicates that the predictor accuracy is
-     decreasing. Use this information to determine whether you need to
-     revalidate the model and take action.
+1. From **Dataset groups**, choose your dataset group.
 
-![Graph showing Avg wQL increasing from 0.15 to 0.27 while baseline remains flat at 0.22.](images/predictor-drift.png)
+1. In the navigation pane, choose **Predictors**.
 
-SDK for Python (Boto3)
+1. Choose the predictor and choose the **Monitoring** tab. 
+   +  The **Monitoring results** section shows how different accuracy metrics have changed over time. Use the dropdown list to change which metric the graph tracks.
+   + The **Monitoring history** section lists the details for the different events tracked in the results.
 
-To get monitoring results with the SDK for Python (Boto3), use the `list_monitor_evaluations` method. Provide the Amazon Resource Name (ARN) of the monitor,
-and optionally specify the maximum number of results to retrieve with the `MaxResults` parameter. Optionally specify a `Filter` to filter
-results. You can filter evaluations by a `EvaluationState` of either `SUCCESS` or `FAILURE`.
-The following code gets at maximum 20 successful monitoring evaluations.
+    The following is an example of a graph of how the `Avg wQL` score for a predictor has changed over time. In this graph, notice that the `Avg wQL` value is increasing over time. This increase indicates that the predictor accuracy is decreasing. Use this information to determine whether you need to revalidate the model and take action.  
+![Graph showing Avg wQL increasing from 0.15 to 0.27 while baseline remains flat at 0.22.](http://docs.aws.amazon.com/forecast/latest/dg/images/predictor-drift.png)
+
+------
+#### [ SDK for Python (Boto3) ]
+
+ To get monitoring results with the SDK for Python (Boto3), use the `list_monitor_evaluations` method. Provide the Amazon Resource Name (ARN) of the monitor, and optionally specify the maximum number of results to retrieve with the `MaxResults` parameter. Optionally specify a `Filter` to filter results. You can filter evaluations by a `EvaluationState` of either `SUCCESS` or `FAILURE`. The following code gets at maximum 20 successful monitoring evaluations. 
 
 ```
 import boto3
-
+                            
 forecast = boto3.client('forecast')
 
 monitor_results = forecast.list_monitor_evaluations(
-    MonitorArn = '`monitor_arn`',
+    MonitorArn = '{{monitor_arn}}',
     MaxResults = 20,
-    Filters = [
-      {
+    Filters = [ 
+      { 
          "Condition": "IS",
          "Key": "EvaluationState",
          "Value": "SUCCESS"
@@ -64,13 +51,11 @@ monitor_results = forecast.list_monitor_evaluations(
    ]
 )
 print(monitor_results)
-
 ```
 
-The following is an example JSON response.
+ The following is an example JSON response. 
 
 ```
-
 {
   "NextToken": "string",
   "PredictorMonitorEvaluations": [
@@ -86,10 +71,10 @@ The following is an example JSON response.
         "Datetime": "2020-01-01T00:00:00Z"
       },
       "MonitorDataSource": {
-        "DatasetImportJobArn": "arn:aws:forecast:`region`:`accountNumber`:dataset-import-job/`*`",
-        "ForecastArn": "arn:aws:forecast:`region`:`accountNumber`:forecast/`*`",
-        "PredictorArn": "arn:aws:forecast:`region`:`accountNumber`:predictor/`*`",
-
+        "DatasetImportJobArn": "arn:aws:forecast:{{region}}:{{accountNumber}}:dataset-import-job/{{*}}",
+        "ForecastArn": "arn:aws:forecast:{{region}}:{{accountNumber}}:forecast/{{*}}",
+        "PredictorArn": "arn:aws:forecast:{{region}}:{{accountNumber}}:predictor/{{*}}",
+      
       },
       "MetricResults": [
         {
@@ -115,5 +100,6 @@ The following is an example JSON response.
     }
   ]
 }
-
 ```
+
+------

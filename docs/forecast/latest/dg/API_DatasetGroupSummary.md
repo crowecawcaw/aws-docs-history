@@ -1,67 +1,46 @@
-Amazon Forecast is no longer available to new customers. Existing customers of
-Amazon Forecast can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
+
+
+ Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # DatasetGroupSummary
+<a name="API_DatasetGroupSummary"></a>
 
-Provides a summary of the dataset group properties used in the [ListDatasetGroups](API_ListDatasetGroups.md "API_ListDatasetGroups.md") operation. To
-get the complete set of properties, call the [DescribeDatasetGroup](API_DescribeDatasetGroup.md "API_DescribeDatasetGroup.md")
-operation, and provide the `DatasetGroupArn`.
+Provides a summary of the dataset group properties used in the [ListDatasetGroups](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html) operation. To get the complete set of properties, call the [DescribeDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html) operation, and provide the `DatasetGroupArn`.
 
-###### Important
-
-Amazon Forecast is no longer available to new customers. Existing customers of
-Amazon Forecast can continue to use the service as normal.
-[Learn more"](http://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "http://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
+**Important**  
+Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](http://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/) 
 
 ## Contents
+<a name="API_DatasetGroupSummary_Contents"></a>
 
-**CreationTime**
-
-When the dataset group was created.
-
-Type: Timestamp
-
+ ** CreationTime **   <a name="forecast-Type-DatasetGroupSummary-CreationTime"></a>
+When the dataset group was created.  
+Type: Timestamp  
 Required: No
 
-**DatasetGroupArn**
-
-The Amazon Resource Name (ARN) of the dataset group.
-
-Type: String
-
-Length Constraints: Maximum length of 256.
-
-Pattern: `arn:([a-z\d-]+):forecast:.*:.*:.+`
-
+ ** DatasetGroupArn **   <a name="forecast-Type-DatasetGroupSummary-DatasetGroupArn"></a>
+The Amazon Resource Name (ARN) of the dataset group.  
+Type: String  
+Length Constraints: Maximum length of 256.  
+Pattern: `arn:([a-z\d-]+):forecast:.*:.*:.+`   
 Required: No
 
-**DatasetGroupName**
-
-The name of the dataset group.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 63.
-
-Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`
-
+ ** DatasetGroupName **   <a name="forecast-Type-DatasetGroupSummary-DatasetGroupName"></a>
+The name of the dataset group.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 63.  
+Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: No
 
-**LastModificationTime**
-
-When the dataset group was created or last updated from a call to the [UpdateDatasetGroup](API_UpdateDatasetGroup.md "API_UpdateDatasetGroup.md") operation. While the dataset group is being updated,
-`LastModificationTime` is the current time of the `ListDatasetGroups`
-call.
-
-Type: Timestamp
-
+ ** LastModificationTime **   <a name="forecast-Type-DatasetGroupSummary-LastModificationTime"></a>
+When the dataset group was created or last updated from a call to the [UpdateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html) operation. While the dataset group is being updated, `LastModificationTime` is the current time of the `ListDatasetGroups` call.  
+Type: Timestamp  
 Required: No
 
 ## See Also
+<a name="API_DatasetGroupSummary_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS SDK for C++](../../../goto/SdkForCpp/forecast-2018-06-26/DatasetGroupSummary.md "../../../goto/SdkForCpp/forecast-2018-06-26/DatasetGroupSummary.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/forecast-2018-06-26/DatasetGroupSummary.md "../../../goto/SdkForJavaV2/forecast-2018-06-26/DatasetGroupSummary.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/forecast-2018-06-26/DatasetGroupSummary.md "../../../goto/SdkForRubyV3/forecast-2018-06-26/DatasetGroupSummary.md")
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/forecast-2018-06-26/DatasetGroupSummary) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/forecast-2018-06-26/DatasetGroupSummary) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/forecast-2018-06-26/DatasetGroupSummary) 

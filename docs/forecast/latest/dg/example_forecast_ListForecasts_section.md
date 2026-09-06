@@ -1,20 +1,17 @@
-Amazon Forecast is no longer available to new customers. Existing customers of
-Amazon Forecast can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
+
+
+ Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Use `ListForecasts` with an AWS SDK
+<a name="example_forecast_ListForecasts_section"></a>
 
 The following code example shows how to use `ListForecasts`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/forecast#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/forecast#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/forecast#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -63,14 +60,9 @@ public class ListForecasts {
         }
     }
 }
-
-
 ```
++  For API details, see [ListForecasts](https://docs.aws.amazon.com/goto/SdkForJavaV2/forecast-2018-06-26/ListForecasts) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListForecasts](../../../goto/SdkForJavaV2/forecast-2018-06-26/ListForecasts.md "../../../goto/SdkForJavaV2/forecast-2018-06-26/ListForecasts.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Forecast with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Forecast with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

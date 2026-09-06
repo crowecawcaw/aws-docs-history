@@ -1,19 +1,16 @@
-Amazon Forecast is no longer available to new customers. Existing customers of
-Amazon Forecast can continue to use the service as normal.
-[Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
+
+
+ Amazon Forecast is no longer available to new customers. Existing customers of Amazon Forecast can continue to use the service as normal. [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/)
 
 # Getting Started
+<a name="getting-started"></a>
 
-To get started using Amazon Forecast, you do the following.
+To get started using Amazon Forecast, you do the following. 
++ Create a Forecast dataset and import training data.
++ Create a Forecast predictor, which you use generate forecasts based on your time-series data. Forecast applies the optimal combination of algorithms to each time series in your datasets.
++ Generate a forecast.
 
-- Create a Forecast dataset and import training data.
-- Create a Forecast predictor, which you use generate forecasts based on your time-series data. Forecast applies the
-  optimal combination of algorithms to each time series in your datasets.
-- Generate a forecast.
-  In this exercise, you use a modified version of a publicly available electricity usage
-  dataset to train a predictor. For more information, see
-  [ElectricityLoadDiagrams20112014 Data Set](https://archive.ics.uci.edu/ml/datasets/ElectricityLoadDiagrams20112014 "https://archive.ics.uci.edu/ml/datasets/ElectricityLoadDiagrams20112014").
-  The following are sample rows from the dataset:
+In this exercise, you use a modified version of a publicly available electricity usage dataset to train a predictor. For more information, see [ElectricityLoadDiagrams20112014 Data Set](https://archive.ics.uci.edu/ml/datasets/ElectricityLoadDiagrams20112014). The following are sample rows from the dataset:
 
 ```
 2014-01-01 01:00:00,   2.53807106598985, client_0
@@ -21,89 +18,65 @@ To get started using Amazon Forecast, you do the following.
 2014-01-01 02:00:00,  9.648648648612345, client_0
 ```
 
-For this exercise, you use the dataset to train a predictor, and then predict the hourly
-electricity usage by client.
+For this exercise, you use the dataset to train a predictor, and then predict the hourly electricity usage by client. 
 
-You can use either the Forecast console or the AWS Command Line Interface (AWS CLI) for this exercise.
-Pay attention to the default regions of the Amazon Forecast console, the AWS CLI, and the Amazon Forecast
-SDKs, as Amazon Forecast resources are not shared across regions.
+You can use either the Forecast console or the AWS Command Line Interface (AWS CLI) for this exercise. Pay attention to the default regions of the Amazon Forecast console, the AWS CLI, and the Amazon Forecast SDKs, as Amazon Forecast resources are not shared across regions.
 
-###### Important
+**Important**  
+Before you begin, make sure that you have an AWS account and have installed the AWS CLI. For more information, see [Setting Up](setup.md). We also recommend that you review [How Amazon Forecast Works](how-it-works.md).
 
-Before you begin, make sure that you have an AWS account and have installed the AWS CLI.
-For more information, see [Setting Up](setup.md "setup.md"). We also
-recommend that you review [How Amazon Forecast Works](how-it-works.md "how-it-works.md").
-
-###### Topics
-
-- [Prepare Input Data](#gs-upload-data-to-s3 "#gs-upload-data-to-s3")
-- [Getting Started (Console)](gs-console.md "gs-console.md")
-- [Getting Started (AWS CLI)](gs-cli.md "gs-cli.md")
-- [Getting Started (Python Notebooks)](getting-started-python.md "getting-started-python.md")
-- [Clean Up Resources](#gs-cleanup "#gs-cleanup")
+**Topics**
++ [Prepare Input Data](#gs-upload-data-to-s3)
++ [Getting Started (Console)](gs-console.md)
++ [Getting Started (AWS CLI)](gs-cli.md)
++ [Getting Started (Python Notebooks)](getting-started-python.md)
++ [Clean Up Resources](#gs-cleanup)
 
 ## Prepare Input Data
+<a name="gs-upload-data-to-s3"></a>
 
-Regardless of whether you use the Amazon Forecast console or the AWS Command Line Interface (AWS CLI) to
-set up a forecasting project, you need to set up your input data. To prepare your data, you do
-the following:
+Regardless of whether you use the Amazon Forecast console or the AWS Command Line Interface (AWS CLI) to set up a forecasting project, you need to set up your input data. To prepare your data, you do the following:
++ Download training data to your computer and upload it to an Amazon Simple Storage Service (Amazon S3) bucket in your AWS account. To import your data to an Amazon Forecast dataset, you must store it in an Amazon S3 bucket. 
++ Create an AWS Identity and Access Management (IAM) role. You give Amazon Forecast permission to access your S3 bucket with the IAM role. For more information about IAM roles, see [IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide*. 
 
-- Download training data to your computer and upload it to an Amazon Simple Storage Service (Amazon S3) bucket in
-  your AWS account. To import your data to an Amazon Forecast dataset, you must store it in
-  an Amazon S3 bucket.
-- Create an AWS Identity and Access Management (IAM) role. You give Amazon Forecast permission to access your S3
-  bucket with the IAM role. For more information about IAM roles, see [IAM Roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in
-  the _IAM User Guide_.
+**To prepare training data**
 
-###### To prepare training data
+1. Download the zip file, [electricityusagedata.zip](samples/electricityusagedata.zip). 
 
-1. Download the zip file, [electricityusagedata.zip](samples/electricityusagedata.zip.md "samples/electricityusagedata.zip.md").
+   For this exercise, you use a modified version of the individual household electric power consumption dataset. (Dua, D. and Karra Taniskidou, E. (2017). UCI Machine Learning Repository [[http://archive.ics.uci.edu/ml](http://archive.ics.uci.edu/ml)]. Irvine, CA: University of California, School of Information and Computer Science.) We aggregate the usage data hourly.
 
-For this exercise, you use a modified version of the individual household electric
-power consumption dataset. (Dua, D. and Karra Taniskidou, E. (2017). UCI Machine Learning
-Repository [[http://archive.ics.uci.edu/ml](http://archive.ics.uci.edu/ml "http://archive.ics.uci.edu/ml")]. Irvine, CA: University of California, School of
-Information and Computer Science.) We aggregate the usage data hourly. 2. Unzip the content and save it locally as
-`electricityusagedata.csv`. 3. Upload the data file to an S3 bucket.
+1. Unzip the content and save it locally as `electricityusagedata.csv`.
 
-For step-by-step instructions, see [Uploading
-Files and Folders by Using Drag and Drop](../../../AmazonS3/latest/user-guide/upload-objects.md "../../../AmazonS3/latest/user-guide/upload-objects.md") in the _Amazon Simple Storage Service User Guide._ 4. Create an IAM role.
+1. Upload the data file to an S3 bucket. 
 
-If you want to use the AWS CLI for the Getting Started exercise, you must create an IAM
-role. If you use the console, you can have it create the role for you. For step-by-step
-instructions, see [Set Up Permissions for Amazon Forecast](aws-forecast-iam-roles.md "aws-forecast-iam-roles.md").
+   For step-by-step instructions, see [Uploading Files and Folders by Using Drag and Drop](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html) in the *Amazon Simple Storage Service User Guide.*
 
-After you finish uploading the data to Amazon S3, you are ready to use the Amazon Forecast console or the AWS CLI to import training data, create a predictor, generate a
-forecast, and see the forecast.
+1. Create an IAM role. 
 
-- [Getting Started (Console)](gs-console.md "gs-console.md")
-- [Getting Started (AWS CLI)](gs-cli.md "gs-cli.md")
+   If you want to use the AWS CLI for the Getting Started exercise, you must create an IAM role. If you use the console, you can have it create the role for you. For step-by-step instructions, see [Set Up Permissions for Amazon Forecast](aws-forecast-iam-roles.md). 
+
+After you finish uploading the data to Amazon S3, you are ready to use the Amazon Forecast console or the AWS CLI to import training data, create a predictor, generate a forecast, and see the forecast.
++ [Getting Started (Console)](gs-console.md)
++ [Getting Started (AWS CLI)](gs-cli.md)
 
 ## Clean Up Resources
+<a name="gs-cleanup"></a>
 
-To avoid incurring unnecessary charges, delete the resources you created after you're
-done with the getting started exercise. To delete the resources, use either the
-Amazon Forecast console or the `Delete` APIs from the SDKs or the AWS Command Line Interface
-(AWS CLI). For example, use the
-[DeleteDataset](API_DeleteDataset.md "API_DeleteDataset.md") API to
-delete a dataset.
+To avoid incurring unnecessary charges, delete the resources you created after you're done with the getting started exercise. To delete the resources, use either the Amazon Forecast console or the `Delete` APIs from the SDKs or the AWS Command Line Interface (AWS CLI). For example, use the [DeleteDataset](API_DeleteDataset.md) API to delete a dataset.
 
-To delete a resource, its status must be `ACTIVE`,
-`CREATE_FAILED`, or `UPDATE_FAILED`.
-Check the status using the `Describe` APIs, for
-example, [DescribeDataset](API_DescribeDataset.md "API_DescribeDataset.md").
+To delete a resource, its status must be `ACTIVE`, `CREATE_FAILED`, or `UPDATE_FAILED`. Check the status using the `Describe` APIs, for example, [DescribeDataset](API_DescribeDataset.md).
 
-Some resources must be deleted before others, as shown in the
-following table. This process can take some time.
+Some resources must be deleted before others, as shown in the following table. This process can take some time.
 
-To delete the training data you uploaded, `electricityusagedata.csv`, see
-[How Do I Delete Objects from an S3 Bucket?](../../../AmazonS3/latest/userguide/delete-objects.md "../../../AmazonS3/latest/userguide/delete-objects.md").
+To delete the training data you uploaded, ` electricityusagedata.csv`, see [How Do I Delete Objects from an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/delete-objects.html).
 
-| Resource to Delete  | Delete This First                                                                       | Notes                                                                                                                          |
-| ------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `ForecastExportJob` |                                                                                         |                                                                                                                                |
-| `Forecast`          |                                                                                         | You can't delete a forecast while it is being exported. After a forecast is<br>deleted, you can no longer query the forecast.  |
-| `Predictor`         | All associated forecasts.                                                               |                                                                                                                                |
-| `DatasetImportJob`  |                                                                                         | Can not be deleted.                                                                                                            |
-| `Dataset`           |                                                                                         | All `DatasetImportJob`s that target the dataset are also deleted.<br>You can't delete a `Dataset` that is used by a predictor. |
-| `DatasetSchema`     | All datasets that reference the schema.                                                 |                                                                                                                                |
-| `DatasetGroup`      | All associated predictorsAll associated forecasts.All datasets<br>in the dataset group. | You can't delete a `DatasetGroup` that contains a `Dataset` used by a predictor.                                               |
+
+| Resource to Delete | Delete This First | Notes | 
+| --- | --- | --- | 
+| ForecastExportJob |  |  | 
+| Forecast |  | You can't delete a forecast while it is being exported. After a forecast is deleted, you can no longer query the forecast. | 
+| Predictor | All associated forecasts. |  | 
+| DatasetImportJob |  | Can not be deleted. | 
+| Dataset |  | All `DatasetImportJob`s that target the dataset are also deleted.<br />You can't delete a `Dataset` that is used by a predictor. | 
+| DatasetSchema | All datasets that reference the schema. |  | 
+| DatasetGroup | All associated predictorsAll associated forecasts.<br />All datasets in the dataset group. | You can't delete a `DatasetGroup` that contains a `Dataset` used by a predictor. | 
