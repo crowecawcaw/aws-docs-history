@@ -1,38 +1,30 @@
+
+
 # AWS Data Exchange Heartbeat
+<a name="heartbeat"></a>
 
-AWS Data Exchange Heartbeat (Test product) is a free product that subscribers can use to understand how to
-interact with an AWS Data Exchange product subscription. You can use it for testing purposes and to get
-familiar with the AWS Data Exchange API and concepts.
+AWS Data Exchange Heartbeat (Test product) is a free product that subscribers can use to understand how to interact with an AWS Data Exchange product subscription. You can use it for testing purposes and to get familiar with the AWS Data Exchange API and concepts.
 
-AWS Data Exchange Heartbeat contains a single data set named **Heartbeat**. Approximately
-every 15 minutes, a new revision is published to this data set.
+AWS Data Exchange Heartbeat contains a single data set named **Heartbeat**. Approximately every 15 minutes, a new revision is published to this data set.
 
 ## Example content of a revision
+<a name="revision-example"></a>
 
 Each new revision contains two assets:
-
-- Epoch asset
-- Manifest asset
++ Epoch asset
++ Manifest asset
 
 ## Epoch asset
+<a name="epoch-asset"></a>
 
-Each AWS Data Exchange Heartbeat revision contains a JSON file Amazon Simple Storage Service (Amazon S3) object that
-contains a single array. The array's name is
-`TimestampsSinceLastRevision`, and its value is a list of each UNIX
-Epoch second that has elapsed since the last revision.
+Each AWS Data Exchange Heartbeat revision contains a JSON file Amazon Simple Storage Service (Amazon S3) object that contains a single array. The array's name is `TimestampsSinceLastRevision`, and its value is a list of each UNIX Epoch second that has elapsed since the last revision.
 
-The name of the asset is in the form `Epoch{start}-{end}.json`
-where `{start}` and `{end}` represent the Epoch seconds
-corresponding to the period of time covered by the revision.
+The name of the asset is in the form `Epoch{start}-{end}.json` where `{start}` and `{end}` represent the Epoch seconds corresponding to the period of time covered by the revision.
 
 ## Manifest asset
+<a name="manifest-asset"></a>
 
-Each AWS Data Exchange Heartbeat revision contains a JSON file S3 object that contains metadata
-about the revision and the schema of the Epoch asset JSON file. The name of the
-asset is in the form `Manifest{start}-{end}.json` where
-`{start}` and `{end}` represent the Epoch seconds
-corresponding to the period of time covered by the revision. The following example
-shows the content of a manifest file.
+Each AWS Data Exchange Heartbeat revision contains a JSON file S3 object that contains metadata about the revision and the schema of the Epoch asset JSON file. The name of the asset is in the form `Manifest{start}-{end}.json` where `{start}` and `{end}` represent the Epoch seconds corresponding to the period of time covered by the revision. The following example shows the content of a manifest file.
 
 ```
 {
@@ -58,6 +50,8 @@ shows the content of a manifest file.
 
 The following topic describes how to subscribe to AWS Data Exchange Heartbeat on AWS Data Exchange.
 
-###### Topics
-
-- [Subscribing to AWS Data Exchange Heartbeat on AWS Data Exchange](how-to-subscribe.md "how-to-subscribe.md")
+**Topics**
++ [Example content of a revision](#revision-example)
++ [Epoch asset](#epoch-asset)
++ [Manifest asset](#manifest-asset)
++ [Subscribing to AWS Data Exchange Heartbeat on AWS Data Exchange](how-to-subscribe.md)

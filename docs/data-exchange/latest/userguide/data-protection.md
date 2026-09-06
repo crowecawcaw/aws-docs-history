@@ -1,65 +1,38 @@
+
+
 # Data protection in AWS Data Exchange
+<a name="data-protection"></a>
 
-The AWS
-[shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
+The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in AWS Data Exchange. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
-applies to data protection in AWS Data Exchange.
+For data protection purposes, we recommend that you protect AWS account credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
++ Use multi-factor authentication (MFA) with each account.
++ Use SSL/TLS to communicate with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
++ Set up API and user activity logging with AWS CloudTrail. For information about using CloudTrail trails to capture AWS activities, see [Working with CloudTrail trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trails.html) in the *AWS CloudTrail User Guide*.
++ Use AWS encryption solutions, along with all default security controls within AWS services.
++ Use advanced managed security services such as Amazon Macie, which assists in discovering and securing sensitive data that is stored in Amazon S3.
++ If you require FIPS 140-3 validated cryptographic modules when accessing AWS through a command line interface or an API, use a FIPS endpoint. For more information about the available FIPS endpoints, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/).
 
-As described in this model, AWS is
-responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are
-responsible for maintaining control over your content that is hosted on this infrastructure.
-You are also responsible for the security configuration and management tasks for the AWS services
-that you use.
+We strongly recommend that you never put confidential or sensitive information, such as your customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with AWS Data Exchange or other AWS services using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into tags or free-form text fields used for names may be used for billing or diagnostic logs. If you provide a URL to an external server, we strongly recommend that you do not include credentials information in the URL to validate your request to that server.
 
-For more information about data privacy, see
-[Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/").
+AWS Data Exchange provides the following options that you can use to help secure the content that exists in your data sets:
 
-For information about data protection in Europe, see the
-[General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/ "https://aws.amazon.com/compliance/gdpr-center/").
-
-For data protection purposes, we recommend that you protect AWS account
-credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
-
-- Use multi-factor authentication (MFA) with each account.
-- Use SSL/TLS to communicate with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
-- Set up API and user activity logging with AWS CloudTrail. For information about using CloudTrail trails to capture AWS activities, see [Working with CloudTrail trails](../../../awscloudtrail/latest/userguide/cloudtrail-trails.md "../../../awscloudtrail/latest/userguide/cloudtrail-trails.md") in the _AWS CloudTrail User Guide_.
-- Use AWS encryption solutions, along with all default security controls within AWS services.
-- Use advanced managed security services such as Amazon Macie, which assists in discovering
-  and securing sensitive data that is stored in Amazon S3.
-- If you require FIPS 140-3 validated cryptographic modules when accessing AWS through
-  a command line interface or an API, use a FIPS endpoint. For more information about the
-  available FIPS endpoints, see [Federal
-  Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
-  We strongly recommend that you never put confidential or sensitive information, such as your
-  customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with AWS Data Exchange or other AWS services
-  using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into
-  tags or free-form text fields used for names may be used for billing or diagnostic logs. If you
-  provide a URL to an external server, we strongly recommend that you do not include credentials
-  information in the URL to validate your request to that server.
-
-AWS Data Exchange provides the following options that you can use to help secure the content that exists
-in your data sets:
-
-###### Topics
-
-- [Encryption at rest](#data-protection-encryption-rest "#data-protection-encryption-rest")
-- [Encryption in transit](#data-protection-encryption-in-transit "#data-protection-encryption-in-transit")
-- [Restrict access to content](#data-protection-restrict-access "#data-protection-restrict-access")
+**Topics**
++ [Encryption at rest](#data-protection-encryption-rest)
++ [Encryption in transit](#data-protection-encryption-in-transit)
++ [Restrict access to content](#data-protection-restrict-access)
 
 ## Encryption at rest
+<a name="data-protection-encryption-rest"></a>
 
-AWS Data Exchange always encrypts all data products stored in the service at rest without requiring any
-additional configuration. This encryption is automatic when you use AWS Data Exchange.
+AWS Data Exchange always encrypts all data products stored in the service at rest without requiring any additional configuration. This encryption is automatic when you use AWS Data Exchange.
 
 ## Encryption in transit
+<a name="data-protection-encryption-in-transit"></a>
 
-AWS Data Exchange uses Transport Layer Security (TLS) and client-side encryption for encryption in
-transit. Communication with AWS Data Exchange is always done over HTTPS so your data is always encrypted in
-transit. This encryption is configured by default when you use AWS Data Exchange.
+AWS Data Exchange uses Transport Layer Security (TLS) and client-side encryption for encryption in transit. Communication with AWS Data Exchange is always done over HTTPS so your data is always encrypted in transit. This encryption is configured by default when you use AWS Data Exchange.
 
 ## Restrict access to content
+<a name="data-protection-restrict-access"></a>
 
-As a best practice, you should restrict access to the appropriate subset of users. With
-AWS Data Exchange, you can do this by ensuring that users, groups, and roles who use your AWS account have
-the right permissions. For more information about roles and policies for IAM entities, see
-_[IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md")_.
+As a best practice, you should restrict access to the appropriate subset of users. With AWS Data Exchange, you can do this by ensuring that users, groups, and roles who use your AWS account have the right permissions. For more information about roles and policies for IAM entities, see *[IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)*.
