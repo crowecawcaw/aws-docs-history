@@ -1,39 +1,38 @@
-# Tutorial: Set up delegated RPKI for BYOIP prefixes
 
-This tutorial walks through all BGP route protection capabilities end to end. You can stop
-after any step and use what you've set up so far. Steps 1 and 2 require no RIR interaction.
-Steps 3 and later require a one-time setup with your RIR. For background on BGP route
-protection concepts, tier requirements, and supported RIRs, see [Monitor BGP route protection](monitor-bgp-route-security.md "monitor-bgp-route-security.md").
+
+# Tutorial: Set up delegated RPKI for BYOIP prefixes
+<a name="tutorials-byoip-bgp-security"></a>
+
+This tutorial walks through all BGP route protection capabilities end to end. You can stop after any step and use what you've set up so far. Steps 1 and 2 require no RIR interaction. Steps 3 and later require a one-time setup with your RIR. For background on BGP route protection concepts, tier requirements, and supported RIRs, see [Monitor BGP route protection](monitor-bgp-route-security.md).
 
 ## Prerequisites
-
-- An IPAM created in the Advanced Tier.
-- One or more BYOIP prefixes provisioned to IPAM pools.
-- Access to your Regional Internet Registry account (ARIN, RIPE, APNIC, or
-  LACNIC).
+<a name="tutorials-byoip-bgp-security-prereqs"></a>
++ An IPAM created in the Advanced Tier.
++ One or more BYOIP prefixes provisioned to IPAM pools.
++ Access to your Regional Internet Registry account (ARIN, RIPE, APNIC, or LACNIC).
 
 ## Step 1: View your BGP routes
+<a name="tutorials-byoip-bgp-security-step1"></a>
 
-Once you have BYOIP prefixes provisioned to IPAM, view all advertised routes in the
-centralized dashboard.
+Once you have BYOIP prefixes provisioned to IPAM, view all advertised routes in the centralized dashboard.
 
-AWS Management Console
+------
+#### [ AWS Management Console ]
 
-###### To view your BGP routes
+**To view your BGP routes**
 
-1. Open the IPAM console at
-   [https://console.aws.amazon.com/ipam/](https://console.aws.amazon.com/ipam/ "https://console.aws.amazon.com/ipam/").
-2. In the navigation pane, choose **IPAM**, and
-   then choose your IPAM.
-3. Under **Monitoring**, choose **Route
-   monitoring**.
+1. Open the IPAM console at [https://console.aws.amazon.com/ipam/](https://console.aws.amazon.com/ipam/). 
 
-The dashboard displays all BYOIP routes with prefix, locale, advertisement
-status, ASN, RPKI validity, ROA strength, and route overlaps.
+1. In the navigation pane, choose **IPAM**, and then choose your IPAM.
 
-Command line
-Use [get-ipam-discovered-routes](../../../cli/latest/reference/ec2/get-ipam-discovered-routes.md "../../../cli/latest/reference/ec2/get-ipam-discovered-routes.md") to view discovered routes. This command
-is available to both Free Tier and Advanced Tier customers.
+1. Under **Monitoring**, choose **Route monitoring**.
+
+The dashboard displays all BYOIP routes with prefix, locale, advertisement status, ASN, RPKI validity, ROA strength, and route overlaps.
+
+------
+#### [ Command line ]
+
+Use [get-ipam-discovered-routes](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-ipam-discovered-routes.html) to view discovered routes. This command is available to both Free Tier and Advanced Tier customers.
 
 ```
 aws ec2 get-ipam-discovered-routes \
@@ -63,38 +62,38 @@ The following is example output.
 }
 ```
 
+------
+
 ## Step 2: Review route protection findings
+<a name="tutorials-byoip-bgp-security-step2"></a>
 
-For Advanced Tier customers, IPAM evaluates routes against published ROA data and
-surfaces findings with [get-ipam-route-protection-findings](../../../cli/latest/reference/ec2/get-ipam-route-protection-findings.md "../../../cli/latest/reference/ec2/get-ipam-route-protection-findings.md").
+For Advanced Tier customers, IPAM evaluates routes against published ROA data and surfaces findings with [get-ipam-route-protection-findings](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-ipam-route-protection-findings.html).
 
-###### Note
-
-get-ipam-route-protection-findings requires the Advanced Tier. Free Tier
-customers receive an `UnsupportedOperation` error.
+**Note**  
+get-ipam-route-protection-findings requires the Advanced Tier. Free Tier customers receive an `UnsupportedOperation` error.
 
 1. List all findings.
 
-```
-aws ec2 get-ipam-route-protection-findings \
-    --ipam-id ipam-0a1b2c3d4e5f6g7h8
-```
+   ```
+   aws ec2 get-ipam-route-protection-findings \
+       --ipam-id ipam-0a1b2c3d4e5f6g7h8
+   ```
 
-2. Filter for invalid or missing ROAs.
+1. Filter for invalid or missing ROAs.
 
-```
-aws ec2 get-ipam-route-protection-findings \
-    --ipam-id ipam-0a1b2c3d4e5f6g7h8 \
-    --filters "Name=rpki-status,Values=invalid,unknown"
-```
+   ```
+   aws ec2 get-ipam-route-protection-findings \
+       --ipam-id ipam-0a1b2c3d4e5f6g7h8 \
+       --filters "Name=rpki-status,Values=invalid,unknown"
+   ```
 
-3. Filter by status in a specific Region.
+1. Filter by status in a specific Region.
 
-```
-aws ec2 get-ipam-route-protection-findings \
-    --ipam-id ipam-0a1b2c3d4e5f6g7h8 \
-    --filters "Name=rpki-status,Values=invalid" "Name=resource-region,Values=us-west-2"
-```
+   ```
+   aws ec2 get-ipam-route-protection-findings \
+       --ipam-id ipam-0a1b2c3d4e5f6g7h8 \
+       --filters "Name=rpki-status,Values=invalid" "Name=resource-region,Values=us-west-2"
+   ```
 
 The following is example output.
 
@@ -137,160 +136,149 @@ The following is example output.
 }
 ```
 
-Valid filter names are `cidr`, `account-id`,
-`resource-region`, `byoip-cidr-state`,
-`advertisement-type`, `network-border-group`,
-`ipam-pool-id`, `rpki-status`, and `asn`. These
-EC2-style filter names don't always match the returned fields. For example, you filter
-on `account-id` but the response returns `ResourceOwnerId`, and
-you filter on `byoip-cidr-state` but the field is `State`. ROA
-strength is not filterable.
+Valid filter names are `cidr`, `account-id`, `resource-region`, `byoip-cidr-state`, `advertisement-type`, `network-border-group`, `ipam-pool-id`, `rpki-status`, and `asn`. These EC2-style filter names don't always match the returned fields. For example, you filter on `account-id` but the response returns `ResourceOwnerId`, and you filter on `byoip-cidr-state` but the field is `State`. ROA strength is not filterable.
 
 ## Step 3: Set up delegated RPKI
+<a name="tutorials-byoip-bgp-security-step3"></a>
 
 Delegated RPKI lets you authorize AWS to manage ROAs on your behalf.
 
 1. **Create the Internet Registry Association.**
 
-```
-aws ec2 create-ipam-internet-registry-association --region us-east-1 \
-    --ipam-id ipam-0de83dba6694560a9 \
-    --rir ARIN --org-handle my-arin-org
-```
+   ```
+   aws ec2 create-ipam-internet-registry-association --region us-east-1 \
+       --ipam-id ipam-0de83dba6694560a9 \
+       --rir ARIN --org-handle my-arin-org
+   ```
 
-The following is example output.
+   The following is example output.
 
-```
-{
-    "IpamInternetRegistryAssociation": {
-        "IpamInternetRegistryAssociationId": "ipam-internet-registry-assoc-036486dfa6af58ee0",
-        "State": "create-in-progress"
-    }
-}
-```
+   ```
+   {
+       "IpamInternetRegistryAssociation": {
+           "IpamInternetRegistryAssociationId": "ipam-internet-registry-assoc-036486dfa6af58ee0",
+           "State": "create-in-progress"
+       }
+   }
+   ```
 
-Run the following command until the state reaches
-`pending-enable`.
+   Run the following command until the state reaches `pending-enable`.
 
-```
-aws ec2 describe-ipam-internet-registry-associations --region us-east-1 \
-    --ipam-internet-registry-association-ids ipam-internet-registry-assoc-036486dfa6af58ee0
-```
+   ```
+   aws ec2 describe-ipam-internet-registry-associations --region us-east-1 \
+       --ipam-internet-registry-association-ids ipam-internet-registry-assoc-036486dfa6af58ee0
+   ```
 
-Once the state is `pending-enable`, the ChildRequestXml is ready to
-submit to your RIR. IPAM stages ROAs based on public VRP (Validated ROA
-Payload) data. They're pending and will be activated once the Internet Registry
-Association is enabled. 2. **Review the staged ROAs.**
+   Once the state is `pending-enable`, the ChildRequestXml is ready to submit to your RIR. IPAM stages ROAs based on public VRP (Validated ROA Payload) data. They're pending and will be activated once the Internet Registry Association is enabled.
 
-```
-aws ec2 get-ipam-route-origin-authorizations --region us-east-1 \
-    --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0
-```
+1. **Review the staged ROAs.**
 
-The following is example output.
+   ```
+   aws ec2 get-ipam-route-origin-authorizations --region us-east-1 \
+       --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0
+   ```
 
-```
-{
-    "Roas": [
-        {
-            "prefix": "18.96.0.0/14",
-            "asn": "77221",
-            "maxLength": "24",
-            "state": "pending-activate"
-        }
-    ]
-}
-```
+   The following is example output.
 
-3. **Enable the Internet Registry
-   Association.**
+   ```
+   {
+       "Roas": [
+           {
+               "prefix": "18.96.0.0/14",
+               "asn": "77221",
+               "maxLength": "24",
+               "state": "pending-activate"
+           }
+       ]
+   }
+   ```
 
-Take the ChildRequestXml to your RIR portal and submit the delegation request.
-The RIR returns a parent response XML. Extract the following fields from that
-response: RpkiVersion, ServiceUri, ChildHandle, ParentHandle, and ParentBpkiTa.
-Then call the following command.
+1. **Enable the Internet Registry Association.**
 
-```
-aws ec2 enable-ipam-internet-registry-association --region us-east-1 \
-    --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0 \
-    --rpki-version "..." \
-    --service-uri "..." \
-    --child-handle "..." \
-    --parent-handle "..." \
-    --parent-bpki-ta "..."
-```
+   Take the ChildRequestXml to your RIR portal and submit the delegation request. The RIR returns a parent response XML. Extract the following fields from that response: RpkiVersion, ServiceUri, ChildHandle, ParentHandle, and ParentBpkiTa. Then call the following command.
 
-The following is example output.
+   ```
+   aws ec2 enable-ipam-internet-registry-association --region us-east-1 \
+       --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0 \
+       --rpki-version "..." \
+       --service-uri "..." \
+       --child-handle "..." \
+       --parent-handle "..." \
+       --parent-bpki-ta "..."
+   ```
 
-```
-{
-    "IpamInternetRegistryAssociation": {
-        "IpamInternetRegistryAssociationId": "ipam-internet-registry-assoc-036486dfa6af58ee0",
-        "State": "enable-in-progress"
-    }
-}
-```
+   The following is example output.
 
-Run the following command until the state reaches
-`enable-complete`.
+   ```
+   {
+       "IpamInternetRegistryAssociation": {
+           "IpamInternetRegistryAssociationId": "ipam-internet-registry-assoc-036486dfa6af58ee0",
+           "State": "enable-in-progress"
+       }
+   }
+   ```
 
-```
-aws ec2 describe-ipam-internet-registry-associations --region us-east-1 \
-    --ipam-internet-registry-association-ids ipam-internet-registry-assoc-036486dfa6af58ee0
-```
+   Run the following command until the state reaches `enable-complete`.
 
-Once the state is `enable-complete`, staged ROAs transition to
-`create-complete`. AWS now manages the ROA lifecycle for all CIDRs
-under this association. 4. **View associated CIDRs.**
+   ```
+   aws ec2 describe-ipam-internet-registry-associations --region us-east-1 \
+       --ipam-internet-registry-association-ids ipam-internet-registry-assoc-036486dfa6af58ee0
+   ```
 
-```
-aws ec2 get-ipam-internet-registry-association-cidrs --region us-east-1 \
-    --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0
-```
+   Once the state is `enable-complete`, staged ROAs transition to `create-complete`. AWS now manages the ROA lifecycle for all CIDRs under this association.
 
-The following is example output.
+1. **View associated CIDRs.**
 
-```
-{
-    "IpamInternetRegistryAssociationCidrs": [
-        {
-            "Cidr": "18.96.0.0/14",
-            "LastObservedAt": "2026-07-30T18:00:00.000Z"
-        }
-    ]
-}
-```
+   ```
+   aws ec2 get-ipam-internet-registry-association-cidrs --region us-east-1 \
+       --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0
+   ```
 
-5. **View associated ASNs.**
+   The following is example output.
 
-```
-aws ec2 get-ipam-internet-registry-association-asns --region us-east-1 \
-    --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0
-```
+   ```
+   {
+       "IpamInternetRegistryAssociationCidrs": [
+           {
+               "Cidr": "18.96.0.0/14",
+               "LastObservedAt": "2026-07-30T18:00:00.000Z"
+           }
+       ]
+   }
+   ```
 
-The following is example output.
+1. **View associated ASNs.**
 
-```
-{
-    "IpamInternetRegistryAssociationAsns": [
-        {
-            "Asn": "77221",
-            "LastObservedAt": "2026-07-30T18:00:00.000Z"
-        }
-    ]
-}
-```
+   ```
+   aws ec2 get-ipam-internet-registry-association-asns --region us-east-1 \
+       --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0
+   ```
+
+   The following is example output.
+
+   ```
+   {
+       "IpamInternetRegistryAssociationAsns": [
+           {
+               "Asn": "77221",
+               "LastObservedAt": "2026-07-30T18:00:00.000Z"
+           }
+       ]
+   }
+   ```
 
 ## Step 4: Provision BYOIP with automated ROA creation
+<a name="tutorials-byoip-bgp-security-step4"></a>
 
 With delegated RPKI active, provisioning is simplified.
 
-| Before (without delegated RPKI)                     | After (with delegated RPKI)                                                                                                                             |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Must provide `--cidr-authorization-context`         | Still pass `--cidr-authorization-context`, but with<br>`Message="CoveredByInternetRegistryAssociation",Signature=""`<br>— no signed message is required |
-| Must validate via WHOIS or DNS TXT record           | Not required — IPAM verifies against association CIDRs                                                                                                  |
-| Must manually create ROAs at RIR before advertising | ROAs auto-created on provisioning                                                                                                                       |
-| Must manually renew ROAs before expiration          | AWS auto-renews — no action needed                                                                                                                      |
+
+| Before (without delegated RPKI) | After (with delegated RPKI) | 
+| --- | --- | 
+| Must provide --cidr-authorization-context | Still pass --cidr-authorization-context, but with Message="CoveredByInternetRegistryAssociation",Signature="" — no signed message is required | 
+| Must validate via WHOIS or DNS TXT record | Not required — IPAM verifies against association CIDRs | 
+| Must manually create ROAs at RIR before advertising | ROAs auto-created on provisioning | 
+| Must manually renew ROAs before expiration | AWS auto-renews — no action needed | 
 
 ```
 aws ec2 provision-ipam-pool-cidr \
@@ -300,135 +288,126 @@ aws ec2 provision-ipam-pool-cidr \
     --region us-east-1
 ```
 
-IPAM validates ownership through the Internet Registry Association and creates
-strict ROAs matching the pool's locale and ASN. There is no manual ROA step.
+IPAM validates ownership through the Internet Registry Association and creates strict ROAs matching the pool's locale and ASN. There is no manual ROA step.
 
 ## Step 5: Manage ROAs for on-premises prefixes
+<a name="tutorials-byoip-bgp-security-step5"></a>
 
-For IP space that is not brought to AWS, use routing policy registrations
-(RPRs).
+For IP space that is not brought to AWS, use routing policy registrations (RPRs).
 
 1. **Create an RPR.**
 
-```
-aws ec2 create-ipam-routing-policy-registration --region us-east-1 \
-    --ipam-id ipam-0de83dba6694560a9 \
-    --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0 \
-    --cidr 18.96.0.0/14 --asns 77221,13446 \
-    --permit-more-specific-announcements
-```
+   ```
+   aws ec2 create-ipam-routing-policy-registration --region us-east-1 \
+       --ipam-id ipam-0de83dba6694560a9 \
+       --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0 \
+       --cidr 18.96.0.0/14 --asns 77221,13446 \
+       --permit-more-specific-announcements
+   ```
 
-The following is example output.
+   The following is example output.
 
-```
-{
-    "deltaId": "0130c368-1f8c-4283-8f16-66e67e633086",
-    "state": "PENDING"
-}
-```
+   ```
+   {
+       "deltaId": "0130c368-1f8c-4283-8f16-66e67e633086",
+       "state": "PENDING"
+   }
+   ```
 
-2. **Check delta status.** If the change would
-   invalidate existing routes, it fails with an error. Use `--force` to
-   override.
+1. **Check delta status.** If the change would invalidate existing routes, it fails with an error. Use `--force` to override.
 
-```
-aws ec2 get-ipam-routing-policy-registration-deltas --region us-east-1 \
-    --ipam-id ipam-0de83dba6694560a9 \
-    --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0 \
-    --delta-id 0130c368-1f8c-4283-8f16-66e67e633086
-```
+   ```
+   aws ec2 get-ipam-routing-policy-registration-deltas --region us-east-1 \
+       --ipam-id ipam-0de83dba6694560a9 \
+       --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0 \
+       --delta-id 0130c368-1f8c-4283-8f16-66e67e633086
+   ```
 
-3. **Batch update (atomic).** Batch updates succeed
-   or fail atomically. There is no partial application.
+1. **Batch update (atomic).** Batch updates succeed or fail atomically. There is no partial application.
 
-```
-aws ec2 batch-modify-ipam-routing-policy-registrations --region us-east-1 \
-    --ipam-id ipam-0de83dba6694560a9 \
-    --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0 \
-    --delta-json file://delta.json
-```
+   ```
+   aws ec2 batch-modify-ipam-routing-policy-registrations --region us-east-1 \
+       --ipam-id ipam-0de83dba6694560a9 \
+       --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0 \
+       --delta-json file://delta.json
+   ```
 
-Where `delta.json` contains the following.
+   Where `delta.json` contains the following.
 
-```
-{
-    "Add": [
-        {
-            "prefix": "18.96.0.0/14",
-            "asns": ["77221", "13446"],
-            "permit-more-specific-announcements": "false"
-        }
-    ],
-    "Delete": [
-        {
-            "prefix": "18.97.16.0/24",
-            "asns": ["77221", "13446"],
-            "permit-more-specific-announcements": "false"
-        }
-    ]
-}
-```
+   ```
+   {
+       "Add": [
+           {
+               "prefix": "18.96.0.0/14",
+               "asns": ["77221", "13446"],
+               "permit-more-specific-announcements": "false"
+           }
+       ],
+       "Delete": [
+           {
+               "prefix": "18.97.16.0/24",
+               "asns": ["77221", "13446"],
+               "permit-more-specific-announcements": "false"
+           }
+       ]
+   }
+   ```
 
-4. **View all registrations for an
-   association.**
+1. **View all registrations for an association.**
 
-```
-aws ec2 get-ipam-routing-policy-registrations --region us-east-1 \
-    --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0
-```
+   ```
+   aws ec2 get-ipam-routing-policy-registrations --region us-east-1 \
+       --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0
+   ```
 
-The following is example output.
+   The following is example output.
 
-```
-{
-    "IpamRoutingPolicyRegistrations": [
-        {
-            "Cidr": "18.96.0.0/14",
-            "Asns": ["77221", "13446"],
-            "PermitMoreSpecificAnnouncements": false,
-            "MaxLength": 14,
-            "LatestDeltaId": "0130c368-1f8c-4283-8f16-66e67e633086",
-            "State": "create-complete"
-        },
-        {
-            "Cidr": "18.97.16.0/24",
-            "Asns": ["77221", "13446"],
-            "PermitMoreSpecificAnnouncements": false,
-            "MaxLength": 24,
-            "LatestDeltaId": "0130c368-1f8c-4283-8f16-66e67e633086",
-            "State": "create-complete"
-        }
-    ]
-}
-```
+   ```
+   {
+       "IpamRoutingPolicyRegistrations": [
+           {
+               "Cidr": "18.96.0.0/14",
+               "Asns": ["77221", "13446"],
+               "PermitMoreSpecificAnnouncements": false,
+               "MaxLength": 14,
+               "LatestDeltaId": "0130c368-1f8c-4283-8f16-66e67e633086",
+               "State": "create-complete"
+           },
+           {
+               "Cidr": "18.97.16.0/24",
+               "Asns": ["77221", "13446"],
+               "PermitMoreSpecificAnnouncements": false,
+               "MaxLength": 24,
+               "LatestDeltaId": "0130c368-1f8c-4283-8f16-66e67e633086",
+               "State": "create-complete"
+           }
+       ]
+   }
+   ```
 
-5. **Filter to a specific prefix.**
+1. **Filter to a specific prefix.**
 
-```
-aws ec2 get-ipam-routing-policy-registrations --region us-east-1 \
-    --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0 \
-    --cidr 18.96.0.0/14
-```
+   ```
+   aws ec2 get-ipam-routing-policy-registrations --region us-east-1 \
+       --ipam-internet-registry-association-id ipam-internet-registry-assoc-036486dfa6af58ee0 \
+       --cidr 18.96.0.0/14
+   ```
 
 ## Step 6: Set up CloudWatch alarms for route anomalies
+<a name="tutorials-byoip-bgp-security-step6"></a>
 
-IPAM publishes CloudWatch metrics for each BYOIP route to the global IPAM account.
-The `RoaExpiration` metric is published to the `AWS/IPAM`
-namespace with the dimensions `Cidr`, `RoaPrefix`,
-`Asn`, and `MaxLength`.
+IPAM publishes CloudWatch metrics for each BYOIP route to the global IPAM account. The `RoaExpiration` metric is published to the `AWS/IPAM` namespace with the dimensions `Cidr`, `RoaPrefix`, `Asn`, and `MaxLength`.
 
-| Type      | Name          | Description                          |
-| --------- | ------------- | ------------------------------------ |
-| Metric    | RoaExpiration | Number of days until the ROA expires |
-| Dimension | Asn           | ASN for the prefix                   |
-| Dimension | Cidr          | CIDR brought via BYOIP               |
-| Dimension | MaxLength     | MaxLength from the ROA               |
-| Dimension | RoaPrefix     | Prefix from the ROA                  |
 
-Because `RoaExpiration` reports the number of days remaining until the ROA
-expires, alarm when the value drops to or below your threshold. Specify all four
-dimensions to target a single ROA. Create the alarm in the same account and Region where
-the metrics are published.
+| Type | Name | Description | 
+| --- | --- | --- | 
+| Metric | RoaExpiration | Number of days until the ROA expires | 
+| Dimension | Asn | ASN for the prefix | 
+| Dimension | Cidr | CIDR brought via BYOIP | 
+| Dimension | MaxLength | MaxLength from the ROA | 
+| Dimension | RoaPrefix | Prefix from the ROA | 
+
+Because `RoaExpiration` reports the number of days remaining until the ROA expires, alarm when the value drops to or below your threshold. Specify all four dimensions to target a single ROA. Create the alarm in the same account and Region where the metrics are published.
 
 ```
 aws cloudwatch put-metric-alarm --region us-east-1 \
@@ -447,22 +426,22 @@ aws cloudwatch put-metric-alarm --region us-east-1 \
 ```
 
 ## Cleanup
+<a name="tutorials-byoip-bgp-security-cleanup"></a>
 
 To remove delegated RPKI resources:
 
 1. Delete all routing policy registrations.
-2. Disassociate the Internet Registry Association.
-3. (Optional) Remove the authorization at your RIR portal.
 
-###### Important
+1. Disassociate the Internet Registry Association.
 
-Deleting an Internet Registry Association removes all AWS-managed ROAs for
-that association. Make sure your routes have alternative ROA coverage before you
-disassociate.
+1. (Optional) Remove the authorization at your RIR portal.
+
+**Important**  
+Deleting an Internet Registry Association removes all AWS-managed ROAs for that association. Make sure your routes have alternative ROA coverage before you disassociate.
 
 ## Related resources
-
-- [Monitor BGP route protection](monitor-bgp-route-security.md "monitor-bgp-route-security.md")
-- [Tutorial: Bring your IP addresses to IPAM](tutorials-byoip-ipam.md "tutorials-byoip-ipam.md")
-- [Tutorial: Bring your ASN to IPAM](tutorials-byoasn.md "tutorials-byoasn.md")
-- [Monitor IPAM with Amazon CloudWatch](cloudwatch-ipam.md "cloudwatch-ipam.md")
+<a name="tutorials-byoip-bgp-security-related"></a>
++ [Monitor BGP route protection](monitor-bgp-route-security.md)
++ [Tutorial: Bring your IP addresses to IPAM](tutorials-byoip-ipam.md)
++ [Tutorial: Bring your ASN to IPAM](tutorials-byoasn.md)
++ [Monitor IPAM with Amazon CloudWatch](cloudwatch-ipam.md)

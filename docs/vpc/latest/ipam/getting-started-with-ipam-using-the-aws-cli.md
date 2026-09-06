@@ -1,22 +1,22 @@
-# Getting started with IPAM using the AWS CLI
 
-This tutorial guides you through the process of setting up and using Amazon VPC IP Address
-Manager (IPAM) with the AWS CLI using a single AWS account. By the end of this tutorial,
-you will have created an IPAM, created a hierarchy of IP address pools, and allocated a CIDR
-to a VPC.
+
+# Getting started with IPAM using the AWS CLI
+<a name="getting-started-with-ipam-using-the-aws-cli"></a>
+
+This tutorial guides you through the process of setting up and using Amazon VPC IP Address Manager (IPAM) with the AWS CLI using a single AWS account. By the end of this tutorial, you will have created an IPAM, created a hierarchy of IP address pools, and allocated a CIDR to a VPC.
 
 ## Prerequisites
+<a name="prerequisites"></a>
 
 Before you begin this tutorial, make sure you have:
-
-- An AWS account with permissions to create and manage IPAM resources.
-- The AWS CLI installed and configured with appropriate credentials. For information about installing the AWS CLI, see [Installing or updating the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
-  For information about configuring the AWS CLI, see [Configuration basics](../../../cli/latest/userguide/cli-configure-quickstart.md "../../../cli/latest/userguide/cli-configure-quickstart.md").
-- Basic understanding of IP addressing and CIDR notation.
-- Basic knowledge of Amazon VPC concepts.
-- Approximately 30 minutes to complete the tutorial.
++ An AWS account with permissions to create and manage IPAM resources.
++ The AWS CLI installed and configured with appropriate credentials. For information about installing the AWS CLI, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html). For information about configuring the AWS CLI, see [Configuration basics](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html). 
++ Basic understanding of IP addressing and CIDR notation.
++ Basic knowledge of Amazon VPC concepts.
++ Approximately 30 minutes to complete the tutorial.
 
 ## Create an IPAM
+<a name="create-an-ipam"></a>
 
 The first step is to create an IPAM with operating regions. An IPAM helps you plan, track, and monitor IP addresses for your AWS workloads.
 
@@ -45,6 +45,7 @@ sleep 20
 ```
 
 ## Get the IPAM scope ID
+<a name="get-the-ipam-scope-id"></a>
 
 When you create an IPAM, AWS automatically creates a private and a public scope. For this tutorial, we'll use the private scope.
 
@@ -59,6 +60,7 @@ Replace `ipam-0abcd1234` with your actual IPAM ID.
 From the output, identify and note the private scope ID from the `PrivateDefaultScopeId` field. It will look something like `ipam-scope-0abcd1234`.
 
 ## Create a top-level IPv4 pool
+<a name="create-a-top-level-ipv4-pool"></a>
 
 Now, let's create a top-level pool in the private scope. This pool will serve as the parent for all other pools in our hierarchy.
 
@@ -98,6 +100,7 @@ aws ec2 get-ipam-pool-cidrs --ipam-pool-id ipam-pool-0abcd1234 --query "IpamPool
 The state should be `provisioned` before proceeding.
 
 ## Create a regional IPv4 pool
+<a name="create-a-regional-ipv4-pool"></a>
 
 Next, create a regional pool within the top-level pool. This pool will be specific to a particular AWS Region.
 
@@ -139,6 +142,7 @@ aws ec2 get-ipam-pool-cidrs --ipam-pool-id ipam-pool-1abcd1234 --query "IpamPool
 The state should be `provisioned` before proceeding.
 
 ## Create a development IPv4 pool
+<a name="create-a-development-ipv4-pool"></a>
 
 Now, create a development pool within the regional pool. This pool will be used for development environments.
 
@@ -182,6 +186,7 @@ aws ec2 get-ipam-pool-cidrs --ipam-pool-id ipam-pool-2abcd1234 --query "IpamPool
 The state should be `provisioned` before proceeding.
 
 ## Create a VPC using an IPAM pool CIDR
+<a name="create-a-vpc-using-an-ipam-pool-cidr"></a>
 
 Finally, create a VPC that uses a CIDR from your IPAM pool. This demonstrates how IPAM can be used to allocate IP address space to AWS resources.
 
@@ -205,6 +210,7 @@ aws ec2 describe-vpcs --filters "Name=tag:Name,Values=IPAM-VPC"
 ```
 
 ## Verify the IPAM pool allocation
+<a name="verify-the-ipam-pool-allocation"></a>
 
 Check that the CIDR was allocated from your IPAM pool:
 
@@ -218,80 +224,80 @@ Replace `ipam-pool-2abcd1234` with your actual development pool ID.
 This command shows all allocations from the specified IPAM pool, including the VPC you just created.
 
 ## Troubleshooting
+<a name="troubleshooting"></a>
 
 Here are some common issues you might encounter when working with IPAM:
-
-- **Permission errors**: Ensure that your IAM user or role has the necessary permissions to create and manage IPAM resources. You may need the `ec2:CreateIpam`, `ec2:CreateIpamPool`, and other related permissions.
-- **Resource limit exceeded**: By default, you can create only one IPAM per account. If you already have an IPAM, you'll need to delete it before creating a new one or use the existing one.
-- **CIDR allocation failures**: When provisioning CIDRs to pools, ensure that the CIDR you're trying to provision doesn't overlap with existing allocations in other pools.
-- **API request timeouts**: If you encounter "RequestExpired" errors, it might be due to network latency or time synchronization issues. Try the command again.
-- **Incorrect state errors**: If you receive "IncorrectState" errors, it might be because you're trying to perform an operation on a resource that's not in the correct state. Wait for the resource to be fully created or provisioned before proceeding.
-- **Allocation size errors**: If you receive "InvalidParameterValue" errors about allocation size, ensure that the netmask length you're requesting is appropriate for the pool size. For example, you can't allocate a /25 CIDR from a /24 pool.
-- **Dependency violations**: When cleaning up resources, you might encounter "DependencyViolation" errors. This is because resources have dependencies on each other. Make sure to delete resources in the reverse order of creation and deprovision CIDRs before deleting pools.
++ **Permission errors**: Ensure that your IAM user or role has the necessary permissions to create and manage IPAM resources. You may need the `ec2:CreateIpam`, `ec2:CreateIpamPool`, and other related permissions.
++ **Resource limit exceeded**: By default, you can create only one IPAM per account. If you already have an IPAM, you'll need to delete it before creating a new one or use the existing one.
++ **CIDR allocation failures**: When provisioning CIDRs to pools, ensure that the CIDR you're trying to provision doesn't overlap with existing allocations in other pools.
++ **API request timeouts**: If you encounter "RequestExpired" errors, it might be due to network latency or time synchronization issues. Try the command again.
++ **Incorrect state errors**: If you receive "IncorrectState" errors, it might be because you're trying to perform an operation on a resource that's not in the correct state. Wait for the resource to be fully created or provisioned before proceeding.
++ **Allocation size errors**: If you receive "InvalidParameterValue" errors about allocation size, ensure that the netmask length you're requesting is appropriate for the pool size. For example, you can't allocate a /25 CIDR from a /24 pool.
++ **Dependency violations**: When cleaning up resources, you might encounter "DependencyViolation" errors. This is because resources have dependencies on each other. Make sure to delete resources in the reverse order of creation and deprovision CIDRs before deleting pools.
 
 ## Clean up resources
+<a name="clean-up-resources"></a>
 
 When you're done with this tutorial, you should clean up the resources you created to avoid incurring unnecessary charges.
 
 1. Delete the VPC:
 
-```
-aws ec2 delete-vpc --vpc-id vpc-0abcd1234
-```
+   ```
+   aws ec2 delete-vpc --vpc-id vpc-0abcd1234
+   ```
 
-2. Deprovision the CIDR from the development pool:
+1. Deprovision the CIDR from the development pool:
 
-```
-aws ec2 deprovision-ipam-pool-cidr --ipam-pool-id ipam-pool-2abcd1234 --cidr 10.0.0.0/24
-```
+   ```
+   aws ec2 deprovision-ipam-pool-cidr --ipam-pool-id ipam-pool-2abcd1234 --cidr 10.0.0.0/24
+   ```
 
-3. Delete the development pool:
+1. Delete the development pool:
 
-```
-aws ec2 delete-ipam-pool --ipam-pool-id ipam-pool-2abcd1234
-```
+   ```
+   aws ec2 delete-ipam-pool --ipam-pool-id ipam-pool-2abcd1234
+   ```
 
-4. Deprovision the CIDR from the regional pool:
+1. Deprovision the CIDR from the regional pool:
 
-```
-aws ec2 deprovision-ipam-pool-cidr --ipam-pool-id ipam-pool-1abcd1234 --cidr 10.0.0.0/16
-```
+   ```
+   aws ec2 deprovision-ipam-pool-cidr --ipam-pool-id ipam-pool-1abcd1234 --cidr 10.0.0.0/16
+   ```
 
-5. Delete the regional pool:
+1. Delete the regional pool:
 
-```
-aws ec2 delete-ipam-pool --ipam-pool-id ipam-pool-1abcd1234
-```
+   ```
+   aws ec2 delete-ipam-pool --ipam-pool-id ipam-pool-1abcd1234
+   ```
 
-6. Deprovision the CIDR from the top-level pool:
+1. Deprovision the CIDR from the top-level pool:
 
-```
-aws ec2 deprovision-ipam-pool-cidr --ipam-pool-id ipam-pool-0abcd1234 --cidr 10.0.0.0/8
-```
+   ```
+   aws ec2 deprovision-ipam-pool-cidr --ipam-pool-id ipam-pool-0abcd1234 --cidr 10.0.0.0/8
+   ```
 
-7. Delete the top-level pool:
+1. Delete the top-level pool:
 
-```
-aws ec2 delete-ipam-pool --ipam-pool-id ipam-pool-0abcd1234
-```
+   ```
+   aws ec2 delete-ipam-pool --ipam-pool-id ipam-pool-0abcd1234
+   ```
 
-8. Delete the IPAM:
+1. Delete the IPAM:
 
-```
-aws ec2 delete-ipam --ipam-id ipam-0abcd1234
-```
+   ```
+   aws ec2 delete-ipam --ipam-id ipam-0abcd1234
+   ```
 
 Replace all IDs with your actual resource IDs.
 
-###### Note
-
+**Note**  
 You may need to wait between these operations to allow the resources to be fully deleted before proceeding to the next step. If you encounter dependency violations, wait a few seconds and try again.
 
 ## Next steps
+<a name="next-steps"></a>
 
 Now that you've learned how to create and use IPAM with the AWS CLI, you might want to explore more advanced features:
-
-- [Plan for IP address provisioning](planning-ipam.md "planning-ipam.md") – Learn how to plan your IP address space effectively
-- [Monitor CIDR usage by resource](monitor-cidr-compliance-ipam.md "monitor-cidr-compliance-ipam.md") – Understand how to monitor IP address usage
-- [Share an IPAM pool using AWS RAM](share-pool-ipam.md "share-pool-ipam.md") – Learn how to share IPAM pools across AWS accounts
-- [Integrate IPAM with accounts in an AWS Organization](enable-integ-ipam.md "enable-integ-ipam.md") – Discover how to use IPAM across your organization
++ [Plan for IP address provisioning](planning-ipam.md) – Learn how to plan your IP address space effectively
++ [Monitor CIDR usage by resource](monitor-cidr-compliance-ipam.md) – Understand how to monitor IP address usage
++ [Share an IPAM pool using AWS RAM](share-pool-ipam.md) – Learn how to share IPAM pools across AWS accounts
++ [Integrate IPAM with accounts in an AWS Organization](enable-integ-ipam.md) – Discover how to use IPAM across your organization
