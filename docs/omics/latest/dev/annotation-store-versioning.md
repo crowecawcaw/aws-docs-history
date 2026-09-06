@@ -1,20 +1,14 @@
+
+
 # Creating HealthOmics annotation store versions
+<a name="annotation-store-versioning"></a>
 
-###### Important
+**Important**  
+AWS HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md).
 
-AWS HealthOmics variant stores and annotation stores are no longer open to new customers.
-Existing customers can continue to use the service as normal.
-For more information, see
-[AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md "variant-store-availability-change.md").
+You can create new versions of annotation stores to collect different versions of your annotation databases. This helps you organize your annotation data, which is updated regularly.
 
-You can create new versions of annotation stores to collect different versions of your
-annotation databases. This helps you organize your annotation data, which is updated
-regularly.
-
-To create a new version of an existing annotation store, use the
-
-**create-annotation-store-version** API as shown in the following
-example.
+To create a new version of an existing annotation store, use the **create-annotation-store-version** API as shown in the following example.
 
 ```
 aws omics create-annotation-store-version \
@@ -22,8 +16,7 @@ aws omics create-annotation-store-version \
      --version-name my_version
 ```
 
-You will get the following response with the annotation store version ID, confirming
-that a new version of your annotation has been created.
+You will get the following response with the annotation store version ID, confirming that a new version of your annotation has been created.
 
 ```
 {
@@ -38,9 +31,7 @@ that a new version of your annotation has been created.
 }
 ```
 
-To update the description of an annotation store version, you can use
-**update-annotation-store-version** to add updates to an annotation store
-version.
+To update the description of an annotation store version, you can use **update-annotation-store-version** to add updates to an annotation store version. 
 
 ```
 aws omics update-annotation-store-version \
@@ -49,8 +40,7 @@ aws omics update-annotation-store-version \
     --description "New Description"
 ```
 
-You will receive the following response, confirming that the annotation store version
-has been updated.
+You will receive the following response, confirming that the annotation store version has been updated.
 
 ```
 {
@@ -68,7 +58,7 @@ has been updated.
 To view the details of an annotation store version, use **get-annotation-store-version**.
 
 ```
-aws omics get-annotation-store-version --name my_annotation_store --version-name my_version
+aws omics get-annotation-store-version --name my_annotation_store --version-name my_version              
 ```
 
 You will receive a response with the version name, status, and other details.
@@ -86,12 +76,9 @@ You will receive a response with the version name, status, and other details.
      "statusMessage": "",
      "versionSizeBytes": 0
     }
-
 ```
 
-To view all versions of an annotation store, you can use
-**list-annotation-store-versions**, as shown in the following
-example.
+To view all versions of an annotation store, you can use **list-annotation-store-versions**, as shown in the following example.
 
 ```
 aws omics list-annotation-store-versions --name my_annotation_store
@@ -127,12 +114,10 @@ You will receive a response with the following information
 }
 ```
 
-If you no longer need an annotation store version, you can use
-**delete-annotation-store-versions** to delete an annotation store
-version, as shown in the following example.
+If you no longer need an annotation store version, you can use **delete-annotation-store-versions** to delete an annotation store version, as shown in the following example.
 
 ```
-aws omics delete-annotation-store-versions --name my_annotation_store --versions my_version
+aws omics delete-annotation-store-versions --name my_annotation_store --versions my_version  
 ```
 
 If the store version is deleted without errors, you will receive the following response.
@@ -172,5 +157,5 @@ If you try to delete an annotation store version that has an active import job, 
 In this case, you can force deletion of the annotation store version, as shown in the following example.
 
 ```
-aws omics delete-annotation-store-versions --name my_annotation_store --versions my_version --force
+aws omics delete-annotation-store-versions --name my_annotation_store --versions my_version --force 
 ```

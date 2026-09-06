@@ -1,24 +1,19 @@
+
+
 # Parameter template files for HealthOmics workflows
+<a name="parameter-templates"></a>
 
-Parameter templates define the input parameters for a workflow. You can define input parameters to make your
-workflow more flexible and versatile. For example, you can define a parameter for the Amazon S3 location of the reference
-genome files. Parameter templates can be provided through a Git-based repository service or your local drive.
-Users can then run the workflow using various data sets.
+Parameter templates define the input parameters for a workflow. You can define input parameters to make your workflow more flexible and versatile. For example, you can define a parameter for the Amazon S3 location of the reference genome files. Parameter templates can be provided through a Git-based repository service or your local drive. Users can then run the workflow using various data sets. 
 
-You can create the parameter template for your workflow, or HealthOmics can generate the parameter template for
-you.
+You can create the parameter template for your workflow, or HealthOmics can generate the parameter template for you.
 
-The parameter template is a JSON file. In the file, each input parameter is a named object that must match the
-name of the workflow input. When you start a run, if you don't provide values for all the required parameters, the
-run fails.
+The parameter template is a JSON file. In the file, each input parameter is a named object that must match the name of the workflow input. When you start a run, if you don't provide values for all the required parameters, the run fails.
 
 The input parameter object includes the following attributes:
++ **description** – This required attribute is a string that the console displays in the **Start run** page. This description is also retained as run metadata.
++ **optional** – This optional attribute indicates whether the input parameter is optional. If you don't specify the **optional** field, the input parameter is required.
 
-- **description** – This required attribute is a string that the console displays in the
-  **Start run** page. This description is also retained as run metadata.
-- **optional** – This optional attribute indicates whether the input parameter is optional. If
-  you don't specify the **optional** field, the input parameter is required.
-  The following example parameter template shows how to specify the input parameters.
+The following example parameter template shows how to specify the input parameters.
 
 ```
 {
@@ -37,134 +32,116 @@ The input parameter object includes the following attributes:
 ```
 
 ## Generating parameter templates
+<a name="parameter-parsing"></a>
 
-HealthOmics generates the parameter template by parsing the workflow definition to detect input parameters. If you
-provide a parameter template file for a workflow, the parameters in your file override the parameters detected in
-the workflow definition.
+HealthOmics generates the parameter template by parsing the workflow definition to detect input parameters. If you provide a parameter template file for a workflow, the parameters in your file override the parameters detected in the workflow definition.
 
-There are slight differences between the parsing logic of the CWL, WDL, and Nextflow engines, as described in
-the following sections.
+There are slight differences between the parsing logic of the CWL, WDL, and Nextflow engines, as described in the following sections. 
 
-###### Topics
-
-- [Parameter detection for CWL](#parameter-parsing-cwl "#parameter-parsing-cwl")
-- [Parameter detection for WDL](#parameter-parsing-wdl "#parameter-parsing-wdl")
-- [Parameter detection for Nextflow](#parameter-parsing-nextflow "#parameter-parsing-nextflow")
+**Topics**
++ [Parameter detection for CWL](#parameter-parsing-cwl)
++ [Parameter detection for WDL](#parameter-parsing-wdl)
++ [Parameter detection for Nextflow](#parameter-parsing-nextflow)
 
 ### Parameter detection for CWL
+<a name="parameter-parsing-cwl"></a>
 
 In the CWL workflow engine, the parsing logic makes the following assumptions:
++ Any nullable supported types are marked as optional input parameters.
++ Any non-null supported types are marked as required input parameters.
++ Any parameters with default values are marked as optional input parameters.
++ Descriptions are extracted from the `label` section from the `main` workflow definition. If `label` is not specified, the description will be blank (an empty string). 
 
-- Any nullable supported types are marked as optional input parameters.
-- Any non-null supported types are marked as required input parameters.
-- Any parameters with default values are marked as optional input parameters.
-- Descriptions are extracted from the `label` section from the `main` workflow definition.
-  If `label` is not specified, the description will be blank (an empty string).
-
-The following tables show CWL interpolation examples. For each example, the parameter name is `x`. If the
-parameter is required, you must provide a value for the parameter. If the parameter is optional, you don't need to
-provide a value.
+The following tables show CWL interpolation examples. For each example, the parameter name is `x`. If the parameter is required, you must provide a value for the parameter. If the parameter is optional, you don't need to provide a value.
 
 This table shows CWL interpolation examples for primitive types.
 
-| Input                                    | Example input/output                                     | Required |
-| ---------------------------------------- | -------------------------------------------------------- | -------- |
-| `<br>x:<br>type: int<br>`                | 1 or 2 or ...                                            | Yes      |
-| `<br>x:<br>type: int<br>default: 2<br>`  | Default value is 2. Valid input is 1 or 2 or ...         | No       |
-| `<br>x:<br>type: int?<br>`               | Valid input is None or 1 or 2 or ...                     | No       |
-| `<br>x:<br>type: int?<br>default: 2<br>` | Default value is 2. Valid input is None or 1 or 2 or ... | No       |
 
-The following table shows CWL interpolation examples for complex types. A complex type is a collection of
-primitive types.
+| Input | Example input/output | Required | 
+| --- | --- | --- | 
+|  <pre>x:               <br />  type: int</pre>  | 1 or 2 or ... | Yes | 
+|  <pre>x:               <br />  type: int<br />  default: 2</pre>  | Default value is 2. Valid input is 1 or 2 or ... | No | 
+|  <pre>x:               <br />  type: int?</pre>  | Valid input is None or 1 or 2 or ... | No | 
+|  <pre>x:               <br />  type: int?<br />  default: 2</pre>  | Default value is 2. Valid input is None or 1 or 2 or ... | No | 
 
-| Input                                       | Example input/output                              | Required |
-| ------------------------------------------- | ------------------------------------------------- | -------- |
-| `<br>x:<br>type: array<br>items: int<br>`   | [] or [1,2,3]                                     | Yes      |
-| `<br>x:<br>type: array?<br>items: int<br>`  | None or [] or [1,2,3]                             | No       |
-| `<br>x:<br>type: array<br>items: int?<br>`  | [] or [None, 3, None]                             | Yes      |
-| `<br>x:<br>type: array?<br>items: int?<br>` | [None] or None or [1,2,3] or [None, 3] but not [] | No       |
+The following table shows CWL interpolation examples for complex types. A complex type is a collection of primitive types.
+
+
+| Input | Example input/output | Required | 
+| --- | --- | --- | 
+|  <pre>x:               <br />  type: array<br />  items: int</pre>  | [] or [1,2,3]  | Yes | 
+|  <pre>x:               <br />  type: array?<br />  items: int</pre>  | None or [] or [1,2,3]  | No | 
+|  <pre>x:               <br />  type: array<br />  items: int?</pre>  | [] or [None, 3, None] | Yes | 
+|  <pre>x:               <br />  type: array?<br />  items: int?</pre>  | [None] or None or [1,2,3] or [None, 3] but not [] | No | 
 
 ### Parameter detection for WDL
+<a name="parameter-parsing-wdl"></a>
 
 In the WDL workflow engine, the parsing logic makes the following assumptions:
++ Any nullable supported types are marked as optional input parameters. 
++ For non-nullable supported types:
+  + Any input variable with assignment of literals or expression are marked as optional parameters. For example:
 
-- Any nullable supported types are marked as optional input parameters.
-- For non-nullable supported types:
+    ```
+     Int x = 2 
+    Float f0 = 1.0 + f1
+    ```
+  + If no values or expressions have been been assigned to the input parameters, they will be marked as required parameters. 
++ Descriptions are extracted from `parameter_meta` in the `main` workflow definition. If `parameter_meta` is not specified, the description will be blank (an empty string). For more information, see the WDL specification for [Parameter metadata](https://github.com/openwdl/wdl/blob/wdl-1.2/SPEC.md#metadata-sections).
 
-  - Any input variable with assignment of literals or expression are marked as optional parameters.
-    For example:
-
-  ```
-   Int x = 2
-  Float f0 = 1.0 + f1
-  ```
-  - If no values or expressions have been been assigned to the input parameters, they will be marked
-    as required parameters.
-
-- Descriptions are extracted from `parameter_meta` in the `main` workflow
-  definition. If `parameter_meta` is not specified, the description will be blank (an empty
-  string). For more information, see the WDL specification for
-  [Parameter metadata](https://github.com/openwdl/wdl/blob/wdl-1.2/SPEC.md#metadata-sections "https://github.com/openwdl/wdl/blob/wdl-1.2/SPEC.md#metadata-sections").
-
-The following tables show WDL interpolation examples. For each example, the parameter name is
-`x`. If the parameter is required, you must provide a value for the parameter. If the parameter is
-optional, you don't need to provide a value.
+The following tables show WDL interpolation examples. For each example, the parameter name is `x`. If the parameter is required, you must provide a value for the parameter. If the parameter is optional, you don't need to provide a value.
 
 This table shows WDL interpolation examples for primitive types.
 
-| Input        | Example input/output  | Required |
-| ------------ | --------------------- | -------- |
-| Int x        | 1 or 2 or ...         | Yes      |
-| Int x = 2    | 2                     | No       |
-| Int x = 1+2  | 3                     | No       |
-| Int x = y+z  | y+z                   | No       |
-| Int? x       | None or 1 or 2 or ... | Yes      |
-| Int? x = 2   | None or 2             | No       |
-| Int? x = 1+2 | None or 3             | No       |
-| Int? x = y+z | None or y+z           | No       |
 
-The following table shows WDL interpolation examples for complex types. A complex type is a collection of
-primitive types.
+| Input | Example input/output | Required | 
+| --- | --- | --- | 
+| Int x | 1 or 2 or ... | Yes | 
+| Int x = 2 | 2 | No | 
+| Int x = 1\+2 | 3 | No | 
+| Int x = y\+z | y\+z | No | 
+| Int? x | None or 1 or 2 or ... | Yes | 
+| Int? x = 2 | None or 2 | No | 
+| Int? x = 1\+2 | None or 3 | No | 
+| Int? x = y\+z | None or y\+z | No | 
 
-| Input                                                               | Example input/output                                                                   | Required |
-| ------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------- |
-| Array[Int] x                                                        | [1,2,3] or []                                                                          | Yes      |
-| Array[Int]+ x                                                       | [1], but not []                                                                        | Yes      |
-| Array[Int]? x                                                       | None or [] or [1,2,3]                                                                  | No       |
-| Array[Int?] x                                                       | [] or [None, 3, None]                                                                  | Yes      |
-| Array[Int?]=? x                                                     | [None] or None or [1,2,3] or [None, 3] but not []                                      | No       |
-| Struct sample {String a, Int y}<br>later in inputs: Sample mySample | `<br>String a = mySample.a<br>Int y = mySample.y<br>`                                  | Yes      |
-| Struct sample {String a, Int y} later in inputs: Sample? mySample   | `<br>if (defined(mySample)) {<br>String a = mySample.a<br>Int y = mySample.y<br>}<br>` | No       |
+The following table shows WDL interpolation examples for complex types. A complex type is a collection of primitive types. 
+
+
+| Input | Example input/output | Required | 
+| --- | --- | --- | 
+| Array[Int] x | [1,2,3] or [] | Yes | 
+| Array[Int]\+ x | [1], but not [] | Yes | 
+| Array[Int]? x | None or [] or [1,2,3] | No | 
+| Array[Int?] x | [] or [None, 3, None] | Yes | 
+| Array[Int?]=? x | [None] or None or [1,2,3] or [None, 3] but not [] | No | 
+| Struct sample {String a, Int y} later in inputs: Sample mySample |  <pre>String a = mySample.a<br />   Int y = mySample.y</pre>  | Yes | 
+| Struct sample {String a, Int y} later in inputs: Sample? mySample |  <pre>if (defined(mySample)) { <br />     String a = mySample.a<br />     Int y = mySample.y<br />   } </pre>  | No | 
 
 ### Parameter detection for Nextflow
+<a name="parameter-parsing-nextflow"></a>
 
-For Nextflow, HealthOmics generates the parameter template by parsing the `nextflow_schema.json` file.
-If the workflow definition doesn't include a schema file, HealthOmics parses the main workflow definition file.
+For Nextflow, HealthOmics generates the parameter template by parsing the `nextflow_schema.json` file. If the workflow definition doesn't include a schema file, HealthOmics parses the main workflow definition file.
 
-###### Topics
-
-- [Parsing the schema file](#parameter-parsing-nextflow-schema "#parameter-parsing-nextflow-schema")
-- [Parsing the main file](#parameter-parsing-nextflow-main "#parameter-parsing-nextflow-main")
-- [Nested parameters](#parameter-parsing-nextflow-nested "#parameter-parsing-nextflow-nested")
-- [Examples of Nextflow interpolation](#parameter-parsing-nextflow-examples "#parameter-parsing-nextflow-examples")
+**Topics**
++ [Parsing the schema file](#parameter-parsing-nextflow-schema)
++ [Parsing the main file](#parameter-parsing-nextflow-main)
++ [Nested parameters](#parameter-parsing-nextflow-nested)
++ [Examples of Nextflow interpolation](#parameter-parsing-nextflow-examples)
 
 #### Parsing the schema file
+<a name="parameter-parsing-nextflow-schema"></a>
 
 For parsing to work correctly, make sure the schema file meets the following requirements:
-
-- The schema file is named `nextflow_schema.json` and is located in the same directory
-  as the main workflow file.
-- The schema file is valid JSON as defined in either of the following schemas:
-
-  - [json-schema.org/draft/2020-12/schema](https://json-schema.org/draft/2020-12/schema "https://json-schema.org/draft/2020-12/schema").
-  - [json-schema.org/draft-07/schema](https://json-schema.org/draft-07/schema "https://json-schema.org/draft-07/schema").
++ The schema file is named `nextflow_schema.json` and is located in the same directory as the main workflow file.
++ The schema file is valid JSON as defined in either of the following schemas:
+  + [json-schema.org/draft/2020-12/schema](https://json-schema.org/draft/2020-12/schema).
+  + [json-schema.org/draft-07/schema](https://json-schema.org/draft-07/schema).
 
 HealthOmics parses the `nextflow_schema.json` file to generate the parameter template:
-
-- Extracts all **properties** that are defined in the schema.
-- Includes the property **description** if available for the property.
-- Identifies whether each parameter is optional or required, based on the **required**
-  field of the property.
++ Extracts all **properties** that are defined in the schema.
++ Includes the property **description** if available for the property.
++ Identifies whether each parameter is optional or required, based on the **required** field of the property.
 
 The following example shows a definition file and the generated parameter file.
 
@@ -242,20 +219,15 @@ The generated parameter template:
 ```
 
 #### Parsing the main file
+<a name="parameter-parsing-nextflow-main"></a>
 
-If the workflow definition doesn't include a `nextflow_schema.json` file, HealthOmics parses the
-main workflow definition file.
+If the workflow definition doesn't include a `nextflow_schema.json` file, HealthOmics parses the main workflow definition file.
 
-HealthOmics analyzes the `params` expressions found in the main workflow definition file and in the
-`nextflow.config` file. All `params` with default values are marked as
-optional.
+HealthOmics analyzes the `params` expressions found in the main workflow definition file and in the `nextflow.config` file. All `params` with default values are marked as optional.
 
 For parsing to work correctly, note the following requirements:
-
-- HealthOmics parses only the main workflow definition file. To ensure all parameters are captured,
-  we recommend that you wire all **params** through to any submodules and imported workflows.
-- The config file is optional. If you define one, name it `nextflow.config`
-  and place it in the same directory as the main workflow definition file.
++ HealthOmics parses only the main workflow definition file. To ensure all parameters are captured, we recommend that you wire all **params** through to any submodules and imported workflows.
++ The config file is optional. If you define one, name it `nextflow.config` and place it in the same directory as the main workflow definition file.
 
 The following example shows a definition file and the generated parameter template.
 
@@ -294,9 +266,7 @@ The generated parameter template:
 }
 ```
 
-For default values that are defined in nextflow.config, HealthOmics collects `params` assignments and
-parameters declared within `params {}`, as shown in the following example. In assignment
-statements, `params` must appear in the left side of the statement.
+For default values that are defined in nextflow.config, HealthOmics collects `params` assignments and parameters declared within `params {}`, as shown in the following example. In assignment statements, `params` must appear in the left side of the statement.
 
 ```
 params.alpha = "alpha"
@@ -309,7 +279,7 @@ params {
 
 env {
    // ignored, as this assignment isn't in the params block
-   VERSION = "TEST"
+   VERSION = "TEST"  
 }
 
 // ignored, as params is not on the left side
@@ -341,15 +311,14 @@ The generated parameter template:
 ```
 
 #### Nested parameters
+<a name="parameter-parsing-nextflow-nested"></a>
 
-Both `nextflow_schema.json` and `nextflow.config` allow nested parameters. However,
-the HealthOmics parameter template requires only the top-level parameters. If your workflow uses a nested parameter,
-you must provide a JSON object as the input for that parameter.
+Both `nextflow_schema.json` and `nextflow.config` allow nested parameters. However, the HealthOmics parameter template requires only the top-level parameters. If your workflow uses a nested parameter, you must provide a JSON object as the input for that parameter.
 
 ##### Nested parameters in schema files
+<a name="parameter-parsing-schema-nested"></a>
 
-HealthOmics skips nested **params** when parsing a `nextflow_schema.json` file. For
-example, if you define the following `nextflow_schema.json` file:
+HealthOmics skips nested **params** when parsing a `nextflow_schema.json` file. For example, if you define the following `nextflow_schema.json` file:
 
 ```
 {
@@ -365,8 +334,7 @@ example, if you define the following `nextflow_schema.json` file:
 }
 ```
 
-HealthOmics ignores `input_file` and `input_num` when it generates the parameter
-template:
+HealthOmics ignores `input_file` and `input_num` when it generates the parameter template:
 
 ```
 {
@@ -381,8 +349,7 @@ template:
 }
 ```
 
-When you run this workflow, HealthOmics expects an `input.json` file similar to the
-following:
+When you run this workflow, HealthOmics expects an `input.json` file similar to the following:
 
 ```
 {
@@ -395,14 +362,14 @@ following:
 ```
 
 ##### Nested parameters in config files
+<a name="parameter-parsing-config-nested"></a>
 
-HealthOmics doesn't collect nested **params** in a `nextflow.config` file, and skips
-them during parsing. For example, if you define the following `nextflow.config` file:
+HealthOmics doesn't collect nested **params** in a `nextflow.config` file, and skips them during parsing. For example, if you define the following `nextflow.config` file:
 
 ```
 params.alpha = "alpha"
   params.nested.beta = "beta"
-
+  
   params {
       gamma = "gamma"
       group {
@@ -411,8 +378,7 @@ params.alpha = "alpha"
   }
 ```
 
-HealthOmics ignores `params.nested.beta` and `params.group.delta` when it generates the
-parameter template:
+HealthOmics ignores `params.nested.beta` and `params.group.delta` when it generates the parameter template:
 
 ```
 {
@@ -428,22 +394,24 @@ parameter template:
 ```
 
 #### Examples of Nextflow interpolation
+<a name="parameter-parsing-nextflow-examples"></a>
 
 The following table shows Nextflow interpolation examples for params in the main file.
 
-| Parameters                                          | Required |
-| --------------------------------------------------- | -------- |
-| params.input\_file                                  | Yes      |
-| params.input\_file = "s3://bucket/data.json"        | No       |
-| params.nested.input\_file                           | N/A      |
-| params.nested.input\_file = "s3://bucket/data.json" | N/A      |
 
-The following table shows Nextflow interpolation examples for params in the `nextflow.config`
-file.
+| Parameters | Required | 
+| --- | --- | 
+| params.input\_file | Yes | 
+| params.input\_file = "s3://bucket/data.json" | No | 
+| params.nested.input\_file | N/A | 
+| params.nested.input\_file = "s3://bucket/data.json" | N/A | 
 
-| Parameters                                                                       | Required |
-| -------------------------------------------------------------------------------- | -------- |
-| `<br>params.input_file = "s3://bucket/data.json"<br>`                            | No       |
-| `<br>params {<br>input_file = "s3://bucket/data.json"<br>}<br>`                  | No       |
-| `<br>params {<br>nested {<br>input_file = "s3://bucket/data.json"<br>}<br>}<br>` | N/A      |
-| `<br>input_file = params.input_file<br>`                                         | N/A      |
+The following table shows Nextflow interpolation examples for params in the `nextflow.config` file.
+
+
+| Parameters | Required | 
+| --- | --- | 
+|  <pre>params.input_file = "s3://bucket/data.json"</pre>  | No | 
+|  <pre>params {<br />   input_file = "s3://bucket/data.json"<br />}</pre>  | No | 
+|  <pre>params {<br />   nested {<br />     input_file = "s3://bucket/data.json"    <br />   }<br />}</pre>  | N/A | 
+|  <pre>input_file = params.input_file</pre>  | N/A | 

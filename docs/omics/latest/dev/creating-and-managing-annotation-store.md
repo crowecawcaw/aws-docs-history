@@ -1,55 +1,44 @@
+
+
 # Creating HealthOmics annotation stores
+<a name="creating-and-managing-annotation-store"></a>
 
-###### Important
+**Important**  
+AWS HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md).
 
-AWS HealthOmics variant stores and annotation stores are no longer open to new customers.
-Existing customers can continue to use the service as normal.
-For more information, see
-[AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md "variant-store-availability-change.md").
+An annotation store is a data store representing an annotation database, such as one from a TSV, VCF, or GFF file. If the same reference genome is specified, annotation stores are mapped to the same coordinate system as variant stores during an import. The following topics show how to use the HealthOmics console and AWS CLI to create and manage annotation stores. 
 
-An annotation store is a data store representing an annotation database, such as one from
-a TSV, VCF, or GFF file. If the same reference genome is specified, annotation stores are
-mapped to the same coordinate system as variant stores during an import. The following
-topics show how to use the HealthOmics console and AWS CLI to create and manage annotation stores.
-
-###### Topics
-
-- [Creating an annotation store using the console](#gs-console-create-annotation-store "#gs-console-create-annotation-store")
-- [Creating an annotation store using the API](#create-manage-annotation-store-api "#create-manage-annotation-store-api")
+**Topics**
++ [Creating an annotation store using the console](#gs-console-create-annotation-store)
++ [Creating an annotation store using the API](#create-manage-annotation-store-api)
 
 ## Creating an annotation store using the console
+<a name="gs-console-create-annotation-store"></a>
 
 Use the following procedure to create annotation stores with the HealthOmics console.
 
-###### To create an annotation store
+**To create an annotation store**
 
-1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/ "https://console.aws.amazon.com/omics/").
-2. If required, open the left navigation pane (≡). Choose **Annotation stores**.
-3. On the **Annotation stores** page, choose
-   **Create annotation store**.
-4. On the **Create annotation store** page, provide the
-   following information
+1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/).
 
-   - **Annotation store name** - A unique name for
-     this store.
-   - **Description** (optional) - A description of
-     this reference genome.
-   - **Data format and schema details** - Select
-     data file format and upload the schema definition for this
-     store.
-   - **Reference genome** - The reference genome
-     for this annotation.
-   - **Data Encryption** - Choose whether you want
-     data encryption to be owned and managed by AWS or by yourself.
-   - **Tags** (optional) - Provide up to 50 tags
-     for this annotation store.
+1.  If required, open the left navigation pane (≡). Choose **Annotation stores**.
 
-5. Choose **Create annotation store**.
+1. On the **Annotation stores** page, choose **Create annotation store**.
+
+1. On the **Create annotation store** page, provide the following information
+   + **Annotation store name** - A unique name for this store. 
+   + **Description** (optional) - A description of this reference genome.
+   + **Data format and schema details** - Select data file format and upload the schema definition for this store.
+   + **Reference genome** - The reference genome for this annotation.
+   + **Data Encryption** - Choose whether you want data encryption to be owned and managed by AWS or by yourself. 
+   + **Tags** (optional) - Provide up to 50 tags for this annotation store.
+
+1. Choose **Create annotation store**.
 
 ## Creating an annotation store using the API
+<a name="create-manage-annotation-store-api"></a>
 
-The following example shows how to create an annotation store using the AWS CLI. For all AWS CLI
-and API operations, you must specify the format of your data.
+The following example shows how to create an annotation store using the AWS CLI. For all AWS CLI and API operations, you must specify the format of your data. 
 
 ```
 aws omics create-annotation-store --name my_annotation_store \
@@ -73,8 +62,7 @@ You receive the following response to confirm the creation of your annotation st
        }
 ```
 
-To learn more about an annotation store, use the **get-annotation-store**
-API.
+To learn more about an annotation store, use the **get-annotation-store** API.
 
 ```
 aws omics get-annotation-store --name my_annotation_store
@@ -101,15 +89,13 @@ You receive the following response.
       }
 ```
 
-To view all annotation stores associated with an account, use the
-**list-annotation-stores** API operation.
+To view all annotation stores associated with an account, use the **list-annotation-stores** API operation.
 
 ```
-aws omics list-annotation-stores
+aws omics list-annotation-stores 
 ```
 
-You receive a response that lists all annotation stores, along with their IDs,
-statuses, and other details, as shown in the following example response.
+You receive a response that lists all annotation stores, along with their IDs, statuses, and other details, as shown in the following example response.
 
 ```
 {

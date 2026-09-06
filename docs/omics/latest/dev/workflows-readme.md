@@ -1,83 +1,80 @@
-# HealthOmics Workflow README files
 
-You can upload a README.md file containing instructions, diagrams, and essential information
-for your workflow. Each workflow version supports one README file, which you can update at any time.
+
+# HealthOmics Workflow README files
+<a name="workflows-readme"></a>
+
+You can upload a README.md file containing instructions, diagrams, and essential information for your workflow. Each workflow version supports one README file, which you can update at any time.
 
 **README requirements include:**
++ README file must be in markdown (.md) format
++ Maximum file size: 500 KiB
 
-- README file must be in markdown (.md) format
-- Maximum file size: 500 KiB
-
-###### Topics
-
-- [Use an existing README](#workflows-add-readme "#workflows-add-readme")
-- [Rendering conditions](#workflows-rendering-readme "#workflows-rendering-readme")
+**Topics**
++ [Use an existing README](#workflows-add-readme)
++ [Rendering conditions](#workflows-rendering-readme)
 
 ## Use an existing README
+<a name="workflows-add-readme"></a>
 
-READMEs exported from Git repositories contain relative links that typically do not
-work outside the repository. HealthOmics Git integration automatically converts these to absolute
-links for proper rendering in the console, eliminating the need for manual URL updates.
+READMEs exported from Git repositories contain relative links that typically do not work outside the repository. HealthOmics Git integration automatically converts these to absolute links for proper rendering in the console, eliminating the need for manual URL updates. 
 
-For READMEs imported from Amazon S3 or local drives, images and links must either use public
-URLs or have their relative paths updated for proper rendering.
+For READMEs imported from Amazon S3 or local drives, images and links must either use public URLs or have their relative paths updated for proper rendering.
 
-###### Note
-
-Images must be publicly hosted to display in the HealthOmics console. Images stored in
-GitHub Enterprise Server or GitLab Self-Managed repositories
-cannot be rendered.
+**Note**  
+Images must be publicly hosted to display in the HealthOmics console. Images stored in GitHub Enterprise Server or GitLab Self-Managed repositories cannot be rendered.
 
 ## Rendering conditions
+<a name="workflows-rendering-readme"></a>
 
-The HealthOmics console interpolates publicly accessible images and links using absolute paths.
-To render URLs from private repositories, the user must have access to the repository.
-For GitHub Enterprise Server or GitLab Self-Managed
-repositories, which use custom domains, HealthOmics cannot resolve relative links or render images
-stored in these private repositories.
+The HealthOmics console interpolates publicly accessible images and links using absolute paths. To render URLs from private repositories, the user must have access to the repository. For GitHub Enterprise Server or GitLab Self-Managed repositories, which use custom domains, HealthOmics cannot resolve relative links or render images stored in these private repositories.
 
-The following table shows the markdown elements that are supported by the AWS console
-README view.
+The following table shows the markdown elements that are supported by the AWS console README view.
 
-| Element                                                                                                                                                                                                                                                                     | AWS console                                                                                                                                                                                                      |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Alerts                                                                                                                                                                                                                                                                      | Yes, but without icons                                                                                                                                                                                           |
-| Badges                                                                                                                                                                                                                                                                      | Yes                                                                                                                                                                                                              |
-| Basic text formatting                                                                                                                                                                                                                                                       | Yes                                                                                                                                                                                                              |
-| [Code blocks](https://www.markdownguide.org/basic-syntax/#code-blocks "https://www.markdownguide.org/basic-syntax/#code-blocks")                                                                                                                                            | Yes, but does not have [syntax highlight](https://www.markdownguide.org/extended-syntax/#syntax-highlighting "https://www.markdownguide.org/extended-syntax/#syntax-highlighting") and copy button functionality |
-| Collapsible sections                                                                                                                                                                                                                                                        | Yes                                                                                                                                                                                                              |
-| [Headings](https://www.markdownguide.org/basic-syntax/#headings "https://www.markdownguide.org/basic-syntax/#headings")                                                                                                                                                     | Yes                                                                                                                                                                                                              |
-| [Image formats](https://www.markdownguide.org/basic-syntax/#images-1 "https://www.markdownguide.org/basic-syntax/#images-1")                                                                                                                                                | Yes                                                                                                                                                                                                              |
-| [Image (clickable)](https://www.markdownguide.org/basic-syntax/#linking-images "https://www.markdownguide.org/basic-syntax/#linking-images")                                                                                                                                | Yes                                                                                                                                                                                                              |
-| [Line breaks](https://www.markdownguide.org/basic-syntax/#line-breaks "https://www.markdownguide.org/basic-syntax/#line-breaks")                                                                                                                                            | Yes                                                                                                                                                                                                              |
-| Mermaid diagram                                                                                                                                                                                                                                                             | Only can open graph, move graph position, and copy code                                                                                                                                                          |
-| Quotes                                                                                                                                                                                                                                                                      | Yes                                                                                                                                                                                                              |
-| [Subscript](https://www.markdownguide.org/extended-syntax/#subscript "https://www.markdownguide.org/extended-syntax/#subscript") and [superscript](https://www.markdownguide.org/extended-syntax/#superscript "https://www.markdownguide.org/extended-syntax/#superscript") | Yes                                                                                                                                                                                                              |
-| [Tables](https://www.markdownguide.org/extended-syntax/#tables "https://www.markdownguide.org/extended-syntax/#tables")                                                                                                                                                     | Yes, but does not support text alignment                                                                                                                                                                         |
-| Text alignment                                                                                                                                                                                                                                                              | Yes                                                                                                                                                                                                              |
+
+| Element | AWS console | 
+| --- | --- | 
+| Alerts | Yes, but without icons | 
+| Badges | Yes | 
+| Basic text formatting | Yes | 
+| [Code blocks](https://www.markdownguide.org/basic-syntax/#code-blocks) | Yes, but does not have [syntax highlight](https://www.markdownguide.org/extended-syntax/#syntax-highlighting) and copy button functionality  | 
+| Collapsible sections | Yes | 
+| [Headings](https://www.markdownguide.org/basic-syntax/#headings) | Yes | 
+| [Image formats](https://www.markdownguide.org/basic-syntax/#images-1) | Yes | 
+| [Image (clickable)](https://www.markdownguide.org/basic-syntax/#linking-images) | Yes | 
+| [Line breaks](https://www.markdownguide.org/basic-syntax/#line-breaks) | Yes | 
+| Mermaid diagram | Only can open graph, move graph position, and copy code | 
+| Quotes | Yes | 
+| [Subscript](https://www.markdownguide.org/extended-syntax/#subscript) and [superscript](https://www.markdownguide.org/extended-syntax/#superscript) | Yes | 
+| [Tables](https://www.markdownguide.org/extended-syntax/#tables) | Yes, but does not support text alignment | 
+| Text alignment | Yes | 
 
 ### Using image and link URLs
+<a name="workflows-urls-readme"></a>
 
 Depending on your source provider, structure your base URLs for pages and images in the following formats.
++ `{username}`: The username where the repository is hosted.
++ `{repo}`: The repository name.
++ `{ref}`: The source reference (branch, tag, and commit ID). 
++ `{path}`: The file path to the page or image in the repository. 
 
-- `{username}`: The username where the repository is hosted.
-- `{repo}`: The repository name.
-- `{ref}`: The source reference (branch, tag, and commit ID).
-- `{path}`: The file path to the page or image in the repository.
 
-| Source provider | Page URL                                                   | Image URL                                                                                                                               |
-| --------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| GitHub          | `https://github.com/{username}/{repo}/blob/{ref}/{path}`   | `https://github.com/{username}/{repo}/blob/{ref}/{path}?raw=true`<br>`https://raw.githubusercontent.com/{username}/{repo}/{ref}/{path}` |
-| GitLab          | `https://gitlab.com/{username}/{repo}/-/blob/{ref}/{path}` | `https://gitlab.com/{username}/{repo}/-/raw/{ref}/{path}`                                                                               |
-| Bitbucket       | `https://bitbucket.org/{username}/{repo}/src/{ref}/{path}` | `https://bitbucket.org/{username}/{repo}/raw/{ref}/{path}`                                                                              |
+| Source provider | Page URL | Image URL | 
+| --- | --- | --- | 
+| GitHub | https://github.com/{username}/{repo}/blob/{ref}/{path} | `https://github.com/{username}/{repo}/blob/{ref}/{path}?raw=true`<br />`https://raw.githubusercontent.com/{username}/{repo}/{ref}/{path}` | 
+| GitLab | https://gitlab.com/{username}/{repo}/-/blob/{ref}/{path} | https://gitlab.com/{username}/{repo}/-/raw/{ref}/{path} | 
+| Bitbucket | https://bitbucket.org/{username}/{repo}/src/{ref}/{path} | https://bitbucket.org/{username}/{repo}/raw/{ref}/{path} | 
 
-GitHub, GitLab, and Bitbucket support both page
-and image URLs that link to a public repository. The following table shows each source provider’s
-support for rendering image and link URLs for private repositories.
+GitHub, GitLab, and Bitbucket support both page and image URLs that link to a public repository. The following table shows each source provider’s support for rendering image and link URLs for private repositories.
 
-| Private repository support |
-| -------------------------- |
-| Source provider            | Page URL                       | Image URL |
-| GitHub                     | Only with access to repository | No        |
-| GitLab                     | Only with access to repository | No        |
-| Bitbucket                  | Only with access to repository | No        |
+<a name="readme-repo-table"></a>
+<table>
+<thead>
+  <tr><th colspan="3">Private repository support</th></tr>
+  <tr><th>Source provider</th><th>Page URL</th><th>Image URL</th></tr>
+</thead>
+<tbody>
+  <tr><td>GitHub</td><td>Only with access to repository</td><td>No</td></tr>
+  <tr><td>GitLab</td><td>Only with access to repository</td><td>No</td></tr>
+  <tr><td>Bitbucket</td><td>Only with access to repository</td><td>No</td></tr>
+</tbody>
+</table>

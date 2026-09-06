@@ -1,14 +1,14 @@
-# Activating read sets in HealthOmics
 
-You can activate read sets that are archived with the **start-read-set-activation-job**
-API operation, or through the AWS CLI, as shown in the following example. Replace the `sequence
- store ID` and `read set id` with your sequence store
-ID and read set IDs.
+
+# Activating read sets in HealthOmics
+<a name="activating-read-sets"></a>
+
+You can activate read sets that are archived with the **start-read-set-activation-job** API operation, or through the AWS CLI, as shown in the following example. Replace the `{{sequence store ID}}` and `{{read set id}}` with your sequence store ID and read set IDs. 
 
 ```
-aws omics start-read-set-activation-job
-     --sequence-store-id ``sequence store ID`` \
-     --sources ``readSetId=read set ID`` ``readSetId=read set id_1`` ``read set id_2``
+aws omics start-read-set-activation-job 
+     --sequence-store-id {{sequence store ID}} \
+     --sources {{readSetId=read set ID}} {{readSetId=read set id_1}} {{read set id_2}}
 ```
 
 You receive a response that contains the activation job information, as shown in the following.
@@ -22,15 +22,10 @@ You receive a response that contains the activation job information, as shown in
 }
 ```
 
-After the activation job starts, you can monitor its progress with the
-**get-read-set-activation-job** API operation. The following is an
-example of how to use the AWS CLI to check your activation job status. Replace
-`job ID` and `sequence
- store ID` with your sequence store ID and job IDs,
-respectively.
+After the activation job starts, you can monitor its progress with the **get-read-set-activation-job** API operation. The following is an example of how to use the AWS CLI to check your activation job status. Replace `{{job ID}}` and `{{sequence store ID}}` with your sequence store ID and job IDs, respectively. 
 
 ```
-aws omics get-read-set-activation-job --id ``job ID`` --sequence-store-id ``sequence store ID``
+aws omics get-read-set-activation-job --id {{job ID}} --sequence-store-id {{sequence store ID}}                    
 ```
 
 The response summarizes the activation job, as shown in the following.
@@ -57,13 +52,10 @@ The response summarizes the activation job, as shown in the following.
 }
 ```
 
-You can check the status of an activation job with the **get-read-set-metadata** API
-operation. Possible statuses are `ACTIVE`, `ACTIVATING`, and `ARCHIVED`. In the
-following example, replace `sequence store ID` with your sequence store ID,
-and replace `read set ID` with your read set ID.
+You can check the status of an activation job with the **get-read-set-metadata** API operation. Possible statuses are `ACTIVE`, `ACTIVATING`, and `ARCHIVED`. In the following example, replace `{{sequence store ID}}` with your sequence store ID, and replace `{{read set ID}}` with your read set ID.
 
 ```
-aws omics get-read-set-metadata --sequence-store-id ``sequence store ID`` --id ``read set ID``
+aws omics get-read-set-metadata --sequence-store-id {{sequence store ID}} --id {{read set ID}}
 ```
 
 The following response shows you that the read set is active.
@@ -113,12 +105,10 @@ The following response shows you that the read set is active.
 }
 ```
 
-You can view all read set activation jobs by using **list-read-set-activation-jobs**, as
-shown in the following example. In the following example, replace `sequence store
- ID` with your sequence store ID.
+You can view all read set activation jobs by using **list-read-set-activation-jobs**, as shown in the following example. In the following example, replace `{{sequence store ID}}` with your sequence store ID.
 
 ```
-aws omics list-read-set-activation-jobs --sequence-store-id ``sequence store ID``
+aws omics list-read-set-activation-jobs --sequence-store-id {{sequence store ID}}                
 ```
 
 You receive the following response.

@@ -1,24 +1,22 @@
+
+
 # HealthOmics run outputs
+<a name="workflows-run-outputs"></a>
 
-When a WDL or CWL run completes, the outputs include an output summary file (in JSON format) that lists all the
-outputs produced by the run. You can use the output summary file for these purposes:
+When a WDL or CWL run completes, the outputs include an output summary file (in JSON format) that lists all the outputs produced by the run. You can use the output summary file for these purposes:
++ Programmatically determine the output files that the run generated.
++ Validate that the run produced all the expected outputs.
 
-- Programmatically determine the output files that the run generated.
-- Validate that the run produced all the expected outputs.
-
-###### Topics
-
-- [Run output summary for WDL](#run-outputs-wdl "#run-outputs-wdl")
-- [Run output summary for CWL](#run-outputs-cwl "#run-outputs-cwl")
+**Topics**
++ [Run output summary for WDL](#run-outputs-wdl)
++ [Run output summary for CWL](#run-outputs-cwl)
 
 ## Run output summary for WDL
+<a name="run-outputs-wdl"></a>
 
 When a WDL run completes, HealthOmics creates an output summary file named **output.json**.
 
-For each output of the workflow, there is a corresponding key/value pair in the file. The key contains the
-workflow name and output name in the following format: `WorkflowName.output_name`. For a file output,
-the value is an S3 URI pointing to the output location in S3 where the file is stored. For an Array[File] output,
-the value is an array of S3 URIs.
+For each output of the workflow, there is a corresponding key/value pair in the file. The key contains the workflow name and output name in the following format: `WorkflowName.output_name`. For a file output, the value is an S3 URI pointing to the output location in S3 where the file is stored. For an Array[File] output, the value is an array of S3 URIs.
 
 The following example shows the **output.json** file for a workflow named **BWAMappingWorkflow**.
 
@@ -43,8 +41,7 @@ The following example shows the **output.json** file for a workflow named **BWAM
 }
 ```
 
-If the workflow produces outputs with non-file types (such as String, Int, Float, or Bool), the field value is
-a JSON primitive. For example:
+If the workflow produces outputs with non-file types (such as String, Int, Float, or Bool), the field value is a JSON primitive. For example:
 
 ```
 {
@@ -55,21 +52,19 @@ a JSON primitive. For example:
 ```
 
 ## Run output summary for CWL
+<a name="run-outputs-cwl"></a>
 
-When a CWL run completes, HealthOmics creates an output summary file named **outputs.json** at the
-following location:
+When a CWL run completes, HealthOmics creates an output summary file named **outputs.json** at the following location:
 
 ```
 {my-S3outputpath}/{runId}/{run-uuid}/logs/outputs.json
 ```
 
-The output summary file includes a list of outputs. Each output is a key/value pair, where the key is the name
-of the output. The value is an object that includes the following properties:
-
-- location – The fully qualified path to the output file
-- basename – The filename portion of the path
-- class – The type of the output, which is typically File
-- size – The size of the file in bytes
+The output summary file includes a list of outputs. Each output is a key/value pair, where the key is the name of the output. The value is an object that includes the following properties:
++  location – The fully qualified path to the output file
++  basename – The filename portion of the path
++  class – The type of the output, which is typically File
++  size – The size of the file in bytes
 
 In the following example, the output.json file has a list of two output files.
 

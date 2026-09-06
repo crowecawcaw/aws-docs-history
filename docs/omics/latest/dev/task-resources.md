@@ -1,16 +1,16 @@
+
+
 # Task resources in a HealthOmics workflow definition
+<a name="task-resources"></a>
 
 In the workflow definition, define the following for each task:
++ The container image for task. For more information, see [Container images for private workflows](workflows-ecr.md).
++ The number of CPUs and memory required for the task. For more information, see [Compute and memory requirements for HealthOmics tasks](memory-and-compute-tasks.md).
 
-- The container image for task. For more information, see
-  [Container images for private workflows](workflows-ecr.md "workflows-ecr.md").
-- The number of CPUs and memory required for the task. For more information, see
-  [Compute and memory requirements for HealthOmics tasks](memory-and-compute-tasks.md "memory-and-compute-tasks.md").
-  HealthOmics ignores any per-task storage specifications. HealthOmics provides run
-  storage that all tasks in the run can access. For more information, see
-  [Run storage types in HealthOmics workflows](workflows-run-types.md "workflows-run-types.md").
+HealthOmics ignores any per-task storage specifications. HealthOmics provides run storage that all tasks in the run can access. For more information, see [Run storage types in HealthOmics workflows](workflows-run-types.md).
 
-WDL
+------
+#### [ WDL ]
 
 ```
 task my_task {
@@ -23,9 +23,7 @@ task my_task {
 }
 ```
 
-For a WDL workflow, HealthOmics attempts up to two retries for a task that fails because of service errors
-(API request returns a 5XX HTTP status code). For more information about task retries, see
-[Task Retries](monitoring-runs.md#run-status-task-retries "monitoring-runs.md#run-status-task-retries").
+For a WDL workflow, HealthOmics attempts up to two retries for a task that fails because of service errors (API request returns a 5XX HTTP status code). For more information about task retries, see [Task Retries](monitoring-runs.md#run-status-task-retries).
 
 You can opt out of the retry behavior by specifying the following configuration for the task in the WDL definition file:
 
@@ -35,7 +33,8 @@ runtime {
 }
 ```
 
-NextFlow
+------
+#### [ NextFlow ]
 
 ```
 process my_task {
@@ -46,7 +45,8 @@ process my_task {
 }
 ```
 
-CWL
+------
+#### [ CWL ]
 
 ```
 cwlVersion: v1.2
@@ -57,5 +57,6 @@ requirements:
     ResourceRequirement:
         coresMax: 2
         ramMax: 4000 # specified in mebibytes
-
 ```
+
+------

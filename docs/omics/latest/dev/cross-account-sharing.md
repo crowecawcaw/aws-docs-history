@@ -1,36 +1,29 @@
+
+
 # Sharing HealthOmics analytics stores
+<a name="cross-account-sharing"></a>
 
-###### Important
+**Important**  
+AWS HealthOmics variant stores and annotation stores are no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md).
 
-AWS HealthOmics variant stores and annotation stores are no longer open to new customers.
-Existing customers can continue to use the service as normal.
-For more information, see
-[AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md "variant-store-availability-change.md").
+As the owner of a variant store or an annotation store, you can share the store with other AWS accounts. The owner can revoke access to the shared resource by deleting the share. 
 
-As the owner of a variant store or an annotation store, you can share the store with other AWS accounts. The
-owner can revoke access to the shared resource by deleting the share.
-
-As the subscriber to a shared store, you first accept the share. You can then define workflows that use the
-shared store. The data shows up as a table in both AWS Glue and Lake Formation.
+As the subscriber to a shared store, you first accept the share. You can then define workflows that use the shared store. The data shows up as a table in both AWS Glue and Lake Formation.
 
 When you no longer need access to the store, you delete the share.
 
-See [Cross-account resource sharing in AWS HealthOmics](resource-sharing.md "resource-sharing.md") for additional information
-about resource sharing.
+See [Cross-account resource sharing in AWS HealthOmics](resource-sharing.md) for additional information about resource sharing. 
 
 ## Creating a store share
+<a name="sharing-create"></a>
 
-To create a store share, use the **create-share** API operation.
-The principal subscriber is the AWS account of the user who will subscribe to the share.
-The following example creates a share for a variant store.
-To share a store with more than one account, you create multiple shares of the same store.
+To create a store share, use the **create-share** API operation. The principal subscriber is the AWS account of the user who will subscribe to the share. The following example creates a share for a variant store. To share a store with more than one account, you create multiple shares of the same store.
 
 ```
 aws omics create-share  \
         --resource-arn "arn:aws:omics:us-west-2:555555555555:variantStore/omics_dev_var_store" \
         --principal-subscriber "123456789012" \
         --name "my_Share-123"
-
 ```
 
 If the create is successful, you receive a response with the share ID and status.

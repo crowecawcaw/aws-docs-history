@@ -1,41 +1,38 @@
+
+
 # Task outputs in a HealthOmics workflow definition
+<a name="workflows-task-outputs"></a>
 
-You specify task outputs in the workflow definition. By default, HealthOmics discards all intermediate task files when
-the workflow completes. To export an intermediate file, you define it as an output.
+You specify task outputs in the workflow definition. By default, HealthOmics discards all intermediate task files when the workflow completes. To export an intermediate file, you define it as an output. 
 
-If you use call caching, HealthOmics saves task outputs to the cache, including any intermediate files that you define
-as outputs.
+If you use call caching, HealthOmics saves task outputs to the cache, including any intermediate files that you define as outputs.
 
 The following topics include task definition examples for each of the workflow definition languages.
 
-###### Topics
-
-- [Task outputs for WDL](#workflow-task-outputs-wdl "#workflow-task-outputs-wdl")
-- [Task outputs for Nextflow](#workflow-task-outputs-nextflow "#workflow-task-outputs-nextflow")
-- [Task outputs for CWL](#workflow-task-outputs-cwl "#workflow-task-outputs-cwl")
+**Topics**
++ [Task outputs for WDL](#workflow-task-outputs-wdl)
++ [Task outputs for Nextflow](#workflow-task-outputs-nextflow)
++ [Task outputs for CWL](#workflow-task-outputs-cwl)
 
 ## Task outputs for WDL
+<a name="workflow-task-outputs-wdl"></a>
 
-For workflow definitions written in WDL, define your outputs in the top level workflow
-**outputs** section.
+For workflow definitions written in WDL, define your outputs in the top level workflow **outputs** section. 
 
 HealthOmics
 
-###### Topics
-
-- [Task output for STDOUT](#task-outputs-wdl-stdout "#task-outputs-wdl-stdout")
-- [Task output for STDERR](#task-outputs-wdl-stderr "#task-outputs-wdl-stderr")
-- [Task output to a file](#task-outputs-wdl-file "#task-outputs-wdl-file")
-- [Task output to an array of files](#task-outputs-wdl-files "#task-outputs-wdl-files")
+**Topics**
++ [Task output for STDOUT](#task-outputs-wdl-stdout)
++ [Task output for STDERR](#task-outputs-wdl-stderr)
++ [Task output to a file](#task-outputs-wdl-file)
++ [Task output to an array of files](#task-outputs-wdl-files)
 
 ### Task output for STDOUT
+<a name="task-outputs-wdl-stdout"></a>
 
-This example creates a task named `SayHello` that echoes the STDOUT content to the task output
-file. The WDL **stdout** function captures the STDOUT content (in this example, the input string
-**Hello World!**) in file **stdout\_file**.
+This example creates a task named `SayHello` that echoes the STDOUT content to the task output file. The WDL **stdout** function captures the STDOUT content (in this example, the input string **Hello World\!**) in file **stdout\_file**. 
 
-Because HealthOmics creates logs for all STDOUT content, the output also appears in CloudWatch Logs, along with other STDERR
-logging information for the task.
+Because HealthOmics creates logs for all STDOUT content, the output also appears in CloudWatch Logs, along with other STDERR logging information for the task.
 
 ```
 version 1.0
@@ -63,7 +60,7 @@ task SayHello {
     }
 
     command <<<
-        echo "~{message}"
+        echo "~{message}" 
         echo "Current date: $(date)"
         echo "This message was printed to STDOUT"
     >>>
@@ -81,13 +78,11 @@ task SayHello {
 ```
 
 ### Task output for STDERR
+<a name="task-outputs-wdl-stderr"></a>
 
-This example creates a task named `SayHello` that echoes the STDERR content to the task output
-file. The WDL **stderr** function captures the STDERR content (in this example, the input string
-**Hello World!**) in file **stderr\_file**.
+This example creates a task named `SayHello` that echoes the STDERR content to the task output file. The WDL **stderr** function captures the STDERR content (in this example, the input string **Hello World\!**) in file **stderr\_file**. 
 
-Because HealthOmics creates logs for all STDERR content, the output will appear in CloudWatch Logs, along with other STDERR
-logging information for the task.
+Because HealthOmics creates logs for all STDERR content, the output will appear in CloudWatch Logs, along with other STDERR logging information for the task.
 
 ```
 version 1.0
@@ -133,9 +128,9 @@ task SayHello {
 ```
 
 ### Task output to a file
+<a name="task-outputs-wdl-file"></a>
 
-In this example, the SayHello task creates two files (message.txt and info.txt) and explicitly declares
-these files as the named outputs (message\_file and info\_file).
+In this example, the SayHello task creates two files (message.txt and info.txt) and explicitly declares these files as the named outputs (message\_file and info\_file). 
 
 ```
 version 1.0
@@ -166,7 +161,7 @@ task SayHello {
     command <<<
         # Create message file
         echo "~{message}" > message.txt
-
+        
         # Create info file with date and additional information
         echo "Current date: $(date)" > info.txt
         echo "This message was saved to a file" >> info.txt
@@ -181,16 +176,14 @@ task SayHello {
     output {
         File message_file = "message.txt"
         File info_file = "info.txt"
-    }
+    } 
 }
 ```
 
 ### Task output to an array of files
+<a name="task-outputs-wdl-files"></a>
 
-In this example, the `GenerateGreetings` task generates an array of files as the task output. The
-task dynamically generates one greeting file for each member of the input array `names`. Because the
-file names are not known until runtime, the output definition uses the WDL glob() function to output all files
-that match the pattern `*_greeting.txt`.
+In this example, the `GenerateGreetings` task generates an array of files as the task output. The task dynamically generates one greeting file for each member of the input array `names`. Because the file names are not known until runtime, the output definition uses the WDL glob() function to output all files that match the pattern `*_greeting.txt`. 
 
 ```
 version 1.0
@@ -232,28 +225,25 @@ task GenerateGreetings {
 
     output {
         Array[File] greeting_files = glob("*_greeting.txt")
-    }
+    }       
  }
 ```
 
 ## Task outputs for Nextflow
+<a name="workflow-task-outputs-nextflow"></a>
 
-For workflow definitions written in Nextflow, define a **publishDir** directive to export
-task content to your output Amazon S3 bucket. Set the **publishDir** value to
-`/mnt/workflow/pubdir`.
+For workflow definitions written in Nextflow, define a **publishDir** directive to export task content to your output Amazon S3 bucket. Set the **publishDir** value to `/mnt/workflow/pubdir`. 
 
 For HealthOmics to export files to Amazon S3, the files must be in this directory.
 
-If a task produces a group of output files for use as inputs to a subsequent task, we recommend that you group
-these files in a directory and emit the directory as a task output. Enumerating each individual file can result in an I/O
-bottleneck in the underlying file system. For example:
+If a task produces a group of output files for use as inputs to a subsequent task, we recommend that you group these files in a directory and emit the directory as a task output. Enumerating each individual file can result in an I/O bottleneck in the underlying file system. For example:
 
 ```
 process my_task {
       ...
       // recommended
       output "output-folder/", emit: output
-
+      
       // not recommended
       // output "output-folder/**", emit: output
       ...
@@ -261,23 +251,20 @@ process my_task {
 ```
 
 ## Task outputs for CWL
+<a name="workflow-task-outputs-cwl"></a>
 
-For workflow definitions written in CWL, you can specify the task outputs using `CommandLineTool` tasks.
-The following sections show examples of `CommandLineTool` tasks that
-define different types of outputs.
+For workflow definitions written in CWL, you can specify the task outputs using `CommandLineTool` tasks. The following sections show examples of `CommandLineTool` tasks that define different types of outputs.
 
-###### Topics
-
-- [Task output for STDOUT](#task-outputs-cwl-stdout "#task-outputs-cwl-stdout")
-- [Task output for STDERR](#task-outputs-cwl-stderr "#task-outputs-cwl-stderr")
-- [Task output to a file](#task-outputs-cwl-file "#task-outputs-cwl-file")
-- [Task output to an array of files](#task-outputs-cwl-files "#task-outputs-cwl-files")
+**Topics**
++ [Task output for STDOUT](#task-outputs-cwl-stdout)
++ [Task output for STDERR](#task-outputs-cwl-stderr)
++ [Task output to a file](#task-outputs-cwl-file)
++ [Task output to an array of files](#task-outputs-cwl-files)
 
 ### Task output for STDOUT
+<a name="task-outputs-cwl-stdout"></a>
 
-This example creates a `CommandLineTool` task that echoes the STDOUT content to a text output
-file named **output.txt**. For example, if you provide the following input, the resulting task output is
-**Hello World!** in the **output.txt** file.
+This example creates a `CommandLineTool` task that echoes the STDOUT content to a text output file named **output.txt**. For example, if you provide the following input, the resulting task output is **Hello World\!** in the **output.txt** file.
 
 ```
 {
@@ -285,12 +272,9 @@ file named **output.txt**. For example, if you provide the following input, the 
 }
 ```
 
-The `outputs` directive specifies that the output name is **example\_out** and it’s
-type is `stdout`. For a downstream task to consume the output of this task, it would refer to the
-output as `example_out`.
+The `outputs` directive specifies that the output name is **example\_out** and it’s type is `stdout`. For a downstream task to consume the output of this task, it would refer to the output as `example_out`.
 
-Because HealthOmics creates logs for all STDERR and STDOUT content, the output also appears in CloudWatch Logs, along with
-other STDERR logging information for the task.
+Because HealthOmics creates logs for all STDERR and STDOUT content, the output also appears in CloudWatch Logs, along with other STDERR logging information for the task.
 
 ```
 cwlVersion: v1.2
@@ -315,16 +299,13 @@ requirements:
 ```
 
 ### Task output for STDERR
+<a name="task-outputs-cwl-stderr"></a>
 
-This example creates a `CommandLineTool` task that echoes the STDERR content to a text output
-file named **stderr.txt**. The task modifies the `baseCommand` so that
-`echo` writes to STDERR (instead of STDOUT).
+This example creates a `CommandLineTool` task that echoes the STDERR content to a text output file named **stderr.txt**. The task modifies the `baseCommand` so that `echo` writes to STDERR (instead of STDOUT).
 
-The `outputs` directive specifies that the output name is **stderr\_out** and it’s
-type is `stderr`.
+The `outputs` directive specifies that the output name is **stderr\_out** and it’s type is `stderr`. 
 
-Because HealthOmics creates logs for all STDERR and STDOUT content, the output will appear in CloudWatch Logs, along with
-other STDERR logging information for the task.
+Because HealthOmics creates logs for all STDERR and STDOUT content, the output will appear in CloudWatch Logs, along with other STDERR logging information for the task.
 
 ```
 cwlVersion: v1.2
@@ -351,13 +332,11 @@ requirements:
 ```
 
 ### Task output to a file
+<a name="task-outputs-cwl-file"></a>
 
-This example creates a `CommandLineTool` task that creates a compressed tar archive from the
-input files. You provide the name of the archive as an input parameter (archive\_name).
+This example creates a `CommandLineTool` task that creates a compressed tar archive from the input files. You provide the name of the archive as an input parameter (archive\_name). 
 
-The **outputs** directive specifies that the `archive_file` output type is
-`File`, and it uses a reference to the input parameter `archive_name` to bind to the
-output file.
+The **outputs** directive specifies that the `archive_file` output type is `File`, and it uses a reference to the input parameter `archive_name` to bind to the output file.
 
 ```
 cwlVersion: v1.2
@@ -372,7 +351,7 @@ inputs:
     type: File[]
     inputBinding:
       position: 2
-
+      
 outputs:
   archive_file:
     type: File
@@ -388,12 +367,9 @@ requirements:
 ```
 
 ### Task output to an array of files
+<a name="task-outputs-cwl-files"></a>
 
-In this example, the `CommandLineTool` task creates an array of files
-using the `touch` command. The command uses the strings in the `files-to-create`
-input parameter to name the files. The command outputs an array of files. The array includes any
-files in the working directory that match the `glob` pattern.
-This example uses a wildcard pattern ("\*") that matches all files.
+In this example, the `CommandLineTool` task creates an array of files using the `touch` command. The command uses the strings in the `files-to-create` input parameter to name the files. The command outputs an array of files. The array includes any files in the working directory that match the `glob` pattern. This example uses a wildcard pattern ("\*") that matches all files.
 
 ```
 cwlVersion: v1.2

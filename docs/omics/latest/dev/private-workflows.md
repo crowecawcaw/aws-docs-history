@@ -1,37 +1,29 @@
+
+
 # Private workflows in HealthOmics
+<a name="private-workflows"></a>
 
-Use _Private workflows_ when you want to create your own workflow definition. The workflow definition
-specifies information about the workflow and defines the workflow tasks. A _run_ is a single
-invocation of a workflow, and a _task_ is a single process within the run.
+Use *Private workflows* when you want to create your own workflow definition. The workflow definition specifies information about the workflow and defines the workflow tasks. A *run* is a single invocation of a workflow, and a *task* is a single process within the run.
 
-HealthOmics supports workflow definitions that you create in Workflow Description Language (WDL), Common Workflow Language
-(CWL), or Nextflow.
+HealthOmics supports workflow definitions that you create in Workflow Description Language (WDL), Common Workflow Language (CWL), or Nextflow.
 
 HealthOmics workflows provide the following optional features:
++ **[Run groups](creating-run-groups.md)** – You can add private workflows to a run group to control compute usage. A *run group* is a collection of workflow runs that share a set of resource limits, such as maximum concurrent runs and maximum run duration. You set these limits to control the compute resources that the run group consumes. 
++ **[Call caching](workflows-call-caching.md)** – You can use a call cache to save and reuse task outputs, which results in shorter run durations and compute cost savings.
++ **[Sharing workflows](sharing-workflows.md)** – You can share your private workflows with other AWS accounts in the same Region.
++ **[Workflow versions](workflow-versions.md)** – You can create versions of a private workflow. Workflow versioning provides the ability for users to choose when to start using updated functionality. Workflow versions are immutable and provide the same level of data provenance as workflows.
 
-- **[Run groups](creating-run-groups.md "creating-run-groups.md")** – You can add private workflows to a run group to control compute usage. A _run group_ is a
-  collection of workflow runs that share a set of resource limits, such as maximum concurrent runs and maximum run
-  duration. You set these limits to control the compute resources that the run group consumes.
-- **[Call caching](workflows-call-caching.md "workflows-call-caching.md")** – You can use a call
-  cache to save and reuse task outputs, which results in shorter run durations and compute cost savings.
-- **[Sharing workflows](sharing-workflows.md "sharing-workflows.md")** – You can share your private workflows with other AWS accounts in the
-  same Region.
-- **[Workflow versions](workflow-versions.md "workflow-versions.md")** – You can create
-  versions of a private workflow. Workflow versioning provides the ability for users to choose when to start using updated
-  functionality. Workflow versions are immutable and provide the same level of data provenance as
-  workflows.
-  For information about configuring IAM permissions for workflows, see [IAM permissions for HealthOmics](omics-permissions.md "omics-permissions.md").
+For information about configuring IAM permissions for workflows, see [IAM permissions for HealthOmics](omics-permissions.md).
 
-For full examples of how to use HealthOmics private workflows, see [HealthOmics Github tutorials](https://github.com/aws-samples/amazon-omics-tutorials "https://github.com/aws-samples/amazon-omics-tutorials") or the [AWS workshop end to end tutorial for HealthOmics](https://catalog.workshops.aws/amazon-omics-end-to-end " https://catalog.workshops.aws/amazon-omics-end-to-end").
+For full examples of how to use HealthOmics private workflows, see [ HealthOmics Github tutorials](https://github.com/aws-samples/amazon-omics-tutorials) or the [ AWS workshop end to end tutorial for HealthOmics]( https://catalog.workshops.aws/amazon-omics-end-to-end). 
 
-###### Topics
-
-- [Creating private workflows in HealthOmics](workflows-setup.md "workflows-setup.md")
-- [Workflow versioning in HealthOmics](workflow-versions.md "workflow-versions.md")
-- [Using HealthOmics runs](running-workflows.md "running-workflows.md")
-- [Batch runs in HealthOmics](workflows-batch.md "workflows-batch.md")
-- [Using HealthOmics run groups](creating-run-groups.md "creating-run-groups.md")
-- [Call caching for HealthOmics runs](workflows-call-caching.md "workflows-call-caching.md")
-- [Sharing HealthOmics workflows](sharing-workflows.md "sharing-workflows.md")
-- [Connecting HealthOmics workflows to a VPC](workflows-vpc-networking.md "workflows-vpc-networking.md")
-- [Internet access for VPC-connected workflows](workflows-vpc-internet.md "workflows-vpc-internet.md")
+**Topics**
++ [Creating private workflows in HealthOmics](workflows-setup.md)
++ [Workflow versioning in HealthOmics](workflow-versions.md)
++ [Using HealthOmics runs](running-workflows.md)
++ [Batch runs in HealthOmics](workflows-batch.md)
++ [Using HealthOmics run groups](creating-run-groups.md)
++ [Call caching for HealthOmics runs](workflows-call-caching.md)
++ [Sharing HealthOmics workflows](sharing-workflows.md)
++ [Connecting HealthOmics workflows to a VPC](workflows-vpc-networking.md)
++ [Internet access for VPC-connected workflows](workflows-vpc-internet.md)

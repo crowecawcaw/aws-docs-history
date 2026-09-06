@@ -1,61 +1,48 @@
+
+
 # Creating a HealthOmics reference store
+<a name="create-reference-store"></a>
 
-A reference store in HealthOmics is a data store for the storage of reference genomes.
-You can have a single reference store in each AWS account and Region.
-You can create a reference store using the console or CLI.
+A reference store in HealthOmics is a data store for the storage of reference genomes. You can have a single reference store in each AWS account and Region. You can create a reference store using the console or CLI.
 
-###### Topics
-
-- [Creating a reference store using the console](#console-create-reference-store "#console-create-reference-store")
-- [Creating a reference store using the CLI](#api-create-reference-store "#api-create-reference-store")
+**Topics**
++ [Creating a reference store using the console](#console-create-reference-store)
++ [Creating a reference store using the CLI](#api-create-reference-store)
 
 ## Creating a reference store using the console
+<a name="console-create-reference-store"></a>
 
-###### To create a reference store
+**To create a reference store**
 
-1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/ "https://console.aws.amazon.com/omics/").
-2. If required, open the left navigation pane (≡). Choose **Reference store**.
-3. Choose **Reference
-   genomes** from the Genomics data storage options.
-4. You can either choose a previously imported reference genome or import
-   a new one. If you haven't imported a reference genome,choose
-   **Import reference genome** in the top
-   right.
-5. On the **Create reference genome import job** page,
-   choose either the **Quick create** or **Manual
-   create** option to create a reference store, and then
-   provide the following information.
+1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/).
 
-   - **Reference genome name** - A unique name for
-     this store.
-   - **Description** (optional) - A description of
-     this reference store.
-   - **IAM Role** - Select a role with access to
-     your reference genome.
-   - **Reference from Amazon S3** - Select your
-     reference sequence file in an Amazon S3 bucket.
-   - **Tags** (optional) - Provide up to 50 tags
-     for this reference store.
+1.  If required, open the left navigation pane (≡). Choose **Reference store**.
+
+1. Choose **Reference genomes** from the Genomics data storage options.
+
+1. You can either choose a previously imported reference genome or import a new one. If you haven't imported a reference genome,choose **Import reference genome** in the top right.
+
+1. On the **Create reference genome import job** page, choose either the **Quick create** or **Manual create** option to create a reference store, and then provide the following information.
+   + **Reference genome name** - A unique name for this store. 
+   + **Description** (optional) - A description of this reference store.
+   + **IAM Role** - Select a role with access to your reference genome. 
+   + **Reference from Amazon S3** - Select your reference sequence file in an Amazon S3 bucket.
+   + **Tags** (optional) - Provide up to 50 tags for this reference store.
 
 ## Creating a reference store using the CLI
+<a name="api-create-reference-store"></a>
 
-The following example shows you how to create a reference store by using the AWS CLI. You can have one
-reference store per AWS Region.
+The following example shows you how to create a reference store by using the AWS CLI. You can have one reference store per AWS Region. 
 
-Reference stores support storage of FASTA files with the extensions `.fasta`, `.fa`,
-`.fas`, `.fsa`, `.faa`, `.fna`, `.ffn`,
-`.frn`, `.mpfa`, `.seq`, `.txt`. The `bgzip` version
-of these extensions is also supported.
+Reference stores support storage of FASTA files with the extensions `.fasta`, `.fa`, `.fas`, `.fsa`, `.faa`, `.fna`, `.ffn`, `.frn`, `.mpfa`, `.seq`, `.txt`. The `bgzip` version of these extensions is also supported. 
 
-In the following example, replace `reference store name` with the
-name you've chosen for your reference store.
+In the following example, replace `{{reference store name}}` with the name you've chosen for your reference store.
 
 ```
-aws omics create-reference-store --name ``"reference store name"``
+aws omics create-reference-store --name {{"reference store name"}}  
 ```
 
-You receive a JSON response with the reference store ID and name, the ARN, and the
-timestamp of when your reference store was created.
+You receive a JSON response with the reference store ID and name, the ARN, and the timestamp of when your reference store was created.
 
 ```
 {
@@ -66,12 +53,10 @@ timestamp of when your reference store was created.
 }
 ```
 
-You can use the reference store ID in additional AWS CLI commands. You can retrieve the list of
-reference store IDs linked to your account by using the **list-reference-stores** command, as
-shown in the following example.
+You can use the reference store ID in additional AWS CLI commands. You can retrieve the list of reference store IDs linked to your account by using the **list-reference-stores** command, as shown in the following example.
 
 ```
-aws omics list-reference-stores
+aws omics list-reference-stores 
 ```
 
 In response, you receive the name of your newly created reference store.
@@ -89,70 +74,71 @@ In response, you receive the name of your newly created reference store.
 }
 ```
 
-After you create a reference store, you can create import jobs to load genomic reference files into
-it. To do so, you must use or create an IAM role to access the data. The following is an example policy.
+After you create a reference store, you can create import jobs to load genomic reference files into it. To do so, you must use or create an IAM role to access the data. The following is an example policy. 
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "s3:GetObject",
- "s3:GetBucketLocation"
-
- ],
- "Resource": [
- "arn:aws:s3:::amzn-s3-demo-bucket1",
- "arn:aws:s3:::amzn-s3-demo-bucket1/*"
- ]
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:GetBucketLocation"
+                
+            ],
+            "Resource": [
+                "arn:aws:s3:::amzn-s3-demo-bucket1",
+                "arn:aws:s3:::amzn-s3-demo-bucket1/*"
+            ]
+        }
+    ]
+}
+```
+
+------
 
 You must also have a trust policy similar to the following example.
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": [
- "omics.amazonaws.com"
- ]
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                   "omics.amazonaws.com"
+                ]
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
 ```
 
-You can now import a reference genome. This example uses Genome Reference Consortium Human Build 38
-(hg38), which is open access and available from the [Registry of Open
-Data on AWS](https://registry.opendata.aws/ "https://registry.opendata.aws/"). The bucket that hosts this data is based in US East (Ohio). To use buckets in other
-AWS Regions, you can copy the data to an Amazon S3 bucket hosted in your Region. Use the following AWS CLI command to
-copy the genome to your Amazon S3 bucket.
+------
+
+You can now import a reference genome. This example uses Genome Reference Consortium Human Build 38 (hg38), which is open access and available from the [Registry of Open Data on AWS](https://registry.opendata.aws/). The bucket that hosts this data is based in US East (Ohio). To use buckets in other AWS Regions, you can copy the data to an Amazon S3 bucket hosted in your Region. Use the following AWS CLI command to copy the genome to your Amazon S3 bucket. 
 
 ```
-aws s3 cp s3://broad-references/hg38/v0/Homo_sapiens_assembly38.fasta s3://amzn-s3-demo-bucket
+aws s3 cp s3://broad-references/hg38/v0/Homo_sapiens_assembly38.fasta s3://amzn-s3-demo-bucket 
 ```
 
-You can then begin your import job. Replace `reference store
- ID`, `role ARN`, and `source file
- path` with your own input.
+You can then begin your import job. Replace `{{reference store ID}}`, `{{role ARN}}`, and `{{source file path}}` with your own input.
 
 ```
-aws omics start-reference-import-job --reference-store-id ``reference store ID`` --role-arn ``role ARN`` --sources ``source file path``
+aws omics start-reference-import-job --reference-store-id {{reference store ID}} --role-arn {{role ARN}} --sources {{source file path}}
 ```
 
 After the data is imported, you receive the following response in JSON.
@@ -167,16 +153,13 @@ After the data is imported, you receive the following response in JSON.
 }
 ```
 
-You can monitor the status of a job by using the following command. In the following example, replace
-`reference store ID` and `job
- ID` with your reference store ID and the job ID that you want to learn more about.
+You can monitor the status of a job by using the following command. In the following example, replace `{{reference store ID}}` and `{{job ID}}` with your reference store ID and the job ID that you want to learn more about.
 
 ```
-aws omics get-reference-import-job --reference-store-id ``reference store ID`` --id ``job ID``
+aws omics get-reference-import-job --reference-store-id {{reference store ID}} --id {{job ID}}  
 ```
 
-In response, you receive a response with the details for that reference store and
-its status.
+In response, you receive a response with the details for that reference store and its status.
 
 ```
 {
@@ -195,12 +178,10 @@ its status.
 }
 ```
 
-You can also find the reference that was imported by listing your references and filtering them based
-on the reference name. Replace `reference store ID` with your reference
-store ID, and add an optional filter to narrow the list.
+You can also find the reference that was imported by listing your references and filtering them based on the reference name. Replace `{{reference store ID}}` with your reference store ID, and add an optional filter to narrow the list.
 
 ```
-aws omics list-references --reference-store-id ``reference store ID`` --filter name=`MyReference`
+aws omics list-references --reference-store-id {{reference store ID}} --filter name={{MyReference}}  
 ```
 
 In response, you receive the following information.
@@ -222,13 +203,10 @@ In response, you receive the following information.
 }
 ```
 
-To learn more about the reference metadata, use the **get-reference-metadata** API
-operation. In the following example, replace `reference store ID` with
-your reference store ID and `reference ID` with the reference ID that you
-want to learn more about.
+To learn more about the reference metadata, use the **get-reference-metadata** API operation. In the following example, replace `{{reference store ID}}` with your reference store ID and `{{reference ID}}` with the reference ID that you want to learn more about.
 
 ```
-aws omics get-reference-metadata --reference-store-id ``reference store ID`` --id ``reference ID``
+aws omics get-reference-metadata --reference-store-id {{reference store ID}} --id {{reference ID}}   
 ```
 
 You receive the following information in response.
@@ -258,11 +236,8 @@ You receive the following information in response.
 }
 ```
 
-You can also download parts of the reference file by using **get-reference**. In the
-following example, replace `reference store ID` with your reference store
-ID and `reference ID` with the reference ID that you want to download
-from.
+You can also download parts of the reference file by using **get-reference**. In the following example, replace `{{reference store ID}}` with your reference store ID and `{{reference ID}}` with the reference ID that you want to download from.
 
 ```
-aws omics get-reference --reference-store-id ``reference store ID`` --id ``reference ID`` --part-number 1 outfile.fa
+aws omics get-reference --reference-store-id {{reference store ID}} --id {{reference ID}} --part-number 1 outfile.fa   
 ```

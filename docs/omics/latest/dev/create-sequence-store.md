@@ -1,79 +1,70 @@
+
+
 # Creating a HealthOmics sequence store
+<a name="create-sequence-store"></a>
 
-HealthOmics sequence stores support storage of genomic files in the unaligned formats of `FASTQ` (gzip-only)
-and `uBAM`. It also supports the aligned formats of `BAM` and `CRAM`.
 
-Imported files are stored as read sets. You can add tags to read sets and use IAM policies to control access
-to read sets. Aligned read sets require a reference genome to align genomic sequences, but it's optional for
-unaligned read sets.
 
-To store read sets, you first create a sequence store. When you create a sequence store, you can specify an
-optional Amazon S3 bucket as a fallback location and the location where S3 access logs are stored. The fallback
-location is used for storing any files that fail to create a read set during a direct upload. Fallback locations are
-available for sequence stores created after May 15, 2023. You specify the fallback location when you create the
-sequence store.
+HealthOmics sequence stores support storage of genomic files in the unaligned formats of `FASTQ` (gzip-only) and `uBAM`. It also supports the aligned formats of `BAM` and `CRAM`. 
 
-You can specify up to five read set tag keys. When you create or update a read set with a tag key that matches one of these keys,
-the read set tags are propagated to the corresponding Amazon S3 object.
-System tags created by HealthOmics are propagated by default.
+Imported files are stored as read sets. You can add tags to read sets and use IAM policies to control access to read sets. Aligned read sets require a reference genome to align genomic sequences, but it's optional for unaligned read sets.
 
-###### Topics
+To store read sets, you first create a sequence store. When you create a sequence store, you can specify an optional Amazon S3 bucket as a fallback location and the location where S3 access logs are stored. The fallback location is used for storing any files that fail to create a read set during a direct upload. Fallback locations are available for sequence stores created after May 15, 2023. You specify the fallback location when you create the sequence store. 
 
-- [Creating a sequence store using the console](#console-create-sequence-store "#console-create-sequence-store")
-- [Creating a sequence store using the CLI](#api-create-sequence-store "#api-create-sequence-store")
-- [Updating a sequence store](#update-sequence-store "#update-sequence-store")
-- [Updating read set tags for a sequence store](#sequence-store-manage-tags "#sequence-store-manage-tags")
-- [Importing genomic files](#import-genomic-files "#import-genomic-files")
+You can specify up to five read set tag keys. When you create or update a read set with a tag key that matches one of these keys, the read set tags are propagated to the corresponding Amazon S3 object. System tags created by HealthOmics are propagated by default. 
+
+**Topics**
++ [Creating a sequence store using the console](#console-create-sequence-store)
++ [Creating a sequence store using the CLI](#api-create-sequence-store)
++ [Updating a sequence store](#update-sequence-store)
++ [Updating read set tags for a sequence store](#sequence-store-manage-tags)
++ [Importing genomic files](#import-genomic-files)
 
 ## Creating a sequence store using the console
+<a name="console-create-sequence-store"></a>
 
-###### To create a sequence store
+**To create a sequence store**
 
-1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/ "https://console.aws.amazon.com/omics/").
-2. If required, open the left navigation pane (≡). Choose **Sequence stores**.
-3. On the **Create sequence store** page, provide the
-   following information
+1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/).
 
-   - **Sequence store name** - A unique name for
-     this store.
-   - **Description** (optional) - A description of
-     this sequence store.
+1.  If required, open the left navigation pane (≡). Choose **Sequence stores**.
 
-4. For **Fallback location in S3**, specify an Amazon S3 location. HealthOmics uses the fallback
-   location for storing any files that fail to create a read set during a direct upload.
-   You need to grant the HealthOmics service write access to the Amazon S3 fallback location.
-   For an example policy, see [Configure a fallback location](synchronous-uploads.md#synchronous-uploads-fallback "synchronous-uploads.md#synchronous-uploads-fallback").
+1. On the **Create sequence store** page, provide the following information
+   + **Sequence store name** - A unique name for this store. 
+   + **Description** (optional) - A description of this sequence store.
 
-Fallback locations aren't available for sequence stores created before May 16, 2023. 5. (Optional) For **Read set tag keys for S3 propagation**, you can enter up to five
-read set keys to propagate from a read set to the underlying S3 Objects. By propagating tags from a read set
-to the S3 object, you can grant S3 access permissions based on tags and/or end users to see the propagated
-tags through the Amazon S3 getObjectTagging API operation.
+1. For **Fallback location in S3**, specify an Amazon S3 location. HealthOmics uses the fallback location for storing any files that fail to create a read set during a direct upload. You need to grant the HealthOmics service write access to the Amazon S3 fallback location. For an example policy, see [Configure a fallback location](synchronous-uploads.md#synchronous-uploads-fallback).
 
-    1. Enter one key value in the text box. The console creates a new text box to add the next key.
-    2. (Optional) Choose **Remove** to remove all the keys.
+   Fallback locations aren't available for sequence stores created before May 16, 2023. 
 
-6. Under **Data Encryption**, select whether you want
-data encryption to be owned and managed by AWS or to use a customer managed CMK. 7. (Optional) Under **S3 Data access**, select whether to create a new role and
-policy to access the sequence store through Amazon S3. 8. (Optional) For **S3 access logging**, select `Enabled` if you want Amazon S3
-to collect access log records.
+1. (Optional) For **Read set tag keys for S3 propagation**, you can enter up to five read set keys to propagate from a read set to the underlying S3 Objects. By propagating tags from a read set to the S3 object, you can grant S3 access permissions based on tags and/or end users to see the propagated tags through the Amazon S3 getObjectTagging API operation. 
 
-For **Access logging location in S3**, specify an Amazon S3 location to store the logs. This
-field is visible only if you enabled S3 access logging. 9. **Tags** (optional) - Provide up to 50 tags for this sequence store. These tags are
-separate from read set tags that are set during read set import/tag update
+   1. Enter one key value in the text box. The console creates a new text box to add the next key.
 
-After you create the store, it's ready for [Importing genomic files](#import-genomic-files "#import-genomic-files").
+   1. (Optional) Choose **Remove** to remove all the keys.
+
+1. Under **Data Encryption**, select whether you want data encryption to be owned and managed by AWS or to use a customer managed CMK. 
+
+1. (Optional) Under **S3 Data access**, select whether to create a new role and policy to access the sequence store through Amazon S3.
+
+1. (Optional) For **S3 access logging**, select `Enabled` if you want Amazon S3 to collect access log records.
+
+   For **Access logging location in S3**, specify an Amazon S3 location to store the logs. This field is visible only if you enabled S3 access logging.
+
+1. **Tags** (optional) - Provide up to 50 tags for this sequence store. These tags are separate from read set tags that are set during read set import/tag update
+
+After you create the store, it's ready for [Importing genomic files](#import-genomic-files).
 
 ## Creating a sequence store using the CLI
+<a name="api-create-sequence-store"></a>
 
-In the following example, replace `sequence store name` with the
-name you chose for your sequence store.
+In the following example, replace `{{sequence store name}}` with the name you chose for your sequence store.
 
 ```
-aws omics create-sequence-store --name ``sequence store name`` --fallback-location "s3://amzn-s3-demo-bucket"
+aws omics create-sequence-store --name {{sequence store name}} --fallback-location "s3://amzn-s3-demo-bucket"  
 ```
 
-You receive the following response in JSON, which includes the ID number for your
-newly created sequence store.
+You receive the following response in JSON, which includes the ID number for your newly created sequence store.
 
 ```
 {
@@ -85,8 +76,7 @@ newly created sequence store.
 }
 ```
 
-You can also view all sequence stores associated with your account by using the
-**list-sequence-stores** command, as shown in the following.
+You can also view all sequence stores associated with your account by using the **list-sequence-stores** command, as shown in the following.
 
 ```
 aws omics list-sequence-stores
@@ -110,11 +100,10 @@ You receive the following response.
 }
 ```
 
-You can use **get-sequence-store** to learn more about a sequence store by using its ID, as
-shown in the following example:
+You can use **get-sequence-store** to learn more about a sequence store by using its ID, as shown in the following example:
 
 ```
-aws omics get-sequence-store --id ``sequence store ID``
+aws omics get-sequence-store --id {{sequence store ID}}                             
 ```
 
 You receive the following response:
@@ -143,72 +132,71 @@ You receive the following response:
 }
 ```
 
-After creation, several store parameters can also be updated. This can be done through the Console or
-the API `updateSequenceStore` operation.
+After creation, several store parameters can also be updated. This can be done through the Console or the API `updateSequenceStore` operation.
 
 ## Updating a sequence store
+<a name="update-sequence-store"></a>
 
 To update a sequence store, follow these steps:
 
-1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/ "https://console.aws.amazon.com/omics/").
-2. If required, open the left navigation pane (≡). Choose **Sequence stores**.
-3. Choose the sequence store to update.
-4. In the **Details** panel, choose **Edit**.
-5. On the **Edit details** page, you can update the
-   following fields:
+1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/).
 
-   - **Sequence store name** - A unique name for
-     this store.
-   - **Description** - A description of
-     this sequence store.
-   - **Fallback location in S3**, specify an Amazon S3 location.
-     HealthOmics uses the fallback location for storing any files that fail to create a read set during a direct upload.
-   - **Read set tag keys for S3 propagation**
-     you can enter up to five read set keys to propagate to Amazon S3.
-   - (Optional) For **S3 access logging**, select `Enabled` if you want Amazon S3 to
-     collect access log records.
+1.  If required, open the left navigation pane (≡). Choose **Sequence stores**.
 
-   For **Access logging location in S3**, specify an Amazon S3 location to store the logs.
-   This field is visible only if you enabled S3 access logging.
-   - **Tags** (optional) - Provide up to 50 tags
-     for this sequence store.
+1. Choose the sequence store to update.
+
+1. In the **Details** panel, choose **Edit**.
+
+1. On the **Edit details** page, you can update the following fields:
+   + **Sequence store name** - A unique name for this store. 
+   + **Description** - A description of this sequence store.
+   + **Fallback location in S3**, specify an Amazon S3 location. HealthOmics uses the fallback location for storing any files that fail to create a read set during a direct upload. 
+   + **Read set tag keys for S3 propagation** you can enter up to five read set keys to propagate to Amazon S3.
+   + (Optional) For **S3 access logging**, select `Enabled` if you want Amazon S3 to collect access log records.
+
+     For **Access logging location in S3**, specify an Amazon S3 location to store the logs. This field is visible only if you enabled S3 access logging.
+   + **Tags** (optional) - Provide up to 50 tags for this sequence store.
 
 ## Updating read set tags for a sequence store
+<a name="sequence-store-manage-tags"></a>
 
 To update read set tags or other fields for a sequence store, follow these steps:
 
-1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/ "https://console.aws.amazon.com/omics/").
-2. If required, open the left navigation pane (≡). Choose **Sequence stores**.
-3. Choose the sequence store that you want to update.
-4. Choose the **Details** tab.
-5. Choose **Edit**.
-6. Add new read set tags or delete existing tags, as required.
-7. Update the name, description, fallback location, or S3 data access, as required.
-8. Choose **Save changes**.
+1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/).
+
+1.  If required, open the left navigation pane (≡). Choose **Sequence stores**.
+
+1. Choose the sequence store that you want to update.
+
+1. Choose the **Details** tab.
+
+1. Choose **Edit**.
+
+1. Add new read set tags or delete existing tags, as required.
+
+1. Update the name, description, fallback location, or S3 data access, as required.
+
+1. Choose **Save changes**.
 
 ## Importing genomic files
+<a name="import-genomic-files"></a>
 
 To import genomic files to a sequence store, follow these steps:
 
-###### To import a genomics file
+**To import a genomics file**
 
-1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/ "https://console.aws.amazon.com/omics/").
-2. If required, open the left navigation pane (≡). Choose
-   choose **Sequence stores**.
-3. On the **Sequence stores** page, choose the sequence
-   store that you want to import your files into.
-4. On the individual sequence store page, choose **Import
-   genomic files**.
-5. On the **Specify import details** page, provide the
-   following information
+1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/).
 
-   - **IAM role** - The IAM role that can access
-     the genomic files on Amazon S3.
-   - **Reference genome** - The reference genome
-     for this genomics data.
+1.  If required, open the left navigation pane (≡). Choose choose **Sequence stores**.
 
-6. On the **Specify import manifest** page, specify the
-   following information **Manifest file**. The manifest
-   file is a JSON or YAML file that describes essential information of your
-   genomics data. For information about the manifest file, see [Importing read sets into a HealthOmics sequence store](import-sequence-store.md "import-sequence-store.md").
-7. Click **Create import job**.
+1. On the **Sequence stores** page, choose the sequence store that you want to import your files into.
+
+1. On the individual sequence store page, choose **Import genomic files**.
+
+1. On the **Specify import details** page, provide the following information
+   + **IAM role** - The IAM role that can access the genomic files on Amazon S3.
+   + **Reference genome** - The reference genome for this genomics data.
+
+1. On the **Specify import manifest** page, specify the following information **Manifest file**. The manifest file is a JSON or YAML file that describes essential information of your genomics data. For information about the manifest file, see [Importing read sets into a HealthOmics sequence store](import-sequence-store.md).
+
+1. Click **Create import job**.

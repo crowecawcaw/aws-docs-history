@@ -1,55 +1,50 @@
+
+
 # Get run information
+<a name="getinfo-about-runs"></a>
 
-After you start a run, you can retrieve its status, configuration, and task-level details
-using the HealthOmics API. This page describes how to:
+After you start a run, you can retrieve its status, configuration, and task-level details using the HealthOmics API. This page describes how to:
 
-###### Topics
-
-- [Get run status and details](#get-run "#get-run")
-- [List all runs](#list-runs "#list-runs")
-- [List tasks in a run](#list-tasks "#list-tasks")
-- [Get task details](#get-task "#get-task")
-- [Run metadata in CloudWatch](#run-metadata "#run-metadata")
+**Topics**
++ [Get run status and details](#get-run)
++ [List all runs](#list-runs)
++ [List tasks in a run](#list-tasks)
++ [Get task details](#get-task)
++ [Run metadata in CloudWatch](#run-metadata)
 
 ## Get run status and details
+<a name="get-run"></a>
 
-Use the **GetRun** API operation to check the status and retrieve details
-of a specific run. You need the run ID, which is returned when you start a run.
+Use the **GetRun** API operation to check the status and retrieve details of a specific run. You need the run ID, which is returned when you start a run.
 
 ```
-aws omics get-run --id `run_id`
+aws omics get-run --id {{run_id}}
 ```
 
-###### Finding the run ID
+**Finding the run ID**  
+You can find the run ID in the following ways:  
+From the [**StartRun** API response](starting-a-run.md#start-run-api-basic) – the `id` field is returned when you start a run.
+From the HealthOmics console – on the **Runs** page, the run ID is displayed in the first column of the runs list.
+From the **ListRuns** API – lists all runs in your account with their IDs.
 
-You can find the run ID in the following ways:
+The response includes the run status, workflow details, accelerator information, and timestamps. Possible run statuses are:
 
-- From the [StartRun API response](starting-a-run.md#start-run-api-basic "starting-a-run.md#start-run-api-basic") –
-  the `id` field is returned when you start a run.
-- From the HealthOmics console – on the **Runs** page, the run ID is
-  displayed in the first column of the runs list.
-- From the **ListRuns** API – lists all runs in your account with
-  their IDs.
 
-The response includes the run status, workflow details, accelerator information, and
-timestamps. Possible run statuses are:
+| Status | Description | 
+| --- | --- | 
+| PENDING | The run has been submitted and is waiting to start. | 
+| STARTING | HealthOmics is provisioning resources for the run. | 
+| RUNNING | The run is actively executing tasks. | 
+| COMPLETED | The run finished successfully. Output files are available in the Amazon S3 output location. | 
+| FAILED | The run encountered an error. See [Run failure reasons](workflows-run-errors.md). | 
+| CANCELLED | The run was cancelled by the user. | 
 
-| Status      | Description                                                                                                 |
-| ----------- | ----------------------------------------------------------------------------------------------------------- |
-| `PENDING`   | The run has been submitted and is waiting to start.                                                         |
-| `STARTING`  | HealthOmics is provisioning resources for the run.                                                          |
-| `RUNNING`   | The run is actively executing tasks.                                                                        |
-| `COMPLETED` | The run finished successfully. Output files are available in the Amazon S3 output<br>location.              |
-| `FAILED`    | The run encountered an error. See [Run failure reasons](workflows-run-errors.md "workflows-run-errors.md"). |
-| `CANCELLED` | The run was cancelled by the user.                                                                          |
-
-When a run is `COMPLETED`, you can find the output files in your Amazon S3 output
-bucket, in a folder named after the run ID.
+When a run is `COMPLETED`, you can find the output files in your Amazon S3 output bucket, in a folder named after the run ID.
 
 ### Example response
+<a name="get-run-example-response"></a>
 
-The following example shows the response for a completed run of a private WDL workflow
-with a GPU accelerator:
+The following example shows the response for a completed run of a private WDL workflow with a GPU accelerator:
 
 ```
 {
@@ -75,24 +70,25 @@ with a GPU accelerator:
 ```
 
 ### Key fields in the response
+<a name="get-run-key-fields"></a>
 
-| Field            | Description                                                                                                                                                                                                                                                                                                                                                                              |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `uuid`           | Universally unique identifier for the run. Along with `outputUri`,<br>can be used to track where output data is written.                                                                                                                                                                                                                                                                 |
-| `status`         | Current run status (see the preceding table).                                                                                                                                                                                                                                                                                                                                            |
-| `workflowType`   | Whether the workflow is `PRIVATE` or `READY2RUN`.                                                                                                                                                                                                                                                                                                                                        |
-| `accelerators`   | Accelerator type used (for example, `GPU`), if applicable.                                                                                                                                                                                                                                                                                                                               |
-| `digest`         | SHA-256 digest of the workflow definition.                                                                                                                                                                                                                                                                                                                                               |
-| `creationTime`   | When the run was submitted.                                                                                                                                                                                                                                                                                                                                                              |
-| `startTime`      | When the run began executing.                                                                                                                                                                                                                                                                                                                                                            |
-| `stopTime`       | When the run finished or was cancelled.                                                                                                                                                                                                                                                                                                                                                  |
-| `engineSettings` | Engine settings applied to the run. This field is returned only for Nextflow<br>workflows. If you specify engine settings for WDL or CWL workflows, they are<br>silently ignored and this field is not present in the **GetRun**<br>response. See [Specify Nextflow engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings"). |
+
+| Field | Description | 
+| --- | --- | 
+| uuid | Universally unique identifier for the run. Along with outputUri, can be used to track where output data is written. | 
+| status | Current run status (see the preceding table). | 
+| workflowType | Whether the workflow is PRIVATE or READY2RUN. | 
+| accelerators | Accelerator type used (for example, GPU), if applicable. | 
+| digest | SHA-256 digest of the workflow definition. | 
+| creationTime | When the run was submitted. | 
+| startTime | When the run began executing. | 
+| stopTime | When the run finished or was cancelled. | 
+| engineSettings | Engine settings applied to the run. This field is returned only for Nextflow workflows. If you specify engine settings for WDL or CWL workflows, they are silently ignored and this field is not present in the GetRun response. See [Specify Nextflow engine settings](starting-a-run.md#start-run-api-engine-settings). | 
 
 ### Example response for a Nextflow run with engine settings
+<a name="get-run-engine-settings-example"></a>
 
-For Nextflow runs that were started with engine settings, the **GetRun** response includes
-an `engineSettings` map that reflects the values applied to the run. The following example shows a
-run that was started with a pinned engine version and two profiles.
+For Nextflow runs that were started with engine settings, the **GetRun** response includes an `engineSettings` map that reflects the values applied to the run. The following example shows a run that was started with a pinned engine version and two profiles.
 
 ```
 {
@@ -117,10 +113,10 @@ run that was started with a pinned engine version and two profiles.
 }
 ```
 
-The `engineSettings` field is returned only for Nextflow workflows. For WDL and CWL workflows,
-this field isn't present in the response. For more information, see [Specify Nextflow engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings").
+The `engineSettings` field is returned only for Nextflow workflows. For WDL and CWL workflows, this field isn't present in the response. For more information, see [Specify Nextflow engine settings](starting-a-run.md#start-run-api-engine-settings).
 
 ## List all runs
+<a name="list-runs"></a>
 
 Use the **ListRuns** API operation to see all runs in your account:
 
@@ -128,44 +124,40 @@ Use the **ListRuns** API operation to see all runs in your account:
 aws omics list-runs
 ```
 
-The response returns a paginated list of runs with summary information including run ID,
-name, status, and timestamps. Use the `--starting-token` parameter to retrieve
-additional pages.
+The response returns a paginated list of runs with summary information including run ID, name, status, and timestamps. Use the `--starting-token` parameter to retrieve additional pages.
 
 ## List tasks in a run
+<a name="list-tasks"></a>
 
-Use the **ListRunTasks** API operation to see all tasks completed within a
-specific run:
+Use the **ListRunTasks** API operation to see all tasks completed within a specific run:
 
 ```
-aws omics list-run-tasks --id `run_id`
+aws omics list-run-tasks --id {{run_id}}
 ```
 
-The response returns a list of tasks with their status, resource allocation, and timing
-information.
+The response returns a list of tasks with their status, resource allocation, and timing information.
 
 ## Get task details
+<a name="get-task"></a>
 
-Use the **GetRunTask** API operation to get detailed information about a
-specific task within a run:
+Use the **GetRunTask** API operation to get detailed information about a specific task within a run:
 
 ```
-aws omics get-run-task --id `run_id` --task-id `task_id`
+aws omics get-run-task --id {{run_id}} --task-id {{task_id}}
 ```
 
-The response includes task-level details such as CPU, memory allocation, container image,
-and task status.
+The response includes task-level details such as CPU, memory allocation, container image, and task status.
 
 ## Run metadata in CloudWatch
+<a name="run-metadata"></a>
 
 After a run completes, HealthOmics sends the run metadata to CloudWatch Logs under the stream:
 
 ```
-manifest/run/`run_id`/`run_uuid`
+manifest/run/{{run_id}}/{{run_uuid}}
 ```
 
-The manifest includes the complete run configuration, input parameters, resource digests,
-and task-level details. The following is an example of the manifest:
+The manifest includes the complete run configuration, input parameters, resource digests, and task-level details. The following is an example of the manifest:
 
 ```
 [
@@ -220,11 +212,7 @@ and task-level details. The following is an example of the manifest:
 ]
 ```
 
-For more information about logs available in CloudWatch for HealthOmics runs, see
-[Monitoring HealthOmics with CloudWatch Logs](monitoring-cloudwatch-logs.md "monitoring-cloudwatch-logs.md").
+For more information about logs available in CloudWatch for HealthOmics runs, see [Monitoring HealthOmics with CloudWatch Logs](monitoring-cloudwatch-logs.md).
 
-###### Note
-
-Run metadata is not deleted from CloudWatch Logs even when you remove the run from HealthOmics. You
-can use CloudWatch to access metadata for runs that are no longer available through the HealthOmics
-API.
+**Note**  
+Run metadata is not deleted from CloudWatch Logs even when you remove the run from HealthOmics. You can use CloudWatch to access metadata for runs that are no longer available through the HealthOmics API.

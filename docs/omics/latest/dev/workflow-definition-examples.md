@@ -1,8 +1,12 @@
+
+
 # Example workflow definitions
+<a name="workflow-definition-examples"></a>
 
 The following example shows the same workflow definition in WDL, Nextflow, and CWL.
 
-WDL
+------
+#### [ WDL ]
 
 ```
 version 1.1
@@ -14,11 +18,11 @@ task my_task {
        String name
        Int threshold
    }
-
+   
    command <<<
    my_tool --name ~{name} --threshold ~{threshold} ~{input_file}
    >>>
-
+   
    output {
        File results = "results.txt"
    }
@@ -30,7 +34,7 @@ workflow my_workflow {
        String name
        Int threshold = 50
    }
-
+   
    call my_task {
        input:
           input_file = input_file,
@@ -43,7 +47,8 @@ workflow my_workflow {
 }
 ```
 
-Nextflow
+------
+#### [ Nextflow ]
 
 ```
 nextflow.enable.dsl = 2
@@ -54,21 +59,21 @@ params.threshold = 50
 
 process my_task {
    // <directives>
-
+   
    input:
      path input_file
      val name
      val threshold
-
+   
    output:
      path 'results.txt', emit: results
-
+   
    script:
      """
      my_tool --name ${name} --threshold ${threshold} ${input_file}
      """
-
-
+     
+   
 }
 
 workflow MY_WORKFLOW {
@@ -82,11 +87,10 @@ workflow MY_WORKFLOW {
 workflow {
    MY_WORKFLOW()
 }
-
-
 ```
 
-CWL
+------
+#### [ CWL ]
 
 ```
 cwlVersion: v1.2
@@ -129,5 +133,6 @@ steps:
                     type: File
                     outputBinding:
                         glob: results.txt
-
 ```
+
+------

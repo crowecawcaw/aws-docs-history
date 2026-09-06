@@ -1,64 +1,61 @@
+
+
 # Update a workflow version
+<a name="workflows-version-update"></a>
 
-You can update the description and the default run storage configuration for a private workflow version. To
-change any other information in the workflow version, create a new version.
+You can update the description and the default run storage configuration for a private workflow version. To change any other information in the workflow version, create a new version. 
 
-###### Topics
-
-- [Update a workflow version using the console](#workflow-versions-console-update "#workflow-versions-console-update")
-- [Update a workflow version using the CLI](#workflow-versions-api-update "#workflow-versions-api-update")
-- [Update a workflow version using an SDK](#workflow-versions-sdk-update "#workflow-versions-sdk-update")
+**Topics**
++ [Update a workflow version using the console](#workflow-versions-console-update)
++ [Update a workflow version using the CLI](#workflow-versions-api-update)
++ [Update a workflow version using an SDK](#workflow-versions-sdk-update)
 
 ## Update a workflow version using the console
+<a name="workflow-versions-console-update"></a>
 
-###### To update a workflow version
+**To update a workflow version**
 
-1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/ "https://console.aws.amazon.com/omics/").
-2. If required, open the left navigation pane (≡). Choose **Private workflows**.
-3. On the **Private workflows** page, choose the workflow.
-4. On the **Workflow** page, choose the workflow version to update and choose
-   **Edit selected** from the **Actions** list.
+1. Open the [HealthOmics console](https://console.aws.amazon.com/omics/).
 
-   - If you choose the default version, the console opens the **Edit workflow** page. For more
-     information, see [Update a private workflow](update-private-workflow.md "update-private-workflow.md").
-   - If you choose a user-defined version, the console opens the **Edit version** page.
+1.  If required, open the left navigation pane (≡). Choose **Private workflows**.
 
-5. On the **Edit version** page, provide the following information
+1. On the **Private workflows** page, choose the workflow.
 
-   - **Version description** (optional) - A description of
-     this version.
+1. On the **Workflow** page, choose the workflow version to update and choose **Edit selected** from the **Actions** list. 
+   + If you choose the default version, the console opens the **Edit workflow** page. For more information, see [Update a private workflow](update-private-workflow.md).
+   + If you choose a user-defined version, the console opens the **Edit version** page. 
 
-6. In the **Default run storage configuration** panel, provide the following default values
-   for runs that use this workflow version. You can override the default values when you start a run:
+1. On the **Edit version** page, provide the following information
+   + **Version description** (optional) - A description of this version.
 
-   - For **Run storage type**, select **Static** or **Dynamic**.
-   - For static run storage, select the default amount of **Run storage capacity** for
-     runs that use this workflow version. The default value for this parameter is 1200 GiB.
+1. In the **Default run storage configuration** panel, provide the following default values for runs that use this workflow version. You can override the default values when you start a run:
+   + For **Run storage type**, select **Static** or **Dynamic**.
+   + For static run storage, select the default amount of **Run storage capacity** for runs that use this workflow version. The default value for this parameter is 1200 GiB.
 
-7. Choose **Save changes**.
+1. Choose **Save changes**.
 
 The console returns to the workflow detail page and displays a page banner with the updated workflow version.
 
 ## Update a workflow version using the CLI
+<a name="workflow-versions-api-update"></a>
 
-You can update parameters for a workflow version using the following CLI command. The combination of workflow ID and version
-name uniquely identifies the version.
+You can update parameters for a workflow version using the following CLI command. The combination of workflow ID and version name uniquely identifies the version. 
 
 ```
 aws omics update-workflow-version
 --workflow-id 1234567
 --version-name "my_version"
---storage-type 'STATIC'
+--storage-type 'STATIC' 
 --storage-capacity 2400
 --description "version description"
 ```
 
-You receive no response to the `update-workflow-version` request.
+You receive no response to the `update-workflow-version` request. 
 
 ## Update a workflow version using an SDK
+<a name="workflow-versions-sdk-update"></a>
 
-You can update a workflow version using one of the SDKs. The following python SDK example shows how to update
-the storage type and description for a workflow version.
+You can update a workflow version using one of the SDKs. The following python SDK example shows how to update the storage type and description for a workflow version.
 
 ```
 import boto3
