@@ -1,138 +1,85 @@
-# Getting started with RCS
 
-This guide walks you through setting up your first RCS agent in AWS End User Messaging,
-and sending and receiving your first RCS message. By the end, you will have a
-working RCS testing environment. Estimated time to complete: 15–30
-minutes.
+
+# Getting started with RCS
+<a name="rcs-getting-started"></a>
+
+This guide walks you through setting up your first RCS agent in AWS End User Messaging, and sending and receiving your first RCS message. By the end, you will have a working RCS testing environment. Estimated time to complete: 15–30 minutes.
 
 Here is what this guide covers:
 
 1. Create an AWS RCS Agent and submit a testing registration
-2. Add a test device and accept the tester invitation
-3. Send your first outbound RCS message
-4. Test inbound (two-way) messaging with keywords
-   For background on how RCS works in AWS End User Messaging, including the two-level identity model
-   (AWS RCS Agent and RCS for Business IDs), see
-   [What is RCS?](rcs-overview.md "rcs-overview.md").
+
+1. Add a test device and accept the tester invitation
+
+1. Send your first outbound RCS message
+
+1. Test inbound (two-way) messaging with keywords
+
+For background on how RCS works in AWS End User Messaging, including the two-level identity model (AWS RCS Agent and RCS for Business IDs), see [What is RCS?](rcs-overview.md).
 
 ## Setting up and testing RCS
+<a name="rcs-getting-started-setup"></a>
 
-This section guides you through creating an AWS RCS Agent, registering a test
-device, sending your first RCS message, and verifying delivery. After completing
-these steps, you can proceed to launch RCS in production countries.
+This section guides you through creating an AWS RCS Agent, registering a test device, sending your first RCS message, and verifying delivery. After completing these steps, you can proceed to launch RCS in production countries.
 
 ### Prerequisites
+<a name="rcs-getting-started-prerequisites"></a>
 
 Before you begin, make sure you have the following:
-
-- **An AWS account with AWS End User Messaging
-  access** — You need an AWS account with
-  permissions to use AWS End User Messaging. If you don't have an account,
-  see the
-  [AWS account setup guide](../../../accounts/latest/reference/welcome-first-time-user.md "../../../accounts/latest/reference/welcome-first-time-user.md").
-- **A phone with RCS enabled** —
-  You need an Android phone with RCS messaging enabled in the default
-  messaging app, or an iPhone running iOS 18 or later. This phone
-  serves as your test device for receiving RCS messages.
-- **(Optional) AWS CLI configured**
-  — If you want to test using the API instead of the console,
-  install and configure the AWS CLI or use an AWS SDK such as
-  boto3 for Python.
++ **An AWS account with AWS End User Messaging access** — You need an AWS account with permissions to use AWS End User Messaging. If you don't have an account, see the [AWS account setup guide](https://docs.aws.amazon.com/accounts/latest/reference/welcome-first-time-user.html).
++ **A phone with RCS enabled** — You need an Android phone with RCS messaging enabled in the default messaging app, or an iPhone running iOS 18 or later. This phone serves as your test device for receiving RCS messages.
++ **(Optional) AWS CLI configured** — If you want to test using the API instead of the console, install and configure the AWS CLI or use an AWS SDK such as boto3 for Python.
 
 ### Step 1: Create your AWS RCS Agent and submit a testing registration
+<a name="rcs-getting-started-create-agent"></a>
 
-The first step is to create an AWS RCS Agent and submit a testing
-registration. The testing registration creates an RCS for Business ID
-(testing agent) that you can use to send messages to registered test devices
-without carrier approval.
+The first step is to create an AWS RCS Agent and submit a testing registration. The testing registration creates an RCS for Business ID (testing agent) that you can use to send messages to registered test devices without carrier approval.
 
-For full details on AWS RCS Agent management, including the agent lifecycle
-and API operations, see
-[Managing RCS agents](rcs-agents.md "rcs-agents.md").
+For full details on AWS RCS Agent management, including the agent lifecycle and API operations, see [Managing RCS agents](rcs-agents.md).
 
 #### Creating an AWS RCS Agent (console)
+<a name="rcs-getting-started-create-agent-console"></a>
 
-###### To create an AWS RCS Agent and submit a testing registration
+**To create an AWS RCS Agent and submit a testing registration**
 
-1. Open the
-   [AWS End User Messaging console](https://console.aws.amazon.com/sms-voice/home "https://console.aws.amazon.com/sms-voice/home").
-2. In the navigation pane, under
-   **Configurations**, choose
-   **RCS agents**.
-3. Choose **Create RCS Agent**.
-   This creates an AWS RCS Agent and then immediately
-   guides you through creating a testing registration in a single
-   workflow.
-4. The next screen shows an introduction to RCS and explains
-   the setup process. Review the information and choose
-   **Next** to continue.
-5. On the **Agent details** page,
-   set the following:
+1. Open the [AWS End User Messaging console](https://console.aws.amazon.com/sms-voice/home).
 
-   - **Friendly name** —
-     A console-only label for your AWS RCS Agent. This is
-     an internal name for your reference (stored as a tag)
-     and is not the name displayed on recipients'
-     phones. The friendly name is not available through the
-     API.
-   - **Deletion protection**
-     — (Optional) Enable to prevent accidental deletion
-     of the agent.
-   - **Tags** —
-     (Optional) Add tags to organize and identify your
-     agent.
+1. In the navigation pane, under **Configurations**, choose **RCS agents**.
 
-6. In the **Brand information**
-   section of the same page, enter the following:
+1. Choose **Create RCS Agent**. This creates an AWS RCS Agent and then immediately guides you through creating a testing registration in a single workflow.
 
-   - **Display name** —
-     The brand name that recipients see alongside your RCS
-     messages.
-   - **Description** —
-     A brief description of your brand or business.
-   - **Use case** —
-     Select the primary use case for your RCS messaging (for
-     example, transactional notifications, marketing, or
-     customer support).
+1. The next screen shows an introduction to RCS and explains the setup process. Review the information and choose **Next** to continue.
 
-7. In the **Brand assets** section
-   of the same page, upload the following:
+1. On the **Agent details** page, set the following:
+   + **Friendly name** — A console-only label for your AWS RCS Agent. This is an internal name for your reference (stored as a tag) and is not the name displayed on recipients' phones. The friendly name is not available through the API.
+   + **Deletion protection** — (Optional) Enable to prevent accidental deletion of the agent.
+   + **Tags** — (Optional) Add tags to organize and identify your agent.
 
-   - **Logo** —
-     224 × 224 pixels, PNG with transparency, under
-     50 KB.
-   - **Banner image** —
-     1440 × 448 pixels, PNG or JPEG, under
-     200 KB.
-   - **Brand color** —
-     A hex color code (for example,
-     `#1A73E8`) with a minimum contrast ratio of
-     4.5:1 against a white background.
+1. In the **Brand information** section of the same page, enter the following:
+   + **Display name** — The brand name that recipients see alongside your RCS messages.
+   + **Description** — A brief description of your brand or business.
+   + **Use case** — Select the primary use case for your RCS messaging (for example, transactional notifications, marketing, or customer support).
 
-###### Important
+1. In the **Brand assets** section of the same page, upload the following:
+   + **Logo** — 224 × 224 pixels, PNG with transparency, under 50 KB.
+   + **Banner image** — 1440 × 448 pixels, PNG or JPEG, under 200 KB.
+   + **Brand color** — A hex color code (for example, `#1A73E8`) with a minimum contrast ratio of 4.5:1 against a white background.
+**Important**  
+Some brand assets cannot be changed after the agent is submitted for registration. Prepare your final brand assets before creating the agent. If you want to experiment first, you can quickly create a test agent using this flow, then create a fresh AWS RCS Agent with finalized brand assets later.
 
-Some brand assets cannot be changed after the agent is
-submitted for registration. Prepare your final brand assets
-before creating the agent. If you want to experiment first,
-you can quickly create a test agent using this flow, then
-create a fresh AWS RCS Agent with finalized brand assets
-later. 8. On the **Compliance keywords**
-page, configure your keywords and auto-response messages. 9. On the **Review** page, verify
-all your settings. 10. Choose **Validate and submit**
-to create the AWS RCS Agent and submit the testing
-registration.
+1. On the **Compliance keywords** page, configure your keywords and auto-response messages.
 
-###### Note
+1. On the **Review** page, verify all your settings.
 
-You have successfully created an AWS RCS Agent and submitted a
-testing registration. Your testing agent is typically approved
-within minutes. Now let's enable test messaging to your
-device.
+1. Choose **Validate and submit** to create the AWS RCS Agent and submit the testing registration.
+
+**Note**  
+You have successfully created an AWS RCS Agent and submitted a testing registration. Your testing agent is typically approved within minutes. Now let's enable test messaging to your device.
 
 #### Creating an AWS RCS Agent (CLI)
+<a name="rcs-getting-started-create-agent-cli"></a>
 
-You can also create an AWS RCS Agent using the AWS CLI. First,
-create the agent, then submit a testing registration.
+You can also create an AWS RCS Agent using the AWS CLI. First, create the agent, then submit a testing registration.
 
 Step 1: Create the AWS RCS Agent:
 
@@ -141,48 +88,37 @@ aws pinpoint-sms-voice-v2 create-rcs-agent \
     --deletion-protection-enabled
 ```
 
-Step 2: Submit a testing registration for the agent. Use the
-`CreateRegistration` API with the registration type for
-RCS testing. You can use the
-`DescribeRegistrationFieldDefinitions` API to
-programmatically retrieve all available registration form fields
-before submitting. Provide your brand assets, description, and
-contact details as part of the registration form fields.
+Step 2: Submit a testing registration for the agent. Use the `CreateRegistration` API with the registration type for RCS testing. You can use the `DescribeRegistrationFieldDefinitions` API to programmatically retrieve all available registration form fields before submitting. Provide your brand assets, description, and contact details as part of the registration form fields.
 
-For details on the registration API, see
-[Managing RCS agents](rcs-agents.md "rcs-agents.md").
+For details on the registration API, see [Managing RCS agents](rcs-agents.md).
 
 ### Step 2: Add a test device
+<a name="rcs-getting-started-add-test-device"></a>
 
-After your testing registration is approved, add your phone as a test
-device so you can receive RCS messages from your testing agent.
+After your testing registration is approved, add your phone as a test device so you can receive RCS messages from your testing agent.
 
-###### Note
+**Note**  
+After you add a test device, the tester invitation is not sent immediately. The system delays activation for at least 120 seconds, and it can take up to 20 minutes for the invitation to arrive. The console shows an approximate activation time. You do not need to wait before adding the device — the system handles the delay automatically.
 
-After you add a test device, the tester invitation is not sent
-immediately. The system delays activation for at least 120 seconds,
-and it can take up to 20 minutes for the invitation to arrive. The
-console shows an approximate activation time. You do not need to
-wait before adding the device — the system handles the delay
-automatically.
+------
+#### [ Console ]
 
-Console
+**To add a test device**
 
-###### To add a test device
+1. In the AWS End User Messaging console, navigate to your AWS RCS Agent and choose the **Testing** tab.
 
-1. In the AWS End User Messaging console, navigate to your AWS RCS Agent and
-   choose the **Testing** tab.
-2. Choose the **RBM tester management**
-   sub-tab.
-3. Choose **Add RBM tester**.
-4. Enter the phone number of your test device in E.164 format (for
-   example, `+12065550100`).
-5. Choose **Send verification code**.
+1. Choose the **RBM tester management** sub-tab.
 
-AWS CLI
-Use the `CreateVerifiedDestinationNumber` API with
-the `--rcs-agent-id` parameter to register a test
-device for your AWS RCS Agent:
+1. Choose **Add RBM tester**.
+
+1. Enter the phone number of your test device in E.164 format (for example, `+12065550100`).
+
+1. Choose **Send verification code**.
+
+------
+#### [ AWS CLI ]
+
+Use the `CreateVerifiedDestinationNumber` API with the `--rcs-agent-id` parameter to register a test device for your AWS RCS Agent:
 
 ```
 aws pinpoint-sms-voice-v2 create-verified-destination-number \
@@ -190,59 +126,42 @@ aws pinpoint-sms-voice-v2 create-verified-destination-number \
     --rcs-agent-id rcs-a1b2c3d4
 ```
 
-After you add the test device, AWS End User Messaging sends a tester invitation to the
-phone number. The invitation comes from an RCS agent called
-**RBM Tester Management** and contains
-two buttons to accept or decline:
-**Make me a tester** and
-**Decline**. The recipient must tap
-**Make me a tester** to complete
-verification.
+------
 
-###### Note
+After you add the test device, AWS End User Messaging sends a tester invitation to the phone number. The invitation comes from an RCS agent called **RBM Tester Management** and contains two buttons to accept or decline: **Make me a tester** and **Decline**. The recipient must tap **Make me a tester** to complete verification.
 
-On iOS devices (iPhone with iOS 18 or later), the tester invitation
-may appear in the **Unknown Senders**
-folder in the Messages app rather than the main inbox. If you don't
-see the invitation, check the Unknown Senders folder.
+**Note**  
+On iOS devices (iPhone with iOS 18 or later), the tester invitation may appear in the **Unknown Senders** folder in the Messages app rather than the main inbox. If you don't see the invitation, check the Unknown Senders folder.
 
-For more details on managing test devices, including the API approach and
-troubleshooting, see
-[Testing RCS messages](rcs-testing.md "rcs-testing.md").
+For more details on managing test devices, including the API approach and troubleshooting, see [Testing RCS messages](rcs-testing.md).
 
 ### Step 3: Send your first RCS message
+<a name="rcs-getting-started-send-message"></a>
 
-After your test device has accepted the tester invitation, you can send
-your first RCS message. You can use the AWS End User Messaging console or the API.
+After your test device has accepted the tester invitation, you can send your first RCS message. You can use the AWS End User Messaging console or the API.
 
-Console
+------
+#### [ Console ]
 
-###### To send a test message using the console
+**To send a test message using the console**
 
-1. In the AWS End User Messaging console, navigate to your AWS RCS Agent and
-   choose the **Testing** tab.
-2. Choose **Outbound test messages**.
-   The console displays a preview of how your message will render
-   on the recipient's device, along with the JSON request
-   body and CLI command.
-3. Choose a verified test device from the list.
-4. Enter your message text.
-5. Choose
-   **Send test message**.
+1. In the AWS End User Messaging console, navigate to your AWS RCS Agent and choose the **Testing** tab.
 
-###### Note
+1. Choose **Outbound test messages**. The console displays a preview of how your message will render on the recipient's device, along with the JSON request body and CLI command.
 
-You can optionally set a configuration set for message events.
-Configuration sets let you consume granular delivery receipts
-(DLRs) and other message events in the event destination of
-your choice. This is optional for testing but recommended for
-production use. For details, see
-[RCS CloudWatch metrics and monitoring](rcs-monitoring.md "rcs-monitoring.md").
+1. Choose a verified test device from the list.
 
-AWS CLI
-Use the `send-text-message` command to send a test
-message. Specify your AWS RCS Agent ARN as the origination
-identity:
+1. Enter your message text.
+
+1. Choose **Send test message**.
+
+**Note**  
+You can optionally set a configuration set for message events. Configuration sets let you consume granular delivery receipts (DLRs) and other message events in the event destination of your choice. This is optional for testing but recommended for production use. For details, see [RCS CloudWatch metrics and monitoring](rcs-monitoring.md).
+
+------
+#### [ AWS CLI ]
+
+Use the `send-text-message` command to send a test message. Specify your AWS RCS Agent ARN as the origination identity:
 
 ```
 aws pinpoint-sms-voice-v2 send-text-message \
@@ -251,91 +170,59 @@ aws pinpoint-sms-voice-v2 send-text-message \
     --message-body "Hello from RCS! This is my first test message."
 ```
 
-The `send-text-message` command is the same command
-you use for SMS. When you specify an AWS RCS Agent ARN as the
-origination identity, AWS End User Messaging delivers the message via RCS.
+The `send-text-message` command is the same command you use for SMS. When you specify an AWS RCS Agent ARN as the origination identity, AWS End User Messaging delivers the message via RCS.
+
+------
 
 ### Step 4: Test inbound (two-way) messaging
+<a name="rcs-getting-started-test-inbound"></a>
 
-You can test inbound RCS messaging by configuring a keyword with an
-auto-response and then sending a message from your test device that matches
-that keyword.
+You can test inbound RCS messaging by configuring a keyword with an auto-response and then sending a message from your test device that matches that keyword.
 
-###### To test inbound messaging with auto-response keywords
+**To test inbound messaging with auto-response keywords**
 
-1. In the AWS End User Messaging console, navigate to your AWS RCS Agent and
-   configure a keyword. For example, set the keyword
-   `RCSINBOUNDTESTING` with an auto-response message
-   such as "Inbound test successful! Your message was
-   received."
-2. On the **Testing** tab, choose
-   **Inbound deep link**.
-3. In the **Default message body**
-   field, enter the keyword you configured (for example,
-   `RCSINBOUNDTESTING`).
-4. Choose **Generate link**. The
-   console generates an inbound deep link URL using the GSMA
-   standard `sms:` URI scheme. This deep link is
-   embedded in the QR code displayed on the screen.
-5. Scan the QR code with your verified tester phone. This opens
-   the native messaging app with a pre-populated message addressed
-   to your AWS RCS Agent.
-6. Send the message from your test device.
-7. Verify that you receive the auto-response message on your test
-   device.
+1. In the AWS End User Messaging console, navigate to your AWS RCS Agent and configure a keyword. For example, set the keyword `RCSINBOUNDTESTING` with an auto-response message such as "Inbound test successful\! Your message was received."
 
-Testing auto-response keywords does not require setting up an event
-destination or Amazon SNS topic. The auto-response is handled entirely by
-AWS End User Messaging based on the keyword configuration on your AWS RCS Agent.
+1. On the **Testing** tab, choose **Inbound deep link**.
 
-To receive and process arbitrary inbound messages (not just keyword
-matches), you need to configure an Amazon SNS topic for two-way messaging.
-For details, see
-[Receiving inbound RCS messages](rcs-inbound.md "rcs-inbound.md").
+1. In the **Default message body** field, enter the keyword you configured (for example, `RCSINBOUNDTESTING`).
+
+1. Choose **Generate link**. The console generates an inbound deep link URL using the GSMA standard `sms:` URI scheme. This deep link is embedded in the QR code displayed on the screen.
+
+1. Scan the QR code with your verified tester phone. This opens the native messaging app with a pre-populated message addressed to your AWS RCS Agent.
+
+1. Send the message from your test device.
+
+1. Verify that you receive the auto-response message on your test device.
+
+Testing auto-response keywords does not require setting up an event destination or Amazon SNS topic. The auto-response is handled entirely by AWS End User Messaging based on the keyword configuration on your AWS RCS Agent.
+
+To receive and process arbitrary inbound messages (not just keyword matches), you need to configure an Amazon SNS topic for two-way messaging. For details, see [Receiving inbound RCS messages](rcs-inbound.md).
 
 ### What you accomplished
+<a name="rcs-getting-started-summary"></a>
 
 By completing the steps in this guide, you have:
++ Created an AWS RCS Agent with your brand assets and submitted a testing registration
++ Registered a test device and accepted the tester invitation
++ Sent your first RCS message and verified delivery
++ Tested inbound messaging using auto-response keywords
 
-- Created an AWS RCS Agent with your brand assets and submitted a
-  testing registration
-- Registered a test device and accepted the tester invitation
-- Sent your first RCS message and verified delivery
-- Tested inbound messaging using auto-response keywords
-
-Your testing environment is now ready. Here are ways to integrate RCS
-messaging into your application or fine-tune how RCS messaging works:
-
-- **Receive and process inbound messages**:
-  Configure an Amazon SNS topic to receive inbound RCS messages and
-  process them with Lambda functions. See
-  [Receiving inbound RCS messages](rcs-inbound.md "rcs-inbound.md").
-- **Track delivery events**:
-  Set up configuration sets to consume granular delivery receipts (DLRs)
-  and other message events in the event destination of your choice. See
-  [RCS CloudWatch metrics and monitoring](rcs-monitoring.md "rcs-monitoring.md").
-- **Enable SMS fallback**:
-  Create a phone pool with your AWS RCS Agent and SMS phone numbers to
-  automatically fall back to SMS when RCS delivery is not possible. See
-  [RCS to SMS fallback using phone pools](rcs-sms-fallback.md "rcs-sms-fallback.md").
-- **Launch in production countries**:
-  Submit country launch registrations to send RCS messages to all
-  recipients in supported countries. See
-  [Launching RCS in countries](rcs-country-launch.md "rcs-country-launch.md").
+Your testing environment is now ready. Here are ways to integrate RCS messaging into your application or fine-tune how RCS messaging works:
++ **Receive and process inbound messages**: Configure an Amazon SNS topic to receive inbound RCS messages and process them with Lambda functions. See [Receiving inbound RCS messages](rcs-inbound.md).
++ **Track delivery events**: Set up configuration sets to consume granular delivery receipts (DLRs) and other message events in the event destination of your choice. See [RCS CloudWatch metrics and monitoring](rcs-monitoring.md).
++ **Enable SMS fallback**: Create a phone pool with your AWS RCS Agent and SMS phone numbers to automatically fall back to SMS when RCS delivery is not possible. See [RCS to SMS fallback using phone pools](rcs-sms-fallback.md).
++ **Launch in production countries**: Submit country launch registrations to send RCS messages to all recipients in supported countries. See [Launching RCS in countries](rcs-country-launch.md).
 
 ## AI agent prompt for RCS setup
+<a name="rcs-getting-started-ai-prompt"></a>
 
-If you use a generative AI coding assistant or AI agent, you can use the
-following prompt to get help creating an AWS RCS Agent, submitting a testing
-registration, and sending your first test message using the AWS CLI.
+If you use a generative AI coding assistant or AI agent, you can use the following prompt to get help creating an AWS RCS Agent, submitting a testing registration, and sending your first test message using the AWS CLI.
 
-###### Note
-
-Copy the following prompt and paste it into your AI agent or coding
-assistant:
+**Note**  
+Copy the following prompt and paste it into your AI agent or coding assistant:  
 
 ```
-
 ## RCS Setup Assistant Prompt
 
 Help me set up RCS messaging in AWS End User Messaging using the AWS CLI.
@@ -456,5 +343,4 @@ CloudWatch metrics in the `AWS/SMSVoice` namespace provide aggregate stats.
 - One contact method with label: website URL, phone number, or email
 - Estimated monthly RCS volume and per-user message frequency
 - Test device phone number in E.164 format (e.g. +12065550100)
-
 ```

@@ -1,8 +1,9 @@
-# Example of a two-way SMS message payload for Amazon SNS topics
 
-When your number receives an SMS message, AWS End User Messaging SMS sends a JSON payload to an Amazon SNS topic
-that you designate. The JSON payload contains the message and related data, as in the
-following example:
+
+# Example of a two-way SMS message payload for Amazon SNS topics
+<a name="two-way-sms-payload"></a>
+
+When your number receives an SMS message, AWS End User Messaging SMS sends a JSON payload to an Amazon SNS topic that you designate. The JSON payload contains the message and related data, as in the following example:
 
 ```
 {
@@ -17,11 +18,13 @@ following example:
 
 The incoming message payload contains the following information:
 
-| Property                     | Description                                                                                               |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `originationNumber`          | The phone number that sent the incoming message to you (in other<br>words, your customer's phone number). |
-| `destinationNumber`          | The phone number that the customer sent the message to (your<br>dedicated phone number).                  |
-| `messageKeyword`             | The registered keyword that's associated with your dedicated phone<br>number.                             |
-| `messageBody`                | The message that the customer sent to you.                                                                |
-| `inboundMessageId`           | The unique identifier for the incoming message.                                                           |
-| `previousPublishedMessageId` | The unique identifier of the message that the customer is<br>responding to.                               |
+
+
+| Property | Description | 
+| --- | --- | 
+| `originationNumber` | The phone number that sent the incoming message to you (in other words, your customer's phone number). | 
+| `destinationNumber` | The phone number that the customer sent the message to (your dedicated phone number). | 
+| `messageKeyword` | The registered keyword that's associated with your dedicated phone number. | 
+| `messageBody` | The message that the customer sent to you. | 
+| `inboundMessageId` | The unique identifier for the incoming message. | 
+| `previousPublishedMessageId` | The unique identifier of the message that the customer is responding to. | 

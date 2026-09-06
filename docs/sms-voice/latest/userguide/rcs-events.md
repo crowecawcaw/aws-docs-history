@@ -1,81 +1,57 @@
+
+
 # RCS message events
+<a name="rcs-events"></a>
 
-When you send RCS messages with AWS End User Messaging, the RCS platform generates events that
-report message lifecycle changes, recipient interactions, and system-level outcomes.
-These events provide richer signals than traditional SMS delivery receipts, giving you
-real-time visibility into whether a message was delivered, read, expired, or fell back
-to SMS or MMS.
+When you send RCS messages with AWS End User Messaging, the RCS platform generates events that report message lifecycle changes, recipient interactions, and system-level outcomes. These events provide richer signals than traditional SMS delivery receipts, giving you real-time visibility into whether a message was delivered, read, expired, or fell back to SMS or MMS.
 
-Outbound status events (delivery, read, expiration, and fallback) are delivered
-through configuration set event destinations. Inbound interaction events (typing
-indicators and suggestion taps) are delivered to the two-way Amazon SNS topic that you
-configure on your RCS agent. To set up event destinations, see
-[Event destinations in AWS End User Messaging SMS](configuration-sets-event-destinations.md "configuration-sets-event-destinations.md").
+Outbound status events (delivery, read, expiration, and fallback) are delivered through configuration set event destinations. Inbound interaction events (typing indicators and suggestion taps) are delivered to the two-way Amazon SNS topic that you configure on your RCS agent. To set up event destinations, see [Event destinations in AWS End User Messaging SMS](configuration-sets-event-destinations.md).
 
-For details on the messages that generate these events, see
-[Sending rich RCS messages](rcs-rich-messaging.md "rcs-rich-messaging.md").
+For details on the messages that generate these events, see [Sending rich RCS messages](rcs-rich-messaging.md).
 
-###### Topics
-
-- [Common fields on RCS events](#rcs-events-common-fields "#rcs-events-common-fields")
-- [Delivery status events](#rcs-events-delivery-status "#rcs-events-delivery-status")
-- [Read receipts](#rcs-events-read-receipts "#rcs-events-read-receipts")
-- [Typing indicators](#rcs-events-typing-indicators "#rcs-events-typing-indicators")
-- [TTL expiration events](#rcs-events-ttl-expiration "#rcs-events-ttl-expiration")
-- [Fallback events](#rcs-events-fallback "#rcs-events-fallback")
-- [Suggestion tap (postback) events](#rcs-events-postback "#rcs-events-postback")
-- [Conversational pricing events and fields](#rcs-events-conversational "#rcs-events-conversational")
-- [Routing events to destinations](#rcs-events-routing "#rcs-events-routing")
-- [Best practices for event processing](#rcs-events-best-practices "#rcs-events-best-practices")
+**Topics**
++ [Common fields on RCS events](#rcs-events-common-fields)
++ [Delivery status events](#rcs-events-delivery-status)
++ [Read receipts](#rcs-events-read-receipts)
++ [Typing indicators](#rcs-events-typing-indicators)
++ [TTL expiration events](#rcs-events-ttl-expiration)
++ [Fallback events](#rcs-events-fallback)
++ [Suggestion tap (postback) events](#rcs-events-postback)
++ [Conversational pricing events and fields](#rcs-events-conversational)
++ [Routing events to destinations](#rcs-events-routing)
++ [Best practices for event processing](#rcs-events-best-practices)
 
 ## Common fields on RCS events
+<a name="rcs-events-common-fields"></a>
 
-All RCS events, including delivery status events, read receipts, and inbound
-interaction events, include the following fields that identify the RCS agent:
+All RCS events, including delivery status events, read receipts, and inbound interaction events, include the following fields that identify the RCS agent:
 
-`rcsBusinessId`
+`rcsBusinessId`  
+The platform identifier for the RCS agent that sent or received the message.
 
-The platform identifier for the RCS agent that sent or received the
-message.
+`agentIsoCountryCode`  
+The ISO country code of the country in which the RCS agent is registered, for example `US` or `CA`.
 
-`agentIsoCountryCode`
-
-The ISO country code of the country in which the RCS agent is
-registered, for example `US` or `CA`.
-
-These fields are present on all RCS events. They are not included on SMS or MMS
-events.
+These fields are present on all RCS events. They are not included on SMS or MMS events.
 
 ## Delivery status events
+<a name="rcs-events-delivery-status"></a>
 
-Delivery status events indicate the lifecycle state of an outbound RCS message.
-You use these events to confirm delivery, trigger fallback logic, or alert your
-operations team to content violations.
+Delivery status events indicate the lifecycle state of an outbound RCS message. You use these events to confirm delivery, trigger fallback logic, or alert your operations team to content violations.
 
-Each outbound status event has an `eventType` of
-`RCS_DELIVERED` (and related RCS status event types) and a
-`messageStatus` field that holds one of the following values:
+Each outbound status event has an `eventType` of `RCS_DELIVERED` (and related RCS status event types) and a `messageStatus` field that holds one of the following values:
 
-`DELIVERED`
+`DELIVERED`  
+The message reached the recipient's device. Use this event to cancel any pending fallback timers.
 
-The message reached the recipient's device. Use this event to cancel
-any pending fallback timers.
+`PENDING`  
+The RCS platform accepted the message but has not yet delivered it. Start your fallback timer when you receive this event.
 
-`PENDING`
+`UNDELIVERABLE`  
+The platform permanently cannot deliver the message (for example, the recipient's device does not support RCS). Trigger your SMS or MMS fallback and flag the phone number for future routing decisions.
 
-The RCS platform accepted the message but has not yet delivered it.
-Start your fallback timer when you receive this event.
-
-`UNDELIVERABLE`
-
-The platform permanently cannot deliver the message (for example,
-the recipient's device does not support RCS). Trigger your SMS or MMS
-fallback and flag the phone number for future routing decisions.
-
-`REJECTED`
-
-The message was rejected due to a content policy violation. Alert
-your operations team and review the message content.
+`REJECTED`  
+The message was rejected due to a content policy violation. Alert your operations team and review the message content.
 
 The following example shows a delivery event payload:
 
@@ -104,26 +80,18 @@ The following example shows a delivery event payload:
 }
 ```
 
-###### Note
-
-Status events for rich RCS messages include billing metadata. The
-`rcsMetadata.billingEventType` value is `RICH` for rich
-RCS messages.
+**Note**  
+Status events for rich RCS messages include billing metadata. The `rcsMetadata.billingEventType` value is `RICH` for rich RCS messages.
 
 ## Read receipts
+<a name="rcs-events-read-receipts"></a>
 
-A read receipt indicates that the recipient opened or viewed your message. Use
-read receipts to track engagement and measure read rates.
+A read receipt indicates that the recipient opened or viewed your message. Use read receipts to track engagement and measure read rates.
 
-`READ`
+`READ`  
+The recipient viewed the message. A `RCS_DELIVERED` event is always sent before or together with the `RCS_READ` event, so if you did not process a separate delivery event, treat the message as delivered when you receive the read event.
 
-The recipient viewed the message. A `RCS_DELIVERED` event
-is always sent before or together with the `RCS_READ` event,
-so if you did not process a separate delivery event, treat the message
-as delivered when you receive the read event.
-
-The read event uses an `eventType` of `RCS_READ` with
-`messageStatus` set to `READ`:
+The read event uses an `eventType` of `RCS_READ` with `messageStatus` set to `READ`:
 
 ```
 {
@@ -149,23 +117,14 @@ The read event uses an `eventType` of `RCS_READ` with
 }
 ```
 
-You can calculate your read rate as the number of `READ` events
-divided by the number of `DELIVERED` events, multiplied by 100.
+You can calculate your read rate as the number of `READ` events divided by the number of `DELIVERED` events, multiplied by 100.
 
 ## Typing indicators
+<a name="rcs-events-typing-indicators"></a>
 
-Typing indicator events signal that a participant is composing a message. These
-events flow in both directions:
-
-- **Inbound (user to agent)**: When the
-  recipient begins composing a reply, you receive an inbound notification on
-  your two-way Amazon SNS topic. The `messageBody` contains a JSON
-  object with a `type` of `RCS_TYPING`. Use this to
-  prepare your conversational logic or display status in your dashboard.
-- **Outbound (agent to user)**: Agent-initiated
-  typing indicators, which show the recipient that your agent is preparing a
-  response, are a planned capability. Check the AWS End User Messaging release notes for
-  current availability.
+Typing indicator events signal that a participant is composing a message. These events flow in both directions:
++ **Inbound (user to agent)**: When the recipient begins composing a reply, you receive an inbound notification on your two-way Amazon SNS topic. The `messageBody` contains a JSON object with a `type` of `RCS_TYPING`. Use this to prepare your conversational logic or display status in your dashboard.
++ **Outbound (agent to user)**: Agent-initiated typing indicators, which show the recipient that your agent is preparing a response, are a planned capability. Check the AWS End User Messaging release notes for current availability.
 
 The following example shows an inbound typing notification:
 
@@ -178,68 +137,43 @@ The following example shows an inbound typing notification:
 }
 ```
 
-###### Note
-
-Agent-initiated typing indicators and agent-initiated read receipts, which your
-agent sends to a recipient, are planned capabilities. Check the AWS End User Messaging release notes
-for current availability.
+**Note**  
+Agent-initiated typing indicators and agent-initiated read receipts, which your agent sends to a recipient, are planned capabilities. Check the AWS End User Messaging release notes for current availability.
 
 ## TTL expiration events
+<a name="rcs-events-ttl-expiration"></a>
 
-When you set a `TimeToLive` value on a message and the TTL elapses
-before the message is delivered, the RCS platform attempts to revoke (delete) the
-message. The outcome generates one of the following events:
+When you set a `TimeToLive` value on a message and the TTL elapses before the message is delivered, the RCS platform attempts to revoke (delete) the message. The outcome generates one of the following events:
 
-`TTL_EXPIRATION_REVOKED`
+`TTL_EXPIRATION_REVOKED`  
+The expired message was successfully removed before the recipient viewed it. You can safely trigger your SMS or MMS fallback to ensure the recipient receives the content.
 
-The expired message was successfully removed before the recipient
-viewed it. You can safely trigger your SMS or MMS fallback to ensure
-the recipient receives the content.
+`TTL_EXPIRATION_REVOKE_FAILED`  
+The revocation failed and the message might still be delivered to the recipient. In this case, evaluate whether sending a fallback message would result in a duplicate before proceeding.
 
-`TTL_EXPIRATION_REVOKE_FAILED`
-
-The revocation failed and the message might still be delivered to the
-recipient. In this case, evaluate whether sending a fallback message
-would result in a duplicate before proceeding.
-
-TTL expiration events work together with your fallback strategy. For details on
-configuring message expiration, see
-[Configuring RCS message expiration](rcs-message-expiration.md "rcs-message-expiration.md").
+TTL expiration events work together with your fallback strategy. For details on configuring message expiration, see [Configuring RCS message expiration](rcs-message-expiration.md).
 
 ## Fallback events
+<a name="rcs-events-fallback"></a>
 
-When an RCS message cannot be delivered and AWS End User Messaging triggers an SMS or MMS
-fallback (either through pool-based configuration or per-message
-`FallbackConfiguration`), the service generates events that indicate
-the fallback outcome.
+When an RCS message cannot be delivered and AWS End User Messaging triggers an SMS or MMS fallback (either through pool-based configuration or per-message `FallbackConfiguration`), the service generates events that indicate the fallback outcome.
 
 Fallback events indicate:
++ Whether the fallback message was sent successfully.
++ The channel used for fallback (SMS or MMS).
++ The reason the original RCS message was not delivered (for example, device not RCS-capable, TTL expiration, or platform unavailability).
 
-- Whether the fallback message was sent successfully.
-- The channel used for fallback (SMS or MMS).
-- The reason the original RCS message was not delivered (for example,
-  device not RCS-capable, TTL expiration, or platform unavailability).
-
-Monitor these events to measure your fallback rate and identify phone numbers
-that consistently require fallback delivery. For details on configuring per-message
-fallback, see
-[Configuring per-message SMS or MMS fallback](rcs-fallback-per-message.md "rcs-fallback-per-message.md").
+Monitor these events to measure your fallback rate and identify phone numbers that consistently require fallback delivery. For details on configuring per-message fallback, see [Configuring per-message SMS or MMS fallback](rcs-fallback-per-message.md).
 
 ## Suggestion tap (postback) events
+<a name="rcs-events-postback"></a>
 
-When a recipient chooses a suggestion (a suggested reply or suggested action), you
-receive a postback event containing the `PostbackData` string that you
-configured on that suggestion. Use postback data to route your conversational logic,
-not the display text.
+When a recipient chooses a suggestion (a suggested reply or suggested action), you receive a postback event containing the `PostbackData` string that you configured on that suggestion. Use postback data to route your conversational logic, not the display text.
 
-###### Important
+**Important**  
+Suggestion tap (postback) events are delivered only to your two-way Amazon SNS topic, not to configuration set event destinations.
 
-Suggestion tap (postback) events are delivered only to your two-way Amazon
-SNS topic, not to configuration set event destinations.
-
-The notification's `messageBody` contains a JSON object with a
-`type` of `SUGGESTION`, the display `text`, and
-the `postbackData` you set on the suggestion:
+The notification's `messageBody` contains a JSON object with a `type` of `SUGGESTION`, the display `text`, and the `postbackData` you set on the suggestion:
 
 ```
 {
@@ -250,50 +184,31 @@ the `postbackData` you set on the suggestion:
 }
 ```
 
-For details on how to configure suggestions and their postback data, see
-[Configuring RCS suggestions](rcs-suggestions.md "rcs-suggestions.md").
+For details on how to configure suggestions and their postback data, see [Configuring RCS suggestions](rcs-suggestions.md).
 
-###### Important
-
-Design your `PostbackData` values as structured identifiers (for
-example, `action:confirm_order:12345`) so that you can parse them
-programmatically. Avoid relying on display text, which can change without
-affecting your routing logic.
+**Important**  
+Design your `PostbackData` values as structured identifiers (for example, `action:confirm_order:12345`) so that you can parse them programmatically. Avoid relying on display text, which can change without affecting your routing logic.
 
 ## Conversational pricing events and fields
+<a name="rcs-events-conversational"></a>
 
-If you register your RCS agent to use conversational pricing, AWS End User Messaging adds fields to
-delivery and inbound events while a message is part of an active conversation session,
-and sends a `CONVERSATION_STARTED` event when a session begins. For an
-overview of the conversational pricing model, see
-[Conversational pricing](rcs-billing.md#rcs-billing-conversational "rcs-billing.md#rcs-billing-conversational").
+If you register your RCS agent to use conversational pricing, AWS End User Messaging adds fields to delivery and inbound events while a message is part of an active conversation session, and sends a `CONVERSATION_STARTED` event when a session begins. For an overview of the conversational pricing model, see [Conversational pricing](rcs-billing.md#rcs-billing-conversational).
 
 ### Conversation fields
+<a name="rcs-events-conversational-fields"></a>
 
-The following fields appear on a delivery or inbound event only when the message
-is part of an active conversation session. When the message is not part of a
-conversation, AWS End User Messaging omits these fields entirely.
+The following fields appear on a delivery or inbound event only when the message is part of an active conversation session. When the message is not part of a conversation, AWS End User Messaging omits these fields entirely.
 
-`conversationInitiatingMessageId`
+`conversationInitiatingMessageId`  
+The message ID that started the conversation session. Present on delivery and inbound events.
 
-The message ID that started the conversation session. Present on
-delivery and inbound events.
+`conversationInitiatingMessageType`  
+How the conversation started: `OUTBOUND` when your agent sent the first message, or `INBOUND` when the recipient sent the first message. Present on delivery and inbound events.
 
-`conversationInitiatingMessageType`
+`conversationSessionFee`  
+The one-time session fee, in US dollars, charged once per 24-hour conversation session. Present on delivery events only.
 
-How the conversation started: `OUTBOUND` when your agent
-sent the first message, or `INBOUND` when the recipient sent
-the first message. Present on delivery and inbound events.
-
-`conversationSessionFee`
-
-The one-time session fee, in US dollars, charged once per 24-hour
-conversation session. Present on delivery events only.
-
-When a message is part of an active conversation session, its delivery event
-reports a `totalMessagePrice` and `totalCarrierFee` of
-`0.0`, because the session fee covers the message. The following example
-shows a delivery event for a message within an active conversation:
+When a message is part of an active conversation session, its delivery event reports a `totalMessagePrice` and `totalCarrierFee` of `0.0`, because the session fee covers the message. The following example shows a delivery event for a message within an active conversation:
 
 ```
 {
@@ -326,33 +241,26 @@ shows a delivery event for a message within an active conversation:
 ```
 
 ### CONVERSATION\_STARTED event
+<a name="rcs-events-conversation-started"></a>
 
-AWS End User Messaging sends a `CONVERSATION_STARTED` event to your RCS event Amazon SNS
-topic when a conversation session begins. A session begins when your agent sends a
-message and the recipient replies within 24 hours (business-initiated), or when the
-recipient sends a message and your agent responds (user-initiated).
+AWS End User Messaging sends a `CONVERSATION_STARTED` event to your RCS event Amazon SNS topic when a conversation session begins. A session begins when your agent sends a message and the recipient replies within 24 hours (business-initiated), or when the recipient sends a message and your agent responds (user-initiated).
 
-The `messageBody` contains a JSON object with the following
-fields:
+The `messageBody` contains a JSON object with the following fields:
 
-`type`
+`type`  
 Always `CONVERSATION_STARTED`.
 
-`startTime`
+`startTime`  
 The session start time, in ISO 8601 format.
 
-`endTime`
-The session expiry time, in ISO 8601 format. This is always
-24 hours after `startTime`.
+`endTime`  
+The session expiry time, in ISO 8601 format. This is always 24 hours after `startTime`.
 
-`conversationInitiatingMessageId`
-The message ID that started the
-conversation.
+`conversationInitiatingMessageId`  
+The message ID that started the conversation.
 
-`conversationInitiatingMessageType`
-`OUTBOUND` when your agent sent the first message,
-or `INBOUND` when the recipient sent the first
-message.
+`conversationInitiatingMessageType`  
+`OUTBOUND` when your agent sent the first message, or `INBOUND` when the recipient sent the first message.
 
 The following example shows a `CONVERSATION_STARTED` event:
 
@@ -366,60 +274,33 @@ The following example shows a `CONVERSATION_STARTED` event:
 ```
 
 ## Routing events to destinations
+<a name="rcs-events-routing"></a>
 
-AWS End User Messaging routes RCS events through configuration set event destinations. You
-configure event destinations on the configuration set that is associated with your
-sending operations. Supported destinations include:
+AWS End User Messaging routes RCS events through configuration set event destinations. You configure event destinations on the configuration set that is associated with your sending operations. Supported destinations include:
 
-Amazon SNS
+Amazon SNS  
+Use an Amazon SNS topic for real-time event processing, including triggering AWS Lambda functions to respond to delivery receipts or suggestion taps.
 
-Use an Amazon SNS topic for real-time event processing, including
-triggering AWS Lambda functions to respond to delivery receipts or
-suggestion taps.
+Amazon Data Firehose  
+Use a Firehose delivery stream to send events to Amazon S3, Amazon Redshift, or other analytics destinations for long-term storage and reporting.
 
-Amazon Data Firehose
+Amazon CloudWatch Logs  
+Use CloudWatch Logs for debugging, log analysis, and setting up CloudWatch alarms on event patterns (for example, alerting on high rejection rates).
 
-Use a Firehose delivery stream to send events to Amazon S3, Amazon
-Redshift, or other analytics destinations for long-term storage and
-reporting.
+To learn how to create and configure event destinations, see [Event destinations in AWS End User Messaging SMS](configuration-sets-event-destinations.md).
 
-Amazon CloudWatch Logs
+When you call `SendRcsMessage`, specify the `ConfigurationSetName` parameter to associate the message with your configuration set. Outbound status events generated by that message are routed to the destinations you configured.
 
-Use CloudWatch Logs for debugging, log analysis, and setting up
-CloudWatch alarms on event patterns (for example, alerting on high
-rejection rates).
+When you configure the event types that an event destination matches, you can select `RCS_ALL` to subscribe to all RCS event types with a single matching type, instead of listing each RCS event type individually (such as `RCS_DELIVERED` and `RCS_READ`).
 
-To learn how to create and configure event destinations, see
-[Event destinations in AWS End User Messaging SMS](configuration-sets-event-destinations.md "configuration-sets-event-destinations.md").
-
-When you call `SendRcsMessage`, specify the
-`ConfigurationSetName` parameter to associate the message with your
-configuration set. Outbound status events generated by that message are routed to
-the destinations you configured.
-
-When you configure the event types that an event destination matches, you can select
-`RCS_ALL` to subscribe to all RCS event types with a single matching type,
-instead of listing each RCS event type individually (such as `RCS_DELIVERED`
-and `RCS_READ`).
-
-###### Note
-
-Inbound interaction events, including typing indicators and suggestion taps
-(postbacks), are delivered to the two-way Amazon SNS topic configured on your
-RCS agent, not to configuration set event destinations.
+**Note**  
+Inbound interaction events, including typing indicators and suggestion taps (postbacks), are delivered to the two-way Amazon SNS topic configured on your RCS agent, not to configuration set event destinations.
 
 ## Best practices for event processing
-
-- Configure event destinations before you begin sending production
-  messages. This ensures you capture all events from the start.
-- Use `DELIVERED` events to cancel fallback timers. If you
-  receive a delivery confirmation, do not send an SMS or MMS fallback.
-- Process subscription events (`UNSUBSCRIBE`) immediately
-  to maintain compliance with messaging regulations.
-- Implement idempotent event processing. Use the message identifier
-  combined with the event type as a deduplication key to handle duplicate
-  event deliveries.
-- Handle out-of-order events by comparing event timestamps. Events might
-  arrive in a different order than they occurred.
-- Monitor rejection and undeliverable rates with CloudWatch alarms to
-  detect content issues or targeting problems early.
+<a name="rcs-events-best-practices"></a>
++ Configure event destinations before you begin sending production messages. This ensures you capture all events from the start.
++ Use `DELIVERED` events to cancel fallback timers. If you receive a delivery confirmation, do not send an SMS or MMS fallback.
++ Process subscription events (`UNSUBSCRIBE`) immediately to maintain compliance with messaging regulations.
++ Implement idempotent event processing. Use the message identifier combined with the event type as a deduplication key to handle duplicate event deliveries.
++ Handle out-of-order events by comparing event timestamps. Events might arrive in a different order than they occurred.
++ Monitor rejection and undeliverable rates with CloudWatch alarms to detect content issues or targeting problems early.

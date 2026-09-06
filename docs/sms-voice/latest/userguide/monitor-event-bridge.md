@@ -1,23 +1,24 @@
+
+
 # Monitoring with EventBridge
+<a name="monitor-event-bridge"></a>
 
-AWS End User Messaging SMS sends events to EventBridge for Registration, SMS, MMS, and voice events. You can use EventBridge to write rules that take actions, such as notifying you, when specific event types
-are received. For more information, see the following topics in the Amazon EventBridge User Guide:
+AWS End User Messaging SMS sends events to EventBridge for Registration, SMS, MMS, and voice events. You can use EventBridge to write rules that take actions, such as notifying you, when specific event types are received. For more information, see the following topics in the Amazon EventBridge User Guide: 
++ [What is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html)
++ [Amazon EventBridge events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html)
++ [Amazon EventBridge event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html)
++ [Amazon EventBridge rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html)
 
-- [What is Amazon EventBridge?](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md")
-- [Amazon EventBridge events](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md")
-- [Amazon EventBridge event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md")
-- [Amazon EventBridge rules](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md")
-  AWS End User Messaging SMS sends the following events directly to EventBridge:
+AWS End User Messaging SMS sends the following events directly to EventBridge:
++ Text Message Delivery Status Updated
++ Media Message Delivery Status Updated
++ Voice Message Delivery Status Updated
++ Registration Status Change
 
-- Text Message Delivery Status Updated
-- Media Message Delivery Status Updated
-- Voice Message Delivery Status Updated
-- Registration Status Change
-  For text, media, and voice message events, the `detail` section in the following examples resembles the
-  [Example event
-  data](configuration-sets-event-format.md "configuration-sets-event-format.md").
+For text, media, and voice message events, the `detail` section in the following examples resembles the [Example event data](configuration-sets-event-format.md).
 
 ## Event for a delivered SMS message
+<a name="event-delivered-sms-message"></a>
 
 ```
 {
@@ -58,6 +59,7 @@ are received. For more information, see the following topics in the Amazon Event
 ```
 
 ## Event for a sent SMS message
+<a name="event-sent-sms-message"></a>
 
 ```
 {
@@ -95,6 +97,7 @@ are received. For more information, see the following topics in the Amazon Event
 ```
 
 ## Event for a sent voice message
+<a name="event-sent-voice-message"></a>
 
 ```
 {
@@ -121,13 +124,13 @@ are received. For more information, see the following topics in the Amazon Event
 ```
 
 ## Event for a registration status change
+<a name="event-registration-status-change"></a>
 
 AWS End User Messaging SMS sends the following registration status changes to Amazon EventBridge:
 
 `CLOSED`, `CREATED`, `COMPLETE`, `DELETED`, `PROVISIONING`, `REQUIRES_AUTHENTICATION`, `REQUIRES_UPDATES`, `REVIEWING`, `SUBMITTED`
 
-For definitions of these status values, see
-[RegistrationInformation](../../../pinpoint/latest/apireference_smsvoicev2/API_RegistrationInformation.md "../../../pinpoint/latest/apireference_smsvoicev2/API_RegistrationInformation.md") in the AWS End User Messaging SMS API Reference.
+For definitions of these status values, see [RegistrationInformation](https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_RegistrationInformation.html) in the AWS End User Messaging SMS API Reference.
 
 ```
 {

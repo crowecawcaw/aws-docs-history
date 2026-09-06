@@ -1,131 +1,98 @@
+
+
 # Sending RCS rich cards
+<a name="rcs-rich-cards"></a>
 
-A rich card combines media, text, and suggested actions into a single structured
-message. Recipients see the card as a native UI element in their messaging client,
-providing an app-like experience. Use rich cards to present information that
-encourages interaction, such as product details, booking confirmations, or
-promotional offers.
+A rich card combines media, text, and suggested actions into a single structured message. Recipients see the card as a native UI element in their messaging client, providing an app-like experience. Use rich cards to present information that encourages interaction, such as product details, booking confirmations, or promotional offers.
 
-###### Important
+**Important**  
+You can use RCS rich media messaging (including rich cards) in all countries where RCS is supported. For more information, see [Sending rich RCS messages](rcs-rich-messaging.md).
 
-You can use RCS rich media messaging (including rich cards) in all countries where
-RCS is supported. For more information, see
-[Sending rich RCS messages](rcs-rich-messaging.md "rcs-rich-messaging.md").
+To group multiple cards into a scrollable set, see [Sending RCS carousels](rcs-carousels.md).
 
-To group multiple cards into a scrollable set, see
-[Sending RCS carousels](rcs-carousels.md "rcs-carousels.md").
-
-###### Topics
-
-- [When to use a rich card](#rcs-rich-cards-when "#rcs-rich-cards-when")
-- [Rich card components](#rcs-rich-cards-components "#rcs-rich-cards-components")
-- [Card orientation](#rcs-rich-cards-orientation "#rcs-rich-cards-orientation")
-- [Media and heights](#rcs-rich-cards-media "#rcs-rich-cards-media")
-- [Card-level suggestions](#rcs-rich-cards-suggestions "#rcs-rich-cards-suggestions")
-- [RcsMessageContent structure](#rcs-rich-cards-structure "#rcs-rich-cards-structure")
-- [Sending a rich card](#rcs-rich-cards-sending "#rcs-rich-cards-sending")
-- [Cross-platform rendering](#rcs-rich-cards-rendering "#rcs-rich-cards-rendering")
-- [Rich card limits](#rcs-rich-cards-limits "#rcs-rich-cards-limits")
+**Topics**
++ [When to use a rich card](#rcs-rich-cards-when)
++ [Rich card components](#rcs-rich-cards-components)
++ [Card orientation](#rcs-rich-cards-orientation)
++ [Media and heights](#rcs-rich-cards-media)
++ [Card-level suggestions](#rcs-rich-cards-suggestions)
++ [RcsMessageContent structure](#rcs-rich-cards-structure)
++ [Sending a rich card](#rcs-rich-cards-sending)
++ [Cross-platform rendering](#rcs-rich-cards-rendering)
++ [Rich card limits](#rcs-rich-cards-limits)
 
 ## When to use a rich card
+<a name="rcs-rich-cards-when"></a>
 
-Rich cards are well suited for messages that benefit from a visual layout
-with interactive elements. Common use cases include:
+Rich cards are well suited for messages that benefit from a visual layout with interactive elements. Common use cases include:
++ **Product showcases**: Display an image, product name, price, and a purchase button in one message.
++ **Booking confirmations**: Show reservation details with a calendar link and directions button.
++ **Appointment details**: Present date, time, location, and options to confirm or reschedule.
++ **Promotional offers**: Highlight a deal with media and a clear call to action.
 
-- **Product showcases**: Display an image,
-  product name, price, and a purchase button in one message.
-- **Booking confirmations**: Show reservation
-  details with a calendar link and directions button.
-- **Appointment details**: Present date, time,
-  location, and options to confirm or reschedule.
-- **Promotional offers**: Highlight a deal
-  with media and a clear call to action.
-
-If your message requires only text with optional suggestions, use a
-[Sending RCS text messages](rcs-text-messages.md "rcs-text-messages.md") instead.
-If you need to send a file without additional card structure, see
-[Sending RCS file messages](rcs-file-messages.md "rcs-file-messages.md").
+If your message requires only text with optional suggestions, use a [Sending RCS text messages](rcs-text-messages.md) instead. If you need to send a file without additional card structure, see [Sending RCS file messages](rcs-file-messages.md).
 
 ## Rich card components
+<a name="rcs-rich-cards-components"></a>
 
-A standalone rich card consists of the following components. At least one of
-`Media`, `Title`, or `Description` is
-required in `CardContent`.
+A standalone rich card consists of the following components. At least one of `Media`, `Title`, or `Description` is required in `CardContent`.
 
-Rich card components| Component | Required | Description |
-| --- | --- | --- |
-| `Media` | No | An image, GIF, or video displayed within the card. Supported<br>formats include JPEG, PNG, GIF, and MP4. The maximum file size is<br>100 MB. |
-| `Title` | No | A short headline for the card. Maximum 200 characters. |
-| `Description` | No | Body text providing additional detail. Maximum 2,000<br>characters. |
-| `Suggestions` | No | Up to 4 suggested actions or replies attached to the card.<br>See [Configuring RCS suggestions](rcs-suggestions.md "rcs-suggestions.md"). |
+
+**Rich card components**  
+
+| Component | Required | Description | 
+| --- | --- | --- | 
+| Media | No | An image, GIF, or video displayed within the card. Supported formats include JPEG, PNG, GIF, and MP4. The maximum file size is 100 MB. | 
+| Title | No | A short headline for the card. Maximum 200 characters. | 
+| Description | No | Body text providing additional detail. Maximum 2,000 characters. | 
+| Suggestions | No | Up to 4 suggested actions or replies attached to the card. See [Configuring RCS suggestions](rcs-suggestions.md). | 
 
 ## Card orientation
+<a name="rcs-rich-cards-orientation"></a>
 
-The `CardOrientation` field controls the layout relationship between
-media and text content. This field is required.
+The `CardOrientation` field controls the layout relationship between media and text content. This field is required.
 
-`VERTICAL`
-Media displays at the top of the card with title, description,
-and suggestions below. Vertical orientation is the recommended default
-for cross-platform compatibility.
+`VERTICAL`  
+Media displays at the top of the card with title, description, and suggestions below. Vertical orientation is the recommended default for cross-platform compatibility.
 
-`HORIZONTAL`
-Media displays on the left or right side of the card with
-text content beside it. The media area has a fixed width of
-128 density-independent pixels (DP). Use
-`ThumbnailImageAlignment` to control whether the media
-appears on the left or right.
+`HORIZONTAL`  
+Media displays on the left or right side of the card with text content beside it. The media area has a fixed width of 128 density-independent pixels (DP). Use `ThumbnailImageAlignment` to control whether the media appears on the left or right.
 
-###### Warning
-
-Horizontal orientation causes image truncation on iOS devices. Use
-`VERTICAL` orientation for cross-platform deployments.
+**Warning**  
+Horizontal orientation causes image truncation on iOS devices. Use `VERTICAL` orientation for cross-platform deployments.
 
 ## Media and heights
+<a name="rcs-rich-cards-media"></a>
 
-The `Media` object contains a `FileUrl` (required),
-an optional `ThumbnailUrl`, and an optional `Height`
-value. The `FileUrl` must match the pattern
-`^(https://|s3://).+$` and can be a maximum of 2,000 characters.
-The maximum media file size is 100 MB.
+The `Media` object contains a `FileUrl` (required), an optional `ThumbnailUrl`, and an optional `Height` value. The `FileUrl` must match the pattern `^(https://|s3://).+$` and can be a maximum of 2,000 characters. The maximum media file size is 100 MB.
 
-For details on supported media formats, delivery options, and S3 presigned URLs,
-see [Sending RCS file messages](rcs-file-messages.md "rcs-file-messages.md").
+For details on supported media formats, delivery options, and S3 presigned URLs, see [Sending RCS file messages](rcs-file-messages.md).
 
-Media height values| Height | Size | Description |
-| --- | --- | --- |
-| `SHORT` | 112 DP | Compact display. Use for thumbnails or when text content is<br>the primary focus. |
-| `MEDIUM` | 168 DP | Balanced display. Recommended default for most use<br>cases. |
-| `TALL` | 264 DP | Maximum display area. Use when media is the primary<br>content. |
 
-###### Note
+**Media height values**  
 
-iOS renders all media height values identically, ignoring the specified
-height setting. Use `TALL` to maximize the display area on
-Android devices while maintaining acceptable rendering on iOS.
+| Height | Size | Description | 
+| --- | --- | --- | 
+| SHORT | 112 DP | Compact display. Use for thumbnails or when text content is the primary focus. | 
+| MEDIUM | 168 DP | Balanced display. Recommended default for most use cases. | 
+| TALL | 264 DP | Maximum display area. Use when media is the primary content. | 
+
+**Note**  
+iOS renders all media height values identically, ignoring the specified height setting. Use `TALL` to maximize the display area on Android devices while maintaining acceptable rendering on iOS.
 
 ## Card-level suggestions
+<a name="rcs-rich-cards-suggestions"></a>
 
-You can attach up to 4 suggestions to a rich card by including them in the
-`CardContent.Suggestions` array. Card-level suggestions appear
-directly below the card content.
+You can attach up to 4 suggestions to a rich card by including them in the `CardContent.Suggestions` array. Card-level suggestions appear directly below the card content.
 
-In addition to card-level suggestions, you can include up to 11 message-level
-suggestions in the top-level `Suggestions` array of the
-`RcsMessageContent` structure. Message-level suggestions appear as
-persistent chips below the entire message.
+In addition to card-level suggestions, you can include up to 11 message-level suggestions in the top-level `Suggestions` array of the `RcsMessageContent` structure. Message-level suggestions appear as persistent chips below the entire message.
 
-For the full list of suggestion types (including `Reply`,
-`OpenUrl`, `DialPhone`, `ShowLocation`,
-`RequestLocation`, and `CreateCalendarEvent`), see
-[Configuring RCS suggestions](rcs-suggestions.md "rcs-suggestions.md").
+For the full list of suggestion types (including `Reply`, `OpenUrl`, `DialPhone`, `ShowLocation`, `RequestLocation`, and `CreateCalendarEvent`), see [Configuring RCS suggestions](rcs-suggestions.md).
 
 ## RcsMessageContent structure
+<a name="rcs-rich-cards-structure"></a>
 
-The following JSON shows the structure of the `RcsMessageContent`
-parameter for a standalone rich card. Pass this JSON as a string to the
-`--rcs-message-content` parameter in the AWS CLI or as the
-`RcsMessageContent` parameter in the SDK.
+The following JSON shows the structure of the `RcsMessageContent` parameter for a standalone rich card. Pass this JSON as a string to the `--rcs-message-content` parameter in the AWS CLI or as the `RcsMessageContent` parameter in the SDK.
 
 ```
 {
@@ -172,46 +139,45 @@ parameter for a standalone rich card. Pass this JSON as a string to the
 ```
 
 In this structure:
-
-- `Content.RichCard.StandaloneCard` contains the card
-  definition.
-- `CardOrientation` is required and accepts
-  `VERTICAL` or `HORIZONTAL`.
-- `ThumbnailImageAlignment` is optional and applies
-  only to horizontal cards.
-- `CardContent.Suggestions` holds card-level
-  suggestions (maximum 4).
-- The top-level `Suggestions` array holds message-level
-  suggestions (maximum 11).
++ `Content.RichCard.StandaloneCard` contains the card definition.
++ `CardOrientation` is required and accepts `VERTICAL` or `HORIZONTAL`.
++ `ThumbnailImageAlignment` is optional and applies only to horizontal cards.
++ `CardContent.Suggestions` holds card-level suggestions (maximum 4).
++ The top-level `Suggestions` array holds message-level suggestions (maximum 11).
 
 ## Sending a rich card
+<a name="rcs-rich-cards-sending"></a>
 
-Use the `SendRcsMessage` API action to send a rich card. Specify
-your pool or AWS RCS Agent as the `--origination-identity` and
-pass the rich card JSON structure as the `--rcs-message-content`
-parameter.
+Use the `SendRcsMessage` API action to send a rich card. Specify your pool or AWS RCS Agent as the `--origination-identity` and pass the rich card JSON structure as the `--rcs-message-content` parameter.
 
 ## Cross-platform rendering
+<a name="rcs-rich-cards-rendering"></a>
 
-Rich card rendering varies between Android and iOS devices. Follow these
-recommendations for consistent results:
+Rich card rendering varies between Android and iOS devices. Follow these recommendations for consistent results:
 
-Cross-platform recommendations| Recommendation | Reason |
-| --- | --- |
-| Use `VERTICAL` orientation | Horizontal orientation causes image truncation on iOS. |
-| Use `TALL` media height | iOS ignores the height value. `TALL` maximizes the<br>display area on Android. |
-| Keep the title to 3 lines or fewer | Prevents media cropping on iOS with accessibility<br>settings enabled. |
-| Use `OpenUrl` suggestions for links | URLs in the description text are not clickable on either<br>platform. |
-| Test GIF media on iOS | Confirm the static first frame renders<br>acceptably. |
+
+**Cross-platform recommendations**  
+
+| Recommendation | Reason | 
+| --- | --- | 
+| Use VERTICAL orientation | Horizontal orientation causes image truncation on iOS. | 
+| Use TALL media height | iOS ignores the height value. TALL maximizes the display area on Android. | 
+| Keep the title to 3 lines or fewer | Prevents media cropping on iOS with accessibility settings enabled. | 
+| Use OpenUrl suggestions for links | URLs in the description text are not clickable on either platform. | 
+| Test GIF media on iOS | Confirm the static first frame renders acceptably. | 
 
 ## Rich card limits
+<a name="rcs-rich-cards-limits"></a>
 
-Rich card limits| Resource | Limit |
-| --- | --- |
-| Title length | 200 characters |
-| Description length | 2,000 characters |
-| Card-level suggestions | 4 per card |
-| Message-level suggestions | 11 per message |
-| Total message payload | 250 KB |
-| Media file size | 100 MB |
-| `FileUrl` length | 2,000 characters |
+
+**Rich card limits**  
+
+| Resource | Limit | 
+| --- | --- | 
+| Title length | 200 characters | 
+| Description length | 2,000 characters | 
+| Card-level suggestions | 4 per card | 
+| Message-level suggestions | 11 per message | 
+| Total message payload | 250 KB | 
+| Media file size | 100 MB | 
+| FileUrl length | 2,000 characters | 
