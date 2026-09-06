@@ -1,123 +1,94 @@
+
+
 # Cache access control with Amazon VPC
+<a name="limit-access-security-groups"></a>
 
-A cache is accessible through an elastic network interface that resides
-in the virtual private cloud (VPC) based on the Amazon VPC service that you associate with
-your cache. You access your cache through its DNS name, which maps to the
-cache's network interface. Only resources within the associated VPC, or a peered VPC,
-can access your cache's network interface. For more information, see [What is Amazon VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") in the _Amazon VPC User Guide._
+A cache is accessible through an elastic network interface that resides in the virtual private cloud (VPC) based on the Amazon VPC service that you associate with your cache. You access your cache through its DNS name, which maps to the cache's network interface. Only resources within the associated VPC, or a peered VPC, can access your cache's network interface. For more information, see [What is Amazon VPC?](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) in the* Amazon VPC User Guide.*
 
-###### Warning
-
-You must not modify or delete the Amazon File Cache elastic network interface.
-Modifying or deleting the network interface can cause a permanent loss of connection
-between your VPC and your cache.
+**Warning**  
+You must not modify or delete the Amazon File Cache elastic network interface. Modifying or deleting the network interface can cause a permanent loss of connection between your VPC and your cache.
 
 ## Amazon VPC security groups
+<a name="fsx-vpc-security-groups"></a>
 
-To further control network traffic going through your cache's network interface
-within your VPC, use security groups to limit access. A _security
-group_ acts as a virtual firewall to control the traffic for its
-associated resources. In this case, the associated resource is your cache's network
-interface. You also use VPC security groups to control network traffic for your clients.
+To further control network traffic going through your cache's network interface within your VPC, use security groups to limit access. A *security group* acts as a virtual firewall to control the traffic for its associated resources. In this case, the associated resource is your cache's network interface. You also use VPC security groups to control network traffic for your clients.
 
 ### Controlling access using inbound and outbound rules
+<a name="inbound-outbound-rules"></a>
 
-To use a security group to control access to your cache and clients, add the
-inbound rules to control incoming traffic and outbound rules to control the
-outgoing traffic from your cache and clients. Make sure to have the right network
-traffic rules in your security group to map your cache to a folder on your supported
-compute instance.
+To use a security group to control access to your cache and clients, add the inbound rules to control incoming traffic and outbound rules to control the outgoing traffic from your cache and clients. Make sure to have the right network traffic rules in your security group to map your cache to a folder on your supported compute instance.
 
-For more information about security group rules, see [Security Group Rules](../../../AWSEC2/latest/UserGuide/ec2-security-groups.md#security-group-rules "../../../AWSEC2/latest/UserGuide/ec2-security-groups.md#security-group-rules") in the _Amazon EC2 User Guide._
+ For more information about security group rules, see [Security Group Rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html#security-group-rules) in the *Amazon EC2 User Guide.* 
 
-###### To create a security group for your cache
+**To create a security group for your cache**
 
-1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2](https://console.aws.amazon.com/ec2 "https://console.aws.amazon.com/ec2").
-2. In the navigation pane, choose **Security
-   Groups**.
-3. Choose **Create security group**.
-4. Specify a name and description for the security group.
-5. For **VPC**, choose the VPC associated with your cache to
-   create the security group within that VPC.
-6. Choose **Create** to create the security group.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2](https://console.aws.amazon.com/ec2).
 
-Next, add inbound rules to the security group that you just created to enable
-traffic between your Amazon File Cache file servers.
+1. In the navigation pane, choose **Security Groups**.
 
-###### To add inbound rules to your security group
+1. Choose **Create security group**.
 
-1. Select the security group you just created if it's not already selected.
-   For **Actions**, choose **Edit inbound
-   rules**.
-2. Add the following inbound rules.
+1. Specify a name and description for the security group.
 
-| Type            | Protocol | Port Range | Source                                                                                                                           | Description                                                       |
-| --------------- | -------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                             | Allows traffic between Amazon File Cache file servers             |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients          | Allows traffic between Amazon File Cache file servers and clients |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                             | Allows traffic between Amazon File Cache file servers             |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your<br>File Cache file servers | Allows traffic between Amazon File Cache file servers             |
+1. For **VPC**, choose the VPC associated with your cache to create the security group within that VPC.
 
-3. Choose **Save** to save and apply the new inbound
-   rules.
+1.  Choose **Create** to create the security group. 
 
-By default, security group rules allow all outbound traffic (All, 0.0.0.0/0). If
-your security group doesn't allow all outbound traffic, add the following
-outbound rules to your security group. These rules allow traffic between Amazon File Cache
-file servers and clients, and between Amazon File Cache file servers.
+Next, add inbound rules to the security group that you just created to enable traffic between your Amazon File Cache file servers.
 
-###### To add outbound rules to your security group
+**To add inbound rules to your security group**
 
-1. Choose the same security group to which you just added the inbound rules.
-   For **Actions**, choose **Edit outbound
-   rules**.
-2. Add the following outbound rules.
+1. Select the security group you just created if it's not already selected. For **Actions**, choose **Edit inbound rules**.
 
-| Type            | Protocol | Port Range | Source                                                                                                                  | Description                                                                       |
-| --------------- | -------- | ---------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allow Lustre traffic between Amazon File Cache file servers                       |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security group associated with your Lustre<br>clients  | Allow Lustre traffic between Amazon File Cache<br>file servers and Lustre clients |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allows Lustre traffic between Amazon File Cache<br>file servers                   |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients | Allows traffic between Amazon File Cache file servers and<br>Lustre clients       |
+1. Add the following inbound rules.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/FileCacheGuide/limit-access-security-groups.html)
 
-3. Choose **Save** to save and apply the new outbound
-   rules.
+1. Choose **Save** to save and apply the new inbound rules.
 
-###### To associate a security group with your Amazon File Cache
+By default, security group rules allow all outbound traffic (All, 0.0.0.0/0). If your security group doesn't allow all outbound traffic, add the following outbound rules to your security group. These rules allow traffic between Amazon File Cache file servers and clients, and between Amazon File Cache file servers.
 
-1. Open the AWS Management Console at [https://console.aws.amazon.com/fsx/#fc/file-caches](https://console.aws.amazon.com/fsx/#fc/file-caches "https://console.aws.amazon.com/fsx/#fc/file-caches").
-2. On the console dashboard, chose your cache to view its details.
-3. On the **Network & Security** tab, choose your
-   cache's network interface IDs (for example,
-   `ENI-01234567890123456`). Doing this redirects you to the Amazon EC2
-   console.
-4. Choose each network interface ID. Each action opens a new instance of the
-   Amazon EC2 console in your browser. For each security group, choose **Change
-   Security Groups** for **Actions**.
-5. In the **Change Security Groups** dialog box, choose the
-   security groups to use, and choose **Save**.
+**To add outbound rules to your security group**
+
+1.  Choose the same security group to which you just added the inbound rules. For **Actions**, choose **Edit outbound rules**. 
+
+1. Add the following outbound rules.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/FileCacheGuide/limit-access-security-groups.html)
+
+1. Choose **Save** to save and apply the new outbound rules.
+
+**To associate a security group with your Amazon File Cache**
+
+1. Open the AWS Management Console at [https://console.aws.amazon.com/fsx/\#fc/file-caches](https://console.aws.amazon.com/fsx/#fc/file-caches).
+
+1. On the console dashboard, chose your cache to view its details.
+
+1. On the **Network & Security** tab, choose your cache's network interface IDs (for example, `ENI-01234567890123456`). Doing this redirects you to the Amazon EC2 console.
+
+1. Choose each network interface ID. Each action opens a new instance of the Amazon EC2 console in your browser. For each security group, choose **Change Security Groups** for **Actions**. 
+
+1. In the **Change Security Groups** dialog box, choose the security groups to use, and choose **Save**.
 
 ## Lustre client VPC security group rules
+<a name="lustre-client-inbound-outbound-rules"></a>
 
-You use VPC security groups to control access to your Lustre clients by adding
-inbound rules to control incoming traffic and outbound rules to control the outgoing
-traffic from your Lustre clients. Make sure to have the right network traffic rules in
-your security group to ensure that Lustre traffic can flow between your Lustre clients and your Amazon File Caches.
+You use VPC security groups to control access to your Lustre clients by adding inbound rules to control incoming traffic and outbound rules to control the outgoing traffic from your Lustre clients. Make sure to have the right network traffic rules in your security group to ensure that Lustre traffic can flow between your Lustre clients and your Amazon File Caches.
 
 Add the following inbound rules to the security groups applied to your clients.
 
-| Type            | Protocol | Port Range | Source                                                                                                                                  | Description                                                                |
-| --------------- | -------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients                | Allows traffic between Amazon File Cache file servers                      |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Amazon File Cache file servers    | Allow Lustre traffic between Amazon File Cache file servers and<br>clients |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your clients                       | Allows traffic between Amazon File Cache file servers                      |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Amazon File Cache<br>file servers | Allows traffic between Amazon File Cache file servers and<br>clients       |
+
+| Type | Protocol | Port Range | Source | Description | 
+| --- | --- | --- | --- | --- | 
+| Custom TCP rule | TCP | 988 | Choose Custom and enter the security group IDs of the security groups that are applied to your Lustre clients | Allows traffic between Amazon File Cache file servers | 
+| Custom TCP rule | TCP | 988 | Choose Custom and enter the security group IDs of the security groups associated with your Amazon File Cache file servers | Allow Lustre traffic between Amazon File Cache file servers and clients | 
+| Custom TCP rule | TCP | 1018-1023 | Choose Custom and enter the security group IDs of the security groups that are applied to your clients | Allows traffic between Amazon File Cache file servers | 
+| Custom TCP rule | TCP | 1018-1023 | Choose Custom and enter the security group IDs of the security groups associated with your Amazon File Cache file servers | Allows traffic between Amazon File Cache file servers and clients | 
 
 Add the following outbound rules to the security groups applied to your clients.
 
-| Type            | Protocol | Port Range | Source                                                                                                                                  | Description                                                                        |
-| --------------- | -------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients                | Allows traffic between Lustre clients                                              |
-| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Amazon File Cache<br>file servers | Allow Lustre traffic between Amazon File Cache file servers and<br>Lustre clients  |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients                | Allows Lustre traffic between Lustre clients                                       |
-| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Amazon File Cache<br>file servers | Allows Lustre traffic between Amazon File Cache file servers and<br>Lustre clients |
+
+| Type | Protocol | Port Range | Source | Description | 
+| --- | --- | --- | --- | --- | 
+| Custom TCP rule | TCP | 988 | Choose Custom and enter the security group IDs of the security groups that are applied to your Lustre clients | Allows traffic between Lustre clients | 
+| Custom TCP rule | TCP | 988 | Choose Custom and enter the security group IDs of the security groups associated with your Amazon File Cache file servers | Allow Lustre traffic between Amazon File Cache file servers and Lustre clients | 
+| Custom TCP rule | TCP | 1018-1023 | Choose Custom and enter the security group IDs of the security groups that are applied to your Lustre clients | Allows Lustre traffic between Lustre clients | 
+| Custom TCP rule | TCP | 1018-1023 | Choose Custom and enter the security group IDs of the security groups associated with your Amazon File Cache file servers | Allows Lustre traffic between Amazon File Cache file servers and Lustre clients | 

@@ -1,50 +1,28 @@
+
+
 # Working with Amazon EC2 Spot Instances
+<a name="working-with-ec2-spot-instances"></a>
 
-Amazon File Cache can be used with EC2 Spot Instances to significantly lower your Amazon EC2 costs.
-A Spot Instance is an unused EC2 instance that is available for less than the On-Demand price.
-Amazon EC2 can interrupt your Spot Instance when the Spot price exceeds your maximum price, when the
-demand for Spot Instances rises, or when the supply of Spot Instances decreases.
+Amazon File Cache can be used with EC2 Spot Instances to significantly lower your Amazon EC2 costs. A Spot Instance is an unused EC2 instance that is available for less than the On-Demand price. Amazon EC2 can interrupt your Spot Instance when the Spot price exceeds your maximum price, when the demand for Spot Instances rises, or when the supply of Spot Instances decreases.
 
-When Amazon EC2 interrupts a Spot Instance, it provides a Spot Instance interruption notice,
-which gives the instance a two-minute warning before Amazon EC2 interrupts it. For more
-information, see [Spot Instances](../../../AWSEC2/latest/UserGuide/using-spot-instances.md "../../../AWSEC2/latest/UserGuide/using-spot-instances.md") in the
-_Amazon EC2 User Guide_.
+When Amazon EC2 interrupts a Spot Instance, it provides a Spot Instance interruption notice, which gives the instance a two-minute warning before Amazon EC2 interrupts it. For more information, see [Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html) in the *Amazon EC2 User Guide*. 
 
-To verify that Amazon File Cache resources are unaffected by EC2 Spot Instance Interruptions,
-we recommend unmounting caches prior to terminating or hibernating EC2 Spot Instances. For
-more information, see [Unmounting caches](unmounting-fs.md "unmounting-fs.md").
+To verify that Amazon File Cache resources are unaffected by EC2 Spot Instance Interruptions, we recommend unmounting caches prior to terminating or hibernating EC2 Spot Instances. For more information, see [Unmounting caches](unmounting-fs.md). 
 
 ## Handling Amazon EC2 Spot Instance interruptions
+<a name="handling-ec2-spot-interruptions-in-fsx"></a>
 
-Amazon File Cache is built on the Lustre distributed file system where server and client
-instances cooperate to provide a performant and reliable file system. They maintain a
-distributed and coherent state across both client and server instances. Lustre servers
-delegate temporary access permissions to clients while they are actively doing I/O and
-caching file system data. Clients are expected to reply in a short period of time when
-servers request them to revoke their temporary access permissions. To protect the cache
-against misbehaving clients, servers can evict Lustre clients that do not respond after a
-few minutes. To avoid having to wait multiple minutes for a non-responding client to reply
-to the server request, it's important to cleanly unmount Lustre clients, especially before
-terminating EC2 Spot Instances.
+Amazon File Cache is built on the Lustre distributed file system where server and client instances cooperate to provide a performant and reliable file system. They maintain a distributed and coherent state across both client and server instances. Lustre servers delegate temporary access permissions to clients while they are actively doing I/O and caching file system data. Clients are expected to reply in a short period of time when servers request them to revoke their temporary access permissions. To protect the cache against misbehaving clients, servers can evict Lustre clients that do not respond after a few minutes. To avoid having to wait multiple minutes for a non-responding client to reply to the server request, it's important to cleanly unmount Lustre clients, especially before terminating EC2 Spot Instances. 
 
-EC2 Spot sends termination notices two minutes in advance before shutting down an
-instance. We recommend that you automate the process of cleanly unmounting Lustre clients
-before terminating EC2 Spot Instances.
+ EC2 Spot sends termination notices two minutes in advance before shutting down an instance. We recommend that you automate the process of cleanly unmounting Lustre clients before terminating EC2 Spot Instances. 
 
-###### Example– Script to cleanly unmount terminating EC2 Spot Instances
-
-This example script cleanly unmounts terminating EC2 Spot Instances by doing the
-following:
-
-- Watches for Spot termination notices.
-- When it receives a termination notice:
-
-  - Stops applications that are accessing the cache.
-  - Unmounts the cache before the instance is terminated.
-    You can adapt the script as needed, especially for gracefully shutting down your
-    application. For more information about best practices for handling Spot Instance
-    interruptions, see [Best
-    practices for handling EC2 Spot Instance interruptions](https://aws.amazon.com/blogs/compute/best-practices-for-handling-ec2-spot-instance-interruptions/ "https://aws.amazon.com/blogs/compute/best-practices-for-handling-ec2-spot-instance-interruptions/").
+**Example – Script to cleanly unmount terminating EC2 Spot Instances**  
+This example script cleanly unmounts terminating EC2 Spot Instances by doing the following:  
++ Watches for Spot termination notices.
++ When it receives a termination notice:
+  + Stops applications that are accessing the cache.
+  + Unmounts the cache before the instance is terminated.
+You can adapt the script as needed, especially for gracefully shutting down your application. For more information about best practices for handling Spot Instance interruptions, see [ Best practices for handling EC2 Spot Instance interruptions](https://aws.amazon.com/blogs/compute/best-practices-for-handling-ec2-spot-instance-interruptions/).  
 
 ```
 #!/bin/bash
