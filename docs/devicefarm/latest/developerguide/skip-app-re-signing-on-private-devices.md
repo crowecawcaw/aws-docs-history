@@ -1,120 +1,92 @@
+
+
 # Skipping app re-signing on private devices in AWS Device Farm
+<a name="skip-app-re-signing-on-private-devices"></a>
 
-App signing is a process that involves digitally signing an app package (e.g., [APK](https://developer.android.com/studio/publish/app-signing "https://developer.android.com/studio/publish/app-signing"), [IPA](https://support.apple.com/guide/security/app-code-signing-process-sec7c917bf14/web "https://support.apple.com/guide/security/app-code-signing-process-sec7c917bf14/web")) with a private key before it can be installed on a device or published to
-an app store like the Google Play Store or the Apple App Store. To streamline testing by
-reducing the number of signatures and profiles needed and increase data security on remote
-devices, AWS Device Farm will re-sign your app after it has been uploaded to the service.
+App signing is a process that involves digitally signing an app package (e.g., [APK](https://developer.android.com/studio/publish/app-signing), [IPA](https://support.apple.com/guide/security/app-code-signing-process-sec7c917bf14/web)) with a private key before it can be installed on a device or published to an app store like the Google Play Store or the Apple App Store. To streamline testing by reducing the number of signatures and profiles needed and increase data security on remote devices, AWS Device Farm will re-sign your app after it has been uploaded to the service.
 
-Once you upload your app to AWS Device Farm, the service will generate a new signature for the
-app using its own signing certificates and provisioning profiles. This process replaces the
-original app signature with AWS Device Farm's signature. The re-signed app is then installed on
-the test devices provided by AWS Device Farm. The new signature allows the app to be installed and
-run on these devices without the need for the original developer's certificates.
+Once you upload your app to AWS Device Farm, the service will generate a new signature for the app using its own signing certificates and provisioning profiles. This process replaces the original app signature with AWS Device Farm's signature. The re-signed app is then installed on the test devices provided by AWS Device Farm. The new signature allows the app to be installed and run on these devices without the need for the original developer's certificates.
 
-On iOS, we replace the embedded provisioning profile with a wildcard profile and re-sign
-the app. If you provide it, we will add auxiliary data to the application package before
-installation so the data will be present in your app’s sandbox. Re-signing the iOS app
-results in the removal of all entitlements.
+On iOS, we replace the embedded provisioning profile with a wildcard profile and re-sign the app. If you provide it, we will add auxiliary data to the application package before installation so the data will be present in your app’s sandbox. Re-signing the iOS app results in the removal of all entitlements.
 
-On Android, we re-sign the app. This may break functionality that depends on the app
-signature, such as the Google Maps Android API. It may also trigger anti-piracy and
-anti-tamper detection available from products such as DexGuard. For built-in tests, we may
-modify the manifest to include permissions required to capture and save screenshots.
+On Android, we re-sign the app. This may break functionality that depends on the app signature, such as the Google Maps Android API. It may also trigger anti-piracy and anti-tamper detection available from products such as DexGuard. For built-in tests, we may modify the manifest to include permissions required to capture and save screenshots.
 
-When you use private devices, you can skip the step where AWS Device Farm re-signs your app.
-This is different from public devices, where Device Farm always re-signs your app on the Android
-and iOS platforms.
+When you use private devices, you can skip the step where AWS Device Farm re-signs your app. This is different from public devices, where Device Farm always re-signs your app on the Android and iOS platforms.
 
-You can skip app re-signing when you create a remote access session or a test run. This
-can be helpful if your app has functionality that breaks when Device Farm re-signs your app. For
-example, push notifications might not work after re-signing. For more information about the
-changes that Device Farm makes when it tests your app, see the [AWS Device Farm FAQs](https://aws.amazon.com/device-farm/faq/ "https://aws.amazon.com/device-farm/faq/") or the [Apps](apps.md "apps.md") page.
+You can skip app re-signing when you create a remote access session or a test run. This can be helpful if your app has functionality that breaks when Device Farm re-signs your app. For example, push notifications might not work after re-signing. For more information about the changes that Device Farm makes when it tests your app, see the [AWS Device Farm FAQs](https://aws.amazon.com/device-farm/faq/) or the [Apps](https://docs.aws.amazon.com/devicefarm/latest/developerguide/apps.html) page.
 
-To skip app re-signing for a test run, select **Skip app re-signing** under
-**Additional configuration**. This option is only available for private devices.
+To skip app re-signing for a test run, select **Skip app re-signing** under **Additional configuration**. This option is only available for private devices.
 
-![Select Skip app re-signing when using private device instances on a test run](images/aws-device-farm-skip-app-re-signing.png)
+![Select Skip app re-signing when using private device instances on a test run](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-skip-app-re-signing.png)
 
-###### Note
 
-If you're using the XCTest framework, the **Skip app re-signing** option is not
-available. For more information, see [Integrating Device Farm with XCTest for iOS](test-types-ios-xctest.md "test-types-ios-xctest.md").
 
-Additional steps for configuring your app-signing settings vary, depending on whether you're using private
-Android or iOS devices.
+
+**Note**  
+If you're using the XCTest framework, the **Skip app re-signing** option is not available. For more information, see [Integrating Device Farm with XCTest for iOS](test-types-ios-xctest.md).
+
+Additional steps for configuring your app-signing settings vary, depending on whether you're using private Android or iOS devices.
 
 ## Skipping app re-signing on Android devices
+<a name="signing-apps-on-android-devices"></a>
 
-If you're testing your app on a private Android device, select **Skip app re-signing**
-when you create your test run or your remote access session. No other configuration is required.
+If you're testing your app on a private Android device, select **Skip app re-signing** when you create your test run or your remote access session. No other configuration is required.
 
 ## Skipping app re-signing on iOS devices
+<a name="signing-apps-on-ios-devices"></a>
 
-Apple requires you to sign an app for testing before you load it onto a device. For iOS devices, you have
-two options for signing your app.
+Apple requires you to sign an app for testing before you load it onto a device. For iOS devices, you have two options for signing your app. 
++ If you're using an in-house (Enterprise) developer profile, you can skip to the next section, [Creating a remote access session to trust your iOS app](#create-remote-session-trust-your-app).
 
-- If you're using an in-house (Enterprise) developer profile, you can skip to the next section,
-  [Creating a remote access session to trust your iOS app](#create-remote-session-trust-your-app "#create-remote-session-trust-your-app").
-- If you're using an ad hoc iOS app development profile, you must first register the device with
-  your Apple developer account, and then update your provisioning profile to include the private
-  device. You must then re-sign your app with the provisioning profile that you updated. You can then
-  run your re-signed app in Device Farm.
+  
++ If you're using an ad hoc iOS app development profile, you must first register the device with your Apple developer account, and then update your provisioning profile to include the private device. You must then re-sign your app with the provisioning profile that you updated. You can then run your re-signed app in Device Farm. 
 
-###### To register a device with an ad hoc iOS app development provisioning profile
+**To register a device with an ad hoc iOS app development provisioning profile**
 
 1. Sign in to your Apple developer account.
-2. Navigate to the **Certificates, IDs, and Profiles** section of the
-   console.
-3. Go to **Devices**.
-4. Register the device in your Apple developer account. To get the name and UDID
-   of the device, use the `ListDeviceInstances` operation of the Device Farm
-   API.
-5. Go to your provisioning profile and choose **Edit**.
-6. Choose the device from the list.
-7. In Xcode, fetch your updated provisioning profile, and then re-sign the app.
 
-No other configuration is required. You can now create a remote access session or a test run and select
-**Skip app re-signing**.
+1. Navigate to the **Certificates, IDs, and Profiles** section of the console.
+
+1. Go to **Devices**.
+
+1. Register the device in your Apple developer account. To get the name and UDID of the device, use the `ListDeviceInstances` operation of the Device Farm API.
+
+1. Go to your provisioning profile and choose **Edit**.
+
+1. Choose the device from the list.
+
+1. In Xcode, fetch your updated provisioning profile, and then re-sign the app.
+
+No other configuration is required. You can now create a remote access session or a test run and select **Skip app re-signing**.
 
 ## Creating a remote access session to trust your iOS app
+<a name="create-remote-session-trust-your-app"></a>
 
-If you're using an in-house (Enterprise) developer provisioning profile, you must perform a one-time
-procedure to trust the in-house app developer certificate on each of your private devices.
+If you're using an in-house (Enterprise) developer provisioning profile, you must perform a one-time procedure to trust the in-house app developer certificate on each of your private devices.
 
-To do so, you must install a placeholder app that's signed with the same certificate as the app that you want to test. After the device trusts the configuration profile or
-enterprise app developer, all apps from that developer are trusted on the private device until you delete
-them. Therefore, when you install new versions of the app that you want to test, you won't have to trust the
-app developer again each time. This is particularly useful if you run test automations and you don't want to create a
-remote access session each time you test your app.
+To do so, you must install a placeholder app that's signed with the same certificate as the app that you want to test. After the device trusts the configuration profile or enterprise app developer, all apps from that developer are trusted on the private device until you delete them. Therefore, when you install new versions of the app that you want to test, you won't have to trust the app developer again each time. This is particularly useful if you run test automations and you don't want to create a remote access session each time you test your app.
 
-A common procedure many customers use is to re-sign the [Device Farm sample app for iOS](https://github.com/aws-samples/aws-device-farm-sample-app-for-ios/blob/master/prebuilt/prebuiltSampleApp.ipa "https://github.com/aws-samples/aws-device-farm-sample-app-for-ios/blob/master/prebuilt/prebuiltSampleApp.ipa"), then install this onto their device as the placeholder app.
+A common procedure many customers use is to re-sign the [Device Farm sample app for iOS](https://github.com/aws-samples/aws-device-farm-sample-app-for-ios/blob/master/prebuilt/prebuiltSampleApp.ipa), then install this onto their device as the placeholder app.
 
-Before you start your remote access session, follow the steps in [Creating an instance profile in AWS Device Farm](set-up-private-devices-account-settings.md "set-up-private-devices-account-settings.md") to create or modify an
-instance profile in Device Farm. In the instance profile, add the bundle ID of the placeholder
-app to the **Exclude packages from cleanup** setting. Then,
-attach the instance profile to the private device instance to ensure that Device Farm doesn't
-remove this app from the device before it starts a new test run. This ensures that your
-developer certificate remains trusted.
+Before you start your remote access session, follow the steps in [Creating an instance profile in AWS Device Farm](set-up-private-devices-account-settings.md) to create or modify an instance profile in Device Farm. In the instance profile, add the bundle ID of the placeholder app to the **Exclude packages from cleanup** setting. Then, attach the instance profile to the private device instance to ensure that Device Farm doesn't remove this app from the device before it starts a new test run. This ensures that your developer certificate remains trusted.
 
-You can upload the placeholder app to the device by using a remote access session, which allows you to launch
-the app and trust the developer.
+You can upload the placeholder app to the device by using a remote access session, which allows you to launch the app and trust the developer.
 
-1. Follow the instructions in [Creating a session](how-to-create-session.md "how-to-create-session.md") to create a remote access session that uses the private
-   device instance profile that you created. When you create your session, be sure to select
-   **Skip app re-signing**.
+1. Follow the instructions in [Creating a session](how-to-create-session.md) to create a remote access session that uses the private device instance profile that you created. When you create your session, be sure to select **Skip app re-signing**.  
+![Skip app re-signing when creating a remote access session](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-create-reomte-access-session-skip-app-resigning.png)
 
-![Skip app re-signing when creating a remote access session](images/aws-device-farm-create-reomte-access-session-skip-app-resigning.png)
+   
+**Important**  
+To filter the list of devices to include only private devices, select **Private device instances only** to ensure that you use a private device with the correct instance profile.
 
-###### Important
+   Be sure to also add the placeholder app or the app that you want to test to the **Exclude packages from cleanup** setting for the instance profile that's attached to this instance.
 
-To filter the list of devices to include only private devices, select **Private device
-instances only** to ensure that you use a private device with the correct instance
-profile.
+1. When your remote session starts, choose **Choose File** to install an application that uses your in-house provisioning profile.
 
-Be sure to also add the placeholder app or the app that you want to test to the
-**Exclude packages from cleanup** setting for the instance
-profile that's attached to this instance. 2. When your remote session starts, choose **Choose File** to
-install an application that uses your in-house provisioning profile. 3. Launch the app that you just uploaded. 4. Confirm that an iOS dialogue box appears indicating that the enterprise app developer is untrusted. 5. Then, if the iOS device is on iOS version 18 or greater, open a support ticket with the AWS Device Farm team to have our team trust the app for you, since these devices require the app to be manually trusted. Otherwise, if the iOS version is 17 or lower, you can go into the **Settings** app, and, under **General** settings, trust the app yourself from the **VPN and Profiles** menu.
+1. Launch the app that you just uploaded.
 
-All apps from this configuration profile or enterprise app developer are now trusted on this private
-device until you delete them.
+1. Confirm that an iOS dialogue box appears indicating that the enterprise app developer is untrusted.
+
+1. Then, if the iOS device is on iOS version 18 or greater, open a support ticket with the AWS Device Farm team to have our team trust the app for you, since these devices require the app to be manually trusted. Otherwise, if the iOS version is 17 or lower, you can go into the **Settings** app, and, under **General** settings, trust the app yourself from the **VPN and Profiles** menu.
+
+All apps from this configuration profile or enterprise app developer are now trusted on this private device until you delete them.

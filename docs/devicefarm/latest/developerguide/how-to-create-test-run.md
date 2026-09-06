@@ -1,578 +1,507 @@
+
+
 # Creating a test run in Device Farm
+<a name="how-to-create-test-run"></a>
 
-You can use the Device Farm console, AWS CLI, or Device Farm API to create a test run. You can also use a supported plugin,
-such as the Jenkins or Gradle plugins for Device Farm. For more information about plugins, see [Tools and plugins](aws-device-farm-tools-plugins.md "aws-device-farm-tools-plugins.md"). For information
-about runs, see [Runs](test-runs.md "test-runs.md").
+You can use the Device Farm console, AWS CLI, or Device Farm API to create a test run. You can also use a supported plugin, such as the Jenkins or Gradle plugins for Device Farm. For more information about plugins, see [Tools and plugins](aws-device-farm-tools-plugins.md). For information about runs, see [Runs](test-runs.md).
 
-###### Topics
-
-- [Prerequisites](#how-to-create-test-run-prerequisites "#how-to-create-test-run-prerequisites")
-- [Create a test run (console)](#how-to-create-test-run-console "#how-to-create-test-run-console")
-- [Create a test run (AWS CLI)](#how-to-create-test-run-cli "#how-to-create-test-run-cli")
-- [Create a test run (API)](#how-to-create-test-run-api "#how-to-create-test-run-api")
-- [Next steps](#how-to-create-test-run-console-next-steps "#how-to-create-test-run-console-next-steps")
+**Topics**
++ [Prerequisites](#how-to-create-test-run-prerequisites)
++ [Create a test run (console)](#how-to-create-test-run-console)
++ [Create a test run (AWS CLI)](#how-to-create-test-run-cli)
++ [Create a test run (API)](#how-to-create-test-run-api)
++ [Next steps](#how-to-create-test-run-console-next-steps)
 
 ## Prerequisites
+<a name="how-to-create-test-run-prerequisites"></a>
 
-You must have a project in Device Farm. Follow the instructions in [Creating a project in AWS Device Farm](how-to-create-project.md "how-to-create-project.md"), and then return to this page.
+You must have a project in Device Farm. Follow the instructions in [Creating a project in AWS Device Farm](how-to-create-project.md), and then return to this page.
 
 ## Create a test run (console)
+<a name="how-to-create-test-run-console"></a>
 
-1. Sign in to the Device Farm console at [https://console.aws.amazon.com/devicefarm](https://console.aws.amazon.com/devicefarm "https://console.aws.amazon.com/devicefarm").
-2. In the navigation pane, choose **Mobile Device Testing**, and then choose
-   **Projects**.
-3. If you already have a project, you can upload your tests to it. Otherwise, choose **New
-   project**, enter a **Project Name**, and then choose
-   **Create**.
-4. Open your project, and then choose **Create run**.
-5. Under **Select app and run type**, in the **Run type** section, select your run type.
-   Select **Android app** if you do not have an app ready for testing, or if you are testing an android (.apk) app.
-   Select **iOS app** if you are testing an iOS (.ipa) app. Select **Web app** if you want to test
-   web applications.
-6. Under **Select app**, in the **App selection options** section, choose
-   **Select sample app provided by Device Farm** if you do not have an app available for testing.
-   If you are bringing your own app, select **Upload own app**, and choose your application file.
-   If you're uploading an iOS app, be sure to choose **iOS device**, as opposed to a simulator.
-7. Under **Configure test**, choose one of the available test frameworks.
+1. Sign in to the Device Farm console at [https://console.aws.amazon.com/devicefarm](https://console.aws.amazon.com/devicefarm).
 
-###### Note
+1. In the navigation pane, choose **Mobile Device Testing**, and then choose **Projects**.
 
-If you don't have any tests available, choose **Built-in: Fuzz** to run a
-standard, built-in test suite. If you choose **Built-in: Fuzz**, and the
-**Event count**, **Event throttle**, and
-**Randomizer seed** boxes appear, you can change or keep the values.
+1. If you already have a project, you can upload your tests to it. Otherwise, choose **New project**, enter a **Project Name**, and then choose **Create**.
 
-For information about the available test suites, see [Test frameworks and built-in tests in AWS Device Farm](test-types.md "test-types.md"). 8. If you didn't choose **Built-in: Fuzz**, select **Choose File** under
-**Select test package**. Browse to and choose the file that contains your tests. 9. For your testing environment, choose **Run your test in our standard environment** or
-**Run your test in a custom environment**. For more
-information, see [Test environments in AWS Device Farm](test-environments.md "test-environments.md"). 10. If you're using a custom test environment, you can optionally do the following:
+1. Open your project, and then choose **Create run**.
 
-    * If you want to edit the default test spec in a custom test environment, choose
-     **Edit** to update the default YAML specification.
-    * If you changed the test spec, choose **Save as New** to update it.
-    * You may configure envirnonment variables. Variables supplied here will take precedence over any that may be configured on the parent project.
+1. Under **Select app and run type**, in the **Run type** section, select your run type. Select **Android app** if you do not have an app ready for testing, or if you are testing an android (.apk) app. Select **iOS app** if you are testing an iOS (.ipa) app. Select **Web app** if you want to test web applications.
 
-11. Under **Select devices**, do one of the following:
+1. Under **Select app**, in the **App selection options** section, choose **Select sample app provided by Device Farm** if you do not have an app available for testing. If you are bringing your own app, select **Upload own app**, and choose your application file. If you're uploading an iOS app, be sure to choose **iOS device**, as opposed to a simulator.
 
-    * To choose a built-in device pool to run the tests against, for **Device
-     pool**, choose **Top Devices**.
-    * To create your own device pool to run the tests against, follow the instructions in [Creating a device pool](how-to-create-device-pool.md "how-to-create-device-pool.md"), and
-     then return to this page.
-    * If you created your own device pool earlier, for **Device pool**, choose
-     your device pool.
-    * Select **Manually select devices** and choose the desired devices you want
-     to run against. This configuration will not be saved.
+1. Under **Configure test**, choose one of the available test frameworks.
+**Note**  
+If you don't have any tests available, choose **Built-in: Fuzz** to run a standard, built-in test suite. If you choose **Built-in: Fuzz**, and the **Event count**, **Event throttle**, and **Randomizer seed** boxes appear, you can change or keep the values. 
 
-For more information, see [Device support in AWS Device Farm](devices.md "devices.md"). 12. (Optional) To configure run-level properties, update the **Run Settings** section. Here you can do the following:
+   For information about the available test suites, see [Test frameworks and built-in tests in AWS Device Farm](test-types.md).
 
-    * Assign your run with a custom **Run name**. If no name is provided, the Device Farm console will name your run 'My Device Farm run' by default.
-    * Choose **Generate test report** under **Test Insights** to get a detailed structured test report for each job and an aggregated summary at the run level. This insight is generated in addition to any test report that you might generate as part of your test execution.
-    * Assign a **Job timeout**, which is the maximum number of minutes a job can run on a device. If your tests are complete before the job timeout, the job completes, and you are not charged for the remainder of the job timeout. The default is 150 minutes.
-    * Choose a **Billing method**. By default, if you do not have slots purchased on your account, the Device Farm console selects Metered. If you have slots, the console defaults to Unmetered.
+1. If you didn't choose **Built-in: Fuzz**, select **Choose File** under **Select test package**. Browse to and choose the file that contains your tests.
 
-13. (Optional) To add additional configuration, open the **Additional configuration** dropdown.
-In this section, you can do any of the following:
+1. For your testing environment, choose **Run your test in our standard environment** or **Run your test in a custom environment**. For more information, see [Test environments in AWS Device Farm](test-environments.md).
 
-    * To provide an execution role ARN, or override one configured on the parent project, use the Exectuion role ARN field.
-    * To provide other data for Device Farm to use during the run, next to **Add extra
-     data**, choose **Choose File**, and then browse to and choose
-     the .zip file that contains the data.
-    * To install an additional app for Device Farm to use during the run, next to **Install
-     other apps**, choose **Choose File**, and then browse to and
-     choose the .apk or .ipa file that contains the app. Repeat this for other apps you want to
-     install. You can change the installation order by dragging and dropping the apps after you
-     upload them.
-    * To specify whether Wi-Fi, Bluetooth, GPS, or NFC is enabled during the run, next to
-     **Set radio states**, select the appropriate boxes.
-    * To preset the device latitude and longitude for the run, next to **Device
-     location**, enter the coordinates.
-    * To preset the device locale for the run, in **Device locale**, choose the
-     locale.
-    * Select **Enable video recording** to record video during testing.
+1. If you're using a custom test environment, you can optionally do the following:
+   + If you want to edit the default test spec in a custom test environment, choose **Edit** to update the default YAML specification.
+   + If you changed the test spec, choose **Save as New** to update it.
+   + You may configure envirnonment variables. Variables supplied here will take precedence over any that may be configured on the parent project.
 
-###### Note
+1. Under **Select devices**, do one of the following:
+   + To choose a built-in device pool to run the tests against, for **Device pool**, choose **Top Devices**. 
+   + To create your own device pool to run the tests against, follow the instructions in [Creating a device pool](how-to-create-device-pool.md), and then return to this page.
+   + If you created your own device pool earlier, for **Device pool**, choose your device pool. 
+   + Select **Manually select devices** and choose the desired devices you want to run against. This configuration will not be saved.
 
-Setting the device radio state and locale are options only available for Android native tests
-at this time.
+   For more information, see [Device support in AWS Device Farm](devices.md).
 
-###### Note
+1. (Optional) To configure run-level properties, update the **Run Settings** section. Here you can do the following:
+   + Assign your run with a custom **Run name**. If no name is provided, the Device Farm console will name your run 'My Device Farm run' by default.
+   + Choose **Generate test report** under **Test Insights** to get a detailed structured test report for each job and an aggregated summary at the run level. This insight is generated in addition to any test report that you might generate as part of your test execution.
+   + Assign a **Job timeout**, which is the maximum number of minutes a job can run on a device. If your tests are complete before the job timeout, the job completes, and you are not charged for the remainder of the job timeout. The default is 150 minutes.
+   + Choose a **Billing method**. By default, if you do not have slots purchased on your account, the Device Farm console selects Metered. If you have slots, the console defaults to Unmetered.
 
-If you have private devices, configuration specific to private devices is also displayed. 14. At the bottom of the page, choose **Confirm and start run** to schedule the run.
+1. (Optional) To add additional configuration, open the **Additional configuration** dropdown. In this section, you can do any of the following:
+   + To provide an execution role ARN, or override one configured on the parent project, use the Exectuion role ARN field.
+   + To provide other data for Device Farm to use during the run, next to **Add extra data**, choose **Choose File**, and then browse to and choose the .zip file that contains the data.
+   + To install an additional app for Device Farm to use during the run, next to **Install other apps**, choose **Choose File**, and then browse to and choose the .apk or .ipa file that contains the app. Repeat this for other apps you want to install. You can change the installation order by dragging and dropping the apps after you upload them. 
+   + To specify whether Wi-Fi, Bluetooth, GPS, or NFC is enabled during the run, next to **Set radio states**, select the appropriate boxes.
+   + To preset the device latitude and longitude for the run, next to **Device location**, enter the coordinates.
+   + To preset the device locale for the run, in **Device locale**, choose the locale.
+   + Select **Enable video recording** to record video during testing.
+**Note**  
+Setting the device radio state and locale are options only available for Android native tests at this time.
+**Note**  
+If you have private devices, configuration specific to private devices is also displayed.
 
-Device Farm starts the run as soon as devices are available, typically within a few minutes. During your test
-run, the Device Farm console displays a pending icon
-![Device Farm scheduled a job.](images/df-run-calendar.png)
-in the run table. Each device in the run will
-also start with the pending icon, then switch to the running icon
-![Device Farm progress indicator.](images/df-run-progress.png)
-when the test begins. As
-each test finishes, a test result icon is displayed next to the device name. When all tests have been
-completed, the pending icon next to the run changes to a test result icon.
+1. At the bottom of the page, choose **Confirm and start run** to schedule the run.
 
-If you want to stop the test run, see [Stopping a run in AWS Device Farm](how-to-stop-test-runs.md "how-to-stop-test-runs.md").
+Device Farm starts the run as soon as devices are available, typically within a few minutes. During your test run, the Device Farm console displays a pending icon ![Device Farm scheduled a job.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-calendar.png) in the run table. Each device in the run will also start with the pending icon, then switch to the running icon ![Device Farm progress indicator.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-progress.png) when the test begins. As each test finishes, a test result icon is displayed next to the device name. When all tests have been completed, the pending icon next to the run changes to a test result icon.
+
+If you want to stop the test run, see [Stopping a run in AWS Device Farm](how-to-stop-test-runs.md).
 
 ## Create a test run (AWS CLI)
+<a name="how-to-create-test-run-cli"></a>
 
 You can use the AWS CLI to create a test run.
 
-###### Topics
-
-- [Step 1: Choose a project](#how-to-create-test-run-cli-step1 "#how-to-create-test-run-cli-step1")
-- [Step 2: Choose a device pool](#how-to-create-test-run-cli-step2 "#how-to-create-test-run-cli-step2")
-- [Step 3: Upload your application file](#how-to-create-test-run-cli-step3 "#how-to-create-test-run-cli-step3")
-- [Step 4: Upload your test scripts package](#how-to-create-test-run-cli-step4 "#how-to-create-test-run-cli-step4")
-- [Step 5: (Optional) Upload your custom test spec](#how-to-create-test-run-cli-step5 "#how-to-create-test-run-cli-step5")
-- [Step 6: Schedule a test run](#how-to-create-test-run-cli-step6 "#how-to-create-test-run-cli-step6")
+**Topics**
++ [Step 1: Choose a project](#how-to-create-test-run-cli-step1)
++ [Step 2: Choose a device pool](#how-to-create-test-run-cli-step2)
++ [Step 3: Upload your application file](#how-to-create-test-run-cli-step3)
++ [Step 4: Upload your test scripts package](#how-to-create-test-run-cli-step4)
++ [Step 5: (Optional) Upload your custom test spec](#how-to-create-test-run-cli-step5)
++ [Step 6: Schedule a test run](#how-to-create-test-run-cli-step6)
 
 ### Step 1: Choose a project
+<a name="how-to-create-test-run-cli-step1"></a>
 
 You must associate your test run with a Device Farm project.
 
-1. To list your Device Farm projects, run **list-projects**. If you do not have a
-   project, see [Creating a project in AWS Device Farm](how-to-create-project.md "how-to-create-project.md").
+1. To list your Device Farm projects, run **list-projects**. If you do not have a project, see [Creating a project in AWS Device Farm](how-to-create-project.md).
 
-Example:
+   Example:
 
-```
-aws devicefarm list-projects
-```
+   ```
+   aws devicefarm list-projects
+   ```
 
-The response includes a list of your Device Farm projects.
+   The response includes a list of your Device Farm projects.
 
-```
-`{
- "projects": [
- {
- "name": "MyProject",
- "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
- "created": 1503612890.057
- }
- ]
-}`
-```
+   ```
+   {
+       "projects": [
+           {
+               "name": "MyProject",
+               "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
+               "created": 1503612890.057
+           }
+       ]
+   }
+   ```
 
-2. Choose a project to associate with your test run, and make a note of its Amazon Resource Name
-   (ARN).
+1. Choose a project to associate with your test run, and make a note of its Amazon Resource Name (ARN).
 
 ### Step 2: Choose a device pool
+<a name="how-to-create-test-run-cli-step2"></a>
 
 You must choose a device pool to associate with your test run.
 
-1. To view your device pools, run **list-device-pools**, specifying your project
-   ARN.
+1. To view your device pools, run **list-device-pools**, specifying your project ARN.
 
-Example:
+   Example:
 
-```
-aws devicefarm list-device-pools --arn `arn:MyProjectARN`
-```
+   ```
+   aws devicefarm list-device-pools --arn {{arn:MyProjectARN}}
+   ```
 
-The response includes the built-in Device Farm device pools, such as **Top Devices**,
-and any device pools previously created for this project:
+   The response includes the built-in Device Farm device pools, such as **Top Devices**, and any device pools previously created for this project:
 
-```
-`{
- "devicePools": [
- {
- "rules": [
- {
- "attribute": "ARN",
- "operator": "IN",
- "value": "[\"arn:aws:devicefarm:us-west-2::device:example1\",\"arn:aws:devicefarm:us-west-2::device:example2\",\"arn:aws:devicefarm:us-west-2::device:example3\"]"
- }
- ],
- "type": "CURATED",
- "name": "Top Devices",
- "arn": "arn:aws:devicefarm:us-west-2::devicepool:example",
- "description": "Top devices"
- },
- {
- "rules": [
- {
- "attribute": "PLATFORM",
- "operator": "EQUALS",
- "value": "\"ANDROID\""
- }
- ],
- "type": "PRIVATE",
- "name": "MyAndroidDevices",
- "arn": "arn:aws:devicefarm:us-west-2:605403973111:devicepool:example2"
- }
- ]
-}`
-```
+   ```
+   {
+       "devicePools": [
+           {
+               "rules": [
+                   {
+                       "attribute": "ARN",
+                       "operator": "IN",
+                       "value": "[\"arn:aws:devicefarm:us-west-2::device:example1\",\"arn:aws:devicefarm:us-west-2::device:example2\",\"arn:aws:devicefarm:us-west-2::device:example3\"]"
+                   }
+               ],
+               "type": "CURATED",
+               "name": "Top Devices",
+               "arn": "arn:aws:devicefarm:us-west-2::devicepool:example",
+               "description": "Top devices"
+           },
+           {
+               "rules": [
+                   {
+                       "attribute": "PLATFORM",
+                       "operator": "EQUALS",
+                       "value": "\"ANDROID\""
+                   }
+               ],
+               "type": "PRIVATE",
+               "name": "MyAndroidDevices",
+               "arn": "arn:aws:devicefarm:us-west-2:605403973111:devicepool:example2"
+           }
+       ]
+   }
+   ```
 
-2. Choose a device pool, and make a note of its ARN.
+1. Choose a device pool, and make a note of its ARN.
 
-You can also create a device pool, and then return to this step. For more information, see
-[Create a device pool (AWS CLI)](how-to-create-device-pool.md#how-to-create-device-pool-cli "how-to-create-device-pool.md#how-to-create-device-pool-cli").
+   You can also create a device pool, and then return to this step. For more information, see [Create a device pool (AWS CLI)](how-to-create-device-pool.md#how-to-create-device-pool-cli).
 
 ### Step 3: Upload your application file
+<a name="how-to-create-test-run-cli-step3"></a>
 
-To create your upload request and get an
-Amazon Simple Storage Service
-(Amazon S3) presigned upload URL, you need:
+To create your upload request and get an Amazon Simple Storage Service (Amazon S3) presigned upload URL, you need:
++ Your project ARN.
++ The name of your app file.
++ The type of the upload.
 
-- Your project ARN.
-- The name of your app file.
-- The type of the upload.
+For more information, see [**create-upload**](https://docs.aws.amazon.com/cli/latest/reference/devicefarm/create-upload.html).
 
-For more information, see [**create-upload**](../../../cli/latest/reference/devicefarm/create-upload.md "../../../cli/latest/reference/devicefarm/create-upload.md").
+1. To upload a file, run **create-upload** with the `–-project-arn`, `--name`, and `--type` parameters.
 
-1. To upload a file, run **create-upload** with the
-   `–-project-arn`, `--name`, and
-   `--type` parameters.
+   This example creates an upload for an Android app:
 
-This example creates an upload for an Android app:
+   ```
+   aws devicefarm create-upload -–project-arn arn:MyProjectArn -–name {{MyAndroid.apk}} -–type ANDROID_APP
+   ```
 
-```
-aws devicefarm create-upload -–project-arn arn:MyProjectArn -–name `MyAndroid.apk` -–type ANDROID_APP
-```
+   The response includes your app upload ARN and a presigned URL.
 
-The response includes your app upload ARN and a presigned URL.
+   ```
+   {
+       "upload": {
+           "status": "INITIALIZED",
+           "name": "MyAndroid.apk",
+           "created": 1535732625.964,
+           "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL",
+           "type": "ANDROID_APP",
+           "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE"
+       }
+   }
+   ```
 
-```
-`{
- "upload": {
- "status": "INITIALIZED",
- "name": "MyAndroid.apk",
- "created": 1535732625.964,
- "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL",
- "type": "ANDROID_APP",
- "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE"
- }
-}`
-```
+1. Make a note of the app upload ARN and the presigned URL.
 
-2. Make a note of the app upload ARN and the presigned URL.
-3. Upload your app file using the Amazon S3 presigned URL. This example uses **curl**
-   to upload an Android .apk file:
+1. Upload your app file using the Amazon S3 presigned URL. This example uses **curl** to upload an Android .apk file:
 
-```
-curl -T MyAndroid.apk "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL"
-```
+   ```
+   curl -T MyAndroid.apk "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL"
+   ```
 
-For more information, see [Uploading objects using
-presigned URLs](../../../AmazonS3/latest/userguide/PresignedUrlUploadObject.md "../../../AmazonS3/latest/userguide/PresignedUrlUploadObject.md") in the _Amazon Simple Storage Service User Guide_. 4. To check the status of your app upload, run **get-upload** and specify the ARN
-of the app upload.
+   For more information, see [Uploading objects using presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html) in the *Amazon Simple Storage Service User Guide*.
 
-```
-aws devicefarm get-upload –-arn arn:MyAppUploadARN
-```
+1. To check the status of your app upload, run **get-upload** and specify the ARN of the app upload.
 
-Wait until the status in the response is **SUCCEEDED** before you upload your
-test scripts package.
+   ```
+   aws devicefarm get-upload –-arn arn:MyAppUploadARN
+   ```
 
-```
-`{
- "upload": {
- "status": "SUCCEEDED",
- "name": "MyAndroid.apk",
- "created": 1535732625.964,
- "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL",
- "type": "ANDROID_APP",
- "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
- "metadata": "{"valid": true}"
- }
-}`
-```
+   Wait until the status in the response is **SUCCEEDED** before you upload your test scripts package.
+
+   ```
+   {
+       "upload": {
+           "status": "SUCCEEDED",
+           "name": "MyAndroid.apk",
+           "created": 1535732625.964,
+           "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL", 
+           "type": "ANDROID_APP",
+           "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
+           "metadata": "{"valid": true}"
+       }
+   }
+   ```
 
 ### Step 4: Upload your test scripts package
+<a name="how-to-create-test-run-cli-step4"></a>
 
 Next, you upload your test scripts package.
 
-1. To create your upload request and get an Amazon S3 presigned upload URL, run
-   **create-upload** with the `–-project-arn`,
-   `--name`, and `--type` parameters.
+1. To create your upload request and get an Amazon S3 presigned upload URL, run **create-upload** with the `–-project-arn`, `--name`, and `--type` parameters.
 
-This example creates an Appium Java TestNG test package upload:
+   This example creates an Appium Java TestNG test package upload:
 
-```
-aws devicefarm create-upload –-project-arn `arn:MyProjectARN` -–name `MyTests.zip` –-type APPIUM_JAVA_TESTNG_TEST_PACKAGE
-```
+   ```
+   aws devicefarm create-upload –-project-arn {{arn:MyProjectARN}} -–name {{MyTests.zip}} –-type APPIUM_JAVA_TESTNG_TEST_PACKAGE
+   ```
 
-The response includes your test package upload ARN and a presigned URL.
+   The response includes your test package upload ARN and a presigned URL.
 
-```
-`{
- "upload": {
- "status": "INITIALIZED",
- "name": "MyTests.zip",
- "created": 1535738627.195,
- "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL",
- "type": "APPIUM_JAVA_TESTNG_TEST_PACKAGE",
- "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE"
- }
-}`
-```
+   ```
+   {
+       "upload": {
+           "status": "INITIALIZED",
+           "name": "MyTests.zip",
+           "created": 1535738627.195,
+           "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL",
+           "type": "APPIUM_JAVA_TESTNG_TEST_PACKAGE",
+           "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE"
+       }    
+   }
+   ```
 
-2. Make a note of the ARN of the test package upload and the presigned URL.
-3. Upload your test scripts package file using the Amazon S3 presigned URL. This example uses
-   **curl** to upload a zipped Appium TestNG scripts file:
+1. Make a note of the ARN of the test package upload and the presigned URL.
 
-```
-curl -T MyTests.zip "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL"
-```
+1. Upload your test scripts package file using the Amazon S3 presigned URL. This example uses **curl** to upload a zipped Appium TestNG scripts file:
 
-4. To check the status of your test scripts package upload, run **get-upload** and
-   specify the ARN of the test package upload from step 1.
+   ```
+   curl -T MyTests.zip "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL"
+   ```
 
-```
-aws devicefarm get-upload –-arn arn:MyTestsUploadARN
-```
+1. To check the status of your test scripts package upload, run **get-upload** and specify the ARN of the test package upload from step 1.
 
-Wait until the status in the response is **SUCCEEDED** before you continue to
-the next, optional step.
+   ```
+   aws devicefarm get-upload –-arn arn:MyTestsUploadARN
+   ```
 
-```
-`{
- "upload": {
- "status": "SUCCEEDED",
- "name": "MyTests.zip",
- "created": 1535738627.195,
- "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL",
- "type": "APPIUM_JAVA_TESTNG_TEST_PACKAGE",
- "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
- "metadata": "{"valid": true}"
- }
-}`
-```
+   Wait until the status in the response is **SUCCEEDED** before you continue to the next, optional step.
+
+   ```
+   {
+       "upload": {
+           "status": "SUCCEEDED",
+           "name": "MyTests.zip",
+           "created": 1535738627.195,
+           "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL", 
+           "type": "APPIUM_JAVA_TESTNG_TEST_PACKAGE",
+           "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
+           "metadata": "{"valid": true}"
+       }
+   }
+   ```
 
 ### Step 5: (Optional) Upload your custom test spec
+<a name="how-to-create-test-run-cli-step5"></a>
 
-If you're running your tests in a standard test environment, skip this
-step.
+If you're running your tests in a standard test environment, skip this step.
 
-Device Farm maintains a default test spec file for each supported test type. Next, you
-download your default test spec and use it to create a custom test spec upload for
-running your tests in a custom test environment. For more information, see [Test environments in AWS Device Farm](test-environments.md "test-environments.md").
+Device Farm maintains a default test spec file for each supported test type. Next, you download your default test spec and use it to create a custom test spec upload for running your tests in a custom test environment. For more information, see [Test environments in AWS Device Farm](test-environments.md).
 
-1. To find the upload ARN for your default test spec, run
-   **list-uploads** and specify your project ARN.
+1. To find the upload ARN for your default test spec, run **list-uploads** and specify your project ARN.
 
-```
-aws devicefarm list-uploads --arn `arn:MyProjectARN`
-```
+   ```
+   aws devicefarm list-uploads --arn {{arn:MyProjectARN}}
+   ```
 
-The response contains an entry for each default test spec:
+   The response contains an entry for each default test spec:
 
-```
-`{
- "uploads": [
- {
+   ```
+   {
+       "uploads": [
+           {
+   
+               {
+                   "status": "SUCCEEDED",
+                   "name": "Default TestSpec for Android Appium Java TestNG",
+                   "created": 1529498177.474,
+                   "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL", 
+                   "type": "APPIUM_JAVA_TESTNG_TEST_SPEC",
+                   "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE"
+               }
+           }
+       ]
+   }
+   ```
 
- {
- "status": "SUCCEEDED",
- "name": "Default TestSpec for Android Appium Java TestNG",
- "created": 1529498177.474,
- "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL",
- "type": "APPIUM_JAVA_TESTNG_TEST_SPEC",
- "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE"
- }
- }
- ]
-}`
-```
+1. Choose your default test spec from the list. Make a note of its upload ARN.
 
-2. Choose your default test spec from the list. Make a note of its upload
-   ARN.
-3. To download your default test spec, run **get-upload** and
-   specify the upload ARN.
+1. To download your default test spec, run **get-upload** and specify the upload ARN.
 
-Example:
+   Example:
 
-```
-aws devicefarm get-upload –-arn `arn:MyDefaultTestSpecARN`
-```
+   ```
+   aws devicefarm get-upload –-arn {{arn:MyDefaultTestSpecARN}}
+   ```
 
-The response contains a presigned URL where you can download your default
-test spec. 4. This example uses **curl** to download the default test
-spec and save it as `MyTestSpec.yml`:
+   The response contains a presigned URL where you can download your default test spec.
 
-```
-curl "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL" > MyTestSpec.yml
-```
+1. This example uses **curl** to download the default test spec and save it as `MyTestSpec.yml`:
 
-5. You can edit the default test spec to meet your testing requirements, and
-   then use your modified test spec in future test runs. Skip this step to use
-   the default test spec as-is in a custom test environment.
-6. To create an upload of your custom test spec, run
-   **create-upload**, specifying your test spec name, test
-   spec type, and project ARN.
+   ```
+   curl "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL" > MyTestSpec.yml
+   ```
 
-This example creates an upload for an Appium Java TestNG custom test
-spec:
+1. You can edit the default test spec to meet your testing requirements, and then use your modified test spec in future test runs. Skip this step to use the default test spec as-is in a custom test environment. 
 
-```
-aws devicefarm create-upload --name MyTestSpec.yml --type APPIUM_JAVA_TESTNG_TEST_SPEC --project-arn `arn:MyProjectARN`
-```
+1. To create an upload of your custom test spec, run **create-upload**, specifying your test spec name, test spec type, and project ARN.
 
-The response includes the test spec upload ARN and presigned URL:
+   This example creates an upload for an Appium Java TestNG custom test spec:
 
-```
-`{
- "upload": {
- "status": "INITIALIZED",
- "category": "PRIVATE",
- "name": "MyTestSpec.yml",
- "created": 1535751101.221,
- "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL",
- "type": "APPIUM_JAVA_TESTNG_TEST_SPEC",
- "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE"
- }
-}`
-```
+   ```
+   aws devicefarm create-upload --name MyTestSpec.yml --type APPIUM_JAVA_TESTNG_TEST_SPEC --project-arn {{arn:MyProjectARN}}
+   ```
 
-7. Make a note of the ARN for the test spec upload and the presigned
-   URL.
-8. Upload your test spec file using the Amazon S3 presigned URL. This example uses
-   **curl** to upload an Appium JavaTestNG test spec:
+   The response includes the test spec upload ARN and presigned URL:
 
-```
-curl -T MyTestSpec.yml "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL"
-```
+   ```
+   {
+       "upload": {
+           "status": "INITIALIZED",
+           "category": "PRIVATE",
+           "name": "MyTestSpec.yml",
+           "created": 1535751101.221,
+           "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL", 
+           "type": "APPIUM_JAVA_TESTNG_TEST_SPEC",
+           "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE"
+       }
+   }
+   ```
 
-9. To check the status of your test spec upload, run
-   **get-upload** and specify the upload ARN.
+1. Make a note of the ARN for the test spec upload and the presigned URL.
 
-```
-aws devicefarm get-upload –-arn `arn:MyTestSpecUploadARN`
-```
+1. Upload your test spec file using the Amazon S3 presigned URL. This example uses **curl** to upload an Appium JavaTestNG test spec:
 
-Wait until the status in the response is **SUCCEEDED**
-before you schedule your test run.
+   ```
+   curl -T MyTestSpec.yml "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL"
+   ```
 
-```
-`{
- "upload": {
- "status": "SUCCEEDED",
- "name": "MyTestSpec.yml",
- "created": 1535732625.964,
- "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL",
- "type": "APPIUM_JAVA_TESTNG_TEST_SPEC",
- "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
- "metadata": "{"valid": true}"
- }
-}`
-```
+1. To check the status of your test spec upload, run **get-upload** and specify the upload ARN.
 
-To update your custom test spec, run **update-upload**,
-specifying the upload ARN for the test spec. For more information, see
-[**update-upload**](../../../cli/latest/reference/devicefarm/update-upload.md "../../../cli/latest/reference/devicefarm/update-upload.md").
+   ```
+   aws devicefarm get-upload –-arn {{arn:MyTestSpecUploadARN}}
+   ```
+
+   Wait until the status in the response is **SUCCEEDED** before you schedule your test run.
+
+   ```
+   {
+       "upload": {
+           "status": "SUCCEEDED",
+           "name": "MyTestSpec.yml",
+           "created": 1535732625.964,
+           "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL", 
+           "type": "APPIUM_JAVA_TESTNG_TEST_SPEC",
+           "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
+           "metadata": "{"valid": true}"
+       }
+   }
+   ```
+
+   To update your custom test spec, run **update-upload**, specifying the upload ARN for the test spec. For more information, see [**update-upload**](https://docs.aws.amazon.com/cli/latest/reference/devicefarm/update-upload.html).
 
 ### Step 6: Schedule a test run
+<a name="how-to-create-test-run-cli-step6"></a>
 
 To schedule a test run with the AWS CLI, run **schedule-run**, specifying:
++ The project ARN from [step 1](#how-to-create-test-run-cli-step1).
++ The device pool ARN from [step 2](#how-to-create-test-run-cli-step2).
++ The app upload ARN from [step 3](#how-to-create-test-run-cli-step3).
++ The test package upload ARN from [step 4](#how-to-create-test-run-cli-step4).
 
-- The project ARN from [step 1](#how-to-create-test-run-cli-step1 "#how-to-create-test-run-cli-step1").
-- The device pool ARN from [step
-  2](#how-to-create-test-run-cli-step2 "#how-to-create-test-run-cli-step2").
-- The app upload ARN from [step 3](#how-to-create-test-run-cli-step3 "#how-to-create-test-run-cli-step3").
-- The test package upload ARN from [step
-  4](#how-to-create-test-run-cli-step4 "#how-to-create-test-run-cli-step4").
+ If you are running tests in a custom test environment, you also need your test spec ARN from [step 5](#how-to-create-test-run-cli-step5).
 
-If you are running tests in a custom test environment, you also need your test spec ARN from [step 5](#how-to-create-test-run-cli-step5 "#how-to-create-test-run-cli-step5").
+**To schedule a run in a standard test environment**
++ Run **schedule-run**, specifying your project ARN, device pool ARN, application upload ARN, and test package information.
 
-###### To schedule a run in a standard test environment
+  Example:
 
-- Run **schedule-run**, specifying your project ARN, device pool ARN, application
-  upload ARN, and test package information.
+  ```
+  aws devicefarm schedule-run --project-arn {{arn:MyProjectARN}} --app-arn {{arn:MyAppUploadARN}} --device-pool-arn {{arn:MyDevicePoolARN}} --name {{MyTestRun}} --test type=APPIUM_JAVA_TESTNG,testPackageArn={{arn:MyTestPackageARN}}
+  ```
 
-Example:
+  The response contains a run ARN that you can use to check the status of your test run.
 
-```
-aws devicefarm schedule-run --project-arn `arn:MyProjectARN` --app-arn `arn:MyAppUploadARN` --device-pool-arn `arn:MyDevicePoolARN` --name `MyTestRun` --test type=APPIUM_JAVA_TESTNG,testPackageArn=`arn:MyTestPackageARN`
+  ```
+  {
+      "run": {
+          "status": "SCHEDULING",
+          "appUpload": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345appEXAMPLE",
+          "name": "MyTestRun",
+          "radios": {
+              "gps": true,
+              "wifi": true,
+              "nfc": true,
+              "bluetooth": true
+          },
+          "created": 1535756712.946,
+          "totalJobs": 179,
+          "completedJobs": 0,
+          "platform": "ANDROID_APP",
+          "result": "PENDING",
+          "devicePoolArn": "arn:aws:devicefarm:us-west-2:123456789101:devicepool:5e01a8c7-c861-4c0a-b1d5-12345devicepoolEXAMPLE",
+          "jobTimeoutMinutes": 150,
+          "billingMethod": "METERED",
+          "type": "APPIUM_JAVA_TESTNG",
+          "testSpecArn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345specEXAMPLE",
+          "arn": "arn:aws:devicefarm:us-west-2:123456789101:run:5e01a8c7-c861-4c0a-b1d5-12345runEXAMPLE",
+          "counters": {
+              "skipped": 0,
+              "warned": 0,
+              "failed": 0,
+              "stopped": 0,
+              "passed": 0,
+              "errored": 0,
+              "total": 0
+          }
+      }
+  }
+  ```
 
-```
+  For more information, see [**schedule-run**](https://docs.aws.amazon.com/cli/latest/reference/devicefarm/schedule-run.html).
 
-The response contains a run ARN that you can use to check the status of your test run.
+**To schedule a run in a custom test environment**
++ The steps are the almost the same as those for the standard test environment, with an additional `testSpecArn` attribute in the `--test` parameter.
 
-```
-`{
- "run": {
- "status": "SCHEDULING",
- "appUpload": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345appEXAMPLE",
- "name": "MyTestRun",
- "radios": {
- "gps": true,
- "wifi": true,
- "nfc": true,
- "bluetooth": true
- },
- "created": 1535756712.946,
- "totalJobs": 179,
- "completedJobs": 0,
- "platform": "ANDROID_APP",
- "result": "PENDING",
- "devicePoolArn": "arn:aws:devicefarm:us-west-2:123456789101:devicepool:5e01a8c7-c861-4c0a-b1d5-12345devicepoolEXAMPLE",
- "jobTimeoutMinutes": 150,
- "billingMethod": "METERED",
- "type": "APPIUM_JAVA_TESTNG",
- "testSpecArn": "arn:aws:devicefarm:us-west-2:123456789101:upload:5e01a8c7-c861-4c0a-b1d5-12345specEXAMPLE",
- "arn": "arn:aws:devicefarm:us-west-2:123456789101:run:5e01a8c7-c861-4c0a-b1d5-12345runEXAMPLE",
- "counters": {
- "skipped": 0,
- "warned": 0,
- "failed": 0,
- "stopped": 0,
- "passed": 0,
- "errored": 0,
- "total": 0
- }
- }
-}`
-```
+  Example:
 
-For more information, see [**schedule-run**](../../../cli/latest/reference/devicefarm/schedule-run.md "../../../cli/latest/reference/devicefarm/schedule-run.md").
+  ```
+  aws devicefarm schedule-run --project-arn {{arn:MyProjectARN}} --app-arn {{arn:MyAppUploadARN}} --device-pool-arn {{arn:MyDevicePoolARN}} --name {{MyTestRun}} --test testSpecArn={{arn:MyTestSpecUploadARN}},type={{APPIUM_JAVA_TESTNG}},testPackageArn={{arn:MyTestPackageARN}}
+  ```
 
-###### To schedule a run in a custom test environment
+**To check the status of your test run**
++ Use the **get-run** command and specify the run ARN:
 
-- The steps are the almost the same as those for the standard test environment, with an
-  additional `testSpecArn` attribute in the `--test`
-  parameter.
+  ```
+  aws devicefarm get-run --arn arn:aws:devicefarm:us-west-2:111122223333:run:5e01a8c7-c861-4c0a-b1d5-12345runEXAMPLE
+  ```
 
-Example:
-
-```
-aws devicefarm schedule-run --project-arn `arn:MyProjectARN` --app-arn `arn:MyAppUploadARN` --device-pool-arn `arn:MyDevicePoolARN` --name `MyTestRun` --test testSpecArn=`arn:MyTestSpecUploadARN`,type=`APPIUM_JAVA_TESTNG`,testPackageArn=`arn:MyTestPackageARN`
-```
-
-###### To check the status of your test run
-
-- Use the **get-run** command and specify the run ARN:
-
-```
-aws devicefarm get-run --arn arn:aws:devicefarm:us-west-2:111122223333:run:5e01a8c7-c861-4c0a-b1d5-12345runEXAMPLE
-```
-
-For more information, see [**get-run**](../../../cli/latest/reference/devicefarm/get-run.md "../../../cli/latest/reference/devicefarm/get-run.md"). For information about using Device Farm with the AWS CLI, see [AWS CLI reference](cli-ref.md "cli-ref.md").
+For more information, see [**get-run**](https://docs.aws.amazon.com/cli/latest/reference/devicefarm/get-run.html). For information about using Device Farm with the AWS CLI, see [AWS CLI reference](cli-ref.md).
 
 ## Create a test run (API)
+<a name="how-to-create-test-run-api"></a>
 
-The steps are the same as those described in the AWS CLI section. See [Create a test run (AWS CLI)](#how-to-create-test-run-cli "#how-to-create-test-run-cli").
+The steps are the same as those described in the AWS CLI section. See [Create a test run (AWS CLI)](#how-to-create-test-run-cli).
 
-You need this information to call the [`ScheduleRun`](../APIReference/API_ScheduleRun.md "../APIReference/API_ScheduleRun.md") API:
+You need this information to call the [`ScheduleRun`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ScheduleRun.html) API:
++ A project ARN. See [Create a project (API)](how-to-create-project.md#how-to-create-project-api) and [`CreateProject`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateProject.html).
++ An application upload ARN. See [`CreateUpload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html).
++ A test package upload ARN. See [`CreateUpload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html).
++ A device pool ARN. See [Creating a device pool](how-to-create-device-pool.md) and [`CreateDevicePool`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateDevicePool.html).
 
-- A project ARN. See [Create a project (API)](how-to-create-project.md#how-to-create-project-api "how-to-create-project.md#how-to-create-project-api") and [`CreateProject`](../APIReference/API_CreateProject.md "../APIReference/API_CreateProject.md").
-- An application upload ARN. See [`CreateUpload`](../APIReference/API_CreateUpload.md "../APIReference/API_CreateUpload.md").
-- A test package upload ARN. See [`CreateUpload`](../APIReference/API_CreateUpload.md "../APIReference/API_CreateUpload.md").
-- A device pool ARN. See [Creating a device pool](how-to-create-device-pool.md "how-to-create-device-pool.md") and [`CreateDevicePool`](../APIReference/API_CreateDevicePool.md "../APIReference/API_CreateDevicePool.md").
+**Note**  
+If you're running tests in a custom test environment, you also need your test spec upload ARN. For more information, see [Step 5: (Optional) Upload your custom test spec](#how-to-create-test-run-cli-step5) and [`CreateUpload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html).
 
-###### Note
-
-If you're running tests in a custom test environment, you also need your test spec upload ARN. For
-more information, see [Step 5: (Optional) Upload your custom test spec](#how-to-create-test-run-cli-step5 "#how-to-create-test-run-cli-step5") and [`CreateUpload`](../APIReference/API_CreateUpload.md "../APIReference/API_CreateUpload.md").
-
-For information about using the Device Farm API, see [Automating Device Farm](api-ref.md "api-ref.md").
+For information about using the Device Farm API, see [Automating Device Farm](api-ref.md).
 
 ## Next steps
+<a name="how-to-create-test-run-console-next-steps"></a>
 
-In the Device Farm console, the clock icon
-![Device Farm scheduled a job.](images/df-run-calendar.png)
-changes to a result icon such as
-success
-![The test succeeded.](images/df-run-success.png)
-when the run is complete. A report for the run appears as soon as
-tests are complete. For more information, see [Reports in AWS Device Farm](reports.md "reports.md").
+In the Device Farm console, the clock icon ![Device Farm scheduled a job.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-calendar.png) changes to a result icon such as success ![The test succeeded.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-success.png) when the run is complete. A report for the run appears as soon as tests are complete. For more information, see [Reports in AWS Device Farm](reports.md).
 
-To use the report, follow the instructions in [Viewing test reports in Device Farm](how-to-use-reports.md "how-to-use-reports.md").
+To use the report, follow the instructions in [Viewing test reports in Device Farm](how-to-use-reports.md).

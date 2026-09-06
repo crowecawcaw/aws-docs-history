@@ -1,26 +1,25 @@
-# Test spec reference and syntax
 
-The test spec (test specification) is a file that you use to define custom test environments
-in Device Farm.
+
+# Test spec reference and syntax
+<a name="custom-test-environment-test-spec"></a>
+
+ The test spec (test specification) is a file that you use to define custom test environments in Device Farm. 
 
 ## Test spec workflow
+<a name="custom-test-environment-test-spec-workflow"></a>
 
-The Device Farm test spec executes phases and their commands in a pre-determined order, letting
-you customize the way your environment is prepared and executed. When each phase is
-executed, its commands are run in the order listed within the test spec file. Phases are
-executed in the following sequence
+ The Device Farm test spec executes phases and their commands in a pre-determined order, letting you customize the way your environment is prepared and executed. When each phase is executed, its commands are run in the order listed within the test spec file. Phases are executed in the following sequence 
 
-1. `install` - This is where actions like downloading, installing, and setting
-   up tooling should be defined.
-2. `pre_test` - This is where pre-test actions like starting background
-   processes should be defined.
-3. `test` - This is where the command that invokes your test should be
-   defined.
-4. `post_test` - This is where any final tasks that need to be run after your
-   test concludes should be defined, such as test report generation and artifact file
-   aggregation.
+1. `install` - This is where actions like downloading, installing, and setting up tooling should be defined.
+
+1. `pre_test` - This is where pre-test actions like starting background processes should be defined.
+
+1. `test` - This is where the command that invokes your test should be defined.
+
+1. `post_test` - This is where any final tasks that need to be run after your test concludes should be defined, such as test report generation and artifact file aggregation.
 
 ## Test spec syntax
+<a name="custom-test-environment-test-spec-syntax"></a>
 
 The following is the YAML schema for a test spec file
 
@@ -53,82 +52,51 @@ artifacts:
     - "string"
 ```
 
-**`version`**
+** `version` **  
+ *(Required, number)*   
+ Reflects the Device Farm supported test spec version. The current version number is ` 0.1`. 
 
-_(Required, number)_
+** `android_test_host` **  
+ *(Optional, string)*   
+ The test host that will be selected for test runs performed on Android devices. This field is required for test runs on Android devices. For more information, see [Available test hosts for custom test environments](custom-test-environments-hosts.md#custom-test-environments-hosts-available). 
 
-Reflects the Device Farm supported test spec version. The current version number is `0.1`.
+** `ios_test_host` **  
+ *(Optional, string)*   
+ The test host that will be selected for test runs performed on iOS devices. This field is required for test runs on iOS devices with a major version greater than 26. For more information, see [Available test hosts for custom test environments](custom-test-environments-hosts.md#custom-test-environments-hosts-available). 
 
-**`android_test_host`**
+** `phases` **  
+This section contains groups of commands executed during a test run, where each phase is optional The allowed test phase names are: `install`, `pre_test` , `test`, and `post_test`.  
++ `install` - Default dependencies for testing frameworks supported by Device Farm are already installed. This phase contains additional commands, if any, that Device Farm runs during installation.
++ `pre_test` - The commands, if any, executed before your automated test.
++ `test` - The commands executed during your automated test run. If any command in the test phase fails (meaning it returns a non-zero exit code), the test is marked as failed
++ `post_test` - The commands, if any, executed after your automated test run. This will be executed whether or not your test in the `test` phase succeeds or fails.  
+** `commands` **  
+ *(Optional, List[string])*   
+ A list of strings to execute as a shell command during the phase. 
 
-_(Optional, string)_
+** `artifacts` **  
+ *(Optional, List[string])*   
+ Device Farm gathers artifacts such as custom reports, log files, and images from a location specified here. Wildcard characters are not supported as part of an artifact location, so you must specify a valid path for each location.   
+These test artifacts are available for each device in your test run. For information about retrieving your test artifacts, see [Downloading artifacts in a custom test environment](using-artifacts-custom.md).
 
-The test host that will be selected for test runs performed on Android devices.
-This field is required for test runs on Android devices. For more information, see [Available test hosts for custom test environments](custom-test-environments-hosts.md#custom-test-environments-hosts-available "custom-test-environments-hosts.md#custom-test-environments-hosts-available").
-
-**`ios_test_host`**
-
-_(Optional, string)_
-
-The test host that will be selected for test runs performed on iOS devices. This
-field is required for test runs on iOS devices with a major version greater than 26. For
-more information, see [Available test hosts for custom test environments](custom-test-environments-hosts.md#custom-test-environments-hosts-available "custom-test-environments-hosts.md#custom-test-environments-hosts-available").
-
-**`phases`**
-
-This section contains groups of commands executed during a test run, where each
-phase is optional The allowed test phase names are: `install`, `pre_test`
-, `test`, and `post_test`.
-
-- `install` - Default dependencies for testing frameworks supported by
-  Device Farm are already installed. This phase contains additional commands, if any,
-  that Device Farm runs during installation.
-- `pre_test` - The commands, if any, executed before your automated
-  test.
-- `test` - The commands executed during your automated test run. If any
-  command in the test phase fails (meaning it returns a non-zero exit code), the test
-  is marked as failed
-- `post_test` - The commands, if any, executed after your automated
-  test run. This will be executed whether or not your test in the `test`
-  phase succeeds or fails.
-
-**`commands`**
-
-_(Optional, List[string])_
-
-A list of strings to execute as a shell command during the phase.
-
-**`artifacts`**
-
-_(Optional, List[string])_
-
-Device Farm gathers artifacts such as custom reports, log files, and images from a location
-specified here. Wildcard characters are not supported as part of an artifact location,
-so you must specify a valid path for each location.
-
-These test artifacts are available for each device in your test run. For information
-about retrieving your test artifacts, see [Downloading artifacts in a custom test environment](using-artifacts-custom.md "using-artifacts-custom.md").
-
-###### Important
-
-A test spec must be formatted as a valid YAML file. If the indenting or spacing in your
-test spec are invalid, your test run can fail. Tabs are not allowed in YAML files. You can
-use a YAML validator to test whether your test spec is a valid YAML file. For more
-information, see the [YAML website](http://yaml.org/spec/1.2/spec.html "http://yaml.org/spec/1.2/spec.html").
+**Important**  
+A test spec must be formatted as a valid YAML file. If the indenting or spacing in your test spec are invalid, your test run can fail. Tabs are not allowed in YAML files. You can use a YAML validator to test whether your test spec is a valid YAML file. For more information, see the [YAML website](http://yaml.org/spec/1.2/spec.html).
 
 ## Test spec examples
+<a name="custom-test-environment-test-spec-example"></a>
 
-The following examples show test specs that can be executed on Device Farm.
+ The following examples show test specs that can be executed on Device Farm. 
 
-Simple Demo
-The following is an example test spec file that simply logs `Hello world!`
-as a test run artifact.
+------
+#### [ Simple Demo ]
+
+ The following is an example test spec file that simply logs `Hello world!` as a test run artifact. 
 
 ```
 version: 0.1
 
 # The following field(s) allow you to select which Device Farm test host is used for your test run.
-android_test_host: `amazon_linux_2`
+android_test_host: {{amazon_linux_2}}
 
 # Let Device Farm automatically select the iOS test host based on the device's iOS version.
 ios_test_host: default
@@ -162,23 +130,23 @@ artifacts:
   - $DEVICEFARM_LOG_DIR
 ```
 
-Appium Android
+------
+#### [  Appium Android  ]
 
-The following is an example test spec file that configures an Appium Java TestNG
-test run on Android..
+ The following is an example test spec file that configures an Appium Java TestNG test run on Android.. 
 
 ```
 version: 0.1
 
-# The following fields(s) allow you to select which Device Farm test host is used for your test run.
-android_test_host: `amazon_linux_2`
+# The following fields(s) allow you to select which Device Farm test host is used for your test run. 
+android_test_host: {{amazon_linux_2}}
 
 phases:
 
   # The install phase contains commands for installing dependencies to run your tests.
-  # Certain frequently used dependencies are preinstalled on the test host to accelerate and
-  # simplify your test setup. To find these dependencies, versions supported and additional
-  # software installation please see:
+  # Certain frequently used dependencies are preinstalled on the test host to accelerate and 
+  # simplify your test setup. To find these dependencies, versions supported and additional 
+  # software installation please see: 
   # https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environments-hosts-software.html
   install:
     commands:
@@ -268,7 +236,7 @@ phases:
         java -Dappium.screenshots.dir=$DEVICEFARM_SCREENSHOT_PATH org.testng.TestNG -testjar *-tests.jar \
           -d $DEVICEFARM_LOG_DIR/test-output -verbose 10
 
-      # To run your tests with a testng.xml file that is a part of your test package,
+      # To run your tests with a testng.xml file that is a part of your test package, 
       # use the following commands instead:
 
       # - echo "Unzipping the tests JAR file"
@@ -290,26 +258,25 @@ phases:
 artifacts:
   # By default, Device Farm will collect your artifacts from the $DEVICEFARM_LOG_DIR directory.
   - $DEVICEFARM_LOG_DIR
-
 ```
 
-Appium iOS
+------
+#### [  Appium iOS  ]
 
-The following is an example test spec file that configures an Appium Java TestNG test
-run on iOS.
+ The following is an example test spec file that configures an Appium Java TestNG test run on iOS. 
 
 ```
 version: 0.1
 
-# The following fields(s) allow you to select which Device Farm test host is used for your test run.
-ios_test_host: `macos_tahoe`
+# The following fields(s) allow you to select which Device Farm test host is used for your test run. 
+ios_test_host: {{macos_tahoe}}
 
 phases:
 
   # The install phase contains commands for installing dependencies to run your tests.
-  # Certain frequently used dependencies are preinstalled on the test host to accelerate and
-  # simplify your test setup. To find these dependencies, versions supported and additional
-  # software installation please see:
+  # Certain frequently used dependencies are preinstalled on the test host to accelerate and 
+  # simplify your test setup. To find these dependencies, versions supported and additional 
+  # software installation please see: 
   # https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environments-hosts-software.html
   install:
     commands:
@@ -327,7 +294,7 @@ phases:
       # select a specific version of Appium, you can use NPM to install it.
       # - npm install -g appium@3.3.0
 
-      # When running iOS tests with Appium version 3, the XCUITest driver version 10 is pre-installed.
+      # When running iOS tests with Appium version 3, the XCUITest driver version 10 is pre-installed. 
       # If you want to install a different version of the driver,
       # you can use the Appium extension CLI to uninstall the existing XCUITest driver
       # and install your desired version:
@@ -354,9 +321,9 @@ phases:
       - export CLASSPATH=$CLASSPATH:$DEVICEFARM_TEST_PACKAGE_PATH/*
       - export CLASSPATH=$CLASSPATH:$DEVICEFARM_TEST_PACKAGE_PATH/dependency-jars/*
 
-      # Device Farm provides multiple pre-built versions of WebDriverAgent (WDA), a required
-      # Appium dependency for iOS, where each version corresponds to a version of the XCUITest driver.
-      # If Device Farm cannot find a corresponding version of WDA for your XCUITest driver,
+      # Device Farm provides multiple pre-built versions of WebDriverAgent (WDA), a required 
+      # Appium dependency for iOS, where each version corresponds to a version of the XCUITest driver. 
+      # If Device Farm cannot find a corresponding version of WDA for your XCUITest driver, 
       # the latest available version is selected by default.
       - |-
         APPIUM_DRIVER_VERSION=$(appium driver list --installed --json | jq -r ".xcuitest.version" | cut -d "." -f 1);
@@ -426,7 +393,7 @@ phases:
         java -Dappium.screenshots.dir=$DEVICEFARM_SCREENSHOT_PATH org.testng.TestNG -testjar *-tests.jar \
           -d $DEVICEFARM_LOG_DIR/test-output -verbose 10
 
-      # To run your tests with a testng.xml file that is a part of your test package,
+      # To run your tests with a testng.xml file that is a part of your test package, 
       # use the following commands instead:
 
       # - echo "Unzipping the tests JAR file"
@@ -450,24 +417,24 @@ artifacts:
   - $DEVICEFARM_LOG_DIR
 ```
 
-Appium (Both Platforms)
+------
+#### [ Appium (Both Platforms) ]
 
-The following is an example test spec file that configures an Appium Java TestNG test
-run on both Android and iOS.
+ The following is an example test spec file that configures an Appium Java TestNG test run on both Android and iOS. 
 
 ```
 version: 0.1
 
-# The following fields(s) allow you to select which Device Farm test host is used for your test run.
-android_test_host: `amazon_linux_2`
-ios_test_host: `macos_tahoe`
+# The following fields(s) allow you to select which Device Farm test host is used for your test run. 
+android_test_host: {{amazon_linux_2}}
+ios_test_host: {{macos_tahoe}}
 
 phases:
 
   # The install phase contains commands for installing dependencies to run your tests.
-  # Certain frequently used dependencies are preinstalled on the test host to accelerate and
-  # simplify your test setup. To find these dependencies, versions supported and additional
-  # software installation please see:
+  # Certain frequently used dependencies are preinstalled on the test host to accelerate and 
+  # simplify your test setup. To find these dependencies, versions supported and additional 
+  # software installation please see: 
   # https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environments-hosts-software.html
   install:
     commands:
@@ -497,7 +464,7 @@ phases:
       #     appium driver install uiautomator2@7.1.2;
       #   fi;
 
-      # When running iOS tests with Appium version 3, the XCUITest driver version 10 is pre-installed.
+      # When running iOS tests with Appium version 3, the XCUITest driver version 10 is pre-installed. 
       # If you want to install a different version of the driver,
       # you can use the Appium extension CLI to uninstall the existing XCUITest driver
       # and install your desired version:
@@ -525,8 +492,8 @@ phases:
       - export CLASSPATH=$CLASSPATH:$DEVICEFARM_TEST_PACKAGE_PATH/dependency-jars/*
 
       # Device Farm provides different pre-built versions of WebDriverAgent (WDA), an essential Appium
-      # dependency for iOS devices, and each version is suggested for its corresponding version of
-      # XCUITest driver. If Device Farm cannot find a corresponding version of WDA for your XCUITest
+      # dependency for iOS devices, and each version is suggested for its corresponding version of 
+      # XCUITest driver. If Device Farm cannot find a corresponding version of WDA for your XCUITest 
       # driver, the latest available version is selected by default.
       - |-
         if [ $DEVICEFARM_DEVICE_PLATFORM_NAME = "iOS" ]; then
@@ -638,3 +605,5 @@ artifacts:
   # By default, Device Farm will collect your artifacts from the $DEVICEFARM_LOG_DIR directory.
   - $DEVICEFARM_LOG_DIR
 ```
+
+------

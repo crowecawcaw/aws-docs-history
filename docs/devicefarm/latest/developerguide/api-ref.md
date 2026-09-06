@@ -1,109 +1,112 @@
+
+
 # Automating AWS Device Farm
+<a name="api-ref"></a>
 
-Programmatic access to Device Farm is a powerful way to automate the common tasks that you need to accomplish, such
-as scheduling a run or downloading the artifacts for a run, suite, or test. The AWS SDK and AWS CLI provide
-means to do so.
+ Programmatic access to Device Farm is a powerful way to automate the common tasks that you need to accomplish, such as scheduling a run or downloading the artifacts for a run, suite, or test. The AWS SDK and AWS CLI provide means to do so. 
 
-The AWS SDK provides access to every AWS service, including Device Farm, Amazon S3, and more. For more information,
-see
-
-- the [AWS tools and SDKs](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/")
-- the [AWS Device Farm API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md")
+ The AWS SDK provides access to every AWS service, including Device Farm, Amazon S3, and more. For more information, see
++ the [AWS tools and SDKs](https://aws.amazon.com/tools/)
++ the [AWS Device Farm API Reference](https://docs.aws.amazon.com/devicefarm/latest/APIReference/Welcome.html)
 
 ## Example: Using the AWS CLI or SDK to upload an app or test to Device Farm
+<a name="upload-example"></a>
 
 The following examples show how to create an upload on Device Farm using the AWS CLI or using the AWS SDK in various languages. Uploads are the core building blocks for scheduling test runs on Device Farm, and include the following:
++ Your app
++ Your test
++ Your [test spec file](custom-test-environment-test-spec.md)
 
-- Your app
-- Your test
-- Your [test spec file](custom-test-environment-test-spec.md "custom-test-environment-test-spec.md")
+Uploads are created using the [`CreateUpload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html) API. This API returns an S3 presigned URL that you can push your upload to using an HTTP PUT request. The URL expires after 24 hours.
 
-Uploads are created using the [`CreateUpload`](../APIReference/API_CreateUpload.md "../APIReference/API_CreateUpload.md") API. This API returns an S3 presigned URL that you can push your upload to using an HTTP PUT request. The URL expires after 24 hours.
+------
+#### [ AWS CLI ]
 
-AWS CLI
-_Note: this example uses the [command-line tool `curl`](https://curl.se/ "https://curl.se/") to push the app to Device Farm._
+*Note: this example uses the [command-line tool `curl`](https://curl.se/) to push the app to Device Farm.*
 
 First, create a project if you haven't already done so.
 
 ```
-`$` `aws devicefarm create-project --name MyProjectName`
+$ aws devicefarm create-project --name MyProjectName
 ```
 
 This will show output such as the following:
 
 ```
-`{
- "project": {
- "name": "MyProjectName",
- "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
- "created": 1535675814.414
- }
-}`
+{
+    "project": {
+        "name": "MyProjectName",
+        "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
+        "created": 1535675814.414
+    }
+}
 ```
 
-Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](../APIReference/API_Upload.md "../APIReference/API_Upload.md").
+Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_Upload.html).
 
 ```
-`$` `export APP_PATH="/local/path/to/my_sample_app.apk"`
-`$` `export APP_TYPE="ANDROID_APP"`
+$ export APP_PATH="/local/path/to/my_sample_app.apk"
+$ export APP_TYPE="ANDROID_APP"
 ```
 
 First, we create the upload in Device Farm:
 
 ```
-`$` `aws devicefarm create-upload \
- --project-arn "arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE" \
- --name "$(basename "$APP_PATH")" \
- --type "$APP_TYPE"`
+$ aws devicefarm create-upload \
+  --project-arn "arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE" \
+  --name "$(basename "$APP_PATH")" \
+  --type "$APP_TYPE"
 ```
 
 This will show output such as the following:
 
 ```
-`{
- "upload": {
- "arn": "arn:aws:devicefarm:us-west-2:385076942068:upload:490a6350-0ba3-43e5-83f5-d2896b069a34/a120e848-c57b-4e8d-a720-d750a0c4d936",
- "name": "my_sample_app.apk",
- "created": 1760747318.266,
- "type": "ANDROID_APP",
- "status": "INITIALIZED",
- "url": "https://prod-us-west-2-uploads.s3.dualstack.us-west-2.amazonaws.com/arn%3Aaws%3Adevicefarm%3Aus-west-2...",
- "category": "PRIVATE"
- }
-}`
+{
+    "upload": {
+        "arn": "arn:aws:devicefarm:us-west-2:385076942068:upload:490a6350-0ba3-43e5-83f5-d2896b069a34/a120e848-c57b-4e8d-a720-d750a0c4d936",
+        "name": "my_sample_app.apk",
+        "created": 1760747318.266,
+        "type": "ANDROID_APP",
+        "status": "INITIALIZED",
+        "url": "https://prod-us-west-2-uploads.s3.dualstack.us-west-2.amazonaws.com/arn%3Aaws%3Adevicefarm%3Aus-west-2...",
+        "category": "PRIVATE"
+    }
+}
 ```
 
 Then, do a PUT call using curl to push the app to Device Farm's S3 bucket:
 
 ```
-`$` `curl -T "$APP_PATH" "https://prod-us-west-2-uploads.s3.dualstack.us-west-2.amazonaws.com/arn%3Aaws%3Adevicefarm%3Aus-west-2..."`
+$ curl -T "$APP_PATH" "https://prod-us-west-2-uploads.s3.dualstack.us-west-2.amazonaws.com/arn%3Aaws%3Adevicefarm%3Aus-west-2..."
 ```
 
 Finally, wait for the app to be in "succeeded" status:
 
 ```
-`$` `aws devicefarm get-upload --arn "arn:aws:devicefarm:us-west-2:385076942068:upload:490a6350-0ba3-43e5-83f5-d2896b069a34/a120e848-c57b-4e8d-a720-d750a0c4d936"`
+$ aws devicefarm get-upload --arn "arn:aws:devicefarm:us-west-2:385076942068:upload:490a6350-0ba3-43e5-83f5-d2896b069a34/a120e848-c57b-4e8d-a720-d750a0c4d936"
 ```
 
 This will show output such as the following:
 
 ```
-`{
- "upload": {
- "arn": "arn:aws:devicefarm:us-west-2:385076942068:upload:490a6350-0ba3-43e5-83f5-d2896b069a34/a120e848-c57b-4e8d-a720-d750a0c4d936",
- "name": "my_sample_app.apk",
- "created": 1760747318.266,
- "type": "ANDROID_APP",
- "status": "SUCCEEDED",
- "url": "https://prod-us-west-2-uploads.s3.dualstack.us-west-2.amazonaws.com/arn%3Aaws%3Adevicefarm%3Aus-west-2...",
- "metadata": "{\"activity_name\":\"com.amazonaws.devicefarm.android.referenceapp.Activities.MainActivity\",\"package_name\":\"com.amazonaws.devicefarm.android.referenceapp\",...}",
- "category": "PRIVATE"
- }
-}`
+{
+    "upload": {
+        "arn": "arn:aws:devicefarm:us-west-2:385076942068:upload:490a6350-0ba3-43e5-83f5-d2896b069a34/a120e848-c57b-4e8d-a720-d750a0c4d936",
+        "name": "my_sample_app.apk",
+        "created": 1760747318.266,
+        "type": "ANDROID_APP",
+        "status": "SUCCEEDED",
+        "url": "https://prod-us-west-2-uploads.s3.dualstack.us-west-2.amazonaws.com/arn%3Aaws%3Adevicefarm%3Aus-west-2...",
+        "metadata": "{\"activity_name\":\"com.amazonaws.devicefarm.android.referenceapp.Activities.MainActivity\",\"package_name\":\"com.amazonaws.devicefarm.android.referenceapp\",...}",
+        "category": "PRIVATE"
+    }
+}
 ```
 
-Python
-_Note: this example uses the third-party `requests` package to push the app to Device Farm, as well as the AWS SDK for Python `boto3`._
+------
+#### [ Python ]
+
+*Note: this example uses the third-party `requests` package to push the app to Device Farm, as well as the AWS SDK for Python `boto3`.*
 
 First, create a project if you haven't already done so.
 
@@ -122,10 +125,9 @@ print(resp)
 #         "created": 1535675814.414
 #     }
 # }
-
 ```
 
-Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](../APIReference/API_Upload.md "../APIReference/API_Upload.md").
+Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_Upload.html).
 
 ```
 import os
@@ -183,15 +185,16 @@ def upload_device_farm_file():
 
         if (time.time() - start) > timeout_seconds:
             raise RuntimeError(f"Timed out after {timeout_seconds}s waiting for upload to process (last status={status}).")
-
+        
         time.sleep(1)
-
+        
 upload_device_farm_file()
-
 ```
 
-Java
-_Note: this example uses the AWS SDK for Java v2 and `HttpClient` to push the app to Device Farm, and is compatible with JDK versions 11 and higher._
+------
+#### [ Java ]
+
+*Note: this example uses the AWS SDK for Java v2 and `HttpClient` to push the app to Device Farm, and is compatible with JDK versions 11 and higher.*
 
 First, create a project if you haven't already done so.
 
@@ -210,10 +213,9 @@ try (DeviceFarmClient client = DeviceFarmClient.builder()
     // Response will be something like:
     // Project{name=MyProjectName, arn=arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-..., created=...}
 }
-
 ```
 
-Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](../APIReference/API_Upload.md "../APIReference/API_Upload.md").
+Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_Upload.html).
 
 ```
 import java.io.IOException;
@@ -314,11 +316,12 @@ public class DeviceFarmUploader {
         System.out.println("Upload ARN: " + result);
     }
 }
-
 ```
 
-JavaScript
-_Note: this example uses AWS SDK for JavaScript (v3) and Node 18+ `fetch` to push the app to Device Farm._
+------
+#### [ JavaScript ]
+
+*Note: this example uses AWS SDK for JavaScript (v3) and Node 18\+ `fetch` to push the app to Device Farm.*
 
 First, create a project if you haven't already done so.
 
@@ -330,10 +333,9 @@ const resp = await df.send(new CreateProjectCommand({ name: "MyProjectName" }));
 console.log(resp);
 // Response will be something like:
 // { project: { name: 'MyProjectName', arn: 'arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-...', created: 1535675814.414 } }
-
 ```
 
-Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](../APIReference/API_Upload.md "../APIReference/API_Upload.md").
+Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_Upload.html).
 
 ```
 import { DeviceFarmClient, CreateUploadCommand, GetUploadCommand } from "@aws-sdk/client-device-farm";
@@ -386,11 +388,12 @@ while (true) {
   if (Date.now() > deadline) throw new Error(`Timeout waiting for processing (last status=${status})`);
   await new Promise(r => setTimeout(r, 2000));
 }
-
 ```
 
-C#
-_Note: this example uses the AWS SDK for .NET and `HttpClient` to push the app to Device Farm._
+------
+#### [ C\# ]
+
+*Note: this example uses the AWS SDK for .NET and `HttpClient` to push the app to Device Farm.*
 
 First, create a project if you haven't already done so.
 
@@ -405,10 +408,9 @@ var resp = await client.CreateProjectAsync(new CreateProjectRequest { Name = "My
 Console.WriteLine(resp.Project);
 // Response will be something like:
 // { Name = MyProjectName, Arn = arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-..., Created = ... }
-
 ```
 
-Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](../APIReference/API_Upload.md "../APIReference/API_Upload.md").
+Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_Upload.html).
 
 ```
 using System;
@@ -478,11 +480,12 @@ class DeviceFarmUploader
         Console.WriteLine("Upload ARN: " + result);
     }
 }
-
 ```
 
-Ruby
-_Note: this example uses the AWS SDK for Ruby and `Net::HTTP` to push the app to Device Farm._
+------
+#### [ Ruby ]
+
+*Note: this example uses the AWS SDK for Ruby and `Net::HTTP` to push the app to Device Farm.*
 
 First, create a project if you haven't already done so.
 
@@ -494,10 +497,9 @@ resp = client.create_project(name: "MyProjectName")
 puts resp.project.inspect
 # Response will be something like:
 # #<struct Aws::DeviceFarm::Types::Project name="MyProjectName", arn="arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-...", created=1535675814.414>
-
 ```
 
-Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](../APIReference/API_Upload.md "../APIReference/API_Upload.md").
+Then, do the following to create your upload and push it to Device Farm. In this example, we'll be creating an Android app upload using a local APK file. For more upload type information, including details about iOS app upload types, please see our API documentation for creating an [`Upload`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_Upload.html).
 
 ```
 require "aws-sdk-devicefarm"
@@ -550,17 +552,17 @@ loop do
   raise "Timeout waiting for processing (last status=#{status})" if Time.now > deadline
   sleep 2
 end
-
 ```
 
+------
+
 ## Example: Using the AWS SDK to start a Device Farm run and collect artifacts
+<a name="automation-example"></a>
 
-The following example provides a beginning-to-end demonstration of how you can use the AWS SDK to work
-with Device Farm. This example does the following:
-
-- Uploads a test and application packages to Device Farm
-- Starts a test run and waits for its completion (or failure)
-- Downloads all artifacts produced by the test suites
+ The following example provides a beginning-to-end demonstration of how you can use the AWS SDK to work with Device Farm. This example does the following: 
++ Uploads a test and application packages to Device Farm
++ Starts a test run and waits for its completion (or failure)
++ Downloads all artifacts produced by the test suites
 
 This example depends on the third-party `requests` package to interact with HTTP.
 
@@ -586,7 +588,7 @@ config = {
     "testSpecArn":"arn:aws:devicefarm:us-west-2::upload:101e31e8-12ac-11e9-ab14-d663bd873e83",
     "poolArn":"arn:aws:devicefarm:us-west-2::devicepool:082d10e5-d7d7-48a5-ba5c-b33d66efa1f5",
     "namePrefix":"MyAppTest",
-    # This is our test package. This tutorial won't go into how to make these.
+    # This is our test package. This tutorial won't go into how to make these. 
     "testPackage":"tests.zip"
 }
 
@@ -604,7 +606,7 @@ def upload_df_file(filename, type_, mime='application/octet-stream'):
         )
     # Get the upload ARN, which we'll return later.
     upload_arn = response['upload']['arn']
-    # We're going to extract the URL of the upload and use Requests to upload it
+    # We're going to extract the URL of the upload and use Requests to upload it 
     upload_url = response['upload']['url']
     with open(filename, 'rb') as file_stream:
         print(f"Uploading {filename} to Device Farm as {response['upload']['name']}... ",end='')
@@ -654,7 +656,7 @@ try:
             print(f" Run {unique} in state {state}, total time "+str(datetime.datetime.now()-start_time))
             time.sleep(10)
 except:
-    # If something goes wrong in this process, we stop the run and exit.
+    # If something goes wrong in this process, we stop the run and exit. 
 
     client.stop_run(arn=run_arn)
     exit(1)
@@ -695,6 +697,4 @@ for job in jobs_response['jobs'] :
     #/ for job in _[]
 # done
 print("Finished")
-
-
 ```

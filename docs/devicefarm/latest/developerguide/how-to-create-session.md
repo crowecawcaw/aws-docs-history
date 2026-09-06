@@ -1,123 +1,134 @@
+
+
 # Creating a remote access session in AWS Device Farm
+<a name="how-to-create-session"></a>
 
-For information about remote access sessions, see [Sessions](sessions.md "sessions.md").
-
-- [Prerequisites](#how-to-create-session-prerequisites "#how-to-create-session-prerequisites")
-- [Create a remote session](#how-to-create-remote-session "#how-to-create-remote-session")
-- [Next steps](#how-to-create-session-next-steps "#how-to-create-session-next-steps")
+For information about remote access sessions, see [Sessions](sessions.md).
++ [Prerequisites](#how-to-create-session-prerequisites)
++ [Create a remote session](#how-to-create-remote-session)
++ [Next steps](#how-to-create-session-next-steps)
 
 ## Prerequisites
-
-- Create a project in Device Farm. Follow the instructions in [Creating a project in AWS Device Farm](how-to-create-project.md "how-to-create-project.md"), and
-  then return to this page.
+<a name="how-to-create-session-prerequisites"></a>
++ Create a project in Device Farm. Follow the instructions in [Creating a project in AWS Device Farm](how-to-create-project.md), and then return to this page.
 
 ## Create a remote session
+<a name="how-to-create-remote-session"></a>
 
-Console
+------
+#### [ Console ]
 
-1. Sign in to the Device Farm console at [https://console.aws.amazon.com/devicefarm](https://console.aws.amazon.com/devicefarm "https://console.aws.amazon.com/devicefarm").
-2. On the Device Farm navigation panel, choose **Mobile Device Testing**, then choose
-   **Projects**.
-3. If you already have a project, choose it from the list. Otherwise, create a project by following the
-   instructions in [Creating a project in AWS Device Farm](how-to-create-project.md "how-to-create-project.md").
-4. On the **Remote access** tab, choose **Create remote access session**.
-5. Choose a device for your session. You can choose from the list of available devices or search for a
-   device using the search bar at the top of the list.
-6. In **Session name**, enter a name for the session.
-7. _(Optional)_ Under **Select applications**, include your own app or choose the Device Farm Sample App as part of the session. These can be newly uploaded apps, or apps previously uploaded in this project from the past 30 days (after 30 days, app uploads [will expire](data-protection.md#data-protection-retention "data-protection.md#data-protection-retention")).
-8. _(Optional)_ Under **Advanced Configuration**, you can add a http/s **Device Proxy** which will get set for the duration of your session.
-9. Choose **Confirm and start session**.
+1. Sign in to the Device Farm console at [https://console.aws.amazon.com/devicefarm](https://console.aws.amazon.com/devicefarm).
 
-AWS CLI
-_Note: these instructions focus only on creating a remote access session. For instructions on how to upload an app for use during your session, please see [automating app uploads.](api-ref.md#upload-example "api-ref.md#upload-example")_
+1. On the Device Farm navigation panel, choose **Mobile Device Testing**, then choose **Projects**.
 
-First, verify that your AWS CLI version is up-to-date by [downloading and installing the latest version](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+1. If you already have a project, choose it from the list. Otherwise, create a project by following the instructions in [Creating a project in AWS Device Farm](how-to-create-project.md).
 
-###### Important
+1. On the **Remote access** tab, choose **Create remote access session**.
 
+1. Choose a device for your session. You can choose from the list of available devices or search for a device using the search bar at the top of the list.
+
+1. In **Session name**, enter a name for the session.
+
+1. *(Optional)* Under **Select applications**, include your own app or choose the Device Farm Sample App as part of the session. These can be newly uploaded apps, or apps previously uploaded in this project from the past 30 days (after 30 days, app uploads [will expire](data-protection.md#data-protection-retention)).
+
+1. *(Optional)* Under **Advanced Configuration**, you can add a http/s **Device Proxy** which will get set for the duration of your session.
+
+1. Choose **Confirm and start session**.
+
+------
+#### [ AWS CLI ]
+
+*Note: these instructions focus only on creating a remote access session. For instructions on how to upload an app for use during your session, please see [automating app uploads.](api-ref.md#upload-example)*
+
+First, verify that your AWS CLI version is up-to-date by [downloading and installing the latest version](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
+
+**Important**  
 Certain commands mentioned in this document aren't available in older versions of the AWS CLI.
 
 Then, you can determine which device you'd like to test on:
 
 ```
-`$` `aws devicefarm list-devices`
+$ aws devicefarm list-devices
 ```
 
 This will show output such as the following:
 
 ```
-`{
- "devices":
- [
- {
- "arn": "arn:aws:devicefarm:us-west-2::device:DE5BD47FF3BD42C3A14BF7A6EFB1BFE7",
- "name": "Google Pixel 8",
- "remoteAccessEnabled": true,
- "availability": "HIGHLY_AVAILABLE"
- ...
- },
- ...
- ]
-}`
+{
+    "devices":
+    [
+        {
+            "arn": "arn:aws:devicefarm:us-west-2::device:DE5BD47FF3BD42C3A14BF7A6EFB1BFE7",
+            "name": "Google Pixel 8",
+            "remoteAccessEnabled": true,
+            "availability": "HIGHLY_AVAILABLE"
+            ...
+        },
+        ...
+    ]
+}
 ```
 
 Then, you can create your remote access session with a device ARN of your choice:
 
 ```
-`$` `aws devicefarm create-remote-access-session \
- --project-arn arn:aws:devicefarm:us-west-2:111122223333:project:12345678-1111-2222-333-456789abcdef \
- --device-arn arn:aws:devicefarm:us-west-2::device:DE5BD47FF3BD42C3A14BF7A6EFB1BFE7 \
- --app-arn arn:aws:devicefarm:us-west-2:111122223333:upload:12345678-1111-2222-333-456789abcdef/12345678-1111-2222-333-456789abcdef \
- --configuration '{
- "auxiliaryApps": [
- "arn:aws:devicefarm:us-west-2:111122223333:upload:12345678-1111-2222-333-456789abcdef/12345678-1111-2222-333-456789abcde0",
- "arn:aws:devicefarm:us-west-2:111122223333:upload:12345678-1111-2222-333-456789abcdef/12345678-1111-2222-333-456789abcde1"
- ]
- }'`
+$ aws devicefarm create-remote-access-session \
+  --project-arn arn:aws:devicefarm:us-west-2:111122223333:project:12345678-1111-2222-333-456789abcdef \
+  --device-arn arn:aws:devicefarm:us-west-2::device:DE5BD47FF3BD42C3A14BF7A6EFB1BFE7 \
+  --app-arn arn:aws:devicefarm:us-west-2:111122223333:upload:12345678-1111-2222-333-456789abcdef/12345678-1111-2222-333-456789abcdef \
+  --configuration '{
+      "auxiliaryApps": [
+          "arn:aws:devicefarm:us-west-2:111122223333:upload:12345678-1111-2222-333-456789abcdef/12345678-1111-2222-333-456789abcde0",
+          "arn:aws:devicefarm:us-west-2:111122223333:upload:12345678-1111-2222-333-456789abcdef/12345678-1111-2222-333-456789abcde1"
+      ]
+  }'
 ```
 
 This will show output such as the following:
 
 ```
-`{
- "remoteAccessSession": {
- "arn": "arn:aws:devicefarm:us-west-2:111122223333:session:abcdef123456-1234-5678-abcd-abcdef123456/abcdef123456-1234-5678-abcd-abcdef123456/00000",
- "name": "Google Pixel 8",
- "status": "PENDING",
- ...
-}`
+{
+    "remoteAccessSession": {
+        "arn": "arn:aws:devicefarm:us-west-2:111122223333:session:abcdef123456-1234-5678-abcd-abcdef123456/abcdef123456-1234-5678-abcd-abcdef123456/00000",
+        "name": "Google Pixel 8",
+        "status": "PENDING",
+        ...
+}
 ```
 
 Now, optionally, we can poll and wait for the session to be ready:
 
 ```
-`$` `POLL_INTERVAL=3
+$ POLL_INTERVAL=3
 TIMEOUT=600
 DEADLINE=$(( $(date +%s) + TIMEOUT ))
 
 while [[ "$(date +%s)" -lt "$DEADLINE" ]]; do
 
- STATUS=$(aws devicefarm get-remote-access-session \
- --arn "$DEVICE_FARM_SESSION_ARN" \
- --query 'remoteAccessSession.status' \
- --output text)
+  STATUS=$(aws devicefarm get-remote-access-session \
+    --arn "$DEVICE_FARM_SESSION_ARN" \
+    --query 'remoteAccessSession.status' \
+    --output text)
 
- case "$STATUS" in
- RUNNING)
- echo "Session is ready with status: $STATUS"
- break
- ;;
- STOPPING|COMPLETED)
- echo "Session ended early with status: $STATUS"
- exit 1
- ;;
- esac
+  case "$STATUS" in
+    RUNNING)
+      echo "Session is ready with status: $STATUS"
+      break
+      ;;
+    STOPPING|COMPLETED)
+      echo "Session ended early with status: $STATUS"
+      exit 1
+      ;;
+  esac
 
-done`
+done
 ```
 
-Python
-_Note: these instructions focus only on creating a remote access session. For instructions on how to upload an app for use during your session, please see [automating app uploads.](api-ref.md#upload-example "api-ref.md#upload-example")_
+------
+#### [ Python ]
+
+*Note: these instructions focus only on creating a remote access session. For instructions on how to upload an app for use during your session, please see [automating app uploads.](api-ref.md#upload-example)*
 
 This example first finds any available Google Pixel device on Device Farm, then creates a remote access session with it and waits until the session is running.
 
@@ -190,10 +201,12 @@ while True:
     time.sleep(poll_interval)
 ```
 
-Java
-_Note: these instructions focus only on creating a remote access session. For instructions on how to upload an app for use during your session, please see [automating app uploads.](api-ref.md#upload-example "api-ref.md#upload-example")_
+------
+#### [ Java ]
 
-_Note: this example uses the AWS SDK for Java v2, and is compatible with JDK versions 11 and higher._
+*Note: these instructions focus only on creating a remote access session. For instructions on how to upload an app for use during your session, please see [automating app uploads.](api-ref.md#upload-example)*
+
+*Note: this example uses the AWS SDK for Java v2, and is compatible with JDK versions 11 and higher.*
 
 This example first finds any available Google Pixel device on Device Farm, then creates a remote access session with it and waits until the session is running.
 
@@ -303,10 +316,12 @@ public class CreateRemoteAccessSession {
 }
 ```
 
-JavaScript
-_Note: these instructions focus only on creating a remote access session. For instructions on how to upload an app for use during your session, please see [automating app uploads.](api-ref.md#upload-example "api-ref.md#upload-example")_
+------
+#### [ JavaScript ]
 
-_Note: this example uses AWS SDK for JavaScript v3._
+*Note: these instructions focus only on creating a remote access session. For instructions on how to upload an app for use during your session, please see [automating app uploads.](api-ref.md#upload-example)*
+
+*Note: this example uses AWS SDK for JavaScript v3.*
 
 This example first finds any available Google Pixel device on Device Farm, then creates a remote access session with it and waits until the session is running.
 
@@ -385,8 +400,10 @@ while (true) {
 }
 ```
 
-C#
-_Note: these instructions focus only on creating a remote access session. For instructions on how to upload an app for use during your session, please see [automating app uploads.](api-ref.md#upload-example "api-ref.md#upload-example")_
+------
+#### [ C\# ]
+
+*Note: these instructions focus only on creating a remote access session. For instructions on how to upload an app for use during your session, please see [automating app uploads.](api-ref.md#upload-example)*
 
 This example first finds any available Google Pixel device on Device Farm, then creates a remote access session with it and waits until the session is running.
 
@@ -489,8 +506,10 @@ class Program
 }
 ```
 
-Ruby
-_Note: these instructions focus only on creating a remote access session. For instructions on how to upload an app for use during your session, please see [automating app uploads.](api-ref.md#upload-example "api-ref.md#upload-example")_
+------
+#### [ Ruby ]
+
+*Note: these instructions focus only on creating a remote access session. For instructions on how to upload an app for use during your session, please see [automating app uploads.](api-ref.md#upload-example)*
 
 This example first finds any available Google Pixel device on Device Farm, then creates a remote access session with it and waits until the session is running.
 
@@ -557,20 +576,19 @@ loop do
 end
 ```
 
-## Next steps
+------
 
-Device Farm starts the session as soon as the requested device and infrastructure are available, typically within a few minutes. The
-**Device Requested** dialog box appears until the session starts. To cancel the session
-request, choose **Cancel request**.
+## Next steps
+<a name="how-to-create-session-next-steps"></a>
+
+Device Farm starts the session as soon as the requested device and infrastructure are available, typically within a few minutes. The **Device Requested** dialog box appears until the session starts. To cancel the session request, choose **Cancel request**. 
 
 If the selected device is unavailable or busy, the session status shows as **Pending Device**, indicating that you may need to wait for some time before the device is available for testing.
 
-If your account has reached its concurrency limit for public metered or unmetered devices, the session status shows as **Pending concurrency**. For unmetered device slots, you can increase concurrency by [purchasing more device slots](how-to-purchase-device-slots.md "how-to-purchase-device-slots.md"). For metered pay-as-you-go devices, please contact AWS via a support ticket to request [a service quota increase](limits.md "limits.md").
+If your account has reached its concurrency limit for public metered or unmetered devices, the session status shows as **Pending concurrency**. For unmetered device slots, you can increase concurrency by [purchasing more device slots](how-to-purchase-device-slots.md). For metered pay-as-you-go devices, please contact AWS via a support ticket to request [a service quota increase](limits.md).
 
 When the session setup begins, it first shows a status of **In-Progress**, then a status of **Connecting** while your local web browser attempts to open a remote connection to the device.
 
-After a session starts, if you should close the browser or browser tab without stopping the session or if
-the connection between the browser and the internet is lost, the session remains active for five minutes.
-After that, Device Farm ends the session. Your account is charged for the idle time.
+After a session starts, if you should close the browser or browser tab without stopping the session or if the connection between the browser and the internet is lost, the session remains active for five minutes. After that, Device Farm ends the session. Your account is charged for the idle time. 
 
-After the session starts, you can interact with the device in the web browser, or test the device using [Appium](appium-endpoint.md "appium-endpoint.md").
+After the session starts, you can interact with the device in the web browser, or test the device using [Appium](appium-endpoint.md).
