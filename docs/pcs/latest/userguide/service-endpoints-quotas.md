@@ -27,29 +27,30 @@ endpoints are dual-stack. They support both IPv4 and IPv6. The
 endpoints support IPv4 only. For more information about dual-stack endpoints, see [Dual-stack
 endpoints](../../../general/latest/gr/rande.md#dual-stack-endpoints "../../../general/latest/gr/rande.md#dual-stack-endpoints") in the _AWS General Reference_.
 
-| Region name               | Region         | Endpoint                                                                                                                               | Protocol |
-| ------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| US East (Ohio)            | us-east-2      | pcs.us-east-2.amazonaws.com<br>pcs-fips.us-east-2.amazonaws.com<br>pcs-fips.us-east-2.api.aws<br>pcs.us-east-2.api.aws                 | HTTPS    |
-| US East (N. Virginia)     | us-east-1      | pcs.us-east-1.amazonaws.com<br>pcs-fips.us-east-1.amazonaws.com<br>pcs-fips.us-east-1.api.aws<br>pcs.us-east-1.api.aws                 | HTTPS    |
-| US West (Oregon)          | us-west-2      | pcs.us-west-2.amazonaws.com<br>pcs-fips.us-west-2.amazonaws.com<br>pcs-fips.us-west-2.api.aws<br>pcs.us-west-2.api.aws                 | HTTPS    |
-| Africa (Cape Town)        | af-south-1     | pcs.af-south-1.amazonaws.com<br>pcs.af-south-1.api.aws                                                                                 | HTTPS    |
-| Asia Pacific (Mumbai)     | ap-south-1     | pcs.ap-south-1.amazonaws.com<br>pcs.ap-south-1.api.aws                                                                                 | HTTPS    |
-| Asia Pacific (Singapore)  | ap-southeast-1 | pcs.ap-southeast-1.amazonaws.com<br>pcs.ap-southeast-1.api.aws                                                                         | HTTPS    |
-| Asia Pacific (Sydney)     | ap-southeast-2 | pcs.ap-southeast-2.amazonaws.com<br>pcs.ap-southeast-2.api.aws                                                                         | HTTPS    |
-| Asia Pacific (Jakarta)    | ap-southeast-3 | pcs.ap-southeast-3.amazonaws.com<br>pcs.ap-southeast-3.api.aws                                                                         | HTTPS    |
-| Asia Pacific (Tokyo)      | ap-northeast-1 | pcs.ap-northeast-1.amazonaws.com<br>pcs.ap-northeast-1.api.aws                                                                         | HTTPS    |
-| Asia Pacific (Seoul)      | ap-northeast-2 | pcs.ap-northeast-2.amazonaws.com<br>pcs.ap-northeast-2.api.aws                                                                         | HTTPS    |
-| Asia Pacific (Osaka)      | ap-northeast-3 | pcs.ap-northeast-3.amazonaws.com<br>pcs.ap-northeast-3.api.aws                                                                         | HTTPS    |
-| Europe (Frankfurt)        | eu-central-1   | pcs.eu-central-1.amazonaws.com<br>pcs.eu-central-1.api.aws                                                                             | HTTPS    |
-| Europe (Ireland)          | eu-west-1      | pcs.eu-west-1.amazonaws.com<br>pcs.eu-west-1.api.aws                                                                                   | HTTPS    |
-| Europe (London)           | eu-west-2      | pcs.eu-west-2.amazonaws.com<br>pcs.eu-west-2.api.aws                                                                                   | HTTPS    |
-| Europe (Paris)            | eu-west-3      | pcs.eu-west-3.amazonaws.com<br>pcs-eu-west-3.api.aws                                                                                   | HTTPS    |
-| Europe (Milan)            | eu-south-1     | pcs.eu-south-1.amazonaws.com<br>pcs-eu-south-1.api.aws                                                                                 | HTTPS    |
-| Europe (Spain)            | eu-south-2     | pcs.eu-south-2.amazonaws.com<br>pcs-eu-south-2.api.aws                                                                                 | HTTPS    |
-| Europe (Stockholm)        | eu-north-1     | pcs.eu-north-1.amazonaws.com<br>pcs.eu-north-1.api.aws                                                                                 | HTTPS    |
-| South America (São Paulo) | sa-east-1      | pcs.sa-east-1.amazonaws.com<br>pcs.sa-east-1.api.aws                                                                                   | HTTPS    |
-| AWS GovCloud (US-East)    | us-gov-east-1  | pcs.us-gov-east-1.amazonaws.com<br>pcs-fips.us-gov-east-1.amazonaws.com<br>pcs-fips.us-gov-east-1.api.aws<br>pcs.us-gov-east-1.api.aws | HTTPS    |
-| AWS GovCloud (US-West)    | us-gov-west-1  | pcs.us-gov-west-1.amazonaws.com<br>pcs-fips.us-gov-west-1.amazonaws.com<br>pcs-fips.us-gov-west-1.api.aws<br>pcs.us-gov-west-1.api.aws | HTTPS    |
+| Region name                | Region         | Endpoint                                                                                                                               | Protocol |
+| -------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| US East (Ohio)             | us-east-2      | pcs.us-east-2.amazonaws.com<br>pcs-fips.us-east-2.amazonaws.com<br>pcs-fips.us-east-2.api.aws<br>pcs.us-east-2.api.aws                 | HTTPS    |
+| US East (N. Virginia)      | us-east-1      | pcs.us-east-1.amazonaws.com<br>pcs-fips.us-east-1.amazonaws.com<br>pcs-fips.us-east-1.api.aws<br>pcs.us-east-1.api.aws                 | HTTPS    |
+| US West (Oregon)           | us-west-2      | pcs.us-west-2.amazonaws.com<br>pcs-fips.us-west-2.amazonaws.com<br>pcs-fips.us-west-2.api.aws<br>pcs.us-west-2.api.aws                 | HTTPS    |
+| Africa (Cape Town)         | af-south-1     | pcs.af-south-1.amazonaws.com<br>pcs.af-south-1.api.aws                                                                                 | HTTPS    |
+| Asia Pacific (Mumbai)      | ap-south-1     | pcs.ap-south-1.amazonaws.com<br>pcs.ap-south-1.api.aws                                                                                 | HTTPS    |
+| Asia Pacific (Singapore)   | ap-southeast-1 | pcs.ap-southeast-1.amazonaws.com<br>pcs.ap-southeast-1.api.aws                                                                         | HTTPS    |
+| Asia Pacific (Sydney)      | ap-southeast-2 | pcs.ap-southeast-2.amazonaws.com<br>pcs.ap-southeast-2.api.aws                                                                         | HTTPS    |
+| Asia Pacific (Jakarta)     | ap-southeast-3 | pcs.ap-southeast-3.amazonaws.com<br>pcs.ap-southeast-3.api.aws                                                                         | HTTPS    |
+| Asia Pacific (New Zealand) | ap-southeast-6 | pcs.ap-southeast-6.amazonaws.com<br>pcs.ap-southeast-6.api.aws                                                                         | HTTPS    |
+| Asia Pacific (Tokyo)       | ap-northeast-1 | pcs.ap-northeast-1.amazonaws.com<br>pcs.ap-northeast-1.api.aws                                                                         | HTTPS    |
+| Asia Pacific (Seoul)       | ap-northeast-2 | pcs.ap-northeast-2.amazonaws.com<br>pcs.ap-northeast-2.api.aws                                                                         | HTTPS    |
+| Asia Pacific (Osaka)       | ap-northeast-3 | pcs.ap-northeast-3.amazonaws.com<br>pcs.ap-northeast-3.api.aws                                                                         | HTTPS    |
+| Europe (Frankfurt)         | eu-central-1   | pcs.eu-central-1.amazonaws.com<br>pcs.eu-central-1.api.aws                                                                             | HTTPS    |
+| Europe (Ireland)           | eu-west-1      | pcs.eu-west-1.amazonaws.com<br>pcs.eu-west-1.api.aws                                                                                   | HTTPS    |
+| Europe (London)            | eu-west-2      | pcs.eu-west-2.amazonaws.com<br>pcs.eu-west-2.api.aws                                                                                   | HTTPS    |
+| Europe (Paris)             | eu-west-3      | pcs.eu-west-3.amazonaws.com<br>pcs-eu-west-3.api.aws                                                                                   | HTTPS    |
+| Europe (Milan)             | eu-south-1     | pcs.eu-south-1.amazonaws.com<br>pcs-eu-south-1.api.aws                                                                                 | HTTPS    |
+| Europe (Spain)             | eu-south-2     | pcs.eu-south-2.amazonaws.com<br>pcs-eu-south-2.api.aws                                                                                 | HTTPS    |
+| Europe (Stockholm)         | eu-north-1     | pcs.eu-north-1.amazonaws.com<br>pcs.eu-north-1.api.aws                                                                                 | HTTPS    |
+| South America (São Paulo)  | sa-east-1      | pcs.sa-east-1.amazonaws.com<br>pcs.sa-east-1.api.aws                                                                                   | HTTPS    |
+| AWS GovCloud (US-East)     | us-gov-east-1  | pcs.us-gov-east-1.amazonaws.com<br>pcs-fips.us-gov-east-1.amazonaws.com<br>pcs-fips.us-gov-east-1.api.aws<br>pcs.us-gov-east-1.api.aws | HTTPS    |
+| AWS GovCloud (US-West)     | us-gov-west-1  | pcs.us-gov-west-1.amazonaws.com<br>pcs-fips.us-gov-west-1.amazonaws.com<br>pcs-fips.us-gov-west-1.api.aws<br>pcs.us-gov-west-1.api.aws | HTTPS    |
 
 ## Service quotas
 
@@ -76,13 +77,13 @@ Remember to check the current AWS Region setting in the AWS Management Console.
 
 ### Internal quotas
 
-The following quotas are internal and non-adjustable.
+The following quotas are internal. To request a quota increase, create a support case in the [AWS Support Center Console](https://console.aws.amazon.com/support/home#/case/create "https://console.aws.amazon.com/support/home#/case/create").
 
-| **Name**                        | **Default** | **Adjustable** | **Description**                                                        |
-| ------------------------------- | ----------- | -------------- | ---------------------------------------------------------------------- |
-| Concurrent cluster creation     | 1           | No             | The maximum number of clusters in the `Creating` state per AWS Region. |
-| Compute node groups per cluster | 10          | No             | The maximum number of compute node groups per cluster.                 |
-| Queues per cluster              | 10          | No             | The maximum number of queues per cluster.                              |
+| **Name**                        | **Default** | **Adjustable**         | **Description**                                                        |
+| ------------------------------- | ----------- | ---------------------- | ---------------------------------------------------------------------- |
+| Concurrent cluster creation     | 1           | No                     | The maximum number of clusters in the `Creating` state per AWS Region. |
+| Compute node groups per cluster | 10          | Yes (via support case) | The maximum number of compute node groups per cluster.                 |
+| Queues per cluster              | 10          | Yes (via support case) | The maximum number of queues per cluster.                              |
 
 ### Relevant quotas for other AWS services
 

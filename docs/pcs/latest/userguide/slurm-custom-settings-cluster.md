@@ -67,6 +67,11 @@ AWS PCS supports a minimum value of 5 seconds for `MinJobAge`.
 - [PriorityWeightTRES](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightTRES "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightTRES")
 - [Prolog](https://slurm.schedmd.com/slurm.conf.html#OPT_Prolog_1 "https://slurm.schedmd.com/slurm.conf.html#OPT_Prolog_1")
 - [PrologFlags](https://slurm.schedmd.com/slurm.conf.html#OPT_PrologFlags "https://slurm.schedmd.com/slurm.conf.html#OPT_PrologFlags")
+
+###### Note
+
+To use `X11` forwarding (that is, when you enable the `X11` flag on PrologFlags), the xauth utility must be installed on the compute node group AMI (the worker AMI). Without it, `X11` forwarding does not work. On Amazon Linux, xauth is provided by the `xorg-x11-xauth` package. To install it, use the system package manager, for example `sudo yum install xorg-x11-xauth`.
+
 - [RequeueExit](https://slurm.schedmd.com/slurm.conf.html#OPT_RequeueExit "https://slurm.schedmd.com/slurm.conf.html#OPT_RequeueExit")
 - [RequeueExitHold](https://slurm.schedmd.com/slurm.conf.html#OPT_RequeueExitHold "https://slurm.schedmd.com/slurm.conf.html#OPT_RequeueExitHold")
 - [SchedulerParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_SchedulerParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_SchedulerParameters")

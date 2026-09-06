@@ -33,3 +33,26 @@ Rotation requires no running instances to ensure cluster stability during the se
 **What compliance requirements does this feature support?**
 
 This feature enables AWS PCS to meet industry compliance standards including HIPAA and FedRAMP, which mandate regular credential rotation as part of their security controls.
+
+**Can I use my own customer managed key for the AWS PCS managed secret?**
+
+Yes. You can encrypt the cluster secret with a symmetric `ENCRYPT_DECRYPT`
+customer managed key in the same AWS account and AWS Region. You attach or change the key through the
+AWS Secrets Manager `UpdateSecret` operation. There is no AWS PCS API parameter for the secret's
+encryption key.
+
+The key policy must grant the AWS PCS service-linked role
+(`AWSServiceRoleForPCS`) `kms:Decrypt`, `kms:GenerateDataKey`, and
+`kms:DescribeKey`. For more information, see [Use a customer managed key to encrypt the cluster secret](working-with_clusters_secrets_cmk.md "working-with_clusters_secrets_cmk.md").
+
+**Can I change the cluster secret value myself?**
+
+No. AWS PCS manages the secret value. If you try to change the `SecretString` or
+`SecretBinary` through AWS Secrets Manager, the request fails. You can change the encryption
+key (the AWS KMS key) and the description.
+
+**What happens if the service-linked role loses access to the key?**
+
+Rotation and node operations that read the secret fail. The underlying cause is a AWS KMS
+access-denied error that is visible in AWS CloudTrail, and the rotation surfaces as a failed
+rotation. The cluster itself remains `ACTIVE`.

@@ -19,13 +19,13 @@ according to the Slurm version configured at cluster creation time.
    AWS Region of your temporary instance, such as `us-east-1`.
 
 ```
-curl https://aws-pcs-repo-`region`.s3.`region`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.7-1.tar.gz \
-     -o aws-pcs-slurm-25.11-installer-25.11.7-1.tar.gz
+curl https://aws-pcs-repo-`region`.s3.`region`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz \
+     -o aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz
 ```
 
 You can also get the latest version by replacing the version number with
 `latest` in the preceding command (for example:
-`aws-pcs-slurm-25.11-installer-latest.tar.gz`). For a complete list of available versions with checksums, see [Slurm versions in AWS PCS](slurm-versions.md "slurm-versions.md").
+`aws-pcs-slurm-25.11-installer-latest.tar.gz`). For a complete list of available versions with checksums, see [Verify installers using a checksum](working-with_ami_installers.md#working-with_ami_installers_verify "working-with_ami_installers.md#working-with_ami_installers_verify").
 
 ###### Note
 
@@ -70,8 +70,8 @@ the file has not been altered or corrupted since it was published.
 
 
     ```
-    wget https://aws-pcs-repo-`region`.s3.`region`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.7-1.tar.gz.sig && \
-         gpg --verify ./aws-pcs-slurm-25.11-installer-25.11.7-1.tar.gz.sig
+    wget https://aws-pcs-repo-`region`.s3.`region`.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz.sig && \
+         gpg --verify ./aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz.sig
     ```
 
     The output should be similar to the following:
@@ -79,7 +79,7 @@ the file has not been altered or corrupted since it was published.
 
 
     ```
-    gpg: assuming signed data in './aws-pcs-slurm-25.11-installer-25.11.7-1.tar.gz'
+    gpg: assuming signed data in './aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz'
     gpg: Signature made Thu 26 Mar 2026 08:57:11 AM UTC using RSA key ID ECC0AE5C
     gpg: Good signature from "AWS PCS Packages (AWS PCS Packages)"
     gpg: WARNING: This key is not certified with a trusted signature!
@@ -101,7 +101,7 @@ the file has not been altered or corrupted since it was published.
 extracted directory.
 
 ```
-tar -xf aws-pcs-slurm-25.11-installer-25.11.7-1.tar.gz && \
+tar -xf aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz && \
     cd aws-pcs-slurm-25.11-installer
 ```
 
@@ -124,5 +124,5 @@ The output should be similar to the following:
 ```
 SLURM_INSTALL_DATE='Thu Mar 26 15:15:37 UTC 2026'
 SLURM_VERSION='25.11.7'
-PCS_SLURM_RELEASE='1'
+PCS_SLURM_RELEASE='3'
 ```
