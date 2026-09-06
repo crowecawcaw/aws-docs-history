@@ -1,16 +1,18 @@
+
+
 # Data residency
+<a name="data-residency"></a>
 
 Claude Platform on AWS supports the following inference geographies:
++  **US:** Inference stays within US data centers. A 1.1x pricing multiplier applies.
++  **Global:** Inference may route to any Anthropic-operated data center worldwide. Standard pricing applies.
 
-- **US:** Inference stays within US data centers. A 1.1x pricing multiplier applies.
-- **Global:** Inference may route to any Anthropic-operated data center worldwide. Standard pricing applies.
-  Set the inference geography per request with the `inference_geo` parameter:
+Set the inference geography per request with the `inference_geo` parameter:
 
-###### Note
+**Note**  
+The `inference_geo` parameter is supported on Claude Opus 4.6, Claude Sonnet 4.6, and later models. Requests with `inference_geo` on Claude Opus 4.5, Claude Sonnet 4.5, or Claude Haiku 4.5 return a 400 error. See [Data residency](https://platform.claude.com/docs/en/manage-claude/data-residency) for model availability details.
 
-The `inference_geo` parameter is supported on Claude Opus 4.6, Claude Sonnet 4.6, and later models. Requests with `inference_geo` on Claude Opus 4.5, Claude Sonnet 4.5, or Claude Haiku 4.5 return a 400 error. See [Data residency](https://platform.claude.com/docs/en/manage-claude/data-residency "https://platform.claude.com/docs/en/manage-claude/data-residency") for model availability details.
-
-**Shell**
+ **Shell** 
 
 ```
 curl "https://aws-external-anthropic.us-west-2.api.aws/v1/messages" \
@@ -30,7 +32,7 @@ curl "https://aws-external-anthropic.us-west-2.api.aws/v1/messages" \
   }'
 ```
 
-**Python**
+ **Python** 
 
 ```
 from anthropic import AnthropicAWS
@@ -45,7 +47,7 @@ message = client.messages.create(
 print(message)
 ```
 
-**TypeScript**
+ **TypeScript** 
 
 ```
 import AnthropicAws from "@anthropic-ai/aws-sdk";
@@ -59,7 +61,7 @@ const message = await client.messages.create({
 console.log(message);
 ```
 
-**C#**
+ **C\#** 
 
 ```
 using Anthropic;
@@ -78,7 +80,7 @@ var message = await client.Messages.Create(new()
 Console.WriteLine(message);
 ```
 
-**Go**
+ **Go** 
 
 ```
 client, err := anthropicaws.NewClient(context.Background(), anthropicaws.ClientConfig{})
@@ -101,7 +103,7 @@ if err != nil {
 fmt.Println(message)
 ```
 
-**Java**
+ **Java** 
 
 ```
 import com.anthropic.aws.backends.AwsBackend;
@@ -128,7 +130,7 @@ Message message = client.messages().create(
 IO.println(message);
 ```
 
-**PHP**
+ **PHP** 
 
 ```
 use Anthropic\Aws\Client;
@@ -145,7 +147,7 @@ $message = $client->messages->create(
 echo $message;
 ```
 
-**Ruby**
+ **Ruby** 
 
 ```
 require "anthropic"

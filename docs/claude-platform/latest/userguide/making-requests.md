@@ -1,8 +1,11 @@
+
+
 # Making requests
+<a name="making-requests"></a>
 
-Claude Platform on AWS uses the Anthropic Messages API (`/v1/messages`), the same API surface as the Claude first-party platform. The differences are the base URL, the authentication method, and a required `anthropic-workspace-id` header that identifies which [workspace](workspaces.md "workspaces.md") the request targets.
+Claude Platform on AWS uses the Anthropic Messages API (`/v1/messages`), the same API surface as the Claude first-party platform. The differences are the base URL, the authentication method, and a required `anthropic-workspace-id` header that identifies which [workspace](workspaces.md) the request targets.
 
-**Shell**
+ **Shell** 
 
 ```
 curl "https://aws-external-anthropic.us-west-2.api.aws/v1/messages" \
@@ -21,7 +24,7 @@ curl "https://aws-external-anthropic.us-west-2.api.aws/v1/messages" \
   }'
 ```
 
-**Python**
+ **Python** 
 
 ```
 from anthropic import AnthropicAWS
@@ -36,7 +39,7 @@ message = client.messages.create(
 print(message)
 ```
 
-**TypeScript**
+ **TypeScript** 
 
 ```
 import AnthropicAws from "@anthropic-ai/aws-sdk";
@@ -51,7 +54,7 @@ const message = await client.messages.create({
 console.log(message);
 ```
 
-**C#**
+ **C\#** 
 
 ```
 using Anthropic;
@@ -69,7 +72,7 @@ var message = await client.Messages.Create(new()
 Console.WriteLine(message);
 ```
 
-**Go**
+ **Go** 
 
 ```
 client, err := anthropicaws.NewClient(context.Background(), anthropicaws.ClientConfig{})
@@ -91,7 +94,7 @@ if err != nil {
 fmt.Println(message.Content[0].Text)
 ```
 
-**Java**
+ **Java** 
 
 ```
 import com.anthropic.aws.backends.AwsBackend;
@@ -116,7 +119,7 @@ Message message = client.messages().create(
 IO.println(message);
 ```
 
-**PHP**
+ **PHP** 
 
 ```
 use Anthropic\Aws\Client;
@@ -132,7 +135,7 @@ $message = $client->messages->create(
 echo $message;
 ```
 
-**Ruby**
+ **Ruby** 
 
 ```
 require "anthropic"
@@ -150,13 +153,13 @@ puts message
 
 The client reads `AWS_REGION` (or `AWS_DEFAULT_REGION`) and `ANTHROPIC_AWS_WORKSPACE_ID` from the environment. You can override either by passing `aws_region` / `awsRegion` or `workspace_id` / `workspaceId` to the constructor. Both region and workspace ID are required; the constructor throws if either cannot be resolved from these sources.
 
-###### Note
-
+**Note**  
 The `x-amz-security-token` header (curl) is only required for temporary credentials such as IAM roles, SSO, or STS. Omit it when using long-term IAM user credentials. The SDK clients handle this automatically based on the credential source.
 
 The `--aws-sigv4` value follows the format `aws:amz:<region>:<service>`. The SigV4 service name is `aws-external-anthropic`, and the region must match the region in your endpoint URL. A mismatch in either produces a generic signature-rejection error rather than a specific diagnostic.
 
 ## Using the base Anthropic client
+<a name="_using_the_base_anthropic_client"></a>
 
 If you prefer not to add the AWS SDK dependency, you can use the base `Anthropic` client. This path uses the vanilla SDK environment variable names rather than the `ANTHROPIC_AWS_*` names the dedicated client reads:
 
@@ -168,7 +171,7 @@ export ANTHROPIC_WORKSPACE_ID='your-workspace-id'
 
 The Python, TypeScript, and Go SDKs read `ANTHROPIC_API_KEY` and `ANTHROPIC_BASE_URL` automatically; for the other languages, pass them to the constructor. In every language, pass the workspace ID in the `anthropic-workspace-id` header.
 
-**Python**
+ **Python** 
 
 ```
 import os
@@ -187,7 +190,7 @@ message = client.messages.create(
 print(message.content[0].text)
 ```
 
-**TypeScript**
+ **TypeScript** 
 
 ```
 import Anthropic from "@anthropic-ai/sdk";
