@@ -1,110 +1,94 @@
-AWS Audit Manager is no longer open to new customers. Existing customers
-can continue to use the service as normal. For more information, see
-[AWS Audit Manager availability change](audit-manager-availability-change.md "audit-manager-availability-change.md").
+
+
+AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Making an editable copy of an existing framework in AWS Audit Manager
+<a name="create-custom-frameworks-from-existing"></a>
 
-Instead of creating a custom framework from scratch, you can use an existing framework
-as a starting point and make an editable copy. When you do this, the existing framework
-remains in the framework library, and a new custom framework is created with your specific
-settings.
 
-You can make an editable copy of any existing framework. It can be either a standard
-framework or a custom framework.
+
+Instead of creating a custom framework from scratch, you can use an existing framework as a starting point and make an editable copy. When you do this, the existing framework remains in the framework library, and a new custom framework is created with your specific settings. 
+
+You can make an editable copy of any existing framework. It can be either a standard framework or a custom framework. 
 
 ## Prerequisites
+<a name="create-custom-frameworks-from-existing-prerequisites"></a>
 
-Make sure your IAM identity has appropriate permissions to create a custom framework
-in AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md "../../../aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.md") and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "security_iam_id-based-policy-examples.md#management-access").
+Make sure your IAM identity has appropriate permissions to create a custom framework in AWS Audit Manager. Two suggested policies that grant these permissions are [AWSAuditManagerAdministratorAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSAuditManagerAdministratorAccess.html) and [Allow users management access to AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access).
 
 ## Procedure
+<a name="create-custom-frameworks-from-existing-procedure"></a>
 
-###### Tasks
-
-- [Step 1: Specify framework details](#from-existing-step1 "#from-existing-step1")
-- [Step 2: Specify control sets](#from-existing-step2 "#from-existing-step2")
-- [Step 3: Review and create the framework](#from-existing-step3 "#from-existing-step3")
+**Topics**
++ [Step 1: Specify framework details](#from-existing-step1)
++ [Step 2: Specify control sets](#from-existing-step2)
++ [Step 3: Review and create the framework](#from-existing-step3)
 
 ### Step 1: Specify framework details
+<a name="from-existing-step1"></a>
 
-All framework details, except tags, are carried over from the original framework.
-Review and modify these details as needed.
+All framework details, except tags, are carried over from the original framework. Review and modify these details as needed.
 
-###### To specify framework details
+**To specify framework details**
 
-1. Open the AWS Audit Manager console at [https://console.aws.amazon.com/auditmanager/home](https://console.aws.amazon.com/auditmanager/home "https://console.aws.amazon.com/auditmanager/home").
-2. In the left navigation pane, choose **Framework library**.
-3. Choose the framework you want to use as a starting point, choose **Create
-   custom framework**, and then choose **Make a
-   copy**.
-4. In the pop-up window that appears, enter a name for the new custom framework and
-   choose **Continue**.
-5. Under **Framework details**, review the name, compliance type,
-   and description for your framework, and change them as needed. The compliance type
-   should indicate the compliance standard or the regulation that's associated with your
-   framework. You can use this keyword to search for your framework.
-6. Under **Tags**, choose **Add new tag** to
-   associate a tag with your framework. You can specify a key and a value for each tag.
-   The tag key is mandatory and can be used as a search criteria when you search for this
-   framework in the framework library.
-7. Choose **Next**.
+1. Open the AWS Audit Manager console at [https://console.aws.amazon.com/auditmanager/home](https://console.aws.amazon.com/auditmanager/home).
+
+1. In the left navigation pane, choose **Framework library**.
+
+1. Choose the framework you want to use as a starting point, choose **Create custom framework**, and then choose **Make a copy**.
+
+1. In the pop-up window that appears, enter a name for the new custom framework and choose **Continue**.
+
+1. Under **Framework details**, review the name, compliance type, and description for your framework, and change them as needed. The compliance type should indicate the compliance standard or the regulation that's associated with your framework. You can use this keyword to search for your framework. 
+
+1. Under **Tags**, choose **Add new tag** to associate a tag with your framework. You can specify a key and a value for each tag. The tag key is mandatory and can be used as a search criteria when you search for this framework in the framework library. 
+
+1. Choose** Next**.
 
 ### Step 2: Specify control sets
+<a name="from-existing-step2"></a>
 
-The control sets are carried over from the original framework. Change the current
-configuration by adding more controls or removing existing controls as needed.
+The control sets are carried over from the original framework. Change the current configuration by adding more controls or removing existing controls as needed.
 
-###### Note
+**Note**  
+When you use the Audit Manager console to create a custom framework, you can add up to 10 control sets for each framework.  
+When you use the Audit Manager API to create a custom framework, you can add more than 10 control sets. To add more control sets than the console currently allows, use the [CreateAssessmentFramework](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessmentFramework.html) API that Audit Manager provides. 
 
-When you use the Audit Manager console to create a custom framework, you can add up to 10
-control sets for each framework.
+**To specify a control set**
 
-When you use the Audit Manager API to create a custom framework, you can add more than 10
-control sets. To add more control sets than the console currently allows, use the [CreateAssessmentFramework](../APIReference/API_CreateAssessmentFramework.md "../APIReference/API_CreateAssessmentFramework.md") API that Audit Manager provides.
+1. Under **Control set name**, change the name of the control set as needed.
 
-###### To specify a control set
+1. Under **Add controls**, add a new control by using the dropdown list to select one of the two control types: **Standard controls** or **Custom controls**. 
 
-1. Under **Control set name**, change the name of the control set as
-   needed.
-2. Under **Add controls**, add a new control by using the dropdown
-   list to select one of the two control types: **Standard controls** or
-   **Custom controls**.
-3. Based on the option that you selected in the previous step, a list of standard
-   controls or custom controls is displayed. Select one or more controls and choose
-   **Add to control set**.
-4. In the pop-up window that appears, choose **Add to control
-   set**.
-5. Review the controls that appear in the **Selected controls**
-   list.
+1. Based on the option that you selected in the previous step, a list of standard controls or custom controls is displayed. Select one or more controls and choose **Add to control set**.
 
-   - To add more controls, repeat steps 2–4.
-   - To remove unwanted controls, select one or more controls and choose
-     **Remove control**.
+1. In the pop-up window that appears, choose **Add to control set**.
 
-6. To add a new control set to the framework, choose **Add control
-   set**.
-7. To remove an unwanted control set, choose **Remove control
-   set**.
-8. After you finish adding control sets and controls, choose
-   **Next**.
+1. Review the controls that appear in the **Selected controls** list. 
+   + To add more controls, repeat steps 2–4. 
+   + To remove unwanted controls, select one or more controls and choose **Remove control**.
+
+1. To add a new control set to the framework, choose **Add control set**.
+
+1. To remove an unwanted control set, choose **Remove control set**.
+
+1. After you finish adding control sets and controls, choose **Next**.
 
 ### Step 3: Review and create the framework
+<a name="from-existing-step3"></a>
 
-Review the information for your framework. To change the information for a step,
-choose **Edit**.
+Review the information for your framework. To change the information for a step, choose **Edit**. 
 
-When you're finished, choose **Create custom framework**.
+When you're finished, choose **Create custom framework**. 
 
 ## Next steps
+<a name="framework-from-existing-whatnow"></a>
 
-After you create your new custom framework, you can create an assessment from your
-framework. For more information, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
+After you create your new custom framework, you can create an assessment from your framework. For more information, see [Creating an assessment in AWS Audit Manager](create-assessments.md). 
 
-To revisit your custom framework at a later date, see [Finding the available frameworks in AWS Audit Manager](access-frameworks.md "access-frameworks.md"). You can follow these
-steps to locate your custom framework so that you can then view, edit, share, or delete
-it.
+To revisit your custom framework at a later date, see [Finding the available frameworks in AWS Audit Manager](access-frameworks.md). You can follow these steps to locate your custom framework so that you can then view, edit, share, or delete it.
 
 ## Additional resources
+<a name="create-custom-frameworks-from-existing-additional-resources"></a>
 
-For solutions
-to framework issues in Audit Manager, see [Troubleshooting framework issues](framework-issues.md "framework-issues.md").
+For solutions to framework issues in Audit Manager, see [Troubleshooting framework issues](framework-issues.md).

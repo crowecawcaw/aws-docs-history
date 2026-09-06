@@ -1,20 +1,17 @@
-AWS Audit Manager is no longer open to new customers. Existing customers
-can continue to use the service as normal. For more information, see
-[AWS Audit Manager availability change](audit-manager-availability-change.md "audit-manager-availability-change.md").
+
+
+AWS Audit Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Audit Manager availability change](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html). 
 
 # Create an Audit Manager assessment report that contains one day of evidence using an AWS SDK
+<a name="example_auditmanager_Scenario_CreateAssessmentReport_section"></a>
 
 The following code example shows how to create an Audit Manager assessment report that contains one day of evidence.
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/auditmanager#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/auditmanager#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/auditmanager#code-examples). 
 
 ```
 import dateutil.parser
@@ -198,22 +195,18 @@ def run_demo():
 
 if __name__ == "__main__":
     run_demo()
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [AssociateAssessmentReportEvidenceFolder](https://docs.aws.amazon.com/goto/boto3/auditmanager-2017-07-25/AssociateAssessmentReportEvidenceFolder)
+  + [BatchDisassociateAssessmentReportEvidence](https://docs.aws.amazon.com/goto/boto3/auditmanager-2017-07-25/BatchDisassociateAssessmentReportEvidence)
+  + [CreateAssessmentReport](https://docs.aws.amazon.com/goto/boto3/auditmanager-2017-07-25/CreateAssessmentReport)
+  + [DisassociateAssessmentReportEvidenceFolder](https://docs.aws.amazon.com/goto/boto3/auditmanager-2017-07-25/DisassociateAssessmentReportEvidenceFolder)
+  + [GetAssessment](https://docs.aws.amazon.com/goto/boto3/auditmanager-2017-07-25/GetAssessment)
+  + [GetAssessmentReportUrl](https://docs.aws.amazon.com/goto/boto3/auditmanager-2017-07-25/GetAssessmentReportUrl)
+  + [GetEvidenceByEvidenceFolder](https://docs.aws.amazon.com/goto/boto3/auditmanager-2017-07-25/GetEvidenceByEvidenceFolder)
+  + [GetEvidenceFoldersByAssessment](https://docs.aws.amazon.com/goto/boto3/auditmanager-2017-07-25/GetEvidenceFoldersByAssessment)
+  + [ListAssessmentReports](https://docs.aws.amazon.com/goto/boto3/auditmanager-2017-07-25/ListAssessmentReports)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [AssociateAssessmentReportEvidenceFolder](../../../goto/boto3/auditmanager-2017-07-25/AssociateAssessmentReportEvidenceFolder.md "../../../goto/boto3/auditmanager-2017-07-25/AssociateAssessmentReportEvidenceFolder.md")
-  - [BatchDisassociateAssessmentReportEvidence](../../../goto/boto3/auditmanager-2017-07-25/BatchDisassociateAssessmentReportEvidence.md "../../../goto/boto3/auditmanager-2017-07-25/BatchDisassociateAssessmentReportEvidence.md")
-  - [CreateAssessmentReport](../../../goto/boto3/auditmanager-2017-07-25/CreateAssessmentReport.md "../../../goto/boto3/auditmanager-2017-07-25/CreateAssessmentReport.md")
-  - [DisassociateAssessmentReportEvidenceFolder](../../../goto/boto3/auditmanager-2017-07-25/DisassociateAssessmentReportEvidenceFolder.md "../../../goto/boto3/auditmanager-2017-07-25/DisassociateAssessmentReportEvidenceFolder.md")
-  - [GetAssessment](../../../goto/boto3/auditmanager-2017-07-25/GetAssessment.md "../../../goto/boto3/auditmanager-2017-07-25/GetAssessment.md")
-  - [GetAssessmentReportUrl](../../../goto/boto3/auditmanager-2017-07-25/GetAssessmentReportUrl.md "../../../goto/boto3/auditmanager-2017-07-25/GetAssessmentReportUrl.md")
-  - [GetEvidenceByEvidenceFolder](../../../goto/boto3/auditmanager-2017-07-25/GetEvidenceByEvidenceFolder.md "../../../goto/boto3/auditmanager-2017-07-25/GetEvidenceByEvidenceFolder.md")
-  - [GetEvidenceFoldersByAssessment](../../../goto/boto3/auditmanager-2017-07-25/GetEvidenceFoldersByAssessment.md "../../../goto/boto3/auditmanager-2017-07-25/GetEvidenceFoldersByAssessment.md")
-  - [ListAssessmentReports](../../../goto/boto3/auditmanager-2017-07-25/ListAssessmentReports.md "../../../goto/boto3/auditmanager-2017-07-25/ListAssessmentReports.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS Audit Manager with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS Audit Manager with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
