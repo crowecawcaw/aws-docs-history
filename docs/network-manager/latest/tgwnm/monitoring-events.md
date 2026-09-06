@@ -1,124 +1,119 @@
-# Monitor your global network using EventBridge
 
-Amazon EventBridge delivers a near-real-time stream of system events that describe changes in your
-resources. Using simple rules that you can quickly set up, you can match events and
-route them to one or more target functions or streams. For more information, see the
-_[Amazon EventBridge User Guide](../../../eventbridge/latest/userguide.md "../../../eventbridge/latest/userguide.md")_.
+
+# Monitor your global network using EventBridge
+<a name="monitoring-events"></a>
+
+Amazon EventBridge delivers a near-real-time stream of system events that describe changes in your resources. Using simple rules that you can quickly set up, you can match events and route them to one or more target functions or streams. For more information, see the *[Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/)*.
 
 AWS Global Networks for Transit Gateways sends the following types of events to EventBridge:
-
-- [Topology change events](#network-topology-events "#network-topology-events")
-- [Routing update events](#routing-changes-events "#routing-changes-events")
-- [Status update events](#network-status-events "#network-status-events")
++ [Topology change events](#network-topology-events)
++ [Routing update events](#routing-changes-events)
++ [Status update events](#network-status-events)
 
 ## Get started
+<a name="monitoring-events-onboarding"></a>
 
-Before you can view events for your global network, you must onboard to CloudWatch Logs
-Insights. In the global networks console, choose the ID of your global network. In the
-**Network events summary** section, choose **Onboard to
-CloudWatch Log Insights**.
+Before you can view events for your global network, you must onboard to CloudWatch Logs Insights. In the global networks console, choose the ID of your global network. In the **Network events summary** section, choose **Onboard to CloudWatch Log Insights**.
 
-An IAM principal in your account, such as an IAM user, must have sufficient
-permissions to onboard to CloudWatch Logs Insights. Ensure that the IAM policy contains the
-following permissions.
+An IAM principal in your account, such as an IAM user, must have sufficient permissions to onboard to CloudWatch Logs Insights. Ensure that the IAM policy contains the following permissions.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:DescribeRule",
- "logs:PutResourcePolicy",
- "logs:DescribeLogGroups",
- "logs:DescribeResourcePolicies",
- "events:PutRule",
- "logs:CreateLogGroup"
- ],
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutTargets",
+                "events:DescribeRule",
+                "logs:PutResourcePolicy",
+                "logs:DescribeLogGroups",
+                "logs:DescribeResourcePolicies",
+                "events:PutRule",
+                "logs:CreateLogGroup"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
-The preceding policy does not grant permission to create, modify, or delete Network Manager
-resources. For more information about IAM policies for working with Network Manager, see [Identity and access management for AWS Global Networks for Transit Gateways](nm-security-iam.md "nm-security-iam.md").
+------
+
+The preceding policy does not grant permission to create, modify, or delete Network Manager resources. For more information about IAM policies for working with Network Manager, see [Identity and access management for AWS Global Networks for Transit Gateways](nm-security-iam.md).
 
 When you onboard to CloudWatch Logs Insights, the following occurs:
-
-- A CloudWatch event rule with the name
-  `DON_NOT_DELETE_networkmanager_rule` is created in the
-  US West (Oregon) Region.
-- A CloudWatch Logs log group with the name
-  `/aws/events/networkmanagerloggroup` is created in the
-  US West (Oregon) Region.
-- The CloudWatch event rule is configured with the CloudWatch Logs log group as a
-  target.
-- A CloudWatch resource policy with the name
-  `DO_NOT_DELETE_networkmanager_TrustEventsToStoreLogEvents` is
-  created in the US West (Oregon) Region. To view this policy, use the
-  following AWS CLI command: `aws logs describe-resource-policies --region
- us-west-2`
++ A CloudWatch event rule with the name `DON_NOT_DELETE_networkmanager_rule` is created in the US West (Oregon) Region.
++ A CloudWatch Logs log group with the name `/aws/events/networkmanagerloggroup` is created in the US West (Oregon) Region.
++ The CloudWatch event rule is configured with the CloudWatch Logs log group as a target.
++ A CloudWatch resource policy with the name `DO_NOT_DELETE_networkmanager_TrustEventsToStoreLogEvents` is created in the US West (Oregon) Region. To view this policy, use the following AWS CLI command: `aws logs describe-resource-policies --region us-west-2`
 
 ### View transit gateway events using the AWS Transit Gateway console
+<a name="network-topology-events-view"></a>
 
-You can view events for your global network or view a specific transit gateway using the
-global networks console.
+You can view events for your global network or view a specific transit gateway using the global networks console.
 
-###### To view global network events
+**To view global network events**
 
-1. Access the Network Manager console at [https://console.aws.amazon.com/networkmanager/home/](https://console.aws.amazon.com/networkmanager/home "https://console.aws.amazon.com/networkmanager/home").
-2. Under **Connectivity**, choose **Global Networks**.
-3. On the **Global networks** page, choose the global network ID.
-4. In the navigation pane, choose **Transit gateway network**.
-5. Choose **Events**.
+1. Access the Network Manager console at [https://console.aws.amazon.com/networkmanager/home/](https://console.aws.amazon.com/networkmanager/home).
 
-On this page you can view events for your transit gateway network. For
-more information about this page, see [Events](nm-visualize-tgw.md#tgw-visualize-events "nm-visualize-tgw.md#tgw-visualize-events").
+1. Under **Connectivity**, choose **Global Networks**.
 
-###### To view events for a specific transit gateway
+1. On the **Global networks** page, choose the global network ID.
 
-1. Access the Network Manager console at [https://console.aws.amazon.com/networkmanager/home/](https://console.aws.amazon.com/networkmanager/home "https://console.aws.amazon.com/networkmanager/home").
-2. Under **Connectivity**, choose **Global Networks**.
-3. On the **Global networks** page, choose the global network ID.
-4. In the navigation pane, choose **Transit gateways**.
-5. Choose the **Transit gateway ID**.
-6. Choose **Events**.
+1. In the navigation pane, choose **Transit gateway network**.
 
-On this page you can view events for your transit gateway network. For
-more information about this page, see [Events](nm-visualize-tgw.md#tgw-visualize-events "nm-visualize-tgw.md#tgw-visualize-events").
+1. Choose **Events**.
+
+   On this page you can view events for your transit gateway network. For more information about this page, see [Events](nm-visualize-tgw.md#tgw-visualize-events).
+
+**To view events for a specific transit gateway**
+
+1. Access the Network Manager console at [https://console.aws.amazon.com/networkmanager/home/](https://console.aws.amazon.com/networkmanager/home).
+
+1. Under **Connectivity**, choose **Global Networks**.
+
+1. On the **Global networks** page, choose the global network ID.
+
+1. In the navigation pane, choose **Transit gateways**.
+
+1. Choose the **Transit gateway ID**.
+
+1. Choose **Events**.
+
+   On this page you can view events for your transit gateway network. For more information about this page, see [Events](nm-visualize-tgw.md#tgw-visualize-events).
 
 ## Topology change events
+<a name="network-topology-events"></a>
 
-Topology change events occur when there have been changes to the resources in your
-global network. These include the following:
+Topology change events occur when there have been changes to the resources in your global network. These include the following:
 
-###### Events
-
-- [A transit gateway in the global network was deleted (TGW-DELETED)](#tgw-delete "#tgw-delete")
-- [A VPN connection was created for a transit gateway (VPN-CONNECTION-CREATED)](#vpn-tgw-create "#vpn-tgw-create")
-- [A VPN connection was deleted on a transit gateway (VPN-CONNECTION-DELETED)](#vpn-tgw-delete "#vpn-tgw-delete")
-- [The customer gateway for a VPN connection was changed (VPN-CONNECTION-CUSTOMER-GATEWAY-MODIFIED)](#vpn-gateway-changed "#vpn-gateway-changed")
-- [The target gateway for a VPN connection was changed (VPN-CONNECTION-TARGET-GATEWAY-MODIFIED)](#vpn-target-gateway-changed "#vpn-target-gateway-changed")
-- [A VPC was attached to a transit gateway (VPC-ATTACHMENT-CREATED)](#vpc-tgw-attach "#vpc-tgw-attach")
-- [A VPC attachment was deleted from a transit gateway (VPC-ATTACHMENT-DELETED)](#vpc-attach-tgw-delete "#vpc-attach-tgw-delete")
-- [An Direct Connect gateway was attached to a transit gateway (DXGW-ATTACHMENT-CREATED)](#dx-gateway-attach "#dx-gateway-attach")
-- [An Direct Connect gateway was detached from a transit gateway (DXGW-ATTACHMENT-DELETED)](#dx-gateway-detach "#dx-gateway-detach")
-- [A transit gateway peering connection attachment was created (TGW\_PEERING\_CREATED)](#tgw-peering-attach "#tgw-peering-attach")
-- [A transit gateway peering connection was deleted (TGW-PEERING-DELETED)](#tgw-peering-delete "#tgw-peering-delete")
-- [A transit gateway Connect attachment was created for a transit gateway (CONNECT\_ATTACHMENT\_CREATED)](#connect-attachment-create "#connect-attachment-create")
-- [A transit gateway Connect attachment was deleted for a transit gateway (CONNECT\_ATTACHMENT\_DELETED)](#connect-attachment-delete "#connect-attachment-delete")
-- [A transit gateway Connect peer was created in a Connect attachment (TGW-CONNECT-PEER-CREATED)](#tgw-connect-peer-created "#tgw-connect-peer-created")
-- [A transit gateway Connect peer was deleted in a Connect attachment (CONNECT\_PEER\_DELETED)](#tgw-connect-peer-deleted "#tgw-connect-peer-deleted")
-- [A Network Firewall attachment was created (NETWORK-FIREWALL-ATTACHMENT-CREATED)](#vpc-firewall-attach "#vpc-firewall-attach")
-- [A Network Firewall attachment was deleted (NETWORK-FIREWALL-ATTACHMENT-DELETED)](#vpc-firewall-delete "#vpc-firewall-delete")
+**Topics**
++ [A transit gateway in the global network was deleted (TGW-DELETED)](#tgw-delete)
++ [A VPN connection was created for a transit gateway (VPN-CONNECTION-CREATED)](#vpn-tgw-create)
++ [A VPN connection was deleted on a transit gateway (VPN-CONNECTION-DELETED)](#vpn-tgw-delete)
++ [The customer gateway for a VPN connection was changed (VPN-CONNECTION-CUSTOMER-GATEWAY-MODIFIED)](#vpn-gateway-changed)
++ [The target gateway for a VPN connection was changed (VPN-CONNECTION-TARGET-GATEWAY-MODIFIED)](#vpn-target-gateway-changed)
++ [A VPC was attached to a transit gateway (VPC-ATTACHMENT-CREATED)](#vpc-tgw-attach)
++ [A VPC attachment was deleted from a transit gateway (VPC-ATTACHMENT-DELETED)](#vpc-attach-tgw-delete)
++ [An Direct Connect gateway was attached to a transit gateway (DXGW-ATTACHMENT-CREATED)](#dx-gateway-attach)
++ [An Direct Connect gateway was detached from a transit gateway (DXGW-ATTACHMENT-DELETED)](#dx-gateway-detach)
++ [A transit gateway peering connection attachment was created (TGW\_PEERING\_CREATED)](#tgw-peering-attach)
++ [A transit gateway peering connection was deleted (TGW-PEERING-DELETED)](#tgw-peering-delete)
++ [A transit gateway Connect attachment was created for a transit gateway (CONNECT\_ATTACHMENT\_CREATED)](#connect-attachment-create)
++ [A transit gateway Connect attachment was deleted for a transit gateway (CONNECT\_ATTACHMENT\_DELETED)](#connect-attachment-delete)
++ [A transit gateway Connect peer was created in a Connect attachment (TGW-CONNECT-PEER-CREATED)](#tgw-connect-peer-created)
++ [A transit gateway Connect peer was deleted in a Connect attachment (CONNECT\_PEER\_DELETED)](#tgw-connect-peer-deleted)
++ [A Network Firewall attachment was created (NETWORK-FIREWALL-ATTACHMENT-CREATED)](#vpc-firewall-attach)
++ [A Network Firewall attachment was deleted (NETWORK-FIREWALL-ATTACHMENT-DELETED)](#vpc-firewall-delete)
 
 ### A transit gateway in the global network was deleted (TGW-DELETED)
+<a name="tgw-delete"></a>
 
 ```
 {"version":"0",
@@ -137,10 +132,10 @@ global network. These include the following:
     "changeDescription":"A Transit Gateway in the global network has been deleted.",
     "region":"us-east-1",
     "transitGatewayArn":"arn:aws:ec2:us-east-1:123456789012:transit-gateway/tgw-1234567890abcdef0"}}
-
 ```
 
 ### A VPN connection was created for a transit gateway (VPN-CONNECTION-CREATED)
+<a name="vpn-tgw-create"></a>
 
 ```
 {
@@ -172,6 +167,7 @@ global network. These include the following:
 ```
 
 ### A VPN connection was deleted on a transit gateway (VPN-CONNECTION-DELETED)
+<a name="vpn-tgw-delete"></a>
 
 ```
 {
@@ -200,6 +196,7 @@ global network. These include the following:
 ```
 
 ### The customer gateway for a VPN connection was changed (VPN-CONNECTION-CUSTOMER-GATEWAY-MODIFIED)
+<a name="vpn-gateway-changed"></a>
 
 ```
 {"version":"0",
@@ -225,9 +222,9 @@ global network. These include the following:
 ```
 
 ### The target gateway for a VPN connection was changed (VPN-CONNECTION-TARGET-GATEWAY-MODIFIED)
+<a name="vpn-target-gateway-changed"></a>
 
 ```
-
 {"version":"0",
 "id":"668a4e46-a757-3663-dc32-308c5ac5d87f",
 "detail-type":"Network Manager Topology Change",
@@ -252,6 +249,7 @@ global network. These include the following:
 ```
 
 ### A VPC was attached to a transit gateway (VPC-ATTACHMENT-CREATED)
+<a name="vpc-tgw-attach"></a>
 
 ```
 {
@@ -278,6 +276,7 @@ global network. These include the following:
 ```
 
 ### A VPC attachment was deleted from a transit gateway (VPC-ATTACHMENT-DELETED)
+<a name="vpc-attach-tgw-delete"></a>
 
 ```
 {
@@ -304,6 +303,7 @@ global network. These include the following:
 ```
 
 ### An Direct Connect gateway was attached to a transit gateway (DXGW-ATTACHMENT-CREATED)
+<a name="dx-gateway-attach"></a>
 
 ```
 {
@@ -329,6 +329,7 @@ global network. These include the following:
 ```
 
 ### An Direct Connect gateway was detached from a transit gateway (DXGW-ATTACHMENT-DELETED)
+<a name="dx-gateway-detach"></a>
 
 ```
 {
@@ -355,6 +356,7 @@ global network. These include the following:
 ```
 
 ### A transit gateway peering connection attachment was created (TGW\_PEERING\_CREATED)
+<a name="tgw-peering-attach"></a>
 
 ```
 {
@@ -381,6 +383,7 @@ global network. These include the following:
 ```
 
 ### A transit gateway peering connection was deleted (TGW-PEERING-DELETED)
+<a name="tgw-peering-delete"></a>
 
 ```
 {
@@ -407,6 +410,7 @@ global network. These include the following:
 ```
 
 ### A transit gateway Connect attachment was created for a transit gateway (CONNECT\_ATTACHMENT\_CREATED)
+<a name="connect-attachment-create"></a>
 
 ```
 {
@@ -434,6 +438,7 @@ global network. These include the following:
 ```
 
 ### A transit gateway Connect attachment was deleted for a transit gateway (CONNECT\_ATTACHMENT\_DELETED)
+<a name="connect-attachment-delete"></a>
 
 ```
 {
@@ -459,34 +464,36 @@ global network. These include the following:
 ```
 
 ### A transit gateway Connect peer was created in a Connect attachment (TGW-CONNECT-PEER-CREATED)
+<a name="tgw-connect-peer-created"></a>
 
 ```
-{
-"version": "0",
-"id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
-"detail-type": "Network Manager Topology Change",
-"source": "aws.networkmanager",
-"account": "123456789012",
-"time": "2023-06-27T17:22:45Z",
-"region": "us-west-2",
-"resources": [
-    "arn:aws:networkmanager::123456789012:global-network/global-network-1234567890abcdef0",
-    "arn:aws:ec2:us-east-1:111122223333:transit-gateway/tgw-1234567890abcdef0"
-],
-"detail": {
-    "changeType": "TGW-CONNECT-PEER-CREATED",
-    "changeDescription": "A TGW Connect Peer has been created in a Connect attachment.",
-    "region": "us-east-1",
-    "transitGatewayAttachmentArn": "arn:aws:ec2:us-east-1:111122223333:transit-gateway-attachment/tgw-attach-1234567890abcdef0",
-    "connectPeerArn": "arn:aws:ec2:us-east-1:111122223333:transit-gateway-connect-peer/tgw-connect-peer-1234567890abcdef0",
-    "peerAddress": "10.1.2.3",
+{ 
+"version": "0", 
+"id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", 
+"detail-type": "Network Manager Topology Change", 
+"source": "aws.networkmanager", 
+"account": "123456789012", 
+"time": "2023-06-27T17:22:45Z", 
+"region": "us-west-2", 
+"resources": [ 
+    "arn:aws:networkmanager::123456789012:global-network/global-network-1234567890abcdef0", 
+    "arn:aws:ec2:us-east-1:111122223333:transit-gateway/tgw-1234567890abcdef0" 
+], 
+"detail": { 
+    "changeType": "TGW-CONNECT-PEER-CREATED", 
+    "changeDescription": "A TGW Connect Peer has been created in a Connect attachment.", 
+    "region": "us-east-1", 
+    "transitGatewayAttachmentArn": "arn:aws:ec2:us-east-1:111122223333:transit-gateway-attachment/tgw-attach-1234567890abcdef0", 
+    "connectPeerArn": "arn:aws:ec2:us-east-1:111122223333:transit-gateway-connect-peer/tgw-connect-peer-1234567890abcdef0", 
+    "peerAddress": "10.1.2.3", 
     "transitGatewayAddress": "10.0.0.1", 111122223333
-    "transitGatewayArn": "arn:aws:ec2:us-east-1:111122223333:transit-gateway/tgw-1234567890abcdef0"
-    }
+    "transitGatewayArn": "arn:aws:ec2:us-east-1:111122223333:transit-gateway/tgw-1234567890abcdef0" 
+    } 
 }
 ```
 
 ### A transit gateway Connect peer was deleted in a Connect attachment (CONNECT\_PEER\_DELETED)
+<a name="tgw-connect-peer-deleted"></a>
 
 ```
 {
@@ -513,6 +520,7 @@ global network. These include the following:
 ```
 
 ### A Network Firewall attachment was created (NETWORK-FIREWALL-ATTACHMENT-CREATED)
+<a name="vpc-firewall-attach"></a>
 
 ```
 {
@@ -541,6 +549,7 @@ global network. These include the following:
 ```
 
 ### A Network Firewall attachment was deleted (NETWORK-FIREWALL-ATTACHMENT-DELETED)
+<a name="vpc-firewall-delete"></a>
 
 ```
 {
@@ -569,17 +578,17 @@ global network. These include the following:
 ```
 
 ## Routing update events
+<a name="routing-changes-events"></a>
 
-Routing update events occur when there have been changes to the transit gateway route
-tables in your global network. These include the following:
+Routing update events occur when there have been changes to the transit gateway route tables in your global network. These include the following:
 
-###### Events
-
-- [A transit gateway attachment's route table changed (CONNECT\_PEER\_DELETED)](#tgw-route-changed "#tgw-route-changed")
-- [A route was created in a transit gateway route table (TGW-ROUTE-INSTALLED)](#tgw-route-created "#tgw-route-created")
-- [A route was deleted in a transit gateway route table gateway (TGW-ROUTE-UNINSTALLED)](#tgw-route-uninstall "#tgw-route-uninstall")
+**Topics**
++ [A transit gateway attachment's route table changed (CONNECT\_PEER\_DELETED)](#tgw-route-changed)
++ [A route was created in a transit gateway route table (TGW-ROUTE-INSTALLED)](#tgw-route-created)
++ [A route was deleted in a transit gateway route table gateway (TGW-ROUTE-UNINSTALLED)](#tgw-route-uninstall)
 
 ### A transit gateway attachment's route table changed (CONNECT\_PEER\_DELETED)
+<a name="tgw-route-changed"></a>
 
 ```
 {
@@ -606,47 +615,49 @@ tables in your global network. These include the following:
 ```
 
 ### A route was created in a transit gateway route table (TGW-ROUTE-INSTALLED)
+<a name="tgw-route-created"></a>
 
 ```
-{
-"version": "0",
-"id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
-"detail-type": "Network Manager Routing Update",
-"source": "aws.networkmanager",
-"account": "123456789012",
-"time": "2023-06-27T15:24:32Z",
-"region": "us-west-2",
-"resources": [
-    "arn:aws:networkmanager::123456789012:global-network/global-network-1234567890abcdef0",
-    "arn:aws:ec2:us-east-1:111122223333:transit-gateway/tgw-1234567890abcdef0"
-],
-"detail": {
-    "changeType": "TGW-ROUTE-INSTALLED",
-    "changeDescription": "Routes in one or more Transit Gateway route tables have been installed.",
-    "region": "us-east-1",
-    "transitGatewayRouteTableArns": [
-        "arn:aws:ec2:us-east-1:111122223333:transit-gateway-route-table/tgw-rtb-1234567890abcdef0"
-    ],
-    "sequenceNumber": 1687879467281,
-    "routes": [{
-        "destinationCidrBlock": "11.0.0.0/16",
-        "attachments": [
-            { "tgwAttachmentId": "tgw-attach-1234567890abcdef0",
-              "resourceId": "vpc-1234567890abcdef0",
-              "attachmentType": "vpc"
-            }
-            ],
-        "routeType":
-            "route_propagated",
-            "routeState": "active",
-            "propagatedRouteFamily":
-                "connected" }
-            ],
-   "transitGatewayArn": "arn:aws:ec2:us-east-1:111122223333:transit-gateway/tgw-1234567890abcdef0"
+{ 
+"version": "0", 
+"id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", 
+"detail-type": "Network Manager Routing Update", 
+"source": "aws.networkmanager", 
+"account": "123456789012", 
+"time": "2023-06-27T15:24:32Z", 
+"region": "us-west-2", 
+"resources": [ 
+    "arn:aws:networkmanager::123456789012:global-network/global-network-1234567890abcdef0", 
+    "arn:aws:ec2:us-east-1:111122223333:transit-gateway/tgw-1234567890abcdef0" 
+], 
+"detail": { 
+    "changeType": "TGW-ROUTE-INSTALLED", 
+    "changeDescription": "Routes in one or more Transit Gateway route tables have been installed.", 
+    "region": "us-east-1", 
+    "transitGatewayRouteTableArns": [ 
+        "arn:aws:ec2:us-east-1:111122223333:transit-gateway-route-table/tgw-rtb-1234567890abcdef0" 
+    ], 
+    "sequenceNumber": 1687879467281, 
+    "routes": [{ 
+        "destinationCidrBlock": "11.0.0.0/16", 
+        "attachments": [ 
+            { "tgwAttachmentId": "tgw-attach-1234567890abcdef0", 
+              "resourceId": "vpc-1234567890abcdef0", 
+              "attachmentType": "vpc" 
+            } 
+            ], 
+        "routeType": 
+            "route_propagated", 
+            "routeState": "active", 
+            "propagatedRouteFamily": 
+                "connected" } 
+            ], 
+   "transitGatewayArn": "arn:aws:ec2:us-east-1:111122223333:transit-gateway/tgw-1234567890abcdef0" 
 }
 ```
 
 ### A route was deleted in a transit gateway route table gateway (TGW-ROUTE-UNINSTALLED)
+<a name="tgw-route-uninstall"></a>
 
 ```
 {
@@ -682,28 +693,27 @@ tables in your global network. These include the following:
 ```
 
 ## Status update events
+<a name="network-status-events"></a>
 
-Status update events occur when there have been changes to the status of the
-connectivity of your VPN connections in the global network. These include the
-following:
+Status update events occur when there have been changes to the status of the connectivity of your VPN connections in the global network. These include the following:
 
-###### Events
-
-- [A VPN tunnel's IPsec session went down (VPN-CONNECTION-IPSEC-DOWN)](#vpn-connection-ipsec-down "#vpn-connection-ipsec-down")
-- [A VPN tunnel's IPsec session went up (after being down) (VPN-CONNECTION-IPSEC-UP)](#vpn-connection-ipsec-up "#vpn-connection-ipsec-up")
-- [A VPN tunnel's BGP session went down (VPN-CONNECTION-BGP-DOWN)](#vpn-connection-bgp-down "#vpn-connection-bgp-down")
-- [A VPN tunnel's BGP session went up (after being down) (VPN-CONNECTION-BGP-ESTABLISH)](#vpn-connection-bgp-establish "#vpn-connection-bgp-establish")
-- [A Connect peer (GRE tunnel) BGP session went down (CONNECT\_PEER\_BGP\_DOWN)](#tgw-connect-peer-bgp-down "#tgw-connect-peer-bgp-down")
-- [A Connect peer (GRE tunnel) BGP session went up after being down) (CONNECT\_PEER\_BGP\_UP)](#tgw-connect-peer-bgp-up "#tgw-connect-peer-bgp-up")
+**Topics**
++ [A VPN tunnel's IPsec session went down (VPN-CONNECTION-IPSEC-DOWN)](#vpn-connection-ipsec-down)
++ [A VPN tunnel's IPsec session went up (after being down) (VPN-CONNECTION-IPSEC-UP)](#vpn-connection-ipsec-up)
++ [A VPN tunnel's BGP session went down (VPN-CONNECTION-BGP-DOWN)](#vpn-connection-bgp-down)
++ [A VPN tunnel's BGP session went up (after being down) (VPN-CONNECTION-BGP-ESTABLISH)](#vpn-connection-bgp-establish)
++ [A Connect peer (GRE tunnel) BGP session went down (CONNECT\_PEER\_BGP\_DOWN)](#tgw-connect-peer-bgp-down)
++ [A Connect peer (GRE tunnel) BGP session went up after being down) (CONNECT\_PEER\_BGP\_UP)](#tgw-connect-peer-bgp-up)
 
 ### A VPN tunnel's IPsec session went down (VPN-CONNECTION-IPSEC-DOWN)
+<a name="vpn-connection-ipsec-down"></a>
 
 ```
 {
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
     "detail-type": "Network Manager Status Update",
-    "source": "aws.networkmanager",
+    "source": "aws.networkmanager",    
     "account": "123456789012",
     "time": "2023-01-31T19:48:05Z",
     "region": "us-west-2",
@@ -724,6 +734,7 @@ following:
 ```
 
 ### A VPN tunnel's IPsec session went up (after being down) (VPN-CONNECTION-IPSEC-UP)
+<a name="vpn-connection-ipsec-up"></a>
 
 ```
 {
@@ -751,6 +762,7 @@ following:
 ```
 
 ### A VPN tunnel's BGP session went down (VPN-CONNECTION-BGP-DOWN)
+<a name="vpn-connection-bgp-down"></a>
 
 ```
 {
@@ -779,6 +791,7 @@ following:
 ```
 
 ### A VPN tunnel's BGP session went up (after being down) (VPN-CONNECTION-BGP-ESTABLISH)
+<a name="vpn-connection-bgp-establish"></a>
 
 ```
 {
@@ -807,6 +820,7 @@ following:
 ```
 
 ### A Connect peer (GRE tunnel) BGP session went down (CONNECT\_PEER\_BGP\_DOWN)
+<a name="tgw-connect-peer-bgp-down"></a>
 
 ```
 {
@@ -827,11 +841,12 @@ following:
         "peerAsn": "65011",
         "coreNetworkAddress": "192.0.2.0",
         "coreNetworkArn": "arn:aws:networkmanager::123456789012:core-network/core-network-1234567890abcdef0"
-    }
+    }   
 }
 ```
 
 ### A Connect peer (GRE tunnel) BGP session went up after being down) (CONNECT\_PEER\_BGP\_UP)
+<a name="tgw-connect-peer-bgp-up"></a>
 
 ```
 {
