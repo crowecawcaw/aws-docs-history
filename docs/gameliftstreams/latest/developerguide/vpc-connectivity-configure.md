@@ -1,13 +1,14 @@
-# Configuring VPC connectivity
 
-This section walks you through configuring VPC connectivity for a Amazon GameLift Streams stream group
-using the AWS CLI.
+
+# Configuring VPC connectivity
+<a name="vpc-connectivity-configure"></a>
+
+This section walks you through configuring VPC connectivity for a Amazon GameLift Streams stream group using the AWS CLI.
 
 ## Step 1: Create a stream group with VPC configuration
+<a name="vpc-connectivity-step1"></a>
 
-When creating a stream group, include the `VpcTransitConfiguration`
-parameter in your location configuration. Specify your VPC ID and the CIDR blocks that
-your streaming application needs to access.
+When creating a stream group, include the `VpcTransitConfiguration` parameter in your location configuration. Specify your VPC ID and the CIDR blocks that your streaming application needs to access.
 
 ```
 aws gameliftstreams create-stream-group \
@@ -31,21 +32,18 @@ aws gameliftstreams wait stream-group-active \
     --identifier sg-1AB2C3De4
 ```
 
-When the stream group status is `ACTIVE`, get stream group details and note the following values from
-the response:
+When the stream group status is `ACTIVE`, get stream group details and note the following values from the response:
 
 ```
 aws gameliftstreams get-stream-group \
               --identifier sg-1AB2C3De4
 ```
-
-- `TransitGatewayId` – The ID of the transit gateway created by Amazon GameLift Streams.
-- `TransitGatewayResourceShareArn` – The ARN of the RAM resource
-  share.
-- `InternalVpcIpv4CidrBlock` – The CIDR block of the service VPC that you
-  need to add to your route tables.
++ `TransitGatewayId` – The ID of the transit gateway created by Amazon GameLift Streams.
++ `TransitGatewayResourceShareArn` – The ARN of the RAM resource share.
++ `InternalVpcIpv4CidrBlock` – The CIDR block of the service VPC that you need to add to your route tables.
 
 ## Step 2: Accept the RAM resource share
+<a name="vpc-connectivity-step2"></a>
 
 Accept the resource share invitation to gain access to the transit gateway:
 
@@ -60,9 +58,9 @@ aws ram accept-resource-share-invitation \
 ```
 
 ## Step 3: Create a VPC attachment
+<a name="vpc-connectivity-step3"></a>
 
-Attach your VPC to the transit gateway. You need to specify at least one subnet from your
-VPC:
+Attach your VPC to the transit gateway. You need to specify at least one subnet from your VPC:
 
 ```
 # Get your subnet IDs
@@ -86,10 +84,9 @@ aws ec2 describe-transit-gateway-vpc-attachments \
 ```
 
 ## Step 4: Configure routing
+<a name="vpc-connectivity-step4"></a>
 
-Add a route to your VPC route table to direct traffic destined for the service VPC
-through the transit gateway. Use the `InternalVpcIpv4CidrBlock` value from the stream group
-response:
+Add a route to your VPC route table to direct traffic destined for the service VPC through the transit gateway. Use the `InternalVpcIpv4CidrBlock` value from the stream group response:
 
 ```
 # Get your route table ID
@@ -104,15 +101,13 @@ aws ec2 create-route \
     --transit-gateway-id tgw-0123456789abcdef0
 ```
 
-###### Note
-
-Replace `10.1.0.0/16` with the actual `InternalVpcIpv4CidrBlock`
-value from your stream group.
+**Note**  
+Replace `10.1.0.0/16` with the actual `InternalVpcIpv4CidrBlock` value from your stream group.
 
 ## (Optional) Step 5: Update security groups
+<a name="vpc-connectivity-step5"></a>
 
-When connecting to EC2 instances in your VPC, update the security groups of your EC2 instances to allow inbound traffic from
-the service VPC CIDR block so your applications can send traffic to your EC2 instances:
+When connecting to EC2 instances in your VPC, update the security groups of your EC2 instances to allow inbound traffic from the service VPC CIDR block so your applications can send traffic to your EC2 instances:
 
 ```
 aws ec2 authorize-security-group-ingress \
@@ -122,20 +117,17 @@ aws ec2 authorize-security-group-ingress \
     --cidr 10.1.0.0/16
 ```
 
-###### Note
-
-Replace the following values with your actual configuration:
-
-- `sg-0123456789abcdef0` – The security group ID of your private resource.
-- `tcp` – The protocol your application uses (tcp or udp).
-- `443` – The port number your application listens on.
-- `10.1.0.0/16` – The `InternalVpcIpv4CidrBlock` value from your stream group.
+**Note**  
+Replace the following values with your actual configuration:  
+`sg-0123456789abcdef0` – The security group ID of your private resource.
+`tcp` – The protocol your application uses (tcp or udp).
+`443` – The port number your application listens on.
+`10.1.0.0/16` – The `InternalVpcIpv4CidrBlock` value from your stream group.
 
 ## (Optional) Step 6: Update CIDR blocks
+<a name="vpc-connectivity-step6"></a>
 
-You can update the CIDR blocks for a stream group location's VPC connectivity configuration
-without recreating the stream group. This is useful when you need to expand or modify the IP
-address ranges that your streaming application can access in your VPC.
+You can update the CIDR blocks for a stream group location's VPC connectivity configuration without recreating the stream group. This is useful when you need to expand or modify the IP address ranges that your streaming application can access in your VPC.
 
 To update the CIDR blocks, use the `UpdateStreamGroup` API:
 
@@ -151,11 +143,7 @@ aws gameliftstreams update-stream-group \
     }]'
 ```
 
-After updating the CIDR blocks, Amazon GameLift Streams automatically updates the routing configuration in
-the service-managed VPC.
+After updating the CIDR blocks, Amazon GameLift Streams automatically updates the routing configuration in the service-managed VPC.
 
-###### Note
-
-The VPC ID cannot be changed when updating CIDR blocks. To connect to a different VPC,
-you must delete and recreate the stream group location (for streaming locations other than the primary) or create a
-new stream group (for the primary location).
+**Note**  
+The VPC ID cannot be changed when updating CIDR blocks. To connect to a different VPC, you must delete and recreate the stream group location (for streaming locations other than the primary) or create a new stream group (for the primary location).

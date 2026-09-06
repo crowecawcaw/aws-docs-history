@@ -1,75 +1,85 @@
+
+
 # Configuration options
+<a name="configuration-options"></a>
 
 ## Runtime environments
+<a name="configuration-options-runtime"></a>
 
-_Runtimes_ refer to the underlying operating system and software environment that executes your application on Amazon GameLift Streams.
-The main runtime options are Windows, Linux, and Proton. You specify the runtime environment in [Step 2: Configure your application for Amazon GameLift Streams](streaming-process.md#streaming-process-create-application "streaming-process.md#streaming-process-create-application") of the getting started worflow.
+*Runtimes* refer to the underlying operating system and software environment that executes your application on Amazon GameLift Streams. The main runtime options are Windows, Linux, and Proton. You specify the runtime environment in [Step 2: Configure your application for Amazon GameLift Streams](streaming-process.md#streaming-process-create-application) of the getting started worflow.
 
-[Proton](https://github.com/ValveSoftware/Proton/wiki "https://github.com/ValveSoftware/Proton/wiki") is a compatibility layer that enables many Windows applications to run in a Linux-based environment. If you plan to use
-Proton, we recommend that you test how your application runs on a local machine. For more information, refer to [Testing and troubleshooting compatibility with Proton for Amazon GameLift Streams](troubleshoot-compatibility-wp.md "troubleshoot-compatibility-wp.md").
+ [Proton](https://github.com/ValveSoftware/Proton/wiki) is a compatibility layer that enables many Windows applications to run in a Linux-based environment. If you plan to use Proton, we recommend that you test how your application runs on a local machine. For more information, refer to [Testing and troubleshooting compatibility with Proton for Amazon GameLift Streams](troubleshoot-compatibility-wp.md). 
 
-| Runtime                            | Description                                                                                                                                                                                                                                                                                                                   |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Microsoft Windows Server 2022 Base | Compatible with Windows applications. Supports using IPv4 and IPv6 in stream sessions.                                                                                                                                                                                                                                        |
-| Ubuntu 22.04 LTS                   | Compatible with Linux applications.<br>Does not support using IPv6 in stream sessions.                                                                                                                                                                                                                                        |
-| Proton 10.0-4                      | Compatible with Windows applications. Based on the Proton [proton-10.0-4](https://github.com/ValveSoftware/Proton/tree/proton-10.0-4 "https://github.com/ValveSoftware/Proton/tree/proton-10.0-4") branch.<br>Recommended version to start testing compatibility with Proton. Does not support using IPv6 in stream sessions. |
-| Proton 9.0-2                       | Compatible with Windows applications. Based on the Proton [experimental\_9.0](https://github.com/ValveSoftware/Proton/tree/experimental_9.0 "https://github.com/ValveSoftware/Proton/tree/experimental_9.0") branch.<br>Does not support using IPv6 in stream sessions.                                                       |
-| Proton 8.0-5                       | Compatible with Windows applications. Based on the Proton [experimental\_8.0](https://github.com/ValveSoftware/Proton/tree/experimental_8.0 "https://github.com/ValveSoftware/Proton/tree/experimental_8.0") branch.<br>Does not support using IPv6 in stream sessions.                                                       |
-| Proton 8.0-2c                      | Compatible with Windows applications. Based on the Proton [experimental\_8.0](https://github.com/ValveSoftware/Proton/tree/experimental_8.0 "https://github.com/ValveSoftware/Proton/tree/experimental_8.0") branch.<br>Does not support using IPv6 in stream sessions.                                                       |
+
+| Runtime | Description | 
+| --- | --- | 
+| Microsoft Windows Server 2022 Base | Compatible with Windows applications. Supports using IPv4 and IPv6 in stream sessions. | 
+| Ubuntu 22.04 LTS | Compatible with Linux applications. Does not support using IPv6 in stream sessions. | 
+| Proton 10.0-4 | Compatible with Windows applications. Based on the Proton [proton-10.0-4](https://github.com/ValveSoftware/Proton/tree/proton-10.0-4) branch. Recommended version to start testing compatibility with Proton. Does not support using IPv6 in stream sessions. | 
+| Proton 9.0-2 | Compatible with Windows applications. Based on the Proton [experimental\_9.0](https://github.com/ValveSoftware/Proton/tree/experimental_9.0) branch. Does not support using IPv6 in stream sessions. | 
+| Proton 8.0-5 | Compatible with Windows applications. Based on the Proton [experimental\_8.0](https://github.com/ValveSoftware/Proton/tree/experimental_8.0) branch. Does not support using IPv6 in stream sessions. | 
+| Proton 8.0-2c | Compatible with Windows applications. Based on the Proton [experimental\_8.0](https://github.com/ValveSoftware/Proton/tree/experimental_8.0) branch. Does not support using IPv6 in stream sessions. | 
 
 ### Limitations
+<a name="configuration-options-runtime-limits"></a>
 
-The Ubuntu 22.04 LTS runtime environment supports gamepads for applications that use the Simple DirectMedia Layer (SDL) libraries. If your application uses other input libraries, gamepad functionality might not work. If you experience issues, consider using a Proton or Windows runtime environment instead. For more information, see [Amazon GameLift Streams compatible devices and browsers](compatible-devices-browsers.md "compatible-devices-browsers.md").
+ The Ubuntu 22.04 LTS runtime environment supports gamepads for applications that use the Simple DirectMedia Layer (SDL) libraries. If your application uses other input libraries, gamepad functionality might not work. If you experience issues, consider using a Proton or Windows runtime environment instead. For more information, see [Amazon GameLift Streams compatible devices and browsers](compatible-devices-browsers.md). 
 
 ## Stream classes
+<a name="configuration-options-stream-classes"></a>
 
-_Stream classes_ represent the different resource configurations available within Amazon GameLift Streams, varying in CPU, GPU, RAM, and
-other specifications. The stream class is a configuration option of a stream group that defines both the hardware resources allocated to a
-stream session and the tenancy model (how many concurrent streams can run on a single virtual machine). You specify the stream class in [Step 3: Manage how Amazon GameLift Streams streams your application](streaming-process.md#streaming-process-stream-group "streaming-process.md#streaming-process-stream-group") of the getting started workflow.
+ *Stream classes* represent the different resource configurations available within Amazon GameLift Streams, varying in CPU, GPU, RAM, and other specifications. The stream class is a configuration option of a stream group that defines both the hardware resources allocated to a stream session and the tenancy model (how many concurrent streams can run on a single virtual machine). You specify the stream class in [Step 3: Manage how Amazon GameLift Streams streams your application](streaming-process.md#streaming-process-stream-group) of the getting started workflow. 
 
 ### Windows stream classes
+<a name="configuration-options-stream-classes-windows"></a>
 
-| Stream class           | Amazon EC2 configuration                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ---------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `gen6n_pro_win2022`    | Windows runtime on a g6.4xlarge Amazon EC2 instance                   | (NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12.<br>Compatible with Unreal Engine versions up through 5.6, 32 and 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 16. RAM: 64 GB. VRAM: 24 GB.<br>Tenancy: Supports up to one concurrent stream session.    |
-| `gen6n_ultra_win2022`  | Windows runtime on a g6.2xlarge Amazon EC2 instance                   | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12.<br>Compatible with Unreal Engine versions up through 5.6, 32 and 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports up to one concurrent stream session.                                             |
-| `gen6n_medium_win2022` | Windows runtime on a g6f.2xlarge Amazon EC2 instance with 1:1 tenancy | (NVIDIA, small) Supports applications with low 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 2. RAM: 8 GB. VRAM: 3 GB.<br>Tenancy: Supports up to one concurrent stream session.                                                                                                                                                                                         |
-| `gen6n_small_win2022`  | Windows runtime on a g6f.large Amazon EC2 instance with 1:1 tenancy   | (NVIDIA, small) Supports applications with low 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 2. RAM: 8 GB. VRAM: 3 GB.<br>Tenancy: Supports up to one concurrent stream session.                                                                                                                                                                                         |
-| `gen6e_pro_win2022`    | Windows runtime on a g6e.4xlarge Amazon EC2 instance                  | (NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12.<br>Compatible with Unreal Engine versions up through 5.6, 32 and 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA L40S Tensor Core GPU.<br>Resources per application: vCPUs: 16. RAM: 128 GB. VRAM: 48 GB.<br>Tenancy: Supports up to one concurrent stream session. |
-| `gen5n_win2022`        | Windows runtime on a g5.2xlarge Amazon EC2 instance                   | (NVIDIA, ultra) Supports applications with extremely high 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12 and DirectX 11.<br>Supports Unreal Engine up through version 5.6, 32 and 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA A10G Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports one concurrent stream session.                                |
-| `gen4n_win2022`        | Windows runtime on a g4dn.2xlarge Amazon EC2 instance                 | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12 and DirectX 11.<br>Supports Unreal Engine up through version 5.6, 32 and 64-bit applications, and anti-cheat technology.<br>Uses NVIDIA T4 Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB.<br>Tenancy: Supports one concurrent stream session.                                            |
+
+| Stream class | Amazon EC2 configuration | Description | 
+| --- | --- | --- | 
+|  `gen6n_pro_win2022`  | Windows runtime on a g6.4xlarge Amazon EC2 instance | (NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.6, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 16. RAM: 64 GB. VRAM: 24 GB.<br />Tenancy: Supports up to one concurrent stream session. | 
+|  `gen6n_ultra_win2022`  | Windows runtime on a g6.2xlarge Amazon EC2 instance | (NVIDIA, ultra) Supports applications with high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.6, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br />Tenancy: Supports up to one concurrent stream session. | 
+|  `gen6n_medium_win2022`  | Windows runtime on a g6f.2xlarge Amazon EC2 instance with 1:1 tenancy | (NVIDIA, small) Supports applications with low 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 2. RAM: 8 GB. VRAM: 3 GB.<br />Tenancy: Supports up to one concurrent stream session. | 
+|  `gen6n_small_win2022`  | Windows runtime on a g6f.large Amazon EC2 instance with 1:1 tenancy | (NVIDIA, small) Supports applications with low 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 2. RAM: 8 GB. VRAM: 3 GB.<br />Tenancy: Supports up to one concurrent stream session. | 
+|  `gen6e_pro_win2022`  | Windows runtime on a g6e.4xlarge Amazon EC2 instance | (NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.6, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA L40S Tensor Core GPU.<br />Resources per application: vCPUs: 16. RAM: 128 GB. VRAM: 48 GB.<br />Tenancy: Supports up to one concurrent stream session. | 
+| `gen5n_win2022` | Windows runtime on a g5.2xlarge Amazon EC2 instance |  (NVIDIA, ultra) Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12 and DirectX 11. Supports Unreal Engine up through version 5.6, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor Core GPU. <br /> Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB. <br /> Tenancy: Supports one concurrent stream session.  | 
+| `gen4n_win2022` | Windows runtime on a g4dn.2xlarge Amazon EC2 instance |  (NVIDIA, ultra) Supports applications with high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12 and DirectX 11. Supports Unreal Engine up through version 5.6, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor Core GPU. <br /> Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB. <br /> Tenancy: Supports one concurrent stream session.  | 
 
 ### Linux and Proton stream classes
+<a name="configuration-options-stream-classes-linuxproton"></a>
 
-| Stream class   | Amazon EC2 configuration                                             | Description                                                                                                                                                                                                                                                                    |
-| -------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `gen6n_pro`    | Linux runtime on a g6.4xlarge Amazon EC2 instance                    | (NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 16. RAM: 64 GB. VRAM: 24 GB.<br>Tenancy: Supports up to one concurrent stream session.    |
-| `gen6n_ultra`  | Linux runtime on a g6.2xlarge Amazon EC2 instance                    | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports up to one concurrent stream session.                                             |
-| `gen6n_high`   | Linux runtime on a g6.2xlarge Amazon EC2 instance with 2:1 tenancy   | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 12 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                                 |
-| `gen6n_medium` | Linux runtime on a g6.2xlarge Amazon EC2 instance with 4:1 tenancy   | (NVIDIA, medium) Supports applications with moderate 3D scene complexity.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 2. RAM: 8 GB. VRAM: 6 GB.<br>Tenancy: Supports up to four concurrent stream sessions.                                        |
-| `gen6n_small`  | Linux runtime on a g6.4xlarge Amazon EC2 instance with 12:1 tenancy  | (NVIDIA, small) Supports applications with lightweight 3D scene complexity and low CPU usage.<br>Uses NVIDIA L4 Tensor Core GPU.<br>Resources per application: vCPUs: 1. RAM: 4 GB. VRAM: 2 GB.<br>Tenancy: Supports up to twelve concurrent stream sessions.                  |
-| `gen6e_pro`    | Linux runtime on a g6e.4xlarge Amazon EC2 instance                   | (NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources.<br>Uses NVIDIA L40S Tensor Core GPU.<br>Resources per application: vCPUs: 16. RAM: 128 GB. VRAM: 48 GB.<br>Tenancy: Supports up to one concurrent stream session. |
-| `gen5n_ultra`  | Linux runtime on a g5.2xlarge Amazon EC2 instance                    | (NVIDIA, ultra) Supports applications with extremely high 3D scene complexity.<br>Uses NVIDIA A10G Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br>Tenancy: Supports one concurrent stream session.                                       |
-| `gen5n_high`   | Linux runtime on a g5.2xlarge Amazon EC2 instance with 2:1 tenancy   | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA A10G Tensor Core GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 12 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                               |
-| `gen4n_ultra`  | Linux runtime on a g4dn.2xlarge Amazon EC2 instance                  | (NVIDIA, ultra) Supports applications with high 3D scene complexity.<br>Uses NVIDIA T4 Tensor Core GPU.<br>Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB.<br>Tenancy: Supports one concurrent stream session.                                                   |
-| `gen4n_high`   | Linux runtime on a g4dn.2xlarge Amazon EC2 instance with 2:1 tenancy | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity.<br>Uses NVIDIA T4 Tensor Core GPU.<br>Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 8 GB.<br>Tenancy: Supports up to two concurrent stream sessions.                                  |
+
+| Stream class | Amazon EC2 configuration | Description | 
+| --- | --- | --- | 
+|  `gen6n_pro`  | Linux runtime on a g6.4xlarge Amazon EC2 instance | (NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 16. RAM: 64 GB. VRAM: 24 GB.<br />Tenancy: Supports up to one concurrent stream session. | 
+|  `gen6n_ultra`  | Linux runtime on a g6.2xlarge Amazon EC2 instance | (NVIDIA, ultra) Supports applications with high 3D scene complexity. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br />Tenancy: Supports up to one concurrent stream session. | 
+|  `gen6n_high`  | Linux runtime on a g6.2xlarge Amazon EC2 instance with 2:1 tenancy | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 12 GB.<br />Tenancy: Supports up to two concurrent stream sessions. | 
+|  `gen6n_medium`  | Linux runtime on a g6.2xlarge Amazon EC2 instance with 4:1 tenancy | (NVIDIA, medium) Supports applications with moderate 3D scene complexity. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 2. RAM: 8 GB. VRAM: 6 GB.<br />Tenancy: Supports up to four concurrent stream sessions. | 
+|  `gen6n_small`  | Linux runtime on a g6.4xlarge Amazon EC2 instance with 12:1 tenancy | (NVIDIA, small) Supports applications with lightweight 3D scene complexity and low CPU usage. Uses NVIDIA L4 Tensor Core GPU.<br />Resources per application: vCPUs: 1. RAM: 4 GB. VRAM: 2 GB.<br />Tenancy: Supports up to twelve concurrent stream sessions. | 
+|  `gen6e_pro`  | Linux runtime on a g6e.4xlarge Amazon EC2 instance | (NVIDIA, pro) Supports applications with extremely high 3D scene complexity which require maximum resources. Uses NVIDIA L40S Tensor Core GPU.<br />Resources per application: vCPUs: 16. RAM: 128 GB. VRAM: 48 GB.<br />Tenancy: Supports up to one concurrent stream session. | 
+|  `gen5n_ultra`  | Linux runtime on a g5.2xlarge Amazon EC2 instance | (NVIDIA, ultra) Supports applications with extremely high 3D scene complexity. Uses NVIDIA A10G Tensor Core GPU.<br />Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 24 GB.<br />Tenancy: Supports one concurrent stream session. | 
+|  `gen5n_high`  | Linux runtime on a g5.2xlarge Amazon EC2 instance with 2:1 tenancy | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity. Uses NVIDIA A10G Tensor Core GPU.<br />Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 12 GB.<br />Tenancy: Supports up to two concurrent stream sessions. | 
+|  `gen4n_ultra`  | Linux runtime on a g4dn.2xlarge Amazon EC2 instance | (NVIDIA, ultra) Supports applications with high 3D scene complexity. Uses NVIDIA T4 Tensor Core GPU.<br />Resources per application: vCPUs: 8. RAM: 32 GB. VRAM: 16 GB.<br />Tenancy: Supports one concurrent stream session. | 
+|  `gen4n_high`  | Linux runtime on a g4dn.2xlarge Amazon EC2 instance with 2:1 tenancy | (NVIDIA, high) Supports applications with moderate-to-high 3D scene complexity. Uses NVIDIA T4 Tensor Core GPU.<br />Resources per application: vCPUs: 4. RAM: 16 GB. VRAM: 8 GB.<br />Tenancy: Supports up to two concurrent stream sessions. | 
 
 ## IPv6 support
+<a name="configuration-options-ipv6-support"></a>
 
 Amazon GameLift Streams supports streaming to IPv6-only clients only with Windows runtime applications.
 
-| Runtime                            | Streaming over IPv4 | Streaming over IPv6 |
-| ---------------------------------- | ------------------- | ------------------- |
-| Microsoft Windows Server 2022 Base | Yes                 | Yes                 |
-| Ubuntu 22.04 LTS                   | Yes                 | No                  |
-| Proton runtimes                    | Yes                 | No                  |
+
+| Runtime | Streaming over IPv4 | Streaming over IPv6 | 
+| --- | --- | --- | 
+| Microsoft Windows Server 2022 Base | Yes | Yes | 
+| Ubuntu 22.04 LTS | Yes | No | 
+| Proton runtimes | Yes | No | 
 
 ## GPU driver versions
+<a name="configuration-options-gpu-driver-versions"></a>
 
-Amazon GameLift Streams supports the following GPU driver versions by runtime. Each stream group uses
-the same GPU driver version for its lifetime.
+Amazon GameLift Streams supports the following GPU driver versions by runtime. Each stream group uses the same GPU driver version for its lifetime.
 
-| Runtime         | GPU driver version |
-| --------------- | ------------------ |
-| Windows         | 581.42             |
-| Linux or Proton | 580.95.05          |
+
+| Runtime | GPU driver version | 
+| --- | --- | 
+| Windows | 581.42 | 
+| Linux or Proton | 580.95.05 | 

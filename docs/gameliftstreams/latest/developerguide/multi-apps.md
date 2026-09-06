@@ -1,238 +1,227 @@
+
+
 # Overview of multi-application stream groups
+<a name="multi-apps"></a>
 
-A _multi-application stream group_ is a stream group that's linked to multiple applications. This enables
-you to stream multiple applications by using the same set of compute resources in a single stream group.
+A *multi-application stream group* is a stream group that's linked to multiple applications. This enables you to stream multiple applications by using the same set of compute resources in a single stream group.
 
-A common use case for multi-application stream groups is to release different versions of your game. For example, suppose that you created a
-stream group and set the default application to the original version of your game. Then, suppose you create additional applications that
-contains other versions of your game and link them to the stream group. Since these applications are associated with the same stream group,
-you only have to manage a single set of compute resources, or stream capacity, to stream all of these games. This means, regardless of which
-application an end-user streams, the application runs on a compute resource from the same set that this stream group has allocated.
+A common use case for multi-application stream groups is to release different versions of your game. For example, suppose that you created a stream group and set the default application to the original version of your game. Then, suppose you create additional applications that contains other versions of your game and link them to the stream group. Since these applications are associated with the same stream group, you only have to manage a single set of compute resources, or stream capacity, to stream all of these games. This means, regardless of which application an end-user streams, the application runs on a compute resource from the same set that this stream group has allocated. 
 
-Here are other possible real-life examples:
-
-- A game streaming platform that offers different streaming tiers to customers.
-- A quality assurance team that's testing multiple versions of a game.
-- To simplify stream capacity management by using a single stream group for multiple applications.
-- To enable a set of applications to stream from the same pool of stream capacity.
+ Here are other possible real-life examples: 
++ A game streaming platform that offers different streaming tiers to customers.
++ A quality assurance team that's testing multiple versions of a game.
++ To simplify stream capacity management by using a single stream group for multiple applications.
++ To enable a set of applications to stream from the same pool of stream capacity. 
 
 ## Limitations and requirements
+<a name="multi-apps-limitations"></a>
 
-You can only associate applications to stream groups that have compatible runtime environments and stream classes. For more
-information, refer to [Stream classes](configuration-options.md#configuration-options-stream-classes "configuration-options.md#configuration-options-stream-classes").
+You can only associate applications to stream groups that have compatible runtime environments and stream classes. For more information, refer to [Stream classes](configuration-options.md#configuration-options-stream-classes).
 
 The following association limits apply to applications and stream groups. These limits are fixed within the service for all customers.
 
-| Name                                      | Default | Adjustable | Description                                                                                           |
-| ----------------------------------------- | ------- | ---------- | ----------------------------------------------------------------------------------------------------- |
-| Applications in a stream group            | 250     | No         | The maximum number of Amazon GameLift Streams applications that can be associated to a stream group.  |
-| Stream group associations per application | 100     | No         | The maximum number of stream groups that an Amazon GameLift Streams application can be associated to. |
+
+| Name | Default | Adjustable | Description | 
+| --- | --- | --- | --- | 
+| Applications in a stream group | 250 | No | The maximum number of Amazon GameLift Streams applications that can be associated to a stream group. | 
+| Stream group associations per application | 100 | No | The maximum number of stream groups that an Amazon GameLift Streams application can be associated to. | 
 
 ## About default applications
+<a name="multi-apps-about-linking"></a>
 
-Each stream group has one _default application_, which is initially the first application that you add to the stream
-group. The default application is automatically pre-cached on all always-on compute resources, which can help reduce application load time
-during stream startup. The Amazon GameLift Streams service can also cache other linked applications during its optimization processes.
+Each stream group has one *default application*, which is initially the first application that you add to the stream group. The default application is automatically pre-cached on all always-on compute resources, which can help reduce application load time during stream startup. The Amazon GameLift Streams service can also cache other linked applications during its optimization processes.
 
 Characteristics of default applications and other linked applications:
-
-- The default application is pre-cached (on pre-allocated compute resources such as your always-on capacity) to help reduce
-  application load time during stream startup.
-- The default application can be changed. Note that when you switch default applications in a stream group, it can take up to a
-  few hours for the new default application to be pre-cached in all locations.
-- At least one linked application is required before you can start streaming from the stream group. The first application linked
-  is automatically made the default application.
-- If you unlink the default application of a stream group, Amazon GameLift Streams will automatically choose a new default application from the remaining
-  associated applications, if there are any.
-- The same application can be the default application for multiple stream groups.
-- The set of linked applications is mutable until the stream group is 180 days old. In practical terms, this means that you can
-  link and unlink applications until the stream group is 180 days old. After that, you will only be able to unlink applications from
-  a stream group throughout the remainder of the stream group's lifecycle.
++ The default application is pre-cached (on pre-allocated compute resources such as your always-on capacity) to help reduce application load time during stream startup.
++ The default application can be changed. Note that when you switch default applications in a stream group, it can take up to a few hours for the new default application to be pre-cached in all locations.
++ At least one linked application is required before you can start streaming from the stream group. The first application linked is automatically made the default application.
++ If you unlink the default application of a stream group, Amazon GameLift Streams will automatically choose a new default application from the remaining associated applications, if there are any.
++ The same application can be the default application for multiple stream groups.
++ The set of linked applications is mutable until the stream group is 180 days old. In practical terms, this means that you can link and unlink applications until the stream group is 180 days old. After that, you will only be able to unlink applications from a stream group throughout the remainder of the stream group's lifecycle.
 
 ## Change default application
+<a name="multi-apps-change-default"></a>
 
-When you link the first application to a stream group, it automatically becomes the default application and receives pre-
-caching benefits. You can change the default application at any time to give these benefits to a different application.
+When you link the first application to a stream group, it automatically becomes the default application and receives pre- caching benefits. You can change the default application at any time to give these benefits to a different application.
 
-###### Note
+**Note**  
+When you switch default applications in a stream group, it can take up to a few hours for the new default application to be pre-cached in all locations.
 
-When you switch default applications in a stream group, it can take up to a few hours for the new default application to be
-pre-cached in all locations.
+------
+#### [ Console ]
 
-Console
+**To change the default application using the Amazon GameLift Streams console**
 
-###### To change the default application using the Amazon GameLift Streams console
+1. Sign in to the AWS Management Console and open the [Amazon GameLift Streams console](https://console.aws.amazon.com/gameliftstreams/).
 
-1. Sign in to the AWS Management Console and open the [Amazon GameLift Streams console](https://console.aws.amazon.com/gameliftstreams/ "https://console.aws.amazon.com/gameliftstreams/").
-2. In the navigation bar, choose **Stream groups** to view a list
-   of your existing stream groups.
-3. Select a stream group to view its details.
-4. In **Linked applications**, select the application that you want to make the default.
-5. Choose **Make default**.
+1. In the navigation bar, choose **Stream groups** to view a list of your existing stream groups.
 
-CLI
+1. Select a stream group to view its details.
+
+1. In **Linked applications**, select the application that you want to make the default.
+
+1. Choose **Make default**.
+
+------
+#### [ CLI ]
+
 **Prerequisite**
 
-You must configure the AWS CLI with your user credentials and your chosen AWS Region. For setup instructions, refer to [Download the AWS CLI](setting-up.md#setting-up-prereqs "setting-up.md#setting-up-prereqs").
+ You must configure the AWS CLI with your user credentials and your chosen AWS Region. For setup instructions, refer to [Download the AWS CLI](setting-up.md#setting-up-prereqs). 
 
 **To change the default application using the AWS CLI**
 
-In your AWS CLI use the [UpdateStreamGroup](../apireference/API_UpdateStreamGroup.md "../apireference/API_UpdateStreamGroup.md")
-command, customized for your content. The application that you want to make the default must already be associated to the
-stream group.
+In your AWS CLI use the [UpdateStreamGroup](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateStreamGroup.html) command, customized for your content. The application that you want to make the default must already be associated to the stream group.
 
 ```
 aws gameliftstreams update-stream-group \
-    --identifier `arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4` \
-    --default-application-identifier `a-9ZY8X7Wv6`
+    --identifier {{arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4}} \
+    --default-application-identifier {{a-9ZY8X7Wv6}}
 ```
 
 where
++ `identifier`:
 
-- `identifier`:
+  A stream group that has an application that you want to make the default.
 
-A stream group that has an application that you want to make the default.
+  This value can be an [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) or ID that uniquely identifies the stream group resource. 
 
-This value can be an
-[Amazon Resource Name (ARN)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md") or ID that uniquely identifies the stream group resource.
+  ARN example: `arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4`
 
-ARN example: `arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4`
+  ID example: `sg-1AB2C3De4`
++ `default-application-identifier`:
 
-ID example: `sg-1AB2C3De4`
+  The application that you want to make the default in this stream group.
 
-- `default-application-identifier`:
+  This value is an [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) or ID that uniquely identifies the application resource. 
 
-The application that you want to make the default in this stream group.
+  ARN example: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6`
 
-This value is an
-[Amazon Resource Name (ARN)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md") or ID that uniquely identifies the application resource.
+  ID example: `a-9ZY8X7Wv6`
 
-ARN example: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6`
-
-ID example: `a-9ZY8X7Wv6`
+------
 
 ## Link an application
+<a name="multi-apps-link"></a>
 
-When you link, or associate, an application to a stream group, the stream group will be able to stream the application. If it is the
-first application in the stream group, it will automatically become the _default application_. You can link and unlink
-additional applications to a stream group until it reaches 180 days old. After that, you will only be able to unlink applications from a
-stream group throughout the remainder of the group's lifecycle.
+When you link, or associate, an application to a stream group, the stream group will be able to stream the application. If it is the first application in the stream group, it will automatically become the *default application*. You can link and unlink additional applications to a stream group until it reaches 180 days old. After that, you will only be able to unlink applications from a stream group throughout the remainder of the group's lifecycle.
 
-###### Important
+**Important**  
+ You cannot link an application to a stream group that is over 180 days old. To associate different applications to the stream group, you will first need to recreate it. For instructions on how to recreate a stream group, refer to [Stream group maintenance](stream-groups.md#stream-groups-maintenance). 
 
-You cannot link an application to a stream group that is over 180 days old. To associate different applications to the stream
-group, you will first need to recreate it. For instructions on how to recreate a stream group, refer to [Stream group maintenance](stream-groups.md#stream-groups-maintenance "stream-groups.md#stream-groups-maintenance").
+ Before you link an application, ensure that the stream group is in **Active** status. 
 
-Before you link an application, ensure that the stream group is in **Active** status.
+------
+#### [ Console ]
 
-Console
+**To link using the Amazon GameLift Streams console**
 
-###### To link using the Amazon GameLift Streams console
+1. Sign in to the AWS Management Console and open the [Amazon GameLift Streams console](https://console.aws.amazon.com/gameliftstreams/).
 
-1. Sign in to the AWS Management Console and open the [Amazon GameLift Streams console](https://console.aws.amazon.com/gameliftstreams/ "https://console.aws.amazon.com/gameliftstreams/").
-2. In the navigation bar, choose **Stream groups** to view a list
-   of your existing stream groups.
-3. Select a stream group to view its details.
-4. In **Linked applications**, choose **Link application**.
-5. Select an application that you want to link. Confirm your selection and choose **Link application**.
+1. In the navigation bar, choose **Stream groups** to view a list of your existing stream groups.
 
-CLI
+1. Select a stream group to view its details.
+
+1.  In **Linked applications**, choose **Link application**. 
+
+1.  Select an application that you want to link. Confirm your selection and choose **Link application**. 
+
+------
+#### [ CLI ]
+
 **Prerequisite**
 
-You must configure the AWS CLI with your user credentials and your chosen AWS Region. For setup instructions, refer to [Download the AWS CLI](setting-up.md#setting-up-prereqs "setting-up.md#setting-up-prereqs").
+ You must configure the AWS CLI with your user credentials and your chosen AWS Region. For setup instructions, refer to [Download the AWS CLI](setting-up.md#setting-up-prereqs). 
 
 **To link an application(s) using the AWS CLI**
 
-In your AWS CLI use the [AssociateApplications](../apireference/API_AssociateApplications.md "../apireference/API_AssociateApplications.md")
-command, customized for your content.
+ In your AWS CLI use the [AssociateApplications](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AssociateApplications.html) command, customized for your content. 
 
 ```
 aws gameliftstreams associate-applications \
-    --identifier `arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4` \
-    --application-identifiers `a-9ZY8X7Wv6 a-1Z78C7Wv6`
+    --identifier {{arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4}} \
+    --application-identifiers {{a-9ZY8X7Wv6 a-1Z78C7Wv6}}
 ```
 
 where
++ `identifier`:
 
-- `identifier`:
+  A stream group to link these applications with.
 
-A stream group to link these applications with.
+  This value can be an [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) or ID that uniquely identifies the stream group resource. 
 
-This value can be an
-[Amazon Resource Name (ARN)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md") or ID that uniquely identifies the stream group resource.
+  ARN example: `arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4`
 
-ARN example: `arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4`
+  ID example: `sg-1AB2C3De4`
++ `application-identifiers`:
 
-ID example: `sg-1AB2C3De4`
+  A set of applications that you want to link with this stream group.
 
-- `application-identifiers`:
+  This value is an [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) or ID that uniquely identifies the application resource. 
 
-A set of applications that you want to link with this stream group.
+  ARN example: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6`
 
-This value is an
-[Amazon Resource Name (ARN)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md") or ID that uniquely identifies the application resource.
+  ID example: `a-9ZY8X7Wv6`
 
-ARN example: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6`
-
-ID example: `a-9ZY8X7Wv6`
+------
 
 ## Unlink an application
+<a name="multi-apps-unlink"></a>
 
-When you unlink, or disassociate, an application from a stream group, you can no longer stream this application by using that stream
-group's allocated compute resources. Any streams in process will continue until they terminate, which helps avoid interrupting an
-end-user's stream. Amazon GameLift Streams will not initiate new streams using this stream group. The unlink action does not affect the stream capacity of
-a stream group.
+ When you unlink, or disassociate, an application from a stream group, you can no longer stream this application by using that stream group's allocated compute resources. Any streams in process will continue until they terminate, which helps avoid interrupting an end-user's stream. Amazon GameLift Streams will not initiate new streams using this stream group. The unlink action does not affect the stream capacity of a stream group. 
 
-If you unlink the default application of a stream group, Amazon GameLift Streams will automatically choose a new default application from the remaining
-associated applications, if there are any.
+ If you unlink the default application of a stream group, Amazon GameLift Streams will automatically choose a new default application from the remaining associated applications, if there are any. 
 
-Console
+------
+#### [ Console ]
 
-###### To unlink using the Amazon GameLift Streams console
+**To unlink using the Amazon GameLift Streams console**
 
-1. Sign in to the AWS Management Console and open the [Amazon GameLift Streams console](https://console.aws.amazon.com/gameliftstreams/ "https://console.aws.amazon.com/gameliftstreams/").
-2. In the navigation bar, choose **Stream groups** to view a list
-   of your existing stream groups.
-3. Select a stream group to view its details.
-4. In **Linked applications**, select the application(s) that you want to unlink. Choose **Unlink applications**.
-5. In the **Unlink applications** dialog, confirm the unlink action and choose **Unlink**.
+1. Sign in to the AWS Management Console and open the [Amazon GameLift Streams console](https://console.aws.amazon.com/gameliftstreams/).
 
-CLI
+1. In the navigation bar, choose **Stream groups** to view a list of your existing stream groups.
+
+1. Select a stream group to view its details.
+
+1.  In **Linked applications**, select the application(s) that you want to unlink. Choose **Unlink applications**. 
+
+1.  In the **Unlink applications** dialog, confirm the unlink action and choose **Unlink**. 
+
+------
+#### [ CLI ]
+
 **Prerequisite**
 
-You must configure the AWS CLI with your user credentials and your chosen AWS Region. For setup instructions, refer to [Download the AWS CLI](setting-up.md#setting-up-prereqs "setting-up.md#setting-up-prereqs").
+ You must configure the AWS CLI with your user credentials and your chosen AWS Region. For setup instructions, refer to [Download the AWS CLI](setting-up.md#setting-up-prereqs). 
 
 **To unlink an application(s) using the AWS CLI**
 
-In your AWS CLI use the [DisassociateApplications](../apireference/API_DisassociateApplications.md "../apireference/API_DisassociateApplications.md")
-command, customized for your content.
+ In your AWS CLI use the [DisassociateApplications](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_DisassociateApplications.html) command, customized for your content. 
 
 ```
 aws gameliftstreams disassociate-applications \
-    --identifier `arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4` \
-    --application-identifiers `a-9ZY8X7Wv6 a-1Z78C7Wv6`
+    --identifier {{arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4}} \
+    --application-identifiers {{a-9ZY8X7Wv6 a-1Z78C7Wv6}}
 ```
 
 where
++ `identifier`:
 
-- `identifier`:
+  A stream group to unlink these applications from.
 
-A stream group to unlink these applications from.
+  This value can be an [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) or ID that uniquely identifies the stream group resource. 
 
-This value can be an
-[Amazon Resource Name (ARN)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md") or ID that uniquely identifies the stream group resource.
+  ARN example: `arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4`
 
-ARN example: `arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4`
+  ID example: `sg-1AB2C3De4`
++ `application-identifiers`:
 
-ID example: `sg-1AB2C3De4`
+  A set of applications that you want to unlink from this stream group.
 
-- `application-identifiers`:
+  This value is an [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) or ID that uniquely identifies the application resource. 
 
-A set of applications that you want to unlink from this stream group.
+  ARN example: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6`
 
-This value is an
-[Amazon Resource Name (ARN)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md") or ID that uniquely identifies the application resource.
+  ID example: `a-9ZY8X7Wv6`
 
-ARN example: `arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6`
-
-ID example: `a-9ZY8X7Wv6`
+------

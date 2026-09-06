@@ -1,37 +1,40 @@
+
+
 # Amazon GameLift Streams API rate limits
+<a name="api-rate-limits"></a>
 
-These limits reflect the maximum rate of requests per second from your AWS account to
-the Amazon GameLift Streams service in an AWS Region.
+These limits reflect the maximum rate of requests per second from your AWS account to the Amazon GameLift Streams service in an AWS Region.
 
-| API operation                                                                                                                                | Requests per second |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| [AddStreamGroupLocations](../apireference/API_AddStreamGroupLocations.md "../apireference/API_AddStreamGroupLocations.md")                   | 5                   |
-| [AssociateApplications](../apireference/API_AssociateApplications.md "../apireference/API_AssociateApplications.md")                         | 5                   |
-| [CreateApplication](../apireference/API_CreateApplication.md "../apireference/API_CreateApplication.md")                                     | 5                   |
-| [CreateStreamGroup](../apireference/API_CreateStreamGroup.md "../apireference/API_CreateStreamGroup.md")                                     | 1                   |
-| [CreateStreamSessionAdminShell](../apireference/API_CreateStreamSessionAdminShell.md "../apireference/API_CreateStreamSessionAdminShell.md") | 1                   |
-| [CreateStreamSessionConnection](../apireference/API_CreateStreamSessionConnection.md "../apireference/API_CreateStreamSessionConnection.md") | 20                  |
-| [CreateStreamUrl](../apireference/API_CreateStreamUrl.md "../apireference/API_CreateStreamUrl.md")                                           | 5                   |
-| [DeleteApplication](../apireference/API_DeleteApplication.md "../apireference/API_DeleteApplication.md")                                     | 5                   |
-| [DeleteStreamGroup](../apireference/API_DeleteStreamGroup.md "../apireference/API_DeleteStreamGroup.md")                                     | 5                   |
-| [DisassociateApplications](../apireference/API_DisassociateApplications.md "../apireference/API_DisassociateApplications.md")                | 5                   |
-| [ExportStreamSessionFiles](../apireference/API_ExportStreamSessionFiles.md "../apireference/API_ExportStreamSessionFiles.md")                | 20                  |
-| [GetApplication](../apireference/API_GetApplication.md "../apireference/API_GetApplication.md")                                              | 10                  |
-| [GetStreamGroup](../apireference/API_GetStreamGroup.md "../apireference/API_GetStreamGroup.md")                                              | 10                  |
-| [GetStreamSession](../apireference/API_GetStreamSession.md "../apireference/API_GetStreamSession.md")                                        | 20                  |
-| [GetStreamUrl](../apireference/API_GetStreamUrl.md "../apireference/API_GetStreamUrl.md")                                                    | 10                  |
-| [ListApplications](../apireference/API_ListApplications.md "../apireference/API_ListApplications.md")                                        | 10                  |
-| [ListApplicationShaderCaches](../apireference/API_ListApplicationShaderCaches.md "../apireference/API_ListApplicationShaderCaches.md")       | 10                  |
-| [ListStreamGroups](../apireference/API_ListStreamGroups.md "../apireference/API_ListStreamGroups.md")                                        | 10                  |
-| [ListStreamSessions](../apireference/API_ListStreamSessions.md "../apireference/API_ListStreamSessions.md")                                  | 20                  |
-| [ListStreamSessionsByAccount](../apireference/API_ListStreamSessionsByAccount.md "../apireference/API_ListStreamSessionsByAccount.md")       | 20                  |
-| [ListStreamUrls](../apireference/API_ListStreamUrls.md "../apireference/API_ListStreamUrls.md")                                              | 10                  |
-| [ListTagsForResource](../apireference/API_ListTagsForResource.md "../apireference/API_ListTagsForResource.md")                               | 10                  |
-| [RemoveStreamGroupLocations](../apireference/API_RemoveStreamGroupLocations.md "../apireference/API_RemoveStreamGroupLocations.md")          | 5                   |
-| [RevokeStreamUrl](../apireference/API_RevokeStreamUrl.md "../apireference/API_RevokeStreamUrl.md")                                           | 5                   |
-| [StartStreamSession](../apireference/API_StartStreamSession.md "../apireference/API_StartStreamSession.md")                                  | 20                  |
-| [TagResource](../apireference/API_TagResource.md "../apireference/API_TagResource.md")                                                       | 10                  |
-| [TerminateStreamSession](../apireference/API_TerminateStreamSession.md "../apireference/API_TerminateStreamSession.md")                      | 20                  |
-| [UntagResource](../apireference/API_UntagResource.md "../apireference/API_UntagResource.md")                                                 | 10                  |
-| [UpdateApplication](../apireference/API_UpdateApplication.md "../apireference/API_UpdateApplication.md")                                     | 5                   |
-| [UpdateStreamGroup](../apireference/API_UpdateStreamGroup.md "../apireference/API_UpdateStreamGroup.md")                                     | 5                   |
+
+| API operation | Requests per second | 
+| --- | --- | 
+| [AddStreamGroupLocations](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AddStreamGroupLocations.html) | 5 | 
+| [AssociateApplications](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AssociateApplications.html) | 5 | 
+| [CreateApplication](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_CreateApplication.html) | 5 | 
+| [CreateStreamGroup](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_CreateStreamGroup.html) | 1 | 
+| [CreateStreamSessionAdminShell](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_CreateStreamSessionAdminShell.html) | 1 | 
+| [CreateStreamSessionConnection](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_CreateStreamSessionConnection.html) | 20 | 
+| [CreateStreamUrl](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_CreateStreamUrl.html) | 5 | 
+| [DeleteApplication](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_DeleteApplication.html) | 5 | 
+| [DeleteStreamGroup](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_DeleteStreamGroup.html) | 5 | 
+| [DisassociateApplications](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_DisassociateApplications.html) | 5 | 
+| [ExportStreamSessionFiles](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ExportStreamSessionFiles.html) | 20 | 
+| [GetApplication](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetApplication.html) | 10 | 
+| [GetStreamGroup](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamGroup.html) | 10 | 
+| [GetStreamSession](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html) | 20 | 
+| [GetStreamUrl](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamUrl.html) | 10 | 
+| [ListApplications](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListApplications.html) | 10 | 
+| [ListApplicationShaderCaches](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListApplicationShaderCaches.html) | 10 | 
+| [ListStreamGroups](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListStreamGroups.html) | 10 | 
+| [ListStreamSessions](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListStreamSessions.html) | 20 | 
+| [ListStreamSessionsByAccount](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListStreamSessionsByAccount.html) | 20 | 
+| [ListStreamUrls](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListStreamUrls.html) | 10 | 
+| [ListTagsForResource](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListTagsForResource.html) | 10 | 
+| [RemoveStreamGroupLocations](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_RemoveStreamGroupLocations.html) | 5 | 
+| [RevokeStreamUrl](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_RevokeStreamUrl.html) | 5 | 
+| [StartStreamSession](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_StartStreamSession.html) | 20 | 
+| [TagResource](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_TagResource.html) | 10 | 
+| [TerminateStreamSession](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_TerminateStreamSession.html) | 20 | 
+| [UntagResource](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UntagResource.html) | 10 | 
+| [UpdateApplication](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateApplication.html) | 5 | 
+| [UpdateStreamGroup](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateStreamGroup.html) | 5 | 
