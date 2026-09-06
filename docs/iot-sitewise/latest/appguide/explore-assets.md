@@ -1,30 +1,21 @@
-The SiteWise Monitor feature is not available to new customers. Existing customers can continue to
-use the service as normal. For more information, see [SiteWise Monitor availability
-change](iotsitewise-monitor-availability-change.md "iotsitewise-monitor-availability-change.md")
+
+
+The SiteWise Monitor feature is not available to new customers. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html)
 
 # Explore assets in AWS IoT SiteWise
+<a name="explore-assets"></a>
 
-In AWS IoT SiteWise, an asset represents a device, a process, or a piece of equipment. You can use
-AWS IoT SiteWise Monitor to explore and visualize the properties and alarms for your assets. Each project
-in AWS IoT SiteWise Monitor is associated with a set of assets by the portal administrator. If you're a
-portal administrator, you can see all of the assets in the portal. If you're a project owner or
-a project viewer, you can see only the assets that are associated with the projects for which
-you are an owner or a viewer.
+In AWS IoT SiteWise, an asset represents a device, a process, or a piece of equipment. You can use AWS IoT SiteWise Monitor to explore and visualize the properties and alarms for your assets. Each project in AWS IoT SiteWise Monitor is associated with a set of assets by the portal administrator. If you're a portal administrator, you can see all of the assets in the portal. If you're a project owner or a project viewer, you can see only the assets that are associated with the projects for which you are an owner or a viewer.
 
-Assets can have different properties. Some properties don't change over time, such as the
-asset's location, model, serial number, and so on. Other properties have a series of values that
-are produced over time. Properties can update at different rates. You might have a temperature
-sensor that updates every second, and a product quality metric that updates every hour.
+Assets can have different properties. Some properties don't change over time, such as the asset's location, model, serial number, and so on. Other properties have a series of values that are produced over time. Properties can update at different rates. You might have a temperature sensor that updates every second, and a product quality metric that updates every hour. 
 
-Assets can also have alarms. Alarms detect when properties are outside their operating
-ranges, so that you and your team can address issues with your equipment and processes. For
-example, you might have an alarm that detects when the temperature in a boiler exceeds its
-maximum temperature.
+Assets can also have alarms. Alarms detect when properties are outside their operating ranges, so that you and your team can address issues with your equipment and processes. For example, you might have an alarm that detects when the temperature in a boiler exceeds its maximum temperature.
 
 You can perform the following asset-related tasks.
 
-| Task                                                                                                 | Roles that can perform the task                                                                                                                                                      |
-| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [View asset data in AWS IoT SiteWise Monitor](view-asset-data.md "view-asset-data.md")               | Portal administrators can see all assets for the portal. Project owners and viewers<br>can see only those assets that are associated with the projects to which they are<br>invited. |
-| [Add assets to projects](add-assets-to-projects-ea.md "add-assets-to-projects-ea.md")                | Only a portal administrator can change the list of assets that are associated with<br>a project.                                                                                     |
-| [Add properties and alarms to dashboards](add-assets-to-dashboards.md "add-assets-to-dashboards.md") | Project owners add asset properties to dashboards. Portal administrators don't<br>typically edit dashboards. Project viewers can't edit dashboards.                                  |
+
+| Task | Roles that can perform the task | 
+| --- | --- | 
+| [View asset data in AWS IoT SiteWise Monitor](view-asset-data.md) | Portal administrators can see all assets for the portal. Project owners and viewers can see only those assets that are associated with the projects to which they are invited. | 
+| [Add assets to projects](add-assets-to-projects-ea.md) | Only a portal administrator can change the list of assets that are associated with a project. | 
+| [Add properties and alarms to dashboards](add-assets-to-dashboards.md) | Project owners add asset properties to dashboards. Portal administrators don't typically edit dashboards. Project viewers can't edit dashboards. | 
