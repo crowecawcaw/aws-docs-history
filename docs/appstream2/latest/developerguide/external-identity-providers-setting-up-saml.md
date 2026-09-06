@@ -1,465 +1,298 @@
+
+
 # Setting Up SAML
+<a name="external-identity-providers-setting-up-saml"></a>
 
-To enable users to sign in to WorkSpaces Applications by using their existing credentials, and start
-streaming applications, you can set up identity federation using SAML 2.0. To do this,
-use an IAM role and a relay state URL to configure your SAML 2.0-compliant identity
-provider (IdP) and enable AWS to permit your federated users to access an WorkSpaces Applications stack.
-The IAM role grants users the permissions to access the stack. The relay state is the
-stack portal to which users are forwarded after successful authentication by AWS.
+To enable users to sign in to WorkSpaces Applications by using their existing credentials, and start streaming applications, you can set up identity federation using SAML 2.0. To do this, use an IAM role and a relay state URL to configure your SAML 2.0-compliant identity provider (IdP) and enable AWS to permit your federated users to access an WorkSpaces Applications stack. The IAM role grants users the permissions to access the stack. The relay state is the stack portal to which users are forwarded after successful authentication by AWS.
 
-###### Contents
-
-- [Prerequisites](#external-identity-providers-setting-up-prerequisites "#external-identity-providers-setting-up-prerequisites")
-- [Step 1: Create a SAML Identity Provider in AWS IAM](#external-identity-providers-create-saml-provider "#external-identity-providers-create-saml-provider")
-- [Step 2: Create a SAML 2.0 Federation IAM Role](#external-identity-providers-grantperms "#external-identity-providers-grantperms")
-- [Step 3: Embed an Inline Policy for the IAM Role](#external-identity-providers-embed-inline-policy-for-IAM-role "#external-identity-providers-embed-inline-policy-for-IAM-role")
-- [Step 4: Configure Your SAML-Based IdP](#external-identity-providers-config-idp "#external-identity-providers-config-idp")
-- [Step 5: Create Assertions for the SAML Authentication Response](#external-identity-providers-create-assertions "#external-identity-providers-create-assertions")
-- [Step 6: Configure the Relay State of Your Federation](#external-identity-providers-relay-state "#external-identity-providers-relay-state")
-- [Table 1: WorkSpaces Applications relay state region endpoints (Recommended)](#relay-state-endpoints "#relay-state-endpoints")
-- [Table 2: Old WorkSpaces Applications relay state region endpoints (Not recommended)](#relay-state-OLD-endpoints "#relay-state-OLD-endpoints")
-- [Table 3: Relay state URL parameters](#relay-state-URL-parameters "#relay-state-URL-parameters")
+**Topics**
++ [Prerequisites](#external-identity-providers-setting-up-prerequisites)
++ [Step 1: Create a SAML Identity Provider in AWS IAM](#external-identity-providers-create-saml-provider)
++ [Step 2: Create a SAML 2.0 Federation IAM Role](#external-identity-providers-grantperms)
++ [Step 3: Embed an Inline Policy for the IAM Role](#external-identity-providers-embed-inline-policy-for-IAM-role)
++ [Step 4: Configure Your SAML-Based IdP](#external-identity-providers-config-idp)
++ [Step 5: Create Assertions for the SAML Authentication Response](#external-identity-providers-create-assertions)
++ [Step 6: Configure the Relay State of Your Federation](#external-identity-providers-relay-state)
++ [Table 1: WorkSpaces Applications relay state region endpoints (Recommended)](#relay-state-endpoints)
++ [Table 2: Old WorkSpaces Applications relay state region endpoints (Not recommended)](#relay-state-OLD-endpoints)
++ [Table 3: Relay state URL parameters](#relay-state-URL-parameters)
 
 ## Prerequisites
+<a name="external-identity-providers-setting-up-prerequisites"></a>
 
-Complete the following prerequisites before configuring your SAML 2.0
-connection.
+Complete the following prerequisites before configuring your SAML 2.0 connection.
 
-1. Configure your SAML-based IdP to establish a trust relationship with AWS.
+1. Configure your SAML-based IdP to establish a trust relationship with AWS. 
+   + Inside your organization's network, configure your identity store to work with a SAML-based IdP. For configuration resources, see [WorkSpaces Applications Integration with SAML 2.0](external-identity-providers-further-info.md).
+   + Use your SAML-based IdP to generate and download a federation metadata document that describes your organization as an IdP. This signed XML document is used to establish the relying party trust. Save this file to a location that you can access from the IAM console later.
 
-   - Inside your organization's network, configure your identity store
-     to work with a SAML-based IdP. For configuration resources, see
-     [WorkSpaces Applications Integration with SAML 2.0](external-identity-providers-further-info.md "external-identity-providers-further-info.md").
-   - Use your SAML-based IdP to generate and download a federation
-     metadata document that describes your organization as an IdP. This
-     signed XML document is used to establish the relying party trust.
-     Save this file to a location that you can access from the IAM
-     console later.
+1. Use the WorkSpaces Applications management console to create an WorkSpaces Applications stack. You need the stack name to create the IAM policy and to configure your IdP integration with WorkSpaces Applications, as described later in this topic.
 
-2. Use the WorkSpaces Applications management console to create an WorkSpaces Applications stack. You need the
-   stack name to create the IAM policy and to configure your IdP integration
-   with WorkSpaces Applications, as described later in this topic.
-
-You can create an WorkSpaces Applications stack by using the WorkSpaces Applications management console,
-AWS CLI, or WorkSpaces Applications API. For more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
+   You can create an WorkSpaces Applications stack by using the WorkSpaces Applications management console, AWS CLI, or WorkSpaces Applications API. For more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md).
 
 ## Step 1: Create a SAML Identity Provider in AWS IAM
+<a name="external-identity-providers-create-saml-provider"></a>
 
-First, create a SAML IdP in AWS IAM. This IdP defines your organization's
-IdP-to-AWS trust relationship using the metadata document generated by the IdP
-software in your organization. For more information, see [Creating and Managing a SAML Identity Provider (Amazon Web Services Management Console)](../../../IAM/latest/UserGuide/id_roles_providers_create_saml.md#idp-manage-identityprovider-console "../../../IAM/latest/UserGuide/id_roles_providers_create_saml.md#idp-manage-identityprovider-console") in the _IAM User Guide_. For information about working with SAML IdPs in the AWS GovCloud (US) Regions, see [AWS Identity and Access Management](../../../govcloud-us/latest/UserGuide/govcloud-iam.md "../../../govcloud-us/latest/UserGuide/govcloud-iam.md") in the _AWS GovCloud (US) User Guide_.
+First, create a SAML IdP in AWS IAM. This IdP defines your organization's IdP-to-AWS trust relationship using the metadata document generated by the IdP software in your organization. For more information, see [Creating and Managing a SAML Identity Provider (Amazon Web Services Management Console) ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html#idp-manage-identityprovider-console) in the *IAM User Guide*. For information about working with SAML IdPs in the AWS GovCloud (US) Regions, see [AWS Identity and Access Management](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-iam.html) in the *AWS GovCloud (US) User Guide*.
 
 ## Step 2: Create a SAML 2.0 Federation IAM Role
+<a name="external-identity-providers-grantperms"></a>
 
-Next, create a SAML 2.0 federation IAM role. This step
-establishes a trust relationship between IAM and your organization's IdP, which
-identifies your IdP as a trusted entity for federation.
+Next, create a SAML 2.0 federation IAM role. This step establishes a trust relationship between IAM and your organization's IdP, which identifies your IdP as a trusted entity for federation. 
 
-###### To create an IAM role for the SAML IdP
+**To create an IAM role for the SAML IdP**
 
-1. Open the IAM console at
-   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Roles**,
-   **Create role**.
-3. For **Role type**, choose **SAML 2.0
-   federation**.
-4. For **SAML Provider**, select the SAML IdP that you
-   created.
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
-###### Important
+1. In the navigation pane, choose **Roles**, **Create role**. 
 
-Do not choose either of the two SAML 2.0 access methods
-(**Allow programmatic access only** or
-**Allow programmatic and Amazon Web Services Management Console
-access**). 5. For **Attribute**, choose
-**SAML:sub\_type**. 6. For **Value**, enter
-`https://signin.aws.amazon.com/saml`. This value
-restricts role access to SAML user streaming requests that include a SAML
-subject type assertion with a value of persistent. If the SAML:sub\_type is
-persistent, your IdP sends the same unique value for the NameID element in
-all SAML requests from a particular user. For more information about the
-SAML:sub\_type assertion, see the _Uniquely Identifying Users in
-SAML-Based Federation_ section in [Using SAML-Based Federation for API Access to AWS](../../../IAM/latest/UserGuide/id_roles_providers_saml.md#CreatingSAML-configuring "../../../IAM/latest/UserGuide/id_roles_providers_saml.md#CreatingSAML-configuring").
+1. For **Role type**, choose **SAML 2.0 federation**. 
 
-###### Note
+1. For **SAML Provider**, select the SAML IdP that you created. 
+**Important**  
+Do not choose either of the two SAML 2.0 access methods (**Allow programmatic access only** or **Allow programmatic and Amazon Web Services Management Console access**).
 
-Even though the
-`https://signin.aws.amazon.com/saml` endpoint
-is highly available, it is only hosted in the us-east-1 region of AWS.
-To prevent service interruptions in the unlikely event that one of the
-regional endpoint's availability is affected, use regional endpoints and
-set up additional SAML sign-in endpoints for failover. For more
-information, please see [How to use regional SAML endpoints for failover](https://aws.amazon.com/blogs/security/how-to-use-regional-saml-endpoints-for-failover/ "https://aws.amazon.com/blogs/security/how-to-use-regional-saml-endpoints-for-failover/"). 7. Review your SAML 2.0 trust information, confirming the correct trusted entity and condition, and then choose **Next:
-Permissions**. 8. On the **Attach permissions policies** page, choose **Next: Tags**. 9. (Optional) Enter a key and value for each tag that you want to add. For more information, see
-[Tagging
-IAM Users and Roles](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md"). 10. When you're done, choose **Next: Review**. Later, you'll create and embed an
-inline policy for this role. 11. For **Role name**, enter a name that identifies the
-purpose of this role. Because multiple entities might reference the role,
-you can't edit the role's name once it is created. 12. (Optional) For **Role description**, enter a description
-for the new role. 13. Review the role details and choose **Create
-role**. 14. (Optional) If you plan to use session context or attribute-based
-application entitlements using a third-party SAML 2.0 identity provider or
-certificate-based authentication, you must add the sts:TagSession permission
-to your new IAM role's trust policy. For more information, see [Attribute-Based Application Entitlements Using a Third-Party SAML 2.0 Identity Provider](application-entitlements-saml.md "application-entitlements-saml.md") and [Passing session tags in AWS STS](../../../IAM/latest/UserGuide/id_session-tags.md "../../../IAM/latest/UserGuide/id_session-tags.md").
+1. For **Attribute**, choose **SAML:sub\_type**. 
 
-In your new IAM role's details, choose the **Trust
-relationships** tab, and then choose **Edit trust
-relationship**. The Edit Trust Relationship policy editor
-starts. Add the **sts:TagSession** permission, as
-follows:
+1. For **Value**, enter **https://signin.aws.amazon.com/saml**. This value restricts role access to SAML user streaming requests that include a SAML subject type assertion with a value of persistent. If the SAML:sub\_type is persistent, your IdP sends the same unique value for the NameID element in all SAML requests from a particular user. For more information about the SAML:sub\_type assertion, see the *Uniquely Identifying Users in SAML-Based Federation* section in [Using SAML-Based Federation for API Access to AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html#CreatingSAML-configuring).
+**Note**  
+Even though the **https://signin.aws.amazon.com/saml** endpoint is highly available, it is only hosted in the us-east-1 region of AWS. To prevent service interruptions in the unlikely event that one of the regional endpoint's availability is affected, use regional endpoints and set up additional SAML sign-in endpoints for failover. For more information, please see [How to use regional SAML endpoints for failover](https://aws.amazon.com/blogs/security/how-to-use-regional-saml-endpoints-for-failover/).
 
-JSON
+1. Review your SAML 2.0 trust information, confirming the correct trusted entity and condition, and then choose **Next: Permissions**. 
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Federated": "arn:aws:iam::`111122223333`:saml-provider/`IDENTITY-PROVIDER`"
- },
- "Action": [
- "sts:AssumeRoleWithSAML",
- "sts:TagSession"
- ],
- "Condition": {
- "StringEquals": {
- "SAML:sub_type": "persistent"
- }
- }
- }
- ]
-}`
+1. On the **Attach permissions policies** page, choose **Next: Tags**.
 
-```
+1. (Optional) Enter a key and value for each tag that you want to add. For more information, see [Tagging IAM Users and Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html). 
 
-Replace `IDENTITY-PROVIDER` with the
-name of the SAML IdP you created in Step 1. Then choose **Update
-Trust Policy**.
+1. When you're done, choose **Next: Review**. Later, you'll create and embed an inline policy for this role.
+
+1. For **Role name**, enter a name that identifies the purpose of this role. Because multiple entities might reference the role, you can't edit the role's name once it is created.
+
+1. (Optional) For **Role description**, enter a description for the new role.
+
+1. Review the role details and choose **Create role**.
+
+1. (Optional) If you plan to use session context or attribute-based application entitlements using a third-party SAML 2.0 identity provider or certificate-based authentication, you must add the sts:TagSession permission to your new IAM role's trust policy. For more information, see [Attribute-Based Application Entitlements Using a Third-Party SAML 2.0 Identity Provider](application-entitlements-saml.md) and [Passing session tags in AWS STS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html).
+
+   In your new IAM role's details, choose the **Trust relationships** tab, and then choose **Edit trust relationship**. The Edit Trust Relationship policy editor starts. Add the **sts:TagSession** permission, as follows:
+
+------
+#### [ JSON ]
+
+****  
+
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Principal": {
+                   "Federated": "arn:aws:iam::{{111122223333}}:saml-provider/{{IDENTITY-PROVIDER}}"
+               },
+               "Action": [
+                   "sts:AssumeRoleWithSAML",
+                   "sts:TagSession"
+               ],
+               "Condition": {
+                   "StringEquals": {
+                       "SAML:sub_type": "persistent"
+                   }
+               }
+           }
+       ]
+   }
+   ```
+
+------
+
+   Replace {{IDENTITY-PROVIDER}}**** with the name of the SAML IdP you created in Step 1. Then choose **Update Trust Policy**.
 
 ## Step 3: Embed an Inline Policy for the IAM Role
+<a name="external-identity-providers-embed-inline-policy-for-IAM-role"></a>
 
-Next, embed an inline IAM policy for the role that you created. When you embed
-an inline policy, the permissions in that policy can't be accidentally attached to
-the wrong principal entity. The inline policy provides federated users with access
-to the WorkSpaces Applications stack that you created.
+Next, embed an inline IAM policy for the role that you created. When you embed an inline policy, the permissions in that policy can't be accidentally attached to the wrong principal entity. The inline policy provides federated users with access to the WorkSpaces Applications stack that you created.
 
 1. In the details for the IAM role that you created, choose the **Permissions** tab, and then choose **Add inline policy**. The Create policy wizard starts.
-2. In **Create policy**, choose the **JSON** tab.
-3. Copy and paste the following JSON policy into the JSON window. Then, modify the resource by
-   entering your AWS Region Code, account ID, and stack name. In the following
-   policy, `"Action": "appstream:Stream"` is the action that
-   provides your WorkSpaces Applications users with permissions to connect to streaming sessions
-   on the stack that you created.
 
-JSON
+1. In **Create policy**, choose the **JSON** tab.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "appstream:Stream",
- "Resource": "arn:aws:appstream:`us-east-1`:`111122223333`:stack/`STACK-NAME`",
- "Condition": {
- "StringEquals": {
- "appstream:userId": "${saml:sub}"
- }
- }
- }
- ]
-}`
+1. Copy and paste the following JSON policy into the JSON window. Then, modify the resource by entering your AWS Region Code, account ID, and stack name. In the following policy, `"Action": "appstream:Stream"` is the action that provides your WorkSpaces Applications users with permissions to connect to streaming sessions on the stack that you created. 
 
-```
+------
+#### [ JSON ]
 
-Replace `REGION-CODE` with the AWS Region where your WorkSpaces Applications
-stack exists. Replace `STACK-NAME` with the name of
-the stack. `STACK-NAME` is case-sensitive, and must
-match the exact case and spelling as the stack name shown in the the
-**Stacks** dashboard of the WorkSpaces Applications management console.
+****  
 
-For resources in the AWS GovCloud (US) Regions, use the following format for the ARN:
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": "appstream:Stream",
+               "Resource": "arn:aws:appstream:{{us-east-1}}:{{111122223333}}:stack/{{STACK-NAME}}",
+               "Condition": {
+                   "StringEquals": {
+                       "appstream:userId": "${saml:sub}"
+                   }
+               }
+           }
+       ]
+   }
+   ```
 
-`arn:aws-us-gov:appstream:`REGION-CODE`:`ACCOUNT-ID-WITHOUT-HYPHENS`:stack/`STACK-NAME`` 4. (Optional) If you are planning to use attribute-based application entitlements using a
-third-party SAML 2.0 identity provider with **SAML 2.0 Multi-stack
-Application Catalogs**, the Resource in your IAM role inline
-policy must be `"Resource":
- "arn:aws:appstream:`REGION-CODE`:`ACCOUNT-ID-WITHOUT-HYPHENS`:stack/*"`
-to allow application entitlements to control streaming access to stacks. To
-enforce additional protection on a stack resource, you can add an explicit
-deny in the policy. For more information, see [Attribute-Based Application Entitlements Using a Third-Party SAML 2.0 Identity Provider](application-entitlements-saml.md "application-entitlements-saml.md") and [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md"). 5. When you're done, choose **Review policy**. The [Policy Validator](../../../IAM/latest/UserGuide/access_policies_policy-validator.md "../../../IAM/latest/UserGuide/access_policies_policy-validator.md") reports any syntax errors.
+------
+
+   Replace {{REGION-CODE}} with the AWS Region where your WorkSpaces Applications stack exists. Replace {{STACK-NAME}} with the name of the stack. {{STACK-NAME}} is case-sensitive, and must match the exact case and spelling as the stack name shown in the the **Stacks** dashboard of the WorkSpaces Applications management console. 
+
+   For resources in the AWS GovCloud (US) Regions, use the following format for the ARN: 
+
+   `arn:aws-us-gov:appstream:{{REGION-CODE}}:{{ACCOUNT-ID-WITHOUT-HYPHENS}}:stack/{{STACK-NAME}}`
+
+1. (Optional) If you are planning to use attribute-based application entitlements using a third-party SAML 2.0 identity provider with **SAML 2.0 Multi-stack Application Catalogs**, the Resource in your IAM role inline policy must be **"Resource": "arn:aws:appstream:{{REGION-CODE}}:{{ACCOUNT-ID-WITHOUT-HYPHENS}}:stack/\*"** to allow application entitlements to control streaming access to stacks. To enforce additional protection on a stack resource, you can add an explicit deny in the policy. For more information, see [Attribute-Based Application Entitlements Using a Third-Party SAML 2.0 Identity Provider](application-entitlements-saml.md) and [Policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html).
+
+1. When you're done, choose **Review policy**. The [Policy Validator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html) reports any syntax errors. 
 
 ## Step 4: Configure Your SAML-Based IdP
+<a name="external-identity-providers-config-idp"></a>
 
-Next, depending on your SAML-based IdP, you may need to manually update your IdP
-to trust AWS as a service provider by uploading the
-`saml-metadata.xml` file at [https://signin.aws.amazon.com/static/saml-metadata.xml](https://signin.aws.amazon.com/static/saml-metadata.xml "https://signin.aws.amazon.com/static/saml-metadata.xml") to your IdP. This
-step updates your IdP’s metadata. For some IdPs, the update may already be
-configured. If this is the case, proceed to the next step.
+Next, depending on your SAML-based IdP, you may need to manually update your IdP to trust AWS as a service provider by uploading the `saml-metadata.xml` file at [https://signin.aws.amazon.com/static/saml-metadata.xml](https://signin.aws.amazon.com/static/saml-metadata.xml) to your IdP. This step updates your IdP’s metadata. For some IdPs, the update may already be configured. If this is the case, proceed to the next step.
 
-If this update is not already configured in your IdP, review the documentation
-provided by your IdP for information about how to update the metadata. Some
-providers give you the option to type the URL, and the IdP obtains and installs the
-file for you. Others require you to download the file from the URL and then provide
-it as a local file.
+If this update is not already configured in your IdP, review the documentation provided by your IdP for information about how to update the metadata. Some providers give you the option to type the URL, and the IdP obtains and installs the file for you. Others require you to download the file from the URL and then provide it as a local file.
 
 ## Step 5: Create Assertions for the SAML Authentication Response
+<a name="external-identity-providers-create-assertions"></a>
 
-Next, you may need to configure the information that your IdP sends to AWS as SAML
-attributes in its authentication response. Depending on your IdP, this information
-may already be pre-configured. If this is the case, skip this step and continue to
-Step 6,
+Next, you may need to configure the information that your IdP sends to AWS as SAML attributes in its authentication response. Depending on your IdP, this information may already be pre-configured. If this is the case, skip this step and continue to Step 6,
 
-If this information is not already configured in your IdP, provide the
-following:
+If this information is not already configured in your IdP, provide the following:
++ **SAML Subject NameID** – The unique identifier for the user who is signing in. 
+**Note**  
+For stacks with domain-joined fleets, the NameID value for the user must be provided in the format of "`{{domain}}\username`" using the sAMAccountName or "`username@domain.com`" using userPrincipalName. If you are using the sAMAccountName format, you can specify the `{{domain}}` by using either the NetBIOS name or the fully qualified domain name (FQDN). The sAMAccountName format is required for Active Directory one-way trust scenarios. For more information, see [Using Active Directory with WorkSpaces Applications](active-directory.md).
++ **SAML Subject Type** (with a value set to `persistent`) – Setting the value to `persistent` ensures that your IdP sends the same unique value for the `NameID` element in all SAML requests from a particular user. Make sure that your IAM policy includes a condition to only allow SAML requests with a SAML sub\_type set to `persistent`, as described in [Step 2: Create a SAML 2.0 Federation IAM Role](#external-identity-providers-grantperms).
++ **`Attribute` element with the `Name` attribute set to https://aws.amazon.com/SAML/Attributes/Role** – This element contains one or more `AttributeValue` elements that list the IAM role and SAML IdP to which the user is mapped by your IdP. The role and IdP are specified as a comma-delimited pair of ARNs.
++ **`Attribute` element with the `Name` attribute set to https://aws.amazon.com/SAML/Attributes/RoleSessionName** – This element contains one `AttributeValue` element that provides an identifier for the AWS temporary credentials that are issued for SSO. The value in the `AttributeValue` element must be between 2 and 64 characters long, can contain only alphanumeric characters, underscores, and the following characters: \+ (plus sign), = (equals sign), , (comma), . (period), @ (at symbol), and - (hyphen). It cannot contain spaces. The value is typically a user ID (bobsmith) or an email address (bobsmith@example.com). It should not be a value that includes a space, such as a user's display name (Bob Smith).
++ **`Attribute` element with the `Name` attribute set to https://aws.amazon.com/SAML/Attributes/PrincipalTag:SessionContext (optional)** – This element contains one `AttributeValue` element that provides parameters that can be used to pass session context parameters to your streaming applications. For more information, see [Session Context in Amazon WorkSpaces Applications](managing-stacks-fleets-session-context.md).
++ **`Attribute` element with the `Name` attribute set to https://aws.amazon.com/SAML/Attributes/PrincipalTag:ObjectSid (optional)** – This element contains one `AttributeValue` element that provides the Active Directory security identifier (SID) for the user who is signing in. This parameter is used with certificate-based authentication to enable strong mapping to the Active Directory user.
++ **`Attribute` element with the `Name` attribute set to https://aws.amazon.com/SAML/Attributes/PrincipalTag:Domain (optional)** – This element contains one `AttributeValue` element that provides the Active Directory DNS fully qualified domain name (FQDN) for the user who is signing in. This parameter is used with certificate-based authentication when the Active Directory `userPrincipalName` for the user contains an alternative suffix. The value must be provided in the format of **domain.com**, including any subdomains.
++ **`Attribute` element with the `SessionDuration` attribute set to https://aws.amazon.com/SAML/Attributes/SessionDuration (optional)** – This element contains one `AttributeValue` element that specifies the maximum amount of time that a federated streaming session for a user can remain active before reauthentication is required. The default value is 60 minutes, or 3,600 seconds. For more information, see the *An optional Attribute element with the SessionDuration attribute set to https://aws.amazon.com/SAML/Attributes/SessionDuration* section in [Configuring SAML Assertions for the Authentication Response](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.html).
+**Note**  
+Although `SessionDuration` is an optional attribute, we recommend that you include it in the SAML response. If you do not specify this attribute, the session duration is set to a default value of 60 minutes.  
+If your users access their streaming applications in WorkSpaces Applications by using the WorkSpaces Applications native client or using the web browser on the new experience, their sessions are disconnected after their session duration expires. If your users access their streaming applications in WorkSpaces Applications by using a web browser on the old/classic experience, after the users' session duration expires and they refresh their browser page, their sessions are disconnected.
 
-- **SAML Subject NameID** – The unique
-  identifier for the user who is signing in.
-
-###### Note
-
-For stacks with domain-joined fleets, the NameID value for the user
-must be provided in the format of
-"``domain`\username`" using
- the sAMAccountName or "`username@domain.com`" using
- userPrincipalName. If you are using the sAMAccountName format, you can
- specify the ``domain`` by using
-either the NetBIOS name or the fully qualified domain name (FQDN). The
-sAMAccountName format is required for Active Directory one-way trust
-scenarios. For more information, see [Using Active Directory with WorkSpaces Applications](active-directory.md "active-directory.md").
-
-- **SAML Subject Type** (with a value set to
-  `persistent`) – Setting the value to
-  `persistent` ensures that your IdP sends the same unique
-  value for the `NameID` element in all SAML requests from a
-  particular user. Make sure that your IAM policy includes a condition to
-  only allow SAML requests with a SAML sub\_type set to
-  `persistent`, as described in [Step 2: Create a SAML 2.0 Federation IAM Role](#external-identity-providers-grantperms "#external-identity-providers-grantperms").
-- **`Attribute` element with the
-  `Name` attribute set to
-  https://aws.amazon.com/SAML/Attributes/Role** – This
-  element contains one or more `AttributeValue` elements that list
-  the IAM role and SAML IdP to which the user is mapped by your IdP. The
-  role and IdP are specified as a comma-delimited pair of ARNs.
-- **`Attribute` element with the
-  `Name` attribute set to
-  https://aws.amazon.com/SAML/Attributes/RoleSessionName**
-  – This element contains one `AttributeValue` element that
-  provides an identifier for the AWS temporary credentials that are issued for
-  SSO. The value in the `AttributeValue` element must be between 2
-  and 64 characters long, can contain only alphanumeric characters,
-  underscores, and the following characters: + (plus sign), = (equals sign), ,
-  (comma), . (period), @ (at symbol), and - (hyphen). It cannot contain
-  spaces. The value is typically a user ID (bobsmith) or an email address
-  (bobsmith@example.com). It should not be a value that includes a space, such
-  as a user's display name (Bob Smith).
-- **`Attribute` element with the
-  `Name` attribute set to
-  https://aws.amazon.com/SAML/Attributes/PrincipalTag:SessionContext
-  (optional)** – This element contains one
-  `AttributeValue` element that provides parameters that can be
-  used to pass session context parameters to your streaming applications. For
-  more information, see [Session Context in Amazon WorkSpaces Applications](managing-stacks-fleets-session-context.md "managing-stacks-fleets-session-context.md").
-- **`Attribute` element with the
-  `Name` attribute set to
-  https://aws.amazon.com/SAML/Attributes/PrincipalTag:ObjectSid
-  (optional)** – This element contains one
-  `AttributeValue` element that provides the Active Directory
-  security identifier (SID) for the user who is signing in. This parameter is
-  used with certificate-based authentication to enable strong mapping to the
-  Active Directory user.
-- **`Attribute` element with the
-  `Name` attribute set to
-  https://aws.amazon.com/SAML/Attributes/PrincipalTag:Domain
-  (optional)** – This element contains one
-  `AttributeValue` element that provides the Active Directory
-  DNS fully qualified domain name (FQDN) for the user who is signing in. This
-  parameter is used with certificate-based authentication when the Active
-  Directory `userPrincipalName` for the user contains an
-  alternative suffix. The value must be provided in the format of
-  `domain.com`, including any subdomains.
-- **`Attribute` element with the
-  `SessionDuration` attribute set to
-  https://aws.amazon.com/SAML/Attributes/SessionDuration
-  (optional)** – This element contains one
-  `AttributeValue` element that specifies the maximum amount of
-  time that a federated streaming session for a user can remain active before
-  reauthentication is required. The default value is 60 minutes, or 3,600
-  seconds. For more information, see the _An optional
-  Attribute element with the SessionDuration attribute set to
-  https://aws.amazon.com/SAML/Attributes/SessionDuration_
-  section in [Configuring SAML Assertions for the Authentication
-  Response](../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md "../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md").
-
-###### Note
-
-Although `SessionDuration` is an optional attribute, we
-recommend that you include it in the SAML response. If you do not
-specify this attribute, the session duration is set to a default value
-of 60 minutes.
-
-If your users access their streaming applications in WorkSpaces Applications by using
-the WorkSpaces Applications native client or using the web browser on the new
-experience, their sessions are disconnected after their session duration
-expires. If your users access their streaming applications in WorkSpaces Applications by using a web browser on the old/classic experience, after the
-users' session duration expires and they refresh their browser page,
-their sessions are disconnected.
-
-For more information about how to configure these elements, see [Configuring SAML Assertions for the Authentication Response](../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md "../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md") in the
-_IAM User Guide_. For information about specific
-configuration requirements for your IdP, see the documentation for your IdP.
+For more information about how to configure these elements, see [Configuring SAML Assertions for the Authentication Response](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.html) in the *IAM User Guide*. For information about specific configuration requirements for your IdP, see the documentation for your IdP.
 
 ## Step 6: Configure the Relay State of Your Federation
+<a name="external-identity-providers-relay-state"></a>
 
-Finally, use your IdP to configure the relay state of your federation to point to
-the WorkSpaces Applications stack relay state URL. After successful authentication by AWS, the user
-is directed to the WorkSpaces Applications stack portal, defined as the relay state in the SAML
-authentication response.
+Finally, use your IdP to configure the relay state of your federation to point to the WorkSpaces Applications stack relay state URL. After successful authentication by AWS, the user is directed to the WorkSpaces Applications stack portal, defined as the relay state in the SAML authentication response.
 
 The format of the relay state URL is as follows:
 
 ```
-https://`relay-state-region-endpoint`?stack=`stackname`&accountId=`aws-account-id-without-hyphens`
+https://{{relay-state-region-endpoint}}?stack={{stackname}}&accountId={{aws-account-id-without-hyphens}}
 ```
 
-Construct your relay state URL from your Amazon Web Services account ID, stack name, and the
-relay state endpoint associated with the Region in which your stack is
-located.
+Construct your relay state URL from your Amazon Web Services account ID, stack name, and the relay state endpoint associated with the Region in which your stack is located.
 
-Optionally, you can specify the name of the application that you want to launch
-automatically. To find the application name, select the image in the WorkSpaces Applications console,
-choose the **Applications** tab, and note the name that displays in
-the **Application Name** column. Alternatively, if you haven't yet
-created the image, connect to the image builder where you installed the application,
-and open Image Assistant. The names of applications display in the **Add
-Apps** tab.
+Optionally, you can specify the name of the application that you want to launch automatically. To find the application name, select the image in the WorkSpaces Applications console, choose the **Applications** tab, and note the name that displays in the **Application Name** column. Alternatively, if you haven't yet created the image, connect to the image builder where you installed the application, and open Image Assistant. The names of applications display in the **Add Apps** tab.
 
-If your fleet is enabled for the **Desktop** stream view, you can
-also choose to launch directly to the operating system desktop. To do so, specify
-`Desktop` at end of the relay state URL, after
-`&app=`.
+If your fleet is enabled for the **Desktop** stream view, you can also choose to launch directly to the operating system desktop. To do so, specify **Desktop** at end of the relay state URL, after **&app=**.
 
-With an identity provider (IdP) -initiated flow, in the system default browser,
-after users sign into the IdP and select the WorkSpaces Applications application from the IdP user
-portal, they are redirected to an WorkSpaces Applications sign-in page in the system default browser
-with the following options:
+With an identity provider (IdP) -initiated flow, in the system default browser, after users sign into the IdP and select the WorkSpaces Applications application from the IdP user portal, they are redirected to an WorkSpaces Applications sign-in page in the system default browser with the following options:
++ **Continue with Browser**
++ **Open WorkSpaces Applications client**
 
-- **Continue with Browser**
-- **Open WorkSpaces Applications client**
+On the page, users can choose to start the session either in the browser, or with the WorkSpaces Applications client application. Optionally, you can also specify which client should be used for a SAML 2.0 federation. To do this, specify either `native` or `web` at end of the relay state URL, after `&client=`. When the parameter is present in a relay state URL, the corresponding sessions will start in the specified client automatically, without users making the choice.
 
-On the page, users can choose to start the session either in the browser, or with
-the WorkSpaces Applications client application. Optionally, you can also specify which client should
-be used for a SAML 2.0 federation. To do this, specify either `native` or
-`web` at end of the relay state URL, after `&client=`.
-When the parameter is present in a relay state URL, the corresponding sessions will
-start in the specified client automatically, without users making the choice.
+**Note**  
+This feature is only available if you use the new relay state region endpoints (in Table 1 below) to construct the relay state URL, and use the WorkSpaces Applications client version 1.1.1300 and later. Also, users should always use their system default browser to sign into the IdP. The feature will not work if they use a non-default browser.
 
-###### Note
-
-This feature is only available if you use the new relay state region endpoints
-(in Table 1 below) to construct the relay state URL, and use the WorkSpaces Applications client
-version 1.1.1300 and later. Also, users should always use their system default
-browser to sign into the IdP. The feature will not work if they use a
-non-default browser.
-
-With attribute-based application entitlements using a third-party SAML 2.0
-identity provider, you can enable access to multiple stacks from a single relay
-state URL. Remove the stack and app (if present) parameters from the relay state
-URL, as follows:
+With attribute-based application entitlements using a third-party SAML 2.0 identity provider, you can enable access to multiple stacks from a single relay state URL. Remove the stack and app (if present) parameters from the relay state URL, as follows:
 
 ```
-https://`relay-state-region-endpoint`?accountId=`aws-account-id-without-hyphens`
+https://{{relay-state-region-endpoint}}?accountId={{aws-account-id-without-hyphens}}
 ```
 
-When users federate to the WorkSpaces Applications application catalog, they will be presented with
-all of the stacks where application entitlements have matched one or more
-applications to the user for the account ID and relay state endpoint associated with
-the Region in which your stacks are located. When a user selects a catalog,
-application entitlements will only display the applications the user is entitled
-to.
+When users federate to the WorkSpaces Applications application catalog, they will be presented with all of the stacks where application entitlements have matched one or more applications to the user for the account ID and relay state endpoint associated with the Region in which your stacks are located. When a user selects a catalog, application entitlements will only display the applications the user is entitled to.
 
-###### Note
-
+**Note**  
 Users cannot stream from multiple stacks at the same time.
 
-For more information, see [Attribute-Based Application Entitlements Using a Third-Party SAML 2.0 Identity Provider](application-entitlements-saml.md "application-entitlements-saml.md").
+For more information, see [Attribute-Based Application Entitlements Using a Third-Party SAML 2.0 Identity Provider](application-entitlements-saml.md).
 
 ## Table 1: WorkSpaces Applications relay state region endpoints (Recommended)
+<a name="relay-state-endpoints"></a>
 
-Table 1 below lists the relay state endpoints for the Regions where WorkSpaces Applications is
-available. The relay state endpoints in Table 1 are compatible with [WorkSpaces Applications Web Browser Access (Version 2)](web-browser-access-v2.md "web-browser-access-v2.md") and the Windows client application version
-1.1.1300 and later. If you are using older versions of the Windows client, you
-should use the old relay state endpoints listed in Table 2 to configure your SAML
-2.0 federation. If you want your users to stream using a FIPS-compliant connection,
-you must use a FIPS-compliant endpoint. For more information about FIPS endpoints,
-see [Protecting Data in Transit with FIPS Endpoints](protecting-data-in-transit-FIPS-endpoints.md "protecting-data-in-transit-FIPS-endpoints.md").
+Table 1 below lists the relay state endpoints for the Regions where WorkSpaces Applications is available. The relay state endpoints in Table 1 are compatible with [WorkSpaces Applications Web Browser Access (Version 2)](web-browser-access-v2.md) and the Windows client application version 1.1.1300 and later. If you are using older versions of the Windows client, you should use the old relay state endpoints listed in Table 2 to configure your SAML 2.0 federation. If you want your users to stream using a FIPS-compliant connection, you must use a FIPS-compliant endpoint. For more information about FIPS endpoints, see [Protecting Data in Transit with FIPS Endpoints](protecting-data-in-transit-FIPS-endpoints.md).
 
-Table 1: WorkSpaces Applications relay state region endpoints (Recommended)| Region | Relay state endpoint |
-| --- | --- |
-| US East (N. Virginia) | `https://appstream2.euc-sso.us-east-1.aws.amazon.com/saml`<br>(FIPS)<br>`https://appstream2.euc-sso-fips.us-east-1.aws.amazon.com/saml` |
-| US East (Ohio) | `https://appstream2.euc-sso.us-east-2.aws.amazon.com/saml` |
-| US West (Oregon) | `https://appstream2.euc-sso.us-west-2.aws.amazon.com/saml`<br>(FIPS)<br>`https://appstream2.euc-sso-fips.us-west-2.aws.amazon.com/saml` |
-| Asia Pacific (Malaysia) | `https://appstream2.euc-sso.ap-southeast-5.aws.amazon.com/saml` |
-| Asia Pacific (Osaka) | `https://appstream2.euc-sso.ap-northeast-3.aws.amazon.com/saml` |
-| Asia Pacific (Mumbai) | `https://appstream2.euc-sso.ap-south-1.aws.amazon.com/saml` |
-| Asia Pacific (Seoul) | `https://appstream2.euc-sso.ap-northeast-2.aws.amazon.com/saml` |
-| Asia Pacific (Singapore) | `https://appstream2.euc-sso.ap-southeast-1.aws.amazon.com/saml` |
-| Asia Pacific (Sydney) | `https://appstream2.euc-sso.ap-southeast-2.aws.amazon.com/saml` |
-| Asia Pacific (Tokyo) | `https://appstream2.euc-sso.ap-northeast-1.aws.amazon.com/saml` |
-| Canada (Central) | `https://appstream2.euc-sso.ca-central-1.aws.amazon.com/saml` |
-| Canada West (Calgary) | `https://appstream2.euc-sso.ca-west-1.aws.amazon.com/saml` |
-| Europe (Frankfurt) | `https://appstream2.euc-sso.eu-central-1.aws.amazon.com/saml` |
-| Europe (Ireland) | `https://appstream2.euc-sso.eu-west-1.aws.amazon.com/saml` |
-| Europe (London) | `https://appstream2.euc-sso.eu-west-2.aws.amazon.com/saml` |
-| Europe (Milan) | `https://appstream2.euc-sso.eu-south-1.aws.amazon.com/saml` |
-| Europe (Paris) | `https://appstream2.euc-sso.eu-west-3.aws.amazon.com/saml` |
-| Europe (Spain) | `https://appstream2.euc-sso.eu-south-2.aws.amazon.com/saml` |
-| Europe (Zurich) | `https://appstream2.euc-sso.eu-central-2.aws.amazon.com/saml` |
-| AWS GovCloud (US-East) | `https://appstream2.euc-sso.us-gov-east-1.amazonaws-us-gov.com/saml`<br>(FIPS)<br>`https://appstream2.euc-sso-fips.us-gov-east-1.amazonaws-us-gov.com/saml`<br>NoteFor more information about using WorkSpaces Applications in<br>AWS GovCloud (US) Regions, see [Amazon WorkSpaces Applications](../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md "../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md") in the _AWS GovCloud (US) User<br>Guide_. |
-| AWS GovCloud (US-West) | `https://appstream2.euc-sso.us-gov-west-1.amazonaws-us-gov.com/saml`<br>(FIPS)<br>`https://appstream2.euc-sso-fips.us-gov-west-1.amazonaws-us-gov.com/saml`<br>NoteFor more information about using WorkSpaces Applications in<br>AWS GovCloud (US) Regions, see [Amazon WorkSpaces Applications](../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md "../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md") in the _AWS GovCloud (US) User<br>Guide_. |
-| South America (São Paulo) | `https://appstream2.euc-sso.sa-east-1.aws.amazon.com/saml` |
-| Israel (Tel Aviv) | `https://appstream2.euc-sso.il-central-1.aws.amazon.com/saml` |
+
+**Table 1: WorkSpaces Applications relay state region endpoints (Recommended)**  
+
+| Region | Relay state endpoint | 
+| --- | --- | 
+| US East (N. Virginia) | `https://appstream2.euc-sso.us-east-1.aws.amazon.com/saml`<br />(FIPS) `https://appstream2.euc-sso-fips.us-east-1.aws.amazon.com/saml` | 
+| US East (Ohio) | https://appstream2.euc-sso.us-east-2.aws.amazon.com/saml | 
+| US West (Oregon) | `https://appstream2.euc-sso.us-west-2.aws.amazon.com/saml`<br />(FIPS) `https://appstream2.euc-sso-fips.us-west-2.aws.amazon.com/saml` | 
+| Asia Pacific (Malaysia) | https://appstream2.euc-sso.ap-southeast-5.aws.amazon.com/saml | 
+| Asia Pacific (Osaka) | https://appstream2.euc-sso.ap-northeast-3.aws.amazon.com/saml | 
+| Asia Pacific (Mumbai) | https://appstream2.euc-sso.ap-south-1.aws.amazon.com/saml | 
+| Asia Pacific (Seoul) | https://appstream2.euc-sso.ap-northeast-2.aws.amazon.com/saml | 
+| Asia Pacific (Singapore) | https://appstream2.euc-sso.ap-southeast-1.aws.amazon.com/saml | 
+| Asia Pacific (Sydney) | https://appstream2.euc-sso.ap-southeast-2.aws.amazon.com/saml | 
+| Asia Pacific (Tokyo) | https://appstream2.euc-sso.ap-northeast-1.aws.amazon.com/saml | 
+| Canada (Central) | https://appstream2.euc-sso.ca-central-1.aws.amazon.com/saml | 
+| Canada West (Calgary) | https://appstream2.euc-sso.ca-west-1.aws.amazon.com/saml | 
+| Europe (Frankfurt) | https://appstream2.euc-sso.eu-central-1.aws.amazon.com/saml | 
+| Europe (Ireland) | https://appstream2.euc-sso.eu-west-1.aws.amazon.com/saml | 
+| Europe (London) | https://appstream2.euc-sso.eu-west-2.aws.amazon.com/saml | 
+| Europe (Milan) | https://appstream2.euc-sso.eu-south-1.aws.amazon.com/saml | 
+| Europe (Paris) | https://appstream2.euc-sso.eu-west-3.aws.amazon.com/saml | 
+| Europe (Spain) | https://appstream2.euc-sso.eu-south-2.aws.amazon.com/saml | 
+| Europe (Zurich) | https://appstream2.euc-sso.eu-central-2.aws.amazon.com/saml | 
+| AWS GovCloud (US-East) | `https://appstream2.euc-sso.us-gov-east-1.amazonaws-us-gov.com/saml`<br />(FIPS) `https://appstream2.euc-sso-fips.us-gov-east-1.amazonaws-us-gov.com/saml` For more information about using WorkSpaces Applications in AWS GovCloud (US) Regions, see [Amazon WorkSpaces Applications](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-appstream2.html) in the *AWS GovCloud (US) User Guide*.  | 
+| AWS GovCloud (US-West) | `https://appstream2.euc-sso.us-gov-west-1.amazonaws-us-gov.com/saml`<br />(FIPS) `https://appstream2.euc-sso-fips.us-gov-west-1.amazonaws-us-gov.com/saml` For more information about using WorkSpaces Applications in AWS GovCloud (US) Regions, see [Amazon WorkSpaces Applications](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-appstream2.html) in the *AWS GovCloud (US) User Guide*.  | 
+| South America (São Paulo) | https://appstream2.euc-sso.sa-east-1.aws.amazon.com/saml | 
+| Israel (Tel Aviv) | https://appstream2.euc-sso.il-central-1.aws.amazon.com/saml | 
 
 ## Table 2: Old WorkSpaces Applications relay state region endpoints (Not recommended)
+<a name="relay-state-OLD-endpoints"></a>
 
-Table 2 below lists the old relay state endpoints that are still available.
-However, it is recommended that you use the new relay state endpoints listed in
-Table 1 to configure your SAML 2.0 federations. In particular, with the new relay
-state endpoints, you can enable your users to launch the WorkSpaces Applications client application
-(version 1.1.1300 and later) from IdP-initiated streaming sessions. The new relay
-state endpoints in Table 1 also allow users to sign into other AWS applications in
-different tabs of the same web browser, without impacting the ongoing WorkSpaces Applications
-streaming session. The old relay state endpoints in Table 2 do not support this. For
-more information, see [My WorkSpaces Applications client users are getting disconnected from their WorkSpaces Applications session after every 60 minutes.](troubleshooting-user-issues.md#troubleshooting-client-users-disconnected-every-60-minutes "troubleshooting-user-issues.md#troubleshooting-client-users-disconnected-every-60-minutes")
+Table 2 below lists the old relay state endpoints that are still available. However, it is recommended that you use the new relay state endpoints listed in Table 1 to configure your SAML 2.0 federations. In particular, with the new relay state endpoints, you can enable your users to launch the WorkSpaces Applications client application (version 1.1.1300 and later) from IdP-initiated streaming sessions. The new relay state endpoints in Table 1 also allow users to sign into other AWS applications in different tabs of the same web browser, without impacting the ongoing WorkSpaces Applications streaming session. The old relay state endpoints in Table 2 do not support this. For more information, see [My WorkSpaces Applications client users are getting disconnected from their WorkSpaces Applications session after every 60 minutes.](troubleshooting-user-issues.md#troubleshooting-client-users-disconnected-every-60-minutes)
 
-Table 2: Old WorkSpaces Applications relay state region endpoints (Not recommended)| Region | Relay state endpoint |
-| --- | --- |
-| US East (N. Virginia) | `https://appstream2.us-east-1.aws.amazon.com/saml`<br>(FIPS)<br>`https://appstream2-fips.us-east-1.aws.amazon.com/saml` |
-| US East (Ohio) | `https://appstream2.us-east-2.aws.amazon.com/saml` |
-| US West (Oregon) | `https://appstream2.us-west-2.aws.amazon.com/saml`<br>(FIPS)<br>`https://appstream2-fips.us-west-2.aws.amazon.com/saml` |
-| Asia Pacific (Mumbai) | `https://appstream2.ap-south-1.aws.amazon.com/saml` |
-| Asia Pacific (Seoul) | `https://appstream2.ap-northeast-2.aws.amazon.com/saml` |
-| Asia Pacific (Singapore) | `https://appstream2.ap-southeast-1.aws.amazon.com/saml` |
-| Asia Pacific (Sydney) | `https://appstream2.ap-southeast-2.aws.amazon.com/saml` |
-| Asia Pacific (Tokyo) | `https://appstream2.ap-northeast-1.aws.amazon.com/saml` |
-| Canada (Central) | `https://appstream2.ca-central-1.aws.amazon.com/saml` |
-| Europe (Frankfurt) | `https://appstream2.eu-central-1.aws.amazon.com/saml` |
-| Europe (Ireland) | `https://appstream2.eu-west-1.aws.amazon.com/saml` |
-| Europe (London) | `https://appstream2.eu-west-2.aws.amazon.com/saml` |
-| AWS GovCloud (US-East) | `https://appstream2.us-gov-east-1.amazonaws-us-gov.com/saml`<br>(FIPS)<br>`https://appstream2-fips.us-gov-east-1.amazonaws-us-gov.com/saml`<br>NoteFor more information about using WorkSpaces Applications in<br>AWS GovCloud (US) Regions, see [Amazon WorkSpaces Applications](../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md "../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md") in the _AWS GovCloud (US) User<br>Guide_. |
-| AWS GovCloud (US-West) | `https://appstream2.us-gov-west-1.amazonaws-us-gov.com/saml`<br>(FIPS)<br>`https://appstream2-fips.us-gov-west-1.amazonaws-us-gov.com/saml`<br>NoteFor more information about using WorkSpaces Applications in<br>AWS GovCloud (US) Regions, see [Amazon WorkSpaces Applications](../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md "../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md") in the _AWS GovCloud (US) User<br>Guide_. |
-| South America (São Paulo) | `https://appstream2.sa-east-1.aws.amazon.com/saml` |
+
+**Table 2: Old WorkSpaces Applications relay state region endpoints (Not recommended)**  
+
+| Region | Relay state endpoint | 
+| --- | --- | 
+| US East (N. Virginia) | `https://appstream2.us-east-1.aws.amazon.com/saml`<br />(FIPS) `https://appstream2-fips.us-east-1.aws.amazon.com/saml` | 
+| US East (Ohio) | https://appstream2.us-east-2.aws.amazon.com/saml | 
+| US West (Oregon) | `https://appstream2.us-west-2.aws.amazon.com/saml`<br />(FIPS) `https://appstream2-fips.us-west-2.aws.amazon.com/saml` | 
+| Asia Pacific (Mumbai) | https://appstream2.ap-south-1.aws.amazon.com/saml | 
+| Asia Pacific (Seoul) | https://appstream2.ap-northeast-2.aws.amazon.com/saml | 
+| Asia Pacific (Singapore) | https://appstream2.ap-southeast-1.aws.amazon.com/saml | 
+| Asia Pacific (Sydney) | https://appstream2.ap-southeast-2.aws.amazon.com/saml | 
+| Asia Pacific (Tokyo) | https://appstream2.ap-northeast-1.aws.amazon.com/saml | 
+| Canada (Central) | https://appstream2.ca-central-1.aws.amazon.com/saml | 
+| Europe (Frankfurt) | https://appstream2.eu-central-1.aws.amazon.com/saml | 
+| Europe (Ireland) | https://appstream2.eu-west-1.aws.amazon.com/saml | 
+| Europe (London) | https://appstream2.eu-west-2.aws.amazon.com/saml | 
+| AWS GovCloud (US-East) | `https://appstream2.us-gov-east-1.amazonaws-us-gov.com/saml`<br />(FIPS) `https://appstream2-fips.us-gov-east-1.amazonaws-us-gov.com/saml` For more information about using WorkSpaces Applications in AWS GovCloud (US) Regions, see [Amazon WorkSpaces Applications](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-appstream2.html) in the *AWS GovCloud (US) User Guide*.  | 
+| AWS GovCloud (US-West) | `https://appstream2.us-gov-west-1.amazonaws-us-gov.com/saml`<br />(FIPS) `https://appstream2-fips.us-gov-west-1.amazonaws-us-gov.com/saml` For more information about using WorkSpaces Applications in AWS GovCloud (US) Regions, see [Amazon WorkSpaces Applications](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-appstream2.html) in the *AWS GovCloud (US) User Guide*.  | 
+| South America (São Paulo) | https://appstream2.sa-east-1.aws.amazon.com/saml | 
 
 ## Table 3: Relay state URL parameters
+<a name="relay-state-URL-parameters"></a>
 
-Table 3 below lists all of the available parameters that you can use to construct
-a relay state URL.
+Table 3 below lists all of the available parameters that you can use to construct a relay state URL.
 
-Table 3: Relay state URL parameters| Parameter | Required | Format | Supported by |
-| --- | --- | --- | --- |
-| accountId | Required | 12-character AWS account ID | New and old endpoints in Table 1 and 2 |
-| stack | Optional | Stack name | New and old endpoints in Table 1 and 2 |
-| app | Optional | App name or "Desktop" | New and old endpoints in Table 1 and 2 |
-| client | Optional | “native" or "web" | New endpoints in Table 1 only |
+
+**Table 3: Relay state URL parameters**  
+
+| Parameter | Required | Format | Supported by | 
+| --- | --- | --- | --- | 
+| accountId | Required | 12-character AWS account ID | New and old endpoints in Table 1 and 2 | 
+| stack | Optional | Stack name | New and old endpoints in Table 1 and 2 | 
+| app | Optional | App name or "Desktop" | New and old endpoints in Table 1 and 2 | 
+| client | Optional | “native" or "web" | New endpoints in Table 1 only | 

@@ -1,14 +1,12 @@
-# Dynamic Application Framework Thrift Definitions and Named Pipe Name
 
-Thrift enables you to use simple definition files provided by WorkSpaces Applications to
-compile RPC clients. The RPC clients let you communicate with the WorkSpaces Applications agent
-software running on a streaming instance. For information about how to compile
-the RPC client for your language, see the [Apache Thrift documentation](https://thrift.apache.org/docs/ "https://thrift.apache.org/docs/").
-After you compile the Thrift libraries for the language of your choice, build a
-Thrift client by using the Named Pipe transport. Use
-D56C0258-2173-48D5-B0E6-1EC85AC67893 as the pipe name.
+
+# Dynamic Application Framework Thrift Definitions and Named Pipe Name
+<a name="dynamic-application-framework-thrift-definitions"></a>
+
+Thrift enables you to use simple definition files provided by WorkSpaces Applications to compile RPC clients. The RPC clients let you communicate with the WorkSpaces Applications agent software running on a streaming instance. For information about how to compile the RPC client for your language, see the [Apache Thrift documentation](https://thrift.apache.org/docs/). After you compile the Thrift libraries for the language of your choice, build a Thrift client by using the Named Pipe transport. Use D56C0258-2173-48D5-B0E6-1EC85AC67893 as the pipe name.
 
 ## AppStreamServer.thrift
+<a name="appstream-server-thrift"></a>
 
 ```
 namespace netstd AppStream.ApplicationCatalogService.Model
@@ -28,7 +26,7 @@ struct AddApplicationsResponse
 
 struct RemoveApplicationsRequest
 {
-    1: required string userSid;
+    1: required string userSid; 
     2: required list<string> applicationIds;
 }
 
@@ -38,7 +36,7 @@ struct RemoveApplicationsResponse
 
 struct ClearApplicationsRequest
 {
-    1: required string userSid;
+    1: required string userSid; 
 }
 
 struct ClearApplicationsResponse
@@ -60,7 +58,7 @@ exception AppStreamClientException
     1: string errorMessage,
     2: ErrorCode errorCode
 }
-
+	  
 exception AppStreamServerException
 {
     1: string errorMessage,

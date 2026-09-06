@@ -1,24 +1,19 @@
+
+
 # Infrastructure Security in Amazon WorkSpaces Applications
+<a name="infrastructure-security"></a>
 
-As a managed service, Amazon WorkSpaces Applications is protected by AWS global network security. For
-information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS
-environment using the best practices for infrastructure security, see [Infrastructure
-Protection](../../../wellarchitected/latest/security-pillar/infrastructure-protection.md "../../../wellarchitected/latest/security-pillar/infrastructure-protection.md") in _Security Pillar AWS Well‐Architected
-Framework_.
+As a managed service, Amazon WorkSpaces Applications is protected by AWS global network security. For information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/). To design your AWS environment using the best practices for infrastructure security, see [Infrastructure Protection](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/infrastructure-protection.html) in *Security Pillar AWS Well‐Architected Framework*.
 
-You use AWS published API calls to access WorkSpaces Applications through the network. Clients must
-support the following:
+You use AWS published API calls to access WorkSpaces Applications through the network. Clients must support the following:
++ Transport Layer Security (TLS). We require TLS 1.2 and recommend TLS 1.3.
++ Cipher suites with perfect forward secrecy (PFS) such as DHE (Ephemeral Diffie-Hellman) or ECDHE (Elliptic Curve Ephemeral Diffie-Hellman). Most modern systems such as Java 7 and later support these modes.
 
-- Transport Layer Security (TLS). We require TLS 1.2 and recommend TLS 1.3.
-- Cipher suites with perfect forward secrecy (PFS) such as DHE (Ephemeral
-  Diffie-Hellman) or ECDHE (Elliptic Curve Ephemeral Diffie-Hellman). Most modern systems
-  such as Java 7 and later support these modes.
-  The following topics provide additional information about WorkSpaces Applications infrastructure security.
+The following topics provide additional information about WorkSpaces Applications infrastructure security.
 
-###### Contents
-
-- [Network Isolation](network-isolation.md "network-isolation.md")
-- [Isolation on Physical Hosts](physical-isolation.md "physical-isolation.md")
-- [Controlling Network Traffic](control-network-traffic.md "control-network-traffic.md")
-- [WorkSpaces Applications Interface VPC Endpoints](interface-vpc-endpoints.md "interface-vpc-endpoints.md")
-- [Protecting Data in Transit with FIPS Endpoints](protecting-data-in-transit-FIPS-endpoints.md "protecting-data-in-transit-FIPS-endpoints.md")
+**Topics**
++ [Network Isolation](network-isolation.md)
++ [Isolation on Physical Hosts](physical-isolation.md)
++ [Controlling Network Traffic](control-network-traffic.md)
++ [WorkSpaces Applications Interface VPC Endpoints](interface-vpc-endpoints.md)
++ [Protecting Data in Transit with FIPS Endpoints](protecting-data-in-transit-FIPS-endpoints.md)

@@ -1,98 +1,65 @@
+
+
 # Monitors
+<a name="client-application-windows-mac-display-resolution-user"></a>
 
 ## Monitors and Display Resolution
+<a name="monitors-display-resolution-mac"></a>
 
-The WorkSpaces Applications client supports multiple monitors with the following display
-resolutions:
+The WorkSpaces Applications client supports multiple monitors with the following display resolutions:
++ Multiple monitors (up to 4K resolution) — Up to 4 monitors with a maximum display resolution of 4096x2160 pixels per monitor
 
-- Multiple monitors (up to 4K resolution) — Up to 4 monitors with a maximum display resolution of 4096x2160 pixels per monitor
+**Important**  
+Higher resolution monitors require significantly more compute capacity and encoding resources to stream content effectively, with actual performance depending on your display configuration (resolution and number of monitors) and the compute instance being used. If you experience suboptimal performance on 4K monitors, we recommend reducing your display resolution to improve responsiveness.  
+Ultrawide monitors with resolutions exceeding 4096 pixels in either dimension (e.g., 5120x2160) will display black bars on the sides, as the maximum supported resolution is limited to 4096 pixels per dimension.
 
-###### Important
-
-Higher resolution monitors require significantly more compute
-capacity and encoding resources to stream content effectively, with
-actual performance depending on your display configuration (resolution
-and number of monitors) and the compute instance being used. If you
-experience suboptimal performance on 4K monitors, we recommend
-reducing your display resolution to improve responsiveness.
-
-Ultrawide monitors with resolutions exceeding 4096 pixels in either
-dimension (e.g., 5120x2160) will display black bars on the sides, as
-the maximum supported resolution is limited to 4096 pixels per
-dimension.
-
-If you prefer a fixed resolution, which does not change even when the
-client window is resized, choose **Settings**,
-**Display**, **Display Resolution**,
-and specify the desired resolution. To re-enable automatic resizing, choose
-**Adapt automatically**.
+If you prefer a fixed resolution, which does not change even when the client window is resized, choose **Settings**, **Display**, **Display Resolution**, and specify the desired resolution. To re-enable automatic resizing, choose **Adapt automatically**.
 
 ## Using Multiple Monitors
+<a name="using-multiple-monitors-mac"></a>
 
-When using multiple monitors, you can choose from the following
-options:
-
-- Extend full-screen across a _single_
-  monitor
-- Extend full-screen across _all_ monitors
-- Extend full-screen across _selected_
-  monitors
+When using multiple monitors, you can choose from the following options:
++ Extend full-screen across a *single* monitor
++ Extend full-screen across *all* monitors
++ Extend full-screen across *selected* monitors
 
 ### Extending full-screen across a single monitor
+<a name="full-screen-single-monitor-mac"></a>
 
-You can extend full screen only on the current monitor if multiple
-monitors are connected to your local computer. To enable this feature,
-complete the following steps:
+You can extend full screen only on the current monitor if multiple monitors are connected to your local computer. To enable this feature, complete the following steps: 
 
-1. On the toolbar at the top of the window, choose the Full
-   Screen (crossed arrows) icon.
-2. From the drop-down menu, choose **Full screen current
-   monitor**.
+1. On the toolbar at the top of the window, choose the Full Screen (crossed arrows) icon.
+
+1. From the drop-down menu, choose **Full screen current monitor**.
 
 ### Extending full-screen across all monitors
+<a name="full-screen-all-monitors-mac"></a>
 
-You can extend the display for a session across all monitors at full
-screen resolution. The extended display matches your physical display
-layout and screen resolutions. For example, three monitors are connected
-to your local computer. The server extends the display for a session
-across all three monitors and matches the specific screen resolutions of
-your display.
+You can extend the display for a session across all monitors at full screen resolution. The extended display matches your physical display layout and screen resolutions. For example, three monitors are connected to your local computer. The server extends the display for a session across all three monitors and matches the specific screen resolutions of your display. 
 
-To enable this feature, complete the following steps:
+To enable this feature, complete the following steps: 
 
-1. On the toolbar at the top of the window, choose the Full
-   Screen (crossed arrows) icon.
-2. From the drop-down menu, choose **Full screen all
-   monitors**.
+1. On the toolbar at the top of the window, choose the Full Screen (crossed arrows) icon.
+
+1. From the drop-down menu, choose **Full screen all monitors**.
 
 ### Extending full-screen across selected monitors
+<a name="full-screen-selected-monitors-mac"></a>
 
-If there are three or more monitors connected, WorkSpaces Applications can also extend
-full-screen across a selection of those available monitors. If your
-selected monitors cannot go full screen, an error message will appear
-and you will need to perform the procedure again. Selected monitors must
-be set adjacent, or sharing a side with each other, in your display
-setting.
+If there are three or more monitors connected, WorkSpaces Applications can also extend full-screen across a selection of those available monitors. If your selected monitors cannot go full screen, an error message will appear and you will need to perform the procedure again. Selected monitors must be set adjacent, or sharing a side with each other, in your display setting. 
 
-The following are examples of adjacent monitor placement. If your
-monitors are not set adjacent in your display configuration, you must
-exit WorkSpaces Applications and change your Display settings on your local
-machine.
+The following are examples of adjacent monitor placement. If your monitors are not set adjacent in your display configuration, you must exit WorkSpaces Applications and change your Display settings on your local machine.
 
-###### Note
+**Note**  
+The blue boxes are WorkSpaces Applications-enabled monitors, and the gray boxes are other monitors. 
 
-The blue boxes are WorkSpaces Applications-enabled monitors, and the gray boxes are
-other monitors.
+![Adjacent and nonadjacent monitor placement](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/monitors.PNG)
 
-![Adjacent and nonadjacent monitor placement](images/monitors.PNG)
 
-To enable this feature, complete the following steps:
+To enable this feature, complete the following steps: 
 
-1. On the toolbar at the top of the window, choose the Full
-   Screen (crossed arrows) icon.
-2. From the drop-down menu, choose **Full screen selected
-   monitors**.
-3. The **Full screen selected monitors** window
-   appears, displaying your current monitor layout. Select which
-   monitors you want DCV to be displayed full screen, and choose
-   **Apply**.
+1. On the toolbar at the top of the window, choose the Full Screen (crossed arrows) icon.
+
+1. From the drop-down menu, choose **Full screen selected monitors**.
+
+1. The **Full screen selected monitors** window appears, displaying your current monitor layout. Select which monitors you want DCV to be displayed full screen, and choose **Apply**.

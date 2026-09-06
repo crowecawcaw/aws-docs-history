@@ -1,54 +1,40 @@
+
+
 # Use Storage Connectors with Session Scripts
+<a name="use-storage-connectors-with-session-scripts"></a>
 
-When WorkSpaces Applications storage connectors are enabled, they begin mounting when the session
-start scripts run. If your script relies on the storage connectors being mounted,
-you can wait for the connectors to be available. WorkSpaces Applications maintains the mount status
-of the storage connectors in the Windows registry on Windows instances, at the
-following key:
+When WorkSpaces Applications storage connectors are enabled, they begin mounting when the session start scripts run. If your script relies on the storage connectors being mounted, you can wait for the connectors to be available. WorkSpaces Applications maintains the mount status of the storage connectors in the Windows registry on Windows instances, at the following key:
 
-HKEY\_LOCAL\_MACHINE\SOFTWARE\Amazon\AppStream\Storage\<provided user
-name>\<Storage connector>
+HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Amazon\\AppStream\\Storage\\<provided user name>\\<Storage connector>
 
 The registry key values are as follows:
++ Provided user name — The user ID provided through the access mode. The access modes and value for each mode are as follows:
+  + User Pool — The email address for the user
+  + Streaming URL — The UserID
+  + SAML — The NameID. If the user name includes a slash (for example, a domain user’s SAMAccountName), the slash is replaced by a "-" character.
++ Storage connector — The connector for the persistent storage option that is enabled for the user. The storage connector values are as follows:
+  + HomeFolder
+  + GoogleDrive
+  + OneDrive
 
-- Provided user name — The user ID provided through the access mode.
-  The access modes and value for each mode are as follows:
+Each storage connector registry key contains a **MountStatus** DWORD value. The following table lists the possible values for **MountStatus**.
 
-  - User Pool — The email address for the user
-  - Streaming URL — The UserID
-  - SAML — The NameID. If the user name includes a slash (for
-    example, a domain user’s SAMAccountName), the slash is replaced by a
-    "-" character.
+**Note**  
+To view these registry keys, you must have Microsoft .NET Framework version 4.7.2 or later installed on your image.
 
-- Storage connector — The connector for the persistent storage option
-  that is enabled for the user. The storage connector values are as
-  follows:
 
-  - HomeFolder
-  - GoogleDrive
-  - OneDrive
-    Each storage connector registry key contains a **MountStatus**
-    DWORD value. The following table lists the possible values for
-    **MountStatus**.
+| Value | Description | 
+| --- | --- | 
+| 0 | Storage connector not be enabled for this user | 
+| 1 | Storage connector mounting is in progress | 
+| 2 | Storage connector mounted successfully | 
+| 3 | Storage connector mounting failed | 
+| 4 | Storage connector mounting is enabled, but not mounted yet | 
 
-###### Note
+On Linux instances, you can check the home folder mount status by looking at the value of appstream\_home\_folder\_mount\_status in the file \~/.config/appstream-home-folder/appstream-home-folder-mount-status.
 
-To view these registry keys, you must have Microsoft .NET Framework version
-4.7.2 or later installed on your image.
 
-| Value | Description                                                   |
-| ----- | ------------------------------------------------------------- |
-| 0     | Storage connector not be enabled for this user                |
-| 1     | Storage connector mounting is in progress                     |
-| 2     | Storage connector mounted successfully                        |
-| 3     | Storage connector mounting failed                             |
-| 4     | Storage connector mounting is enabled, but not mounted<br>yet |
-
-On Linux instances, you can check the home folder mount status by looking at the
-value of appstream\_home\_folder\_mount\_status in the file
-~/.config/appstream-home-folder/appstream-home-folder-mount-status.
-
-| Value | Description                         |
-| ----- | ----------------------------------- |
-| True  | Home folder is mounted successfully |
-| False | Home folder is not mounted yet      |
+| Value | Description | 
+| --- | --- | 
+| True | Home folder is mounted successfully | 
+| False | Home folder is not mounted yet | 

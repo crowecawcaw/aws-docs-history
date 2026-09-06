@@ -1,110 +1,53 @@
+
+
 # Key Concepts of Amazon WorkSpaces Applications
+<a name="what-is-concepts"></a>
 
 To get the most out of WorkSpaces Applications, be familiar with the following concepts:
 
-**application**
+**application**  
+An *application* contains the information necessary to launch the application that you want to stream to your users. An application is associated with the resource that contains the files necessary to launch the application, such as an app block or image.
 
-An _application_ contains the information necessary to
-launch the application that you want to stream to your users. An application
-is associated with the resource that contains the files necessary to launch
-the application, such as an app block or image.
+**app block**  
+An *app block* contains the application files that you want to stream to your users, and the details necessary to configure it.
 
-**app block**
+**app block builder**  
+An *app block builder* is a virtual machine that you use to create an app block. You can launch and connect to an app block builder by using the WorkSpaces Applications console. After you connect to an appblock builder, you can install your application(s). App block builder packages your app contents, uploads it to an Amazon S3 bucket, and completes app block creation.
 
-An _app block_ contains the application files that you
-want to stream to your users, and the details necessary to configure
-it.
+**image builder**  
+An *image builder* is a virtual machine that you use to create an image. You can launch and connect to an image builder by using the WorkSpaces Applications console. After you connect to an image builder, you can install, add, and test your applications, and then use the image builder to create an image. You can launch new image builders by using private images that you own.
 
-**app block builder**
+**image**  
+An *image* contains applications that you can stream to your users, and default system and application settings to enable your users to get started with their applications quickly. AWS provides base images that you can use to create image builders to then create images that include your own applications. After you create an image, you can't change it. To add other applications, update existing applications, or change image settings, you must create a new image. You can copy your images to other AWS Regions or share them with other AWS accounts in the same Region. your users, and default system and application settings to enable your users to get started with their applications quickly. 
 
-An _app block builder_ is a virtual machine that you
-use to create an app block. You can launch and connect to an app block
-builder by using the WorkSpaces Applications console. After you connect to an appblock
-builder, you can install your application(s). App block builder packages
-your app contents, uploads it to an Amazon S3 bucket, and completes
-app block creation.
+**fleet**  
+A *fleet* consists of fleet instances (also known as streaming instances) that run the applications and desktops that you specify. 
 
-**image builder**
+**stack**  
+A *stack* consists of an associated fleet, user access policies, and storage configurations. You set up a stack to start streaming applications to users.
 
-An _image builder_ is a virtual machine that you use to
-create an image. You can launch and connect to an image builder by using the
-WorkSpaces Applications console. After you connect to an image builder, you can install, add,
-and test your applications, and then use the image builder to create an
-image. You can launch new image builders by using private images that you
-own.
+**streaming instance**  
+A *streaming instance* (also known as a fleet instance) is an EC2 instance that is made available to a single user for application streaming. After the user’s session completes, the instance is terminated by EC2.
 
-**image**
+**user pool**  
+Use the *user pool* to manage users and their assigned stacks.
 
-An _image_ contains applications that you can stream to
-your users, and default system and application settings to enable your users
-to get started with their applications quickly. AWS provides base images
-that you can use to create image builders to then create images that include
-your own applications. After you create an image, you can't change it. To
-add other applications, update existing applications, or change image
-settings, you must create a new image. You can copy your images to other
-AWS Regions or share them with other AWS accounts in the same Region.
-your users, and default system and application settings to enable your users
-to get started with their applications quickly.
+**auto scaling rules**  
+*Auto scaling rules* are schedule-based and usage-based policies that you can apply to an Always-On or On-Demand fleet to automatically manage the number of streaming instances available for users to stream from.
 
-**fleet**
+**multi-session**  
+A *multi-session* fleet allows you to provision more than one user session on a single fleet instance. The underlying infrastructure resources are shared across all of the user sessions.   
+Multi-session is available only on Always-on and On-demand fleets powered by a Windows operating system. Multi-session is not available on Elastic fleets or the Linux operating system.  
+Make sure you are using latest WorkSpaces Applications images for multi-session fleets. To keep your images are up-to-date, see [Keep Your Amazon WorkSpaces Applications Image Up-to-Date](keep-image-updated.md). For details on supported images and WorkSpaces Applications agent versions for multi-session, see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md).
 
-A _fleet_ consists of fleet instances (also known as
-streaming instances) that run the applications and desktops that you
-specify.
+**agent session**  
+An *agent session* is a WorkSpaces streaming session initiated by an AI agent. You create agent sessions by using the `CreateStreamingURL` API. The agent passes the streaming URL to the MCP service as a header on each request. You can monitor agent sessions through AWS CloudTrail, and you can view operational metrics in CloudWatch. You can optionally store screenshots captured during agent sessions in a customer-managed Amazon S3 bucket.
 
-**stack**
+**computer input**  
+*Computer input* is a capability that allows agents to click buttons, enter text, and scroll on the desktop during a WorkSpaces streaming session. Computer input requires that you also enable computer vision.
 
-A _stack_ consists of an associated fleet, user access
-policies, and storage configurations. You set up a stack to start streaming
-applications to users.
+**computer vision**  
+*Computer vision* is a capability that allows agents to see the desktop by taking screenshots during a WorkSpaces streaming session.
 
-**streaming instance**
-
-A _streaming instance_ (also known as a fleet instance)
-is an EC2 instance that is made available to a single user for application
-streaming. After the user’s session completes, the instance is terminated by
-EC2.
-
-**user pool**
-
-Use the _user pool_ to manage users and their assigned
-stacks.
-
-**auto scaling rules**
-
-_Auto scaling rules_ are schedule-based and usage-based
-policies that you can apply to an Always-On or On-Demand fleet to
-automatically manage the number of streaming instances available for users
-to stream from.
-
-**multi-session**
-
-A _multi-session_ fleet allows you to provision more
-than one user session on a single fleet instance. The underlying
-infrastructure resources are shared across all of the user sessions.
-
-###### Note
-
-Multi-session is available only on Always-on and On-demand fleets
-powered by a Windows operating system. Multi-session is not available on
-Elastic fleets or the Linux operating system.
-
-Make sure you are using latest WorkSpaces Applications images for multi-session fleets.
-To keep your images are up-to-date, see [Keep Your Amazon WorkSpaces Applications Image Up-to-Date](keep-image-updated.md "keep-image-updated.md"). For details on supported images and
-WorkSpaces Applications agent versions for multi-session, see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md "base-image-version-history.md").
-
-**agent session**
-
-An _agent session_ is a WorkSpaces streaming session initiated by an AI agent. You create agent sessions by using the `CreateStreamingURL` API. The agent passes the streaming URL to the MCP service as a header on each request. You can monitor agent sessions through AWS CloudTrail, and you can view operational metrics in CloudWatch. You can optionally store screenshots captured during agent sessions in a customer-managed Amazon S3 bucket.
-
-**computer input**
-
-_Computer input_ is a capability that allows agents to click buttons, enter text, and scroll on the desktop during a WorkSpaces streaming session. Computer input requires that you also enable computer vision.
-
-**computer vision**
-
-_Computer vision_ is a capability that allows agents to see the desktop by taking screenshots during a WorkSpaces streaming session.
-
-**Model Context Protocol (MCP) service**
-
-The managed _MCP service_ (`agentaccess-mcp`) provides AI agents with tools to click buttons, enter text, scroll, and take screenshots of the desktop during a streaming session. Agents connect to the MCP service at a fixed endpoint using AWS IAM credentials with SigV4 signing. The MCP service is available when agent access is enabled on a stack.
+**Model Context Protocol (MCP) service**  
+The managed *MCP service* (`agentaccess-mcp`) provides AI agents with tools to click buttons, enter text, scroll, and take screenshots of the desktop during a streaming session. Agents connect to the MCP service at a fixed endpoint using AWS IAM credentials with SigV4 signing. The MCP service is available when agent access is enabled on a stack.

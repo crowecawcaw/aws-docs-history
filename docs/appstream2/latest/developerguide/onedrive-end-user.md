@@ -1,88 +1,62 @@
+
+
 # Use OneDrive for Business
+<a name="onedrive-end-user"></a>
 
-###### Note
+**Note**  
+OneDrive for Business is currently not supported for Linux-based streaming instances.
 
-OneDrive for Business is currently not supported for Linux-based streaming
-instances.
+If your WorkSpaces Applications administrator has enabled this file storage option, you can add your OneDrive account to WorkSpaces Applications. After you add your account and sign in to an WorkSpaces Applications streaming session, you can do the following in OneDrive:
++ Open and edit files and folders that you store in OneDrive. Other users cannot access your content unless you choose to share it.
++ Upload and download files between your local computer and OneDrive. Any changes that you make to your files and folders in OneDrive during a streaming session are backed up and synchronized automatically. They are available to you when you sign in to your OneDrive account and access OneDrive outside of your streaming session.
++ When you are working in an application, you can access your files and folders that are stored in OneDrive. Choose **File**, **Open** from the application interface and browse to the file or folder that you want to open. To save your changes in a file to OneDrive, choose **File**, **Save** from the application and browse to the location in OneDrive where you want to save the file. 
++ You can also access OneDrive by choosing **My Files** from the top left of the WorkSpaces Applications toolbar.
 
-If your WorkSpaces Applications administrator has enabled this file storage option, you can add
-your OneDrive account to WorkSpaces Applications. After you add your account and sign in to an WorkSpaces Applications
-streaming session, you can do the following in OneDrive:
+**To add your OneDrive account to WorkSpaces Applications**
 
-- Open and edit files and folders that you store in OneDrive. Other users
-  cannot access your content unless you choose to share it.
-- Upload and download files between your local computer and OneDrive. Any
-  changes that you make to your files and folders in OneDrive during a
-  streaming session are backed up and synchronized automatically. They are
-  available to you when you sign in to your OneDrive account and access
-  OneDrive outside of your streaming session.
-- When you are working in an application, you can access your files and
-  folders that are stored in OneDrive. Choose **File**,
-  **Open** from the application interface and browse to
-  the file or folder that you want to open. To save your changes in a file to
-  OneDrive, choose **File**, **Save** from
-  the application and browse to the location in OneDrive where you want to
-  save the file.
-- You can also access OneDrive by choosing **My Files**
-  from the top left of the WorkSpaces Applications toolbar.
+To access your OneDrive during WorkSpaces Applications streaming sessions, you must first add your OneDrive account to WorkSpaces Applications. 
 
-###### To add your OneDrive account to WorkSpaces Applications
+1. In the top left of the WorkSpaces Applications toolbar, choose the **My Files** icon.
 
-To access your OneDrive during WorkSpaces Applications streaming sessions, you must first add
-your OneDrive account to WorkSpaces Applications.
+1. In the **My Files** dialog box, choose **Add Storage**.  
+![My Files dialog box with Add Storage button highlighted in upper right corner.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/AddStorage.png)
 
-1. In the top left of the WorkSpaces Applications toolbar, choose the **My
-   Files** icon.
-2. In the **My Files** dialog box, choose **Add
-   Storage**.
+1. Choose **OneDrive**.  
+![OneDrive option selected in the Add Storage dropdown menu.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/AddOneDrive1.png)
 
-![My Files dialog box with Add Storage button highlighted in upper right corner.](images/AddStorage.png) 3. Choose **OneDrive**.
+1. Under **Login accounts**, choose the domain for your OneDrive account.   
+![Login accounts dialog with example.com domain highlighted for selection.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/LoginAccounts.png)
 
-![OneDrive option selected in the Add Storage dropdown menu.](images/AddOneDrive1.png) 4. Under **Login accounts**, choose the domain for your
-OneDrive account.
+1. In the **Sign in** dialog box, enter the sign-in credentials for your account.
 
-![Login accounts dialog with example.com domain highlighted for selection.](images/LoginAccounts.png) 5. In the **Sign in** dialog box, enter the sign-in
-credentials for your account. 6. After your OneDrive account is added to WorkSpaces Applications, your OneDrive folder is
-displayed in **My Files**.
+1. After your OneDrive account is added to WorkSpaces Applications, your OneDrive folder is displayed in **My Files**.  
+![My Files interface showing OneDrive folder listed with Home Folder and Temporary Files.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/AddOneDrive2.png)
 
-![My Files interface showing OneDrive folder listed with Home Folder and Temporary Files.](images/AddOneDrive2.png) 7. To work with your files and folders in OneDrive, choose the
-**OneDrive** folder and browse to the file or folder
-you want. If you do not want to work with files in OneDrive during this
-streaming session, close the **My Files** dialog box.
+1. To work with your files and folders in OneDrive, choose the **OneDrive** folder and browse to the file or folder you want. If you do not want to work with files in OneDrive during this streaming session, close the **My Files** dialog box. 
 
-###### To upload and download files between your local computer and your OneDrive
+**To upload and download files between your local computer and your OneDrive**
 
-1. In the top left of the WorkSpaces Applications toolbar, choose the **My
-   Files** icon.
-2. In the **My Files** dialog box, choose
-   **OneDrive**.
-3. Navigate to an existing folder, or choose **Add Folder**
-   to create a folder.
-4. When the folder is displayed, do one of the following:
+1. In the top left of the WorkSpaces Applications toolbar, choose the **My Files** icon.
 
-   - To upload a file to the folder, select the file that you want to
-     upload, and choose **Upload**.
-   - To download a file from the folder, select the file that you want
-     to download, choose the down arrow to the right of the file name,
-     and choose **Download**.
+1. In the **My Files** dialog box, choose **OneDrive**.
 
-   ![File list showing My Example File.pdf with Download option selected from the menu.](images/GoogleDrive_FileUploadDownload.png)
+1. Navigate to an existing folder, or choose **Add Folder** to create a folder.
 
-###### To remove OneDrive permissions from WorkSpaces Applications
+1. When the folder is displayed, do one of the following: 
+   + To upload a file to the folder, select the file that you want to upload, and choose **Upload**.
+   + To download a file from the folder, select the file that you want to download, choose the down arrow to the right of the file name, and choose **Download**.   
+![File list showing My Example File.pdf with Download option selected from the menu.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/GoogleDrive_FileUploadDownload.png)
 
-If you no longer want to use OneDrive during your WorkSpaces Applications streaming sessions,
-follow these steps to remove OneDrive permissions from WorkSpaces Applications.
+**To remove OneDrive permissions from WorkSpaces Applications**
 
-###### Note
-
-You can restore these permissions at any time during an WorkSpaces Applications streaming
-session.
+If you no longer want to use OneDrive during your WorkSpaces Applications streaming sessions, follow these steps to remove OneDrive permissions from WorkSpaces Applications.
+**Note**  
+You can restore these permissions at any time during an WorkSpaces Applications streaming session.
 
 1. Sign in to Office 365 or OneDrive for Business.
-2. In the right pane, under **My accounts**, choose
-   **My account**.
-3. On the account dashboard page, in **App permissions**,
-   choose **Change app permissions**.
-4. On the **App permissions** page, under
-   **Amazon WorkSpaces Applications**, choose
-   **Revoke**.
+
+1. In the right pane, under **My accounts**, choose **My account**.
+
+1. On the account dashboard page, in **App permissions**, choose **Change app permissions**.
+
+1. On the **App permissions** page, under **Amazon WorkSpaces Applications**, choose **Revoke**.
