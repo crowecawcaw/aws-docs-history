@@ -1,6 +1,9 @@
+
+
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Import a SageMaker AI model
+<a name="import-an-amazon-sagemaker-model"></a>
 
 You can optionally import SageMaker AI-hosted models to Amazon Fraud Detector. Similar to models, SageMaker AI models can be added to detectors and generate fraud predictions using the `GetEventPrediction` API. As part of the `GetEventPrediction` request, Amazon Fraud Detector will invoke your SageMaker AI endpoint and pass the results to your rules.
 
@@ -9,15 +12,15 @@ You can configure Amazon Fraud Detector to use the event variables sent as part 
 Amazon Fraud Detector supports importing SageMaker AI algorithms that use JSON or CSV input formats and JSON or CSV output formats. Examples of supported SageMaker AI algorithms include XGBoost, Linear Learner, and Random Cut Forest.
 
 ## Import a SageMaker AI model using the AWS SDK for Python (Boto3)
+<a name="import-an-amazon-sagemaker-model-using-the-aws-python-sdk"></a>
 
 To import a SageMaker AI model, use the `PutExternalModel` API. The following example assumes the SageMaker AI endpoint `sagemaker-transaction-model` has been deployed, is `InService` status, and uses the XGBoost algorithm.
 
 The input configuration specifies that will use the event variables to construct the model input (`useEventVariables` is set to `TRUE`). The input format is TEXT\_CSV, given XGBoost requires a CSV input. The csvInputTemplate specifies how to construct the CSV input from the variables sent as part of the `GetEventPrediction` request. This example assumes you have created the variables `order_amt`, `prev_amt`, `hist_amt` and `payment_type`.
 
-The output configuration specifies the response format of the SageMaker AI model, and maps the appropriate CSV index to the Amazon Fraud Detector variable `sagemaker_output_score`. Once configured, you can use the output variable in rules.
+The output configuration specifies the response format of the SageMaker AI model, and maps the appropriate CSV index to the Amazon Fraud Detector variable `sagemaker_output_score`. Once configured, you can use the output variable in rules. 
 
-###### Note
-
+**Note**  
 The output from a SageMaker AI model must be mapped to a variable with source `EXTERNAL_MODEL_SCORE`. You cannot create these variables in the console using **Variables**. You must instead create them when you configure your model import.
 
 ```
@@ -41,8 +44,7 @@ outputConfiguration = {
         '0' : 'sagemaker_output_score'
     }
 },
-
+    
 modelEndpointStatus = 'ASSOCIATED'
 )
-
 ```

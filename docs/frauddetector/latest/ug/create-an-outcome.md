@@ -1,31 +1,37 @@
+
+
 Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Create an outcome
+<a name="create-an-outcome"></a>
 
-You can create outcomes in the Amazon Fraud Detector console, using the [put-outcome](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/put-outcome.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/put-outcome.html") command,
-using the [PutOutcome](../api/API_PutOutcome.md "../api/API_PutOutcome.md") API, or using the AWS SDK for Python (Boto3).
+You can create outcomes in the Amazon Fraud Detector console, using the [put-outcome](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/frauddetector/put-outcome.html) command, using the [PutOutcome](https://docs.aws.amazon.com/frauddetector/latest/api/API_PutOutcome.html) API, or using the AWS SDK for Python (Boto3).
 
 ## Create an outcome using the Amazon Fraud Detector console
+<a name="create-an-outcome-console"></a>
 
-###### To create one or more outcomes,
+**To create one or more outcomes,**
 
-1. Open the [AWS
-   Management Console](https://console.aws.amazon.com "https://console.aws.amazon.com") and sign in to your account.
-   Navigate to Amazon Fraud Detector.
-2. In the left navigation pane, choose **Outcomes**.
-3. In the **Outcomes** page, choose **Create**.
-4. In your **New outcome** page, enter the following:
+1. Open the [AWS Management Console](https://console.aws.amazon.com) and sign in to your account. Navigate to Amazon Fraud Detector.
+
+1. In the left navigation pane, choose **Outcomes**.
+
+1. In the **Outcomes** page, choose **Create**.
+
+1. In your **New outcome** page, enter the following:
 
    1. In the **Outcome name**, enter a name for your outcome.
-   2. In the **Outcome description**, optionally, enter a description.
 
-5. Choose **Save outcome**.
-6. Repeat steps 2 to 5 for creating additional outcomes.
+   1. In the **Outcome description**, optionally, enter a description.
+
+1. Choose **Save outcome**.
+
+1. Repeat steps 2 to 5 for creating additional outcomes.
 
 ## Create an outcome using the AWS SDK for Python (Boto3)
+<a name="create-an-outcome-using-the-aws-python-sdk"></a>
 
-The following example uses the `PutOutcome` API to create three outcomes. They are `verify_customer`, `review`, and `approve`.
-After the outcomes are created, you can assign them to rules.
+The following example uses the `PutOutcome` API to create three outcomes. They are `verify_customer`, `review`, and `approve`. After the outcomes are created, you can assign them to rules. 
 
 ```
 import boto3
@@ -45,5 +51,4 @@ fraudDetector.put_outcome(
 name = 'approve',
 description = 'this outcome approves the event'
 )
-
 ```
