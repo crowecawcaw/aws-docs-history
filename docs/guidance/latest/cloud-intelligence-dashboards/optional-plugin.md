@@ -1,5 +1,8 @@
+
+
 # Optional Plugins
+<a name="optional-plugin"></a>
 
 ## Steps
-
-- [Summarization Plugin](summarization-plugin.md "summarization-plugin.md")
+<a name="steps"></a>
++  [Summarization Plugin](summarization-plugin.md) 

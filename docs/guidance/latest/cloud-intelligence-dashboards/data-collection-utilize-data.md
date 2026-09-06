@@ -1,68 +1,72 @@
+
+
 # Utilize Data
+<a name="data-collection-utilize-data"></a>
 
 ## Check execution state
+<a name="data-collection-utilize-data-check-execution"></a>
 
-Data Collection stack is using Step Functions to pull the data. You can
-login to data collection account and check
-[Step
-functions Console](https://console.aws.amazon.com/states/home?#/statemachines "https://console.aws.amazon.com/states/home?#/statemachines"). You can select with the prefix (default=CID-DC-),
-and make sure they all run successfully. You may need to scroll the
-"State machines" table to the right to see "Succeed" and "Failed"
-columns.
+Data Collection stack is using Step Functions to pull the data. You can login to data collection account and check [Step functions Console](https://console.aws.amazon.com/states/home?#/statemachines). You can select with the prefix (default=CID-DC-), and make sure they all run successfully. You may need to scroll the "State machines" table to the right to see "Succeed" and "Failed" columns.
 
-These Step Functions are scheduled to run the first time in 30 mins
-after deployment and then every 14 days by default. You can trigger the
-new execution or check the logs of functions if needed.
+These Step Functions are scheduled to run the first time in 30 mins after deployment and then every 14 days by default. You can trigger the new execution or check the logs of functions if needed.
 
-![Step Functions Executions Status](images/data-collection/update-process/data-read-permissions/4a-step-functions-executions-check.png)
+### More
+<a name="collapsible-section-id-data-collection-utilize-data-1"></a>
+
+![Step Functions Executions Status](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/4a-step-functions-executions-check.png)
+
+
 Now you can inspect tables created in the Athena database, and use a simple SELECT query to inspect the results.
 
-![Athena tables - data check](images/data-collection/update-process/data-read-permissions/5a-athena-data-check-tables-query.png)
+![Athena tables - data check](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/5a-athena-data-check-tables-query.png)
+
+
 For example:
 
 ```
 SELECT * FROM "cost_anomaly_data" LIMIT 10;
 ```
 
-![Athena data check query results](images/data-collection/update-process/data-read-permissions/5b-athena-data-check-query-results.png)
+![Athena data check query results](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/5b-athena-data-check-query-results.png)
+
 
 ## Utilizing Your Data
+<a name="utilizing-your-data"></a>
 
-Now that you have pulled together optimization data there are different
-ways in which you can analyze & visualize it to make infrastructure
-optimization decisions.
+Now that you have pulled together optimization data there are different ways in which you can analyze & visualize it to make infrastructure optimization decisions.
 
 ### Visualization of Trusted Advisor data with Amazon Quick Sight
+<a name="visualization-of-trusted-advisor-data-with-amazon-quick-sight"></a>
 
-You can visualize Trusted Advisor Data with the [Trusted Advisor Organizational (TAO) Dashboard.](trusted-advisor-dashboard.md "trusted-advisor-dashboard.md") To deploy the TAO Dashboard please follow [TAO Dashboard
-deployment steps](trusted-advisor-dashboard.md#trusted-advisor-dashboard-prerequisites "trusted-advisor-dashboard.md#trusted-advisor-dashboard-prerequisites") and specify the organizational data collection bucket created in this lab as a source.
+You can visualize Trusted Advisor Data with the [Trusted Advisor Organizational (TAO) Dashboard.](trusted-advisor-dashboard.md) To deploy the TAO Dashboard please follow [TAO Dashboard deployment steps](trusted-advisor-dashboard.md#trusted-advisor-dashboard-prerequisites) and specify the organizational data collection bucket created in this lab as a source.
 
 ### Visualization of Compute Optimizer data with Amazon Quick Sight
+<a name="visualization-of-compute-optimizer-data-with-amazon-quick-sight"></a>
 
-You can visualize Compute Optimizer Data with [Compute Optimizer Dashboard](compute-optimizer-dashboard.md "compute-optimizer-dashboard.md"). To deploy the Compute Optimizer Dashboard please follow the [Compute Optimizer deployment
-steps](compute-optimizer-dashboard.md "compute-optimizer-dashboard.md") which also delivers Athena Tables and Views.
+You can visualize Compute Optimizer Data with [Compute Optimizer Dashboard](compute-optimizer-dashboard.md). To deploy the Compute Optimizer Dashboard please follow the [Compute Optimizer deployment steps](compute-optimizer-dashboard.md) which also delivers Athena Tables and Views.
 
 ### Visualization of AWS Budgets data with Amazon Quick Sight
+<a name="visualization-of-aws-budgets-data-with-amazon-quick-sight"></a>
 
-You can visualize AWS Budgets Data with [AWS Budgets Dashboard](budgets-dashboard.md "budgets-dashboard.md"). To deploy the AWS Budgets Dashboard please follow the [AWS Budgets Dashboard deployment steps](budgets-dashboard.md "budgets-dashboard.md") which also delivers Athena Tables and Views.
+You can visualize AWS Budgets Data with [AWS Budgets Dashboard](budgets-dashboard.md). To deploy the AWS Budgets Dashboard please follow the [AWS Budgets Dashboard deployment steps](budgets-dashboard.md) which also delivers Athena Tables and Views.
 
 ### AWS Organization Data and The Cost Intelligence Dashboard
+<a name="aws-organization-data-and-the-cost-intelligence-dashboard"></a>
 
-You can integrate organizational structure with OUs and tags specified in AWS Organizations to the dashboards. Learn more how to add organizational taxonomy to Cloud Intelligence Dashboards following [Add Organizational Taxonomy](add-org-taxonomy.md "add-org-taxonomy.md") guide.
+You can integrate organizational structure with OUs and tags specified in AWS Organizations to the dashboards. Learn more how to add organizational taxonomy to Cloud Intelligence Dashboards following [Add Organizational Taxonomy](add-org-taxonomy.md) guide.
 
 ### RDS Graviton Eligibility and Savings Estimation with Amazon Quick Sight
+<a name="rds-graviton-eligibility-and-savings-estimation-with-amazon-quick-sight"></a>
 
-You can get insights into Graviton migration savings opportunities with [Graviton Savings Dashboards](graviton-savings-dashboard.md "graviton-savings-dashboard.md"). To deploy the Graviton Savings Dashboards please follow the [Graviton Savings Dashboards](graviton-savings-dashboard.md "graviton-savings-dashboard.md") which also delivers Athena Tables and Views.
+You can get insights into Graviton migration savings opportunities with [Graviton Savings Dashboards](graviton-savings-dashboard.md). To deploy the Graviton Savings Dashboards please follow the [Graviton Savings Dashboards](graviton-savings-dashboard.md) which also delivers Athena Tables and Views.
 
 ### Snapshots and AMIs
+<a name="snapshots-and-amis"></a>
 
-When an AMI gets created it takes a Snapshot of the volume. This is then
-needed to be kept in the account whilst the AMI is used. Once the AMI is
-released the Snapshot can no longer be used but it still incurs costs.
-Using this query we can identify Snapshots that have the "AMI
-Available", those where the "AMI Removed" and those that fall outside
-of this scope and are "NOT AMI". Data must be collected and the
-crawler finished running before this query can be run.
+When an AMI gets created it takes a Snapshot of the volume. This is then needed to be kept in the account whilst the AMI is used. Once the AMI is released the Snapshot can no longer be used but it still incurs costs. Using this query we can identify Snapshots that have the "AMI Available", those where the "AMI Removed" and those that fall outside of this scope and are "NOT AMI". Data must be collected and the crawler finished running before this query can be run.
+
+#### Optimization Data Snapshots and AMIs Query
+<a name="collapsible-section-id-data-collection-utilize-data-2"></a>
 
 ```
   SELECT *,
@@ -107,38 +111,55 @@ crawler finished running before this query can be run.
 
 There is an option to add pricing data to this query. This assumes you have deployed the Pricing module.
 
-**Athena**
+#### Optimization Data Snapshots and AMIs with OD pricing data
+<a name="collapsible-section-id-data-collection-utilize-data-3"></a>
+
+ **Athena** 
 
 1. Go to AWS Athena
-2. Go to _Saved queries_ at the top of the screen
-3. Run the _pricing\_ec2\_create\_table_ Query to create a pricing table
-4. In _Saved queries_ Run the _pricing\_region\_names_ Query to create a normalized region name table
-5. In _Saved queries_ run _inventory\_snapshot\_connected\_to\_ami\_with\_pricing_ to create a view
-6. Run the below to see your data
 
-```
-    SELECT * FROM "optimization_data"."snapshot_ami_quicksight_view" limit 10;
-```
+1. Go to *Saved queries* at the top of the screen
+
+1. Run the *pricing\_ec2\_create\_table* Query to create a pricing table
+
+1. In *Saved queries* Run the *pricing\_region\_names* Query to create a normalized region name table
+
+1. In *Saved queries* run *inventory\_snapshot\_connected\_to\_ami\_with\_pricing* to create a view
+
+1. Run the below to see your data
+
+   ```
+       SELECT * FROM "optimization_data"."snapshot_ami_quicksight_view" limit 10;
+   ```
+
+#### Optimization Data Snapshots and AMIs with CUR data
+<a name="collapsible-section-id-data-collection-utilize-data-4"></a>
 
 You must have access to your Cost and Usage data in the same account and region so you can join through Athena
 
-**Athena**
+ **Athena** 
 
 1. Go to AWS Athena
-2. Go to _Saved queries_ at the top of the screen
-3. In _Saved queries_ run _inventory\_snapshot\_connected\_to\_ami\_with\_cur_ to create a view
-4. Change the value ${table\_name} to your Cost and Usage report database and name and your ${date\_filter} to look at a certain month/year
-5. You will see the price of all Snapshots and how much they cost based on their connection with AMIS
-   Please note that if you delete the snapshot and it is part of a lineage you may only make a small saving
+
+1. Go to *Saved queries* at the top of the screen
+
+1. In *Saved queries* run *inventory\_snapshot\_connected\_to\_ami\_with\_cur* to create a view
+
+1. Change the value ${table\_name} to your Cost and Usage report database and name and your ${date\_filter} to look at a certain month/year
+
+1. You will see the price of all Snapshots and how much they cost based on their connection with AMIS
+
+Please note that if you delete the snapshot and it is part of a lineage you may only make a small saving
 
 ### EBS Volumes and Trusted Advisor Recommendations
+<a name="ebs-volumes-and-trusted-advisor-recommendations"></a>
 
-Trusted advisor identifies idle and underutilized volumes. This query
-joins together the data so you can see what portion of your volumes are
-flagged. Data must be collected and the crawler finished running before
-this query can be run.
+Trusted advisor identifies idle and underutilized volumes. This query joins together the data so you can see what portion of your volumes are flagged. Data must be collected and the crawler finished running before this query can be run.
 
 This section requires you to have the **Inventory Module** and the **Trusted Advisor Module** deployed.
+
+#### Optimization Data EBS Volumes and Trusted Advisors Query
+<a name="collapsible-section-id-data-collection-utilize-data-5"></a>
 
 ```
     SELECT * FROM
@@ -152,37 +173,53 @@ This section requires you to have the **Inventory Module** and the **Trusted Adv
 
 There is an option to add pricing data to this query.
 
-**Athena**
+#### Optimization Data EBS Volumes and Trusted Advisor with pricing data
+<a name="collapsible-section-id-data-collection-utilize-data-6"></a>
+
+ **Athena** 
 
 1. Go to AWS Athena and run the below
-2. Go to **Saved queries** at the top of the screen
-3. Run the **ec2-view** Query to create a view of ebs and ta data
-4. Run the **ec2\_pricing** Query to create a pricing table
-5. In **Saved queries** run the **region\_names** Query to create a normalized region name table
-6. In **Saved queries** run **ebs-ta-query-pricing** to create a view
-7. Run the below to see your data
 
-```
-    SELECT * FROM "optimization_data"."ebs_quicksight_view" limit 10;
-```
+1. Go to **Saved queries** at the top of the screen
+
+1. Run the **ec2-view** Query to create a view of ebs and ta data
+
+1. Run the **ec2\_pricing** Query to create a pricing table
+
+1. In **Saved queries** run the **region\_names** Query to create a normalized region name table
+
+1. In **Saved queries** run **ebs-ta-query-pricing** to create a view
+
+1. Run the below to see your data
+
+   ```
+       SELECT * FROM "optimization_data"."ebs_quicksight_view" limit 10;
+   ```
 
 The section below will bring in opportunities to move EBS volumes to gp3
 
+#### EBS Volumes and Trusted Advisor moving to gp3
+<a name="collapsible-section-id-data-collection-utilize-data-7"></a>
+
 1. Go to AWS Athena and run the below
-2. Go to **Saved queries** at the top of the screen
-3. Run the **ec2-view** Query to create a view of ebs and ta data
-4. Run the **ec2\_pricing** Query to create a pricing table
-5. In **Saved queries** run the **region\_names** Query to create a normalized region name table
-6. In **Saved queries** run **gp3-opportunity** to create a view
+
+1. Go to **Saved queries** at the top of the screen
+
+1. Run the **ec2-view** Query to create a view of ebs and ta data
+
+1. Run the **ec2\_pricing** Query to create a pricing table
+
+1. In **Saved queries** run the **region\_names** Query to create a normalized region name table
+
+1. In **Saved queries** run **gp3-opportunity** to create a view
 
 ### AWS EBS Volumes and Snapshots
+<a name="aws-ebs-volumes-and-snapshots"></a>
 
-If you wish to see what volumes have what snapshots attached to them
-from a holistic view then this query can combine these two data sources.
-This could provide information into which snapshots you could archive
-using
-[Elastic
-Block Storage Snapshots Archive](https://aws.amazon.com/ebs/snapshots/faqs/#Snapshots_Archive "https://aws.amazon.com/ebs/snapshots/faqs/#Snapshots_Archive")
+If you wish to see what volumes have what snapshots attached to them from a holistic view then this query can combine these two data sources. This could provide information into which snapshots you could archive using [Elastic Block Storage Snapshots Archive](https://aws.amazon.com/ebs/snapshots/faqs/#Snapshots_Archive) 
+
+#### Optimization Data Snapshots with EBS
+<a name="collapsible-section-id-data-collection-utilize-data-8"></a>
 
 ```
 WITH data as (
@@ -220,6 +257,9 @@ WITH data as (
 ```
 
 If you wish to connect to your Cost and Usage report for snapshot costs please use the below:
+
+#### Optimization Data Snapshots with EBS and CUR
+<a name="collapsible-section-id-data-collection-utilize-data-9"></a>
 
 ```
       WITH cur_mapping AS (
@@ -289,64 +329,78 @@ If you wish to connect to your Cost and Usage report for snapshot costs please u
 ```
 
 ### ECS Chargeback
+<a name="ecs-chargeback"></a>
 
-Report to show costs associated with ECS Tasks leveraging EC2 instances
-within a Cluster
+Report to show costs associated with ECS Tasks leveraging EC2 instances within a Cluster
+
+#### Athena Configuration
+<a name="collapsible-section-id-data-collection-utilize-data-10"></a>
 
 1. Navigate to the Athena service
-2. Select the "optimization data" database
-3. In **Saved Queries** find **"cluster\_metadata\_view"** Change "BU" to the tag you wish to do chargeback for
-4. Click the **Run** button
-5. In **Saved Queries** find **"ec2\_cluster\_costs\_view"** - Replace ${CUR} in the "FROM" clause with your CUR table name - For example, "curdb"."ecs\_services\_clusters\_data"
-6. Click the **Run** button
-7. In **Saved Queries** find **"bu\_usage\_view"** - Replace ${CUR} in the "FROM" clause with your CUR table name - For example, "curdb"."ecs\_services\_clusters\_data"
-8. Click the **Run** button
-   Now your views are created you can run your report
 
-**Manually execute billing report**
+1. Select the "optimization data" database
 
-- In **Saved Queries** find **"ecs\_chargeback\_report"** - Replace "bu\_usage\_view.month" value with the appropriate month desired for the report - For example, a value of "2" returns the charges for February
-- Click the **Run** button
+1. In **Saved Queries** find ** "cluster\_metadata\_view" ** Change "BU" to the tag you wish to do chargeback for
 
-**Example Output**
+1. Click the **Run** button
 
-![Example output of query results of ECS chargeback query](images/Example_output.png)
+1. In **Saved Queries** find ** "ec2\_cluster\_costs\_view" ** - Replace ${CUR} in the "FROM" clause with your CUR table name - For example, "curdb"."ecs\_services\_clusters\_data"
+
+1. Click the **Run** button
+
+1. In **Saved Queries** find ** "bu\_usage\_view" ** - Replace ${CUR} in the "FROM" clause with your CUR table name - For example, "curdb"."ecs\_services\_clusters\_data"
+
+1. Click the **Run** button
+
+Now your views are created you can run your report
+
+ **Manually execute billing report** 
++ In **Saved Queries** find ** "ecs\_chargeback\_report" ** - Replace "bu\_usage\_view.month" value with the appropriate month desired for the report - For example, a value of "2" returns the charges for February
++ Click the **Run** button
+
+ **Example Output** 
+
+![Example output of query results of ECS chargeback query](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/Example_output.png)
+
+
 Breakdown:
-
-- task\_usage: total memory resources reserved (in GBs) by all tasks over the billing period (i.e. -- monthly)
-- percent: task\_usage / total\_usage
-- ec2\_cost: monthly cost for EC2 instance in $
-- Services: Name of service
-- servicearn: Arn of service
-- Value: Value of specified tag for the ECS service (could be App, TeamID, etc?)
++ task\_usage: total memory resources reserved (in GBs) by all tasks over the billing period (i.e. -- monthly)
++ percent: task\_usage / total\_usage
++ ec2\_cost: monthly cost for EC2 instance in $
++ Services: Name of service
++ servicearn: Arn of service
++ Value: Value of specified tag for the ECS service (could be App, TeamID, etc?)
 
 ### AWS Transit Gateway Chargeback
+<a name="aws-transit-gateway-chargeback"></a>
 
-AWS Transit Gateway data transfer cost billed at the central networking
-account is allocated proportionally to the end usage accounts. The
-proportion is calculated by connecting with AWS CloudWatch bytes in
-bytes out data at each Transit Gateway attachment level. The total
-central data transfer cost is calculated at the central networking
-account with Cost and Usage Report. The chargeback amount is the
-corresponding proportional cost of the total central amount.
+AWS Transit Gateway data transfer cost billed at the central networking account is allocated proportionally to the end usage accounts. The proportion is calculated by connecting with AWS CloudWatch bytes in bytes out data at each Transit Gateway attachment level. The total central data transfer cost is calculated at the central networking account with Cost and Usage Report. The chargeback amount is the corresponding proportional cost of the total central amount.
+
+#### Athena Configuration
+<a name="collapsible-section-id-data-collection-utilize-data-11"></a>
 
 1. Navigate to the Athena service and open **Saved Queries**.
-2. Select your database where you have your Cost and Usage Report
-3. In **Saved Queries** find **"tgw\_chargeback\_cur"**
-4. Replace `CURDatabase` with your database name in the tgw\_chargeback\_cur. For example:
+
+1. Select your database where you have your Cost and Usage Report
+
+1. In **Saved Queries** find ** "tgw\_chargeback\_cur" ** 
+
+1. Replace `CURDatabase` with your database name in the tgw\_chargeback\_cur. For example:
 
 ```
 "cur"."cost_and_usage_report"
 ```
 
-The Cloud Watch data collection is automated for all the regions.
-However, if you are destined to only chargeback to a subset of selected
-regions, you need to specify it in `"product_location LIKE '%US%'"`
-line.
+The Cloud Watch data collection is automated for all the regions. However, if you are destined to only chargeback to a subset of selected regions, you need to specify it in `"product_location LIKE '%US%'"` line.
 
 1. Click the **Run** button
-2. In **Saved Queries** find **"tgw\_chargeback\_cw"**
-3. Select the "optimization data" database
-4. Replace `CURDatabase` with your database name in the tgw\_chargeback\_cw.
-5. Click the **Run** button
-   Now your views are created and you can run your report.
+
+1. In **Saved Queries** find ** "tgw\_chargeback\_cw" ** 
+
+1. Select the "optimization data" database
+
+1. Replace `CURDatabase` with your database name in the tgw\_chargeback\_cw.
+
+1. Click the **Run** button
+
+Now your views are created and you can run your report.

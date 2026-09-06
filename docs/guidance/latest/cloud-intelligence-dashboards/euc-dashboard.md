@@ -1,133 +1,146 @@
+
+
 # AWS End User Computing (EUC) Dashboard
+<a name="euc-dashboard"></a>
 
 ## Introduction
+<a name="introduction"></a>
 
 The End User Computing (EUC) Dashboard provides a unified view of your AWS EUC environment through an intuitive Quick Sight interface. Key capabilities include:
-
-- Operational visibility into Amazon WorkSpaces and Amazon AppStream 2.0 usage patterns
-- Cost optimization insights and spending analytics
-- Performance monitoring with CloudWatch metrics integration
-- WorkSpaces Logon statistics
-- Resource utilization tracking and trending
-- Recommendations for environment optimization
++ Operational visibility into Amazon WorkSpaces and Amazon AppStream 2.0 usage patterns
++ Cost optimization insights and spending analytics
++ Performance monitoring with CloudWatch metrics integration
++ WorkSpaces Logon statistics
++ Resource utilization tracking and trending
++ Recommendations for environment optimization
 
 This solution helps teams make data-driven decisions to optimize costs, improve operational efficiency, and enhance the end-user experience across their EUC estate.
 
-![EUC Dashboard Screenshot](images/euc/executive_summary.png)
+![EUC Dashboard Screenshot](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/executive_summary.png)
+
 
 The dashboard has six tabs:
++  **Summary**:
+  + Break down of EUC services costs for last 3 months.
+  + Top Spending accounts for each service.
+  + High level summary of your EUC estate.
 
-- **Summary**:
+![Insights](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/workspace_insights.png)
 
-  - Break down of EUC services costs for last 3 months.
-  - Top Spending accounts for each service.
-  - High level summary of your EUC estate.
++  **Amazon WorkSpaces Insights**:
+  + In-depth breakdown of WorkSpaces costs for entire environment, additional insights not available in the Cost Usage Report including:
+    + Protocol
+    + Operating Systems
+  + Daily Cost breakdown.
+  + WorkSpaces Monthly usage.
+  + WorkSpaces Cost Breakdown.
+  + Workspaces Software bundle information.
 
-![Insights](images/euc/workspace_insights.png)
+![Insights](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/workspace_usage.png)
 
-- **Amazon WorkSpaces Insights**:
 
-  - In-depth breakdown of WorkSpaces costs for entire environment, additional insights not available in the Cost Usage Report including:
+![Insights](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/workspace_logon_details.png)
 
-    - Protocol
-    - Operating Systems
++  **Amazon WorkSpaces Usage**:
+  + WorkSpaces User connections.
+  + Top10 Daily usage.
+  + Directory cost breakdown.
+  + WorkSpaces daily usage and Hours used.
+  + WorkSpaces Logon information
+    + Last Logon
+    + Low Usage
+    + AlwaysOn WorkSpaces Logon information
+    + Never Logged on
++  **Amazon WorkSpaces Metrics**:
+  + This additional tab breaks down CloudWatch CPU/Memory utilization of WorkSpaces.
 
-  - Daily Cost breakdown.
-  - WorkSpaces Monthly usage.
-  - WorkSpaces Cost Breakdown.
-  - Workspaces Software bundle information.
+![AppStream 2.0 Highlights](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/as2_details.png)
 
-![Insights](images/euc/workspace_usage.png)
-
-![Insights](images/euc/workspace_logon_details.png)
-
-- **Amazon WorkSpaces Usage**:
-
-  - WorkSpaces User connections.
-  - Top10 Daily usage.
-  - Directory cost breakdown.
-  - WorkSpaces daily usage and Hours used.
-  - WorkSpaces Logon information
-
-    - Last Logon
-    - Low Usage
-    - AlwaysOn WorkSpaces Logon information
-    - Never Logged on
-
-- **Amazon WorkSpaces Metrics**:
-
-  - This additional tab breaks down CloudWatch CPU/Memory utilization of WorkSpaces.
-
-![AppStream 2.0 Highlights](images/euc/as2_details.png)
-
-- **Amazon AppStream 2.0**
-
-  - Detail overview of AppStream 2.0 environment.
-
-- **EUC Cost Optimization**
-
-  - Cost saving opportunities in your EUC environment.
++  **Amazon AppStream 2.0** 
+  + Detail overview of AppStream 2.0 environment.
++  **EUC Cost Optimization** 
+  + Cost saving opportunities in your EUC environment.
 
 ## Architecture
+<a name="architecture"></a>
 
-![Image of Amazon EUC Dashboard architecture](images/euc/euc_dashboard_cid.png)
+![Image of Amazon EUC Dashboard architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/euc_dashboard_cid.png)
+
 
 1. The EUC Dashboard depends on the AWS Data Exports service delivers Cost & Usage Report (CUR2) daily to an Amazon S3 Bucket in the Management Account.
-2. The EUC Dashboard also requires Data Collection lab for the Amazon Lambda to capture WorkSpaces data and CloudWatch metrics and copies Export data to a dedicated Data Collection Account automatically. EUC Dashboard can be configured during setup to use AWS Organizations (all linked accounts) or specific linked accounts to capture this data.
+
+1. The EUC Dashboard also requires Data Collection lab for the Amazon Lambda to capture WorkSpaces data and CloudWatch metrics and copies Export data to a dedicated Data Collection Account automatically. EUC Dashboard can be configured during setup to use AWS Organizations (all linked accounts) or specific linked accounts to capture this data.
 
 ## Prerequisites
+<a name="prerequisites"></a>
 
-1. Deploy one or more of the foundational dashboards: [CUDOS, Cost Intelligence, or KPI Dashboard](cudos-cid-kpi.md "cudos-cid-kpi.md"). This will enable CUR and will enable required Quick Sight and Athena resources needed for this dashboard.
-2. [Deploy](data-collection-deployment.md "data-collection-deployment.md") or [Update](data-collection-update.md "data-collection-update.md") the Data Collection Lab and make sure the following modules are enabled. Version 3.2.0 or higher required.
+1. Deploy one or more of the foundational dashboards: [CUDOS, Cost Intelligence, or KPI Dashboard](cudos-cid-kpi.md). This will enable CUR and will enable required Quick Sight and Athena resources needed for this dashboard.
 
-   - **Include Inventory Collector Module** (Mandatory) - This enables the collection of WorkSpaces environmental information using the WorkSpaces API.
-   - **Include WorkSpaces Utilization Data Collection Module** (Optional) - This enables the collection of Cloudwatch metrics for WorkSpaces. Please see **Visualizing WorkSpaces Cloudwatch Metric** section below to configure this.
-   - **EUC Module Settings** (Optional) - You can choose to scan all linked accounts in an organization or specify accounts that have WorkSpaces deployed, provide a comma-separated list of account IDS in the field to only scan these accounts. Leaving blank will scan all accounts.
+1.  [Deploy](data-collection-deployment.md) or [Update](data-collection-update.md) the Data Collection Lab and make sure the following modules are enabled. Version 3.2.0 or higher required.
+   +  **Include Inventory Collector Module** (Mandatory) - This enables the collection of WorkSpaces environmental information using the WorkSpaces API.
+   +  **Include WorkSpaces Utilization Data Collection Module** (Optional) - This enables the collection of Cloudwatch metrics for WorkSpaces. Please see **Visualizing WorkSpaces Cloudwatch Metric** section below to configure this.
+   +  **EUC Module Settings** (Optional) - You can choose to scan all linked accounts in an organization or specify accounts that have WorkSpaces deployed, provide a comma-separated list of account IDS in the field to only scan these accounts. Leaving blank will scan all accounts.
 
 ## Deployment
+<a name="deployment"></a>
 
-###### Example
-
-CloudFormation
-
-###### Note
-
-**Prerequisite**: To install this dashboard using CloudFormation, you need to install Foundational Dashboards CFN with version v4.0.0 or above as described [here](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard")
+**Example**  
+ **Prerequisite**: To install this dashboard using CloudFormation, you need to install Foundational Dashboards CFN with version v4.0.0 or above as described [here](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard) 
 
 1. Log in to your **Data Collection** Account.
-2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=EUC-Dashboard&param_DashboardId=euc-dashboard&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=EUC-Dashboard&param_DashboardId=euc-dashboard&param_RequiresDataCollection=yes") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as they are. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE** 7. You can check the stack output for dashboard URLs.
+1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-**Troubleshooting:** If you see error "No export named cid-CidExecArn found" during stack deployment, make sure you have completed prerequisite steps.
+    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=EUC-Dashboard&param_DashboardId=euc-dashboard&param_RequiresDataCollection=yes) 
 
-Command Line
-An alternative method to install dashboards is the [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/?tab=readme-ov-file#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/?tab=readme-ov-file#command-line-tool-cid-cmd") tool.
+1. You can change **Stack name** for your template if you wish.
+
+1. Leave **Parameters** values as they are.
+
+1. Review the configuration and click **Create stack**.
+
+1. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE** 
+
+1. You can check the stack output for dashboard URLs.
+
+    **Troubleshooting:** If you see error "No export named cid-CidExecArn found" during stack deployment, make sure you have completed prerequisite steps.
+An alternative method to install dashboards is the [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/?tab=readme-ov-file#command-line-tool-cid-cmd) tool.  
 
 1. Log in to your **Data Collection** Account.
-2. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend using [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
-3. In your command-line interface run the following command to download and install the CID CLI tool:
 
-```
-pip3 install --upgrade cid-cmd
-```
+1. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend using [CloudShell](https://console.aws.amazon.com/cloudshell).
 
-4. In your command-line interface run the following command to deploy the dashboard:
+1. In your command-line interface run the following command to download and install the CID CLI tool:
 
-```
-cid-cmd deploy --dashboard-id euc-dashboard
-```
+   ```
+   pip3 install --upgrade cid-cmd
+   ```
 
-Please follow the instructions from the deployment wizard. More info about command line options are in the [Readme](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd") or `cid-cmd --help`. 5. Select the EUC Dashboard and hit enter 6. Follow any instructions in the command line tool 7. EUC Dashboard will deploy with a link
+1. In your command-line interface run the following command to deploy the dashboard:
+
+   ```
+   cid-cmd deploy --dashboard-id euc-dashboard
+   ```
+
+   Please follow the instructions from the deployment wizard. More info about command line options are in the [Readme](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd) or `cid-cmd --help`.
+
+1. Select the EUC Dashboard and hit enter
+
+1. Follow any instructions in the command line tool
+
+1. EUC Dashboard will deploy with a link
 
 ## **Visualizing WorkSpaces Cloudwatch Metric** (Optional)
+<a name="visualizing-workspaces-cloudwatch-metric-optional"></a>
 
 In the EUC Dashboard, to view the WorkSpaces Cloudwatch metrics in the **WorkSpaces Metrics** tab, follow these steps:
++ During Deployment, make sure you selected **yes** for the **Include WorkSpaces Utilization Data Collection Module** parameter.
++ Go to the [Amazon Athena](https://console.aws.amazon.com/athena/) Query Editor.
++ Select the database that has the views for CID. By default it can be CUR 1 **cid\_cur** cur or CID 2 **cid\_data\_export** cur2 database.
++ Run the following query to update **euc\_metrics\_view** view in Amazon Athena, **replacing the cur table name 'Line 89' based on version of cur running. e.g. "cid\_data\_export"."cur2" cur** 
 
-- During Deployment, make sure you selected **yes** for the **Include WorkSpaces Utilization Data Collection Module** parameter.
-- Go to the [Amazon Athena](https://console.aws.amazon.com/athena/ "https://console.aws.amazon.com/athena/") Query Editor.
-- Select the database that has the views for CID. By default it can be CUR 1 **cid\_cur** cur or CID 2 **cid\_data\_export** cur2 database.
-- Run the following query to update **euc\_metrics\_view** view in Amazon Athena, **replacing the cur table name 'Line 89' based on version of cur running. e.g. "cid\_data\_export"."cur2" cur**
+### Expand SQL Query
+<a name="collapsible-section-id-euc-code"></a>
 
 ```
 CREATE OR REPLACE VIEW "euc_metrics_view" AS
@@ -220,6 +233,7 @@ GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
 ```
 
 ## Update
+<a name="update"></a>
 
 Please note that dashboards are not updated with an update of the CloudFormation Stack. When a new version of the dashboard template is released, you can update your dashboard by running the following command in your command-line interface:
 
@@ -228,25 +242,24 @@ cid-cmd update --dashboard-id euc-dashboard
 ```
 
 ## Authors
-
-- Christian O’Donoghue, Senior Technical Account Manager
+<a name="authors"></a>
++ Christian O’Donoghue, Senior Technical Account Manager
 
 ## Contributors
-
-- Daniel Matlock, Technical Account Manager
-- James Gaskell, Ex-Amazonian
-- Yuriy Prykhodko, AWS Principal Technical Account Manager
-- Iakov Gan, Ex-Amazonian
-- Brian Sheppard, AWS Principal Technical Account Manager
-- Natassa Eleftheriou, Senior Technical Account Manager
+<a name="contributors"></a>
++ Daniel Matlock, Technical Account Manager
++ James Gaskell, Ex-Amazonian
++ Yuriy Prykhodko, AWS Principal Technical Account Manager
++ Iakov Gan, Ex-Amazonian
++ Brian Sheppard, AWS Principal Technical Account Manager
++ Natassa Eleftheriou, Senior Technical Account Manager
 
 ## Feedback & Support
+<a name="euc-dashboard-feedback-support"></a>
 
 Have a success story to share with the Team, suggest an improvement or report an error?
++ Please email: [euc-dashboard@amazon.com](mailto:euc-dashboard@amazon.com) 
++ Follow [Feedback & Support](feedback-support.md) guide
 
-- Please email: [euc-dashboard@amazon.com](mailto:euc-dashboard@amazon.com "mailto:euc-dashboard@amazon.com")
-- Follow [Feedback & Support](feedback-support.md "feedback-support.md") guide
-
-###### Note
-
+**Note**  
 These dashboards and their content: (a) are for informational purposes only, (b) represent current AWS product offerings and practices, which are subject to change without notice, and (c) does not create any commitments or assurances from AWS and its affiliates, suppliers or licensors. AWS content, products or services are provided "as is" without warranties, representations, or conditions of any kind, whether express or implied. The responsibilities and liabilities of AWS to its customers are controlled by AWS agreements, and this document is not part of, nor does it modify, any agreement between AWS and its customers.

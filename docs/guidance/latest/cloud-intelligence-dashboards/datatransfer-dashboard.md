@@ -1,144 +1,128 @@
+
+
 # DataTransfer Cost Analysis Dashboard
+<a name="datatransfer-dashboard"></a>
 
 ## Introduction
+<a name="introduction"></a>
 
-The Data Transfer Dashboard is an interactive, customizable and
-accessible Quick Sight dashboard to help customers gain insights into
-their data transfer. It will analyze any data transfer that incurs a
-cost such as outbound/internet, Inter Region and Inter AZ data transfer
-from all services.
+The Data Transfer Dashboard is an interactive, customizable and accessible Quick Sight dashboard to help customers gain insights into their data transfer. It will analyze any data transfer that incurs a cost such as outbound/internet, Inter Region and Inter AZ data transfer from all services.
 
-This dashboard contains data transfer breakdowns with the following
-visuals:
-
-- Data Transfer Summary
-- Internet Data transfer, AWS Global Accelerator cost estimation details
-- Regional Data transfer Details
-- Data transfer AZ
-- CloudFront Cost and Usage Analysis
+This dashboard contains data transfer breakdowns with the following visuals:
++ Data Transfer Summary
++ Internet Data transfer, AWS Global Accelerator cost estimation details
++ Regional Data transfer Details
++ Data transfer AZ
++ CloudFront Cost and Usage Analysis
 
 ## Demo Dashboard
+<a name="demo-dashboard"></a>
 
-Get more familiar with the Dashboard using the live, interactive demo
-dashboard following this
-[link](https://cid.workshops.aws.dev/demo?dashboard=datatransfer-cost-analysis-dashboard "https://cid.workshops.aws.dev/demo?dashboard=datatransfer-cost-analysis-dashboard")
+Get more familiar with the Dashboard using the live, interactive demo dashboard following this [link](https://cid.workshops.aws.dev/demo?dashboard=datatransfer-cost-analysis-dashboard) 
 
-![Image of a Data transfer dashboard in Quick Sight](images/data_transfer_dashboard.png)
+![Image of a Data transfer dashboard in Quick Sight](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data_transfer_dashboard.png)
+
 
 ## Prerequisites
+<a name="prerequisites"></a>
 
-1. Deploy one or more of the foundational dashboards: [CUDOS, Cost Intelligence, or KPI Dashboard.](cudos-cid-kpi.md "cudos-cid-kpi.md")
+1. Deploy one or more of the foundational dashboards: [CUDOS, Cost Intelligence, or KPI Dashboard.](cudos-cid-kpi.md) 
 
 ## Deployment
+<a name="deployment"></a>
 
-###### Example
-
-CloudFormation
-
-###### Note
-
-**Prerequisite**: To install this dashboard using CloudFormation, you need to install Foundational Dashboards CFN with version v4.0.0 or above as described [here](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard")
+**Example**  
+ **Prerequisite**: To install this dashboard using CloudFormation, you need to install Foundational Dashboards CFN with version v4.0.0 or above as described [here](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard) 
 
 1. Log in to your **Data Collection** Account.
-2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=DataTransfer-Cost-Analysis-Dashboard&param_DashboardId=datatransfer-cost-analysis-dashboard "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=DataTransfer-Cost-Analysis-Dashboard&param_DashboardId=datatransfer-cost-analysis-dashboard") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as they are. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE** 7. You can check the stack output for dashboard URLs.
+1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-###### Note
+    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=DataTransfer-Cost-Analysis-Dashboard&param_DashboardId=datatransfer-cost-analysis-dashboard) 
 
-**Troubleshooting:** If you see error "No export named cid-CidExecArn found" during stack deployment, make sure you have completed prerequisite steps.
+1. You can change **Stack name** for your template if you wish.
 
-Command Line
-An alternative method to install dashboards is the [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd") tool.
+1. Leave **Parameters** values as they are.
+
+1. Review the configuration and click **Create stack**.
+
+1. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE** 
+
+1. You can check the stack output for dashboard URLs.
+**Note**  
+ **Troubleshooting:** If you see error "No export named cid-CidExecArn found" during stack deployment, make sure you have completed prerequisite steps.
+An alternative method to install dashboards is the [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd) tool.  
 
 1. Log in to your **Data Collection** Account.
-2. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend using [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
-3. In your command-line interface run the following command to download and install the CID CLI tool:
 
-```
-pip3 install --upgrade cid-cmd
-```
+1. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend using [CloudShell](https://console.aws.amazon.com/cloudshell).
 
-4. In your command-line interface run the following command to deploy the dashboard:
+1. In your command-line interface run the following command to download and install the CID CLI tool:
 
-```
-cid-cmd deploy --dashboard-id datatransfer-cost-analysis-dashboard
-```
+   ```
+   pip3 install --upgrade cid-cmd
+   ```
 
-Please follow the instructions from the deployment wizard. More info about command line options are in the
-[Readme](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd")
-or `cid-cmd --help`.
+1. In your command-line interface run the following command to deploy the dashboard:
 
-Terraform
-You can deploy the Data Transfer Cost Analysis Dashboard using the [CID Terraform module](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/tree/main/terraform/cicd-deployment "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/tree/main/terraform/cicd-deployment").
+   ```
+   cid-cmd deploy --dashboard-id datatransfer-cost-analysis-dashboard
+   ```
 
-###### Note
+   Please follow the instructions from the deployment wizard. More info about command line options are in the [Readme](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd) or `cid-cmd --help`.
+You can deploy the Data Transfer Cost Analysis Dashboard using the [CID Terraform module](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/tree/main/terraform/cicd-deployment).  
+ **Prerequisite**: Complete the foundational Terraform deployment as described in the [Foundational Dashboards deployment guide](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard) (select the **Terraform** tab) before deploying additional dashboards.
 
-**Prerequisite**: Complete the foundational Terraform deployment as described in the [Foundational Dashboards deployment guide](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard") (select the **Terraform** tab) before deploying additional dashboards.
+1. In your [user-config.tf](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/user-config.tf), find the `dashboards` block and set `datatransfer` to `"yes"`:
 
-1. In your [user-config.tf](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/user-config.tf "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/user-config.tf"), find the `dashboards` block and set `datatransfer` to `"yes"`:
+   ```
+     datatransfer = "yes"  # Data Transfer Cost Analysis Dashboard
+   ```
 
-```
-  datatransfer = "yes"  # Data Transfer Cost Analysis Dashboard
-```
+1. Ensure the following module block is present in your `dashboards.tf`:
 
-2. Ensure the following module block is present in your `dashboards.tf`:
+   ```
+   module "datatransfer_dashboard" {
+     source = "./modules/cloudformation_stack"
+     providers = {
+       aws = aws.datacollection
+     }
+   
+     config = local.additional_dashboards.datatransfer
+   }
+   ```
+**Note**  
+This block is already included if you are using the full module files from the repository. If your existing deployment only has foundational dashboards, add this block to `dashboards.tf` manually. For individual dashboard deployments, include `depends_on = [module.cloud_intelligence_dashboards]` to ensure correct ordering.
 
-```
-module "datatransfer_dashboard" {
-  source = "./modules/cloudformation_stack"
-  providers = {
-    aws = aws.datacollection
-  }
+1. Run the Terraform workflow:
 
-  config = local.additional_dashboards.datatransfer
-}
-```
-
-###### Note
-
-This block is already included if you are using the full module files from the repository. If your existing deployment only has foundational dashboards, add this block to `dashboards.tf` manually. For individual dashboard deployments, include `depends_on = [module.cloud_intelligence_dashboards]` to ensure correct ordering. 3. Run the Terraform workflow:
-
-```
-terraform init
-terraform plan
-terraform apply
-```
-
-###### Note
-
+   ```
+   terraform init
+   terraform plan
+   terraform apply
+   ```
+**Note**  
 If you are adding this dashboard to an existing Terraform deployment, `terraform plan` will show the additional stack to be created. The `dashboards.tf` file handles the resource definitions automatically — no manual edits to it are needed. If you have a custom module structure with a separate path, ensure the `source` parameter in your module block points to the correct location.
 
-For detailed instructions, refer to the [Terraform Deployment README](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/README.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/README.md").
+   For detailed instructions, refer to the [Terraform Deployment README](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/terraform/cicd-deployment/README.md).
 
 ## Update
+<a name="update"></a>
 
-Please note that dashboards are not updated with update of
-CloudFormation Stack. When a new version of the dashboard template is
-released, you can update your dashboard by running the following command
-in your command-line interface:
+Please note that dashboards are not updated with update of CloudFormation Stack. When a new version of the dashboard template is released, you can update your dashboard by running the following command in your command-line interface:
 
 ```
 cid-cmd update --dashboard-id datatransfer-cost-analysis-dashboard
 ```
 
 ## Authors
-
-- Chaitanya Shah, Principal Technical Account Manager
+<a name="authors"></a>
++ Chaitanya Shah, Principal Technical Account Manager
 
 ## Feedback & Support
+<a name="datatransfer-dashboard-feedback-support"></a>
 
-Follow [Feedback & Support](feedback-support.md "feedback-support.md") guide
+Follow [Feedback & Support](feedback-support.md) guide
 
-###### Note
-
-These dashboards and their content: (a) are for informational
-purposes only, (b) represent current AWS product offerings and
-practices, which are subject to change without notice, and (c) does not
-create any commitments or assurances from AWS and its affiliates,
-suppliers or licensors. AWS content, products or services are provided
-"as is" without warranties, representations, or conditions of any
-kind, whether express or implied. The responsibilities and liabilities
-of AWS to its customers are controlled by AWS agreements, and this
-document is not part of, nor does it modify, any agreement between AWS
-and its customers.
+**Note**  
+These dashboards and their content: (a) are for informational purposes only, (b) represent current AWS product offerings and practices, which are subject to change without notice, and (c) does not create any commitments or assurances from AWS and its affiliates, suppliers or licensors. AWS content, products or services are provided "as is" without warranties, representations, or conditions of any kind, whether express or implied. The responsibilities and liabilities of AWS to its customers are controlled by AWS agreements, and this document is not part of, nor does it modify, any agreement between AWS and its customers.

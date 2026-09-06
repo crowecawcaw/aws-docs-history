@@ -1,77 +1,91 @@
+
+
 # Generative AI Assistant with CID and Amazon Quick
+<a name="generative-ai"></a>
 
 ## Introduction
+<a name="introduction"></a>
 
 Unlock the power of generative AI for your cloud operations by integrating Cloud Intelligence Dashboards (CID) with Amazon Quick generative AI capabilities. This innovative approach transforms how cloud operations teams analyze, understand, and optimize their AWS environments.
 
 Instead of manually navigating through multiple dashboards and correlating data points, you can now ask natural language questions and receive intelligent, data-driven insights across FinOps, cost efficiency, security, performance, and operational excellence topics. The AI-powered CID Operations Advisor provides comprehensive analysis by understanding your specific cloud environment and delivering actionable recommendations tailored to your business needs.
 
 Key benefits include:
-
-- **Intelligent Cross-Dashboard Analysis**: Correlate insights across CUDOS, Cost Intelligence, KPI, CORA, TAO, AWS Health Events, Graviton Savings and more
-- **Natural Language Queries**: Ask complex questions in plain English and receive detailed, data-backed responses
-- **Automated Workflows**: Create intelligent flows that monitor dashboards and automate response actions
-- **Enhanced Research**: Combine internal dashboard data with external market intelligence and best practices
-- **Proactive Recommendations**: Identify optimization opportunities, security risks, and operational improvements before they impact your business
-- **Team Productivity Enhancement**: Accelerate cloud operations with AI-powered analysis and recommendations
++  **Intelligent Cross-Dashboard Analysis**: Correlate insights across CUDOS, Cost Intelligence, KPI, CORA, TAO, AWS Health Events, Graviton Savings and more
++  **Natural Language Queries**: Ask complex questions in plain English and receive detailed, data-backed responses
++  **Automated Workflows**: Create intelligent flows that monitor dashboards and automate response actions
++  **Enhanced Research**: Combine internal dashboard data with external market intelligence and best practices
++  **Proactive Recommendations**: Identify optimization opportunities, security risks, and operational improvements before they impact your business
++  **Team Productivity Enhancement**: Accelerate cloud operations with AI-powered analysis and recommendations
 
 ## Architecture Overview
+<a name="architecture-overview"></a>
 
 The solution combines your existing CID dashboards with Amazon Quick’s generative AI capabilities to create an intelligent operations advisor that understands your cloud environment and provides contextual insights.
 
-![Quick Suite Architecture](images/QuickSuite_architecture.png)
+![Quick Suite Architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_architecture.png)
 
-###### Note
 
-Amazon Quick generative AI features incur additional charges. Review Author Pro, Reader Pro and infrastructure fee [Amazon Quick pricing](https://aws.amazon.com/quicksight/pricing/ "https://aws.amazon.com/quicksight/pricing/") before proceeding.
+**Note**  
+Amazon Quick generative AI features incur additional charges. Review Author Pro, Reader Pro and infrastructure fee [Amazon Quick pricing](https://aws.amazon.com/quicksight/pricing/) before proceeding.
 
 ## Prerequisites
+<a name="prerequisites"></a>
 
-1. Deploy one or more Cloud Intelligence Dashboards: [CUDOS Dashboard v5](cudos-cid-kpi.md#foundational-cudos-dashboard "cudos-cid-kpi.md#foundational-cudos-dashboard"), [CORA - Cost Optimization Recommended Actions](cora-dashboard.md "cora-dashboard.md"), [Trusted Advisor Organizational View](trusted-advisor-dashboard.md "trusted-advisor-dashboard.md"), [Health Events Dashboard](health-events-dashboard.md "health-events-dashboard.md"), [Resilience Vue](resiliencevue-dashboard.md "resiliencevue-dashboard.md"), [AWS Config Resource Compliance Dashboard](config-resource-compliance-dashboard.md "config-resource-compliance-dashboard.md"), [Support Cases Radar](support-cases-radar.md "support-cases-radar.md"), [Graviton Savings Dashboard](graviton-savings-dashboard.md "graviton-savings-dashboard.md"), [Extended Support Cost Projection](extended-support.md "extended-support.md"), [FOCUS Dashboard](focus-dashboard.md "focus-dashboard.md"), or [SCAD Containers Cost Allocation](scad-containers-dashboard.md "scad-containers-dashboard.md")
-2. Have a Quick user with Author Pro or Reader Pro permissions. See [Managing users in Amazon Quick](../../../quicksight/latest/user/managing-users.md "../../../quicksight/latest/user/managing-users.md") for setup instructions
+1. Deploy one or more Cloud Intelligence Dashboards: [CUDOS Dashboard v5](cudos-cid-kpi.md#foundational-cudos-dashboard), [CORA - Cost Optimization Recommended Actions](cora-dashboard.md), [Trusted Advisor Organizational View](trusted-advisor-dashboard.md), [Health Events Dashboard](health-events-dashboard.md), [Resilience Vue](resiliencevue-dashboard.md), [AWS Config Resource Compliance Dashboard](config-resource-compliance-dashboard.md), [Support Cases Radar](support-cases-radar.md), [Graviton Savings Dashboard](graviton-savings-dashboard.md), [Extended Support Cost Projection](extended-support.md), [FOCUS Dashboard](focus-dashboard.md), or [SCAD Containers Cost Allocation](scad-containers-dashboard.md) 
+
+1. Have a Quick user with Author Pro or Reader Pro permissions. See [Managing users in Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/managing-users.html) for setup instructions
 
 ## Deployment
+<a name="deployment"></a>
 
 ### Step 1: Create a Space with CID Dashboards
+<a name="step-1-create-a-space-with-cid-dashboards"></a>
 
-![Quick Suite Create Space](images/QuickSuite_create_space.gif)
+#### Click to see the demo
+<a name="quicksuite-create-space-demo"></a>
 
-1. **Navigate to Quick Spaces**
+![Quick Suite Create Space](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_space.gif)
 
-   - Open Amazon Quick console
-   - Select "Spaces" from navigation menu
-   - Click "Create space"
 
-2. **Configure Space Settings**
+1.  **Navigate to Quick Spaces** 
+   + Open Amazon Quick console
+   + Select "Spaces" from navigation menu
+   + Click "Create space"
 
-   - Name: "CID Dashboards Space"
-   - Description: "Comprehensive knowledge base for all Cloud Intelligence Dashboards"
+1.  **Configure Space Settings** 
+   + Name: "CID Dashboards Space"
+   + Description: "Comprehensive knowledge base for all Cloud Intelligence Dashboards"
 
-3. **Add CID Dashboards**
-
-   - Click on "Dashboards"
-   - Under the Dashboards list, click on "Add Dashboards"
-   - Select your deployed CID dashboards
-   - Click "Add"
+1.  **Add CID Dashboards** 
+   + Click on "Dashboards"
+   + Under the Dashboards list, click on "Add Dashboards"
+   + Select your deployed CID dashboards
+   + Click "Add"
 
 ### Step 2: Configure CID Chat Agent
+<a name="step-2-configure-cid-chat-agent"></a>
 
-![Quick Suite Create Agent](images/QuickSuite_create_agent.gif)
+#### Click to see the demo
+<a name="quicksuite-create-agent-demo"></a>
+
+![Quick Suite Create Agent](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_agent.gif)
+
 
 #### Create Chat Agent
+<a name="create-chat-agent"></a>
 
-1. **Navigate to Chat Agents**
+1.  **Navigate to Chat Agents** 
+   + In Quick console, select "Chat Agents"
+   + Click "Create Chat Agent"
+   + Click "Skip" when the prompt box appears
 
-   - In Quick console, select "Chat Agents"
-   - Click "Create Chat Agent"
-   - Click "Skip" when the prompt box appears
-
-2. **Configure Basic Settings**
-
-   - Agent name: "CID Operations Advisor"
-   - Description: "Customer CID dashboard advisor for cost, security, and operations analysis"
+1.  **Configure Basic Settings** 
+   + Agent name: "CID Operations Advisor"
+   + Description: "Customer CID dashboard advisor for cost, security, and operations analysis"
 
 #### Configure Agent Persona Instructions
+<a name="configure-agent-persona-instructions"></a>
 
 In the "Agent Persona" section, paste the following into the "Instructions" field:
 
@@ -168,89 +182,117 @@ Length: Be concise for simple queries. Provide detailed analysis with multiple d
 ```
 
 #### Link Knowledge Sources
+<a name="link-knowledge-sources"></a>
 
-1. **Connect Your CID Dashboards Space**
+1.  **Connect Your CID Dashboards Space** 
+   + Scroll to "Knowledge sources" section
+   + Click "Link spaces"
+   + Select your CID Dashboards Space
+   + Click "Add" or "Link"
 
-   - Scroll to "Knowledge sources" section
-   - Click "Link spaces"
-   - Select your CID Dashboards Space
-   - Click "Add" or "Link"
-
-2. **Review and Launch**
-
-   - Verify all configuration is correct
-   - Click "Launch Chat Agent"
+1.  **Review and Launch** 
+   + Verify all configuration is correct
+   + Click "Launch Chat Agent"
 
 #### Test Your Agent
+<a name="test-your-agent"></a>
 
 Test your agent with sample prompts organized by use case.
 
 ## Use Cases and Sample Prompts
+<a name="use-cases-and-sample-prompts"></a>
 
 ### FinOps
+<a name="finops"></a>
++ What are my top optimization opportunities for S3?
++ What are my savings opportunities with terminating idle and rightsizing underutilized resources?
++ Show me services which increased spend and usage last week
 
-- What are my top optimization opportunities for S3?
-- What are my savings opportunities with terminating idle and rightsizing underutilized resources?
-- Show me services which increased spend and usage last week
+#### Click to see the demo
+<a name="quicksuite-finops-demo"></a>
 
-![Quick Suite FinOps Prompts](/images/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_FinOps_examples.gif)
+![Quick Suite FinOps Prompts](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_FinOps_examples.gif)
+
 
 ### Operations
+<a name="operations"></a>
++ Show me the most critical operational risks
++ Analyze upcoming health events and their business impact
++ Show me support top services and top topics for which my organization opens support cases
 
-- Show me the most critical operational risks
-- Analyze upcoming health events and their business impact
-- Show me support top services and top topics for which my organization opens support cases
+#### Click to see the demo
+<a name="quicksuite-operations-demo"></a>
 
-![Quick Suite Operations Prompts](/images/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_Operations_examples.gif)
+![Quick Suite Operations Prompts](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_Operations_examples.gif)
+
 
 ### Resilience
+<a name="resilience"></a>
++ Show me single AZ resources
++ Show me the most critical resilience and operational risks
 
-- Show me single AZ resources
-- Show me the most critical resilience and operational risks
+#### Click to see the demo
+<a name="quicksuite-resilience-demo"></a>
 
-![Quick Suite Resilience Prompts](/images/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_Resilience_examples.gif)
+![Quick Suite Resilience Prompts](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_Resilience_examples.gif)
+
 
 ### Security
+<a name="security"></a>
++ Show me top accounts with non compliant resources
++ Show me the most critical security risks
 
-- Show me top accounts with non compliant resources
-- Show me the most critical security risks
+#### Click to see the demo
+<a name="quicksuite-security-demo"></a>
 
-![Quick Suite Security Prompts](/images/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_Security_examples.gif)
+![Quick Suite Security Prompts](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_Security_examples.gif)
+
 
 ## Ask about CID dashboards
+<a name="ask-about-cid-dashboards"></a>
++ Which dashboards provide me resilience related reports?
++ Which dashboards provide details about idle resources and cloud waste?
 
-- Which dashboards provide me resilience related reports?
-- Which dashboards provide details about idle resources and cloud waste?
+### Click to see the demo
+<a name="quicksuite-cid-demo"></a>
 
-![Quick Suite CID Prompts](/images/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_CID_examples.gif)
+![Quick Suite CID Prompts](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_CID_examples.gif)
+
 
 ## Flows: Automated Cloud Operations
+<a name="flows-automated-cloud-operations"></a>
 
 Create intelligent workflows that monitor your CID dashboards and automatically take actions based on dashboard insights. Amazon Quick offers multiple approaches for creating flows, allowing you to choose the method that best fits your workflow preferences and technical requirements.
 
 ### Flow Creation Methods
+<a name="flow-creation-methods"></a>
 
 You can create CID flows using different approaches. This guide demonstrates two methods:
 
-**Method 1: Natural Language Prompt (NLP)** - Describe your desired flow in plain language and let Quick generate it automatically using AI-powered flow creation.
+ **Method 1: Natural Language Prompt (NLP)** - Describe your desired flow in plain language and let Quick generate it automatically using AI-powered flow creation.
 
-**Method 2: Build from Scratch** - Create a blank flow and configure each step manually for complete control over workflow design and logic.
+ **Method 2: Build from Scratch** - Create a blank flow and configure each step manually for complete control over workflow design and logic.
 
 ### Flow Example 1: Automated Cost Anomaly Investigation & Action
+<a name="flow-example-1-automated-cost-anomaly-investigation-action"></a>
 
 This flow automatically detects cost spikes in your CUDOS dashboard and instantly investigates root causes using AI-powered analysis. When anomalies exceed your threshold, it generates immediate action plans and alerts teams with specific remediation steps.
 
 #### Method 1: Create Using Natural Language Prompt
+<a name="method-1-create-using-natural-language-prompt"></a>
 
-![Quick Suite Create Flow 12](/images/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_1_2.gif)
+##### Click to see the demo
+<a name="quicksuite-create-flow-1-2-demo"></a>
 
-**Navigate to Quick Flows**
+![Quick Suite Create Flow 12](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_1_2.gif)
 
-- In Quick console, select "Flows"
-- Click "Create Flow"
-- Click "Generate"
 
-**Enter Flow Description**
+ **Navigate to Quick Flows** 
++ In Quick console, select "Flows"
++ Click "Create Flow"
++ Click "Generate"
+
+ **Enter Flow Description** 
 
 ```
 Create a flow named "Cost Anomaly Investigation & Action" that automatically detects AWS cost spikes and investigates root causes.
@@ -268,87 +310,81 @@ Inside reasoning group, add these steps in order:
 4. Analysis step titled "Alert" using Fast Response model to create concise alert message with issue summary, root cause, top 3 actions, and call-to-action
 ```
 
-**Complete Setup**
-
-- Click "Generate Flow"
-- Review and adjust the generated flow as needed
-- Click "Share and publish"
-- Click "Run mode" and "Start"
+ **Complete Setup** 
++ Click "Generate Flow"
++ Review and adjust the generated flow as needed
++ Click "Share and publish"
++ Click "Run mode" and "Start"
 
 #### Method 2: Build from Scratch
+<a name="method-2-build-from-scratch"></a>
 
-![Quick Suite Create Flow 11](images/QuickSuite_create_flow_1_1.gif)
+##### Click to see the demo
+<a name="quicksuite-create-flow-1-demo"></a>
 
-**Navigate to Quick Flows**
+![Quick Suite Create Flow 11](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_1_1.gif)
 
-- In Quick console, select "Flows"
-- Click "Create Flow"
-- Click "Create a blank flow"
 
-**Configure Flow Settings**
+ **Navigate to Quick Flows** 
++ In Quick console, select "Flows"
++ Click "Create Flow"
++ Click "Create a blank flow"
 
-- **Flow name**: "Cost Anomaly Investigation & Action"
-- **Description**: "Automatically detects cost spikes and investigates root causes with action plans"
+ **Configure Flow Settings** 
++  **Flow name**: "Cost Anomaly Investigation & Action"
++  **Description**: "Automatically detects cost spikes and investigates root causes with action plans"
 
-**Step 1: Text Input**
+ **Step 1: Text Input** 
++ Title: *Alert Threshold* 
++ Placeholder: *Enter cost spike threshold (e.g., 20% increase or $1000)* 
++ Default value: 20% increase
 
-- Title: _Alert Threshold_
-- Placeholder: _Enter cost spike threshold (e.g., 20% increase or $1000)_
-- Default value: 20% increase
+ **Step 2: Text Input** 
++ Title: *Analysis Time Period* 
++ Placeholder: *Specify analysis period (e.g., "last 30 days", "last 30 days vs previous 30 days", "current quarter vs last quarter")* 
++ Default value: Last 30 days
 
-**Step 2: Text Input**
-
-- Title: _Analysis Time Period_
-- Placeholder: _Specify analysis period (e.g., "last 30 days", "last 30 days vs previous 30 days", "current quarter vs last quarter")_
-- Default value: Last 30 days
-
-**Step 3: Dashboard and Topics**
-
-- Title: _Extract CUDOS Cost Data_
-- Sources: CUDOS Dashboard v5
-- Prompt:
+ **Step 3: Dashboard and Topics** 
++ Title: *Extract CUDOS Cost Data* 
++ Sources: CUDOS Dashboard v5
++ Prompt:
 
 ```
 Analyze recent cost trends and identify any anomalies above @Alert Threshold. Show cost variance by service, time period, and resource type. Do this for the following period: @Analysis Time Period.
 ```
 
-**Step 4: Reasoning Group**
+ **Step 4: Reasoning Group** 
++ Title: *Anomaly Detection* 
++ Run these steps: Once
++ Reasoning instructions: If cost anomaly detected in @Extract CUDOS Cost Data above @Alert Threshold, then run investigation and remediation steps. If no significant anomaly, skip detailed analysis.
 
-- Title: _Anomaly Detection_
-- Run these steps: Once
-- Reasoning instructions: If cost anomaly detected in @Extract CUDOS Cost Data above @Alert Threshold, then run investigation and remediation steps. If no significant anomaly, skip detailed analysis.
-
-**Step 4.1: Web Search Output**
-
-- Title: _Research Causes_
-- Prompt:
+ **Step 4.1: Web Search Output** 
++ Title: *Research Causes* 
++ Prompt:
 
 ```
 Research AWS cost spike causes for services identified in @Extract CUDOS Cost Data. Find common root causes, resolution best practices, and prevention strategies.
 ```
 
-**Step 4.2: General Knowledge - Versatility and Performance**
-
-- Title: _Root Cause Analysis_
-- Prompt:
+ **Step 4.2: General Knowledge - Versatility and Performance** 
++ Title: *Root Cause Analysis* 
++ Prompt:
 
 ```
 Based on @Extract CUDOS Cost Data and @Research Causes, provide detailed root cause analysis for the cost anomaly. Identify most likely causes and prioritize investigation steps.
 ```
 
-**Step 4.3: General Knowledge - Fast Response**
-
-- Title: _Generate Action Plan_
-- Prompt:
+ **Step 4.3: General Knowledge - Fast Response** 
++ Title: *Generate Action Plan* 
++ Prompt:
 
 ```
 Create immediate action plan based on @Root Cause Analysis. Include: 1) Immediate containment steps, 2) Investigation procedures, 3) Resolution actions, 4) Prevention measures.
 ```
 
-**Step 4.4: General Knowledge - Fast Response**
-
-- Title: _Alert_
-- Prompt:
+ **Step 4.4: General Knowledge - Fast Response** 
++ Title: *Alert* 
++ Prompt:
 
 ```
 Create a concise cost alert message using this template. Keep total message under 200 words, prioritize by biggest cost impact, use clear business language:
@@ -370,27 +406,31 @@ PERIOD: @Analysis Time Period
 Make it scannable with bullet points, focus on dollar impact, and end with a specific call-to-action like "Review detailed analysis in CUDOS dashboard".
 ```
 
-**Deploy and Run**
-
-- Verify all configuration is correct
-- Click "Share and publish"
-- Click "Run mode" and "Start"
+ **Deploy and Run** 
++ Verify all configuration is correct
++ Click "Share and publish"
++ Click "Run mode" and "Start"
 
 ### Flow Example 2: Top 5 Cost Optimization Quick Wins
+<a name="flow-example-2-top-5-cost-optimization-quick-wins"></a>
 
 This flow instantly analyzes your CUDOS dashboard to identify and prioritize the top 5 cost optimization opportunities that deliver maximum savings with minimal effort.
 
 #### Method 1: Create Using Natural Language Prompt
+<a name="method-1-create-using-natural-language-prompt-2"></a>
 
-![Quick Suite Create Flow 22](images/QuickSuite_create_flow_2_2.gif)
+##### Click to see the demo
+<a name="quicksuite-create-flow-2-2-demo"></a>
 
-**Navigate to Quick Flows**
+![Quick Suite Create Flow 22](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_2_2.gif)
 
-- In Quick console, select "Flows"
-- Click "Create Flow"
-- Click "Generate"
 
-**Enter Flow Description**
+ **Navigate to Quick Flows** 
++ In Quick console, select "Flows"
++ Click "Create Flow"
++ Click "Generate"
+
+ **Enter Flow Description** 
 
 ```
 Create a flow named "Top 5 Cost Optimization Quick Wins" that identifies and prioritizes top 5 cost optimization opportunities with maximum savings and minimal effort.
@@ -409,280 +449,278 @@ After reasoning group:
 * Analysis step "Quick Wins Report" using Fast Response model for email-ready report (max 1000 characters) with template: "🚀 Your Top 5 Cost Optimization Quick Wins Ready for Implementation: @Final Report. For detailed analysis, review your CUDOS dashboard."
 ```
 
-**Complete Setup**
-
-- Click "Generate Flow"
-- Review and adjust the generated flow as needed
-- Click "Share and publish"
-- Click "Run mode" and "Start"
+ **Complete Setup** 
++ Click "Generate Flow"
++ Review and adjust the generated flow as needed
++ Click "Share and publish"
++ Click "Run mode" and "Start"
 
 #### Method 2: Build from Scratch
+<a name="method-2-build-from-scratch-2"></a>
 
-![Quick Suite Create Flow 21](images/QuickSuite_create_flow_2_1.gif)
+##### Click to see the demo
+<a name="quicksuite-create-flow-2-1-demo"></a>
 
-**Navigate to Quick Flows**
+![Quick Suite Create Flow 21](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_2_1.gif)
 
-- In Quick console, select "Flows"
-- Click "Create Flow"
-- Click "Create a blank flow"
 
-**Configure Flow Settings**
+ **Navigate to Quick Flows** 
++ In Quick console, select "Flows"
++ Click "Create Flow"
++ Click "Create a blank flow"
 
-- **Flow name**: "Top 5 Cost Optimization Quick Wins"
-- **Description**: "Identifies and prioritizes top 5 cost optimization opportunities with maximum savings and minimal effort"
+ **Configure Flow Settings** 
++  **Flow name**: "Top 5 Cost Optimization Quick Wins"
++  **Description**: "Identifies and prioritizes top 5 cost optimization opportunities with maximum savings and minimal effort"
 
-**Step 1: Dashboard and Topics**
-
-- Title: _Extract CUDOS Data_
-- Sources: CUDOS Dashboard v5
-- Prompt:
+ **Step 1: Dashboard and Topics** 
++ Title: *Extract CUDOS Data* 
++ Sources: CUDOS Dashboard v5
++ Prompt:
 
 ```
 Extract all cost optimization recommendations from CUDOS dashboard including estimated savings, affected services, implementation complexity, current monthly costs, and resource utilization data. Include unused resources, right-sizing opportunities, reserved instance recommendations, and storage optimizations.
 ```
 
-**Step 2: General Knowledge - Versatility and Performance**
-
-- Title: _Rank Opportunities_
-- Prompt:
+ **Step 2: General Knowledge - Versatility and Performance** 
++ Title: *Rank Opportunities* 
++ Prompt:
 
 ```
 Analyze @Extract CUDOS Data and rank ALL optimization opportunities by impact score based on: 1) Monthly savings potential (dollars), 2) Implementation ease (simple/moderate/complex), 3) Business risk (low/medium/high). Prioritize low-risk, high-savings, easy-to-implement opportunities.
 ```
 
-**Step 3: Reasoning Group**
+ **Step 3: Reasoning Group** 
++ Title: *Top 5 Selection* 
++ Run these steps: Once
++ Reasoning instructions: Select the top 5 highest-impact opportunities from @Rank Opportunities. Ensure variety in optimization types (unused resources, right-sizing, purchasing options, storage) and focus on quick wins that can be implemented within 1-2 weeks.
 
-- Title: _Top 5 Selection_
-- Run these steps: Once
-- Reasoning instructions: Select the top 5 highest-impact opportunities from @Rank Opportunities. Ensure variety in optimization types (unused resources, right-sizing, purchasing options, storage) and focus on quick wins that can be implemented within 1-2 weeks.
-
-**Step 3.1: General Knowledge - Fast Response**
-
-- Title: _Action Plans_
-- Prompt:
+ **Step 3.1: General Knowledge - Fast Response** 
++ Title: *Action Plans* 
++ Prompt:
 
 ```
 For the top 5 opportunities from @Rank Opportunities, create concise action plans with: 1) Specific monthly savings, 2) Implementation time (hours/days), 3) 3-step action summary, 4) Risk level. Format as actionable checklist items that teams can execute immediately.
 ```
 
-**Step 4: Web Search Output**
-
-- Title: _Implementation Guidance_
-- Prompt:
+ **Step 4: Web Search Output** 
++ Title: *Implementation Guidance* 
++ Prompt:
 
 ```
 Research current AWS best practices for the specific optimization types identified in @Quick Action Plans. Find latest AWS documentation, common implementation steps, and potential gotchas to avoid.
 ```
 
-**Step 5: General Knowledge - Fast Response**
-
-- Title: _Final Report_
-- Prompt:
+ **Step 5: General Knowledge - Fast Response** 
++ Title: *Final Report* 
++ Prompt:
 
 ```
 Create executive-ready optimization report combining @Quick Action Plans and @Implementation Guidance. Format as: 1) Executive summary with total savings potential, 2) Top 5 opportunities with savings/effort/steps, 3) "Take Action Now" vs "Review in CUDOS" guidance for each item. Keep concise and action-oriented. Have maximum 100 words per quick win.
 ```
 
-**Step 6: General Knowledge - Fast Response**
-
-- Title: _Quick Wins Report_
-- Prompt:
+ **Step 6: General Knowledge - Fast Response** 
++ Title: *Quick Wins Report* 
++ Prompt:
 
 ```
 Prepare an actionable cost optimization report, short, concise, readable that I can send as an email. Have maximum 1000 characters. Here it the template: "🚀 Your Top 5 Cost Optimization Quick Wins Ready for Implementation: @Final Report. For detailed analysis, review your CUDOS dashboard. Total potential monthly savings and immediate action steps included."
 ```
 
-**Deploy and Run**
-
-- Verify all configuration is correct
-- Click "Share and publish"
-- Click "Run mode" and "Start"
+ **Deploy and Run** 
++ Verify all configuration is correct
++ Click "Share and publish"
++ Click "Run mode" and "Start"
 
 ## Research: Enhanced Intelligence
+<a name="research-enhanced-intelligence"></a>
 
 Combine your CID dashboard data with external market intelligence, industry benchmarks, and best practices to gain deeper insights and strategic context.
 
 ### Research Management
+<a name="research-management"></a>
 
-**Create Research**
+ **Create Research** 
++ In Quick console, select "Research"
++ Click "New Research"
 
-- In Quick console, select "Research"
-- Click "New Research"
+ **Configure Basic Settings** 
++ Define your research objective and materials
++ Configure web search parameters and preferred sources
++ Select relevant CID dashboards as knowledge sources
 
-**Configure Basic Settings**
-
-- Define your research objective and materials
-- Configure web search parameters and preferred sources
-- Select relevant CID dashboards as knowledge sources
-
-**Launch Your Research**
-
-- Review and refine your research configuration
-- Launch the research, click "Start researching"
+ **Launch Your Research** 
++ Review and refine your research configuration
++ Launch the research, click "Start researching"
 
 ### Research Example 1: Industry Cloud Cost Benchmark Analysis
+<a name="research-example-1-industry-cloud-cost-benchmark-analysis"></a>
 
-![Quick Suite Create Research](images/QuickSuite_create_research.gif)
+#### Click to see the demo
+<a name="quicksuite-create-research-demo"></a>
+
+![Quick Suite Create Research](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_research.gif)
+
 
 #### Research Configuration
+<a name="research-configuration"></a>
 
-**Research Objective:**
+ **Research Objective:** 
 
 ```
 Analyze cloud spending benchmarks and optimization strategies for our industry vertical to contextualize our CUDOS dashboard findings against market standards. Research competitive cloud infrastructure patterns, industry-specific cost optimization opportunities, and regulatory compliance impacts on cloud spending. Focus on identifying where our cloud costs and optimization strategies align with or deviate from industry leaders, with emphasis on actionable insights for improving our cost efficiency and competitive positioning.
 ```
 
-**Research Materials:**
+ **Research Materials:** 
++ Web search: Yes
++ Preferred websites: gartner.com, forrester.com, aws.amazon.com, cloudzero.com, flexera.com
++ Websites to avoid: competitor-specific blogs, promotional content
++ Quick assets: Browse and select CID dashboards (CUDOS, CORA, Cost Intelligence)
 
-- Web search: Yes
-- Preferred websites: gartner.com, forrester.com, aws.amazon.com, cloudzero.com, flexera.com
-- Websites to avoid: competitor-specific blogs, promotional content
-- Quick assets: Browse and select CID dashboards (CUDOS, CORA, Cost Intelligence)
-
-**Customer Value:** Provides external context for internal CUDOS findings, identifies industry-specific optimization opportunities, and benchmarks cost efficiency against competitors to guide strategic decisions.
+ **Customer Value:** Provides external context for internal CUDOS findings, identifies industry-specific optimization opportunities, and benchmarks cost efficiency against competitors to guide strategic decisions.
 
 ### Research Example 2: AWS Service Roadmap Impact Assessment
+<a name="research-example-2-aws-service-roadmap-impact-assessment"></a>
 
 #### Research Configuration
+<a name="research-configuration-2"></a>
 
-**Research Objective:**
+ **Research Objective:** 
 
 ```
 Research AWS service announcements, roadmaps, and upcoming changes that could impact our current infrastructure and cost optimization strategies shown in CID dashboards. Analyze new service capabilities, pricing changes, regional expansions, and service deprecations to predict future optimization opportunities. Focus on identifying services we currently use heavily that have upcoming changes, new cost-saving features we should adopt, and migration planning needs for services approaching end-of-life.
 ```
 
-**Research Materials:**
+ **Research Materials:** 
++ Web search: Yes
++ Preferred websites: aws.amazon.com, docs.aws.amazon.com, aws.amazon.com/blogs, aws.amazon.com/new
++ Websites to avoid: third-party speculation, unofficial sources
++ Quick assets: Browse and select CID dashboards (CUDOS, Health Events, Extended Support)
 
-- Web search: Yes
-- Preferred websites: aws.amazon.com, docs.aws.amazon.com, aws.amazon.com/blogs, aws.amazon.com/new
-- Websites to avoid: third-party speculation, unofficial sources
-- Quick assets: Browse and select CID dashboards (CUDOS, Health Events, Extended Support)
-
-**Customer Value:** Enables proactive infrastructure planning, identifies future cost optimization opportunities, and helps avoid costly migrations by planning ahead for AWS service changes.
+ **Customer Value:** Enables proactive infrastructure planning, identifies future cost optimization opportunities, and helps avoid costly migrations by planning ahead for AWS service changes.
 
 ### Research Example 3: Security Compliance Best Practices Analysis
+<a name="research-example-3-security-compliance-best-practices-analysis"></a>
 
 #### Research Configuration
+<a name="research-configuration-3"></a>
 
-**Research Objective:**
+ **Research Objective:** 
 
 ```
 Research industry-specific security compliance requirements and best practices to enhance our Trusted Advisor and Cases dashboard findings with regulatory context. Analyze how compliance frameworks (SOC 2, HIPAA, PCI DSS, etc.) impact cloud architecture decisions, security configurations, and operational costs. Focus on identifying gaps between current security posture shown in CID dashboards and regulatory requirements, plus cost-effective approaches to achieve compliance while maintaining operational efficiency.
 ```
 
-**Research Materials:**
+ **Research Materials:** 
++ Web search: Yes
++ Preferred websites: aws.amazon.com/compliance, nist.gov, cisecurity.org, sans.org, owasp.org
++ Websites to avoid: unverified compliance blogs, outdated regulatory information
++ Quick assets: Browse and select CID dashboards (TAC Dashboard, Health Events, CUDOS Security findings)
 
-- Web search: Yes
-- Preferred websites: aws.amazon.com/compliance, nist.gov, cisecurity.org, sans.org, owasp.org
-- Websites to avoid: unverified compliance blogs, outdated regulatory information
-- Quick assets: Browse and select CID dashboards (TAC Dashboard, Health Events, CUDOS Security findings)
-
-**Customer Value:** Provides regulatory context for security findings, identifies compliance gaps, and recommends cost-effective paths to meet industry requirements while optimizing cloud spending.
+ **Customer Value:** Provides regulatory context for security findings, identifies compliance gaps, and recommends cost-effective paths to meet industry requirements while optimizing cloud spending.
 
 ## Advanced Scenarios: Add CFM Tips as Knowledge Base
+<a name="advanced-scenarios-add-cfm-tips-as-knowledge-base"></a>
 
-Enhance your CID Operations Advisor with Cloud Financial Management (CFM) best practices by adding the [CFM Technical Implementation Playbooks (CFM TIPs)](https://catalog.workshops.aws/awscff/en-US "https://catalog.workshops.aws/awscff/en-US") as a knowledge base. This enables your chat agent and flows to provide more effective guidance grounded in proven CFM frameworks and actionable examples.
+Enhance your CID Operations Advisor with Cloud Financial Management (CFM) best practices by adding the [CFM Technical Implementation Playbooks (CFM TIPs)](https://catalog.workshops.aws/awscff/en-US) as a knowledge base. This enables your chat agent and flows to provide more effective guidance grounded in proven CFM frameworks and actionable examples.
 
-For full details on Web Crawler integration, see [Web Crawler integration in Amazon Quick](../../../quicksuite/latest/userguide/web-crawler-integration.md "../../../quicksuite/latest/userguide/web-crawler-integration.md").
+For full details on Web Crawler integration, see [Web Crawler integration in Amazon Quick](https://docs.aws.amazon.com/quicksuite/latest/userguide/web-crawler-integration.html).
 
 ### Step 1: Create a Web Crawler Knowledge Base
+<a name="step-1-create-a-web-crawler-knowledge-base"></a>
 
-1. **Navigate to Quick Knowledge Bases**
+1.  **Navigate to Quick Knowledge Bases** 
+   + Open Amazon Quick console
+   + Select "Knowledge bases" from navigation menu
+   + Click "Create knowledge base"
 
-   - Open Amazon Quick console
-   - Select "Knowledge bases" from navigation menu
-   - Click "Create knowledge base"
+1.  **Select Web Crawler as Source** 
+   + Choose "Web Crawler" as the integration type
+   + Click "Create"
 
-2. **Select Web Crawler as Source**
+1.  **Configure the Web Crawler** 
+   + Knowledge base name: "CFM Technical Implementation Playbooks"
+   + Description: "Cloud Financial Management TIPs from the AWS Cloud Financial Framework workshop"
+   + Source URL: `https://catalog.workshops.aws/awscff/en-US` 
+   + Authentication: No authentication (public website)
+   + Review crawl scope and content filter settings as needed
 
-   - Choose "Web Crawler" as the integration type
-   - Click "Create"
-
-3. **Configure the Web Crawler**
-
-   - Knowledge base name: "CFM Technical Implementation Playbooks"
-   - Description: "Cloud Financial Management TIPs from the AWS Cloud Financial Framework workshop"
-   - Source URL: `https://catalog.workshops.aws/awscff/en-US`
-   - Authentication: No authentication (public website)
-   - Review crawl scope and content filter settings as needed
-
-4. **Start Data Sync**
-
-   - After clicking create, the initial data sync starts automatically
-   - Wait for the sync to complete before proceeding
+1.  **Start Data Sync** 
+   + After clicking create, the initial data sync starts automatically
+   + Wait for the sync to complete before proceeding
 
 ### Step 2: Add Knowledge Base to Your CID Space
+<a name="step-2-add-knowledge-base-to-your-cid-space"></a>
 
-1. **Open Your CID Space**
+1.  **Open Your CID Space** 
+   + In Quick console, select "Spaces"
+   + Open your existing "CID Dashboards Space"
 
-   - In Quick console, select "Spaces"
-   - Open your existing "CID Dashboards Space"
+1.  **Link the CFM Knowledge Base** 
+   + Click on "Knowledge bases"
+   + Click "Add knowledge base"
+   + Select "CFM Technical Implementation Playbooks"
+   + Click "Add"
 
-2. **Link the CFM Knowledge Base**
-
-   - Click on "Knowledge bases"
-   - Click "Add knowledge base"
-   - Select "CFM Technical Implementation Playbooks"
-   - Click "Add"
-
-3. **Verify Integration**
-
-   - Confirm the knowledge base appears in your Space’s linked sources
-   - The CID Operations Advisor chat agent and flows linked to this Space will now have access to CFM TIPs content
+1.  **Verify Integration** 
+   + Confirm the knowledge base appears in your Space’s linked sources
+   + The CID Operations Advisor chat agent and flows linked to this Space will now have access to CFM TIPs content
 
 ### Step 3: Test the Enhanced Agent
+<a name="step-3-test-the-enhanced-agent"></a>
 
 Test your CID Operations Advisor with CFM-specific prompts to verify the knowledge base integration:
-
-- Based on my CUDOS data, which CFM playbook should I follow to reduce EC2 costs?
-- What does the CFM framework recommend for organizations at our stage of cloud financial maturity?
++ Based on my CUDOS data, which CFM playbook should I follow to reduce EC2 costs?
++ What does the CFM framework recommend for organizations at our stage of cloud financial maturity?
 
 The agent will now combine your CID dashboard data with CFM TIPs guidance to provide recommendations grounded in both your actual cloud usage and proven CFM frameworks.
 
 ## Tips for Effective Implementation
+<a name="tips-for-effective-implementation"></a>
 
 ### Chat Agent Best Practices
-
-- Include time ranges (e.g., "last 30 days", "this quarter")
-- Specify accounts, regions, or services when relevant
-- Ask for quantifiable metrics and savings estimates
-- Request actionable outputs with prioritization
+<a name="chat-agent-best-practices"></a>
++ Include time ranges (e.g., "last 30 days", "this quarter")
++ Specify accounts, regions, or services when relevant
++ Ask for quantifiable metrics and savings estimates
++ Request actionable outputs with prioritization
 
 ### Flow Automation Tips
-
-- Start with simple, well-defined processes
-- Test flows with sample data before production deployment
-- Set appropriate thresholds to avoid alert fatigue
-- Design flows with clear success and failure paths
+<a name="flow-automation-tips"></a>
++ Start with simple, well-defined processes
++ Test flows with sample data before production deployment
++ Set appropriate thresholds to avoid alert fatigue
++ Design flows with clear success and failure paths
 
 ### Research Strategy
-
-- Define specific, actionable research objectives
-- Combine multiple research topics for comprehensive analysis
-- Use research findings to validate dashboard insights
-- Share research results across teams for broader impact
+<a name="research-strategy"></a>
++ Define specific, actionable research objectives
++ Combine multiple research topics for comprehensive analysis
++ Use research findings to validate dashboard insights
++ Share research results across teams for broader impact
 
 ## Summary
+<a name="summary"></a>
 
 Integrating Cloud Intelligence Dashboards with Amazon Quick transforms cloud operations through comprehensive AI capabilities. This solution enables teams to analyze intelligently through chat agents, automate operations through intelligent flows, and enhance decision-making through AI-powered research. The combination delivers accelerated analysis, automated responses, and strategic intelligence that drives superior cloud operations outcomes.
 
-For questions, feedback, or support regarding generative AI capabilities with CID and Amazon Quick, please refer to the [Feedback & Support](feedback-support.md "feedback-support.md") page.
+For questions, feedback, or support regarding generative AI capabilities with CID and Amazon Quick, please refer to the [Feedback & Support](feedback-support.md) page.
 
 ## Authors
-
-- Symour Omandac, Senior Technical Account Manager
-- Yuriy Prykhodko, Principal Technical Account Manager
-- Matej Macek, Senior Solutions Architect
+<a name="authors"></a>
++ Symour Omandac, Senior Technical Account Manager
++ Yuriy Prykhodko, Principal Technical Account Manager
++ Matej Macek, Senior Solutions Architect
 
 ## Contributors
-
-- Pedro Nino, ESL Technical Account Manager
-- Petro Kashlikov, Senior Solutions Architect
+<a name="contributors"></a>
++ Pedro Nino, ESL Technical Account Manager
++ Petro Kashlikov, Senior Solutions Architect
 
 ## Feedback & Support
+<a name="generative-ai-cloud-operations-feedback-support"></a>
 
-Follow [Feedback & Support](feedback-support.md "feedback-support.md") guide
+Follow [Feedback & Support](feedback-support.md) guide
 
-###### Note
-
+**Note**  
 This solution leverages generative AI capabilities and should be used only as a decision-support tool. Always validate AI-generated recommendations against your specific business requirements and AWS best practices. The AI advisor provided insights should complement, not replace, human expertise and judgment.

@@ -1,85 +1,86 @@
+
+
 # Deployment: AWS Config account
+<a name="config-resource-log-archive"></a>
 
 ## Deployment Instructions
+<a name="deployment-instructions"></a>
 
-The infrastructure needed to collect and process the data is defined in AWS CloudFormation. The dashboard resources are defined in a template file that can be installed using the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md") tool.
+The infrastructure needed to collect and process the data is defined in AWS CloudFormation. The dashboard resources are defined in a template file that can be installed using the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md) tool.
 
 ### Deployment on standalone account
+<a name="deployment-on-standalone-account"></a>
 
 Follow the same installation instructions for the AWS Config account.
 
 ### Deployment on AWS Config account
+<a name="deployment-on-aws-config-account"></a>
 
 The installation process consists of two steps:
 
 1. Data pipeline resources for the dashboard, via CloudFormation stack.
-2. Quick Sight resources for the dashboard and the necessary Athena views, using the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md") command line tool.
 
-![AWS Config Dashboard: deployment steps on AWS Config account](images/images/dashboards/crcd-deployment-steps-config-account.png)
+1. Quick Sight resources for the dashboard and the necessary Athena views, using the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md) command line tool.
+
+![AWS Config Dashboard: deployment steps on AWS Config account](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-deployment-steps-config-account.png)
+
 
 #### Deployment Steps
+<a name="deployment-steps"></a>
 
-###### Note
-
+**Note**  
 Ensure you are in the Region where both your AWS Config Logs bucket and Amazon Quick Sight are deployed.
 
 ##### Step 1
+<a name="step-1"></a>
 
 1. Log into the AWS Management Console for your AWS Config account.
-2. Click the Launch Stack button below to open the stack template in your CloudFormation console. This Stack will create the data pipeline resources for the dashboard.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-stack.yaml&stackName=config-dashboard-resources "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-stack.yaml&stackName=config-dashboard-resources") 3. Specify the following parameters:
+1. Click the Launch Stack button below to open the stack template in your CloudFormation console. This Stack will create the data pipeline resources for the dashboard.
 
-    * `AWS Config account ID` Enter the AWS account ID where you are currently logged in (Required).
-    * `AWS Config Logs bucket` Enter the name of the Amazon S3 bucket that collects AWS Config data (Required).
-    * `ARN of the KMS key that encrypts the AWS Config Logs bucket` Leave empty if the bucket is not encrypted with a KMS key. If you encrypt the bucket with a KMS key, copy the key’s ARN here.
+    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-stack.yaml&stackName=config-dashboard-resources) 
 
-
-
-
-    	+ CloudFormation will create an IAM policy that grants Amazon Quick Sight permissions to use the key for decrypt operations.
-    	+ You may prefer managing key permissions on the key policy, rather than IAM. In this case, leave the parameter empty. You’ll have to manually grant key permissions in the key policy (more details below).
-    * `Dashboard account ID` Enter the same value as the `AWS Config account ID` (Required).
-    * `Dashboard bucket` Enter the same value as the `AWS Config Logs bucket` (Required).
-    * `ARN of the KMS key that encrypts the Dashboard bucket` Leave empty, this parameter is ignored in this deployment mode.
-    * `Configure S3 event notification` This will configure S3 event notifications to trigger the Partitioner Lambda function, which creates the corresponding partition on Amazon Athena when a new AWS Config file is delivered to the AWS Config Logs bucket (Required).
-
-
-
-
-    	+ Select `yes` to configure S3 event notifications.
-    	+ Select `no` if you have already configured event notifications on the AWS Config Logs bucket. You’ll have to manually configure S3 event notifications (more details below).
-    	+ The S3 event notification configuration is performed by an ad-hoc Lambda function (called `crcd-support-configure-s3-event-notification`) that will be called by the CloudFormation template automatically.
-
-
-    	###### Note
-
-    	The `crcd-support-configure-s3-event-notification` function will return an error (and the entire stack will fail) if you have already configured event notifications on the AWS Config Logs bucket. In this case you must select `no` and run the stack again.
-    * `Configure cross-account replication` Leave at the default value. This parameter is ignored in this deployment mode.
-    * `Is the AWS Organization Data Collection Module of CID Data Collection installed?` This is the recommended way to extend the dashboard with account names and organization metadata, make sure the setup of CID Data Collection is complete prior to deploy the dashboard (Required). We recommend to install the dashboard and the CID Data collection module in the same account and Region.
-
-
-
-
-    	+ Select `yes` to confirm the AWS Organization Data Collection Module of [CID Data Collection](data-collection.md "data-collection.md") is installed.
-    	+ Select `no` otherwise.
-    * `CID data collection bucket` Enter the name of the destination bucket created by the CID Data Collection module. By default, it is the string 'cid-data-' concatenated with the Data Collection account number, e.g. 'cid-data-1234567890'. You can find the exact name on the Key `Bucket` of the outputs section of the CID Data Collection stack. An ad-hoc Lambda function (called `crcd-support-configure-account-names`) will access the data and prepare your organizational taxonomy for the later steps of deployment.
-    * Leave all other parameters at their default value.
+1. Specify the following parameters:
+   +  `AWS Config account ID` Enter the AWS account ID where you are currently logged in (Required).
+   +  `AWS Config Logs bucket` Enter the name of the Amazon S3 bucket that collects AWS Config data (Required).
+   +  `ARN of the KMS key that encrypts the AWS Config Logs bucket` Leave empty if the bucket is not encrypted with a KMS key. If you encrypt the bucket with a KMS key, copy the key’s ARN here.
+     + CloudFormation will create an IAM policy that grants Amazon Quick Sight permissions to use the key for decrypt operations.
+     + You may prefer managing key permissions on the key policy, rather than IAM. In this case, leave the parameter empty. You’ll have to manually grant key permissions in the key policy (more details below).
+   +  `Dashboard account ID` Enter the same value as the `AWS Config account ID` (Required).
+   +  `Dashboard bucket` Enter the same value as the `AWS Config Logs bucket` (Required).
+   +  `ARN of the KMS key that encrypts the Dashboard bucket` Leave empty, this parameter is ignored in this deployment mode.
+   +  `Configure S3 event notification` This will configure S3 event notifications to trigger the Partitioner Lambda function, which creates the corresponding partition on Amazon Athena when a new AWS Config file is delivered to the AWS Config Logs bucket (Required).
+     + Select `yes` to configure S3 event notifications.
+     + Select `no` if you have already configured event notifications on the AWS Config Logs bucket. You’ll have to manually configure S3 event notifications (more details below).
+     + The S3 event notification configuration is performed by an ad-hoc Lambda function (called `crcd-support-configure-s3-event-notification`) that will be called by the CloudFormation template automatically.
+**Note**  
+The `crcd-support-configure-s3-event-notification` function will return an error (and the entire stack will fail) if you have already configured event notifications on the AWS Config Logs bucket. In this case you must select `no` and run the stack again.
+   +  `Configure cross-account replication` Leave at the default value. This parameter is ignored in this deployment mode.
+   +  `Is the AWS Organization Data Collection Module of CID Data Collection installed?` This is the recommended way to extend the dashboard with account names and organization metadata, make sure the setup of CID Data Collection is complete prior to deploy the dashboard (Required). We recommend to install the dashboard and the CID Data collection module in the same account and Region.
+     + Select `yes` to confirm the AWS Organization Data Collection Module of [CID Data Collection](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/data-collection.html) is installed.
+     + Select `no` otherwise.
+   +  `CID data collection bucket` Enter the name of the destination bucket created by the CID Data Collection module. By default, it is the string 'cid-data-' concatenated with the Data Collection account number, e.g. 'cid-data-1234567890'. You can find the exact name on the Key `Bucket` of the outputs section of the CID Data Collection stack. An ad-hoc Lambda function (called `crcd-support-configure-account-names`) will access the data and prepare your organizational taxonomy for the later steps of deployment.
+   + Leave all other parameters at their default value.
 
 1. Run the CloudFormation template.
-2. Note down the output values of the CloudFormation template.
 
-**Manual setup of KMS key permissions**
+1. Note down the output values of the CloudFormation template.
 
-###### Note
+##### Click here if you need to perform parts of this installation manually
+<a name="collapsible-section-id-config-resource-log-archive-1"></a>
 
+ **Manual setup of KMS key permissions** 
+
+**Note**  
 Skip this section if you do not utilize a KMS key to encrypt your Dashboard bucket, or if you specified the key ARN in the CloudFormation parameter `ARN of the KMS key that encrypts the Dashboard bucket` in Step 1.
 
-Follow these steps to [edit](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md") the key policy and grant the Quick Sight role permissions to use the key for decrypt operations.
+Follow these steps to [edit](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html) the key policy and grant the Quick Sight role permissions to use the key for decrypt operations.
 
 1. Ensure you are logged into the AWS Management Console on the AWS Config account and Region where you created the KMS key that encrypts the AWS Config Logs bucket.
-2. Open the AWS Key Management Service console and click on the KMS key.
-3. Add the following statement to the key policy:
+
+1. Open the AWS Key Management Service console and click on the KMS key.
+
+1. Add the following statement to the key policy:
 
 ```
 {
@@ -96,53 +97,55 @@ Follow these steps to [edit](../../../kms/latest/developerguide/key-policy-modif
 ```
 
 Where:
++  `ACCOUNT_ID` is the AWS account ID where you installed the dashboard.
++  `QUICKSIGHT_DATASOURCE_ROLE` is the value of the output `Quick SightDataSourceRole` from the CloudFormation template.
 
-- `ACCOUNT_ID` is the AWS account ID where you installed the dashboard.
-- `QUICKSIGHT_DATASOURCE_ROLE` is the value of the output `Quick SightDataSourceRole` from the CloudFormation template.
+ **Manual setup of S3 event notification** 
 
-**Manual setup of S3 event notification**
-
-###### Note
-
+**Note**  
 Skip this section if you selected `yes` in CloudFormation parameter `Configure S3 event notification` in Step 1.
 
 If you selected `no`, you must configure the AWS Config Logs S3 bucket event notification to trigger the Lambda Partitioner function when objects are added to the bucket. CloudFormation has already deployed the necessary permissions for the Lambda function to access the AWS Config Logs bucket. You can find the ARN of the Lambda Partitioner function in the output values of the CloudFormation template.
 
 We recommend that you configure your event notification to an SNS topic in these cases:
 
-1. If your bucket already publishes events notifications to an SNS topic, [subscribe](../../../lambda/latest/dg/with-sns.md#sns-trigger-console "../../../lambda/latest/dg/with-sns.md#sns-trigger-console") the Lambda Partitioner function to the topic.
-2. If your bucket sends event notifications to another Lambda function, change the notification to an SNS topic and [subscribe](../../../lambda/latest/dg/with-sns.md#sns-trigger-console "../../../lambda/latest/dg/with-sns.md#sns-trigger-console") both the existing function and the Lambda Partitioner function to that SNS topic.
-   The S3 event notifications for this dashboard must meet the following requirements:
+1. If your bucket already publishes events notifications to an SNS topic, [subscribe](https://docs.aws.amazon.com/lambda/latest/dg/with-sns.html#sns-trigger-console) the Lambda Partitioner function to the topic.
 
-3. All object create events.
-4. All prefixes.
-   This may be a challenge depending on your current S3 event notification setup, as Amazon S3 [cannot have](../../../AmazonS3/latest/userguide/notification-how-to-filtering.md#notification-how-to-filtering-examples-invalid "../../../AmazonS3/latest/userguide/notification-how-to-filtering.md#notification-how-to-filtering-examples-invalid") overlapping prefixes in two rules for the same event type.
+1. If your bucket sends event notifications to another Lambda function, change the notification to an SNS topic and [subscribe](https://docs.aws.amazon.com/lambda/latest/dg/with-sns.html#sns-trigger-console) both the existing function and the Lambda Partitioner function to that SNS topic.
 
-Follow [these instructions](../../../AmazonS3/latest/userguide/how-to-enable-disable-notification-intro.md "../../../AmazonS3/latest/userguide/how-to-enable-disable-notification-intro.md") to add a notification configuration to your bucket using an Amazon SNS topic. Also, ensure that the AWS Config Logs bucket is [granted permissions to publish event notification messages to your SNS topic](../../../AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.md "../../../AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.md").
+The S3 event notifications for this dashboard must meet the following requirements:
+
+1. All object create events.
+
+1. All prefixes.
+
+This may be a challenge depending on your current S3 event notification setup, as Amazon S3 [cannot have](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html#notification-how-to-filtering-examples-invalid) overlapping prefixes in two rules for the same event type.
+
+Follow [these instructions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-enable-disable-notification-intro.html) to add a notification configuration to your bucket using an Amazon SNS topic. Also, ensure that the AWS Config Logs bucket is [granted permissions to publish event notification messages to your SNS topic](https://docs.aws.amazon.com/AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.html).
 
 ##### Step 2
+<a name="step-2"></a>
 
 Remain logged into the AWS Management Console for your AWS Config account.
 
-###### Note
+**Note**  
+At this step you will specify the tags to be used to display resources in the [Resource inventory management](config-resource-compliance-dashboard.md#config-resource-compliance-dashboard-inventory-management) part of the dashboard. Use the tags that classify workloads and resources in your organization. Use the Athena query in the dashboard’s FAQ to see the tags that are used across your organization.
 
-At this step you will specify the tags to be used to display resources in the [Resource inventory management](config-resource-compliance-dashboard.md#config-resource-compliance-dashboard-inventory-management "config-resource-compliance-dashboard.md#config-resource-compliance-dashboard-inventory-management") part of the dashboard. Use the tags that classify workloads and resources in your organization. Use the Athena query in the dashboard’s FAQ to see the tags that are used across your organization.
+1. Navigate to the AWS Management Console and open [AWS CloudShell](https://console.aws.amazon.com/cloudshell). Ensure to be in the correct Region.
 
-1. Navigate to the AWS Management Console and open [AWS CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell"). Ensure to be in the correct Region.
-2. Install the latest pip package of the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md") tool:
+1. Install the latest pip package of the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md) tool:
 
-```
-pip3 install --upgrade cid-cmd
-```
+   ```
+   pip3 install --upgrade cid-cmd
+   ```
 
 1. Deploy the dashboard by running the following command (replace the parameters accordingly):
-
-   - `--tag1` The name of the first tag you use to categorize resources.
-   - `--tag2` The name of the second tag you use to categorize resources.
-   - `--tag3` The name of the third tag you use to categorize resources.
-   - `--tag4` The name of the fourth tag you use to categorize resources.
-   - Notice that tag parameters are case sensitive and cannot be empty. If you do not use a tag, pass a short default value, e.g. `--tag4 'NA'`.
-   - Leave all other parameters at their default value.
+   +  `--tag1` The name of the first tag you use to categorize resources.
+   +  `--tag2` The name of the second tag you use to categorize resources.
+   +  `--tag3` The name of the third tag you use to categorize resources.
+   +  `--tag4` The name of the fourth tag you use to categorize resources.
+   + Notice that tag parameters are case sensitive and cannot be empty. If you do not use a tag, pass a short default value, e.g. `--tag4 'NA'`.
+   + Leave all other parameters at their default value.
 
 ```
 cid-cmd deploy \
@@ -157,24 +160,28 @@ cid-cmd deploy \
 ```
 
 1. The CID-CMD tool will prompt you to select a datasource: `[quicksight-datasource-id] Please choose DataSource (Select the first one if not sure):`.
+   + If you have installed other CID/CUDOS dashboards, select the existing datasource `CID-CMD-Athena`.
+   + Otherwise select `CID-CMD-Athena <CREATE NEW DATASOURCE>`.
 
-   - If you have installed other CID/CUDOS dashboards, select the existing datasource `CID-CMD-Athena`.
-   - Otherwise select `CID-CMD-Athena <CREATE NEW DATASOURCE>`.
+1. When prompted `[quicksight-datasource-role] Please choose a Quick Sight role. It must have access to Athena:` select `CidCmdQuickSightDataSourceRole <ADD NEW ROLE>` or `CidCmdQuickSightDataSourceRole` (the second option will appear by default if you have other CID/CUDOS dashboards).
 
-2. When prompted `[quicksight-datasource-role] Please choose a Quick Sight role. It must have access to Athena:` select `CidCmdQuickSightDataSourceRole <ADD NEW ROLE>` or `CidCmdQuickSightDataSourceRole` (the second option will appear by default if you have other CID/CUDOS dashboards).
-3. In certain cases the installer will show an updated IAM policy JSON code and prompt `? [confirm-policy-AthenaAccess] Please confirm:`. Select `yes`.
-4. When prompted `[timezone] Please select timezone for datasets scheduled refresh.:` select the time zone for dataset scheduled refresh in your Region (it is already preselected).
-5. When prompted `Select taxonomy fields to add as dashboard filters and group by fields` select the organization metadata extracted previously.
+1. In certain cases the installer will show an updated IAM policy JSON code and prompt `? [confirm-policy-AthenaAccess] Please confirm:`. Select `yes`.
 
-   - You will see `accountid` (Accound ID), `account_name` (Account Name) and `region` (Region). Do not add these since they are already part of the dashboard.
-   - You will see other fields such as `organization_unit` (the OU where the account belongs) and one or more fields called `ou_tag_<tag name>` - for example `ou_tag_application`, `ou_tag_owner`, `ou_tag_costcenter`. These are the tags added to your OUs and accounts in AWS Organizations on the payer account.
-   - Add and order fields according to your needs.
-   - Select `Looks good` when done.
+1. When prompted `[timezone] Please select timezone for datasets scheduled refresh.:` select the time zone for dataset scheduled refresh in your Region (it is already preselected).
 
-6. When prompted `[share-with-account] Share this dashboard with everyone in the account?:` select the option that works for you.
+1. When prompted `Select taxonomy fields to add as dashboard filters and group by fields` select the organization metadata extracted previously.
+   + You will see `accountid` (Accound ID), `account_name` (Account Name) and `region` (Region). Do not add these since they are already part of the dashboard.
+   + You will see other fields such as `organization_unit` (the OU where the account belongs) and one or more fields called `ou_tag_<tag name>` - for example `ou_tag_application`, `ou_tag_owner`, `ou_tag_costcenter`. These are the tags added to your OUs and accounts in AWS Organizations on the payer account.
+   + Add and order fields according to your needs.
+   + Select `Looks good` when done.
+
+1. When prompted `[share-with-account] Share this dashboard with everyone in the account?:` select the option that works for you.
 
 ## Visualize the dashboard
+<a name="visualize-the-dashboard"></a>
 
 1. Navigate to Quick Sight and then `Dashboards`.
-2. Ensure you are in the correct Region.
-3. Click on the **AWS Config Resource Compliance Dashboard (CRCD)** dashboard.
+
+1. Ensure you are in the correct Region.
+
+1. Click on the **AWS Config Resource Compliance Dashboard (CRCD)** dashboard.

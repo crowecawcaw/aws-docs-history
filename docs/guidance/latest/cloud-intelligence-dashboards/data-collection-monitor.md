@@ -1,99 +1,91 @@
+
+
 # Data Collection Monitor
+<a name="data-collection-monitor"></a>
 
 ## Introduction
+<a name="introduction"></a>
 
-The [Data Collection Lab](data-collection.md "data-collection.md") tooling provides instrumentation log data to help you monitor the executions of the various modules of the Data Collection Framework. Starting with version 3.11, most Data Collection modules emit basic log data to track module execution and potential errors encountered. This dashboard reads that instrumentation data to present multiple views to track historical executions as well as troubleshoot any issues.
+The [Data Collection Lab](data-collection.md) tooling provides instrumentation log data to help you monitor the executions of the various modules of the Data Collection Framework. Starting with version 3.11, most Data Collection modules emit basic log data to track module execution and potential errors encountered. This dashboard reads that instrumentation data to present multiple views to track historical executions as well as troubleshoot any issues.
 
 As of this version, the monitoring is based on Step Function execution. Failures in individual Lambda functions are caught by the module’s Step Function and, in some circumstances, the Lambda error is available through the dashboard. Errors for any given execution will be listed on the dashboard with a link to the Step Function execution instance pertaining to it. You can investigate the error by clicking on the link. Errors are also reported to CloudWatch metrics under the namespace "CID-DataCollection", for which you can optionally setup an alarm for more active monitoring.
 
 Future releases will convey more granular Lambda error details and links to those execution logs.
 
 ## Preview
+<a name="preview"></a>
 
-![Data Collection Monitor Screenshot](images/data_collection_monitor_01.png)
+![Data Collection Monitor Screenshot](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data_collection_monitor_01.png)
+
 
 ## Prerequisites
+<a name="prerequisites"></a>
 
-Deploy or update the [Data Collection Lab](data-collection.md "data-collection.md") to version 3.11 or higher and include whatever modules you intend to use. Once deployed, any modules installed or updated will automatically be enabled for logging and picked up by the dashboard with the exception of the Feeds and Pricing modules. They will be enabled for instrumentation at a later time.
+Deploy or update the [Data Collection Lab](data-collection.md) to version 3.11 or higher and include whatever modules you intend to use. Once deployed, any modules installed or updated will automatically be enabled for logging and picked up by the dashboard with the exception of the Feeds and Pricing modules. They will be enabled for instrumentation at a later time.
 
 ## Deployment
+<a name="deployment"></a>
 
-###### Example
-
-CloudFormation
-
-###### Note
-
-**Prerequisite**: To install this dashboard using CloudFormation, you need to install Foundational Dashboards CFN with version v4.0.0 or above as described [here](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard")
+**Example**  
+ **Prerequisite**: To install this dashboard using CloudFormation, you need to install Foundational Dashboards CFN with version v4.0.0 or above as described [here](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard) 
 
 1. Log in to your **Data Collection** Account. 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Data-Collection-Monitor&param_DashboardId=dc-monitor&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Data-Collection-Monitor&param_DashboardId=dc-monitor&param_RequiresDataCollection=yes") 2. You can change **Stack name** for your template if you wish. 3. Leave **Parameters** values as they are. 4. Review the configuration and click **Create stack**. 5. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE** 6. You can check the stack output for dashboard URLs.
+    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Data-Collection-Monitor&param_DashboardId=dc-monitor&param_RequiresDataCollection=yes) 
 
-###### Note
+1. You can change **Stack name** for your template if you wish.
 
-**Troubleshooting:** If you see error "No export named cid-CidExecArn found" during stack deployment, make sure you have completed prerequisite steps.
+1. Leave **Parameters** values as they are.
 
-Command Line
-An alternative method to install dashboards is the
-[cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd")
-tool.
+1. Review the configuration and click **Create stack**.
+
+1. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE** 
+
+1. You can check the stack output for dashboard URLs.
+**Note**  
+ **Troubleshooting:** If you see error "No export named cid-CidExecArn found" during stack deployment, make sure you have completed prerequisite steps.
+An alternative method to install dashboards is the [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd) tool.  
 
 1. Log in to your **Data Collection** Account.
-2. Open up a command-line interface with permissions to run API requests
-   in your AWS account. We recommend using
-   [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
-3. In your command-line interface run the following command to download
-   and install the CID CLI tool:
 
-```
- pip3 install --upgrade cid-cmd
-```
+1. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend using [CloudShell](https://console.aws.amazon.com/cloudshell).
 
-4. In your command-line interface run the following command to deploy the
-   dashboard:
+1. In your command-line interface run the following command to download and install the CID CLI tool:
 
-```
- cid-cmd deploy --dashboard-id dc-monitor
-```
+   ```
+    pip3 install --upgrade cid-cmd
+   ```
 
-Please follow the instructions from the deployment wizard. More info
-about command line options are in the
-[Readme](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd")
-or `cid-cmd --help`.
+1. In your command-line interface run the following command to deploy the dashboard:
+
+   ```
+    cid-cmd deploy --dashboard-id dc-monitor
+   ```
+
+   Please follow the instructions from the deployment wizard. More info about command line options are in the [Readme](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd) or `cid-cmd --help`.
 
 ## Update
+<a name="update"></a>
 
-Please note that dashboards are not updated with update of
-CloudFormation Stack. When a new version of the dashboard template is
-released, you can update your dashboard by running the following command in your command-line interface:
+Please note that dashboards are not updated with update of CloudFormation Stack. When a new version of the dashboard template is released, you can update your dashboard by running the following command in your command-line interface:
 
 ```
  cid-cmd update --dashboard-id dc-monitor
 ```
 
 ## Authors
-
-- Eric Christensen, Senior Technical Account Manager
+<a name="authors"></a>
++ Eric Christensen, Senior Technical Account Manager
 
 ## Contributors
-
-- Iakov Gan, Ex-Amazonian
-- Yuriy Prykhodko, Principal Technical Account Manager
+<a name="contributors"></a>
++ Iakov Gan, Ex-Amazonian
++ Yuriy Prykhodko, Principal Technical Account Manager
 
 ## Feedback & Support
+<a name="data-collection-monitor-feedback-support"></a>
 
-Follow [Feedback & Support](feedback-support.md "feedback-support.md") guide
+Follow [Feedback & Support](feedback-support.md) guide
 
-###### Note
-
-These dashboards and their content: (a) are for informational
-purposes only, (b) represent current AWS product offerings and
-practices, which are subject to change without notice, and (c) does not
-create any commitments or assurances from AWS and its affiliates,
-suppliers or licensors. AWS content, products or services are provided
-"as is" without warranties, representations, or conditions of any
-kind, whether express or implied. The responsibilities and liabilities
-of AWS to its customers are controlled by AWS agreements, and this
-document is not part of, nor does it modify, any agreement between AWS
-and its customers.
+**Note**  
+These dashboards and their content: (a) are for informational purposes only, (b) represent current AWS product offerings and practices, which are subject to change without notice, and (c) does not create any commitments or assurances from AWS and its affiliates, suppliers or licensors. AWS content, products or services are provided "as is" without warranties, representations, or conditions of any kind, whether express or implied. The responsibilities and liabilities of AWS to its customers are controlled by AWS agreements, and this document is not part of, nor does it modify, any agreement between AWS and its customers.
