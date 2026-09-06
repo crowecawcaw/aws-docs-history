@@ -1,94 +1,89 @@
+
+
 # Step 6: Create an IAM policy for SageMaker AI notebooks
+<a name="create-sagemaker-notebook-policy"></a>
 
-If you plan to use SageMaker AI notebooks with development endpoints, you must specify permissions when
-you create the notebook. You provide those permissions by using AWS Identity and Access Management
-(IAM).
+If you plan to use SageMaker AI notebooks with development endpoints, you must specify permissions when you create the notebook. You provide those permissions by using AWS Identity and Access Management (IAM).
 
-###### To create an IAM policy for SageMaker AI notebooks
+**To create an IAM policy for SageMaker AI notebooks**
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the left navigation pane, choose **Policies**.
-3. Choose **Create Policy**.
-4. On the **Create Policy** page, navigate to a tab to edit the
-   JSON. Create a policy document with the following JSON statements. Edit
-   `bucket-name`,
-   `region-code`, and `account-id` for your environment.
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
-JSON
+1. In the left navigation pane, choose **Policies**.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "s3:ListBucket"
- ],
- "Effect": "Allow",
- "Resource": [
- "arn:aws:s3:::`amzn-s3-demo-bucket`"
- ]
- },
- {
- "Action": [
- "s3:GetObject"
- ],
- "Effect": "Allow",
- "Resource": [
- "arn:aws:s3:::`amzn-s3-demo-bucket`*"
- ]
- },
- {
- "Action": [
- "logs:CreateLogStream",
- "logs:DescribeLogStreams",
- "logs:PutLogEvents",
- "logs:CreateLogGroup"
- ],
- "Effect": "Allow",
- "Resource": [
- "arn:aws:logs:`us-east-1`:`111122223333`:log-group:/aws/sagemaker/*",
- "arn:aws:logs:`us-east-1`:`111122223333`:log-group:/aws/sagemaker/*:log-stream:aws-glue-*"
- ]
- },
- {
- "Action": [
- "glue:UpdateDevEndpoint",
- "glue:GetDevEndpoint",
- "glue:GetDevEndpoints"
- ],
- "Effect": "Allow",
- "Resource": [
- "arn:aws:glue:`us-east-1`:`111122223333`:devEndpoint/*"
- ]
- },
- {
- "Action": [
- "sagemaker:ListTags"
- ],
- "Effect": "Allow",
- "Resource": [
- "arn:aws:sagemaker:`us-east-1`:`111122223333`:notebook-instance/*"
- ]
- }
- ]
-}`
+1. Choose **Create Policy**.
 
-```
+1. On the **Create Policy** page, navigate to a tab to edit the JSON. Create a policy document with the following JSON statements. Edit {{bucket-name}}, {{region-code}}, and {{account-id}} for your environment.
 
-Then choose **Review policy**.
+------
+#### [ JSON ]
 
-The following table describes the permissions granted by this policy.
+****  
 
-| **Action**                                                                                         | **Resource**                                                                                                                                                          | **Description**                                                                                                                                                                                |
-| -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"s3:ListBucket*"`                                                                                 | `"arn:aws:s3:::`bucket-name`"`                                                                                                                                        | Grants permission to list Amazon S3 buckets.                                                                                                                                                   |
-| `"s3:GetObject"`                                                                                   | `"arn:aws:s3:::`bucket-name`*"`                                                                                                                                       | Grants permission to get Amazon S3 objects that are used by<br>SageMaker AI notebooks.                                                                                                         |
-| `"logs:CreateLogStream", "logs:DescribeLogStreams",<br>"logs:PutLogEvents", "logs:CreateLogGroup"` | `"arn:aws:logs:`region-code`:`account-id`:log-group:/aws/sagemaker/*",<br>"arn:aws:logs:`region-code`:`account-id`:log-group:/aws/sagemaker/*:log-stream:aws-glue-*"` | Grants permission to write logs to Amazon CloudWatch Logs from<br>notebooks.<br>Naming convention: Writes to log groups whose names begin<br>with **aws-glue**.                                |
-| `"glue:UpdateDevEndpoint", "glue:GetDevEndpoint",<br>"glue:GetDevEndpoints"`                       | `"arn:aws:glue:`region-code`:`account-id`:devEndpoint/*"`                                                                                                             | Grants permission to use a development endpoint from SageMaker AI<br>notebooks.                                                                                                                |
-| `"sagemaker:ListTags"`                                                                             | `"arn:aws:sagemaker:`region-code`:`account-id`:notebook-instance/*"`                                                                                                  | Grants permission to return tags for an SageMaker AI resource. The `aws-glue-dev-endpoint` tag is required on the SageMaker AI notebook for connecting the notebook to a development endpoint. |
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Action": [
+                   "s3:ListBucket"
+               ],
+               "Effect": "Allow",
+               "Resource": [
+                   "arn:aws:s3:::{{amzn-s3-demo-bucket}}"
+               ]
+           },
+           {
+               "Action": [
+                   "s3:GetObject"
+               ],
+               "Effect": "Allow",
+               "Resource": [
+                   "arn:aws:s3:::{{amzn-s3-demo-bucket}}*"
+               ]
+           },
+           {
+               "Action": [
+                   "logs:CreateLogStream",
+                   "logs:DescribeLogStreams",
+                   "logs:PutLogEvents",
+                   "logs:CreateLogGroup"
+               ],
+               "Effect": "Allow",
+               "Resource": [
+                   "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:/aws/sagemaker/*",
+                   "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:/aws/sagemaker/*:log-stream:aws-glue-*"
+               ]
+           },
+           {
+               "Action": [
+                   "glue:UpdateDevEndpoint",
+                   "glue:GetDevEndpoint",
+                   "glue:GetDevEndpoints"
+               ],
+               "Effect": "Allow",
+               "Resource": [
+                   "arn:aws:glue:{{us-east-1}}:{{111122223333}}:devEndpoint/*"
+               ]
+           },
+           {
+               "Action": [
+                   "sagemaker:ListTags"
+               ],
+               "Effect": "Allow",
+               "Resource": [
+                   "arn:aws:sagemaker:{{us-east-1}}:{{111122223333}}:notebook-instance/*"
+               ]
+           }
+       ]
+   }
+   ```
 
-5. On the **Review Policy** screen, enter your **Policy
-   Name**, for example `AWSGlueSageMakerNotebook`.
-   Enter an optional description, and when you're satisfied with the policy, choose
-   **Create policy**.
+------
+
+   Then choose **Review policy**. 
+
+   The following table describes the permissions granted by this policy.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/glue/latest/dg/create-sagemaker-notebook-policy.html)
+
+1. On the **Review Policy** screen, enter your **Policy Name**, for example `AWSGlueSageMakerNotebook`. Enter an optional description, and when you're satisfied with the policy, choose **Create policy**.

@@ -1,29 +1,32 @@
+
+
 # Reading from Asana entities
+<a name="asana-reading-from-entities"></a>
 
-**Prerequisites**
+ **Prerequisites** 
 
-An Asana Object you would like to read from. Refer the supported entities
-table below to check the available entities.
+An Asana Object you would like to read from. Refer the supported entities table below to check the available entities. 
 
-**Supported entities for source**
+ **Supported entities for source** 
 
-| Entity        | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning |
-| ------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Workspace     | No              | Yes            | No                | Yes                | No                    |
-| Tag           | No              | Yes            | No                | Yes                | No                    |
-| User          | No              | Yes            | No                | Yes                | No                    |
-| Portfolio     | No              | Yes            | No                | Yes                | No                    |
-| Team          | No              | Yes            | No                | Yes                | No                    |
-| Project       | Yes             | Yes            | No                | Yes                | No                    |
-| Section       | No              | Yes            | No                | Yes                | No                    |
-| Task          | Yes             | No             | No                | Yes                | Yes                   |
-| Goal          | Yes             | Yes            | No                | Yes                | No                    |
-| AuditLogEvent | Yes             | Yes            | No                | Yes                | No                    |
-| Status Update | Yes             | Yes            | No                | Yes                | No                    |
-| Custom Field  | No              | Yes            | No                | Yes                | No                    |
-| Project Brief | Yes             | No             | No                | Yes                | Yes                   |
 
-**Example**
+| Entity | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| Workspace | No | Yes | No | Yes | No | 
+| Tag | No | Yes | No | Yes | No | 
+| User | No | Yes | No | Yes | No | 
+| Portfolio | No | Yes | No | Yes | No | 
+| Team | No | Yes | No | Yes | No | 
+| Project | Yes | Yes | No | Yes | No | 
+| Section | No | Yes | No | Yes | No | 
+| Task  | Yes | No | No | Yes | Yes | 
+| Goal | Yes | Yes | No | Yes | No | 
+| AuditLogEvent | Yes | Yes | No | Yes | No | 
+| Status Update | Yes | Yes | No | Yes | No | 
+| Custom Field | No | Yes | No | Yes | No | 
+| Project Brief | Yes | No | No | Yes | Yes | 
+
+ **Example** 
 
 ```
 read_read = glueContext.create_dynamic_frame.from_options(
@@ -39,53 +42,40 @@ read_read = glueContext.create_dynamic_frame.from_options(
     }
 ```
 
-**Asana entity and field details**
+ **Asana entity and field details** 
++ [Workspace](https://developers.asana.com/docs/workspaces)
++ [Tag](https://developers.asana.com/docs/tags)
++ [User](https://developers.asana.com/docs/users)
++ [Portfolio](https://developers.asana.com/docs/portfolios)
++ [Team](https://developers.asana.com/docs/teams)
++ [Project](https://developers.asana.com/docs/get-all-projects-in-a-workspace)
++ [Section](https://developers.asana.com/docs/get-sections-in-a-project)
++ [Task](https://developers.asana.com/docs/search-tasks-in-a-workspace) 
++ [Goal](https://developers.asana.com/docs/get-goals)
++ [AuditLogEvent](https://developers.asana.com/docs/audit-log-api)
++ [Status Update](https://developers.asana.com/reference/status-updates)
++ [Custom Field](https://developers.asana.com/reference/custom-fields)
++ [Project Brief](https://developers.asana.com/reference/project-briefs)
 
-- [Workspace](https://developers.asana.com/docs/workspaces "https://developers.asana.com/docs/workspaces")
-- [Tag](https://developers.asana.com/docs/tags "https://developers.asana.com/docs/tags")
-- [User](https://developers.asana.com/docs/users "https://developers.asana.com/docs/users")
-- [Portfolio](https://developers.asana.com/docs/portfolios "https://developers.asana.com/docs/portfolios")
-- [Team](https://developers.asana.com/docs/teams "https://developers.asana.com/docs/teams")
-- [Project](https://developers.asana.com/docs/get-all-projects-in-a-workspace "https://developers.asana.com/docs/get-all-projects-in-a-workspace")
-- [Section](https://developers.asana.com/docs/get-sections-in-a-project "https://developers.asana.com/docs/get-sections-in-a-project")
-- [Task](https://developers.asana.com/docs/search-tasks-in-a-workspace "https://developers.asana.com/docs/search-tasks-in-a-workspace")
-- [Goal](https://developers.asana.com/docs/get-goals "https://developers.asana.com/docs/get-goals")
-- [AuditLogEvent](https://developers.asana.com/docs/audit-log-api "https://developers.asana.com/docs/audit-log-api")
-- [Status
-  Update](https://developers.asana.com/reference/status-updates "https://developers.asana.com/reference/status-updates")
-- [Custom
-  Field](https://developers.asana.com/reference/custom-fields "https://developers.asana.com/reference/custom-fields")
-- [Project
-  Brief](https://developers.asana.com/reference/project-briefs "https://developers.asana.com/reference/project-briefs")
+ **Partitioning queries** 
 
-**Partitioning queries**
+Additional spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`, `NUM_PARTITIONS` can be provided if you want to utilize concurrency in Spark. With these parameters, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by spark tasks concurrently. 
++ `PARTITION_FIELD`: the name of the field to be used to partition query. 
++ `LOWER_BOUND`: an inclusive lower bound value of the chosen partition field. 
 
-Additional spark options `PARTITION_FIELD`, `LOWER_BOUND`,
-`UPPER_BOUND`, `NUM_PARTITIONS` can be provided if you want to
-utilize concurrency in Spark. With these parameters, the original query would be split
-into `NUM_PARTITIONS` number of sub-queries that can be executed by spark
-tasks concurrently.
+  For date, we accept the Spark date format used in Spark SQL queries. Example of valid values: `2024-06-07T13:30:00.134Z`. 
++ `UPPER_BOUND`: an exclusive upper bound value of the chosen partition field. 
++ `NUM_PARTITIONS`: number of partitions. 
 
-- `PARTITION_FIELD`: the name of the field to be used to partition
-  query.
-- `LOWER_BOUND`: an inclusive lower bound value of the chosen
-  partition field.
+ Entity-wise partitioning field support details are captured in the following table. 
 
-For date, we accept the Spark date format used in Spark SQL queries. Example
-of valid values: `2024-06-07T13:30:00.134Z`.
 
-- `UPPER_BOUND`: an exclusive upper bound value of the chosen
-  partition field.
-- `NUM_PARTITIONS`: number of partitions.
+| Entity Name | Partitioning Field | Data Type | 
+| --- | --- | --- | 
+| Task | created\_at | DateTime | 
+| Task | modified\_at | DateTime | 
 
-Entity-wise partitioning field support details are captured in the following table.
-
-| Entity Name | Partitioning Field | Data Type |
-| ----------- | ------------------ | --------- |
-| Task        | created\_at        | DateTime  |
-| Task        | modified\_at       | DateTime  |
-
-**Example**
+ **Example** 
 
 ```
 read_read = glueContext.create_dynamic_frame.from_options(

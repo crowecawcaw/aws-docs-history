@@ -1,62 +1,60 @@
+
+
 # Connection types and options for ETL in AWS Glue for Spark
+<a name="aws-glue-programming-etl-connect"></a>
 
-In AWS Glue for Spark, various PySpark and Scala methods and transforms specify the connection type using
-a `connectionType` parameter. They specify connection options using a
-`connectionOptions` or `options` parameter.
+In AWS Glue for Spark, various PySpark and Scala methods and transforms specify the connection type using a `connectionType` parameter. They specify connection options using a `connectionOptions` or `options` parameter.
 
-The `connectionType` parameter can take the values shown in the following table.
-The associated `connectionOptions` (or `options`) parameter values for
-each type are documented in the following sections. Except where otherwise noted, the parameters
-apply when the connection is used as a source or sink.
+The `connectionType` parameter can take the values shown in the following table. The associated `connectionOptions` (or `options`) parameter values for each type are documented in the following sections. Except where otherwise noted, the parameters apply when the connection is used as a source or sink.
 
 For sample code that demonstrates setting and using connection options, see the homepage for each connection type.
 
-| `connectionType`                                                                                                                                                                                                | Connects to                                                                                                                                                                                                          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [dynamodb](aws-glue-programming-etl-connect-dynamodb-home.md "aws-glue-programming-etl-connect-dynamodb-home.md")                                                                                               | [Amazon DynamoDB](../../../amazondynamodb/latest/developerguide.md "../../../amazondynamodb/latest/developerguide.md") database                                                                                      |
-| [kinesis](aws-glue-programming-etl-connect-kinesis-home.md "aws-glue-programming-etl-connect-kinesis-home.md")                                                                                                  | [Amazon Kinesis Data Streams](../../../streams/latest/dev/introduction.md "../../../streams/latest/dev/introduction.md")                                                                                             |
-| [s3](aws-glue-programming-etl-connect-s3-home.md "aws-glue-programming-etl-connect-s3-home.md")                                                                                                                 | [Amazon S3](../../../AmazonS3/latest/dev.md "../../../AmazonS3/latest/dev.md")                                                                                                                                       |
-| [documentdb](aws-glue-programming-etl-connect-documentdb-home.md#aws-glue-programming-etl-connect-documentdb "aws-glue-programming-etl-connect-documentdb-home.md#aws-glue-programming-etl-connect-documentdb") | [Amazon DocumentDB (with MongoDB compatibility)](../../../documentdb/latest/developerguide.md "../../../documentdb/latest/developerguide.md") database                                                               |
-| [opensearch](aws-glue-programming-etl-connect-opensearch-home.md "aws-glue-programming-etl-connect-opensearch-home.md")                                                                                         | [Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide.md "../../../opensearch-service/latest/developerguide.md").                                                                            |
-| [redshift](aws-glue-programming-etl-connect-redshift-home.md "aws-glue-programming-etl-connect-redshift-home.md")                                                                                               | [Amazon Redshift](https://aws.amazon.com/redshift/ "https://aws.amazon.com/redshift/") database                                                                                                                      |
-| [kafka](aws-glue-programming-etl-connect-kafka-home.md "aws-glue-programming-etl-connect-kafka-home.md")                                                                                                        | [Kafka](https://kafka.apache.org/ "https://kafka.apache.org/") or [Amazon Managed Streaming for Apache Kafka](../../../msk/latest/developerguide/what-is-msk.md "../../../msk/latest/developerguide/what-is-msk.md") |
-| [azurecosmos](aws-glue-programming-etl-connect-azurecosmos-home.md "aws-glue-programming-etl-connect-azurecosmos-home.md")                                                                                      | Azure Cosmos for NoSQL.                                                                                                                                                                                              |
-| [azuresql](aws-glue-programming-etl-connect-azuresql-home.md "aws-glue-programming-etl-connect-azuresql-home.md")                                                                                               | Azure SQL.                                                                                                                                                                                                           |
-| [bigquery](aws-glue-programming-etl-connect-bigquery-home.md "aws-glue-programming-etl-connect-bigquery-home.md")                                                                                               | Google BigQuery.                                                                                                                                                                                                     |
-| [mongodb](aws-glue-programming-etl-connect-mongodb-home.md "aws-glue-programming-etl-connect-mongodb-home.md")                                                                                                  | [MongoDB](https://www.mongodb.com/what-is-mongodb "https://www.mongodb.com/what-is-mongodb")<br>database, including MongoDB Atlas.                                                                                   |
-| [sqlserver](aws-glue-programming-etl-connect-jdbc-home.md "aws-glue-programming-etl-connect-jdbc-home.md")                                                                                                      | Microsoft SQL Server database (see [JDBC connections](aws-glue-programming-etl-connect-jdbc-home.md "aws-glue-programming-etl-connect-jdbc-home.md"))                                                                |
-| [mysql](aws-glue-programming-etl-connect-jdbc-home.md "aws-glue-programming-etl-connect-jdbc-home.md")                                                                                                          | [MySQL](https://www.mysql.com/ "https://www.mysql.com/") database (see [JDBC connections](aws-glue-programming-etl-connect-jdbc-home.md "aws-glue-programming-etl-connect-jdbc-home.md"))                            |
-| [oracle](aws-glue-programming-etl-connect-jdbc-home.md "aws-glue-programming-etl-connect-jdbc-home.md")                                                                                                         | [Oracle](https://www.oracle.com/database/ "https://www.oracle.com/database/") database (see [JDBC connections](aws-glue-programming-etl-connect-jdbc-home.md "aws-glue-programming-etl-connect-jdbc-home.md"))       |
-| [postgresql](aws-glue-programming-etl-connect-jdbc-home.md "aws-glue-programming-etl-connect-jdbc-home.md")                                                                                                     | [PostgreSQL](https://www.postgresql.org/ "https://www.postgresql.org/") database (see [JDBC connections](aws-glue-programming-etl-connect-jdbc-home.md "aws-glue-programming-etl-connect-jdbc-home.md"))             |
-| [saphana](aws-glue-programming-etl-connect-saphana-home.md "aws-glue-programming-etl-connect-saphana-home.md")                                                                                                  | SAP HANA.                                                                                                                                                                                                            |
-| [snowflake](aws-glue-programming-etl-connect-snowflake-home.md "aws-glue-programming-etl-connect-snowflake-home.md")                                                                                            | [Snowflake](https://www.snowflake.com/ "https://www.snowflake.com/") data lake                                                                                                                                       |
-| [teradata](aws-glue-programming-etl-connect-teradata-home.md "aws-glue-programming-etl-connect-teradata-home.md")                                                                                               | Teradata Vantage.                                                                                                                                                                                                    |
-| [vertica](aws-glue-programming-etl-connect-vertica-home.md "aws-glue-programming-etl-connect-vertica-home.md")                                                                                                  | Vertica.                                                                                                                                                                                                             |
-| [custom.\*](#aws-glue-programming-etl-connect-market "#aws-glue-programming-etl-connect-market")                                                                                                                | Spark, Athena, or JDBC data stores (see [Custom and AWS Marketplace connectionType values](#aws-glue-programming-etl-connect-market "#aws-glue-programming-etl-connect-market")                                      |
-| [marketplace.\*](#aws-glue-programming-etl-connect-market "#aws-glue-programming-etl-connect-market")                                                                                                           | Spark, Athena, or JDBC data stores (see [Custom and AWS Marketplace connectionType values](#aws-glue-programming-etl-connect-market "#aws-glue-programming-etl-connect-market"))                                     |
+
+| `connectionType` | Connects to | 
+| --- | --- | 
+| [dynamodb](aws-glue-programming-etl-connect-dynamodb-home.md) | [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/) database | 
+| [kinesis](aws-glue-programming-etl-connect-kinesis-home.md) | [Amazon Kinesis Data Streams](https://docs.aws.amazon.com/streams/latest/dev/introduction.html) | 
+| [s3](aws-glue-programming-etl-connect-s3-home.md) | [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/) | 
+| [documentdb](aws-glue-programming-etl-connect-documentdb-home.md#aws-glue-programming-etl-connect-documentdb) | [Amazon DocumentDB (with MongoDB compatibility)](https://docs.aws.amazon.com/documentdb/latest/developerguide/) database | 
+| [opensearch](aws-glue-programming-etl-connect-opensearch-home.md) | [Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/). | 
+| [redshift](aws-glue-programming-etl-connect-redshift-home.md) | [Amazon Redshift](https://aws.amazon.com/redshift/) database | 
+| [kafka](aws-glue-programming-etl-connect-kafka-home.md) |  [Kafka](https://kafka.apache.org/) or [Amazon Managed Streaming for Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html) | 
+| [azurecosmos](aws-glue-programming-etl-connect-azurecosmos-home.md) | Azure Cosmos for NoSQL. | 
+| [azuresql](aws-glue-programming-etl-connect-azuresql-home.md) | Azure SQL. | 
+| [bigquery](aws-glue-programming-etl-connect-bigquery-home.md) | Google BigQuery. | 
+| [mongodb](aws-glue-programming-etl-connect-mongodb-home.md) | [MongoDB](https://www.mongodb.com/what-is-mongodb) database, including MongoDB Atlas. | 
+| [sqlserver](aws-glue-programming-etl-connect-jdbc-home.md) |  Microsoft SQL Server database (see [JDBC connections](aws-glue-programming-etl-connect-jdbc-home.md)) | 
+| [mysql](aws-glue-programming-etl-connect-jdbc-home.md) | [MySQL](https://www.mysql.com/) database (see [JDBC connections](aws-glue-programming-etl-connect-jdbc-home.md)) | 
+| [oracle](aws-glue-programming-etl-connect-jdbc-home.md) | [Oracle](https://www.oracle.com/database/) database (see [JDBC connections](aws-glue-programming-etl-connect-jdbc-home.md)) | 
+| [postgresql](aws-glue-programming-etl-connect-jdbc-home.md) |  [PostgreSQL](https://www.postgresql.org/) database (see [JDBC connections](aws-glue-programming-etl-connect-jdbc-home.md)) | 
+| [saphana](aws-glue-programming-etl-connect-saphana-home.md) | SAP HANA. | 
+| [snowflake](aws-glue-programming-etl-connect-snowflake-home.md) | [Snowflake](https://www.snowflake.com/) data lake | 
+| [teradata](aws-glue-programming-etl-connect-teradata-home.md) | Teradata Vantage. | 
+| [vertica](aws-glue-programming-etl-connect-vertica-home.md) | Vertica. | 
+| [custom.\*](#aws-glue-programming-etl-connect-market) | Spark, Athena, or JDBC data stores (see [Custom and AWS Marketplace connectionType values](#aws-glue-programming-etl-connect-market)  | 
+| [marketplace.\*](#aws-glue-programming-etl-connect-market) | Spark, Athena, or JDBC data stores (see [Custom and AWS Marketplace connectionType values](#aws-glue-programming-etl-connect-market))  | 
 
 ## DataFrame options for ETL in AWS Glue 5.0 for Spark
+<a name="aws-glue-programming-etl-connect-dataframe"></a>
 
 A DataFrame is a Dataset organized into named columns similar to a table and supports functional-style (map/reduce/filter/etc.) operations and SQL operations (select, project, aggregate).
 
 To create a DataFrame for a data source supported by Glue, the following are required:
-
-- data source connector `ClassName`
-- data source connection `Options`
++ data source connector `ClassName`
++ data source connection `Options`
 
 Similarly, to write a DataFrame to a data sink supported by Glue, the same are required:
++ data sink connector `ClassName`
++ data sink connection `Options`
 
-- data sink connector `ClassName`
-- data sink connection `Options`
-
-Note that AWS Glue features such as job bookmarks and DynamicFrame options such as `connectionName` are not supported in DataFrame. For more details about DataFrame and the supported operations, see the Spark documentation for [DataFrame](https://spark.apache.org/docs/3.5.2/api/python/reference/pyspark.sql/dataframe.html "https://spark.apache.org/docs/3.5.2/api/python/reference/pyspark.sql/dataframe.html").
+Note that AWS Glue features such as job bookmarks and DynamicFrame options such as `connectionName` are not supported in DataFrame. For more details about DataFrame and the supported operations, see the Spark documentation for [DataFrame](https://spark.apache.org/docs/3.5.2/api/python/reference/pyspark.sql/dataframe.html).
 
 ### Specifying the connector ClassName
+<a name="aws-glue-programming-etl-connect-dataframe-classname"></a>
 
 To specify the `ClassName` of a data source/sink, use the `.format` option to provide the corresponding connector `ClassName` that defines the data source/sink.
 
-###### JDBC connectors
-
+**JDBC connectors**  
 For JDBC connectors, specify `jdbc` as the value of the `.format` option and provide the JDBC driver `ClassName` in the `driver` option.
 
 ```
@@ -67,17 +65,16 @@ df.write.format("jdbc").option("driver", "<DATA SINK JDBC DRIVER CLASSNAME>")...
 
 The following table lists the JDBC driver `ClassName` of the supported data source in AWS Glue for DataFrames.
 
-| Data source | Driver ClassName                             |
-| ----------- | -------------------------------------------- |
-| PostgreSQL  | org.postgresql.Driver                        |
-| Oracle      | oracle.jdbc.driver.OracleDriver              |
-| SQLServer   | com.microsoft.sqlserver.jdbc.SQLServerDriver |
-| MySQL       | com.mysql.jdbc.Driver                        |
-| SAPHana     | com.sap.db.jdbc.Driver                       |
-| Teradata    | com.teradata.jdbc.TeraDriver                 |
+| Data source | Driver ClassName | 
+| --- |--- |
+| PostgreSQL | org.postgresql.Driver | 
+| Oracle | oracle.jdbc.driver.OracleDriver | 
+| SQLServer | com.microsoft.sqlserver.jdbc.SQLServerDriver | 
+| MySQL | com.mysql.jdbc.Driver | 
+| SAPHana | com.sap.db.jdbc.Driver | 
+| Teradata | com.teradata.jdbc.TeraDriver | 
 
-###### Spark connectors
-
+**Spark connectors**  
 For spark connectors, specify the `ClassName` of the connector as the value of the `.format` option.
 
 ```
@@ -88,39 +85,39 @@ df.write.format("<DATA SINK CONNECTOR CLASSNAME>")...
 
 The following table lists the Spark connector `ClassName` of the supported data source in AWS Glue for DataFrames.
 
-| Data source        | ClassName                                           |
-| ------------------ | --------------------------------------------------- |
-| MongoDB/DocumentDB | glue.spark.mongodb                                  |
-| Redshift           | io.github.spark\_redshift\_community.spark.redshift |
-| AzureCosmos        | cosmos.oltp                                         |
-| AzureSQL           | com.microsoft.sqlserver.jdbc.spark                  |
-| BigQuery           | com.google.cloud.spark.bigquery                     |
-| OpenSearch         | org.opensearch.spark.sql                            |
-| Snowflake          | net.snowflake.spark.snowflake                       |
-| Vertica            | com.vertica.spark.datasource.VerticaSource          |
+| Data source | ClassName | 
+| --- |--- |
+| MongoDB/DocumentDB | glue.spark.mongodb | 
+| Redshift | io.github.spark\_redshift\_community.spark.redshift | 
+| AzureCosmos | cosmos.oltp | 
+| AzureSQL | com.microsoft.sqlserver.jdbc.spark | 
+| BigQuery | com.google.cloud.spark.bigquery | 
+| OpenSearch | org.opensearch.spark.sql | 
+| Snowflake | net.snowflake.spark.snowflake | 
+| Vertica | com.vertica.spark.datasource.VerticaSource | 
 
 ### Specifying the connection Options
+<a name="aws-glue-programming-etl-connect-dataframe-connection-options"></a>
 
 To specify the `Options` of the connection to a data source/sink, use the `.option(<KEY>, <VALUE>)` to provide individual options or `.options(<MAP>)` to provide multiple options as a key-value map.
 
 Each data source/sink supports its own set of connection `Options`. For details on the available `Options`, refer to the public documentation of the specific data source/sink Spark connector listed in the following table.
-
-- [JDBC](https://spark.apache.org/docs/3.5.2/sql-data-sources-jdbc.html "https://spark.apache.org/docs/3.5.2/sql-data-sources-jdbc.html")
-- [MongoDB/DocumentDB](https://www.mongodb.com/docs/spark-connector/v10.4/ "https://www.mongodb.com/docs/spark-connector/v10.4/")
-- [Redshift](../../../redshift/latest/mgmt/spark-redshift-connector.md "../../../redshift/latest/mgmt/spark-redshift-connector.md")
-- [AzureCosmos](https://github.com/Azure/azure-cosmosdb-spark "https://github.com/Azure/azure-cosmosdb-spark")
-- [AzureSQL](https://learn.microsoft.com/en-us/sql/connect/spark/connector?view=sql-server-ver16 "https://learn.microsoft.com/en-us/sql/connect/spark/connector?view=sql-server-ver16")
-- [BigQuery](https://cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example "https://cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example")
-- [OpenSearch](https://github.com/opensearch-project/opensearch-hadoop/blob/main/USER_GUIDE.md#apache-spark "https://github.com/opensearch-project/opensearch-hadoop/blob/main/USER_GUIDE.md#apache-spark")
-- [Snowflake](https://docs.snowflake.com/en/user-guide/spark-connector-use#setting-configuration-options-for-the-connector "https://docs.snowflake.com/en/user-guide/spark-connector-use#setting-configuration-options-for-the-connector")
-- [Vertica](https://github.com/vertica/spark-connector "https://github.com/vertica/spark-connector")
++ [JDBC](https://spark.apache.org/docs/3.5.2/sql-data-sources-jdbc.html)
++ [MongoDB/DocumentDB](https://www.mongodb.com/docs/spark-connector/v10.4/)
++ [Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/spark-redshift-connector.html)
++ [AzureCosmos](https://github.com/Azure/azure-cosmosdb-spark)
++ [AzureSQL](https://learn.microsoft.com/en-us/sql/connect/spark/connector?view=sql-server-ver16)
++ [BigQuery](https://cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example)
++ [OpenSearch](https://github.com/opensearch-project/opensearch-hadoop/blob/main/USER_GUIDE.md#apache-spark)
++ [Snowflake](https://docs.snowflake.com/en/user-guide/spark-connector-use#setting-configuration-options-for-the-connector)
++ [Vertica](https://github.com/vertica/spark-connector)
 
 ### Examples
+<a name="aws-glue-programming-etl-connect-dataframe-examples"></a>
 
 The following examples read from PostgreSQL and write into SnowFlake:
 
-###### Python
-
+**Python**  
 Example:
 
 ```
@@ -145,16 +142,15 @@ dataSinkOptions = {
   "sfUrl": "<url>",
   "sfUsername": "<username>",
   "sfPassword": "<password>",
-  "sfDatabase" -> "<database>",
-  "sfSchema" -> "<schema>",
-  "sfWarehouse" -> "<warehouse>"
+  "sfDatabase" -> "<database>",                              
+  "sfSchema" -> "<schema>",                       
+  "sfWarehouse" -> "<warehouse>"  
 }
 
 dataframe.write.format(dataSinkClassName).options(**dataSinkOptions).save()
 ```
 
-###### Scala
-
+**Scala**  
 Example:
 
 ```
@@ -187,151 +183,80 @@ dataframe.write.format(dataSinkClassName).options(dataSinkOptions).save()
 ```
 
 ## Custom and AWS Marketplace connectionType values
+<a name="aws-glue-programming-etl-connect-market"></a>
 
 These include the following:
-
-- `"connectionType": "marketplace.athena"`: Designates a connection to an
-  Amazon Athena data store. The connection uses a connector from AWS Marketplace.
-- `"connectionType": "marketplace.spark"`: Designates a connection to an
-  Apache Spark data store. The connection uses a connector from AWS Marketplace.
-- `"connectionType": "marketplace.jdbc"`: Designates a connection to a JDBC
-  data store. The connection uses a connector from AWS Marketplace.
-- `"connectionType": "custom.athena"`: Designates a connection to an
-  Amazon Athena data store. The connection uses a custom connector that you upload to
-  AWS Glue Studio.
-- `"connectionType": "custom.spark"`: Designates a connection to an Apache
-  Spark data store. The connection uses a custom connector that you upload to AWS Glue Studio.
-- `"connectionType": "custom.jdbc"`: Designates a connection to a JDBC data
-  store. The connection uses a custom connector that you upload to AWS Glue Studio.
++ `"connectionType": "marketplace.athena"`: Designates a connection to an Amazon Athena data store. The connection uses a connector from AWS Marketplace.
++ `"connectionType": "marketplace.spark"`: Designates a connection to an Apache Spark data store. The connection uses a connector from AWS Marketplace.
++ `"connectionType": "marketplace.jdbc"`: Designates a connection to a JDBC data store. The connection uses a connector from AWS Marketplace.
++ `"connectionType": "custom.athena"`: Designates a connection to an Amazon Athena data store. The connection uses a custom connector that you upload to AWS Glue Studio.
++ `"connectionType": "custom.spark"`: Designates a connection to an Apache Spark data store. The connection uses a custom connector that you upload to AWS Glue Studio.
++ `"connectionType": "custom.jdbc"`: Designates a connection to a JDBC data store. The connection uses a custom connector that you upload to AWS Glue Studio.
 
 ### Connection options for type custom.jdbc or marketplace.jdbc
+<a name="marketplace-jdbc-connect-options"></a>
++ `className` – String, required, the fully-qualified Java class name of the JDBC driver (for example, `com.mysql.cj.jdbc.Driver`). You must specify this option when using a custom or AWS Marketplace JDBC connector. If you omit this option, the job may fail with a `No suitable driver` error, particularly when using parameterized JDBC URLs.
++ `connectionName` – String, required, name of the connection that is associated with the connector.
++ `url` – String, required, JDBC URL with placeholders (`${}`) which are used to build the connection to the data source. The placeholder `${secretKey}` is replaced with the secret of the same name in AWS Secrets Manager. Refer to the data store documentation for more information about constructing the URL. 
++ `secretId` or `user/password` – String, required, used to retrieve credentials for the URL. 
++ `dbTable` or `query` – String, required, the table or SQL query to get the data from. You can specify either `dbTable` or `query`, but not both. 
++ `partitionColumn` – String, optional, the name of an integer column that is used for partitioning. This option works only when it's included with `lowerBound`, `upperBound`, and `numPartitions`. This option works the same way as in the Spark SQL JDBC reader. For more information, see [JDBC To Other Databases](https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html) in the *Apache Spark SQL, DataFrames and Datasets Guide*.
 
-- `className` – String, required, the fully-qualified Java class
-  name of the JDBC driver (for example,
-  `com.mysql.cj.jdbc.Driver`). You must specify this
-  option when using a custom or AWS Marketplace JDBC connector. If you omit this option, the
-  job may fail with a `No suitable driver` error, particularly when
-  using parameterized JDBC URLs.
-- `connectionName` – String, required, name of the connection that
-  is associated with the connector.
-- `url` – String, required, JDBC URL with placeholders
-  (`${}`) which are used to build the connection to the data source. The
-  placeholder `${secretKey}` is replaced with the secret of the same name in
-  AWS Secrets Manager. Refer to the data store documentation for more
-  information about constructing the URL.
-- `secretId` or `user/password` – String, required, used
-  to retrieve credentials for the URL.
-- `dbTable` or `query` – String, required, the table or
-  SQL query to get the data from. You can specify either `dbTable` or
-  `query`, but not both.
-- `partitionColumn` – String, optional, the name of an integer
-  column that is used for partitioning. This option works only when it's included with
-  `lowerBound`, `upperBound`, and `numPartitions`. This
-  option works the same way as in the Spark SQL JDBC reader. For more information, see
-  [JDBC To
-  Other Databases](https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html "https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html") in the _Apache Spark SQL, DataFrames
-  and Datasets Guide_.
+  The `lowerBound` and `upperBound` values are used to decide the partition stride, not for filtering the rows in table. All rows in the table are partitioned and returned. 
+**Note**  
+When using a query instead of a table name, you should validate that the query works with the specified partitioning condition. For example:   
+If your query format is `"SELECT col1 FROM table1"`, then test the query by appending a `WHERE` clause at the end of the query that uses the partition column. 
+If your query format is "`SELECT col1 FROM table1 WHERE col2=val"`, then test the query by extending the `WHERE` clause with `AND` and an expression that uses the partition column.
++ `lowerBound` – Integer, optional, the minimum value of `partitionColumn` that is used to decide partition stride. 
++ `upperBound` – Integer, optional, the maximum value of `partitionColumn` that is used to decide partition stride. 
++ `numPartitions` – Integer, optional, the number of partitions. This value, along with `lowerBound` (inclusive) and `upperBound` (exclusive), form partition strides for generated `WHERE` clause expressions that are used to split the `partitionColumn`. 
+**Important**  
+Be careful with the number of partitions because too many partitions might cause problems on your external database systems. 
++ `filterPredicate` – String, optional, extra condition clause to filter data from source. For example: 
 
-The `lowerBound` and `upperBound` values are used to decide
-the partition stride, not for filtering the rows in table. All rows in the table are
-partitioned and returned.
+  ```
+  BillingCity='Mountain View'
+  ```
 
-###### Note
+  When using a *query* instead of a *table* name, you should validate that the query works with the specified `filterPredicate`. For example: 
+  + If your query format is `"SELECT col1 FROM table1"`, then test the query by appending a `WHERE` clause at the end of the query that uses the filter predicate. 
+  + If your query format is `"SELECT col1 FROM table1 WHERE col2=val"`, then test the query by extending the `WHERE` clause with `AND` and an expression that uses the filter predicate.
++ `dataTypeMapping` – Dictionary, optional, custom data type mapping that builds a mapping from a **JDBC** data type to a **Glue** data type. For example, the option `"dataTypeMapping":{"FLOAT":"STRING"}` maps data fields of JDBC type `FLOAT` into the Java `String` type by calling the `ResultSet.getString()` method of the driver, and uses it to build AWS Glue records. The `ResultSet` object is implemented by each driver, so the behavior is specific to the driver you use. Refer to the documentation for your JDBC driver to understand how the driver performs the conversions. 
++ The AWS Glue data types supported currently are:
+  + DATE
+  + STRING
+  + TIMESTAMP
+  + INT
+  + FLOAT
+  + LONG
+  + BIGDECIMAL
+  + BYTE
+  + SHORT
+  + DOUBLE
 
-When using a query instead of a table name, you should validate that the query
-works with the specified partitioning condition. For example:
+   The JDBC data types supported are [Java8 java.sql.types](https://docs.oracle.com/javase/8/docs/api/java/sql/Types.html).
 
-    + If your query format is `"SELECT col1 FROM table1"`, then test the
-     query by appending a `WHERE` clause at the end of the query that uses
-     the partition column.
-    + If your query format is "`SELECT col1 FROM table1 WHERE col2=val"`,
-     then test the query by extending the `WHERE` clause with
-     `AND` and an expression that uses the partition column.
+  The default data type mappings (from JDBC to AWS Glue) are:
+  +  DATE -> DATE
+  +  VARCHAR -> STRING
+  +  CHAR -> STRING
+  +  LONGNVARCHAR -> STRING
+  +  TIMESTAMP -> TIMESTAMP
+  +  INTEGER -> INT
+  +  FLOAT -> FLOAT
+  +  REAL -> FLOAT
+  +  BIT -> BOOLEAN
+  +  BOOLEAN -> BOOLEAN
+  +  BIGINT -> LONG
+  +  DECIMAL -> BIGDECIMAL
+  +  NUMERIC -> BIGDECIMAL
+  +  TINYINT -> SHORT
+  +  SMALLINT -> SHORT
+  +  DOUBLE -> DOUBLE
 
-- `lowerBound` – Integer, optional, the minimum value of
-  `partitionColumn` that is used to decide partition stride.
-- `upperBound` – Integer, optional, the maximum value of
-  `partitionColumn` that is used to decide partition stride.
-- `numPartitions` – Integer, optional, the number of partitions.
-  This value, along with `lowerBound` (inclusive) and `upperBound`
-  (exclusive), form partition strides for generated `WHERE` clause expressions
-  that are used to split the `partitionColumn`.
+  If you use a custom data type mapping with the option `dataTypeMapping`, then you can override a default data type mapping. Only the JDBC data types listed in the `dataTypeMapping` option are affected; the default mapping is used for all other JDBC data types. You can add mappings for additional JDBC data types if needed. If a JDBC data type is not included in either the default mapping or a custom mapping, then the data type converts to the AWS Glue `STRING` data type by default. 
 
-###### Important
-
-Be careful with the number of partitions because too many partitions might cause
-problems on your external database systems.
-
-- `filterPredicate` – String, optional, extra condition clause to
-  filter data from source. For example:
-
-```
-BillingCity='Mountain View'
-```
-
-When using a _query_ instead of a _table_ name, you should validate that the query works with the
-specified `filterPredicate`. For example:
-
-    + If your query format is `"SELECT col1 FROM table1"`, then test the
-     query by appending a `WHERE` clause at the end of the query that uses the
-     filter predicate.
-    + If your query format is `"SELECT col1 FROM table1 WHERE col2=val"`,
-     then test the query by extending the `WHERE` clause with `AND`
-     and an expression that uses the filter predicate.
-
-- `dataTypeMapping` – Dictionary, optional, custom data type mapping
-  that builds a mapping from a **JDBC** data type to a
-  **Glue** data type. For example, the option
-  `"dataTypeMapping":{"FLOAT":"STRING"}` maps data fields of JDBC type
-  `FLOAT` into the Java `String` type by calling the
-  `ResultSet.getString()` method of the driver, and uses it to build
-  AWS Glue records. The `ResultSet` object is implemented by each
-  driver, so the behavior is specific to the driver you use. Refer to the documentation
-  for your JDBC driver to understand how the driver performs the conversions.
-- The AWS Glue data types supported currently are:
-
-  - DATE
-  - STRING
-  - TIMESTAMP
-  - INT
-  - FLOAT
-  - LONG
-  - BIGDECIMAL
-  - BYTE
-  - SHORT
-  - DOUBLE
-    The JDBC data types supported are [Java8
-    java.sql.types](https://docs.oracle.com/javase/8/docs/api/java/sql/Types.html "https://docs.oracle.com/javase/8/docs/api/java/sql/Types.html").
-
-The default data type mappings (from JDBC to AWS Glue) are:
-
-    + DATE -> DATE
-    + VARCHAR -> STRING
-    + CHAR -> STRING
-    + LONGNVARCHAR -> STRING
-    + TIMESTAMP -> TIMESTAMP
-    + INTEGER -> INT
-    + FLOAT -> FLOAT
-    + REAL -> FLOAT
-    + BIT -> BOOLEAN
-    + BOOLEAN -> BOOLEAN
-    + BIGINT -> LONG
-    + DECIMAL -> BIGDECIMAL
-    + NUMERIC -> BIGDECIMAL
-    + TINYINT -> SHORT
-    + SMALLINT -> SHORT
-    + DOUBLE -> DOUBLE
-
-If you use a custom data type mapping with the option `dataTypeMapping`,
-then you can override a default data type mapping. Only the JDBC data types listed in
-the `dataTypeMapping` option are affected; the default mapping is used for
-all other JDBC data types. You can add mappings for additional JDBC data types if
-needed. If a JDBC data type is not included in either the default mapping or a custom
-mapping, then the data type converts to the AWS Glue `STRING` data type by
-default.
-
-The following Python code example shows how to read from JDBC databases with AWS Marketplace JDBC
-drivers. It demonstrates reading from a database and writing to an S3 location.
+The following Python code example shows how to read from JDBC databases with AWS Marketplace JDBC drivers. It demonstrates reading from a database and writing to an S3 location. 
 
 ```
     import sys
@@ -340,26 +265,26 @@ drivers. It demonstrates reading from a database and writing to an S3 location.
     from pyspark.context import SparkContext
     from awsglue.context import GlueContext
     from awsglue.job import Job
-
+     
     ## @params: [JOB_NAME]
     args = getResolvedOptions(sys.argv, ['JOB_NAME'])
-
+     
     sc = SparkContext()
     glueContext = GlueContext(sc)
     spark = glueContext.spark_session
     job = Job(glueContext)
     job.init(args['JOB_NAME'], args)
     ## @type: DataSource
-    ## @args: [connection_type = "marketplace.jdbc", connection_options =
-     {"dataTypeMapping":{"INTEGER":"STRING"},"upperBound":"200","query":"select id,
+    ## @args: [connection_type = "marketplace.jdbc", connection_options = 
+     {"dataTypeMapping":{"INTEGER":"STRING"},"upperBound":"200","query":"select id, 
        name, department from department where id < 200","numPartitions":"4",
        "partitionColumn":"id","lowerBound":"0","connectionName":"test-connection-jdbc"},
         transformation_ctx = "DataSource0"]
     ## @return: DataSource0
     ## @inputs: []
-    DataSource0 = glueContext.create_dynamic_frame.from_options(connection_type =
+    DataSource0 = glueContext.create_dynamic_frame.from_options(connection_type = 
       "marketplace.jdbc", connection_options = {"dataTypeMapping":{"INTEGER":"STRING"},
-      "upperBound":"200","query":"select id, name, department from department where
+      "upperBound":"200","query":"select id, name, department from department where 
        id < 200","numPartitions":"4","partitionColumn":"id","lowerBound":"0",
        "connectionName":"test-connection-jdbc"}, transformation_ctx = "DataSource0")
     ## @type: ApplyMapping
@@ -368,41 +293,29 @@ drivers. It demonstrates reading from a database and writing to an S3 location.
     ## @return: Transform0
     ## @inputs: [frame = DataSource0]
     Transform0 = ApplyMapping.apply(frame = DataSource0, mappings = [("department", "string",
-      "department", "string"), ("name", "string", "name", "string"), ("id", "int", "id", "int")],
+      "department", "string"), ("name", "string", "name", "string"), ("id", "int", "id", "int")], 
        transformation_ctx = "Transform0")
     ## @type: DataSink
-    ## @args: [connection_type = "s3", format = "json", connection_options = {"path":
-     "s3://`<S3 path>`/", "partitionKeys": []}, transformation_ctx = "DataSink0"]
+    ## @args: [connection_type = "s3", format = "json", connection_options = {"path": 
+     "s3://{{<S3 path>}}/", "partitionKeys": []}, transformation_ctx = "DataSink0"]
     ## @return: DataSink0
     ## @inputs: [frame = Transform0]
-    DataSink0 = glueContext.write_dynamic_frame.from_options(frame = Transform0,
-      connection_type = "s3", format = "json", connection_options = {"path":
-      "s3://`<S3 path>`/", "partitionKeys": []}, transformation_ctx = "DataSink0")
+    DataSink0 = glueContext.write_dynamic_frame.from_options(frame = Transform0, 
+      connection_type = "s3", format = "json", connection_options = {"path": 
+      "s3://{{<S3 path>}}/", "partitionKeys": []}, transformation_ctx = "DataSink0")
     job.commit()
-
 ```
 
 ### Connection options for type custom.athena or marketplace.athena
+<a name="marketplace-athena-connect-options"></a>
++ `className` – String, required, driver class name. When you're using the Athena-CloudWatch connector, this parameter value is the prefix of the class Name (for example, `"com.amazonaws.athena.connectors"`). The Athena-CloudWatch connector is composed of two classes: a metadata handler and a record handler. If you supply the common prefix here, then the API loads the correct classes based on that prefix.
++ `tableName` – String, required, the name of the CloudWatch log stream to read. This code snippet uses the special view name `all_log_streams`, which means that the dynamic data frame returned will contain data from all log streams in the log group.
++ `schemaName` – String, required, the name of the CloudWatch log group to read from. For example, `/aws-glue/jobs/output`.
++ `connectionName` – String, required, name of the connection that is associated with the connector.
 
-- `className` – String, required, driver class name. When you're
-  using the Athena-CloudWatch connector, this parameter value is the prefix of the class
-  Name (for example, `"com.amazonaws.athena.connectors"`). The
-  Athena-CloudWatch connector is composed of two classes: a metadata handler and a record
-  handler. If you supply the common prefix here, then the API loads the correct classes
-  based on that prefix.
-- `tableName` – String, required, the name of the CloudWatch log stream to
-  read. This code snippet uses the special view name `all_log_streams`, which
-  means that the dynamic data frame returned will contain data from all log streams in the
-  log group.
-- `schemaName` – String, required, the name of the CloudWatch log
-  group to read from. For example, `/aws-glue/jobs/output`.
-- `connectionName` – String, required, name of the connection that
-  is associated with the connector.
+For additional options for this connector, see the [Amazon Athena CloudWatch Connector README](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-cloudwatch) file on GitHub.
 
-For additional options for this connector, see the [Amazon Athena CloudWatch Connector README](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-cloudwatch "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-cloudwatch") file on GitHub.
-
-The following Python code example shows how to read from an Athena data store using an
-AWS Marketplace connector. It demonstrates reading from Athena and writing to an S3 location.
+The following Python code example shows how to read from an Athena data store using an AWS Marketplace connector. It demonstrates reading from Athena and writing to an S3 location. 
 
 ```
     import sys
@@ -411,22 +324,22 @@ AWS Marketplace connector. It demonstrates reading from Athena and writing to an
     from pyspark.context import SparkContext
     from awsglue.context import GlueContext
     from awsglue.job import Job
-
+     
     ## @params: [JOB_NAME]
     args = getResolvedOptions(sys.argv, ['JOB_NAME'])
-
+     
     sc = SparkContext()
     glueContext = GlueContext(sc)
     spark = glueContext.spark_session
     job = Job(glueContext)
     job.init(args['JOB_NAME'], args)
     ## @type: DataSource
-    ## @args: [connection_type = "marketplace.athena", connection_options =
+    ## @args: [connection_type = "marketplace.athena", connection_options = 
      {"tableName":"all_log_streams","schemaName":"/aws-glue/jobs/output",
       "connectionName":"test-connection-athena"}, transformation_ctx = "DataSource0"]
     ## @return: DataSource0
     ## @inputs: []
-    DataSource0 = glueContext.create_dynamic_frame.from_options(connection_type =
+    DataSource0 = glueContext.create_dynamic_frame.from_options(connection_type = 
       "marketplace.athena", connection_options = {"tableName":"all_log_streams",,
       "schemaName":"/aws-glue/jobs/output","connectionName":
       "test-connection-athena"}, transformation_ctx = "DataSource0")
@@ -436,36 +349,27 @@ AWS Marketplace connector. It demonstrates reading from Athena and writing to an
     ## @return: Transform0
     ## @inputs: [frame = DataSource0]
     Transform0 = ApplyMapping.apply(frame = DataSource0, mappings = [("department", "string",
-      "department", "string"), ("name", "string", "name", "string"), ("id", "int", "id", "int")],
+      "department", "string"), ("name", "string", "name", "string"), ("id", "int", "id", "int")], 
        transformation_ctx = "Transform0")
     ## @type: DataSink
-    ## @args: [connection_type = "s3", format = "json", connection_options = {"path":
-     "s3://`<S3 path>`/", "partitionKeys": []}, transformation_ctx = "DataSink0"]
+    ## @args: [connection_type = "s3", format = "json", connection_options = {"path": 
+     "s3://{{<S3 path>}}/", "partitionKeys": []}, transformation_ctx = "DataSink0"]
     ## @return: DataSink0
     ## @inputs: [frame = Transform0]
-    DataSink0 = glueContext.write_dynamic_frame.from_options(frame = Transform0,
-      connection_type = "s3", format = "json", connection_options = {"path":
-      "s3://`<S3 path>`/", "partitionKeys": []}, transformation_ctx = "DataSink0")
+    DataSink0 = glueContext.write_dynamic_frame.from_options(frame = Transform0, 
+      connection_type = "s3", format = "json", connection_options = {"path": 
+      "s3://{{<S3 path>}}/", "partitionKeys": []}, transformation_ctx = "DataSink0")
     job.commit()
-
 ```
 
 ### Connection options for type custom.spark or marketplace.spark
+<a name="marketplace-spark-connect-options"></a>
++ `className` – String, required, connector class name. 
++ `secretId` – String, optional, used to retrieve credentials for the connector connection.
++ `connectionName` – String, required, name of the connection that is associated with the connector.
++ Other options depend on the data store. For example, OpenSearch configuration options start with the prefix `es`, as described in the [Elasticsearch for Apache Hadoop](https://www.elastic.co/guide/en/elasticsearch/hadoop/current/configuration.html) documentation. Spark connections to Snowflake use options such as `sfUser` and `sfPassword`, as described in [Using the Spark Connector](https://docs.snowflake.com/en/user-guide/spark-connector-use.html) in the *Connecting to Snowflake* guide.
 
-- `className` – String, required, connector class name.
-- `secretId` – String, optional, used to retrieve credentials for
-  the connector connection.
-- `connectionName` – String, required, name of the connection that
-  is associated with the connector.
-- Other options depend on the data store. For example, OpenSearch configuration options
-  start with the prefix `es`, as described in the [Elasticsearch for Apache Hadoop](https://www.elastic.co/guide/en/elasticsearch/hadoop/current/configuration.html "https://www.elastic.co/guide/en/elasticsearch/hadoop/current/configuration.html") documentation. Spark connections to Snowflake
-  use options such as `sfUser` and `sfPassword`, as described in
-  [Using
-  the Spark Connector](https://docs.snowflake.com/en/user-guide/spark-connector-use.html "https://docs.snowflake.com/en/user-guide/spark-connector-use.html") in the _Connecting to Snowflake_
-  guide.
-
-The following Python code example shows how to read from an OpenSearch data store using a
-`marketplace.spark` connection.
+The following Python code example shows how to read from an OpenSearch data store using a `marketplace.spark` connection.
 
 ```
     import sys
@@ -474,10 +378,10 @@ The following Python code example shows how to read from an OpenSearch data stor
     from pyspark.context import SparkContext
     from awsglue.context import GlueContext
     from awsglue.job import Job
-
+     
     ## @params: [JOB_NAME]
     args = getResolvedOptions(sys.argv, ['JOB_NAME'])
-
+     
     sc = SparkContext()
     glueContext = GlueContext(sc)
     spark = glueContext.spark_session
@@ -485,34 +389,31 @@ The following Python code example shows how to read from an OpenSearch data stor
     job.init(args['JOB_NAME'], args)
     ## @type: DataSource
     ## @args: [connection_type = "marketplace.spark", connection_options = {"path":"test",
-      "es.nodes.wan.only":"true","es.nodes":"https://`<AWS endpoint>`",
+      "es.nodes.wan.only":"true","es.nodes":"https://{{<AWS endpoint>}}",
       "connectionName":"test-spark-es","es.port":"443"}, transformation_ctx = "DataSource0"]
     ## @return: DataSource0
     ## @inputs: []
-    DataSource0 = glueContext.create_dynamic_frame.from_options(connection_type =
+    DataSource0 = glueContext.create_dynamic_frame.from_options(connection_type = 
       "marketplace.spark", connection_options = {"path":"test","es.nodes.wan.only":
-      "true","es.nodes":"https://`<AWS endpoint>`","connectionName":
+      "true","es.nodes":"https://{{<AWS endpoint>}}","connectionName":
       "test-spark-es","es.port":"443"}, transformation_ctx = "DataSource0")
     ## @type: DataSink
-    ## @args: [connection_type = "s3", format = "json", connection_options = {"path":
-         "s3://`<S3 path>`/", "partitionKeys": []}, transformation_ctx = "DataSink0"]
+    ## @args: [connection_type = "s3", format = "json", connection_options = {"path": 
+         "s3://{{<S3 path>}}/", "partitionKeys": []}, transformation_ctx = "DataSink0"]
     ## @return: DataSink0
     ## @inputs: [frame = DataSource0]
-    DataSink0 = glueContext.write_dynamic_frame.from_options(frame = DataSource0,
-       connection_type = "s3", format = "json", connection_options = {"path":
-       "s3://`<S3 path>`/", "partitionKeys": []}, transformation_ctx = "DataSink0")
+    DataSink0 = glueContext.write_dynamic_frame.from_options(frame = DataSource0, 
+       connection_type = "s3", format = "json", connection_options = {"path": 
+       "s3://{{<S3 path>}}/", "partitionKeys": []}, transformation_ctx = "DataSink0")
     job.commit()
 ```
 
 ## General options
+<a name="aws-glue-programming-etl-connect-general-options"></a>
 
-The options in this section are provided as `connection_options`, but do not specifically apply
-to one connector.
+The options in this section are provided as `connection_options`, but do not specifically apply to one connector.
 
-The following parameters are used generally when configuring bookmarks. They may apply to Amazon S3 or JDBC
-workflows. For more information, see [Using job bookmarks](programming-etl-connect-bookmarks.md "programming-etl-connect-bookmarks.md").
-
-- `jobBookmarkKeys` — Array of column names.
-- `jobBookmarkKeysSortOrder` — String defining how to compare values based on sort order. Valid values: `"asc"`, `"desc"`.
-- `useS3ListImplementation` — Used to manage memory performance when listing Amazon S3 bucket contents. For more information, see
-  [Optimize memory management in AWS Glue](https://aws.amazon.com/blogs/big-data/optimize-memory-management-in-aws-glue/ "https://aws.amazon.com/blogs/big-data/optimize-memory-management-in-aws-glue/").
+The following parameters are used generally when configuring bookmarks. They may apply to Amazon S3 or JDBC workflows. For more information, see [Using job bookmarks](programming-etl-connect-bookmarks.md).
++ `jobBookmarkKeys` — Array of column names. 
++ `jobBookmarkKeysSortOrder` — String defining how to compare values based on sort order. Valid values: `"asc"`, `"desc"`.
++ `useS3ListImplementation` — Used to manage memory performance when listing Amazon S3 bucket contents. For more information, see [Optimize memory management in AWS Glue](https://aws.amazon.com/blogs/big-data/optimize-memory-management-in-aws-glue/).

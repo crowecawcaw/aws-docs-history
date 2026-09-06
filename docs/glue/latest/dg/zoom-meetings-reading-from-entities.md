@@ -1,4 +1,7 @@
+
+
 # Reading from Zoom Meetings entities
+<a name="zoom-meetings-reading-from-entities"></a>
 
 **Prerequisite**
 
@@ -6,15 +9,16 @@ A Zoom Meetings object you would like to read from. You will need the object nam
 
 **Supported entities for source**:
 
-| Entity         | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning |
-| -------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Zoom Rooms     | No              | Yes            | No                | Yes                | No                    |
-| Group          | No              | No             | No                | Yes                | No                    |
-| Group Member   | Yes             | Yes            | No                | Yes                | No                    |
-| Group Admin    | No              | Yes            | No                | Yes                | No                    |
-| Report (daily) | Yes             | No             | No                | Yes                | No                    |
-| Roles          | No              | No             | No                | Yes                | No                    |
-| Users          | Yes             | Yes            | No                | Yes                | No                    |
+
+| Entity | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| Zoom Rooms | No | Yes | No | Yes | No | 
+| Group | No | No | No | Yes | No | 
+| Group Member | Yes | Yes | No | Yes | No | 
+| Group Admin | No | Yes | No | Yes | No | 
+| Report (daily) | Yes | No | No | Yes | No | 
+| Roles | No | No | No | Yes | No | 
+| Users | Yes | Yes | No | Yes | No | 
 
 **Example**:
 
@@ -33,69 +37,85 @@ zoom_read = glueContext.create_dynamic_frame.from_options(
 
 Zoom Meetings dynamically loads the available fields under the selected entity. Depending on the data type of the field, it supports the following filter operators.
 
-| Entity                | Field       | Data type | Supported operators |
-| --------------------- | ----------- | --------- | ------------------- |
-| Zoom Room             | status      | String    | =                   |
-| type                  | String      | =         |
-| unassigned\_rooms     | Boolean     | =         |
-| location\_id          | String      | =         |
-| room\_id              | String      | N/A       |
-| activation\_code      | String      | N/A       |
-| id                    | String      | N/A       |
-| name                  | String      | N/A       |
-| tag\_ids              | String      | N/A       |
-| query\_name           | String      | N/A       |
-| Daily Report          | month       | Date      | =                   |
-| date                  | Date        | N/A       |
-| meeting\_minutes      | Integer     | N/A       |
-| meetings              | Integer     | N/A       |
-| new\_users            | Integer     | N/A       |
-| participants          | Integer     | N/A       |
-| group\_id             | String      | N/A       |
-| User                  | created\_at | DateTime  | N/A                 |
-| dept                  | String      | N/A       |
-| email                 | String      | N/A       |
-| employee\_unique\_id  | String      | N/A       |
-| first\_name           | String      | N/A       |
-| group\_ids            | List        | N/A       |
-| host\_key             | String      | N/A       |
-| id                    | String      | N/A       |
-| im\_group\_ids        | String      | N/A       |
-| last\_client\_version | String      | N/A       |
-| last\_login\_time     | DateTime    | N/A       |
-| last\_name            | String      | N/A       |
-| plan\_united\_type    | String      | N/A       |
-| custom\_attributes    | List        | N/A       |
-| pmi                   | BigInteger  | N/A       |
-| role\_id              | String      | =         |
-| status                | String      | =         |
-| timezone              | String      | N/A       |
-| type                  | Integer     | N/A       |
-| verified              | Integer     | N/A       |
-| user\_created\_at     | DateTime    | N/A       |
-| display\_name         | String      | N/A       |
-| phone\_number         | String      | N/A       |
-| language              | String      | N/A       |
-| license               | String      | =         |
-| Group                 | id          | String    | N/A                 |
-| name                  | String      | N/A       |
-| total\_members        | Integer     | N/A       |
-| Group Member          | email       | String    | N/A                 |
-| first\_name           | String      | N/A       |
-| id                    | String      | N/A       |
-| last\_name            | String      | N/A       |
-| type                  | Integer     | N/A       |
-| primary\_group        | Boolean     | N/A       |
-| member\_id            | String      | N/A       |
-| Group Admin           | id          | String    | N/A                 |
-| email                 | String      | N/A       |
-| name                  | String      | N/A       |
-| role                  | description | String    | N/A                 |
-| id                    | String      | N/A       |
-| name                  | String      | N/A       |
-| total\_members        | Integer     | N/A       |
-| type                  | String      | =         |
+
+
+- **Zoom Room**
+  - **Field:** status / **Data type:** String / **Supported operators:** =
+  - **Field:** type / **Data type:** String / **Supported operators:** =
+  - **Field:** unassigned\_rooms / **Data type:** Boolean / **Supported operators:** =
+  - **Field:** location\_id / **Data type:** String / **Supported operators:** =
+  - **Field:** room\_id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** activation\_code / **Data type:** String / **Supported operators:** N/A
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** tag\_ids / **Data type:** String / **Supported operators:** N/A
+  - **Field:** query\_name / **Data type:** String / **Supported operators:** N/A
+
+- **Daily Report**
+  - **Field:** month / **Data type:** Date / **Supported operators:** =
+  - **Field:** date / **Data type:** Date / **Supported operators:** N/A
+  - **Field:** meeting\_minutes / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** meetings / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** new\_users / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** participants / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** group\_id / **Data type:** String / **Supported operators:** N/A
+
+- **User**
+  - **Field:** created\_at / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** dept / **Data type:** String / **Supported operators:** N/A
+  - **Field:** email / **Data type:** String / **Supported operators:** N/A
+  - **Field:** employee\_unique\_id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** first\_name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** group\_ids / **Data type:** List / **Supported operators:** N/A
+  - **Field:** host\_key / **Data type:** String / **Supported operators:** N/A
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** im\_group\_ids / **Data type:** String / **Supported operators:** N/A
+  - **Field:** last\_client\_version / **Data type:** String / **Supported operators:** N/A
+  - **Field:** last\_login\_time / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** last\_name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** plan\_united\_type / **Data type:** String / **Supported operators:** N/A
+  - **Field:** custom\_attributes / **Data type:** List / **Supported operators:** N/A
+  - **Field:** pmi / **Data type:** BigInteger / **Supported operators:** N/A
+  - **Field:** role\_id / **Data type:** String / **Supported operators:** =
+  - **Field:** status / **Data type:** String / **Supported operators:** =
+  - **Field:** timezone / **Data type:** String / **Supported operators:** N/A
+  - **Field:** type / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** verified / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** user\_created\_at / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** display\_name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** phone\_number / **Data type:** String / **Supported operators:** N/A
+  - **Field:** language / **Data type:** String / **Supported operators:** N/A
+  - **Field:** license / **Data type:** String / **Supported operators:** =
+
+- **Group**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** total\_members / **Data type:** Integer / **Supported operators:** N/A
+
+- **Group Member**
+  - **Field:** email / **Data type:** String / **Supported operators:** N/A
+  - **Field:** first\_name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** last\_name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** type / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** primary\_group / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** member\_id / **Data type:** String / **Supported operators:** N/A
+
+- **Group Admin**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** email / **Data type:** String / **Supported operators:** N/A
+  - **Field:** name / **Data type:** String / **Supported operators:** N/A
+
+- **role**
+  - **Field:** description / **Data type:** String / **Supported operators:** N/A
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** total\_members / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** type / **Data type:** String / **Supported operators:** =
+
+
 
 ## Partitioning queries
+<a name="zoom-meetings-reading-partitioning-queries"></a>
 
 Zoom Meetings doesn't support filter-based partitioning or record-based partitioning.

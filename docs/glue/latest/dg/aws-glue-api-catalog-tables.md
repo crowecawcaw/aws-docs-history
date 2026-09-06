@@ -1,2267 +1,1693 @@
+
+
 # Table API
+<a name="aws-glue-api-catalog-tables"></a>
 
 The Table API describes data types and operations associated with tables.
 
 ## Data types
-
-- [Table structure](#aws-glue-api-catalog-tables-Table "#aws-glue-api-catalog-tables-Table")
-- [TableInput structure](#aws-glue-api-catalog-tables-TableInput "#aws-glue-api-catalog-tables-TableInput")
-- [FederatedTable structure](#aws-glue-api-catalog-tables-FederatedTable "#aws-glue-api-catalog-tables-FederatedTable")
-- [Column structure](#aws-glue-api-catalog-tables-Column "#aws-glue-api-catalog-tables-Column")
-- [StorageDescriptor structure](#aws-glue-api-catalog-tables-StorageDescriptor "#aws-glue-api-catalog-tables-StorageDescriptor")
-- [SchemaReference structure](#aws-glue-api-catalog-tables-SchemaReference "#aws-glue-api-catalog-tables-SchemaReference")
-- [SerDeInfo structure](#aws-glue-api-catalog-tables-SerDeInfo "#aws-glue-api-catalog-tables-SerDeInfo")
-- [Order structure](#aws-glue-api-catalog-tables-Order "#aws-glue-api-catalog-tables-Order")
-- [SkewedInfo structure](#aws-glue-api-catalog-tables-SkewedInfo "#aws-glue-api-catalog-tables-SkewedInfo")
-- [TableVersion structure](#aws-glue-api-catalog-tables-TableVersion "#aws-glue-api-catalog-tables-TableVersion")
-- [TableError structure](#aws-glue-api-catalog-tables-TableError "#aws-glue-api-catalog-tables-TableError")
-- [TableVersionError structure](#aws-glue-api-catalog-tables-TableVersionError "#aws-glue-api-catalog-tables-TableVersionError")
-- [SortCriterion structure](#aws-glue-api-catalog-tables-SortCriterion "#aws-glue-api-catalog-tables-SortCriterion")
-- [TableIdentifier structure](#aws-glue-api-catalog-tables-TableIdentifier "#aws-glue-api-catalog-tables-TableIdentifier")
-- [KeySchemaElement structure](#aws-glue-api-catalog-tables-KeySchemaElement "#aws-glue-api-catalog-tables-KeySchemaElement")
-- [PartitionIndex structure](#aws-glue-api-catalog-tables-PartitionIndex "#aws-glue-api-catalog-tables-PartitionIndex")
-- [PartitionIndexDescriptor structure](#aws-glue-api-catalog-tables-PartitionIndexDescriptor "#aws-glue-api-catalog-tables-PartitionIndexDescriptor")
-- [BackfillError structure](#aws-glue-api-catalog-tables-BackfillError "#aws-glue-api-catalog-tables-BackfillError")
-- [IcebergInput structure](#aws-glue-api-catalog-tables-IcebergInput "#aws-glue-api-catalog-tables-IcebergInput")
-- [OpenTableFormatInput structure](#aws-glue-api-catalog-tables-OpenTableFormatInput "#aws-glue-api-catalog-tables-OpenTableFormatInput")
-- [ViewDefinition structure](#aws-glue-api-catalog-tables-ViewDefinition "#aws-glue-api-catalog-tables-ViewDefinition")
-- [ViewDefinitionInput structure](#aws-glue-api-catalog-tables-ViewDefinitionInput "#aws-glue-api-catalog-tables-ViewDefinitionInput")
-- [ViewRepresentation structure](#aws-glue-api-catalog-tables-ViewRepresentation "#aws-glue-api-catalog-tables-ViewRepresentation")
-- [ViewRepresentationInput structure](#aws-glue-api-catalog-tables-ViewRepresentationInput "#aws-glue-api-catalog-tables-ViewRepresentationInput")
-- [UpdateOpenTableFormatInput structure](#aws-glue-api-catalog-tables-UpdateOpenTableFormatInput "#aws-glue-api-catalog-tables-UpdateOpenTableFormatInput")
-- [UpdateIcebergInput structure](#aws-glue-api-catalog-tables-UpdateIcebergInput "#aws-glue-api-catalog-tables-UpdateIcebergInput")
-- [CreateIcebergTableInput structure](#aws-glue-api-catalog-tables-CreateIcebergTableInput "#aws-glue-api-catalog-tables-CreateIcebergTableInput")
-- [UpdateIcebergTableInput structure](#aws-glue-api-catalog-tables-UpdateIcebergTableInput "#aws-glue-api-catalog-tables-UpdateIcebergTableInput")
-- [IcebergSortOrder structure](#aws-glue-api-catalog-tables-IcebergSortOrder "#aws-glue-api-catalog-tables-IcebergSortOrder")
-- [IcebergSortField structure](#aws-glue-api-catalog-tables-IcebergSortField "#aws-glue-api-catalog-tables-IcebergSortField")
-- [IcebergPartitionSpec structure](#aws-glue-api-catalog-tables-IcebergPartitionSpec "#aws-glue-api-catalog-tables-IcebergPartitionSpec")
-- [IcebergPartitionField structure](#aws-glue-api-catalog-tables-IcebergPartitionField "#aws-glue-api-catalog-tables-IcebergPartitionField")
-- [IcebergSchema structure](#aws-glue-api-catalog-tables-IcebergSchema "#aws-glue-api-catalog-tables-IcebergSchema")
-- [IcebergStructField structure](#aws-glue-api-catalog-tables-IcebergStructField "#aws-glue-api-catalog-tables-IcebergStructField")
-- [IcebergTableUpdate structure](#aws-glue-api-catalog-tables-IcebergTableUpdate "#aws-glue-api-catalog-tables-IcebergTableUpdate")
-- [IcebergTableMetadata structure](#aws-glue-api-catalog-tables-IcebergTableMetadata "#aws-glue-api-catalog-tables-IcebergTableMetadata")
-- [IcebergEncryptedKey structure](#aws-glue-api-catalog-tables-IcebergEncryptedKey "#aws-glue-api-catalog-tables-IcebergEncryptedKey")
-- [TableStatus structure](#aws-glue-api-catalog-tables-TableStatus "#aws-glue-api-catalog-tables-TableStatus")
-- [StatusDetails structure](#aws-glue-api-catalog-tables-StatusDetails "#aws-glue-api-catalog-tables-StatusDetails")
-- [ViewValidation structure](#aws-glue-api-catalog-tables-ViewValidation "#aws-glue-api-catalog-tables-ViewValidation")
-- [AuditContext structure](#aws-glue-api-catalog-tables-AuditContext "#aws-glue-api-catalog-tables-AuditContext")
+<a name="aws-glue-api-catalog-tables-objects"></a>
++ [Table structure](#aws-glue-api-catalog-tables-Table)
++ [TableInput structure](#aws-glue-api-catalog-tables-TableInput)
++ [FederatedTable structure](#aws-glue-api-catalog-tables-FederatedTable)
++ [Column structure](#aws-glue-api-catalog-tables-Column)
++ [StorageDescriptor structure](#aws-glue-api-catalog-tables-StorageDescriptor)
++ [SchemaReference structure](#aws-glue-api-catalog-tables-SchemaReference)
++ [SerDeInfo structure](#aws-glue-api-catalog-tables-SerDeInfo)
++ [Order structure](#aws-glue-api-catalog-tables-Order)
++ [SkewedInfo structure](#aws-glue-api-catalog-tables-SkewedInfo)
++ [TableVersion structure](#aws-glue-api-catalog-tables-TableVersion)
++ [TableError structure](#aws-glue-api-catalog-tables-TableError)
++ [TableVersionError structure](#aws-glue-api-catalog-tables-TableVersionError)
++ [SortCriterion structure](#aws-glue-api-catalog-tables-SortCriterion)
++ [TableIdentifier structure](#aws-glue-api-catalog-tables-TableIdentifier)
++ [KeySchemaElement structure](#aws-glue-api-catalog-tables-KeySchemaElement)
++ [PartitionIndex structure](#aws-glue-api-catalog-tables-PartitionIndex)
++ [PartitionIndexDescriptor structure](#aws-glue-api-catalog-tables-PartitionIndexDescriptor)
++ [BackfillError structure](#aws-glue-api-catalog-tables-BackfillError)
++ [IcebergInput structure](#aws-glue-api-catalog-tables-IcebergInput)
++ [OpenTableFormatInput structure](#aws-glue-api-catalog-tables-OpenTableFormatInput)
++ [ViewDefinition structure](#aws-glue-api-catalog-tables-ViewDefinition)
++ [ViewDefinitionInput structure](#aws-glue-api-catalog-tables-ViewDefinitionInput)
++ [ViewRepresentation structure](#aws-glue-api-catalog-tables-ViewRepresentation)
++ [ViewRepresentationInput structure](#aws-glue-api-catalog-tables-ViewRepresentationInput)
++ [UpdateOpenTableFormatInput structure](#aws-glue-api-catalog-tables-UpdateOpenTableFormatInput)
++ [UpdateIcebergInput structure](#aws-glue-api-catalog-tables-UpdateIcebergInput)
++ [CreateIcebergTableInput structure](#aws-glue-api-catalog-tables-CreateIcebergTableInput)
++ [UpdateIcebergTableInput structure](#aws-glue-api-catalog-tables-UpdateIcebergTableInput)
++ [IcebergSortOrder structure](#aws-glue-api-catalog-tables-IcebergSortOrder)
++ [IcebergSortField structure](#aws-glue-api-catalog-tables-IcebergSortField)
++ [IcebergPartitionSpec structure](#aws-glue-api-catalog-tables-IcebergPartitionSpec)
++ [IcebergPartitionField structure](#aws-glue-api-catalog-tables-IcebergPartitionField)
++ [IcebergSchema structure](#aws-glue-api-catalog-tables-IcebergSchema)
++ [IcebergStructField structure](#aws-glue-api-catalog-tables-IcebergStructField)
++ [IcebergTableUpdate structure](#aws-glue-api-catalog-tables-IcebergTableUpdate)
++ [IcebergTableMetadata structure](#aws-glue-api-catalog-tables-IcebergTableMetadata)
++ [IcebergEncryptedKey structure](#aws-glue-api-catalog-tables-IcebergEncryptedKey)
++ [TableStatus structure](#aws-glue-api-catalog-tables-TableStatus)
++ [StatusDetails structure](#aws-glue-api-catalog-tables-StatusDetails)
++ [ViewValidation structure](#aws-glue-api-catalog-tables-ViewValidation)
++ [AuditContext structure](#aws-glue-api-catalog-tables-AuditContext)
 
 ## Table structure
+<a name="aws-glue-api-catalog-tables-Table"></a>
 
 Represents a collection of related data organized in columns and rows.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The table name. For Hive compatibility, this must be entirely lowercase.
++ `DatabaseName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The table name. For Hive compatibility, this must be entirely lowercase.
+  The name of the database where the table metadata resides. For Hive compatibility, this must be all lowercase.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `DatabaseName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A description of the table.
++ `Owner` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the database where the table metadata resides. For Hive compatibility,
-this must be all lowercase.
+  The owner of the table.
++ `CreateTime` – Timestamp.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  The time when the table definition was created in the Data Catalog.
++ `UpdateTime` – Timestamp.
 
-A description of the table.
+  The last time that the table was updated.
++ `LastAccessTime` – Timestamp.
 
-- `Owner` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The last time that the table was accessed. This is usually taken from HDFS, and might not be reliable.
++ `LastAnalyzedTime` – Timestamp.
 
-The owner of the table.
+  The last time that column statistics were computed for this table.
++ `Retention` – Number (integer).
 
-- `CreateTime` – Timestamp.
+  The retention time for this table.
++ `StorageDescriptor` – A [StorageDescriptor](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-StorageDescriptor) object.
 
-The time when the table definition was created in the Data Catalog.
+  A storage descriptor containing information about the physical storage of this table.
++ `PartitionKeys` – An array of [Column](#aws-glue-api-catalog-tables-Column) objects.
 
-- `UpdateTime` – Timestamp.
+  A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
 
-The last time that the table was updated.
+  When you create a table used by Amazon Athena, and you do not specify any `partitionKeys`, you must at least set the value of `partitionKeys` to an empty list. For example:
 
-- `LastAccessTime` – Timestamp.
+  `"PartitionKeys": []`
++ `ViewOriginalText` – UTF-8 string, not more than 409600 bytes long.
 
-The last time that the table was accessed. This is usually taken from HDFS,
-and might not be reliable.
+  Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations. If the table is a `VIRTUAL_VIEW`, certain Athena configuration encoded in base64.
++ `ViewExpandedText` – UTF-8 string, not more than 409600 bytes long.
 
-- `LastAnalyzedTime` – Timestamp.
+  Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
++ `TableType` – UTF-8 string, not more than 255 bytes long.
 
-The last time that column statistics were computed for this table.
+  The type of this table. AWS Glue will create tables with the `EXTERNAL_TABLE` type. Other services, such as Athena, may create tables with additional table types. 
 
-- `Retention` – Number (integer).
+  AWS Glue related table types:  
+EXTERNAL\_TABLE  
+Hive compatible attribute - indicates a non-Hive managed table.  
+GOVERNED  
+Used by AWS Lake Formation. The AWS Glue Data Catalog understands `GOVERNED`.
++ `Parameters` – A map array of key-value pairs.
 
-The retention time for this table.
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `StorageDescriptor` – A [StorageDescriptor](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-StorageDescriptor "aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-StorageDescriptor") object.
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-A storage descriptor containing information about the physical storage
-of this table.
+  These key-value pairs define properties associated with the table.
++ `CreatedBy` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `PartitionKeys` – An array of [Column](#aws-glue-api-catalog-tables-Column "#aws-glue-api-catalog-tables-Column") objects.
+  The person or entity who created the table.
++ `IsRegisteredWithLakeFormation` – Boolean.
 
-A list of columns by which the table is partitioned. Only primitive types
-are supported as partition keys.
+  Indicates whether the table has been registered with AWS Lake Formation.
++ `TargetTable` – A [TableIdentifier](#aws-glue-api-catalog-tables-TableIdentifier) object.
 
-When you create a table used by Amazon Athena, and you do not specify any
-`partitionKeys`, you must at least set the value of `partitionKeys`
-to an empty list. For example:
+  A `TableIdentifier` structure that describes a target table for resource linking.
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-`"PartitionKeys": []`
+  The ID of the Data Catalog in which the table resides.
++ `VersionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ViewOriginalText` – UTF-8 string, not more than 409600 bytes long.
+  The ID of the table version.
++ `FederatedTable` – A [FederatedTable](#aws-glue-api-catalog-tables-FederatedTable) object.
 
-Included for Apache Hive compatibility. Not used in the normal course
-of AWS Glue operations. If the table is a `VIRTUAL_VIEW`,
-certain Athena configuration encoded in base64.
+  A `FederatedTable` structure that references an entity outside the AWS Glue Data Catalog.
++ `ViewDefinition` – A [ViewDefinition](#aws-glue-api-catalog-tables-ViewDefinition) object.
 
-- `ViewExpandedText` – UTF-8 string, not more than 409600 bytes long.
+  A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query.
++ `IsMultiDialectView` – Boolean.
 
-Included for Apache Hive compatibility. Not used in the normal course
-of AWS Glue operations.
+  Specifies whether the view supports the SQL dialects of one or more different query engines and can therefore be read by those engines.
++ `IsMaterializedView` – Boolean.
 
-- `TableType` – UTF-8 string, not more than 255 bytes long.
+  Indicates a table is a `MaterializedView`.
++ `IcebergTableMetadata` – An [IcebergTableMetadata](#aws-glue-api-catalog-tables-IcebergTableMetadata) object.
 
-The type of this table. AWS Glue will create tables with
-the `EXTERNAL_TABLE` type. Other services, such as Athena, may create tables with additional table types.
+  The latest Apache Iceberg table metadata for the table, including format version, schemas, partition specifications, and sort orders. This field is populated for Iceberg tables and reflects the current state of the table's Iceberg metadata.
++ `Status` – A [TableStatus](#aws-glue-api-catalog-tables-TableStatus) object.
 
-AWS Glue related table types:
-
-EXTERNAL\_TABLE
-
-Hive compatible attribute - indicates a non-Hive managed table.
-
-GOVERNED
-
-Used by AWS Lake Formation. The AWS Glue Data Catalog
-understands `GOVERNED`.
-
-- `Parameters` – A map array of key-value pairs.
-
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a UTF-8 string, not more than 512000 bytes long.
-
-These key-value pairs define properties associated with the table.
-
-- `CreatedBy` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The person or entity who created the table.
-
-- `IsRegisteredWithLakeFormation` – Boolean.
-
-Indicates whether the table has been registered with AWS Lake Formation.
-
-- `TargetTable` – A [TableIdentifier](#aws-glue-api-catalog-tables-TableIdentifier "#aws-glue-api-catalog-tables-TableIdentifier") object.
-
-A `TableIdentifier` structure that describes a target table
-for resource linking.
-
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The ID of the Data Catalog in which the table resides.
-
-- `VersionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The ID of the table version.
-
-- `FederatedTable` – A [FederatedTable](#aws-glue-api-catalog-tables-FederatedTable "#aws-glue-api-catalog-tables-FederatedTable") object.
-
-A `FederatedTable` structure that references an entity
-outside the AWS Glue Data Catalog.
-
-- `ViewDefinition` – A [ViewDefinition](#aws-glue-api-catalog-tables-ViewDefinition "#aws-glue-api-catalog-tables-ViewDefinition") object.
-
-A structure that contains all the information that defines the view, including
-the dialect or dialects for the view, and the query.
-
-- `IsMultiDialectView` – Boolean.
-
-Specifies whether the view supports the SQL dialects of one or more different
-query engines and can therefore be read by those engines.
-
-- `IsMaterializedView` – Boolean.
-
-Indicates a table is a `MaterializedView`.
-
-- `IcebergTableMetadata` – An [IcebergTableMetadata](#aws-glue-api-catalog-tables-IcebergTableMetadata "#aws-glue-api-catalog-tables-IcebergTableMetadata") object.
-
-The latest Apache Iceberg table metadata for the table, including format
-version, schemas, partition specifications, and sort orders. This field is
-populated for Iceberg tables and reflects the current state of the table's Iceberg
-metadata.
-
-- `Status` – A [TableStatus](#aws-glue-api-catalog-tables-TableStatus "#aws-glue-api-catalog-tables-TableStatus") object.
-
-Indicates the the state of an asynchronous change to a table.
+  Indicates the the state of an asynchronous change to a table.
 
 ## TableInput structure
+<a name="aws-glue-api-catalog-tables-TableInput"></a>
 
 A structure used to define a table.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The table name. For Hive compatibility, this is folded to lowercase when it is stored.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The table name. For Hive compatibility, this is folded to lowercase when
-it is stored.
+  A description of the table.
++ `Owner` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  The table owner. Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
++ `LastAccessTime` – Timestamp.
 
-A description of the table.
+  The last time that the table was accessed.
++ `LastAnalyzedTime` – Timestamp.
 
-- `Owner` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The last time that column statistics were computed for this table.
++ `Retention` – Number (integer).
 
-The table owner. Included for Apache Hive compatibility. Not used in the
-normal course of AWS Glue operations.
+  The retention time for this table.
++ `StorageDescriptor` – A [StorageDescriptor](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-StorageDescriptor) object.
 
-- `LastAccessTime` – Timestamp.
+  A storage descriptor containing information about the physical storage of this table.
++ `PartitionKeys` – An array of [Column](#aws-glue-api-catalog-tables-Column) objects.
 
-The last time that the table was accessed.
+  A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
 
-- `LastAnalyzedTime` – Timestamp.
+  When you create a table used by Amazon Athena, and you do not specify any `partitionKeys`, you must at least set the value of `partitionKeys` to an empty list. For example:
 
-The last time that column statistics were computed for this table.
+  `"PartitionKeys": []`
++ `ViewOriginalText` – UTF-8 string, not more than 409600 bytes long.
 
-- `Retention` – Number (integer).
+  Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations. If the table is a `VIRTUAL_VIEW`, certain Athena configuration encoded in base64.
++ `ViewExpandedText` – UTF-8 string, not more than 409600 bytes long.
 
-The retention time for this table.
+  Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
++ `TableType` – UTF-8 string, not more than 255 bytes long.
 
-- `StorageDescriptor` – A [StorageDescriptor](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-StorageDescriptor "aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-StorageDescriptor") object.
+  The type of this table. AWS Glue will create tables with the `EXTERNAL_TABLE` type. Other services, such as Athena, may create tables with additional table types. 
 
-A storage descriptor containing information about the physical storage
-of this table.
+  AWS Glue related table types:  
+EXTERNAL\_TABLE  
+Hive compatible attribute - indicates a non-Hive managed table.  
+GOVERNED  
+Used by AWS Lake Formation. The AWS Glue Data Catalog understands `GOVERNED`.
++ `Parameters` – A map array of key-value pairs.
 
-- `PartitionKeys` – An array of [Column](#aws-glue-api-catalog-tables-Column "#aws-glue-api-catalog-tables-Column") objects.
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A list of columns by which the table is partitioned. Only primitive types
-are supported as partition keys.
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-When you create a table used by Amazon Athena, and you do not specify any
-`partitionKeys`, you must at least set the value of `partitionKeys`
-to an empty list. For example:
+  These key-value pairs define properties associated with the table.
++ `TargetTable` – A [TableIdentifier](#aws-glue-api-catalog-tables-TableIdentifier) object.
 
-`"PartitionKeys": []`
+  A `TableIdentifier` structure that describes a target table for resource linking.
++ `ViewDefinition` – A [ViewDefinitionInput](#aws-glue-api-catalog-tables-ViewDefinitionInput) object.
 
-- `ViewOriginalText` – UTF-8 string, not more than 409600 bytes long.
-
-Included for Apache Hive compatibility. Not used in the normal course
-of AWS Glue operations. If the table is a `VIRTUAL_VIEW`,
-certain Athena configuration encoded in base64.
-
-- `ViewExpandedText` – UTF-8 string, not more than 409600 bytes long.
-
-Included for Apache Hive compatibility. Not used in the normal course
-of AWS Glue operations.
-
-- `TableType` – UTF-8 string, not more than 255 bytes long.
-
-The type of this table. AWS Glue will create tables with
-the `EXTERNAL_TABLE` type. Other services, such as Athena, may create tables with additional table types.
-
-AWS Glue related table types:
-
-EXTERNAL\_TABLE
-
-Hive compatible attribute - indicates a non-Hive managed table.
-
-GOVERNED
-
-Used by AWS Lake Formation. The AWS Glue Data Catalog
-understands `GOVERNED`.
-
-- `Parameters` – A map array of key-value pairs.
-
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a UTF-8 string, not more than 512000 bytes long.
-
-These key-value pairs define properties associated with the table.
-
-- `TargetTable` – A [TableIdentifier](#aws-glue-api-catalog-tables-TableIdentifier "#aws-glue-api-catalog-tables-TableIdentifier") object.
-
-A `TableIdentifier` structure that describes a target table
-for resource linking.
-
-- `ViewDefinition` – A [ViewDefinitionInput](#aws-glue-api-catalog-tables-ViewDefinitionInput "#aws-glue-api-catalog-tables-ViewDefinitionInput") object.
-
-A structure that contains all the information that defines the view, including
-the dialect or dialects for the view, and the query.
+  A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query.
 
 ## FederatedTable structure
+<a name="aws-glue-api-catalog-tables-FederatedTable"></a>
 
 A table that points to an entity outside the AWS Glue Data Catalog.
 
-###### Fields
+**Fields**
++ `Identifier` – UTF-8 string, not less than 1 or more than 512 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Identifier` – UTF-8 string, not less than 1 or more than 512 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A unique identifier for the federated table.
++ `DatabaseIdentifier` – UTF-8 string, not less than 1 or more than 512 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A unique identifier for the federated table.
+  A unique identifier for the federated database.
++ `ConnectionName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseIdentifier` – UTF-8 string, not less than 1 or more than 512 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the connection to the external metastore.
++ `ConnectionType` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A unique identifier for the federated database.
-
-- `ConnectionName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the connection to the external metastore.
-
-- `ConnectionType` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The type of connection used to access the federated table, specifying
-the protocol or method for connecting to the external data source.
+  The type of connection used to access the federated table, specifying the protocol or method for connecting to the external data source.
 
 ## Column structure
+<a name="aws-glue-api-catalog-tables-Column"></a>
 
 A column in a `Table`.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the `Column`.
++ `Type` – UTF-8 string, not more than 131072 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the `Column`.
+  The data type of the `Column`.
++ `Comment` – Comment string, not more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Type` – UTF-8 string, not more than 131072 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A free-form text comment.
++ `Parameters` – A map array of key-value pairs.
 
-The data type of the `Column`.
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Comment` – Comment string, not more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-A free-form text comment.
-
-- `Parameters` – A map array of key-value pairs.
-
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a UTF-8 string, not more than 512000 bytes long.
-
-These key-value pairs define properties associated with the column.
+  These key-value pairs define properties associated with the column.
 
 ## StorageDescriptor structure
+<a name="aws-glue-api-catalog-tables-StorageDescriptor"></a>
 
 Describes the physical storage of table data.
 
-###### Fields
+**Fields**
++ `Columns` – An array of [Column](#aws-glue-api-catalog-tables-Column) objects.
 
-- `Columns` – An array of [Column](#aws-glue-api-catalog-tables-Column "#aws-glue-api-catalog-tables-Column") objects.
+  A list of the `Columns` in the table.
++ `Location` – Location string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-A list of the `Columns` in the table.
+  The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
++ `AdditionalLocations` – An array of UTF-8 strings.
 
-- `Location` – Location string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  A list of locations that point to the path where a Delta table is located.
++ `InputFormat` – Format string, not more than 128 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The physical location of the table. By default, this takes the form of the
-warehouse location, followed by the database location in the warehouse, followed
-by the table name.
+  The input format: `SequenceFileInputFormat` (binary), or `TextInputFormat`, or a custom format.
++ `OutputFormat` – Format string, not more than 128 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `AdditionalLocations` – An array of UTF-8 strings.
+  The output format: `SequenceFileOutputFormat` (binary), or `IgnoreKeyTextOutputFormat`, or a custom format.
++ `Compressed` – Boolean.
 
-A list of locations that point to the path where a Delta table is located.
+  `True` if the data in the table is compressed, or `False` if not.
++ `NumberOfBuckets` – Number (integer).
 
-- `InputFormat` – Format string, not more than 128 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Must be specified if the table contains any dimension columns.
++ `SerdeInfo` – A [SerDeInfo](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-SerDeInfo) object.
 
-The input format: `SequenceFileInputFormat` (binary),
-or `TextInputFormat`, or a custom format.
+  The serialization/deserialization (SerDe) information.
++ `BucketColumns` – An array of UTF-8 strings.
 
-- `OutputFormat` – Format string, not more than 128 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
++ `SortColumns` – An array of [Order](#aws-glue-api-catalog-tables-Order) objects.
 
-The output format: `SequenceFileOutputFormat` (binary),
-or `IgnoreKeyTextOutputFormat`, or a custom format.
+  A list specifying the sort order of each bucket in the table.
++ `Parameters` – A map array of key-value pairs.
 
-- `Compressed` – Boolean.
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-`True` if the data in the table is compressed, or `False`
-if not.
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-- `NumberOfBuckets` – Number (integer).
+  The user-supplied properties in key-value form.
++ `SkewedInfo` – A [SkewedInfo](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-SkewedInfo) object.
 
-Must be specified if the table contains any dimension columns.
+  The information about values that appear frequently in a column (skewed values).
++ `StoredAsSubDirectories` – Boolean.
 
-- `SerdeInfo` – A [SerDeInfo](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-SerDeInfo "aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-SerDeInfo") object.
+  `True` if the table data is stored in subdirectories, or `False` if not.
++ `SchemaReference` – A [SchemaReference](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-SchemaReference) object.
 
-The serialization/deserialization (SerDe) information.
+  An object that references a schema stored in the AWS Glue Schema Registry.
 
-- `BucketColumns` – An array of UTF-8 strings.
-
-A list of reducer grouping columns, clustering columns, and bucketing
-columns in the table.
-
-- `SortColumns` – An array of [Order](#aws-glue-api-catalog-tables-Order "#aws-glue-api-catalog-tables-Order") objects.
-
-A list specifying the sort order of each bucket in the table.
-
-- `Parameters` – A map array of key-value pairs.
-
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a UTF-8 string, not more than 512000 bytes long.
-
-The user-supplied properties in key-value form.
-
-- `SkewedInfo` – A [SkewedInfo](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-SkewedInfo "aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-SkewedInfo") object.
-
-The information about values that appear frequently in a column (skewed
-values).
-
-- `StoredAsSubDirectories` – Boolean.
-
-`True` if the table data is stored in subdirectories, or `False`
-if not.
-
-- `SchemaReference` – A [SchemaReference](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-SchemaReference "aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-SchemaReference") object.
-
-An object that references a schema stored in the AWS Glue Schema
-Registry.
-
-When creating a table, you can pass an empty list of columns for the schema,
-and instead use a schema reference.
+  When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference.
 
 ## SchemaReference structure
+<a name="aws-glue-api-catalog-tables-SchemaReference"></a>
 
-An object that references a schema stored in the AWS Glue Schema
-Registry.
+An object that references a schema stored in the AWS Glue Schema Registry.
 
-###### Fields
+**Fields**
++ `SchemaId` – A [SchemaId](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-SchemaId) object.
 
-- `SchemaId` – A [SchemaId](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-SchemaId "aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-SchemaId") object.
+  A structure that contains schema identity fields. Either this or the `SchemaVersionId` has to be provided.
++ `SchemaVersionId` – UTF-8 string, not less than 36 or more than 36 bytes long, matching the [Custom string pattern #42](aws-glue-api-common.md#regex_42).
 
-A structure that contains schema identity fields. Either this or the `SchemaVersionId`
-has to be provided.
+  The unique ID assigned to a version of the schema. Either this or the `SchemaId` has to be provided.
++ `SchemaVersionNumber` – Number (long), not less than 1 or more than 100000.
 
-- `SchemaVersionId` – UTF-8 string, not less than 36 or more than 36 bytes long, matching the [Custom string pattern #42](aws-glue-api-common.md#regex_42 "aws-glue-api-common.md#regex_42").
-
-The unique ID assigned to a version of the schema. Either this or the `SchemaId`
-has to be provided.
-
-- `SchemaVersionNumber` – Number (long), not less than 1 or more than 100000.
-
-The version number of the schema.
+  The version number of the schema.
 
 ## SerDeInfo structure
+<a name="aws-glue-api-catalog-tables-SerDeInfo"></a>
 
-Information about a serialization/deserialization program (SerDe)
-that serves as an extractor and loader.
+Information about a serialization/deserialization program (SerDe) that serves as an extractor and loader.
 
-###### Fields
+**Fields**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Name of the SerDe.
++ `SerializationLibrary` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Name of the SerDe.
+  Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
++ `Parameters` – A map array of key-value pairs.
 
-- `SerializationLibrary` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-- `Parameters` – A map array of key-value pairs.
-
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a UTF-8 string, not more than 512000 bytes long.
-
-These key-value pairs define initialization parameters for the SerDe.
+  These key-value pairs define initialization parameters for the SerDe.
 
 ## Order structure
+<a name="aws-glue-api-catalog-tables-Order"></a>
 
 Specifies the sort order of a sorted column.
 
-###### Fields
+**Fields**
++ `Column` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Column` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the column.
++ `SortOrder` – *Required:* Number (integer), not more than 1.
 
-The name of the column.
-
-- `SortOrder` – _Required:_ Number (integer), not more than 1.
-
-Indicates that the column is sorted in ascending order (`== 1`),
-or in descending order (`==0`).
+  Indicates that the column is sorted in ascending order (`== 1`), or in descending order (`==0`).
 
 ## SkewedInfo structure
+<a name="aws-glue-api-catalog-tables-SkewedInfo"></a>
 
-Specifies skewed values in a table. Skewed values are those that occur
-with very high frequency.
+Specifies skewed values in a table. Skewed values are those that occur with very high frequency.
 
-###### Fields
+**Fields**
++ `SkewedColumnNames` – An array of UTF-8 strings.
 
-- `SkewedColumnNames` – An array of UTF-8 strings.
+  A list of names of columns that contain skewed values.
++ `SkewedColumnValues` – An array of UTF-8 strings.
 
-A list of names of columns that contain skewed values.
+  A list of values that appear so frequently as to be considered skewed.
++ `SkewedColumnValueLocationMaps` – A map array of key-value pairs.
 
-- `SkewedColumnValues` – An array of UTF-8 strings.
+  Each key is a UTF-8 string.
 
-A list of values that appear so frequently as to be considered skewed.
+  Each value is a UTF-8 string.
 
-- `SkewedColumnValueLocationMaps` – A map array of key-value pairs.
-
-Each key is a UTF-8 string.
-
-Each value is a UTF-8 string.
-
-A mapping of skewed values to the columns that contain them.
+  A mapping of skewed values to the columns that contain them.
 
 ## TableVersion structure
+<a name="aws-glue-api-catalog-tables-TableVersion"></a>
 
 Specifies a version of a table.
 
-###### Fields
+**Fields**
++ `Table` – A [Table](#aws-glue-api-catalog-tables-Table) object.
 
-- `Table` – A [Table](#aws-glue-api-catalog-tables-Table "#aws-glue-api-catalog-tables-Table") object.
+  The table in question.
++ `VersionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The table in question.
-
-- `VersionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The ID value that identifies this table version. A `VersionId`
-is a string representation of an integer. Each version is incremented by 1.
+  The ID value that identifies this table version. A `VersionId` is a string representation of an integer. Each version is incremented by 1.
 
 ## TableError structure
+<a name="aws-glue-api-catalog-tables-TableError"></a>
 
 An error record for table operations.
 
-###### Fields
+**Fields**
++ `TableName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `TableName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the table. For Hive compatibility, this must be entirely lowercase.
++ `ErrorDetail` – An [ErrorDetail](aws-glue-api-common.md#aws-glue-api-common-ErrorDetail) object.
 
-The name of the table. For Hive compatibility, this must be entirely lowercase.
-
-- `ErrorDetail` – An [ErrorDetail](aws-glue-api-common.md#aws-glue-api-common-ErrorDetail "aws-glue-api-common.md#aws-glue-api-common-ErrorDetail") object.
-
-The details about the error.
+  The details about the error.
 
 ## TableVersionError structure
+<a name="aws-glue-api-catalog-tables-TableVersionError"></a>
 
 An error record for table-version operations.
 
-###### Fields
+**Fields**
++ `TableName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `TableName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the table in question.
++ `VersionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the table in question.
+  The ID value of the version in question. A `VersionID` is a string representation of an integer. Each version is incremented by 1.
++ `ErrorDetail` – An [ErrorDetail](aws-glue-api-common.md#aws-glue-api-common-ErrorDetail) object.
 
-- `VersionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The ID value of the version in question. A `VersionID` is a
-string representation of an integer. Each version is incremented by 1.
-
-- `ErrorDetail` – An [ErrorDetail](aws-glue-api-common.md#aws-glue-api-common-ErrorDetail "aws-glue-api-common.md#aws-glue-api-common-ErrorDetail") object.
-
-The details about the error.
+  The details about the error.
 
 ## SortCriterion structure
+<a name="aws-glue-api-catalog-tables-SortCriterion"></a>
 
 Specifies a field to sort by and a sort order.
 
-###### Fields
+**Fields**
++ `FieldName` – Value string, not less than 1 or more than 1024 bytes long.
 
-- `FieldName` – Value string, not less than 1 or more than 1024 bytes long.
+  The name of the field on which to sort.
++ `Sort` – UTF-8 string (valid values: `ASC="ASCENDING"` \| `DESC="DESCENDING"`).
 
-The name of the field on which to sort.
-
-- `Sort` – UTF-8 string (valid values: `ASC="ASCENDING"` | `DESC="DESCENDING"`).
-
-An ascending or descending sort.
+  An ascending or descending sort.
 
 ## TableIdentifier structure
+<a name="aws-glue-api-catalog-tables-TableIdentifier"></a>
 
 A structure that describes a target table for resource linking.
 
-###### Fields
+**Fields**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the Data Catalog in which the table resides.
++ `DatabaseName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The ID of the Data Catalog in which the table resides.
+  The name of the catalog database that contains the target table.
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the target table.
++ `Region` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the catalog database that contains the target table.
-
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the target table.
-
-- `Region` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Region of the target table.
+  Region of the target table.
 
 ## KeySchemaElement structure
+<a name="aws-glue-api-catalog-tables-KeySchemaElement"></a>
 
 A partition key pair consisting of a name and a type.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of a partition key.
++ `Type` – *Required:* UTF-8 string, not more than 131072 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of a partition key.
-
-- `Type` – _Required:_ UTF-8 string, not more than 131072 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The type of a partition key.
+  The type of a partition key.
 
 ## PartitionIndex structure
+<a name="aws-glue-api-catalog-tables-PartitionIndex"></a>
 
 A structure for a partition index.
 
-###### Fields
+**Fields**
++ `Keys` – *Required:* An array of UTF-8 strings, at least 1 string.
 
-- `Keys` – _Required:_ An array of UTF-8 strings, at least 1 string.
+  The keys for the partition index.
++ `IndexName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The keys for the partition index.
-
-- `IndexName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the partition index.
+  The name of the partition index.
 
 ## PartitionIndexDescriptor structure
+<a name="aws-glue-api-catalog-tables-PartitionIndexDescriptor"></a>
 
 A descriptor for a partition index in a table.
 
-###### Fields
+**Fields**
++ `IndexName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `IndexName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the partition index.
++ `Keys` – *Required:* An array of [KeySchemaElement](#aws-glue-api-catalog-tables-KeySchemaElement) objects, at least 1 structure.
 
-The name of the partition index.
+  A list of one or more keys, as `KeySchemaElement` structures, for the partition index.
++ `IndexStatus` – *Required:* UTF-8 string (valid values: `CREATING` \| `ACTIVE` \| `DELETING` \| `FAILED`).
 
-- `Keys` – _Required:_ An array of [KeySchemaElement](#aws-glue-api-catalog-tables-KeySchemaElement "#aws-glue-api-catalog-tables-KeySchemaElement") objects, at least 1 structure.
+  The status of the partition index. 
 
-A list of one or more keys, as `KeySchemaElement` structures,
-for the partition index.
+  The possible statuses are:
+  + CREATING: The index is being created. When an index is in a CREATING state, the index or its table cannot be deleted.
+  + ACTIVE: The index creation succeeds.
+  + FAILED: The index creation fails. 
+  + DELETING: The index is deleted from the list of indexes.
++ `BackfillErrors` – An array of [BackfillError](#aws-glue-api-catalog-tables-BackfillError) objects.
 
-- `IndexStatus` – _Required:_ UTF-8 string (valid values: `CREATING` | `ACTIVE` | `DELETING` | `FAILED`).
-
-The status of the partition index.
-
-The possible statuses are:
-
-    + CREATING: The index is being created. When an index is in a CREATING state,
-     the index or its table cannot be deleted.
-    + ACTIVE: The index creation succeeds.
-    + FAILED: The index creation fails.
-    + DELETING: The index is deleted from the list of indexes.
-
-- `BackfillErrors` – An array of [BackfillError](#aws-glue-api-catalog-tables-BackfillError "#aws-glue-api-catalog-tables-BackfillError") objects.
-
-A list of errors that can occur when registering partition indexes for
-an existing table.
+  A list of errors that can occur when registering partition indexes for an existing table.
 
 ## BackfillError structure
+<a name="aws-glue-api-catalog-tables-BackfillError"></a>
 
-A list of errors that can occur when registering partition indexes for
-an existing table.
+A list of errors that can occur when registering partition indexes for an existing table.
 
-These errors give the details about why an index registration failed and
-provide a limited number of partitions in the response, so that you can fix the
-partitions at fault and try registering the index again. The most common set of
-errors that can occur are categorized as follows:
+These errors give the details about why an index registration failed and provide a limited number of partitions in the response, so that you can fix the partitions at fault and try registering the index again. The most common set of errors that can occur are categorized as follows:
++ EncryptedPartitionError: The partitions are encrypted.
++ InvalidPartitionTypeDataError: The partition value doesn't match the data type for that partition column.
++ MissingPartitionValueError: The partitions are encrypted.
++ UnsupportedPartitionCharacterError: Characters inside the partition value are not supported. For example: U\+0000 , U\+0001, U\+0002.
++ InternalError: Any error which does not belong to other error codes.
 
-- EncryptedPartitionError: The partitions are encrypted.
-- InvalidPartitionTypeDataError: The partition value doesn't match
-  the data type for that partition column.
-- MissingPartitionValueError: The partitions are encrypted.
-- UnsupportedPartitionCharacterError: Characters inside the partition
-  value are not supported. For example: U+0000 , U+0001, U+0002.
-- InternalError: Any error which does not belong to other error codes.
+**Fields**
++ `Code` – UTF-8 string (valid values: `ENCRYPTED_PARTITION_ERROR` \| `INTERNAL_ERROR` \| `INVALID_PARTITION_TYPE_DATA_ERROR` \| `MISSING_PARTITION_VALUE_ERROR` \| `UNSUPPORTED_PARTITION_CHARACTER_ERROR`).
 
-###### Fields
+  The error code for an error that occurred when registering partition indexes for an existing table.
++ `Partitions` – An array of [PartitionValueList](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-PartitionValueList) objects.
 
-- `Code` – UTF-8 string (valid values: `ENCRYPTED_PARTITION_ERROR` | `INTERNAL_ERROR` | `INVALID_PARTITION_TYPE_DATA_ERROR` | `MISSING_PARTITION_VALUE_ERROR` | `UNSUPPORTED_PARTITION_CHARACTER_ERROR`).
-
-The error code for an error that occurred when registering partition indexes
-for an existing table.
-
-- `Partitions` – An array of [PartitionValueList](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-PartitionValueList "aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-PartitionValueList") objects.
-
-A list of a limited number of partitions in the response.
+  A list of a limited number of partitions in the response.
 
 ## IcebergInput structure
+<a name="aws-glue-api-catalog-tables-IcebergInput"></a>
 
-A structure that defines an Apache Iceberg metadata table to create in
-the catalog.
+A structure that defines an Apache Iceberg metadata table to create in the catalog.
 
-###### Fields
+**Fields**
++ `MetadataOperation` – *Required:* UTF-8 string (valid values: `CREATE`).
 
-- `MetadataOperation` – _Required:_ UTF-8 string (valid values: `CREATE`).
+  A required metadata operation. Can only be set to `CREATE`.
++ `Version` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A required metadata operation. Can only be set to `CREATE`.
+  The table version for the Iceberg table. Defaults to 2.
++ `CreateIcebergTableInput` – A [CreateIcebergTableInput](#aws-glue-api-catalog-tables-CreateIcebergTableInput) object.
 
-- `Version` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The table version for the Iceberg table. Defaults to 2.
-
-- `CreateIcebergTableInput` – A [CreateIcebergTableInput](#aws-glue-api-catalog-tables-CreateIcebergTableInput "#aws-glue-api-catalog-tables-CreateIcebergTableInput") object.
-
-The configuration parameters required to create a new Iceberg table in
-the AWS Glue Data Catalog, including table properties and metadata
-specifications.
+  The configuration parameters required to create a new Iceberg table in the AWS Glue Data Catalog, including table properties and metadata specifications.
 
 ## OpenTableFormatInput structure
+<a name="aws-glue-api-catalog-tables-OpenTableFormatInput"></a>
 
 A structure representing an open format table.
 
-###### Fields
+**Fields**
++ `IcebergInput` – An [IcebergInput](#aws-glue-api-catalog-tables-IcebergInput) object.
 
-- `IcebergInput` – An [IcebergInput](#aws-glue-api-catalog-tables-IcebergInput "#aws-glue-api-catalog-tables-IcebergInput") object.
-
-Specifies an `IcebergInput` structure that defines an Apache
-Iceberg metadata table.
+  Specifies an `IcebergInput` structure that defines an Apache Iceberg metadata table.
 
 ## ViewDefinition structure
+<a name="aws-glue-api-catalog-tables-ViewDefinition"></a>
 
 A structure containing details for representations.
 
-###### Fields
+**Fields**
++ `IsProtected` – Boolean.
 
-- `IsProtected` – Boolean.
+  You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.
++ `Definer` – UTF-8 string, not less than 1 or more than 512 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-You can set this flag as true to instruct the engine not to push user-provided
-operations into the logical plan of the view during query planning. However,
-setting this flag does not guarantee that the engine will comply. Refer to the
-engine's documentation to understand the guarantees provided, if any.
+  The definer of a view in SQL.
++ `ViewVersionId` – Number (long), at least -1.
 
-- `Definer` – UTF-8 string, not less than 1 or more than 512 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID. 
++ `ViewVersionToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The definer of a view in SQL.
+  The version ID of the Apache Iceberg table.
++ `RefreshSeconds` – Number (long).
 
-- `ViewVersionId` – Number (long), at least -1.
+  Auto refresh interval in seconds for the materialized view. If not specified, the view will not automatically refresh.
++ `LastRefreshType` – UTF-8 string (valid values: `FULL` \| `INCREMENTAL`).
 
-The ID value that identifies this view's version. For materialized views,
-the version ID is the Apache Iceberg table's snapshot ID.
+  Sets the method used for the most recent refresh.
++ `SubObjects` – An array of UTF-8 strings, not more than 10 strings.
 
-- `ViewVersionToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A list of table Amazon Resource Names (ARNs).
++ `SubObjectVersionIds` – An array of signed 64-bit integers, not more than 250 numbers.
 
-The version ID of the Apache Iceberg table.
+  List of the Apache Iceberg table versions referenced by the materialized view.
++ `Representations` – An array of [ViewRepresentation](#aws-glue-api-catalog-tables-ViewRepresentation) objects, not less than 1 or more than 1000 structures.
 
-- `RefreshSeconds` – Number (long).
-
-Auto refresh interval in seconds for the materialized view. If not specified,
-the view will not automatically refresh.
-
-- `LastRefreshType` – UTF-8 string (valid values: `FULL` | `INCREMENTAL`).
-
-Sets the method used for the most recent refresh.
-
-- `SubObjects` – An array of UTF-8 strings, not more than 10 strings.
-
-A list of table Amazon Resource Names (ARNs).
-
-- `SubObjectVersionIds` – An array of signed 64-bit integers, not more than 250 numbers.
-
-List of the Apache Iceberg table versions referenced by the materialized
-view.
-
-- `Representations` – An array of [ViewRepresentation](#aws-glue-api-catalog-tables-ViewRepresentation "#aws-glue-api-catalog-tables-ViewRepresentation") objects, not less than 1 or more than 1000 structures.
-
-A list of representations.
+  A list of representations.
 
 ## ViewDefinitionInput structure
+<a name="aws-glue-api-catalog-tables-ViewDefinitionInput"></a>
 
 A structure containing details for creating or updating an AWS Glue view.
 
-###### Fields
+**Fields**
++ `IsProtected` – Boolean.
 
-- `IsProtected` – Boolean.
+  You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.
++ `Definer` – UTF-8 string, not less than 1 or more than 512 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-You can set this flag as true to instruct the engine not to push user-provided
-operations into the logical plan of the view during query planning. However,
-setting this flag does not guarantee that the engine will comply. Refer to the
-engine's documentation to understand the guarantees provided, if any.
+  The definer of a view in SQL.
++ `Representations` – An array of [ViewRepresentationInput](#aws-glue-api-catalog-tables-ViewRepresentationInput) objects, not less than 1 or more than 10 structures.
 
-- `Definer` – UTF-8 string, not less than 1 or more than 512 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A list of structures that contains the dialect of the view, and the query that defines the view.
++ `ViewVersionId` – Number (long), at least -1.
 
-The definer of a view in SQL.
+  The ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID. 
++ `ViewVersionToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Representations` – An array of [ViewRepresentationInput](#aws-glue-api-catalog-tables-ViewRepresentationInput "#aws-glue-api-catalog-tables-ViewRepresentationInput") objects, not less than 1 or more than 10 structures.
+  The version ID of the Apache Iceberg table.
++ `RefreshSeconds` – Number (long).
 
-A list of structures that contains the dialect of the view, and the query
-that defines the view.
+  Auto refresh interval in seconds for the materialized view. If not specified, the view will not automatically refresh.
++ `LastRefreshType` – UTF-8 string (valid values: `FULL` \| `INCREMENTAL`).
 
-- `ViewVersionId` – Number (long), at least -1.
+  The type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
++ `SubObjects` – An array of UTF-8 strings, not more than 10 strings.
 
-The ID value that identifies this view's version. For materialized views,
-the version ID is the Apache Iceberg table's snapshot ID.
+  A list of base table ARNs that make up the view.
++ `SubObjectVersionIds` – An array of signed 64-bit integers, not more than 250 numbers.
 
-- `ViewVersionToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The version ID of the Apache Iceberg table.
-
-- `RefreshSeconds` – Number (long).
-
-Auto refresh interval in seconds for the materialized view. If not specified,
-the view will not automatically refresh.
-
-- `LastRefreshType` – UTF-8 string (valid values: `FULL` | `INCREMENTAL`).
-
-The type of the materialized view's last refresh. Valid values: `Full`,
-`Incremental`.
-
-- `SubObjects` – An array of UTF-8 strings, not more than 10 strings.
-
-A list of base table ARNs that make up the view.
-
-- `SubObjectVersionIds` – An array of signed 64-bit integers, not more than 250 numbers.
-
-List of the Apache Iceberg table versions referenced by the materialized
-view.
+  List of the Apache Iceberg table versions referenced by the materialized view.
 
 ## ViewRepresentation structure
+<a name="aws-glue-api-catalog-tables-ViewRepresentation"></a>
 
-A structure that contains the dialect of the view, and the query that defines
-the view.
+A structure that contains the dialect of the view, and the query that defines the view.
 
-###### Fields
+**Fields**
++ `Dialect` – UTF-8 string (valid values: `REDSHIFT` \| `ATHENA` \| `SPARK`).
 
-- `Dialect` – UTF-8 string (valid values: `REDSHIFT` | `ATHENA` | `SPARK`).
+  The dialect of the query engine.
++ `DialectVersion` – UTF-8 string, not less than 1 or more than 255 bytes long.
 
-The dialect of the query engine.
+  The version of the dialect of the query engine. For example, 3.0.0.
++ `ViewOriginalText` – UTF-8 string, not more than 409600 bytes long.
 
-- `DialectVersion` – UTF-8 string, not less than 1 or more than 255 bytes long.
+  The `SELECT` query provided by the customer during `CREATE VIEW DDL`. This SQL is not used during a query on a view (`ViewExpandedText` is used instead). `ViewOriginalText` is used for cases like `SHOW CREATE VIEW` where users want to see the original DDL command that created the view.
++ `ViewExpandedText` – UTF-8 string, not more than 409600 bytes long.
 
-The version of the dialect of the query engine. For example, 3.0.0.
+  The expanded SQL for the view. This SQL is used by engines while processing a query on a view. Engines may perform operations during view creation to transform `ViewOriginalText` to `ViewExpandedText`. For example:
+  + Fully qualified identifiers: `SELECT * from table1 -> SELECT * from db1.table1`
++ `ValidationConnection` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ViewOriginalText` – UTF-8 string, not more than 409600 bytes long.
+  The name of the connection to be used to validate the specific representation of the view.
++ `IsStale` – Boolean.
 
-The `SELECT` query provided by the customer during `CREATE
- VIEW DDL`. This SQL is not used during a query on a view (`ViewExpandedText`
-is used instead). `ViewOriginalText` is used for cases like `SHOW
- CREATE VIEW` where users want to see the original DDL command that created
-the view.
-
-- `ViewExpandedText` – UTF-8 string, not more than 409600 bytes long.
-
-The expanded SQL for the view. This SQL is used by engines while processing
-a query on a view. Engines may perform operations during view creation to transform
-`ViewOriginalText` to `ViewExpandedText`. For example:
-
-    + Fully qualified identifiers: `SELECT * from table1 -> SELECT
-     * from db1.table1`
-
-- `ValidationConnection` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the connection to be used to validate the specific representation
-of the view.
-
-- `IsStale` – Boolean.
-
-Dialects marked as stale are no longer valid and must be updated before
-they can be queried in their respective query engines.
+  Dialects marked as stale are no longer valid and must be updated before they can be queried in their respective query engines.
 
 ## ViewRepresentationInput structure
+<a name="aws-glue-api-catalog-tables-ViewRepresentationInput"></a>
 
-A structure containing details of a representation to update or create
-a Lake Formation view.
+A structure containing details of a representation to update or create a Lake Formation view.
 
-###### Fields
+**Fields**
++ `Dialect` – UTF-8 string (valid values: `REDSHIFT` \| `ATHENA` \| `SPARK`).
 
-- `Dialect` – UTF-8 string (valid values: `REDSHIFT` | `ATHENA` | `SPARK`).
+  A parameter that specifies the engine type of a specific representation.
++ `DialectVersion` – UTF-8 string, not less than 1 or more than 255 bytes long.
 
-A parameter that specifies the engine type of a specific representation.
+  A parameter that specifies the version of the engine of a specific representation.
++ `ViewOriginalText` – UTF-8 string, not more than 409600 bytes long.
 
-- `DialectVersion` – UTF-8 string, not less than 1 or more than 255 bytes long.
+  A string that represents the original SQL query that describes the view.
++ `ValidationConnection` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A parameter that specifies the version of the engine of a specific representation.
+  The name of the connection to be used to validate the specific representation of the view.
++ `ViewExpandedText` – UTF-8 string, not more than 409600 bytes long.
 
-- `ViewOriginalText` – UTF-8 string, not more than 409600 bytes long.
-
-A string that represents the original SQL query that describes the view.
-
-- `ValidationConnection` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the connection to be used to validate the specific representation
-of the view.
-
-- `ViewExpandedText` – UTF-8 string, not more than 409600 bytes long.
-
-A string that represents the SQL query that describes the view with expanded
-resource ARNs
+  A string that represents the SQL query that describes the view with expanded resource ARNs
 
 ## UpdateOpenTableFormatInput structure
+<a name="aws-glue-api-catalog-tables-UpdateOpenTableFormatInput"></a>
 
-Input parameters for updating open table format tables in AWS GlueData Catalog, serving as a wrapper for format-specific update operations
-such as Apache Iceberg.
+Input parameters for updating open table format tables in AWS GlueData Catalog, serving as a wrapper for format-specific update operations such as Apache Iceberg.
 
-###### Fields
+**Fields**
++ `UpdateIcebergInput` – An [UpdateIcebergInput](#aws-glue-api-catalog-tables-UpdateIcebergInput) object.
 
-- `UpdateIcebergInput` – An [UpdateIcebergInput](#aws-glue-api-catalog-tables-UpdateIcebergInput "#aws-glue-api-catalog-tables-UpdateIcebergInput") object.
-
-Apache Iceberg-specific update parameters that define the table modifications
-to be applied, including schema changes, partition specifications, and table
-properties.
+  Apache Iceberg-specific update parameters that define the table modifications to be applied, including schema changes, partition specifications, and table properties.
 
 ## UpdateIcebergInput structure
+<a name="aws-glue-api-catalog-tables-UpdateIcebergInput"></a>
 
-Input parameters specific to updating Apache Iceberg tables in AWS Glue Data Catalog, containing the update operations to be applied to an
-existing Iceberg table.
+Input parameters specific to updating Apache Iceberg tables in AWS Glue Data Catalog, containing the update operations to be applied to an existing Iceberg table.
 
-###### Fields
+**Fields**
++ `UpdateIcebergTableInput` – *Required:* An [UpdateIcebergTableInput](#aws-glue-api-catalog-tables-UpdateIcebergTableInput) object.
 
-- `UpdateIcebergTableInput` – _Required:_ An [UpdateIcebergTableInput](#aws-glue-api-catalog-tables-UpdateIcebergTableInput "#aws-glue-api-catalog-tables-UpdateIcebergTableInput") object.
-
-The specific update operations to be applied to the Iceberg table, containing
-a list of updates that define the new state of the table including schema, partitions,
-and properties.
+  The specific update operations to be applied to the Iceberg table, containing a list of updates that define the new state of the table including schema, partitions, and properties.
 
 ## CreateIcebergTableInput structure
+<a name="aws-glue-api-catalog-tables-CreateIcebergTableInput"></a>
 
-The configuration parameters required to create a new Iceberg table in
-the AWS Glue Data Catalog, including table properties and metadata
-specifications.
+The configuration parameters required to create a new Iceberg table in the AWS Glue Data Catalog, including table properties and metadata specifications.
 
-###### Fields
+**Fields**
++ `Location` – *Required:* Location string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `Location` – _Required:_ Location string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  The S3 location where the Iceberg table data will be stored.
++ `Schema` – *Required:* An [IcebergSchema](#aws-glue-api-catalog-tables-IcebergSchema) object.
 
-The S3 location where the Iceberg table data will be stored.
+  The schema definition that specifies the structure, field types, and metadata for the Iceberg table.
++ `PartitionSpec` – An [IcebergPartitionSpec](#aws-glue-api-catalog-tables-IcebergPartitionSpec) object.
 
-- `Schema` – _Required:_ An [IcebergSchema](#aws-glue-api-catalog-tables-IcebergSchema "#aws-glue-api-catalog-tables-IcebergSchema") object.
+  The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance.
++ `WriteOrder` – An [IcebergSortOrder](#aws-glue-api-catalog-tables-IcebergSortOrder) object.
 
-The schema definition that specifies the structure, field types, and
-metadata for the Iceberg table.
+  The sort order specification that defines how data should be ordered within each partition to optimize query performance.
++ `Properties` – A map array of key-value pairs.
 
-- `PartitionSpec` – An [IcebergPartitionSpec](#aws-glue-api-catalog-tables-IcebergPartitionSpec "#aws-glue-api-catalog-tables-IcebergPartitionSpec") object.
+  Each key is a UTF-8 string.
 
-The partitioning specification that defines how the Iceberg table data
-will be organized and partitioned for optimal query performance.
+  Each value is a UTF-8 string.
 
-- `WriteOrder` – An [IcebergSortOrder](#aws-glue-api-catalog-tables-IcebergSortOrder "#aws-glue-api-catalog-tables-IcebergSortOrder") object.
-
-The sort order specification that defines how data should be ordered within
-each partition to optimize query performance.
-
-- `Properties` – A map array of key-value pairs.
-
-Each key is a UTF-8 string.
-
-Each value is a UTF-8 string.
-
-Key-value pairs of additional table properties and configuration settings
-for the Iceberg table.
+  Key-value pairs of additional table properties and configuration settings for the Iceberg table.
 
 ## UpdateIcebergTableInput structure
+<a name="aws-glue-api-catalog-tables-UpdateIcebergTableInput"></a>
 
-Contains the update operations to be applied to an existing Iceberg table
-inAWS Glue Data Catalog, defining the new state of the table metadata.
+Contains the update operations to be applied to an existing Iceberg table inAWS Glue Data Catalog, defining the new state of the table metadata. 
 
-###### Fields
+**Fields**
++ `Updates` – *Required:* An array of [IcebergTableUpdate](#aws-glue-api-catalog-tables-IcebergTableUpdate) objects.
 
-- `Updates` – _Required:_ An array of [IcebergTableUpdate](#aws-glue-api-catalog-tables-IcebergTableUpdate "#aws-glue-api-catalog-tables-IcebergTableUpdate") objects.
-
-The list of table update operations that specify the changes to be made
-to the Iceberg table, including schema modifications, partition specifications,
-and table properties.
+  The list of table update operations that specify the changes to be made to the Iceberg table, including schema modifications, partition specifications, and table properties.
 
 ## IcebergSortOrder structure
+<a name="aws-glue-api-catalog-tables-IcebergSortOrder"></a>
 
-Defines the sort order specification for an Iceberg table, determining
-how data should be ordered within partitions to optimize query performance.
+Defines the sort order specification for an Iceberg table, determining how data should be ordered within partitions to optimize query performance.
 
-###### Fields
+**Fields**
++ `OrderId` – *Required:* Number (integer).
 
-- `OrderId` – _Required:_ Number (integer).
+  The unique identifier for this sort order specification within the Iceberg table's metadata.
++ `Fields` – *Required:* An array of [IcebergSortField](#aws-glue-api-catalog-tables-IcebergSortField) objects.
 
-The unique identifier for this sort order specification within the Iceberg
-table's metadata.
-
-- `Fields` – _Required:_ An array of [IcebergSortField](#aws-glue-api-catalog-tables-IcebergSortField "#aws-glue-api-catalog-tables-IcebergSortField") objects.
-
-The list of fields and their sort directions that define the ordering criteria
-for the Iceberg table data.
+  The list of fields and their sort directions that define the ordering criteria for the Iceberg table data.
 
 ## IcebergSortField structure
+<a name="aws-glue-api-catalog-tables-IcebergSortField"></a>
 
-Defines a single field within an Iceberg sort order specification, including
-the source field, transformation, sort direction, and null value ordering.
+Defines a single field within an Iceberg sort order specification, including the source field, transformation, sort direction, and null value ordering.
 
-###### Fields
+**Fields**
++ `SourceId` – *Required:* Number (integer).
 
-- `SourceId` – _Required:_ Number (integer).
+  The identifier of the source field from the table schema that this sort field is based on.
++ `Transform` – *Required:* UTF-8 string.
 
-The identifier of the source field from the table schema that this sort
-field is based on.
+  The transformation function applied to the source field before sorting, such as identity, bucket, or truncate.
++ `Direction` – *Required:* UTF-8 string (valid values: `asc="ASC"` \| `desc="DESC"`).
 
-- `Transform` – _Required:_ UTF-8 string.
+  The sort direction for this field, either ascending or descending.
++ `NullOrder` – *Required:* UTF-8 string (valid values: `nulls-first="NULLS_FIRST"` \| `nulls-last="NULLS_LAST"`).
 
-The transformation function applied to the source field before sorting,
-such as identity, bucket, or truncate.
-
-- `Direction` – _Required:_ UTF-8 string (valid values: `asc="ASC"` | `desc="DESC"`).
-
-The sort direction for this field, either ascending or descending.
-
-- `NullOrder` – _Required:_ UTF-8 string (valid values: `nulls-first="NULLS_FIRST"` | `nulls-last="NULLS_LAST"`).
-
-The ordering behavior for null values in this field, specifying whether
-nulls should appear first or last in the sort order.
+  The ordering behavior for null values in this field, specifying whether nulls should appear first or last in the sort order.
 
 ## IcebergPartitionSpec structure
+<a name="aws-glue-api-catalog-tables-IcebergPartitionSpec"></a>
 
-Defines the partitioning specification for an Iceberg table, determining
-how table data will be organized and partitioned for optimal query performance.
+Defines the partitioning specification for an Iceberg table, determining how table data will be organized and partitioned for optimal query performance.
 
-###### Fields
+**Fields**
++ `Fields` – *Required:* An array of [IcebergPartitionField](#aws-glue-api-catalog-tables-IcebergPartitionField) objects.
 
-- `Fields` – _Required:_ An array of [IcebergPartitionField](#aws-glue-api-catalog-tables-IcebergPartitionField "#aws-glue-api-catalog-tables-IcebergPartitionField") objects.
+  The list of partition fields that define how the table data should be partitioned, including source fields and their transformations.
++ `SpecId` – Number (integer).
 
-The list of partition fields that define how the table data should be partitioned,
-including source fields and their transformations.
-
-- `SpecId` – Number (integer).
-
-The unique identifier for this partition specification within the Iceberg
-table's metadata history.
+  The unique identifier for this partition specification within the Iceberg table's metadata history.
 
 ## IcebergPartitionField structure
+<a name="aws-glue-api-catalog-tables-IcebergPartitionField"></a>
 
-Defines a single partition field within an Iceberg partition specification,
-including the source field, transformation function, partition name, and unique
-identifier.
+Defines a single partition field within an Iceberg partition specification, including the source field, transformation function, partition name, and unique identifier.
 
-###### Fields
+**Fields**
++ `SourceId` – *Required:* Number (integer).
 
-- `SourceId` – _Required:_ Number (integer).
+  The identifier of the source field from the table schema that this partition field is based on.
++ `Transform` – *Required:* UTF-8 string.
 
-The identifier of the source field from the table schema that this partition
-field is based on.
+  The transformation function applied to the source field to create the partition, such as identity, bucket, truncate, year, month, day, or hour.
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 1024 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Transform` – _Required:_ UTF-8 string.
+  The name of the partition field as it will appear in the partitioned table structure.
++ `FieldId` – Number (integer).
 
-The transformation function applied to the source field to create the
-partition, such as identity, bucket, truncate, year, month, day, or hour.
-
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 1024 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the partition field as it will appear in the partitioned table
-structure.
-
-- `FieldId` – Number (integer).
-
-The unique identifier assigned to this partition field within the Iceberg
-table's partition specification.
+  The unique identifier assigned to this partition field within the Iceberg table's partition specification.
 
 ## IcebergSchema structure
+<a name="aws-glue-api-catalog-tables-IcebergSchema"></a>
 
-Defines the schema structure for an Iceberg table, including field definitions,
-data types, and schema metadata.
+Defines the schema structure for an Iceberg table, including field definitions, data types, and schema metadata.
 
-###### Fields
+**Fields**
++ `SchemaId` – Number (integer).
 
-- `SchemaId` – Number (integer).
+  The unique identifier for this schema version within the Iceberg table's schema evolution history.
++ `IdentifierFieldIds` – An array of signed 32-bit integers.
 
-The unique identifier for this schema version within the Iceberg table's
-schema evolution history.
+  The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
++ `Type` – UTF-8 string (valid values: `struct="STRUCT"`).
 
-- `IdentifierFieldIds` – An array of signed 32-bit integers.
+  The root type of the schema structure, typically "struct" for Iceberg table schemas.
++ `Fields` – *Required:* An array of [IcebergStructField](#aws-glue-api-catalog-tables-IcebergStructField) objects.
 
-The list of field identifiers that uniquely identify records in the table,
-used for row-level operations and deduplication.
-
-- `Type` – UTF-8 string (valid values: `struct="STRUCT"`).
-
-The root type of the schema structure, typically "struct" for Iceberg
-table schemas.
-
-- `Fields` – _Required:_ An array of [IcebergStructField](#aws-glue-api-catalog-tables-IcebergStructField "#aws-glue-api-catalog-tables-IcebergStructField") objects.
-
-The list of field definitions that make up the table schema, including
-field names, types, and metadata.
+  The list of field definitions that make up the table schema, including field names, types, and metadata.
 
 ## IcebergStructField structure
+<a name="aws-glue-api-catalog-tables-IcebergStructField"></a>
 
-Defines a single field within an Iceberg table schema, including its identifier,
-name, data type, nullability, and documentation.
+Defines a single field within an Iceberg table schema, including its identifier, name, data type, nullability, and documentation.
 
-###### Fields
+**Fields**
++ `Id` – *Required:* Number (integer).
 
-- `Id` – _Required:_ Number (integer).
+  The unique identifier assigned to this field within the Iceberg table schema, used for schema evolution and field tracking.
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 1024 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The unique identifier assigned to this field within the Iceberg table
-schema, used for schema evolution and field tracking.
+  The name of the field as it appears in the table schema and query operations.
++ `Type` – *Required:* An empty-structure named `IcebergDocument`.
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 1024 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The data type definition for this field, specifying the structure and format of the data it contains.
++ `Required` – *Required:* Boolean.
 
-The name of the field as it appears in the table schema and query operations.
+  Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
++ `Doc` – Comment string, not more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Type` – _Required:_ An empty-structure named `IcebergDocument`.
+  Optional documentation or description text that provides additional context about the purpose and usage of this field.
++ `InitialDefault` – An empty-structure named `IcebergDocument`.
 
-The data type definition for this field, specifying the structure and
-format of the data it contains.
+  Default value used to populate the field's value for all records that were written before the field was added to the schema. This enables backward compatibility when adding new fields to existing Iceberg tables.
++ `WriteDefault` – An empty-structure named `IcebergDocument`.
 
-- `Required` – _Required:_ Boolean.
-
-Indicates whether this field is required (non-nullable) or optional
-(nullable) in the table schema.
-
-- `Doc` – Comment string, not more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Optional documentation or description text that provides additional
-context about the purpose and usage of this field.
-
-- `InitialDefault` – An empty-structure named `IcebergDocument`.
-
-Default value used to populate the field's value for all records that were
-written before the field was added to the schema. This enables backward compatibility
-when adding new fields to existing Iceberg tables.
-
-- `WriteDefault` – An empty-structure named `IcebergDocument`.
-
-Default value used to populate the field's value for any records written
-after the field was added to the schema, if the writer does not supply the field's
-value. This can be changed through schema evolution.
+  Default value used to populate the field's value for any records written after the field was added to the schema, if the writer does not supply the field's value. This can be changed through schema evolution.
 
 ## IcebergTableUpdate structure
+<a name="aws-glue-api-catalog-tables-IcebergTableUpdate"></a>
 
-Defines a complete set of updates to be applied to an Iceberg table, including
-schema changes, partitioning modifications, sort order adjustments, location
-updates, and property changes.
+Defines a complete set of updates to be applied to an Iceberg table, including schema changes, partitioning modifications, sort order adjustments, location updates, and property changes.
 
-###### Fields
+**Fields**
++ `Schema` – *Required:* An [IcebergSchema](#aws-glue-api-catalog-tables-IcebergSchema) object.
 
-- `Schema` – _Required:_ An [IcebergSchema](#aws-glue-api-catalog-tables-IcebergSchema "#aws-glue-api-catalog-tables-IcebergSchema") object.
+  The updated schema definition for the Iceberg table, specifying any changes to field structure, data types, or schema metadata.
++ `PartitionSpec` – An [IcebergPartitionSpec](#aws-glue-api-catalog-tables-IcebergPartitionSpec) object.
 
-The updated schema definition for the Iceberg table, specifying any changes
-to field structure, data types, or schema metadata.
+  The updated partitioning specification that defines how the table data should be reorganized and partitioned.
++ `SortOrder` – An [IcebergSortOrder](#aws-glue-api-catalog-tables-IcebergSortOrder) object.
 
-- `PartitionSpec` – An [IcebergPartitionSpec](#aws-glue-api-catalog-tables-IcebergPartitionSpec "#aws-glue-api-catalog-tables-IcebergPartitionSpec") object.
+  The updated sort order specification that defines how data should be ordered within partitions for optimal query performance.
++ `Location` – *Required:* Location string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The updated partitioning specification that defines how the table data
-should be reorganized and partitioned.
+  The updated S3 location where the Iceberg table data will be stored.
++ `Properties` – A map array of key-value pairs.
 
-- `SortOrder` – An [IcebergSortOrder](#aws-glue-api-catalog-tables-IcebergSortOrder "#aws-glue-api-catalog-tables-IcebergSortOrder") object.
+  Each key is a UTF-8 string.
 
-The updated sort order specification that defines how data should be ordered
-within partitions for optimal query performance.
+  Each value is a UTF-8 string.
 
-- `Location` – _Required:_ Location string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  Updated key-value pairs of table properties and configuration settings for the Iceberg table.
++ `Action` – UTF-8 string (valid values: `add-schema="ADD_SCHEMA"` \| `set-current-schema="SET_CURRENT_SCHEMA"` \| `add-spec="ADD_SPEC"` \| `set-default-spec="SET_DEFAULT_SPEC"` \| `add-sort-order="ADD_SORT_ORDER"` \| `set-default-sort-order="SET_DEFAULT_SORT_ORDER"` \| `set-location="SET_LOCATION"` \| `set-properties="SET_PROPERTIES"` \| `remove-properties="REMOVE_PROPERTIES"` \| `add-encryption-key="ADD_ENCRYPTION_KEY"` \| `remove-encryption-key="REMOVE_ENCRYPTION_KEY"`).
 
-The updated S3 location where the Iceberg table data will be stored.
+  The type of update action to be performed on the Iceberg table. Defines the specific operation such as adding schema, setting current schema, adding partition spec, or managing encryption keys.
++ `EncryptionKey` – An [IcebergEncryptedKey](#aws-glue-api-catalog-tables-IcebergEncryptedKey) object.
 
-- `Properties` – A map array of key-value pairs.
+  Encryption key information associated with an Iceberg table update operation. Used when adding or removing encryption keys from the table metadata during table evolution.
++ `KeyId` – UTF-8 string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-Each key is a UTF-8 string.
-
-Each value is a UTF-8 string.
-
-Updated key-value pairs of table properties and configuration settings
-for the Iceberg table.
-
-- `Action` – UTF-8 string (valid values: `add-schema="ADD_SCHEMA"` | `set-current-schema="SET_CURRENT_SCHEMA"` | `add-spec="ADD_SPEC"` | `set-default-spec="SET_DEFAULT_SPEC"` | `add-sort-order="ADD_SORT_ORDER"` | `set-default-sort-order="SET_DEFAULT_SORT_ORDER"` | `set-location="SET_LOCATION"` | `set-properties="SET_PROPERTIES"` | `remove-properties="REMOVE_PROPERTIES"` | `add-encryption-key="ADD_ENCRYPTION_KEY"` | `remove-encryption-key="REMOVE_ENCRYPTION_KEY"`).
-
-The type of update action to be performed on the Iceberg table. Defines
-the specific operation such as adding schema, setting current schema, adding
-partition spec, or managing encryption keys.
-
-- `EncryptionKey` – An [IcebergEncryptedKey](#aws-glue-api-catalog-tables-IcebergEncryptedKey "#aws-glue-api-catalog-tables-IcebergEncryptedKey") object.
-
-Encryption key information associated with an Iceberg table update operation.
-Used when adding or removing encryption keys from the table metadata during table
-evolution.
-
-- `KeyId` – UTF-8 string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
-
-Identifier of the encryption key involved in an Iceberg table update operation.
-References the specific key being added to or removed from the table's encryption
-configuration.
+  Identifier of the encryption key involved in an Iceberg table update operation. References the specific key being added to or removed from the table's encryption configuration.
 
 ## IcebergTableMetadata structure
+<a name="aws-glue-api-catalog-tables-IcebergTableMetadata"></a>
 
-The Apache Iceberg table metadata, including format version, table identifier,
-schemas, partition specifications, sort orders, and table properties. This
-structure captures the current state of an Iceberg table's metadata as managed
-by the AWS Glue Data Catalog.
+The Apache Iceberg table metadata, including format version, table identifier, schemas, partition specifications, sort orders, and table properties. This structure captures the current state of an Iceberg table's metadata as managed by the AWS Glue Data Catalog.
 
-###### Fields
+**Fields**
++ `FormatVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `FormatVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The Apache Iceberg table format version, such as `1` or `2`. Determines the set of features and on-disk layout supported by the table.
++ `TableUuid` – UTF-8 string, not more than 100 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The Apache Iceberg table format version, such as `1` or `2`.
-Determines the set of features and on-disk layout supported by the table.
+  The unique identifier (UUID) for the Iceberg table, assigned when the table is created and used to track the table across metadata updates.
++ `Location` – Location string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `TableUuid` – UTF-8 string, not more than 100 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The base S3 location where the Iceberg table's data and metadata files are stored.
++ `Properties` – A map array of key-value pairs.
 
-The unique identifier (UUID) for the Iceberg table, assigned when the
-table is created and used to track the table across metadata updates.
+  Each key is a UTF-8 string.
 
-- `Location` – Location string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  Each value is a UTF-8 string.
 
-The base S3 location where the Iceberg table's data and metadata files
-are stored.
+  A map of key-value pairs that define table-level properties and configuration settings for the Iceberg table.
++ `Schemas` – An array of [IcebergSchema](#aws-glue-api-catalog-tables-IcebergSchema) objects.
 
-- `Properties` – A map array of key-value pairs.
+  The list of schemas that have been associated with the Iceberg table over its history, supporting schema evolution.
++ `CurrentSchemaId` – Number (integer).
 
-Each key is a UTF-8 string.
+  The identifier of the schema that is currently active for the Iceberg table. Matches an entry in `Schemas`.
++ `LastColumnId` – Number (integer).
 
-Each value is a UTF-8 string.
+  The highest column identifier that has been assigned in the Iceberg table's schema, used to ensure unique IDs as new columns are added.
++ `PartitionSpecs` – An array of [IcebergPartitionSpec](#aws-glue-api-catalog-tables-IcebergPartitionSpec) objects.
 
-A map of key-value pairs that define table-level properties and configuration
-settings for the Iceberg table.
+  The list of partition specifications that have been associated with the Iceberg table over its history, supporting partition evolution.
++ `DefaultSpecId` – Number (integer).
 
-- `Schemas` – An array of [IcebergSchema](#aws-glue-api-catalog-tables-IcebergSchema "#aws-glue-api-catalog-tables-IcebergSchema") objects.
+  The identifier of the partition specification that is currently used by default when writing new data to the Iceberg table.
++ `LastPartitionId` – Number (integer).
 
-The list of schemas that have been associated with the Iceberg table over
-its history, supporting schema evolution.
+  The highest partition field identifier that has been assigned across the table's partition specifications.
++ `SortOrders` – An array of [IcebergSortOrder](#aws-glue-api-catalog-tables-IcebergSortOrder) objects.
 
-- `CurrentSchemaId` – Number (integer).
+  The list of sort order specifications that have been associated with the Iceberg table over its history.
++ `DefaultSortOrderId` – Number (integer).
 
-The identifier of the schema that is currently active for the Iceberg table.
-Matches an entry in `Schemas`.
-
-- `LastColumnId` – Number (integer).
-
-The highest column identifier that has been assigned in the Iceberg table's
-schema, used to ensure unique IDs as new columns are added.
-
-- `PartitionSpecs` – An array of [IcebergPartitionSpec](#aws-glue-api-catalog-tables-IcebergPartitionSpec "#aws-glue-api-catalog-tables-IcebergPartitionSpec") objects.
-
-The list of partition specifications that have been associated with the
-Iceberg table over its history, supporting partition evolution.
-
-- `DefaultSpecId` – Number (integer).
-
-The identifier of the partition specification that is currently used
-by default when writing new data to the Iceberg table.
-
-- `LastPartitionId` – Number (integer).
-
-The highest partition field identifier that has been assigned across
-the table's partition specifications.
-
-- `SortOrders` – An array of [IcebergSortOrder](#aws-glue-api-catalog-tables-IcebergSortOrder "#aws-glue-api-catalog-tables-IcebergSortOrder") objects.
-
-The list of sort order specifications that have been associated with the
-Iceberg table over its history.
-
-- `DefaultSortOrderId` – Number (integer).
-
-The identifier of the sort order that is currently used by default when
-writing new data to the Iceberg table.
+  The identifier of the sort order that is currently used by default when writing new data to the Iceberg table.
 
 ## IcebergEncryptedKey structure
+<a name="aws-glue-api-catalog-tables-IcebergEncryptedKey"></a>
 
-Encryption key structure used for Iceberg table encryption. Contains
-the key ID, encrypted key metadata, optional reference to the encrypting key,
-and additional properties for the table's encryption scheme.
+Encryption key structure used for Iceberg table encryption. Contains the key ID, encrypted key metadata, optional reference to the encrypting key, and additional properties for the table's encryption scheme.
 
-###### Fields
+**Fields**
++ `KeyId` – *Required:* UTF-8 string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `KeyId` – _Required:_ UTF-8 string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  Unique identifier of the encryption key used for Iceberg table encryption. This ID is used to reference the key in table metadata and track which key was used to encrypt specific data.
++ `EncryptedKeyMetadata` – *Required:* UTF-8 string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-Unique identifier of the encryption key used for Iceberg table encryption.
-This ID is used to reference the key in table metadata and track which key was used
-to encrypt specific data.
+  Encrypted key and metadata, base64 encoded. The format of encrypted key metadata is determined by the table's encryption scheme and can be a wrapped format specific to the table's KMS provider.
++ `EncryptedById` – UTF-8 string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `EncryptedKeyMetadata` – _Required:_ UTF-8 string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  Optional ID of the key used to encrypt or wrap the key metadata in Iceberg table encryption. This field references another encryption key that was used to encrypt the current key's metadata.
++ `Properties` – A map array of key-value pairs.
 
-Encrypted key and metadata, base64 encoded. The format of encrypted key
-metadata is determined by the table's encryption scheme and can be a wrapped format
-specific to the table's KMS provider.
+  Each key is a UTF-8 string.
 
-- `EncryptedById` – UTF-8 string, not more than 2056 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  Each value is a UTF-8 string.
 
-Optional ID of the key used to encrypt or wrap the key metadata in Iceberg
-table encryption. This field references another encryption key that was used
-to encrypt the current key's metadata.
-
-- `Properties` – A map array of key-value pairs.
-
-Each key is a UTF-8 string.
-
-Each value is a UTF-8 string.
-
-A string to string map of additional metadata used by the table's encryption
-scheme. These properties provide additional context and configuration for
-the encryption key implementation.
+  A string to string map of additional metadata used by the table's encryption scheme. These properties provide additional context and configuration for the encryption key implementation.
 
 ## TableStatus structure
+<a name="aws-glue-api-catalog-tables-TableStatus"></a>
 
-A structure containing information about the state of an asynchronous
-change to a table.
+A structure containing information about the state of an asynchronous change to a table.
 
-###### Fields
+**Fields**
++ `RequestedBy` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `RequestedBy` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ARN of the user who requested the asynchronous change.
++ `UpdatedBy` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The ARN of the user who requested the asynchronous change.
+  The ARN of the user to last manually alter the asynchronous change (requesting cancellation, etc).
++ `RequestTime` – Timestamp.
 
-- `UpdatedBy` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  An ISO 8601 formatted date string indicating the time that the change was initiated.
++ `UpdateTime` – Timestamp.
 
-The ARN of the user to last manually alter the asynchronous change (requesting
-cancellation, etc).
+  An ISO 8601 formatted date string indicating the time that the state was last updated.
++ `Action` – UTF-8 string (valid values: `UPDATE` \| `CREATE`).
 
-- `RequestTime` – Timestamp.
+  Indicates which action was called on the table, currently only `CREATE` or `UPDATE`.
++ `State` – UTF-8 string (valid values: `QUEUED` \| `IN_PROGRESS` \| `SUCCESS` \| `STOPPED` \| `FAILED`).
 
-An ISO 8601 formatted date string indicating the time that the change was
-initiated.
+  A generic status for the change in progress, such as QUEUED, IN\_PROGRESS, SUCCESS, or FAILED.
++ `Error` – An [ErrorDetail](aws-glue-api-common.md#aws-glue-api-common-ErrorDetail) object.
 
-- `UpdateTime` – Timestamp.
+  An error that will only appear when the state is "FAILED". This is a parent level exception message, there may be different `Error`s for each dialect.
++ `Details` – A [StatusDetails](#aws-glue-api-catalog-tables-StatusDetails) object.
 
-An ISO 8601 formatted date string indicating the time that the state was
-last updated.
-
-- `Action` – UTF-8 string (valid values: `UPDATE` | `CREATE`).
-
-Indicates which action was called on the table, currently only `CREATE`
-or `UPDATE`.
-
-- `State` – UTF-8 string (valid values: `QUEUED` | `IN_PROGRESS` | `SUCCESS` | `STOPPED` | `FAILED`).
-
-A generic status for the change in progress, such as QUEUED, IN\_PROGRESS,
-SUCCESS, or FAILED.
-
-- `Error` – An [ErrorDetail](aws-glue-api-common.md#aws-glue-api-common-ErrorDetail "aws-glue-api-common.md#aws-glue-api-common-ErrorDetail") object.
-
-An error that will only appear when the state is "FAILED". This is a parent
-level exception message, there may be different `Error`s for each
-dialect.
-
-- `Details` – A [StatusDetails](#aws-glue-api-catalog-tables-StatusDetails "#aws-glue-api-catalog-tables-StatusDetails") object.
-
-A `StatusDetails` object with information about the requested
-change.
+  A `StatusDetails` object with information about the requested change.
 
 ## StatusDetails structure
+<a name="aws-glue-api-catalog-tables-StatusDetails"></a>
 
-A structure containing information about an asynchronous change to a
-table.
+A structure containing information about an asynchronous change to a table.
 
-###### Fields
+**Fields**
++ `RequestedChange` – A [Table](#aws-glue-api-catalog-tables-Table) object.
 
-- `RequestedChange` – A [Table](#aws-glue-api-catalog-tables-Table "#aws-glue-api-catalog-tables-Table") object.
+  A `Table` object representing the requested changes.
++ `ViewValidations` – An array of [ViewValidation](#aws-glue-api-catalog-tables-ViewValidation) objects.
 
-A `Table` object representing the requested changes.
-
-- `ViewValidations` – An array of [ViewValidation](#aws-glue-api-catalog-tables-ViewValidation "#aws-glue-api-catalog-tables-ViewValidation") objects.
-
-A list of `ViewValidation` objects that contain information
-for an analytical engine to validate a view.
+  A list of `ViewValidation` objects that contain information for an analytical engine to validate a view.
 
 ## ViewValidation structure
+<a name="aws-glue-api-catalog-tables-ViewValidation"></a>
 
-A structure that contains information for an analytical engine to validate
-a view, prior to persisting the view metadata. Used in the case of direct `UpdateTable`
-or `CreateTable` API calls.
+A structure that contains information for an analytical engine to validate a view, prior to persisting the view metadata. Used in the case of direct `UpdateTable` or `CreateTable` API calls.
 
-###### Fields
+**Fields**
++ `Dialect` – UTF-8 string (valid values: `REDSHIFT` \| `ATHENA` \| `SPARK`).
 
-- `Dialect` – UTF-8 string (valid values: `REDSHIFT` | `ATHENA` | `SPARK`).
+  The dialect of the query engine.
++ `DialectVersion` – UTF-8 string, not less than 1 or more than 255 bytes long.
 
-The dialect of the query engine.
+  The version of the dialect of the query engine. For example, 3.0.0.
++ `ViewValidationText` – UTF-8 string, not more than 409600 bytes long.
 
-- `DialectVersion` – UTF-8 string, not less than 1 or more than 255 bytes long.
+  The `SELECT` query that defines the view, as provided by the customer.
++ `UpdateTime` – Timestamp.
 
-The version of the dialect of the query engine. For example, 3.0.0.
+  The time of the last update.
++ `State` – UTF-8 string (valid values: `QUEUED` \| `IN_PROGRESS` \| `SUCCESS` \| `STOPPED` \| `FAILED`).
 
-- `ViewValidationText` – UTF-8 string, not more than 409600 bytes long.
+  The state of the validation.
++ `Error` – An [ErrorDetail](aws-glue-api-common.md#aws-glue-api-common-ErrorDetail) object.
 
-The `SELECT` query that defines the view, as provided by the
-customer.
-
-- `UpdateTime` – Timestamp.
-
-The time of the last update.
-
-- `State` – UTF-8 string (valid values: `QUEUED` | `IN_PROGRESS` | `SUCCESS` | `STOPPED` | `FAILED`).
-
-The state of the validation.
-
-- `Error` – An [ErrorDetail](aws-glue-api-common.md#aws-glue-api-common-ErrorDetail "aws-glue-api-common.md#aws-glue-api-common-ErrorDetail") object.
-
-An error associated with the validation.
+  An error associated with the validation.
 
 ## AuditContext structure
+<a name="aws-glue-api-catalog-tables-AuditContext"></a>
 
 A structure containing the Lake Formation audit context.
 
-###### Fields
+**Fields**
++ `AdditionalAuditContext` – UTF-8 string, not more than 2048 bytes long.
 
-- `AdditionalAuditContext` – UTF-8 string, not more than 2048 bytes long.
+  A string containing the additional audit context information.
++ `RequestedColumns` – An array of UTF-8 strings.
 
-A string containing the additional audit context information.
+  The requested columns for audit.
++ `AllColumnsRequested` – Boolean.
 
-- `RequestedColumns` – An array of UTF-8 strings.
-
-The requested columns for audit.
-
-- `AllColumnsRequested` – Boolean.
-
-All columns request for audit.
+  All columns request for audit.
 
 ## Operations
-
-- [CreateTable action (Python: create\_table)](#aws-glue-api-catalog-tables-CreateTable "#aws-glue-api-catalog-tables-CreateTable")
-- [UpdateTable action (Python: update\_table)](#aws-glue-api-catalog-tables-UpdateTable "#aws-glue-api-catalog-tables-UpdateTable")
-- [DeleteTable action (Python: delete\_table)](#aws-glue-api-catalog-tables-DeleteTable "#aws-glue-api-catalog-tables-DeleteTable")
-- [BatchDeleteTable action (Python: batch\_delete\_table)](#aws-glue-api-catalog-tables-BatchDeleteTable "#aws-glue-api-catalog-tables-BatchDeleteTable")
-- [GetTable action (Python: get\_table)](#aws-glue-api-catalog-tables-GetTable "#aws-glue-api-catalog-tables-GetTable")
-- [GetTables action (Python: get\_tables)](#aws-glue-api-catalog-tables-GetTables "#aws-glue-api-catalog-tables-GetTables")
-- [GetTableVersion action (Python: get\_table\_version)](#aws-glue-api-catalog-tables-GetTableVersion "#aws-glue-api-catalog-tables-GetTableVersion")
-- [GetTableVersions action (Python: get\_table\_versions)](#aws-glue-api-catalog-tables-GetTableVersions "#aws-glue-api-catalog-tables-GetTableVersions")
-- [DeleteTableVersion action (Python: delete\_table\_version)](#aws-glue-api-catalog-tables-DeleteTableVersion "#aws-glue-api-catalog-tables-DeleteTableVersion")
-- [BatchDeleteTableVersion action (Python: batch\_delete\_table\_version)](#aws-glue-api-catalog-tables-BatchDeleteTableVersion "#aws-glue-api-catalog-tables-BatchDeleteTableVersion")
-- [SearchTables action (Python: search\_tables)](#aws-glue-api-catalog-tables-SearchTables "#aws-glue-api-catalog-tables-SearchTables")
-- [GetPartitionIndexes action (Python: get\_partition\_indexes)](#aws-glue-api-catalog-tables-GetPartitionIndexes "#aws-glue-api-catalog-tables-GetPartitionIndexes")
-- [CreatePartitionIndex action (Python: create\_partition\_index)](#aws-glue-api-catalog-tables-CreatePartitionIndex "#aws-glue-api-catalog-tables-CreatePartitionIndex")
-- [DeletePartitionIndex action (Python: delete\_partition\_index)](#aws-glue-api-catalog-tables-DeletePartitionIndex "#aws-glue-api-catalog-tables-DeletePartitionIndex")
-- [GetColumnStatisticsForTable action (Python: get\_column\_statistics\_for\_table)](#aws-glue-api-catalog-tables-GetColumnStatisticsForTable "#aws-glue-api-catalog-tables-GetColumnStatisticsForTable")
-- [UpdateColumnStatisticsForTable action (Python: update\_column\_statistics\_for\_table)](#aws-glue-api-catalog-tables-UpdateColumnStatisticsForTable "#aws-glue-api-catalog-tables-UpdateColumnStatisticsForTable")
-- [DeleteColumnStatisticsForTable action (Python: delete\_column\_statistics\_for\_table)](#aws-glue-api-catalog-tables-DeleteColumnStatisticsForTable "#aws-glue-api-catalog-tables-DeleteColumnStatisticsForTable")
+<a name="aws-glue-api-catalog-tables-actions"></a>
++ [CreateTable action (Python: create\_table)](#aws-glue-api-catalog-tables-CreateTable)
++ [UpdateTable action (Python: update\_table)](#aws-glue-api-catalog-tables-UpdateTable)
++ [DeleteTable action (Python: delete\_table)](#aws-glue-api-catalog-tables-DeleteTable)
++ [BatchDeleteTable action (Python: batch\_delete\_table)](#aws-glue-api-catalog-tables-BatchDeleteTable)
++ [GetTable action (Python: get\_table)](#aws-glue-api-catalog-tables-GetTable)
++ [GetTables action (Python: get\_tables)](#aws-glue-api-catalog-tables-GetTables)
++ [GetTableVersion action (Python: get\_table\_version)](#aws-glue-api-catalog-tables-GetTableVersion)
++ [GetTableVersions action (Python: get\_table\_versions)](#aws-glue-api-catalog-tables-GetTableVersions)
++ [DeleteTableVersion action (Python: delete\_table\_version)](#aws-glue-api-catalog-tables-DeleteTableVersion)
++ [BatchDeleteTableVersion action (Python: batch\_delete\_table\_version)](#aws-glue-api-catalog-tables-BatchDeleteTableVersion)
++ [SearchTables action (Python: search\_tables)](#aws-glue-api-catalog-tables-SearchTables)
++ [GetPartitionIndexes action (Python: get\_partition\_indexes)](#aws-glue-api-catalog-tables-GetPartitionIndexes)
++ [CreatePartitionIndex action (Python: create\_partition\_index)](#aws-glue-api-catalog-tables-CreatePartitionIndex)
++ [DeletePartitionIndex action (Python: delete\_partition\_index)](#aws-glue-api-catalog-tables-DeletePartitionIndex)
++ [GetColumnStatisticsForTable action (Python: get\_column\_statistics\_for\_table)](#aws-glue-api-catalog-tables-GetColumnStatisticsForTable)
++ [UpdateColumnStatisticsForTable action (Python: update\_column\_statistics\_for\_table)](#aws-glue-api-catalog-tables-UpdateColumnStatisticsForTable)
++ [DeleteColumnStatisticsForTable action (Python: delete\_column\_statistics\_for\_table)](#aws-glue-api-catalog-tables-DeleteColumnStatisticsForTable)
 
 ## CreateTable action (Python: create\_table)
+<a name="aws-glue-api-catalog-tables-CreateTable"></a>
 
 Creates a new table definition in the Data Catalog.
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the Data Catalog in which to create the `Table`. If none is supplied, the AWS account ID is used by default.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The ID of the Data Catalog in which to create the `Table`. If
-none is supplied, the AWS account ID is used by default.
+  The catalog database in which to create the new table. For Hive compatibility, this name is entirely lowercase.
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The unique identifier for the table within the specified database that will be created in the AWS Glue Data Catalog.
++ `TableInput` – A [TableInput](#aws-glue-api-catalog-tables-TableInput) object.
 
-The catalog database in which to create the new table. For Hive compatibility,
-this name is entirely lowercase.
+  The `TableInput` object that defines the metadata table to create in the catalog.
++ `PartitionIndexes` – An array of [PartitionIndex](#aws-glue-api-catalog-tables-PartitionIndex) objects.
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A list of partition indexes, `PartitionIndex` structures, to create in the table.
++ `TransactionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #41](aws-glue-api-common.md#regex_41).
 
-The unique identifier for the table within the specified database that
-will be created in the AWS Glue Data Catalog.
+  The ID of the transaction.
++ `OpenTableFormatInput` – An [OpenTableFormatInput](#aws-glue-api-catalog-tables-OpenTableFormatInput) object.
 
-- `TableInput` – A [TableInput](#aws-glue-api-catalog-tables-TableInput "#aws-glue-api-catalog-tables-TableInput") object.
+  Specifies an `OpenTableFormatInput` structure when creating an open format table.
 
-The `TableInput` object that defines the metadata table
-to create in the catalog.
+**Response**
++ *No Response parameters.*
 
-- `PartitionIndexes` – An array of [PartitionIndex](#aws-glue-api-catalog-tables-PartitionIndex "#aws-glue-api-catalog-tables-PartitionIndex") objects.
-
-A list of partition indexes, `PartitionIndex` structures,
-to create in the table.
-
-- `TransactionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #41](aws-glue-api-common.md#regex_41 "aws-glue-api-common.md#regex_41").
-
-The ID of the transaction.
-
-- `OpenTableFormatInput` – An [OpenTableFormatInput](#aws-glue-api-catalog-tables-OpenTableFormatInput "#aws-glue-api-catalog-tables-OpenTableFormatInput") object.
-
-Specifies an `OpenTableFormatInput` structure when creating
-an open format table.
-
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `AlreadyExistsException`
-- `InvalidInputException`
-- `EntityNotFoundException`
-- `ResourceNumberLimitExceededException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `GlueEncryptionException`
-- `ConcurrentModificationException`
-- `ResourceNotReadyException`
-- `FederationSourceException`
-- `FederationSourceRetryableException`
+**Errors**
++ `AlreadyExistsException`
++ `InvalidInputException`
++ `EntityNotFoundException`
++ `ResourceNumberLimitExceededException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `GlueEncryptionException`
++ `ConcurrentModificationException`
++ `ResourceNotReadyException`
++ `FederationSourceException`
++ `FederationSourceRetryableException`
 
 ## UpdateTable action (Python: update\_table)
+<a name="aws-glue-api-catalog-tables-UpdateTable"></a>
 
 Updates a metadata table in the Data Catalog.
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The ID of the Data Catalog where the table resides. If none is provided,
-the AWS account ID is used by default.
+  The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The unique identifier for the table within the specified database that will be created in the AWS Glue Data Catalog.
++ `TableInput` – A [TableInput](#aws-glue-api-catalog-tables-TableInput) object.
 
-The name of the catalog database in which the table resides. For Hive compatibility,
-this name is entirely lowercase.
+  An updated `TableInput` object to define the metadata table in the catalog.
++ `SkipArchive` – Boolean.
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  By default, `UpdateTable` always creates an archived version of the table before updating it. However, if `skipArchive` is set to true, `UpdateTable` does not create the archived version.
++ `TransactionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #41](aws-glue-api-common.md#regex_41).
 
-The unique identifier for the table within the specified database that
-will be created in the AWS Glue Data Catalog.
+  The transaction ID at which to update the table contents. 
++ `VersionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `TableInput` – A [TableInput](#aws-glue-api-catalog-tables-TableInput "#aws-glue-api-catalog-tables-TableInput") object.
+  The version ID at which to update the table contents. 
++ `ViewUpdateAction` – UTF-8 string (valid values: `ADD` \| `REPLACE` \| `ADD_OR_REPLACE` \| `DROP`).
 
-An updated `TableInput` object to define the metadata table
-in the catalog.
+  The operation to be performed when updating the view.
++ `Force` – Boolean.
 
-- `SkipArchive` – Boolean.
+  A flag that can be set to true to ignore matching storage descriptor and subobject matching requirements.
++ `UpdateOpenTableFormatInput` – An [UpdateOpenTableFormatInput](#aws-glue-api-catalog-tables-UpdateOpenTableFormatInput) object.
 
-By default, `UpdateTable` always creates an archived version
-of the table before updating it. However, if `skipArchive` is set
-to true, `UpdateTable` does not create the archived version.
+  Input parameters for updating open table format tables in AWS GlueData Catalog, serving as a wrapper for format-specific update operations such as Apache Iceberg.
 
-- `TransactionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #41](aws-glue-api-common.md#regex_41 "aws-glue-api-common.md#regex_41").
+**Response**
++ *No Response parameters.*
 
-The transaction ID at which to update the table contents.
-
-- `VersionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The version ID at which to update the table contents.
-
-- `ViewUpdateAction` – UTF-8 string (valid values: `ADD` | `REPLACE` | `ADD_OR_REPLACE` | `DROP`).
-
-The operation to be performed when updating the view.
-
-- `Force` – Boolean.
-
-A flag that can be set to true to ignore matching storage descriptor and
-subobject matching requirements.
-
-- `UpdateOpenTableFormatInput` – An [UpdateOpenTableFormatInput](#aws-glue-api-catalog-tables-UpdateOpenTableFormatInput "#aws-glue-api-catalog-tables-UpdateOpenTableFormatInput") object.
-
-Input parameters for updating open table format tables in AWS GlueData Catalog, serving as a wrapper for format-specific update operations
-such as Apache Iceberg.
-
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `ConcurrentModificationException`
-- `ResourceNumberLimitExceededException`
-- `GlueEncryptionException`
-- `ResourceNotReadyException`
-- `FederationSourceException`
-- `FederationSourceRetryableException`
-- `AlreadyExistsException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `ConcurrentModificationException`
++ `ResourceNumberLimitExceededException`
++ `GlueEncryptionException`
++ `ResourceNotReadyException`
++ `FederationSourceException`
++ `FederationSourceRetryableException`
++ `AlreadyExistsException`
 
 ## DeleteTable action (Python: delete\_table)
+<a name="aws-glue-api-catalog-tables-DeleteTable"></a>
 
 Removes a table definition from the Data Catalog.
 
-###### Note
+**Note**  
+After completing this operation, you no longer have access to the table versions and partitions that belong to the deleted table. AWS Glue deletes these "orphaned" resources asynchronously in a timely manner, at the discretion of the service.  
+To ensure the immediate deletion of all related resources, before calling `DeleteTable`, use `DeleteTableVersion` or `BatchDeleteTableVersion`, and `DeletePartition` or `BatchDeletePartition`, to delete any resources that belong to the table.
 
-After completing this operation, you no longer have access to the table
-versions and partitions that belong to the deleted table. AWS Glue
-deletes these "orphaned" resources asynchronously in a timely manner, at the
-discretion of the service.
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-To ensure the immediate deletion of all related resources, before calling
-`DeleteTable`, use `DeleteTableVersion` or `BatchDeleteTableVersion`,
-and `DeletePartition` or `BatchDeletePartition`,
-to delete any resources that belong to the table.
+  The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-###### Request
+  The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the table to be deleted. For Hive compatibility, this name is entirely lowercase.
++ `TransactionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #41](aws-glue-api-common.md#regex_41).
 
-The ID of the Data Catalog where the table resides. If none is provided,
-the AWS account ID is used by default.
+  The transaction ID at which to delete the table contents.
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ *No Response parameters.*
 
-The name of the catalog database in which the table resides. For Hive compatibility,
-this name is entirely lowercase.
-
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the table to be deleted. For Hive compatibility, this name is
-entirely lowercase.
-
-- `TransactionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #41](aws-glue-api-common.md#regex_41 "aws-glue-api-common.md#regex_41").
-
-The transaction ID at which to delete the table contents.
-
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `ConcurrentModificationException`
-- `ResourceNotReadyException`
-- `FederationSourceException`
-- `FederationSourceRetryableException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `ConcurrentModificationException`
++ `ResourceNotReadyException`
++ `FederationSourceException`
++ `FederationSourceRetryableException`
 
 ## BatchDeleteTable action (Python: batch\_delete\_table)
+<a name="aws-glue-api-catalog-tables-BatchDeleteTable"></a>
 
 Deletes multiple tables at once.
 
-###### Note
+**Note**  
+After completing this operation, you no longer have access to the table versions and partitions that belong to the deleted table. AWS Glue deletes these "orphaned" resources asynchronously in a timely manner, at the discretion of the service.  
+To ensure the immediate deletion of all related resources, before calling `BatchDeleteTable`, use `DeleteTableVersion` or `BatchDeleteTableVersion`, and `DeletePartition` or `BatchDeletePartition`, to delete any resources that belong to the table.
 
-After completing this operation, you no longer have access to the table
-versions and partitions that belong to the deleted table. AWS Glue
-deletes these "orphaned" resources asynchronously in a timely manner, at the
-discretion of the service.
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-To ensure the immediate deletion of all related resources, before calling
-`BatchDeleteTable`, use `DeleteTableVersion` or
-`BatchDeleteTableVersion`, and `DeletePartition`
-or `BatchDeletePartition`, to delete any resources that belong
-to the table.
+  The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-###### Request
+  The name of the catalog database in which the tables to delete reside. For Hive compatibility, this name is entirely lowercase.
++ `TablesToDelete` – *Required:* An array of UTF-8 strings, not more than 100 strings.
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A list of the table to delete.
++ `TransactionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #41](aws-glue-api-common.md#regex_41).
 
-The ID of the Data Catalog where the table resides. If none is provided,
-the AWS account ID is used by default.
+  The transaction ID at which to delete the table contents.
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ `Errors` – An array of [TableError](#aws-glue-api-catalog-tables-TableError) objects.
 
-The name of the catalog database in which the tables to delete reside. For
-Hive compatibility, this name is entirely lowercase.
+  A list of errors encountered in attempting to delete the specified tables.
 
-- `TablesToDelete` – _Required:_ An array of UTF-8 strings, not more than 100 strings.
-
-A list of the table to delete.
-
-- `TransactionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #41](aws-glue-api-common.md#regex_41 "aws-glue-api-common.md#regex_41").
-
-The transaction ID at which to delete the table contents.
-
-###### Response
-
-- `Errors` – An array of [TableError](#aws-glue-api-catalog-tables-TableError "#aws-glue-api-catalog-tables-TableError") objects.
-
-A list of errors encountered in attempting to delete the specified tables.
-
-###### Errors
-
-- `InvalidInputException`
-- `EntityNotFoundException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `GlueEncryptionException`
-- `ResourceNotReadyException`
+**Errors**
++ `InvalidInputException`
++ `EntityNotFoundException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `GlueEncryptionException`
++ `ResourceNotReadyException`
 
 ## GetTable action (Python: get\_table)
+<a name="aws-glue-api-catalog-tables-GetTable"></a>
 
-Retrieves the `Table` definition in a Data Catalog for a specified
-table.
+Retrieves the `Table` definition in a Data Catalog for a specified table.
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The ID of the Data Catalog where the table resides. If none is provided,
-the AWS account ID is used by default.
+  The name of the database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the table for which to retrieve the definition. For Hive compatibility, this name is entirely lowercase.
++ `TransactionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #41](aws-glue-api-common.md#regex_41).
 
-The name of the database in the catalog in which the table resides. For Hive
-compatibility, this name is entirely lowercase.
+  The transaction ID at which to read the table contents. 
++ `QueryAsOfTime` – Timestamp.
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `TransactionId`.
++ `AuditContext` – An [AuditContext](#aws-glue-api-catalog-tables-AuditContext) object.
 
-The name of the table for which to retrieve the definition. For Hive compatibility,
-this name is entirely lowercase.
+  A structure containing the Lake Formation [audit context](https://docs.aws.amazon.com/glue/latest/webapi/API_AuditContext.html).
++ `IncludeStatusDetails` – Boolean.
 
-- `TransactionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #41](aws-glue-api-common.md#regex_41 "aws-glue-api-common.md#regex_41").
+  Specifies whether to include status details related to a request to create or update an AWS Glue Data Catalog view.
++ `AttributesToGet` – An array of UTF-8 strings.
 
-The transaction ID at which to read the table contents.
+  Specifies the table fields returned by the `GetTable` call. This parameter doesn't accept an empty list.
 
-- `QueryAsOfTime` – Timestamp.
+  The following are the valid combinations of values:
+  + `DEFAULT` - Returns the Hive-style table definition only.
+  + `LATEST_ICEBERG_METADATA` - Returns only the latest Apache Iceberg table metadata.
+  + `DEFAULT`, `LATEST_ICEBERG_METADATA` - Returns both the Hive-style table definition and the latest Apache Iceberg table metadata.
 
-The time as of when to read the table contents. If not set, the most recent
-transaction commit time will be used. Cannot be specified along with `TransactionId`.
+**Response**
++ `Table` – A [Table](#aws-glue-api-catalog-tables-Table) object.
 
-- `AuditContext` – An [AuditContext](#aws-glue-api-catalog-tables-AuditContext "#aws-glue-api-catalog-tables-AuditContext") object.
+  The `Table` object that defines the specified table.
 
-A structure containing the Lake Formation [audit
-context](../webapi/API_AuditContext.md "../webapi/API_AuditContext.md").
-
-- `IncludeStatusDetails` – Boolean.
-
-Specifies whether to include status details related to a request to create
-or update an AWS Glue Data Catalog view.
-
-- `AttributesToGet` – An array of UTF-8 strings.
-
-Specifies the table fields returned by the `GetTable` call.
-This parameter doesn't accept an empty list.
-
-The following are the valid combinations of values:
-
-    + `DEFAULT` - Returns the Hive-style table definition only.
-    + `LATEST_ICEBERG_METADATA` - Returns only the latest Apache
-     Iceberg table metadata.
-    + `DEFAULT`, `LATEST_ICEBERG_METADATA` - Returns
-     both the Hive-style table definition and the latest Apache Iceberg table metadata.
-
-###### Response
-
-- `Table` – A [Table](#aws-glue-api-catalog-tables-Table "#aws-glue-api-catalog-tables-Table") object.
-
-The `Table` object that defines the specified table.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `GlueEncryptionException`
-- `ResourceNotReadyException`
-- `FederationSourceException`
-- `FederationSourceRetryableException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `GlueEncryptionException`
++ `ResourceNotReadyException`
++ `FederationSourceException`
++ `FederationSourceRetryableException`
 
 ## GetTables action (Python: get\_tables)
+<a name="aws-glue-api-catalog-tables-GetTables"></a>
 
 Retrieves the definitions of some or all of the tables in a given `Database`.
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The ID of the Data Catalog where the tables reside. If none is provided,
-the AWS account ID is used by default.
+  The database in the catalog whose tables to list. For Hive compatibility, this name is entirely lowercase.
++ `Expression` – UTF-8 string, not more than 2048 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A regular expression pattern. If present, only those tables whose names match the pattern are returned.
++ `NextToken` – UTF-8 string.
 
-The database in the catalog whose tables to list. For Hive compatibility,
-this name is entirely lowercase.
+  A continuation token, included if this is a continuation call.
++ `MaxResults` – Number (integer), not less than 1 or more than 100.
 
-- `Expression` – UTF-8 string, not more than 2048 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The maximum number of tables to return in a single response.
++ `TransactionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #41](aws-glue-api-common.md#regex_41).
 
-A regular expression pattern. If present, only those tables whose names
-match the pattern are returned.
+  The transaction ID at which to read the table contents.
++ `QueryAsOfTime` – Timestamp.
 
-- `NextToken` – UTF-8 string.
+  The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `TransactionId`.
++ `AuditContext` – An [AuditContext](#aws-glue-api-catalog-tables-AuditContext) object.
 
-A continuation token, included if this is a continuation call.
+  A structure containing the Lake Formation [audit context](https://docs.aws.amazon.com/glue/latest/webapi/API_AuditContext.html).
++ `IncludeStatusDetails` – Boolean.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 100.
+  Specifies whether to include status details related to a request to create or update an AWS Glue Data Catalog view.
++ `AttributesToGet` – An array of UTF-8 strings.
 
-The maximum number of tables to return in a single response.
+   Specifies the table fields returned by the `GetTables` call. This parameter doesn't accept an empty list. The request must include `NAME`.
 
-- `TransactionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #41](aws-glue-api-common.md#regex_41 "aws-glue-api-common.md#regex_41").
+  The following are the valid combinations of values:
+  + `NAME` - Names of all tables in the database.
+  + `NAME`, `TABLE_TYPE` - Names of all tables and the table types.
 
-The transaction ID at which to read the table contents.
+**Response**
++ `TableList` – An array of [Table](#aws-glue-api-catalog-tables-Table) objects.
 
-- `QueryAsOfTime` – Timestamp.
+  A list of the requested `Table` objects.
++ `NextToken` – UTF-8 string.
 
-The time as of when to read the table contents. If not set, the most recent
-transaction commit time will be used. Cannot be specified along with `TransactionId`.
+  A continuation token, present if the current list segment is not the last.
 
-- `AuditContext` – An [AuditContext](#aws-glue-api-catalog-tables-AuditContext "#aws-glue-api-catalog-tables-AuditContext") object.
-
-A structure containing the Lake Formation [audit
-context](../webapi/API_AuditContext.md "../webapi/API_AuditContext.md").
-
-- `IncludeStatusDetails` – Boolean.
-
-Specifies whether to include status details related to a request to create
-or update an AWS Glue Data Catalog view.
-
-- `AttributesToGet` – An array of UTF-8 strings.
-
-Specifies the table fields returned by the `GetTables` call.
-This parameter doesn't accept an empty list. The request must include `NAME`.
-
-The following are the valid combinations of values:
-
-    + `NAME` - Names of all tables in the database.
-    + `NAME`, `TABLE_TYPE` - Names of all tables and
-     the table types.
-
-###### Response
-
-- `TableList` – An array of [Table](#aws-glue-api-catalog-tables-Table "#aws-glue-api-catalog-tables-Table") objects.
-
-A list of the requested `Table` objects.
-
-- `NextToken` – UTF-8 string.
-
-A continuation token, present if the current list segment is not the last.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
-- `GlueEncryptionException`
-- `FederationSourceException`
-- `FederationSourceRetryableException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
++ `GlueEncryptionException`
++ `FederationSourceException`
++ `FederationSourceRetryableException`
 
 ## GetTableVersion action (Python: get\_table\_version)
+<a name="aws-glue-api-catalog-tables-GetTableVersion"></a>
 
 Retrieves a specified version of a table.
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The ID of the Data Catalog where the tables reside. If none is provided,
-the AWS account ID is used by default.
+  The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
++ `TableName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the table. For Hive compatibility, this name is entirely lowercase.
++ `VersionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The database in the catalog in which the table resides. For Hive compatibility,
-this name is entirely lowercase.
+  The ID value of the table version to be retrieved. A `VersionID` is a string representation of an integer. Each version is incremented by 1. 
 
-- `TableName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ `TableVersion` – A [TableVersion](#aws-glue-api-catalog-tables-TableVersion) object.
 
-The name of the table. For Hive compatibility, this name is entirely lowercase.
+  The requested table version.
 
-- `VersionId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The ID value of the table version to be retrieved. A `VersionID`
-is a string representation of an integer. Each version is incremented by 1.
-
-###### Response
-
-- `TableVersion` – A [TableVersion](#aws-glue-api-catalog-tables-TableVersion "#aws-glue-api-catalog-tables-TableVersion") object.
-
-The requested table version.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `GlueEncryptionException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `GlueEncryptionException`
 
 ## GetTableVersions action (Python: get\_table\_versions)
+<a name="aws-glue-api-catalog-tables-GetTableVersions"></a>
 
-Retrieves a list of strings that identify available versions of a specified
-table.
+Retrieves a list of strings that identify available versions of a specified table.
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The ID of the Data Catalog where the tables reside. If none is provided,
-the AWS account ID is used by default.
+  The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
++ `TableName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the table. For Hive compatibility, this name is entirely lowercase.
++ `NextToken` – UTF-8 string.
 
-The database in the catalog in which the table resides. For Hive compatibility,
-this name is entirely lowercase.
+  A continuation token, if this is not the first call.
++ `MaxResults` – Number (integer), not less than 1 or more than 100.
 
-- `TableName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The maximum number of table versions to return in one response.
 
-The name of the table. For Hive compatibility, this name is entirely lowercase.
+**Response**
++ `TableVersions` – An array of [TableVersion](#aws-glue-api-catalog-tables-TableVersion) objects.
 
-- `NextToken` – UTF-8 string.
+  A list of strings identifying available versions of the specified table.
++ `NextToken` – UTF-8 string.
 
-A continuation token, if this is not the first call.
+  A continuation token, if the list of available versions does not include the last one.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 100.
-
-The maximum number of table versions to return in one response.
-
-###### Response
-
-- `TableVersions` – An array of [TableVersion](#aws-glue-api-catalog-tables-TableVersion "#aws-glue-api-catalog-tables-TableVersion") objects.
-
-A list of strings identifying available versions of the specified table.
-
-- `NextToken` – UTF-8 string.
-
-A continuation token, if the list of available versions does not include
-the last one.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `GlueEncryptionException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `GlueEncryptionException`
 
 ## DeleteTableVersion action (Python: delete\_table\_version)
+<a name="aws-glue-api-catalog-tables-DeleteTableVersion"></a>
 
 Deletes a specified version of a table.
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The ID of the Data Catalog where the tables reside. If none is provided,
-the AWS account ID is used by default.
+  The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
++ `TableName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the table. For Hive compatibility, this name is entirely lowercase.
++ `VersionId` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The database in the catalog in which the table resides. For Hive compatibility,
-this name is entirely lowercase.
+  The ID of the table version to be deleted. A `VersionID` is a string representation of an integer. Each version is incremented by 1.
 
-- `TableName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ *No Response parameters.*
 
-The name of the table. For Hive compatibility, this name is entirely lowercase.
-
-- `VersionId` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The ID of the table version to be deleted. A `VersionID` is
-a string representation of an integer. Each version is incremented by 1.
-
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
 
 ## BatchDeleteTableVersion action (Python: batch\_delete\_table\_version)
+<a name="aws-glue-api-catalog-tables-BatchDeleteTableVersion"></a>
 
 Deletes a specified batch of versions of a table.
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The ID of the Data Catalog where the tables reside. If none is provided,
-the AWS account ID is used by default.
+  The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
++ `TableName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the table. For Hive compatibility, this name is entirely lowercase.
++ `VersionIds` – *Required:* An array of UTF-8 strings, not more than 100 strings.
 
-The database in the catalog in which the table resides. For Hive compatibility,
-this name is entirely lowercase.
+  A list of the IDs of versions to be deleted. A `VersionId` is a string representation of an integer. Each version is incremented by 1.
 
-- `TableName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ `Errors` – An array of [TableVersionError](#aws-glue-api-catalog-tables-TableVersionError) objects.
 
-The name of the table. For Hive compatibility, this name is entirely lowercase.
+  A list of errors encountered while trying to delete the specified table versions.
 
-- `VersionIds` – _Required:_ An array of UTF-8 strings, not more than 100 strings.
-
-A list of the IDs of versions to be deleted. A `VersionId` is
-a string representation of an integer. Each version is incremented by 1.
-
-###### Response
-
-- `Errors` – An array of [TableVersionError](#aws-glue-api-catalog-tables-TableVersionError "#aws-glue-api-catalog-tables-TableVersionError") objects.
-
-A list of errors encountered while trying to delete the specified table
-versions.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
 
 ## SearchTables action (Python: search\_tables)
+<a name="aws-glue-api-catalog-tables-SearchTables"></a>
 
-Searches a set of tables based on properties in the table metadata as well
-as on the parent database. You can search against text or filter conditions.
+Searches a set of tables based on properties in the table metadata as well as on the parent database. You can search against text or filter conditions. 
 
-You can only get tables that you have access to based on the security policies
-defined in Lake Formation. You need at least a read-only access to the table for
-it to be returned. If you do not have access to all the columns in the table, these
-columns will not be searched against when returning the list of tables back to
-you. If you have access to the columns but not the data in the columns, those columns
-and the associated metadata for those columns will be included in the search.
+You can only get tables that you have access to based on the security policies defined in Lake Formation. You need at least a read-only access to the table for it to be returned. If you do not have access to all the columns in the table, these columns will not be searched against when returning the list of tables back to you. If you have access to the columns but not the data in the columns, those columns and the associated metadata for those columns will be included in the search. 
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A unique identifier, consisting of `account_id`.
++ `NextToken` – UTF-8 string.
 
-A unique identifier, consisting of `*account\_id*`.
+  A continuation token, included if this is a continuation call.
++ `Filters` – An array of [PropertyPredicate](aws-glue-api-common.md#aws-glue-api-common-PropertyPredicate) objects.
 
-- `NextToken` – UTF-8 string.
+  A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.
 
-A continuation token, included if this is a continuation call.
+  The `Comparator` member of the `PropertyPredicate` struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when `Key=Name`, a fuzzy match algorithm is used. The `Key` field (for example, the value of the `Name` field) is split on certain punctuation characters, for example, -, :, \#, etc. into tokens. Then each token is exact-match compared with the `Value` member of `PropertyPredicate`. For example, if `Key=Name` and `Value=link`, tables named `customer-link` and `xx-link-yy` are returned, but `xxlinkyy` is not returned.
++ `SearchText` – Value string, not less than 1 or more than 1024 bytes long.
 
-- `Filters` – An array of [PropertyPredicate](aws-glue-api-common.md#aws-glue-api-common-PropertyPredicate "aws-glue-api-common.md#aws-glue-api-common-PropertyPredicate") objects.
+  A string used for a text search.
 
-A list of key-value pairs, and a comparator used to filter the search results.
-Returns all entities matching the predicate.
+  Specifying a value in quotes filters based on an exact match to the value.
++ `SortCriteria` – An array of [SortCriterion](#aws-glue-api-catalog-tables-SortCriterion) objects, not more than 1 structures.
 
-The `Comparator` member of the `PropertyPredicate`
-struct is used only for time fields, and can be omitted for other field types. Also,
-when comparing string values, such as when `Key=Name`, a fuzzy match
-algorithm is used. The `Key` field (for example, the value of the
-`Name` field) is split on certain punctuation characters, for example,
--, :, #, etc. into tokens. Then each token is exact-match compared with the `Value`
-member of `PropertyPredicate`. For example, if `Key=Name`
-and `Value=link`, tables named `customer-link` and
-`xx-link-yy` are returned, but `xxlinkyy` is not returned.
+  A list of criteria for sorting the results by a field name, in an ascending or descending order.
++ `MaxResults` – Number (integer), not less than 1 or more than 1000.
 
-- `SearchText` – Value string, not less than 1 or more than 1024 bytes long.
+  The maximum number of tables to return in a single response.
++ `ResourceShareType` – UTF-8 string (valid values: `FOREIGN` \| `ALL` \| `FEDERATED`).
 
-A string used for a text search.
+  Allows you to specify that you want to search the tables shared with your account. The allowable values are `FOREIGN` or `ALL`. 
+  + If set to `FOREIGN`, will search the tables shared with your account. 
+  + If set to `ALL`, will search the tables shared with your account, as well as the tables in yor local account. 
++ `IncludeStatusDetails` – Boolean.
 
-Specifying a value in quotes filters based on an exact match to the value.
+  Specifies whether to include status details related to a request to create or update an AWS Glue Data Catalog view.
 
-- `SortCriteria` – An array of [SortCriterion](#aws-glue-api-catalog-tables-SortCriterion "#aws-glue-api-catalog-tables-SortCriterion") objects, not more than 1 structures.
+**Response**
++ `NextToken` – UTF-8 string.
 
-A list of criteria for sorting the results by a field name, in an ascending
-or descending order.
+  A continuation token, present if the current list segment is not the last.
++ `TableList` – An array of [Table](#aws-glue-api-catalog-tables-Table) objects.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+  A list of the requested `Table` objects. The `SearchTables` response returns only the tables that you have access to.
 
-The maximum number of tables to return in a single response.
-
-- `ResourceShareType` – UTF-8 string (valid values: `FOREIGN` | `ALL` | `FEDERATED`).
-
-Allows you to specify that you want to search the tables shared with your
-account. The allowable values are `FOREIGN` or `ALL`.
-
-    + If set to `FOREIGN`, will search the tables shared with your
-     account.
-    + If set to `ALL`, will search the tables shared with your account,
-     as well as the tables in yor local account.
-
-- `IncludeStatusDetails` – Boolean.
-
-Specifies whether to include status details related to a request to create
-or update an AWS Glue Data Catalog view.
-
-###### Response
-
-- `NextToken` – UTF-8 string.
-
-A continuation token, present if the current list segment is not the last.
-
-- `TableList` – An array of [Table](#aws-glue-api-catalog-tables-Table "#aws-glue-api-catalog-tables-Table") objects.
-
-A list of the requested `Table` objects. The `SearchTables`
-response returns only the tables that you have access to.
-
-###### Errors
-
-- `InternalServiceException`
-- `InvalidInputException`
-- `OperationTimeoutException`
+**Errors**
++ `InternalServiceException`
++ `InvalidInputException`
++ `OperationTimeoutException`
 
 ## GetPartitionIndexes action (Python: get\_partition\_indexes)
+<a name="aws-glue-api-catalog-tables-GetPartitionIndexes"></a>
 
 Retrieves the partition indexes associated with a table.
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The catalog ID where the table resides.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The catalog ID where the table resides.
+  Specifies the name of a database from which you want to retrieve partition indexes.
++ `TableName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Specifies the name of a table for which you want to retrieve the partition indexes.
++ `NextToken` – UTF-8 string.
 
-Specifies the name of a database from which you want to retrieve partition
-indexes.
+  A continuation token, included if this is a continuation call.
 
-- `TableName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ `PartitionIndexDescriptorList` – An array of [PartitionIndexDescriptor](#aws-glue-api-catalog-tables-PartitionIndexDescriptor) objects.
 
-Specifies the name of a table for which you want to retrieve the partition
-indexes.
+  A list of index descriptors.
++ `NextToken` – UTF-8 string.
 
-- `NextToken` – UTF-8 string.
+  A continuation token, present if the current list segment is not the last.
 
-A continuation token, included if this is a continuation call.
-
-###### Response
-
-- `PartitionIndexDescriptorList` – An array of [PartitionIndexDescriptor](#aws-glue-api-catalog-tables-PartitionIndexDescriptor "#aws-glue-api-catalog-tables-PartitionIndexDescriptor") objects.
-
-A list of index descriptors.
-
-- `NextToken` – UTF-8 string.
-
-A continuation token, present if the current list segment is not the last.
-
-###### Errors
-
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `InvalidInputException`
-- `EntityNotFoundException`
-- `ConflictException`
+**Errors**
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `InvalidInputException`
++ `EntityNotFoundException`
++ `ConflictException`
 
 ## CreatePartitionIndex action (Python: create\_partition\_index)
+<a name="aws-glue-api-catalog-tables-CreatePartitionIndex"></a>
 
 Creates a specified partition index in an existing table.
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The catalog ID where the table resides.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The catalog ID where the table resides.
+  Specifies the name of a database in which you want to create a partition index.
++ `TableName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Specifies the name of a table in which you want to create a partition index.
++ `PartitionIndex` – *Required:* A [PartitionIndex](#aws-glue-api-catalog-tables-PartitionIndex) object.
 
-Specifies the name of a database in which you want to create a partition
-index.
+  Specifies a `PartitionIndex` structure to create a partition index in an existing table.
 
-- `TableName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ *No Response parameters.*
 
-Specifies the name of a table in which you want to create a partition index.
-
-- `PartitionIndex` – _Required:_ A [PartitionIndex](#aws-glue-api-catalog-tables-PartitionIndex "#aws-glue-api-catalog-tables-PartitionIndex") object.
-
-Specifies a `PartitionIndex` structure to create a partition
-index in an existing table.
-
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `AlreadyExistsException`
-- `InvalidInputException`
-- `EntityNotFoundException`
-- `ResourceNumberLimitExceededException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `GlueEncryptionException`
+**Errors**
++ `AlreadyExistsException`
++ `InvalidInputException`
++ `EntityNotFoundException`
++ `ResourceNumberLimitExceededException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `GlueEncryptionException`
 
 ## DeletePartitionIndex action (Python: delete\_partition\_index)
+<a name="aws-glue-api-catalog-tables-DeletePartitionIndex"></a>
 
 Deletes a specified partition index from an existing table.
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The catalog ID where the table resides.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The catalog ID where the table resides.
+  Specifies the name of a database from which you want to delete a partition index.
++ `TableName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Specifies the name of a table from which you want to delete a partition index.
++ `IndexName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Specifies the name of a database from which you want to delete a partition
-index.
+  The name of the partition index to be deleted.
 
-- `TableName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ *No Response parameters.*
 
-Specifies the name of a table from which you want to delete a partition index.
-
-- `IndexName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the partition index to be deleted.
-
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `InvalidInputException`
-- `EntityNotFoundException`
-- `ConflictException`
-- `GlueEncryptionException`
+**Errors**
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `InvalidInputException`
++ `EntityNotFoundException`
++ `ConflictException`
++ `GlueEncryptionException`
 
 ## GetColumnStatisticsForTable action (Python: get\_column\_statistics\_for\_table)
+<a name="aws-glue-api-catalog-tables-GetColumnStatisticsForTable"></a>
 
 Retrieves table statistics of columns.
 
-The Identity and Access Management (IAM) permission required for this
-operation is `GetTable`.
+The Identity and Access Management (IAM) permission required for this operation is `GetTable`.
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The ID of the Data Catalog where the partitions in question reside. If none
-is supplied, the AWS account ID is used by default.
+  The name of the catalog database where the partitions reside.
++ `TableName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the partitions' table.
++ `ColumnNames` – *Required:* An array of UTF-8 strings, not more than 100 strings.
 
-The name of the catalog database where the partitions reside.
+  A list of the column names.
 
-- `TableName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ `ColumnStatisticsList` – An array of [ColumnStatistics](aws-glue-api-common.md#aws-glue-api-common-ColumnStatistics) objects.
 
-The name of the partitions' table.
+  List of ColumnStatistics.
++ `Errors` – An array of [ColumnError](aws-glue-api-common.md#aws-glue-api-common-ColumnError) objects.
 
-- `ColumnNames` – _Required:_ An array of UTF-8 strings, not more than 100 strings.
+  List of ColumnStatistics that failed to be retrieved.
 
-A list of the column names.
-
-###### Response
-
-- `ColumnStatisticsList` – An array of [ColumnStatistics](aws-glue-api-common.md#aws-glue-api-common-ColumnStatistics "aws-glue-api-common.md#aws-glue-api-common-ColumnStatistics") objects.
-
-List of ColumnStatistics.
-
-- `Errors` – An array of [ColumnError](aws-glue-api-common.md#aws-glue-api-common-ColumnError "aws-glue-api-common.md#aws-glue-api-common-ColumnError") objects.
-
-List of ColumnStatistics that failed to be retrieved.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `GlueEncryptionException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `GlueEncryptionException`
 
 ## UpdateColumnStatisticsForTable action (Python: update\_column\_statistics\_for\_table)
+<a name="aws-glue-api-catalog-tables-UpdateColumnStatisticsForTable"></a>
 
 Creates or updates table statistics of columns.
 
-The Identity and Access Management (IAM) permission required for this
-operation is `UpdateTable`.
+The Identity and Access Management (IAM) permission required for this operation is `UpdateTable`.
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The ID of the Data Catalog where the partitions in question reside. If none
-is supplied, the AWS account ID is used by default.
+  The name of the catalog database where the partitions reside.
++ `TableName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the partitions' table.
++ `ColumnStatisticsList` – *Required:* An array of [ColumnStatistics](aws-glue-api-common.md#aws-glue-api-common-ColumnStatistics) objects, not more than 25 structures.
 
-The name of the catalog database where the partitions reside.
+  A list of the column statistics.
 
-- `TableName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ `Errors` – An array of [ColumnStatisticsError](aws-glue-api-common.md#aws-glue-api-common-ColumnStatisticsError) objects.
 
-The name of the partitions' table.
+  List of ColumnStatisticsErrors.
 
-- `ColumnStatisticsList` – _Required:_ An array of [ColumnStatistics](aws-glue-api-common.md#aws-glue-api-common-ColumnStatistics "aws-glue-api-common.md#aws-glue-api-common-ColumnStatistics") objects, not more than 25 structures.
-
-A list of the column statistics.
-
-###### Response
-
-- `Errors` – An array of [ColumnStatisticsError](aws-glue-api-common.md#aws-glue-api-common-ColumnStatisticsError "aws-glue-api-common.md#aws-glue-api-common-ColumnStatisticsError") objects.
-
-List of ColumnStatisticsErrors.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `GlueEncryptionException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `GlueEncryptionException`
 
 ## DeleteColumnStatisticsForTable action (Python: delete\_column\_statistics\_for\_table)
+<a name="aws-glue-api-catalog-tables-DeleteColumnStatisticsForTable"></a>
 
 Retrieves table statistics of columns.
 
-The Identity and Access Management (IAM) permission required for this
-operation is `DeleteTable`.
+The Identity and Access Management (IAM) permission required for this operation is `DeleteTable`.
 
-###### Request
+**Request**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The ID of the Data Catalog where the partitions in question reside. If none
-is supplied, the AWS account ID is used by default.
+  The name of the catalog database where the partitions reside.
++ `TableName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the partitions' table.
++ `ColumnName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the catalog database where the partitions reside.
+  The name of the column.
 
-- `TableName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ *No Response parameters.*
 
-The name of the partitions' table.
-
-- `ColumnName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the column.
-
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `GlueEncryptionException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `GlueEncryptionException`

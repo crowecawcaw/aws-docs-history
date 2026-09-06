@@ -1,105 +1,79 @@
-# Data encryption at rest for AWS Glue Data Quality
 
-AWS Glue Data Quality provides encryption by default to protect sensitive customer data at rest using AWS owned encryption keys.
+
+# Data encryption at rest for AWS Glue Data Quality
+<a name="data-quality-encryption"></a>
+
+ AWS Glue Data Quality provides encryption by default to protect sensitive customer data at rest using AWS owned encryption keys. 
 
 ## AWS owned keys
+<a name="w2aac49c79b9"></a>
 
-AWS Glue Data Quality uses these keys to automatically encrypt customers' Data Quality assets. You cannot view,
-manage, or use AWS owned keys, or audit their use. However, you don't need to take any action or change any programs to
-protect the keys that encrypt your data. For more information, see
-[AWS owned keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk")
-in the AWS KMS Developer Guide.
+ AWS Glue Data Quality uses these keys to automatically encrypt customers' Data Quality assets. You cannot view, manage, or use AWS owned keys, or audit their use. However, you don't need to take any action or change any programs to protect the keys that encrypt your data. For more information, see [AWS owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) in the AWS KMS Developer Guide. 
 
-Encryption of data at rest by default helps reduce the operational overhead and complexity involved in protecting sensitive data.
-At the same time, it enables you to build secure applications that meet strict encryption compliance and regulatory requirements.
+ Encryption of data at rest by default helps reduce the operational overhead and complexity involved in protecting sensitive data. At the same time, it enables you to build secure applications that meet strict encryption compliance and regulatory requirements. 
 
-While you can't disable this layer of encryption or select an alternate encryption type, you can add a second layer of
-encryption over the existing AWS owned encryption keys by choosing a customer-managed key when you create your Data Quality
-resources.
+ While you can't disable this layer of encryption or select an alternate encryption type, you can add a second layer of encryption over the existing AWS owned encryption keys by choosing a customer-managed key when you create your Data Quality resources. 
 
 ## Customer managed keys
+<a name="data-quality-encryption-customer-managed-keys"></a>
 
-**Customer managed keys**: AWS Glue Data Quality supports the use of a symmetric customer-managed key that you
-create, own, and manage. This adds a second layer of encryption over the existing AWS owned encryption. Because you have full
-control of this layer of encryption, you can perform tasks such as:
+ **Customer managed keys**: AWS Glue Data Quality supports the use of a symmetric customer-managed key that you create, own, and manage. This adds a second layer of encryption over the existing AWS owned encryption. Because you have full control of this layer of encryption, you can perform tasks such as: 
++  Establishing and maintaining key policies 
++  Establishing and maintaining IAM policies 
++  Enabling and disabling key policies 
++  Rotating key cryptographic material 
++  Adding tags 
++  Creating key aliases 
++  Scheduling keys for deletion 
 
-- Establishing and maintaining key policies
-- Establishing and maintaining IAM policies
-- Enabling and disabling key policies
-- Rotating key cryptographic material
-- Adding tags
-- Creating key aliases
-- Scheduling keys for deletion
+ For more information, see [Customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) in the AWS KMS Developer Guide. 
 
-For more information, see
-[Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk")
-in the AWS KMS Developer Guide.
+ The following table summarizes how AWS Glue Data Quality encrypts different Data Quality assets. 
 
-The following table summarizes how AWS Glue Data Quality encrypts different Data Quality assets.
 
-| Data type                                                                                                                                                                                                                                                               | AWS owned key encryption | Customer managed key encryption |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------------- |
-| **Data Quality Ruleset**<br>DQDL ruleset string that is referenced by the persisted DQ ruleset. These persisted rulesets are only used in the<br>AWS Glue Data Catalog experience for now.                                                                              | Enabled                  | Enabled                         |
-| **Data Quality Rule/Analyzer Results**<br>Result artifacts that contains the pass/fail status of each rule in a ruleset as well as metrics collected<br>by both rules and analyzers.                                                                                    | Enabled                  | Enabled                         |
-| **Observations**<br>Observations are generated when an anomaly is detected in the data. It contains information on the expected<br>upper and lower bound and a suggested rule based on these bounds. If generated, they are displayed with the<br>Data Quality Results. | Enabled                  | Enabled                         |
-| **Statistics**<br>Contains information on metrics collected after evaluating the data given a ruleset, such as the value of the<br>metric (e.g. RowCount, Completeness), column names, and other metadata.                                                              | Enabled                  | Enabled                         |
-| **Anomaly Detection Statistic Models**<br>The statistic models contain the time series of upper and lower bounds for a given metric generated based off<br>of previous evaluations of the customer data.                                                                | Enabled                  | Enabled                         |
+| Data type | AWS owned key encryption | Customer managed key encryption | 
+| --- | --- | --- | 
+|  **Data Quality Ruleset** <br /> DQDL ruleset string that is referenced by the persisted DQ ruleset. These persisted rulesets are only used in the AWS Glue Data Catalog experience for now.  | Enabled | Enabled | 
+|  **Data Quality Rule/Analyzer Results ** <br /> Result artifacts that contains the pass/fail status of each rule in a ruleset as well as metrics collected by both rules and analyzers.  | Enabled | Enabled | 
+|  **Observations** <br /> Observations are generated when an anomaly is detected in the data. It contains information on the expected upper and lower bound and a suggested rule based on these bounds. If generated, they are displayed with the Data Quality Results.  | Enabled | Enabled | 
+|  **Statistics** <br /> Contains information on metrics collected after evaluating the data given a ruleset, such as the value of the metric (e.g. RowCount, Completeness), column names, and other metadata.  | Enabled | Enabled | 
+|  **Anomaly Detection Statistic Models** <br /> The statistic models contain the time series of upper and lower bounds for a given metric generated based off of previous evaluations of the customer data.  | Enabled | Enabled | 
 
-###### Note
-
-AWS Data Quality automatically enables encryption at rest using AWS owned keys to protect personally identifiable
-data at no charge. However, AWS KMS charges apply for using a customer managed key. For more information about pricing,
-see [AWS KMS Pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
-
-For more information on AWS KMS, see [AWS KMS](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
+**Note**  
+ AWS Data Quality automatically enables encryption at rest using AWS owned keys to protect personally identifiable data at no charge. However, AWS KMS charges apply for using a customer managed key. For more information about pricing, see [AWS KMS Pricing](https://aws.amazon.com/kms/pricing/).   
+ For more information on AWS KMS, see [AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html). 
 
 ## Create a Customer Managed Key
+<a name="data-quality-encryption-customer-managed-key"></a>
 
-You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs.
+ You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs. 
 
-###### To create a symmetric customer managed key:
-
-- Follow the steps for
-  [Creating symmetric encryption AWS KMS keys](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the AWS Key Management Service Developer Guide.
+**To create a symmetric customer managed key:**
++  Follow the steps for [ Creating symmetric encryption AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the AWS Key Management Service Developer Guide. 
 
 ### Key policy
+<a name="data-quality-encryption-customer-managed-key-policy"></a>
 
-Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy,
-which contains statements that determine who can use the key and how they can use it. When you create your customer
-managed key, you can specify a key policy. For more information, see
-[Key policies in AWS KMS keys](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the AWS Key Management Service Developer Guide.
+ Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [ Key policies in AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the AWS Key Management Service Developer Guide. 
 
-To use your customer managed key with your Data Quality resources, the following API operations must be permitted in
-the key policy:
+ To use your customer managed key with your Data Quality resources, the following API operations must be permitted in the key policy: 
++  [`kms:Decrypt`](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) – Decrypts ciphertext that was encrypted by an AWS KMS key using `GenerateDataKeyWithoutPlaintext` 
++  [`kms:DescribeKey`](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) – Provides the customer managed key details to allow Amazon Location to validate the key. 
++  [`kms:GenerateDataKeyWithoutPlaintext`](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.html) – Returns a unique symmetric data key for use outside of AWS KMS. This operation returns a data key that is encrypted under a symmetric encryption KMS key that you specify. The bytes in the key are random; they are not related to the caller or to the KMS key. Used to reduce KMS calls the customer has to make. 
++  [`kms:ReEncrypt*`](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html) – Decrypts ciphertext and then reencrypts it entirely within AWS KMS. You can use this operation to change the KMS key under which data is encrypted, such as when you [ manually rotate ](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-manually) a KMS key or change the KMS key that protects a ciphertext. You can also use it to reencrypt ciphertext under the same KMS key, such as to change the [ encryption context ](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) of a ciphertext. 
 
-- [`kms:Decrypt`](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") – Decrypts ciphertext that was encrypted by an AWS KMS key using
-  `GenerateDataKeyWithoutPlaintext`
-- [`kms:DescribeKey`](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md")
-  – Provides the customer managed key details to allow Amazon Location to validate the key.
-- [`kms:GenerateDataKeyWithoutPlaintext`](../../../kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.md "../../../kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.md")
-  – Returns a unique symmetric data key for use outside of AWS KMS. This operation returns a data key that
-  is encrypted under a symmetric encryption KMS key that you specify. The bytes in the key are random; they are not
-  related to the caller or to the KMS key. Used to reduce KMS calls the customer has to make.
-- [`kms:ReEncrypt*`](../../../kms/latest/APIReference/API_ReEncrypt.md "../../../kms/latest/APIReference/API_ReEncrypt.md")
-  – Decrypts ciphertext and then reencrypts it entirely within AWS KMS. You can use this operation to change
-  the KMS key under which data is encrypted, such as when you
-  [manually rotate](../../../kms/latest/developerguide/rotate-keys.md#rotate-keys-manually "../../../kms/latest/developerguide/rotate-keys.md#rotate-keys-manually")
-  a KMS key or change the KMS key that
-  protects a ciphertext. You can also use it to reencrypt ciphertext under the same KMS key, such as to change the
-  [encryption context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") of a ciphertext.
-
-The following are policy statement examples you can add for Amazon Location:
+ The following are policy statement examples you can add for Amazon Location: 
 
 ```
-"Statement" : [
+"Statement" : [ 
     {
         "Sid" : "Allow access to principals authorized to use AWS Glue Data Quality",
         "Effect" : "Allow",
         "Principal" : {
             "AWS": "arn:aws:iam::<account_id>:role/ExampleRole"
         },
-        "Action" : [
-            "kms:Decrypt",
+        "Action" : [ 
+            "kms:Decrypt", 
             "kms:DescribeKey",
             "kms:GenerateDataKeyWithoutPlaintext",
             "kms:ReEncrypt*"
@@ -117,7 +91,7 @@ The following are policy statement examples you can add for Amazon Location:
         "Principal": {
             "AWS": "arn:aws:iam::111122223333:root"
           },
-        "Action" : [
+        "Action" : [ 
             "kms:*"
          ],
         "Resource": "arn:aws:kms:region:111122223333:key/key_ID"
@@ -128,7 +102,7 @@ The following are policy statement examples you can add for Amazon Location:
         "Principal" : {
             "AWS" : "arn:aws:iam::111122223333:root"
         },
-        "Action" : [
+        "Action" : [ 
             "kms:Describe*",
             "kms:Get*",
             "kms:List*",
@@ -139,41 +113,37 @@ The following are policy statement examples you can add for Amazon Location:
 ```
 
 ### Notes about using KMS Keys in AWS Glue Data Quality
+<a name="data-quality-encryption-kms-keys-notes"></a>
 
-AWS Glue Data Quality does not support key transitions. This means that if you encrypt your Data Quality assets with Key A and decide
-to switch to Key B, we will not re-encrypt the data that was encrypted with Key A to use Key B. You can still switch to
-Key B, but will need to maintain access to Key A to access data previously encrypted with Key A.
+ AWS Glue Data Quality does not support key transitions. This means that if you encrypt your Data Quality assets with Key A and decide to switch to Key B, we will not re-encrypt the data that was encrypted with Key A to use Key B. You can still switch to Key B, but will need to maintain access to Key A to access data previously encrypted with Key A. 
 
-For more information about specifying permissions in a policy, see
-[Permissions for AWS services in key policies](../../../kms/latest/developerguide/key-policy-services.md "../../../kms/latest/developerguide/key-policy-services.md") in the AWS Key Management Service Developer Guide.
+ For more information about specifying permissions in a policy, see [ Permissions for AWS services in key policies ](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-services.html) in the AWS Key Management Service Developer Guide. 
 
-For more information about troubleshooting key access, see
-[Troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md") in the AWS Key Management Service Developer Guide.
+ For more information about troubleshooting key access, see [ Troubleshooting key access ](https://docs.aws.amazon.com/kms/latest/developerguide/policy-evaluation.html) in the AWS Key Management Service Developer Guide. 
 
 ## Create a security configuration
+<a name="data-quality-encryption-create-security-configuration"></a>
 
-In AWS Glue the [Security Configurations resource](encryption-security-configuration.md "encryption-security-configuration.md")
-contains properties that are needed when you write encrypted data.
+ In AWS Glue the [Security Configurations resource](encryption-security-configuration.md) contains properties that are needed when you write encrypted data. 
 
-###### To encrypt your data quality assets:
+**To encrypt your data quality assets:**
 
-1. In **Encryption settings**, under **Advanced settings**, choose
-   **Enable Data Quality Encryption**
-2. Select your KMS key or choose **Create an AWS KMS key**
+1.  In **Encryption settings**, under **Advanced settings**, choose **Enable Data Quality Encryption** 
 
-![The screenshot shows the Add security configuration page. The Enable DataQuality encryption option is selected.](images/data-quality-add-security-configuration.png)
+1.  Select your KMS key or choose **Create an AWS KMS key** 
+
+![The screenshot shows the Add security configuration page. The Enable DataQuality encryption option is selected.](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-add-security-configuration.png)
+
 
 ## AWS Glue Data Quality encryption context
+<a name="data-quality-encryption-context"></a>
 
-An [encryption context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is an optional set of key-value pairs that contain additional contextual information about the data.
+ An [ encryption context ](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) is an optional set of key-value pairs that contain additional contextual information about the data. 
 
-AWS KMS uses the encryption context as
-[additional authenticated data](../../../crypto/latest/userguide/cryptography-concepts.md#term-aad "../../../crypto/latest/userguide/cryptography-concepts.md#term-aad")
-to support [authenticated encryption](../../../crypto/latest/userguide/cryptography-concepts.md#term-aad "../../../crypto/latest/userguide/cryptography-concepts.md#term-aad") .
-When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data.
-To decrypt data, you include the same encryption context in the request.
+ AWS KMS uses the encryption context as [ additional authenticated data ](https://docs.aws.amazon.com/crypto/latest/userguide/cryptography-concepts.html#term-aad) to support [ authenticated encryption ](https://docs.aws.amazon.com/crypto/latest/userguide/cryptography-concepts.html#term-aad). When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you include the same encryption context in the request. 
 
 ### AWS Glue Data Quality encryption context example
+<a name="data-quality-encryption-context-example"></a>
 
 ```
 "encryptionContext": {
@@ -188,20 +158,18 @@ To decrypt data, you include the same encryption context in the request.
 ```
 
 ### Using encryption context for monitoring
+<a name="data-quality-encryption-context-monitoring"></a>
 
-When you use a symmetric customer managed key to encrypt your tracker or geofence collection, you can also use the
-encryption context in audit records and logs to identify how the customer managed key is being used. The encryption
-context also appears in logs generated by AWS CloudTrail or Amazon CloudWatch Logs.
+ When you use a symmetric customer managed key to encrypt your tracker or geofence collection, you can also use the encryption context in audit records and logs to identify how the customer managed key is being used. The encryption context also appears in logs generated by AWS CloudTrail or Amazon CloudWatch Logs. 
 
 ## Monitoring your encryption keys for AWS Glue Data Quality
+<a name="data-quality-monitoring-encryption-keys"></a>
 
-When you use an AWS KMS customer managed key with your AWS Glue Data Quality resources, you can use AWS CloudTrail or
-Amazon CloudWatch Logs to track requests that AWS Glue Data Quality sends to AWS KMS.
+ When you use an AWS KMS customer managed key with your AWS Glue Data Quality resources, you can use AWS CloudTrail or Amazon CloudWatch Logs to track requests that AWS Glue Data Quality sends to AWS KMS. 
 
-The following examples are AWS CloudTrail events for `GenerateDataKeyWithoutPlainText` and
-`Decrypt` to monitor KMS operations called by AWS Glue Data Quality to access data encrypted by your customer managed key.
+ The following examples are AWS CloudTrail events for `GenerateDataKeyWithoutPlainText` and `Decrypt` to monitor KMS operations called by AWS Glue Data Quality to access data encrypted by your customer managed key. 
 
-**Decrypt**
+ **Decrypt** 
 
 ```
 {
@@ -250,7 +218,7 @@ The following examples are AWS CloudTrail events for `GenerateDataKeyWithoutPlai
 }
 ```
 
-**GenerateDataKeyWithoutPlaintext**
+ **GenerateDataKeyWithoutPlaintext** 
 
 ```
 {
@@ -298,7 +266,7 @@ The following examples are AWS CloudTrail events for `GenerateDataKeyWithoutPlai
 }
 ```
 
-**ReEncyrpt**
+ **ReEncyrpt** 
 
 ```
 {
@@ -366,12 +334,8 @@ The following examples are AWS CloudTrail events for `GenerateDataKeyWithoutPlai
 ```
 
 ## Learn more
+<a name="data-quality-encryption-learn-more"></a>
 
-The following resources provide more information about data encryption at rest.
-
-- For more information about
-  [AWS Key Management Service basic concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md")  
-  see the AWS Key Management Service Developer Guide.
-- For more information about
-  [Security best practices for AWS Key Management Service](../../../kms/latest/developerguide/best-practices.md "../../../kms/latest/developerguide/best-practices.md")
-  see the AWS Key Management Service Developer Guide.
+ The following resources provide more information about data encryption at rest. 
++  For more information about [AWS Key Management Service basic concepts ](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) see the AWS Key Management Service Developer Guide. 
++  For more information about [ Security best practices for AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/best-practices.html) see the AWS Key Management Service Developer Guide. 

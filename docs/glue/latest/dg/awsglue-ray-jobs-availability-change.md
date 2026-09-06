@@ -1,52 +1,33 @@
+
+
 # AWS Glue for Ray end of support
+<a name="awsglue-ray-jobs-availability-change"></a>
 
-###### Important
+**Important**  
+AWS Glue for Ray is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [AWS Glue for Ray end of support](https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html).
 
-AWS Glue for Ray is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Glue for Ray end of support](awsglue-ray-jobs-availability-change.md "awsglue-ray-jobs-availability-change.md").
+After careful consideration, we decided to close AWS Glue for Ray to new customers starting April 30, 2026. If you would like to use AWS Glue for Ray, sign up prior to that date. Existing customers can continue to use the service as normal.
 
-After careful consideration, we decided to close AWS Glue for Ray to new customers starting
-April 30, 2026. If you would like to use AWS Glue for Ray, sign up prior to that date. Existing
-customers can continue to use the service as normal.
+AWS continues to invest in security and availability improvements for AWS Glue for Ray. Note that we do not plan to introduce new features to AWS Glue for Ray, except for security and availability enhancements.
 
-AWS continues to invest in security and availability improvements for AWS Glue for Ray.
-Note that we do not plan to introduce new features to AWS Glue for Ray, except for security and
-availability enhancements.
-
-As an alternative to AWS Glue for Ray, we recommend using Amazon Elastic Kubernetes Service. Amazon Elastic Kubernetes Service is a fully
-managed, certified Kubernetes conformant service that simplifies the process of building,
-securing, operating, and maintaining Kubernetes clusters on AWS. It is a highly
-customizable option that relies on open-source KubeRay Operator to deploy and manage Ray
-clusters on Kubernetes, offering improved resource utilization, simplified infrastructure
-management, and full support for Ray features.
+As an alternative to AWS Glue for Ray, we recommend using Amazon Elastic Kubernetes Service. Amazon Elastic Kubernetes Service is a fully managed, certified Kubernetes conformant service that simplifies the process of building, securing, operating, and maintaining Kubernetes clusters on AWS. It is a highly customizable option that relies on open-source KubeRay Operator to deploy and manage Ray clusters on Kubernetes, offering improved resource utilization, simplified infrastructure management, and full support for Ray features.
 
 ## Migrating a Ray job to Amazon Elastic Kubernetes Service
+<a name="awsglue-ray-jobs-availability-change-migration"></a>
 
-This section provides steps for migrating from AWS Glue for Ray to Ray on Amazon Elastic Kubernetes Service.
-These steps are helpful for two migration scenarios:
-
-- **Standard Migration (x86/amd64)**: For these use
-  cases, the migration strategy uses OpenSource Ray container for basic
-  implementations and executes scripts directly on the base container.
-- **ARM64 Migration**: For these use cases, the
-  migration strategy supports custom container builds for ARM64-specific
-  dependencies and architecture requirements.
+This section provides steps for migrating from AWS Glue for Ray to Ray on Amazon Elastic Kubernetes Service. These steps are helpful for two migration scenarios:
++ **Standard Migration (x86/amd64)**: For these use cases, the migration strategy uses OpenSource Ray container for basic implementations and executes scripts directly on the base container.
++ **ARM64 Migration**: For these use cases, the migration strategy supports custom container builds for ARM64-specific dependencies and architecture requirements.
 
 ### Prerequisites for migration
+<a name="awsglue-ray-jobs-availability-change-prerequisites"></a>
 
-Install the following CLI tools: **aws**,
-**kubectl**, **eksctl**, **helm**,
-Python 3.9+. These CLI tools are required to provision and manage your Ray on EKS
-environment. **eksctl** simplifies creating and managing EKS
-clusters. **kubectl** is the standard Kubernetes CLI for deploying
-and troubleshooting workloads on your cluster. **helm** is used to
-install and manage KubeRay (the operator that runs Ray on Kubernetes). Python 3.9+
-is required for Ray itself and to run job submission scripts locally.
+Install the following CLI tools: **aws**, **kubectl**, **eksctl**, **helm**, Python 3.9\+. These CLI tools are required to provision and manage your Ray on EKS environment. **eksctl** simplifies creating and managing EKS clusters. **kubectl** is the standard Kubernetes CLI for deploying and troubleshooting workloads on your cluster. **helm** is used to install and manage KubeRay (the operator that runs Ray on Kubernetes). Python 3.9\+ is required for Ray itself and to run job submission scripts locally.
 
 #### Install eksctl
+<a name="awsglue-ray-jobs-availability-change-install-eksctl"></a>
 
-Follow the instructions on [Installation options for
-Eksctl](../../../eks/latest/eksctl/installation.md "../../../eks/latest/eksctl/installation.md") or use the instructions below for installation.
+Follow the instructions on [Installation options for Eksctl](https://docs.aws.amazon.com/eks/latest/eksctl/installation.html) or use the instructions below for installation.
 
 For macOS:
 
@@ -68,9 +49,9 @@ eksctl version
 ```
 
 #### Install kubectl
+<a name="awsglue-ray-jobs-availability-change-install-kubectl"></a>
 
-Follow the instructions on [Set up kubectl and
-eksctl](../../../eks/latest/userguide/install-kubectl.md "../../../eks/latest/userguide/install-kubectl.md") or use the instructions below for installation.
+Follow the instructions on [Set up kubectl and eksctl](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html) or use the instructions below for installation.
 
 For macOS:
 
@@ -87,9 +68,9 @@ sudo mv kubectl /usr/local/bin/
 ```
 
 #### Install helm
+<a name="awsglue-ray-jobs-availability-change-install-helm"></a>
 
-Follow the instructions on [Installing Helm](https://helm.sh/docs/intro/install/ "https://helm.sh/docs/intro/install/") or use the instructions below for
-installation.
+Follow the instructions on [Installing Helm](https://helm.sh/docs/intro/install/) or use the instructions below for installation.
 
 For macOS:
 
@@ -104,25 +85,18 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ```
 
 ### Step 1. Build or choose a Docker Image for Ray
+<a name="awsglue-ray-jobs-availability-change-step1"></a>
 
-**Option 1: Use the official Ray image (no build
-required)**
+**Option 1: Use the official Ray image (no build required)**
 
-This option uses the official Ray Docker image on [Docker Hub](https://hub.docker.com/u/rayproject "https://hub.docker.com/u/rayproject"), for example
-`rayproject/ray:2.4.0-py39`, which is maintained by the Ray
-project.
+This option uses the official Ray Docker image on [Docker Hub](https://hub.docker.com/u/rayproject), for example `rayproject/ray:2.4.0-py39`, which is maintained by the Ray project.
 
-###### Note
+**Note**  
+This image is amd64-only. Use this if your dependencies are compatible with amd64 and you don't require ARM-specific builds.
 
-This image is amd64-only. Use this if your dependencies are compatible with
-amd64 and you don't require ARM-specific builds.
+**Option 2: Build and publish your own arm64 Ray 2.4.0 image**
 
-**Option 2: Build and publish your own arm64 Ray 2.4.0
-image**
-
-This option is useful when using Graviton (ARM) nodes, consistent with what AWS Glue
-for Ray uses internally. You can create a custom image pinned to the same dependency
-versions as AWS Glue for Ray, to reduce compatibility mismatches.
+This option is useful when using Graviton (ARM) nodes, consistent with what AWS Glue for Ray uses internally. You can create a custom image pinned to the same dependency versions as AWS Glue for Ray, to reduce compatibility mismatches.
 
 Create a Dockerfile locally:
 
@@ -201,8 +175,7 @@ aws ecr batch-get-image \
   | jq -r 'fromjson.config.digest'
 ```
 
-Once done, reference this ARM64 image in the RayCluster spec with
-`nodeSelector: { kubernetes.io/arch: arm64 }`.
+Once done, reference this ARM64 image in the RayCluster spec with `nodeSelector: { kubernetes.io/arch: arm64 }`.
 
 ```
 spec:
@@ -216,44 +189,48 @@ spec:
 ```
 
 ### Step 2. Convert AWS Glue for Ray Job Configuration to Ray on Amazon Elastic Kubernetes Service
+<a name="awsglue-ray-jobs-availability-change-step2"></a>
 
-AWS Glue for Ray jobs support a set of job arguments that configure workers,
-dependencies, memory, and logging. When migrating to Amazon Elastic Kubernetes Service with KubeRay, these
-arguments need to be translated into RayCluster spec fields or Ray Job runtime
-environment settings.
+AWS Glue for Ray jobs support a set of job arguments that configure workers, dependencies, memory, and logging. When migrating to Amazon Elastic Kubernetes Service with KubeRay, these arguments need to be translated into RayCluster spec fields or Ray Job runtime environment settings.
 
 #### Job Argument Mapping
+<a name="awsglue-ray-jobs-availability-change-job-argument-mapping"></a>
 
-Mapping AWS Glue for Ray Arguments to Ray on EKS Equivalents| AWS Glue for Ray argument | What it does in AWS Glue for Ray | Ray on Amazon Elastic Kubernetes Service equivalent |
-| --- | --- | --- |
-| `--min-workers` | Minimum workers the job must allocate. | `workerGroupSpecs[].minReplicas` in your<br>RayCluster |
-| `--working-dir` | Distributes a zip (S3 URI) to all nodes. | Use Ray runtime env: `working_dir` if you're<br>submitting from local files; `py_modules` for S3 zips<br>to point at the S3 artifact |
-| `--s3-py-modules` | Adds Python wheels/dists from S3. | Use Ray runtime env: `py_modules: ["s3://.../xxx.whl",<br>...]` |
-| `--pip-install` | Installs extra PyPI packages for the job. | Ray runtime env: `pip: ["pkg==ver", ...]` (Ray Job<br>CLI `--runtime-env-json` or RayJob<br>`runtimeEnvYAML`). |
-| `--object_store_memory_head` | % of memory for head node's Plasma store. | `headGroupSpec[].rayStartParams.object-store-memory`<br>in your RayCluster. Note this should be in bytes. AWS Glue uses<br>percentage, while Ray uses bytes. |
-| `--object_store_memory_worker` | % of memory for worker nodes' Plasma store. | Same as above but set in each worker group's<br>`rayStartParams.object-store-memory`<br>(bytes). |
-| `--object_spilling_config` | Configure Ray object spilling. | `headGroupSpec[].rayStartParams.object-spilling-config` |
-| `--logging_configuration` | AWS Glue-managed logs (CloudWatch, S3). | Check pod stdout/stderr: use `kubectl -n ray logs<br><pod-name> --follow`. Check logs from Ray<br>Dashboard (port-forward to :8265), you can also see task and job<br>logs there. |
+
+**Mapping AWS Glue for Ray Arguments to Ray on EKS Equivalents**  
+
+| AWS Glue for Ray argument | What it does in AWS Glue for Ray | Ray on Amazon Elastic Kubernetes Service equivalent | 
+| --- | --- | --- | 
+| --min-workers | Minimum workers the job must allocate. | workerGroupSpecs[].minReplicas in your RayCluster | 
+| --working-dir | Distributes a zip (S3 URI) to all nodes. | Use Ray runtime env: working\_dir if you're submitting from local files; py\_modules for S3 zips to point at the S3 artifact | 
+| --s3-py-modules | Adds Python wheels/dists from S3. | Use Ray runtime env: py\_modules: ["s3://.../xxx.whl", ...] | 
+| --pip-install | Installs extra PyPI packages for the job. | Ray runtime env: pip: ["pkg==ver", ...] (Ray Job CLI --runtime-env-json or RayJob runtimeEnvYAML). | 
+| --object\_store\_memory\_head | % of memory for head node's Plasma store. | headGroupSpec[].rayStartParams.object-store-memory in your RayCluster. Note this should be in bytes. AWS Glue uses percentage, while Ray uses bytes. | 
+| --object\_store\_memory\_worker | % of memory for worker nodes' Plasma store. | Same as above but set in each worker group's rayStartParams.object-store-memory (bytes). | 
+| --object\_spilling\_config | Configure Ray object spilling. | headGroupSpec[].rayStartParams.object-spilling-config | 
+| --logging\_configuration | AWS Glue-managed logs (CloudWatch, S3). | Check pod stdout/stderr: use kubectl -n ray logs <pod-name> --follow. Check logs from Ray Dashboard (port-forward to :8265), you can also see task and job logs there. | 
 
 #### Job Configuration Mapping
+<a name="awsglue-ray-jobs-availability-change-job-config-mapping"></a>
 
-Mapping AWS Glue for Ray Job Configurations to Ray on EKS Equivalents| Configuration | What it does in AWS Glue for Ray | Ray on EKS equivalent |
-| --- | --- | --- |
-| Worker type | Set the type of predefined worker that is allowed when a job<br>runs. Default to Z 2X (8vCPU, 64 GB RAM). | Nodegroup instance type in EKS (e.g., r7g.2xlarge ≈ 8 vCPU /<br>64 GB for ARM, r7a.2xlarge for x86). |
-| Maximum number of workers | The number of workers you want AWS Glue to allocate to this<br>job. | Set `workerGroupSpecs[].maxReplicas` to the same<br>number of what you used in AWS Glue. This is the upper bound for<br>autoscaling. Similarly set `minReplicas` as lower<br>bound. You can start with `replicas: 0`,<br>`minReplicas: 0`. |
+
+**Mapping AWS Glue for Ray Job Configurations to Ray on EKS Equivalents**  
+
+| Configuration | What it does in AWS Glue for Ray | Ray on EKS equivalent | 
+| --- | --- | --- | 
+| Worker type | Set the type of predefined worker that is allowed when a job runs. Default to Z 2X (8vCPU, 64 GB RAM). | Nodegroup instance type in EKS (e.g., r7g.2xlarge ≈ 8 vCPU / 64 GB for ARM, r7a.2xlarge for x86). | 
+| Maximum number of workers | The number of workers you want AWS Glue to allocate to this job. | Set workerGroupSpecs[].maxReplicas to the same number of what you used in AWS Glue. This is the upper bound for autoscaling. Similarly set minReplicas as lower bound. You can start with replicas: 0, minReplicas: 0. | 
 
 ### Step 3. Setup Amazon Elastic Kubernetes Service
+<a name="awsglue-ray-jobs-availability-change-step3"></a>
 
-You can either create a new Amazon Elastic Kubernetes Service cluster or reuse an existing Amazon Elastic Kubernetes Service
-cluster. If using an existing cluster, skip the create cluster commands and jump to
-Add a node group, IRSA, and install KubeRay.
+You can either create a new Amazon Elastic Kubernetes Service cluster or reuse an existing Amazon Elastic Kubernetes Service cluster. If using an existing cluster, skip the create cluster commands and jump to Add a node group, IRSA, and install KubeRay.
 
 #### Create an Amazon Elastic Kubernetes Service cluster
+<a name="awsglue-ray-jobs-availability-change-create-cluster"></a>
 
-###### Note
-
-If you have an existing Amazon Elastic Kubernetes Service cluster, skip the commands to create a
-new cluster and just add a node group.
+**Note**  
+If you have an existing Amazon Elastic Kubernetes Service cluster, skip the commands to create a new cluster and just add a node group.
 
 ```
 # Environment Variables
@@ -270,6 +247,7 @@ eksctl create cluster \
 ```
 
 #### Add a node group
+<a name="awsglue-ray-jobs-availability-change-add-nodegroup"></a>
 
 ```
 # ARM/Graviton (matches Glue's typical runtime):
@@ -293,21 +271,13 @@ eksctl create nodegroup \
   --node-labels "workload=ray"
 ```
 
-###### Note
+**Note**  
+If you are using an existing Amazon Elastic Kubernetes Service cluster, then use `--with-oidc` to enable OIDC when adding a node group.
 
-If you are using an existing Amazon Elastic Kubernetes Service cluster, then use
-`--with-oidc` to enable OIDC when adding a node group.
+#### Create namespace \+ IAM role for Service Accounts (IRSA) for S3
+<a name="awsglue-ray-jobs-availability-change-irsa"></a>
 
-#### Create namespace + IAM role for Service Accounts (IRSA) for S3
-
-A Kubernetes namespace is a logical grouping for resources (pods, services,
-roles, etc.). You can create or reuse an existing namespace. You will also need
-to create an IAM policy for S3 which mirrors your AWS Glue job's access. Use the
-same custom permissions your AWS Glue job role had (typically S3 read/write to
-specific buckets). To grant permissions to Amazon Elastic Kubernetes Service similar to the
-AWSGlueServiceRole, create a Service Account (IRSA) bound to this IAM policy.
-Refer to [IAM Roles for Service
-Accounts](../../../eks/latest/eksctl/iamserviceaccounts.md "../../../eks/latest/eksctl/iamserviceaccounts.md") for instructions to setup this service account.
+A Kubernetes namespace is a logical grouping for resources (pods, services, roles, etc.). You can create or reuse an existing namespace. You will also need to create an IAM policy for S3 which mirrors your AWS Glue job's access. Use the same custom permissions your AWS Glue job role had (typically S3 read/write to specific buckets). To grant permissions to Amazon Elastic Kubernetes Service similar to the AWSGlueServiceRole, create a Service Account (IRSA) bound to this IAM policy. Refer to [IAM Roles for Service Accounts](https://docs.aws.amazon.com/eks/latest/eksctl/iamserviceaccounts.html) for instructions to setup this service account.
 
 ```
 # Create (or reuse) namespace
@@ -316,7 +286,7 @@ kubectl create namespace $NS || true
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [{
     "Effect": "Allow",
     "Action": ["s3:PutObject", "s3:GetObject", "s3:ListBucket"],
@@ -346,6 +316,7 @@ eksctl create iamserviceaccount \
 ```
 
 #### Install KubeRay operator (controller that runs Ray on K8s)
+<a name="awsglue-ray-jobs-availability-change-install-kuberay"></a>
 
 ```
 helm repo add kuberay https://ray-project.github.io/kuberay-helm/
@@ -359,9 +330,9 @@ kubectl -n kuberay-system get pods
 ```
 
 ### Step 4. Spin up a Ray cluster
+<a name="awsglue-ray-jobs-availability-change-step4"></a>
 
-Create a YAML file to define ray cluster. Below is a sample configuration
-(raycluster.yaml):
+Create a YAML file to define ray cluster. Below is a sample configuration (raycluster.yaml):
 
 ```
 apiVersion: ray.io/v1
@@ -404,6 +375,7 @@ spec:
 ```
 
 #### Deploy the Ray cluster on Amazon Elastic Kubernetes Service cluster
+<a name="awsglue-ray-jobs-availability-change-deploy-cluster"></a>
 
 ```
 kubectl apply -n $NS -f raycluster.yaml
@@ -412,8 +384,7 @@ kubectl apply -n $NS -f raycluster.yaml
 kubectl -n $NS get pods -l ray.io/cluster=glue-like -w
 ```
 
-If there is a need to modify the deployed yaml, delete the cluster first and
-then re-apply the updated yaml:
+If there is a need to modify the deployed yaml, delete the cluster first and then re-apply the updated yaml:
 
 ```
 kubectl -n $NS delete raycluster glue-like
@@ -421,9 +392,9 @@ kubectl -n $NS apply -f raycluster.yaml
 ```
 
 #### Accessing the Ray Dashboard
+<a name="awsglue-ray-jobs-availability-change-ray-dashboard"></a>
 
-You can access the Ray dashboard by enabling port-forwarding using
-kubectl:
+You can access the Ray dashboard by enabling port-forwarding using kubectl:
 
 ```
 # Get service
@@ -434,10 +405,9 @@ kubectl -n $NS port-forward svc/$SVC 8265:8265
 ```
 
 ### Step 5. Submit Ray Job
+<a name="awsglue-ray-jobs-availability-change-step5"></a>
 
-To submit a Ray job, use the Ray jobs CLI. The CLI version can be newer than the
-cluster, it is backward compatible. As a pre-requisite, store your job script
-locally in a file, e.g. `job.py`.
+To submit a Ray job, use the Ray jobs CLI. The CLI version can be newer than the cluster, it is backward compatible. As a pre-requisite, store your job script locally in a file, e.g. `job.py`.
 
 ```
 python3 -m venv ~/raycli && source ~/raycli/bin/activate

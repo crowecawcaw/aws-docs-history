@@ -1,22 +1,20 @@
+
+
 # Semantic search for AWS Glue Data Catalog
+<a name="catalog-semantic-search"></a>
 
-###### Note
+**Note**  
+Business context and semantic search is in preview for AWS Glue and is subject to change.
 
-Business context and semantic search is in preview for AWS Glue and is subject
-to change.
-
-Semantic search enables you to discover data assets by meaning in addition
-to exact keyword matching. Results are ranked by semantic similarity to your query. You
-can narrow results using filters on asset type, metadata fields, and glossary terms.
+Semantic search enables you to discover data assets by meaning in addition to exact keyword matching. Results are ranked by semantic similarity to your query. You can narrow results using filters on asset type, metadata fields, and glossary terms.
 
 ## Using the SearchAssets API
+<a name="catalog-semantic-search-api"></a>
 
-The `SearchAssets` API accepts `SearchText`,
-`FilterClause`, or both. When neither is provided, it returns all assets.
-Optional parameters: `Sort`,
-`MaxResults`, `NextToken`.
+The `SearchAssets` API accepts `SearchText`, `FilterClause`, or both. When neither is provided, it returns all assets. Optional parameters: `Sort`, `MaxResults`, `NextToken`.
 
 ### Text search
+<a name="catalog-semantic-search-text"></a>
 
 ```
 aws glue search-assets \
@@ -42,19 +40,14 @@ aws glue search-assets \
 ```
 
 ### Filtering search results
+<a name="catalog-semantic-search-filters"></a>
 
 Use `FilterClause` to narrow results. Supported filter types:
++ **AttributeFilter** – Operators: `equals`, `greaterThan`, `greaterThanOrEquals`, `lessThan`, `lessThanOrEquals`, `notExists`.
++ **AndAllFilters** – All filters must match (logical AND).
++ **OrAnyFilters** – At least one must match (logical OR).
 
-- **AttributeFilter** – Operators:
-  `equals`, `greaterThan`, `greaterThanOrEquals`,
-  `lessThan`, `lessThanOrEquals`, `notExists`.
-- **AndAllFilters** – All filters must
-  match (logical AND).
-- **OrAnyFilters** – At least one must
-  match (logical OR).
-
-###### To filter by a single attribute
-
+**To filter by a single attribute**  
 Filter to table assets only:
 
 ```
@@ -69,8 +62,7 @@ aws glue search-assets \
     }'
 ```
 
-###### To combine filters with AND logic
-
+**To combine filters with AND logic**  
 Find table assets updated after a timestamp:
 
 ```
@@ -84,8 +76,7 @@ aws glue search-assets \
     }'
 ```
 
-###### To combine filters with OR logic
-
+**To combine filters with OR logic**  
 Search for tables or skill assets:
 
 ```
@@ -99,8 +90,7 @@ aws glue search-assets \
     }'
 ```
 
-###### To filter by glossary term
-
+**To filter by glossary term**  
 Filter to assets tagged with a specific glossary term (by term ID):
 
 ```
@@ -110,13 +100,12 @@ aws glue search-assets \
         "AttributeFilter": {
             "Attribute": "glossaryTerms",
             "Operator": "equals",
-            "Value": {"StringValue": "`glossary-term-id`"}
+            "Value": {"StringValue": "{{glossary-term-id}}"}
         }
     }'
 ```
 
-###### To use nested AND and OR filters
-
+**To use nested AND and OR filters**  
 Find table or skill assets with a specific glossary term:
 
 ```
@@ -128,12 +117,13 @@ aws glue search-assets \
                 {"AttributeFilter": {"Attribute": "type", "Operator": "equals", "Value": {"StringValue": "Table"}}},
                 {"AttributeFilter": {"Attribute": "type", "Operator": "equals", "Value": {"StringValue": "Skill"}}}
             ]},
-            {"AttributeFilter": {"Attribute": "glossaryTerms", "Operator": "equals", "Value": {"StringValue": "`glossary-term-id`"}}}
+            {"AttributeFilter": {"Attribute": "glossaryTerms", "Operator": "equals", "Value": {"StringValue": "{{glossary-term-id}}"}}}
         ]
     }'
 ```
 
 ### Sorting search results
+<a name="catalog-semantic-search-sort"></a>
 
 By default, results are sorted by semantic relevance. To sort by attribute:
 
@@ -149,15 +139,13 @@ aws glue search-assets \
     --sort '{"Attribute": "updatedAt", "Order": "DESCENDING"}'
 ```
 
-###### Note
-
-When you specify a sort attribute, results are ordered by that attribute
-rather than by semantic relevance.
+**Note**  
+When you specify a sort attribute, results are ordered by that attribute rather than by semantic relevance.
 
 ### Paginating search results
+<a name="catalog-semantic-search-pagination"></a>
 
-When results exceed `MaxResults`, the response includes a
-`NextToken`. Use it to retrieve additional pages.
+When results exceed `MaxResults`, the response includes a `NextToken`. Use it to retrieve additional pages.
 
 ```
 aws glue search-assets \
@@ -169,9 +157,9 @@ aws glue search-assets \
 Continue until the response no longer includes a `NextToken`.
 
 ## Running filter-only queries
+<a name="catalog-semantic-search-filter-only"></a>
 
-Use only `FilterClause` without `SearchText` to list assets
-without semantic ranking.
+Use only `FilterClause` without `SearchText` to list assets without semantic ranking.
 
 ```
 aws glue search-assets \
@@ -179,15 +167,13 @@ aws glue search-assets \
     --max-results 20
 ```
 
-###### Note
-
-When you omit both `SearchText` and
-`FilterClause`, the API returns all assets.
+**Note**  
+When you omit both `SearchText` and `FilterClause`, the API returns all assets.
 
 ## Examples
+<a name="catalog-semantic-search-examples"></a>
 
-###### To discover skill assets for a domain
-
+**To discover skill assets for a domain**  
 Find skill assets related to sales data:
 
 ```
@@ -196,13 +182,10 @@ aws glue search-assets \
     --filter-clause '{"AttributeFilter": {"Attribute": "type", "Operator": "equals", "Value": {"StringValue": "Skill"}}}'
 ```
 
-###### Note
+**Note**  
+This query returns only custom skill assets. Managed skills are not returned by the `SearchAssets` API.
 
-This query returns only custom skill assets. Managed skills are not
-returned by the `SearchAssets` API.
-
-###### To combine text search and sorting
-
+**To combine text search and sorting**  
 Get a comprehensive view of matching assets:
 
 ```

@@ -1,20 +1,18 @@
+
+
 # Getting started with the data catalog
+<a name="example_glue_GettingStarted_024_section"></a>
 
 The following code example shows how to:
++ Create a database
++ Create a table
++ Clean up resources
 
-- Create a database
-- Create a table
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/024-glue-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/024-glue-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/024-glue-gs) repository. 
 
 ```
 #!/bin/bash
@@ -63,15 +61,15 @@ check_status() {
 cleanup_resources() {
     local exit_code=$?
     echo "Attempting to clean up resources..."
-
+    
     # Delete resources in reverse order
     for ((i=${#CREATED_RESOURCES[@]}-1; i>=0; i--)); do
         resource=${CREATED_RESOURCES[$i]}
         resource_type=$(echo "$resource" | cut -d':' -f1)
         resource_name=$(echo "$resource" | cut -d':' -f2)
-
+        
         echo "Deleting $resource_type: $resource_name"
-
+        
         case $resource_type in
             "table")
                 if [ "$DATABASE_CREATED" = true ]; then
@@ -93,7 +91,7 @@ cleanup_resources() {
                 ;;
         esac
     done
-
+    
     # Clean up temporary files securely
     if [ -f "$TABLE_INPUT_FILE" ]; then
         if command -v shred &> /dev/null; then
@@ -102,7 +100,7 @@ cleanup_resources() {
             rm -f "$TABLE_INPUT_FILE"
         fi
     fi
-
+    
     echo "Cleanup completed."
     exit $exit_code
 }
@@ -135,7 +133,7 @@ validate_prerequisites() {
         echo "ERROR: Failed to get AWS caller identity. Check credentials and permissions." >&2
         exit 1
     }
-
+    
     if [ -z "$CALLER_IDENTITY" ] || [ "$CALLER_IDENTITY" == "None" ]; then
         echo "ERROR: Unable to determine AWS account identity" >&2
         exit 1
@@ -147,7 +145,7 @@ validate_prerequisites() {
 # Function to create database with verification
 create_database() {
     echo "Step 1: Creating a database named $DB_NAME"
-
+    
     if ! aws glue create-database \
         --database-input "Name=$DB_NAME,Description=Database for AWS Glue tutorial" \
         --region "$AWS_REGION" \
@@ -155,14 +153,14 @@ create_database() {
         echo "ERROR: Failed to create database $DB_NAME" >&2
         exit 1
     fi
-
+    
     ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output text)
     aws glue tag-resource \
         --resource-arn "arn:aws:glue:${AWS_REGION}:${ACCOUNT_ID}:database/${DB_NAME}" \
         --tags-to-add Key=project,Value=doc-smith Key=tutorial,Value=glue-gs \
         --region "$AWS_REGION" \
         2>/dev/null || true
-
+    
     DATABASE_CREATED=true
     CREATED_RESOURCES+=("database:$DB_NAME")
     echo "Database $DB_NAME created successfully."
@@ -175,7 +173,7 @@ prepare_table_input() {
         echo "ERROR: Failed to create temporary file $TABLE_INPUT_FILE" >&2
         exit 1
     fi
-
+    
     if ! chmod 600 "$TABLE_INPUT_FILE" 2>/dev/null; then
         echo "ERROR: Failed to set permissions on $TABLE_INPUT_FILE" >&2
         rm -f "$TABLE_INPUT_FILE"
@@ -259,13 +257,13 @@ create_table() {
         rm -f "$TABLE_INPUT_FILE"
         exit 1
     fi
-
+    
     aws glue tag-resource \
         --resource-arn "arn:aws:glue:${AWS_REGION}:${ACCOUNT_ID}:table/${DB_NAME}/${TABLE_NAME}" \
         --tags-to-add Key=project,Value=doc-smith Key=tutorial,Value=glue-gs \
         --region "$AWS_REGION" \
         2>/dev/null || true
-
+    
     CREATED_RESOURCES+=("table:$TABLE_NAME")
     echo "Table $TABLE_NAME created successfully."
 }
@@ -273,7 +271,7 @@ create_table() {
 # Function to get and display table details
 display_table_details() {
     echo "Step 3: Getting details of table $TABLE_NAME"
-
+    
     if ! aws glue get-table \
         --database-name "$DB_NAME" \
         --name "$TABLE_NAME" \
@@ -309,18 +307,15 @@ echo "==========================================="
 echo "Starting cleanup process..."
 
 echo "Script completed at $(date)"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateDatabase](https://docs.aws.amazon.com/goto/aws-cli/glue-2017-03-31/CreateDatabase)
+  + [CreateTable](https://docs.aws.amazon.com/goto/aws-cli/glue-2017-03-31/CreateTable)
+  + [DeleteDatabase](https://docs.aws.amazon.com/goto/aws-cli/glue-2017-03-31/DeleteDatabase)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/aws-cli/glue-2017-03-31/DeleteTable)
+  + [GetDatabase](https://docs.aws.amazon.com/goto/aws-cli/glue-2017-03-31/GetDatabase)
+  + [GetTable](https://docs.aws.amazon.com/goto/aws-cli/glue-2017-03-31/GetTable)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateDatabase](../../../goto/aws-cli/glue-2017-03-31/CreateDatabase.md "../../../goto/aws-cli/glue-2017-03-31/CreateDatabase.md")
-  - [CreateTable](../../../goto/aws-cli/glue-2017-03-31/CreateTable.md "../../../goto/aws-cli/glue-2017-03-31/CreateTable.md")
-  - [DeleteDatabase](../../../goto/aws-cli/glue-2017-03-31/DeleteDatabase.md "../../../goto/aws-cli/glue-2017-03-31/DeleteDatabase.md")
-  - [DeleteTable](../../../goto/aws-cli/glue-2017-03-31/DeleteTable.md "../../../goto/aws-cli/glue-2017-03-31/DeleteTable.md")
-  - [GetDatabase](../../../goto/aws-cli/glue-2017-03-31/GetDatabase.md "../../../goto/aws-cli/glue-2017-03-31/GetDatabase.md")
-  - [GetTable](../../../goto/aws-cli/glue-2017-03-31/GetTable.md "../../../goto/aws-cli/glue-2017-03-31/GetTable.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

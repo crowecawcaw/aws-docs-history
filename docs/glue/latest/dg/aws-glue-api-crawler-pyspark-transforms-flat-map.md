@@ -1,13 +1,17 @@
-# FlatMap class
 
-Applies a transform to each `DynamicFrame` in a collection.
-Results are not flattened into a single `DynamicFrame`, but preserved as a collection.
+
+# FlatMap class
+<a name="aws-glue-api-crawler-pyspark-transforms-flat-map"></a>
+
+ Applies a transform to each `DynamicFrame` in a collection. Results are not flattened into a single `DynamicFrame`, but preserved as a collection. 
 
 ## Examples for FlatMap
+<a name="aws-glue-api-crawler-pyspark-flat-map-examples"></a>
 
-The following example snippet demonstrates how to use the `ResolveChoice` transform on a collection of
-dynamic frames when applied to a `FlatMap`. The data used for input is in the JSON located at the
-placeholder Amazon S3 address `s3://bucket/path-for-data/sample.json` and contains the following data.
+ The following example snippet demonstrates how to use the `ResolveChoice` transform on a collection of dynamic frames when applied to a `FlatMap`. The data used for input is in the JSON located at the placeholder Amazon S3 address `s3://bucket/path-for-data/sample.json` and contains the following data. 
+
+### Example JSON data
+<a name="aws-glue-api-crawler-pyspark-flat-map-examples-json"></a>
 
 ```
 [{
@@ -57,10 +61,9 @@ placeholder Amazon S3 address `s3://bucket/path-for-data/sample.json` and contai
         "Example Dot Com"
     ]
 }]
-
 ```
 
-###### Example Apply ResolveChoice to a DynamicFrameCollection and show output.
+**Example Apply ResolveChoice to a DynamicFrameCollection and show output.**  
 
 ```
 #Read DynamicFrame
@@ -88,11 +91,10 @@ business_info = flat.select("business_info")
 business_info.printSchema()
 business_info.show()
 ```
+ When calling `FlatMap.apply`, the `frame_name` parameter **must** be `"frame"`. No other value is currently accepted. 
 
-###### Important
-
-When calling `FlatMap.apply`, the `frame_name` parameter **must** be
-`"frame"`. No other value is currently accepted.
+### Example output
+<a name="aws-glue-api-crawler-pyspark-flat-map-examples"></a>
 
 ```
 root
@@ -195,66 +197,59 @@ root
 ```
 
 ## Methods
-
-- [\_\_call\_\_](#aws-glue-api-crawler-pyspark-transforms-flat-map-__call__ "#aws-glue-api-crawler-pyspark-transforms-flat-map-__call__")
-- [Apply](#aws-glue-api-crawler-pyspark-transforms-flat-map-apply "#aws-glue-api-crawler-pyspark-transforms-flat-map-apply")
-- [Name](#aws-glue-api-crawler-pyspark-transforms-flat-map-name "#aws-glue-api-crawler-pyspark-transforms-flat-map-name")
-- [describeArgs](#aws-glue-api-crawler-pyspark-transforms-flat-map-describeArgs "#aws-glue-api-crawler-pyspark-transforms-flat-map-describeArgs")
-- [describeReturn](#aws-glue-api-crawler-pyspark-transforms-flat-map-describeReturn "#aws-glue-api-crawler-pyspark-transforms-flat-map-describeReturn")
-- [describeTransform](#aws-glue-api-crawler-pyspark-transforms-flat-map-describeTransform "#aws-glue-api-crawler-pyspark-transforms-flat-map-describeTransform")
-- [describeErrors](#aws-glue-api-crawler-pyspark-transforms-flat-map-describeErrors "#aws-glue-api-crawler-pyspark-transforms-flat-map-describeErrors")
-- [Describe](#aws-glue-api-crawler-pyspark-transforms-flat-map-describe "#aws-glue-api-crawler-pyspark-transforms-flat-map-describe")
+<a name="aws-glue-api-crawler-pyspark-transforms-flat-map-_methods"></a>
++ [\_\_call\_\_](#aws-glue-api-crawler-pyspark-transforms-flat-map-__call__)
++ [Apply](#aws-glue-api-crawler-pyspark-transforms-flat-map-apply)
++ [Name](#aws-glue-api-crawler-pyspark-transforms-flat-map-name)
++ [describeArgs](#aws-glue-api-crawler-pyspark-transforms-flat-map-describeArgs)
++ [describeReturn](#aws-glue-api-crawler-pyspark-transforms-flat-map-describeReturn)
++ [describeTransform](#aws-glue-api-crawler-pyspark-transforms-flat-map-describeTransform)
++ [describeErrors](#aws-glue-api-crawler-pyspark-transforms-flat-map-describeErrors)
++ [Describe](#aws-glue-api-crawler-pyspark-transforms-flat-map-describe)
 
 ## \_\_call\_\_(dfc, BaseTransform, frame\_name, transformation\_ctx = "", \*\*base\_kwargs)
+<a name="aws-glue-api-crawler-pyspark-transforms-flat-map-__call__"></a>
 
-Applies a transform to each `DynamicFrame` in a collection and flattens the
-results.
+Applies a transform to each `DynamicFrame` in a collection and flattens the results.
++ `dfc` – The `DynamicFrameCollection` over which to flatmap (required).
++ `BaseTransform` – A transform derived from `GlueTransform` to apply to each member of the collection (required).
++ `frame_name` – The argument name to pass the elements of the collection to (required).
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `base_kwargs` – Arguments to pass to the base transform (required).
 
-- `dfc` – The `DynamicFrameCollection` over which to flatmap
-  (required).
-- `BaseTransform` – A transform derived from `GlueTransform` to
-  apply to each member of the collection (required).
-- `frame_name` – The argument name to pass the elements of the collection to
-  (required).
-- `transformation_ctx` – A unique string that
-  is used to identify state information (optional).
-- `base_kwargs` – Arguments to pass to the base
-  transform (required).
-
-Returns a new `DynamicFrameCollection` created by applying the transform to
-each `DynamicFrame` in the source `DynamicFrameCollection`.
+Returns a new `DynamicFrameCollection` created by applying the transform to each `DynamicFrame` in the source `DynamicFrameCollection`.
 
 ## apply(cls, \*args, \*\*kwargs)
+<a name="aws-glue-api-crawler-pyspark-transforms-flat-map-apply"></a>
 
-Inherited from `GlueTransform`
-[apply](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply").
+Inherited from `GlueTransform` [apply](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply).
 
 ## name(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-flat-map-name"></a>
 
-Inherited from `GlueTransform`
-[name](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name").
+Inherited from `GlueTransform` [name](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name).
 
 ## describeArgs(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-flat-map-describeArgs"></a>
 
-Inherited from `GlueTransform`
-[describeArgs](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs").
+Inherited from `GlueTransform` [describeArgs](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs).
 
 ## describeReturn(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-flat-map-describeReturn"></a>
 
-Inherited from `GlueTransform`
-[describeReturn](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn").
+Inherited from `GlueTransform` [describeReturn](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn).
 
 ## describeTransform(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-flat-map-describeTransform"></a>
 
-Inherited from `GlueTransform`
-[describeTransform](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform").
+Inherited from `GlueTransform` [describeTransform](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform).
 
 ## describeErrors(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-flat-map-describeErrors"></a>
 
-Inherited from `GlueTransform`
-[describeErrors](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors").
+Inherited from `GlueTransform` [describeErrors](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors).
 
 ## describe(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-flat-map-describe"></a>
 
-Inherited from `GlueTransform`
-[describe](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe").
+Inherited from `GlueTransform` [describe](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe).

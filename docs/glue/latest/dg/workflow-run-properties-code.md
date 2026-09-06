@@ -1,15 +1,13 @@
-# Getting and setting workflow run properties in AWS Glue
 
-Use workflow run properties to share and manage state among the jobs in your AWS Glue workflow.
-You can set default run properties when you create the workflow. Then, as your jobs run, they can
-retrieve the run property values and optionally modify them for input to jobs that are later in
-the workflow. When a job modifies a run property, the new value exists only for the workflow run.
-The default run properties aren't affected.
+
+# Getting and setting workflow run properties in AWS Glue
+<a name="workflow-run-properties-code"></a>
+
+Use workflow run properties to share and manage state among the jobs in your AWS Glue workflow. You can set default run properties when you create the workflow. Then, as your jobs run, they can retrieve the run property values and optionally modify them for input to jobs that are later in the workflow. When a job modifies a run property, the new value exists only for the workflow run. The default run properties aren't affected.
 
 If your AWS Glue job is not part of a workflow, these properties will not be set.
 
-The following sample Python code from an extract, transform, and load (ETL) job demonstrates
-how to get the workflow run properties.
+The following sample Python code from an extract, transform, and load (ETL) job demonstrates how to get the workflow run properties.
 
 ```
 import sys
@@ -28,18 +26,15 @@ workflow_params = glue_client.get_workflow_run_properties(Name=workflow_name,
 
 target_database = workflow_params['target_database']
 target_s3_location = workflow_params['target_s3_location']
-
 ```
 
-The following code continues by setting the `target_format` run property to
-`'csv'`.
+The following code continues by setting the `target_format` run property to `'csv'`.
 
 ```
 workflow_params['target_format'] = 'csv'
 glue_client.put_workflow_run_properties(Name=workflow_name, RunId=workflow_run_id, RunProperties=workflow_params)
 ```
 
-For more information, see the following:
-
-- [GetWorkflowRunProperties action (Python: get\_workflow\_run\_properties)](aws-glue-api-workflow.md#aws-glue-api-workflow-GetWorkflowRunProperties "aws-glue-api-workflow.md#aws-glue-api-workflow-GetWorkflowRunProperties")
-- [PutWorkflowRunProperties action (Python: put\_workflow\_run\_properties)](aws-glue-api-workflow.md#aws-glue-api-workflow-PutWorkflowRunProperties "aws-glue-api-workflow.md#aws-glue-api-workflow-PutWorkflowRunProperties")
+For more information, see the following: 
++ [GetWorkflowRunProperties action (Python: get\_workflow\_run\_properties)](aws-glue-api-workflow.md#aws-glue-api-workflow-GetWorkflowRunProperties)
++ [PutWorkflowRunProperties action (Python: put\_workflow\_run\_properties)](aws-glue-api-workflow.md#aws-glue-api-workflow-PutWorkflowRunProperties)

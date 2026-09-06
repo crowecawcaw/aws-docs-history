@@ -1,49 +1,50 @@
+
+
 # Reading from Adobe Analytics entities
+<a name="adobeanalytics-reading-from-entities"></a>
 
-**Prerequisites**
+ **Prerequisites** 
 
-An Adobe Analytics Object you would like to read from. Refer the supported entities
-table below to check the available entities.
+An Adobe Analytics Object you would like to read from. Refer the supported entities table below to check the available entities. 
 
-**Supported entities**
+ **Supported entities** 
 
-| Entity                      | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning |
-| --------------------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Annotation                  | Yes             | Yes            | Yes               | Yes                | No                    |
-| Calculated Metrics          | Yes             | Yes            | Yes               | Yes                | No                    |
-| Calculated Metrics Function | Yes             | No             | No                | Yes                | No                    |
-| Component Metadata Shares   | Yes             | Yes            | No                | Yes                | No                    |
-| Date Ranges                 | Yes             | Yes            | No                | Yes                | No                    |
-| Dimensions                  | Yes             | No             | No                | Yes                | No                    |
-| Metrics                     | Yes             | No             | No                | Yes                | No                    |
-| Projects                    | Yes             | No             | No                | Yes                | No                    |
-| Reports Top Item            | Yes             | Yes            | No                | Yes                | No                    |
-| Segments                    | Yes             | Yes            | Yes               | Yes                | No                    |
-| Usage Logs                  | Yes             | Yes            | No                | Yes                | No                    |
 
-**Example**
+| Entity | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| Annotation | Yes | Yes | Yes | Yes | No | 
+| Calculated Metrics | Yes | Yes | Yes | Yes | No | 
+| Calculated Metrics Function | Yes | No | No | Yes | No | 
+| Component Metadata Shares | Yes | Yes | No | Yes | No | 
+| Date Ranges | Yes | Yes | No | Yes | No | 
+| Dimensions | Yes | No | No | Yes | No | 
+| Metrics | Yes | No | No | Yes | No | 
+| Projects | Yes | No | No | Yes | No | 
+| Reports Top Item | Yes | Yes | No | Yes | No | 
+| Segments | Yes | Yes | Yes | Yes | No | 
+| Usage Logs | Yes | Yes | No | Yes | No | 
+
+ **Example** 
 
 ```
-adobeAnalytics_read = glueContext.create_dynamic_frame.from_options(
-     connection_type="adobeanalytics",
-     connection_options={
-        "connectionName": "connectionName",
-        "ENTITY_NAME": "annotation/ex*****",
-        "API_VERSION": "v2.0"
+adobeAnalytics_read = glueContext.create_dynamic_frame.from_options( 
+     connection_type="adobeanalytics", 
+     connection_options={ 
+        "connectionName": "connectionName", 
+        "ENTITY_NAME": "annotation/ex*****", 
+        "API_VERSION": "v2.0" 
  })
-
 ```
 
-**Adobe Analytics entity and field details**
-
-- [Annotations](https://adobedocs.github.io/analytics-2.0-apis/#/Annotations "https://adobedocs.github.io/analytics-2.0-apis/#/Annotations")
-- [Calculated Metrics](https://adobedocs.github.io/analytics-2.0-apis/#/Calculated%20Metrics "https://adobedocs.github.io/analytics-2.0-apis/#/Calculated%20Metrics")
-- [Component Meta Data](https://adobedocs.github.io/analytics-2.0-apis/#/Component%20Meta%20Data "https://adobedocs.github.io/analytics-2.0-apis/#/Component%20Meta%20Data")
-- [Date Ranges](https://adobedocs.github.io/analytics-2.0-apis/#/Date%20Ranges "https://adobedocs.github.io/analytics-2.0-apis/#/Date%20Ranges")
-- [Dimensions](https://adobedocs.github.io/analytics-2.0-apis/#/Dimensions "https://adobedocs.github.io/analytics-2.0-apis/#/Dimensions")
-- [Metrics](https://adobedocs.github.io/analytics-2.0-apis/#/Metrics "https://adobedocs.github.io/analytics-2.0-apis/#/Metrics")
-- [Projects](https://adobedocs.github.io/analytics-2.0-apis/#/Projects "https://adobedocs.github.io/analytics-2.0-apis/#/Projects")
-- [Reports](https://adobedocs.github.io/analytics-2.0-apis/#/Reports "https://adobedocs.github.io/analytics-2.0-apis/#/Reports")
-- [Segments](https://adobedocs.github.io/analytics-2.0-apis/#/Segments "https://adobedocs.github.io/analytics-2.0-apis/#/Segments")
-- [Users](https://adobedocs.github.io/analytics-2.0-apis/#/Users "https://adobedocs.github.io/analytics-2.0-apis/#/Users")
-- [Usage Logs](https://adobedocs.github.io/analytics-2.0-apis/#/Usage%20Logs "https://adobedocs.github.io/analytics-2.0-apis/#/Usage%20Logs")
+ **Adobe Analytics entity and field details** 
++ [Annotations](https://adobedocs.github.io/analytics-2.0-apis/#/Annotations)
++ [Calculated Metrics](https://adobedocs.github.io/analytics-2.0-apis/#/Calculated%20Metrics)
++ [Component Meta Data](https://adobedocs.github.io/analytics-2.0-apis/#/Component%20Meta%20Data)
++ [Date Ranges](https://adobedocs.github.io/analytics-2.0-apis/#/Date%20Ranges)
++ [Dimensions](https://adobedocs.github.io/analytics-2.0-apis/#/Dimensions)
++ [Metrics](https://adobedocs.github.io/analytics-2.0-apis/#/Metrics)
++ [Projects](https://adobedocs.github.io/analytics-2.0-apis/#/Projects)
++ [Reports](https://adobedocs.github.io/analytics-2.0-apis/#/Reports)
++ [Segments](https://adobedocs.github.io/analytics-2.0-apis/#/Segments)
++ [Users](https://adobedocs.github.io/analytics-2.0-apis/#/Users)
++ [Usage Logs](https://adobedocs.github.io/analytics-2.0-apis/#/Usage%20Logs)

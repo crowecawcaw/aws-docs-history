@@ -1,596 +1,457 @@
-# Classifier API
 
-The Classifier API describes AWS Glue classifier data types,
-and includes the API for creating, deleting, updating, and listing classifiers.
+
+# Classifier API
+<a name="aws-glue-api-crawler-classifiers"></a>
+
+The Classifier API describes AWS Glue classifier data types, and includes the API for creating, deleting, updating, and listing classifiers.
 
 ## Data types
-
-- [Classifier structure](#aws-glue-api-crawler-classifiers-Classifier "#aws-glue-api-crawler-classifiers-Classifier")
-- [GrokClassifier structure](#aws-glue-api-crawler-classifiers-GrokClassifier "#aws-glue-api-crawler-classifiers-GrokClassifier")
-- [XMLClassifier structure](#aws-glue-api-crawler-classifiers-XMLClassifier "#aws-glue-api-crawler-classifiers-XMLClassifier")
-- [JsonClassifier structure](#aws-glue-api-crawler-classifiers-JsonClassifier "#aws-glue-api-crawler-classifiers-JsonClassifier")
-- [CsvClassifier structure](#aws-glue-api-crawler-classifiers-CsvClassifier "#aws-glue-api-crawler-classifiers-CsvClassifier")
-- [CreateGrokClassifierRequest structure](#aws-glue-api-crawler-classifiers-CreateGrokClassifierRequest "#aws-glue-api-crawler-classifiers-CreateGrokClassifierRequest")
-- [UpdateGrokClassifierRequest structure](#aws-glue-api-crawler-classifiers-UpdateGrokClassifierRequest "#aws-glue-api-crawler-classifiers-UpdateGrokClassifierRequest")
-- [CreateXMLClassifierRequest structure](#aws-glue-api-crawler-classifiers-CreateXMLClassifierRequest "#aws-glue-api-crawler-classifiers-CreateXMLClassifierRequest")
-- [UpdateXMLClassifierRequest structure](#aws-glue-api-crawler-classifiers-UpdateXMLClassifierRequest "#aws-glue-api-crawler-classifiers-UpdateXMLClassifierRequest")
-- [CreateJsonClassifierRequest structure](#aws-glue-api-crawler-classifiers-CreateJsonClassifierRequest "#aws-glue-api-crawler-classifiers-CreateJsonClassifierRequest")
-- [UpdateJsonClassifierRequest structure](#aws-glue-api-crawler-classifiers-UpdateJsonClassifierRequest "#aws-glue-api-crawler-classifiers-UpdateJsonClassifierRequest")
-- [CreateCsvClassifierRequest structure](#aws-glue-api-crawler-classifiers-CreateCsvClassifierRequest "#aws-glue-api-crawler-classifiers-CreateCsvClassifierRequest")
-- [UpdateCsvClassifierRequest structure](#aws-glue-api-crawler-classifiers-UpdateCsvClassifierRequest "#aws-glue-api-crawler-classifiers-UpdateCsvClassifierRequest")
+<a name="aws-glue-api-crawler-classifiers-objects"></a>
++ [Classifier structure](#aws-glue-api-crawler-classifiers-Classifier)
++ [GrokClassifier structure](#aws-glue-api-crawler-classifiers-GrokClassifier)
++ [XMLClassifier structure](#aws-glue-api-crawler-classifiers-XMLClassifier)
++ [JsonClassifier structure](#aws-glue-api-crawler-classifiers-JsonClassifier)
++ [CsvClassifier structure](#aws-glue-api-crawler-classifiers-CsvClassifier)
++ [CreateGrokClassifierRequest structure](#aws-glue-api-crawler-classifiers-CreateGrokClassifierRequest)
++ [UpdateGrokClassifierRequest structure](#aws-glue-api-crawler-classifiers-UpdateGrokClassifierRequest)
++ [CreateXMLClassifierRequest structure](#aws-glue-api-crawler-classifiers-CreateXMLClassifierRequest)
++ [UpdateXMLClassifierRequest structure](#aws-glue-api-crawler-classifiers-UpdateXMLClassifierRequest)
++ [CreateJsonClassifierRequest structure](#aws-glue-api-crawler-classifiers-CreateJsonClassifierRequest)
++ [UpdateJsonClassifierRequest structure](#aws-glue-api-crawler-classifiers-UpdateJsonClassifierRequest)
++ [CreateCsvClassifierRequest structure](#aws-glue-api-crawler-classifiers-CreateCsvClassifierRequest)
++ [UpdateCsvClassifierRequest structure](#aws-glue-api-crawler-classifiers-UpdateCsvClassifierRequest)
 
 ## Classifier structure
+<a name="aws-glue-api-crawler-classifiers-Classifier"></a>
 
-Classifiers are triggered during a crawl task. A classifier checks whether
-a given file is in a format it can handle. If it is, the classifier creates a schema
-in the form of a `StructType` object that matches that data format.
+Classifiers are triggered during a crawl task. A classifier checks whether a given file is in a format it can handle. If it is, the classifier creates a schema in the form of a `StructType` object that matches that data format.
 
-You can use the standard classifiers that AWS Glue provides,
-or you can write your own classifiers to best categorize your data sources and
-specify the appropriate schemas to use for them. A classifier can be a `grok`
-classifier, an `XML` classifier, a `JSON` classifier,
-or a custom `CSV` classifier, as specified in one of the fields in
-the `Classifier` object.
+You can use the standard classifiers that AWS Glue provides, or you can write your own classifiers to best categorize your data sources and specify the appropriate schemas to use for them. A classifier can be a `grok` classifier, an `XML` classifier, a `JSON` classifier, or a custom `CSV` classifier, as specified in one of the fields in the `Classifier` object.
 
-###### Fields
+**Fields**
++ `GrokClassifier` – A [GrokClassifier](#aws-glue-api-crawler-classifiers-GrokClassifier) object.
 
-- `GrokClassifier` – A [GrokClassifier](#aws-glue-api-crawler-classifiers-GrokClassifier "#aws-glue-api-crawler-classifiers-GrokClassifier") object.
+  A classifier that uses `grok`.
++ `XMLClassifier` – A [XMLClassifier](#aws-glue-api-crawler-classifiers-XMLClassifier) object.
 
-A classifier that uses `grok`.
+  A classifier for XML content.
++ `JsonClassifier` – A [JsonClassifier](#aws-glue-api-crawler-classifiers-JsonClassifier) object.
 
-- `XMLClassifier` – A [XMLClassifier](#aws-glue-api-crawler-classifiers-XMLClassifier "#aws-glue-api-crawler-classifiers-XMLClassifier") object.
+  A classifier for JSON content.
++ `CsvClassifier` – A [CsvClassifier](#aws-glue-api-crawler-classifiers-CsvClassifier) object.
 
-A classifier for XML content.
-
-- `JsonClassifier` – A [JsonClassifier](#aws-glue-api-crawler-classifiers-JsonClassifier "#aws-glue-api-crawler-classifiers-JsonClassifier") object.
-
-A classifier for JSON content.
-
-- `CsvClassifier` – A [CsvClassifier](#aws-glue-api-crawler-classifiers-CsvClassifier "#aws-glue-api-crawler-classifiers-CsvClassifier") object.
-
-A classifier for comma-separated values (CSV).
+  A classifier for comma-separated values (CSV).
 
 ## GrokClassifier structure
+<a name="aws-glue-api-crawler-classifiers-GrokClassifier"></a>
 
 A classifier that uses `grok` patterns.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the classifier.
++ `Classification` – *Required:* UTF-8 string.
 
-The name of the classifier.
+  An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
++ `CreationTime` – Timestamp.
 
-- `Classification` – _Required:_ UTF-8 string.
+  The time that this classifier was registered.
++ `LastUpdated` – Timestamp.
 
-An identifier of the data format that the classifier matches, such as Twitter,
-JSON, Omniture logs, and so on.
+  The time that this classifier was last updated.
++ `Version` – Number (long).
 
-- `CreationTime` – Timestamp.
+  The version of this classifier.
++ `GrokPattern` – *Required:* UTF-8 string, not less than 1 or more than 2048 bytes long, matching the [A Logstash Grok string pattern](aws-glue-api-common.md#aws-glue-api-grok-pattern).
 
-The time that this classifier was registered.
+  The grok pattern applied to a data store by this classifier. For more information, see built-in patterns in [Writing Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html).
++ `CustomPatterns` – UTF-8 string, not more than 16000 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `LastUpdated` – Timestamp.
-
-The time that this classifier was last updated.
-
-- `Version` – Number (long).
-
-The version of this classifier.
-
-- `GrokPattern` – _Required:_ UTF-8 string, not less than 1 or more than 2048 bytes long, matching the [A Logstash Grok string pattern](aws-glue-api-common.md#aws-glue-api-grok-pattern "aws-glue-api-common.md#aws-glue-api-grok-pattern").
-
-The grok pattern applied to a data store by this classifier. For more information,
-see built-in patterns in [Writing
-Custom Classifiers](custom-classifier.md "custom-classifier.md").
-
-- `CustomPatterns` – UTF-8 string, not more than 16000 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
-
-Optional custom grok patterns defined by this classifier. For more information,
-see custom patterns in [Writing
-Custom Classifiers](custom-classifier.md "custom-classifier.md").
+  Optional custom grok patterns defined by this classifier. For more information, see custom patterns in [Writing Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html).
 
 ## XMLClassifier structure
+<a name="aws-glue-api-crawler-classifiers-XMLClassifier"></a>
 
 A classifier for `XML` content.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the classifier.
++ `Classification` – *Required:* UTF-8 string.
 
-The name of the classifier.
+  An identifier of the data format that the classifier matches.
++ `CreationTime` – Timestamp.
 
-- `Classification` – _Required:_ UTF-8 string.
+  The time that this classifier was registered.
++ `LastUpdated` – Timestamp.
 
-An identifier of the data format that the classifier matches.
+  The time that this classifier was last updated.
++ `Version` – Number (long).
 
-- `CreationTime` – Timestamp.
+  The version of this classifier.
++ `RowTag` – UTF-8 string.
 
-The time that this classifier was registered.
-
-- `LastUpdated` – Timestamp.
-
-The time that this classifier was last updated.
-
-- `Version` – Number (long).
-
-The version of this classifier.
-
-- `RowTag` – UTF-8 string.
-
-The XML tag designating the element that contains each record in an XML
-document being parsed. This can't identify a self-closing element (closed by
-`/>`). An empty row element that contains only attributes can
-be parsed as long as it ends with a closing tag (for example, `<row item_a="A"
- item_b="B"></row>` is okay, but `<row item_a="A"
- item_b="B" />` is not).
+  The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
 
 ## JsonClassifier structure
+<a name="aws-glue-api-crawler-classifiers-JsonClassifier"></a>
 
 A classifier for `JSON` content.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the classifier.
++ `CreationTime` – Timestamp.
 
-The name of the classifier.
+  The time that this classifier was registered.
++ `LastUpdated` – Timestamp.
 
-- `CreationTime` – Timestamp.
+  The time that this classifier was last updated.
++ `Version` – Number (long).
 
-The time that this classifier was registered.
+  The version of this classifier.
++ `JsonPath` – *Required:* UTF-8 string.
 
-- `LastUpdated` – Timestamp.
-
-The time that this classifier was last updated.
-
-- `Version` – Number (long).
-
-The version of this classifier.
-
-- `JsonPath` – _Required:_ UTF-8 string.
-
-A `JsonPath` string defining the JSON data for the classifier
-to classify. AWS Glue supports a subset of JsonPath, as described
-in [Writing
-JsonPath Custom Classifiers](custom-classifier.md#custom-classifier-json "custom-classifier.md#custom-classifier-json").
+  A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
 
 ## CsvClassifier structure
+<a name="aws-glue-api-crawler-classifiers-CsvClassifier"></a>
 
 A classifier for custom `CSV` content.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the classifier.
++ `CreationTime` – Timestamp.
 
-The name of the classifier.
+  The time that this classifier was registered.
++ `LastUpdated` – Timestamp.
 
-- `CreationTime` – Timestamp.
+  The time that this classifier was last updated.
++ `Version` – Number (long).
 
-The time that this classifier was registered.
+  The version of this classifier.
++ `Delimiter` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31).
 
-- `LastUpdated` – Timestamp.
+  A custom symbol to denote what separates each column entry in the row.
++ `QuoteSymbol` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31).
 
-The time that this classifier was last updated.
+  A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
++ `ContainsHeader` – UTF-8 string (valid values: `UNKNOWN` \| `PRESENT` \| `ABSENT`).
 
-- `Version` – Number (long).
+  Indicates whether the CSV file contains a header.
++ `Header` – An array of UTF-8 strings.
 
-The version of this classifier.
+  A list of strings representing column names.
++ `DisableValueTrimming` – Boolean.
 
-- `Delimiter` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+  Specifies not to trim values before identifying the type of column values. The default value is `true`.
++ `AllowSingleColumn` – Boolean.
 
-A custom symbol to denote what separates each column entry in the row.
+  Enables the processing of files that contain only one column.
++ `CustomDatatypeConfigured` – Boolean.
 
-- `QuoteSymbol` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+  Enables the custom datatype to be configured.
++ `CustomDatatypes` – An array of UTF-8 strings.
 
-A custom symbol to denote what combines content into a single column value.
-It must be different from the column delimiter.
+  A list of custom datatypes including "BINARY", "BOOLEAN", "DATE", "DECIMAL", "DOUBLE", "FLOAT", "INT", "LONG", "SHORT", "STRING", "TIMESTAMP".
++ `Serde` – UTF-8 string (valid values: `OpenCSVSerDe` \| `LazySimpleSerDe` \| `None`).
 
-- `ContainsHeader` – UTF-8 string (valid values: `UNKNOWN` | `PRESENT` | `ABSENT`).
-
-Indicates whether the CSV file contains a header.
-
-- `Header` – An array of UTF-8 strings.
-
-A list of strings representing column names.
-
-- `DisableValueTrimming` – Boolean.
-
-Specifies not to trim values before identifying the type of column values.
-The default value is `true`.
-
-- `AllowSingleColumn` – Boolean.
-
-Enables the processing of files that contain only one column.
-
-- `CustomDatatypeConfigured` – Boolean.
-
-Enables the custom datatype to be configured.
-
-- `CustomDatatypes` – An array of UTF-8 strings.
-
-A list of custom datatypes including "BINARY", "BOOLEAN", "DATE", "DECIMAL",
-"DOUBLE", "FLOAT", "INT", "LONG", "SHORT", "STRING", "TIMESTAMP".
-
-- `Serde` – UTF-8 string (valid values: `OpenCSVSerDe` | `LazySimpleSerDe` | `None`).
-
-Sets the SerDe for processing CSV in the classifier, which will be applied
-in the Data Catalog. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`,
-and `None`. You can specify the `None` value when you
-want the crawler to do the detection.
+  Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, and `None`. You can specify the `None` value when you want the crawler to do the detection.
 
 ## CreateGrokClassifierRequest structure
+<a name="aws-glue-api-crawler-classifiers-CreateGrokClassifierRequest"></a>
 
-Specifies a `grok` classifier for `CreateClassifier`
-to create.
+Specifies a `grok` classifier for `CreateClassifier` to create.
 
-###### Fields
+**Fields**
++ `Classification` – *Required:* UTF-8 string.
 
-- `Classification` – _Required:_ UTF-8 string.
+  An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-An identifier of the data format that the classifier matches, such as Twitter,
-JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
+  The name of the new classifier.
++ `GrokPattern` – *Required:* UTF-8 string, not less than 1 or more than 2048 bytes long, matching the [A Logstash Grok string pattern](aws-glue-api-common.md#aws-glue-api-grok-pattern).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The grok pattern used by this classifier.
++ `CustomPatterns` – UTF-8 string, not more than 16000 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The name of the new classifier.
-
-- `GrokPattern` – _Required:_ UTF-8 string, not less than 1 or more than 2048 bytes long, matching the [A Logstash Grok string pattern](aws-glue-api-common.md#aws-glue-api-grok-pattern "aws-glue-api-common.md#aws-glue-api-grok-pattern").
-
-The grok pattern used by this classifier.
-
-- `CustomPatterns` – UTF-8 string, not more than 16000 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
-
-Optional custom grok patterns used by this classifier.
+  Optional custom grok patterns used by this classifier.
 
 ## UpdateGrokClassifierRequest structure
+<a name="aws-glue-api-crawler-classifiers-UpdateGrokClassifierRequest"></a>
 
 Specifies a grok classifier to update when passed to `UpdateClassifier`.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the `GrokClassifier`.
++ `Classification` – UTF-8 string.
 
-The name of the `GrokClassifier`.
+  An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
++ `GrokPattern` – UTF-8 string, not less than 1 or more than 2048 bytes long, matching the [A Logstash Grok string pattern](aws-glue-api-common.md#aws-glue-api-grok-pattern).
 
-- `Classification` – UTF-8 string.
+  The grok pattern used by this classifier.
++ `CustomPatterns` – UTF-8 string, not more than 16000 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-An identifier of the data format that the classifier matches, such as Twitter,
-JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
-
-- `GrokPattern` – UTF-8 string, not less than 1 or more than 2048 bytes long, matching the [A Logstash Grok string pattern](aws-glue-api-common.md#aws-glue-api-grok-pattern "aws-glue-api-common.md#aws-glue-api-grok-pattern").
-
-The grok pattern used by this classifier.
-
-- `CustomPatterns` – UTF-8 string, not more than 16000 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
-
-Optional custom grok patterns used by this classifier.
+  Optional custom grok patterns used by this classifier.
 
 ## CreateXMLClassifierRequest structure
+<a name="aws-glue-api-crawler-classifiers-CreateXMLClassifierRequest"></a>
 
 Specifies an XML classifier for `CreateClassifier` to create.
 
-###### Fields
+**Fields**
++ `Classification` – *Required:* UTF-8 string.
 
-- `Classification` – _Required:_ UTF-8 string.
+  An identifier of the data format that the classifier matches.
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-An identifier of the data format that the classifier matches.
+  The name of the classifier.
++ `RowTag` – UTF-8 string.
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the classifier.
-
-- `RowTag` – UTF-8 string.
-
-The XML tag designating the element that contains each record in an XML
-document being parsed. This can't identify a self-closing element (closed by
-`/>`). An empty row element that contains only attributes can
-be parsed as long as it ends with a closing tag (for example, `<row item_a="A"
- item_b="B"></row>` is okay, but `<row item_a="A"
- item_b="B" />` is not).
+  The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
 
 ## UpdateXMLClassifierRequest structure
+<a name="aws-glue-api-crawler-classifiers-UpdateXMLClassifierRequest"></a>
 
 Specifies an XML classifier to be updated.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the classifier.
++ `Classification` – UTF-8 string.
 
-The name of the classifier.
+  An identifier of the data format that the classifier matches.
++ `RowTag` – UTF-8 string.
 
-- `Classification` – UTF-8 string.
-
-An identifier of the data format that the classifier matches.
-
-- `RowTag` – UTF-8 string.
-
-The XML tag designating the element that contains each record in an XML
-document being parsed. This cannot identify a self-closing element (closed
-by `/>`). An empty row element that contains only attributes
-can be parsed as long as it ends with a closing tag (for example, `<row
- item_a="A" item_b="B"></row>` is okay, but `<row
- item_a="A" item_b="B" />` is not).
+  The XML tag designating the element that contains each record in an XML document being parsed. This cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
 
 ## CreateJsonClassifierRequest structure
+<a name="aws-glue-api-crawler-classifiers-CreateJsonClassifierRequest"></a>
 
 Specifies a JSON classifier for `CreateClassifier` to create.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the classifier.
++ `JsonPath` – *Required:* UTF-8 string.
 
-The name of the classifier.
-
-- `JsonPath` – _Required:_ UTF-8 string.
-
-A `JsonPath` string defining the JSON data for the classifier
-to classify. AWS Glue supports a subset of JsonPath, as described
-in [Writing
-JsonPath Custom Classifiers](custom-classifier.md#custom-classifier-json "custom-classifier.md#custom-classifier-json").
+  A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
 
 ## UpdateJsonClassifierRequest structure
+<a name="aws-glue-api-crawler-classifiers-UpdateJsonClassifierRequest"></a>
 
 Specifies a JSON classifier to be updated.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the classifier.
++ `JsonPath` – UTF-8 string.
 
-The name of the classifier.
-
-- `JsonPath` – UTF-8 string.
-
-A `JsonPath` string defining the JSON data for the classifier
-to classify. AWS Glue supports a subset of JsonPath, as described
-in [Writing
-JsonPath Custom Classifiers](custom-classifier.md#custom-classifier-json "custom-classifier.md#custom-classifier-json").
+  A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
 
 ## CreateCsvClassifierRequest structure
+<a name="aws-glue-api-crawler-classifiers-CreateCsvClassifierRequest"></a>
 
-Specifies a custom CSV classifier for `CreateClassifier`
-to create.
+Specifies a custom CSV classifier for `CreateClassifier` to create.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the classifier.
++ `Delimiter` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31).
 
-The name of the classifier.
+  A custom symbol to denote what separates each column entry in the row.
++ `QuoteSymbol` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31).
 
-- `Delimiter` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+  A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.
++ `ContainsHeader` – UTF-8 string (valid values: `UNKNOWN` \| `PRESENT` \| `ABSENT`).
 
-A custom symbol to denote what separates each column entry in the row.
+  Indicates whether the CSV file contains a header.
++ `Header` – An array of UTF-8 strings.
 
-- `QuoteSymbol` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+  A list of strings representing column names.
++ `DisableValueTrimming` – Boolean.
 
-A custom symbol to denote what combines content into a single column value.
-Must be different from the column delimiter.
+  Specifies not to trim values before identifying the type of column values. The default value is true.
++ `AllowSingleColumn` – Boolean.
 
-- `ContainsHeader` – UTF-8 string (valid values: `UNKNOWN` | `PRESENT` | `ABSENT`).
+  Enables the processing of files that contain only one column.
++ `CustomDatatypeConfigured` – Boolean.
 
-Indicates whether the CSV file contains a header.
+  Enables the configuration of custom datatypes.
++ `CustomDatatypes` – An array of UTF-8 strings.
 
-- `Header` – An array of UTF-8 strings.
+  Creates a list of supported custom datatypes.
++ `Serde` – UTF-8 string (valid values: `OpenCSVSerDe` \| `LazySimpleSerDe` \| `None`).
 
-A list of strings representing column names.
-
-- `DisableValueTrimming` – Boolean.
-
-Specifies not to trim values before identifying the type of column values.
-The default value is true.
-
-- `AllowSingleColumn` – Boolean.
-
-Enables the processing of files that contain only one column.
-
-- `CustomDatatypeConfigured` – Boolean.
-
-Enables the configuration of custom datatypes.
-
-- `CustomDatatypes` – An array of UTF-8 strings.
-
-Creates a list of supported custom datatypes.
-
-- `Serde` – UTF-8 string (valid values: `OpenCSVSerDe` | `LazySimpleSerDe` | `None`).
-
-Sets the SerDe for processing CSV in the classifier, which will be applied
-in the Data Catalog. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`,
-and `None`. You can specify the `None` value when you
-want the crawler to do the detection.
+  Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, and `None`. You can specify the `None` value when you want the crawler to do the detection.
 
 ## UpdateCsvClassifierRequest structure
+<a name="aws-glue-api-crawler-classifiers-UpdateCsvClassifierRequest"></a>
 
 Specifies a custom CSV classifier to be updated.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the classifier.
++ `Delimiter` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31).
 
-The name of the classifier.
+  A custom symbol to denote what separates each column entry in the row.
++ `QuoteSymbol` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31).
 
-- `Delimiter` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+  A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
++ `ContainsHeader` – UTF-8 string (valid values: `UNKNOWN` \| `PRESENT` \| `ABSENT`).
 
-A custom symbol to denote what separates each column entry in the row.
+  Indicates whether the CSV file contains a header.
++ `Header` – An array of UTF-8 strings.
 
-- `QuoteSymbol` – UTF-8 string, not less than 1 or more than 1 bytes long, matching the [Custom string pattern #31](aws-glue-api-common.md#regex_31 "aws-glue-api-common.md#regex_31").
+  A list of strings representing column names.
++ `DisableValueTrimming` – Boolean.
 
-A custom symbol to denote what combines content into a single column value.
-It must be different from the column delimiter.
+  Specifies not to trim values before identifying the type of column values. The default value is true.
++ `AllowSingleColumn` – Boolean.
 
-- `ContainsHeader` – UTF-8 string (valid values: `UNKNOWN` | `PRESENT` | `ABSENT`).
+  Enables the processing of files that contain only one column.
++ `CustomDatatypeConfigured` – Boolean.
 
-Indicates whether the CSV file contains a header.
+  Specifies the configuration of custom datatypes.
++ `CustomDatatypes` – An array of UTF-8 strings.
 
-- `Header` – An array of UTF-8 strings.
+  Specifies a list of supported custom datatypes.
++ `Serde` – UTF-8 string (valid values: `OpenCSVSerDe` \| `LazySimpleSerDe` \| `None`).
 
-A list of strings representing column names.
-
-- `DisableValueTrimming` – Boolean.
-
-Specifies not to trim values before identifying the type of column values.
-The default value is true.
-
-- `AllowSingleColumn` – Boolean.
-
-Enables the processing of files that contain only one column.
-
-- `CustomDatatypeConfigured` – Boolean.
-
-Specifies the configuration of custom datatypes.
-
-- `CustomDatatypes` – An array of UTF-8 strings.
-
-Specifies a list of supported custom datatypes.
-
-- `Serde` – UTF-8 string (valid values: `OpenCSVSerDe` | `LazySimpleSerDe` | `None`).
-
-Sets the SerDe for processing CSV in the classifier, which will be applied
-in the Data Catalog. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`,
-and `None`. You can specify the `None` value when you
-want the crawler to do the detection.
+  Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, and `None`. You can specify the `None` value when you want the crawler to do the detection.
 
 ## Operations
-
-- [CreateClassifier action (Python: create\_classifier)](#aws-glue-api-crawler-classifiers-CreateClassifier "#aws-glue-api-crawler-classifiers-CreateClassifier")
-- [DeleteClassifier action (Python: delete\_classifier)](#aws-glue-api-crawler-classifiers-DeleteClassifier "#aws-glue-api-crawler-classifiers-DeleteClassifier")
-- [GetClassifier action (Python: get\_classifier)](#aws-glue-api-crawler-classifiers-GetClassifier "#aws-glue-api-crawler-classifiers-GetClassifier")
-- [GetClassifiers action (Python: get\_classifiers)](#aws-glue-api-crawler-classifiers-GetClassifiers "#aws-glue-api-crawler-classifiers-GetClassifiers")
-- [UpdateClassifier action (Python: update\_classifier)](#aws-glue-api-crawler-classifiers-UpdateClassifier "#aws-glue-api-crawler-classifiers-UpdateClassifier")
+<a name="aws-glue-api-crawler-classifiers-actions"></a>
++ [CreateClassifier action (Python: create\_classifier)](#aws-glue-api-crawler-classifiers-CreateClassifier)
++ [DeleteClassifier action (Python: delete\_classifier)](#aws-glue-api-crawler-classifiers-DeleteClassifier)
++ [GetClassifier action (Python: get\_classifier)](#aws-glue-api-crawler-classifiers-GetClassifier)
++ [GetClassifiers action (Python: get\_classifiers)](#aws-glue-api-crawler-classifiers-GetClassifiers)
++ [UpdateClassifier action (Python: update\_classifier)](#aws-glue-api-crawler-classifiers-UpdateClassifier)
 
 ## CreateClassifier action (Python: create\_classifier)
+<a name="aws-glue-api-crawler-classifiers-CreateClassifier"></a>
 
-Creates a classifier in the user's account. This can be a `GrokClassifier`,
-an `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`,
-depending on which field of the request is present.
+Creates a classifier in the user's account. This can be a `GrokClassifier`, an `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`, depending on which field of the request is present.
 
-###### Request
+**Request**
++ `GrokClassifier` – A [CreateGrokClassifierRequest](#aws-glue-api-crawler-classifiers-CreateGrokClassifierRequest) object.
 
-- `GrokClassifier` – A [CreateGrokClassifierRequest](#aws-glue-api-crawler-classifiers-CreateGrokClassifierRequest "#aws-glue-api-crawler-classifiers-CreateGrokClassifierRequest") object.
+  A `GrokClassifier` object specifying the classifier to create.
++ `XMLClassifier` – A [CreateXMLClassifierRequest](#aws-glue-api-crawler-classifiers-CreateXMLClassifierRequest) object.
 
-A `GrokClassifier` object specifying the classifier to
-create.
+  An `XMLClassifier` object specifying the classifier to create.
++ `JsonClassifier` – A [CreateJsonClassifierRequest](#aws-glue-api-crawler-classifiers-CreateJsonClassifierRequest) object.
 
-- `XMLClassifier` – A [CreateXMLClassifierRequest](#aws-glue-api-crawler-classifiers-CreateXMLClassifierRequest "#aws-glue-api-crawler-classifiers-CreateXMLClassifierRequest") object.
+  A `JsonClassifier` object specifying the classifier to create.
++ `CsvClassifier` – A [CreateCsvClassifierRequest](#aws-glue-api-crawler-classifiers-CreateCsvClassifierRequest) object.
 
-An `XMLClassifier` object specifying the classifier to
-create.
+  A `CsvClassifier` object specifying the classifier to create.
 
-- `JsonClassifier` – A [CreateJsonClassifierRequest](#aws-glue-api-crawler-classifiers-CreateJsonClassifierRequest "#aws-glue-api-crawler-classifiers-CreateJsonClassifierRequest") object.
+**Response**
++ *No Response parameters.*
 
-A `JsonClassifier` object specifying the classifier to
-create.
-
-- `CsvClassifier` – A [CreateCsvClassifierRequest](#aws-glue-api-crawler-classifiers-CreateCsvClassifierRequest "#aws-glue-api-crawler-classifiers-CreateCsvClassifierRequest") object.
-
-A `CsvClassifier` object specifying the classifier to create.
-
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `AlreadyExistsException`
-- `InvalidInputException`
-- `OperationTimeoutException`
+**Errors**
++ `AlreadyExistsException`
++ `InvalidInputException`
++ `OperationTimeoutException`
 
 ## DeleteClassifier action (Python: delete\_classifier)
+<a name="aws-glue-api-crawler-classifiers-DeleteClassifier"></a>
 
 Removes a classifier from the Data Catalog.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Name of the classifier to remove.
 
-Name of the classifier to remove.
+**Response**
++ *No Response parameters.*
 
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `EntityNotFoundException`
-- `OperationTimeoutException`
+**Errors**
++ `EntityNotFoundException`
++ `OperationTimeoutException`
 
 ## GetClassifier action (Python: get\_classifier)
+<a name="aws-glue-api-crawler-classifiers-GetClassifier"></a>
 
 Retrieve a classifier by name.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Name of the classifier to retrieve.
 
-Name of the classifier to retrieve.
+**Response**
++ `Classifier` – A [Classifier](#aws-glue-api-crawler-classifiers-Classifier) object.
 
-###### Response
+  The requested classifier.
 
-- `Classifier` – A [Classifier](#aws-glue-api-crawler-classifiers-Classifier "#aws-glue-api-crawler-classifiers-Classifier") object.
-
-The requested classifier.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `OperationTimeoutException`
+**Errors**
++ `EntityNotFoundException`
++ `OperationTimeoutException`
 
 ## GetClassifiers action (Python: get\_classifiers)
+<a name="aws-glue-api-crawler-classifiers-GetClassifiers"></a>
 
 Lists all classifier objects in the Data Catalog.
 
-###### Request
+**Request**
++ `MaxResults` – Number (integer), not less than 1 or more than 1000.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+  The size of the list to return (optional).
++ `NextToken` – UTF-8 string.
 
-The size of the list to return (optional).
+  An optional continuation token.
 
-- `NextToken` – UTF-8 string.
+**Response**
++ `Classifiers` – An array of [Classifier](#aws-glue-api-crawler-classifiers-Classifier) objects.
 
-An optional continuation token.
+  The requested list of classifier objects.
++ `NextToken` – UTF-8 string.
 
-###### Response
+  A continuation token.
 
-- `Classifiers` – An array of [Classifier](#aws-glue-api-crawler-classifiers-Classifier "#aws-glue-api-crawler-classifiers-Classifier") objects.
-
-The requested list of classifier objects.
-
-- `NextToken` – UTF-8 string.
-
-A continuation token.
-
-###### Errors
-
-- `OperationTimeoutException`
+**Errors**
++ `OperationTimeoutException`
 
 ## UpdateClassifier action (Python: update\_classifier)
+<a name="aws-glue-api-crawler-classifiers-UpdateClassifier"></a>
 
-Modifies an existing classifier (a `GrokClassifier`, an
-`XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`,
-depending on which field is present).
+Modifies an existing classifier (a `GrokClassifier`, an `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`, depending on which field is present).
 
-###### Request
+**Request**
++ `GrokClassifier` – An [UpdateGrokClassifierRequest](#aws-glue-api-crawler-classifiers-UpdateGrokClassifierRequest) object.
 
-- `GrokClassifier` – An [UpdateGrokClassifierRequest](#aws-glue-api-crawler-classifiers-UpdateGrokClassifierRequest "#aws-glue-api-crawler-classifiers-UpdateGrokClassifierRequest") object.
+  A `GrokClassifier` object with updated fields.
++ `XMLClassifier` – An [UpdateXMLClassifierRequest](#aws-glue-api-crawler-classifiers-UpdateXMLClassifierRequest) object.
 
-A `GrokClassifier` object with updated fields.
+  An `XMLClassifier` object with updated fields.
++ `JsonClassifier` – An [UpdateJsonClassifierRequest](#aws-glue-api-crawler-classifiers-UpdateJsonClassifierRequest) object.
 
-- `XMLClassifier` – An [UpdateXMLClassifierRequest](#aws-glue-api-crawler-classifiers-UpdateXMLClassifierRequest "#aws-glue-api-crawler-classifiers-UpdateXMLClassifierRequest") object.
+  A `JsonClassifier` object with updated fields.
++ `CsvClassifier` – An [UpdateCsvClassifierRequest](#aws-glue-api-crawler-classifiers-UpdateCsvClassifierRequest) object.
 
-An `XMLClassifier` object with updated fields.
+  A `CsvClassifier` object with updated fields.
 
-- `JsonClassifier` – An [UpdateJsonClassifierRequest](#aws-glue-api-crawler-classifiers-UpdateJsonClassifierRequest "#aws-glue-api-crawler-classifiers-UpdateJsonClassifierRequest") object.
+**Response**
++ *No Response parameters.*
 
-A `JsonClassifier` object with updated fields.
-
-- `CsvClassifier` – An [UpdateCsvClassifierRequest](#aws-glue-api-crawler-classifiers-UpdateCsvClassifierRequest "#aws-glue-api-crawler-classifiers-UpdateCsvClassifierRequest") object.
-
-A `CsvClassifier` object with updated fields.
-
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `InvalidInputException`
-- `VersionMismatchException`
-- `EntityNotFoundException`
-- `OperationTimeoutException`
+**Errors**
++ `InvalidInputException`
++ `VersionMismatchException`
++ `EntityNotFoundException`
++ `OperationTimeoutException`

@@ -1,15 +1,15 @@
+
+
 # AWS Glue support for Monday
+<a name="monday-support"></a>
 
 AWS Glue supports Monday as follows:
 
-###### Supported as a source?
-
+**Supported as a source?**  
 Yes. You can use AWS Glue ETL jobs to query data from Monday.
 
-###### Supported as a target?
-
+**Supported as a target?**  
 No.
 
-###### Supported Monday API versions
-
-v2.
+**Supported Monday API versions**  
+ v2. 

@@ -1,4 +1,7 @@
+
+
 # Reading from Adobe Marketo Engage entities
+<a name="adobe-marketo-engage-reading-from-entities"></a>
 
 **Prerequisite**
 
@@ -6,19 +9,21 @@ An Adobe Marketo Engage object you would like to read from. You will need the ob
 
 **Supported entities for source (synchronous)**:
 
-| Entity        | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning |
-| ------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| leads         | Yes             | Yes            | No                | Yes                | No                    |
-| activities    | Yes             | Yes            | No                | Yes                | No                    |
-| customobjects | Yes             | Yes            | No                | Yes                | No                    |
+
+| Entity | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| leads | Yes | Yes | No | Yes | No | 
+| activities | Yes | Yes | No | Yes | No | 
+| customobjects | Yes | Yes | No | Yes | No | 
 
 **Supported entities for source (asynchronous)**:
 
-| Entity        | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning |
-| ------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| leads         | Yes             | No             | No                | Yes                | Yes                   |
-| activities    | Yes             | No             | No                | Yes                | No                    |
-| customobjects | Yes             | No             | No                | Yes                | Yes                   |
+
+| Entity | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| leads | Yes | No | No | Yes | Yes | 
+| activities | Yes | No | No | Yes | No | 
+| customobjects | Yes | No | No | Yes | Yes | 
 
 **Example**:
 
@@ -35,68 +40,80 @@ adobe-marketo-engage_read = glueContext.create_dynamic_frame.from_options(
 
 **Adobe Marketo Engage entity and field details**:
 
-**Entities with static metadata**:
+**Entities with static metadata**: 
 
-| Entity                                     | Field                                         | Data type                            | Supported operators            |
-| ------------------------------------------ | --------------------------------------------- | ------------------------------------ | ------------------------------ |
-| activities                                 | sinceDatetime (only supported in synchronous) | DateTime                             | >= (only for synchronous mode) |
-| createdAt (only supported in asynchronous) | DateTime                                      | between (only for asynchronous mode) |
-| activitiesTypeId                           | Integer                                       | =                                    |
-| adobe-marketo-engageGUID                   | Long                                          | = (only for synchronous mode)        |
-| leadId                                     | Long                                          | N/A                                  |
-| activityDate                               | DateTime                                      | N/A                                  |
-| campaignId                                 | Long                                          | N/A                                  |
-| primaryAttributeValueId                    | Integer                                       | N/A                                  |
-| primaryAttributeValue                      | String                                        | N/A                                  |
-| attributes                                 | String                                        | N/A                                  |
+
+
+- **activities**
+  - **Field:** sinceDatetime (only supported in synchronous) / **Data type:** DateTime / **Supported operators:** >= (only for synchronous mode)
+  - **Field:** createdAt (only supported in asynchronous) / **Data type:** DateTime / **Supported operators:** between (only for asynchronous mode)
+  - **Field:** activitiesTypeId / **Data type:** Integer / **Supported operators:** =
+  - **Field:** adobe-marketo-engageGUID / **Data type:** Long / **Supported operators:**  = (only for synchronous mode)
+  - **Field:** leadId / **Data type:** Long / **Supported operators:** N/A
+  - **Field:** activityDate / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** campaignId / **Data type:** Long / **Supported operators:** N/A
+  - **Field:** primaryAttributeValueId / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** primaryAttributeValue / **Data type:** String / **Supported operators:** N/A
+  - **Field:** attributes / **Data type:** String / **Supported operators:** N/A
+
+
 
 **Entities with dynamic metadata**:
 
-For the following entities, Adobe Marketo Engage provides endpoints to fetch metadata dynamically, so
-that operator support is captured at the datatype level for each entity.
+For the following entities, Adobe Marketo Engage provides endpoints to fetch metadata dynamically, so that operator support is captured at the datatype level for each entity.
 
-| Entity        | Data type                            | Supported operators           |
-| ------------- | ------------------------------------ | ----------------------------- |
-| leads         | Integer                              | = (only for synchronous mode) |
-| DateTime      | between (only for asynchronous mode) |
-| String        | = (only for synchronous mode)        |
-| Long          | N/A                                  |
-| Boolean       | N/A                                  |
-| Date          | N/A                                  |
-| Float         | N/A                                  |
-| customobjects | Integer                              | N/A                           |
-| DateTime      | between (only for asynchronous mode) |
-| String        | = (only for synchronous mode)        |
-| Date          | N/A                                  |
-| Long          | N/A                                  |
-| Boolean       | N/A                                  |
-| Float         | N/A                                  |
+
+
+- **leads**
+  - **Data type:** Integer / **Supported operators:**  = (only for synchronous mode)
+  - **Data type:** DateTime / **Supported operators:** between (only for asynchronous mode)
+  - **Data type:** String / **Supported operators:**  = (only for synchronous mode)
+  - **Data type:** Long / **Supported operators:** N/A
+  - **Data type:** Boolean / **Supported operators:** N/A
+  - **Data type:** Date / **Supported operators:** N/A
+  - **Data type:** Float / **Supported operators:** N/A
+
+- **customobjects**
+  - **Data type:** Integer / **Supported operators:** N/A
+  - **Data type:** DateTime / **Supported operators:** between (only for asynchronous mode)
+  - **Data type:** String / **Supported operators:**  = (only for synchronous mode)
+  - **Data type:** Date / **Supported operators:** N/A
+  - **Data type:** Long / **Supported operators:** N/A
+  - **Data type:** Boolean / **Supported operators:** N/A
+  - **Data type:** Float / **Supported operators:** N/A
+
+
 
 ## Partitioning queries
+<a name="adobe-marketo-engage-reading-partitioning-queries"></a>
 
 You can provide the additional Spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`, and `NUM_PARTITIONS` if you want to utilize concurrency in Spark. With these parameters, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by Spark tasks concurrently.
++ `PARTITION_FIELD`: the name of the field to be used to partition the query.
++ `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field.
 
-- `PARTITION_FIELD`: the name of the field to be used to partition the query.
-- `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field.
+  For the DateTime field, we accept the value in ISO format.
 
-For the DateTime field, we accept the value in ISO format.
+  Example of valid value:
 
-Example of valid value:
-
-```
-"2024-07-01T00:00:00.000Z"
-```
-
-- `UPPER_BOUND`: an **exclusive** upper bound value of the chosen partition field.
-- `NUM_PARTITIONS`: the number of partitions.
+  ```
+  "2024-07-01T00:00:00.000Z"
+  ```
++ `UPPER_BOUND`: an **exclusive** upper bound value of the chosen partition field.
++ `NUM_PARTITIONS`: the number of partitions.
 
 The following table describes the entity partitioning field support details:
 
-| Entity name   | Partitioning fields | Data type |
-| ------------- | ------------------- | --------- |
-| leads         | createdAt           | DateTime  |
-| updateAt      | DateTime            |
-| customobjects | updatedAt           | DateTime  |
+
+
+- **leads**
+  - **Partitioning fields:** createdAt / **Data type:** DateTime
+  - **Partitioning fields:** updateAt / **Data type:** DateTime
+
+- **customobjects**
+  - **Partitioning fields:** updatedAt
+  - **Data type:** DateTime
+
+
 
 Example:
 

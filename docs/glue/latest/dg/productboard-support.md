@@ -1,15 +1,15 @@
+
+
 # AWS Glue support for Productboard
+<a name="productboard-support"></a>
 
 AWS Glue supports Productboard as follows:
 
-###### Supported as a source?
-
+**Supported as a source?**  
 Yes. You can use AWS Glue ETL jobs to query data from Productboard.
 
-###### Supported as a target?
-
+**Supported as a target?**  
 No.
 
-###### Supported Productboard API versions
-
-v1
+**Supported Productboard API versions**  
+ v1 

@@ -1,37 +1,32 @@
+
+
 # Using the JSON format in AWS Glue
+<a name="aws-glue-programming-etl-format-json-home"></a>
 
-AWS Glue retrieves data from sources and writes data to targets stored and transported in various data formats. If your data is
-stored or transported in the JSON data format, this document introduces you to available features for using your
-data in AWS Glue.
+AWS Glue retrieves data from sources and writes data to targets stored and transported in various data formats. If your data is stored or transported in the JSON data format, this document introduces you to available features for using your data in AWS Glue.
 
-AWS Glue supports using the JSON format. This format represents data structures with consistent shape but
-flexible contents, that aren't row or column based. JSON is defined by parallel standards issued by several
-authorities, one of which is ECMA-404. For an introduction to the format by a commonly referenced source, see
-[Introducing JSON](https://www.json.org/ "https://www.json.org/").
+AWS Glue supports using the JSON format. This format represents data structures with consistent shape but flexible contents, that aren't row or column based. JSON is defined by parallel standards issued by several authorities, one of which is ECMA-404. For an introduction to the format by a commonly referenced source, see [Introducing JSON](https://www.json.org/).
 
-You can use AWS Glue to read JSON files from Amazon S3, as well as `bzip` and `gzip` compressed
-JSON files. You configure compression behavior on the [S3 connection parameters](aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3 "aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3") instead of in the configuration discussed on this
-page.
+You can use AWS Glue to read JSON files from Amazon S3, as well as `bzip` and `gzip` compressed JSON files. You configure compression behavior on the [S3 connection parameters](aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3) instead of in the configuration discussed on this page. 
 
-| Read      | Write     | Streaming read | Group small files | Job bookmarks |
-| --------- | --------- | -------------- | ----------------- | ------------- |
-| Supported | Supported | Supported      | Supported         | Supported     |
+
+| Read | Write | Streaming read | Group small files | Job bookmarks | 
+| --- | --- | --- | --- | --- | 
+| Supported | Supported | Supported | Supported | Supported | 
 
 ## Example: Read JSON files or folders from S3
+<a name="aws-glue-programming-etl-format-json-read"></a>
 
-**Prerequisites:**
-You will need the S3 paths (`s3path`) to the JSON files or folders you would like to read.
+** Prerequisites:** You will need the S3 paths (`s3path`) to the JSON files or folders you would like to read. 
 
-**Configuration:**
-In your function options, specify `format="json"`. In your `connection_options`, use the
-`paths` key to specify your `s3path`. You can further alter how your read operation will traverse s3 in the
-connection options, consult [Amazon S3 connection option reference](aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3 "aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3") for details. You can configure how the reader interprets
-JSON files in your `format_options`. For details, see [JSON Configuration Reference](#aws-glue-programming-etl-format-json-reference "#aws-glue-programming-etl-format-json-reference").
+**Configuration:** In your function options, specify `format="json"`. In your `connection_options`, use the `paths` key to specify your `s3path`. You can further alter how your read operation will traverse s3 in the connection options, consult [Amazon S3 connection option reference](aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3) for details. You can configure how the reader interprets JSON files in your `format_options`. For details, see [JSON Configuration Reference](#aws-glue-programming-etl-format-json-reference). 
 
-The following AWS Glue ETL script shows the process of reading JSON files or folders from S3:
+ The following AWS Glue ETL script shows the process of reading JSON files or folders from S3: 
 
-Python
-For this example, use the [create\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options") method.
+------
+#### [ Python ]
+
+For this example, use the [create\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options) method.
 
 ```
 # Example: Read JSON from S3
@@ -48,7 +43,7 @@ spark = glueContext.spark_session
 
 dynamicFrame = glueContext.create_dynamic_frame.from_options(
     connection_type="s3",
-    connection_options={"paths": ["s3://`s3path`"]},
+    connection_options={"paths": ["s3://{{s3path}}"]},
     format="json",
     format_options={
         "jsonPath": "$.id",
@@ -63,11 +58,13 @@ You can also use DataFrames in a script (`pyspark.sql.DataFrame`).
 ```
 dataFrame = spark.read\
     .option("multiline", "true")\
-    .json("s3://`s3path`")
+    .json("s3://{{s3path}}")
 ```
 
-Scala
-For this example, use the [getSourceWithFormat](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSourceWithFormat "glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSourceWithFormat") operation.
+------
+#### [ Scala ]
+
+For this example, use the [getSourceWithFormat](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSourceWithFormat) operation.
 
 ```
 // Example: Read JSON from S3
@@ -88,7 +85,7 @@ object GlueApp {
       formatOptions=JsonOptions("""{"jsonPath": "$.id", "multiline": true, "optimizePerformance":false}"""),
       connectionType="s3",
       format="json",
-      options=JsonOptions("""{"paths": ["s3://`s3path`"], "recurse": true}""")
+      options=JsonOptions("""{"paths": ["s3://{{s3path}}"], "recurse": true}""")
     ).getDynamicFrame()
   }
 }
@@ -99,26 +96,24 @@ You can also use DataFrames in a script (`pyspark.sql.DataFrame`).
 ```
 val dataFrame = spark.read
     .option("multiline", "true")
-    .json("s3://`s3path`")
+    .json("s3://{{s3path}}")
 ```
 
+------
+
 ## Example: Write JSON files and folders to S3
+<a name="aws-glue-programming-etl-format-json-write"></a>
 
-**Prerequisites:**You will need an initialized DataFrame
-(`dataFrame`) or DynamicFrame (`dynamicFrame`). You will also need your expected S3
-output path, `s3path`.
+** Prerequisites:**You will need an initialized DataFrame (`dataFrame`) or DynamicFrame (`dynamicFrame`). You will also need your expected S3 output path, `s3path`. 
 
-**Configuration:** In your function options, specify
-`format="json"`. In your `connection_options`, use the `paths` key to
-specify `s3path`. You can further alter how the writer interacts with S3 in the
-`connection_options`. For details, see Data format options for ETL inputs and outputs in AWS Glue
-: [Amazon S3 connection option reference](aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3 "aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3"). You can configure how the writer interprets
-JSON files in your `format_options`. For details, see [JSON Configuration Reference](#aws-glue-programming-etl-format-json-reference "#aws-glue-programming-etl-format-json-reference").
+**Configuration:** In your function options, specify `format="json"`. In your `connection_options`, use the `paths` key to specify `s3path`. You can further alter how the writer interacts with S3 in the `connection_options`. For details, see Data format options for ETL inputs and outputs in AWS Glue : [Amazon S3 connection option reference](aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3). You can configure how the writer interprets JSON files in your `format_options`. For details, see [JSON Configuration Reference](#aws-glue-programming-etl-format-json-reference). 
 
 The following AWS Glue ETL script shows the process of writing JSON files or folders from S3:
 
-Python
-For this example, use the [write\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options") method.
+------
+#### [ Python ]
+
+For this example, use the [write\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options) method.
 
 ```
 # Example: Write JSON to S3
@@ -132,7 +127,7 @@ glueContext = GlueContext(sc)
 glueContext.write_dynamic_frame.from_options(
     frame=dynamicFrame,
     connection_type="s3",
-    connection_options={"path": "s3://`s3path`"},
+    connection_options={"path": "s3://{{s3path}}"},
     format="json"
 )
 ```
@@ -140,12 +135,13 @@ glueContext.write_dynamic_frame.from_options(
 You can also use DataFrames in a script (`pyspark.sql.DataFrame`).
 
 ```
-df.write.json("s3://`s3path`/")
+df.write.json("s3://{{s3path}}/")
 ```
 
-Scala
-For this example, use the [getSinkWithFormat](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSinkWithFormat "glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSinkWithFormat")
-method.
+------
+#### [ Scala ]
+
+For this example, use the [getSinkWithFormat](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSinkWithFormat) method.
 
 ```
 // Example: Write JSON to S3
@@ -161,7 +157,7 @@ object GlueApp {
 
     glueContext.getSinkWithFormat(
         connectionType="s3",
-        options=JsonOptions("""{"path": "s3://`s3path`"}"""),
+        options=JsonOptions("""{"path": "s3://{{s3path}}"}"""),
         format="json"
     ).writeDynamicFrame(dynamicFrame)
   }
@@ -171,78 +167,59 @@ object GlueApp {
 You can also use DataFrames in a script (`pyspark.sql.DataFrame`).
 
 ```
-df.write.json("s3://`s3path`")
+df.write.json("s3://{{s3path}}")
 ```
+
+------
 
 ## Json configuration reference
+<a name="aws-glue-programming-etl-format-json-reference"></a>
 
-You can use the following `format_options` values with
-`format="json"`:
+You can use the following `format_options` values with `format="json"`:
++ `jsonPath` — A [JsonPath](https://github.com/json-path/JsonPath) expression that identifies an object to be read into records. This is particularly useful when a file contains records nested inside an outer array. For example, the following JsonPath expression targets the `id` field of a JSON object.
 
-- `jsonPath` — A [JsonPath](https://github.com/json-path/JsonPath "https://github.com/json-path/JsonPath") expression that identifies an object to be read into records. This is
-  particularly useful when a file contains records nested inside an outer array. For
-  example, the following JsonPath expression targets the `id` field of a JSON
-  object.
-
-```
-format="json", format_options={"jsonPath": "$.id"}
-```
-
-- `multiline` — A Boolean value that specifies whether a single record can
-  span multiple lines. This can occur when a field contains a quoted new-line character. You
-  must set this option to `"true"` if any record spans multiple lines. The
-  default value is `"false"`, which allows for more aggressive file-splitting
-  during parsing.
-- `optimizePerformance` — A Boolean value that specifies whether to use the advanced SIMD
-  JSON reader along with Apache Arrow based columnar memory formats. Only available in AWS Glue 3.0.
-  Not compatible with `multiline` or `jsonPath`. Providing either of those options will
-  instruct AWS Glue to fall back to the standard reader.
-- `withSchema` — A String value that specifies a table schema in the format described in
-  [Manually specify the XML schema](aws-glue-programming-etl-format-xml-home.md#aws-glue-programming-etl-format-xml-withschema "aws-glue-programming-etl-format-xml-home.md#aws-glue-programming-etl-format-xml-withschema"). Only used with
-  `optimizePerformance` when reading from non-Catalog connections.
+  ```
+  format="json", format_options={"jsonPath": "$.id"}
+  ```
++ `multiline` — A Boolean value that specifies whether a single record can span multiple lines. This can occur when a field contains a quoted new-line character. You must set this option to `"true"` if any record spans multiple lines. The default value is `"false"`, which allows for more aggressive file-splitting during parsing.
++ `optimizePerformance` — A Boolean value that specifies whether to use the advanced SIMD JSON reader along with Apache Arrow based columnar memory formats. Only available in AWS Glue 3.0. Not compatible with `multiline` or `jsonPath`. Providing either of those options will instruct AWS Glue to fall back to the standard reader.
++ `withSchema` — A String value that specifies a table schema in the format described in [Manually specify the XML schema](aws-glue-programming-etl-format-xml-home.md#aws-glue-programming-etl-format-xml-withschema). Only used with `optimizePerformance` when reading from non-Catalog connections.
 
 ## Using vectorized SIMD JSON reader with Apache Arrow columnar format
+<a name="aws-glue-programming-etl-format-simd-json-reader"></a>
 
-AWS Glue version 3.0 adds a vectorized reader for JSON data. It performs 2x faster under certain
-conditions, compared to the standard reader. This reader comes with certain limitations users should be aware of
-before use, documented in this section.
+AWS Glue version 3.0 adds a vectorized reader for JSON data. It performs 2x faster under certain conditions, compared to the standard reader. This reader comes with certain limitations users should be aware of before use, documented in this section.
 
-To use the optimized reader, set `"optimizePerformance"` to True in the
-`format_options` or table property. You will also need to provide `withSchema` unless
-reading from the catalog. `withSchema` expects an input as described in the [Manually specify the XML schema](aws-glue-programming-etl-format-xml-home.md#aws-glue-programming-etl-format-xml-withschema "aws-glue-programming-etl-format-xml-home.md#aws-glue-programming-etl-format-xml-withschema")
+To use the optimized reader, set `"optimizePerformance"` to True in the `format_options` or table property. You will also need to provide `withSchema` unless reading from the catalog. `withSchema` expects an input as described in the [Manually specify the XML schema](aws-glue-programming-etl-format-xml-home.md#aws-glue-programming-etl-format-xml-withschema)
 
 ```
-
-// Read from S3 data source
+// Read from S3 data source        
 glueContext.create_dynamic_frame.from_options(
-    connection_type = "s3",
-    connection_options = {"paths": ["s3://`s3path`"]},
-    format = "json",
+    connection_type = "s3", 
+    connection_options = {"paths": ["s3://{{s3path}}"]}, 
+    format = "json", 
     format_options={
         "optimizePerformance": True,
-        "withSchema": `SchemaString`
-        })
-
+        "withSchema": {{SchemaString}}
+        })    
+ 
 // Read from catalog table
 glueContext.create_dynamic_frame.from_catalog(
-    database = database,
-    table_name = table,
+    database = database, 
+    table_name = table, 
     additional_options = {
     // The vectorized reader for JSON can read your schema from a catalog table property.
         "optimizePerformance": True,
         })
 ```
 
-For more information about the building a `SchemaString` in the AWS Glue library, see [PySpark extension types](aws-glue-api-crawler-pyspark-extensions-types.md "aws-glue-api-crawler-pyspark-extensions-types.md").
+For more information about the building a {{SchemaString}} in the AWS Glue library, see [PySpark extension types](aws-glue-api-crawler-pyspark-extensions-types.md).
 
-###### Limitations for the vectorized CSV reader
-
+**Limitations for the vectorized CSV reader**  
 Note the following limitations:
-
-- JSON elements with nested objects or array values are not supported. If provided, AWS Glue will fall back to the standard reader.
-- A schema must be provided, either from the Catalog or with `withSchema`.
-- Not compatible with `multiline` or `jsonPath`. Providing either of those options will
-  instruct AWS Glue to fall back to the standard reader.
-- Providing input records that do not match the input schema will cause the reader to fail.
-- [Error records](glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-defs-errorsAsDynamicFrame "glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-defs-errorsAsDynamicFrame") will not be created.
-- JSON files with multi-byte characters (such as Japanese or Chinese characters) are not supported.
++ JSON elements with nested objects or array values are not supported. If provided, AWS Glue will fall back to the standard reader.
++ A schema must be provided, either from the Catalog or with `withSchema`.
++ Not compatible with `multiline` or `jsonPath`. Providing either of those options will instruct AWS Glue to fall back to the standard reader.
++ Providing input records that do not match the input schema will cause the reader to fail.
++ [Error records](https://docs.aws.amazon.com/glue/latest/dg/glue-etl-scala-apis-glue-dynamicframe-class.html#glue-etl-scala-apis-glue-dynamicframe-class-defs-errorsAsDynamicFrame) will not be created.
++ JSON files with multi-byte characters (such as Japanese or Chinese characters) are not supported.

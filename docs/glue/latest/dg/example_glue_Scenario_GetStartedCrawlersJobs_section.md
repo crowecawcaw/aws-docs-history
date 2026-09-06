@@ -1,27 +1,24 @@
+
+
 # Learn the basics of AWS Glue with an AWS SDK
+<a name="example_glue_Scenario_GetStartedCrawlersJobs_section"></a>
 
 The following code examples show how to:
++ Create a crawler that crawls a public Amazon S3 bucket and generates a database of CSV-formatted metadata.
++ List information about databases and tables in your AWS Glue Data Catalog.
++ Create a job to extract CSV data from the S3 bucket, transform the data, and load JSON-formatted output into another S3 bucket.
++ List information about job runs, view transformed data, and clean up resources.
 
-- Create a crawler that crawls a public Amazon S3 bucket and generates a database of CSV-formatted metadata.
-- List information about databases and tables in your AWS Glue Data Catalog.
-- Create a job to extract CSV data from the S3 bucket, transform the data, and load JSON-formatted output into another S3 bucket.
-- List information about job runs, view transformed data, and clean up resources.
-  For more information, see [Tutorial: Getting started with AWS Glue Studio](../ug/tutorial-create-job.md "../ug/tutorial-create-job.md").
+For more information, see [Tutorial: Getting started with AWS Glue Studio](https://docs.aws.amazon.com/glue/latest/ug/tutorial-create-job.html).
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples").
-
-Create a class that wraps AWS Glue functions that are used in the scenario.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples). 
+Create a class that wraps AWS Glue functions that are used in the scenario.  
 
 ```
-
 using System.Net;
 
 namespace GlueActions;
@@ -363,12 +360,8 @@ public class GlueWrapper
     }
 
 }
-
-
-
 ```
-
-Create a class that runs the scenario.
+Create a class that runs the scenario.  
 
 ```
 global using Amazon.Glue;
@@ -643,39 +636,30 @@ public class UiWrapper
         Console.WriteLine(SepBar);
     }
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [CreateCrawler](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/CreateCrawler)
+  + [CreateJob](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/CreateJob)
+  + [DeleteCrawler](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/DeleteCrawler)
+  + [DeleteDatabase](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/DeleteDatabase)
+  + [DeleteJob](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/DeleteJob)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/DeleteTable)
+  + [GetCrawler](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/GetCrawler)
+  + [GetDatabase](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/GetDatabase)
+  + [GetDatabases](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/GetDatabases)
+  + [GetJob](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/GetJob)
+  + [GetJobRun](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/GetJobRun)
+  + [GetJobRuns](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/GetJobRuns)
+  + [GetTables](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/GetTables)
+  + [ListJobs](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/ListJobs)
+  + [StartCrawler](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/StartCrawler)
+  + [StartJobRun](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/StartJobRun)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-  - [CreateCrawler](../../../goto/DotNetSDKV3/glue-2017-03-31/CreateCrawler.md "../../../goto/DotNetSDKV3/glue-2017-03-31/CreateCrawler.md")
-  - [CreateJob](../../../goto/DotNetSDKV3/glue-2017-03-31/CreateJob.md "../../../goto/DotNetSDKV3/glue-2017-03-31/CreateJob.md")
-  - [DeleteCrawler](../../../goto/DotNetSDKV3/glue-2017-03-31/DeleteCrawler.md "../../../goto/DotNetSDKV3/glue-2017-03-31/DeleteCrawler.md")
-  - [DeleteDatabase](../../../goto/DotNetSDKV3/glue-2017-03-31/DeleteDatabase.md "../../../goto/DotNetSDKV3/glue-2017-03-31/DeleteDatabase.md")
-  - [DeleteJob](../../../goto/DotNetSDKV3/glue-2017-03-31/DeleteJob.md "../../../goto/DotNetSDKV3/glue-2017-03-31/DeleteJob.md")
-  - [DeleteTable](../../../goto/DotNetSDKV3/glue-2017-03-31/DeleteTable.md "../../../goto/DotNetSDKV3/glue-2017-03-31/DeleteTable.md")
-  - [GetCrawler](../../../goto/DotNetSDKV3/glue-2017-03-31/GetCrawler.md "../../../goto/DotNetSDKV3/glue-2017-03-31/GetCrawler.md")
-  - [GetDatabase](../../../goto/DotNetSDKV3/glue-2017-03-31/GetDatabase.md "../../../goto/DotNetSDKV3/glue-2017-03-31/GetDatabase.md")
-  - [GetDatabases](../../../goto/DotNetSDKV3/glue-2017-03-31/GetDatabases.md "../../../goto/DotNetSDKV3/glue-2017-03-31/GetDatabases.md")
-  - [GetJob](../../../goto/DotNetSDKV3/glue-2017-03-31/GetJob.md "../../../goto/DotNetSDKV3/glue-2017-03-31/GetJob.md")
-  - [GetJobRun](../../../goto/DotNetSDKV3/glue-2017-03-31/GetJobRun.md "../../../goto/DotNetSDKV3/glue-2017-03-31/GetJobRun.md")
-  - [GetJobRuns](../../../goto/DotNetSDKV3/glue-2017-03-31/GetJobRuns.md "../../../goto/DotNetSDKV3/glue-2017-03-31/GetJobRuns.md")
-  - [GetTables](../../../goto/DotNetSDKV3/glue-2017-03-31/GetTables.md "../../../goto/DotNetSDKV3/glue-2017-03-31/GetTables.md")
-  - [ListJobs](../../../goto/DotNetSDKV3/glue-2017-03-31/ListJobs.md "../../../goto/DotNetSDKV3/glue-2017-03-31/ListJobs.md")
-  - [StartCrawler](../../../goto/DotNetSDKV3/glue-2017-03-31/StartCrawler.md "../../../goto/DotNetSDKV3/glue-2017-03-31/StartCrawler.md")
-  - [StartJobRun](../../../goto/DotNetSDKV3/glue-2017-03-31/StartJobRun.md "../../../goto/DotNetSDKV3/glue-2017-03-31/StartJobRun.md")
-
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue#code-examples). 
 
 ```
 //! Scenario which demonstrates using AWS Glue to add a crawler and run a job.
@@ -1403,42 +1387,32 @@ bool AwsDoc::Glue::getObjectFromBucket(const Aws::String &bucketName,
 
     return outcome.IsSuccess();
 }
+```
++ For API details, see the following topics in *AWS SDK for C\+\+ API Reference*.
+  + [CreateCrawler](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/CreateCrawler)
+  + [CreateJob](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/CreateJob)
+  + [DeleteCrawler](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/DeleteCrawler)
+  + [DeleteDatabase](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/DeleteDatabase)
+  + [DeleteJob](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/DeleteJob)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/DeleteTable)
+  + [GetCrawler](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/GetCrawler)
+  + [GetDatabase](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/GetDatabase)
+  + [GetDatabases](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/GetDatabases)
+  + [GetJob](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/GetJob)
+  + [GetJobRun](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/GetJobRun)
+  + [GetJobRuns](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/GetJobRuns)
+  + [GetTables](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/GetTables)
+  + [ListJobs](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/ListJobs)
+  + [StartCrawler](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/StartCrawler)
+  + [StartJobRun](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/StartJobRun)
 
+------
+#### [ Java ]
 
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples). 
 
 ```
-
-- For API details, see the following topics in _AWS SDK for C++ API Reference_.
-
-  - [CreateCrawler](../../../goto/SdkForCpp/glue-2017-03-31/CreateCrawler.md "../../../goto/SdkForCpp/glue-2017-03-31/CreateCrawler.md")
-  - [CreateJob](../../../goto/SdkForCpp/glue-2017-03-31/CreateJob.md "../../../goto/SdkForCpp/glue-2017-03-31/CreateJob.md")
-  - [DeleteCrawler](../../../goto/SdkForCpp/glue-2017-03-31/DeleteCrawler.md "../../../goto/SdkForCpp/glue-2017-03-31/DeleteCrawler.md")
-  - [DeleteDatabase](../../../goto/SdkForCpp/glue-2017-03-31/DeleteDatabase.md "../../../goto/SdkForCpp/glue-2017-03-31/DeleteDatabase.md")
-  - [DeleteJob](../../../goto/SdkForCpp/glue-2017-03-31/DeleteJob.md "../../../goto/SdkForCpp/glue-2017-03-31/DeleteJob.md")
-  - [DeleteTable](../../../goto/SdkForCpp/glue-2017-03-31/DeleteTable.md "../../../goto/SdkForCpp/glue-2017-03-31/DeleteTable.md")
-  - [GetCrawler](../../../goto/SdkForCpp/glue-2017-03-31/GetCrawler.md "../../../goto/SdkForCpp/glue-2017-03-31/GetCrawler.md")
-  - [GetDatabase](../../../goto/SdkForCpp/glue-2017-03-31/GetDatabase.md "../../../goto/SdkForCpp/glue-2017-03-31/GetDatabase.md")
-  - [GetDatabases](../../../goto/SdkForCpp/glue-2017-03-31/GetDatabases.md "../../../goto/SdkForCpp/glue-2017-03-31/GetDatabases.md")
-  - [GetJob](../../../goto/SdkForCpp/glue-2017-03-31/GetJob.md "../../../goto/SdkForCpp/glue-2017-03-31/GetJob.md")
-  - [GetJobRun](../../../goto/SdkForCpp/glue-2017-03-31/GetJobRun.md "../../../goto/SdkForCpp/glue-2017-03-31/GetJobRun.md")
-  - [GetJobRuns](../../../goto/SdkForCpp/glue-2017-03-31/GetJobRuns.md "../../../goto/SdkForCpp/glue-2017-03-31/GetJobRuns.md")
-  - [GetTables](../../../goto/SdkForCpp/glue-2017-03-31/GetTables.md "../../../goto/SdkForCpp/glue-2017-03-31/GetTables.md")
-  - [ListJobs](../../../goto/SdkForCpp/glue-2017-03-31/ListJobs.md "../../../goto/SdkForCpp/glue-2017-03-31/ListJobs.md")
-  - [StartCrawler](../../../goto/SdkForCpp/glue-2017-03-31/StartCrawler.md "../../../goto/SdkForCpp/glue-2017-03-31/StartCrawler.md")
-  - [StartJobRun](../../../goto/SdkForCpp/glue-2017-03-31/StartJobRun.md "../../../goto/SdkForCpp/glue-2017-03-31/StartJobRun.md")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples").
-
-```
-
 /**
  * Before running this Java V2 code example, set up your development
  * environment, including your credentials.
@@ -1511,18 +1485,18 @@ public class GlueScenario {
         System.out.println(DASHES);
         System.out.println("Welcome to the AWS Glue scenario.");
         System.out.println("""
-            AWS Glue is a fully managed extract, transform, and load (ETL) service provided by Amazon
-            Web Services (AWS). It is designed to simplify the process of building, running, and maintaining
+            AWS Glue is a fully managed extract, transform, and load (ETL) service provided by Amazon 
+            Web Services (AWS). It is designed to simplify the process of building, running, and maintaining 
             ETL pipelines, which are essential for data integration and data warehousing tasks.
-
-            One of the key features of AWS Glue is its ability to automatically discover and catalog data
-            stored in various sources, such as Amazon S3, Amazon RDS, Amazon Redshift, and other databases.
-            This cataloging process creates a central metadata repository, known as the AWS Glue Data Catalog,
-            which provides a unified view of an organization's data assets. This metadata can then be used to
+                        
+            One of the key features of AWS Glue is its ability to automatically discover and catalog data 
+            stored in various sources, such as Amazon S3, Amazon RDS, Amazon Redshift, and other databases. 
+            This cataloging process creates a central metadata repository, known as the AWS Glue Data Catalog, 
+            which provides a unified view of an organization's data assets. This metadata can then be used to 
             create ETL jobs, which can be scheduled and run on-demand or on a regular basis.
-
-            Lets get started.
-
+                        
+            Lets get started.          
+                         
             """);
         waitForInputToContinue(scanner);
         System.out.println(DASHES);
@@ -2101,40 +2075,31 @@ public class GlueScenario {
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateCrawler](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/CreateCrawler)
+  + [CreateJob](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/CreateJob)
+  + [DeleteCrawler](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/DeleteCrawler)
+  + [DeleteDatabase](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/DeleteDatabase)
+  + [DeleteJob](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/DeleteJob)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/DeleteTable)
+  + [GetCrawler](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetCrawler)
+  + [GetDatabase](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetDatabase)
+  + [GetDatabases](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetDatabases)
+  + [GetJob](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetJob)
+  + [GetJobRun](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetJobRun)
+  + [GetJobRuns](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetJobRuns)
+  + [GetTables](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetTables)
+  + [ListJobs](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/ListJobs)
+  + [StartCrawler](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/StartCrawler)
+  + [StartJobRun](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/StartJobRun)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [CreateCrawler](../../../goto/SdkForJavaV2/glue-2017-03-31/CreateCrawler.md "../../../goto/SdkForJavaV2/glue-2017-03-31/CreateCrawler.md")
-  - [CreateJob](../../../goto/SdkForJavaV2/glue-2017-03-31/CreateJob.md "../../../goto/SdkForJavaV2/glue-2017-03-31/CreateJob.md")
-  - [DeleteCrawler](../../../goto/SdkForJavaV2/glue-2017-03-31/DeleteCrawler.md "../../../goto/SdkForJavaV2/glue-2017-03-31/DeleteCrawler.md")
-  - [DeleteDatabase](../../../goto/SdkForJavaV2/glue-2017-03-31/DeleteDatabase.md "../../../goto/SdkForJavaV2/glue-2017-03-31/DeleteDatabase.md")
-  - [DeleteJob](../../../goto/SdkForJavaV2/glue-2017-03-31/DeleteJob.md "../../../goto/SdkForJavaV2/glue-2017-03-31/DeleteJob.md")
-  - [DeleteTable](../../../goto/SdkForJavaV2/glue-2017-03-31/DeleteTable.md "../../../goto/SdkForJavaV2/glue-2017-03-31/DeleteTable.md")
-  - [GetCrawler](../../../goto/SdkForJavaV2/glue-2017-03-31/GetCrawler.md "../../../goto/SdkForJavaV2/glue-2017-03-31/GetCrawler.md")
-  - [GetDatabase](../../../goto/SdkForJavaV2/glue-2017-03-31/GetDatabase.md "../../../goto/SdkForJavaV2/glue-2017-03-31/GetDatabase.md")
-  - [GetDatabases](../../../goto/SdkForJavaV2/glue-2017-03-31/GetDatabases.md "../../../goto/SdkForJavaV2/glue-2017-03-31/GetDatabases.md")
-  - [GetJob](../../../goto/SdkForJavaV2/glue-2017-03-31/GetJob.md "../../../goto/SdkForJavaV2/glue-2017-03-31/GetJob.md")
-  - [GetJobRun](../../../goto/SdkForJavaV2/glue-2017-03-31/GetJobRun.md "../../../goto/SdkForJavaV2/glue-2017-03-31/GetJobRun.md")
-  - [GetJobRuns](../../../goto/SdkForJavaV2/glue-2017-03-31/GetJobRuns.md "../../../goto/SdkForJavaV2/glue-2017-03-31/GetJobRuns.md")
-  - [GetTables](../../../goto/SdkForJavaV2/glue-2017-03-31/GetTables.md "../../../goto/SdkForJavaV2/glue-2017-03-31/GetTables.md")
-  - [ListJobs](../../../goto/SdkForJavaV2/glue-2017-03-31/ListJobs.md "../../../goto/SdkForJavaV2/glue-2017-03-31/ListJobs.md")
-  - [StartCrawler](../../../goto/SdkForJavaV2/glue-2017-03-31/StartCrawler.md "../../../goto/SdkForJavaV2/glue-2017-03-31/StartCrawler.md")
-  - [StartJobRun](../../../goto/SdkForJavaV2/glue-2017-03-31/StartJobRun.md "../../../goto/SdkForJavaV2/glue-2017-03-31/StartJobRun.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples").
-
-Create and run a crawler that crawls a public Amazon Simple Storage Service (Amazon S3) bucket and generates a metadata database that describes the CSV-formatted data it finds.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples). 
+Create and run a crawler that crawls a public Amazon Simple Storage Service (Amazon S3) bucket and generates a metadata database that describes the CSV-formatted data it finds.  
 
 ```
 const createCrawler = (name, role, dbName, tablePrefix, s3TargetPath) => {
@@ -2237,11 +2202,8 @@ const makeStartCrawlerStep =
 
     return { ...context };
   };
-
-
 ```
-
-List information about databases and tables in your AWS Glue Data Catalog.
+List information about databases and tables in your AWS Glue Data Catalog.  
 
 ```
 const getDatabase = (name) => {
@@ -2285,11 +2247,8 @@ const makeGetTablesStep =
     log(TableList.map((table) => `  • ${table.Name}\n`));
     return { ...context };
   };
-
-
 ```
-
-Create and run a job that extracts CSV data from the source Amazon S3 bucket, transforms it by removing and renaming fields, and loads JSON-formatted output into another Amazon S3 bucket.
+Create and run a job that extracts CSV data from the source Amazon S3 bucket, transforms it by removing and renaming fields, and loads JSON-formatted output into another Amazon S3 bucket.  
 
 ```
 const createJob = (name, role, scriptBucketName, scriptKey) => {
@@ -2410,11 +2369,8 @@ const makeStartJobRunStep =
 
     return { ...context };
   };
-
-
 ```
-
-List information about job runs and view some of the transformed data.
+List information about job runs and view some of the transformed data.  
 
 ```
 const getJobRuns = (jobName) => {
@@ -2481,11 +2437,8 @@ const makePickJobRunStep =
 
     return { ...context };
   };
-
-
 ```
-
-Delete all resources created by the demo.
+Delete all resources created by the demo.  
 
 ```
 const deleteJob = (jobName) => {
@@ -2685,38 +2638,30 @@ const cleanUpCrawlerStep = async (context) => {
 
   return { ...context };
 };
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [CreateCrawler](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/CreateCrawlerCommand)
+  + [CreateJob](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/CreateJobCommand)
+  + [DeleteCrawler](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteCrawlerCommand)
+  + [DeleteDatabase](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteDatabaseCommand)
+  + [DeleteJob](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteJobCommand)
+  + [DeleteTable](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteTableCommand)
+  + [GetCrawler](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetCrawlerCommand)
+  + [GetDatabase](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetDatabaseCommand)
+  + [GetDatabases](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetDatabasesCommand)
+  + [GetJob](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetJobCommand)
+  + [GetJobRun](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetJobRunCommand)
+  + [GetJobRuns](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetJobRunsCommand)
+  + [GetTables](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetTablesCommand)
+  + [ListJobs](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ListJobsCommand)
+  + [StartCrawler](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/StartCrawlerCommand)
+  + [StartJobRun](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/StartJobRunCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-  - [CreateCrawler](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/CreateCrawlerCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/CreateCrawlerCommand.md")
-  - [CreateJob](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/CreateJobCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/CreateJobCommand.md")
-  - [DeleteCrawler](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteCrawlerCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteCrawlerCommand.md")
-  - [DeleteDatabase](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteDatabaseCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteDatabaseCommand.md")
-  - [DeleteJob](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteJobCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteJobCommand.md")
-  - [DeleteTable](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteTableCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteTableCommand.md")
-  - [GetCrawler](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetCrawlerCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetCrawlerCommand.md")
-  - [GetDatabase](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetDatabaseCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetDatabaseCommand.md")
-  - [GetDatabases](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetDatabasesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetDatabasesCommand.md")
-  - [GetJob](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetJobCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetJobCommand.md")
-  - [GetJobRun](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetJobRunCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetJobRunCommand.md")
-  - [GetJobRuns](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetJobRunsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetJobRunsCommand.md")
-  - [GetTables](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetTablesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetTablesCommand.md")
-  - [ListJobs](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/ListJobsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/ListJobsCommand.md")
-  - [StartCrawler](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/StartCrawlerCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/StartCrawlerCommand.md")
-  - [StartJobRun](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/StartJobRunCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/StartJobRunCommand.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/glue#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/glue#code-examples). 
 
 ```
 suspend fun main(args: Array<String>) {
@@ -2728,11 +2673,11 @@ suspend fun main(args: Array<String>) {
             iam - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that has AWS Glue and Amazon Simple Storage Service (Amazon S3) permissions.
             s3Path - The Amazon Simple Storage Service (Amazon S3) target that contains data (for example, CSV data).
             cron - A cron expression used to specify the schedule (for example, cron(15 12 * * ? *).
-            dbName - The database name.
-            crawlerName - The name of the crawler.
+            dbName - The database name. 
+            crawlerName - The name of the crawler. 
             jobName - The name you assign to this job definition.
             scriptLocation - Specifies the Amazon S3 path to a script that runs a job.
-            locationUri - Specifies the location of the database
+            locationUri - Specifies the location of the database 
         """
 
     if (args.size != 8) {
@@ -2982,38 +2927,30 @@ suspend fun deleteCrawler(crawlerName: String) {
         println("$crawlerName was deleted")
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [CreateCrawler](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateJob](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteCrawler](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteDatabase](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteJob](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetCrawler](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetDatabase](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetDatabases](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetJob](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetJobRun](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetJobRuns](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetTables](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListJobs](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [StartCrawler](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [StartJobRun](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-  - [CreateCrawler](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateJob](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteCrawler](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteDatabase](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteJob](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetCrawler](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetDatabase](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetDatabases](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetJob](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetJobRun](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetJobRuns](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetTables](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListJobs](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [StartCrawler](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [StartJobRun](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/glue#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/glue#code-examples). 
 
 ```
 namespace Glue;
@@ -3323,40 +3260,31 @@ class GlueService extends \AwsUtilities\AWSServiceClass
         ]);
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for PHP API Reference*.
+  + [CreateCrawler](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/CreateCrawler)
+  + [CreateJob](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/CreateJob)
+  + [DeleteCrawler](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/DeleteCrawler)
+  + [DeleteDatabase](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/DeleteDatabase)
+  + [DeleteJob](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/DeleteJob)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/DeleteTable)
+  + [GetCrawler](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/GetCrawler)
+  + [GetDatabase](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/GetDatabase)
+  + [GetDatabases](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/GetDatabases)
+  + [GetJob](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/GetJob)
+  + [GetJobRun](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/GetJobRun)
+  + [GetJobRuns](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/GetJobRuns)
+  + [GetTables](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/GetTables)
+  + [ListJobs](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/ListJobs)
+  + [StartCrawler](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/StartCrawler)
+  + [StartJobRun](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/StartJobRun)
 
-- For API details, see the following topics in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-  - [CreateCrawler](../../../goto/SdkForPHPV3/glue-2017-03-31/CreateCrawler.md "../../../goto/SdkForPHPV3/glue-2017-03-31/CreateCrawler.md")
-  - [CreateJob](../../../goto/SdkForPHPV3/glue-2017-03-31/CreateJob.md "../../../goto/SdkForPHPV3/glue-2017-03-31/CreateJob.md")
-  - [DeleteCrawler](../../../goto/SdkForPHPV3/glue-2017-03-31/DeleteCrawler.md "../../../goto/SdkForPHPV3/glue-2017-03-31/DeleteCrawler.md")
-  - [DeleteDatabase](../../../goto/SdkForPHPV3/glue-2017-03-31/DeleteDatabase.md "../../../goto/SdkForPHPV3/glue-2017-03-31/DeleteDatabase.md")
-  - [DeleteJob](../../../goto/SdkForPHPV3/glue-2017-03-31/DeleteJob.md "../../../goto/SdkForPHPV3/glue-2017-03-31/DeleteJob.md")
-  - [DeleteTable](../../../goto/SdkForPHPV3/glue-2017-03-31/DeleteTable.md "../../../goto/SdkForPHPV3/glue-2017-03-31/DeleteTable.md")
-  - [GetCrawler](../../../goto/SdkForPHPV3/glue-2017-03-31/GetCrawler.md "../../../goto/SdkForPHPV3/glue-2017-03-31/GetCrawler.md")
-  - [GetDatabase](../../../goto/SdkForPHPV3/glue-2017-03-31/GetDatabase.md "../../../goto/SdkForPHPV3/glue-2017-03-31/GetDatabase.md")
-  - [GetDatabases](../../../goto/SdkForPHPV3/glue-2017-03-31/GetDatabases.md "../../../goto/SdkForPHPV3/glue-2017-03-31/GetDatabases.md")
-  - [GetJob](../../../goto/SdkForPHPV3/glue-2017-03-31/GetJob.md "../../../goto/SdkForPHPV3/glue-2017-03-31/GetJob.md")
-  - [GetJobRun](../../../goto/SdkForPHPV3/glue-2017-03-31/GetJobRun.md "../../../goto/SdkForPHPV3/glue-2017-03-31/GetJobRun.md")
-  - [GetJobRuns](../../../goto/SdkForPHPV3/glue-2017-03-31/GetJobRuns.md "../../../goto/SdkForPHPV3/glue-2017-03-31/GetJobRuns.md")
-  - [GetTables](../../../goto/SdkForPHPV3/glue-2017-03-31/GetTables.md "../../../goto/SdkForPHPV3/glue-2017-03-31/GetTables.md")
-  - [ListJobs](../../../goto/SdkForPHPV3/glue-2017-03-31/ListJobs.md "../../../goto/SdkForPHPV3/glue-2017-03-31/ListJobs.md")
-  - [StartCrawler](../../../goto/SdkForPHPV3/glue-2017-03-31/StartCrawler.md "../../../goto/SdkForPHPV3/glue-2017-03-31/StartCrawler.md")
-  - [StartJobRun](../../../goto/SdkForPHPV3/glue-2017-03-31/StartJobRun.md "../../../goto/SdkForPHPV3/glue-2017-03-31/StartJobRun.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples").
-
-Create a class that wraps AWS Glue functions used in the scenario.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples). 
+Create a class that wraps AWS Glue functions used in the scenario.  
 
 ```
 class GlueWrapper:
@@ -3696,14 +3624,8 @@ class GlueWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
-
-
 ```
-
-Create a class that runs the scenario.
+Create a class that runs the scenario.  
 
 ```
 class GlueCrawlerJobScenario:
@@ -4012,13 +3934,8 @@ def main():
         print("-" * 88)
     except Exception:
         logging.exception("Something went wrong with the example.")
-
-
-
-
 ```
-
-Create an ETL script that is used by AWS Glue to extract, transform, and load data during job runs.
+Create an ETL script that is used by AWS Glue to extract, transform, and load data during job runs.  
 
 ```
 import sys
@@ -4030,12 +3947,12 @@ from awsglue.job import Job
 
 """
 These custom arguments must be passed as Arguments to the StartJobRun request.
-    --input_database    The name of a metadata database that is contained in your
-                        AWS Glue Data Catalog and that contains tables that describe
+    --input_database    The name of a metadata database that is contained in your 
+                        AWS Glue Data Catalog and that contains tables that describe 
                         the data to be processed.
     --input_table       The name of a table in the database that describes the data to
                         be processed.
-    --output_bucket_url An S3 bucket that receives the transformed output data.
+    --output_bucket_url An S3 bucket that receives the transformed output data.  
 """
 args = getResolvedOptions(
     sys.argv, ["JOB_NAME", "input_database", "input_table", "output_bucket_url"]
@@ -4088,43 +4005,33 @@ RevisedFlightData_node3 = glueContext.write_dynamic_frame.from_options(
 )
 
 job.commit()
+```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateCrawler](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/CreateCrawler)
+  + [CreateJob](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/CreateJob)
+  + [DeleteCrawler](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/DeleteCrawler)
+  + [DeleteDatabase](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/DeleteDatabase)
+  + [DeleteJob](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/DeleteJob)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/DeleteTable)
+  + [GetCrawler](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/GetCrawler)
+  + [GetDatabase](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/GetDatabase)
+  + [GetDatabases](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/GetDatabases)
+  + [GetJob](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/GetJob)
+  + [GetJobRun](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/GetJobRun)
+  + [GetJobRuns](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/GetJobRuns)
+  + [GetTables](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/GetTables)
+  + [ListJobs](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/ListJobs)
+  + [StartCrawler](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/StartCrawler)
+  + [StartJobRun](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/StartJobRun)
 
+------
+#### [ Ruby ]
+
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples). 
+Create a class that wraps AWS Glue functions used in the scenario.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
-
-  - [CreateCrawler](../../../goto/boto3/glue-2017-03-31/CreateCrawler.md "../../../goto/boto3/glue-2017-03-31/CreateCrawler.md")
-  - [CreateJob](../../../goto/boto3/glue-2017-03-31/CreateJob.md "../../../goto/boto3/glue-2017-03-31/CreateJob.md")
-  - [DeleteCrawler](../../../goto/boto3/glue-2017-03-31/DeleteCrawler.md "../../../goto/boto3/glue-2017-03-31/DeleteCrawler.md")
-  - [DeleteDatabase](../../../goto/boto3/glue-2017-03-31/DeleteDatabase.md "../../../goto/boto3/glue-2017-03-31/DeleteDatabase.md")
-  - [DeleteJob](../../../goto/boto3/glue-2017-03-31/DeleteJob.md "../../../goto/boto3/glue-2017-03-31/DeleteJob.md")
-  - [DeleteTable](../../../goto/boto3/glue-2017-03-31/DeleteTable.md "../../../goto/boto3/glue-2017-03-31/DeleteTable.md")
-  - [GetCrawler](../../../goto/boto3/glue-2017-03-31/GetCrawler.md "../../../goto/boto3/glue-2017-03-31/GetCrawler.md")
-  - [GetDatabase](../../../goto/boto3/glue-2017-03-31/GetDatabase.md "../../../goto/boto3/glue-2017-03-31/GetDatabase.md")
-  - [GetDatabases](../../../goto/boto3/glue-2017-03-31/GetDatabases.md "../../../goto/boto3/glue-2017-03-31/GetDatabases.md")
-  - [GetJob](../../../goto/boto3/glue-2017-03-31/GetJob.md "../../../goto/boto3/glue-2017-03-31/GetJob.md")
-  - [GetJobRun](../../../goto/boto3/glue-2017-03-31/GetJobRun.md "../../../goto/boto3/glue-2017-03-31/GetJobRun.md")
-  - [GetJobRuns](../../../goto/boto3/glue-2017-03-31/GetJobRuns.md "../../../goto/boto3/glue-2017-03-31/GetJobRuns.md")
-  - [GetTables](../../../goto/boto3/glue-2017-03-31/GetTables.md "../../../goto/boto3/glue-2017-03-31/GetTables.md")
-  - [ListJobs](../../../goto/boto3/glue-2017-03-31/ListJobs.md "../../../goto/boto3/glue-2017-03-31/ListJobs.md")
-  - [StartCrawler](../../../goto/boto3/glue-2017-03-31/StartCrawler.md "../../../goto/boto3/glue-2017-03-31/StartCrawler.md")
-  - [StartJobRun](../../../goto/boto3/glue-2017-03-31/StartJobRun.md "../../../goto/boto3/glue-2017-03-31/StartJobRun.md")
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples").
-
-Create a class that wraps AWS Glue functions used in the scenario.
-
-```
-
 # The `GlueWrapper` class serves as a wrapper around the AWS Glue API, providing a simplified interface for common operations.
 # It encapsulates the functionality of the AWS SDK for Glue and provides methods for interacting with Glue crawlers, databases, tables, jobs, and S3 resources.
 # The class initializes with a Glue client and a logger, allowing it to make API calls and log any errors or informational messages.
@@ -4346,11 +4253,8 @@ class GlueWrapper
     raise
   end
 end
-
-
 ```
-
-Create a class that runs the scenario.
+Create a class that runs the scenario.  
 
 ```
 class GlueCrawlerJobScenario
@@ -4439,11 +4343,8 @@ def main
 
   puts 'Demo complete.'
 end
-
-
 ```
-
-Create an ETL script that is used by AWS Glue to extract, transform, and load data during job runs.
+Create an ETL script that is used by AWS Glue to extract, transform, and load data during job runs.  
 
 ```
 import sys
@@ -4455,12 +4356,12 @@ from awsglue.job import Job
 
 """
 These custom arguments must be passed as Arguments to the StartJobRun request.
-    --input_database    The name of a metadata database that is contained in your
-                        AWS Glue Data Catalog and that contains tables that describe
+    --input_database    The name of a metadata database that is contained in your 
+                        AWS Glue Data Catalog and that contains tables that describe 
                         the data to be processed.
     --input_table       The name of a table in the database that describes the data to
                         be processed.
-    --output_bucket_url An S3 bucket that receives the transformed output data.
+    --output_bucket_url An S3 bucket that receives the transformed output data.  
 """
 args = getResolvedOptions(
     sys.argv, ["JOB_NAME", "input_database", "input_table", "output_bucket_url"]
@@ -4513,40 +4414,31 @@ RevisedFlightData_node3 = glueContext.write_dynamic_frame.from_options(
 )
 
 job.commit()
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Ruby API Reference*.
+  + [CreateCrawler](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/CreateCrawler)
+  + [CreateJob](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/CreateJob)
+  + [DeleteCrawler](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/DeleteCrawler)
+  + [DeleteDatabase](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/DeleteDatabase)
+  + [DeleteJob](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/DeleteJob)
+  + [DeleteTable](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/DeleteTable)
+  + [GetCrawler](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/GetCrawler)
+  + [GetDatabase](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/GetDatabase)
+  + [GetDatabases](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/GetDatabases)
+  + [GetJob](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/GetJob)
+  + [GetJobRun](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/GetJobRun)
+  + [GetJobRuns](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/GetJobRuns)
+  + [GetTables](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/GetTables)
+  + [ListJobs](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/ListJobs)
+  + [StartCrawler](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/StartCrawler)
+  + [StartJobRun](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/StartJobRun)
 
-- For API details, see the following topics in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-  - [CreateCrawler](../../../goto/SdkForRubyV3/glue-2017-03-31/CreateCrawler.md "../../../goto/SdkForRubyV3/glue-2017-03-31/CreateCrawler.md")
-  - [CreateJob](../../../goto/SdkForRubyV3/glue-2017-03-31/CreateJob.md "../../../goto/SdkForRubyV3/glue-2017-03-31/CreateJob.md")
-  - [DeleteCrawler](../../../goto/SdkForRubyV3/glue-2017-03-31/DeleteCrawler.md "../../../goto/SdkForRubyV3/glue-2017-03-31/DeleteCrawler.md")
-  - [DeleteDatabase](../../../goto/SdkForRubyV3/glue-2017-03-31/DeleteDatabase.md "../../../goto/SdkForRubyV3/glue-2017-03-31/DeleteDatabase.md")
-  - [DeleteJob](../../../goto/SdkForRubyV3/glue-2017-03-31/DeleteJob.md "../../../goto/SdkForRubyV3/glue-2017-03-31/DeleteJob.md")
-  - [DeleteTable](../../../goto/SdkForRubyV3/glue-2017-03-31/DeleteTable.md "../../../goto/SdkForRubyV3/glue-2017-03-31/DeleteTable.md")
-  - [GetCrawler](../../../goto/SdkForRubyV3/glue-2017-03-31/GetCrawler.md "../../../goto/SdkForRubyV3/glue-2017-03-31/GetCrawler.md")
-  - [GetDatabase](../../../goto/SdkForRubyV3/glue-2017-03-31/GetDatabase.md "../../../goto/SdkForRubyV3/glue-2017-03-31/GetDatabase.md")
-  - [GetDatabases](../../../goto/SdkForRubyV3/glue-2017-03-31/GetDatabases.md "../../../goto/SdkForRubyV3/glue-2017-03-31/GetDatabases.md")
-  - [GetJob](../../../goto/SdkForRubyV3/glue-2017-03-31/GetJob.md "../../../goto/SdkForRubyV3/glue-2017-03-31/GetJob.md")
-  - [GetJobRun](../../../goto/SdkForRubyV3/glue-2017-03-31/GetJobRun.md "../../../goto/SdkForRubyV3/glue-2017-03-31/GetJobRun.md")
-  - [GetJobRuns](../../../goto/SdkForRubyV3/glue-2017-03-31/GetJobRuns.md "../../../goto/SdkForRubyV3/glue-2017-03-31/GetJobRuns.md")
-  - [GetTables](../../../goto/SdkForRubyV3/glue-2017-03-31/GetTables.md "../../../goto/SdkForRubyV3/glue-2017-03-31/GetTables.md")
-  - [ListJobs](../../../goto/SdkForRubyV3/glue-2017-03-31/ListJobs.md "../../../goto/SdkForRubyV3/glue-2017-03-31/ListJobs.md")
-  - [StartCrawler](../../../goto/SdkForRubyV3/glue-2017-03-31/StartCrawler.md "../../../goto/SdkForRubyV3/glue-2017-03-31/StartCrawler.md")
-  - [StartJobRun](../../../goto/SdkForRubyV3/glue-2017-03-31/StartJobRun.md "../../../goto/SdkForRubyV3/glue-2017-03-31/StartJobRun.md")
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/glue#code-examples").
-
-Create and run a crawler that crawls a public Amazon Simple Storage Service (Amazon S3) bucket and generates a metadata database that describes the CSV-formatted data it finds.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/glue#code-examples). 
+Create and run a crawler that crawls a public Amazon Simple Storage Service (Amazon S3) bucket and generates a metadata database that describes the CSV-formatted data it finds.  
 
 ```
         let create_crawler = glue
@@ -4588,11 +4480,8 @@ Create and run a crawler that crawls a public Amazon Simple Storage Service (Ama
                 }
             }
         }?;
-
-
 ```
-
-List information about databases and tables in your AWS Glue Data Catalog.
+List information about databases and tables in your AWS Glue Data Catalog.  
 
 ```
         let database = glue
@@ -4614,11 +4503,8 @@ List information about databases and tables in your AWS Glue Data Catalog.
             .map_err(GlueMvpError::from_glue_sdk)?;
 
         let tables = tables.table_list();
-
-
 ```
-
-Create and run a job that extracts CSV data from the source Amazon S3 bucket, transforms it by removing and renaming fields, and loads JSON-formatted output into another Amazon S3 bucket.
+Create and run a job that extracts CSV data from the source Amazon S3 bucket, transforms it by removing and renaming fields, and loads JSON-formatted output into another Amazon S3 bucket.  
 
 ```
         let create_job = glue
@@ -4661,11 +4547,8 @@ Create and run a job that extracts CSV data from the source Amazon S3 bucket, tr
             .job_run_id()
             .ok_or_else(|| GlueMvpError::Unknown("Missing run id from just started job".into()))?
             .to_string();
-
-
 ```
-
-Delete all resources created by the demo.
+Delete all resources created by the demo.  
 
 ```
         glue.delete_job()
@@ -4694,40 +4577,31 @@ Delete all resources created by the demo.
             .send()
             .await
             .map_err(GlueMvpError::from_glue_sdk)?;
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Rust API reference*.
+  + [CreateCrawler](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.create_crawler)
+  + [CreateJob](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.create_job)
+  + [DeleteCrawler](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_crawler)
+  + [DeleteDatabase](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_database)
+  + [DeleteJob](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_job)
+  + [DeleteTable](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_table)
+  + [GetCrawler](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_crawler)
+  + [GetDatabase](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_database)
+  + [GetDatabases](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_databases)
+  + [GetJob](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_job)
+  + [GetJobRun](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_job_run)
+  + [GetJobRuns](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_job_runs)
+  + [GetTables](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_tables)
+  + [ListJobs](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.list_jobs)
+  + [StartCrawler](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.start_crawler)
+  + [StartJobRun](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.start_job_run)
 
-- For API details, see the following topics in _AWS SDK for Rust API reference_.
+------
+#### [ Swift ]
 
-  - [CreateCrawler](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.create_crawler "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.create_crawler")
-  - [CreateJob](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.create_job "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.create_job")
-  - [DeleteCrawler](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_crawler "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_crawler")
-  - [DeleteDatabase](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_database "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_database")
-  - [DeleteJob](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_job "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_job")
-  - [DeleteTable](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_table "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_table")
-  - [GetCrawler](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_crawler "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_crawler")
-  - [GetDatabase](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_database "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_database")
-  - [GetDatabases](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_databases "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_databases")
-  - [GetJob](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_job "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_job")
-  - [GetJobRun](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_job_run "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_job_run")
-  - [GetJobRuns](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_job_runs "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_job_runs")
-  - [GetTables](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_tables "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_tables")
-  - [ListJobs](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.list_jobs "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.list_jobs")
-  - [StartCrawler](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.start_crawler "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.start_crawler")
-  - [StartJobRun](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.start_job_run "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.start_job_run")
-
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/glue#code-examples").
-
-The `Package.swift` file.
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/glue#code-examples). 
+The `Package.swift` file.  
 
 ```
 // swift-tools-version: 5.9
@@ -4769,11 +4643,8 @@ let package = Package(
 
     ]
 )
-
-
 ```
-
-The Swift code file, `entry.swift`.
+The Swift code file, `entry.swift`.  
 
 ```
 // An example that shows how to use the AWS SDK for Swift to demonstrate
@@ -4876,7 +4747,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Upload a file to an Amazon S3 bucket.
-    ///
+    /// 
     /// - Parameters:
     ///   - s3Client: The S3 client to use when uploading the file.
     ///   - path: The local path of the source file to upload.
@@ -4904,7 +4775,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Create a new AWS Glue crawler.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: An AWS Glue client to use for the crawler.
     ///   - crawlerName: A name for the new crawler.
@@ -4946,7 +4817,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Delete an AWS Glue crawler.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - name: The name of the crawler to delete.
@@ -4964,7 +4835,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Start running an AWS Glue crawler.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use when starting the crawler.
     ///   - name: The name of the crawler to start running.
@@ -4984,7 +4855,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Get the state of the specified AWS Glue crawler.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - name: The name of the crawler whose state should be returned.
@@ -5000,12 +4871,12 @@ struct ExampleCommand: ParsableCommand {
             // If the crawler or its state is `nil`, report that the crawler
             // is stopping. This may not be what you want for your
             // application but it works for this one!
-
+            
             guard let crawler = output.crawler else {
                 return GlueClientTypes.CrawlerState.stopping
             }
             guard let state = crawler.state else {
-                return GlueClientTypes.CrawlerState.stopping
+                return GlueClientTypes.CrawlerState.stopping            
             }
             return state
         } catch {
@@ -5014,7 +4885,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Wait until the specified crawler is ready to run.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - name: The name of the crawler to wait for.
@@ -5030,7 +4901,7 @@ struct ExampleCommand: ParsableCommand {
             } else if state == .stopping {
                 return false
             }
-
+            
             // Wait four seconds before trying again.
 
             do {
@@ -5042,13 +4913,13 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Create a new AWS Glue job.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - jobName: The name to give the new job.
     ///   - role: The IAM role for the job to use when accessing AWS services.
     ///   - scriptLocation: The AWS S3 URI of the script to be run by the job.
-    ///
+    /// 
     /// - Returns: `true` if the job is created successfully, otherwise `false`.
     func createJob(glueClient: GlueClient, name jobName: String, role: String,
                    scriptLocation: String) async -> Bool {
@@ -5077,11 +4948,11 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Return a list of the AWS Glue jobs listed on the user's account.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - maxJobs: The maximum number of jobs to return (default: 100).
-    ///
+    /// 
     /// - Returns: An array of strings listing the names of all available AWS
     ///   Glue jobs.
     func listJobs(glueClient: GlueClient, maxJobs: Int = 100) async -> [String] {
@@ -5112,7 +4983,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Delete an AWS Glue job.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - jobName: The name of the job to delete.
@@ -5130,7 +5001,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Create an AWS Glue database.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - databaseName: The name to give the new database.
@@ -5179,7 +5050,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Returns a list of the tables in the specified database.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - databaseName: The name of the database whose tables are to be
@@ -5217,13 +5088,13 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Delete the specified database.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - databaseName: The name of the database to delete.
     ///   - deleteTables: A Bool indicating whether or not to delete the
     ///     tables in the database before attempting to delete the database.
-    ///
+    /// 
     /// - Returns: `true` if the database (and optionally its tables) are
     ///   deleted, otherwise `false`.
     func deleteDatabase(glueClient: GlueClient, name databaseName: String,
@@ -5288,7 +5159,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Start an AWS Glue job run.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - jobName: The name of the job to run.
@@ -5325,7 +5196,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Return a list of the job runs for the specified job.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - jobName: The name of the job for which to return its job runs.
@@ -5360,7 +5231,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Get information about a specific AWS Glue job run.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - jobName: The name of the job to return job run data for.
@@ -5676,31 +5547,27 @@ struct Main {
         } catch {
             ExampleCommand.exit(withError: error)
         }
-    }
+    }    
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Swift API reference*.
+  + [CreateCrawler](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/createcrawler(input:))
+  + [CreateJob](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/createjob(input:))
+  + [DeleteCrawler](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletecrawler(input:))
+  + [DeleteDatabase](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletedatabase(input:))
+  + [DeleteJob](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletejob(input:))
+  + [DeleteTable](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletetable(input:))
+  + [GetCrawler](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getcrawler(input:))
+  + [GetDatabase](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getdatabase(input:))
+  + [GetDatabases](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getdatabases(input:))
+  + [GetJob](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getjob(input:))
+  + [GetJobRun](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getjobrun(input:))
+  + [GetJobRuns](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getjobruns(input:))
+  + [GetTables](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/gettables(input:))
+  + [ListJobs](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/listjobs(input:))
+  + [StartCrawler](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/startcrawler(input:))
+  + [StartJobRun](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/startjobrun(input:))
 
-- For API details, see the following topics in _AWS SDK for Swift API reference_.
+------
 
-  - [CreateCrawler](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/createcrawler(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/createcrawler(input:)")
-  - [CreateJob](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/createjob(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/createjob(input:)")
-  - [DeleteCrawler](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletecrawler(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletecrawler(input:)")
-  - [DeleteDatabase](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletedatabase(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletedatabase(input:)")
-  - [DeleteJob](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletejob(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletejob(input:)")
-  - [DeleteTable](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletetable(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletetable(input:)")
-  - [GetCrawler](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getcrawler(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getcrawler(input:)")
-  - [GetDatabase](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getdatabase(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getdatabase(input:)")
-  - [GetDatabases](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getdatabases(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getdatabases(input:)")
-  - [GetJob](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getjob(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getjob(input:)")
-  - [GetJobRun](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getjobrun(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getjobrun(input:)")
-  - [GetJobRuns](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getjobruns(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getjobruns(input:)")
-  - [GetTables](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/gettables(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/gettables(input:)")
-  - [ListJobs](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/listjobs(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/listjobs(input:)")
-  - [StartCrawler](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/startcrawler(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/startcrawler(input:)")
-  - [StartJobRun](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/startjobrun(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/startjobrun(input:)")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

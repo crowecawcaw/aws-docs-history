@@ -1,223 +1,178 @@
+
+
 # DynamicFrame class
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame"></a>
 
-One of the major abstractions in Apache Spark is the SparkSQL `DataFrame`, which
-is similar to the `DataFrame` construct found in R and Pandas. A
-`DataFrame` is similar to a table and supports functional-style
-(map/reduce/filter/etc.) operations and SQL operations (select, project, aggregate).
+One of the major abstractions in Apache Spark is the SparkSQL `DataFrame`, which is similar to the `DataFrame` construct found in R and Pandas. A `DataFrame` is similar to a table and supports functional-style (map/reduce/filter/etc.) operations and SQL operations (select, project, aggregate).
 
-`DataFrames` are powerful and widely used, but they have limitations with respect
-to extract, transform, and load (ETL) operations. Most significantly, they require a schema to
-be specified before any data is loaded. SparkSQL addresses this by making two passes over the
-data—the first to infer the schema, and the second to load the data. However, this
-inference is limited and doesn't address the realities of messy data. For example, the same
-field might be of a different type in different records. Apache Spark often gives up and reports the
-type as `string` using the original field text. This might not be correct, and you
-might want finer control over how schema discrepancies are resolved. And for large datasets, an
-additional pass over the source data might be prohibitively expensive.
+`DataFrames` are powerful and widely used, but they have limitations with respect to extract, transform, and load (ETL) operations. Most significantly, they require a schema to be specified before any data is loaded. SparkSQL addresses this by making two passes over the data—the first to infer the schema, and the second to load the data. However, this inference is limited and doesn't address the realities of messy data. For example, the same field might be of a different type in different records. Apache Spark often gives up and reports the type as `string` using the original field text. This might not be correct, and you might want finer control over how schema discrepancies are resolved. And for large datasets, an additional pass over the source data might be prohibitively expensive.
 
-To address these limitations, AWS Glue introduces the `DynamicFrame`. A
-`DynamicFrame` is similar to a `DataFrame`, except that each record is
-self-describing, so no schema is required initially. Instead, AWS Glue computes a schema on-the-fly
-when required, and explicitly encodes schema inconsistencies using a choice (or union) type. You
-can resolve these inconsistencies to make your datasets compatible with data stores that require
-a fixed schema.
+To address these limitations, AWS Glue introduces the `DynamicFrame`. A `DynamicFrame` is similar to a `DataFrame`, except that each record is self-describing, so no schema is required initially. Instead, AWS Glue computes a schema on-the-fly when required, and explicitly encodes schema inconsistencies using a choice (or union) type. You can resolve these inconsistencies to make your datasets compatible with data stores that require a fixed schema.
 
-Similarly, a `DynamicRecord` represents a logical record within a `DynamicFrame`. It is
-like a row in a Spark `DataFrame`, except that it is self-describing and can be used for data that does
-not conform to a fixed schema. When using AWS Glue with PySpark, you do not typically manipulate independent
-`DynamicRecords`. Rather, you will transform the dataset together through its `DynamicFrame`.
+Similarly, a `DynamicRecord` represents a logical record within a `DynamicFrame`. It is like a row in a Spark `DataFrame`, except that it is self-describing and can be used for data that does not conform to a fixed schema. When using AWS Glue with PySpark, you do not typically manipulate independent `DynamicRecords`. Rather, you will transform the dataset together through its `DynamicFrame`.
 
-You can convert `DynamicFrames` to and from `DataFrames` after you
-resolve any schema inconsistencies.
+You can convert `DynamicFrames` to and from `DataFrames` after you resolve any schema inconsistencies. 
 
 ##  — construction —
-
-- [\_\_init\_\_](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-__init__ "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-__init__")
-- [fromDF](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-fromDF "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-fromDF")
-- [toDF](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-toDF "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-toDF")
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-_constructing"></a>
++ [\_\_init\_\_](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-__init__)
++ [fromDF](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-fromDF)
++ [toDF](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-toDF)
 
 ## \_\_init\_\_
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-__init__"></a>
 
-###### `__init__(jdf, glue_ctx, name)`
-
-- `jdf` – A reference to the data frame in the Java Virtual Machine (JVM).
-- `glue_ctx` – A [GlueContext class](aws-glue-api-crawler-pyspark-extensions-glue-context.md "aws-glue-api-crawler-pyspark-extensions-glue-context.md") object.
-- `name` – An optional name string, empty by default.
+**`__init__(jdf, glue_ctx, name)`**
++ `jdf` – A reference to the data frame in the Java Virtual Machine (JVM).
++ `glue_ctx` – A [GlueContext class](aws-glue-api-crawler-pyspark-extensions-glue-context.md) object.
++ `name` – An optional name string, empty by default.
 
 ## fromDF
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-fromDF"></a>
 
-###### `fromDF(dataframe, glue_ctx, name)`
+**`fromDF(dataframe, glue_ctx, name)`**
 
-Converts a `DataFrame` to a `DynamicFrame` by converting `DataFrame`
-fields to `DynamicRecord` fields. Returns the new `DynamicFrame`.
+Converts a `DataFrame` to a `DynamicFrame` by converting `DataFrame` fields to `DynamicRecord` fields. Returns the new `DynamicFrame`.
 
-A `DynamicRecord` represents a logical record in a `DynamicFrame`.
-It is similar to a row in a Spark `DataFrame`, except that it
-is self-describing and can be used for data that does not conform to a fixed schema.
+A `DynamicRecord` represents a logical record in a `DynamicFrame`. It is similar to a row in a Spark `DataFrame`, except that it is self-describing and can be used for data that does not conform to a fixed schema.
 
-This function expects columns with duplicated names in your `DataFrame`
-to have already been resolved.
-
-- `dataframe` – The Apache Spark SQL `DataFrame` to convert
-  (required).
-- `glue_ctx` – The [GlueContext class](aws-glue-api-crawler-pyspark-extensions-glue-context.md "aws-glue-api-crawler-pyspark-extensions-glue-context.md") object that
-  specifies the context for this transform (required).
-- `name` – The name of the resulting `DynamicFrame`
-  (optional since AWS Glue 3.0).
+This function expects columns with duplicated names in your `DataFrame` to have already been resolved.
++ `dataframe` – The Apache Spark SQL `DataFrame` to convert (required).
++ `glue_ctx` – The [GlueContext class](aws-glue-api-crawler-pyspark-extensions-glue-context.md) object that specifies the context for this transform (required).
++ `name` – The name of the resulting `DynamicFrame` (optional since AWS Glue 3.0).
 
 ## toDF
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-toDF"></a>
 
-###### `toDF(options)`
+**`toDF(options)`**
 
-Converts a `DynamicFrame` to an Apache Spark `DataFrame` by
-converting `DynamicRecords` into `DataFrame` fields. Returns the
-new `DataFrame`.
+Converts a `DynamicFrame` to an Apache Spark `DataFrame` by converting `DynamicRecords` into `DataFrame` fields. Returns the new `DataFrame`.
 
-A `DynamicRecord` represents a logical record in a `DynamicFrame`.
-It is similar to a row in a Spark `DataFrame`, except that it
-is self-describing and can be used for data that does not conform to a fixed schema.
+A `DynamicRecord` represents a logical record in a `DynamicFrame`. It is similar to a row in a Spark `DataFrame`, except that it is self-describing and can be used for data that does not conform to a fixed schema.
++  `options` – A list of `ResolveOption` objects that specify how to resolve choice types during the conversion. This parameter is used to handle schema inconsistencies, not for format options like CSV parsing. 
 
-- `options` – A list of `ResolveOption` objects that specify how to resolve choice types during the conversion.
-  This parameter is used to handle schema inconsistencies, not for format options like CSV parsing.
+   For CSV parsing and other format options, specify these in the `from_options` method when creating the DynamicFrame, not in the `toDF` method. 
 
-For CSV parsing and other format options, specify these in the `from_options` method when creating the DynamicFrame,
-not in the `toDF` method.
+   Here's an example of the correct way to handle CSV format options: 
 
-Here's an example of the correct way to handle CSV format options:
+  ```
+  from awsglue.context import GlueContext
+  from awsglue.dynamicframe import DynamicFrame
+  from pyspark.context import SparkContext
+  
+  sc = SparkContext()
+  glueContext = GlueContext(sc)
+  
+  # Correct: Specify format options in from_options
+  csv_dyf = glueContext.create_dynamic_frame.from_options(
+      connection_type="s3",
+      connection_options={"paths": ["s3://my-bucket/path/to/csv/"]},
+      format="csv",
+      format_options={
+          "withHeader": True,
+          "separator": ",",
+          "inferSchema": True
+      }
+  )
+  
+  # Convert to DataFrame (no format options needed here)
+  csv_df = csv_dyf.toDF()
+  ```
 
-```
-from awsglue.context import GlueContext
-from awsglue.dynamicframe import DynamicFrame
-from pyspark.context import SparkContext
+   The `options` parameter in `toDF` is specifically for resolving choice types. Specify the target type if you choose the `Project` and `Cast` action type. Examples include the following. 
 
-sc = SparkContext()
-glueContext = GlueContext(sc)
-
-# Correct: Specify format options in from_options
-csv_dyf = glueContext.create_dynamic_frame.from_options(
-    connection_type="s3",
-    connection_options={"paths": ["s3://my-bucket/path/to/csv/"]},
-    format="csv",
-    format_options={
-        "withHeader": True,
-        "separator": ",",
-        "inferSchema": True
-    }
-)
-
-# Convert to DataFrame (no format options needed here)
-csv_df = csv_dyf.toDF()
-```
-
-The `options` parameter in `toDF` is specifically for resolving choice types.
-Specify the target type if you choose the `Project` and `Cast` action type. Examples include the
-following.
-
-```
->>>toDF([ResolveOption("a.b.c", "KeepAsStruct")])
->>>toDF([ResolveOption("a.b.c", "Project", DoubleType())])
-
-```
+  ```
+  >>>toDF([ResolveOption("a.b.c", "KeepAsStruct")])
+  >>>toDF([ResolveOption("a.b.c", "Project", DoubleType())])
+  ```
 
 ##  — information —
-
-- [count](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-count "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-count")
-- [schema](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-schema "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-schema")
-- [printSchema](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-printSchema "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-printSchema")
-- [show](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-show "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-show")
-- [repartition](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-repartition "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-repartition")
-- [coalesce](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-coalesce "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-coalesce")
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-_informational"></a>
++ [count](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-count)
++ [schema](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-schema)
++ [printSchema](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-printSchema)
++ [show](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-show)
++ [repartition](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-repartition)
++ [coalesce](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-coalesce)
 
 ## count
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-count"></a>
 
-`count( )` – Returns the number of rows in the underlying
-`DataFrame`.
+`count( )` – Returns the number of rows in the underlying `DataFrame`.
 
 ## schema
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-schema"></a>
 
-`schema( )` – Returns the schema of this `DynamicFrame`, or if
-that is not available, the schema of the underlying `DataFrame`.
+`schema( )` – Returns the schema of this `DynamicFrame`, or if that is not available, the schema of the underlying `DataFrame`.
 
-For more information about the `DynamicFrame` types that make up this schema, see [PySpark extension types](aws-glue-api-crawler-pyspark-extensions-types.md "aws-glue-api-crawler-pyspark-extensions-types.md").
+For more information about the `DynamicFrame` types that make up this schema, see [PySpark extension types](aws-glue-api-crawler-pyspark-extensions-types.md).
 
 ## printSchema
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-printSchema"></a>
 
-`printSchema( )` – Prints the schema of the underlying
-`DataFrame`.
+`printSchema( )` – Prints the schema of the underlying `DataFrame`.
 
 ## show
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-show"></a>
 
-`show(num_rows)` – Prints a specified number of rows from the underlying
-`DataFrame`.
+`show(num_rows)` – Prints a specified number of rows from the underlying `DataFrame`.
 
 ## repartition
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-repartition"></a>
 
-`repartition(numPartitions)` – Returns a new `DynamicFrame`
-with `numPartitions` partitions.
+`repartition(numPartitions)` – Returns a new `DynamicFrame` with `numPartitions` partitions.
 
 ## coalesce
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-coalesce"></a>
 
-`coalesce(numPartitions)` – Returns a new `DynamicFrame` with
-`numPartitions` partitions.
+`coalesce(numPartitions)` – Returns a new `DynamicFrame` with `numPartitions` partitions.
 
 ##  — transforms —
-
-- [apply\_mapping](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping")
-- [drop\_fields](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-drop_fields "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-drop_fields")
-- [filter](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-filter "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-filter")
-- [join](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-join "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-join")
-- [map](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-map "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-map")
-- [mergeDynamicFrame](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-merge "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-merge")
-- [relationalize](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-relationalize "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-relationalize")
-- [rename\_field](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-rename_field "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-rename_field")
-- [resolveChoice](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-resolveChoice "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-resolveChoice")
-- [select\_fields](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-select_fields "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-select_fields")
-- [spigot](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-spigot "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-spigot")
-- [split\_fields](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_fields "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_fields")
-- [split\_rows](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_rows "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_rows")
-- [unbox](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unbox "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unbox")
-- [union](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-union "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-union")
-- [unnest](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest")
-- [unnest\_ddb\_json](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest_ddb_json "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest_ddb_json")
-- [write](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-write "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-write")
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-_transforms"></a>
++ [apply\_mapping](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping)
++ [drop\_fields](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-drop_fields)
++ [filter](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-filter)
++ [join](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-join)
++ [map](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-map)
++ [mergeDynamicFrame](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-merge)
++ [relationalize](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-relationalize)
++ [rename\_field](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-rename_field)
++ [resolveChoice](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-resolveChoice)
++ [select\_fields](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-select_fields)
++ [spigot](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-spigot)
++ [split\_fields](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_fields)
++ [split\_rows](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_rows)
++ [unbox](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unbox)
++ [union](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-union)
++ [unnest](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest)
++ [unnest\_ddb\_json](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest_ddb_json)
++ [write](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-write)
 
 ## apply\_mapping
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping"></a>
 
-###### `apply_mapping(mappings, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
+**`apply_mapping(mappings, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`**
 
-Applies a declarative mapping to a `DynamicFrame` and returns a new
-`DynamicFrame` with those mappings applied to the fields that you specify.
-Unspecified fields are omitted from the new `DynamicFrame`.
+Applies a declarative mapping to a `DynamicFrame` and returns a new `DynamicFrame` with those mappings applied to the fields that you specify. Unspecified fields are omitted from the new `DynamicFrame`.
++ `mappings` – A list of mapping tuples (required). Each consists of: (source column, source type, target column, target type). 
 
-- `mappings` – A list of mapping tuples (required). Each consists of:
-  (source column, source type, target column, target type).
+  If the source column has a dot "`.`" in the name, you must place backticks "````" around it. For example, to map `this.old.name` (string) to `thisNewName`, you would use the following tuple:
 
-If the source column has a dot "`.`" in the name, you must place
-backticks "````" around it. For example, to map `this.old.name`
-(string) to `thisNewName`, you would use the following tuple:
-
-```
-("`this.old.name`", "string", "thisNewName", "string")
-```
-
-- `transformation_ctx` – A unique string that is used to identify state
-  information (optional).
-- `info` – A string to be associated with error reporting for this
-  transformation (optional).
-- `stageThreshold` – The number of errors encountered during this
-  transformation at which the process should error out (optional). The default is zero,
-  which indicates that the process should not error out.
-- `totalThreshold` – The number of errors encountered up to and
-  including this transformation at which the process should error out (optional). The
-  default is zero, which indicates that the process should not error out.
+  ```
+  ("`this.old.name`", "string", "thisNewName", "string")
+  ```
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string to be associated with error reporting for this transformation (optional).
++ `stageThreshold` – The number of errors encountered during this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
++ `totalThreshold` – The number of errors encountered up to and including this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
 
 ### Example: Use apply\_mapping to rename fields and change field types
+<a name="pyspark-apply_mapping-example"></a>
 
 The following code example shows how to use the `apply_mapping` method to rename selected fields and change field types.
 
-###### Note
-
-To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
+**Note**  
+To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling).
 
 ```
 # Example: Use apply_mapping to reshape source data into
@@ -247,9 +202,10 @@ persons_mapped = persons.apply_mapping(
     ]
 )
 persons_mapped.printSchema()
-
-
 ```
+
+#### Output
+<a name="apply_mapping-example-output"></a>
 
 ```
 Schema for the persons DynamicFrame:
@@ -289,44 +245,30 @@ root
 |-- last_name: string
 |-- first_name: string
 |-- date_of_birth: date
-
 ```
 
 ## drop\_fields
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-drop_fields"></a>
 
-###### `drop_fields(paths, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
+**`drop_fields(paths, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`**
 
-Calls the [FlatMap class](aws-glue-api-crawler-pyspark-transforms-flat-map.md "aws-glue-api-crawler-pyspark-transforms-flat-map.md") transform to remove
-fields from a `DynamicFrame`. Returns a new `DynamicFrame` with the
-specified fields dropped.
+Calls the [FlatMap class](aws-glue-api-crawler-pyspark-transforms-flat-map.md) transform to remove fields from a `DynamicFrame`. Returns a new `DynamicFrame` with the specified fields dropped.
++ `paths` – A list of strings. Each contains the full path to a field node that you want to drop. You can use dot notation to specify nested fields. For example, if field `first` is a child of field `name` in the tree, you specify `"name.first"` for the path.
 
-- `paths` – A list of strings. Each contains the full path to a field
-  node that you want to drop. You can use dot notation to specify nested fields. For
-  example, if field `first` is a child of field `name` in the tree,
-  you specify `"name.first"` for the path.
-
-If a field node has a literal `.` in the name, you must enclose the name in backticks
-(```).
-
-- `transformation_ctx` – A unique string that is used to identify state
-  information (optional).
-- `info` – A string to be associated with error reporting for this
-  transformation (optional).
-- `stageThreshold` – The number of errors encountered during this
-  transformation at which the process should error out (optional). The default is zero,
-  which indicates that the process should not error out.
-- `totalThreshold` – The number of errors encountered up to and
-  including this transformation at which the process should error out (optional). The
-  default is zero, which indicates that the process should not error out.
+  If a field node has a literal `.` in the name, you must enclose the name in backticks (```).
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string to be associated with error reporting for this transformation (optional).
++ `stageThreshold` – The number of errors encountered during this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
++ `totalThreshold` – The number of errors encountered up to and including this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
 
 ### Example: Use drop\_fields to remove fields from a `DynamicFrame`
+<a name="pyspark-drop_fields-example"></a>
 
 This code example uses the `drop_fields` method to remove selected top-level and nested fields from a `DynamicFrame`.
 
 **Example dataset**
 
-The example uses the following dataset that is represented by the
-`EXAMPLE-FRIENDS-DATA` table in the code:
+The example uses the following dataset that is represented by the `EXAMPLE-FRIENDS-DATA` table in the code:
 
 ```
 {"name": "Sally", "age": 23, "location": {"state": "WY", "county": "Fremont"}, "friends": []}
@@ -351,8 +293,8 @@ sc = SparkContext.getOrCreate()
 glueContext = GlueContext(sc)
 
 # Create a DynamicFrame from Glue Data Catalog
-glue_source_database = "`MY-EXAMPLE-DATABASE`"
-glue_source_table = "`EXAMPLE-FRIENDS-DATA`"
+glue_source_database = "{{MY-EXAMPLE-DATABASE}}"
+glue_source_table = "{{EXAMPLE-FRIENDS-DATA}}"
 
 friends = glueContext.create_dynamic_frame.from_catalog(
     database=glue_source_database, table_name=glue_source_table
@@ -364,8 +306,10 @@ friends.printSchema()
 friends = friends.drop_fields(paths=["age", "location.county", "friends.age"])
 print("Schema for friends DynamicFrame after removing age, county, and friend age:")
 friends.printSchema()
-
 ```
+
+#### Output
+<a name="drop_fields-example-output"></a>
 
 ```
 Schema for friends DynamicFrame before calling drop_fields:
@@ -388,53 +332,31 @@ root
 |-- friends: array
 |    |-- element: struct
 |    |    |-- name: string
-
 ```
 
 ## filter
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-filter"></a>
 
-###### `filter(f, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
+**`filter(f, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`**
 
-Returns a new `DynamicFrame` that contains all `DynamicRecords`
-within the input `DynamicFrame` that satisfy the specified predicate function
-`f`.
+Returns a new `DynamicFrame` that contains all `DynamicRecords` within the input `DynamicFrame` that satisfy the specified predicate function `f`.
++ `f` – The predicate function to apply to the `DynamicFrame`. The function must take a `DynamicRecord` as an argument and return True if the `DynamicRecord` meets the filter requirements, or False if not (required).
 
-- `f` – The predicate function to apply to the
-  `DynamicFrame`. The function must take a `DynamicRecord` as an
-  argument and return True if the `DynamicRecord` meets the filter requirements,
-  or False if not (required).
-
-A `DynamicRecord` represents a logical record in a
-`DynamicFrame`. It's similar to a row in a Spark `DataFrame`,
-except that it is self-describing and can be used for data that doesn't conform to a fixed
-schema.
-
-- `transformation_ctx` – A unique string that is used to
-  identify state information (optional).
-- `info` – A string to be associated with error
-  reporting for this transformation (optional).
-- `stageThreshold` – The number of errors encountered during this
-  transformation at which the process should error out (optional). The default is zero,
-  which indicates that the process should not error out.
-- `totalThreshold` – The number of errors encountered up to and
-  including this transformation at which the process should error out (optional). The
-  default is zero, which indicates that the process should not error out.
+  A `DynamicRecord` represents a logical record in a `DynamicFrame`. It's similar to a row in a Spark `DataFrame`, except that it is self-describing and can be used for data that doesn't conform to a fixed schema.
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string to be associated with error reporting for this transformation (optional).
++ `stageThreshold` – The number of errors encountered during this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
++ `totalThreshold` – The number of errors encountered up to and including this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
 
 ### Example: Use filter to get a filtered selection of fields
+<a name="pyspark-filter-example"></a>
 
-This example uses the `filter` method to create a new
-`DynamicFrame` that includes a filtered selection of another
-`DynamicFrame`'s fields.
+This example uses the `filter` method to create a new `DynamicFrame` that includes a filtered selection of another `DynamicFrame`'s fields. 
 
-Like the `map` method, `filter` takes a function as an argument
-that gets applied to each record in the original `DynamicFrame`. The function
-takes a record as an input and returns a Boolean value. If the return value is true, the
-record gets included in the resulting `DynamicFrame`. If it's false, the record
-is left out.
+Like the `map` method, `filter` takes a function as an argument that gets applied to each record in the original `DynamicFrame`. The function takes a record as an input and returns a Boolean value. If the return value is true, the record gets included in the resulting `DynamicFrame`. If it's false, the record is left out.
 
-###### Note
-
-To access the dataset that is used in this example, see [Code example: Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md "aws-glue-programming-python-samples-medicaid.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling "aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling").
+**Note**  
+To access the dataset that is used in this example, see [Code example: Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling).
 
 ```
 # Example: Use filter to create a new DynamicFrame
@@ -469,8 +391,10 @@ sac_or_mon = medicare.filter(
 # Compare record counts
 print("Unfiltered record count: ", medicare.count())
 print("Filtered record count:  ", sac_or_mon.count())
-
 ```
+
+#### Output
+<a name="filter-example-output"></a>
 
 ```
 Unfiltered record count:  163065
@@ -478,41 +402,28 @@ Filtered record count:   564
 ```
 
 ## join
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-join"></a>
 
-###### `join(paths1, paths2, frame2, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
+**`join(paths1, paths2, frame2, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`**
 
-Performs an equality join with another `DynamicFrame` and returns the
-resulting `DynamicFrame`.
-
-- `paths1` – A list of the keys in this frame to join.
-- `paths2` – A list of the keys in the other frame to join.
-- `frame2` – The other `DynamicFrame` to join.
-- `transformation_ctx` – A unique string that is used to identify state
-  information (optional).
-- `info` – A string to be associated with error reporting for this
-  transformation (optional).
-- `stageThreshold` – The number of errors encountered during this
-  transformation at which the process should error out (optional). The default is zero,
-  which indicates that the process should not error out.
-- `totalThreshold` – The number of errors encountered up to and
-  including this transformation at which the process should error out (optional). The
-  default is zero, which indicates that the process should not error out.
+Performs an equality join with another `DynamicFrame` and returns the resulting `DynamicFrame`.
++ `paths1` – A list of the keys in this frame to join.
++ `paths2` – A list of the keys in the other frame to join.
++ `frame2` – The other `DynamicFrame` to join.
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string to be associated with error reporting for this transformation (optional).
++ `stageThreshold` – The number of errors encountered during this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
++ `totalThreshold` – The number of errors encountered up to and including this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
 
 ### Example: Use join to combine `DynamicFrames`
+<a name="pyspark-join-example"></a>
 
-This example uses the `join` method to perform a join on three
-`DynamicFrames`. AWS Glue performs the join based on the field keys that you
-provide. The resulting `DynamicFrame` contains rows from the two original frames
-where the specified keys match.
+This example uses the `join` method to perform a join on three `DynamicFrames`. AWS Glue performs the join based on the field keys that you provide. The resulting `DynamicFrame` contains rows from the two original frames where the specified keys match.
 
-Note that the `join` transform keeps all fields intact. This means that the
-fields that you specify to match appear in the resulting DynamicFrame, even if they're
-redundant and contain the same keys. In this example, we use `drop_fields` to
-remove these redundant keys after the join.
+Note that the `join` transform keeps all fields intact. This means that the fields that you specify to match appear in the resulting DynamicFrame, even if they're redundant and contain the same keys. In this example, we use `drop_fields` to remove these redundant keys after the join.
 
-###### Note
-
-To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
+**Note**  
+To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling).
 
 ```
 # Example: Use join to combine data from three DynamicFrames
@@ -562,8 +473,10 @@ legislators_combined = orgs.join(
 # Inspect the schema for the joined data
 print("Schema for the new legislators_combined DynamicFrame:")
 legislators_combined.printSchema()
-
 ```
+
+#### Output
+<a name="join-example-output"></a>
 
 ```
 Schema for the persons DynamicFrame:
@@ -676,37 +589,26 @@ root
 ```
 
 ## map
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-map"></a>
 
-###### `map(f, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
+**`map(f, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`**
 
-Returns a new `DynamicFrame` that results from applying the specified mapping function to
-all records in the original `DynamicFrame`.
+Returns a new `DynamicFrame` that results from applying the specified mapping function to all records in the original `DynamicFrame`.
++ `f` – The mapping function to apply to all records in the `DynamicFrame`. The function must take a `DynamicRecord` as an argument and return a new `DynamicRecord` (required).
 
-- `f` – The mapping function to apply to all records in the
-  `DynamicFrame`. The function must take a `DynamicRecord` as an
-  argument and return a new `DynamicRecord` (required).
-
-A `DynamicRecord` represents a logical record in a
-`DynamicFrame`. It's similar to a row in an Apache Spark
-`DataFrame`, except that it is self-describing and can be used for data that
-doesn't conform to a fixed schema.
-
-- `transformation_ctx` – A unique string that is used to identify state
-  information (optional).
-- `info` – A string that is associated with errors in the transformation
-  (optional).
-- `stageThreshold` – The maximum number of errors that can occur in the
-  transformation before it errors out (optional). The default is zero.
-- `totalThreshold` – The maximum number of errors that can occur overall before
-  processing errors out (optional). The default is zero.
+  A `DynamicRecord` represents a logical record in a `DynamicFrame`. It's similar to a row in an Apache Spark `DataFrame`, except that it is self-describing and can be used for data that doesn't conform to a fixed schema.
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string that is associated with errors in the transformation (optional).
++ `stageThreshold` – The maximum number of errors that can occur in the transformation before it errors out (optional). The default is zero.
++ `totalThreshold` – The maximum number of errors that can occur overall before processing errors out (optional). The default is zero.
 
 ### Example: Use map to apply a function to every record in a `DynamicFrame`
+<a name="pyspark-map-example"></a>
 
 This example shows how to use the `map` method to apply a function to every record of a `DynamicFrame`. Specifically, this example applies a function called `MergeAddress` to each record in order to merge several address fields into a single `struct` type.
 
-###### Note
-
-To access the dataset that is used in this example, see [Code example: Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md "aws-glue-programming-python-samples-medicaid.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling "aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling").
+**Note**  
+To access the dataset that is used in this example, see [Code example: Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling).
 
 ```
 # Example: Use map to combine fields in all records
@@ -748,8 +650,10 @@ def MergeAddress(rec):
 mapped_medicare = medicare.map(f = MergeAddress)
 print("Schema for mapped_medicare DynamicFrame:")
 mapped_medicare.printSchema()
-
 ```
+
+#### Output
+<a name="map-example-output"></a>
 
 ```
 Schema for medicare DynamicFrame:
@@ -787,56 +691,35 @@ root
 ```
 
 ## mergeDynamicFrame
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-merge"></a>
 
-###### `mergeDynamicFrame(stage_dynamic_frame, primary_keys, transformation_ctx = "", options = {}, info = "", stageThreshold = 0, totalThreshold = 0)`
+**`mergeDynamicFrame(stage_dynamic_frame, primary_keys, transformation_ctx = "", options = {}, info = "", stageThreshold = 0, totalThreshold = 0)`**
 
-Merges this `DynamicFrame` with a staging `DynamicFrame` based on
-the specified primary keys to identify records. Duplicate records (records with the same
-primary keys) are not deduplicated. If there is no matching record in the staging frame, all
-records (including duplicates) are retained from the source. If the staging frame has
-matching records, the records from the staging frame overwrite the records in the source in
-AWS Glue.
+Merges this `DynamicFrame` with a staging `DynamicFrame` based on the specified primary keys to identify records. Duplicate records (records with the same primary keys) are not deduplicated. If there is no matching record in the staging frame, all records (including duplicates) are retained from the source. If the staging frame has matching records, the records from the staging frame overwrite the records in the source in AWS Glue.
++ `stage_dynamic_frame` – The staging `DynamicFrame` to merge.
++ `primary_keys` – The list of primary key fields to match records from the source and staging dynamic frames.
++ `transformation_ctx` – A unique string that is used to retrieve metadata about the current transformation (optional).
++ `options` – A string of JSON name-value pairs that provide additional information for this transformation. This argument is not currently used.
++ `info` – A `String`. Any string to be associated with errors in this transformation.
++ `stageThreshold` – A `Long`. The number of errors in the given transformation for which the processing needs to error out.
++ `totalThreshold` – A `Long`. The total number of errors up to and including this transformation for which the processing needs to error out.
 
-- `stage_dynamic_frame` – The staging `DynamicFrame` to
-  merge.
-- `primary_keys` – The list of primary key fields to match records from
-  the source and staging dynamic frames.
-- `transformation_ctx` – A unique string that is used to retrieve
-  metadata about the current transformation (optional).
-- `options` – A string of JSON name-value pairs that provide additional
-  information for this transformation. This argument is not currently
-  used.
-- `info` – A `String`. Any string to be associated with
-  errors in this transformation.
-- `stageThreshold` – A `Long`. The number of errors in the
-  given transformation for which the processing needs to error out.
-- `totalThreshold` – A `Long`. The total number of errors up
-  to and including this transformation for which the processing needs to error out.
-
-This method returns a new `DynamicFrame` that is obtained by merging this
-`DynamicFrame` with the staging `DynamicFrame`.
+This method returns a new `DynamicFrame` that is obtained by merging this `DynamicFrame` with the staging `DynamicFrame`.
 
 The returned `DynamicFrame` contains record A in these cases:
-
-- If `A` exists in both the source frame and the staging frame, then
-  `A` in the staging frame is returned.
-- If `A` is in the source table and `A.primaryKeys` is not in the
-  `stagingDynamicFrame`, `A` is not updated in the staging
-  table.
++ If `A` exists in both the source frame and the staging frame, then `A` in the staging frame is returned.
++ If `A` is in the source table and `A.primaryKeys` is not in the `stagingDynamicFrame`, `A` is not updated in the staging table.
 
 The source frame and staging frame don't need to have the same schema.
 
 ### Example: Use mergeDynamicFrame to merge two `DynamicFrames` based on a primary key
+<a name="pyspark-mergeDynamicFrame-example"></a>
 
-The following code example shows how to use the `mergeDynamicFrame` method to
-merge a `DynamicFrame` with a "staging" `DynamicFrame`, based on the
-primary key `id`.
+The following code example shows how to use the `mergeDynamicFrame` method to merge a `DynamicFrame` with a "staging" `DynamicFrame`, based on the primary key `id`.
 
 **Example dataset**
 
-The example uses two `DynamicFrames` from a
-`DynamicFrameCollection` called `split_rows_collection`. The
-following is the list of keys in `split_rows_collection`.
+The example uses two `DynamicFrames` from a `DynamicFrameCollection` called `split_rows_collection`. The following is the list of keys in `split_rows_collection`.
 
 ```
 dict_keys(['high', 'low'])
@@ -869,8 +752,10 @@ merged_high_low = frame_high.mergeDynamicFrame(
 # View the results where the ID is 1 or 20
 print("Inspect the merged DynamicFrame that contains the combined rows")
 merged_high_low.toDF().where("id = 1 or id= 20").orderBy("id").show()
-
 ```
+
+#### Output
+<a name="mergeDynamicFrame-example-output"></a>
 
 ```
 Inspect the DynamicFrame that contains rows where ID < 10
@@ -937,35 +822,26 @@ Inspect the merged DynamicFrame that contains the combined rows
 | 20|    1|                   phone|             202-225-6536|
 | 20|    2|                 twitter|                USRepLong|
 +---+-----+------------------------+-------------------------+
-
 ```
 
 ## relationalize
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-relationalize"></a>
 
-###### `relationalize(root_table_name, staging_path, options, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
+**`relationalize(root_table_name, staging_path, options, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`**
 
 Converts a `DynamicFrame` into a form that fits within a relational database. Relationalizing a `DynamicFrame` is especially useful when you want to move data from a NoSQL environment like DynamoDB into a relational database like MySQL.
 
-The transform generates a list of frames by unnesting nested columns and pivoting array
-columns. You can join the pivoted array columns to the root table by using the join key that
-is generated during the unnest phase.
-
-- `root_table_name` – The name for the root table.
-- `staging_path` – The path where the method can store partitions of pivoted
-  tables in CSV format (optional). Pivoted tables are read back from this path.
-- `options` – A dictionary of optional parameters.
-- `transformation_ctx` – A unique string that is used to
-  identify state information (optional).
-- `info` – A string to be associated with error
-  reporting for this transformation (optional).
-- `stageThreshold` – The number of errors encountered during this
-  transformation at which the process should error out (optional). The default is zero,
-  which indicates that the process should not error out.
-- `totalThreshold` – The number of errors encountered up to and
-  including this transformation at which the process should error out (optional). The
-  default is zero, which indicates that the process should not error out.
+The transform generates a list of frames by unnesting nested columns and pivoting array columns. You can join the pivoted array columns to the root table by using the join key that is generated during the unnest phase.
++ `root_table_name` – The name for the root table.
++ `staging_path` – The path where the method can store partitions of pivoted tables in CSV format (optional). Pivoted tables are read back from this path.
++ `options` – A dictionary of optional parameters.
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string to be associated with error reporting for this transformation (optional).
++ `stageThreshold` – The number of errors encountered during this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
++ `totalThreshold` – The number of errors encountered up to and including this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
 
 ### Example: Use relationalize to flatten a nested schema in a `DynamicFrame`
+<a name="pyspark-relationalize-example"></a>
 
 This code example uses the `relationalize` method to flatten a nested schema into a form that fits into a relational database.
 
@@ -1034,7 +910,7 @@ glueContext = GlueContext(sc)
 
 # Apply relationalize and inspect new tables
 legislators_relationalized = legislators_combined.relationalize(
-    "l_root", "`s3://DOC-EXAMPLE-BUCKET/tmpDir`"
+    "l_root", "{{s3://DOC-EXAMPLE-BUCKET/tmpDir}}"
 )
 legislators_relationalized.keys()
 
@@ -1045,8 +921,10 @@ legislators_combined.select_fields("contact_details").printSchema()
 legislators_relationalized.select("l_root_contact_details").toDF().where(
     "id = 10 or id = 75"
 ).orderBy(["id", "index"]).show()
-
 ```
+
+#### Output
+<a name="relationalize-example-output"></a>
 
 The following output lets you compare the schema of the nested field called `contact_details` to the table that the `relationalize` transform created. Notice that the table records link back to the main table using a foreign key called `id` and an `index` column that represents the positions of the array.
 
@@ -1071,41 +949,31 @@ root
 ```
 
 ## rename\_field
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-rename_field"></a>
 
-###### `rename_field(oldName, newName, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
+**`rename_field(oldName, newName, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`**
 
-Renames a field in this `DynamicFrame` and returns a new
-`DynamicFrame` with the field renamed.
+Renames a field in this `DynamicFrame` and returns a new `DynamicFrame` with the field renamed.
++ `oldName` – The full path to the node you want to rename.
 
-- `oldName` – The full path to the node you want to rename.
+  If the old name has dots in it, `RenameField` doesn't work unless you place backticks around it (```). For example, to replace `this.old.name` with `thisNewName`, you would call rename\_field as follows.
 
-If the old name has dots in it, `RenameField` doesn't work unless you place
-backticks around it (```). For example, to replace `this.old.name`
-with `thisNewName`, you would call rename\_field as follows.
-
-```
-newDyF = oldDyF.rename_field("`this.old.name`", "thisNewName")
-```
-
-- `newName` – The new name, as a full path.
-- `transformation_ctx` – A unique string that is used to
-  identify state information (optional).
-- `info` – A string to be associated with error
-  reporting for this transformation (optional).
-- `stageThreshold` – The number of errors encountered during this
-  transformation at which the process should error out (optional). The default is zero,
-  which indicates that the process should not error out.
-- `totalThreshold` – The number of errors encountered up to and
-  including this transformation at which the process should error out (optional). The
-  default is zero, which indicates that the process should not error out.
+  ```
+  newDyF = oldDyF.rename_field("`this.old.name`", "thisNewName")
+  ```
++ `newName` – The new name, as a full path.
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string to be associated with error reporting for this transformation (optional).
++ `stageThreshold` – The number of errors encountered during this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
++ `totalThreshold` – The number of errors encountered up to and including this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
 
 ### Example: Use rename\_field to rename fields in a `DynamicFrame`
+<a name="pyspark-rename_field-example"></a>
 
 This code example uses the `rename_field` method to rename fields in a `DynamicFrame`. Notice that the example uses method chaining to rename multiple fields at the same time.
 
-###### Note
-
-To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
+**Note**  
+To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling).
 
 **Example code**
 
@@ -1131,11 +999,13 @@ orgs.printSchema()
 orgs = orgs.rename_field("id", "org_id").rename_field("name", "org_name")
 print("New orgs schema with renamed fields: ")
 orgs.printSchema()
-
 ```
 
+#### Output
+<a name="rename_field-example-output"></a>
+
 ```
-Original orgs schema:
+Original orgs schema: 
 root
 |-- identifiers: array
 |    |-- element: struct
@@ -1157,7 +1027,7 @@ root
 |-- seats: int
 |-- type: string
 
-New orgs schema with renamed fields:
+New orgs schema with renamed fields: 
 root
 |-- identifiers: array
 |    |-- element: struct
@@ -1178,111 +1048,57 @@ root
 |-- image: string
 |-- seats: int
 |-- type: string
-
 ```
 
 ## resolveChoice
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-resolveChoice"></a>
 
-###### `resolveChoice(specs = None, choice = "" , database = None , table_name = None , transformation_ctx="", info="", stageThreshold=0, totalThreshold=0, catalog_id = None)`
+**`resolveChoice(specs = None, choice = "" , database = None , table_name = None , transformation_ctx="", info="", stageThreshold=0, totalThreshold=0, catalog_id = None)`**
 
-Resolves a choice type within this `DynamicFrame` and returns the new
-`DynamicFrame`.
+Resolves a choice type within this `DynamicFrame` and returns the new `DynamicFrame`.
++ `specs` – A list of specific ambiguities to resolve, each in the form of a tuple: `(field_path, action)`. 
 
-- `specs` – A list of specific ambiguities to resolve, each in the form
-  of a tuple: `(field_path, action)`.
+  There are two ways to use `resolveChoice`. The first is to use the `specs` argument to specify a sequence of specific fields and how to resolve them. The other mode for `resolveChoice` is to use the `choice` argument to specify a single resolution for all `ChoiceTypes`.
 
-There are two ways to use `resolveChoice`. The first is to use the
-`specs` argument to specify a sequence of specific fields and how to resolve
-them. The other mode for `resolveChoice` is to use the `choice`
-argument to specify a single resolution for all `ChoiceTypes`.
+  Values for `specs` are specified as tuples made up of `(field_path, action)` pairs. The `field_path` value identifies a specific ambiguous element, and the `action` value identifies the corresponding resolution. The following are the possible actions: 
+  + `cast:{{type}}` – Attempts to cast all values to the specified type. For example: `cast:int`.
+  + `make_cols` – Converts each distinct type to a column with the name `{{columnName}}_{{type}}`. It resolves a potential ambiguity by flattening the data. For example, if `columnA` could be an `int` or a `string`, the resolution would be to produce two columns named `columnA_int` and `columnA_string` in the resulting `DynamicFrame`.
+  + `make_struct` – Resolves a potential ambiguity by using a `struct` to represent the data. For example, if data in a column could be an `int` or a `string`, the `make_struct` action produces a column of structures in the resulting `DynamicFrame`. Each structure contains both an `int` and a `string`.
+  + `project:{{type}}` – Resolves a potential ambiguity by projecting all the data to one of the possible data types. For example, if data in a column could be an `int` or a `string`, using a `project:string` action produces a column in the resulting `DynamicFrame` where all the `int` values have been converted to strings.
 
-Values for `specs` are specified as tuples made up of `(field_path,
- action)` pairs. The `field_path` value identifies a specific ambiguous
-element, and the `action` value identifies the corresponding resolution. The
-following are the possible actions:
+  If the `field_path` identifies an array, place empty square brackets after the name of the array to avoid ambiguity. For example, suppose you are working with data structured as follows:
 
-    + `cast:`type`` – Attempts to cast all
-     values to the specified type. For example: `cast:int`.
-    + `make_cols` – Converts each distinct type to a column with the
-     name
-     ``columnName`_`type``.
-     It resolves a potential ambiguity by flattening the data. For example, if
-     `columnA` could be an `int` or a `string`, the
-     resolution would be to produce two columns named `columnA_int` and
-     `columnA_string` in the resulting `DynamicFrame`.
-    + `make_struct` – Resolves a potential ambiguity by using a
-     `struct` to represent the data. For example, if data in a column could be
-     an `int` or a `string`, the `make_struct` action
-     produces a column of structures in the resulting `DynamicFrame`. Each
-     structure contains both an `int` and a `string`.
-    + `project:`type`` – Resolves a potential
-     ambiguity by projecting all the data to one of the possible data types. For example,
-     if data in a column could be an `int` or a `string`, using a
-     `project:string` action produces a column in the resulting
-     `DynamicFrame` where all the `int` values have been converted
-     to strings.
+  ```
+  "myList": [
+    { "price": 100.00 },
+    { "price": "$100.00" }
+  ]
+  ```
 
-If the `field_path` identifies an array, place empty square brackets after
-the name of the array to avoid ambiguity. For example, suppose you are working with data
-structured as follows:
-
-```
-"myList": [
-  { "price": 100.00 },
-  { "price": "$100.00" }
-]
-```
-
-You can select the numeric rather than the string version of the price by setting the
-`field_path` to `"myList[].price"`, and setting the
-`action` to `"cast:double"`.
-
-###### Note
-
-You can only use one of the `specs` and `choice` parameters.
-If the `specs` parameter is not `None`, then the
-`choice` parameter must be an empty string. Conversely, if the
-`choice` is not an empty string, then the `specs` parameter must
-be `None`.
-
-- `choice` – Specifies a single resolution for all `ChoiceTypes`.
-  You can use this in cases where the complete list of `ChoiceTypes` is unknown
-  before runtime. In addition to the actions listed previously for `specs`, this
-  argument also supports the following action:
-
-  - `match_catalog` – Attempts to cast each `ChoiceType` to the
-    corresponding type in the specified Data Catalog table.
-
-- `database` – The Data Catalog database to use with the
-  `match_catalog` action.
-- `table_name` – The Data Catalog table to use with the
-  `match_catalog` action.
-- `transformation_ctx` – A unique string that is used to
-  identify state information (optional).
-- `info` – A string to be associated with error
-  reporting for this transformation (optional).
-- `stageThreshold` – The number of errors encountered during this
-  transformation at which the process should error out (optional). The default is zero,
-  which indicates that the process should not error out.
-- `totalThreshold` – The number of errors encountered up to and
-  including this transformation at which the process should error out (optional).The default
-  is zero, which indicates that the process should not error out.
-- `catalog_id` – The catalog ID of the Data Catalog being accessed (the
-  account ID of the Data Catalog). When set to `None` (default value), it uses the
-  catalog ID of the calling account.
+  You can select the numeric rather than the string version of the price by setting the `field_path` to `"myList[].price"`, and setting the `action` to `"cast:double"`.
+**Note**  
+You can only use one of the `specs` and `choice` parameters. If the `specs` parameter is not `None`, then the `choice` parameter must be an empty string. Conversely, if the `choice` is not an empty string, then the `specs` parameter must be `None`. 
++ `choice` – Specifies a single resolution for all `ChoiceTypes`. You can use this in cases where the complete list of `ChoiceTypes` is unknown before runtime. In addition to the actions listed previously for `specs`, this argument also supports the following action:
+  + `match_catalog` – Attempts to cast each `ChoiceType` to the corresponding type in the specified Data Catalog table. 
++ `database` – The Data Catalog database to use with the `match_catalog` action.
++ `table_name` – The Data Catalog table to use with the `match_catalog` action.
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string to be associated with error reporting for this transformation (optional).
++ `stageThreshold` – The number of errors encountered during this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
++ `totalThreshold` – The number of errors encountered up to and including this transformation at which the process should error out (optional).The default is zero, which indicates that the process should not error out.
++ `catalog_id` – The catalog ID of the Data Catalog being accessed (the account ID of the Data Catalog). When set to `None` (default value), it uses the catalog ID of the calling account. 
 
 ### Example: Use resolveChoice to handle a column that contains multiple types
+<a name="pyspark-resolveChoice-example"></a>
 
 This code example uses the `resolveChoice` method to specify how to handle a `DynamicFrame` column that contains values of multiple types. The example demonstrates two common ways to handle a column with different types:
-
-- Cast the column to a single data type.
-- Retain all types in separate columns.
++ Cast the column to a single data type.
++ Retain all types in separate columns.
 
 **Example dataset**
 
-###### Note
-
-To access the dataset that is used in this example, see [Code example: Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md "aws-glue-programming-python-samples-medicaid.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling "aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling").
+**Note**  
+To access the dataset that is used in this example, see [Code example: Data preparation using ResolveChoice, Lambda, and ApplyMapping](aws-glue-programming-python-samples-medicaid.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-medicaid.md#aws-glue-programming-python-samples-medicaid-crawling).
 
 The example uses a `DynamicFrame` called `medicare` with the following schema:
 
@@ -1336,8 +1152,10 @@ medicare_resolved_cols = medicare.resolveChoice(choice="make_cols")
 print("Schema after creating separate columns for each type:")
 medicare_resolved_cols.printSchema()
 medicare_resolved_cols.toDF().select("provider id_long", "provider id_string").show()
-
 ```
+
+#### Output
+<a name="resolveChoice-example-output"></a>
 
 ```
 Inspect the 'provider id' column:
@@ -1449,35 +1267,27 @@ root
 |           10103|              null|
 +----------------+------------------+
 only showing top 20 rows
-
 ```
 
 ## select\_fields
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-select_fields"></a>
 
-###### `select_fields(paths, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
+**`select_fields(paths, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`**
 
 Returns a new `DynamicFrame` that contains the selected fields.
-
-- `paths` – A list of strings. Each string is a path to a top-level
-  node that you want to select.
-- `transformation_ctx` – A unique string that is used to
-  identify state information (optional).
-- `info` – A string to be associated with error
-  reporting for this transformation (optional).
-- `stageThreshold` – The number of errors encountered during this
-  transformation at which the process should error out (optional). The default is zero,
-  which indicates that the process should not error out.
-- `totalThreshold` – The number of errors encountered up to and
-  including this transformation at which the process should error out (optional). The
-  default is zero, which indicates that the process should not error out.
++ `paths` – A list of strings. Each string is a path to a top-level node that you want to select.
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string to be associated with error reporting for this transformation (optional).
++ `stageThreshold` – The number of errors encountered during this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
++ `totalThreshold` – The number of errors encountered up to and including this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
 
 ### Example: Use select\_fields to create a new `DynamicFrame` with chosen fields
+<a name="pyspark-select_fields-example"></a>
 
 The following code example shows how to use the `select_fields` method to create a new `DynamicFrame` with a chosen list of fields from an existing `DynamicFrame`.
 
-###### Note
-
-To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
+**Note**  
+To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling).
 
 ```
 # Example: Use select_fields to select specific fields from a DynamicFrame
@@ -1501,8 +1311,10 @@ names = persons.select_fields(paths=["family_name", "given_name"])
 print("Schema for the names DynamicFrame, created with select_fields:")
 names.printSchema()
 names.toDF().show()
-
 ```
+
+#### Output
+<a name="select_fields-example-output"></a>
 
 ```
 Schema for the persons DynamicFrame:
@@ -1567,14 +1379,14 @@ root
 |   McMillan|      John|
 +-----------+----------+
 only showing top 20 rows
-
 ```
 
 ## simplify\_ddb\_json
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-simplify"></a>
 
 **`simplify_ddb_json(): DynamicFrame`**
 
-Simplifies nested columns in a `DynamicFrame` that are specifically in the DynamoDB JSON structure, and returns a new simplified `DynamicFrame`. If there’re multiple types or Map type in a List type, the elements in the List will not be simplified. Note that this is a specific type of transform that behaves differently from the regular `unnest` transform and requires the data to already be in the DynamoDB JSON structure. For more information, see [DynamoDB JSON](../../../amazondynamodb/latest/developerguide/DataExport.Output.md#DataExport.Output.Data "../../../amazondynamodb/latest/developerguide/DataExport.Output.md#DataExport.Output.Data").
+Simplifies nested columns in a `DynamicFrame` that are specifically in the DynamoDB JSON structure, and returns a new simplified `DynamicFrame`. If there’re multiple types or Map type in a List type, the elements in the List will not be simplified. Note that this is a specific type of transform that behaves differently from the regular `unnest` transform and requires the data to already be in the DynamoDB JSON structure. For more information, see [DynamoDB JSON](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataExport.Output.html#DataExport.Output.Data).
 
 For example, the schema of a reading an export with the DynamoDB JSON structure might look like the following:
 
@@ -1626,6 +1438,7 @@ root
 ```
 
 ### Example: Use simplify\_ddb\_json to invoke a DynamoDB JSON simplify
+<a name="pyspark-simplify-ddb-json-example"></a>
 
 This code example uses the `simplify_ddb_json` method to use the AWS Glue DynamoDB export connector, invoke a DynamoDB JSON simplify, and print the number of partitions.
 
@@ -1653,28 +1466,24 @@ print(simplified.getNumPartitions())
 ```
 
 ## spigot
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-spigot"></a>
 
-###### `spigot(path, options={})`
+**`spigot(path, options={})`**
 
 Writes sample records to a specified destination to help you verify the transformations performed by your job.
-
-- `path` – The path of the destination to write to (required).
-- `options` – Key-value pairs that specify options (optional). The
-  `"topk"` option specifies that the first `k` records should be
-  written. The `"prob"` option specifies the probability (as a decimal) of
-  choosing any given record. You can use it in selecting records to write.
-- `transformation_ctx` – A unique string that
-  is used to identify state information (optional).
++ `path` – The path of the destination to write to (required).
++ `options` – Key-value pairs that specify options (optional). The `"topk"` option specifies that the first `k` records should be written. The `"prob"` option specifies the probability (as a decimal) of choosing any given record. You can use it in selecting records to write.
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
 
 ### Example: Use spigot to write sample fields from a `DynamicFrame` to Amazon S3
+<a name="pyspark-spigot-example"></a>
 
-This code example uses the `spigot` method to write sample records to an Amazon S3 bucket after applying the `select_fields` transform.
+This code example uses the `spigot` method to write sample records to an Amazon S3 bucket after applying the `select_fields` transform. 
 
 **Example dataset**
 
-###### Note
-
-To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
+**Note**  
+To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling).
 
 The example uses a `DynamicFrame` called `persons` with the following schema:
 
@@ -1737,7 +1546,7 @@ persons = persons.select_fields(paths=["family_name", "given_name", "birth_date"
 # Use spigot to write a sample of the transformed data
 # (the first 10 records)
 spigot_output = persons.spigot(
-    path="`s3://DOC-EXAMPLE-BUCKET`", options={"topk": 10}
+    path="{{s3://DOC-EXAMPLE-BUCKET}}", options={"topk": 10}
 )
 # Example: Use spigot to write sample records
 # to a destination during a transformation
@@ -1762,14 +1571,14 @@ persons = persons.select_fields(paths=["family_name", "given_name", "birth_date"
 # Use spigot to write a sample of the transformed data
 # (the first 10 records)
 spigot_output = persons.spigot(
-    path="`s3://DOC-EXAMPLE-BUCKET`", options={"topk": 10}
+    path="{{s3://DOC-EXAMPLE-BUCKET}}", options={"topk": 10}
 )
-
 ```
 
-The following is an example of the data that `spigot` writes to Amazon S3.
-Because the example code specified `options={"topk": 10}`, the sample data
-contains the first 10 records.
+#### Output
+<a name="spigot-example-output"></a>
+
+The following is an example of the data that `spigot` writes to Amazon S3. Because the example code specified `options={"topk": 10}`, the sample data contains the first 10 records.
 
 ```
 {"family_name":"Collins","given_name":"Michael","birth_date":"1944-10-15"}
@@ -1782,42 +1591,30 @@ contains the first 10 records.
 {"family_name":"Ertel","given_name":"Allen","birth_date":"1937-11-07"}
 {"family_name":"Minish","given_name":"Joseph","birth_date":"1916-09-01"}
 {"family_name":"Andrews","given_name":"Robert","birth_date":"1957-08-04"}
-
 ```
 
 ## split\_fields
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_fields"></a>
 
-###### `split_fields(paths, name1, name2, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
+**`split_fields(paths, name1, name2, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`**
 
-Returns a new `DynamicFrameCollection` that contains two
-`DynamicFrames`. The first `DynamicFrame` contains all the nodes
-that have been split off, and the second contains the nodes that remain.
-
-- `paths` – A list of strings, each of which is a full path to a node
-  that you want to split into a new `DynamicFrame`.
-- `name1` – A name string for the `DynamicFrame` that is
-  split off.
-- `name2` – A name string for the `DynamicFrame` that
-  remains after the specified nodes have been split off.
-- `transformation_ctx` – A unique string that is used to
-  identify state information (optional).
-- `info` – A string to be associated with error
-  reporting for this transformation (optional).
-- `stageThreshold` – The number of errors encountered during this
-  transformation at which the process should error out (optional). The default is zero,
-  which indicates that the process should not error out.
-- `totalThreshold` – The number of errors encountered up to and
-  including this transformation at which the process should error out (optional). The
-  default is zero, which indicates that the process should not error out.
+Returns a new `DynamicFrameCollection` that contains two `DynamicFrames`. The first `DynamicFrame` contains all the nodes that have been split off, and the second contains the nodes that remain.
++ `paths` – A list of strings, each of which is a full path to a node that you want to split into a new `DynamicFrame`.
++ `name1` – A name string for the `DynamicFrame` that is split off.
++ `name2` – A name string for the `DynamicFrame` that remains after the specified nodes have been split off.
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string to be associated with error reporting for this transformation (optional).
++ `stageThreshold` – The number of errors encountered during this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
++ `totalThreshold` – The number of errors encountered up to and including this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
 
 ### Example: Use split\_fields to split selected fields into a separate `DynamicFrame`
+<a name="pyspark-split_fields-example"></a>
 
 This code example uses the `split_fields` method to split a list of specified fields into a separate `DynamicFrame`.
 
 **Example dataset**
 
-The example uses a `DynamicFrame` called `l_root_contact_details`
-that is from a collection named `legislators_relationalized`.
+The example uses a `DynamicFrame` called `l_root_contact_details` that is from a collection named `legislators_relationalized`.
 
 `l_root_contact_details` has the following schema and entries.
 
@@ -1865,8 +1662,10 @@ split_fields_collection = frame_to_split.split_fields(["id", "index"], "left", "
 print("Inspect the schemas of the DynamicFrames created with split_fields:")
 split_fields_collection.select("left").printSchema()
 split_fields_collection.select("right").printSchema()
-
 ```
+
+#### Output
+<a name="split_fields-example-output"></a>
 
 ```
 Inspect the input DynamicFrame's schema:
@@ -1884,48 +1683,32 @@ root
 root
 |-- contact_details.val.type: string
 |-- contact_details.val.value: string
-
 ```
 
 ## split\_rows
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_rows"></a>
 
-###### `split_rows(comparison_dict, name1, name2, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
+**`split_rows(comparison_dict, name1, name2, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`**
 
-Splits one or more rows in a `DynamicFrame` off into a new
-`DynamicFrame`.
+Splits one or more rows in a `DynamicFrame` off into a new `DynamicFrame`.
 
-The method returns a new `DynamicFrameCollection` that contains two
-`DynamicFrames`. The first `DynamicFrame` contains all the rows that
-have been split off, and the second contains the rows that remain.
-
-- `comparison_dict` – A dictionary where the key is a path to a column,
-  and the value is another dictionary for mapping comparators to values that the column
-  values are compared to. For example, `{"age": {">": 10, "<": 20}}` splits
-  off all rows whose value in the age column is greater than 10 and less than 20.
-- `name1` – A name string for the `DynamicFrame` that is
-  split off.
-- `name2` – A name string for the `DynamicFrame` that
-  remains after the specified nodes have been split off.
-- `transformation_ctx` – A unique string that is used to identify state
-  information (optional).
-- `info` – A string to be associated with error reporting for this
-  transformation (optional).
-- `stageThreshold` – The number of errors encountered during this
-  transformation at which the process should error out (optional). The default is zero,
-  which indicates that the process should not error out.
-- `totalThreshold` – The number of errors encountered up to and
-  including this transformation at which the process should error out (optional). The
-  default is zero, which indicates that the process should not error out.
+The method returns a new `DynamicFrameCollection` that contains two `DynamicFrames`. The first `DynamicFrame` contains all the rows that have been split off, and the second contains the rows that remain.
++ `comparison_dict` – A dictionary where the key is a path to a column, and the value is another dictionary for mapping comparators to values that the column values are compared to. For example, `{"age": {">": 10, "<": 20}}` splits off all rows whose value in the age column is greater than 10 and less than 20.
++ `name1` – A name string for the `DynamicFrame` that is split off.
++ `name2` – A name string for the `DynamicFrame` that remains after the specified nodes have been split off.
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string to be associated with error reporting for this transformation (optional).
++ `stageThreshold` – The number of errors encountered during this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
++ `totalThreshold` – The number of errors encountered up to and including this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
 
 ### Example: Use split\_rows to split rows in a `DynamicFrame`
+<a name="pyspark-split_rows-example"></a>
 
-This code example uses the `split_rows` method to split rows in a
-`DynamicFrame` based on the `id` field value.
+This code example uses the `split_rows` method to split rows in a `DynamicFrame` based on the `id` field value.
 
 **Example dataset**
 
-The example uses a `DynamicFrame` called `l_root_contact_details`
-that is selected from a collection named `legislators_relationalized`.
+The example uses a `DynamicFrame` called `l_root_contact_details` that is selected from a collection named `legislators_relationalized`.
 
 `l_root_contact_details` has the following schema and entries.
 
@@ -1965,7 +1748,7 @@ root
 **Example code**
 
 ```
-# Example: Use split_rows to split up
+# Example: Use split_rows to split up 
 # rows in a DynamicFrame based on value
 
 from pyspark.context import SparkContext
@@ -1986,8 +1769,10 @@ print("Inspect the DynamicFrame that contains IDs < 10")
 split_rows_collection.select("low").toDF().show()
 print("Inspect the DynamicFrame that contains IDs > 10")
 split_rows_collection.select("high").toDF().show()
-
 ```
+
+#### Output
+<a name="split_rows-example-output"></a>
 
 ```
 Inspect the DynamicFrame that contains IDs < 10
@@ -2043,56 +1828,39 @@ Inspect the DynamicFrame that contains IDs > 10
 | 20|    1|                   phone|             202-225-6335|
 +---+-----+------------------------+-------------------------+
 only showing top 20 rows
-
 ```
 
 ## unbox
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unbox"></a>
 
-###### `unbox(path, format, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0, **options)`
+**`unbox(path, format, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0, **options)`**
 
-Unboxes (reformats) a string field in a `DynamicFrame` and returns a new
-`DynamicFrame` that contains the unboxed `DynamicRecords`.
+Unboxes (reformats) a string field in a `DynamicFrame` and returns a new `DynamicFrame` that contains the unboxed `DynamicRecords`.
 
-A `DynamicRecord` represents a logical record in a `DynamicFrame`.
-It's similar to a row in an Apache Spark `DataFrame`, except that it is
-self-describing and can be used for data that doesn't conform to a fixed schema.
-
-- `path` – A full path to the string node you want to unbox.
-- `format` – A format specification (optional). You use this for an Amazon S3 or
-  AWS Glue connection that supports multiple formats. For the formats that are
-  supported, see [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
-- `transformation_ctx` – A unique string that is used to
-  identify state information (optional).
-- `info` – A string to be associated with error
-  reporting for this transformation (optional).
-- `stageThreshold` – The number of errors encountered during this
-  transformation at which the process should error out (optional). The default is zero,
-  which indicates that the process should not error out.
-- `totalThreshold` – The number of errors encountered up to and
-  including this transformation at which the process should error out (optional). The
-  default is zero, which indicates that the process should not error out.
-- `options` – One or more of the following:
-
-  - `separator` – A string that contains the separator character.
-  - `escaper` – A string that contains the escape character.
-  - `skipFirst` – A Boolean value that indicates whether to skip the first
-    instance.
-  - `withSchema` – A string containing a JSON representation of the node's schema. The
-    format of a schema's JSON representation is defined by the output of `StructType.json()`.
-  - `withHeader` – A Boolean value that indicates whether a header is
-    included.
+A `DynamicRecord` represents a logical record in a `DynamicFrame`. It's similar to a row in an Apache Spark `DataFrame`, except that it is self-describing and can be used for data that doesn't conform to a fixed schema.
++ `path` – A full path to the string node you want to unbox.
++ `format` – A format specification (optional). You use this for an Amazon S3 or AWS Glue connection that supports multiple formats. For the formats that are supported, see [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md).
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string to be associated with error reporting for this transformation (optional).
++ `stageThreshold` – The number of errors encountered during this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
++ `totalThreshold` – The number of errors encountered up to and including this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
++ `options` – One or more of the following:
+  + `separator` – A string that contains the separator character.
+  + `escaper` – A string that contains the escape character.
+  + `skipFirst` – A Boolean value that indicates whether to skip the first instance.
+  + `withSchema` – A string containing a JSON representation of the node's schema. The format of a schema's JSON representation is defined by the output of `StructType.json()`.
+  + `withHeader` – A Boolean value that indicates whether a header is included.
 
 ### Example: Use unbox to unbox a string field into a struct
+<a name="pyspark-unbox-example"></a>
 
-This code example uses the `unbox` method to _unbox_, or reformat, a string field in a `DynamicFrame` into a field of type struct.
+This code example uses the `unbox` method to *unbox*, or reformat, a string field in a `DynamicFrame` into a field of type struct.
 
 **Example dataset**
 
-The example uses a `DynamicFrame` called `mapped_with_string`
-with the following schema and entries.
+The example uses a `DynamicFrame` called `mapped_with_string` with the following schema and entries.
 
-Notice the field named `AddressString`. This is the field that the example
-unboxes into a struct.
+Notice the field named `AddressString`. This is the field that the example unboxes into a struct.
 
 ```
 root
@@ -2121,8 +1889,6 @@ root
 |              $5434.95|{"Street": "205 M...|              $37560.37|039 - EXTRACRANIA...|                 $4453.79|                     AL - Birmingham|[35631, FLORENCE,...|      10006|              24|ELIZA COFFEE MEMO...|
 |              $5417.56|{"Street": "50 ME...|              $13998.28|039 - EXTRACRANIA...|                 $4129.16|                     AL - Birmingham|[35235, BIRMINGHA...|      10011|              25|   ST VINCENT'S EAST|
 ...
-
-
 ```
 
 **Example code**
@@ -2141,8 +1907,10 @@ glueContext = GlueContext(sc)
 unboxed = mapped_with_string.unbox("AddressString", "json")
 unboxed.printSchema()
 unboxed.toDF().show()
-
 ```
+
+#### Output
+<a name="unbox-example-output"></a>
 
 ```
 root
@@ -2194,54 +1962,40 @@ root
 |              $5996.00|[701 PRINCETON AV...|              $51343.75|039 - EXTRACRANIA...|                 $4962.45|                     AL - Birmingham|[35211, BIRMINGHA...|      10103|              33|BAPTIST MEDICAL C...|
 +----------------------+--------------------+-----------------------+--------------------+-------------------------+------------------------------------+--------------------+-----------+----------------+--------------------+
 only showing top 20 rows
-
 ```
 
 ## union
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-union"></a>
 
-###### `union(frame1, frame2, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)`
+**`union(frame1, frame2, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)`**
 
-Union two DynamicFrames. Returns DynamicFrame containing all records from both input DynamicFrames.
-This transform may return different results from the union of two DataFrames with equivalent data. If
-you need the Spark DataFrame union behavior, consider using `toDF`.
-
-- `frame1` – First DynamicFrame to union.
-- `frame2` – Second DynamicFrame to union.
-- `transformation_ctx` – (optional) A unique string that is used to identify stats / state
-  information
-- `info` – (optional) Any string to be associated with errors in the transformation
-- `stageThreshold` – (optional) Max number of errors in the transformation until processing
-  will error out
-- `totalThreshold` – (optional) Max number of errors total until processing will error out.
+Union two DynamicFrames. Returns DynamicFrame containing all records from both input DynamicFrames. This transform may return different results from the union of two DataFrames with equivalent data. If you need the Spark DataFrame union behavior, consider using `toDF`.
++ `frame1` – First DynamicFrame to union. 
++ `frame2` – Second DynamicFrame to union. 
++ `transformation_ctx` – (optional) A unique string that is used to identify stats / state information 
++ `info` – (optional) Any string to be associated with errors in the transformation 
++ `stageThreshold` – (optional) Max number of errors in the transformation until processing will error out 
++ `totalThreshold` – (optional) Max number of errors total until processing will error out. 
 
 ## unnest
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest"></a>
 
-###### `unnest(transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
+**`unnest(transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`**
 
-Unnests nested objects in a `DynamicFrame`, which makes them top-level
-objects, and returns a new unnested `DynamicFrame`.
-
-- `transformation_ctx` – A unique string that is used to identify state
-  information (optional).
-- `info` – A string to be associated with error reporting for this
-  transformation (optional).
-- `stageThreshold` – The number of errors encountered during this
-  transformation at which the process should error out (optional). The default is zero,
-  which indicates that the process should not error out.
-- `totalThreshold` – The number of errors encountered up to and
-  including this transformation at which the process should error out (optional). The
-  default is zero, which indicates that the process should not error out.
+Unnests nested objects in a `DynamicFrame`, which makes them top-level objects, and returns a new unnested `DynamicFrame`.
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string to be associated with error reporting for this transformation (optional).
++ `stageThreshold` – The number of errors encountered during this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
++ `totalThreshold` – The number of errors encountered up to and including this transformation at which the process should error out (optional). The default is zero, which indicates that the process should not error out.
 
 ### Example: Use unnest to turn nested fields into top-level fields
+<a name="pyspark-unnest-example"></a>
 
-This code example uses the `unnest` method to flatten all of the nested
-fields in a `DynamicFrame` into top-level fields.
+This code example uses the `unnest` method to flatten all of the nested fields in a `DynamicFrame` into top-level fields.
 
 **Example dataset**
 
-The example uses a `DynamicFrame` called `mapped_medicare` with
-the following schema. Notice that the `Address` field is the only field that
-contains nested data.
+The example uses a `DynamicFrame` called `mapped_medicare` with the following schema. Notice that the `Address` field is the only field that contains nested data.
 
 ```
 root
@@ -2278,8 +2032,10 @@ glueContext = GlueContext(sc)
 # Unnest all nested fields
 unnested = mapped_medicare.unnest()
 unnested.printSchema()
-
 ```
+
+#### Output
+<a name="unnest-example-output"></a>
 
 ```
 root
@@ -2297,25 +2053,18 @@ root
 |-- Provider Id: string
 |-- Total Discharges: string
 |-- Provider Name: string
-
 ```
 
 ## unnest\_ddb\_json
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest_ddb_json"></a>
 
-Unnests nested columns in a `DynamicFrame` that are specifically in the DynamoDB JSON structure, and returns a new unnested `DynamicFrame`. Columns that are of an array of struct types will not be unnested. Note that this is a specific type of unnesting transform that behaves differently from the regular `unnest` transform and requires the data to already be in the DynamoDB JSON structure. For more information, see [DynamoDB JSON](../../../amazondynamodb/latest/developerguide/DataExport.Output.md#DataExport.Output.Data "../../../amazondynamodb/latest/developerguide/DataExport.Output.md#DataExport.Output.Data").
+Unnests nested columns in a `DynamicFrame` that are specifically in the DynamoDB JSON structure, and returns a new unnested `DynamicFrame`. Columns that are of an array of struct types will not be unnested. Note that this is a specific type of unnesting transform that behaves differently from the regular `unnest` transform and requires the data to already be in the DynamoDB JSON structure. For more information, see [DynamoDB JSON](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataExport.Output.html#DataExport.Output.Data).
 
-###### `unnest_ddb_json(transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
-
-- `transformation_ctx` – A unique string that is used to
-  identify state information (optional).
-- `info` – A string to be associated with error
-  reporting for this transformation (optional).
-- `stageThreshold` – The number of errors encountered during this
-  transformation at which the process should error out (optional: zero by default, indicating that
-  the process should not error out).
-- `totalThreshold` – The number of errors encountered up to and including this
-  transformation at which the process should error out (optional: zero by default, indicating that
-  the process should not error out).
+**`unnest_ddb_json(transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`**
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string to be associated with error reporting for this transformation (optional).
++ `stageThreshold` – The number of errors encountered during this transformation at which the process should error out (optional: zero by default, indicating that the process should not error out).
++ `totalThreshold` – The number of errors encountered up to and including this transformation at which the process should error out (optional: zero by default, indicating that the process should not error out).
 
 For example, the schema of a reading an export with the DynamoDB JSON structure might look like the following:
 
@@ -2340,7 +2089,7 @@ root
 |-- ColA: string
 |-- ColB: string
 |-- ColC: string
-|-- ColD: array
+|-- ColD: array    
 |    |-- element: null
 ```
 
@@ -2375,74 +2124,58 @@ job.commit()
 ```
 
 ## write
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-write"></a>
 
-###### `write(connection_type, connection_options, format, format_options, accumulator_size)`
+**`write(connection_type, connection_options, format, format_options, accumulator_size)`**
 
-Gets a [DataSink(object)](aws-glue-api-crawler-pyspark-extensions-types.md#aws-glue-api-crawler-pyspark-extensions-types-awsglue-data-sink "aws-glue-api-crawler-pyspark-extensions-types.md#aws-glue-api-crawler-pyspark-extensions-types-awsglue-data-sink") of the
-specified connection type from the [GlueContext class](aws-glue-api-crawler-pyspark-extensions-glue-context.md "aws-glue-api-crawler-pyspark-extensions-glue-context.md") of this
-`DynamicFrame`, and uses it to format and write the contents of this
-`DynamicFrame`. Returns the new `DynamicFrame` formatted and written
-as specified.
+Gets a [DataSink(object)](aws-glue-api-crawler-pyspark-extensions-types.md#aws-glue-api-crawler-pyspark-extensions-types-awsglue-data-sink) of the specified connection type from the [GlueContext class](aws-glue-api-crawler-pyspark-extensions-glue-context.md) of this `DynamicFrame`, and uses it to format and write the contents of this `DynamicFrame`. Returns the new `DynamicFrame` formatted and written as specified.
++ `connection_type` – The connection type to use. Valid values include `s3`, `mysql`, `postgresql`, `redshift`, `sqlserver`, and `oracle`.
++ `connection_options` – The connection option to use (optional). For a `connection_type` of `s3`, an Amazon S3 path is defined.
 
-- `connection_type` – The connection type to use.
-  Valid values include `s3`, `mysql`, `postgresql`, `redshift`, `sqlserver`, and `oracle`.
-- `connection_options` – The connection option to use (optional).
-  For a `connection_type` of `s3`, an Amazon S3 path is defined.
+  ```
+  connection_options = {"path": "{{s3://aws-glue-target/temp}}"}
+  ```
 
-```
-connection_options = {"path": "`s3://aws-glue-target/temp`"}
-```
-
-For JDBC connections, several properties must be defined. Note that the database name must be part of the URL. It can optionally be included in the connection options.
-
-###### Warning
-
+  For JDBC connections, several properties must be defined. Note that the database name must be part of the URL. It can optionally be included in the connection options.
+**Warning**  
 Storing passwords in your script is not recommended. Consider using `boto3` to retrieve them from AWS Secrets Manager or the AWS Glue Data Catalog.
 
-```
-connection_options = {"url": "`jdbc-url/database`", "user": "`username`", "password": `passwordVariable`,"dbtable": "`table-name`", "redshiftTmpDir": "`s3-tempdir-path`"}
-```
-
-- `format` – A format specification (optional). This is used
-  for an Amazon Simple Storage Service (Amazon S3) or an AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
-  for the formats that are supported.
-- `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md")
-  for the formats that are supported.
-- `accumulator_size` – The accumulable size to use, in bytes (optional).
+  ```
+  connection_options = {"url": "{{jdbc-url/database}}", "user": "{{username}}", "password": {{passwordVariable}},"dbtable": "{{table-name}}", "redshiftTmpDir": "{{s3-tempdir-path}}"} 
+  ```
++ `format` – A format specification (optional). This is used for an Amazon Simple Storage Service (Amazon S3) or an AWS Glue connection that supports multiple formats. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md) for the formats that are supported.
++ `format_options` – Format options for the specified format. See [Data format options for inputs and outputs in AWS Glue for Spark](aws-glue-programming-etl-format.md) for the formats that are supported.
++ `accumulator_size` – The accumulable size to use, in bytes (optional).
 
 ##  — errors —
-
-- [assertErrorThreshold](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-assertErrorThreshold "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-assertErrorThreshold")
-- [errorsAsDynamicFrame](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-errorsAsDynamicFrame "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-errorsAsDynamicFrame")
-- [errorsCount](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-errorsCount "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-errorsCount")
-- [stageErrorsCount](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-stageErrorsCount "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-stageErrorsCount")
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-_errors"></a>
++ [assertErrorThreshold](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-assertErrorThreshold)
++ [errorsAsDynamicFrame](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-errorsAsDynamicFrame)
++ [errorsCount](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-errorsCount)
++ [stageErrorsCount](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-stageErrorsCount)
 
 ## assertErrorThreshold
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-assertErrorThreshold"></a>
 
-`assertErrorThreshold( )` – An assert for errors in the transformations
-that created this `DynamicFrame`. Returns an `Exception` from the
-underlying `DataFrame`.
+`assertErrorThreshold( )` – An assert for errors in the transformations that created this `DynamicFrame`. Returns an `Exception` from the underlying `DataFrame`.
 
 ## errorsAsDynamicFrame
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-errorsAsDynamicFrame"></a>
 
-`errorsAsDynamicFrame( )` – Returns a `DynamicFrame` that has
-error records nested inside.
+`errorsAsDynamicFrame( )` – Returns a `DynamicFrame` that has error records nested inside.
 
 ### Example: Use errorsAsDynamicFrame to view error records
+<a name="pyspark-errorsAsDynamicFrame-example"></a>
 
-The following code example shows how to use the `errorsAsDynamicFrame` method
-to view an error record for a `DynamicFrame`.
+The following code example shows how to use the `errorsAsDynamicFrame` method to view an error record for a `DynamicFrame`.
 
 **Example dataset**
 
-The example uses the following dataset that you can upload to Amazon S3 as JSON. Notice that
-the second record is malformed. Malformed data typically breaks file parsing when you use
-SparkSQL. However, `DynamicFrame` recognizes malformation issues and turns
-malformed lines into error records that you can handle individually.
+The example uses the following dataset that you can upload to Amazon S3 as JSON. Notice that the second record is malformed. Malformed data typically breaks file parsing when you use SparkSQL. However, `DynamicFrame` recognizes malformation issues and turns malformed lines into error records that you can handle individually.
 
 ```
 {"id": 1, "name": "george", "surname": "washington", "height": 178}
-{"id": 2, "name": "benjamin", "surname": "franklin",
+{"id": 2, "name": "benjamin", "surname": "franklin", 
 {"id": 3, "name": "alexander", "surname": "hamilton", "height": 171}
 {"id": 4, "name": "john", "surname": "jay", "height": 190}
 ```
@@ -2462,7 +2195,7 @@ glueContext = GlueContext(sc)
 
 # Create errors DynamicFrame, view schema
 errors = glueContext.create_dynamic_frame.from_options(
-    "s3", {"paths": ["`s3://DOC-EXAMPLE-S3-BUCKET/error_data.json`"]}, "json"
+    "s3", {"paths": ["{{s3://DOC-EXAMPLE-S3-BUCKET/error_data.json}}"]}, "json"
 )
 print("Schema of errors DynamicFrame:")
 errors.printSchema()
@@ -2486,8 +2219,10 @@ print(error_fields.asDict().keys())
 print("\nError record data:")
 for key in error_fields.asDict().keys():
     print("\n", key, ": ", str(error_fields[key]))
-
 ```
+
+#### Output
+<a name="errorsAsDynamicFrame-example-output"></a>
 
 ```
 Schema of errors DynamicFrame:
@@ -2513,7 +2248,7 @@ Errors:
 |[[  File "/tmp/20...|
 +--------------------+
 
-Error fields:
+Error fields: 
 dict_keys(['callsite', 'msg', 'stackTrace', 'input', 'bytesread', 'source', 'dynamicRecord'])
 
 Error record data:
@@ -2575,21 +2310,22 @@ Error record data:
 	at java.lang.Thread.run(Thread.java:750)
 
 
- input :
+ input :  
 
  bytesread :  252
 
- source :
+ source :  
 
  dynamicRecord :  Row(id=2, name='benjamin', surname='franklin')
-
 ```
 
 ## Comprehensive DynamicFrame examples
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-comprehensive-examples"></a>
 
 The following examples demonstrate various ways to create and work with DynamicFrames beyond basic Glue catalog scenarios.
 
 ### Loading from PostgreSQL with SQL SELECT query
+<a name="dynamicframe-postgresql-example"></a>
 
 This example shows how to load data from a PostgreSQL database using a custom SQL SELECT query:
 
@@ -2613,6 +2349,7 @@ postgres_dyf = glueContext.create_dynamic_frame.from_options(
 ```
 
 ### Loading specific columns to avoid full table scans
+<a name="dynamicframe-column-selection-example"></a>
 
 This example demonstrates how to load only specific columns from a large database table:
 
@@ -2628,7 +2365,7 @@ selected_columns_dyf = glueContext.create_dynamic_frame.from_options(
     connection_type="mysql",
     connection_options={
         "url": "jdbc:mysql://your-mysql-host:3306/your-database",
-        "user": "your-username",
+        "user": "your-username", 
         "password": "your-password",
         "dbtable": "(SELECT order_id, customer_id FROM large_orders_table) AS selected_data"
     }
@@ -2640,13 +2377,14 @@ efficient_load_dyf = glueContext.create_dynamic_frame.from_options(
     connection_options={
         "url": "jdbc:postgresql://your-postgres-host:5432/your-database",
         "user": "your-username",
-        "password": "your-password",
+        "password": "your-password", 
         "query": "SELECT product_id, product_name FROM products WHERE category = 'electronics'"
     }
 )
 ```
 
 ### Row-level filtering via JDBC connections
+<a name="dynamicframe-row-filtering-example"></a>
 
 This example shows how to use row-level filtering to load only specific rows from a database table:
 
@@ -2685,6 +2423,7 @@ partitioned_load_dyf = glueContext.create_dynamic_frame.from_options(
 ```
 
 ### Creating DynamicFrame from in-memory Python data
+<a name="dynamicframe-in-memory-example"></a>
 
 This example demonstrates how to create a DynamicFrame from Python lists, tuples, or dictionaries:
 
@@ -2700,7 +2439,7 @@ glueContext = GlueContext(sc)
 # Method 1: From list of tuples
 data_tuples = [
     ("John", "Doe", 30, "Engineer"),
-    ("Jane", "Smith", 25, "Designer"),
+    ("Jane", "Smith", 25, "Designer"), 
     ("Bob", "Johnson", 35, "Manager")
 ]
 
@@ -2739,6 +2478,7 @@ dyf_nested = DynamicFrame.fromDF(df_nested, glueContext, "customers_with_orders"
 ```
 
 ### Performance optimization for large datasets
+<a name="dynamicframe-performance-tips"></a>
 
 When working with large datasets, consider these performance optimization techniques:
 
@@ -2753,7 +2493,7 @@ large_table_dyf = glueContext.create_dynamic_frame.from_options(
         "dbtable": "large_table",
         "partitionColumn": "id",
         "lowerBound": "1",
-        "upperBound": "1000000",
+        "upperBound": "1000000", 
         "numPartitions": "20"
     }
 )
@@ -2772,11 +2512,11 @@ filtered_dyf = glueContext.create_dynamic_frame.from_options(
 ```
 
 ## errorsCount
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-errorsCount"></a>
 
-`errorsCount( )` – Returns the total number of errors in a
-`DynamicFrame`.
+`errorsCount( )` – Returns the total number of errors in a `DynamicFrame`.
 
 ## stageErrorsCount
+<a name="aws-glue-api-crawler-pyspark-extensions-dynamic-frame-stageErrorsCount"></a>
 
-`stageErrorsCount` – Returns the number of errors that occurred in the
-process of generating this `DynamicFrame`.
+`stageErrorsCount` – Returns the number of errors that occurred in the process of generating this `DynamicFrame`.

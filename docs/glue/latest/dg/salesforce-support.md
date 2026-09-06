@@ -1,19 +1,18 @@
+
+
 # AWS Glue support for Salesforce
+<a name="salesforce-support"></a>
 
 AWS Glue supports Salesforce as follows:
 
-###### Supported as a source?
-
+**Supported as a source?**  
 Yes. You can use AWS Glue ETL jobs to query data from Salesforce.
 
-###### Supported as a target?
-
+**Supported as a target?**  
 Yes. You can use AWS Glue ETL jobs to write records into Salesforce.
 
-###### Supported Salesforce API versions
-
+**Supported Salesforce API versions**  
 The following Salesforce API versions are supported
-
-- v58.0
-- v59.0
-- v60.0
++ v58.0
++ v59.0
++ v60.0

@@ -1,114 +1,100 @@
+
+
 # Tagging APIs in AWS Glue
+<a name="aws-glue-api-tags"></a>
 
 ## Data types
-
-- [Tag structure](#aws-glue-api-tags-Tag "#aws-glue-api-tags-Tag")
+<a name="aws-glue-api-tags-objects"></a>
++ [Tag structure](#aws-glue-api-tags-Tag)
 
 ## Tag structure
+<a name="aws-glue-api-tags-Tag"></a>
 
-The `Tag` object represents a label that you can assign to
-an AWS resource. Each tag consists of a key and an optional value,
-both of which you define.
+The `Tag` object represents a label that you can assign to an AWS resource. Each tag consists of a key and an optional value, both of which you define.
 
-For more information about tags, and controlling access to resources
-in AWS Glue, see [AWS Tags in AWS Glue](monitor-tags.md "monitor-tags.md") and [Specifying
-AWS Glue Resource ARNs](glue-specifying-resource-arns.md "glue-specifying-resource-arns.md") in the developer guide.
+For more information about tags, and controlling access to resources in AWS Glue, see [AWS Tags in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html) and [Specifying AWS Glue Resource ARNs](https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html) in the developer guide.
 
-###### Fields
+**Fields**
++ `key` – UTF-8 string, not less than 1 or more than 128 bytes long.
 
-- `key` – UTF-8 string, not less than 1 or more than 128 bytes long.
+  The tag key. The key is required when you create a tag on an object. The key is case-sensitive, and must not contain the prefix aws.
++ `value` – UTF-8 string, not more than 256 bytes long.
 
-The tag key. The key is required when you create a tag on an object. The key
-is case-sensitive, and must not contain the prefix aws.
-
-- `value` – UTF-8 string, not more than 256 bytes long.
-
-The tag value. The value is optional when you create a tag on an object. The
-value is case-sensitive, and must not contain the prefix aws.
+  The tag value. The value is optional when you create a tag on an object. The value is case-sensitive, and must not contain the prefix aws.
 
 ## Operations
-
-- [TagResource action (Python: tag\_resource)](#aws-glue-api-tags-TagResource "#aws-glue-api-tags-TagResource")
-- [UntagResource action (Python: untag\_resource)](#aws-glue-api-tags-UntagResource "#aws-glue-api-tags-UntagResource")
-- [GetTags action (Python: get\_tags)](#aws-glue-api-tags-GetTags "#aws-glue-api-tags-GetTags")
+<a name="aws-glue-api-tags-actions"></a>
++ [TagResource action (Python: tag\_resource)](#aws-glue-api-tags-TagResource)
++ [UntagResource action (Python: untag\_resource)](#aws-glue-api-tags-UntagResource)
++ [GetTags action (Python: get\_tags)](#aws-glue-api-tags-GetTags)
 
 ## TagResource action (Python: tag\_resource)
+<a name="aws-glue-api-tags-TagResource"></a>
 
-Adds tags to a resource. A tag is a label you can assign to an AWS resource. In AWS Glue, you can tag only certain resources. For information
-about what resources you can tag, see [AWS Tags in AWS Glue](monitor-tags.md "monitor-tags.md").
+Adds tags to a resource. A tag is a label you can assign to an AWS resource. In AWS Glue, you can tag only certain resources. For information about what resources you can tag, see [AWS Tags in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html).
 
-###### Request
+**Request**
++ `ResourceArn` – *Required:* UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #47](aws-glue-api-common.md#regex_47).
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #47](aws-glue-api-common.md#regex_47 "aws-glue-api-common.md#regex_47").
+  The ARN of the AWS Glue resource to which to add the tags. For more information about AWS Glue resource ARNs, see the [AWS Glue ARN string pattern](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id).
++ `TagsToAdd` – *Required:* A map array of key-value pairs, not more than 50 pairs.
 
-The ARN of the AWS Glue resource to which to add the tags. For
-more information about AWS Glue resource ARNs, see the [AWS Glue ARN string pattern](aws-glue-api-common.md#aws-glue-api-regex-aws-glue-arn-id "aws-glue-api-common.md#aws-glue-api-regex-aws-glue-arn-id").
+  Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
 
-- `TagsToAdd` – _Required:_ A map array of key-value pairs, not more than 50 pairs.
+  Each value is a UTF-8 string, not more than 256 bytes long.
 
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
+  Tags to add to this resource.
 
-Each value is a UTF-8 string, not more than 256 bytes long.
+**Response**
++ *No Response parameters.*
 
-Tags to add to this resource.
-
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
 
 ## UntagResource action (Python: untag\_resource)
+<a name="aws-glue-api-tags-UntagResource"></a>
 
 Removes the specified tags from an integration resource.
 
-###### Request
+**Request**
++ `ResourceArn` – *Required:* UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #47](aws-glue-api-common.md#regex_47).
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #47](aws-glue-api-common.md#regex_47 "aws-glue-api-common.md#regex_47").
+  The Amazon Resource Name (ARN) for the integration resource.
++ `TagsToRemove` – *Required:* An array of UTF-8 strings, not more than 50 strings.
 
-The Amazon Resource Name (ARN) for the integration resource.
+  A list of metadata tags to be removed from the resource.
 
-- `TagsToRemove` – _Required:_ An array of UTF-8 strings, not more than 50 strings.
+**Response**
++ *No Response parameters.*
 
-A list of metadata tags to be removed from the resource.
-
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
 
 ## GetTags action (Python: get\_tags)
+<a name="aws-glue-api-tags-GetTags"></a>
 
 Retrieves a list of tags associated with a resource.
 
-###### Request
+**Request**
++ `ResourceArn` – *Required:* UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #47](aws-glue-api-common.md#regex_47).
 
-- `ResourceArn` – _Required:_ UTF-8 string, not less than 1 or more than 10240 bytes long, matching the [Custom string pattern #47](aws-glue-api-common.md#regex_47 "aws-glue-api-common.md#regex_47").
+  The Amazon Resource Name (ARN) of the resource for which to retrieve tags.
 
-The Amazon Resource Name (ARN) of the resource for which to retrieve tags.
+**Response**
++ `Tags` – A map array of key-value pairs, not more than 50 pairs.
 
-###### Response
+  Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
 
-- `Tags` – A map array of key-value pairs, not more than 50 pairs.
+  Each value is a UTF-8 string, not more than 256 bytes long.
 
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
+  The requested tags.
 
-Each value is a UTF-8 string, not more than 256 bytes long.
-
-The requested tags.
-
-###### Errors
-
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `EntityNotFoundException`
+**Errors**
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `EntityNotFoundException`

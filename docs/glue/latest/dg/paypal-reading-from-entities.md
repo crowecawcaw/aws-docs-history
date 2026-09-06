@@ -1,4 +1,7 @@
+
+
 # Reading from PayPal entities
+<a name="paypal-reading-from-entities"></a>
 
 **Prerequisite**
 
@@ -6,9 +9,10 @@ A PayPal object you would like to read from. You will need the object name, `tra
 
 **Supported entities for source**:
 
-| Entity      | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning |
-| ----------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| transaction | Yes             | Yes            | No                | Yes                | Yes                   |
+
+| Entity | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| transaction | Yes | Yes | No | Yes | Yes | 
 
 **Example**:
 
@@ -27,54 +31,52 @@ paypal_read = glueContext.create_dynamic_frame.from_options(
 
 Entities with static metadata:
 
-| Entity                            | Field                         | Data type | Supported operators |
-| --------------------------------- | ----------------------------- | --------- | ------------------- |
-| transaction                       | transaction\_initiation\_date | DateTime  | Between             |
-| last\_refreshed\_datetime         | String                        | N/A       |
-| payment\_instrument\_type         | String                        | =         |
-| balance\_affecting\_records\_only | String                        | =         |
-| store\_id                         | String                        | =         |
-| terminal\_id                      | String                        | =         |
-| transaction\_currency             | String                        | =         |
-| transaction\_id                   | String                        | N/A       |
-| transaction\_status               | String                        | N/A       |
-| transaction\_type                 | String                        | N/A       |
-| transaction\_info                 | Struct                        | N/A       |
-| payer\_info                       | Struct                        | N/A       |
-| shipping\_info                    | Struct                        | N/A       |
-| cart\_info                        | Struct                        | N/A       |
-| store\_info                       | Struct                        | N/A       |
-| auction\_info                     | Struct                        | N/A       |
-| incentive\_info                   | Struct                        | N/A       |
+
+
+- **transaction**
+  - **Field:** transaction\_initiation\_date / **Data type:** DateTime / **Supported operators:** Between
+  - **Field:** last\_refreshed\_datetime / **Data type:** String / **Supported operators:** N/A
+  - **Field:** payment\_instrument\_type / **Data type:** String / **Supported operators:** =
+  - **Field:** balance\_affecting\_records\_only / **Data type:** String / **Supported operators:** =
+  - **Field:** store\_id / **Data type:** String / **Supported operators:** =
+  - **Field:** terminal\_id / **Data type:** String / **Supported operators:** =
+  - **Field:** transaction\_currency / **Data type:** String / **Supported operators:** =
+  - **Field:** transaction\_id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** transaction\_status / **Data type:** String / **Supported operators:** N/A
+  - **Field:** transaction\_type / **Data type:** String / **Supported operators:** N/A
+  - **Field:** transaction\_info / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** payer\_info / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** shipping\_info / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** cart\_info / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** store\_info / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** auction\_info / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** incentive\_info / **Data type:** Struct / **Supported operators:** N/A
+
+
 
 ## Partitioning queries
+<a name="paypal-reading-partitioning-queries"></a>
 
-You can provide the additional Spark options `PARTITION_FIELD`,
-`LOWER_BOUND`, `UPPER_BOUND`, and
-`NUM_PARTITIONS` if you want to utilize concurrency in Spark. With
-these parameters, the original query would be split into `NUM_PARTITIONS`
-number of sub-queries that can be executed by Spark tasks
-concurrently.
+You can provide the additional Spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`, and `NUM_PARTITIONS` if you want to utilize concurrency in Spark. With these parameters, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by Spark tasks concurrently.
++ `PARTITION_FIELD`: the name of the field to be used to partition the query.
++ `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field.
 
-- `PARTITION_FIELD`: the name of the field to be used to partition the query.
-- `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field.
+  For the Datetime field, we accept the value in ISO format.
 
-For the Datetime field, we accept the value in ISO format.
+  Examples of valid value:
 
-Examples of valid value:
-
-```
-"2024-07-01T00:00:00.000Z"
-```
-
-- `UPPER_BOUND`: an **exclusive** upper bound value of the chosen partition field.
-- `NUM_PARTITIONS`: the number of partitions.
+  ```
+  "2024-07-01T00:00:00.000Z"
+  ```
++ `UPPER_BOUND`: an **exclusive** upper bound value of the chosen partition field.
++ `NUM_PARTITIONS`: the number of partitions.
 
 The following field is supported for entity-wise partitioning:
 
-| Entity name | Partitioning fields           | Data type |
-| ----------- | ----------------------------- | --------- |
-| transaction | transaction\_initiation\_date | DateTime  |
+
+| Entity name | Partitioning fields | Data type | 
+| --- | --- | --- | 
+| transaction | transaction\_initiation\_date | DateTime | 
 
 Example:
 

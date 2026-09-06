@@ -1,54 +1,34 @@
+
+
 # AWS Glue Data Catalog support for Spark SQL jobs
+<a name="aws-glue-programming-etl-glue-data-catalog-hive"></a>
 
-The AWS Glue Data Catalog is an Apache Hive metastore-compatible catalog. You can configure your AWS Glue
-jobs and development endpoints to use the Data Catalog as an external Apache Hive metastore. You can
-then directly run Apache Spark SQL queries against the tables stored in the Data Catalog. AWS Glue
-dynamic frames integrate with the Data Catalog by default. However, with this feature, Spark SQL jobs
-can start using the Data Catalog as an external Hive metastore.
+The AWS Glue Data Catalog is an Apache Hive metastore-compatible catalog. You can configure your AWS Glue jobs and development endpoints to use the Data Catalog as an external Apache Hive metastore. You can then directly run Apache Spark SQL queries against the tables stored in the Data Catalog. AWS Glue dynamic frames integrate with the Data Catalog by default. However, with this feature, Spark SQL jobs can start using the Data Catalog as an external Hive metastore.
 
-This feature requires network access to the AWS Glue API endpoint. For
-AWS Glue jobs with connections located in private subnets, you must configure
-either a VPC endpoint or NAT gateway to provide the network access. For information about
-configuring a VPC endpoint, see [Setting up network access to data stores](start-connecting.md "start-connecting.md"). To create a NAT gateway, see [NAT Gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") in
-the _Amazon VPC User Guide_.
+This feature requires network access to the AWS Glue API endpoint. For AWS Glue jobs with connections located in private subnets, you must configure either a VPC endpoint or NAT gateway to provide the network access. For information about configuring a VPC endpoint, see [Setting up network access to data stores](start-connecting.md). To create a NAT gateway, see [NAT Gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) in the *Amazon VPC User Guide*.
 
-You can configure AWS Glue jobs and development endpoints by adding the
-`"--enable-glue-datacatalog": ""` argument to job arguments and development endpoint
-arguments respectively. Passing this argument sets certain configurations in Spark that enable
-it to access the Data Catalog as an external Hive metastore. It also [enables Hive support](https://spark.apache.org/docs/latest/api/java/org/apache/spark/sql/SparkSession.Builder.html#enableHiveSupport-- "https://spark.apache.org/docs/latest/api/java/org/apache/spark/sql/SparkSession.Builder.html#enableHiveSupport--") in the `SparkSession` object created in the AWS Glue job
-or development endpoint.
+You can configure AWS Glue jobs and development endpoints by adding the `"--enable-glue-datacatalog": ""` argument to job arguments and development endpoint arguments respectively. Passing this argument sets certain configurations in Spark that enable it to access the Data Catalog as an external Hive metastore. It also [enables Hive support](https://spark.apache.org/docs/latest/api/java/org/apache/spark/sql/SparkSession.Builder.html#enableHiveSupport--) in the `SparkSession` object created in the AWS Glue job or development endpoint. 
 
-To enable the Data Catalog access, check the **Use AWS Glue Data Catalog as the Hive
-metastore** check box in the **Catalog options** group on the
-**Add job** or **Add endpoint** page on the console. Note
-that the IAM role used for the job or development endpoint should have
-`glue:CreateDatabase` permissions. A database called "`default`" is
-created in the Data Catalog if it does not exist.
+To enable the Data Catalog access, check the **Use AWS Glue Data Catalog as the Hive metastore** check box in the **Catalog options** group on the **Add job** or **Add endpoint** page on the console. Note that the IAM role used for the job or development endpoint should have `glue:CreateDatabase` permissions. A database called "`default`" is created in the Data Catalog if it does not exist. 
 
 Lets look at an example of how you can use this feature in your Spark SQL jobs. The following example assumes that you have crawled the US legislators dataset available at `s3://awsglue-datasets/examples/us-legislators`.
 
-To serialize/deserialize data from the tables defined in the AWS Glue Data Catalog, Spark SQL needs
-the [Hive SerDe](https://cwiki.apache.org/confluence/display/Hive/SerDe "https://cwiki.apache.org/confluence/display/Hive/SerDe") class
-for the format defined in the AWS Glue Data Catalog in the classpath of the spark job.
+To serialize/deserialize data from the tables defined in the AWS Glue Data Catalog, Spark SQL needs the [Hive SerDe](https://cwiki.apache.org/confluence/display/Hive/SerDe) class for the format defined in the AWS Glue Data Catalog in the classpath of the spark job. 
 
-SerDes for certain common formats are distributed by AWS Glue. The following are the Amazon S3 links
-for these:
+SerDes for certain common formats are distributed by AWS Glue. The following are the Amazon S3 links for these:
++ [JSON](https://s3.us-west-2.amazonaws.com/crawler-public/json/serde/json-serde.jar)
++ [XML](https://s3.us-west-2.amazonaws.com/crawler-public/xml/serde/hivexmlserde-1.0.5.3.jar)
++ [Grok](https://s3.us-west-2.amazonaws.com/crawler-public/grok/serde/AWSGlueHiveGrokSerDe-1.0-super.jar)
 
-- [JSON](https://s3.us-west-2.amazonaws.com/crawler-public/json/serde/json-serde.jar "https://s3.us-west-2.amazonaws.com/crawler-public/json/serde/json-serde.jar")
-- [XML](https://s3.us-west-2.amazonaws.com/crawler-public/xml/serde/hivexmlserde-1.0.5.3.jar "https://s3.us-west-2.amazonaws.com/crawler-public/xml/serde/hivexmlserde-1.0.5.3.jar")
-- [Grok](https://s3.us-west-2.amazonaws.com/crawler-public/grok/serde/AWSGlueHiveGrokSerDe-1.0-super.jar "https://s3.us-west-2.amazonaws.com/crawler-public/grok/serde/AWSGlueHiveGrokSerDe-1.0-super.jar")
-  Add the JSON SerDe as an [extra JAR to the development endpoint](aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-DevEndpointCustomLibraries "aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-DevEndpointCustomLibraries"). For jobs, you can add the SerDe using the
-  `--extra-jars` argument in the arguments field. For more information, see [Using job parameters in AWS Glue jobs](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md").
+Add the JSON SerDe as an [extra JAR to the development endpoint](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-dev-endpoint.html#aws-glue-api-dev-endpoint-DevEndpointCustomLibraries). For jobs, you can add the SerDe using the `--extra-jars` argument in the arguments field. For more information, see [Using job parameters in AWS Glue jobs](aws-glue-programming-etl-glue-arguments.md). 
 
-Here is an example input JSON to create a development endpoint with the Data Catalog enabled for
-Spark SQL.
+Here is an example input JSON to create a development endpoint with the Data Catalog enabled for Spark SQL.
 
 ```
-
 {
     "EndpointName": "Name",
-    "RoleArn": "`role_ARN`",
-    "PublicKey": "`public_key_contents`",
+    "RoleArn": "role_ARN",
+    "PublicKey": "public_key_contents",
     "NumberOfNodes": 2,
     "Arguments": {
       "--enable-glue-datacatalog": ""
@@ -60,7 +40,6 @@ Spark SQL.
 Now query the tables created from the US legislators dataset using Spark SQL.
 
 ```
-
 >>> spark.sql("use legislators")
 DataFrame[]
 >>> spark.sql("show tables").show()
@@ -87,11 +66,9 @@ DataFrame[]
 |          start_date|   string|from deserializer|
 |            end_date|   string|from deserializer|
 +--------------------+---------+-----------------+
-
 ```
 
-If the SerDe class for the format is not available in the job's classpath, you will see an
-error similar to the following.
+If the SerDe class for the format is not available in the job's classpath, you will see an error similar to the following.
 
 ```
 >>> spark.sql("describe memberships_json").show()
@@ -102,8 +79,7 @@ Caused by: MetaException(message:java.lang.ClassNotFoundException Class org.open
     ... 64 more
 ```
 
-To view only the distinct `organization_id`s from the `memberships`
-table, run the following SQL query.
+To view only the distinct `organization_id`s from the `memberships` table, run the following SQL query.
 
 ```
 >>> spark.sql("select distinct organization_id from memberships_json").show()

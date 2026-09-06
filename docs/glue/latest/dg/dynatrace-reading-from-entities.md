@@ -1,4 +1,7 @@
+
+
 # Reading from Dynatrace entities
+<a name="dynatrace-reading-from-entities"></a>
 
 **Prerequisite**
 
@@ -6,9 +9,10 @@ A Dynatrace object you would like to read from. You will need the object name su
 
 **Supported entities for source**:
 
-| Entity  | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning |
-| ------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Problem | Yes             | Yes            | Yes               | Yes                | No                    |
+
+| Entity | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| Problem | Yes | Yes | Yes | Yes | No | 
 
 **Example**:
 
@@ -27,34 +31,38 @@ Dynatrace_read = glueContext.create_dynamic_frame.from_options(
 
 Dynatrace provides endpoints to fetch metadata dynamically for supported entities. Accordingly, operator support is captured at the datatype level.
 
-| Entity             | Field            | Data type          | Supported operators |
-| ------------------ | ---------------- | ------------------ | ------------------- |
-| Problem            | affectedEntities | List               | EQUAL\_TO           |
-| displayId          | String           | EQUAL\_TO          |
-| endTime            | DateTime         |                    |
-| entityTags         | List             |                    |
-| evidenceDetails    | Struct           |                    |
-| impactAnalysis     | Struct           |                    |
-| impactLevel        | String           | EQUAL\_TO          |
-| impactedEntities   | List             | EQUAL\_TO          |
-| linkedProblemInfo  | Struct           |                    |
-| managementZones    | List             | EQUAL\_TO          |
-| problemFilters     | List             |                    |
-| recentComments     | Struct           |                    |
-| rootCauseEntity    | Struct           | EQUAL\_TO          |
-| problemId          | String           | EQUAL\_TO          |
-| severityLevel      | String           | EQUAL\_TO          |
-| startTime          | DateTime         | BETWEEN            |
-| status             | String           | EQUAL\_TO          |
-| title              | String           |                    |
-| from               | DateTime         | EQUAL\_TO, BETWEEN |
-| problemFilterIds   | String           | EQUAL\_TO          |
-| problemFilterNames | String           | EQUAL\_TO          |
-| managementZoneIds  | String           | EQUAL\_TO          |
-| text               | String           | EQUAL\_TO          |
-| underMaintenance   | Boolean          | EQUAL\_TO          |
-| message            | String           |                    |
+
+
+- **Problem**
+  - **Field:** affectedEntities / **Data type:** List / **Supported operators:** EQUAL\_TO
+  - **Field:** displayId / **Data type:** String / **Supported operators:** EQUAL\_TO
+  - **Field:** endTime / **Data type:** DateTime / **Supported operators:** 
+  - **Field:** entityTags / **Data type:** List / **Supported operators:** 
+  - **Field:** evidenceDetails / **Data type:** Struct / **Supported operators:** 
+  - **Field:** impactAnalysis / **Data type:** Struct / **Supported operators:** 
+  - **Field:** impactLevel / **Data type:** String / **Supported operators:** EQUAL\_TO
+  - **Field:** impactedEntities / **Data type:** List / **Supported operators:** EQUAL\_TO
+  - **Field:** linkedProblemInfo / **Data type:** Struct / **Supported operators:** 
+  - **Field:** managementZones / **Data type:** List / **Supported operators:** EQUAL\_TO
+  - **Field:** problemFilters / **Data type:** List / **Supported operators:** 
+  - **Field:** recentComments / **Data type:** Struct / **Supported operators:** 
+  - **Field:** rootCauseEntity / **Data type:** Struct / **Supported operators:** EQUAL\_TO
+  - **Field:** problemId / **Data type:** String / **Supported operators:** EQUAL\_TO
+  - **Field:** severityLevel / **Data type:** String / **Supported operators:** EQUAL\_TO
+  - **Field:** startTime / **Data type:** DateTime / **Supported operators:** BETWEEN
+  - **Field:** status / **Data type:** String / **Supported operators:** EQUAL\_TO
+  - **Field:** title / **Data type:** String / **Supported operators:** 
+  - **Field:** from / **Data type:** DateTime / **Supported operators:** EQUAL\_TO, BETWEEN
+  - **Field:** problemFilterIds / **Data type:** String / **Supported operators:** EQUAL\_TO
+  - **Field:** problemFilterNames / **Data type:** String / **Supported operators:** EQUAL\_TO
+  - **Field:** managementZoneIds / **Data type:** String / **Supported operators:** EQUAL\_TO
+  - **Field:** text / **Data type:** String / **Supported operators:** EQUAL\_TO
+  - **Field:** underMaintenance / **Data type:** Boolean / **Supported operators:** EQUAL\_TO
+  - **Field:** message / **Data type:** String / **Supported operators:** 
+
+
 
 ## Partitioning queries
+<a name="dynatrace-reading-partitioning-queries"></a>
 
 Dynatrace doesn’t support field based or record based partitioning.

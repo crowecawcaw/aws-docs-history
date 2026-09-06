@@ -1,19 +1,21 @@
+
+
 # Using APIs to measure and manage data quality
+<a name="data-quality-using-apis"></a>
 
 This topic describes how to use APIs to measure and manage data quality.
 
-###### Contents
-
-- [Prerequisites](data-quality-using-apis.md#using-apis-prerequisites "data-quality-using-apis.md#using-apis-prerequisites")
-- [Working with AWS Glue Data Quality recommendations](data-quality-using-apis.md#using-apis-recommendations "data-quality-using-apis.md#using-apis-recommendations")
-- [Working with AWS Glue Data Quality rulesets](data-quality-using-apis.md#using-apis-rulesets "data-quality-using-apis.md#using-apis-rulesets")
-- [Working with AWS Glue Data Quality runs](data-quality-using-apis.md#using-apis-runs "data-quality-using-apis.md#using-apis-runs")
-- [Working with AWS Glue Data Quality results](data-quality-using-apis.md#using-apis-results "data-quality-using-apis.md#using-apis-results")
+**Contents**
++ [Prerequisites](#using-apis-prerequisites)
++ [Working with AWS Glue Data Quality recommendations](#using-apis-recommendations)
++ [Working with AWS Glue Data Quality rulesets](#using-apis-rulesets)
++ [Working with AWS Glue Data Quality runs](#using-apis-runs)
++ [Working with AWS Glue Data Quality results](#using-apis-results)
 
 ## Prerequisites
-
-- Make sure your boto3 version is up to date so that it includes the latest AWS Glue Data Quality API.
-- Make sure your AWS CLI version is up to date, so as to include the latest CLI.
+<a name="using-apis-prerequisites"></a>
++ Make sure your boto3 version is up to date so that it includes the latest AWS Glue Data Quality API.
++ Make sure your AWS CLI version is up to date, so as to include the latest CLI.
 
 If you’re using an AWS Glue job to run these APIs, you can use the following option to update the boto3 library to the latest version:
 
@@ -22,6 +24,7 @@ If you’re using an AWS Glue job to run these APIs, you can use the following o
 ```
 
 ## Working with AWS Glue Data Quality recommendations
+<a name="using-apis-recommendations"></a>
 
 **To start an AWS Glue Data Quality recommendation run:**
 
@@ -33,11 +36,11 @@ class GlueWrapper:
         :param glue_client: A Boto3 AWS Glue client.
         """
         self.glue_client = glue_client
-
+        
     def start_data_quality_rule_recommendation_run(self, database_name, table_name, role_arn):
         """
-        Starts a recommendation run that is used to generate rules when you don't know what rules to write. AWS Glue Data Quality
-        analyzes the data and comes up with recommendations for a potential ruleset. You can then triage the ruleset
+        Starts a recommendation run that is used to generate rules when you don't know what rules to write. AWS Glue Data Quality 
+        analyzes the data and comes up with recommendations for a potential ruleset. You can then triage the ruleset 
         and modify the generated ruleset to your liking.
 
         :param database_name: The name of the AWS Glue database which contains the dataset.
@@ -93,13 +96,13 @@ class GlueWrapper:
         :param glue_client: A Boto3 AWS Glue client.
         """
         self.glue_client = glue_client
-
+    
     def get_data_quality_rule_recommendation_run(self, run_id):
         """
         Gets the specified recommendation run that was used to generate rules.
 
         :param run_id: The id of the data quality recommendation run
-
+        
         """
         try:
             response = self.client.get_data_quality_rule_recommendation_run(RunId=run_id)
@@ -150,6 +153,7 @@ response = client.cancel_data_quality_rule_recommendation_run(
 ```
 
 ## Working with AWS Glue Data Quality rulesets
+<a name="using-apis-rulesets"></a>
 
 **To create an AWS Glue Data Quality ruleset:**
 
@@ -208,11 +212,11 @@ class GlueWrapper:
         :param glue_client: A Boto3 AWS Glue client.
         """
         self.glue_client = glue_client
-
+        
     def update_data_quality_ruleset(self, ruleset_name, ruleset_string):
         """
         Update an AWS Glue Data Quality Ruleset
-
+        
         :param ruleset_name: The name of the AWS Glue Data Quality ruleset to update
         :param ruleset_string: The DQDL ruleset string to update the ruleset with
 
@@ -224,7 +228,7 @@ class GlueWrapper:
             )
         except ClientError as err:
             logger.error(
-                "Couldn't update the AWS Glue Data Quality ruleset. Here's why: %s: %s",
+                "Couldn't update the AWS Glue Data Quality ruleset. Here's why: %s: %s", 
                 err.response['Error']['Code'], err.response['Error']['Message'])
             raise
         else:
@@ -241,11 +245,11 @@ class GlueWrapper:
         :param glue_client: A Boto3 AWS Glue client.
         """
         self.glue_client = glue_client
-
+        
     def delete_data_quality_ruleset(self, ruleset_name):
         """
         Delete a AWS Glue Data Quality Ruleset
-
+        
         :param ruleset_name: The name of the AWS Glue Data Quality ruleset to delete
 
         """
@@ -255,7 +259,7 @@ class GlueWrapper:
             )
         except ClientError as err:
             logger.error(
-                "Couldn't delete the AWS Glue Data Quality ruleset. Here's why: %s: %s",
+                "Couldn't delete the AWS Glue Data Quality ruleset. Here's why: %s: %s", 
                 err.response['Error']['Code'], err.response['Error']['Message'])
             raise
         else:
@@ -263,6 +267,7 @@ class GlueWrapper:
 ```
 
 ## Working with AWS Glue Data Quality runs
+<a name="using-apis-runs"></a>
 
 **To start an AWS Glue Data Quality run:**
 
@@ -274,14 +279,14 @@ class GlueWrapper:
         :param glue_client: A Boto3 AWS Glue client.
         """
         self.glue_client = glue_client
-
+        
     def start_data_quality_ruleset_evaluation_run(self, database_name, table_name, role_name, ruleset_list):
         """
         Start an AWS Glue Data Quality evaluation run
-
+        
         :param database_name: The name of the AWS Glue database which contains the dataset.
         :param table_name: The name of the AWS Glue table against which we want to evaluate.
-        :param role_arn: The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants permission to let AWS Glue access the resources it needs.
+        :param role_arn: The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants permission to let AWS Glue access the resources it needs. 
         :param ruleset_list: The list of AWS Glue Data Quality ruleset names to evaluate.
 
         """
@@ -298,7 +303,7 @@ class GlueWrapper:
             )
         except ClientError as err:
             logger.error(
-                "Couldn't start the AWS Glue Data Quality Run. Here's why: %s: %s",
+                "Couldn't start the AWS Glue Data Quality Run. Here's why: %s: %s", 
                 err.response['Error']['Code'], err.response['Error']['Message'])
             raise
         else:
@@ -330,12 +335,9 @@ response = client.start_data_quality_ruleset_evaluation_run(
 )
 ```
 
-You can also configure how composite rules in your ruleset are evaluated, either at the ROW or COLUMN level. For more information on
-how composite rules work, please refer to
-[How composite rules work](dqdl.md#dqdl-syntax-composite-rules "dqdl.md#dqdl-syntax-composite-rules")
-in the documentation.
+ You can also configure how composite rules in your ruleset are evaluated, either at the ROW or COLUMN level. For more information on how composite rules work, please refer to [How composite rules work](dqdl.md#dqdl-syntax-composite-rules) in the documentation. 
 
-Example on how to set the composite rule evaluation method in your request:
+ Example on how to set the composite rule evaluation method in your request: 
 
 ```
 response = client.start_data_quality_ruleset_evaluation_run(
@@ -360,7 +362,7 @@ response = client.start_data_quality_ruleset_evaluation_run(
 )
 ```
 
-**To get information about an AWS Glue Data Quality run:**
+ **To get information about an AWS Glue Data Quality run:** 
 
 ```
 class GlueWrapper:
@@ -370,11 +372,11 @@ class GlueWrapper:
         :param glue_client: A Boto3 AWS Glue client.
         """
         self.glue_client = glue_client
-
+        
     def get_data_quality_ruleset_evaluation_run(self, run_id):
         """
         Get details about an AWS Glue Data Quality Run
-
+        
         :param run_id: The AWS Glue Data Quality run ID to look up
 
         """
@@ -384,7 +386,7 @@ class GlueWrapper:
             )
         except ClientError as err:
             logger.error(
-                "Couldn't look up the AWS Glue Data Quality run ID. Here's why: %s: %s",
+                "Couldn't look up the AWS Glue Data Quality run ID. Here's why: %s: %s", 
                 err.response['Error']['Code'], err.response['Error']['Message'])
             raise
         else:
@@ -419,14 +421,14 @@ class GlueWrapper:
         :param glue_client: A Boto3 AWS Glue client.
         """
         self.glue_client = glue_client
-
+        
     def list_data_quality_ruleset_evaluation_runs(self, database_name, table_name):
         """
         Lists all the AWS Glue Data Quality runs against a given table
-
-        :param database_name: The name of the database where the data quality runs
+        
+        :param database_name: The name of the database where the data quality runs 
         :param table_name: The name of the table against which the data quality runs were created
-
+        
         """
         try:
             response = self.client.list_data_quality_ruleset_evaluation_runs(
@@ -441,7 +443,7 @@ class GlueWrapper:
             )
         except ClientError as err:
             logger.error(
-                "Couldn't list the AWS Glue Quality runs. Here's why: %s: %s",
+                "Couldn't list the AWS Glue Quality runs. Here's why: %s: %s", 
                 err.response['Error']['Code'], err.response['Error']['Message'])
             raise
         else:
@@ -460,13 +462,13 @@ class GlueWrapper:
         :param glue_client: A Boto3 AWS Glue client.
         """
         self.glue_client = glue_client
-
+        
     def cancel_data_quality_ruleset_evaluation_run(self, result_id):
         """
         Cancels a given AWS Glue Data Quality run
-
+        
         :param result_id: The result id of a AWS Glue Data Quality run to cancel
-
+        
         """
         try:
             response = self.client.cancel_data_quality_ruleset_evaluation_run(
@@ -474,7 +476,7 @@ class GlueWrapper:
             )
         except ClientError as err:
             logger.error(
-                "Couldn't cancel the AWS Glue Data Quality run. Here's why: %s: %s",
+                "Couldn't cancel the AWS Glue Data Quality run. Here's why: %s: %s", 
                 err.response['Error']['Code'], err.response['Error']['Message'])
             raise
         else:
@@ -482,8 +484,9 @@ class GlueWrapper:
 ```
 
 ## Working with AWS Glue Data Quality results
+<a name="using-apis-results"></a>
 
-**To get your AWS Glue Data Quality run results:**
+ **To get your AWS Glue Data Quality run results:** 
 
 ```
 class GlueWrapper:
@@ -493,13 +496,13 @@ class GlueWrapper:
         :param glue_client: A Boto3 AWS Glue client.
         """
         self.glue_client = glue_client
-
+        
     def get_data_quality_result(self, result_id):
         """
         Outputs the result of an AWS Glue Data Quality Result
-
+        
         :param result_id: The result id of an AWS Glue Data Quality run
-
+        
         """
         try:
             response = self.client.get_data_quality_result(
@@ -507,14 +510,14 @@ class GlueWrapper:
             )
         except ClientError as err:
             logger.error(
-                "Couldn't get the AWS Glue Data Quality result. Here's why: %s: %s",
+                "Couldn't get the AWS Glue Data Quality result. Here's why: %s: %s", 
                 err.response['Error']['Code'], err.response['Error']['Message'])
             raise
         else:
             return response
 ```
 
-**To view the statistics gathered for a given data quality result:**
+ **To view the statistics gathered for a given data quality result:** 
 
 ```
 import boto3
@@ -529,33 +532,33 @@ class GlueWrapper:
         :param glue_client: A Boto3 AWS Glue client.
         """
         self.glue_client = glue_client
-
+        
     def get_profile_for_data_quality_result(self, result_id):
         """
         Outputs the statistic profile for a AWS Glue Data Quality Result
-
+        
         :param result_id: The result id of a AWS Glue Data Quality run
-
+        
         """
         try:
             response = self.glue_client.get_data_quality_result(
                 ResultId=result_id
             )
-
+            
             # the profile contains all statistics gathered for the result
             profile_id = response['ProfileId']
             profile = self.glue_client.list_data_quality_statistics(
                 ProfileId = profile_id
-            )
-            return profile
+            )            
+            return profile                        
         except ClientError as err:
             logger.error(
-                "Couldn't retrieve Data Quality profile. Here's why: %s: %s",
+                "Couldn't retrieve Data Quality profile. Here's why: %s: %s", 
                 err.response['Error']['Code'], err.response['Error']['Message'])
             raise
 ```
 
-**To view the timeseries for a statistic gathered across multiple data quality runs:**
+ **To view the timeseries for a statistic gathered across multiple data quality runs:** 
 
 ```
 class GlueWrapper:
@@ -588,7 +591,7 @@ class GlueWrapper:
             raise
 ```
 
-**To view the anomaly detection model for a specific statistic:**
+ **To view the anomaly detection model for a specific statistic:** 
 
 ```
 class GlueWrapper:
@@ -619,7 +622,7 @@ class GlueWrapper:
             raise
 ```
 
-**To exclude a datapoint from its statistic model's anomaly detection baseline:**
+ **To exclude a datapoint from its statistic model's anomaly detection baseline:** 
 
 ```
 class GlueWrapper:
@@ -633,7 +636,7 @@ class GlueWrapper:
     def apply_exclusions_to_statistic(self, statistic_id, profile_ids):
         """
         Annotate some points along a given statistic timeseries.
-
+        
         This example excludes the provided values; INCLUDE can also be used to undo this action.
 
         :param statistic_id the statistic timeseries to annotate
@@ -644,8 +647,8 @@ class GlueWrapper:
         try:
             response = self.glue_client.batch_put_data_quality_statistic_annotation(
                     InclusionAnnotations = [
-                        {'ProfileId': prof_id,
-                        'StatisticId': statistic_id,
+                        {'ProfileId': prof_id, 
+                        'StatisticId': statistic_id, 
                         'InclusionAnnotation': 'EXCLUDE'} for prof_id in profile_ids
                     ]
             )
@@ -657,7 +660,7 @@ class GlueWrapper:
             raise
 ```
 
-**To view the status of anomaly detection model training for a specific statistic:**
+ **To view the status of anomaly detection model training for a specific statistic:** 
 
 ```
 class GlueWrapper:
@@ -688,7 +691,7 @@ class GlueWrapper:
             raise
 ```
 
-**To exclude all results from a specific data quality run from anomaly detection baselines:**
+ **To exclude all results from a specific data quality run from anomaly detection baselines:** 
 
 ```
 class GlueWrapper:
@@ -721,9 +724,9 @@ class GlueWrapper:
             raise
 ```
 
-**To get the results from a given data quality run and display the results:**
+ **To get the results from a given data quality run and display the results:** 
 
-With a AWS Glue Data Quality `runID`, you can extract the `resultID` to then get the actual results, as shown below:
+ With a AWS Glue Data Quality `runID`, you can extract the `resultID` to then get the actual results, as shown below: 
 
 ```
 response = client.get_data_quality_ruleset_evaluation_run(

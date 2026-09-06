@@ -1,24 +1,31 @@
+
+
 # Improving AWS Glue performance
+<a name="performance"></a>
 
 **Baseline strategy for performance tuning**
 
-In order to improve AWS Glue performance, you may consider updating certain performance related AWS Glue parameters.
-When preparing to tune parameters, use the following best practices:
+In order to improve AWS Glue performance, you may consider updating certain performance related AWS Glue parameters. When preparing to tune parameters, use the following best practices:
++ Determine your performance goals before beginning to identify problems.
++ Use metrics to identify problems before attempting to change tuning parameters.
 
-- Determine your performance goals before beginning to identify problems.
-- Use metrics to identify problems before attempting to change tuning parameters.
-  For the most consistent results when tuning a job, develop a baseline strategy for your tuning work.
+For the most consistent results when tuning a job, develop a baseline strategy for your tuning work.
 
 Generally, performance tuning is performed in the following workflow:
 
 1. Determine performance goals.
-2. Measure metrics.
-3. Identify bottlenecks.
-4. Reduce the impact of the bottlenecks.
-5. Repeat steps 2-4 until you achieve the intended target.
+
+1. Measure metrics.
+
+1. Identify bottlenecks.
+
+1. Reduce the impact of the bottlenecks.
+
+1. Repeat steps 2-4 until you achieve the intended target.
 
 ## Tuning strategies for your job type
+<a name="w2aac97c15"></a>
 
-**Spark jobs**–follow the guidance in [Best practices for performance tuning AWS Glue for Apache Spark jobs](../../../prescriptive-guidance/latest/tuning-aws-glue-for-apache-spark/introduction.md "../../../prescriptive-guidance/latest/tuning-aws-glue-for-apache-spark/introduction.md") on AWS Prescriptive Guidance.
+**Spark jobs**–follow the guidance in [Best practices for performance tuning AWS Glue for Apache Spark jobs](https://docs.aws.amazon.com/prescriptive-guidance/latest/tuning-aws-glue-for-apache-spark/introduction.html) on AWS Prescriptive Guidance.
 
 **Other jobs**–you can tune AWS Glue for Ray and AWS Glue Python shell jobs by adapting strategies available in other runtime environments.

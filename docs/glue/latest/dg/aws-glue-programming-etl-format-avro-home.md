@@ -1,43 +1,36 @@
+
+
 # Using the Avro format in AWS Glue
+<a name="aws-glue-programming-etl-format-avro-home"></a>
 
-AWS Glue retrieves data from sources and writes data to targets stored and transported in various data formats. If your data is
-stored or transported in the Avro data format, this document introduces you available features for using your
-data in AWS Glue.
+AWS Glue retrieves data from sources and writes data to targets stored and transported in various data formats. If your data is stored or transported in the Avro data format, this document introduces you available features for using your data in AWS Glue.
 
-AWS Glue supports using the Avro format. This format is a performance-oriented, row-based data format. For
-an introduction to the format by the standard authority see, [Apache Avro 1.8.2 Documentation](https://avro.apache.org/docs/1.8.2/ "https://avro.apache.org/docs/1.8.2/").
+AWS Glue supports using the Avro format. This format is a performance-oriented, row-based data format. For an introduction to the format by the standard authority see, [Apache Avro 1.8.2 Documentation](https://avro.apache.org/docs/1.8.2/).
 
-You can use AWS Glue to read Avro files from Amazon S3 and from streaming sources as well as write Avro files to Amazon S3.
-You can read and write `bzip2` and `gzip` archives containing Avro files from S3. Additionally,
-you can write `deflate`, `snappy`, and `xz` archives containing Avro files. You
-configure compression behavior on the [S3 connection parameters](aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3 "aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3") instead of in the configuration discussed on this
-page.
+You can use AWS Glue to read Avro files from Amazon S3 and from streaming sources as well as write Avro files to Amazon S3. You can read and write `bzip2` and `gzip` archives containing Avro files from S3. Additionally, you can write `deflate`, `snappy`, and `xz` archives containing Avro files. You configure compression behavior on the [S3 connection parameters](aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3) instead of in the configuration discussed on this page. 
 
-The following table shows which common AWS Glue operations support the Avro format
-option.
+The following table shows which common AWS Glue operations support the Avro format option.
 
-| Read      | Write     | Streaming read | Group small files | Job bookmarks |
-| --------- | --------- | -------------- | ----------------- | ------------- |
-| Supported | Supported | Supported\*    | Unsupported       | Supported     |
 
-\*Supported with restrictions. For more information, see [Notes and restrictions for Avro streaming sources](add-job-streaming.md#streaming-avro-notes "add-job-streaming.md#streaming-avro-notes").
+| Read | Write | Streaming read | Group small files | Job bookmarks | 
+| --- | --- | --- | --- | --- | 
+| Supported | Supported | Supported\* | Unsupported | Supported | 
+
+\*Supported with restrictions. For more information, see [Notes and restrictions for Avro streaming sources](add-job-streaming.md#streaming-avro-notes).
 
 ## Example: Read Avro files or folders from S3
+<a name="aws-glue-programming-etl-format-avro-read"></a>
 
-**Prerequisites:** You will need the S3 paths (`s3path`) to the
-Avro files or folders that you want to read.
+** Prerequisites:** You will need the S3 paths (`s3path`) to the Avro files or folders that you want to read. 
 
-**Configuration:**
-In your function options, specify `format="avro"`. In your `connection_options`, use the
-`paths` key to specify `s3path`. You can configure how the reader interacts with S3 in the
-`connection_options`. For details, see Data format options for ETL inputs and outputs in AWS Glue: [Amazon S3 connection option reference](aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3 "aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3"). You can configure how the reader interprets Avro files in your `format_options`. For
-details, see [Avro Configuration
-Reference](#aws-glue-programming-etl-format-avro-reference "#aws-glue-programming-etl-format-avro-reference").
+**Configuration:** In your function options, specify `format="avro"`. In your `connection_options`, use the `paths` key to specify `s3path`. You can configure how the reader interacts with S3 in the `connection_options`. For details, see Data format options for ETL inputs and outputs in AWS Glue: [Amazon S3 connection option reference](aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3). You can configure how the reader interprets Avro files in your `format_options`. For details, see [Avro Configuration Reference](#aws-glue-programming-etl-format-avro-reference).
 
-The following AWS Glue ETL script shows the process of reading Avro files or folders from S3:
+The following AWS Glue ETL script shows the process of reading Avro files or folders from S3: 
 
-Python
-For this example, use the [create\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options") method.
+------
+#### [ Python ]
+
+For this example, use the [create\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options) method.
 
 ```
 from pyspark.context import SparkContext
@@ -48,13 +41,15 @@ glueContext = GlueContext(sc)
 
 dynamicFrame = glueContext.create_dynamic_frame.from_options(
     connection_type="s3",
-    connection_options={"paths": ["s3://`s3path`"]},
+    connection_options={"paths": ["s3://{{s3path}}"]},
     format="avro"
 )
 ```
 
-Scala
-For this example, use the [getSourceWithFormat](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSourceWithFormat "glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSourceWithFormat") operation.
+------
+#### [ Scala ]
+
+For this example, use the [getSourceWithFormat](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSourceWithFormat) operation.
 
 ```
 import com.amazonaws.services.glue.util.JsonOptions
@@ -69,29 +64,26 @@ object GlueApp {
     val dynamicFrame = glueContext.getSourceWithFormat(
       connectionType="s3",
       format="avro",
-      options=JsonOptions("""{"paths": ["s3://`s3path`"]}""")
+      options=JsonOptions("""{"paths": ["s3://{{s3path}}"]}""")
     ).getDynamicFrame()
   }
 ```
 
+------
+
 ## Example: Write Avro files and folders to S3
+<a name="aws-glue-programming-etl-format-avro-write"></a>
 
-**Prerequisites:** You will need an initialized DataFrame
-(`dataFrame`) or DynamicFrame (`dynamicFrame`). You will also need your expected S3
-output path, `s3path`.
+** Prerequisites:** You will need an initialized DataFrame (`dataFrame`) or DynamicFrame (`dynamicFrame`). You will also need your expected S3 output path, `s3path`. 
 
-**Configuration:**
-In your function options, specify `format="avro"`. In your `connection_options`, use the
-`paths` key to specify your `s3path`. You can further alter how the writer interacts with S3 in the
-`connection_options`. For details, see Data format options for ETL inputs and outputs in AWS Glue: [Amazon S3 connection option reference](aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3 "aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3"). You can alter how the writer
-interprets Avro files in your `format_options`. For
-details, see [Avro Configuration
-Reference](#aws-glue-programming-etl-format-avro-reference "#aws-glue-programming-etl-format-avro-reference").
+**Configuration:** In your function options, specify `format="avro"`. In your `connection_options`, use the `paths` key to specify your `s3path`. You can further alter how the writer interacts with S3 in the `connection_options`. For details, see Data format options for ETL inputs and outputs in AWS Glue: [Amazon S3 connection option reference](aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3). You can alter how the writer interprets Avro files in your `format_options`. For details, see [Avro Configuration Reference](#aws-glue-programming-etl-format-avro-reference). 
 
 The following AWS Glue ETL script shows the process of writing Avro files or folders to S3.
 
-Python
-For this example, use the [write\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options") method.
+------
+#### [ Python ]
+
+For this example, use the [write\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options) method.
 
 ```
 from pyspark.context import SparkContext
@@ -101,18 +93,19 @@ sc = SparkContext.getOrCreate()
 glueContext = GlueContext(sc)
 
 glueContext.write_dynamic_frame.from_options(
-    frame=`dynamicFrame`,
+    frame={{dynamicFrame}},
     connection_type="s3",
     format="avro",
     connection_options={
-        "path": "s3://`s3path`"
+        "path": "s3://{{s3path}}"
     }
 )
 ```
 
-Scala
-For this example, use the [getSinkWithFormat](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSinkWithFormat "glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSinkWithFormat")
-method.
+------
+#### [ Scala ]
+
+For this example, use the [getSinkWithFormat](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSinkWithFormat) method.
 
 ```
 import com.amazonaws.services.glue.util.JsonOptions
@@ -126,57 +119,53 @@ object GlueApp {
 
     glueContext.getSinkWithFormat(
       connectionType="s3",
-      options=JsonOptions("""{"path": "s3://`s3path`"}"""),
+      options=JsonOptions("""{"path": "s3://{{s3path}}"}"""),
       format="avro"
-    ).writeDynamicFrame(`dynamicFrame`)
+    ).writeDynamicFrame({{dynamicFrame}})
   }
 }
 ```
 
+------
+
 ## Avro configuration reference
+<a name="aws-glue-programming-etl-format-avro-reference"></a>
 
-You can use the following `format_options` values wherever AWS Glue libraries specify
-`format="avro"`:
+You can use the following `format_options` values wherever AWS Glue libraries specify `format="avro"`:
++ `version` — Specifies the version of Apache Avro reader/writer format to support. The default is "1.7". You can specify `format_options={"version": “1.8”}` to enable Avro logical type reading and writing. For more information, see the [Apache Avro 1.7.7 Specification](https://avro.apache.org/docs/1.7.7/spec.html) and [Apache Avro 1.8.2 Specification](https://avro.apache.org/docs/1.8.2/spec.html).
 
-- `version` — Specifies the version of Apache Avro reader/writer format to support. The default is "1.7". You can specify `format_options={"version": “1.8”}` to enable Avro logical type reading and writing. For more information, see the [Apache Avro 1.7.7 Specification](https://avro.apache.org/docs/1.7.7/spec.html "https://avro.apache.org/docs/1.7.7/spec.html") and [Apache Avro 1.8.2 Specification](https://avro.apache.org/docs/1.8.2/spec.html "https://avro.apache.org/docs/1.8.2/spec.html").
+  The Apache Avro 1.8 connector supports the following logical type conversions:
 
-The Apache Avro 1.8 connector supports the following logical type conversions:
+For the reader: this table shows the conversion between Avro data type (logical type and Avro primitive type) and AWS Glue `DynamicFrame` data type for Avro reader 1.7 and 1.8.
 
-For the reader: this table shows the conversion between Avro data type (logical type and Avro
-primitive type) and AWS Glue `DynamicFrame` data type for Avro reader 1.7 and
-1.8.
 
-| Avro Data Type: Logical Type  | Avro Data Type: Avro Primitive Type | GlueDynamicFrame Data Type:Avro Reader 1.7 | GlueDynamicFrame Data Type: Avro Reader 1.8 |
-| ----------------------------- | ----------------------------------- | ------------------------------------------ | ------------------------------------------- |
-| Decimal                       | bytes                               | BINARY                                     | Decimal                                     |
-| Decimal                       | fixed                               | BINARY                                     | Decimal                                     |
-| Date                          | int                                 | INT                                        | Date                                        |
-| Time (millisecond)            | int                                 | INT                                        | INT                                         |
-| Time (microsecond)            | long                                | LONG                                       | LONG                                        |
-| Timestamp (millisecond)       | long                                | LONG                                       | Timestamp                                   |
-| Timestamp (microsecond)       | long                                | LONG                                       | LONG                                        |
-| Duration (not a logical type) | fixed of 12                         | BINARY                                     | BINARY                                      |
+| Avro Data Type: Logical Type | Avro Data Type: Avro Primitive Type | GlueDynamicFrame Data Type:Avro Reader 1.7 | GlueDynamicFrame Data Type: Avro Reader 1.8 | 
+| --- | --- | --- | --- | 
+| Decimal | bytes | BINARY | Decimal | 
+| Decimal | fixed | BINARY | Decimal | 
+| Date | int | INT | Date | 
+| Time (millisecond) | int | INT | INT | 
+| Time (microsecond) | long | LONG | LONG | 
+| Timestamp (millisecond) | long | LONG | Timestamp | 
+| Timestamp (microsecond) | long | LONG | LONG | 
+| Duration (not a logical type) | fixed of 12 | BINARY | BINARY | 
 
-For the writer: this table shows the conversion between AWS Glue `DynamicFrame` data
-type and Avro data type for Avro writer 1.7 and 1.8.
+For the writer: this table shows the conversion between AWS Glue `DynamicFrame` data type and Avro data type for Avro writer 1.7 and 1.8.
 
-| AWS Glue `DynamicFrame` Data Type | Avro Data Type:Avro Writer 1.7 | Avro Data Type:Avro Writer 1.8 |
-| --------------------------------- | ------------------------------ | ------------------------------ |
-| Decimal                           | String                         | decimal                        |
-| Date                              | String                         | date                           |
-| Timestamp                         | String                         | timestamp-micros               |
+
+| AWS Glue `DynamicFrame` Data Type | Avro Data Type:Avro Writer 1.7 | Avro Data Type:Avro Writer 1.8 | 
+| --- | --- | --- | 
+| Decimal | String | decimal | 
+| Date | String | date | 
+| Timestamp | String | timestamp-micros | 
 
 ## Avro Spark DataFrame support
+<a name="aws-glueprogramming-etl-format-avro-dataframe-support"></a>
 
-In order to use Avro from the Spark DataFrame API, you need to install the Spark Avro plugin for the corresponding
-Spark version. The version of Spark available in your job is determined by your AWS Glue version. For more information about Spark versions,
-see [AWS Glue versions](release-notes.md "release-notes.md"). This plugin is maintained by Apache, we do not make specific guarantees of support.
+In order to use Avro from the Spark DataFrame API, you need to install the Spark Avro plugin for the corresponding Spark version. The version of Spark available in your job is determined by your AWS Glue version. For more information about Spark versions, see [AWS Glue versions](release-notes.md). This plugin is maintained by Apache, we do not make specific guarantees of support.
 
-In AWS Glue 2.0 - use version 2.4.3 of the Spark Avro plugin. You can find this JAR on Maven Central, see
-[org.apache.spark:spark-avro\_2.12:2.4.3](https://search.maven.org/artifact/org.apache.spark/spark-avro_2.12/3.1.1/jar "https://search.maven.org/artifact/org.apache.spark/spark-avro_2.12/3.1.1/jar").
+In AWS Glue 2.0 - use version 2.4.3 of the Spark Avro plugin. You can find this JAR on Maven Central, see [org.apache.spark:spark-avro\_2.12:2.4.3](https://search.maven.org/artifact/org.apache.spark/spark-avro_2.12/3.1.1/jar).
 
-In AWS Glue 3.0 - use version 3.1.1 of the Spark Avro plugin. You can find this JAR on Maven Central,
-see [org.apache.spark:spark-avro\_2.12:3.1.1](https://search.maven.org/artifact/org.apache.spark/spark-avro_2.12/3.1.1/jar "https://search.maven.org/artifact/org.apache.spark/spark-avro_2.12/3.1.1/jar").
+In AWS Glue 3.0 - use version 3.1.1 of the Spark Avro plugin. You can find this JAR on Maven Central, see [org.apache.spark:spark-avro\_2.12:3.1.1](https://search.maven.org/artifact/org.apache.spark/spark-avro_2.12/3.1.1/jar).
 
-To include extra JARs in a AWS Glue ETL job, use the `--extra-jars` job parameter. For more information about job parameters, see
-[Using job parameters in AWS Glue jobs](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md"). You can also configure this parameter in the AWS Management Console.
+To include extra JARs in a AWS Glue ETL job, use the `--extra-jars` job parameter. For more information about job parameters, see [Using job parameters in AWS Glue jobs](aws-glue-programming-etl-glue-arguments.md). You can also configure this parameter in the AWS Management Console.

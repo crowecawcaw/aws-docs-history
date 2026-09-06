@@ -1,10 +1,14 @@
+
+
 # AWS Glue Scala ArrayNode APIs
+<a name="glue-etl-scala-apis-glue-types-arraynode"></a>
 
 **Package: com.amazonaws.services.glue.types**
 
 ## ArrayNode case class
+<a name="glue-etl-scala-apis-glue-types-arraynode-case-class"></a>
 
-**ArrayNode**
+ **ArrayNode**
 
 ```
 case class ArrayNode extends DynamicNode  (
@@ -12,6 +16,7 @@ case class ArrayNode extends DynamicNode  (
 ```
 
 ### ArrayNode def methods
+<a name="glue-etl-scala-apis-glue-types-arraynode-case-class-defs"></a>
 
 ```
 def add( node : DynamicNode )
@@ -26,7 +31,7 @@ def equals( other : Any )
 ```
 
 ```
-def get( index : Int ) : Option[DynamicNode]
+def get( index : Int ) : Option[DynamicNode] 
 ```
 
 ```
@@ -34,11 +39,11 @@ def getValue
 ```
 
 ```
-def hashCode : Int
+def hashCode : Int 
 ```
 
 ```
-def isEmpty : Boolean
+def isEmpty : Boolean 
 ```
 
 ```
@@ -54,11 +59,11 @@ def this
 ```
 
 ```
-def toIterator : Iterator[DynamicNode]
+def toIterator : Iterator[DynamicNode] 
 ```
 
 ```
-def toJson : String
+def toJson : String 
 ```
 
 ```

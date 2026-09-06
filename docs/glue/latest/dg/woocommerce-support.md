@@ -1,17 +1,16 @@
+
+
 # AWS Glue support for WooCommerce
+<a name="woocommerce-support"></a>
 
 AWS Glue supports WooCommerce as follows:
 
-###### Supported as a source?
-
+**Supported as a source?**  
 Yes. You can use AWS Glue ETL jobs to query data from WooCommerce.
 
-###### Supported as a target?
-
+**Supported as a target?**  
 No.
 
-###### Supported WooCommerce API versions
-
+**Supported WooCommerce API versions**  
 The following WooCommerce API versions are supported:
-
-- v3
++ v3

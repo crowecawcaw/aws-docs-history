@@ -1,18 +1,21 @@
+
+
 # Reading from Datadog entities
+<a name="datadog-reading-from-entities"></a>
 
-**Prerequisites**
+ **Prerequisites** 
 
-A Datadog Object you would like to read from. Refer the supported entities
-table below to check the available entities.
+A Datadog Object you would like to read from. Refer the supported entities table below to check the available entities. 
 
-**Supported entities**
+ **Supported entities** 
 
-| Entity             | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning |
-| ------------------ | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Metrics Timeseries | Yes             | No             | No                | Yes                | No                    |
-| Log Queries        | Yes             | Yes            | Yes               | Yes                | No                    |
 
-**Example**
+| Entity | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| Metrics Timeseries | Yes | No | No | Yes | No | 
+| Log Queries | Yes | Yes | Yes | Yes | No | 
+
+ **Example** 
 
 ```
 Datadog_read = glueContext.create_dynamic_frame.from_options(
@@ -26,35 +29,39 @@ Datadog_read = glueContext.create_dynamic_frame.from_options(
     }
 ```
 
-**Datadog entity and field details**
+ **Datadog entity and field details** 
 
-| Entity             | Field    | Data Type         | **Supported Operators** |
-| ------------------ | -------- | ----------------- | ----------------------- |
-| Metrics Timeseries | error    | String            | NA                      |
-| aggr               | String   | NA                |
-| attributes         | Struct   | NA                |
-| display\_name      | String   | NA                |
-| end                | DateTime | NA                |
-| expression         | String   | NA                |
-| interval           | Integer  | NA                |
-| length             | Integer  | NA                |
-| metric             | String   | NA                |
-| pointlist          | List     | NA                |
-| query\_index       | Integer  | NA                |
-| scope              | String   | NA                |
-| start              | DateTime | NA                |
-| tag\_set           | List     | NA                |
-| unit               | Struct   | NA                |
-| from\_to\_date     | DateTime | BETWEEN           |
-| query              | String   | EQUAL\_TO         |
-| status             | String   | NA                |
-| type               | String   | NA                |
-| host               | String   | NA                |
-| Log Queries        | id       | String            | NA                      |
-| attributes         | Struct   | NA                |
-| timestamp          | DateTime | NA                |
-| type               | String   | NA                |
-| from               | DateTime | BETWEEN,EQUAL\_TO |
-| indexes            | List     | EQUAL\_TO         |
-| storage\_tier      | String   | EQUAL\_TO         |
-| query              | String   | EQUAL\_TO         |
+
+
+- **Metrics Timeseries**
+  - **Field:** error / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** aggr / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** attributes / **Data Type:** Struct / ****Supported Operators**:** NA
+  - **Field:** display\_name / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** end / **Data Type:** DateTime / ****Supported Operators**:** NA
+  - **Field:** expression / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** interval / **Data Type:** Integer / ****Supported Operators**:** NA
+  - **Field:** length / **Data Type:** Integer / ****Supported Operators**:** NA
+  - **Field:** metric / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** pointlist / **Data Type:** List / ****Supported Operators**:** NA
+  - **Field:** query\_index / **Data Type:** Integer / ****Supported Operators**:** NA
+  - **Field:** scope / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** start / **Data Type:** DateTime / ****Supported Operators**:** NA
+  - **Field:** tag\_set / **Data Type:** List / ****Supported Operators**:** NA
+  - **Field:** unit / **Data Type:** Struct / ****Supported Operators**:** NA
+  - **Field:** from\_to\_date / **Data Type:** DateTime / ****Supported Operators**:** BETWEEN
+  - **Field:** query / **Data Type:** String / ****Supported Operators**:** EQUAL\_TO
+  - **Field:** status / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** type / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** host / **Data Type:** String / ****Supported Operators**:** NA
+
+- **Log Queries**
+  - **Field:** id / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** attributes / **Data Type:** Struct / ****Supported Operators**:** NA
+  - **Field:** timestamp / **Data Type:** DateTime / ****Supported Operators**:** NA
+  - **Field:** type / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** from / **Data Type:** DateTime / ****Supported Operators**:** BETWEEN,EQUAL\_TO
+  - **Field:** indexes / **Data Type:** List / ****Supported Operators**:** EQUAL\_TO
+  - **Field:** storage\_tier / **Data Type:** String / ****Supported Operators**:** EQUAL\_TO
+  - **Field:** query / **Data Type:** String / ****Supported Operators**:** EQUAL\_TO
+

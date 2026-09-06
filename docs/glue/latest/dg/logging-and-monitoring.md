@@ -1,28 +1,16 @@
+
+
 # Logging and monitoring in AWS Glue
+<a name="logging-and-monitoring"></a>
 
-You can automate the running of your ETL (extract, transform, and load) jobs. AWS Glue
-provides metrics for crawlers and jobs that you can monitor. After you set up the
-AWS Glue Data Catalog with the required metadata, AWS Glue provides statistics about the health of your
-environment. You can automate the invocation of crawlers and jobs with a time-based schedule
-based on cron. You can also trigger jobs when an event-based trigger fires.
+You can automate the running of your ETL (extract, transform, and load) jobs. AWS Glue provides metrics for crawlers and jobs that you can monitor. After you set up the AWS Glue Data Catalog with the required metadata, AWS Glue provides statistics about the health of your environment. You can automate the invocation of crawlers and jobs with a time-based schedule based on cron. You can also trigger jobs when an event-based trigger fires. 
 
-AWS Glue is integrated with AWS CloudTrail, a service that provides a record of actions taken by a
-user, role, or AWS service in AWS Glue. If you create a trail, you can enable continuous
-delivery of CloudTrail events to an Amazon Simple Storage Service (Amazon S3) bucket, Amazon CloudWatch Logs, and Amazon CloudWatch Events. Every event
-or log entry contains information about who generated the request. With AWS Glue version 5.1,
-audit context for AWS Glue and AWS Lake Formation API calls will be available in the AWS CloudTrail logs.
+AWS Glue is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or AWS service in AWS Glue. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon Simple Storage Service (Amazon S3) bucket, Amazon CloudWatch Logs, and Amazon CloudWatch Events. Every event or log entry contains information about who generated the request. With AWS Glue version 5.1, audit context for AWS Glue and AWS Lake Formation API calls will be available in the AWS CloudTrail logs.
 
-Use Amazon CloudWatch Events to automate your AWS services and respond automatically to system events
-such as application availability issues or resource changes. Events from AWS services are
-delivered to CloudWatch Events in near-real time. You can write simple rules to indicate which events
-are of interest and what automated actions to take when an event matches a rule.
+Use Amazon CloudWatch Events to automate your AWS services and respond automatically to system events such as application availability issues or resource changes. Events from AWS services are delivered to CloudWatch Events in near-real time. You can write simple rules to indicate which events are of interest and what automated actions to take when an event matches a rule. 
 
-###### See also
+**See also**  
+[Automating AWS Glue with EventBridge](automating-awsglue-with-cloudwatch-events.md)
+[Cross-account CloudTrail logging](cross-account-access.md#cross-account-ct-logs)
 
-- [Automating AWS Glue with EventBridge](automating-awsglue-with-cloudwatch-events.md "automating-awsglue-with-cloudwatch-events.md")
-- [Cross-account CloudTrail logging](cross-account-access.md#cross-account-ct-logs "cross-account-access.md#cross-account-ct-logs")
-
-An important facet of security in the cloud is logging. You must
-configure logging in a way that does not capture secrets and confidential material while
-capturing information necessary to debug and secure your cloud infastructure. Make sure
-to familizarize yourself with what is being logged.
+ An important facet of security in the cloud is logging. You must configure logging in a way that does not capture secrets and confidential material while capturing information necessary to debug and secure your cloud infastructure. Make sure to familizarize yourself with what is being logged. 

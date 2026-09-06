@@ -1,10 +1,14 @@
+
+
 # AWS Glue Scala MapNode APIs
+<a name="glue-etl-scala-apis-glue-types-mapnode"></a>
 
 **Package: com.amazonaws.services.glue.types**
 
 ## MapNode case class
+<a name="glue-etl-scala-apis-glue-types-mapnode-case-class"></a>
 
-**MapNode**
+ **MapNode**
 
 ```
 case class MapNode extends MapLikeNode(value)  (
@@ -12,6 +16,7 @@ case class MapNode extends MapLikeNode(value)  (
 ```
 
 ### MapNode def methods
+<a name="glue-etl-scala-apis-glue-types-mapnode-case-class-defs"></a>
 
 ```
 def clone
@@ -22,7 +27,7 @@ def equals( other : Any )
 ```
 
 ```
-def hashCode : Int
+def hashCode : Int 
 ```
 
 ```

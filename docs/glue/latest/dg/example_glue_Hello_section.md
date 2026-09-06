@@ -1,16 +1,15 @@
+
+
 # Hello AWS Glue
+<a name="example_glue_Hello_section"></a>
 
 The following code examples show how to get started using AWS Glue.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples). 
 
 ```
 namespace GlueActions;
@@ -61,26 +60,15 @@ public class HelloGlue
         }
     }
 }
-
-
-
 ```
++  For API details, see [ListJobs](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/ListJobs) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListJobs](../../../goto/DotNetSDKV3/glue-2017-03-31/ListJobs.md "../../../goto/DotNetSDKV3/glue-2017-03-31/ListJobs.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue/hello_glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue/hello_glue#code-examples").
-
-Code for the CMakeLists.txt CMake file.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue/hello_glue#code-examples). 
+Code for the CMakeLists.txt CMake file.  
 
 ```
 # Set the minimum required version of CMake for this project.
@@ -110,7 +98,7 @@ find_package(AWSSDK REQUIRED COMPONENTS ${SERVICE_COMPONENTS})
 if (WINDOWS_BUILD AND AWSSDK_INSTALL_AS_SHARED_LIBS)
      # Copy relevant AWS SDK for C++ libraries into the current binary directory for running and debugging.
 
-     # set(BIN_SUB_DIR "/Debug") # if you are building from the command line you may need to uncomment this
+     # set(BIN_SUB_DIR "/Debug") # if you are building from the command line you may need to uncomment this 
                                     # and set the proper subdirectory to the executables' location.
 
      AWSSDK_CPY_DYN_LIBS(SERVICE_COMPONENTS "" ${CMAKE_CURRENT_BINARY_DIR}${BIN_SUB_DIR})
@@ -121,11 +109,8 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
         ${AWSSDK_LINK_LIBRARIES})
-
-
 ```
-
-Code for the hello\_glue.cpp source file.
+Code for the hello\_glue.cpp source file.  
 
 ```
 #include <aws/core/Aws.h>
@@ -191,23 +176,14 @@ int main(int argc, char **argv) {
     Aws::ShutdownAPI(options); // Should only be called once.
     return result;
 }
-
-
 ```
++  For API details, see [ListJobs](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/ListJobs) in *AWS SDK for C\+\+ API Reference*. 
 
-- For API details, see
-  [ListJobs](../../../goto/SdkForCpp/glue-2017-03-31/ListJobs.md "../../../goto/SdkForCpp/glue-2017-03-31/ListJobs.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples). 
 
 ```
 package com.example.glue;
@@ -238,23 +214,14 @@ public class HelloGlue {
         });
     }
 }
-
-
 ```
++  For API details, see [ListJobs](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/ListJobs) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListJobs](../../../goto/SdkForJavaV2/glue-2017-03-31/ListJobs.md "../../../goto/SdkForJavaV2/glue-2017-03-31/ListJobs.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples). 
 
 ```
 import { ListJobsCommand, GlueClient } from "@aws-sdk/client-glue";
@@ -270,26 +237,16 @@ export const main = async () => {
   console.log(formattedJobNames);
   return JobNames;
 };
+```
++  For API details, see [ListJobs](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ListJobsCommand) in *AWS SDK for JavaScript API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples). 
 
 ```
-
-- For API details, see
-  [ListJobs](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/ListJobsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/ListJobsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples").
-
-```
-
 import boto3
 from botocore.exceptions import ClientError
 
@@ -320,27 +277,16 @@ def hello_glue():
 
 if __name__ == "__main__":
     hello_glue()
+```
++  For API details, see [ListJobs](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/ListJobs) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples). 
 
 ```
-
-- For API details, see
-  [ListJobs](../../../goto/boto3/glue-2017-03-31/ListJobs.md "../../../goto/boto3/glue-2017-03-31/ListJobs.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples").
-
-```
-
 require 'aws-sdk-glue'
 require 'logger'
 
@@ -378,24 +324,14 @@ if $PROGRAM_NAME == __FILE__
   manager = GlueManager.new(glue_client)
   manager.list_jobs
 end
-
-
-
 ```
++  For API details, see [ListJobs](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/ListJobs) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListJobs](../../../goto/SdkForRubyV3/glue-2017-03-31/ListJobs.md "../../../goto/SdkForRubyV3/glue-2017-03-31/ListJobs.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/glue#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/glue#code-examples). 
 
 ```
         let mut list_jobs = glue.list_jobs().into_paginator().send();
@@ -408,14 +344,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
                 Err(err) => return Err(GlueMvpError::from_glue_sdk(err)),
             }
         }
-
-
 ```
++  For API details, see [ListJobs](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.list_jobs) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListJobs](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.list_jobs "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.list_jobs")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

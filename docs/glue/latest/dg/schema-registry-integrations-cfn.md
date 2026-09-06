@@ -1,4 +1,7 @@
+
+
 # Sample CloudFormation template for schema registry
+<a name="schema-registry-integrations-cfn"></a>
 
 The following is a sample template for creating Schema Registry resources in CloudFormation. To create this stack in your account, copy the above template into a file `SampleTemplate.yaml`, and run the following command:
 
@@ -6,7 +9,7 @@ The following is a sample template for creating Schema Registry resources in Clo
 aws cloudformation create-stack --stack-name ABCSchemaRegistryStack --template-body "'cat SampleTemplate.yaml'"
 ```
 
-This example uses `AWS::Glue::Registry` to create a registry, `AWS::Glue::Schema` to create a schema, `AWS::Glue::SchemaVersion` to create a schema version, and `AWS::Glue::SchemaVersionMetadata` to populate schema version metadata.
+This example uses `AWS::Glue::Registry` to create a registry, `AWS::Glue::Schema` to create a schema, `AWS::Glue::SchemaVersion` to create a schema version, and `AWS::Glue::SchemaVersionMetadata` to populate schema version metadata. 
 
 ```
 Description: "A sample CloudFormation template for creating Schema Registry resources."
@@ -49,5 +52,4 @@ Resources:
       SchemaVersionId: !Ref SecondSchemaVersion
       Key: "Application"
       Value: "Kinesis"
-
 ```

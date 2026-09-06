@@ -1,8 +1,11 @@
+
+
 # Updating a schema
+<a name="schema-registry-gs5b"></a>
 
 You can update the description or compatibility setting for a schema.
 
-To update an existing schema, use the [UpdateSchema action (Python: update\_schema)](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-UpdateSchema "aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-UpdateSchema") API.
+To update an existing schema, use the [UpdateSchema action (Python: update\_schema)](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-UpdateSchema) API.
 
 Specify a `SchemaId` structure to indicate the schema that you want to update. One of `VersionNumber` or `Compatibility` has to be provided.
 

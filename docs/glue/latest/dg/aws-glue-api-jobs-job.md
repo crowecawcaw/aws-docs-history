@@ -1,1094 +1,744 @@
-# Jobs
 
-The Jobs API describes the data types and API related to creating, updating,
-deleting, or viewing jobs in AWS Glue.
+
+# Jobs
+<a name="aws-glue-api-jobs-job"></a>
+
+The Jobs API describes the data types and API related to creating, updating, deleting, or viewing jobs in AWS Glue.
 
 ## Data types
-
-- [Job structure](#aws-glue-api-jobs-job-Job "#aws-glue-api-jobs-job-Job")
-- [ExecutionProperty structure](#aws-glue-api-jobs-job-ExecutionProperty "#aws-glue-api-jobs-job-ExecutionProperty")
-- [NotificationProperty structure](#aws-glue-api-jobs-job-NotificationProperty "#aws-glue-api-jobs-job-NotificationProperty")
-- [JobCommand structure](#aws-glue-api-jobs-job-JobCommand "#aws-glue-api-jobs-job-JobCommand")
-- [ConnectionsList structure](#aws-glue-api-jobs-job-ConnectionsList "#aws-glue-api-jobs-job-ConnectionsList")
-- [JobUpdate structure](#aws-glue-api-jobs-job-JobUpdate "#aws-glue-api-jobs-job-JobUpdate")
-- [SourceControlDetails structure](#aws-glue-api-jobs-job-SourceControlDetails "#aws-glue-api-jobs-job-SourceControlDetails")
+<a name="aws-glue-api-jobs-job-objects"></a>
++ [Job structure](#aws-glue-api-jobs-job-Job)
++ [ExecutionProperty structure](#aws-glue-api-jobs-job-ExecutionProperty)
++ [NotificationProperty structure](#aws-glue-api-jobs-job-NotificationProperty)
++ [JobCommand structure](#aws-glue-api-jobs-job-JobCommand)
++ [ConnectionsList structure](#aws-glue-api-jobs-job-ConnectionsList)
++ [JobUpdate structure](#aws-glue-api-jobs-job-JobUpdate)
++ [SourceControlDetails structure](#aws-glue-api-jobs-job-SourceControlDetails)
 
 ## Job structure
+<a name="aws-glue-api-jobs-job-Job"></a>
 
 Specifies a job definition.
 
-###### Fields
+**Fields**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name you assign to this job definition.
++ `JobMode` – UTF-8 string (valid values: `SCRIPT=""` \| `VISUAL=""` \| `NOTEBOOK=""`).
 
-The name you assign to this job definition.
+  A mode that describes how a job was created. Valid values are:
+  + `SCRIPT` - The job was created using the AWS Glue Studio script editor.
+  + `VISUAL` - The job was created using the AWS Glue Studio visual editor.
+  + `NOTEBOOK` - The job was created using an interactive sessions notebook.
 
-- `JobMode` – UTF-8 string (valid values: `SCRIPT=""` | `VISUAL=""` | `NOTEBOOK=""`).
+  When the `JobMode` field is missing or null, `SCRIPT` is assigned as the default value.
++ `JobRunQueuingEnabled` – Boolean.
 
-A mode that describes how a job was created. Valid values are:
+  Specifies whether job run queuing is enabled for the job runs for this job.
 
-    + `SCRIPT` - The job was created using the AWS Glue Studio script editor.
-    + `VISUAL` - The job was created using the AWS Glue Studio visual editor.
-    + `NOTEBOOK` - The job was created using an interactive sessions
-     notebook.
+  A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
 
-When the `JobMode` field is missing or null, `SCRIPT`
-is assigned as the default value.
+  If this field does not match the value set in the job run, then the value from the job run field will be used.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `JobRunQueuingEnabled` – Boolean.
+  A description of the job.
++ `LogUri` – UTF-8 string.
 
-Specifies whether job run queuing is enabled for the job runs for this job.
+  This field is reserved for future use.
++ `Role` – UTF-8 string.
 
-A value of true means job run queuing is enabled for the job runs. If false
-or not populated, the job runs will not be considered for queueing.
+  The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
++ `CreatedOn` – Timestamp.
 
-If this field does not match the value set in the job run, then the value from
-the job run field will be used.
+  The time and date that this job definition was created.
++ `LastModifiedOn` – Timestamp.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  The last point in time when this job definition was modified.
++ `ExecutionProperty` – An [ExecutionProperty](#aws-glue-api-jobs-job-ExecutionProperty) object.
 
-A description of the job.
+  An `ExecutionProperty` specifying the maximum number of concurrent runs allowed for this job.
++ `Command` – A [JobCommand](#aws-glue-api-jobs-job-JobCommand) object.
 
-- `LogUri` – UTF-8 string.
+  The `JobCommand` that runs this job.
++ `DefaultArguments` – A map array of key-value pairs.
 
-This field is reserved for future use.
+  Each key is a UTF-8 string.
 
-- `Role` – UTF-8 string.
+  Each value is a UTF-8 string.
 
-The name or Amazon Resource Name (ARN) of the IAM role associated with this
-job.
+  The default arguments for every run of this job, specified as name-value pairs.
 
-- `CreatedOn` – Timestamp.
+  You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
 
-The time and date that this job definition was created.
+  Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets from a AWS Glue Connection, AWS Secrets Manager or other secret management mechanism if you intend to keep them within the Job. 
 
-- `LastModifiedOn` – Timestamp.
+  For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide.
 
-The last point in time when this job definition was modified.
+  For information about the arguments you can provide to this field when configuring Spark jobs, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
 
-- `ExecutionProperty` – An [ExecutionProperty](#aws-glue-api-jobs-job-ExecutionProperty "#aws-glue-api-jobs-job-ExecutionProperty") object.
+  For information about the arguments you can provide to this field when configuring Ray jobs, see [Using job parameters in Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html) in the developer guide.
++ `NonOverridableArguments` – A map array of key-value pairs.
 
-An `ExecutionProperty` specifying the maximum number of
-concurrent runs allowed for this job.
+  Each key is a UTF-8 string.
 
-- `Command` – A [JobCommand](#aws-glue-api-jobs-job-JobCommand "#aws-glue-api-jobs-job-JobCommand") object.
+  Each value is a UTF-8 string.
 
-The `JobCommand` that runs this job.
+  Arguments for this job that are not overridden when providing job arguments in a job run, specified as name-value pairs.
++ `Connections` – A [ConnectionsList](aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-ConnectionsList) object.
 
-- `DefaultArguments` – A map array of key-value pairs.
+  The connections used for this job.
++ `MaxRetries` – Number (integer).
 
-Each key is a UTF-8 string.
+  The maximum number of times to retry this job after a JobRun fails.
++ `AllocatedCapacity` – Number (integer).
 
-Each value is a UTF-8 string.
+  This field is deprecated. Use `MaxCapacity` instead.
 
-The default arguments for every run of this job, specified as name-value
-pairs.
+  The number of AWS Glue data processing units (DPUs) allocated to runs of this job. You can allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the [AWS Glue pricing page](https://aws.amazon.com/glue/pricing/).
 
-You can specify arguments here that your own job-execution script consumes,
-as well as arguments that AWS Glue itself consumes.
+  
++ `Timeout` – Number (integer), at least 1.
 
-Job arguments may be logged. Do not pass plaintext secrets as arguments.
-Retrieve secrets from a AWS Glue Connection, AWS Secrets Manager or other secret management mechanism if you intend to keep them within the Job.
+  The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters `TIMEOUT` status.
 
-For information about how to specify and consume your own Job arguments,
-see the [Calling
-AWS Glue APIs in Python](aws-glue-programming-python-calling.md "aws-glue-programming-python-calling.md") topic in the developer guide.
+  Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise, the jobs will throw an exception.
 
-For information about the arguments you can provide to this field when
-configuring Spark jobs, see the [Special
-Parameters Used by AWS Glue](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md") topic in the developer guide.
+  When the value is left blank, the timeout is defaulted to 2,880 minutes for Glue version 4.0 and earlier, or 480 minutes for Glue version 5.0 and later.
 
-For information about the arguments you can provide to this field when
-configuring Ray jobs, see [Using
-job parameters in Ray jobs](author-job-ray-job-parameters.md "author-job-ray-job-parameters.md") in the developer guide.
+  Any existing AWS Glue jobs that had a timeout value greater than 7 days will be defaulted to 7 days. For instance if you have specified a timeout of 20 days for a batch job, it will be stopped on the 7th day.
 
-- `NonOverridableArguments` – A map array of key-value pairs.
+  For streaming jobs, if you have set up a maintenance window, it will be restarted during the maintenance window after 7 days.
++ `MaxCapacity` – Number (double).
 
-Each key is a UTF-8 string.
+  For Glue version 1.0 or earlier jobs, using the standard worker type, the number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the [AWS Glue pricing page](https://aws.amazon.com/glue/pricing/).
 
-Each value is a UTF-8 string.
+  For Glue version 2.0 or later jobs, you cannot specify a `Maximum capacity`. Instead, you should specify a `Worker type` and the `Number of workers`.
 
-Arguments for this job that are not overridden when providing job arguments
-in a job run, specified as name-value pairs.
+  Do not set `MaxCapacity` if using `WorkerType` and `NumberOfWorkers`.
 
-- `Connections` – A [ConnectionsList](aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-ConnectionsList "aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-ConnectionsList") object.
+  The value that can be allocated for `MaxCapacity` depends on whether you are running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL job:
+  + When you specify a Python shell job (`JobCommand.Name`="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
+  + When you specify an Apache Spark ETL job (`JobCommand.Name`="glueetl") or Apache Spark streaming ETL job (`JobCommand.Name`="gluestreaming"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
++ `WorkerType` – UTF-8 string (valid values: `Standard=""` \| `G.1X=""` \| `G.2X=""` \| `G.025X=""` \| `G.4X=""` \| `G.8X=""` \| `Z.2X=""`).
 
-The connections used for this job.
+  The type of predefined worker that is allocated when a job runs.
 
-- `MaxRetries` – Number (integer).
+  AWS Glue provides multiple worker types to accommodate different workload requirements:
 
-The maximum number of times to retry this job after a JobRun fails.
+  G Worker Types (General-purpose compute workers):
+  + G.1X: 1 DPU (4 vCPUs, 16 GB memory, 94GB disk)
+  + G.2X: 2 DPU (8 vCPUs, 32 GB memory, 138GB disk)
+  + G.4X: 4 DPU (16 vCPUs, 64 GB memory, 256GB disk)
+  + G.8X: 8 DPU (32 vCPUs, 128 GB memory, 512GB disk)
+  + G.12X: 12 DPU (48 vCPUs, 192 GB memory, 768GB disk)
+  + G.16X: 16 DPU (64 vCPUs, 256 GB memory, 1024GB disk)
 
-- `AllocatedCapacity` – Number (integer).
+  R Worker Types (Memory-optimized workers):
+  + R.1X: 1 M-DPU (4 vCPUs, 32 GB memory)
+  + R.2X: 2 M-DPU (8 vCPUs, 64 GB memory)
+  + R.4X: 4 M-DPU (16 vCPUs, 128 GB memory)
+  + R.8X: 8 M-DPU (32 vCPUs, 256 GB memory)
++ `NumberOfWorkers` – Number (integer).
 
-This field is deprecated. Use `MaxCapacity` instead.
+  The number of workers of a defined `workerType` that are allocated when a job runs.
++ `SecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The number of AWS Glue data processing units (DPUs) allocated
-to runs of this job. You can allocate a minimum of 2 DPUs; the default is 10. A DPU
-is a relative measure of processing power that consists of 4 vCPUs of compute capacity
-and 16 GB of memory. For more information, see the [AWS Glue pricing page](https://aws.amazon.com/glue/pricing/ "https://aws.amazon.com/glue/pricing/").
+  The name of the `SecurityConfiguration` structure to be used with this job.
++ `NotificationProperty` – A [NotificationProperty](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-NotificationProperty) object.
 
-- `Timeout` – Number (integer), at least 1.
+  Specifies configuration properties of a job notification.
++ `Running` – Boolean.
 
-The job timeout in minutes. This is the maximum time that a job run can consume
-resources before it is terminated and enters `TIMEOUT` status.
+  This field is reserved for future use.
++ `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45).
 
-Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise,
-the jobs will throw an exception.
+  In Spark jobs, `GlueVersion` determines the versions of Apache Spark and Python that AWS Glue available in a job. The Python version indicates the version supported for jobs of type Spark. 
 
-When the value is left blank, the timeout is defaulted to 2,880 minutes
-for Glue version 4.0 and earlier, or 480 minutes for Glue version 5.0 and later.
+  Ray jobs should set `GlueVersion` to `4.0` or greater. However, the versions of Ray, Python and additional libraries available in your Ray job are determined by the `Runtime` parameter of the Job command.
 
-Any existing AWS Glue jobs that had a timeout value greater
-than 7 days will be defaulted to 7 days. For instance if you have specified a timeout
-of 20 days for a batch job, it will be stopped on the 7th day.
+  For more information about the available AWS Glue versions and corresponding Spark and Python versions, see [Glue version](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
 
-For streaming jobs, if you have set up a maintenance window, it will be restarted
-during the maintenance window after 7 days.
+  Jobs that are created without specifying a Glue version default to Glue 5.1.
++ `CodeGenConfigurationNodes` – A map array of key-value pairs.
 
-- `MaxCapacity` – Number (double).
+  Each key is a UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65).
 
-For Glue version 1.0 or earlier jobs, using the standard worker type, the
-number of AWS Glue data processing units (DPUs) that can be allocated
-when this job runs. A DPU is a relative measure of processing power that consists
-of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the
-[AWS Glue pricing
-page](https://aws.amazon.com/glue/pricing/ "https://aws.amazon.com/glue/pricing/").
+  Each value is a A [CodeGenConfigurationNode](aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode) object.
 
-For Glue version 2.0 or later jobs, you cannot specify a `Maximum
- capacity`. Instead, you should specify a `Worker type` and
-the `Number of workers`.
+  The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.
++ `ExecutionClass` – UTF-8 string, not more than 16 bytes long (valid values: `FLEX=""` \| `STANDARD=""`).
 
-Do not set `MaxCapacity` if using `WorkerType`
-and `NumberOfWorkers`.
+  Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.
 
-The value that can be allocated for `MaxCapacity` depends
-on whether you are running a Python shell job, an Apache Spark ETL job, or an Apache
-Spark streaming ETL job:
+  The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. 
 
-    + When you specify a Python shell job (`JobCommand.Name`="pythonshell"),
-     you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
-    + When you specify an Apache Spark ETL job (`JobCommand.Name`="glueetl")
-     or Apache Spark streaming ETL job (`JobCommand.Name`="gluestreaming"),
-     you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot
-     have a fractional DPU allocation.
+  Only jobs with AWS Glue version 3.0 and above and command type `glueetl` will be allowed to set `ExecutionClass` to `FLEX`. The flexible execution class is available for Spark jobs.
++ `SourceControlDetails` – A [SourceControlDetails](#aws-glue-api-jobs-job-SourceControlDetails) object.
 
-- `WorkerType` – UTF-8 string (valid values: `Standard=""` | `G.1X=""` | `G.2X=""` | `G.025X=""` | `G.4X=""` | `G.8X=""` | `Z.2X=""`).
+  The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.
++ `MaintenanceWindow` – UTF-8 string, matching the [Custom string pattern #54](aws-glue-api-common.md#regex_54).
 
-The type of predefined worker that is allocated when a job runs.
+  This field specifies a day of the week and hour for a maintenance window for streaming jobs. AWS Glue periodically performs maintenance activities. During these maintenance windows, AWS Glue will need to restart your streaming jobs.
 
-AWS Glue provides multiple worker types to accommodate different
-workload requirements:
+  AWS Glue will restart the job within 3 hours of the specified maintenance window. For instance, if you set up the maintenance window for Monday at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.
++ `ProfileName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-G Worker Types (General-purpose compute workers):
-
-    + G.1X: 1 DPU (4 vCPUs, 16 GB memory, 94GB disk)
-    + G.2X: 2 DPU (8 vCPUs, 32 GB memory, 138GB disk)
-    + G.4X: 4 DPU (16 vCPUs, 64 GB memory, 256GB disk)
-    + G.8X: 8 DPU (32 vCPUs, 128 GB memory, 512GB disk)
-    + G.12X: 12 DPU (48 vCPUs, 192 GB memory, 768GB disk)
-    + G.16X: 16 DPU (64 vCPUs, 256 GB memory, 1024GB disk)
-
-R Worker Types (Memory-optimized workers):
-
-    + R.1X: 1 M-DPU (4 vCPUs, 32 GB memory)
-    + R.2X: 2 M-DPU (8 vCPUs, 64 GB memory)
-    + R.4X: 4 M-DPU (16 vCPUs, 128 GB memory)
-    + R.8X: 8 M-DPU (32 vCPUs, 256 GB memory)
-
-- `NumberOfWorkers` – Number (integer).
-
-The number of workers of a defined `workerType` that are allocated
-when a job runs.
-
-- `SecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the `SecurityConfiguration` structure to be
-used with this job.
-
-- `NotificationProperty` – A [NotificationProperty](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-NotificationProperty "aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-NotificationProperty") object.
-
-Specifies configuration properties of a job notification.
-
-- `Running` – Boolean.
-
-This field is reserved for future use.
-
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
-
-In Spark jobs, `GlueVersion` determines the versions of
-Apache Spark and Python that AWS Glue available in a job. The Python
-version indicates the version supported for jobs of type Spark.
-
-Ray jobs should set `GlueVersion` to `4.0` or
-greater. However, the versions of Ray, Python and additional libraries available
-in your Ray job are determined by the `Runtime` parameter of the Job
-command.
-
-For more information about the available AWS Glue versions
-and corresponding Spark and Python versions, see [Glue version](add-job.md "add-job.md") in the developer
-guide.
-
-Jobs that are created without specifying a Glue version default to Glue
-5.1.
-
-- `CodeGenConfigurationNodes` – A map array of key-value pairs.
-
-Each key is a UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
-
-Each value is a A [CodeGenConfigurationNode](aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode "aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode") object.
-
-The representation of a directed acyclic graph on which both the Glue Studio
-visual component and Glue Studio code generation is based.
-
-- `ExecutionClass` – UTF-8 string, not more than 16 bytes long (valid values: `FLEX=""` | `STANDARD=""`).
-
-Indicates whether the job is run with a standard or flexible execution
-class. The standard execution class is ideal for time-sensitive workloads that
-require fast job startup and dedicated resources.
-
-The flexible execution class is appropriate for time-insensitive jobs
-whose start and completion times may vary.
-
-Only jobs with AWS Glue version 3.0 and above and command type
-`glueetl` will be allowed to set `ExecutionClass`
-to `FLEX`. The flexible execution class is available for Spark jobs.
-
-- `SourceControlDetails` – A [SourceControlDetails](#aws-glue-api-jobs-job-SourceControlDetails "#aws-glue-api-jobs-job-SourceControlDetails") object.
-
-The details for a source control configuration for a job, allowing synchronization
-of job artifacts to or from a remote repository.
-
-- `MaintenanceWindow` – UTF-8 string, matching the [Custom string pattern #54](aws-glue-api-common.md#regex_54 "aws-glue-api-common.md#regex_54").
-
-This field specifies a day of the week and hour for a maintenance window
-for streaming jobs. AWS Glue periodically performs maintenance
-activities. During these maintenance windows, AWS Glue will need
-to restart your streaming jobs.
-
-AWS Glue will restart the job within 3 hours of the specified
-maintenance window. For instance, if you set up the maintenance window for Monday
-at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.
-
-- `ProfileName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of an AWS Glue usage profile associated with the job.
+  The name of an AWS Glue usage profile associated with the job.
 
 ## ExecutionProperty structure
+<a name="aws-glue-api-jobs-job-ExecutionProperty"></a>
 
 An execution property of a job.
 
-###### Fields
+**Fields**
++ `MaxConcurrentRuns` – Number (integer).
 
-- `MaxConcurrentRuns` – Number (integer).
-
-The maximum number of concurrent runs allowed for the job. The default
-is 1. An error is returned when this threshold is reached. The maximum value you
-can specify is controlled by a service limit.
+  The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
 
 ## NotificationProperty structure
+<a name="aws-glue-api-jobs-job-NotificationProperty"></a>
 
 Specifies configuration properties of a notification.
 
-###### Fields
+**Fields**
++ `NotifyDelayAfter` – Number (integer), at least 1.
 
-- `NotifyDelayAfter` – Number (integer), at least 1.
-
-After a job run starts, the number of minutes to wait before sending a job
-run delay notification.
+  After a job run starts, the number of minutes to wait before sending a job run delay notification.
 
 ## JobCommand structure
+<a name="aws-glue-api-jobs-job-JobCommand"></a>
 
 Specifies code that runs when a job is run.
 
-###### Fields
+**Fields**
++ `Name` – UTF-8 string.
 
-- `Name` – UTF-8 string.
+  The name of the job command. For an Apache Spark ETL job, this must be `glueetl`. For a Python shell job, it must be `pythonshell`. For an Apache Spark streaming ETL job, this must be `gluestreaming`. For a Ray job, this must be `glueray`.
++ `ScriptLocation` – UTF-8 string, not more than 400000 bytes long.
 
-The name of the job command. For an Apache Spark ETL job, this must be `glueetl`.
-For a Python shell job, it must be `pythonshell`. For an Apache Spark
-streaming ETL job, this must be `gluestreaming`. For a Ray job, this
-must be `glueray`.
+  Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that runs a job.
++ `PythonVersion` – UTF-8 string, matching the [Custom string pattern #46](aws-glue-api-common.md#regex_46).
 
-- `ScriptLocation` – UTF-8 string, not more than 400000 bytes long.
+  The Python version being used to run a Python shell job. Allowed values are 2 or 3.
++ `Runtime` – UTF-8 string, not more than 64 bytes long, matching the [Custom string pattern #34](aws-glue-api-common.md#regex_34).
 
-Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
-that runs a job.
-
-- `PythonVersion` – UTF-8 string, matching the [Custom string pattern #46](aws-glue-api-common.md#regex_46 "aws-glue-api-common.md#regex_46").
-
-The Python version being used to run a Python shell job. Allowed values
-are 2 or 3.
-
-- `Runtime` – UTF-8 string, not more than 64 bytes long, matching the [Custom string pattern #34](aws-glue-api-common.md#regex_34 "aws-glue-api-common.md#regex_34").
-
-In Ray jobs, Runtime is used to specify the versions of Ray, Python and additional
-libraries available in your environment. This field is not used in other job types.
-For supported runtime environment values, see [Supported Ray runtime environments](ray-jobs-section.md "ray-jobs-section.md")
-in the AWS Glue Developer Guide.
+  In Ray jobs, Runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Supported Ray runtime environments](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html) in the AWS Glue Developer Guide.
 
 ## ConnectionsList structure
+<a name="aws-glue-api-jobs-job-ConnectionsList"></a>
 
 Specifies the connections used by a job.
 
-###### Fields
+**Fields**
++ `Connections` – An array of UTF-8 strings, not more than 1000 strings.
 
-- `Connections` – An array of UTF-8 strings, not more than 1000 strings.
-
-A list of connections used by the job.
+  A list of connections used by the job.
 
 ## JobUpdate structure
+<a name="aws-glue-api-jobs-job-JobUpdate"></a>
 
-Specifies information used to update an existing job definition. The
-previous job definition is completely overwritten by this information.
+Specifies information used to update an existing job definition. The previous job definition is completely overwritten by this information.
 
-###### Fields
+**Fields**
++ `JobMode` – UTF-8 string (valid values: `SCRIPT=""` \| `VISUAL=""` \| `NOTEBOOK=""`).
 
-- `JobMode` – UTF-8 string (valid values: `SCRIPT=""` | `VISUAL=""` | `NOTEBOOK=""`).
+  A mode that describes how a job was created. Valid values are:
+  + `SCRIPT` - The job was created using the AWS Glue Studio script editor.
+  + `VISUAL` - The job was created using the AWS Glue Studio visual editor.
+  + `NOTEBOOK` - The job was created using an interactive sessions notebook.
 
-A mode that describes how a job was created. Valid values are:
+  When the `JobMode` field is missing or null, `SCRIPT` is assigned as the default value.
++ `JobRunQueuingEnabled` – Boolean.
 
-    + `SCRIPT` - The job was created using the AWS Glue Studio script editor.
-    + `VISUAL` - The job was created using the AWS Glue Studio visual editor.
-    + `NOTEBOOK` - The job was created using an interactive sessions
-     notebook.
+  Specifies whether job run queuing is enabled for the job runs for this job.
 
-When the `JobMode` field is missing or null, `SCRIPT`
-is assigned as the default value.
+  A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
 
-- `JobRunQueuingEnabled` – Boolean.
+  If this field does not match the value set in the job run, then the value from the job run field will be used.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-Specifies whether job run queuing is enabled for the job runs for this job.
+  Description of the job being defined.
++ `LogUri` – UTF-8 string.
 
-A value of true means job run queuing is enabled for the job runs. If false
-or not populated, the job runs will not be considered for queueing.
+  This field is reserved for future use.
++ `Role` – UTF-8 string.
 
-If this field does not match the value set in the job run, then the value from
-the job run field will be used.
+  The name or Amazon Resource Name (ARN) of the IAM role associated with this job (required).
++ `ExecutionProperty` – An [ExecutionProperty](#aws-glue-api-jobs-job-ExecutionProperty) object.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  An `ExecutionProperty` specifying the maximum number of concurrent runs allowed for this job.
++ `Command` – A [JobCommand](#aws-glue-api-jobs-job-JobCommand) object.
 
-Description of the job being defined.
+  The `JobCommand` that runs this job (required).
++ `DefaultArguments` – A map array of key-value pairs.
 
-- `LogUri` – UTF-8 string.
+  Each key is a UTF-8 string.
 
-This field is reserved for future use.
+  Each value is a UTF-8 string.
 
-- `Role` – UTF-8 string.
+  The default arguments for every run of this job, specified as name-value pairs.
 
-The name or Amazon Resource Name (ARN) of the IAM role associated with this
-job (required).
+  You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
 
-- `ExecutionProperty` – An [ExecutionProperty](#aws-glue-api-jobs-job-ExecutionProperty "#aws-glue-api-jobs-job-ExecutionProperty") object.
+  Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets from a AWS Glue Connection, AWS Secrets Manager or other secret management mechanism if you intend to keep them within the Job. 
 
-An `ExecutionProperty` specifying the maximum number of
-concurrent runs allowed for this job.
+  For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide.
 
-- `Command` – A [JobCommand](#aws-glue-api-jobs-job-JobCommand "#aws-glue-api-jobs-job-JobCommand") object.
+  For information about the arguments you can provide to this field when configuring Spark jobs, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
 
-The `JobCommand` that runs this job (required).
+  For information about the arguments you can provide to this field when configuring Ray jobs, see [Using job parameters in Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html) in the developer guide.
++ `NonOverridableArguments` – A map array of key-value pairs.
 
-- `DefaultArguments` – A map array of key-value pairs.
+  Each key is a UTF-8 string.
 
-Each key is a UTF-8 string.
+  Each value is a UTF-8 string.
 
-Each value is a UTF-8 string.
+  Arguments for this job that are not overridden when providing job arguments in a job run, specified as name-value pairs.
++ `Connections` – A [ConnectionsList](aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-ConnectionsList) object.
 
-The default arguments for every run of this job, specified as name-value
-pairs.
+  The connections used for this job.
++ `MaxRetries` – Number (integer).
 
-You can specify arguments here that your own job-execution script consumes,
-as well as arguments that AWS Glue itself consumes.
+  The maximum number of times to retry this job if it fails.
++ `AllocatedCapacity` – Number (integer).
 
-Job arguments may be logged. Do not pass plaintext secrets as arguments.
-Retrieve secrets from a AWS Glue Connection, AWS Secrets Manager or other secret management mechanism if you intend to keep them within the Job.
+  This field is deprecated. Use `MaxCapacity` instead.
 
-For information about how to specify and consume your own Job arguments,
-see the [Calling
-AWS Glue APIs in Python](aws-glue-programming-python-calling.md "aws-glue-programming-python-calling.md") topic in the developer guide.
+  The number of AWS Glue data processing units (DPUs) to allocate to this job. You can allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the [AWS Glue pricing page](https://aws.amazon.com/glue/pricing/).
++ `Timeout` – Number (integer), at least 1.
 
-For information about the arguments you can provide to this field when
-configuring Spark jobs, see the [Special
-Parameters Used by AWS Glue](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md") topic in the developer guide.
+  The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters `TIMEOUT` status.
 
-For information about the arguments you can provide to this field when
-configuring Ray jobs, see [Using
-job parameters in Ray jobs](author-job-ray-job-parameters.md "author-job-ray-job-parameters.md") in the developer guide.
+  Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise, the jobs will throw an exception.
 
-- `NonOverridableArguments` – A map array of key-value pairs.
+  When the value is left blank, the timeout is defaulted to 2,880 minutes for Glue version 4.0 and earlier, or 480 minutes for Glue version 5.0 and later.
 
-Each key is a UTF-8 string.
+  Any existing AWS Glue jobs that had a timeout value greater than 7 days will be defaulted to 7 days. For instance if you have specified a timeout of 20 days for a batch job, it will be stopped on the 7th day.
 
-Each value is a UTF-8 string.
+  For streaming jobs, if you have set up a maintenance window, it will be restarted during the maintenance window after 7 days.
++ `MaxCapacity` – Number (double).
 
-Arguments for this job that are not overridden when providing job arguments
-in a job run, specified as name-value pairs.
+  For Glue version 1.0 or earlier jobs, using the standard worker type, the number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the [AWS Glue pricing page](https://aws.amazon.com/glue/pricing/).
 
-- `Connections` – A [ConnectionsList](aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-ConnectionsList "aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-ConnectionsList") object.
+  For Glue version 2.0\+ jobs, you cannot specify a `Maximum capacity`. Instead, you should specify a `Worker type` and the `Number of workers`.
 
-The connections used for this job.
+  Do not set `MaxCapacity` if using `WorkerType` and `NumberOfWorkers`.
 
-- `MaxRetries` – Number (integer).
+  The value that can be allocated for `MaxCapacity` depends on whether you are running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL job:
+  + When you specify a Python shell job (`JobCommand.Name`="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
+  + When you specify an Apache Spark ETL job (`JobCommand.Name`="glueetl") or Apache Spark streaming ETL job (`JobCommand.Name`="gluestreaming"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
++ `WorkerType` – UTF-8 string (valid values: `Standard=""` \| `G.1X=""` \| `G.2X=""` \| `G.025X=""` \| `G.4X=""` \| `G.8X=""` \| `Z.2X=""`).
 
-The maximum number of times to retry this job if it fails.
+  The type of predefined worker that is allocated when a job runs. Accepts a value of G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs. For more information, see [Defining job properties for Spark jobs ](https://docs.aws.amazon.com/glue/latest/dg/add-job.html#create-job)
++ `NumberOfWorkers` – Number (integer).
 
-- `AllocatedCapacity` – Number (integer).
+  The number of workers of a defined `workerType` that are allocated when a job runs.
++ `SecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-This field is deprecated. Use `MaxCapacity` instead.
+  The name of the `SecurityConfiguration` structure to be used with this job.
++ `NotificationProperty` – A [NotificationProperty](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-NotificationProperty) object.
 
-The number of AWS Glue data processing units (DPUs) to allocate
-to this job. You can allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative
-measure of processing power that consists of 4 vCPUs of compute capacity and 16
-GB of memory. For more information, see the [AWS Glue pricing page](https://aws.amazon.com/glue/pricing/ "https://aws.amazon.com/glue/pricing/").
+  Specifies the configuration properties of a job notification.
++ `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45).
 
-- `Timeout` – Number (integer), at least 1.
+  In Spark jobs, `GlueVersion` determines the versions of Apache Spark and Python that AWS Glue available in a job. The Python version indicates the version supported for jobs of type Spark. 
 
-The job timeout in minutes. This is the maximum time that a job run can consume
-resources before it is terminated and enters `TIMEOUT` status.
+  Ray jobs should set `GlueVersion` to `4.0` or greater. However, the versions of Ray, Python and additional libraries available in your Ray job are determined by the `Runtime` parameter of the Job command.
 
-Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise,
-the jobs will throw an exception.
+  For more information about the available AWS Glue versions and corresponding Spark and Python versions, see [Glue version](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
 
-When the value is left blank, the timeout is defaulted to 2,880 minutes
-for Glue version 4.0 and earlier, or 480 minutes for Glue version 5.0 and later.
+  If not provided in the update request, the Glue version retains the value from the existing job definition.
++ `CodeGenConfigurationNodes` – A map array of key-value pairs.
 
-Any existing AWS Glue jobs that had a timeout value greater
-than 7 days will be defaulted to 7 days. For instance if you have specified a timeout
-of 20 days for a batch job, it will be stopped on the 7th day.
+  Each key is a UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65).
 
-For streaming jobs, if you have set up a maintenance window, it will be restarted
-during the maintenance window after 7 days.
+  Each value is a A [CodeGenConfigurationNode](aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode) object.
 
-- `MaxCapacity` – Number (double).
+  The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.
++ `ExecutionClass` – UTF-8 string, not more than 16 bytes long (valid values: `FLEX=""` \| `STANDARD=""`).
 
-For Glue version 1.0 or earlier jobs, using the standard worker type, the
-number of AWS Glue data processing units (DPUs) that can be allocated
-when this job runs. A DPU is a relative measure of processing power that consists
-of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the
-[AWS Glue pricing
-page](https://aws.amazon.com/glue/pricing/ "https://aws.amazon.com/glue/pricing/").
+  Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.
 
-For Glue version 2.0+ jobs, you cannot specify a `Maximum capacity`.
-Instead, you should specify a `Worker type` and the `Number
- of workers`.
+  The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. 
 
-Do not set `MaxCapacity` if using `WorkerType`
-and `NumberOfWorkers`.
+  Only jobs with AWS Glue version 3.0 and above and command type `glueetl` will be allowed to set `ExecutionClass` to `FLEX`. The flexible execution class is available for Spark jobs.
++ `SourceControlDetails` – A [SourceControlDetails](#aws-glue-api-jobs-job-SourceControlDetails) object.
 
-The value that can be allocated for `MaxCapacity` depends
-on whether you are running a Python shell job, an Apache Spark ETL job, or an Apache
-Spark streaming ETL job:
+  The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.
++ `MaintenanceWindow` – UTF-8 string, matching the [Custom string pattern #54](aws-glue-api-common.md#regex_54).
 
-    + When you specify a Python shell job (`JobCommand.Name`="pythonshell"),
-     you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
-    + When you specify an Apache Spark ETL job (`JobCommand.Name`="glueetl")
-     or Apache Spark streaming ETL job (`JobCommand.Name`="gluestreaming"),
-     you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot
-     have a fractional DPU allocation.
+  This field specifies a day of the week and hour for a maintenance window for streaming jobs. AWS Glue periodically performs maintenance activities. During these maintenance windows, AWS Glue will need to restart your streaming jobs.
 
-- `WorkerType` – UTF-8 string (valid values: `Standard=""` | `G.1X=""` | `G.2X=""` | `G.025X=""` | `G.4X=""` | `G.8X=""` | `Z.2X=""`).
+  AWS Glue will restart the job within 3 hours of the specified maintenance window. For instance, if you set up the maintenance window for Monday at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.
++ `ProfileName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The type of predefined worker that is allocated when a job runs. Accepts
-a value of G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X
-for Ray jobs. For more information, see [Defining
-job properties for Spark jobs](add-job.md#create-job "add-job.md#create-job")
-
-- `NumberOfWorkers` – Number (integer).
-
-The number of workers of a defined `workerType` that are allocated
-when a job runs.
-
-- `SecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the `SecurityConfiguration` structure to be
-used with this job.
-
-- `NotificationProperty` – A [NotificationProperty](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-NotificationProperty "aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-NotificationProperty") object.
-
-Specifies the configuration properties of a job notification.
-
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
-
-In Spark jobs, `GlueVersion` determines the versions of
-Apache Spark and Python that AWS Glue available in a job. The Python
-version indicates the version supported for jobs of type Spark.
-
-Ray jobs should set `GlueVersion` to `4.0` or
-greater. However, the versions of Ray, Python and additional libraries available
-in your Ray job are determined by the `Runtime` parameter of the Job
-command.
-
-For more information about the available AWS Glue versions
-and corresponding Spark and Python versions, see [Glue version](add-job.md "add-job.md") in the developer
-guide.
-
-If not provided in the update request, the Glue version retains the value
-from the existing job definition.
-
-- `CodeGenConfigurationNodes` – A map array of key-value pairs.
-
-Each key is a UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
-
-Each value is a A [CodeGenConfigurationNode](aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode "aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode") object.
-
-The representation of a directed acyclic graph on which both the Glue Studio
-visual component and Glue Studio code generation is based.
-
-- `ExecutionClass` – UTF-8 string, not more than 16 bytes long (valid values: `FLEX=""` | `STANDARD=""`).
-
-Indicates whether the job is run with a standard or flexible execution
-class. The standard execution-class is ideal for time-sensitive workloads
-that require fast job startup and dedicated resources.
-
-The flexible execution class is appropriate for time-insensitive jobs
-whose start and completion times may vary.
-
-Only jobs with AWS Glue version 3.0 and above and command type
-`glueetl` will be allowed to set `ExecutionClass`
-to `FLEX`. The flexible execution class is available for Spark jobs.
-
-- `SourceControlDetails` – A [SourceControlDetails](#aws-glue-api-jobs-job-SourceControlDetails "#aws-glue-api-jobs-job-SourceControlDetails") object.
-
-The details for a source control configuration for a job, allowing synchronization
-of job artifacts to or from a remote repository.
-
-- `MaintenanceWindow` – UTF-8 string, matching the [Custom string pattern #54](aws-glue-api-common.md#regex_54 "aws-glue-api-common.md#regex_54").
-
-This field specifies a day of the week and hour for a maintenance window
-for streaming jobs. AWS Glue periodically performs maintenance
-activities. During these maintenance windows, AWS Glue will need
-to restart your streaming jobs.
-
-AWS Glue will restart the job within 3 hours of the specified
-maintenance window. For instance, if you set up the maintenance window for Monday
-at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.
-
-- `ProfileName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of an AWS Glue usage profile associated with the job.
+  The name of an AWS Glue usage profile associated with the job.
 
 ## SourceControlDetails structure
+<a name="aws-glue-api-jobs-job-SourceControlDetails"></a>
 
-The details for a source control configuration for a job, allowing synchronization
-of job artifacts to or from a remote repository.
+The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.
 
-###### Fields
+**Fields**
++ `Provider` – UTF-8 string (valid values: `GITHUB` \| `AWS_CODE_COMMIT`).
 
-- `Provider` – UTF-8 string (valid values: `GITHUB` | `AWS_CODE_COMMIT`).
+  The provider for the remote repository.
++ `Repository` – UTF-8 string, not less than 1 or more than 512 bytes long.
 
-The provider for the remote repository.
+  The name of the remote repository that contains the job artifacts.
++ `Owner` – UTF-8 string, not less than 1 or more than 512 bytes long.
 
-- `Repository` – UTF-8 string, not less than 1 or more than 512 bytes long.
+  The owner of the remote repository that contains the job artifacts.
++ `Branch` – UTF-8 string, not less than 1 or more than 512 bytes long.
 
-The name of the remote repository that contains the job artifacts.
+  An optional branch in the remote repository.
++ `Folder` – UTF-8 string, not less than 1 or more than 512 bytes long.
 
-- `Owner` – UTF-8 string, not less than 1 or more than 512 bytes long.
+  An optional folder in the remote repository.
++ `LastCommitId` – UTF-8 string, not less than 1 or more than 512 bytes long.
 
-The owner of the remote repository that contains the job artifacts.
+  The last commit ID for a commit in the remote repository.
++ `LastSyncTimestamp` – UTF-8 string, not less than 1 or more than 512 bytes long.
 
-- `Branch` – UTF-8 string, not less than 1 or more than 512 bytes long.
+  The date and time that the last job synchronization was performed.
++ `AuthStrategy` – UTF-8 string (valid values: `PERSONAL_ACCESS_TOKEN` \| `AWS_SECRETS_MANAGER`).
 
-An optional branch in the remote repository.
+  The type of authentication, which can be an authentication token stored in AWS Secrets Manager, or a personal access token.
++ `AuthToken` – UTF-8 string, not less than 1 or more than 512 bytes long.
 
-- `Folder` – UTF-8 string, not less than 1 or more than 512 bytes long.
-
-An optional folder in the remote repository.
-
-- `LastCommitId` – UTF-8 string, not less than 1 or more than 512 bytes long.
-
-The last commit ID for a commit in the remote repository.
-
-- `LastSyncTimestamp` – UTF-8 string, not less than 1 or more than 512 bytes long.
-
-The date and time that the last job synchronization was performed.
-
-- `AuthStrategy` – UTF-8 string (valid values: `PERSONAL_ACCESS_TOKEN` | `AWS_SECRETS_MANAGER`).
-
-The type of authentication, which can be an authentication token stored
-in AWS Secrets Manager, or a personal access token.
-
-- `AuthToken` – UTF-8 string, not less than 1 or more than 512 bytes long.
-
-The value of an authorization token.
+  The value of an authorization token.
 
 ## Operations
-
-- [CreateJob action (Python: create\_job)](#aws-glue-api-jobs-job-CreateJob "#aws-glue-api-jobs-job-CreateJob")
-- [UpdateJob action (Python: update\_job)](#aws-glue-api-jobs-job-UpdateJob "#aws-glue-api-jobs-job-UpdateJob")
-- [GetJob action (Python: get\_job)](#aws-glue-api-jobs-job-GetJob "#aws-glue-api-jobs-job-GetJob")
-- [GetJobs action (Python: get\_jobs)](#aws-glue-api-jobs-job-GetJobs "#aws-glue-api-jobs-job-GetJobs")
-- [DeleteJob action (Python: delete\_job)](#aws-glue-api-jobs-job-DeleteJob "#aws-glue-api-jobs-job-DeleteJob")
-- [ListJobs action (Python: list\_jobs)](#aws-glue-api-jobs-job-ListJobs "#aws-glue-api-jobs-job-ListJobs")
-- [BatchGetJobs action (Python: batch\_get\_jobs)](#aws-glue-api-jobs-job-BatchGetJobs "#aws-glue-api-jobs-job-BatchGetJobs")
+<a name="aws-glue-api-jobs-job-actions"></a>
++ [CreateJob action (Python: create\_job)](#aws-glue-api-jobs-job-CreateJob)
++ [UpdateJob action (Python: update\_job)](#aws-glue-api-jobs-job-UpdateJob)
++ [GetJob action (Python: get\_job)](#aws-glue-api-jobs-job-GetJob)
++ [GetJobs action (Python: get\_jobs)](#aws-glue-api-jobs-job-GetJobs)
++ [DeleteJob action (Python: delete\_job)](#aws-glue-api-jobs-job-DeleteJob)
++ [ListJobs action (Python: list\_jobs)](#aws-glue-api-jobs-job-ListJobs)
++ [BatchGetJobs action (Python: batch\_get\_jobs)](#aws-glue-api-jobs-job-BatchGetJobs)
 
 ## CreateJob action (Python: create\_job)
+<a name="aws-glue-api-jobs-job-CreateJob"></a>
 
 Creates a new job definition.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name you assign to this job definition. It must be unique in your account.
++ `JobMode` – UTF-8 string (valid values: `SCRIPT=""` \| `VISUAL=""` \| `NOTEBOOK=""`).
 
-The name you assign to this job definition. It must be unique in your account.
+  A mode that describes how a job was created. Valid values are:
+  + `SCRIPT` - The job was created using the AWS Glue Studio script editor.
+  + `VISUAL` - The job was created using the AWS Glue Studio visual editor.
+  + `NOTEBOOK` - The job was created using an interactive sessions notebook.
 
-- `JobMode` – UTF-8 string (valid values: `SCRIPT=""` | `VISUAL=""` | `NOTEBOOK=""`).
+  When the `JobMode` field is missing or null, `SCRIPT` is assigned as the default value.
++ `JobRunQueuingEnabled` – Boolean.
 
-A mode that describes how a job was created. Valid values are:
+  Specifies whether job run queuing is enabled for the job runs for this job.
 
-    + `SCRIPT` - The job was created using the AWS Glue Studio script editor.
-    + `VISUAL` - The job was created using the AWS Glue Studio visual editor.
-    + `NOTEBOOK` - The job was created using an interactive sessions
-     notebook.
+  A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
 
-When the `JobMode` field is missing or null, `SCRIPT`
-is assigned as the default value.
+  If this field does not match the value set in the job run, then the value from the job run field will be used.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `JobRunQueuingEnabled` – Boolean.
+  Description of the job being defined.
++ `LogUri` – UTF-8 string.
 
-Specifies whether job run queuing is enabled for the job runs for this job.
+  This field is reserved for future use.
++ `Role` – *Required:* UTF-8 string.
 
-A value of true means job run queuing is enabled for the job runs. If false
-or not populated, the job runs will not be considered for queueing.
+  The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
++ `ExecutionProperty` – An [ExecutionProperty](#aws-glue-api-jobs-job-ExecutionProperty) object.
 
-If this field does not match the value set in the job run, then the value from
-the job run field will be used.
+  An `ExecutionProperty` specifying the maximum number of concurrent runs allowed for this job.
++ `Command` – *Required:* A [JobCommand](#aws-glue-api-jobs-job-JobCommand) object.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  The `JobCommand` that runs this job.
++ `DefaultArguments` – A map array of key-value pairs.
 
-Description of the job being defined.
+  Each key is a UTF-8 string.
 
-- `LogUri` – UTF-8 string.
+  Each value is a UTF-8 string.
 
-This field is reserved for future use.
+  The default arguments for every run of this job, specified as name-value pairs.
 
-- `Role` – _Required:_ UTF-8 string.
+  You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
 
-The name or Amazon Resource Name (ARN) of the IAM role associated with this
-job.
+  Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets from a AWS Glue Connection, AWS Secrets Manager or other secret management mechanism if you intend to keep them within the Job. 
 
-- `ExecutionProperty` – An [ExecutionProperty](#aws-glue-api-jobs-job-ExecutionProperty "#aws-glue-api-jobs-job-ExecutionProperty") object.
+  For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide.
 
-An `ExecutionProperty` specifying the maximum number of
-concurrent runs allowed for this job.
+  For information about the arguments you can provide to this field when configuring Spark jobs, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
 
-- `Command` – _Required:_ A [JobCommand](#aws-glue-api-jobs-job-JobCommand "#aws-glue-api-jobs-job-JobCommand") object.
+  For information about the arguments you can provide to this field when configuring Ray jobs, see [Using job parameters in Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html) in the developer guide.
++ `NonOverridableArguments` – A map array of key-value pairs.
 
-The `JobCommand` that runs this job.
+  Each key is a UTF-8 string.
 
-- `DefaultArguments` – A map array of key-value pairs.
+  Each value is a UTF-8 string.
 
-Each key is a UTF-8 string.
+  Arguments for this job that are not overridden when providing job arguments in a job run, specified as name-value pairs.
++ `Connections` – A [ConnectionsList](aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-ConnectionsList) object.
 
-Each value is a UTF-8 string.
+  The connections used for this job.
++ `MaxRetries` – Number (integer).
 
-The default arguments for every run of this job, specified as name-value
-pairs.
+  The maximum number of times to retry this job if it fails.
++ `AllocatedCapacity` – Number (integer).
 
-You can specify arguments here that your own job-execution script consumes,
-as well as arguments that AWS Glue itself consumes.
+  This parameter is deprecated. Use `MaxCapacity` instead.
 
-Job arguments may be logged. Do not pass plaintext secrets as arguments.
-Retrieve secrets from a AWS Glue Connection, AWS Secrets Manager or other secret management mechanism if you intend to keep them within the Job.
+  The number of AWS Glue data processing units (DPUs) to allocate to this Job. You can allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the [AWS Glue pricing page](https://aws.amazon.com/glue/pricing/).
++ `Timeout` – Number (integer), at least 1.
 
-For information about how to specify and consume your own Job arguments,
-see the [Calling
-AWS Glue APIs in Python](aws-glue-programming-python-calling.md "aws-glue-programming-python-calling.md") topic in the developer guide.
+  The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters `TIMEOUT` status.
 
-For information about the arguments you can provide to this field when
-configuring Spark jobs, see the [Special
-Parameters Used by AWS Glue](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md") topic in the developer guide.
+  Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise, the jobs will throw an exception.
 
-For information about the arguments you can provide to this field when
-configuring Ray jobs, see [Using
-job parameters in Ray jobs](author-job-ray-job-parameters.md "author-job-ray-job-parameters.md") in the developer guide.
+  When the value is left blank, the timeout is defaulted to 2,880 minutes for Glue version 4.0 and earlier, or 480 minutes for Glue version 5.0 and later.
 
-- `NonOverridableArguments` – A map array of key-value pairs.
+  Any existing AWS Glue jobs that had a timeout value greater than 7 days will be defaulted to 7 days. For instance if you have specified a timeout of 20 days for a batch job, it will be stopped on the 7th day.
 
-Each key is a UTF-8 string.
+  For streaming jobs, if you have set up a maintenance window, it will be restarted during the maintenance window after 7 days.
++ `MaxCapacity` – Number (double).
 
-Each value is a UTF-8 string.
+  For Glue version 1.0 or earlier jobs, using the standard worker type, the number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the [AWS Glue pricing page](https://aws.amazon.com/glue/pricing/).
 
-Arguments for this job that are not overridden when providing job arguments
-in a job run, specified as name-value pairs.
+  For Glue version 2.0\+ jobs, you cannot specify a `Maximum capacity`. Instead, you should specify a `Worker type` and the `Number of workers`.
 
-- `Connections` – A [ConnectionsList](aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-ConnectionsList "aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-ConnectionsList") object.
+  Do not set `MaxCapacity` if using `WorkerType` and `NumberOfWorkers`.
 
-The connections used for this job.
+  The value that can be allocated for `MaxCapacity` depends on whether you are running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL job:
+  + When you specify a Python shell job (`JobCommand.Name`="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
+  + When you specify an Apache Spark ETL job (`JobCommand.Name`="glueetl") or Apache Spark streaming ETL job (`JobCommand.Name`="gluestreaming"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
++ `SecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `MaxRetries` – Number (integer).
+  The name of the `SecurityConfiguration` structure to be used with this job.
++ `Tags` – A map array of key-value pairs, not more than 50 pairs.
 
-The maximum number of times to retry this job if it fails.
+  Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
 
-- `AllocatedCapacity` – Number (integer).
+  Each value is a UTF-8 string, not more than 256 bytes long.
 
-This parameter is deprecated. Use `MaxCapacity` instead.
+  The tags to use with this job. You may use tags to limit access to the job. For more information about tags in AWS Glue, see [AWS Tags in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html) in the developer guide.
++ `NotificationProperty` – A [NotificationProperty](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-NotificationProperty) object.
 
-The number of AWS Glue data processing units (DPUs) to allocate
-to this Job. You can allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative
-measure of processing power that consists of 4 vCPUs of compute capacity and 16
-GB of memory. For more information, see the [AWS Glue pricing page](https://aws.amazon.com/glue/pricing/ "https://aws.amazon.com/glue/pricing/").
+  Specifies configuration properties of a job notification.
++ `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45).
 
-- `Timeout` – Number (integer), at least 1.
+  In Spark jobs, `GlueVersion` determines the versions of Apache Spark and Python that AWS Glue available in a job. The Python version indicates the version supported for jobs of type Spark. 
 
-The job timeout in minutes. This is the maximum time that a job run can consume
-resources before it is terminated and enters `TIMEOUT` status.
+  Ray jobs should set `GlueVersion` to `4.0` or greater. However, the versions of Ray, Python and additional libraries available in your Ray job are determined by the `Runtime` parameter of the Job command.
 
-Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise,
-the jobs will throw an exception.
+  For more information about the available AWS Glue versions and corresponding Spark and Python versions, see [Glue version](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
 
-When the value is left blank, the timeout is defaulted to 2,880 minutes
-for Glue version 4.0 and earlier, or 480 minutes for Glue version 5.0 and later.
+  Jobs that are created without specifying a Glue version default to Glue 5.1.
++ `NumberOfWorkers` – Number (integer).
 
-Any existing AWS Glue jobs that had a timeout value greater
-than 7 days will be defaulted to 7 days. For instance if you have specified a timeout
-of 20 days for a batch job, it will be stopped on the 7th day.
+  The number of workers of a defined `workerType` that are allocated when a job runs.
++ `WorkerType` – UTF-8 string (valid values: `Standard=""` \| `G.1X=""` \| `G.2X=""` \| `G.025X=""` \| `G.4X=""` \| `G.8X=""` \| `Z.2X=""`).
 
-For streaming jobs, if you have set up a maintenance window, it will be restarted
-during the maintenance window after 7 days.
+  The type of predefined worker that is allocated when a job runs. Accepts a value of G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
+  + For the `G.1X` worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.
+  + For the `G.2X` worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 138GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.
+  + For the `G.4X` worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs in the following AWS Regions: US East (Ohio), US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Mumbai), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Spain), Europe (Stockholm), and South America (São Paulo).
+  + For the `G.8X` worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs, in the same AWS Regions as supported for the `G.4X` worker type.
+  + For the `G.025X` worker type, each worker maps to 0.25 DPU (2 vCPUs, 4 GB of memory) with 84GB disk, and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for AWS Glue version 3.0 or later streaming jobs.
+  + For the `Z.2X` worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk, and provides up to 8 Ray workers based on the autoscaler.
++ `CodeGenConfigurationNodes` – A map array of key-value pairs.
 
-- `MaxCapacity` – Number (double).
-
-For Glue version 1.0 or earlier jobs, using the standard worker type, the
-number of AWS Glue data processing units (DPUs) that can be allocated
-when this job runs. A DPU is a relative measure of processing power that consists
-of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the
-[AWS Glue pricing
-page](https://aws.amazon.com/glue/pricing/ "https://aws.amazon.com/glue/pricing/").
+  Each key is a UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65).
 
-For Glue version 2.0+ jobs, you cannot specify a `Maximum capacity`.
-Instead, you should specify a `Worker type` and the `Number
- of workers`.
+  Each value is a A [CodeGenConfigurationNode](aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode) object.
 
-Do not set `MaxCapacity` if using `WorkerType`
-and `NumberOfWorkers`.
+  The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.
++ `ExecutionClass` – UTF-8 string, not more than 16 bytes long (valid values: `FLEX=""` \| `STANDARD=""`).
 
-The value that can be allocated for `MaxCapacity` depends
-on whether you are running a Python shell job, an Apache Spark ETL job, or an Apache
-Spark streaming ETL job:
+  Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.
 
-    + When you specify a Python shell job (`JobCommand.Name`="pythonshell"),
-     you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
-    + When you specify an Apache Spark ETL job (`JobCommand.Name`="glueetl")
-     or Apache Spark streaming ETL job (`JobCommand.Name`="gluestreaming"),
-     you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot
-     have a fractional DPU allocation.
+  The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. 
 
-- `SecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Only jobs with AWS Glue version 3.0 and above and command type `glueetl` will be allowed to set `ExecutionClass` to `FLEX`. The flexible execution class is available for Spark jobs.
++ `SourceControlDetails` – A [SourceControlDetails](#aws-glue-api-jobs-job-SourceControlDetails) object.
 
-The name of the `SecurityConfiguration` structure to be
-used with this job.
+  The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.
++ `MaintenanceWindow` – UTF-8 string, matching the [Custom string pattern #54](aws-glue-api-common.md#regex_54).
 
-- `Tags` – A map array of key-value pairs, not more than 50 pairs.
+  This field specifies a day of the week and hour for a maintenance window for streaming jobs. AWS Glue periodically performs maintenance activities. During these maintenance windows, AWS Glue will need to restart your streaming jobs.
 
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
+  AWS Glue will restart the job within 3 hours of the specified maintenance window. For instance, if you set up the maintenance window for Monday at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.
++ `ProfileName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Each value is a UTF-8 string, not more than 256 bytes long.
+  The name of an AWS Glue usage profile associated with the job.
 
-The tags to use with this job. You may use tags to limit access to the job.
-For more information about tags in AWS Glue, see [AWS Tags in AWS Glue](monitor-tags.md "monitor-tags.md") in the developer guide.
+**Response**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `NotificationProperty` – A [NotificationProperty](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-NotificationProperty "aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-NotificationProperty") object.
+  The unique name that was provided for this job definition.
 
-Specifies configuration properties of a job notification.
-
-- `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45 "aws-glue-api-common.md#regex_45").
-
-In Spark jobs, `GlueVersion` determines the versions of
-Apache Spark and Python that AWS Glue available in a job. The Python
-version indicates the version supported for jobs of type Spark.
-
-Ray jobs should set `GlueVersion` to `4.0` or
-greater. However, the versions of Ray, Python and additional libraries available
-in your Ray job are determined by the `Runtime` parameter of the Job
-command.
-
-For more information about the available AWS Glue versions
-and corresponding Spark and Python versions, see [Glue version](add-job.md "add-job.md") in the developer
-guide.
-
-Jobs that are created without specifying a Glue version default to Glue
-5.1.
-
-- `NumberOfWorkers` – Number (integer).
-
-The number of workers of a defined `workerType` that are allocated
-when a job runs.
-
-- `WorkerType` – UTF-8 string (valid values: `Standard=""` | `G.1X=""` | `G.2X=""` | `G.025X=""` | `G.4X=""` | `G.8X=""` | `Z.2X=""`).
-
-The type of predefined worker that is allocated when a job runs. Accepts
-a value of G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X
-for Ray jobs.
-
-    + For the `G.1X` worker type, each worker maps to 1 DPU (4 vCPUs,
-     16 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend
-     this worker type for workloads such as data transforms, joins, and queries, to
-     offers a scalable and cost effective way to run most jobs.
-    + For the `G.2X` worker type, each worker maps to 2 DPU (8 vCPUs,
-     32 GB of memory) with 138GB disk, and provides 1 executor per worker. We recommend
-     this worker type for workloads such as data transforms, joins, and queries, to
-     offers a scalable and cost effective way to run most jobs.
-    + For the `G.4X` worker type, each worker maps to 4 DPU (16 vCPUs,
-     64 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend
-     this worker type for jobs whose workloads contain your most demanding transforms,
-     aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs in the following AWS Regions: US East (Ohio), US East (N. Virginia), US West (N. California), US
-     West (Oregon), Asia Pacific (Mumbai), Asia Pacific (Seoul), Asia Pacific (Singapore),
-     Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt),
-     Europe (Ireland), Europe (London), Europe (Spain), Europe (Stockholm), and
-     South America (São Paulo).
-    + For the `G.8X` worker type, each worker maps to 8 DPU (32 vCPUs,
-     128 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend
-     this worker type for jobs whose workloads contain your most demanding transforms,
-     aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs, in the same AWS
-     Regions as supported for the `G.4X` worker type.
-    + For the `G.025X` worker type, each worker maps to 0.25 DPU
-     (2 vCPUs, 4 GB of memory) with 84GB disk, and provides 1 executor per worker. We
-     recommend this worker type for low volume streaming jobs. This worker type is
-     only available for AWS Glue version 3.0 or later streaming jobs.
-    + For the `Z.2X` worker type, each worker maps to 2 M-DPU (8vCPUs,
-     64 GB of memory) with 128 GB disk, and provides up to 8 Ray workers based on the autoscaler.
-
-- `CodeGenConfigurationNodes` – A map array of key-value pairs.
-
-Each key is a UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65 "aws-glue-api-common.md#regex_65").
-
-Each value is a A [CodeGenConfigurationNode](aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode "aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode") object.
-
-The representation of a directed acyclic graph on which both the Glue Studio
-visual component and Glue Studio code generation is based.
-
-- `ExecutionClass` – UTF-8 string, not more than 16 bytes long (valid values: `FLEX=""` | `STANDARD=""`).
-
-Indicates whether the job is run with a standard or flexible execution
-class. The standard execution-class is ideal for time-sensitive workloads
-that require fast job startup and dedicated resources.
-
-The flexible execution class is appropriate for time-insensitive jobs
-whose start and completion times may vary.
-
-Only jobs with AWS Glue version 3.0 and above and command type
-`glueetl` will be allowed to set `ExecutionClass`
-to `FLEX`. The flexible execution class is available for Spark jobs.
-
-- `SourceControlDetails` – A [SourceControlDetails](#aws-glue-api-jobs-job-SourceControlDetails "#aws-glue-api-jobs-job-SourceControlDetails") object.
-
-The details for a source control configuration for a job, allowing synchronization
-of job artifacts to or from a remote repository.
-
-- `MaintenanceWindow` – UTF-8 string, matching the [Custom string pattern #54](aws-glue-api-common.md#regex_54 "aws-glue-api-common.md#regex_54").
-
-This field specifies a day of the week and hour for a maintenance window
-for streaming jobs. AWS Glue periodically performs maintenance
-activities. During these maintenance windows, AWS Glue will need
-to restart your streaming jobs.
-
-AWS Glue will restart the job within 3 hours of the specified
-maintenance window. For instance, if you set up the maintenance window for Monday
-at 10:00AM GMT, your jobs will be restarted between 10:00AM GMT to 1:00PM GMT.
-
-- `ProfileName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of an AWS Glue usage profile associated with the job.
-
-###### Response
-
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The unique name that was provided for this job definition.
-
-###### Errors
-
-- `InvalidInputException`
-- `IdempotentParameterMismatchException`
-- `AlreadyExistsException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `ResourceNumberLimitExceededException`
-- `ConcurrentModificationException`
+**Errors**
++ `InvalidInputException`
++ `IdempotentParameterMismatchException`
++ `AlreadyExistsException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `ResourceNumberLimitExceededException`
++ `ConcurrentModificationException`
 
 ## UpdateJob action (Python: update\_job)
+<a name="aws-glue-api-jobs-job-UpdateJob"></a>
 
-Updates an existing job definition. The previous job definition is completely
-overwritten by this information.
+Updates an existing job definition. The previous job definition is completely overwritten by this information.
 
-###### Request
+**Request**
++ `JobName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `JobName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the job definition to update.
++ `JobUpdate` – *Required:* A [JobUpdate](#aws-glue-api-jobs-job-JobUpdate) object.
 
-The name of the job definition to update.
+  Specifies the values with which to update the job definition. Unspecified configuration is removed or reset to default values.
++ `ProfileName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `JobUpdate` – _Required:_ A [JobUpdate](#aws-glue-api-jobs-job-JobUpdate "#aws-glue-api-jobs-job-JobUpdate") object.
+  The name of an AWS Glue usage profile associated with the job.
 
-Specifies the values with which to update the job definition. Unspecified
-configuration is removed or reset to default values.
+**Response**
++ `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ProfileName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Returns the name of the updated job definition.
 
-The name of an AWS Glue usage profile associated with the job.
-
-###### Response
-
-- `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Returns the name of the updated job definition.
-
-###### Errors
-
-- `InvalidInputException`
-- `EntityNotFoundException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `ConcurrentModificationException`
+**Errors**
++ `InvalidInputException`
++ `EntityNotFoundException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `ConcurrentModificationException`
 
 ## GetJob action (Python: get\_job)
+<a name="aws-glue-api-jobs-job-GetJob"></a>
 
 Retrieves an existing job definition.
 
-###### Request
+**Request**
++ `JobName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `JobName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the job definition to retrieve.
 
-The name of the job definition to retrieve.
+**Response**
++ `Job` – A [Job](#aws-glue-api-jobs-job-Job) object.
 
-###### Response
+  The requested job definition.
 
-- `Job` – A [Job](#aws-glue-api-jobs-job-Job "#aws-glue-api-jobs-job-Job") object.
-
-The requested job definition.
-
-###### Errors
-
-- `InvalidInputException`
-- `EntityNotFoundException`
-- `InternalServiceException`
-- `OperationTimeoutException`
+**Errors**
++ `InvalidInputException`
++ `EntityNotFoundException`
++ `InternalServiceException`
++ `OperationTimeoutException`
 
 ## GetJobs action (Python: get\_jobs)
+<a name="aws-glue-api-jobs-job-GetJobs"></a>
 
 Retrieves all current job definitions.
 
-###### Request
+**Request**
++ `NextToken` – UTF-8 string.
 
-- `NextToken` – UTF-8 string.
+  A continuation token, if this is a continuation call.
++ `MaxResults` – Number (integer), not less than 1 or more than 1000.
 
-A continuation token, if this is a continuation call.
+  The maximum size of the response.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+**Response**
++ `Jobs` – An array of [Job](#aws-glue-api-jobs-job-Job) objects.
 
-The maximum size of the response.
+  A list of job definitions.
++ `NextToken` – UTF-8 string.
 
-###### Response
+  A continuation token, if not all job definitions have yet been returned.
 
-- `Jobs` – An array of [Job](#aws-glue-api-jobs-job-Job "#aws-glue-api-jobs-job-Job") objects.
-
-A list of job definitions.
-
-- `NextToken` – UTF-8 string.
-
-A continuation token, if not all job definitions have yet been returned.
-
-###### Errors
-
-- `InvalidInputException`
-- `EntityNotFoundException`
-- `InternalServiceException`
-- `OperationTimeoutException`
+**Errors**
++ `InvalidInputException`
++ `EntityNotFoundException`
++ `InternalServiceException`
++ `OperationTimeoutException`
 
 ## DeleteJob action (Python: delete\_job)
+<a name="aws-glue-api-jobs-job-DeleteJob"></a>
 
-Deletes a specified job definition. If the job definition is not found,
-no exception is thrown.
+Deletes a specified job definition. If the job definition is not found, no exception is thrown.
 
-###### Request
+**Request**
++ `JobName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `JobName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the job definition to delete.
 
-The name of the job definition to delete.
+**Response**
++ `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-###### Response
+  The name of the job definition that was deleted.
 
-- `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the job definition that was deleted.
-
-###### Errors
-
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
+**Errors**
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
 
 ## ListJobs action (Python: list\_jobs)
+<a name="aws-glue-api-jobs-job-ListJobs"></a>
 
-Retrieves the names of all job resources in this AWS account,
-or the resources with the specified tag. This operation allows you to see which
-resources are available in your account, and their names.
+Retrieves the names of all job resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.
 
-This operation takes the optional `Tags` field, which you
-can use as a filter on the response so that tagged resources can be retrieved as
-a group. If you choose to use tags filtering, only resources with the tag are retrieved.
+This operation takes the optional `Tags` field, which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag are retrieved.
 
-###### Request
+**Request**
++ `NextToken` – UTF-8 string.
 
-- `NextToken` – UTF-8 string.
+  A continuation token, if this is a continuation request.
++ `MaxResults` – Number (integer), not less than 1 or more than 1000.
 
-A continuation token, if this is a continuation request.
+  The maximum size of a list to return.
++ `Tags` – A map array of key-value pairs, not more than 50 pairs.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+  Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
 
-The maximum size of a list to return.
+  Each value is a UTF-8 string, not more than 256 bytes long.
 
-- `Tags` – A map array of key-value pairs, not more than 50 pairs.
+  Specifies to return only these tagged resources.
 
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
+**Response**
++ `JobNames` – An array of UTF-8 strings.
 
-Each value is a UTF-8 string, not more than 256 bytes long.
+  The names of all jobs in the account, or the jobs with the specified tags.
++ `NextToken` – UTF-8 string.
 
-Specifies to return only these tagged resources.
+  A continuation token, if the returned list does not contain the last metric available.
 
-###### Response
-
-- `JobNames` – An array of UTF-8 strings.
-
-The names of all jobs in the account, or the jobs with the specified tags.
-
-- `NextToken` – UTF-8 string.
-
-A continuation token, if the returned list does not contain the last metric
-available.
-
-###### Errors
-
-- `InvalidInputException`
-- `EntityNotFoundException`
-- `InternalServiceException`
-- `OperationTimeoutException`
+**Errors**
++ `InvalidInputException`
++ `EntityNotFoundException`
++ `InternalServiceException`
++ `OperationTimeoutException`
 
 ## BatchGetJobs action (Python: batch\_get\_jobs)
+<a name="aws-glue-api-jobs-job-BatchGetJobs"></a>
 
-Returns a list of resource metadata for a given list of job names. After
-calling the `ListJobs` operation, you can call this operation to
-access the data to which you have been granted permissions. This operation supports
-all IAM permissions, including permission conditions that uses tags.
+Returns a list of resource metadata for a given list of job names. After calling the `ListJobs` operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags. 
 
-###### Request
+**Request**
++ `JobNames` – *Required:* An array of UTF-8 strings.
 
-- `JobNames` – _Required:_ An array of UTF-8 strings.
+  A list of job names, which might be the names returned from the `ListJobs` operation.
 
-A list of job names, which might be the names returned from the `ListJobs`
-operation.
+**Response**
++ `Jobs` – An array of [Job](#aws-glue-api-jobs-job-Job) objects.
 
-###### Response
+  A list of job definitions.
++ `JobsNotFound` – An array of UTF-8 strings.
 
-- `Jobs` – An array of [Job](#aws-glue-api-jobs-job-Job "#aws-glue-api-jobs-job-Job") objects.
+  A list of names of jobs not found.
 
-A list of job definitions.
-
-- `JobsNotFound` – An array of UTF-8 strings.
-
-A list of names of jobs not found.
-
-###### Errors
-
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `InvalidInputException`
+**Errors**
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `InvalidInputException`

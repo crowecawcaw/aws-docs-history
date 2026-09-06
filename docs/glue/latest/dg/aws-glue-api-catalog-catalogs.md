@@ -1,615 +1,456 @@
-# Catalogs API
 
-The Catalogs API describes the APIs for creating, deleting, locating,
-updating, and listing catalogs.
+
+# Catalogs API
+<a name="aws-glue-api-catalog-catalogs"></a>
+
+The Catalogs API describes the APIs for creating, deleting, locating, updating, and listing catalogs.
 
 ## Data types
-
-- [Catalog structure](#aws-glue-api-catalog-catalogs-Catalog "#aws-glue-api-catalog-catalogs-Catalog")
-- [CatalogInput structure](#aws-glue-api-catalog-catalogs-CatalogInput "#aws-glue-api-catalog-catalogs-CatalogInput")
-- [TargetRedshiftCatalog structure](#aws-glue-api-catalog-catalogs-TargetRedshiftCatalog "#aws-glue-api-catalog-catalogs-TargetRedshiftCatalog")
-- [CatalogProperties structure](#aws-glue-api-catalog-catalogs-CatalogProperties "#aws-glue-api-catalog-catalogs-CatalogProperties")
-- [CatalogPropertiesOutput structure](#aws-glue-api-catalog-catalogs-CatalogPropertiesOutput "#aws-glue-api-catalog-catalogs-CatalogPropertiesOutput")
-- [DataLakeAccessProperties structure](#aws-glue-api-catalog-catalogs-DataLakeAccessProperties "#aws-glue-api-catalog-catalogs-DataLakeAccessProperties")
-- [IcebergOptimizationProperties structure](#aws-glue-api-catalog-catalogs-IcebergOptimizationProperties "#aws-glue-api-catalog-catalogs-IcebergOptimizationProperties")
-- [DataLakeAccessPropertiesOutput structure](#aws-glue-api-catalog-catalogs-DataLakeAccessPropertiesOutput "#aws-glue-api-catalog-catalogs-DataLakeAccessPropertiesOutput")
-- [IcebergOptimizationPropertiesOutput structure](#aws-glue-api-catalog-catalogs-IcebergOptimizationPropertiesOutput "#aws-glue-api-catalog-catalogs-IcebergOptimizationPropertiesOutput")
-- [FederatedCatalog structure](#aws-glue-api-catalog-catalogs-FederatedCatalog "#aws-glue-api-catalog-catalogs-FederatedCatalog")
+<a name="aws-glue-api-catalog-catalogs-objects"></a>
++ [Catalog structure](#aws-glue-api-catalog-catalogs-Catalog)
++ [CatalogInput structure](#aws-glue-api-catalog-catalogs-CatalogInput)
++ [TargetRedshiftCatalog structure](#aws-glue-api-catalog-catalogs-TargetRedshiftCatalog)
++ [CatalogProperties structure](#aws-glue-api-catalog-catalogs-CatalogProperties)
++ [CatalogPropertiesOutput structure](#aws-glue-api-catalog-catalogs-CatalogPropertiesOutput)
++ [DataLakeAccessProperties structure](#aws-glue-api-catalog-catalogs-DataLakeAccessProperties)
++ [IcebergOptimizationProperties structure](#aws-glue-api-catalog-catalogs-IcebergOptimizationProperties)
++ [DataLakeAccessPropertiesOutput structure](#aws-glue-api-catalog-catalogs-DataLakeAccessPropertiesOutput)
++ [IcebergOptimizationPropertiesOutput structure](#aws-glue-api-catalog-catalogs-IcebergOptimizationPropertiesOutput)
++ [FederatedCatalog structure](#aws-glue-api-catalog-catalogs-FederatedCatalog)
 
 ## Catalog structure
+<a name="aws-glue-api-catalog-catalogs-Catalog"></a>
 
-The catalog object represents a logical grouping of databases in the AWS Glue Data Catalog or a federated source. You can now create a Redshift-federated
-catalog or a catalog containing resource links to Redshift databases in another
-account or region.
+The catalog object represents a logical grouping of databases in the AWS Glue Data Catalog or a federated source. You can now create a Redshift-federated catalog or a catalog containing resource links to Redshift databases in another account or region.
 
-###### Fields
+**Fields**
++ `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the catalog. To grant access to the default catalog, this field should not be provided.
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 64 bytes long, matching the [Custom string pattern #30](aws-glue-api-common.md#regex_30).
 
-The ID of the catalog. To grant access to the default catalog, this field
-should not be provided.
+  The name of the catalog. Cannot be the same as the account ID.
++ `ResourceArn` – UTF-8 string.
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 64 bytes long, matching the [Custom string pattern #30](aws-glue-api-common.md#regex_30 "aws-glue-api-common.md#regex_30").
+  The Amazon Resource Name (ARN) assigned to the catalog resource.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The name of the catalog. Cannot be the same as the account ID.
+  Description string, not more than 2048 bytes long, matching the URI address multi-line string pattern. A description of the catalog.
++ `Parameters` – A map array of key-value pairs.
 
-- `ResourceArn` – UTF-8 string.
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The Amazon Resource Name (ARN) assigned to the catalog resource.
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+   A map array of key-value pairs that define parameters and properties of the catalog.
++ `CreateTime` – Timestamp.
 
-Description string, not more than 2048 bytes long, matching the URI address
-multi-line string pattern. A description of the catalog.
+  The time at which the catalog was created.
++ `UpdateTime` – Timestamp.
 
-- `Parameters` – A map array of key-value pairs.
+  The time at which the catalog was last updated.
++ `TargetRedshiftCatalog` – A [TargetRedshiftCatalog](#aws-glue-api-catalog-catalogs-TargetRedshiftCatalog) object.
 
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A `TargetRedshiftCatalog` object that describes a target catalog for database resource linking.
++ `FederatedCatalog` – A [FederatedCatalog](#aws-glue-api-catalog-catalogs-FederatedCatalog) object.
 
-Each value is a UTF-8 string, not more than 512000 bytes long.
+  A `FederatedCatalog` object that points to an entity outside the AWS Glue Data Catalog.
++ `CatalogProperties` – A [CatalogPropertiesOutput](#aws-glue-api-catalog-catalogs-CatalogPropertiesOutput) object.
 
-A map array of key-value pairs that define parameters and properties of
-the catalog.
+  A `CatalogProperties` object that specifies data lake access properties and other custom properties.
++ `CreateTableDefaultPermissions` – An array of [PrincipalPermissions](aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-PrincipalPermissions) objects.
 
-- `CreateTime` – Timestamp.
+  An array of `PrincipalPermissions` objects. Creates a set of default permissions on the table(s) for principals. Used by AWS Lake Formation. Not used in the normal course of AWS Glue operations.
++ `CreateDatabaseDefaultPermissions` – An array of [PrincipalPermissions](aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-PrincipalPermissions) objects.
 
-The time at which the catalog was created.
+  An array of `PrincipalPermissions` objects. Creates a set of default permissions on the database(s) for principals. Used by AWS Lake Formation. Not used in the normal course of AWS Glue operations.
++ `AllowFullTableExternalDataAccess` – UTF-8 string (valid values: `True` \| `False`).
 
-- `UpdateTime` – Timestamp.
-
-The time at which the catalog was last updated.
-
-- `TargetRedshiftCatalog` – A [TargetRedshiftCatalog](#aws-glue-api-catalog-catalogs-TargetRedshiftCatalog "#aws-glue-api-catalog-catalogs-TargetRedshiftCatalog") object.
-
-A `TargetRedshiftCatalog` object that describes a target
-catalog for database resource linking.
-
-- `FederatedCatalog` – A [FederatedCatalog](#aws-glue-api-catalog-catalogs-FederatedCatalog "#aws-glue-api-catalog-catalogs-FederatedCatalog") object.
-
-A `FederatedCatalog` object that points to an entity outside
-the AWS Glue Data Catalog.
-
-- `CatalogProperties` – A [CatalogPropertiesOutput](#aws-glue-api-catalog-catalogs-CatalogPropertiesOutput "#aws-glue-api-catalog-catalogs-CatalogPropertiesOutput") object.
-
-A `CatalogProperties` object that specifies data lake access
-properties and other custom properties.
-
-- `CreateTableDefaultPermissions` – An array of [PrincipalPermissions](aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-PrincipalPermissions "aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-PrincipalPermissions") objects.
-
-An array of `PrincipalPermissions` objects. Creates a set
-of default permissions on the table(s) for principals. Used by AWS Lake Formation. Not used in the normal course of AWS Glue operations.
-
-- `CreateDatabaseDefaultPermissions` – An array of [PrincipalPermissions](aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-PrincipalPermissions "aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-PrincipalPermissions") objects.
-
-An array of `PrincipalPermissions` objects. Creates a set
-of default permissions on the database(s) for principals. Used by AWS Lake Formation. Not used in the normal course of AWS Glue operations.
-
-- `AllowFullTableExternalDataAccess` – UTF-8 string (valid values: `True` | `False`).
-
-Allows third-party engines to access data in Amazon S3 locations
-that are registered with Lake Formation.
+   Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation. 
 
 ## CatalogInput structure
+<a name="aws-glue-api-catalog-catalogs-CatalogInput"></a>
 
 A structure that describes catalog properties.
 
-###### Fields
+**Fields**
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  Description string, not more than 2048 bytes long, matching the URI address multi-line string pattern. A description of the catalog.
++ `FederatedCatalog` – A [FederatedCatalog](#aws-glue-api-catalog-catalogs-FederatedCatalog) object.
 
-Description string, not more than 2048 bytes long, matching the URI address
-multi-line string pattern. A description of the catalog.
+  A `FederatedCatalog` object. A `FederatedCatalog` structure that references an entity outside the AWS Glue Data Catalog, for example a Redshift database.
++ `Parameters` – A map array of key-value pairs.
 
-- `FederatedCatalog` – A [FederatedCatalog](#aws-glue-api-catalog-catalogs-FederatedCatalog "#aws-glue-api-catalog-catalogs-FederatedCatalog") object.
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A `FederatedCatalog` object. A `FederatedCatalog`
-structure that references an entity outside the AWS Glue Data Catalog,
-for example a Redshift database.
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-- `Parameters` – A map array of key-value pairs.
+  A map array of key-value pairs that define the parameters and properties of the catalog.
++ `TargetRedshiftCatalog` – A [TargetRedshiftCatalog](#aws-glue-api-catalog-catalogs-TargetRedshiftCatalog) object.
 
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A `TargetRedshiftCatalog` object that describes a target catalog for resource linking.
++ `CatalogProperties` – A [CatalogProperties](#aws-glue-api-catalog-catalogs-CatalogProperties) object.
 
-Each value is a UTF-8 string, not more than 512000 bytes long.
+  A `CatalogProperties` object that specifies data lake access properties and other custom properties.
++ `CreateTableDefaultPermissions` – An array of [PrincipalPermissions](aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-PrincipalPermissions) objects.
 
-A map array of key-value pairs that define the parameters and properties
-of the catalog.
+  An array of `PrincipalPermissions` objects. Creates a set of default permissions on the table(s) for principals. Used by AWS Lake Formation. Typically should be explicitly set as an empty list.
++ `CreateDatabaseDefaultPermissions` – An array of [PrincipalPermissions](aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-PrincipalPermissions) objects.
 
-- `TargetRedshiftCatalog` – A [TargetRedshiftCatalog](#aws-glue-api-catalog-catalogs-TargetRedshiftCatalog "#aws-glue-api-catalog-catalogs-TargetRedshiftCatalog") object.
+  An array of `PrincipalPermissions` objects. Creates a set of default permissions on the database(s) for principals. Used by AWS Lake Formation. Typically should be explicitly set as an empty list.
++ `AllowFullTableExternalDataAccess` – UTF-8 string (valid values: `True` \| `False`).
 
-A `TargetRedshiftCatalog` object that describes a target
-catalog for resource linking.
+   Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation. 
++ `OverwriteChildResourcePermissionsWithDefault` – UTF-8 string (valid values: `Accept` \| `Deny`).
 
-- `CatalogProperties` – A [CatalogProperties](#aws-glue-api-catalog-catalogs-CatalogProperties "#aws-glue-api-catalog-catalogs-CatalogProperties") object.
-
-A `CatalogProperties` object that specifies data lake access
-properties and other custom properties.
-
-- `CreateTableDefaultPermissions` – An array of [PrincipalPermissions](aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-PrincipalPermissions "aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-PrincipalPermissions") objects.
-
-An array of `PrincipalPermissions` objects. Creates a set
-of default permissions on the table(s) for principals. Used by AWS Lake Formation. Typically should be explicitly set as an empty list.
-
-- `CreateDatabaseDefaultPermissions` – An array of [PrincipalPermissions](aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-PrincipalPermissions "aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-PrincipalPermissions") objects.
-
-An array of `PrincipalPermissions` objects. Creates a set
-of default permissions on the database(s) for principals. Used by AWS Lake Formation. Typically should be explicitly set as an empty list.
-
-- `AllowFullTableExternalDataAccess` – UTF-8 string (valid values: `True` | `False`).
-
-Allows third-party engines to access data in Amazon S3 locations
-that are registered with Lake Formation.
-
-- `OverwriteChildResourcePermissionsWithDefault` – UTF-8 string (valid values: `Accept` | `Deny`).
-
-Overwrites existing AWS Lake Formation permissions
-with `CatalogInput$CreateTableDefaultPermissions` and `CatalogInput$CreateDatabaseDefaultPermissions`
-for all child resources.
+   Overwrites existing AWS Lake Formation permissions with `CatalogInput$CreateTableDefaultPermissions` and `CatalogInput$CreateDatabaseDefaultPermissions` for all child resources. 
 
 ## TargetRedshiftCatalog structure
+<a name="aws-glue-api-catalog-catalogs-TargetRedshiftCatalog"></a>
 
 A structure that describes a target catalog for resource linking.
 
-###### Fields
+**Fields**
++ `CatalogArn` – *Required:* UTF-8 string.
 
-- `CatalogArn` – _Required:_ UTF-8 string.
-
-The Amazon Resource Name (ARN) of the catalog resource.
+  The Amazon Resource Name (ARN) of the catalog resource.
 
 ## CatalogProperties structure
+<a name="aws-glue-api-catalog-catalogs-CatalogProperties"></a>
 
-A structure that specifies data lake access properties and other custom
-properties.
+A structure that specifies data lake access properties and other custom properties.
 
-###### Fields
+**Fields**
++ `DataLakeAccessProperties` – A [DataLakeAccessProperties](#aws-glue-api-catalog-catalogs-DataLakeAccessProperties) object.
 
-- `DataLakeAccessProperties` – A [DataLakeAccessProperties](#aws-glue-api-catalog-catalogs-DataLakeAccessProperties "#aws-glue-api-catalog-catalogs-DataLakeAccessProperties") object.
+  A `DataLakeAccessProperties` object that specifies properties to configure data lake access for your catalog resource in the AWS Glue Data Catalog.
++ `IcebergOptimizationProperties` – An [IcebergOptimizationProperties](#aws-glue-api-catalog-catalogs-IcebergOptimizationProperties) object.
 
-A `DataLakeAccessProperties` object that specifies properties
-to configure data lake access for your catalog resource in the AWS Glue Data Catalog.
+  A structure that specifies Iceberg table optimization properties for the catalog. This includes configuration for compaction, retention, and orphan file deletion operations that can be applied to Iceberg tables in this catalog.
++ `CustomProperties` – A map array of key-value pairs.
 
-- `IcebergOptimizationProperties` – An [IcebergOptimizationProperties](#aws-glue-api-catalog-catalogs-IcebergOptimizationProperties "#aws-glue-api-catalog-catalogs-IcebergOptimizationProperties") object.
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A structure that specifies Iceberg table optimization properties for
-the catalog. This includes configuration for compaction, retention, and orphan
-file deletion operations that can be applied to Iceberg tables in this catalog.
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-- `CustomProperties` – A map array of key-value pairs.
-
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a UTF-8 string, not more than 512000 bytes long.
-
-Additional key-value properties for the catalog, such as column statistics
-optimizations.
+  Additional key-value properties for the catalog, such as column statistics optimizations.
 
 ## CatalogPropertiesOutput structure
+<a name="aws-glue-api-catalog-catalogs-CatalogPropertiesOutput"></a>
 
-Property attributes that include configuration properties for the catalog
-resource.
+Property attributes that include configuration properties for the catalog resource.
 
-###### Fields
+**Fields**
++ `DataLakeAccessProperties` – A [DataLakeAccessPropertiesOutput](#aws-glue-api-catalog-catalogs-DataLakeAccessPropertiesOutput) object.
 
-- `DataLakeAccessProperties` – A [DataLakeAccessPropertiesOutput](#aws-glue-api-catalog-catalogs-DataLakeAccessPropertiesOutput "#aws-glue-api-catalog-catalogs-DataLakeAccessPropertiesOutput") object.
+  A `DataLakeAccessProperties` object with input properties to configure data lake access for your catalog resource in the AWS Glue Data Catalog.
++ `IcebergOptimizationProperties` – An [IcebergOptimizationPropertiesOutput](#aws-glue-api-catalog-catalogs-IcebergOptimizationPropertiesOutput) object.
 
-A `DataLakeAccessProperties` object with input properties
-to configure data lake access for your catalog resource in the AWS Glue Data Catalog.
+  An `IcebergOptimizationPropertiesOutput` object that specifies Iceberg table optimization settings for the catalog, including configurations for compaction, retention, and orphan file deletion operations.
++ `CustomProperties` – A map array of key-value pairs.
 
-- `IcebergOptimizationProperties` – An [IcebergOptimizationPropertiesOutput](#aws-glue-api-catalog-catalogs-IcebergOptimizationPropertiesOutput "#aws-glue-api-catalog-catalogs-IcebergOptimizationPropertiesOutput") object.
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-An `IcebergOptimizationPropertiesOutput` object that
-specifies Iceberg table optimization settings for the catalog, including configurations
-for compaction, retention, and orphan file deletion operations.
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-- `CustomProperties` – A map array of key-value pairs.
-
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a UTF-8 string, not more than 512000 bytes long.
-
-Additional key-value properties for the catalog, such as column statistics
-optimizations.
+  Additional key-value properties for the catalog, such as column statistics optimizations.
 
 ## DataLakeAccessProperties structure
+<a name="aws-glue-api-catalog-catalogs-DataLakeAccessProperties"></a>
 
-Input properties to configure data lake access for your catalog resource
-in the AWS Glue Data Catalog.
+Input properties to configure data lake access for your catalog resource in the AWS Glue Data Catalog.
 
-###### Fields
+**Fields**
++ `DataLakeAccess` – Boolean.
 
-- `DataLakeAccess` – Boolean.
+  Turns on or off data lake access for Apache Spark applications that access Amazon Redshift databases in the Data Catalog from any non-Redshift engine, such as Amazon Athena, Amazon EMR, or AWS Glue ETL.
++ `DataTransferRole` – UTF-8 string, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50).
 
-Turns on or off data lake access for Apache Spark applications that access
-Amazon Redshift databases in the Data Catalog from any non-Redshift engine,
-such as Amazon Athena, Amazon EMR, or AWS Glue ETL.
+  A role that will be assumed by AWS Glue for transferring data into/out of the staging bucket during a query.
++ `KmsKey` – UTF-8 string.
 
-- `DataTransferRole` – UTF-8 string, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50 "aws-glue-api-common.md#regex_50").
+  An encryption key that will be used for the staging bucket that will be created along with the catalog.
++ `CatalogType` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A role that will be assumed by AWS Glue for transferring data
-into/out of the staging bucket during a query.
-
-- `KmsKey` – UTF-8 string.
-
-An encryption key that will be used for the staging bucket that will be created
-along with the catalog.
-
-- `CatalogType` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Specifies a federated catalog type for the native catalog resource. The
-currently supported type is `aws:redshift`.
+  Specifies a federated catalog type for the native catalog resource. The currently supported type is `aws:redshift`.
 
 ## IcebergOptimizationProperties structure
+<a name="aws-glue-api-catalog-catalogs-IcebergOptimizationProperties"></a>
 
-A structure that specifies Iceberg table optimization properties for
-the catalog, including configurations for compaction, retention, and orphan
-file deletion operations.
+A structure that specifies Iceberg table optimization properties for the catalog, including configurations for compaction, retention, and orphan file deletion operations.
 
-###### Fields
+**Fields**
++ `RoleArn` – UTF-8 string, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50).
 
-- `RoleArn` – UTF-8 string, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50 "aws-glue-api-common.md#regex_50").
+  The Amazon Resource Name (ARN) of the IAM role that will be assumed to perform Iceberg table optimization operations.
++ `Compaction` – A map array of key-value pairs.
 
-The Amazon Resource Name (ARN) of the IAM role that will be assumed to perform
-Iceberg table optimization operations.
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Compaction` – A map array of key-value pairs.
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A map of key-value pairs that specify configuration parameters for Iceberg table compaction operations, which optimize the layout of data files to improve query performance.
++ `Retention` – A map array of key-value pairs.
 
-Each value is a UTF-8 string, not more than 512000 bytes long.
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A map of key-value pairs that specify configuration parameters for Iceberg
-table compaction operations, which optimize the layout of data files to improve
-query performance.
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-- `Retention` – A map array of key-value pairs.
+  A map of key-value pairs that specify configuration parameters for Iceberg table retention operations, which manage the lifecycle of table snapshots to control storage costs.
++ `OrphanFileDeletion` – A map array of key-value pairs.
 
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Each value is a UTF-8 string, not more than 512000 bytes long.
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-A map of key-value pairs that specify configuration parameters for Iceberg
-table retention operations, which manage the lifecycle of table snapshots to
-control storage costs.
-
-- `OrphanFileDeletion` – A map array of key-value pairs.
-
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a UTF-8 string, not more than 512000 bytes long.
-
-A map of key-value pairs that specify configuration parameters for Iceberg
-orphan file deletion operations, which identify and remove files that are no
-longer referenced by the table metadata.
+  A map of key-value pairs that specify configuration parameters for Iceberg orphan file deletion operations, which identify and remove files that are no longer referenced by the table metadata.
 
 ## DataLakeAccessPropertiesOutput structure
+<a name="aws-glue-api-catalog-catalogs-DataLakeAccessPropertiesOutput"></a>
 
-The output properties of the data lake access configuration for your catalog
-resource in the AWS Glue Data Catalog.
+The output properties of the data lake access configuration for your catalog resource in the AWS Glue Data Catalog.
 
-###### Fields
+**Fields**
++ `DataLakeAccess` – Boolean.
 
-- `DataLakeAccess` – Boolean.
+  Turns on or off data lake access for Apache Spark applications that access Amazon Redshift databases in the Data Catalog.
++ `DataTransferRole` – UTF-8 string, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50).
 
-Turns on or off data lake access for Apache Spark applications that access
-Amazon Redshift databases in the Data Catalog.
+  A role that will be assumed by AWS Glue for transferring data into/out of the staging bucket during a query.
++ `KmsKey` – UTF-8 string.
 
-- `DataTransferRole` – UTF-8 string, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50 "aws-glue-api-common.md#regex_50").
+  An encryption key that will be used for the staging bucket that will be created along with the catalog.
++ `ManagedWorkgroupName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A role that will be assumed by AWS Glue for transferring data
-into/out of the staging bucket during a query.
+  The managed Redshift Serverless compute name that is created for your catalog resource.
++ `ManagedWorkgroupStatus` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `KmsKey` – UTF-8 string.
+  The managed Redshift Serverless compute status.
++ `RedshiftDatabaseName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-An encryption key that will be used for the staging bucket that will be created
-along with the catalog.
+  The default Redshift database resource name in the managed compute.
++ `StatusMessage` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ManagedWorkgroupName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A message that gives more detailed information about the managed workgroup status.
++ `CatalogType` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The managed Redshift Serverless compute name that is created for your
-catalog resource.
-
-- `ManagedWorkgroupStatus` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The managed Redshift Serverless compute status.
-
-- `RedshiftDatabaseName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The default Redshift database resource name in the managed compute.
-
-- `StatusMessage` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-A message that gives more detailed information about the managed workgroup
-status.
-
-- `CatalogType` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Specifies a federated catalog type for the native catalog resource. The
-currently supported type is `aws:redshift`.
+  Specifies a federated catalog type for the native catalog resource. The currently supported type is `aws:redshift`.
 
 ## IcebergOptimizationPropertiesOutput structure
+<a name="aws-glue-api-catalog-catalogs-IcebergOptimizationPropertiesOutput"></a>
 
-A structure that contains the output properties of Iceberg table optimization
-configuration for your catalog resource in the AWS Glue Data Catalog.
+A structure that contains the output properties of Iceberg table optimization configuration for your catalog resource in the AWS Glue Data Catalog.
 
-###### Fields
+**Fields**
++ `RoleArn` – UTF-8 string, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50).
 
-- `RoleArn` – UTF-8 string, matching the [Custom string pattern #50](aws-glue-api-common.md#regex_50 "aws-glue-api-common.md#regex_50").
+  The Amazon Resource Name (ARN) of the IAM role that is used to perform Iceberg table optimization operations.
++ `Compaction` – A map array of key-value pairs.
 
-The Amazon Resource Name (ARN) of the IAM role that is used to perform Iceberg
-table optimization operations.
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Compaction` – A map array of key-value pairs.
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A map of key-value pairs that specify configuration parameters for Iceberg table compaction operations, which optimize the layout of data files to improve query performance.
++ `Retention` – A map array of key-value pairs.
 
-Each value is a UTF-8 string, not more than 512000 bytes long.
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A map of key-value pairs that specify configuration parameters for Iceberg
-table compaction operations, which optimize the layout of data files to improve
-query performance.
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-- `Retention` – A map array of key-value pairs.
+  A map of key-value pairs that specify configuration parameters for Iceberg table retention operations, which manage the lifecycle of table snapshots to control storage costs.
++ `OrphanFileDeletion` – A map array of key-value pairs.
 
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Each value is a UTF-8 string, not more than 512000 bytes long.
+  Each value is a UTF-8 string, not more than 512000 bytes long.
 
-A map of key-value pairs that specify configuration parameters for Iceberg
-table retention operations, which manage the lifecycle of table snapshots to
-control storage costs.
+  A map of key-value pairs that specify configuration parameters for Iceberg orphan file deletion operations, which identify and remove files that are no longer referenced by the table metadata.
++ `LastUpdatedTime` – Timestamp.
 
-- `OrphanFileDeletion` – A map array of key-value pairs.
-
-Each key is a Key string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a UTF-8 string, not more than 512000 bytes long.
-
-A map of key-value pairs that specify configuration parameters for Iceberg
-orphan file deletion operations, which identify and remove files that are no
-longer referenced by the table metadata.
-
-- `LastUpdatedTime` – Timestamp.
-
-The timestamp when the Iceberg optimization properties were last updated.
+  The timestamp when the Iceberg optimization properties were last updated.
 
 ## FederatedCatalog structure
+<a name="aws-glue-api-catalog-catalogs-FederatedCatalog"></a>
 
-A catalog that points to an entity outside the AWS Glue Data
-Catalog.
+A catalog that points to an entity outside the AWS Glue Data Catalog.
 
-###### Fields
+**Fields**
++ `Identifier` – UTF-8 string, not less than 1 or more than 512 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Identifier` – UTF-8 string, not less than 1 or more than 512 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A unique identifier for the federated catalog.
++ `ConnectionName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A unique identifier for the federated catalog.
+  The name of the connection to an external data source, for example a Redshift-federated catalog.
++ `ConnectionType` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ConnectionName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the connection to an external data source, for example a Redshift-federated
-catalog.
-
-- `ConnectionType` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The type of connection used to access the federated catalog, specifying
-the protocol or method for connection to the external data source.
+  The type of connection used to access the federated catalog, specifying the protocol or method for connection to the external data source.
 
 ## Operations
-
-- [CreateCatalog action (Python: create\_catalog)](#aws-glue-api-catalog-catalogs-CreateCatalog "#aws-glue-api-catalog-catalogs-CreateCatalog")
-- [UpdateCatalog action (Python: update\_catalog)](#aws-glue-api-catalog-catalogs-UpdateCatalog "#aws-glue-api-catalog-catalogs-UpdateCatalog")
-- [DeleteCatalog action (Python: delete\_catalog)](#aws-glue-api-catalog-catalogs-DeleteCatalog "#aws-glue-api-catalog-catalogs-DeleteCatalog")
-- [GetCatalog action (Python: get\_catalog)](#aws-glue-api-catalog-catalogs-GetCatalog "#aws-glue-api-catalog-catalogs-GetCatalog")
-- [GetCatalogs action (Python: get\_catalogs)](#aws-glue-api-catalog-catalogs-GetCatalogs "#aws-glue-api-catalog-catalogs-GetCatalogs")
+<a name="aws-glue-api-catalog-catalogs-actions"></a>
++ [CreateCatalog action (Python: create\_catalog)](#aws-glue-api-catalog-catalogs-CreateCatalog)
++ [UpdateCatalog action (Python: update\_catalog)](#aws-glue-api-catalog-catalogs-UpdateCatalog)
++ [DeleteCatalog action (Python: delete\_catalog)](#aws-glue-api-catalog-catalogs-DeleteCatalog)
++ [GetCatalog action (Python: get\_catalog)](#aws-glue-api-catalog-catalogs-GetCatalog)
++ [GetCatalogs action (Python: get\_catalogs)](#aws-glue-api-catalog-catalogs-GetCatalogs)
 
 ## CreateCatalog action (Python: create\_catalog)
+<a name="aws-glue-api-catalog-catalogs-CreateCatalog"></a>
 
 Creates a new catalog in the AWS Glue Data Catalog.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 64 bytes long, matching the [Custom string pattern #30](aws-glue-api-common.md#regex_30).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 64 bytes long, matching the [Custom string pattern #30](aws-glue-api-common.md#regex_30 "aws-glue-api-common.md#regex_30").
+  The name of the catalog to create.
++ `CatalogInput` – *Required:* A [CatalogInput](#aws-glue-api-catalog-catalogs-CatalogInput) object.
 
-The name of the catalog to create.
+  A `CatalogInput` object that defines the metadata for the catalog.
++ `Tags` – A map array of key-value pairs, not more than 50 pairs.
 
-- `CatalogInput` – _Required:_ A [CatalogInput](#aws-glue-api-catalog-catalogs-CatalogInput "#aws-glue-api-catalog-catalogs-CatalogInput") object.
+  Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
 
-A `CatalogInput` object that defines the metadata for the
-catalog.
+  Each value is a UTF-8 string, not more than 256 bytes long.
 
-- `Tags` – A map array of key-value pairs, not more than 50 pairs.
+  A map array of key-value pairs, not more than 50 pairs. Each key is a UTF-8 string, not less than 1 or more than 128 bytes long. Each value is a UTF-8 string, not more than 256 bytes long. The tags you assign to the catalog.
 
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
+**Response**
++ *No Response parameters.*
 
-Each value is a UTF-8 string, not more than 256 bytes long.
-
-A map array of key-value pairs, not more than 50 pairs. Each key is a UTF-8
-string, not less than 1 or more than 128 bytes long. Each value is a UTF-8 string,
-not more than 256 bytes long. The tags you assign to the catalog.
-
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `InvalidInputException`
-- `AlreadyExistsException`
-- `ResourceNumberLimitExceededException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `GlueEncryptionException`
-- `ConcurrentModificationException`
-- `AccessDeniedException`
-- `EntityNotFoundException`
-- `FederatedResourceAlreadyExistsException`
-- `FederationSourceException`
+**Errors**
++ `InvalidInputException`
++ `AlreadyExistsException`
++ `ResourceNumberLimitExceededException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `GlueEncryptionException`
++ `ConcurrentModificationException`
++ `AccessDeniedException`
++ `EntityNotFoundException`
++ `FederatedResourceAlreadyExistsException`
++ `FederationSourceException`
 
 ## UpdateCatalog action (Python: update\_catalog)
+<a name="aws-glue-api-catalog-catalogs-UpdateCatalog"></a>
 
-Updates an existing catalog's properties in the AWS Glue Data
-Catalog.
+Updates an existing catalog's properties in the AWS Glue Data Catalog.
 
-###### Request
+**Request**
++ `CatalogId` – *Required:* Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – _Required:_ Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the catalog.
++ `CatalogInput` – *Required:* A [CatalogInput](#aws-glue-api-catalog-catalogs-CatalogInput) object.
 
-The ID of the catalog.
+  A `CatalogInput` object specifying the new properties of an existing catalog.
 
-- `CatalogInput` – _Required:_ A [CatalogInput](#aws-glue-api-catalog-catalogs-CatalogInput "#aws-glue-api-catalog-catalogs-CatalogInput") object.
+**Response**
++ *No Response parameters.*
 
-A `CatalogInput` object specifying the new properties of
-an existing catalog.
-
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `GlueEncryptionException`
-- `ConcurrentModificationException`
-- `AccessDeniedException`
-- `FederationSourceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `GlueEncryptionException`
++ `ConcurrentModificationException`
++ `AccessDeniedException`
++ `FederationSourceException`
 
 ## DeleteCatalog action (Python: delete\_catalog)
+<a name="aws-glue-api-catalog-catalogs-DeleteCatalog"></a>
 
 Removes the specified catalog from the AWS Glue Data Catalog.
 
-After completing this operation, you no longer have access to the databases,
-tables (and all table versions and partitions that might belong to the tables)
-and the user-defined functions in the deleted catalog. AWS Glue deletes
-these "orphaned" resources asynchronously in a timely manner, at the discretion
-of the service.
+After completing this operation, you no longer have access to the databases, tables (and all table versions and partitions that might belong to the tables) and the user-defined functions in the deleted catalog. AWS Glue deletes these "orphaned" resources asynchronously in a timely manner, at the discretion of the service.
 
-To ensure the immediate deletion of all related resources before calling
-the `DeleteCatalog` operation, use `DeleteTableVersion`
-(or `BatchDeleteTableVersion`), `DeletePartition`
-(or `BatchDeletePartition`), `DeleteTable` (or
-`BatchDeleteTable`), `DeleteUserDefinedFunction`
-and `DeleteDatabase` to delete any resources that belong to the
-catalog.
+To ensure the immediate deletion of all related resources before calling the `DeleteCatalog` operation, use `DeleteTableVersion` (or `BatchDeleteTableVersion`), `DeletePartition` (or `BatchDeletePartition`), `DeleteTable` (or `BatchDeleteTable`), `DeleteUserDefinedFunction` and `DeleteDatabase` to delete any resources that belong to the catalog.
 
-###### Request
+**Request**
++ `CatalogId` – *Required:* Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – _Required:_ Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the catalog.
 
-The ID of the catalog.
+**Response**
++ *No Response parameters.*
 
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `GlueEncryptionException`
-- `ConcurrentModificationException`
-- `AccessDeniedException`
-- `FederationSourceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `GlueEncryptionException`
++ `ConcurrentModificationException`
++ `AccessDeniedException`
++ `FederationSourceException`
 
 ## GetCatalog action (Python: get\_catalog)
+<a name="aws-glue-api-catalog-catalogs-GetCatalog"></a>
 
 The name of the Catalog to retrieve. This should be all lowercase.
 
-###### Request
+**Request**
++ `CatalogId` – *Required:* Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `CatalogId` – _Required:_ Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the parent catalog in which the catalog resides. If none is provided, the AWS Account Number is used by default.
 
-The ID of the parent catalog in which the catalog resides. If none is provided,
-the AWS Account Number is used by default.
+**Response**
++ `Catalog` – A [Catalog](#aws-glue-api-catalog-catalogs-Catalog) object.
 
-###### Response
+  A `Catalog` object. The definition of the specified catalog in the AWS Glue Data Catalog.
 
-- `Catalog` – A [Catalog](#aws-glue-api-catalog-catalogs-Catalog "#aws-glue-api-catalog-catalogs-Catalog") object.
-
-A `Catalog` object. The definition of the specified catalog
-in the AWS Glue Data Catalog.
-
-###### Errors
-
-- `InvalidInputException`
-- `EntityNotFoundException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `GlueEncryptionException`
-- `AccessDeniedException`
-- `EntityNotFoundException`
-- `FederationSourceException`
-- `FederationSourceRetryableException`
+**Errors**
++ `InvalidInputException`
++ `EntityNotFoundException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `GlueEncryptionException`
++ `AccessDeniedException`
++ `EntityNotFoundException`
++ `FederationSourceException`
++ `FederationSourceRetryableException`
 
 ## GetCatalogs action (Python: get\_catalogs)
+<a name="aws-glue-api-catalog-catalogs-GetCatalogs"></a>
 
-Retrieves all catalogs defined in a catalog in the AWS Glue
-Data Catalog. For a Redshift-federated catalog use case, this operation returns
-the list of catalogs mapped to Redshift databases in the Redshift namespace catalog.
+Retrieves all catalogs defined in a catalog in the AWS Glue Data Catalog. For a Redshift-federated catalog use case, this operation returns the list of catalogs mapped to Redshift databases in the Redshift namespace catalog.
 
-###### Request
+**Request**
++ `ParentCatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ParentCatalogId` – Catalog id string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the parent catalog in which the catalog resides. If none is provided, the AWS Account Number is used by default.
++ `NextToken` – UTF-8 string.
 
-The ID of the parent catalog in which the catalog resides. If none is provided,
-the AWS Account Number is used by default.
+  A continuation token, if this is a continuation call.
++ `MaxResults` – Number (integer), not less than 1 or more than 1000.
 
-- `NextToken` – UTF-8 string.
+  The maximum number of catalogs to return in one response.
++ `Recursive` – Boolean.
 
-A continuation token, if this is a continuation call.
+  Whether to list all catalogs across the catalog hierarchy, starting from the `ParentCatalogId`. Defaults to `false` . When `true`, all catalog objects in the `ParentCatalogID` hierarchy are enumerated in the response.
++ `IncludeRoot` – Boolean.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+  Whether to list the default catalog in the account and region in the response. Defaults to `false`. When `true` and `ParentCatalogId = NULL | AWS Account ID`, all catalogs and the default catalog are enumerated in the response.
 
-The maximum number of catalogs to return in one response.
+  When the `ParentCatalogId` is not equal to null, and this attribute is passed as `false` or `true`, an `InvalidInputException` is thrown.
++ `HasDatabases` – Boolean.
 
-- `Recursive` – Boolean.
+  When `true`, the response only includes catalogs that can contain databases. Some catalogs are organizational containers that hold only other catalogs, not databases. When this parameter is set to `true`, those container-only catalogs are excluded, and only catalogs capable of containing databases are returned. Defaults to `false`.
 
-Whether to list all catalogs across the catalog hierarchy, starting from
-the `ParentCatalogId`. Defaults to `false` . When
-`true`, all catalog objects in the `ParentCatalogID`
-hierarchy are enumerated in the response.
+**Response**
++ `CatalogList` – *Required:* An array of [Catalog](#aws-glue-api-catalog-catalogs-Catalog) objects.
 
-- `IncludeRoot` – Boolean.
+  An array of `Catalog` objects. A list of `Catalog` objects from the specified parent catalog.
++ `NextToken` – UTF-8 string.
 
-Whether to list the default catalog in the account and region in the response.
-Defaults to `false`. When `true` and `ParentCatalogId
- = NULL | AWS Account ID`, all catalogs and the default catalog
-are enumerated in the response.
+  A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
 
-When the `ParentCatalogId` is not equal to null, and this
-attribute is passed as `false` or `true`, an `InvalidInputException`
-is thrown.
-
-- `HasDatabases` – Boolean.
-
-When `true`, the response only includes catalogs that can
-contain databases. Some catalogs are organizational containers that hold only
-other catalogs, not databases. When this parameter is set to `true`,
-those container-only catalogs are excluded, and only catalogs capable of containing
-databases are returned. Defaults to `false`.
-
-###### Response
-
-- `CatalogList` – _Required:_ An array of [Catalog](#aws-glue-api-catalog-catalogs-Catalog "#aws-glue-api-catalog-catalogs-Catalog") objects.
-
-An array of `Catalog` objects. A list of `Catalog`
-objects from the specified parent catalog.
-
-- `NextToken` – UTF-8 string.
-
-A continuation token for paginating the returned list of tokens, returned
-if the current segment of the list is not the last.
-
-###### Errors
-
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `GlueEncryptionException`
-- `AccessDeniedException`
-- `EntityNotFoundException`
-- `FederationSourceException`
-- `FederationSourceRetryableException`
+**Errors**
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `GlueEncryptionException`
++ `AccessDeniedException`
++ `EntityNotFoundException`
++ `FederationSourceException`
++ `FederationSourceRetryableException`

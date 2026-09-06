@@ -1,10 +1,14 @@
+
+
 # AWS Glue Scala StringNode APIs
+<a name="glue-etl-scala-apis-glue-types-stringnode"></a>
 
 **Package: com.amazonaws.services.glue.types**
 
 ## StringNode case class
+<a name="glue-etl-scala-apis-glue-types-stringnode-case-class"></a>
 
-**StringNode**
+ **StringNode**
 
 ```
 case class StringNode extends ScalarNode(value, TypeCode.STRING)  (
@@ -12,10 +16,11 @@ case class StringNode extends ScalarNode(value, TypeCode.STRING)  (
 ```
 
 ### StringNode val fields
-
-- `ordering`
+<a name="glue-etl-scala-apis-glue-types-stringnode-case-class-vals"></a>
++ `ordering`
 
 ### StringNode def methods
+<a name="glue-etl-scala-apis-glue-types-stringnode-case-class-defs"></a>
 
 ```
 def equals( other : Any )

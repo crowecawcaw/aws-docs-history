@@ -1,25 +1,27 @@
+
+
 # Reading from Salesforce Commerce Cloud entities
+<a name="salesforce-commerce-cloud-reading-from-entities"></a>
 
-**Prerequisites**
+ **Prerequisites** 
++  A Salesforce Commerce Cloud Object you would like to read from. Refer the supported entities table below to check the available entities. 
 
-- A Salesforce Commerce Cloud Object you would like to read from. Refer the supported entities table below to check the available
-  entities.
+ **Supported entities** 
 
-**Supported entities**
 
-| Entity             | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning |
-| ------------------ | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Assignments        | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Campaigns          | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Catalogs           | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Categories         | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Coupons            | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Gift Certificates  | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Products           | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Promotions         | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Source Code Groups | Yes             | Yes            | Yes               | Yes                | Yes                   |
+| Entity | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| Assignments | Yes | Yes | Yes | Yes | Yes | 
+| Campaigns | Yes | Yes | Yes | Yes | Yes | 
+| Catalogs | Yes | Yes | Yes | Yes | Yes | 
+| Categories | Yes | Yes | Yes | Yes | Yes | 
+| Coupons | Yes | Yes | Yes | Yes | Yes | 
+| Gift Certificates | Yes | Yes | Yes | Yes | Yes | 
+| Products | Yes | Yes | Yes | Yes | Yes | 
+| Promotions | Yes | Yes | Yes | Yes | Yes | 
+| Source Code Groups | Yes | Yes | Yes | Yes | Yes | 
 
-**Example**
+ **Example** 
 
 ```
 salesforce_commerce_cloud_read = glueContext.create_dynamic_frame.from_options(
@@ -27,61 +29,54 @@ salesforce_commerce_cloud_read = glueContext.create_dynamic_frame.from_options(
      connection_options={
          "connectionName": "connectionName",
          "ENTITY_NAME": "campaign",
-         "API_VERSION": "v1"
+         "API_VERSION": "v1"      
      }
 )
 ```
 
-**Salesforce Commerce Cloud entity and field details**
+ **Salesforce Commerce Cloud entity and field details** 
 
-Entities list:
+ Entities list: 
++  Assignments: [ https://developer.salesforce.com/docs/commerce/commerce-api/references/assignments ]( https://developer.salesforce.com/docs/commerce/commerce-api/references/assignments) 
++  Campaigns: [ https://developer.salesforce.com/docs/commerce/commerce-api/references/campaigns ](https://developer.salesforce.com/docs/commerce/commerce-api/references/campaigns) 
++  Catalogs: [ https://developer.salesforce.com/docs/commerce/commerce-api/references/catalogs ](https://developer.salesforce.com/docs/commerce/commerce-api/references/catalogs) 
++  Categories: [ https://developer.salesforce.com/docs/commerce/commerce-api/references/catalogs?meta=searchCategories ](https://developer.salesforce.com/docs/commerce/commerce-api/references/catalogs?meta=searchCategories) 
++  Gift Certificates: [ https://developer.salesforce.com/docs/commerce/commerce-api/references/gift-certificates ](https://developer.salesforce.com/docs/commerce/commerce-api/references/gift-certificates) 
++  Products: [ https://developer.salesforce.com/docs/commerce/commerce-api/references/products ](https://developer.salesforce.com/docs/commerce/commerce-api/references/products) 
++  Promotions: [ https://developer.salesforce.com/docs/commerce/commerce-api/references/promotions ](https://developer.salesforce.com/docs/commerce/commerce-api/references/promotions) 
++  Source Code Groups: [ https://developer.salesforce.com/docs/commerce/commerce-api/references/source-code-groups ](https://developer.salesforce.com/docs/commerce/commerce-api/references/source-code-groups) 
 
-- Assignments: [https://developer.salesforce.com/docs/commerce/commerce-api/references/assignments](https://developer.salesforce.com/docs/commerce/commerce-api/references/assignments " https://developer.salesforce.com/docs/commerce/commerce-api/references/assignments")
-- Campaigns: [https://developer.salesforce.com/docs/commerce/commerce-api/references/campaigns](https://developer.salesforce.com/docs/commerce/commerce-api/references/campaigns "https://developer.salesforce.com/docs/commerce/commerce-api/references/campaigns")
-- Catalogs: [https://developer.salesforce.com/docs/commerce/commerce-api/references/catalogs](https://developer.salesforce.com/docs/commerce/commerce-api/references/catalogs "https://developer.salesforce.com/docs/commerce/commerce-api/references/catalogs")
-- Categories: [https://developer.salesforce.com/docs/commerce/commerce-api/references/catalogs?meta=searchCategories](https://developer.salesforce.com/docs/commerce/commerce-api/references/catalogs?meta=searchCategories "https://developer.salesforce.com/docs/commerce/commerce-api/references/catalogs?meta=searchCategories")
-- Gift Certificates: [https://developer.salesforce.com/docs/commerce/commerce-api/references/gift-certificates](https://developer.salesforce.com/docs/commerce/commerce-api/references/gift-certificates "https://developer.salesforce.com/docs/commerce/commerce-api/references/gift-certificates")
-- Products: [https://developer.salesforce.com/docs/commerce/commerce-api/references/products](https://developer.salesforce.com/docs/commerce/commerce-api/references/products "https://developer.salesforce.com/docs/commerce/commerce-api/references/products")
-- Promotions: [https://developer.salesforce.com/docs/commerce/commerce-api/references/promotions](https://developer.salesforce.com/docs/commerce/commerce-api/references/promotions "https://developer.salesforce.com/docs/commerce/commerce-api/references/promotions")
-- Source Code Groups: [https://developer.salesforce.com/docs/commerce/commerce-api/references/source-code-groups](https://developer.salesforce.com/docs/commerce/commerce-api/references/source-code-groups "https://developer.salesforce.com/docs/commerce/commerce-api/references/source-code-groups")
+ **Partitioning queries** 
 
-**Partitioning queries**
+ Additional spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`, `NUM_PARTITIONS` can be provided if you want to utilize concurrency in Spark. With these parameters, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by spark tasks concurrently. 
++  `PARTITION_FIELD`: the name of the field to be used to partition query. 
++  `LOWER_BOUND`: an inclusive lower bound value of the chosen partition field. 
 
-Additional spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`,
-`NUM_PARTITIONS` can be provided if you want to utilize concurrency in Spark. With these parameters,
-the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by spark
-tasks concurrently.
+   For date, we accept the Spark date format used in Spark SQL queries. Example of valid values: `"2024-02-06"`. 
++  `UPPER_BOUND`: an exclusive upper bound value of the chosen partition field. 
++  `NUM_PARTITIONS`: number of partitions. 
 
-- `PARTITION_FIELD`: the name of the field to be used to partition query.
-- `LOWER_BOUND`: an inclusive lower bound value of the chosen partition field.
+ Entity-wise partitioning field support details are captured in below table: 
 
-For date, we accept the Spark date format used in Spark SQL queries.
-Example of valid values: `"2024-02-06"`.
 
-- `UPPER_BOUND`: an exclusive upper bound value of the chosen partition field.
-- `NUM_PARTITIONS`: number of partitions.
+| Entity | Partitioning Field | DataType | 
+| --- | --- | --- | 
+| Campaigns | lastModified | DateTime | 
+| Campaigns | startDate | DateTime | 
+| Campaigns | endDate | DateTime | 
+| Catalogs | creationDate | DateTime | 
+| Categories | creatiionDate | DateTime | 
+| Gift Certificates | merchantId | String | 
+| Gift Certificates | creatiionDate | DateTime | 
+| Products | creatiionDate | DateTime | 
+| Products | lastModified | DateTime | 
+| Source Code Groups | creationDate | DateTime | 
+| Source Code Groups | startTime | DateTime | 
+| Source Code Groups | endTime | DateTime | 
 
-Entity-wise partitioning field support details are captured in below table:
-
-| Entity             | Partitioning Field | DataType |
-| ------------------ | ------------------ | -------- |
-| Campaigns          | lastModified       | DateTime |
-| Campaigns          | startDate          | DateTime |
-| Campaigns          | endDate            | DateTime |
-| Catalogs           | creationDate       | DateTime |
-| Categories         | creatiionDate      | DateTime |
-| Gift Certificates  | merchantId         | String   |
-| Gift Certificates  | creatiionDate      | DateTime |
-| Products           | creatiionDate      | DateTime |
-| Products           | lastModified       | DateTime |
-| Source Code Groups | creationDate       | DateTime |
-| Source Code Groups | startTime          | DateTime |
-| Source Code Groups | endTime            | DateTime |
-
-**Example**
+ **Example** 
 
 ```
-
  salesforceCommerceCloud_read = glueContext.create_dynamic_frame.from_options(
      connection_type="SalesforceCommerceCloud",
      connection_options={

@@ -1,14 +1,17 @@
+
+
 # Configuring a source for a zero-ETL integration
+<a name="zero-etl-sources"></a>
 
 Setting up an integration requires some prerequisites on the source such as configuring IAM roles or policies which AWS Glue uses to access data from the source (in order to write to the target), the use of KMS keys to encrypt the data in intermediate location, etc.
 
-###### Topics
-
-- [Configuring Amazon DynamoDB source](#zero-etl-config-source-dynamodb "#zero-etl-config-source-dynamodb")
-- [Configuring connection (SaaS) source](#zero-etl-config-source-saas "#zero-etl-config-source-saas")
-- [Setting up Oracle Database at AWS as source](#zero-etl-config-source-oracle "#zero-etl-config-source-oracle")
+**Topics**
++ [Configuring Amazon DynamoDB source](#zero-etl-config-source-dynamodb)
++ [Configuring connection (SaaS) source](#zero-etl-config-source-saas)
++ [Setting up Oracle Database at AWS as source](#zero-etl-config-source-oracle)
 
 ## Configuring Amazon DynamoDB source
+<a name="zero-etl-config-source-dynamodb"></a>
 
 To access data from your source Amazon DynamoDB table, AWS Glue requires access to describe the table and export data from it. Amazon DynamoDB recently introduced a feature which allows configuring a Resource Based Access (RBAC) policy.
 
@@ -42,50 +45,53 @@ The following example Resource Based Access (RBAC) Policy uses a wild card (\*) 
   ]
 }
 ```
-
-- For the Amazon DynamoDB table that you want to replicate, paste the above RBAC policy template into **Resource-based policy for table** and fill in the fields.
-- If you want to make the policy restrictive, you must update the policy after creating the integration and specify the full `integrationArn` and use the `StringEquals` condition instead of `StringLike`.
-- Make sure that Point-in-time recovery (PITR) is enabled for the Amazon DynamoDB table.
-- Make sure that you add `Describe Export` to the Resource Based Access (RBAC) policy.
++ For the Amazon DynamoDB table that you want to replicate, paste the above RBAC policy template into **Resource-based policy for table** and fill in the fields.
++ If you want to make the policy restrictive, you must update the policy after creating the integration and specify the full `integrationArn` and use the `StringEquals` condition instead of `StringLike`.
++ Make sure that Point-in-time recovery (PITR) is enabled for the Amazon DynamoDB table.
++ Make sure that you add `Describe Export` to the Resource Based Access (RBAC) policy.
 
 You can also add the RBAC policy to the table using the following command:
 
 ```
 aws dynamodb put-resource-policy \
---resource-arn arn:aws:dynamodb:`region`:`account-id`:table/`ddb-table-name` \
+--resource-arn arn:aws:dynamodb:{{region}}:{{account-id}}:table/{{ddb-table-name}} \
 --policy file://resource-policy-with-condition.json \
---region `region`
+--region {{region}}
 ```
 
 To verify that policy is applied correctly, use the following command to get the resource policy for a table:
 
 ```
 aws dynamodb get-resource-policy \
---resource-arn arn:aws:dynamodb:`region`:`account-id`:table/`ddb-table-name` \
---region `region`
+--resource-arn arn:aws:dynamodb:{{region}}:{{account-id}}:table/{{ddb-table-name}} \
+--region {{region}}
 ```
 
 ## Configuring connection (SaaS) source
+<a name="zero-etl-config-source-saas"></a>
 
 ### Prerequisites for setting up an integration
+<a name="zero-etl-config-source-saas-prerequisites"></a>
 
 Before creating a zero-ETL integration from SaaS sources, you need to complete the following setup tasks:
-
-- Create a AWS Glue connection with SaaS source.
-- Create the source role to provide access to connection.
-- Associate the role with the connection.
++ Create a AWS Glue connection with SaaS source.
++ Create the source role to provide access to connection.
++ Associate the role with the connection.
 
 ### Configuring Salesforce source
+<a name="zero-etl-config-source-salesforce"></a>
 
-To create a connection for a Salesforce source, see [Connecting to Salesforce](connecting-to-data-salesforce.md "connecting-to-data-salesforce.md").
+To create a connection for a Salesforce source, see [Connecting to Salesforce](https://docs.aws.amazon.com/glue/latest/dg/connecting-to-data-salesforce.html).
 
 Once you've created the connection, you can specify the source data to replicate.
 
-![The screenshot shows selecting Salesforce source data to replicate in a zero-ETL integration.](images/zero-etl-salesforce-source-data.png)
+![The screenshot shows selecting Salesforce source data to replicate in a zero-ETL integration.](http://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-salesforce-source-data.png)
 
-Using your zero-ETL integration you can perform DDL operations for supported entities. For a list of entities which are not supported, see [Unsupported entities and fields for Salesforce](#zero-etl-config-source-salesforce-unsupported "#zero-etl-config-source-salesforce-unsupported").
+
+Using your zero-ETL integration you can perform DDL operations for supported entities. For a list of entities which are not supported, see [Unsupported entities and fields for Salesforce](#zero-etl-config-source-salesforce-unsupported).
 
 #### Additional Salesforce Configuration
+<a name="zero-etl-config-source-salesforce-additional"></a>
 
 Salesforce Zero-ETL needs Lake Formation permission on AWS Glue database, otherwise it will get `IngestionFailed` from the Log with the following error:
 
@@ -94,6 +100,7 @@ Salesforce Zero-ETL needs Lake Formation permission on AWS Glue database, otherw
 ```
 
 #### Unsupported entities and fields for Salesforce
+<a name="zero-etl-config-source-salesforce-unsupported"></a>
 
 The following Salesforce entities or fields are unsupported for use in a zero-ETL integration with a Salesforce source.
 
@@ -102,47 +109,53 @@ AccountChangeEvent, AccountContactRoleChangeEvent, AccountHistory, AccountShare,
 ```
 
 ### Configuring a Salesforce Marketing Cloud Account Engagement source
+<a name="zero-etl-config-source-smcae"></a>
 
-To create a connection for a Salesforce Marketing Cloud Account Engagement source, see [Connecting to Salesforce Marketing Cloud Account Engagement](connecting-to-data-salesforce-marketing-cloud-account-engagement.md "connecting-to-data-salesforce-marketing-cloud-account-engagement.md").
+To create a connection for a Salesforce Marketing Cloud Account Engagement source, see [Connecting to Salesforce Marketing Cloud Account Engagement](https://docs.aws.amazon.com/glue/latest/dg/connecting-to-data-salesforce-marketing-cloud-account-engagement.html).
 
 Using your zero-ETL integration you can perform DDL operations for the following supported entities:
 
-| Entity label            | Entity name               |
-| ----------------------- | ------------------------- |
-| Campaign                | campaign                  |
-| List                    | list                      |
-| Dynamic Content         | dynamic-content           |
-| List Membership         | list-membership           |
-| Prospect                | prospect                  |
-| User                    | user                      |
-| EmailTemplate           | email-template            |
-| EngagementStudioProgram | engagement-studio-program |
-| Landing Page            | landing-page              |
-| List Email              | list-email                |
+
+| Entity label | Entity name | 
+| --- | --- | 
+| Campaign | campaign | 
+| List | list | 
+| Dynamic Content | dynamic-content | 
+| List Membership | list-membership | 
+| Prospect | prospect | 
+| User | user | 
+| EmailTemplate | email-template | 
+| EngagementStudioProgram | engagement-studio-program | 
+| Landing Page | landing-page | 
+| List Email | list-email | 
 
 ### Configuring an SAP OData source
+<a name="zero-etl-config-source-sap"></a>
 
-To create a connection for an SAP OData source, see [Connecting to SAP OData](connecting-to-data-sap-odata.md "connecting-to-data-sap-odata.md").
+To create a connection for an SAP OData source, see [Connecting to SAP OData](https://docs.aws.amazon.com/glue/latest/dg/connecting-to-data-sap-odata.html).
 
 Zero-ETL integrations with an SAP OData source now supports entities starting with `EntityOf`. The ability to override the primary key is currently supported only for SAPOData `EntityOf` objects. Once this property has been set, it cannot be modified.
 
 #### Support for special SAP entities
+<a name="zero-etl-config-source-sap-entityof"></a>
 
 AWS Glue zero-ETL supports SAP OData entities that use SAP's Operational Data Provisioning (ODP) framework as well as those that do not use the ODP framework (non-ODP entities). The list of supported entities includes: ODP\_SAP (Business Warehouse or BW extractors), ODP\_CDS (Core Data Services or CDS Views) and non-ODP based OData services for SAP APIs. AWS Glue zero-ETL supports full snapshot and incremental change data capture for ODP and non-ODP SAP entities. For ODP entities, incremental changes are captured using delta links. For non-ODP entities, if a queryable field that can be used for timestamp based ingestion is selected, then zero-ETL will use that field for incremental ingestion.
 
 While ingesting data from SAP entities using AWS Glue zero-ETL, the following things should be noted:
++ Zero-ETL can only ingest SAP entities which have been configured for GET\_ENTITYSET method in SAP.
++ For non-ODP SAP entities, if a timestamp field is not selected for incremental updates, AWS Glue zero-ETL supports a full data extraction and replication with upserts only (no deletions).
++ For ODP extractor entities, we determine the valid primary key sets during data processing. Other SAP entities require an extra step of providing the valid primary key set as input, specifically SAP entities that start with `EntityOf`. When an `EntityOf` entity is selected, you will be directed to provide the set of primary keys.
 
-- Zero-ETL can only ingest SAP entities which have been configured for GET\_ENTITYSET method in SAP.
-- For non-ODP SAP entities, if a timestamp field is not selected for incremental updates, AWS Glue zero-ETL supports a full data extraction and replication with upserts only (no deletions).
-- For ODP extractor entities, we determine the valid primary key sets during data processing. Other SAP entities require an extra step of providing the valid primary key set as input, specifically SAP entities that start with `EntityOf`. When an `EntityOf` entity is selected, you will be directed to provide the set of primary keys.
+![The screenshot shows configuring EntityOf primary key set for SAP OData source.](http://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-settings-configure-entityof-primary-key-set.png)
 
-![The screenshot shows configuring EntityOf primary key set for SAP OData source.](images/zero-etl-settings-configure-entityof-primary-key-set.png)
 
 ### Configuring a ServiceNow source
+<a name="zero-etl-config-source-servicenow"></a>
 
-To create a connection for a ServiceNow source, see [Connecting to ServiceNow](connecting-to-data-servicenow.md "connecting-to-data-servicenow.md").
+To create a connection for a ServiceNow source, see [Connecting to ServiceNow](https://docs.aws.amazon.com/glue/latest/dg/connecting-to-data-servicenow.html).
 
 #### Unsupported entities and fields for ServiceNow
+<a name="zero-etl-config-source-servicenow-unsupported"></a>
 
 The following ServiceNow entities or fields are unsupported for use in a zero-ETL integration with a ServiceNow source.
 
@@ -151,77 +164,85 @@ ais_acl_overrides, ais_async_genius_result, ais_async_request, ais_connection, a
 ```
 
 ### Configuring a Zendesk source
+<a name="zero-etl-config-source-zendesk"></a>
 
-To create a connection for a Zendesk source, see [Connecting to Zendesk](connecting-to-data-zendesk.md "connecting-to-data-zendesk.md").
+To create a connection for a Zendesk source, see [Connecting to Zendesk](https://docs.aws.amazon.com/glue/latest/dg/connecting-to-data-zendesk.html).
 
 Using your zero-ETL integration you can perform the following DDL operations for supported entities:
 
-| Entity label        | Entity name         | Create supported | Update supported | Delete supported |
-| ------------------- | ------------------- | ---------------- | ---------------- | ---------------- |
-| Tickets             | tickets             | Y                | Y                | Y                |
-| User                | users               | Y                | Y                | Y                |
-| Satisfaction Rating | satisfaction-rating | Y                | Y                | N                |
-| Articles            | articles            | Y                | Y                | N                |
-| Organization        | organizations       | Y                | Y                | Y                |
-| Calls               | calls               | Y                | Y                | N                |
-| Call Legs           | legs                | Y                | Y                | N                |
+
+| Entity label | Entity name | Create supported | Update supported | Delete supported | 
+| --- | --- | --- | --- | --- | 
+| Tickets | tickets | Y | Y | Y | 
+| User | users | Y | Y | Y | 
+| Satisfaction Rating | satisfaction-rating | Y | Y | N | 
+| Articles | articles | Y | Y | N | 
+| Organization | organizations | Y | Y | Y | 
+| Calls | calls | Y | Y | N | 
+| Call Legs | legs | Y | Y | N | 
 
 ### Configuring a Zoho CRM source
+<a name="zero-etl-config-source-zoho"></a>
 
-To create a connection for a Zoho CRM source, see [Connecting to Zoho CRM](connecting-to-data-zoho-crm.md "connecting-to-data-zoho-crm.md").
+To create a connection for a Zoho CRM source, see [Connecting to Zoho CRM](https://docs.aws.amazon.com/glue/latest/dg/connecting-to-data-zoho-crm.html).
 
 Using your zero-ETL integration you can perform the following DDL operations for supported entities:
 
-| Entity label    | Entity name    | DML-Insert | DML-Modify | DML-Delete | DDL-Insert | DDL-Modify | DDL-Delete |
-| --------------- | -------------- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- |
-| Leads           | lead           | Y          | Y          | Y          | Y          | Y          | Y          |
-| Accounts        | account        | Y          | Y          | Y          | Y          | Y          | Y          |
-| Contacts        | contact        | Y          | Y          | Y          | Y          | Y          | Y          |
-| Campaigns       | campaign       | Y          | Y          | Y          | Y          | Y          | Y          |
-| Tasks           | task           | Y          | Y          | Y          | Y          | Y          | Y          |
-| Events          | event          | Y          | Y          | Y          | Y          | Y          | Y          |
-| Calls           | call           | Y          | Y          | Y          | Y          | Y          | Y          |
-| Solutions       | solution       | Y          | Y          | Y          | Y          | Y          | Y          |
-| Products        | product        | Y          | Y          | Y          | Y          | Y          | Y          |
-| Vendors         | vendor         | Y          | Y          | Y          | Y          | Y          | Y          |
-| Quotes          | quote          | Y          | Y          | Y          | Y          | Y          | Y          |
-| Sales Orders    | sales-order    | Y          | Y          | Y          | Y          | Y          | Y          |
-| Purchase Orders | purchase-order | Y          | Y          | Y          | Y          | Y          | Y          |
-| Invoices        | invoice        | Y          | Y          | Y          | Y          | Y          | Y          |
-| Cases           | case           | Y          | Y          | Y          | Y          | Y          | Y          |
-| Price Books     | price-book     | Y          | Y          | Y          | Y          | Y          | Y          |
+
+| Entity label | Entity name | DML-Insert | DML-Modify | DML-Delete | DDL-Insert | DDL-Modify | DDL-Delete | 
+| --- | --- | --- | --- | --- | --- | --- | --- | 
+| Leads | lead | Y | Y | Y | Y | Y | Y | 
+| Accounts | account | Y | Y | Y | Y | Y | Y | 
+| Contacts | contact | Y | Y | Y | Y | Y | Y | 
+| Campaigns | campaign | Y | Y | Y | Y | Y | Y | 
+| Tasks | task | Y | Y | Y | Y | Y | Y | 
+| Events | event | Y | Y | Y | Y | Y | Y | 
+| Calls | call | Y | Y | Y | Y | Y | Y | 
+| Solutions | solution | Y | Y | Y | Y | Y | Y | 
+| Products | product | Y | Y | Y | Y | Y | Y | 
+| Vendors | vendor | Y | Y | Y | Y | Y | Y | 
+| Quotes | quote | Y | Y | Y | Y | Y | Y | 
+| Sales Orders | sales-order | Y | Y | Y | Y | Y | Y | 
+| Purchase Orders | purchase-order | Y | Y | Y | Y | Y | Y | 
+| Invoices | invoice | Y | Y | Y | Y | Y | Y | 
+| Cases | case | Y | Y | Y | Y | Y | Y | 
+| Price Books | price-book | Y | Y | Y | Y | Y | Y | 
 
 ### Configuring a Facebook Ads source
+<a name="zero-etl-config-source-facebook"></a>
 
-To create a connection for a Facebook Ads source, see [Connecting to Facebook Ads](connecting-to-data-facebook-ads.md "connecting-to-data-facebook-ads.md").
+To create a connection for a Facebook Ads source, see [Connecting to Facebook Ads](https://docs.aws.amazon.com/glue/latest/dg/connecting-to-data-facebook-ads.html).
 
 Using your zero-ETL integration you can perform the following DDL operations for supported entities:
 
-| Entity label | Entity name  | Create supported | Update supported | Delete supported |
-| ------------ | ------------ | ---------------- | ---------------- | ---------------- |
-| Adset        | \*/adsets    | Y                | Y                | Y                |
-| Campaign     | \*/campaigns | Y                | Y                | Y                |
-| Ads          | \*/ads       | Y                | Y                | Y                |
+
+| Entity label | Entity name | Create supported | Update supported | Delete supported | 
+| --- | --- | --- | --- | --- | 
+| Adset | \*/adsets | Y | Y | Y | 
+| Campaign | \*/campaigns | Y | Y | Y | 
+| Ads | \*/ads | Y | Y | Y | 
 
 ### Configuring an Instagram Ads source
+<a name="zero-etl-config-source-instagram"></a>
 
-To create a connection for an Instagram Ads source, see [Connecting to Instagram Ads](connecting-to-data-instagram-ads.md "connecting-to-data-instagram-ads.md").
+To create a connection for an Instagram Ads source, see [Connecting to Instagram Ads](https://docs.aws.amazon.com/glue/latest/dg/connecting-to-data-instagram-ads.html).
 
 Using your zero-ETL integration you can perform the following DDL operations for supported entities:
 
-| Entity name  | Create supported | Update supported | Delete supported |
-| ------------ | ---------------- | ---------------- | ---------------- |
-| \*/adsets    | Y                | Y                | Y                |
-| \*/campaigns | Y                | Y                | Y                |
-| \*/ads       | Y                | Y                | Y                |
+
+| Entity name | Create supported | Update supported | Delete supported | 
+| --- | --- | --- | --- | 
+| \*/adsets | Y | Y | Y | 
+| \*/campaigns | Y | Y | Y | 
+| \*/ads | Y | Y | Y | 
 
 ### Setting up the source role for integration
+<a name="zero-etl-config-source-role"></a>
 
 Create a source role to allow the zero-ETL integration to access your connection. This is applicable only for SaaS sources. This is a prerequisite for creating integrations with SaaS sources.
 
-###### Note
-
-To restrict access to only a few connections, you can first create the connection to obtain the connection ARN. See [Configuring a source for a zero-ETL integration](zero-etl-sources.md "zero-etl-sources.md").
+**Note**  
+To restrict access to only a few connections, you can first create the connection to obtain the connection ARN. See [Configuring a source for a zero-ETL integration](#zero-etl-sources).
 
 Create a role which has permissions for the integration to access the connection:
 
@@ -291,11 +312,12 @@ Associate the role with the connection using the AWS Glue CLI or API:
 
 ```
 aws glue create-integration-resource-property \
---resource-arn arn:aws:glue:us-east-1:123456789012:connection/`connectionName` \
---source-processing-properties "{\"RoleArn\" : \"arn:aws:iam::123456789012:role/`rolename`\"}" \
+--resource-arn arn:aws:glue:us-east-1:123456789012:connection/{{connectionName}} \
+--source-processing-properties "{\"RoleArn\" : \"arn:aws:iam::123456789012:role/{{rolename}}\"}" \
 --region us-east-1
 ```
 
 ## Setting up Oracle Database at AWS as source
+<a name="zero-etl-config-source-oracle"></a>
 
-Currently AWS Glue supports Oracle Databases at AWS as source and Redshift as target. The details of the setup can be found at [Setting up zero-ETL for Oracle Database at AWS](../../../odb/latest/UserGuide/setting-up-zero-etl.md "../../../odb/latest/UserGuide/setting-up-zero-etl.md").
+Currently AWS Glue supports Oracle Databases at AWS as source and Redshift as target. The details of the setup can be found at [Setting up zero-ETL for Oracle Database at AWS](https://docs.aws.amazon.com/odb/latest/UserGuide/setting-up-zero-etl.html).

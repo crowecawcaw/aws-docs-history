@@ -1,255 +1,224 @@
-# Usage profiles
 
-The Usage profiles API describes the data types and API related to creating,
-updating, or viewing usage profiles in AWS Glue.
+
+# Usage profiles
+<a name="aws-glue-api-usage-profiles"></a>
+
+The Usage profiles API describes the data types and API related to creating, updating, or viewing usage profiles in AWS Glue.
 
 ## Data types
-
-- [ProfileConfiguration structure](#aws-glue-api-usage-profiles-ProfileConfiguration "#aws-glue-api-usage-profiles-ProfileConfiguration")
-- [ConfigurationObject structure](#aws-glue-api-usage-profiles-ConfigurationObject "#aws-glue-api-usage-profiles-ConfigurationObject")
-- [UsageProfileDefinition structure](#aws-glue-api-usage-profiles-UsageProfileDefinition "#aws-glue-api-usage-profiles-UsageProfileDefinition")
+<a name="aws-glue-api-usage-profiles-objects"></a>
++ [ProfileConfiguration structure](#aws-glue-api-usage-profiles-ProfileConfiguration)
++ [ConfigurationObject structure](#aws-glue-api-usage-profiles-ConfigurationObject)
++ [UsageProfileDefinition structure](#aws-glue-api-usage-profiles-UsageProfileDefinition)
 
 ## ProfileConfiguration structure
+<a name="aws-glue-api-usage-profiles-ProfileConfiguration"></a>
 
 Specifies the job and session values that an admin configures in an AWS Glue usage profile.
 
-###### Fields
+**Fields**
++ `SessionConfiguration` – A map array of key-value pairs.
 
-- `SessionConfiguration` – A map array of key-value pairs.
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Each value is a A [ConfigurationObject](#aws-glue-api-usage-profiles-ConfigurationObject) object.
 
-Each value is a A [ConfigurationObject](#aws-glue-api-usage-profiles-ConfigurationObject "#aws-glue-api-usage-profiles-ConfigurationObject") object.
+  A key-value map of configuration parameters for AWS Glue sessions. 
++ `JobConfiguration` – A map array of key-value pairs.
 
-A key-value map of configuration parameters for AWS Glue sessions.
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `JobConfiguration` – A map array of key-value pairs.
+  Each value is a A [ConfigurationObject](#aws-glue-api-usage-profiles-ConfigurationObject) object.
 
-Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a A [ConfigurationObject](#aws-glue-api-usage-profiles-ConfigurationObject "#aws-glue-api-usage-profiles-ConfigurationObject") object.
-
-A key-value map of configuration parameters for AWS Glue jobs.
+  A key-value map of configuration parameters for AWS Glue jobs. 
 
 ## ConfigurationObject structure
+<a name="aws-glue-api-usage-profiles-ConfigurationObject"></a>
 
-Specifies the values that an admin sets for each job or session parameter
-configured in a AWS Glue usage profile.
+Specifies the values that an admin sets for each job or session parameter configured in a AWS Glue usage profile.
 
-###### Fields
+**Fields**
++ `DefaultValue` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #55](aws-glue-api-common.md#regex_55).
 
-- `DefaultValue` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #55](aws-glue-api-common.md#regex_55 "aws-glue-api-common.md#regex_55").
+  A default value for the parameter.
++ `AllowedValues` – An array of UTF-8 strings.
 
-A default value for the parameter.
+  A list of allowed values for the parameter.
++ `MinValue` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #55](aws-glue-api-common.md#regex_55).
 
-- `AllowedValues` – An array of UTF-8 strings.
+  A minimum allowed value for the parameter.
++ `MaxValue` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #55](aws-glue-api-common.md#regex_55).
 
-A list of allowed values for the parameter.
-
-- `MinValue` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #55](aws-glue-api-common.md#regex_55 "aws-glue-api-common.md#regex_55").
-
-A minimum allowed value for the parameter.
-
-- `MaxValue` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #55](aws-glue-api-common.md#regex_55 "aws-glue-api-common.md#regex_55").
-
-A maximum allowed value for the parameter.
+  A maximum allowed value for the parameter.
 
 ## UsageProfileDefinition structure
+<a name="aws-glue-api-usage-profiles-UsageProfileDefinition"></a>
 
 Describes an AWS Glue usage profile.
 
-###### Fields
+**Fields**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the usage profile.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The name of the usage profile.
+  A description of the usage profile.
++ `CreatedOn` – Timestamp.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  The date and time when the usage profile was created.
++ `LastModifiedOn` – Timestamp.
 
-A description of the usage profile.
-
-- `CreatedOn` – Timestamp.
-
-The date and time when the usage profile was created.
-
-- `LastModifiedOn` – Timestamp.
-
-The date and time when the usage profile was last modified.
+  The date and time when the usage profile was last modified.
 
 ## Operations
-
-- [CreateUsageProfile action (Python: create\_usage\_profile)](#aws-glue-api-usage-profiles-CreateUsageProfile "#aws-glue-api-usage-profiles-CreateUsageProfile")
-- [GetUsageProfile action (Python: get\_usage\_profile)](#aws-glue-api-usage-profiles-GetUsageProfile "#aws-glue-api-usage-profiles-GetUsageProfile")
-- [UpdateUsageProfile action (Python: update\_usage\_profile)](#aws-glue-api-usage-profiles-UpdateUsageProfile "#aws-glue-api-usage-profiles-UpdateUsageProfile")
-- [DeleteUsageProfile action (Python: delete\_usage\_profile)](#aws-glue-api-usage-profiles-DeleteUsageProfile "#aws-glue-api-usage-profiles-DeleteUsageProfile")
-- [ListUsageProfiles action (Python: list\_usage\_profiles)](#aws-glue-api-usage-profiles-ListUsageProfiles "#aws-glue-api-usage-profiles-ListUsageProfiles")
+<a name="aws-glue-api-usage-profiles-actions"></a>
++ [CreateUsageProfile action (Python: create\_usage\_profile)](#aws-glue-api-usage-profiles-CreateUsageProfile)
++ [GetUsageProfile action (Python: get\_usage\_profile)](#aws-glue-api-usage-profiles-GetUsageProfile)
++ [UpdateUsageProfile action (Python: update\_usage\_profile)](#aws-glue-api-usage-profiles-UpdateUsageProfile)
++ [DeleteUsageProfile action (Python: delete\_usage\_profile)](#aws-glue-api-usage-profiles-DeleteUsageProfile)
++ [ListUsageProfiles action (Python: list\_usage\_profiles)](#aws-glue-api-usage-profiles-ListUsageProfiles)
 
 ## CreateUsageProfile action (Python: create\_usage\_profile)
+<a name="aws-glue-api-usage-profiles-CreateUsageProfile"></a>
 
 Creates an AWS Glue usage profile.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the usage profile.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The name of the usage profile.
+  A description of the usage profile.
++ `Configuration` – *Required:* A [ProfileConfiguration](#aws-glue-api-usage-profiles-ProfileConfiguration) object.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  A `ProfileConfiguration` object specifying the job and session values for the profile.
++ `Tags` – A map array of key-value pairs, not more than 50 pairs.
 
-A description of the usage profile.
+  Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
 
-- `Configuration` – _Required:_ A [ProfileConfiguration](#aws-glue-api-usage-profiles-ProfileConfiguration "#aws-glue-api-usage-profiles-ProfileConfiguration") object.
+  Each value is a UTF-8 string, not more than 256 bytes long.
 
-A `ProfileConfiguration` object specifying the job and
-session values for the profile.
+  A list of tags applied to the usage profile.
 
-- `Tags` – A map array of key-value pairs, not more than 50 pairs.
+**Response**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
+  The name of the usage profile that was created.
 
-Each value is a UTF-8 string, not more than 256 bytes long.
-
-A list of tags applied to the usage profile.
-
-###### Response
-
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the usage profile that was created.
-
-###### Errors
-
-- `InvalidInputException`
-- `InternalServiceException`
-- `AlreadyExistsException`
-- `OperationTimeoutException`
-- `ResourceNumberLimitExceededException`
-- `OperationNotSupportedException`
+**Errors**
++ `InvalidInputException`
++ `InternalServiceException`
++ `AlreadyExistsException`
++ `OperationTimeoutException`
++ `ResourceNumberLimitExceededException`
++ `OperationNotSupportedException`
 
 ## GetUsageProfile action (Python: get\_usage\_profile)
+<a name="aws-glue-api-usage-profiles-GetUsageProfile"></a>
 
-Retrieves information about the specified AWS Glue usage
-profile.
+Retrieves information about the specified AWS Glue usage profile.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the usage profile to retrieve.
 
-The name of the usage profile to retrieve.
+**Response**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-###### Response
+  The name of the usage profile.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A description of the usage profile.
++ `Configuration` – A [ProfileConfiguration](#aws-glue-api-usage-profiles-ProfileConfiguration) object.
 
-The name of the usage profile.
+  A `ProfileConfiguration` object specifying the job and session values for the profile.
++ `CreatedOn` – Timestamp.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  The date and time when the usage profile was created.
++ `LastModifiedOn` – Timestamp.
 
-A description of the usage profile.
+  The date and time when the usage profile was last modified.
 
-- `Configuration` – A [ProfileConfiguration](#aws-glue-api-usage-profiles-ProfileConfiguration "#aws-glue-api-usage-profiles-ProfileConfiguration") object.
-
-A `ProfileConfiguration` object specifying the job and
-session values for the profile.
-
-- `CreatedOn` – Timestamp.
-
-The date and time when the usage profile was created.
-
-- `LastModifiedOn` – Timestamp.
-
-The date and time when the usage profile was last modified.
-
-###### Errors
-
-- `InvalidInputException`
-- `InternalServiceException`
-- `EntityNotFoundException`
-- `OperationTimeoutException`
-- `OperationNotSupportedException`
+**Errors**
++ `InvalidInputException`
++ `InternalServiceException`
++ `EntityNotFoundException`
++ `OperationTimeoutException`
++ `OperationNotSupportedException`
 
 ## UpdateUsageProfile action (Python: update\_usage\_profile)
+<a name="aws-glue-api-usage-profiles-UpdateUsageProfile"></a>
 
 Update an AWS Glue usage profile.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the usage profile.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The name of the usage profile.
+  A description of the usage profile.
++ `Configuration` – *Required:* A [ProfileConfiguration](#aws-glue-api-usage-profiles-ProfileConfiguration) object.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  A `ProfileConfiguration` object specifying the job and session values for the profile.
 
-A description of the usage profile.
+**Response**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Configuration` – _Required:_ A [ProfileConfiguration](#aws-glue-api-usage-profiles-ProfileConfiguration "#aws-glue-api-usage-profiles-ProfileConfiguration") object.
+  The name of the usage profile that was updated.
 
-A `ProfileConfiguration` object specifying the job and
-session values for the profile.
-
-###### Response
-
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the usage profile that was updated.
-
-###### Errors
-
-- `InvalidInputException`
-- `InternalServiceException`
-- `EntityNotFoundException`
-- `OperationTimeoutException`
-- `OperationNotSupportedException`
-- `ConcurrentModificationException`
+**Errors**
++ `InvalidInputException`
++ `InternalServiceException`
++ `EntityNotFoundException`
++ `OperationTimeoutException`
++ `OperationNotSupportedException`
++ `ConcurrentModificationException`
 
 ## DeleteUsageProfile action (Python: delete\_usage\_profile)
+<a name="aws-glue-api-usage-profiles-DeleteUsageProfile"></a>
 
 Deletes the AWS Glue specified usage profile.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the usage profile to delete.
 
-The name of the usage profile to delete.
+**Response**
++ *No Response parameters.*
 
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `OperationNotSupportedException`
+**Errors**
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `OperationNotSupportedException`
 
 ## ListUsageProfiles action (Python: list\_usage\_profiles)
+<a name="aws-glue-api-usage-profiles-ListUsageProfiles"></a>
 
 List all the AWS Glue usage profiles.
 
-###### Request
+**Request**
++ `NextToken` – UTF-8 string, not more than 400000 bytes long.
 
-- `NextToken` – UTF-8 string, not more than 400000 bytes long.
+  A continuation token, included if this is a continuation call.
++ `MaxResults` – Number (integer), not less than 1 or more than 200.
 
-A continuation token, included if this is a continuation call.
+  The maximum number of usage profiles to return in a single response.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 200.
+**Response**
++ `Profiles` – An array of [UsageProfileDefinition](#aws-glue-api-usage-profiles-UsageProfileDefinition) objects.
 
-The maximum number of usage profiles to return in a single response.
+  A list of usage profile (`UsageProfileDefinition`) objects.
++ `NextToken` – UTF-8 string, not more than 400000 bytes long.
 
-###### Response
+  A continuation token, present if the current list segment is not the last.
 
-- `Profiles` – An array of [UsageProfileDefinition](#aws-glue-api-usage-profiles-UsageProfileDefinition "#aws-glue-api-usage-profiles-UsageProfileDefinition") objects.
-
-A list of usage profile (`UsageProfileDefinition`) objects.
-
-- `NextToken` – UTF-8 string, not more than 400000 bytes long.
-
-A continuation token, present if the current list segment is not the last.
-
-###### Errors
-
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `InvalidInputException`
-- `OperationNotSupportedException`
+**Errors**
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `InvalidInputException`
++ `OperationNotSupportedException`

@@ -1,56 +1,46 @@
+
+
 # Code example: Data preparation using ResolveChoice, Lambda, and ApplyMapping
+<a name="aws-glue-programming-python-samples-medicaid"></a>
 
-The dataset that is used in this example consists of Medicare Provider payment data that was
-downloaded from two [Data.CMS.gov](https://data.cms.gov "https://data.cms.gov")
+The dataset that is used in this example consists of Medicare Provider payment data that was downloaded from two [Data.CMS.gov](https://data.cms.gov) data sets: "Inpatient Prospective Payment System Provider Summary for the Top 100 Diagnosis-Related Groups - FY2011" and "Inpatient Charge Data FY 2011". After downloading the data, we modified the dataset to introduce a couple of erroneous records at the end of the file. This modified file is located in a public Amazon S3 bucket at `s3://awsglue-datasets/examples/medicare/Medicare_Hospital_Provider.csv`.
 
-data sets: "Inpatient Prospective Payment System Provider Summary for
-the Top 100 Diagnosis-Related Groups - FY2011" and "Inpatient Charge Data FY 2011". After
-downloading the data, we modified the dataset to introduce a couple of erroneous records at the
-end of the file. This modified file is located in a public Amazon S3 bucket at
-`s3://awsglue-datasets/examples/medicare/Medicare_Hospital_Provider.csv`.
+You can find the source code for this example in the `data_cleaning_and_lambda.py` file in the [AWS Glue examples](https://github.com/awslabs/aws-glue-samples) GitHub repository.
 
-You can find the source code for this example in the `data_cleaning_and_lambda.py`
-file in the [AWS Glue examples](https://github.com/awslabs/aws-glue-samples "https://github.com/awslabs/aws-glue-samples") GitHub repository.
-
-The preferred way to debug Python or PySpark scripts while running on AWS is to use
-[Notebooks on AWS Glue Studio](../ug/notebooks-chapter.md "../ug/notebooks-chapter.md").
+The preferred way to debug Python or PySpark scripts while running on AWS is to use [Notebooks on AWS Glue Studio](https://docs.aws.amazon.com/glue/latest/ug/notebooks-chapter.html).
 
 ## Step 1: Crawl the data in the Amazon S3 bucket
+<a name="aws-glue-programming-python-samples-medicaid-crawling"></a>
 
-1. Sign in to the AWS Management Console and open the AWS Glue console at
-   [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
-2. Following the process described in [Configuring a crawler](define-crawler.md "define-crawler.md"), create a new crawler that can crawl the
-   `s3://awsglue-datasets/examples/medicare/Medicare_Hospital_Provider.csv`
-   file, and can place the resulting metadata into a database named `payments` in
-   the AWS Glue Data Catalog.
-3. Run the new crawler, and then check the `payments` database. You should
-   find that the crawler has created a metadata table named `medicare` in the
-   database after reading the beginning of the file to determine its format and delimiter.
+1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/).
 
-The schema of the new `medicare` table is as follows:
+1. Following the process described in [Configuring a crawler](define-crawler.md), create a new crawler that can crawl the `s3://awsglue-datasets/examples/medicare/Medicare_Hospital_Provider.csv` file, and can place the resulting metadata into a database named `payments` in the AWS Glue Data Catalog.
 
-```
-Column  name                            Data type
-==================================================
-drg definition                             string
-provider id                                bigint
-provider name                              string
-provider street address                    string
-provider city                              string
-provider state                             string
-provider zip code                          bigint
-hospital referral region description       string
-total discharges                           bigint
-average covered charges                    string
-average total payments                     string
-average medicare payments                  string
+1. Run the new crawler, and then check the `payments` database. You should find that the crawler has created a metadata table named `medicare` in the database after reading the beginning of the file to determine its format and delimiter.
 
-```
+   The schema of the new `medicare` table is as follows:
+
+   ```
+   Column  name                            Data type
+   ==================================================
+   drg definition                             string
+   provider id                                bigint
+   provider name                              string
+   provider street address                    string
+   provider city                              string
+   provider state                             string
+   provider zip code                          bigint
+   hospital referral region description       string
+   total discharges                           bigint
+   average covered charges                    string
+   average total payments                     string
+   average medicare payments                  string
+   ```
 
 ## Step 2: Add boilerplate script to the development endpoint notebook
+<a name="aws-glue-programming-python-samples-medicaid-boilerplate"></a>
 
-Paste the following boilerplate script into the development endpoint notebook to import
-the AWS Glue libraries that you need, and set up a single `GlueContext`:
+Paste the following boilerplate script into the development endpoint notebook to import the AWS Glue libraries that you need, and set up a single `GlueContext`:
 
 ```
 import sys
@@ -61,30 +51,25 @@ from awsglue.context import GlueContext
 from awsglue.job import Job
 
 glueContext = GlueContext(SparkContext.getOrCreate())
-
 ```
 
 ## Step 3: Compare different schema parsings
+<a name="aws-glue-programming-python-samples-medicaid-schemas"></a>
 
-Next, you can see if the schema that was recognized by an Apache Spark
-`DataFrame` is the same as the one that your AWS Glue crawler recorded. Run this
-code:
+Next, you can see if the schema that was recognized by an Apache Spark `DataFrame` is the same as the one that your AWS Glue crawler recorded. Run this code:
 
 ```
-
 medicare = spark.read.format(
    "com.databricks.spark.csv").option(
    "header", "true").option(
    "inferSchema", "true").load(
    's3://awsglue-datasets/examples/medicare/Medicare_Hospital_Provider.csv')
 medicare.printSchema()
-
 ```
 
 Here's the output from the `printSchema` call:
 
 ```
-
 root
  |-- DRG Definition: string (nullable = true)
  |-- Provider Id: string (nullable = true)
@@ -98,24 +83,20 @@ root
  |--  Average Covered Charges : string (nullable = true)
  |--  Average Total Payments : string (nullable = true)
  |-- Average Medicare Payments: string (nullable = true)
-
 ```
 
 Next, look at the schema that an AWS Glue `DynamicFrame` generates:
 
 ```
-
 medicare_dynamicframe = glueContext.create_dynamic_frame.from_catalog(
        database = "payments",
        table_name = "medicare")
 medicare_dynamicframe.printSchema()
-
 ```
 
 The output from `printSchema` is as follows:
 
 ```
-
 root
  |-- drg definition: string
  |-- provider id: choice
@@ -131,37 +112,19 @@ root
  |-- average covered charges: string
  |-- average total payments: string
  |-- average medicare payments: string
-
 ```
 
-The `DynamicFrame` generates a schema in which `provider id` could
-be either a `long` or a `string` type. The `DataFrame` schema
-lists `Provider Id` as being a `string` type, and the Data Catalog lists
-`provider id` as being a `bigint` type.
+The `DynamicFrame` generates a schema in which `provider id` could be either a `long` or a `string` type. The `DataFrame` schema lists `Provider Id` as being a `string` type, and the Data Catalog lists `provider id` as being a `bigint` type.
 
-Which one is correct? There are two records at the end of the file (out of 160,000
-records) with `string` values in that column. These are the erroneous records that
-were introduced to illustrate a problem.
+Which one is correct? There are two records at the end of the file (out of 160,000 records) with `string` values in that column. These are the erroneous records that were introduced to illustrate a problem.
 
-To address this kind of problem, the AWS Glue `DynamicFrame` introduces the
-concept of a _choice_ type. In this case, the `DynamicFrame`
-shows that both `long` and `string` values can appear in that column.
-The AWS Glue crawler missed the `string` values because it considered only a 2 MB
-prefix of the data. The Apache Spark `DataFrame` considered the whole dataset, but
-it was forced to assign the most general type to the column, namely `string`. In
-fact, Spark often resorts to the most general case when there are complex types or variations
-with which it is unfamiliar.
+To address this kind of problem, the AWS Glue `DynamicFrame` introduces the concept of a *choice* type. In this case, the `DynamicFrame` shows that both `long` and `string` values can appear in that column. The AWS Glue crawler missed the `string` values because it considered only a 2 MB prefix of the data. The Apache Spark `DataFrame` considered the whole dataset, but it was forced to assign the most general type to the column, namely `string`. In fact, Spark often resorts to the most general case when there are complex types or variations with which it is unfamiliar.
 
-To query the `provider id` column, resolve the choice type first. You can use
-the `resolveChoice` transform method in your `DynamicFrame` to convert
-those `string` values to `long` values with a `cast:long`
-option:
+To query the `provider id` column, resolve the choice type first. You can use the `resolveChoice` transform method in your `DynamicFrame` to convert those `string` values to `long` values with a `cast:long` option:
 
 ```
-
 medicare_res = medicare_dynamicframe.resolveChoice(specs = [('provider id','cast:long')])
 medicare_res.printSchema()
-
 ```
 
 The `printSchema` output is now:
@@ -180,34 +143,27 @@ root
  |-- average covered charges: string
  |-- average total payments: string
  |-- average medicare payments: string
-
 ```
 
-Where the value was a `string` that could not be cast, AWS Glue inserted a
-`null`.
+Where the value was a `string` that could not be cast, AWS Glue inserted a `null`.
 
-Another option is to convert the choice type to a `struct`,
-which keeps values of both types.
+Another option is to convert the choice type to a `struct`, which keeps values of both types.
 
 Next, look at the rows that were anomalous:
 
 ```
-
 medicare_res.toDF().where("'provider id' is NULL").show()
-
 ```
 
 You see the following:
 
 ```
-
 +--------------------+-----------+---------------+-----------------------+-------------+--------------+-----------------+------------------------------------+----------------+-----------------------+----------------------+-------------------------+
 |      drg definition|provider id|  provider name|provider street address|provider city|provider state|provider zip code|hospital referral region description|total discharges|average covered charges|average total payments|average medicare payments|
 +--------------------+-----------+---------------+-----------------------+-------------+--------------+-----------------+------------------------------------+----------------+-----------------------+----------------------+-------------------------+
 |948 - SIGNS & SYM...|       null|            INC|       1050 DIVISION ST|      MAUSTON|            WI|            53948|                        WI - Madison|              12|              $11961.41|              $4619.00|                 $3775.33|
 |948 - SIGNS & SYM...|       null| INC- ST JOSEPH|     5000 W CHAMBERS ST|    MILWAUKEE|            WI|            53210|                      WI - Milwaukee|              14|              $10514.28|              $5562.50|                 $4522.78|
 +--------------------+-----------+---------------+-----------------------+-------------+--------------+-----------------+------------------------------------+----------------+-----------------------+----------------------+-------------------------+
-
 ```
 
 Now remove the two malformed records, as follows:
@@ -215,18 +171,14 @@ Now remove the two malformed records, as follows:
 ```
 medicare_dataframe = medicare_res.toDF()
 medicare_dataframe = medicare_dataframe.where("'provider id' is NOT NULL")
-
 ```
 
 ## Step 4: Map the data and use Apache Spark Lambda functions
+<a name="aws-glue-programming-python-samples-medicaid-lambda-mapping"></a>
 
-AWS Glue does not yet directly support Lambda functions, also known as user-defined
-functions. But you can always convert a `DynamicFrame` to and from an Apache Spark
-`DataFrame` to take advantage of Spark functionality in addition to the special
-features of `DynamicFrames`.
+AWS Glue does not yet directly support Lambda functions, also known as user-defined functions. But you can always convert a `DynamicFrame` to and from an Apache Spark `DataFrame` to take advantage of Spark functionality in addition to the special features of `DynamicFrames`.
 
-Next, turn the payment information into numbers, so analytic engines like Amazon Redshift or
-Amazon Athena can do their number crunching faster:
+Next, turn the payment information into numbers, so analytic engines like Amazon Redshift or Amazon Athena can do their number crunching faster:
 
 ```
 from pyspark.sql.functions import udf
@@ -241,7 +193,6 @@ medicare_dataframe = medicare_dataframe.withColumn(
                         "AMP", chop_f(
                             medicare_dataframe["average medicare payments"]))
 medicare_dataframe.select(['ACC', 'ATP', 'AMP']).show()
-
 ```
 
 The output from the `show` call is as follows:
@@ -272,12 +223,9 @@ The output from the `show` call is as follows:
 |51343.75|5996.00|4962.45|
 +--------+-------+-------+
 only showing top 20 rows
-
 ```
 
-These are all still strings in the data. We can use the powerful
-`apply_mapping` transform method to drop, rename, cast, and nest the data so that
-other data programming languages and systems can easily access it:
+These are all still strings in the data. We can use the powerful `apply_mapping` transform method to drop, rename, cast, and nest the data so that other data programming languages and systems can easily access it:
 
 ```
 from awsglue.dynamicframe import DynamicFrame
@@ -293,7 +241,6 @@ medicare_nest_dyf = medicare_tmp_dyf.apply_mapping([('drg definition', 'string',
                  ('ATP', 'string', 'charges.total_pay', 'double'),
                  ('AMP', 'string', 'charges.medicare_pay', 'double')])
 medicare_nest_dyf.printSchema()
-
 ```
 
 The `printSchema` output is as follows:
@@ -312,15 +259,12 @@ root
  |    |-- covered: double
  |    |-- total_pay: double
  |    |-- medicare_pay: double
-
 ```
 
-Turning the data back into a Spark `DataFrame`, you can show what it looks like
-now:
+Turning the data back into a Spark `DataFrame`, you can show what it looks like now:
 
 ```
 medicare_nest_dyf.toDF().show()
-
 ```
 
 The output is as follows:
@@ -351,13 +295,12 @@ The output is as follows:
 |039 - EXTRACRANIA...|[10103,BAPTIST ME...|AL - Birmingham|[51343.75,5996.0,...|
 +--------------------+--------------------+---------------+--------------------+
 only showing top 20 rows
-
 ```
 
 ## Step 5: Write the data to Apache Parquet
+<a name="aws-glue-programming-python-samples-medicaid-writing"></a>
 
-AWS Glue makes it easy to write the data in a format such as Apache Parquet that
-relational databases can effectively consume:
+AWS Glue makes it easy to write the data in a format such as Apache Parquet that relational databases can effectively consume:
 
 ```
 glueContext.write_dynamic_frame.from_options(

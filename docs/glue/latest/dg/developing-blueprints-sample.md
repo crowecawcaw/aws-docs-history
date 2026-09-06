@@ -1,19 +1,13 @@
+
+
 # Sample blueprint project
+<a name="developing-blueprints-sample"></a>
 
-Data format conversion is a frequent extract, transform, and load (ETL) use case. In
-typical analytic workloads, column-based file formats like Parquet or ORC are preferred over
-text formats like CSV or JSON. This sample blueprint enables you to convert data from
-CSV/JSON/etc. into Parquet for files on Amazon S3.
+Data format conversion is a frequent extract, transform, and load (ETL) use case. In typical analytic workloads, column-based file formats like Parquet or ORC are preferred over text formats like CSV or JSON. This sample blueprint enables you to convert data from CSV/JSON/etc. into Parquet for files on Amazon S3. 
 
-This blueprint takes a list of S3 paths defined by a blueprint parameter, converts the
-data to Parquet format, and writes it to the S3 location specified by another blueprint
-parameter. The layout script creates a crawler and job for each path. The layout script also
-uploads the ETL script in `Conversion.py` to an S3 bucket specified by
-another blueprint parameter. The layout script then specifies the uploaded script as the ETL
-script for each job. The ZIP archive for the project contains the layout script, the ETL
-script, and the blueprint configuration file.
+This blueprint takes a list of S3 paths defined by a blueprint parameter, converts the data to Parquet format, and writes it to the S3 location specified by another blueprint parameter. The layout script creates a crawler and job for each path. The layout script also uploads the ETL script in `Conversion.py` to an S3 bucket specified by another blueprint parameter. The layout script then specifies the uploaded script as the ETL script for each job. The ZIP archive for the project contains the layout script, the ETL script, and the blueprint configuration file.
 
-For information about more sample blueprint projects, see [Blueprint samples](developing-blueprints-samples.md "developing-blueprints-samples.md").
+For information about more sample blueprint projects, see [Blueprint samples](developing-blueprints-samples.md).
 
 The following is the layout script, in the file `Layout.py`.
 
@@ -30,12 +24,12 @@ def generate_layout(user_params, system_params):
     #Always give the full path for the file
     with open("ConversionBlueprint/Conversion.py", "rb") as f:
         s3_client.upload_fileobj(f, user_params['ScriptsBucket'], "Conversion.py")
-    etlScriptLocation = "s3://{}/Conversion.py".format(user_params['ScriptsBucket'])
+    etlScriptLocation = "s3://{}/Conversion.py".format(user_params['ScriptsBucket'])    
     crawlers = []
     jobs = []
     workflowName = user_params['WorkflowName']
     for path in user_params['S3Paths']:
-      tablePrefix = "source_"
+      tablePrefix = "source_" 
       crawler = Crawler(Name="{}_crawler".format(workflowName),
                         Role=user_params['PassRole'],
                         DatabaseName=user_params['TargetDatabase'],
@@ -56,11 +50,9 @@ def generate_layout(user_params, system_params):
       jobs.append(transform_job)
     conversion_workflow = Workflow(Name=workflowName, Entities=Entities(Jobs=jobs, Crawlers=crawlers))
     return conversion_workflow
-
 ```
 
-The following is the corresponding blueprint configuration file
-`blueprint.cfg`.
+The following is the corresponding blueprint configuration file `blueprint.cfg`.
 
 ```
 {
@@ -100,8 +92,7 @@ The following is the corresponding blueprint configuration file
 }
 ```
 
-The following script in the file `Conversion.py` is the uploaded ETL
-script. Note that it preserves the partitioning scheme during conversion.
+The following script in the file `Conversion.py` is the uploaded ETL script. Note that it preserves the partitioning scheme during conversion. 
 
 ```
 import sys
@@ -183,9 +174,7 @@ for table in get_tables(databaseName, tablePrefix):
     sink.writeFrame(dyf)
 
 job.commit()
-
 ```
 
-###### Note
-
+**Note**  
 Only two Amazon S3 paths can be supplied as an input to the sample blueprint. This is because AWS Glue triggers are limited to invoking only two crawler actions.

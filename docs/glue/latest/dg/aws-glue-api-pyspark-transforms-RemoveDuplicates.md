@@ -1,9 +1,12 @@
-# RemoveDuplicates class
 
-The `RemoveDuplicates` transform deletes an entire row, if a duplicate value is encountered in a
-selected source column.
+
+# RemoveDuplicates class
+<a name="aws-glue-api-pyspark-transforms-RemoveDuplicates"></a>
+
+ The `RemoveDuplicates` transform deletes an entire row, if a duplicate value is encountered in a selected source column. 
 
 ## Example
+<a name="pyspark-RemoveDuplicates-examples"></a>
 
 ```
 from pyspark.context import SparkContext
@@ -33,18 +36,15 @@ try:
 except:
     print("Unexpected Error happened ")
     raise
-
 ```
 
 ## Output
+<a name="pyspark-RemoveDuplicates-output"></a>
 
-The output will be a PySpark DataFrame with duplicates removed based on the
-`source_column_1` column. The resulting `df\_output` DataFrame will contain the following rows:
-
-```
+ The output will be a PySpark DataFrame with duplicates removed based on the `source_column_1` column. The resulting `df\_output` DataFrame will contain the following rows: 
 
 ```
-
+```
 +---------------+---------------+
 |source_column_1|source_column_2|
 +---------------+---------------+
@@ -52,63 +52,59 @@ The output will be a PySpark DataFrame with duplicates removed based on the
 | 13.12| 13.12|
 | null| 13.12|
 +---------------+---------------+
-
+```
 ```
 
-```
-
-Note that the rows with `source_column_1` values of `13.12` and `null` appear only once in the output
-DataFrame, as the duplicates have been removed based on the `source_column_1` column.
+ Note that the rows with `source_column_1` values of `13.12` and `null` appear only once in the output DataFrame, as the duplicates have been removed based on the `source_column_1` column. 
 
 ## Methods
-
-- [\_\_call\_\_](#aws-glue-api-pyspark-transforms-RemoveDuplicates-__call__ "#aws-glue-api-pyspark-transforms-RemoveDuplicates-__call__")
-- [apply](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-apply "#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-apply")
-- [name](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-name "#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-name")
-- [describeArgs](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeArgs "#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeArgs")
-- [describeReturn](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeReturn "#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeReturn")
-- [describeTransform](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeTransform "#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeTransform")
-- [describeErrors](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeErrors "#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeErrors")
-- [describe](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describe "#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describe")
+<a name="aws-glue-api-pyspark-transforms-RemoveDuplicates-_methods"></a>
++ [\_\_call\_\_](#aws-glue-api-pyspark-transforms-RemoveDuplicates-__call__)
++ [apply](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-apply)
++ [name](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-name)
++ [describeArgs](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeArgs)
++ [describeReturn](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeReturn)
++ [describeTransform](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeTransform)
++ [describeErrors](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeErrors)
++ [describe](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describe)
 
 ## \_\_call\_\_(spark\_context, data\_frame, source\_column)
+<a name="aws-glue-api-pyspark-transforms-RemoveDuplicates-__call__"></a>
 
-The `RemoveDuplicates` transform deletes an entire row, if a duplicate value is encountered in a
-selected source column.
-
-- `source_column` – The name of an existing column.
+ The `RemoveDuplicates` transform deletes an entire row, if a duplicate value is encountered in a selected source column. 
++ `source_column` – The name of an existing column.
 
 ## apply(cls, \*args, \*\*kwargs)
+<a name="aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-apply"></a>
 
-Inherited from `GlueTransform`
-[apply](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply").
+Inherited from `GlueTransform` [apply](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply).
 
 ## name(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-name"></a>
 
-Inherited from `GlueTransform`
-[name](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name").
+Inherited from `GlueTransform` [name](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name).
 
 ## describeArgs(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeArgs"></a>
 
-Inherited from `GlueTransform`
-[describeArgs](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs").
+Inherited from `GlueTransform` [describeArgs](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs).
 
 ## describeReturn(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeReturn"></a>
 
-Inherited from `GlueTransform`
-[describeReturn](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn").
+Inherited from `GlueTransform` [describeReturn](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn).
 
 ## describeTransform(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeTransform"></a>
 
-Inherited from `GlueTransform`
-[describeTransform](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform").
+Inherited from `GlueTransform` [describeTransform](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform).
 
 ## describeErrors(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeErrors"></a>
 
-Inherited from `GlueTransform`
-[describeErrors](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors").
+Inherited from `GlueTransform` [describeErrors](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors).
 
 ## describe(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describe"></a>
 
-Inherited from `GlueTransform`
-[describe](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe").
+Inherited from `GlueTransform` [describe](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe).

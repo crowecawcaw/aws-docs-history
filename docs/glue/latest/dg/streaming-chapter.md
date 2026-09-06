@@ -1,8 +1,12 @@
+
+
 # AWS Glue Streaming
+<a name="streaming-chapter"></a>
 
 AWS Glue Streaming, a component of AWS Glue, enables you to efficiently handle streaming data in near real-time, empowering you to carry out crucial tasks such as data ingestion, processing, and machine learning. Using the Apache Spark Streaming framework, AWS Glue Streaming provides a serverless service that can handle streaming data at scale. AWS Glue provides various optimizations on top of Apache Spark such as serverless infrastructure, auto-scaling, visual job development, instant-on notebooks for streaming jobs and other performance improvements.
 
 ## Use cases for streaming
+<a name="streaming-use-cases"></a>
 
 Some common use cases for AWS Glue Streaming include:
 
@@ -23,179 +27,146 @@ Some common use cases for AWS Glue Streaming include:
 These are some examples of the diverse range of use cases where AWS Glue Streaming can be applied. Its integration with the AWS ecosystem and managed services make it a convenient choice for real-time stream processing and analytics in the cloud.
 
 ## What are the benefits of using AWS Glue Streaming?
+<a name="streaming-benefits"></a>
 
 The benefits of using AWS Glue Streaming are as follows:
-
-- **Serverless**: AWS Glue Streaming is serverless, eliminating the need to manage infrastructure. This reduces the operational overhead and allows users to focus on data processing and analytics tasks rather than infrastructure management.
-- **Autoscaling**: AWS Glue Streaming provides autoscaling capabilities, dynamically adjusting the processing capacity based on the workload. It automatically scales out or in to handle fluctuations in data volume, ensuring optimal performance and resource utilization.
-- **Visual development**: Streaming job development can be complex. AWS Glue Streaming addresses this challenge by offering AWS Glue Studio, a visual authoring tool. AWS Glue Studio simplifies the process of creating streaming workflows and enables developers to design and manage streaming applications visually, reducing the learning curve and increasing productivity.
-- **Cost-effective**: As a serverless service, AWS Glue Streaming offers cost efficiency by eliminating the need for provisioning and maintaining infrastructure. Users are billed based on the resources consumed during the execution of streaming jobs, allowing for cost optimization and scaling based on actual usage.
-- **Handles complex workloads**: AWS Glue Streaming is designed to handle complex streaming workloads. It can process and analyze large volumes of real-time data, support advanced transformations, and integrate with other AWS services, enabling sophisticated streaming data pipelines and analytics workflows.
-- **No lock-in**: AWS Glue Streaming provides flexibility and avoids vendor lock-in. Users can leverage AWS Glue Streaming as part of the broader AWS ecosystem, integrating it with other AWS services seamlessly. This allows for easy integration with existing data sources, applications, and services without being tied to a specific technology or platform.
++ **Serverless**: AWS Glue Streaming is serverless, eliminating the need to manage infrastructure. This reduces the operational overhead and allows users to focus on data processing and analytics tasks rather than infrastructure management.
++ **Autoscaling**: AWS Glue Streaming provides autoscaling capabilities, dynamically adjusting the processing capacity based on the workload. It automatically scales out or in to handle fluctuations in data volume, ensuring optimal performance and resource utilization.
++ **Visual development**: Streaming job development can be complex. AWS Glue Streaming addresses this challenge by offering AWS Glue Studio, a visual authoring tool. AWS Glue Studio simplifies the process of creating streaming workflows and enables developers to design and manage streaming applications visually, reducing the learning curve and increasing productivity.
++ **Cost-effective**: As a serverless service, AWS Glue Streaming offers cost efficiency by eliminating the need for provisioning and maintaining infrastructure. Users are billed based on the resources consumed during the execution of streaming jobs, allowing for cost optimization and scaling based on actual usage.
++ **Handles complex workloads**: AWS Glue Streaming is designed to handle complex streaming workloads. It can process and analyze large volumes of real-time data, support advanced transformations, and integrate with other AWS services, enabling sophisticated streaming data pipelines and analytics workflows.
++ **No lock-in**: AWS Glue Streaming provides flexibility and avoids vendor lock-in. Users can leverage AWS Glue Streaming as part of the broader AWS ecosystem, integrating it with other AWS services seamlessly. This allows for easy integration with existing data sources, applications, and services without being tied to a specific technology or platform.
 
 ## When to use AWS Glue Streaming?
+<a name="streaming-when-to-use"></a>
 
 There are many options when it comes to streaming use cases. We recommend AWS Glue streaming in the following scenarios.
 
 1. **If you are already using AWS Glue or Spark for batch processing**, AWS Glue Streaming is the ideal choice for you. It provides a seamless transition to building streaming jobs without the need to learn a new language or framework. Leveraging your existing knowledge and infrastructure, AWS Glue Streaming simplifies the job development process and allows you to easily extend your data processing capabilities to real-time streaming scenarios.
-2. **If you require a unified service or product to handle batch, streaming, and event-driven workloads**, AWS Glue Streaming is the solution for you. With AWS Glue Streaming, you can consolidate your data processing needs into a single framework, eliminating the complexity of managing multiple systems. This enables efficient development and maintenance of diverse data workflows while ensuring consistency and compatibility across different workload types.
-3. **AWS Glue Streaming is well-suited for scenarios involving extremely large streaming data volumes and complex transformations**, such as joins between streams or relational databases. It can efficiently process and analyze massive streams of data, enabling you to tackle demanding workloads with ease. Whether it is high-velocity data ingestion or intricate data manipulations, AWS Glue Streaming's scalability and advanced processing capabilities ensure optimal performance and accurate results.
-4. **If you prefer a visual approach to building streaming jobs**, AWS Glue offers AWS Glue Studio, with which you can visually design and manage your streaming applications, simplifying the development process. This intuitive interface enables developers to create, configure, and monitor streaming workflows using a visual interface, reducing the learning curve and increasing productivity.
-5. **AWS Glue Streaming is an excellent choice for near-real-time use cases where there are stringent SLAs (Service Level Agreements)** greater than 10 seconds.
-6. **If you are building a transactional data lake using Apache Iceberg, Apache Hudi, or Delta Lake**, AWS Glue Streaming provides native support for these open table formats. This seamless integration enables you to process streaming data directly from these transactional data lakes, ensuring data consistency, integrity, and compatibility.
-7. **When needing to ingest streaming data for a variety of data targets**: AWS Glue Streaming provides native targets to a variety of data targets such as Amazon Redshift, Amazon RDS, Amazon Aurora, Oracle, SQL Server and other targets.
+
+1. **If you require a unified service or product to handle batch, streaming, and event-driven workloads**, AWS Glue Streaming is the solution for you. With AWS Glue Streaming, you can consolidate your data processing needs into a single framework, eliminating the complexity of managing multiple systems. This enables efficient development and maintenance of diverse data workflows while ensuring consistency and compatibility across different workload types.
+
+1. **AWS Glue Streaming is well-suited for scenarios involving extremely large streaming data volumes and complex transformations**, such as joins between streams or relational databases. It can efficiently process and analyze massive streams of data, enabling you to tackle demanding workloads with ease. Whether it is high-velocity data ingestion or intricate data manipulations, AWS Glue Streaming's scalability and advanced processing capabilities ensure optimal performance and accurate results.
+
+1. **If you prefer a visual approach to building streaming jobs**, AWS Glue offers AWS Glue Studio, with which you can visually design and manage your streaming applications, simplifying the development process. This intuitive interface enables developers to create, configure, and monitor streaming workflows using a visual interface, reducing the learning curve and increasing productivity.
+
+1. **AWS Glue Streaming is an excellent choice for near-real-time use cases where there are stringent SLAs (Service Level Agreements)** greater than 10 seconds.
+
+1. **If you are building a transactional data lake using Apache Iceberg, Apache Hudi, or Delta Lake**, AWS Glue Streaming provides native support for these open table formats. This seamless integration enables you to process streaming data directly from these transactional data lakes, ensuring data consistency, integrity, and compatibility.
+
+1. **When needing to ingest streaming data for a variety of data targets**: AWS Glue Streaming provides native targets to a variety of data targets such as Amazon Redshift, Amazon RDS, Amazon Aurora, Oracle, SQL Server and other targets.
 
 ## Supported data sources
+<a name="streaming-data-sources"></a>
 
 AWS Glue Streaming supports the following data sources:
-
-- Amazon Kinesis
-- Amazon MSK (Managed Streaming for Apache Kafka)
-- Self-managed Apache Kafka
++ Amazon Kinesis
++ Amazon MSK (Managed Streaming for Apache Kafka)
++ Self-managed Apache Kafka
 
 ## Supported data targets
+<a name="streaming-data-targets"></a>
 
 AWS Glue Streaming supports a variety of data targets such as:
-
-- Data targets supported by AWS Glue Data Catalog
-- Amazon S3
-- Amazon Redshift
-- MySQL
-- PostgreSQL
-- Oracle
-- Microsoft SQL Server
-- Snowflake
-- Any database that can be connected using JDBC
-- Apache Iceberg, Delta and Apache Hudi
-- AWS Glue Marketplace connectors
++ Data targets supported by AWS Glue Data Catalog
++ Amazon S3
++ Amazon Redshift
++ MySQL
++ PostgreSQL
++ Oracle
++ Microsoft SQL Server
++ Snowflake
++ Any database that can be connected using JDBC
++ Apache Iceberg, Delta and Apache Hudi
++ AWS Glue Marketplace connectors
 
 ## Enabling real-time mode for streaming jobs
+<a name="glue-streaming-real-time-mode"></a>
 
-Real-time mode (RTM) is a new execution model for Spark Structured Streaming available in
-AWS Glue 6.0. RTM reduces end-to-end latency from seconds or minutes to sub-second. Real-time mode applies only to Spark Structured Streaming jobs. It does
-not apply to legacy Spark Streaming (DStreams) or other job types.
+ Real-time mode (RTM) is a new execution model for Spark Structured Streaming available in AWS Glue 6.0. RTM reduces end-to-end latency from seconds or minutes to sub-second. Real-time mode applies only to Spark Structured Streaming jobs. It does not apply to legacy Spark Streaming (DStreams) or other job types. 
 
-RTM uses `Trigger.RealTime`. Tasks run continuously within a batch window
-(default 5 minutes) and process records as they arrive, rather than accumulating data across
-intervals. This differs from the default micro-batch model, where
-`forEachBatch`/`Trigger.ProcessingTime` polls, processes, commits,
-and restarts tasks each interval.
+ RTM uses `Trigger.RealTime`. Tasks run continuously within a batch window (default 5 minutes) and process records as they arrive, rather than accumulating data across intervals. This differs from the default micro-batch model, where `forEachBatch`/`Trigger.ProcessingTime` polls, processes, commits, and restarts tasks each interval. 
 
-###### Important
-
-RTM requires an explicit opt-in through a job argument. If there are not enough task
-slots to cover all source partitions, RTM silently drops unassigned partitions. You must
-provision enough workers to cover all of your Kafka partitions.
+**Important**  
+RTM requires an explicit opt-in through a job argument. If there are not enough task slots to cover all source partitions, RTM silently drops unassigned partitions. You must provision enough workers to cover all of your Kafka partitions.
 
 ### Prerequisites
+<a name="glue-streaming-rtm-prerequisites"></a>
 
-Before you enable real-time mode, confirm that your job meets the following
-requirements:
-
-- AWS Glue version 6.0
-- Job must use Spark Structured Streaming. Real-time mode does not apply to
-  legacy Spark Streaming (DStreams) or other job types.
-- Job type must be Spark Streaming (`gluestreaming` command)
-- Job language must be Scala (`--job-language scala`). PySpark RTM
-  support is not available until Spark 4.2.
-- Kafka source only. Amazon Kinesis is not supported for RTM in AWS Glue 6.0.
-- Stateless operations only (select, filter, project, map). Stateful operations
-  such as aggregations, joins, deduplication, and windowed operations are not
-  supported.
-- Output mode must be Update. Append mode is not supported with RTM.
-- Auto-scaling is not compatible with real-time mode. Do not enable auto-scaling
-  for RTM jobs. Configure a fixed number of workers sufficient to cover all
-  Kafka partitions in your source topic.
+Before you enable real-time mode, confirm that your job meets the following requirements:
++ AWS Glue version 6.0
++ Job must use Spark Structured Streaming. Real-time mode does not apply to legacy Spark Streaming (DStreams) or other job types.
++ Job type must be Spark Streaming (`gluestreaming` command)
++ Job language must be Scala (`--job-language scala`). PySpark RTM support is not available until Spark 4.2.
++ Kafka source only. Amazon Kinesis is not supported for RTM in AWS Glue 6.0.
++ Stateless operations only (select, filter, project, map). Stateful operations such as aggregations, joins, deduplication, and windowed operations are not supported.
++ Output mode must be Update. Append mode is not supported with RTM.
++ Auto-scaling is not compatible with real-time mode. Do not enable auto-scaling for RTM jobs. Configure a fixed number of workers sufficient to cover all Kafka partitions in your source topic.
 
 ### When to use real-time mode
+<a name="glue-streaming-rtm-when-to-use"></a>
 
-Real-time mode is designed for a specific class of streaming workloads. Consider using
-real-time mode when:
-
-- You need sub-second end-to-end latency and micro-batch
-  latency (1–2 seconds or more) is too high for your use case.
-- Your pipeline performs stateless transformations such as filtering, projecting,
-  enriching, or routing records from Kafka to Kafka or another sink.
-- You have a fixed, predictable number of Kafka partitions and can provision
-  workers accordingly.
-- Your jobs are written in Scala.
+Real-time mode is designed for a specific class of streaming workloads. Consider using real-time mode when:
++ You need sub-second end-to-end latency and micro-batch latency (1–2 seconds or more) is too high for your use case.
++ Your pipeline performs stateless transformations such as filtering, projecting, enriching, or routing records from Kafka to Kafka or another sink.
++ You have a fixed, predictable number of Kafka partitions and can provision workers accordingly.
++ Your jobs are written in Scala.
 
 Continue using micro-batch mode when:
-
-- You need stateful operations such as aggregations, joins, deduplication, or
-  windowed computations.
-- You use Amazon Kinesis as a source.
-- You write PySpark jobs.
-- You rely on auto-scaling to handle variable data volumes.
-- You use the `forEachBatch` or GlueContext streaming API.
-- Second-level latency is acceptable for your use case.
++ You need stateful operations such as aggregations, joins, deduplication, or windowed computations.
++ You use Amazon Kinesis as a source.
++ You write PySpark jobs.
++ You rely on auto-scaling to handle variable data volumes.
++ You use the `forEachBatch` or GlueContext streaming API.
++ Second-level latency is acceptable for your use case.
 
 ### How real-time mode works
+<a name="glue-streaming-rtm-how-it-works"></a>
 
-The following describes the difference between the micro-batch model and real-time
-mode:
+The following describes the difference between the micro-batch model and real-time mode:
 
-Micro-batch mode
+Micro-batch mode  
+Each interval launches tasks, reads accumulated data, processes the data, commits the checkpoint, terminates tasks, and repeats. Minimum latency is approximately 1–2 seconds.
 
-Each interval launches tasks, reads accumulated data, processes the data,
-commits the checkpoint, terminates tasks, and repeats. Minimum latency is
-approximately 1–2 seconds.
+Real-time mode  
+Tasks launch once and run for the duration of `batchDurationMs` (default 5 minutes). Tasks process records as they arrive, with sub-second latency. At the deadline, tasks cooperatively stop. The driver commits the checkpoint, and the next batch relaunches tasks.
 
-Real-time mode
+Both modes use the same checkpoint format and recovery mechanism. The key difference is task lifetime. Micro-batch mode terminates and relaunches tasks every interval. Real-time mode keeps tasks running continuously within a longer batch window.
 
-Tasks launch once and run for the duration of
-`batchDurationMs` (default 5 minutes). Tasks process records
-as they arrive, with sub-second latency. At the
-deadline, tasks cooperatively stop. The driver commits the checkpoint,
-and the next batch relaunches tasks.
-
-Both modes use the same checkpoint format and recovery mechanism. The key difference
-is task lifetime. Micro-batch mode terminates and relaunches tasks every interval.
-Real-time mode keeps tasks running continuously within a longer batch window.
-
-###### Important
-
-If there are not enough task slots to process all source partitions, RTM silently
-drops the unassigned partitions. Ensure that you provision enough workers to cover
-all partitions.
+**Important**  
+If there are not enough task slots to process all source partitions, RTM silently drops the unassigned partitions. Ensure that you provision enough workers to cover all partitions.
 
 ### To enable real-time mode
+<a name="glue-streaming-rtm-enable"></a>
 
-You enable real-time mode by setting the `--enable-real-time-mode` job
-argument to `true`. You can set this argument in the AWS Glue console or
-through the API.
+You enable real-time mode by setting the `--enable-real-time-mode` job argument to `true`. You can set this argument in the AWS Glue console or through the API.
 
 #### To enable real-time mode (console)
+<a name="glue-streaming-rtm-enable-console"></a>
 
-1. Open the [AWS Glue console](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/") and open your streaming job.
-2. Choose the **Job details** tab.
-3. For **Glue version**, choose
-   **Glue 6.0**. For
-   **Type**, choose
-   **Spark Streaming**.
-4. Scroll to the **Job parameters**
-   section.
-5. Choose **Add new parameter**.
-6. For **Key**, enter
-   `--enable-real-time-mode`. For
-   **Value**, enter
-   `true`.
-7. Choose **Save**.
+1. Open the [AWS Glue console](https://console.aws.amazon.com/glue/) and open your streaming job.
 
-###### Note
+1. Choose the **Job details** tab.
 
-The leading dashes are required. **Job
-parameters** is the console view of
-`DefaultArguments`.
+1. For **Glue version**, choose **Glue 6.0**. For **Type**, choose **Spark Streaming**.
+
+1. Scroll to the **Job parameters** section.
+
+1. Choose **Add new parameter**.
+
+1. For **Key**, enter `--enable-real-time-mode`. For **Value**, enter `true`.
+
+1. Choose **Save**.
+
+**Note**  
+The leading dashes are required. **Job parameters** is the console view of `DefaultArguments`.
 
 #### To enable real-time mode (API)
+<a name="glue-streaming-rtm-enable-api"></a>
 
-The `--enable-real-time-mode` flag is stored in the
-`DefaultArguments` map of the job definition. You can set it when you
-create or update a job.
+The `--enable-real-time-mode` flag is stored in the `DefaultArguments` map of the job definition. You can set it when you create or update a job.
 
-###### To create a new job (AWS CLI)
-
+**To create a new job (AWS CLI)**  
 Run the following command:
 
 ```
@@ -214,8 +185,7 @@ aws glue create-job \
   --region us-east-2
 ```
 
-###### To create a new job (boto3)
-
+**To create a new job (boto3)**  
 Use the following code:
 
 ```
@@ -242,8 +212,7 @@ glue.create_job(
 )
 ```
 
-###### To update an existing job (AWS CLI)
-
+**To update an existing job (AWS CLI)**  
 Run the following command:
 
 ```
@@ -259,12 +228,11 @@ aws glue update-job \
 ```
 
 ### Writing your streaming script
+<a name="glue-streaming-rtm-script"></a>
 
-The job argument declares the intent to use real-time mode. Your script selects the
-trigger.
+The job argument declares the intent to use real-time mode. Your script selects the trigger.
 
-The following Scala example shows a streaming query that uses
-`Trigger.RealTime`:
+The following Scala example shows a streaming query that uses `Trigger.RealTime`:
 
 ```
 import org.apache.spark.sql.streaming.Trigger
@@ -278,9 +246,7 @@ val query = df.writeStream
 query.awaitTermination()
 ```
 
-`Trigger.RealTime` takes a checkpoint interval in milliseconds.
-Update output mode is required. Append mode throws
-`OUTPUT_MODE_NOT_SUPPORTED`.
+`Trigger.RealTime` takes a checkpoint interval in milliseconds. Update output mode is required. Append mode throws `OUTPUT_MODE_NOT_SUPPORTED`.
 
 You can mix modes in one script as long as the flag is set:
 
@@ -290,55 +256,35 @@ dfB.writeStream.outputMode("append").trigger(Trigger.ProcessingTime("30 seconds"
 ```
 
 ### Behavior when the flag is missing
+<a name="glue-streaming-rtm-flag-missing"></a>
 
-The following describes how the job behaves when the
-`--enable-real-time-mode` flag is not set:
-
-- A job that starts a real-time query without the
-  `--enable-real-time-mode` flag fails at query start. The failure
-  message directs you to add the argument.
-- Micro-batch-only jobs are never affected by the absence of this flag.
-- A job that sets the flag but only uses micro-batch queries is also
-  unaffected.
+The following describes how the job behaves when the `--enable-real-time-mode` flag is not set:
++ A job that starts a real-time query without the `--enable-real-time-mode` flag fails at query start. The failure message directs you to add the argument.
++ Micro-batch-only jobs are never affected by the absence of this flag.
++ A job that sets the flag but only uses micro-batch queries is also unaffected.
 
 ### Considerations and limitations
+<a name="glue-streaming-rtm-considerations"></a>
 
 Consider the following when you use real-time mode:
 
-Partition drops
+Partition drops  
+If there are not enough task slots to cover all source partitions, unassigned partitions are not processed. Provision workers to cover all Kafka partitions.
 
-If there are not enough task slots to cover all source partitions,
-unassigned partitions are not processed. Provision workers to cover all
-Kafka partitions.
+No auto-scaling  
+Do not enable auto-scaling for real-time mode jobs. Auto-scaling is not compatible with RTM and introduces latency that counteracts the low-latency benefits. Provision a fixed number of workers equal to or greater than the number of Kafka partitions in your source topic.
 
-No auto-scaling
-
-Do not enable auto-scaling for real-time mode jobs. Auto-scaling
-is not compatible with RTM and introduces latency that counteracts the
-low-latency benefits. Provision a fixed number of workers equal to or
-greater than the number of Kafka partitions in your source topic.
-
-Kafka only
-
+Kafka only  
 Amazon Kinesis source does not support RTM in AWS Glue 6.0.
 
-Scala only
-
+Scala only  
 PySpark is not supported for RTM until Spark 4.2.
 
-Stateless only
+Stateless only  
+Aggregations, joins, deduplication, windowed operations, and `transformWithState` are not supported.
 
-Aggregations, joins, deduplication, windowed operations, and
-`transformWithState` are not supported.
+forEachBatch incompatible  
+RTM does not use the `forEachBatch` model. Use `writeStream` with `Trigger.RealTime` directly.
 
-forEachBatch incompatible
-
-RTM does not use the `forEachBatch` model. Use
-`writeStream` with `Trigger.RealTime`
-directly.
-
-Checkpoint recovery
-
-On job restart, RTM recovers from the last checkpoint. Checkpoints
-occur every `batchDurationMs`. Worst-case reprocessing is
-the duration of one batch window (at-least-once semantics).
+Checkpoint recovery  
+On job restart, RTM recovers from the last checkpoint. Checkpoints occur every `batchDurationMs`. Worst-case reprocessing is the duration of one batch window (at-least-once semantics).

@@ -1,13 +1,16 @@
+
+
 # Using the SAP OData state management script
+<a name="sap-odata-state-management-script"></a>
 
 To use the SAP OData state management script in your AWS Glue job, follow these steps:
-
-- Download the state management script: `s3://aws-blogs-artifacts-public/artifacts/BDB-4789/sap_odata_state_management.zip` from the public Amazon S3 bucket.
-- Upload the script to an Amazon S3 bucket that your AWS Glue job has permissions to access.
-- Reference the script in your AWS Glue job: When creating or updating your AWS Glue job, pass the `'--extra-py-files'` option referencing the script path in your Amazon S3 bucket. For example: `--extra-py-files s3://your-bucket/path/to/sap_odata_state_management.py`
-- Import and use the state management library in your AWS Glue job scripts.
++ Download the state management script: `s3://aws-blogs-artifacts-public/artifacts/BDB-4789/sap_odata_state_management.zip ` from the public Amazon S3 bucket.
++ Upload the script to an Amazon S3 bucket that your AWS Glue job has permissions to access.
++ Reference the script in your AWS Glue job: When creating or updating your AWS Glue job, pass the `'--extra-py-files'` option referencing the script path in your Amazon S3 bucket. For example: `--extra-py-files s3://your-bucket/path/to/sap_odata_state_management.py`
++ Import and use the state management library in your AWS Glue job scripts.
 
 ## Delta-token based Incremental Transfer example
+<a name="sap-odata-delta-token-incremental-transfer"></a>
 
 Here's an example of how to use the state management script for delta-token based incremental transfers:
 
@@ -46,6 +49,7 @@ state_manager.update_state(key, sapodata_df.toDF())
 ```
 
 ## Timestamp based Incremental Transfer example
+<a name="sap-odata-timestamp-incremental-transfer"></a>
 
 Here's an example of how to use the state management script for delta-token based incremental transfers:
 

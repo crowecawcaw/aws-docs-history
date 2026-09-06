@@ -1,30 +1,24 @@
-# Connecting to Spark Connect within a VPC
 
-You can use AWS PrivateLink to connect to a Spark Connect session from within
-your VPC. When you use an interface VPC endpoint, communication between your VPC and
-the AWS Glue Spark Connect endpoint stays entirely within the AWS network.
+
+# Connecting to Spark Connect within a VPC
+<a name="interactive-sessions-spark-connect-vpc"></a>
+
+You can use AWS PrivateLink to connect to a Spark Connect session from within your VPC. When you use an interface VPC endpoint, communication between your VPC and the AWS Glue Spark Connect endpoint stays entirely within the AWS network.
 
 ## Prerequisites
-
-- A VPC with at least one subnet
-- A security group that allows inbound HTTPS (port 443) from your VPC CIDR
-- IAM permissions for `ec2:CreateVpcEndpoint` and
-  `glue:*`
+<a name="spark-connect-vpc-prerequisites"></a>
++ A VPC with at least one subnet
++ A security group that allows inbound HTTPS (port 443) from your VPC CIDR
++ IAM permissions for `ec2:CreateVpcEndpoint` and `glue:*`
 
 ## Step 1: Create VPC endpoints
+<a name="spark-connect-vpc-create-endpoints"></a>
 
 You need two VPC endpoints:
++ **Spark Connect sessions** (`com.amazonaws.{{region}}.glue.sessions`) – For the gRPC data path.
++ **AWS Glue API** (`com.amazonaws.{{region}}.glue`) – For calling `CreateSession`, `GetSessionEndpoint`, and other control plane APIs.
 
-- **Spark Connect sessions**
-  (`com.amazonaws.`region`.glue.sessions`)
-  – For the gRPC data path.
-- **AWS Glue API**
-  (`com.amazonaws.`region`.glue`)
-  – For calling `CreateSession`, `GetSessionEndpoint`,
-  and other control plane APIs.
-
-The following AWS Cloud Development Kit (AWS CDK) (AWS CDK) example creates both VPC endpoints with a
-security group that allows HTTPS from within the VPC:
+The following AWS Cloud Development Kit (AWS CDK) (AWS CDK) example creates both VPC endpoints with a security group that allows HTTPS from within the VPC:
 
 ```
 import { Stack, StackProps, Aws } from 'aws-cdk-lib';
@@ -90,30 +84,28 @@ export class SparkConnectVpcStack extends Stack {
 ```
 
 ## Step 2: Connect from inside the VPC
+<a name="spark-connect-vpc-connect"></a>
 
-After creating the endpoints with private DNS enabled, the
-`sc://` session URL resolves to your VPC endpoint automatically. Use
-the standard Spark Connect flow from any resource in the VPC (Amazon EC2, Lambda,
-Amazon ECS, and others) with no code changes:
+After creating the endpoints with private DNS enabled, the `sc://` session URL resolves to your VPC endpoint automatically. Use the standard Spark Connect flow from any resource in the VPC (Amazon EC2, Lambda, Amazon ECS, and others) with no code changes:
 
 ```
 import boto3
 from urllib.parse import quote
 from pyspark.sql import SparkSession
 
-glue = boto3.client("glue", region_name="`us-east-1`")
+glue = boto3.client("glue", region_name="{{us-east-1}}")
 
 # Create a Spark Connect session
 glue.create_session(
-    Id="`my-session`",
-    Role="arn:aws:iam::`123456789012`:role/`GlueRole`",
+    Id="{{my-session}}",
+    Role="arn:aws:iam::{{123456789012}}:role/{{GlueRole}}",
     Command={"Name": "glueetl"},
     GlueVersion="5.1",
     SessionType="SPARK_CONNECT",
 )
 
 # Wait for READY state, then get endpoint
-resp = glue.get_session_endpoint(SessionId="`my-session`")
+resp = glue.get_session_endpoint(SessionId="{{my-session}}")
 endpoint = resp["SparkConnect"]
 token = quote(endpoint["AuthToken"], safe="")
 url = f"{endpoint['Url']}:443/;use_ssl=true;x-aws-proxy-auth={token}"
@@ -125,29 +117,22 @@ spark.version
 ```
 
 ## Connecting within a VPC using Spark utilities
+<a name="spark-connect-vpc-spark-utils"></a>
 
-If you use the `sagemaker-studio` library, the Spark utilities module
-works within a VPC with no additional configuration. After creating the VPC endpoints,
-initialize the session as usual:
+If you use the `sagemaker-studio` library, the Spark utilities module works within a VPC with no additional configuration. After creating the VPC endpoints, initialize the session as usual:
 
 ```
 from sagemaker_studio import sparkutils
 
-spark = sparkutils.init(connection_name="`my-glue-spark-connection`")
+spark = sparkutils.init(connection_name="{{my-glue-spark-connection}}")
 
-df = spark.read.table("`my_database`.`my_table`")
+df = spark.read.table("{{my_database}}.{{my_table}}")
 df.show()
 ```
 
-The Spark utilities module resolves the endpoint through PrivateLink automatically
-when the VPC endpoints are configured with private DNS enabled.
+The Spark utilities module resolves the endpoint through PrivateLink automatically when the VPC endpoints are configured with private DNS enabled.
 
 ## Considerations
-
-- **Private DNS** – When enabled, the
-  `sc://s-`id`.sessions.glue.`region`.amazonaws.com`
-  hostname resolves to the VPC endpoint's private IP. No URL changes are
-  needed.
-- **Token encoding** – The auth token must
-  be URL-encoded (`urllib.parse.quote(token, safe="")`) because
-  it contains special characters.
+<a name="spark-connect-vpc-notes"></a>
++ **Private DNS** – When enabled, the `sc://s-{{id}}.sessions.glue.{{region}}.amazonaws.com` hostname resolves to the VPC endpoint's private IP. No URL changes are needed.
++ **Token encoding** – The auth token must be URL-encoded (`urllib.parse.quote(token, safe="")`) because it contains special characters.

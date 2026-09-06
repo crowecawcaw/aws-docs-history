@@ -1,4 +1,7 @@
+
+
 # Reading from Jira Cloud entities
+<a name="jira-cloud-reading-from-entities"></a>
 
 **Prerequisite**
 
@@ -6,34 +9,35 @@ A Jira Cloud object you would like to read from. You will need the object name s
 
 **Supported entities for source**:
 
-| Entity                              | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning |
-| ----------------------------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Audit Record                        | Yes             | Yes            | No                | Yes                | Yes                   |
-| Issue                               | Yes             | Yes            | No                | Yes                | Yes                   |
-| Issue Field                         | No              | No             | No                | Yes                | No                    |
-| Issue Field Configuration           | Yes             | Yes            | No                | Yes                | Yes                   |
-| Issue Link Type                     | No              | No             | No                | Yes                | No                    |
-| Issue Notification Scheme           | Yes             | Yes            | No                | Yes                | Yes                   |
-| Issue Security Scheme               | No              | No             | No                | Yes                | No                    |
-| Issue Type Scheme                   | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Issue Type Screen Scheme            | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Issue Type                          | No              | No             | No                | Yes                | No                    |
-| Jira Setting                        | Yes             | No             | No                | Yes                | No                    |
-| Jira Setting Advanced               | No              | No             | No                | Yes                | No                    |
-| Jira Setting Global                 | No              | No             | No                | Yes                | No                    |
-| Label                               | No              | No             | No                | Yes                | Yes                   |
-| Myself                              | Yes             | No             | No                | Yes                | No                    |
-| Permission                          | No              | No             | No                | Yes                | No.                   |
-| Project                             | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Project Category                    | No              | No             | No                | Yes                | No                    |
-| Project Type                        | No              | No             | No                | Yes                | No                    |
-| Server Info                         | No              | No             | No                | Yes                | No                    |
-| Users                               | No              | No             | No.               | Yes                | No                    |
-| Workflow                            | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Workflow Scheme                     | No              | Yes            | No                | Yes                | Yes                   |
-| Workflow Scheme Project Association | Yes             | No             | No                | Yes                | No                    |
-| Workflow Status                     | No              | No             | No                | Yes                | No                    |
-| Workflow Status Category            | No              | No             | No                | Yes                | No                    |
+
+| Entity | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| Audit Record | Yes | Yes | No | Yes | Yes | 
+| Issue | Yes | Yes | No | Yes | Yes | 
+| Issue Field | No | No | No | Yes | No | 
+| Issue Field Configuration | Yes | Yes | No | Yes | Yes | 
+| Issue Link Type | No | No | No | Yes | No | 
+| Issue Notification Scheme | Yes | Yes | No | Yes | Yes | 
+| Issue Security Scheme | No | No | No | Yes | No | 
+| Issue Type Scheme | Yes | Yes | Yes | Yes | Yes | 
+| Issue Type Screen Scheme | Yes | Yes | Yes | Yes | Yes | 
+| Issue Type | No | No | No | Yes | No | 
+| Jira Setting | Yes | No | No | Yes | No | 
+| Jira Setting Advanced | No | No | No | Yes | No | 
+| Jira Setting Global | No | No | No | Yes | No | 
+| Label | No | No | No | Yes | Yes | 
+| Myself | Yes | No | No | Yes | No | 
+| Permission | No | No | No | Yes | No. | 
+| Project | Yes | Yes | Yes | Yes | Yes | 
+| Project Category | No | No | No | Yes | No | 
+| Project Type | No | No | No | Yes | No | 
+| Server Info | No | No | No | Yes | No | 
+| Users | No | No | No. | Yes | No | 
+| Workflow | Yes | Yes | Yes | Yes | Yes | 
+| Workflow Scheme | No | Yes | No | Yes | Yes | 
+| Workflow Scheme Project Association | Yes | No | No | Yes | No | 
+| Workflow Status | No | No | No | Yes | No | 
+| Workflow Status Category | No | No | No | Yes | No | 
 
 **Example**:
 
@@ -49,316 +53,379 @@ jiracloud_read = glueContext.create_dynamic_frame.from_options(
 
 **Jira Cloud entity and field details**:
 
-| Object                              | Field           | Data type                      | Filter operators supported |
-| ----------------------------------- | --------------- | ------------------------------ | -------------------------- |
-| Audit Record                        | filter          | String                         | "="                        |
-| from                                | DateTime        | "="                            |
-| to                                  | DateTime        | "="                            |
-| id                                  | Integer         | N/A                            |
-| summary                             | String          | N/A                            |
-| remoteAddress                       | String          | N/A                            |
-| authorAccountId                     | String          | N/A                            |
-| created                             | String          | N/A                            |
-| category                            | String          | N/A                            |
-| eventSource                         | String          | N/A                            |
-| description                         | String          | N/A                            |
-| objectItem                          | Struct          | N/A                            |
-| changedValues                       | List            | N/A                            |
-| associatedItems                     | List            | N/A                            |
-| Groups                              | groupName       | List                           | "="                        |
-| name                                | String          | N/A                            |
-| groupId                             | String          | "="                            |
-| Issue                               | affectedVersion | String                         | "=, !="                    |
-| assignee                            | String          | "=, !="                        |
-| category                            | String          | "=, !="                        |
-| component                           | String          | "=, !="                        |
-| creator                             | String          | "=, !="                        |
-| due                                 | DateTime        | N/A                            |
-| epic\_link                          | String          | "=, !="                        |
-| filter                              | String          | "=, !="                        |
-| fixVersion                          | String          | "=, !="                        |
-| hierarchyLevel                      | Integer         | "=, !="                        |
-| issueKey                            | String          | "=, !=, >, <, >=, <="          |
-| issueLink                           | String          | "=, !="                        |
-| issueLinkType                       | String          | "=, !="                        |
-| labels                              | String          | "=, !="                        |
-| lastViewed                          | DateTime        | "=, >, <, >=, <=, between"     |
-| level                               | String          | "=, !="                        |
-| parent                              | String          | "=, !="                        |
-| priority                            | String          | "=, !="                        |
-| project                             | String          | "=, !="                        |
-| projectType                         | String          | "=, !="                        |
-| reporter                            | String          | "=, !="                        |
-| resolution                          | String          | "=, !="                        |
-| resolved                            | DateTime        | "=, >, <, >=, <=, between"     |
-| sprint                              | String          | "=, !="                        |
-| status                              | String          | "=, !="                        |
-| type                                | String          | "=, !="                        |
-| updated                             | DateTime        | "=, >, <, >=, <=, between"     |
-| voter                               | String          | "=, !="                        |
-| votes                               | Integer         | "=, !=, <, >, <=, >=, between" |
-| watcher                             | String          | "=, !="                        |
-| watchers                            | Integer         | "=, !=, <, >, <=, >=, between" |
-| workRatio                           | Integer         | "=, !=, <, >, <=, >=, between" |
-| validateQuery                       | String          | "="                            |
-| expand                              | String          | "="                            |
-| fieldByKeys                         | Boolean         | "="                            |
-| id                                  | String          | N/A                            |
-| self                                | String          | N/A                            |
-| key                                 | String          | N/A                            |
-| renderedFields                      | Struct          | N/A                            |
-| properties                          | List            | "="                            |
-| names                               | Struct          | N/A                            |
-| schema                              | Struct          | N/A                            |
-| transitions                         | List            | N/A                            |
-| operations                          | Struct          | N/A                            |
-| editmeta                            | Struct          | N/A                            |
-| changelog                           | Struct          | N/A                            |
-| versionedRepresentations            | Struct          | N/A                            |
-| fields                              | List            | "="                            |
-| fieldsToInclude                     | Struct          | N/A                            |
-| warningMessages                     | List            | N/A                            |
-| created                             | DateTime        | N/A                            |
-| worklogDate                         | DateTime        | N/A                            |
-| IssueEvents                         | id              | Integer                        | N/A                        |
-| name                                | String          | N/A                            |
-| Issue Fields                        | id              | String                         | N/A                        |
-| key                                 | String          | N/A                            |
-| name                                | String          | N/A                            |
-| custom                              | Boolean         | N/A                            |
-| orderable                           | Boolean         | N/A                            |
-| navigable                           | Boolean         | N/A                            |
-| searchable                          | Boolean         | N/A                            |
-| clauseNames                         | List            | N/A                            |
-| scope                               | Struct          | N/A                            |
-| schema                              | Struct          | N/A                            |
-| Issue Field Configurations          | isDefault       | Boolean                        | "="                        |
-| query                               | String          | "="                            |
-| id                                  | Integer         | "="                            |
-| name                                | String          | N/A                            |
-| description                         | String          | N/A                            |
-| Issue Link Type                     | id              | String                         | N/A                        |
-| name                                | String          | N/A                            |
-| inward                              | String          | N/A                            |
-| outward                             | String          | N/A                            |
-| self                                | String          | N/A                            |
-| Issue Notification Schemes          | expand          | String                         | "="                        |
-| self                                | String          | N/A                            |
-| id                                  | Integer         | N/A                            |
-| name                                | String          | N/A                            |
-| description                         | String          | N/A                            |
-| notificationSchemeEvents            | List            | N/A                            |
-| scope                               | Struct          | N/A                            |
-| Issue Priority                      | self            | String                         | N/A                        |
-| statusColor                         | String          | N/A                            |
-| description                         | String          | N/A                            |
-| iconUrl                             | String          | N/A                            |
-| name                                | String          | N/A                            |
-| id                                  | String          | N/A                            |
-| isDefault                           | Boolean         | N/A                            |
-| Issue Resolutions                   | self            | String                         | N/A                        |
-| id                                  | String          | N/A                            |
-| description                         | String          | N/A                            |
-| name                                | String          | N/A                            |
-| Issue Security Scheme               | self            | String                         | N/A                        |
-| id                                  | Integer         | N/A                            |
-| name                                | String          | N/A                            |
-| description                         | String          | N/A                            |
-| defaultSecurityLevelId              | Integer         | N/A                            |
-| levels                              | List            | N/A                            |
-| Issue Type                          | self            | String                         | N/A                        |
-| id                                  | String          | N/A                            |
-| description                         | String          | N/A                            |
-| iconUrl                             | String          | N/A                            |
-| name                                | String          | N/A                            |
-| subtask                             | Boolean         | N/A                            |
-| avatarId                            | Integer         | N/A                            |
-| entityId                            | String          | N/A                            |
-| hierarchyLevel                      | Integer         | N/A                            |
-| scope                               | Struct          | N/A                            |
-| Issue Type Scheme                   | orderBy         | String                         | "="                        |
-| expand                              | String          | "="                            |
-| queryString                         | String          | "="                            |
-| id                                  | String          | N/A                            |
-| name                                | String          | N/A                            |
-| description                         | String          | N/A                            |
-| defaultIssueTypeId                  | String          | N/A                            |
-| isDefault                           | Boolean         | N/A                            |
-| Issue Type Screen Scheme            | queryString     | String                         | "="                        |
-| orderBy                             | String          | "="                            |
-| expand                              | String          | "="                            |
-| id                                  | String          | "="                            |
-| name                                | String          | N/A                            |
-| description                         | String          | N/A                            |
-| Jira Settings                       | key             | String                         | N/A                        |
-| keyFilter                           | String          | "="                            |
-| id                                  | String          | N/A                            |
-| value                               | String          | N/A                            |
-| name                                | String          | N/A                            |
-| desc                                | String          | N/A                            |
-| type                                | String          | N/A                            |
-| defaultValue                        | String          | N/A                            |
-| example                             | String          | N/A                            |
-| allowedValues                       | List            | N/A                            |
-| Jira Settings Advanced              | id              | String                         | N/A                        |
-| key                                 | String          | N/A                            |
-| value                               | String          | N/A                            |
-| name                                | String          | N/A                            |
-| desc                                | String          | N/A                            |
-| type                                | String          | N/A                            |
-| defaultValue                        | String          | N/A                            |
-| example                             | String          | N/A                            |
-| allowedValues                       | List            | N/A                            |
-| Jira Settings Global                | votingEnabled   | Boolean                        | N/A                        |
-| watchingEnabled                     | Boolean         | N/A                            |
-| unassignedIssuesAllowed             | Boolean         | N/A                            |
-| subTasksEnabled                     | Boolean         | N/A                            |
-| issueLinkingEnabled                 | Boolean         | N/A                            |
-| timeTrackingEnabled                 | Boolean         | N/A                            |
-| attachmentsEnabled                  | Boolean         | N/A                            |
-| timeTrackingConfiguration           | Struct          | N/A                            |
-| Label                               | values          | List                           | N/A                        |
-| Myself                              | expand          | String                         | "="                        |
-| self                                | String          | N/A                            |
-| accountId                           | String          | N/A                            |
-| accountType                         | String          | N/A                            |
-| emailAddress                        | String          | N/A                            |
-| avatarUrls                          | String          | N/A                            |
-| displayName                         | String          | N/A                            |
-| active                              | Boolean         | N/A                            |
-| timeZone                            | String          | N/A                            |
-| locale                              | String          | N/A                            |
-| groups                              | Struct          | N/A                            |
-| applicationRoles                    | Struct          | N/A                            |
-| Permission                          | id              | String                         | N/A                        |
-| key                                 | String          | N/A                            |
-| name                                | String          | N/A                            |
-| type                                | String          | N/A                            |
-| description                         | String          | N/A                            |
-| havePermission                      | Boolean         | N/A                            |
-| deprecatedKey                       | Boolean         | N/A                            |
-| Project                             | orderBy         | String                         | "="                        |
-| keys                                | List            | "="                            |
-| query                               | String          | "="                            |
-| typeKey                             | String          | "="                            |
-| categoryId                          | Integer         | "="                            |
-| action                              | String          | "="                            |
-| expand                              | String          | "="                            |
-| status                              | List            | "="                            |
-| self                                | String          | N/A                            |
-| id                                  | Integer         | "="                            |
-| key                                 | String          | N/A                            |
-| description                         | String          | N/A                            |
-| lead                                | Struct          | N/A                            |
-| components                          | List            | N/A                            |
-| issueTypes                          | List            | N/A                            |
-| url                                 | String          | N/A                            |
-| email                               | String          | N/A                            |
-| assigneeType                        | String          | N/A                            |
-| versions                            | List            | N/A                            |
-| name                                | String          | N/A                            |
-| roles                               | Struct          | N/A                            |
-| avatarUrls                          | Struct          | N/A                            |
-| projectCategory                     | Struct          | N/A                            |
-| projectTypeKey                      | String          | N/A                            |
-| simplified                          | Boolean         | N/A                            |
-| style                               | String          | N/A                            |
-| favourite                           | Boolean         | N/A                            |
-| isPrivate                           | Boolean         | N/A                            |
-| issueTypeHierarchy                  | Struct          | N/A                            |
-| permissions                         | Struct          | N/A                            |
-| properties                          | List            | "="                            |
-| uuid                                | String          | N/A                            |
-| insight                             | Struct          | N/A                            |
-| deleted                             | Boolean         | N/A                            |
-| retentionTillDate                   | String          | N/A                            |
-| deletedDate                         | String          | N/A                            |
-| deletedBy                           | Struct          | N/A                            |
-| archived                            | Boolean         | N/A                            |
-| archivedDate                        | String          | N/A                            |
-| archivedBy                          | Struct          | N/A                            |
-| landedPageInfo                      | Struct          | N/A                            |
-| Project Category                    | self            | String                         | N/A                        |
-| id                                  | String          | N/A                            |
-| name                                | String          | N/A                            |
-| description                         | String          | N/A                            |
-| Project Type                        | key             | String                         | N/A                        |
-| formattedKey                        | String          | N/A                            |
-| description                         | String          | N/A                            |
-| descriptionI18nKey                  | String          | N/A                            |
-| icon                                | String          | N/A                            |
-| color                               | String          | N/A                            |
-| Server Info                         | baseUrl         | String                         | N/A                        |
-| version                             | String          | N/A                            |
-| versionNumbers                      | List            | N/A                            |
-| deploymentType                      | String          | N/A                            |
-| buildNumber                         | Integer         | N/A                            |
-| buildDate                           | DateTime        | N/A                            |
-| serverTime                          | DateTime        | N/A                            |
-| scmInfo                             | String          | N/A                            |
-| serverTitle                         | String          | N/A                            |
-| healthChecks                        | List            | N/A                            |
-| Users                               | self            | String                         | N/A                        |
-| accountId                           | String          | N/A                            |
-| accountType                         | String          | N/A                            |
-| emailAddress                        | String          | N/A                            |
-| avatarUrls                          | Struct          | N/A                            |
-| displayName                         | String          | N/A                            |
-| active                              | Boolean         | N/A                            |
-| timeZone                            | String          | N/A                            |
-| locale                              | String          | N/A                            |
-| groups                              | Struct          | N/A                            |
-| applicationRoles                    | Struct          | N/A                            |
-| expand                              | String          | N/A                            |
-| Workflow                            | workflowName    | String                         | "="                        |
-| expand                              | String          | "="                            |
-| queryString                         | String          | "="                            |
-| orderBy                             | String          | "="                            |
-| isActive                            | Boolean         | "="                            |
-| id                                  | Struct          | N/A                            |
-| description                         | String          | N/A                            |
-| transitions                         | List            | N/A                            |
-| statuses                            | List            | N/A                            |
-| isDefault                           | Boolean         | N/A                            |
-| schemes                             | List            | N/A                            |
-| projects                            | List            | N/A                            |
-| hasDraftWorkflow                    | Boolean         | N/A                            |
-| operations                          | Struct          | N/A                            |
-| created                             | String          | N/A                            |
-| updated                             | String          | N/A                            |
-| Workflow Scheme                     | self            | String                         | N/A                        |
-| id                                  | Integer         | N/A                            |
-| name                                | String          | N/A                            |
-| description                         | String          | N/A                            |
-| defaultWorkflow                     | String          | N/A                            |
-| issueTypeMappings                   | Struct          | N/A                            |
-| originalDefaultWorkflow             | String          | N/A                            |
-| originalIssueTypeMappings           | Struct          | N/A                            |
-| draft                               | Boolean         | N/A                            |
-| lastModifiedUser                    | Struct          | N/A                            |
-| lastModified                        | String          | N/A                            |
-| updateDraftIfNeeded                 | Boolean         | N/A                            |
-| issueTypes                          | Struct          | N/A                            |
-| Workflow Scheme Project Association | projectId       | Integer                        | "="                        |
-| projectIds                          | List            | N/A                            |
-| workflowScheme                      | Struct          | N/A                            |
-| Workflow Status                     | self            | String                         | N/A                        |
-| description                         | String          | N/A                            |
-| iconUrl                             | String          | N/A                            |
-| name                                | String          | N/A                            |
-| id                                  | String          | N/A                            |
-| StatusCategory                      | Struct          | N/A                            |
-| Workflow Status Category            | self            | String                         | N/A                        |
-| id                                  | String          | N/A                            |
-| key                                 | String          | N/A                            |
-| colorName                           | String          | N/A                            |
-| name                                | String          | N/A                            |
+
+
+- **Audit Record**
+  - **Field:** filter / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** from / **Data type:** DateTime / **Filter operators supported:** "="
+  - **Field:** to / **Data type:** DateTime / **Filter operators supported:** "="
+  - **Field:** id / **Data type:** Integer / **Filter operators supported:** N/A
+  - **Field:** summary / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** remoteAddress / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** authorAccountId / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** created / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** category / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** eventSource / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** objectItem / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** changedValues / **Data type:** List / **Filter operators supported:** N/A
+  - **Field:** associatedItems / **Data type:** List / **Filter operators supported:** N/A
+
+- **Groups**
+  - **Field:** groupName / **Data type:** List / **Filter operators supported:** "="
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** groupId / **Data type:** String / **Filter operators supported:** "="
+
+- **Issue**
+  - **Field:** affectedVersion / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** assignee / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** category / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** component / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** creator / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** due / **Data type:** DateTime / **Filter operators supported:** N/A
+  - **Field:** epic\_link / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** filter / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** fixVersion / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** hierarchyLevel / **Data type:** Integer / **Filter operators supported:** "=, \!="
+  - **Field:** issueKey / **Data type:** String / **Filter operators supported:** "=, \!=, >, <, >=, <="
+  - **Field:** issueLink / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** issueLinkType / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** labels / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** lastViewed / **Data type:** DateTime / **Filter operators supported:** "=, >, <, >=, <=, between"
+  - **Field:** level / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** parent / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** priority / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** project / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** projectType / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** reporter / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** resolution / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** resolved / **Data type:** DateTime / **Filter operators supported:** "=, >, <, >=, <=, between"
+  - **Field:** sprint / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** status / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** type / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** updated / **Data type:** DateTime / **Filter operators supported:** "=, >, <, >=, <=, between"
+  - **Field:** voter / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** votes / **Data type:** Integer / **Filter operators supported:** "=, \!=, <, >, <=, >=, between"
+  - **Field:** watcher / **Data type:** String / **Filter operators supported:** "=, \!="
+  - **Field:** watchers / **Data type:** Integer / **Filter operators supported:** "=, \!=, <, >, <=, >=, between"
+  - **Field:** workRatio / **Data type:** Integer / **Filter operators supported:** "=, \!=, <, >, <=, >=, between"
+  - **Field:** validateQuery / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** expand / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** fieldByKeys / **Data type:** Boolean / **Filter operators supported:** "="
+  - **Field:** id / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** self / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** key / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** renderedFields / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** properties / **Data type:** List / **Filter operators supported:** "="
+  - **Field:** names / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** schema / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** transitions / **Data type:** List / **Filter operators supported:** N/A
+  - **Field:** operations / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** editmeta / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** changelog / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** versionedRepresentations / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** fields / **Data type:** List / **Filter operators supported:** "="
+  - **Field:** fieldsToInclude / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** warningMessages / **Data type:** List / **Filter operators supported:** N/A
+  - **Field:** created / **Data type:** DateTime / **Filter operators supported:** N/A
+  - **Field:** worklogDate / **Data type:** DateTime / **Filter operators supported:** N/A
+
+- **IssueEvents**
+  - **Field:** id / **Data type:** Integer / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+
+- **Issue Fields**
+  - **Field:** id / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** key / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** custom / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** orderable / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** navigable / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** searchable / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** clauseNames / **Data type:** List / **Filter operators supported:** N/A
+  - **Field:** scope / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** schema / **Data type:** Struct / **Filter operators supported:** N/A
+
+- **Issue Field Configurations**
+  - **Field:** isDefault / **Data type:** Boolean / **Filter operators supported:** "="
+  - **Field:** query / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** id / **Data type:** Integer / **Filter operators supported:** "="
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+
+- **Issue Link Type**
+  - **Field:** id / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** inward / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** outward / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** self / **Data type:** String / **Filter operators supported:** N/A
+
+- **Issue Notification Schemes**
+  - **Field:** expand / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** self / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** id / **Data type:** Integer / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** notificationSchemeEvents / **Data type:** List / **Filter operators supported:** N/A
+  - **Field:** scope / **Data type:** Struct / **Filter operators supported:** N/A
+
+- **Issue Priority**
+  - **Field:** self / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** statusColor / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** iconUrl / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** id / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** isDefault / **Data type:** Boolean / **Filter operators supported:** N/A
+
+- **Issue Resolutions**
+  - **Field:** self / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** id / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+
+- **Issue Security Scheme**
+  - **Field:** self / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** id / **Data type:** Integer / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** defaultSecurityLevelId / **Data type:** Integer / **Filter operators supported:** N/A
+  - **Field:** levels / **Data type:** List / **Filter operators supported:** N/A
+
+- **Issue Type**
+  - **Field:** self / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** id / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** iconUrl / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** subtask / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** avatarId / **Data type:** Integer / **Filter operators supported:** N/A
+  - **Field:** entityId / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** hierarchyLevel / **Data type:** Integer / **Filter operators supported:** N/A
+  - **Field:** scope / **Data type:** Struct / **Filter operators supported:** N/A
+
+- **Issue Type Scheme**
+  - **Field:** orderBy / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** expand / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** queryString / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** id / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** defaultIssueTypeId / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** isDefault / **Data type:** Boolean / **Filter operators supported:** N/A
+
+- **Issue Type Screen Scheme**
+  - **Field:** queryString / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** orderBy / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** expand / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** id / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+
+- **Jira Settings**
+  - **Field:** key / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** keyFilter / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** id / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** value / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** desc / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** type / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** defaultValue / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** example / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** allowedValues / **Data type:** List / **Filter operators supported:** N/A
+
+- **Jira Settings Advanced**
+  - **Field:** id / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** key / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** value / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** desc / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** type / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** defaultValue / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** example / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** allowedValues / **Data type:** List / **Filter operators supported:** N/A
+
+- **Jira Settings Global**
+  - **Field:** votingEnabled / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** watchingEnabled / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** unassignedIssuesAllowed / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** subTasksEnabled / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** issueLinkingEnabled / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** timeTrackingEnabled / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** attachmentsEnabled / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** timeTrackingConfiguration / **Data type:** Struct / **Filter operators supported:** N/A
+
+- **Label**
+  - **Field:** values
+  - **Data type:** List
+  - **Filter operators supported:** N/A
+
+- **Myself**
+  - **Field:** expand / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** self / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** accountId / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** accountType / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** emailAddress / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** avatarUrls / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** displayName / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** active / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** timeZone / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** locale / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** groups / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** applicationRoles / **Data type:** Struct / **Filter operators supported:** N/A
+
+- **Permission**
+  - **Field:** id / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** key / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** type / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** havePermission / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** deprecatedKey / **Data type:** Boolean / **Filter operators supported:** N/A
+
+- **Project**
+  - **Field:** orderBy / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** keys / **Data type:** List / **Filter operators supported:** "="
+  - **Field:** query / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** typeKey / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** categoryId / **Data type:** Integer / **Filter operators supported:** "="
+  - **Field:** action / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** expand / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** status / **Data type:** List / **Filter operators supported:** "="
+  - **Field:** self / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** id / **Data type:** Integer / **Filter operators supported:** "="
+  - **Field:** key / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** lead / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** components / **Data type:** List / **Filter operators supported:** N/A
+  - **Field:** issueTypes / **Data type:** List / **Filter operators supported:** N/A
+  - **Field:** url / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** email / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** assigneeType / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** versions / **Data type:** List / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** roles / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** avatarUrls / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** projectCategory / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** projectTypeKey / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** simplified / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** style / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** favourite / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** isPrivate / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** issueTypeHierarchy / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** permissions / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** properties / **Data type:** List / **Filter operators supported:** "="
+  - **Field:** uuid / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** insight / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** deleted / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** retentionTillDate / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** deletedDate / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** deletedBy / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** archived / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** archivedDate / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** archivedBy / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** landedPageInfo / **Data type:** Struct / **Filter operators supported:** N/A
+
+- **Project Category**
+  - **Field:** self / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** id / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+
+- **Project Type**
+  - **Field:** key / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** formattedKey / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** descriptionI18nKey / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** icon / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** color / **Data type:** String / **Filter operators supported:** N/A
+
+- **Server Info**
+  - **Field:** baseUrl / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** version / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** versionNumbers / **Data type:** List / **Filter operators supported:** N/A
+  - **Field:** deploymentType / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** buildNumber / **Data type:** Integer / **Filter operators supported:** N/A
+  - **Field:** buildDate / **Data type:** DateTime / **Filter operators supported:** N/A
+  - **Field:** serverTime / **Data type:** DateTime / **Filter operators supported:** N/A
+  - **Field:** scmInfo / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** serverTitle / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** healthChecks / **Data type:** List / **Filter operators supported:** N/A
+
+- **Users**
+  - **Field:** self / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** accountId / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** accountType / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** emailAddress / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** avatarUrls / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** displayName / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** active / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** timeZone / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** locale / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** groups / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** applicationRoles / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** expand / **Data type:** String / **Filter operators supported:** N/A
+
+- **Workflow**
+  - **Field:** workflowName / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** expand / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** queryString / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** orderBy / **Data type:** String / **Filter operators supported:** "="
+  - **Field:** isActive / **Data type:** Boolean / **Filter operators supported:** "="
+  - **Field:** id / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** transitions / **Data type:** List / **Filter operators supported:** N/A
+  - **Field:** statuses / **Data type:** List / **Filter operators supported:** N/A
+  - **Field:** isDefault / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** schemes / **Data type:** List / **Filter operators supported:** N/A
+  - **Field:** projects / **Data type:** List / **Filter operators supported:** N/A
+  - **Field:** hasDraftWorkflow / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** operations / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** created / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** updated / **Data type:** String / **Filter operators supported:** N/A
+
+- **Workflow Scheme**
+  - **Field:** self / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** id / **Data type:** Integer / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** defaultWorkflow / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** issueTypeMappings / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** originalDefaultWorkflow / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** originalIssueTypeMappings / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** draft / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** lastModifiedUser / **Data type:** Struct / **Filter operators supported:** N/A
+  - **Field:** lastModified / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** updateDraftIfNeeded / **Data type:** Boolean / **Filter operators supported:** N/A
+  - **Field:** issueTypes / **Data type:** Struct / **Filter operators supported:** N/A
+
+- **Workflow Scheme Project Association**
+  - **Field:** projectId / **Data type:** Integer / **Filter operators supported:** "="
+  - **Field:** projectIds / **Data type:** List / **Filter operators supported:** N/A
+  - **Field:** workflowScheme / **Data type:** Struct / **Filter operators supported:** N/A
+
+- **Workflow Status**
+  - **Field:** self / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** description / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** iconUrl / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** id / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** StatusCategory / **Data type:** Struct / **Filter operators supported:** N/A
+
+- **Workflow Status Category**
+  - **Field:** self / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** id / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** key / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** colorName / **Data type:** String / **Filter operators supported:** N/A
+  - **Field:** name / **Data type:** String / **Filter operators supported:** N/A
+
+
 
 ## Partitioning queries
+<a name="jira-cloud-reading-partitioning-queries"></a>
 
 You can provide the additional Spark option `NUM_PARTITIONS` if you want to utilize concurrency in Spark. With this parameter, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by Spark tasks concurrently.
-
-- `NUM_PARTITIONS`: the number of partitions.
++ `NUM_PARTITIONS`: the number of partitions.
 
 Example:
 

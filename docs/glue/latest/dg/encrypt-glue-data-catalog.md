@@ -1,84 +1,57 @@
+
+
 # Encrypting your Data Catalog
+<a name="encrypt-glue-data-catalog"></a>
 
-AWS Glue Data Catalog encryption provides enhanced security for your sensitive data. AWS Glue
-integrates with AWS Key Management Service (AWS KMS) to encrypt metadata that's stored in the Data Catalog,
-including automatically registered assets that you enrich with business context for
-semantic search. You can enable or disable encryption settings for resources in the
-Data Catalog using the AWS Glue console or the AWS CLI.
+AWS Glue Data Catalog encryption provides enhanced security for your sensitive data. AWS Glue integrates with AWS Key Management Service (AWS KMS) to encrypt metadata that's stored in the Data Catalog, including automatically registered assets that you enrich with business context for semantic search. You can enable or disable encryption settings for resources in the Data Catalog using the AWS Glue console or the AWS CLI. 
 
-When you enable encryption for your Data Catalog, all new objects that you create will be
-encrypted. When you disable encryption, the new objects you create will not be encrypted, but
-existing encrypted objects will remain encrypted.
+When you enable encryption for your Data Catalog, all new objects that you create will be encrypted. When you disable encryption, the new objects you create will not be encrypted, but existing encrypted objects will remain encrypted.
 
-You can encrypt your entire Data Catalog using AWS managed encryption keys or customer
-managed encryption keys. For more information on key types and states, see [AWS Key Management Service concepts](../../../kms/latest/developerguide/key-state.md#key-state-cmk-type "../../../kms/latest/developerguide/key-state.md#key-state-cmk-type") in the AWS Key Management Service Developer Guide.
+You can encrypt your entire Data Catalog using AWS managed encryption keys or customer managed encryption keys. For more information on key types and states, see [AWS Key Management Service concepts](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html#key-state-cmk-type) in the AWS Key Management Service Developer Guide. 
 
-###### Note
-
-When you use the encrypted Data Catalog with a crawler, you must maintain the encryption settings. Removing encryption settings after a crawler has processed an encrypted catalog results in errors.
-
-If you need to remove encryption settings, create a new crawler instead of modifying the existing one.
+**Note**  
+When you use the encrypted Data Catalog with a crawler, you must maintain the encryption settings. Removing encryption settings after a crawler has processed an encrypted catalog results in errors. If you need to remove encryption settings, create a new crawler instead of modifying the existing one.
 
 ## AWS managed keys
+<a name="AWS-managed-keys"></a>
 
-AWS managed keys are KMS keys in your account that are created, managed, and used on
-your behalf by an AWS service that's integrated with AWS KMS. You can view the AWS managed
-keys in your account, view their key policies, and audit their use in
-AWS CloudTrail logs. However, you can't manage these keys or change their
-permissions.
+ AWS managed keys are KMS keys in your account that are created, managed, and used on your behalf by an AWS service that's integrated with AWS KMS. You can view the AWS managed keys in your account, view their key policies, and audit their use in AWS CloudTrail logs. However, you can't manage these keys or change their permissions.
 
-Encryption at rest automatically integrates with AWS KMS for managing the AWS
-managed keys for AWS Glue that are used to encrypt your metadata. If an AWS managed key
-doesn't exist when you enable metadata encryption, AWS KMS automatically creates a new key for
-you.
+Encryption at rest automatically integrates with AWS KMS for managing the AWS managed keys for AWS Glue that are used to encrypt your metadata. If an AWS managed key doesn't exist when you enable metadata encryption, AWS KMS automatically creates a new key for you. 
 
-For more information, see [AWS managed
-keys](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk").
+For more information, see [AWS managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
 
 ## Customer managed keys
+<a name="customer-managed-keys"></a>
 
-Customer managed keys are KMS keys in your AWS account that you create, own, and
-manage. You have full control over these KMS keys. You can:
+Customer managed keys are KMS keys in your AWS account that you create, own, and manage. You have full control over these KMS keys. You can:
++  Establish and maintain their key policies, IAM policies, and grants 
++ Enable and disable them
++  Rotate their cryptographic material 
++  Add tags 
++ Create aliases that refer to them
++  Schedule them for deletion
 
-- Establish and maintain their key policies, IAM policies, and grants
-- Enable and disable them
-- Rotate their cryptographic material
-- Add tags
-- Create aliases that refer to them
-- Schedule them for deletion
+For more information about managing the permissions of a customer managed key, see [Customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk).
 
-For more information about managing the permissions of a customer managed key, see [Customer managed
-keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk").
+**Important**  
+AWS Glue supports only symmetric customer managed keys. The KMS key list displays only symmetric keys. However, if you select **Choose a KMS key ARN**, the console lets you enter an ARN for any key type. Ensure that you enter only ARNs for symmetric keys.   
+To create a symmetric customer managed key, follow the steps for [creating symmetric customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the AWS Key Management Service Developer Guide. 
 
-###### Important
-
-AWS Glue supports only symmetric customer managed keys. The KMS key list displays only
-symmetric keys. However, if you select **Choose a KMS key ARN**, the console
-lets you enter an ARN for any key type. Ensure that you enter only ARNs for
-symmetric keys.
-
-To create a symmetric customer managed key, follow the steps for [creating symmetric customer managed keys](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the
-AWS Key Management Service Developer Guide.
-
-When you enable Data Catalog encryption at rest, the following resource types are encrypted using KMS keys:
-
-- Databases
-- Tables
-- Partitions
-- Table versions
-- Column statistics
-- User-defined functions
-- Data Catalog views
-- Catalog assets
+When you enable Data Catalog encryption at rest, the following resource types are encrypted using KMS keys: 
++ Databases
++ Tables
++ Partitions
++ Table versions
++ Column statistics
++ User-defined functions
++ Data Catalog views
++ Catalog assets
 
 ## AWS Glue encryption context
+<a name="encryption-context"></a>
 
-An [encryption context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context")
-is an optional set of key-value pairs that contain additional contextual information about the data.
-AWS KMS uses the encryption context as [additional authenticated data](../../../crypto/latest/userguide/cryptography-concepts.md#term-aad "../../../crypto/latest/userguide/cryptography-concepts.md#term-aad") to support [authenticated encryption](../../../crypto/latest/userguide/cryptography-concepts.md#define-authenticated-encryption "../../../crypto/latest/userguide/cryptography-concepts.md#define-authenticated-encryption").
-When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data.
-To decrypt data, you include the same encryption context in the request.
-AWS Glue uses the same encryption context in all AWS KMS cryptographic operations, where the key is `glue_catalog_id` and the value is the `catalogId`.
+ An [encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) is an optional set of key-value pairs that contain additional contextual information about the data. AWS KMS uses the encryption context as [additional authenticated data](https://docs.aws.amazon.com/crypto/latest/userguide/cryptography-concepts.html#term-aad) to support [authenticated encryption](https://docs.aws.amazon.com/crypto/latest/userguide/cryptography-concepts.html#define-authenticated-encryption). When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you include the same encryption context in the request. AWS Glue uses the same encryption context in all AWS KMS cryptographic operations, where the key is `glue_catalog_id` and the value is the `catalogId`. 
 
 ```
 "encryptionContext": {
@@ -86,357 +59,261 @@ AWS Glue uses the same encryption context in all AWS KMS cryptographic operation
 }
 ```
 
-When you use an AWS managed key or a symmetric customer managed key to encrypt your
-Data Catalog, you can also use the encryption context in audit records and logs to
-identify how the key is being used. The encryption context also appears in logs
-that are generated by AWS CloudTrail or Amazon CloudWatch
-logs.
+ When you use an AWS managed key or a symmetric customer managed key to encrypt your Data Catalog, you can also use the encryption context in audit records and logs to identify how the key is being used. The encryption context also appears in logs that are generated by AWS CloudTrail or Amazon CloudWatch logs. 
 
 ## Enabling encryption
+<a name="enable-encryption"></a>
 
-You can enable encryption for your AWS Glue Data Catalog objects in the **Data Catalog
-settings** in the AWS Glue console or by using the AWS CLI.
+ You can enable encryption for your AWS Glue Data Catalog objects in the **Data Catalog settings** in the AWS Glue console or by using the AWS CLI. 
 
-Console
+------
+#### [ Console ]
 
-###### To enable encryption using the console
+**To enable encryption using the console**
 
-1. Sign in to the AWS Management Console and open the AWS Glue console at
-   [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
-2. Choose **Data Catalog** in the navigation pane.
-3. On the **Data Catalog settings** page, select the
-   **Metadata encryption** check box, and choose an AWS KMS key.
+1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/).
 
-When you enable encryption, if you don’t specify a customer managed key, the
-encryption settings use an AWS managed KMS key. 4. (Optional) When you use a customer managed key to encrypt your Data Catalog, the Data Catalog provides an option
-to register an IAM role to encrypt and decrypt resources.
-You need to grant your IAM role permissions that AWS Glue can
-assume on your behalf. This includes AWS KMS permissions to
-encrypt and decrypt data.
+1. Choose **Data Catalog** in the navigation pane. 
 
-When you create a new resource in the Data Catalog, AWS Glue assumes the IAM role that's provided to
-encrypt the data. Similarly, when a consumer accesses the
-resource, AWS Glue assumes the IAM role to decrypt data. If
-you register an IAM role with the required permissions,
-the calling principal no longer requires permissions to
-access the key and decrypt the data.
+1. On the **Data Catalog settings** page, select the **Metadata encryption** check box, and choose an AWS KMS key. 
 
-###### Important
+   When you enable encryption, if you don’t specify a customer managed key, the encryption settings use an AWS managed KMS key. 
 
-You can delegate KMS operations to an IAM role only when you use a
-customer managed key to encrypt the Data Catalog resources.
-KMS role delegation feature doesn't support using AWS
-managed keys for encrypting Data Catalog resources at this
-time.
+1. (Optional) When you use a customer managed key to encrypt your Data Catalog, the Data Catalog provides an option to register an IAM role to encrypt and decrypt resources. You need to grant your IAM role permissions that AWS Glue can assume on your behalf. This includes AWS KMS permissions to encrypt and decrypt data.
 
-###### Warning
+   When you create a new resource in the Data Catalog, AWS Glue assumes the IAM role that's provided to encrypt the data. Similarly, when a consumer accesses the resource, AWS Glue assumes the IAM role to decrypt data. If you register an IAM role with the required permissions, the calling principal no longer requires permissions to access the key and decrypt the data. 
+**Important**  
+You can delegate KMS operations to an IAM role only when you use a customer managed key to encrypt the Data Catalog resources. KMS role delegation feature doesn't support using AWS managed keys for encrypting Data Catalog resources at this time.
+**Warning**  
+When you enable an IAM role to delegate KMS operations, you can no longer access the Data Catalog resources that were encrypted previously with an AWS managed key. 
 
-When you enable an IAM role to delegate KMS operations, you can no
-longer access the Data Catalog resources that were encrypted
-previously with an AWS managed key.
+   1. To enable an IAM role that AWS Glue can assume to encrypt and decrypt data on your behalf, select the **Delegate KMS operations to an IAM role** option. 
 
-    1. To enable an IAM role that AWS Glue can assume to encrypt and decrypt data on
-     your behalf, select the **Delegate KMS operations to an IAM
-     role** option.
-    2. Next, choose an IAM role.
+   1. Next, choose an IAM role.
 
+      To create an IAM role, see [Create an IAM role for AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/create-an-iam-role.html).
 
-    To create an IAM role, see [Create an IAM role for
-     AWS Glue](create-an-iam-role.md "create-an-iam-role.md").
+      The IAM role that AWS Glue assumes to access the Data Catalog must have the permissions to encrypt and decrypt metadata in the Data Catalog. You can create an IAM role, and attach the following inline policies: 
+      + Add the following policy to include AWS KMS permissions to encrypt and decrypt the Data Catalog.
 
+------
+#### [ JSON ]
 
-    The IAM role that AWS Glue assumes to access the Data Catalog must have the
-     permissions to encrypt and decrypt metadata in the Data Catalog. You can create an
-     IAM role, and attach the following inline policies:
+****  
 
-
-
-
-    	* Add the following policy to include AWS KMS permissions to encrypt and
-    	 decrypt the Data Catalog.
-
-
-    	JSONJSON
-
-
-
-
-    	```
-    	`{
-    	 "Version":"2012-10-17",
-    	 "Statement": [
-    	 {
-    	 "Effect": "Allow",
-    	 "Action": [
-    	 "kms:Decrypt",
-    	 "kms:Encrypt",
-    	 "kms:GenerateDataKey"
-    	 ],
-    	 "Resource": "arn:aws:kms:`us-east-1`:`111122223333`:key/`<key-id>`"
-    	 }
-    	 ]
-    	}`
-
-    	```
-    	* Next, add the following trust policy to the role for AWS Glue service to
-    	 assume the IAM role.
-
-
-    	JSONJSON
-
-
-
-
-    	```
-    	`{
-    	 "Version":"2012-10-17",
-    	 "Statement": [
-    	 {
-    	 "Sid": "",
-    	 "Effect": "Allow",
-    	 "Principal": {
-    	 "Service": "glue.amazonaws.com"
-    	 },
-    	 "Action": "sts:AssumeRole"
-    	 }
-    	 ]
-    	}`
-
-    	```
-    	* Next, add the `iam:PassRole` permission to the IAM role.
-
-
-    	JSONJSON
-
-
-
-
-    	```
-    	`{
-    	 "Version":"2012-10-17",
-    	 "Statement": [
-    	 {
-    	 "Effect": "Allow",
-    	 "Action": [
-    	 "iam:PassRole"
-    	 ],
-    	 "Resource": [
-    	 "arn:aws:iam::`111122223333`:role/`<encryption-role-name>`"
-    	 ]
-    	 }
-    	 ]
-    	}`
-
-    	```When you enable encryption, if you haven't specified an IAM role for AWS Glue to
-
-assume, the principal accessing the Data Catalog must have
-permissions to perform the following AWS KMS actions on the
-KMS key:
-
-    * `kms:DescribeKey`
-    * `kms:Decrypt`
-    * `kms:Encrypt`
-    * `kms:GenerateDataKey`
-    * `kms:CreateGrant`
-
-The following policy grants the principal the required permissions. The
-`kms:CreateGrant` action allows AWS Glue to encrypt
-and re-encrypt Data Catalog metadata and the search index in the
-background after the AWS KMS request completes. AWS Glue scopes
-the grant to the `glue_catalog_id` encryption
-context.
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
+        ```
         {
-            "Effect": "Allow",
-            "Action": "kms:DescribeKey",
-            "Resource": "arn:aws:kms:`us-east-1`:`123456789012`:key/`1234abcd-12ab-34cd-56ef-1234567890ab`"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
+          "Version":"2012-10-17",		 	 	 
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
                 "kms:Decrypt",
                 "kms:Encrypt",
                 "kms:GenerateDataKey"
-            ],
-            "Resource": "arn:aws:kms:`us-east-1`:`123456789012`:key/`1234abcd-12ab-34cd-56ef-1234567890ab`"
-        },
-        {
-            "Effect": "Allow",
-            "Action": "kms:CreateGrant",
-            "Resource": "arn:aws:kms:`us-east-1`:`123456789012`:key/`1234abcd-12ab-34cd-56ef-1234567890ab`",
-            "Condition": {
-                "StringEquals": {
-                    "kms:EncryptionContext:glue_catalog_id": "`123456789012`"
-                },
-                "StringLike": {
-                    "kms:CallerAccount": "`123456789012`"
-                },
-                "Bool": {
-                    "kms:GrantIsForAWSResource": "true"
-                }
+              ],
+              "Resource": "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{<key-id>}}"
             }
+          ]
         }
-    ]
-}
-```
+        ```
 
-AWS CLI
+------
+      + Next, add the following trust policy to the role for AWS Glue service to assume the IAM role.
 
-###### To enable encryption using the SDK or AWS CLI
+------
+#### [ JSON ]
 
-- Use the `PutDataCatalogEncryptionSettings` API operation. If no key is
-  specified, AWS Glue uses AWS managed encryption key for the customer account to encrypt the Data Catalog.
+****  
 
-```
-aws glue put-data-catalog-encryption-settings \
-  --data-catalog-encryption-settings '{
-      "EncryptionAtRest": {
-      "CatalogEncryptionMode": "SSE-KMS-WITH-SERVICE-ROLE",
-      "SseAwsKmsKeyId": "arn:aws:kms:`<region>`:`<account-id>`:key/`<key-id>`",
-      "CatalogEncryptionServiceRole":"arn:aws:iam::`<account-id>`:role/`<encryption-role-name>`"
-    }
+        ```
+        {
+          "Version":"2012-10-17",		 	 	 
+          "Statement": [
+            {
+              "Sid": "",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "glue.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+        ```
 
-  }'
+------
+      + Next, add the `iam:PassRole` permission to the IAM role.
 
-```
+------
+#### [ JSON ]
 
-When you enable encryption, all objects that you create in the Data Catalog objects are
-encrypted. If you clear this setting, the objects you create in the Data Catalog are
-no longer encrypted. You can continue to access the existing encrypted objects
-in the Data Catalog with the required KMS permissions.
+****  
 
-|                                                                                                                                                                                                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ImportantThe AWS KMS key must remain available in the AWS KMS key store for any objects<br>that are encrypted with it in the Data Catalog. If you remove the key, the objects can<br>no longer be decrypted. You might want this in some scenarios to prevent access to<br>Data Catalog metadata. |
+        ```
+        {
+          "Version":"2012-10-17",		 	 	 
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "iam:PassRole"
+              ],
+              "Resource": [
+                "arn:aws:iam::{{111122223333}}:role/{{<encryption-role-name>}}"
+              ]
+            }
+          ]
+        }
+        ```
+
+------
+
+   When you enable encryption, if you haven't specified an IAM role for AWS Glue to assume, the principal accessing the Data Catalog must have permissions to perform the following AWS KMS actions on the KMS key:
+   + `kms:DescribeKey`
+   + `kms:Decrypt`
+   + `kms:Encrypt`
+   + `kms:GenerateDataKey`
+   + `kms:CreateGrant`
+
+   The following policy grants the principal the required permissions. The `kms:CreateGrant` action allows AWS Glue to encrypt and re-encrypt Data Catalog metadata and the search index in the background after the AWS KMS request completes. AWS Glue scopes the grant to the `glue_catalog_id` encryption context.
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": "kms:DescribeKey",
+               "Resource": "arn:aws:kms:{{us-east-1}}:{{123456789012}}:key/{{1234abcd-12ab-34cd-56ef-1234567890ab}}"
+           },
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "kms:Decrypt",
+                   "kms:Encrypt",
+                   "kms:GenerateDataKey"
+               ],
+               "Resource": "arn:aws:kms:{{us-east-1}}:{{123456789012}}:key/{{1234abcd-12ab-34cd-56ef-1234567890ab}}"
+           },
+           {
+               "Effect": "Allow",
+               "Action": "kms:CreateGrant",
+               "Resource": "arn:aws:kms:{{us-east-1}}:{{123456789012}}:key/{{1234abcd-12ab-34cd-56ef-1234567890ab}}",
+               "Condition": {
+                   "StringEquals": {
+                       "kms:EncryptionContext:glue_catalog_id": "{{123456789012}}"
+                   },
+                   "StringLike": {
+                       "kms:CallerAccount": "{{123456789012}}"
+                   },
+                   "Bool": {
+                       "kms:GrantIsForAWSResource": "true"
+                   }
+               }
+           }
+       ]
+   }
+   ```
+
+------
+#### [ AWS CLI ]
+
+**To enable encryption using the SDK or AWS CLI**
++ Use the `PutDataCatalogEncryptionSettings` API operation. If no key is specified, AWS Glue uses AWS managed encryption key for the customer account to encrypt the Data Catalog.
+
+  ```
+  aws glue put-data-catalog-encryption-settings \
+    --data-catalog-encryption-settings '{
+        "EncryptionAtRest": {
+        "CatalogEncryptionMode": "SSE-KMS-WITH-SERVICE-ROLE",
+        "SseAwsKmsKeyId": "arn:aws:kms:{{<region>}}:{{<account-id>}}:key/{{<key-id>}}",
+        "CatalogEncryptionServiceRole":"arn:aws:iam::{{<account-id>}}:role/{{<encryption-role-name>}}"
+      }
+  
+    }'
+  ```
+
+------
+
+ When you enable encryption, all objects that you create in the Data Catalog objects are encrypted. If you clear this setting, the objects you create in the Data Catalog are no longer encrypted. You can continue to access the existing encrypted objects in the Data Catalog with the required KMS permissions.
+
+
+|  | 
+| --- |
+|   The AWS KMS key must remain available in the AWS KMS key store for any objects that are encrypted with it in the Data Catalog. If you remove the key, the objects can no longer be decrypted. You might want this in some scenarios to prevent access to Data Catalog metadata.   | 
 
 ## Encrypting Catalog assets with AWS KMS customer managed key
+<a name="encrypt-context-search"></a>
 
-Supported catalog resources are automatically registered in your AWS Glue Data Catalog
-as assets. You add business context to these assets, which enables you to
-semantically search and filter on this metadata in AWS Glue.
-When you enable metadata encryption with a customer managed key, AWS Glue also
-encrypts the search index for your Data Catalog with your KMS key. No additional
-steps are required — AWS Glue enables search index encryption automatically as part
-of metadata encryption.
+Supported catalog resources are automatically registered in your AWS Glue Data Catalog as assets. You add business context to these assets, which enables you to semantically search and filter on this metadata in AWS Glue. When you enable metadata encryption with a customer managed key, AWS Glue also encrypts the search index for your Data Catalog with your KMS key. No additional steps are required — AWS Glue enables search index encryption automatically as part of metadata encryption.
 
-If you previously enabled Data Catalog encryption with a customer managed key and
-your existing policy includes only `kms:Decrypt`,
-`kms:Encrypt`, and `kms:GenerateDataKey`, you must add the
-following permissions to support catalog assets and semantic search:
+If you previously enabled Data Catalog encryption with a customer managed key and your existing policy includes only `kms:Decrypt`, `kms:Encrypt`, and `kms:GenerateDataKey`, you must add the following permissions to support catalog assets and semantic search:
++ `kms:DescribeKey` — required for key validation.
++ `kms:CreateGrant` — allows AWS Glue to encrypt and re-encrypt the search index in the background. AWS Glue scopes the grant to the `glue_catalog_id` encryption context.
 
-- `kms:DescribeKey` — required for key
-  validation.
-- `kms:CreateGrant` — allows AWS Glue to encrypt and
-  re-encrypt the search index in the background. AWS Glue scopes the grant to the
-  `glue_catalog_id` encryption context.
+For the full policy that includes these permissions, see [Enabling encryption](#enable-encryption). If you are setting up encryption for the first time, the policy in that section already includes all required permissions.
 
-For the full policy that includes these permissions, see
-[Enabling encryption](#enable-encryption "#enable-encryption"). If you are
-setting up encryption for the first time, the policy in that section already includes
-all required permissions.
+**Important**  
+Semantic search over Data Catalog assets does not support the AWS managed key (`aws/glue`). If your Data Catalog metadata is encrypted with `aws/glue`, search over that catalog is not available until you change the configuration to use a customer managed key or remove the configuration.
 
-###### Important
+Enabling metadata encryption is an asynchronous operation. AWS Glue accepts your request and then completes the encryption setup, including encryption of the existing search index. Enabling encryption for the first time could take some time depending on the size of your Data Catalog. During this time, the business context and search APIs return an error until the status is `Enabled`.
 
-Semantic search over Data Catalog assets does not support the AWS managed key
-(`aws/glue`). If your Data Catalog metadata is encrypted with
-`aws/glue`, search over that catalog is not available until you change
-the configuration to use a customer managed key or remove the configuration.
+The following table describes the different encryption statuses for the Data Catalog asset metadata:
 
-Enabling metadata encryption is an asynchronous operation. AWS Glue accepts your
-request and then completes the encryption setup, including encryption of the existing
-search index. Enabling encryption for the first time could take some time depending
-on the size of your Data Catalog. During this time, the business context and search APIs
-return an error until the status is `Enabled`.
 
-The following table describes the different encryption statuses for the
-Data Catalog asset metadata:
+| Status | Description | 
+| --- | --- | 
+| Enabling | AWS Glue is setting up encryption. When you enable encryption for the first time, search is not available until setup completes. When you change from one customer managed key to another, search remains available. | 
+| Enabled | Encryption is complete. Your Data Catalog metadata is searchable. | 
+| Enabled (with errors) | Encryption is complete, and search is available, but AWS Glue could not process some metadata. The console displays the error messages. To retry the failed items, save your encryption settings again after fixing the errors. | 
+| Failed | Encryption could not be completed, and search is not available. Review the error message, correct the configuration, and save your encryption settings again with a customer managed key. | 
+| Disabling | AWS Glue is disabling encryption from the search index with your KMS key. | 
+| Disabled | Your Data Catalog metadata and search index are no longer encrypted with your KMS key. Business context and search APIs continue to work. | 
 
-| Status                | Description                                                                                                                                                                                                                              |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Enabling              | AWS Glue is setting up encryption. When you enable<br>encryption for the first time, search is not available until<br>setup completes. When you change from one customer managed key<br>to another, search remains available.            |
-| Enabled               | Encryption is complete. Your Data Catalog metadata is<br>searchable.                                                                                                                                                                     |
-| Enabled (with errors) | Encryption is complete, and search is available, but<br>AWS Glue could not process some metadata. The console displays<br>the error messages. To retry the failed items, save your<br>encryption settings again after fixing the errors. |
-| Failed                | Encryption could not be completed, and search is not<br>available. Review the error message, correct the configuration,<br>and save your encryption settings again with a customer managed<br>key.                                       |
-| Disabling             | AWS Glue is disabling encryption from the search index<br>with your KMS key.                                                                                                                                                             |
-| Disabled              | Your Data Catalog metadata and search index are no<br>longer encrypted with your KMS key. Business context and<br>search APIs continue to work.                                                                                          |
+When you change your Data Catalog encryption from one customer managed key to another, AWS Glue re-encrypts the search index with the new key. Search remains available while re-encryption is in progress. When you disable metadata encryption, AWS Glue removes your KMS key from the search index and the status changes to `Disabled`.
 
-When you change your Data Catalog encryption from one customer managed key to
-another, AWS Glue re-encrypts the search index with the new key. Search remains
-available while re-encryption is in progress. When you disable metadata
-encryption, AWS Glue removes your KMS key from the search index and the status
-changes to `Disabled`.
+**Warning**  
+Do not disable, delete, or revoke access to the previous KMS key until the encryption status returns to `Enabled` (or `Disabled`, if you disabled encryption). If AWS Glue loses access to the previous key before the operation completes, it cannot decrypt the search index, the status changes to `Failed`, and search over your Data Catalog is not available.
 
-###### Warning
+The principal that enables or changes metadata encryption must have the `kms:CreateGrant` permission described in [Enabling encryption](#enable-encryption). AWS Glue uses the `glue_catalog_id` encryption context (the value is your `catalogId`) in AWS KMS operations for the search index, consistent with [AWS Glue encryption context](#encryption-context). The AWS KMS calls that AWS Glue makes for the search index are recorded in AWS CloudTrail.
 
-Do not disable, delete, or revoke access to the previous KMS key until the
-encryption status returns to `Enabled` (or `Disabled`,
-if you disabled encryption). If AWS Glue loses access to the previous key
-before the operation completes, it cannot decrypt the search index, the
-status changes to `Failed`, and search over your Data Catalog is
-not available.
+The principal that accesses business context and search must also have access to the KMS key. If you have delegated AWS KMS operations to an IAM service role, the service role must have access to the KMS key instead.
 
-The principal that enables or changes metadata encryption must have the
-`kms:CreateGrant` permission described in [Enabling encryption](#enable-encryption "#enable-encryption"). AWS Glue uses the
-`glue_catalog_id` encryption context (the value is your
-`catalogId`) in AWS KMS operations for the search index, consistent with
-[AWS Glue encryption context](#encryption-context "#encryption-context"). The AWS KMS
-calls that AWS Glue makes for the search index are recorded in AWS CloudTrail.
-
-The principal that accesses business context and search must also have access to
-the KMS key. If you have delegated AWS KMS operations to an IAM service role,
-the service role must have access to the KMS key instead.
-
-In addition to the identity policy, you must also add the following statement to
-your KMS key policy to allow AWS Glue to create grants for search index encryption.
-The `kms:GrantIsForAWSResource` condition limits the grant to AWS Glue, and
-the `glue_catalog_id` encryption context scopes it to your Data Catalog. To
-use the statement, replace the `user input placeholders`
-with your own information.
+In addition to the identity policy, you must also add the following statement to your KMS key policy to allow AWS Glue to create grants for search index encryption. The `kms:GrantIsForAWSResource` condition limits the grant to AWS Glue, and the `glue_catalog_id` encryption context scopes it to your Data Catalog. To use the statement, replace the {{user input placeholders}} with your own information.
 
 ```
 {
     "Sid": "AllowCreateGrantForSearchIndexEncryption",
     "Effect": "Allow",
     "Principal": {
-        "AWS": "arn:aws:iam::`account-id`:root"
+        "AWS": "arn:aws:iam::{{account-id}}:root"
     },
     "Action": "kms:CreateGrant",
-    "Resource": "arn:aws:kms:`region`:`account-id`:key/`key-id`",
+    "Resource": "arn:aws:kms:{{region}}:{{account-id}}:key/{{key-id}}",
     "Condition": {
         "StringLike": {
-            "kms:CallerAccount": "`account-id`"
+            "kms:CallerAccount": "{{account-id}}"
         },
         "Bool": {
             "kms:GrantIsForAWSResource": "true"
         },
         "StringEquals": {
-            "kms:EncryptionContext:glue_catalog_id": "`account-id`"
+            "kms:EncryptionContext:glue_catalog_id": "{{account-id}}"
         }
     }
 }
 ```
 
 ## Monitoring your KMS keys for AWS Glue
+<a name="monitoring-keys"></a>
 
-When you use KMS keys with your Data Catalog resources, you can use
-AWS CloudTrail or Amazon CloudWatch Logs to track requests
-that AWS Glue sends to AWS KMS. AWS CloudTrail monitors and records KMS
-operations that AWS Glue calls to access data that’s encrypted by your
-KMS keys.
+ When you use KMS keys with your Data Catalog resources, you can use AWS CloudTrail or Amazon CloudWatch Logs to track requests that AWS Glue sends to AWS KMS. AWS CloudTrail monitors and records KMS operations that AWS Glue calls to access data that’s encrypted by your KMS keys.
 
-The following examples are AWS CloudTrail events for the
-`Decrypt`, `GenerateDataKey`,
-`CreateGrant`, and `RetireGrant` operations. When you
-enable encryption with a customer managed key, AWS Glue creates a AWS KMS grant
-scoped to the `glue_catalog_id` encryption context so that it can
-encrypt and re-encrypt Data Catalog metadata in the background, and retires the
-grant when AWS Glue no longer needs it.
+ The following examples are AWS CloudTrail events for the `Decrypt`, `GenerateDataKey`, `CreateGrant`, and `RetireGrant` operations. When you enable encryption with a customer managed key, AWS Glue creates a AWS KMS grant scoped to the `glue_catalog_id` encryption context so that it can encrypt and re-encrypt Data Catalog metadata in the background, and retires the grant when AWS Glue no longer needs it. 
 
-Decrypt
+------
+#### [ Decrypt ]
 
 ```
 {
@@ -483,7 +360,7 @@ Decrypt
         {
             "accountId": "111122223333",
             "type": "AWS::KMS::Key",
-            "ARN": "arn:aws:kms:`<region>`:`111122223333`:key/`<key-id>`"
+            "ARN": "arn:aws:kms:{{<region>}}:{{111122223333}}:key/{{<key-id>}}"
         }
     ],
     "eventType": "AwsApiCall",
@@ -492,10 +369,10 @@ Decrypt
     "eventCategory": "Management",
     "sessionCredentialFromConsole": "true"
 }
-
 ```
 
-GenerateDataKey
+------
+#### [ GenerateDataKey ]
 
 ```
 {
@@ -551,14 +428,12 @@ GenerateDataKey
     "recipientAccountId": "111122223333",
     "eventCategory": "Management"
 }
-
-
 ```
 
-CreateGrant
-When you enable encryption with a customer managed key, AWS Glue creates a grant on
-the KMS key so that it can encrypt and re-encrypt Data Catalog metadata in the background.
-The grant is scoped to the `glue_catalog_id` encryption context.
+------
+#### [ CreateGrant ]
+
+When you enable encryption with a customer managed key, AWS Glue creates a grant on the KMS key so that it can encrypt and re-encrypt Data Catalog metadata in the background. The grant is scoped to the `glue_catalog_id` encryption context.
 
 ```
 {
@@ -607,11 +482,11 @@ The grant is scoped to the `glue_catalog_id` encryption context.
                 "glue_catalog_id": "111122223333"
             }
         },
-        "keyId": "arn:aws:kms:eu-west-2:111122223333:key/`<key-id>`"
+        "keyId": "arn:aws:kms:eu-west-2:111122223333:key/{{<key-id>}}"
     },
     "responseElements": {
         "grantId": "0ab0ac0d0b000f00ea00cc0a0e00fc00bce000c000f0000000c0bc0a0000aaafSAMPLE",
-        "keyId": "arn:aws:kms:eu-west-2:111122223333:key/`<key-id>`"
+        "keyId": "arn:aws:kms:eu-west-2:111122223333:key/{{<key-id>}}"
     },
     "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
     "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
@@ -620,7 +495,7 @@ The grant is scoped to the `glue_catalog_id` encryption context.
         {
             "accountId": "111122223333",
             "type": "AWS::KMS::Key",
-            "ARN": "arn:aws:kms:eu-west-2:111122223333:key/`<key-id>`"
+            "ARN": "arn:aws:kms:eu-west-2:111122223333:key/{{<key-id>}}"
         }
     ],
     "eventType": "AwsApiCall",
@@ -629,12 +504,12 @@ The grant is scoped to the `glue_catalog_id` encryption context.
     "eventCategory": "Management",
     "sessionCredentialFromConsole": "true"
 }
-
 ```
 
-RetireGrant
-AWS Glue retires the grant when AWS Glue no longer needs it, for example when you change
-the KMS key or disable encryption.
+------
+#### [ RetireGrant ]
+
+AWS Glue retires the grant when AWS Glue no longer needs it, for example when you change the KMS key or disable encryption.
 
 ```
 {
@@ -651,7 +526,7 @@ the KMS key or disable encryption.
     "userAgent": "glue.amazonaws.com",
     "requestParameters": null,
     "responseElements": {
-        "keyId": "arn:aws:kms:eu-west-2:111122223333:key/`<key-id>`"
+        "keyId": "arn:aws:kms:eu-west-2:111122223333:key/{{<key-id>}}"
     },
     "additionalEventData": {
         "grantId": "0ab0ac0d0b000f00ea00cc0a0e00fc00bce000c000f0000000c0bc0a0000aaafSAMPLE"
@@ -663,7 +538,7 @@ the KMS key or disable encryption.
         {
             "accountId": "111122223333",
             "type": "AWS::KMS::Key",
-            "ARN": "arn:aws:kms:eu-west-2:111122223333:key/`<key-id>`"
+            "ARN": "arn:aws:kms:eu-west-2:111122223333:key/{{<key-id>}}"
         }
     ],
     "eventType": "AwsApiCall",
@@ -672,5 +547,6 @@ the KMS key or disable encryption.
     "sharedEventID": "b46377d7-b3c3-4bfd-a257-722bd3f3411d",
     "eventCategory": "Management"
 }
-
 ```
+
+------

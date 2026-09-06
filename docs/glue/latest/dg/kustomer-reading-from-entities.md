@@ -1,4 +1,7 @@
+
+
 # Reading from Kustomer entities
+<a name="kustomer-reading-from-entities"></a>
 
 **Prerequisite**
 
@@ -6,30 +9,31 @@ A Kustomer object you would like to read from. You will need the object name suc
 
 **Supported entities for source**:
 
-| Entity                     | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning |
-| -------------------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Brands                     | No              | Yes            | No                | Yes                | No                    |
-| Cards                      | No              | Yes            | No                | Yes                | No                    |
-| Chat Settings              | No              | No             | No                | Yes                | No                    |
-| Companies                  | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Conversations              | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Customers                  | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Customer Searches Pinned   | No              | Yes            | No                | Yes                | No                    |
-| Customer Searches Position | No              | No             | No                | Yes                | No                    |
-| Email Hooks                | No              | Yes            | No                | Yes                | No                    |
-| Web Hooks                  | No              | Yes            | No                | Yes                | No                    |
-| KB Articles                | No              | Yes            | No                | Yes                | No                    |
-| KB Categories              | No              | Yes            | No                | Yes                | No                    |
-| KB Forms                   | No              | Yes            | No                | Yes                | No                    |
-| KB Routes                  | No              | Yes            | No                | Yes                | No                    |
-| KB Tags                    | No              | Yes            | No                | Yes                | No                    |
-| KB Templates               | No              | Yes            | No                | Yes                | No                    |
-| KB Themes                  | No              | Yes            | No                | Yes                | No                    |
-| Klasses                    | No              | Yes            | No                | Yes                | No                    |
-| KViews                     | No              | Yes            | No                | Yes                | No                    |
-| Messages                   | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Notes                      | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Notifications              | No              | Yes            | No                | Yes                | No                    |
+
+| Entity | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| Brands | No | Yes | No | Yes | No | 
+| Cards | No | Yes | No | Yes | No | 
+| Chat Settings | No | No | No | Yes | No | 
+| Companies | Yes | Yes | Yes | Yes | Yes | 
+| Conversations | Yes | Yes | Yes | Yes | Yes | 
+| Customers | Yes | Yes | Yes | Yes | Yes | 
+| Customer Searches Pinned | No | Yes | No | Yes | No | 
+| Customer Searches Position | No | No | No | Yes | No | 
+| Email Hooks | No | Yes | No | Yes | No | 
+| Web Hooks | No | Yes | No | Yes | No | 
+| KB Articles | No | Yes | No | Yes | No | 
+| KB Categories | No | Yes | No | Yes | No | 
+| KB Forms | No | Yes | No | Yes | No | 
+| KB Routes | No | Yes | No | Yes | No | 
+| KB Tags | No | Yes | No | Yes | No | 
+| KB Templates | No | Yes | No | Yes | No | 
+| KB Themes | No | Yes | No | Yes | No | 
+| Klasses | No | Yes | No | Yes | No | 
+| KViews | No | Yes | No | Yes | No | 
+| Messages | Yes | Yes | Yes | Yes | Yes | 
+| Notes | Yes | Yes | Yes | Yes | Yes | 
+| Notifications | No | Yes | No | Yes | No | 
 
 **Example**:
 
@@ -44,401 +48,459 @@ Kustomer_read = glueContext.create_dynamic_frame.from_options(
 ```
 
 ## Kustomer entity and field details
+<a name="kustomer-reading-from-entities-field-details"></a>
 
 For more information about the entities and field details see:
-
-- [Brands](https://api.kustomerapp.com/v1/brands "https://api.kustomerapp.com/v1/brands")
-- [Cards](https://api.kustomerapp.com/v1/cards "https://api.kustomerapp.com/v1/cards")
-- [Chat Settings](https://api.kustomerapp.com/v1/chat/settings "https://api.kustomerapp.com/v1/chat/settings")
-- [Companies](https://api.kustomerapp.com/v1/companies "https://api.kustomerapp.com/v1/companies")
-- [Conversations](https://api.kustomerapp.com/v1/conversations "https://api.kustomerapp.com/v1/conversations")
-- [Customers](https://api.kustomerapp.com/v1/customers "https://api.kustomerapp.com/v1/customers")
-- [Customers Searches Pinned](https://api.kustomerapp.com/v1/customers/searches/pinned "https://api.kustomerapp.com/v1/customers/searches/pinned")
-- [Customer Searches Positions](https://api.kustomerapp.com/v1/customers/searches/positions "https://api.kustomerapp.com/v1/customers/searches/positions")
-- [Hooks Email](https://api.kustomerapp.com/v1/hooks/email "https://api.kustomerapp.com/v1/hooks/email")
-- [Hooks Web](https://api.kustomerapp.com/v1/hooks/web "https://api.kustomerapp.com/v1/hooks/web")
-- [KB Articles](https://api.kustomerapp.com/v1/kb/articles "https://api.kustomerapp.com/v1/kb/articles")
-- [KB Categories](https://api.kustomerapp.com/v1/kb/categories "https://api.kustomerapp.com/v1/kb/categories")
-- [KB Forms](https://api.kustomerapp.com/v1/kb/forms " https://api.kustomerapp.com/v1/kb/forms")
-- [KB Routes](https://api.kustomerapp.com/v1/kb/routes "https://api.kustomerapp.com/v1/kb/routes")
-- [KB Tags](https://api.kustomerapp.com/v1/kb/tags "https://api.kustomerapp.com/v1/kb/tags")
-- [KB Templates](https://api.kustomerapp.com/v1/kb/templates "https://api.kustomerapp.com/v1/kb/templates")
-- [KB Themes](https://api.kustomerapp.com/v1/kb/themes "https://api.kustomerapp.com/v1/kb/themes")
-- [Klasses](https://api.kustomerapp.com/v1/klasses "https://api.kustomerapp.com/v1/klasses")
-- [Kviews](https://api.kustomerapp.com/v1/kviews "https://api.kustomerapp.com/v1/kviews")
-- [Messages](https://api.kustomerapp.com/v1/messages "https://api.kustomerapp.com/v1/messages")
-- [Notes](https://api.kustomerapp.com/v1/notes "https://api.kustomerapp.com/v1/notes")
-- [Notifications](https://api.kustomerapp.com/v1/notifications "https://api.kustomerapp.com/v1/notifications")
++ [Brands](https://api.kustomerapp.com/v1/brands)
++ [Cards](https://api.kustomerapp.com/v1/cards)
++ [Chat Settings](https://api.kustomerapp.com/v1/chat/settings)
++ [Companies](https://api.kustomerapp.com/v1/companies)
++ [Conversations](https://api.kustomerapp.com/v1/conversations)
++ [Customers](https://api.kustomerapp.com/v1/customers)
++ [Customers Searches Pinned](https://api.kustomerapp.com/v1/customers/searches/pinned)
++ [Customer Searches Positions](https://api.kustomerapp.com/v1/customers/searches/positions)
++ [Hooks Email](https://api.kustomerapp.com/v1/hooks/email)
++ [Hooks Web](https://api.kustomerapp.com/v1/hooks/web)
++ [KB Articles](https://api.kustomerapp.com/v1/kb/articles)
++ [KB Categories](https://api.kustomerapp.com/v1/kb/categories)
++ [KB Forms]( https://api.kustomerapp.com/v1/kb/forms)
++ [KB Routes](https://api.kustomerapp.com/v1/kb/routes)
++ [KB Tags](https://api.kustomerapp.com/v1/kb/tags)
++ [KB Templates](https://api.kustomerapp.com/v1/kb/templates)
++ [KB Themes](https://api.kustomerapp.com/v1/kb/themes)
++ [Klasses](https://api.kustomerapp.com/v1/klasses)
++ [Kviews](https://api.kustomerapp.com/v1/kviews)
++ [Messages](https://api.kustomerapp.com/v1/messages)
++ [Notes](https://api.kustomerapp.com/v1/notes)
++ [Notifications](https://api.kustomerapp.com/v1/notifications)
 
 Kustomer API v1
 
-| Entity                                | Field    | Data type                    | Supported operators |
-| ------------------------------------- | -------- | ---------------------------- | ------------------- |
-| Brands                                | id       | String                       | N/A                 |
-| name                                  | String   | N/A                          |
-| iconUrl                               | String   | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| modifiedAt                            | DateTime | N/A                          |
-| default                               | Boolean  | N/A                          |
-| Cards                                 | id       | String                       | N/A                 |
-| name                                  | String   | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| modifiedAt                            | DateTime | N/A                          |
-| description                           | String   | N/A                          |
-| url                                   | String   | N/A                          |
-| contexts                              | List     | N/A                          |
-| Chat Settings                         | id       | String                       | N/A                 |
-| settingsVersion                       | Integer  | N/A                          |
-| widgetType                            | String   | N/A                          |
-| version                               | Integer  | N/A                          |
-| teamName                              | String   | N/A                          |
-| greeting                              | String   | N/A                          |
-| autoreply                             | String   | N/A                          |
-| embedIconUrl                          | String   | N/A                          |
-| embedIconColor                        | String   | N/A                          |
-| fallbackEmailSubject                  | String   | N/A                          |
-| fallbackEmailIntroduction             | String   | N/A                          |
-| enabled                               | Boolean  | N/A                          |
-| outboundChatEnabled                   | Boolean  | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| modifiedAt                            | DateTime | N/A                          |
-| offhoursMessage                       | String   | N/A                          |
-| offhoursImageUrl                      | String   | N/A                          |
-| closableChat                          | Boolean  | N/A                          |
-| noHistory                             | Boolean  | N/A                          |
-| disableAttachments                    | Boolean  | N/A                          |
-| volumeControl                         | Struct   | N/A                          |
-| singleSessonChat                      | Boolean  | N/A                          |
-| showTypingIndicatorWeb                | Boolean  | N/A                          |
-| Companies                             | id       | String                       | N/A                 |
-| name                                  | String   | =, !=, CONTAINS              |
-| createdAt                             | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| modifiedAt                            | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| tags                                  | List     | N/A                          |
-| domains                               | List     | N/A                          |
-| emails                                | List     | N/A                          |
-| phones                                | List     | N/A                          |
-| whatsapps                             | List     | N/A                          |
-| socials                               | List     | N/A                          |
-| urls                                  | List     | N/A                          |
-| locations                             | List     | N/A                          |
-| roleGroupVersions                     | List     | N/A                          |
-| rev                                   | Integer  | N/A                          |
-| Conversations                         | id       | String                       | N/A                 |
-| name                                  | String   | =, !=, CONTAINS              |
-| preview                               | String   | N/A                          |
-| channels                              | List     | N/A                          |
-| status                                | String   | =, !=, CONTAINS              |
-| messageCount                          | Integer  | =, !=, >, >=, <, <=          |
-| noteCount                             | Integer  | =, !=, >, >=, <, <=          |
-| satisfaction                          | Integer  | =, !=, >, >=, <, <=          |
-| satisfactionLevel                     | Struct   | N/A                          |
-| createdAt                             | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| updatedAt                             | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| modifiedAt                            | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| lastActivityAt                        | DateTime | N/A                          |
-| spam                                  | Boolean  | N/A                          |
-| ended                                 | Boolean  | =, !=                        |
-| endedAt                               | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| endedReason                           | String   | CONTAINS                     |
-| endedByType                           | String   | N/A                          |
-| importedAt                            | String   | N/A                          |
-| tags                                  | List     | N/A                          |
-| suggestedTags                         | List     | N/A                          |
-| sentiment                             | String   | N/A                          |
-| predictions                           | List     | N/A                          |
-| suggestedShortcuts                    | List     | N/A                          |
-| firstMessageIn                        | Struct   | N/A                          |
-| firstMessageOut                       | Struct   | N/A                          |
-| lastMessageIn                         | Struct   | N/A                          |
-| lastMessageOut                        | Struct   | N/A                          |
-| lastMessageAt                         | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| lastMessageUnrespondedTo              | Struct   | N/A                          |
-| lastMessageUnrespondedToSinceLastDone | Struct   | N/A                          |
-| assignedUsers                         | List     | N/A                          |
-| assignedTeams                         | List     | N/A                          |
-| firstResponse                         | Struct   | N/A                          |
-| firstResponseSinceLastDone            | Struct   | N/A                          |
-| lastResponse                          | Struct   | N/A                          |
-| firstDone                             | Struct   | N/A                          |
-| lastDone                              | Struct   | N/A                          |
-| direction                             | String   | =, !=, CONTAINS              |
-| lastMessageDirection                  | String   | N/A                          |
-| outboundMessageCount                  | Integer  | N/A                          |
-| inboundMessageCount                   | Integer  | N/A                          |
-| rev                                   | Integer  | N/A                          |
-| priority                              | Integer  | =, !=, >, >=, <, <=          |
-| roleGroupVersions                     | List     | N/A                          |
-| accessOverride                        | List     | N/A                          |
-| assistant                             | Struct   | N/A                          |
-| phase                                 | String   | N/A                          |
-| Skills                                | List     | N/A                          |
-| matchedTimeBasedRules                 | List     | N/A                          |
-| Customers                             | id       | String                       | N/A                 |
-| name                                  | String   | =, !=, CONTAINS              |
-| displayName                           | String   | N/A                          |
-| displayColor                          | String   | N/A                          |
-| displayIcon                           | String   | N/A                          |
-| externalId                            | String   | =, !=, CONTAINS              |
-| externalIds                           | List     | N/A                          |
-| sharedExternalIds                     | List     | N/A                          |
-| emails                                | List     | N/A                          |
-| sharedEmails                          | List     | N/A                          |
-| phones                                | List     | N/A                          |
-| sharedPhones                          | List     | N/A                          |
-| whatsapps                             | List     | N/A                          |
-| facebookIds                           | List     | N/A                          |
-| instagramIds                          | List     | N/A                          |
-| socials                               | List     | N/A                          |
-| sharedSocials                         | List     | N/A                          |
-| urls                                  | List     | N/A                          |
-| locations                             | List     | N/A                          |
-| activeUsers                           | List     | N/A                          |
-| watchers                              | List     | N/A                          |
-| recentLocation                        | Struct   | N/A                          |
-| locale                                | String   | =, !=, CONTAINS              |
-| timeZone                              | String   | N/A                          |
-| gender                                | String   | =, !=, CONTAINS              |
-| createdAt                             | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| updatedAt                             | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| modifiedAt                            | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| lastActivityAt                        | DateTime | N/A                          |
-| deleted                               | Boolean  | N/A                          |
-| lastConversation                      | Struct   | N/A                          |
-| conversationCounts                    | Struct   | N/A                          |
-| preview                               | Struct   | N/A                          |
-| tags                                  | List     | N/A                          |
-| progressiveStatus                     | String   | =, !=, CONTAINS              |
-| verified                              | Boolean  | N/A                          |
-| rev                                   | Integer  | N/A                          |
-| recentItems                           | List     | N/A                          |
-| defaultLang                           | String   | =, !=, CONTAINS              |
-| satisfactionLevel                     | Struct   | N/A                          |
-| roleGroupVersions                     | List     | N/A                          |
-| accessOverride                        | List     | N/A                          |
-| companyName                           | String   | N/A                          |
-| firstName                             | String   | N/A                          |
-| lastName                              | String   | N/A                          |
-| Customer Searches Pinned              | id       | String                       | N/A                 |
-| search                                | String   | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| Customer Searches Positions           | id       | String                       | N/A                 |
-| positions                             | List     | N/A                          |
-| children                              | List     | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| modifiedAt                            | DateTime | N/A                          |
-| rev                                   | Integer  | N/A                          |
-| Email Hooks                           | id       | String                       | N/A                 |
-| description                           | String   | N/A                          |
-| debug                                 | Boolean  | N/A                          |
-| email                                 | String   | N/A                          |
-| eventName                             | String   | N/A                          |
-| title                                 | String   | N/A                          |
-| hash                                  | String   | N/A                          |
-| key                                   | String   | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| modifiedAt                            | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| Web Hooks                             | id       | String                       | N/A                 |
-| description                           | String   | N/A                          |
-| eventName                             | String   | N/A                          |
-| hash                                  | String   | N/A                          |
-| url                                   | String   | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| modifiedAt                            | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| title                                 | String   | N/A                          |
-| version                               | Integer  | N/A                          |
-| debug                                 | Boolean  | N/A                          |
-| KB Articles                           | id       | String                       | N/A                 |
-| hash                                  | String   | N/A                          |
-| title                                 | String   | N/A                          |
-| source                                | String   | N/A                          |
-| status                                | String   | N/A                          |
-| scope                                 | String   | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| deleted                               | Boolean  | N/A                          |
-| deletedAt                             | DateTime | N/A                          |
-| modifiedAt                            | DateTime | N/A                          |
-| publishedAt                           | DateTime | N/A                          |
-| tags                                  | List     | N/A                          |
-| categories                            | List     | N/A                          |
-| knowledgeBases                        | List     | N/A                          |
-| metaTitle                             | String   | N/A                          |
-| metaDescription                       | String   | N/A                          |
-| metaKeywords                          | List     | N/A                          |
-| langVersions                          | Struct   | N/A                          |
-| latestLangs                           | Struct   | N/A                          |
-| KB Categories                         | id       | String                       | N/A                 |
-| hash                                  | String   | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| modifiedAt                            | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| published                             | Boolean  | N/A                          |
-| positions                             | List     | N/A                          |
-| categoryPositions                     | List     | N/A                          |
-| root                                  | Boolean  | N/A                          |
-| langs                                 | Struct   | N/A                          |
-| KB Forms                              | id       | String                       | N/A                 |
-| name                                  | String   | N/A                          |
-| slug                                  | String   | N/A                          |
-| hash                                  | String   | N/A                          |
-| body                                  | String   | N/A                          |
-| layout                                | List     | N/A                          |
-| layoutV2                              | List     | N/A                          |
-| componentsV2                          | Struct   | N/A                          |
-| conditions                            | Struct   | N/A                          |
-| advanced                              | Boolean  | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| publishedAt                           | DateTime | N/A                          |
-| modifiedAt                            | String   | N/A                          |
-| published                             | Boolean  | N/A                          |
-| snippets                              | List     | N/A                          |
-| recaptcha                             | Boolean  | N/A                          |
-| klass                                 | String   | N/A                          |
-| channel                               | String   | N/A                          |
-| deflection                            | Boolean  | N/A                          |
-| formHookEnabled                       | Boolean  | N/A                          |
-| replyFrom                             | String   | N/A                          |
-| wcag                                  | Boolean  | N/A                          |
-| KB Routes                             | id       | String                       | N/A                 |
-| url                                   | String   | N/A                          |
-| routableType                          | String   | N/A                          |
-| routableId                            | String   | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| modifiedAt                            | DateTime | N/A                          |
-| KB Tags                               | id       | String                       | N/A                 |
-| name                                  | String   | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| modifiedAt                            | DateTime | N/A                          |
-| KB Templates                          | id       | String                       | N/A                 |
-| title                                 | String   | N/A                          |
-| description                           | String   | N/A                          |
-| beta                                  | Boolean  | N/A                          |
-| manifest                              | Struct   | N/A                          |
-| jsxSnippets                           | List     | N/A                          |
-| images                                | List     | N/A                          |
-| version                               | String   | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| KB Themes                             | id       | String                       | N/A                 |
-| name                                  | String   | N/A                          |
-| active                                | Boolean  | N/A                          |
-| default                               | Boolean  | N/A                          |
-| lastfileUpdatedAt                     | DateTime | N/A                          |
-| custom                                | Boolean  | N/A                          |
-| status                                | String   | N/A                          |
-| templateVersionId                     | String   | N/A                          |
-| templateTitle                         | String   | N/A                          |
-| templateVersion                       | String   | N/A                          |
-| manifest                              | Struct   | N/A                          |
-| configSnippets                        | List     | N/A                          |
-| jsxSnippets                           | List     | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| modifiedAt                            | DateTime | N/A                          |
-| rev                                   | Integer  | N/A                          |
-| Klasses                               | id       | String                       | N/A                 |
-| name                                  | String   | N/A                          |
-| icon                                  | String   | N/A                          |
-| color                                 | String   | N/A                          |
-| appDisabled                           | Boolean  | N/A                          |
-| status                                | String   | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| s3DataUrl                             | String   | N/A                          |
-| KViews                                | id       | String                       | N/A                 |
-| resource                              | String   | N/A                          |
-| template                              | String   | N/A                          |
-| context                               | String   | N/A                          |
-| meta                                  | Struct   | N/A                          |
-| appDisabled                           | Boolean  | N/A                          |
-| enabled                               | Boolean  | N/A                          |
-| advanced                              | Boolean  | N/A                          |
-| layout                                | List     | N/A                          |
-| components                            | Struct   | N/A                          |
-| conditions                            | Struct   | N/A                          |
-| rev                                   | Integer  | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| modifiedAt                            | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| Notifications                         | id       | String                       | N/A                 |
-| name                                  | String   | N/A                          |
-| status                                | String   | N/A                          |
-| event                                 | Struct   | N/A                          |
-| createdAt                             | DateTime | N/A                          |
-| updatedAt                             | DateTime | N/A                          |
-| Messages                              | id       | String                       | N/A                 |
-| externalId                            | String   | N/A                          |
-| channel                               | String   | =, !=, CONTAINS              |
-| app                                   | String   | N/A                          |
-| size                                  | Integer  | =, !=, >, >=, <, <=          |
-| direction                             | String   | =, !=, CONTAINS              |
-| preview                               | String   | N/A                          |
-| subject                               | String   | N/A                          |
-| meta                                  | Struct   | N/A                          |
-| status                                | String   | =, !=, CONTAINS              |
-| directionType                         | String   | =, !=, CONTAINS              |
-| assignedTeams                         | List     | N/A                          |
-| assignedUsers                         | List     | N/A                          |
-| errorAt                               | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| auto                                  | Boolean  | =, !=                        |
-| sentAt                                | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| createdAt                             | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| updatedAt                             | DateTime | N/A                          |
-| modifiedAt                            | DateTime | N/A                          |
-| redacted                              | Boolean  | N/A                          |
-| createdByTeams                        | List     | N/A                          |
-| rev                                   | Integer  | N/A                          |
-| reactions                             | List     | N/A                          |
-| intentDetections                      | List     | N/A                          |
-| Notes                                 | id       | String                       | N/A                 |
-| body                                  | String   | CONTAINS                     |
-| createdAt                             | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| updatedAt                             | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| modifiedAt                            | DateTime | =, !=, >, >=, <, <=, BETWEEN |
-| createdByTeams                        | List     | N/A                          |
+
+
+- **Brands**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** iconUrl / **Data type:** String / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** default / **Data type:** Boolean / **Supported operators:** N/A
+
+- **Cards**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** description / **Data type:** String / **Supported operators:** N/A
+  - **Field:** url / **Data type:** String / **Supported operators:** N/A
+  - **Field:** contexts / **Data type:** List / **Supported operators:** N/A
+
+- **Chat Settings**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** settingsVersion / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** widgetType / **Data type:** String / **Supported operators:** N/A
+  - **Field:** version / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** teamName / **Data type:** String / **Supported operators:** N/A
+  - **Field:** greeting / **Data type:** String / **Supported operators:** N/A
+  - **Field:** autoreply / **Data type:** String / **Supported operators:** N/A
+  - **Field:** embedIconUrl / **Data type:** String / **Supported operators:** N/A
+  - **Field:** embedIconColor / **Data type:** String / **Supported operators:** N/A
+  - **Field:** fallbackEmailSubject / **Data type:** String / **Supported operators:** N/A
+  - **Field:** fallbackEmailIntroduction / **Data type:** String / **Supported operators:** N/A
+  - **Field:** enabled / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** outboundChatEnabled / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** offhoursMessage / **Data type:** String / **Supported operators:** N/A
+  - **Field:** offhoursImageUrl / **Data type:** String / **Supported operators:** N/A
+  - **Field:** closableChat / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** noHistory / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** disableAttachments / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** volumeControl / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** singleSessonChat / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** showTypingIndicatorWeb / **Data type:** Boolean / **Supported operators:** N/A
+
+- **Companies**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** name / **Data type:** String / **Supported operators:**  =, \!=, CONTAINS
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:**  =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** tags / **Data type:** List / **Supported operators:** N/A
+  - **Field:** domains / **Data type:** List / **Supported operators:** N/A
+  - **Field:** emails / **Data type:** List / **Supported operators:** N/A
+  - **Field:** phones / **Data type:** List / **Supported operators:** N/A
+  - **Field:** whatsapps / **Data type:** List / **Supported operators:** N/A
+  - **Field:** socials / **Data type:** List / **Supported operators:** N/A
+  - **Field:** urls / **Data type:** List / **Supported operators:** N/A
+  - **Field:** locations / **Data type:** List / **Supported operators:** N/A
+  - **Field:** roleGroupVersions / **Data type:** List / **Supported operators:** N/A
+  - **Field:** rev / **Data type:** Integer / **Supported operators:** N/A
+
+- **Conversations**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** name / **Data type:** String / **Supported operators:**  =, \!=, CONTAINS
+  - **Field:** preview / **Data type:** String / **Supported operators:** N/A
+  - **Field:** channels / **Data type:** List / **Supported operators:** N/A
+  - **Field:** status / **Data type:** String / **Supported operators:**  =, \!=, CONTAINS
+  - **Field:** messageCount / **Data type:** Integer / **Supported operators:**  =, \!=, >, >=, <, <=
+  - **Field:** noteCount / **Data type:** Integer / **Supported operators:**  =, \!=, >, >=, <, <=
+  - **Field:** satisfaction / **Data type:** Integer / **Supported operators:**  =, \!=, >, >=, <, <=
+  - **Field:** satisfactionLevel / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:**  =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:**  =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:**  =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** lastActivityAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** spam / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** ended / **Data type:** Boolean / **Supported operators:**  =, \!=
+  - **Field:** endedAt / **Data type:** DateTime / **Supported operators:**  =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** endedReason / **Data type:** String / **Supported operators:** CONTAINS
+  - **Field:** endedByType / **Data type:** String / **Supported operators:** N/A
+  - **Field:** importedAt / **Data type:** String / **Supported operators:** N/A
+  - **Field:** tags / **Data type:** List / **Supported operators:** N/A
+  - **Field:** suggestedTags / **Data type:** List / **Supported operators:** N/A
+  - **Field:** sentiment / **Data type:** String / **Supported operators:** N/A
+  - **Field:** predictions / **Data type:** List / **Supported operators:** N/A
+  - **Field:** suggestedShortcuts / **Data type:** List / **Supported operators:** N/A
+  - **Field:** firstMessageIn / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** firstMessageOut / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** lastMessageIn / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** lastMessageOut / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** lastMessageAt / **Data type:** DateTime / **Supported operators:** =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** lastMessageUnrespondedTo / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** lastMessageUnrespondedToSinceLastDone / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** assignedUsers / **Data type:** List / **Supported operators:** N/A
+  - **Field:** assignedTeams / **Data type:** List / **Supported operators:** N/A
+  - **Field:** firstResponse / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** firstResponseSinceLastDone / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** lastResponse / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** firstDone / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** lastDone / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** direction / **Data type:** String / **Supported operators:**  =, \!=, CONTAINS
+  - **Field:** lastMessageDirection / **Data type:** String / **Supported operators:** N/A
+  - **Field:** outboundMessageCount / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** inboundMessageCount / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** rev / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** priority / **Data type:** Integer / **Supported operators:**  =, \!=, >, >=, <, <=
+  - **Field:** roleGroupVersions / **Data type:** List / **Supported operators:** N/A
+  - **Field:** accessOverride / **Data type:** List / **Supported operators:** N/A
+  - **Field:** assistant / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** phase / **Data type:** String / **Supported operators:** N/A
+  - **Field:** Skills / **Data type:** List / **Supported operators:** N/A
+  - **Field:** matchedTimeBasedRules / **Data type:** List / **Supported operators:** N/A
+
+- **Customers**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** name / **Data type:** String / **Supported operators:**  =, \!=, CONTAINS
+  - **Field:** displayName / **Data type:** String / **Supported operators:** N/A
+  - **Field:** displayColor / **Data type:** String / **Supported operators:** N/A
+  - **Field:** displayIcon / **Data type:** String / **Supported operators:** N/A
+  - **Field:** externalId / **Data type:** String / **Supported operators:**  =, \!=, CONTAINS
+  - **Field:** externalIds / **Data type:** List / **Supported operators:** N/A
+  - **Field:** sharedExternalIds / **Data type:** List / **Supported operators:** N/A
+  - **Field:** emails / **Data type:** List / **Supported operators:** N/A
+  - **Field:** sharedEmails / **Data type:** List / **Supported operators:** N/A
+  - **Field:** phones / **Data type:** List / **Supported operators:** N/A
+  - **Field:** sharedPhones / **Data type:** List / **Supported operators:** N/A
+  - **Field:** whatsapps / **Data type:** List / **Supported operators:** N/A
+  - **Field:** facebookIds / **Data type:** List / **Supported operators:** N/A
+  - **Field:** instagramIds / **Data type:** List / **Supported operators:** N/A
+  - **Field:** socials / **Data type:** List / **Supported operators:** N/A
+  - **Field:** sharedSocials / **Data type:** List / **Supported operators:** N/A
+  - **Field:** urls / **Data type:** List / **Supported operators:** N/A
+  - **Field:** locations / **Data type:** List / **Supported operators:** N/A
+  - **Field:** activeUsers / **Data type:** List / **Supported operators:** N/A
+  - **Field:** watchers / **Data type:** List / **Supported operators:** N/A
+  - **Field:** recentLocation / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** locale / **Data type:** String / **Supported operators:**  =, \!=, CONTAINS
+  - **Field:** timeZone / **Data type:** String / **Supported operators:** N/A
+  - **Field:** gender / **Data type:** String / **Supported operators:**  =, \!=, CONTAINS
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:**  =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:**  =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:**  =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** lastActivityAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** deleted / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** lastConversation / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** conversationCounts / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** preview / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** tags / **Data type:** List / **Supported operators:** N/A
+  - **Field:** progressiveStatus / **Data type:** String / **Supported operators:**  =, \!=, CONTAINS
+  - **Field:** verified / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** rev / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** recentItems / **Data type:** List / **Supported operators:** N/A
+  - **Field:** defaultLang / **Data type:** String / **Supported operators:**  =, \!=, CONTAINS
+  - **Field:** satisfactionLevel / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** roleGroupVersions / **Data type:** List / **Supported operators:** N/A
+  - **Field:** accessOverride / **Data type:** List / **Supported operators:** N/A
+  - **Field:** companyName / **Data type:** String / **Supported operators:** N/A
+  - **Field:** firstName / **Data type:** String / **Supported operators:** N/A
+  - **Field:** lastName / **Data type:** String / **Supported operators:** N/A
+
+- **Customer Searches Pinned**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** search / **Data type:** String / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+
+- **Customer Searches Positions**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** positions / **Data type:** List / **Supported operators:** N/A
+  - **Field:** children / **Data type:** List / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** rev / **Data type:** Integer / **Supported operators:** N/A
+
+- **Email Hooks**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** description / **Data type:** String / **Supported operators:** N/A
+  - **Field:** debug / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** email / **Data type:** String / **Supported operators:** N/A
+  - **Field:** eventName / **Data type:** String / **Supported operators:** N/A
+  - **Field:** title / **Data type:** String / **Supported operators:** N/A
+  - **Field:** hash / **Data type:** String / **Supported operators:** N/A
+  - **Field:** key / **Data type:** String / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+
+- **Web Hooks**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** description / **Data type:** String / **Supported operators:** N/A
+  - **Field:** eventName / **Data type:** String / **Supported operators:** N/A
+  - **Field:** hash / **Data type:** String / **Supported operators:** N/A
+  - **Field:** url / **Data type:** String / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** title / **Data type:** String / **Supported operators:** N/A
+  - **Field:** version / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** debug / **Data type:** Boolean / **Supported operators:** N/A
+
+- **KB Articles**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** hash / **Data type:** String / **Supported operators:** N/A
+  - **Field:** title / **Data type:** String / **Supported operators:** N/A
+  - **Field:** source / **Data type:** String / **Supported operators:** N/A
+  - **Field:** status / **Data type:** String / **Supported operators:** N/A
+  - **Field:** scope / **Data type:** String / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** deleted / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** deletedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** publishedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** tags / **Data type:** List / **Supported operators:** N/A
+  - **Field:** categories / **Data type:** List / **Supported operators:** N/A
+  - **Field:** knowledgeBases / **Data type:** List / **Supported operators:** N/A
+  - **Field:** metaTitle / **Data type:** String / **Supported operators:** N/A
+  - **Field:** metaDescription / **Data type:** String / **Supported operators:** N/A
+  - **Field:** metaKeywords / **Data type:** List / **Supported operators:** N/A
+  - **Field:** langVersions / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** latestLangs / **Data type:** Struct / **Supported operators:** N/A
+
+- **KB Categories**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** hash / **Data type:** String / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** published / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** positions / **Data type:** List / **Supported operators:** N/A
+  - **Field:** categoryPositions / **Data type:** List / **Supported operators:** N/A
+  - **Field:** root / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** langs / **Data type:** Struct / **Supported operators:** N/A
+
+- **KB Forms**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** slug / **Data type:** String / **Supported operators:** N/A
+  - **Field:** hash / **Data type:** String / **Supported operators:** N/A
+  - **Field:** body / **Data type:** String / **Supported operators:** N/A
+  - **Field:** layout / **Data type:** List / **Supported operators:** N/A
+  - **Field:** layoutV2 / **Data type:** List / **Supported operators:** N/A
+  - **Field:** componentsV2 / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** conditions / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** advanced / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** publishedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** String / **Supported operators:** N/A
+  - **Field:** published / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** snippets / **Data type:** List / **Supported operators:** N/A
+  - **Field:** recaptcha / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** klass / **Data type:** String / **Supported operators:** N/A
+  - **Field:** channel / **Data type:** String / **Supported operators:** N/A
+  - **Field:** deflection / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** formHookEnabled / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** replyFrom / **Data type:** String / **Supported operators:** N/A
+  - **Field:** wcag / **Data type:** Boolean / **Supported operators:** N/A
+
+- **KB Routes**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** url / **Data type:** String / **Supported operators:** N/A
+  - **Field:** routableType / **Data type:** String / **Supported operators:** N/A
+  - **Field:** routableId / **Data type:** String / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:** N/A
+
+- **KB Tags**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:** N/A
+
+- **KB Templates**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** title / **Data type:** String / **Supported operators:** N/A
+  - **Field:** description / **Data type:** String / **Supported operators:** N/A
+  - **Field:** beta / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** manifest / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** jsxSnippets / **Data type:** List / **Supported operators:** N/A
+  - **Field:** images / **Data type:** List / **Supported operators:** N/A
+  - **Field:** version / **Data type:** String / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+
+- **KB Themes**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** active / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** default / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** lastfileUpdatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** custom / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** status / **Data type:** String / **Supported operators:** N/A
+  - **Field:** templateVersionId / **Data type:** String / **Supported operators:** N/A
+  - **Field:** templateTitle / **Data type:** String / **Supported operators:** N/A
+  - **Field:** templateVersion / **Data type:** String / **Supported operators:** N/A
+  - **Field:** manifest / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** configSnippets / **Data type:** List / **Supported operators:** N/A
+  - **Field:** jsxSnippets / **Data type:** List / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** rev / **Data type:** Integer / **Supported operators:** N/A
+
+- **Klasses**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** icon / **Data type:** String / **Supported operators:** N/A
+  - **Field:** color / **Data type:** String / **Supported operators:** N/A
+  - **Field:** appDisabled / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** status / **Data type:** String / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** s3DataUrl / **Data type:** String / **Supported operators:** N/A
+
+- **KViews**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** resource / **Data type:** String / **Supported operators:** N/A
+  - **Field:** template / **Data type:** String / **Supported operators:** N/A
+  - **Field:** context / **Data type:** String / **Supported operators:** N/A
+  - **Field:** meta / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** appDisabled / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** enabled / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** advanced / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** layout / **Data type:** List / **Supported operators:** N/A
+  - **Field:** components / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** conditions / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** rev / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+
+- **Notifications**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** name / **Data type:** String / **Supported operators:** N/A
+  - **Field:** status / **Data type:** String / **Supported operators:** N/A
+  - **Field:** event / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+
+- **Messages**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** externalId / **Data type:** String / **Supported operators:** N/A
+  - **Field:** channel / **Data type:** String / **Supported operators:**  =, \!=, CONTAINS
+  - **Field:** app / **Data type:** String / **Supported operators:** N/A
+  - **Field:** size / **Data type:** Integer / **Supported operators:** =, \!=, >, >=, <, <=
+  - **Field:** direction / **Data type:** String / **Supported operators:**  =, \!=, CONTAINS
+  - **Field:** preview / **Data type:** String / **Supported operators:** N/A
+  - **Field:** subject / **Data type:** String / **Supported operators:** N/A
+  - **Field:** meta / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** status / **Data type:** String / **Supported operators:**  =, \!=, CONTAINS
+  - **Field:** directionType / **Data type:** String / **Supported operators:**  =, \!=, CONTAINS
+  - **Field:** assignedTeams / **Data type:** List / **Supported operators:** N/A
+  - **Field:** assignedUsers / **Data type:** List / **Supported operators:** N/A
+  - **Field:** errorAt / **Data type:** DateTime / **Supported operators:** =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** auto / **Data type:** Boolean / **Supported operators:**  =, \!=
+  - **Field:** sentAt / **Data type:** DateTime / **Supported operators:** =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** redacted / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** createdByTeams / **Data type:** List / **Supported operators:** N/A
+  - **Field:** rev / **Data type:** Integer / **Supported operators:** N/A
+  - **Field:** reactions / **Data type:** List / **Supported operators:** N/A
+  - **Field:** intentDetections / **Data type:** List / **Supported operators:** N/A
+
+- **Notes**
+  - **Field:** id / **Data type:** String / **Supported operators:** N/A
+  - **Field:** body / **Data type:** String / **Supported operators:** CONTAINS
+  - **Field:** createdAt / **Data type:** DateTime / **Supported operators:** =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** updatedAt / **Data type:** DateTime / **Supported operators:** =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** modifiedAt / **Data type:** DateTime / **Supported operators:** =, \!=, >, >=, <, <=, BETWEEN
+  - **Field:** createdByTeams / **Data type:** List / **Supported operators:** N/A
+
+
 
 ## Partitioning queries
+<a name="kustomer-reading-from-partitioning"></a>
 
 **Field-based partitioning**
 
 You can provide the additional Spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`, and `NUM_PARTITIONS` if you want to utilize concurrency in Spark. With these parameters, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by Spark tasks concurrently.
++ `PARTITION_FIELD`: the name of the field to be used to partition the query.
++ `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field.
 
-- `PARTITION_FIELD`: the name of the field to be used to partition the query.
-- `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field.
+  For the DateTime field, we accept the value in ISO format.
 
-For the DateTime field, we accept the value in ISO format.
+  Example of valid value:
 
-Example of valid value:
-
-```
-"2023-01-15T11:18:39.205Z"
-```
-
-- `UPPER_BOUND`: an **exclusive** upper bound value of the chosen partition field.
-- `NUM_PARTITIONS`: the number of partitions.
+  ```
+  "2023-01-15T11:18:39.205Z"
+  ```
++ `UPPER_BOUND`: an **exclusive** upper bound value of the chosen partition field.
++ `NUM_PARTITIONS`: the number of partitions.
 
 Entity-wise partitioning field support details are captured in the following table:
 
-| Entity name             | Partitioning fields                                      | Data type |
-| ----------------------- | -------------------------------------------------------- | --------- |
-| Companies               | modifiedAt                                               | DateTime  |
-| Conversations           | createdAt, updatedAt, modifiedAt, endedAt, lastMessageAt | DateTime  |
-| messageCount, noteCount | BigInteger                                               |
-| priority                | Integer                                                  |
-| Customers               | createdAt, updatedAt, modifiedAt                         | DateTime  |
-| Messages                | errorAt, sentAt, createdAt                               | DateTime  |
-| size                    | BigInteger                                               |
-| Notes                   | createdAt, updatedAt, modifiedAt                         | DateTime  |
+
+
+- **Companies**
+  - **Partitioning fields:** modifiedAt
+  - **Data type:** DateTime
+
+- **Conversations**
+  - **Partitioning fields:** createdAt, updatedAt, modifiedAt, endedAt, lastMessageAt / **Data type:** DateTime
+  - **Partitioning fields:** messageCount, noteCount / **Data type:** BigInteger
+  - **Partitioning fields:** priority / **Data type:** Integer
+
+- **Customers**
+  - **Partitioning fields:** createdAt, updatedAt, modifiedAt
+  - **Data type:** DateTime
+
+- **Messages**
+  - **Partitioning fields:** errorAt, sentAt, createdAt / **Data type:** DateTime
+  - **Partitioning fields:** size / **Data type:** BigInteger
+
+- **Notes**
+  - **Partitioning fields:** createdAt, updatedAt, modifiedAt
+  - **Data type:** DateTime
+
+
 
 Example:
 

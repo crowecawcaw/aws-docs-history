@@ -1,21 +1,18 @@
+
+
 # Use `GetTables` with an AWS SDK or CLI
+<a name="example_glue_GetTables_section"></a>
 
 The following code examples show how to use `GetTables`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_glue_Scenario_GetStartedCrawlersJobs_section.md) 
 
-- [Learn the basics](example_glue_Scenario_GetStartedCrawlersJobs_section.md "example_glue_Scenario_GetStartedCrawlersJobs_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples). 
 
 ```
     /// <summary>
@@ -38,24 +35,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return tables;
     }
-
-
-
 ```
++  For API details, see [GetTables](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/GetTables) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [GetTables](../../../goto/DotNetSDKV3/glue-2017-03-31/GetTables.md "../../../goto/DotNetSDKV3/glue-2017-03-31/GetTables.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -104,28 +91,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
 
             tableName = all_tables[tableIndex - 1].GetName();
         }
+```
++  For API details, see [GetTables](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/GetTables) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To list the definitions of some or all of the tables in the specified database**  
+The following `get-tables` example returns information about the tables in the specified database.  
 
 ```
-
-- For API details, see
-  [GetTables](../../../goto/SdkForCpp/glue-2017-03-31/GetTables.md "../../../goto/SdkForCpp/glue-2017-03-31/GetTables.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list the definitions of some or all of the tables in the specified database**
-
-The following `get-tables` example returns information about the tables in the specified database.
-
+aws glue get-tables --database-name '{{tempdb}}'
 ```
-`aws glue get-tables --database-name '`tempdb`'`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -246,25 +225,16 @@ Output:
     ]
 }
 ```
+For more information, see [Defining Tables in the AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/tables-described.html) in the *AWS Glue Developer Guide*.  
++  For API details, see [GetTables](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/get-tables.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Defining Tables in the AWS Glue Data Catalog](tables-described.md "tables-described.md") in the _AWS Glue Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [GetTables](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/get-tables.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/get-tables.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples). 
 
 ```
-
     /**
      * Retrieves the names of the tables in the specified Glue database.
      *
@@ -295,23 +265,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         }
         return myTableName;
     }
-
-
 ```
++  For API details, see [GetTables](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetTables) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetTables](../../../goto/SdkForJavaV2/glue-2017-03-31/GetTables.md "../../../goto/SdkForJavaV2/glue-2017-03-31/GetTables.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples). 
 
 ```
 const getTables = (databaseName) => {
@@ -323,23 +284,14 @@ const getTables = (databaseName) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [GetTables](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetTablesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [GetTables](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetTablesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetTablesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/glue#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/glue#code-examples). 
 
 ```
         $databaseName = "doc-example-database-$uniqid";
@@ -352,23 +304,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             'DatabaseName' => $databaseName,
         ]);
     }
-
-
 ```
++  For API details, see [GetTables](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/GetTables) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [GetTables](../../../goto/SdkForPHPV3/glue-2017-03-31/GetTables.md "../../../goto/SdkForPHPV3/glue-2017-03-31/GetTables.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples). 
 
 ```
 class GlueWrapper:
@@ -400,27 +343,16 @@ class GlueWrapper:
             raise
         else:
             return response["TableList"]
+```
++  For API details, see [GetTables](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/GetTables) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples). 
 
 ```
-
-- For API details, see
-  [GetTables](../../../goto/boto3/glue-2017-03-31/GetTables.md "../../../goto/boto3/glue-2017-03-31/GetTables.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples").
-
-```
-
 # The `GlueWrapper` class serves as a wrapper around the AWS Glue API, providing a simplified interface for common operations.
 # It encapsulates the functionality of the AWS SDK for Glue and provides methods for interacting with Glue crawlers, databases, tables, jobs, and S3 resources.
 # The class initializes with a Glue client and a logger, allowing it to make API calls and log any errors or informational messages.
@@ -441,23 +373,14 @@ class GlueWrapper
     @logger.error("Glue could not get tables #{db_name}: \n#{e.message}")
     raise
   end
-
-
 ```
++  For API details, see [GetTables](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/GetTables) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [GetTables](../../../goto/SdkForRubyV3/glue-2017-03-31/GetTables.md "../../../goto/SdkForRubyV3/glue-2017-03-31/GetTables.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/glue#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/glue#code-examples). 
 
 ```
         let tables = glue
@@ -468,23 +391,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
             .map_err(GlueMvpError::from_glue_sdk)?;
 
         let tables = tables.table_list();
-
-
 ```
++  For API details, see [GetTables](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_tables) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [GetTables](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_tables "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.get_tables")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples). 
 
 ```
     TRY.
@@ -504,30 +418,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_timeout_error) = lo_timeout_ex->if_message~get_longtext( ).
         MESSAGE lv_timeout_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetTables](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetTables](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/glue#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/glue#code-examples). 
 
 ```
 import AWSClientRuntime
 import AWSGlue
 
     /// Returns a list of the tables in the specified database.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - databaseName: The name of the database whose tables are to be
@@ -563,14 +468,9 @@ import AWSGlue
 
         return tables
     }
-
-
 ```
++  For API details, see [GetTables](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/gettables(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [GetTables](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/gettables(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/gettables(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

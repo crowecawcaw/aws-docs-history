@@ -1,10 +1,15 @@
+
+
 # OData Services (Non-ODP Sources)
+<a name="sap-odata-non-odp-services"></a>
 
 ## Full Load
+<a name="sap-odata-non-odp-full-load"></a>
 
 For Non-ODP (Operational Data Provisioning) systems, a **Full Load** involves extracting the entire dataset from the source system and loading it into the target system. Since Non-ODP systems do not inherently support advanced data extraction mechanisms like deltas, the process is straightforward but can be resource-intensive depending on the size of the data.
 
 ## Incremental Load
+<a name="sap-odata-non-odp-incremental-load"></a>
 
 For systems or entities that do not support **ODP (Operational Data Provisioning)**, incremental data transfer can be managed manually by implementing a timestamp based mechanism to track and extract changes.
 
@@ -24,8 +29,6 @@ sapodata_df = glueContext.create_dynamic_frame.from_options(
         "ENTITY_NAME": "entityName",
         "filteringExpression": "LastChangeDateTime >= 2024-01-01T00:00:00.000"
     }, transformation_ctx=key)
-
-
 ```
 
 Note: In this example, `LastChangeDateTime` is the field that represents when each record was last modified. The actual field name may vary depending on your specific SAP OData entity.

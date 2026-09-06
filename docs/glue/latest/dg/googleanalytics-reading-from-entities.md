@@ -1,18 +1,20 @@
+
+
 # Reading from Google Analytics 4 entities
+<a name="googleanalytics-reading-from-entities"></a>
 
-**Prerequisites**
+ **Prerequisites** 
++  A Google Analytics 4 object you would like to read from. Refer the supported entities table below to check the available entities. 
 
-- A Google Analytics 4 object you would like to read from. Refer the supported entities table below to check the
-  available entities.
+ **Supported entities** 
 
-**Supported entities**
 
-| Entity           | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning |
-| ---------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Real-Time Report | Yes             | Yes            | Yes               | Yes                | No                    |
-| Core Report      | Yes             | Yes            | Yes               | Yes                | Yes                   |
+| Entity | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| Real-Time Report | Yes | Yes | Yes | Yes | No | 
+| Core Report | Yes | Yes | Yes | Yes | Yes | 
 
-**Example**
+ **Example** 
 
 ```
 googleAnalytics4_read = glueContext.create_dynamic_frame.from_options(
@@ -24,87 +26,77 @@ googleAnalytics4_read = glueContext.create_dynamic_frame.from_options(
     }
 ```
 
-**Google Analytics 4 entity and field details**
-
-| Entity           | Field                                     | Data Type | Supported Operators     |
-| ---------------- | ----------------------------------------- | --------- | ----------------------- |
-| Core Report      | Dynamic Fields                            |           |                         |
-| Core Report      | Dimension Fields                          | String    | LIKE, =                 |
-| Core Report      | Dimension Fields                          | Date      | LIKE, =                 |
-| Core Report      | Metric Fields                             | String    | >, <, >=, <=, = BETWEEN |
-| Core Report      | Custom Dimension and Custom Metric Fields | String    | NA                      |
-| Real-Time Report | appVersion                                | String    | LIKE, =                 |
-| Real-Time Report | audienceId                                | String    | LIKE, =                 |
-| Real-Time Report | audienceName                              | String    | LIKE, =                 |
-| Real-Time Report | city                                      | String    | LIKE, =                 |
-| Real-Time Report | cityId                                    | String    | LIKE, =                 |
-| Real-Time Report | country                                   | String    | LIKE, =                 |
-| Real-Time Report | countryId                                 | String    | LIKE, =                 |
-| Real-Time Report | deviceCategory                            | String    | LIKE, =                 |
-| Real-Time Report | eventName                                 | String    | LIKE, =                 |
-| Real-Time Report | minutesAgo                                | String    | LIKE, =                 |
-| Real-Time Report | platform                                  | String    | LIKE, =                 |
-| Real-Time Report | streamId                                  | String    | LIKE, =                 |
-| Real-Time Report | streamName                                | String    | LIKE, =                 |
-| Real-Time Report | unifiedScreenName                         | String    | LIKE, =                 |
-| Real-Time Report | activeUsers                               | String    | >, <, >=, <=, = BETWEEN |
-| Real-Time Report | conversions                               | String    | >, <, >=, <=, = BETWEEN |
-| Real-Time Report | eventCount                                | String    | >, <, >=, <=, = BETWEEN |
-| Real-Time Report | screenPageViews                           | String    | >, <, >=, <=, = BETWEEN |
-
-**Partitioning queries**
-
-1. **Filter-based partition**
-
-Additional spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`,
-`NUM_PARTITIONS` can be provided if you want to utilize concurrency in Spark. With these parameters,
-the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by spark
-tasks concurrently.
-
-    * `PARTITION_FIELD`: the name of the field to be used to partition query.
-    * `LOWER_BOUND`: an inclusive lower bound value of the chosen partition field.
+ **Google Analytics 4 entity and field details** 
 
 
+| Entity | Field | Data Type | Supported Operators | 
+| --- | --- | --- | --- | 
+| Core Report | Dynamic Fields |  |  | 
+| Core Report | Dimension Fields | String | LIKE, = | 
+| Core Report | Dimension Fields | Date | LIKE, = | 
+| Core Report | Metric Fields | String | >, <, >=, <=, = BETWEEN | 
+| Core Report | Custom Dimension and Custom Metric Fields | String | NA | 
+| Real-Time Report | appVersion | String | LIKE, = | 
+| Real-Time Report | audienceId | String | LIKE, = | 
+| Real-Time Report | audienceName | String | LIKE, = | 
+| Real-Time Report | city | String | LIKE, = | 
+| Real-Time Report | cityId | String | LIKE, = | 
+| Real-Time Report | country | String | LIKE, = | 
+| Real-Time Report | countryId | String | LIKE, = | 
+| Real-Time Report | deviceCategory | String | LIKE, = | 
+| Real-Time Report | eventName | String | LIKE, = | 
+| Real-Time Report | minutesAgo | String | LIKE, = | 
+| Real-Time Report | platform | String | LIKE, = | 
+| Real-Time Report | streamId | String | LIKE, = | 
+| Real-Time Report | streamName | String | LIKE, = | 
+| Real-Time Report | unifiedScreenName | String | LIKE, = | 
+| Real-Time Report | activeUsers | String | >, <, >=, <=, = BETWEEN | 
+| Real-Time Report | conversions | String | >, <, >=, <=, = BETWEEN | 
+| Real-Time Report | eventCount | String | >, <, >=, <=, = BETWEEN | 
+| Real-Time Report | screenPageViews | String | >, <, >=, <=, = BETWEEN | 
 
+ **Partitioning queries** 
 
-     For date, we accept the Spark date format used in Spark SQL queries.
-     Example of valid values: `"2024-02-06"`.
-    * `UPPER_BOUND`: an exclusive upper bound value of the chosen partition field.
-    * `NUM_PARTITIONS`: number of partitions.
+1.  **Filter-based partition** 
 
-**Example**
+    Additional spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`, `NUM_PARTITIONS` can be provided if you want to utilize concurrency in Spark. With these parameters, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by spark tasks concurrently. 
+   +  `PARTITION_FIELD`: the name of the field to be used to partition query. 
+   +  `LOWER_BOUND`: an inclusive lower bound value of the chosen partition field. 
 
-```
-googleAnalytics4_read = glueContext.create_dynamic_frame.from_options(
-    connection_type="GoogleAnalytics4",
-    connection_options={
-        "connectionName": "connectionName",
-        "ENTITY_NAME": "entityName",
-        "API_VERSION": "v1beta",
-        "PARTITION_FIELD": "date"
-        "LOWER_BOUND": "2022-01-01"
-        "UPPER_BOUND": "2024-01-02"
-        "NUM_PARTITIONS": "10"
-    }
-```
+      For date, we accept the Spark date format used in Spark SQL queries. Example of valid values: `"2024-02-06"`. 
+   +  `UPPER_BOUND`: an exclusive upper bound value of the chosen partition field. 
+   +  `NUM_PARTITIONS`: number of partitions. 
 
-2. **Record-based partition**
+    **Example** 
 
-Additional spark options `NUM_PARTITIONS` can be provided if you want to utilize concurrency in Spark.
-With these parameters, the original query would be split into `NUM_PARTITIONS` number of sub-queries
-that can be executed by spark tasks concurrently.
+   ```
+   googleAnalytics4_read = glueContext.create_dynamic_frame.from_options(
+       connection_type="GoogleAnalytics4",
+       connection_options={
+           "connectionName": "connectionName",
+           "ENTITY_NAME": "entityName",
+           "API_VERSION": "v1beta",
+           "PARTITION_FIELD": "date"
+           "LOWER_BOUND": "2022-01-01"
+           "UPPER_BOUND": "2024-01-02"
+           "NUM_PARTITIONS": "10"
+       }
+   ```
 
-    * `NUM_PARTITIONS`: number of partitions.
+1.  **Record-based partition** 
 
-**Example**
+    Additional spark options `NUM_PARTITIONS` can be provided if you want to utilize concurrency in Spark. With these parameters, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by spark tasks concurrently. 
+   +  `NUM_PARTITIONS`: number of partitions. 
 
-```
-googleAnalytics4_read = glueContext.create_dynamic_frame.from_options(
-    connection_type="GoogleAnalytics4",
-    connection_options={
-        "connectionName": "connectionName",
-        "ENTITY_NAME": "entityName",
-        "API_VERSION": "v1beta",
-        "NUM_PARTITIONS": "10"
-    }
-```
+    **Example** 
+
+   ```
+   googleAnalytics4_read = glueContext.create_dynamic_frame.from_options(
+       connection_type="GoogleAnalytics4",
+       connection_options={
+           "connectionName": "connectionName",
+           "ENTITY_NAME": "entityName",
+           "API_VERSION": "v1beta",
+           "NUM_PARTITIONS": "10"
+       }
+   ```

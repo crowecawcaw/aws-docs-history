@@ -1,8 +1,12 @@
-# EvaluateDataQuality class
 
-|                                                                                    |
-| ---------------------------------------------------------------------------------- |
-| AWS Glue Data Quality is in preview release for AWS Glue and is subject to change. |
+
+# EvaluateDataQuality class
+<a name="glue-etl-scala-apis-glue-dq-EvaluateDataQuality"></a>
+
+
+|  | 
+| --- |
+|  AWS Glue Data Quality is in preview release for AWS Glue and is subject to change.  | 
 
 **Package: com.amazonaws.services.glue.dq**
 
@@ -11,6 +15,7 @@ object EvaluateDataQuality
 ```
 
 ## Def apply
+<a name="glue-etl-scala-apis-glue-dq-EvaluateDataQuality-defs-apply"></a>
 
 ```
 def apply(frame: DynamicFrame,
@@ -18,51 +23,27 @@ def apply(frame: DynamicFrame,
             publishingOptions: JsonOptions = JsonOptions.empty): DynamicFrame
 ```
 
-Evaluates a data quality ruleset against a `DynamicFrame`, and returns a new
-`DynamicFrame` with results of the evaluation. To learn more about AWS Glue Data Quality, see
-[AWS Glue Data Quality](glue-data-quality.md "glue-data-quality.md").
-
-- `frame` – The `DynamicFrame` that you want to evaluate the
-  data quality of.
-- `ruleset` – A Data Quality Definition Language (DQDL) ruleset in
-  string format. To learn more about DQDL, see the [Data Quality Definition Language (DQDL) reference](dqdl.md "dqdl.md") guide.
-- `publishingOptions` – A dictionary that specifies the following
-  options for publishing evaluation results and metrics:
-
-  - `dataQualityEvaluationContext` – A string that specifies the
-    namespace under which AWS Glue should publish Amazon CloudWatch metrics and the
-    data quality results. The aggregated metrics appear in CloudWatch, while the full results
-    appear in the AWS Glue Studio interface.
-
-    - Required: No
-    - Default value: `default_context`
-
-  - `enableDataQualityCloudWatchMetrics` – Specifies whether the
-    results of the data quality evaluation should be published to CloudWatch. You specify a
-    namespace for the metrics using the `dataQualityEvaluationContext`
-    option.
-
-    - Required: No
-    - Default value: False
-
-  - `enableDataQualityResultsPublishing` – Specifies whether the data
-    quality results should be visible on the **Data Quality** tab in the
-    AWS Glue Studio interface.
-
-    - Required: No
-    - Default value: True
-
-  - `resultsS3Prefix` – Specifies the Amazon S3 location
-    where AWS Glue can write the data quality evaluation results.
-
-    - Required: No
-    - Default value: "" (empty string)
+Evaluates a data quality ruleset against a `DynamicFrame`, and returns a new `DynamicFrame` with results of the evaluation. To learn more about AWS Glue Data Quality, see [AWS Glue Data Quality](glue-data-quality.md).
++ `frame` – The `DynamicFrame` that you want to evaluate the data quality of.
++ `ruleset` – A Data Quality Definition Language (DQDL) ruleset in string format. To learn more about DQDL, see the [Data Quality Definition Language (DQDL) reference](dqdl.md) guide.
++ `publishingOptions` – A dictionary that specifies the following options for publishing evaluation results and metrics:
+  + `dataQualityEvaluationContext` – A string that specifies the namespace under which AWS Glue should publish Amazon CloudWatch metrics and the data quality results. The aggregated metrics appear in CloudWatch, while the full results appear in the AWS Glue Studio interface.
+    + Required: No
+    + Default value: `default_context`
+  + `enableDataQualityCloudWatchMetrics` – Specifies whether the results of the data quality evaluation should be published to CloudWatch. You specify a namespace for the metrics using the `dataQualityEvaluationContext` option.
+    + Required: No
+    + Default value: False
+  + `enableDataQualityResultsPublishing` – Specifies whether the data quality results should be visible on the **Data Quality** tab in the AWS Glue Studio interface.
+    + Required: No
+    + Default value: True
+  + `resultsS3Prefix` – Specifies the Amazon S3 location where AWS Glue can write the data quality evaluation results.
+    + Required: No
+    + Default value: "" (empty string)
 
 ## Example
+<a name="glue-etl-scala-apis-glue-dq-EvaluateDataQuality-example"></a>
 
-The following example code demonstrates how to evaluate data quality for a
-`DynamicFrame` before performing a `SelectFields` transform. The
-script verifies that all data quality rules pass before it attempts the transform.
+The following example code demonstrates how to evaluate data quality for a `DynamicFrame` before performing a `SelectFields` transform. The script verifies that all data quality rules pass before it attempts the transform.
 
 ```
 import com.amazonaws.services.glue.GlueContext
@@ -82,7 +63,7 @@ object GlueApp {
     // @params: [JOB_NAME]
     val args = GlueArgParser.getResolvedOptions(sysArgs, Seq("JOB_NAME").toArray)
     Job.init(args("JOB_NAME"), glueContext, args.asJava)
-
+    
     // Create DynamicFrame with data
     val Legislators_Area = glueContext.getCatalogSource(database="legislators", tableName="areas_json", transformationContext="S3bucket_node1").getDynamicFrame()
 

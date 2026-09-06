@@ -1,38 +1,28 @@
+
+
 # Amazon DocumentDB connections
+<a name="aws-glue-programming-etl-connect-documentdb-home"></a>
 
-You can use AWS Glue for Spark to read from and write to tables in Amazon DocumentDB. You can connect to Amazon DocumentDB using
-credentials stored in AWS Secrets Manager through a AWS Glue connection.
+You can use AWS Glue for Spark to read from and write to tables in Amazon DocumentDB. You can connect to Amazon DocumentDB using credentials stored in AWS Secrets Manager through a AWS Glue connection.
 
-For more information about Amazon DocumentDB, consult the [Amazon DocumentDB documentation](../../../documentdb/latest/developerguide/what-is.md "../../../documentdb/latest/developerguide/what-is.md").
+For more information about Amazon DocumentDB, consult the [Amazon DocumentDB documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/what-is.html).
 
-###### Note
-
-Amazon DocumentDB elastic clusters are not currently supported when using the AWS Glue connector. For more information
-about elastic clusters, see [Using Amazon DocumentDB elastic
-clusters](../../../documentdb/latest/developerguide/docdb-using-elastic-clusters.md "../../../documentdb/latest/developerguide/docdb-using-elastic-clusters.md").
+**Note**  
+Amazon DocumentDB elastic clusters are not currently supported when using the AWS Glue connector. For more information about elastic clusters, see [Using Amazon DocumentDB elastic clusters](https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-using-elastic-clusters.html).
 
 ## Reading and writing to Amazon DocumentDB collections
+<a name="aws-glue-programming-etl-connect-documentdb-read-write"></a>
 
-###### Note
+**Note**  
+When you create an ETL job that connects to Amazon DocumentDB, for the `Connections` job property, you must designate a connection object that specifies the virtual private cloud (VPC) in which Amazon DocumentDB is running. For the connection object, the connection type must be `JDBC`, and the `JDBC URL` must be `mongo://{{<DocumentDB_host>}}:27017`.
 
-When you create an ETL job that connects to Amazon DocumentDB, for the `Connections`
-job property, you must designate a connection object that specifies the virtual private
-cloud (VPC) in which Amazon DocumentDB is running. For the connection object, the connection type
-must be `JDBC`, and the `JDBC URL` must be
-`mongo://`<DocumentDB_host>`:27017`.
+**Note**  
+These code samples were developed for AWS Glue 3.0. To migrate to AWS Glue 4.0, consult [MongoDB](migrating-version-40.md#migrating-version-40-connector-driver-migration-mongodb). The `uri` parameter has changed.
 
-###### Note
+**Note**  
+When using Amazon DocumentDB, `retryWrites` must be set to false in certain situations, such as when the document written specifies `_id`. For more information, consult [Functional Differences with MongoDB](https://docs.aws.amazon.com/documentdb/latest/developerguide/functional-differences.html#functional-differences.retryable-writes) in the Amazon DocumentDB documentation.
 
-These code samples were developed for AWS Glue 3.0. To migrate to AWS Glue 4.0, consult [MongoDB](migrating-version-40.md#migrating-version-40-connector-driver-migration-mongodb "migrating-version-40.md#migrating-version-40-connector-driver-migration-mongodb"). The `uri` parameter has
-changed.
-
-###### Note
-
-When using Amazon DocumentDB, `retryWrites` must be set to false in certain situations, such as when the document written specifies `_id`. For more
-information, consult [Functional Differences with MongoDB](../../../documentdb/latest/developerguide/functional-differences.md#functional-differences.retryable-writes "../../../documentdb/latest/developerguide/functional-differences.md#functional-differences.retryable-writes") in the Amazon DocumentDB documentation.
-
-The following Python script demonstrates using connection types and connection options
-for reading and writing to Amazon DocumentDB.
+The following Python script demonstrates using connection types and connection options for reading and writing to Amazon DocumentDB.
 
 ```
 import sys
@@ -90,8 +80,7 @@ glueContext.write_dynamic_frame.from_options(dynamic_frame2, connection_type="do
 job.commit()
 ```
 
-The following Scala script demonstrates using connection types and connection options
-for reading and writing to Amazon DocumentDB.
+The following Scala script demonstrates using connection types and connection options for reading and writing to Amazon DocumentDB.
 
 ```
 import com.amazonaws.services.glue.GlueContext
@@ -141,71 +130,50 @@ object GlueApp {
 ```
 
 ## Amazon DocumentDB connection option reference
+<a name="aws-glue-programming-etl-connect-documentdb"></a>
 
-Designates a connection to Amazon DocumentDB (with MongoDB compatibility).
+Designates a connection to Amazon DocumentDB (with MongoDB compatibility). 
 
 Connection options differ for a source connection and a sink connection.
 
 ### "connectionType": "Documentdb" as source
+<a name="etl-connect-documentdb-as-source"></a>
 
-Use the following connection options with `"connectionType": "documentdb"` as
-a source:
+Use the following connection options with `"connectionType": "documentdb"` as a source:
++ `"uri"`: (Required) The Amazon DocumentDB host to read from, formatted as `mongodb://<host>:<port>`.
++ `"database"`: (Required) The Amazon DocumentDB database to read from.
++ `"collection"`: (Required) The Amazon DocumentDB collection to read from.
++ `"username"`: (Required) The Amazon DocumentDB user name.
++ `"password"`: (Required) The Amazon DocumentDB password.
++ `"ssl"`: (Required if using SSL) If your connection uses SSL, then you must include this option with the value `"true"`.
++ `"ssl.domain_match"`: (Required if using SSL) If your connection uses SSL, then you must include this option with the value `"false"`.
++ `"batchSize"`: (Optional): The number of documents to return per batch, used within the cursor of internal batches.
++ `"partitioner"`: (Optional): The class name of the partitioner for reading input data from Amazon DocumentDB. The connector provides the following partitioners:
+  + `MongoDefaultPartitioner` (default) (Not supported in AWS Glue 4.0)
+  + `MongoSamplePartitioner` (Not supported in AWS Glue 4.0)
+  + `MongoShardedPartitioner`
+  + `MongoSplitVectorPartitioner`
+  + `MongoPaginateByCountPartitioner`
+  + `MongoPaginateBySizePartitioner` (Not supported in AWS Glue 4.0)
++ `"partitionerOptions"` (Optional): Options for the designated partitioner. The following options are supported for each partitioner:
+  + `MongoSamplePartitioner`: `partitionKey`, `partitionSizeMB`, `samplesPerPartition`
+  + `MongoShardedPartitioner`: `shardkey`
+  + `MongoSplitVectorPartitioner`: `partitionKey`, partitionSizeMB
+  + `MongoPaginateByCountPartitioner`: `partitionKey`, `numberOfPartitions`
+  + `MongoPaginateBySizePartitioner`: `partitionKey`, partitionSizeMB
 
-- `"uri"`: (Required) The Amazon DocumentDB host to read from, formatted as
-  `mongodb://<host>:<port>`.
-- `"database"`: (Required) The Amazon DocumentDB database to read from.
-- `"collection"`: (Required) The Amazon DocumentDB collection to read from.
-- `"username"`: (Required) The Amazon DocumentDB user name.
-- `"password"`: (Required) The Amazon DocumentDB password.
-- `"ssl"`: (Required if using SSL) If your connection uses SSL, then you
-  must include this option with the value `"true"`.
-- `"ssl.domain_match"`: (Required if using SSL) If your connection uses
-  SSL, then you must include this option with the value `"false"`.
-- `"batchSize"`: (Optional): The number of documents to return per batch,
-  used within the cursor of internal batches.
-- `"partitioner"`: (Optional): The class name of the partitioner for
-  reading input data from Amazon DocumentDB. The connector provides the following
-  partitioners:
-
-  - `MongoDefaultPartitioner` (default) (Not supported in AWS Glue 4.0)
-  - `MongoSamplePartitioner` (Not supported in AWS Glue 4.0)
-  - `MongoShardedPartitioner`
-  - `MongoSplitVectorPartitioner`
-  - `MongoPaginateByCountPartitioner`
-  - `MongoPaginateBySizePartitioner` (Not supported in AWS Glue 4.0)
-
-- `"partitionerOptions"` (Optional): Options for the designated
-  partitioner. The following options are supported for each partitioner:
-
-  - `MongoSamplePartitioner`: `partitionKey`,
-    `partitionSizeMB`, `samplesPerPartition`
-  - `MongoShardedPartitioner`: `shardkey`
-  - `MongoSplitVectorPartitioner`: `partitionKey`,
-    partitionSizeMB
-  - `MongoPaginateByCountPartitioner`: `partitionKey`,
-    `numberOfPartitions`
-  - `MongoPaginateBySizePartitioner`: `partitionKey`,
-    partitionSizeMB
-    For more information about these options, see [Partitioner Configuration](https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf "https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf") in the MongoDB documentation.
+  For more information about these options, see [Partitioner Configuration](https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf) in the MongoDB documentation.
 
 ### "connectionType": "Documentdb" as sink
+<a name="etl-connect-documentdb-as-sink"></a>
 
-Use the following connection options with `"connectionType": "documentdb"` as
-a sink:
-
-- `"uri"`: (Required) The Amazon DocumentDB host to write to, formatted as
-  `mongodb://<host>:<port>`.
-- `"database"`: (Required) The Amazon DocumentDB database to write to.
-- `"collection"`: (Required) The Amazon DocumentDB collection to write to.
-- `"username"`: (Required) The Amazon DocumentDB user name.
-- `"password"`: (Required) The Amazon DocumentDB password.
-- `"extendedBsonTypes"`: (Optional) If `true`, allows extended
-  BSON types when writing data to Amazon DocumentDB. The default is `true`.
-- `"replaceDocument"`: (Optional) If `true`, replaces the whole
-  document when saving datasets that contain an `_id` field. If
-  `false`, only fields in the document that match the fields in the dataset
-  are updated. The default is `true`.
-- `"maxBatchSize"`: (Optional): The maximum batch size for bulk operations
-  when saving data. The default is 512.
-- `"retryWrites"`: (Optional): Automatically retry certain write operations a single
-  time if AWS Glue encounters a network error.
+Use the following connection options with `"connectionType": "documentdb"` as a sink:
++ `"uri"`: (Required) The Amazon DocumentDB host to write to, formatted as `mongodb://<host>:<port>`.
++ `"database"`: (Required) The Amazon DocumentDB database to write to.
++ `"collection"`: (Required) The Amazon DocumentDB collection to write to.
++ `"username"`: (Required) The Amazon DocumentDB user name.
++ `"password"`: (Required) The Amazon DocumentDB password.
++ `"extendedBsonTypes"`: (Optional) If `true`, allows extended BSON types when writing data to Amazon DocumentDB. The default is `true`.
++ `"replaceDocument"`: (Optional) If `true`, replaces the whole document when saving datasets that contain an `_id` field. If `false`, only fields in the document that match the fields in the dataset are updated. The default is `true`.
++ `"maxBatchSize"`: (Optional): The maximum batch size for bulk operations when saving data. The default is 512.
++ `"retryWrites"`: (Optional): Automatically retry certain write operations a single time if AWS Glue encounters a network error.

@@ -1,12 +1,16 @@
+
+
 # AWS Glue Scala ScalarNode APIs
+<a name="glue-etl-scala-apis-glue-types-scalarnode"></a>
 
-###### Topics
+**Topics**
++ [ScalarNode class](#glue-etl-scala-apis-glue-types-scalarnode-class)
++ [ScalarNode object](#glue-etl-scala-apis-glue-types-scalarnode-object)
 
-- [ScalarNode class](#glue-etl-scala-apis-glue-types-scalarnode-class "#glue-etl-scala-apis-glue-types-scalarnode-class")
-- [ScalarNode object](#glue-etl-scala-apis-glue-types-scalarnode-object "#glue-etl-scala-apis-glue-types-scalarnode-object")
-  **Package: com.amazonaws.services.glue.types**
+**Package: com.amazonaws.services.glue.types**
 
 ## ScalarNode class
+<a name="glue-etl-scala-apis-glue-types-scalarnode-class"></a>
 
 **ScalarNode**
 
@@ -17,6 +21,7 @@ class ScalarNode extends DynamicNode  (
 ```
 
 ### ScalarNode def methods
+<a name="glue-etl-scala-apis-glue-types-scalarnode-class-defs"></a>
 
 ```
 def compare( other : Any,
@@ -29,7 +34,7 @@ def getValue
 ```
 
 ```
-def hashCode : Int
+def hashCode : Int 
 ```
 
 ```
@@ -41,17 +46,19 @@ def toJson
 ```
 
 ## ScalarNode object
+<a name="glue-etl-scala-apis-glue-types-scalarnode-object"></a>
 
-**ScalarNode**
+ **ScalarNode**
 
 ```
 object ScalarNode
 ```
 
 ### ScalarNode def methods
+<a name="glue-etl-scala-apis-glue-types-scalarnode-object-defs"></a>
 
 ```
-def apply( v : Any ) : DynamicNode
+def apply( v : Any ) : DynamicNode 
 ```
 
 ```
@@ -68,5 +75,5 @@ def compareAny( v : Any,
 ```
 
 ```
-def withEscapedSpecialCharacters( jsonToEscape : String ) : String
+def withEscapedSpecialCharacters( jsonToEscape : String ) : String 
 ```

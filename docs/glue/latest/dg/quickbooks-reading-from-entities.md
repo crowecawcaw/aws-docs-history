@@ -1,4 +1,7 @@
+
+
 # Reading from QuickBooks entities
+<a name="quickbooks-reading-from-entities"></a>
 
 **Prerequisite**
 
@@ -6,21 +9,22 @@ A QuickBooks object you would like to read from.
 
 **Supported entities for source**:
 
-| Entity          | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning |
-| --------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Account         | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Bill            | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Company Info    | No              | No             | No                | Yes                | No                    |
-| Customer        | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Employee        | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Estimate        | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Invoice         | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Item            | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Payment         | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Preferences     | No              | No             | No                | Yes                | No                    |
-| Profit and Loss | Yes             | No             | No                | Yes                | No                    |
-| Tax Agency      | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Vendors         | Yes             | Yes            | Yes               | Yes                | Yes                   |
+
+| Entity | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| Account | Yes | Yes | Yes | Yes | Yes | 
+| Bill | Yes | Yes | Yes | Yes | Yes | 
+| Company Info | No | No | No | Yes | No | 
+| Customer | Yes | Yes | Yes | Yes | Yes | 
+| Employee | Yes | Yes | Yes | Yes | Yes | 
+| Estimate | Yes | Yes | Yes | Yes | Yes | 
+| Invoice | Yes | Yes | Yes | Yes | Yes | 
+| Item | Yes | Yes | Yes | Yes | Yes | 
+| Payment | Yes | Yes | Yes | Yes | Yes | 
+| Preferences | No | No | No | Yes | No | 
+| Profit and Loss | Yes | No | No | Yes | No | 
+| Tax Agency | Yes | Yes | Yes | Yes | Yes | 
+| Vendors | Yes | Yes | Yes | Yes | Yes | 
 
 **Example**:
 
@@ -37,47 +41,40 @@ QuickBooks_read = glueContext.create_dynamic_frame.from_options(
 **QuickBooks entity and field details**:
 
 For more information about the entities and field details see:
-
-- [Account](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/account "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/account")
-- [Bill](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/bill "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/bill")
-- [CompanyInfo](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/companyinfo "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/companyinfo")
-- [Customer](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/customer "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/customer")
-- [Employee](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/employee "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/employee")
-- [Estimate](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/estimate "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/estimate")
-- [Invoice](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/invoice "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/invoice")
-- [Item](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/item "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/item")
-- [Payment](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/payment "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/payment")
-- [Preferences](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/preferences "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/preferences")
-- [ProfitAndLoss](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/profitandloss "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/profitandloss")
-- [TaxAgency](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/taxagency "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/taxagency")
-- [Vendor](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/vendor "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/vendor")
++ [Account](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/account)
++ [Bill](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/bill)
++ [CompanyInfo](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/companyinfo)
++ [Customer](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/customer)
++ [Employee](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/employee)
++ [Estimate](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/estimate)
++ [Invoice](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/invoice)
++ [Item](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/item)
++ [Payment](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/payment)
++ [Preferences](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/preferences)
++ [ProfitAndLoss](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/profitandloss)
++ [TaxAgency](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/taxagency)
++ [Vendor](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/vendor)
 
 ## Partitioning queries
+<a name="quickbooks-reading-partitioning-queries"></a>
 
 **Field-based partitioning**:
 
 In QuickBooks, the Integer and DateTime datatype fields support field-based partitioning.
 
-You can provide the additional Spark options `PARTITION_FIELD`,
-`LOWER_BOUND`, `UPPER_BOUND`, and
-`NUM_PARTITIONS` if you want to utilize concurrency in Spark. With
-these parameters, the original query would be split into `NUM_PARTITIONS`
-number of sub-queries that can be executed by Spark tasks
-concurrently.
+You can provide the additional Spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`, and `NUM_PARTITIONS` if you want to utilize concurrency in Spark. With these parameters, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by Spark tasks concurrently.
++ `PARTITION_FIELD`: the name of the field to be used to partition the query.
++ `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field.
 
-- `PARTITION_FIELD`: the name of the field to be used to partition the query.
-- `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field.
+  For the Datetime field, we accept the Spark timestamp format used in Spark SQL queries.
 
-For the Datetime field, we accept the Spark timestamp format used in Spark SQL queries.
+  Examples of valid value:
 
-Examples of valid value:
-
-```
-"2024-05-07T02:03:00.00Z"
-```
-
-- `UPPER_BOUND`: an **exclusive** upper bound value of the chosen partition field.
-- `NUM_PARTITIONS`: the number of partitions.
+  ```
+  "2024-05-07T02:03:00.00Z"
+  ```
++ `UPPER_BOUND`: an **exclusive** upper bound value of the chosen partition field.
++ `NUM_PARTITIONS`: the number of partitions.
 
 Example:
 
@@ -99,8 +96,7 @@ QuickBooks_read = glueContext.create_dynamic_frame.from_options(
 **Record-based partitioning**:
 
 The original query is splitinto `NUM_PARTITIONS` number of sub-queries that can be executed by Spark tasks concurrently:
-
-- `NUM_PARTITIONS`: the number of partitions.
++ `NUM_PARTITIONS`: the number of partitions.
 
 Example:
 

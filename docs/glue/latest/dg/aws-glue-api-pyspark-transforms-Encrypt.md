@@ -1,11 +1,12 @@
-# Encrypt class
 
-The `Encrypt` transform encrypts source columns using the AWS Key Management Service key.
-The `Encrypt` transform can encrypt up to 128 MiB per cell. It will attempt to preserve the format on decryption.
-To preserve the data type, the data type metadata must serialize to less than 1KB. Otherwise, you must set the
-`preserve_data_type` parameter to false. The data type metadata will be stored in plaintext in the encryption context.
+
+# Encrypt class
+<a name="aws-glue-api-pyspark-transforms-Encrypt"></a>
+
+ The `Encrypt` transform encrypts source columns using the AWS Key Management Service key. The `Encrypt` transform can encrypt up to 128 MiB per cell. It will attempt to preserve the format on decryption. To preserve the data type, the data type metadata must serialize to less than 1KB. Otherwise, you must set the `preserve_data_type` parameter to false. The data type metadata will be stored in plaintext in the encryption context. 
 
 ## Example
+<a name="pyspark-Encrypt-examples"></a>
 
 ```
 from pyspark.context import SparkContext
@@ -42,18 +43,15 @@ try:
 except:
     print("Unexpected Error happened ")
     raise
-
 ```
 
 ## Output
+<a name="pyspark-Encrypt-output"></a>
 
-The output will be a PySpark DataFrame with the original `id` column and an additional column containing
-the encrypted values of the `phone` column.
-
-```
+ The output will be a PySpark DataFrame with the original `id` column and an additional column containing the encrypted values of the `phone` column. 
 
 ```
-
+```
 +---+------------+-------------------------+
 | id| phone | phone_encrypted |
 +---+------------+-------------------------+
@@ -68,69 +66,62 @@ the encrypted values of the `phone` column.
 | 9| 1234560008| EncryptedData3456...yz0 |
 | 10| 1234560009| EncryptedData7890...123 |
 +---+------------+-------------------------+
-
+```
 ```
 
-```
-
-The `Encrypt` transform takes the `source\_columns` as `["phone"]` and the `kms\_key\_arn` as the value of the
-`${KMS}` environment variable. The transformation encrypts the values in the `phone` column using the specified KMS key.
-The resulting `df\_encrypt` DataFrame contains the original `id` column, the original `phone` column, and an additional column
-named `phone\_encrypted` containing the encrypted values of the `phone` column.
+ The `Encrypt` transform takes the `source\_columns` as `["phone"]` and the `kms\_key\_arn` as the value of the `${KMS}` environment variable. The transformation encrypts the values in the `phone` column using the specified KMS key. The resulting `df\_encrypt` DataFrame contains the original `id` column, the original `phone` column, and an additional column named `phone\_encrypted` containing the encrypted values of the `phone` column. 
 
 ## Methods
-
-- [\_\_call\_\_](#aws-glue-api-pyspark-transforms-Encrypt-__call__ "#aws-glue-api-pyspark-transforms-Encrypt-__call__")
-- [apply](#aws-glue-api-crawler-pyspark-transforms-Encrypt-apply "#aws-glue-api-crawler-pyspark-transforms-Encrypt-apply")
-- [name](#aws-glue-api-crawler-pyspark-transforms-Encrypt-name "#aws-glue-api-crawler-pyspark-transforms-Encrypt-name")
-- [describeArgs](#aws-glue-api-crawler-pyspark-transforms-Encrypt-describeArgs "#aws-glue-api-crawler-pyspark-transforms-Encrypt-describeArgs")
-- [describeReturn](#aws-glue-api-crawler-pyspark-transforms-Encrypt-describeReturn "#aws-glue-api-crawler-pyspark-transforms-Encrypt-describeReturn")
-- [describeTransform](#aws-glue-api-crawler-pyspark-transforms-Encrypt-describeTransform "#aws-glue-api-crawler-pyspark-transforms-Encrypt-describeTransform")
-- [describeErrors](#aws-glue-api-crawler-pyspark-transforms-Encrypt-describeErrors "#aws-glue-api-crawler-pyspark-transforms-Encrypt-describeErrors")
-- [describe](#aws-glue-api-crawler-pyspark-transforms-Encrypt-describe "#aws-glue-api-crawler-pyspark-transforms-Encrypt-describe")
+<a name="aws-glue-api-pyspark-transforms-Encrypt-_methods"></a>
++ [\_\_call\_\_](#aws-glue-api-pyspark-transforms-Encrypt-__call__)
++ [apply](#aws-glue-api-crawler-pyspark-transforms-Encrypt-apply)
++ [name](#aws-glue-api-crawler-pyspark-transforms-Encrypt-name)
++ [describeArgs](#aws-glue-api-crawler-pyspark-transforms-Encrypt-describeArgs)
++ [describeReturn](#aws-glue-api-crawler-pyspark-transforms-Encrypt-describeReturn)
++ [describeTransform](#aws-glue-api-crawler-pyspark-transforms-Encrypt-describeTransform)
++ [describeErrors](#aws-glue-api-crawler-pyspark-transforms-Encrypt-describeErrors)
++ [describe](#aws-glue-api-crawler-pyspark-transforms-Encrypt-describe)
 
 ## \_\_call\_\_(spark\_context, data\_frame, source\_columns, kms\_key\_arn, entity\_type\_filter=None, preserve\_data\_type=None)
+<a name="aws-glue-api-pyspark-transforms-Encrypt-__call__"></a>
 
-The `Encrypt` transform encrypts source columns using the AWS Key Management Service key.
-
-- `source_columns` – An array of existing columns.
-- `kms_key_arn` – The key ARN of the AWS Key Management Service key to use to Encrypt the source columns.
-- `entity_type_filter` – Optional array of entity types. Can be used to encrypt only detected PII
-  in free-text column.
-- `preserve_data_type` – Optional boolean. Defaults to true. If false, the data type will not
-  be stored.
+ The `Encrypt` transform encrypts source columns using the AWS Key Management Service key. 
++ `source_columns` – An array of existing columns.
++ `kms_key_arn` – The key ARN of the AWS Key Management Service key to use to Encrypt the source columns.
++ `entity_type_filter` – Optional array of entity types. Can be used to encrypt only detected PII in free-text column.
++ `preserve_data_type` – Optional boolean. Defaults to true. If false, the data type will not be stored.
 
 ## apply(cls, \*args, \*\*kwargs)
+<a name="aws-glue-api-crawler-pyspark-transforms-Encrypt-apply"></a>
 
-Inherited from `GlueTransform`
-[apply](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply").
+Inherited from `GlueTransform` [apply](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply).
 
 ## name(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-Encrypt-name"></a>
 
-Inherited from `GlueTransform`
-[name](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name").
+Inherited from `GlueTransform` [name](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name).
 
 ## describeArgs(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-Encrypt-describeArgs"></a>
 
-Inherited from `GlueTransform`
-[describeArgs](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs").
+Inherited from `GlueTransform` [describeArgs](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs).
 
 ## describeReturn(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-Encrypt-describeReturn"></a>
 
-Inherited from `GlueTransform`
-[describeReturn](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn").
+Inherited from `GlueTransform` [describeReturn](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn).
 
 ## describeTransform(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-Encrypt-describeTransform"></a>
 
-Inherited from `GlueTransform`
-[describeTransform](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform").
+Inherited from `GlueTransform` [describeTransform](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform).
 
 ## describeErrors(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-Encrypt-describeErrors"></a>
 
-Inherited from `GlueTransform`
-[describeErrors](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors").
+Inherited from `GlueTransform` [describeErrors](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors).
 
 ## describe(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-Encrypt-describe"></a>
 
-Inherited from `GlueTransform`
-[describe](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe").
+Inherited from `GlueTransform` [describe](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe).

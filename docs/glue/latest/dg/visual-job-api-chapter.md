@@ -1,49 +1,36 @@
+
+
 # AWS Glue Visual Job API
+<a name="visual-job-api-chapter"></a>
 
-AWS Glue provides an API that allows customers to create data integration jobs using the AWS Glue
-API from a JSON object that represents a visual step workflow.
-Customers can then use the visual editor in AWS Glue Studio to work with these jobs.
+ AWS Glue provides an API that allows customers to create data integration jobs using the AWS Glue API from a JSON object that represents a visual step workflow. Customers can then use the visual editor in AWS Glue Studio to work with these jobs. 
 
-For more information on Visual Job API data types, see [Visual Job API](aws-glue-api-visual-job-api.md "aws-glue-api-visual-job-api.md").
+ For more information on Visual Job API data types, see [Visual Job API](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-visual-job-api.html). 
 
-######
-
-Topics
-
-- [API design and CRUD APIs](#visual-job-api-design "#visual-job-api-design")
-- [Getting started](#getting-started-visual-job-api "#getting-started-visual-job-api")
-- [Visual job limitations](#visual-job-limitations "#visual-job-limitations")
+**Topics**
++ [API design and CRUD APIs](#visual-job-api-design)
++ [Getting started](#getting-started-visual-job-api)
++ [Visual job limitations](#visual-job-limitations)
 
 ## API design and CRUD APIs
+<a name="visual-job-api-design"></a>
 
-The CreateJob and UpdateJob
-[APIs](aws-glue-api-jobs-job.md "aws-glue-api-jobs-job.md")
-now support an additional optional parameter, codeGenConfigurationNodes.
-Providing a non-empty JSON structure for this field will result in the DAG being registered in AWS Glue Studio
-for the created job
-and the associated code being generated. A null value or empty string for this field on job create will be ignored.
+ The CreateJob and UpdateJob [ APIs ](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html) now support an additional optional parameter, codeGenConfigurationNodes. Providing a non-empty JSON structure for this field will result in the DAG being registered in AWS Glue Studio for the created job and the associated code being generated. A null value or empty string for this field on job create will be ignored. 
 
-Updates to the codeGenConfigurationNodes field will be done through the UpdateJob AWS Glue API in
-a similar way as CreateJob. The entire field should be specified in UpdateJob where the DAG has been changed as desired.
-A null value provided will be ignored and no update to the DAG would be performed. An empty structure or string will cause
-the codeGenConfigurationNodes to be set as empty and any previous DAG removed. The GetJob API will return a DAG if
-one exists.
-The DeleteJob API will also delete any associated DAG.
+ Updates to the codeGenConfigurationNodes field will be done through the UpdateJob AWS Glue API in a similar way as CreateJob. The entire field should be specified in UpdateJob where the DAG has been changed as desired. A null value provided will be ignored and no update to the DAG would be performed. An empty structure or string will cause the codeGenConfigurationNodes to be set as empty and any previous DAG removed. The GetJob API will return a DAG if one exists. The DeleteJob API will also delete any associated DAG. 
 
 ## Getting started
+<a name="getting-started-visual-job-api"></a>
 
-To create a job, use the
-[CreateJob action](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-CreateJob "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-CreateJob") . The `CreateJob` request input will have an additional field
-‘codeGenConfigurationNodes’ where you can get specify the DAG object in JSON.
+ To create a job, use the [ CreateJob action ](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-CreateJob). The `CreateJob` request input will have an additional field ‘codeGenConfigurationNodes’ where you can get specify the DAG object in JSON. 
 
-Things to keep in mind:
+ Things to keep in mind: 
++  The ‘codeGenConfigurationNodes’ field is a map of nodeId to node. 
++  Each node begins with a key identifying what kind of node it is. 
++  There can only be one key specified since a node can only be of one type. 
++  The input field contains the parent nodes of the current node. 
 
-- The ‘codeGenConfigurationNodes’ field is a map of nodeId to node.
-- Each node begins with a key identifying what kind of node it is.
-- There can only be one key specified since a node can only be of one type.
-- The input field contains the parent nodes of the current node.
-
-The following is a JSON representation of a **CreateJob** input.
+ The following is a JSON representation of a **CreateJob** input. 
 
 ```
 {
@@ -97,21 +84,15 @@ The following is a JSON representation of a **CreateJob** input.
     }
   }
 }
-
 ```
 
-**Updating and getting jobs**
+ ** Updating and getting jobs ** 
 
-Since _UpdateJob_ will also have a ‘codeGenConfigurationNodes’ field, the input format will
-be the same. See
-[UpdateJob](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-UpdateJob "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-UpdateJob") Action.
+ Since *UpdateJob* will also have a ‘codeGenConfigurationNodes’ field, the input format will be the same. See [ UpdateJob ](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-UpdateJob) Action. 
 
-The _GetJob_ action will return a ‘codeGenConfigurationNodes’ field in the same format as well. See
-[GetJob](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-GetJob "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-GetJob") Action.
+ The *GetJob* action will return a ‘codeGenConfigurationNodes’ field in the same format as well. See [ GetJob ](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-GetJob) Action. 
 
 ## Visual job limitations
+<a name="visual-job-limitations"></a>
 
-Since the ‘codeGenConfigurationNodes’ parameter has been added to existing APIs, any limitations in those APIs
-will be inherited. In addition, the codeGenConfigurationNodes and some nodes will be limited in size.
-See
-[Job Structure](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-Job "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-Job") for more information.
+ Since the ‘codeGenConfigurationNodes’ parameter has been added to existing APIs, any limitations in those APIs will be inherited. In addition, the codeGenConfigurationNodes and some nodes will be limited in size. See [ Job Structure ](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job) for more information. 

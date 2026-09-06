@@ -1,20 +1,21 @@
+
+
 # Setting up alerts, deployments, and scheduling
+<a name="data-quality-alerts"></a>
 
 This topic describes how to set up alerts, deployments, and scheduling for AWS Glue Data Quality.
 
-###### Contents
-
-- [Setting up alerts and notifications in Amazon EventBridge integration](data-quality-alerts.md#data-quality-alerts-eventbridge "data-quality-alerts.md#data-quality-alerts-eventbridge")
-
-  - [Additional configuration options for the event pattern](data-quality-alerts.md#data-quality-alerts-eventbridge-config-options "data-quality-alerts.md#data-quality-alerts-eventbridge-config-options")
-  - [Formatting notifications as emails](data-quality-alerts.md#data-quality-alerts-eventbridge-format-notifications "data-quality-alerts.md#data-quality-alerts-eventbridge-format-notifications")
-
-- [Set up alerts and notifications in CloudWatch integration](data-quality-alerts.md#data-quality-alerts-cloudwatch "data-quality-alerts.md#data-quality-alerts-cloudwatch")
-- [Querying data quality results to build dashboards](data-quality-alerts.md#data-quality-alerts-querying-results "data-quality-alerts.md#data-quality-alerts-querying-results")
-- [Deploying data quality rules using AWS CloudFormation](data-quality-alerts.md#data-quality-deploy-cfn "data-quality-alerts.md#data-quality-deploy-cfn")
-- [Scheduling data quality rules](data-quality-alerts.md#data-quality-scheduling-rules "data-quality-alerts.md#data-quality-scheduling-rules")
+**Contents**
++ [Setting up alerts and notifications in Amazon EventBridge integration](#data-quality-alerts-eventbridge)
+  + [Additional configuration options for the event pattern](#data-quality-alerts-eventbridge-config-options)
+  + [Formatting notifications as emails](#data-quality-alerts-eventbridge-format-notifications)
++ [Set up alerts and notifications in CloudWatch integration](#data-quality-alerts-cloudwatch)
++ [Querying data quality results to build dashboards](#data-quality-alerts-querying-results)
++ [Deploying data quality rules using AWS CloudFormation](#data-quality-deploy-cfn)
++ [Scheduling data quality rules](#data-quality-scheduling-rules)
 
 ## Setting up alerts and notifications in Amazon EventBridge integration
+<a name="data-quality-alerts-eventbridge"></a>
 
 AWS Glue Data Quality supports the publishing of EventBridge events, which are emitted upon completion of a Data Quality ruleset evaluation run. With this, you can easily setup alerts when data quality rules fail.
 
@@ -66,7 +67,7 @@ Here is a sample event that gets published when you evaluate data quality rulese
                     "contextType": "GLUE_JOB",
                     "jobId": "jr-12334567890",
                     "jobName": "dq-eval-job-1234",
-                    "evaluationContext": "",
+                    "evaluationContext": "", 
                     }
         "resultID": "dqresult-12334567890",
         "rulesetNames": ["rulset1"],
@@ -83,52 +84,69 @@ For Data Quality evaluation runs both in the Data Catalog and in ETL jobs, the *
 
 **Setting up EventBridge notifications**
 
-![Data quality properties in AWS CloudFormation](images/data-quality-properties-cfn.png)
+![Data quality properties in AWS CloudFormation](http://docs.aws.amazon.com/glue/latest/dg/images/data-quality-properties-cfn.png)
+
 
 To receive the emitted events and define targets, you must configure Amazon EventBridge rules. To create rules:
 
 1. Open the Amazon EventBridge console.
-2. Choose **Rules** under the **Buses** section of the navigation bar.
-3. Choose **Create Rule**.
-4. On **Define Rule Detail**:
+
+1. Choose **Rules** under the **Buses** section of the navigation bar.
+
+1. Choose **Create Rule**.
+
+1. On **Define Rule Detail**:
 
    1. For Name, enter `myDQRule`.
-   2. Enter the description (optional).
-   3. For event bus, select your event bus. If you don’t have one, leave it as default.
-   4. For Rule type select **Rule with an event pattern** then choose **Next**.
 
-5. On **Build Event Pattern**:
+   1. Enter the description (optional).
+
+   1. For event bus, select your event bus. If you don’t have one, leave it as default.
+
+   1. For Rule type select **Rule with an event pattern** then choose **Next**.
+
+1. On **Build Event Pattern**: 
 
    1. For event source select **AWS events or EventBridge partner events**.
-   2. Skip the sample event section.
-   3. For creation method select **Use pattern form**.
-   4. For event pattern:
+
+   1. Skip the sample event section.
+
+   1. For creation method select **Use pattern form**.
+
+   1. For event pattern:
 
       1. Select **AWS services** for Event source.
-      2. Select **Glue Data Quality** for AWS service.
-      3. Select **Data Quality Evaluation Results Available** for Event type.
-      4. Select **FAILED** for Specific state(s). Then you see an event pattern similar to the following:
 
-      ```
-      {
-        "source": ["aws.glue-dataquality"],
-        "detail-type": ["Data Quality Evaluation Results Available"],
-        "detail": {
-          "state": ["FAILED"]
-        }
-      }
-      ```
-      5. For more configuration options see [Additional configuration options for the event pattern](#data-quality-alerts-eventbridge-config-options "#data-quality-alerts-eventbridge-config-options").
+      1. Select **Glue Data Quality** for AWS service.
 
-6. On **Select Target(s)**:
+      1. Select **Data Quality Evaluation Results Available** for Event type.
+
+      1. Select **FAILED** for Specific state(s). Then you see an event pattern similar to the following:
+
+         ```
+         {
+           "source": ["aws.glue-dataquality"],
+           "detail-type": ["Data Quality Evaluation Results Available"],
+           "detail": {
+             "state": ["FAILED"]
+           }
+         }
+         ```
+
+      1. For more configuration options see [Additional configuration options for the event pattern](#data-quality-alerts-eventbridge-config-options).
+
+1. On **Select Target(s)**:
 
    1. For **Target Types** select **AWS service**.
-   2. Use the **Select a target** dropdown to choose your desired AWS service to connect to (SNS, Lambda, SQS, etc.), then choose **Next**.
 
-7. On **Configure tag(s)** click **Add new tags** to add optional tags then choose **Next**.
-8. You see a summary page of all the selections. Choose **Create rule** at the bottom.
+   1. Use the **Select a target** dropdown to choose your desired AWS service to connect to (SNS, Lambda, SQS, etc.), then choose **Next**.
+
+1. On **Configure tag(s)** click **Add new tags** to add optional tags then choose **Next**.
+
+1. You see a summary page of all the selections. Choose **Create rule** at the bottom.
 
 ### Additional configuration options for the event pattern
+<a name="data-quality-alerts-eventbridge-config-options"></a>
 
 In addition to filtering your event on success or failure, you may want to further filter events on different parameters.
 
@@ -183,10 +201,12 @@ To capture events with a score under a specific threshold (e.g. 70%):
 ```
 
 ### Formatting notifications as emails
+<a name="data-quality-alerts-eventbridge-format-notifications"></a>
 
 Sometimes you need to send a well-formatted email notification to your business teams. You can use Amazon EventBridge and AWS Lambda to achieve this.
 
-![Data quality notification formatted as an email](images/data_quality_sample_email.png)
+![Data quality notification formatted as an email](http://docs.aws.amazon.com/glue/latest/dg/images/data_quality_sample_email.png)
+
 
 The following sample code can be used to format your data quality notifications to generate emails.
 
@@ -290,10 +310,10 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body': json.dumps('Message published to SNS topic')
     }
-
 ```
 
 ## Set up alerts and notifications in CloudWatch integration
+<a name="data-quality-alerts-cloudwatch"></a>
 
 Our recommended approach is to set up data quality alerts using Amazon EventBridge, because Amazon EventBridge requires a one-time setup to alert customers. However, some customers prefer Amazon CloudWatch due to familiarity. For such customers, we offer integration with Amazon CloudWatch.
 
@@ -302,35 +322,57 @@ Each AWS Glue Data Quality evaluation emits a pair of metrics named `glue.data.q
 To get started with setting up an alarm that would send an email via an Amazon SNS notification, follow the steps below:
 
 1. Open the Amazon CloudWatch console.
-2. Choose **All metrics** under **Metrics**. You will see an additional namespace under Custom namespaces titled Glue Data Quality.
 
-###### Note
-
+1. Choose **All metrics** under **Metrics**. You will see an additional namespace under Custom namespaces titled Glue Data Quality.
+**Note**  
 When starting an AWS Glue Data Quality run, make sure the **Publish metrics to Amazon CloudWatch** checkbox is enabled. Otherwise, metrics for that particular run will not be published to Amazon CloudWatch.
 
-Under the `Glue Data Quality` namespace, you can see metrics being emitted per table, per ruleset. For the purpose of this topic, we will use the `glue.data.quality.rules.failed` rule and alarm if this value goes over 1 (indicating that, if we see a number of failed rule evaluations greater than 1, we want to be notified). 3. To create the alarm, choose **All alarms** under **Alarms**. 4. Choose **Create alarm**. 5. Choose **Select metric**. 6. Select the `glue.data.quality.rules.failed` metric corresponding to the table you've created, then choose **Select metric**. 7. Under the **Specify metric and conditions** tab, under the **Metrics** section:
+   Under the `Glue Data Quality` namespace, you can see metrics being emitted per table, per ruleset. For the purpose of this topic, we will use the `glue.data.quality.rules.failed` rule and alarm if this value goes over 1 (indicating that, if we see a number of failed rule evaluations greater than 1, we want to be notified).
 
-    1. For **Statistic**, choose **Sum**.
-    2. For **Period**, choose **1 minute**.
+1. To create the alarm, choose **All alarms** under **Alarms**.
 
-8. Under the **Conditions** section:
+1. Choose **Create alarm**.
 
-    1. For **Threshold type**, choose **Static**.
-    2. For **Whenever glue.data.quality.rules.failed is...**, select **Greater/Equal**.
-    3. For **than...**, enter **1** as the threshold value.
+1. Choose **Select metric**.
 
-These selections imply that if the `glue.data.quality.rules.failed` metric emits a value greater than or equal to 1, we will trigger an alarm. However, if there is no data, we will treat it as acceptable. 9. Choose **Next**. 10. On **Configure actions**:
+1. Select the `glue.data.quality.rules.failed` metric corresponding to the table you've created, then choose **Select metric**.
 
-    1. For the **Alarm state trigger** section, choose **In alarm**.
-    2. For **Send a notification to the following SNS topic** section, choose **Create a new topic to send a notification via a new SNS topic**.
-    3. For **Email endpoints that will receive the notification** enter your email address. Then click **Create Topic**.
-    4. Choose **Next**.
+1. Under the **Specify metric and conditions** tab, under the **Metrics** section:
 
-11. For **Alarm name**, enter `myFirstDQAlarm`, then choose **Next**. 12. You see a summary page of all the selections. Choose **Create alarm** at the bottom.
+   1. For **Statistic**, choose **Sum**.
+
+   1. For **Period**, choose **1 minute**.
+
+1. Under the **Conditions** section:
+
+   1. For **Threshold type**, choose **Static**.
+
+   1. For **Whenever glue.data.quality.rules.failed is...**, select **Greater/Equal**.
+
+   1. For **than...**, enter **1** as the threshold value.
+
+   These selections imply that if the `glue.data.quality.rules.failed` metric emits a value greater than or equal to 1, we will trigger an alarm. However, if there is no data, we will treat it as acceptable.
+
+1. Choose **Next**.
+
+1. On **Configure actions**:
+
+   1. For the **Alarm state trigger** section, choose **In alarm**.
+
+   1. For **Send a notification to the following SNS topic** section, choose **Create a new topic to send a notification via a new SNS topic**.
+
+   1. For **Email endpoints that will receive the notification** enter your email address. Then click **Create Topic**.
+
+   1. Choose **Next**.
+
+1. For **Alarm name**, enter `myFirstDQAlarm`, then choose **Next**.
+
+1. You see a summary page of all the selections. Choose **Create alarm** at the bottom.
 
 You can now see the alarm being created from the Amazon CloudWatch alarms dashboard.
 
 ## Querying data quality results to build dashboards
+<a name="data-quality-alerts-querying-results"></a>
 
 You may want to build a dashboard to display your data quality results. There are two ways to do this:
 
@@ -446,7 +488,6 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body': json.dumps('Message published to SNS topic')
     }
-
 ```
 
 After writing to Amazon S3, you can use AWS Glue crawlers to register to Athena and query the tables.
@@ -468,7 +509,7 @@ CREATE EXTERNAL TABLE <my_table_name>(
     rule string,
     outcome string,
     failurereason string,
-    evaluatedmetrics string)
+    evaluatedmetrics string) 
 PARTITIONED BY (
     `year` string,
     `month` string,
@@ -492,19 +533,15 @@ MSCK REPAIR TABLE <my_table_name>;
 Once you create the above table, you can run analytical queries using Amazon Athena.
 
 ## Deploying data quality rules using AWS CloudFormation
+<a name="data-quality-deploy-cfn"></a>
 
-You can use AWS CloudFormation to create data quality rules. For more information, see
-[AWS CloudFormation for AWS Glue](populate-with-cloudformation-templates.md "populate-with-cloudformation-templates.md").
+You can use AWS CloudFormation to create data quality rules. For more information, see [AWS CloudFormation for AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/populate-with-cloudformation-templates.html). 
 
 ## Scheduling data quality rules
+<a name="data-quality-scheduling-rules"></a>
 
 You can schedule data quality rules using the following methods:
-
-- Schedule data quality rules from the Data Catalog: no code users can use this option to easily schedule their data quality scans.
-  AWS Glue Data Quality will create the schedule in Amazon EventBridge. To schedule data quality rules:
-
-  - Navigate to the ruleset and click **Run**.
-  - In the **Run frequency**, select the desired schedule and provide a **Task Name**.
-    This Task Name is the name of your schedule in EventBridge.
-
-- Use Amazon EventBridge and AWS Step Functions to orchestrate evaluations and recommendations for data quality rules.
++  Schedule data quality rules from the Data Catalog: no code users can use this option to easily schedule their data quality scans. AWS Glue Data Quality will create the schedule in Amazon EventBridge. To schedule data quality rules: 
+  +  Navigate to the ruleset and click **Run**. 
+  +  In the **Run frequency**, select the desired schedule and provide a **Task Name**. This Task Name is the name of your schedule in EventBridge. 
++ Use Amazon EventBridge and AWS Step Functions to orchestrate evaluations and recommendations for data quality rules.

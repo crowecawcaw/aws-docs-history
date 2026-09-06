@@ -1,4 +1,7 @@
+
+
 # Reading from Oracle NetSuite entities
+<a name="oracle-netsuite-reading-from-entities"></a>
 
 **Prerequisite**
 
@@ -6,29 +9,30 @@ A Oracle NetSuite object you would like to read from. You will need the object n
 
 **Supported entities for source**:
 
-| Entity                        | Can be filtered | Supports Order By | Supports Limit | Supports SELECT \* | Supports partitioning |
-| ----------------------------- | --------------- | ----------------- | -------------- | ------------------ | --------------------- |
-| Deposit                       | Yes             | No                | Yes            | Yes                | Yes                   |
-| Description Item              | Yes             | No                | Yes            | Yes                | Yes                   |
-| Inventory Item                | Yes             | No                | Yes            | Yes                | Yes                   |
-| Item Fulfillment              | Yes             | No                | Yes            | Yes                | Yes                   |
-| Item Group                    | Yes             | No                | Yes            | Yes                | Yes                   |
-| Journal Entry                 | Yes             | No                | Yes            | Yes                | Yes                   |
-| Non-Inventory Purchase Item   | Yes             | No                | Yes            | Yes                | Yes                   |
-| Non-Inventory Resale Item     | Yes             | No                | Yes            | Yes                | Yes                   |
-| Non-Inventory Sale Item       | Yes             | No                | Yes            | Yes                | Yes                   |
-| Purchase Order                | Yes             | No                | Yes            | Yes                | Yes                   |
-| Subsidiary                    | Yes             | No                | Yes            | Yes                | Yes                   |
-| Vendor                        | Yes             | No                | Yes            | Yes                | Yes                   |
-| Vendor Bill                   | Yes             | No                | Yes            | Yes                | Yes                   |
-| Vendor Return Authorization   | Yes             | No                | Yes            | Yes                | Yes                   |
-| Time Bill                     | Yes             | No                | Yes            | Yes                | Yes                   |
-| Customer Payment              | Yes             | No                | Yes            | Yes                | Yes                   |
-| Fulfillment Request           | Yes             | No                | Yes            | Yes                | Yes                   |
-| Item                          | Yes             | Yes               | Yes            | Yes                | Yes                   |
-| Transaction Line              | Yes             | Yes               | Yes            | Yes                | Yes                   |
-| Transaction Accounting Line   | Yes             | Yes               | Yes            | Yes                | Yes                   |
-| Custom Record Types (Dynamic) | Yes             | Yes               | Yes            | Yes                | Yes                   |
+
+| Entity | Can be filtered | Supports Order By | Supports Limit | Supports SELECT \* | Supports partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| Deposit | Yes | No | Yes | Yes | Yes | 
+| Description Item | Yes | No | Yes | Yes | Yes | 
+| Inventory Item | Yes | No | Yes | Yes | Yes | 
+| Item Fulfillment | Yes | No | Yes | Yes | Yes | 
+| Item Group | Yes | No | Yes | Yes | Yes | 
+| Journal Entry | Yes | No | Yes | Yes | Yes | 
+| Non-Inventory Purchase Item | Yes | No | Yes | Yes | Yes | 
+| Non-Inventory Resale Item | Yes | No | Yes | Yes | Yes | 
+| Non-Inventory Sale Item | Yes | No | Yes | Yes | Yes | 
+| Purchase Order | Yes | No | Yes | Yes | Yes | 
+| Subsidiary | Yes | No | Yes | Yes | Yes | 
+| Vendor | Yes | No | Yes | Yes | Yes | 
+| Vendor Bill | Yes | No | Yes | Yes | Yes | 
+| Vendor Return Authorization | Yes | No | Yes | Yes | Yes | 
+| Time Bill | Yes | No | Yes | Yes | Yes | 
+| Customer Payment | Yes | No | Yes | Yes | Yes | 
+| Fulfillment Request | Yes | No | Yes | Yes | Yes | 
+| Item | Yes | Yes | Yes | Yes | Yes | 
+| Transaction Line | Yes | Yes | Yes | Yes | Yes | 
+| Transaction Accounting Line | Yes | Yes | Yes | Yes | Yes | 
+| Custom Record Types (Dynamic) | Yes | Yes | Yes | Yes | Yes | 
 
 **Example**:
 
@@ -45,50 +49,49 @@ netsuiteerp_read = glueContext.create_dynamic_frame.from_options(
 
 **Oracle NetSuite entity and field details**:
 
-Oracle NetSuite dynamically loads available fields under selected entity. Depending on the
-data type of the field, it supports the following filter operators.
+Oracle NetSuite dynamically loads available fields under selected entity. Depending on the data type of the field, it supports the following filter operators.
 
-| Field data type | Supported filter operators |
-| --------------- | -------------------------- |
-| String          | LIKE, =, !=                |
-| Date            | BETWEEN, =, <, <=, >, >=   |
-| DateTime        | BETWEEN, <, <=, >, >=      |
-| Numeric         | =, !=, <, <=, >, >=        |
-| Boolean         | =, !=                      |
+
+| Field data type | Supported filter operators | 
+| --- | --- | 
+| String | LIKE, =, \!= | 
+| Date | BETWEEN, =, <, <=, >, >= | 
+| DateTime | BETWEEN, <, <=, >, >= | 
+| Numeric |  =, \!=, <, <=, >, >= | 
+| Boolean |  =, \!= | 
 
 **Expected input format for Boolean values in Filter Expression**:
 
-| Entity                                                                               | Boolean "true" value format | Boolean "false" value format | Example                              |
-| ------------------------------------------------------------------------------------ | --------------------------- | ---------------------------- | ------------------------------------ |
-| Item, Transaction Line, Transaction Accounting Line, and Custom Record Type entities | T or t                      | F or f                       | isinactive = "T" or isinactive = "t" |
-| All other entities                                                                   | true                        | false                        | isinactive = true                    |
+
+| Entity | Boolean "true" value format | Boolean "false" value format | Example | 
+| --- | --- | --- | --- | 
+| Item, Transaction Line, Transaction Accounting Line, and Custom Record Type entities | T or t | F or f | isinactive = "T" or isinactive = "t" | 
+| All other entities | true | false | isinactive = true | 
 
 ## Partitioning queries
+<a name="oracle-netsuite-reading-partitioning-queries"></a>
 
 **Field-based partitioning**
 
 The Oracle NetSuite connector has dynamic metadata so that supported fields for field based partitioning are chosen dynamically. Field based partitioning is supported on fields having the data type Integer, BigInteger, Date or DateTime.
 
 You can provide the additional Spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`, and `NUM_PARTITIONS` if you want to utilize concurrency in Spark. With these parameters, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by Spark tasks concurrently.
++ `PARTITION_FIELD`: the name of the field to be used to partition the query.
++ `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field.
 
-- `PARTITION_FIELD`: the name of the field to be used to partition the query.
-- `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field.
+  For the timestamp field, we accept the Spark timestamp format used in Spark SQL queries.
 
-For the timestamp field, we accept the Spark timestamp format used in Spark SQL queries.
+  Examples of valid values:
 
-Examples of valid values:
-
-```
-"TIMESTAMP \"1707256978123\""
-"TIMESTAMP \"1702600882\""
-"TIMESTAMP '2024-02-06T22:00:00:00.000Z'"
-"TIMESTAMP '2024-02-06T22:00:00:00Z'"
-"TIMESTAMP '2024-02-06'"
-
-```
-
-- `UPPER_BOUND`: an **exclusive** upper bound value of the chosen partition field.
-- `NUM_PARTITIONS`: the number of partitions.
+  ```
+  "TIMESTAMP \"1707256978123\""
+  "TIMESTAMP \"1702600882\""
+  "TIMESTAMP '2024-02-06T22:00:00:00.000Z'"
+  "TIMESTAMP '2024-02-06T22:00:00:00Z'"
+  "TIMESTAMP '2024-02-06'"
+  ```
++ `UPPER_BOUND`: an **exclusive** upper bound value of the chosen partition field.
++ `NUM_PARTITIONS`: the number of partitions.
 
 Example:
 
@@ -111,8 +114,7 @@ netsuiteerp_read = glueContext.create_dynamic_frame.from_options(
 You can provide the additional Spark option `NUM_PARTITIONS` if you want to utilize concurrency in Spark. With this parameter, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by Spark tasks concurrently.
 
 In record based partitioning, the total number of records present is queried from Oracle NetSuite API, and it is divided by the `NUM_PARTITIONS` number provided, the resulting number of records are then concurrently fetched by each sub-query.
-
-- `NUM_PARTITIONS`: the number of partitions.
++ `NUM_PARTITIONS`: the number of partitions.
 
 Example:
 

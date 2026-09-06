@@ -1,4 +1,7 @@
+
+
 # AggregateMatch
+<a name="dqdl-rule-types-AggregateMatch"></a>
 
 Checks the ratio of two column aggregations against a given expression. This ruletype works on multiple datasets. The two column aggregations are evaluated and a ratio is produced by dividing the result of the first column aggregation with the result of the second column aggregation. The ratio is checked against the provided expression to produce a boolean response.
 
@@ -7,20 +10,18 @@ Checks the ratio of two column aggregations against a given expression. This rul
 **Column aggregation**
 
 ```
-AggregateMatch `<AGG_OPERATION>` (`<OPTIONAL_REFERENCE_ALIAS>`.`<COL_NAME>`)
+AggregateMatch {{<AGG_OPERATION>}} ({{<OPTIONAL_REFERENCE_ALIAS>}}.{{<COL_NAME>}})
 ```
++ **AGG\_OPERATION** – The operation to use for the aggregation. Currently, `sum` and `avg` are supported.
 
-- **AGG\_OPERATION** – The operation to use for the aggregation. Currently, `sum` and `avg` are supported.
+  **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
++ **OPTIONAL\_REFERENCE\_ALIAS** – This parameter needs to be provided if the column is from a reference dataset and not the primary dataset. If you are using this rule in the AWS Glue Data Catalog, your reference alias must follow the format "<database\_name>.<table\_name>.<column\_name>
 
-**Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
+  **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
++ **COL\_NAME** – The name of the column to aggregate.
 
-- **OPTIONAL\_REFERENCE\_ALIAS** – This parameter needs to be provided if the column is from a reference dataset and not the primary dataset. If you are using this rule in the AWS Glue Data Catalog, your reference alias must follow the format "<database\_name>.<table\_name>.<column\_name>
+  **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
 
-**Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
-
-- **COL\_NAME** – The name of the column to aggregate.
-
-**Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
 **Example: Average**
 
 ```
@@ -42,23 +43,21 @@ AggregateMatch `<AGG_OPERATION>` (`<OPTIONAL_REFERENCE_ALIAS>`.`<COL_NAME>`)
 **Rule**
 
 ```
-AggregateMatch `<AGG_EXP_1>` `<AGG_EXP_2>` `<EXPRESSION>`
+AggregateMatch {{<AGG_EXP_1>}} {{<AGG_EXP_2>}} {{<EXPRESSION>}}
 ```
++ **AGG\_EXP\_1** – The first column aggregation.
 
-- **AGG\_EXP\_1** – The first column aggregation.
+  Supported column types: Byte, Decimal, Double, Float, Integer, Long, Short
 
-Supported column types: Byte, Decimal, Double, Float, Integer, Long, Short
+  **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
++ **AGG\_EXP\_2** – The second column aggregation.
 
-**Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
+  Supported column types: Byte, Decimal, Double, Float, Integer, Long, Short
 
-- **AGG\_EXP\_2** – The second column aggregation.
+  **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
++ **EXPRESSION** – An expression to run against the rule type response in order to produce a Boolean value. For more information, see [Expressions](dqdl.md#dqdl-syntax-rule-expressions).
 
-Supported column types: Byte, Decimal, Double, Float, Integer, Long, Short
-
-**Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
-
-- **EXPRESSION** – An expression to run against the rule type response in order to produce a Boolean value. For more information, see [Expressions](dqdl.md#dqdl-syntax-rule-expressions "dqdl.md#dqdl-syntax-rule-expressions").
-  **Example: Aggregate Match using sum**
+**Example: Aggregate Match using sum**
 
 The following example rule checks whether the sum of the values in the `amount` column is exactly equal to the sum of the values in the `total_amount` column.
 
@@ -84,14 +83,13 @@ AggregateMatch "avg(ratings)" "avg(database_name.tablename.ratings)" >= 0.9
 
 **Null behavior**
 
-The `AggregateMatch` rule will ignore rows with NULL values in the calculation of the
-aggregation methods (sum/mean). For example:
+ The `AggregateMatch` rule will ignore rows with NULL values in the calculation of the aggregation methods (sum/mean). For example: 
 
 ```
 +---+-----------+
 |id |units      |
 +---+-----------+
-|100|0          |
+|100|0          | 
 |101|null       |
 |102|20         |
 |103|null       |
@@ -99,4 +97,4 @@ aggregation methods (sum/mean). For example:
 +---+-----------+
 ```
 
-The mean of column `units` will be (0 + 20 + 40) / 3 = 20. Rows 101 and 103 are not considered in this calculation.
+ The mean of column `units` will be (0 \+ 20 \+ 40) / 3 = 20. Rows 101 and 103 are not considered in this calculation. 

@@ -1,15 +1,15 @@
+
+
 # AWS Glue support for Asana
+<a name="asana-support"></a>
 
 AWS Glue supports Asana as follows:
 
-###### Supported as a source?
-
+**Supported as a source?**  
 Yes. You can use AWS Glue ETL jobs to query data from Asana.
 
-###### Supported as a target?
-
+**Supported as a target?**  
 No.
 
-###### Supported Asana API versions
-
-1.0
+**Supported Asana API versions**  
+ 1.0 

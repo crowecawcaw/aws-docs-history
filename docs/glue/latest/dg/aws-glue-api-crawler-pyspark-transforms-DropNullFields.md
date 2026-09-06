@@ -1,19 +1,17 @@
-# DropNullFields class
 
-Drops all null fields in a `DynamicFrame` whose type is `NullType`.
-These are fields with missing or null values in every record in the `DynamicFrame`
-dataset.
+
+# DropNullFields class
+<a name="aws-glue-api-crawler-pyspark-transforms-DropNullFields"></a>
+
+Drops all null fields in a `DynamicFrame` whose type is `NullType`. These are fields with missing or null values in every record in the `DynamicFrame` dataset.
 
 ## Example
+<a name="pyspark-DropNullFields-examples"></a>
 
-This example uses `DropNullFields` to create a new `DynamicFrame`
-where fields of type `NullType` have been dropped. In order to demonstrate
-`DropNullFields`, we add a new column named `empty_column` with type null to
-the already-loaded `persons` dataset.
+This example uses `DropNullFields` to create a new `DynamicFrame` where fields of type `NullType` have been dropped. In order to demonstrate `DropNullFields`, we add a new column named `empty_column` with type null to the already-loaded `persons` dataset.
 
-###### Note
-
-To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md "aws-glue-programming-python-samples-legislators.md") and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling "aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling").
+**Note**  
+To access the dataset that is used in this example, see [Code example: Joining and relationalizing data](aws-glue-programming-python-samples-legislators.md) and follow the instructions in [Step 1: Crawl the data in the Amazon S3 bucket](aws-glue-programming-python-samples-legislators.md#aws-glue-programming-python-samples-legislators-crawling).
 
 ```
 # Example: Use DropNullFields to create a new DynamicFrame without NullType fields
@@ -47,6 +45,9 @@ persons_no_nulls = DropNullFields.apply(persons_with_nulls_dyf)
 print("Schema for the persons_no_nulls DynamicFrame:")
 persons_no_nulls.printSchema()
 ```
+
+### Output
+<a name="drop_null_fields-example-output"></a>
 
 ```
 Schema for the persons DynamicFrame:
@@ -146,62 +147,55 @@ root
 |    |    |-- type: string
 |    |    |-- value: string
 |-- death_date: string
-
 ```
 
 ## Methods
-
-- [\_\_call\_\_](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-__call__ "#aws-glue-api-crawler-pyspark-transforms-DropNullFields-__call__")
-- [apply](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-apply "#aws-glue-api-crawler-pyspark-transforms-DropNullFields-apply")
-- [name](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-name "#aws-glue-api-crawler-pyspark-transforms-DropNullFields-name")
-- [describeArgs](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeArgs "#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeArgs")
-- [describeReturn](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeReturn "#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeReturn")
-- [describeTransform](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeTransform "#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeTransform")
-- [describeErrors](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeErrors "#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeErrors")
-- [Describe](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describe "#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describe")
+<a name="aws-glue-api-crawler-pyspark-transforms-DropNullFields-_methods"></a>
++ [\_\_call\_\_](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-__call__)
++ [apply](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-apply)
++ [name](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-name)
++ [describeArgs](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeArgs)
++ [describeReturn](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeReturn)
++ [describeTransform](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeTransform)
++ [describeErrors](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeErrors)
++ [Describe](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describe)
 
 ## \_\_call\_\_(frame, transformation\_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
+<a name="aws-glue-api-crawler-pyspark-transforms-DropNullFields-__call__"></a>
 
-Drops all null fields in a `DynamicFrame` whose type is `NullType`.
-These are fields with missing or null values in every record in the `DynamicFrame`
-dataset.
-
-- `frame` – The `DynamicFrame` to drop null fields in
-  (required).
-- `transformation_ctx` – A unique string that is used to identify state
-  information (optional).
-- `info` – A string associated with errors in the transformation (optional).
-- `stageThreshold` – The maximum number of errors that can occur in the
-  transformation before it errors out (optional). The default is zero.
-- `totalThreshold` – The maximum number of errors that can occur overall before
-  processing errors out (optional). The default is zero.
+Drops all null fields in a `DynamicFrame` whose type is `NullType`. These are fields with missing or null values in every record in the `DynamicFrame` dataset.
++ `frame` – The `DynamicFrame` to drop null fields in (required).
++ `transformation_ctx` – A unique string that is used to identify state information (optional).
++ `info` – A string associated with errors in the transformation (optional).
++ `stageThreshold` – The maximum number of errors that can occur in the transformation before it errors out (optional). The default is zero.
++ `totalThreshold` – The maximum number of errors that can occur overall before processing errors out (optional). The default is zero.
 
 Returns a new `DynamicFrame` with no null fields.
 
 ## apply(cls, \*args, \*\*kwargs)
-
-- `cls` – cls
+<a name="aws-glue-api-crawler-pyspark-transforms-DropNullFields-apply"></a>
++ `cls` – cls
 
 ## name(cls)
-
-- `cls` – cls
+<a name="aws-glue-api-crawler-pyspark-transforms-DropNullFields-name"></a>
++ `cls` – cls
 
 ## describeArgs(cls)
-
-- `cls` – cls
+<a name="aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeArgs"></a>
++ `cls` – cls
 
 ## describeReturn(cls)
-
-- `cls` – cls
+<a name="aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeReturn"></a>
++ `cls` – cls
 
 ## describeTransform(cls)
-
-- `cls` – cls
+<a name="aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeTransform"></a>
++ `cls` – cls
 
 ## describeErrors(cls)
-
-- `cls` – cls
+<a name="aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeErrors"></a>
++ `cls` – cls
 
 ## describe(cls)
-
-- `cls` – cls
+<a name="aws-glue-api-crawler-pyspark-transforms-DropNullFields-describe"></a>
++ `cls` – cls

@@ -1,143 +1,91 @@
-# JDBC connections
 
-Certain, typically relational, database types support connecting through the JDBC standard. For more
-information about JDBC, see the [Java
-JDBC API](https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/ "https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/") documentation. AWS Glue natively supports connecting to certain databases through their JDBC
-connectors - the JDBC libraries are provided in AWS Glue Spark jobs. When connecting to these database types using
-AWS Glue libraries, you have access to a standard set of options.
+
+# JDBC connections
+<a name="aws-glue-programming-etl-connect-jdbc-home"></a>
+
+ Certain, typically relational, database types support connecting through the JDBC standard. For more information about JDBC, see the [Java JDBC API](https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/) documentation. AWS Glue natively supports connecting to certain databases through their JDBC connectors - the JDBC libraries are provided in AWS Glue Spark jobs. When connecting to these database types using AWS Glue libraries, you have access to a standard set of options. 
 
 The JDBC connectionType values include the following:
++ `"connectionType": "sqlserver"`: Designates a connection to a Microsoft SQL Server database.
++ `"connectionType": "mysql"`: Designates a connection to a MySQL database.
++ `"connectionType": "oracle"`: Designates a connection to an Oracle database.
++ `"connectionType": "postgresql"`: Designates a connection to a PostgreSQL database.
++ `"connectionType": "redshift"`: Designates a connection to an Amazon Redshift database. For more information, see [Redshift connections](aws-glue-programming-etl-connect-redshift-home.md).
 
-- `"connectionType": "sqlserver"`: Designates a connection to a Microsoft SQL
-  Server database.
-- `"connectionType": "mysql"`: Designates a connection to a MySQL
-  database.
-- `"connectionType": "oracle"`: Designates a connection to an Oracle
-  database.
-- `"connectionType": "postgresql"`: Designates a connection to a PostgreSQL
-  database.
-- `"connectionType": "redshift"`: Designates a connection to an Amazon Redshift
-  database. For more information, see [Redshift connections](aws-glue-programming-etl-connect-redshift-home.md "aws-glue-programming-etl-connect-redshift-home.md").
-  The following table lists the JDBC driver versions that AWS Glue
-  supports.
+The following table lists the JDBC driver versions that AWS Glue supports.
 
-| Product              | JDBC driver versions for Glue 5.1 | JDBC driver versions for Glue 5.0 | JDBC driver versions for Glue 4.0 | JDBC driver versions for Glue 3.0 | JDBC driver versions for Glue 0.9, 1.0, 2.0 |
-| -------------------- | --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- | ------------------------------------------- |
-| Microsoft SQL Server | 10.2.0                            | 10.2.0                            | 9.4.0                             | 7.x                               | 6.x                                         |
-| MySQL                | 8.0.33                            | 8.0.33                            | 8.0.23                            | 8.0.23                            | 5.1                                         |
-| Oracle Database      | 23.3.0.23.09                      | 23.3.0.23.09                      | 21.7                              | 21.1                              | 11.2                                        |
-| PostgreSQL           | 42.7.3                            | 42.7.3                            | 42.3.6                            | 42.2.18                           | 42.1.x                                      |
-| Amazon Redshift \*   | redshift-jdbc42-2.1.0.29          | redshift-jdbc42-2.1.0.29          | redshift-jdbc42-2.1.0.16          | redshift-jdbc41-1.2.12.1017       | redshift-jdbc41-1.2.12.1017                 |
 
-\* For the Amazon Redshift connection type, all other option name/value pairs that are included in connection options for
-a JDBC connection, including formatting options, are passed directly to the underlying SparkSQL DataSource. In
-AWS Glue with Spark jobs in AWS Glue 4.0 and later versions, the AWS Glue native connector for Amazon Redshift uses the Amazon Redshift
-integration for Apache Spark. For more information see [Amazon Redshift integration for
-Apache Spark](../../../redshift/latest/mgmt/spark-redshift-connector.md "../../../redshift/latest/mgmt/spark-redshift-connector.md"). In previous versions, see [Amazon Redshift
-data source for Spark](https://github.com/databricks/spark-redshift "https://github.com/databricks/spark-redshift").
+| Product | JDBC driver versions for Glue 5.1 | JDBC driver versions for Glue 5.0 | JDBC driver versions for Glue 4.0 | JDBC driver versions for Glue 3.0 | JDBC driver versions for Glue 0.9, 1.0, 2.0 | 
+| --- | --- | --- | --- | --- | --- | 
+| Microsoft SQL Server | 10.2.0 | 10.2.0 | 9.4.0 | 7.x | 6.x | 
+| MySQL | 8.0.33 | 8.0.33 | 8.0.23 | 8.0.23 | 5.1 | 
+| Oracle Database | 23.3.0.23.09 | 23.3.0.23.09 | 21.7 | 21.1 | 11.2 | 
+| PostgreSQL | 42.7.3 | 42.7.3 | 42.3.6 | 42.2.18 | 42.1.x | 
+| Amazon Redshift \* | redshift-jdbc42-2.1.0.29 | redshift-jdbc42-2.1.0.29 | redshift-jdbc42-2.1.0.16 | redshift-jdbc41-1.2.12.1017 | redshift-jdbc41-1.2.12.1017 | 
 
-To configure your Amazon VPC to connect to Amazon RDS data stores using JDBC, refer to [Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from AWS Glue](setup-vpc-for-glue-access.md "setup-vpc-for-glue-access.md").
+\* For the Amazon Redshift connection type, all other option name/value pairs that are included in connection options for a JDBC connection, including formatting options, are passed directly to the underlying SparkSQL DataSource. In AWS Glue with Spark jobs in AWS Glue 4.0 and later versions, the AWS Glue native connector for Amazon Redshift uses the Amazon Redshift integration for Apache Spark. For more information see [Amazon Redshift integration for Apache Spark](https://docs.aws.amazon.com/redshift/latest/mgmt/spark-redshift-connector.html). In previous versions, see [Amazon Redshift data source for Spark](https://github.com/databricks/spark-redshift).
 
-###### Note
+To configure your Amazon VPC to connect to Amazon RDS data stores using JDBC, refer to [Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from AWS Glue](setup-vpc-for-glue-access.md).
 
-AWS Glue jobs are only associated with one subnet during a run. This may impact your ability to connect to
-multiple data sources through the same job. This behavior is not limited to JDBC sources.
+**Note**  
+AWS Glue jobs are only associated with one subnet during a run. This may impact your ability to connect to multiple data sources through the same job. This behavior is not limited to JDBC sources.
 
-###### Topics
-
-- [JDBC connection option reference](#aws-glue-programming-etl-connect-jdbc "#aws-glue-programming-etl-connect-jdbc")
-- [Use sampleQuery](#aws-glue-programming-etl-jdbc-samplequery "#aws-glue-programming-etl-jdbc-samplequery")
-- [Use custom JDBC driver](#aws-glue-programming-etl-jdbc-custom-driver "#aws-glue-programming-etl-jdbc-custom-driver")
-- [Reading from JDBC tables in parallel](run-jdbc-parallel-read-job.md "run-jdbc-parallel-read-job.md")
-- [Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from AWS Glue](setup-vpc-for-glue-access.md "setup-vpc-for-glue-access.md")
+**Topics**
++ [JDBC connection option reference](#aws-glue-programming-etl-connect-jdbc)
++ [Use sampleQuery](#aws-glue-programming-etl-jdbc-samplequery)
++ [Use custom JDBC driver](#aws-glue-programming-etl-jdbc-custom-driver)
++ [Reading from JDBC tables in parallel](run-jdbc-parallel-read-job.md)
++ [Setting up Amazon VPC for JDBC connections to Amazon RDS data stores from AWS Glue](setup-vpc-for-glue-access.md)
 
 ## JDBC connection option reference
+<a name="aws-glue-programming-etl-connect-jdbc"></a>
 
-If you already have a JDBC AWS Glue connection defined, you can reuse the configuration properties defined in it, such
-as: url, user and password; so you don't have to specify them in the code as connection options. This feature is
-available in AWS Glue 3.0 and later versions. To do so, use the following connection properties:
-
-- `"useConnectionProperties"`: Set it to "true" to indicate you want to use the configuration from a connection.
-- `"connectionName"`: Enter the connection name to retrieve the configuration from, the connection must be defined in the same region as the job.
+If you already have a JDBC AWS Glue connection defined, you can reuse the configuration properties defined in it, such as: url, user and password; so you don't have to specify them in the code as connection options. This feature is available in AWS Glue 3.0 and later versions. To do so, use the following connection properties:
++ `"useConnectionProperties"`: Set it to "true" to indicate you want to use the configuration from a connection.
++ `"connectionName"`: Enter the connection name to retrieve the configuration from, the connection must be defined in the same region as the job.
 
 Use these connection options with JDBC connections:
++ `"url"`: (Required) The JDBC URL for the database.
++ `"dbtable"`: (Required) The database table to read from. For JDBC data stores that support schemas within a database, specify `schema.table-name`. If a schema is not provided, then the default "public" schema is used.
++ `"user"`: (Required) The user name to use when connecting.
++ `"password"`: (Required) The password to use when connecting.
++ (Optional) The following options allow you to supply a custom JDBC driver. Use these options if you must use a driver that AWS Glue does not natively support. 
 
-- `"url"`: (Required) The JDBC URL for the database.
-- `"dbtable"`: (Required) The database table to read from. For JDBC data stores that
-  support schemas within a database, specify `schema.table-name`. If a schema is
-  not provided, then the default "public" schema is used.
-- `"user"`: (Required) The user name to use when connecting.
-- `"password"`: (Required) The password to use when connecting.
-- (Optional) The following options allow you to supply a custom JDBC driver. Use these
-  options if you must use a driver that AWS Glue does not natively support.
-
-ETL jobs can use different JDBC driver versions for the data source and target, even
-if the source and target are the same database product. This allows you to migrate data
-between source and target databases with different versions. To use these options, you
-must first upload the JAR file of the JDBC driver to Amazon S3.
-
-    + `"customJdbcDriverS3Path"`: The Amazon S3 path of the custom JDBC
-     driver.
-    + `"customJdbcDriverClassName"`: The class name of JDBC driver.
-
-- `"bulkSize"`: (Optional) Used to configure parallel inserts for speeding up
-  bulk loads into JDBC targets. Specify an integer value for the degree of parallelism to
-  use when writing or inserting data. This option is helpful for improving the performance
-  of writes into databases such as the Arch User Repository (AUR).
-- `"hashfield"` (Optional) A string, used to specify the name of a column in the JDBC table to be
-  used to divide the data into partitions when reading from JDBC tables in parallel. Provide
-  "hashfield" OR "hashexpression". For more information, see [Reading from JDBC tables in parallel](run-jdbc-parallel-read-job.md "run-jdbc-parallel-read-job.md").
-- `"hashexpression"` (Optional) A SQL select clause returning a whole number. Used to divide the
-  data in a JDBC table into partitions when reading from JDBC tables in parallel. Provide "hashfield"
-  OR "hashexpression". For more information, see [Reading from JDBC tables in parallel](run-jdbc-parallel-read-job.md "run-jdbc-parallel-read-job.md").
-- `"hashpartitions"` (Optional) A positive integer. Used to specify the number of parallel reads of
-  the JDBC table when reading from JDBC tables in parallel. Default: 7. For more information, see
-  [Reading from JDBC tables in parallel](run-jdbc-parallel-read-job.md "run-jdbc-parallel-read-job.md").
-- `"sampleQuery"`: (Optional) A custom SQL query statement. Used to specify a subset of
-  information in a table to retrieve a sample of the table contents. **When
-  configured without regard to your data, it can be less efficient than DynamicFrame methods, causing
-  timeouts or out of memory errors.** For more information, see [Use sampleQuery](#aws-glue-programming-etl-jdbc-samplequery "#aws-glue-programming-etl-jdbc-samplequery").
-- `"enablePartitioningForSampleQuery"`: (Optional) A boolean. Default: false. Used to
-  enable reading from JDBC tables in parallel when specifying `sampleQuery`. **If set to true, `sampleQuery` must end with "where" or "and" for AWS Glue to
-  append partitioning conditions.** For more information, see [Use sampleQuery](#aws-glue-programming-etl-jdbc-samplequery "#aws-glue-programming-etl-jdbc-samplequery").
-- `"sampleSize"`: (Optional) A positive integer. Limits the number of rows returned by
-  the sample query. Works only when `enablePartitioningForSampleQuery` is true. If
-  partitioning is not enabled, you should instead directly add `"limit x"` in the
-  `sampleQuery` to limit the size. For more information, see [Use sampleQuery](#aws-glue-programming-etl-jdbc-samplequery "#aws-glue-programming-etl-jdbc-samplequery").
+  ETL jobs can use different JDBC driver versions for the data source and target, even if the source and target are the same database product. This allows you to migrate data between source and target databases with different versions. To use these options, you must first upload the JAR file of the JDBC driver to Amazon S3.
+  + `"customJdbcDriverS3Path"`: The Amazon S3 path of the custom JDBC driver.
+  + `"customJdbcDriverClassName"`: The class name of JDBC driver.
++ `"bulkSize"`: (Optional) Used to configure parallel inserts for speeding up bulk loads into JDBC targets. Specify an integer value for the degree of parallelism to use when writing or inserting data. This option is helpful for improving the performance of writes into databases such as the Arch User Repository (AUR).
++ `"hashfield"` (Optional) A string, used to specify the name of a column in the JDBC table to be used to divide the data into partitions when reading from JDBC tables in parallel. Provide "hashfield" OR "hashexpression". For more information, see [Reading from JDBC tables in parallel](run-jdbc-parallel-read-job.md).
++ `"hashexpression"` (Optional) A SQL select clause returning a whole number. Used to divide the data in a JDBC table into partitions when reading from JDBC tables in parallel. Provide "hashfield" OR "hashexpression". For more information, see [Reading from JDBC tables in parallel](run-jdbc-parallel-read-job.md).
++ `"hashpartitions"` (Optional) A positive integer. Used to specify the number of parallel reads of the JDBC table when reading from JDBC tables in parallel. Default: 7. For more information, see [Reading from JDBC tables in parallel](run-jdbc-parallel-read-job.md).
++ `"sampleQuery"`: (Optional) A custom SQL query statement. Used to specify a subset of information in a table to retrieve a sample of the table contents. **When configured without regard to your data, it can be less efficient than DynamicFrame methods, causing timeouts or out of memory errors.** For more information, see [Use sampleQuery](#aws-glue-programming-etl-jdbc-samplequery).
++ `"enablePartitioningForSampleQuery"`: (Optional) A boolean. Default: false. Used to enable reading from JDBC tables in parallel when specifying `sampleQuery`. **If set to true, `sampleQuery` must end with "where" or "and" for AWS Glue to append partitioning conditions.** For more information, see [Use sampleQuery](#aws-glue-programming-etl-jdbc-samplequery).
++ `"sampleSize"`: (Optional) A positive integer. Limits the number of rows returned by the sample query. Works only when `enablePartitioningForSampleQuery` is true. If partitioning is not enabled, you should instead directly add `"limit x"` in the `sampleQuery` to limit the size. For more information, see [Use sampleQuery](#aws-glue-programming-etl-jdbc-samplequery).
 
 ## Use sampleQuery
+<a name="aws-glue-programming-etl-jdbc-samplequery"></a>
 
-This section explains how to use `sampleQuery`, `sampleSize` and
-`enablePartitioningForSampleQuery`.
+This section explains how to use `sampleQuery`, `sampleSize` and `enablePartitioningForSampleQuery`.
 
-`sampleQuery` can be an efficient way to sample a few rows of your dataset. By default, the
-query is run by a single executor. When configured without regard to your data, it can be less efficient
-than DynamicFrame methods, causing timeouts or out of memory errors. Running SQL on the underlying database
-as part of your ETL pipeline is generally only needed for performance purposes. If you are trying to
-preview a few rows of your dataset, consider using [show](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-show "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-show"). If you are trying to transform your
-dataset using SQL, consider using [toDF](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-toDF "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-toDF") to define a SparkSQL transform against your data in a DataFrame form.
+`sampleQuery` can be an efficient way to sample a few rows of your dataset. By default, the query is run by a single executor. When configured without regard to your data, it can be less efficient than DynamicFrame methods, causing timeouts or out of memory errors. Running SQL on the underlying database as part of your ETL pipeline is generally only needed for performance purposes. If you are trying to preview a few rows of your dataset, consider using [show](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-show). If you are trying to transform your dataset using SQL, consider using [toDF](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-toDF) to define a SparkSQL transform against your data in a DataFrame form.
 
 While your query may manipulate a variety of tables, `dbtable` remains required.
 
 **Using sampleQuery to retrieve a sample of your table**
 
-When using default sampleQuery behavior to retrieve a sample of your data, AWS Glue does not expect
-substantial throughput, so it runs your query on a single executor. In order to limit the data you provide
-and not cause performance problems, we suggest you provide SQL with a `LIMIT` clause.
+When using default sampleQuery behavior to retrieve a sample of your data, AWS Glue does not expect substantial throughput, so it runs your query on a single executor. In order to limit the data you provide and not cause performance problems, we suggest you provide SQL with a `LIMIT` clause.
 
-###### Example Use sampleQuery without partitioning
-
-The following code example shows how to use `sampleQuery` without
-partitioning.
+**Example Use sampleQuery without partitioning**  
+The following code example shows how to use `sampleQuery` without partitioning.  
 
 ```
 //A full sql query statement.
-val query = "select name from `$tableName` where age > 0 limit 1"
+val query = "select name from {{$tableName}} where age > 0 limit 1"
 val connectionOptions = JsonOptions(Map(
-    "url" -> url,
-    "dbtable" -> tableName,
-    "user" -> user,
-    "password" -> password,
+    "url" -> url, 
+    "dbtable" -> tableName, 
+    "user" -> user, 
+    "password" -> password, 
     "sampleQuery" -> query ))
 val dyf = glueContext.getSource("mysql", connectionOptions)
           .getDynamicFrame()
@@ -145,34 +93,27 @@ val dyf = glueContext.getSource("mysql", connectionOptions)
 
 **Using sampleQuery against larger datasets**
 
-If you're reading a large dataset, you might need to enable JDBC partitioning to query a table in
-parallel. For more information, see [Reading from JDBC tables in parallel](run-jdbc-parallel-read-job.md "run-jdbc-parallel-read-job.md"). To use
-`sampleQuery` with JDBC partitioning, set `enablePartitioningForSampleQuery` to
-true. Enabling this feature requires you to make some changes to your `sampleQuery`.
+ If you're reading a large dataset, you might need to enable JDBC partitioning to query a table in parallel. For more information, see [Reading from JDBC tables in parallel](run-jdbc-parallel-read-job.md). To use `sampleQuery` with JDBC partitioning, set `enablePartitioningForSampleQuery` to true. Enabling this feature requires you to make some changes to your `sampleQuery`.
 
-When using JDBC partitioning with `sampleQuery`, your query must end with "where" or "and" for AWS Glue to
-append partitioning conditions.
+When using JDBC partitioning with `sampleQuery`, your query must end with "where" or "and" for AWS Glue to append partitioning conditions.
 
-If you would like to limit the results of your sampleQuery when reading from JDBC tables in parallel, set
-the `"sampleSize"` parameter rather than specifying a `LIMIT` clause.
+ If you would like to limit the results of your sampleQuery when reading from JDBC tables in parallel, set the `"sampleSize"` parameter rather than specifying a `LIMIT` clause.
 
-###### Example Use sampleQuery with JDBC partitioning
-
-The following code example shows how to use `sampleQuery` with JDBC
-partitioning.
+**Example Use sampleQuery with JDBC partitioning**  
+The following code example shows how to use `sampleQuery` with JDBC partitioning.  
 
 ```
 //note that the query should end with "where" or "and" if use with JDBC partitioning.
-val query = "select name from `$tableName` where age > 0 and"
+val query = "select name from {{$tableName}} where age > 0 and"
 
 //Enable JDBC partitioning by setting hashfield.
 //to use sampleQuery with partitioning, set enablePartitioningForSampleQuery.
 //use sampleSize to limit the size of returned data.
 val connectionOptions = JsonOptions(Map(
-    "url" -> url,
-    "dbtable" -> tableName,
-    "user" -> user,
-    "password" -> password,
+    "url" -> url, 
+    "dbtable" -> tableName, 
+    "user" -> user, 
+    "password" -> password, 
     "hashfield" -> primaryKey,
     "sampleQuery" -> query,
     "enablePartitioningForSampleQuery" -> true,
@@ -181,18 +122,17 @@ val dyf = glueContext.getSource("mysql", connectionOptions)
           .getDynamicFrame()
 ```
 
-**Notes and Restrictions:**
+ **Notes and Restrictions:** 
 
-Sample queries cannot be used together with job bookmarks. The bookmark state will be ignored when
-configuration for both are provided.
+Sample queries cannot be used together with job bookmarks. The bookmark state will be ignored when configuration for both are provided.
 
 ## Use custom JDBC driver
+<a name="aws-glue-programming-etl-jdbc-custom-driver"></a>
 
-The following code examples show how to read from and write to JDBC databases with custom
-JDBC drivers. They demonstrate reading from one version of a database product, and writing to
-a later version of the same product.
+The following code examples show how to read from and write to JDBC databases with custom JDBC drivers. They demonstrate reading from one version of a database product, and writing to a later version of the same product.
 
-Python
+------
+#### [ Python ]
 
 ```
 import sys
@@ -252,11 +192,10 @@ df_oracle11 = glueContext.create_dynamic_frame.from_options(connection_type="ora
                                                             connection_options=connection_oracle11_options)
 glueContext.write_from_options(frame_or_dfc=df_oracle11, connection_type="oracle",
                                connection_options=connection_oracle18_options)
-
-
 ```
 
-Scala
+------
+#### [ Scala ]
 
 ```
 import com.amazonaws.services.glue.GlueContext
@@ -321,3 +260,5 @@ object GlueApp {
   }
 }
 ```
+
+------

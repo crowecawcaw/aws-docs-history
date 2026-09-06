@@ -1,23 +1,23 @@
+
+
 # Using context awareness with Amazon Q Data Integration in AWS Glue
+<a name="q-context-awareness"></a>
 
-You can now create data processing jobs more efficiently with query based context-aware and PySpark DataFrame code generation in
-Amazon Q Data Integration. For example, you can use this prompt to generate PySpark code: “create a job to load sales data from
-Redshift table ‘analytics.salesorder’ using connection ‘erp\_conn’, filter order\_amount below 50 dollars, and save to Amazon S3 in parquet
-format.”
+ You can now create data processing jobs more efficiently with query based context-aware and PySpark DataFrame code generation in Amazon Q Data Integration. For example, you can use this prompt to generate PySpark code: “create a job to load sales data from Redshift table ‘analytics.salesorder’ using connection ‘erp\_conn’, filter order\_amount below 50 dollars, and save to Amazon S3 in parquet format.” 
 
-Amazon Q will generate the script based on your prompt and setup data integration workflow setup with the details provided from your
-question, such as connection configurations, schema details, database/table names, and column specifications for transformations.
-Sensitive information, such as connection option passwords, continue to be redacted.
+ Amazon Q will generate the script based on your prompt and setup data integration workflow setup with the details provided from your question, such as connection configurations, schema details, database/table names, and column specifications for transformations. Sensitive information, such as connection option passwords, continue to be redacted. 
 
-If required information is not provided from your prompt, Amazon Q will put placeholders, which you have to update the generated code
-with the appropriate values before running the code.
+ If required information is not provided from your prompt, Amazon Q will put placeholders, which you have to update the generated code with the appropriate values before running the code. 
 
-The following are examples on how to use context awareness.
+ The following are examples on how to use context awareness. 
 
 ## Example: interactions
+<a name="q-context-awareness-examples"></a>
 
-Prompt: `Create an AWS Glue spark job that reads a file s3://amzn-s3-demo-bucket-input-bucket-name/input-filename.csv and 
- saves it into the parquet file under directory s3://amzn-s3-demo-bucket-output-bucket-name/output-s3-prefix/`
+### Reading an Amazon S3 file and writing to an Amazon S3 bucket
+<a name="q-context-awareness-examples-generated-script-1"></a>
+
+ Prompt: `Create an AWS Glue spark job that reads a file s3://amzn-s3-demo-bucket-input-bucket-name/input-filename.csv and saves it into the parquet file under directory s3://amzn-s3-demo-bucket-output-bucket-name/output-s3-prefix/` 
 
 ```
 import sys
@@ -39,16 +39,17 @@ S3DataSource_dsource1.write.format("parquet").mode("append").save(
 )
 ```
 
-![An example of asking Amazon Q data integration in AWS Glue for a generated ETL script.](/images/glue/latest/dg/images/context-awareness-lakehouse-example.gif)
+![An example of asking Amazon Q data integration in AWS Glue for a generated ETL script.](http://docs.aws.amazon.com/glue/latest/dg/images/context-awareness-lakehouse-example.gif)
 
-Prompt: `write an ETL script to read from a Lakehouse table my-table in database my-database and write it to a RDS MySQL table 
- my-target-table`
 
-For fields where you did not provide information (for example, the connectionName required is for MySQL data sink and default
-with a placehoder <connection-name> in the generated code), a placeholder is kept for you to fill in the required
-information before run the script.
+### Get data from Lakehouse and write to database
+<a name="q-context-awareness-examples-generated-script-2"></a>
 
-Generated script:
+ Prompt: `write an ETL script to read from a Lakehouse table my-table in database my-database and write it to a RDS MySQL table my-target-table` 
+
+ For fields where you did not provide information (for example, the connectionName required is for MySQL data sink and default with a placehoder <connection-name> in the generated code), a placeholder is kept for you to fill in the required information before run the script. 
+
+ Generated script: 
 
 ```
 import sys
@@ -73,25 +74,21 @@ CatalogConnectionHelper(spark).write(
     "<connection-name>",
     ConnectionV2DataSink_dsink1_additional_options,
 )
-
 ```
 
-![An example of asking Amazon Q data integration in AWS Glue for a generated ETL script.](/images/glue/latest/dg/images/context-awareness-example-interactions.gif)
+![An example of asking Amazon Q data integration in AWS Glue for a generated ETL script.](http://docs.aws.amazon.com/glue/latest/dg/images/context-awareness-example-interactions.gif)
 
-The following example demonstrates how you can ask AWS Glue to create a AWS Glue script to complete a full ETL workflow with the following
-prompt: `Create a AWS Glue ETL Script read from two AWS Glue Data Catalog tables venue and event in my database 
- glue_db_4fthqih3vvk1if, join the results on the field venueid, filter on venue state with condition as venuestate=='DC' 
- after joining the results and write output to an Amazon S3 S3 location s3://amz-s3-demo-bucket/output/ in CSV format`.
 
-The workflow contains reading from different data sources (two AWS Glue Data Catalog tables), and a couple of transforms after the
-reading by join the result from two readings, filter based on some condition and write the transformed output to an Amazon S3
-destination in CSV format.
+### Example: Full ETL workflow
+<a name="q-context-awareness-complex-example"></a>
 
-The generated job will fill in the detailed information to the data source, transform and sink operation with corresponding
-information extracted from user question as below.
+ The following example demonstrates how you can ask AWS Glue to create a AWS Glue script to complete a full ETL workflow with the following prompt: `Create a AWS Glue ETL Script read from two AWS Glue Data Catalog tables venue and event in my database glue_db_4fthqih3vvk1if, join the results on the field venueid, filter on venue state with condition as venuestate=='DC' after joining the results and write output to an Amazon S3 S3 location s3://amz-s3-demo-bucket/output/ in CSV format`. 
+
+ The workflow contains reading from different data sources (two AWS Glue Data Catalog tables), and a couple of transforms after the reading by join the result from two readings, filter based on some condition and write the transformed output to an Amazon S3 destination in CSV format. 
+
+ The generated job will fill in the detailed information to the data source, transform and sink operation with corresponding information extracted from user question as below. 
 
 ```
-
 import sys
 from awsglue.transforms import *
 from pyspark.context import SparkContext
@@ -122,21 +119,15 @@ FilterTransform_transform2.write.format("csv").mode("append").save(
 )
 ```
 
-![An example of asking Amazon Q data integration in AWS Glue for a generated ETL script.](/images/glue/latest/dg/images/context-awareness-complex-example.gif)
+![An example of asking Amazon Q data integration in AWS Glue for a generated ETL script.](http://docs.aws.amazon.com/glue/latest/dg/images/context-awareness-complex-example.gif)
+
 
 ## Limitations
-
-- Context carryover:
-
-  - The context-awareness feature only carries over context from the previous user query within the same conversation.
-    It does not retain context beyond the immediate preceding query.
-
-- Support for node configurations:
-
-  - Currently, context-awareness supports only a subset of required configurations for various nodes.
-  - Support for optional fields is planned in upcoming releases.
-
-- Availability:
-
-  - Context-awareness and DataFrame support are available in Q Chat and SageMaker Unified Studio notebooks.
-    However, these features are not yet available in AWS Glue Studio notebooks.
+<a name="q-context-awareness-limitations"></a>
++  Context carryover: 
+  +  The context-awareness feature only carries over context from the previous user query within the same conversation. It does not retain context beyond the immediate preceding query. 
++  Support for node configurations: 
+  +  Currently, context-awareness supports only a subset of required configurations for various nodes. 
+  +  Support for optional fields is planned in upcoming releases. 
++  Availability: 
+  +  Context-awareness and DataFrame support are available in Q Chat and SageMaker Unified Studio notebooks. However, these features are not yet available in AWS Glue Studio notebooks. 

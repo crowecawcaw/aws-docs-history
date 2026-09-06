@@ -1,2294 +1,1843 @@
-# Data Quality API
 
-The Data Quality API describes the data quality data types, and includes
-the API for creating, deleting, or updating data quality rulesets, runs and evaluations.
+
+# Data Quality API
+<a name="aws-glue-api-data-quality-api"></a>
+
+The Data Quality API describes the data quality data types, and includes the API for creating, deleting, or updating data quality rulesets, runs and evaluations.
 
 ## Data types
-
-- [DataSource structure](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource")
-- [DataQualityRulesetListDetails structure](#aws-glue-api-data-quality-api-DataQualityRulesetListDetails "#aws-glue-api-data-quality-api-DataQualityRulesetListDetails")
-- [DataQualityTargetTable structure](#aws-glue-api-data-quality-api-DataQualityTargetTable "#aws-glue-api-data-quality-api-DataQualityTargetTable")
-- [DataQualityRulesetEvaluationRunDescription structure](#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunDescription "#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunDescription")
-- [DataQualityRulesetEvaluationRunFilter structure](#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunFilter "#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunFilter")
-- [DataQualityEvaluationRunAdditionalRunOptions structure](#aws-glue-api-data-quality-api-DataQualityEvaluationRunAdditionalRunOptions "#aws-glue-api-data-quality-api-DataQualityEvaluationRunAdditionalRunOptions")
-- [DataQualityRuleRecommendationRunDescription structure](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunDescription "#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunDescription")
-- [DataQualityRuleRecommendationRunFilter structure](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunFilter "#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunFilter")
-- [DataQualityResult structure](#aws-glue-api-data-quality-api-DataQualityResult "#aws-glue-api-data-quality-api-DataQualityResult")
-- [DataQualityAnalyzerResult structure](#aws-glue-api-data-quality-api-DataQualityAnalyzerResult "#aws-glue-api-data-quality-api-DataQualityAnalyzerResult")
-- [DataQualityObservation structure](#aws-glue-api-data-quality-api-DataQualityObservation "#aws-glue-api-data-quality-api-DataQualityObservation")
-- [MetricBasedObservation structure](#aws-glue-api-data-quality-api-MetricBasedObservation "#aws-glue-api-data-quality-api-MetricBasedObservation")
-- [DataQualityMetricValues structure](#aws-glue-api-data-quality-api-DataQualityMetricValues "#aws-glue-api-data-quality-api-DataQualityMetricValues")
-- [DataQualityRuleResult structure](#aws-glue-api-data-quality-api-DataQualityRuleResult "#aws-glue-api-data-quality-api-DataQualityRuleResult")
-- [DataQualityResultDescription structure](#aws-glue-api-data-quality-api-DataQualityResultDescription "#aws-glue-api-data-quality-api-DataQualityResultDescription")
-- [DataQualityResultFilterCriteria structure](#aws-glue-api-data-quality-api-DataQualityResultFilterCriteria "#aws-glue-api-data-quality-api-DataQualityResultFilterCriteria")
-- [DataQualityRulesetFilterCriteria structure](#aws-glue-api-data-quality-api-DataQualityRulesetFilterCriteria "#aws-glue-api-data-quality-api-DataQualityRulesetFilterCriteria")
-- [DataQualityAggregatedMetrics structure](#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics "#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics")
-- [StatisticAnnotation structure](#aws-glue-api-data-quality-api-StatisticAnnotation "#aws-glue-api-data-quality-api-StatisticAnnotation")
-- [TimestampedInclusionAnnotation structure](#aws-glue-api-data-quality-api-TimestampedInclusionAnnotation "#aws-glue-api-data-quality-api-TimestampedInclusionAnnotation")
-- [AnnotationError structure](#aws-glue-api-data-quality-api-AnnotationError "#aws-glue-api-data-quality-api-AnnotationError")
-- [DatapointInclusionAnnotation structure](#aws-glue-api-data-quality-api-DatapointInclusionAnnotation "#aws-glue-api-data-quality-api-DatapointInclusionAnnotation")
-- [StatisticSummaryList list](#aws-glue-api-data-quality-api-StatisticSummaryList "#aws-glue-api-data-quality-api-StatisticSummaryList")
-- [StatisticSummary structure](#aws-glue-api-data-quality-api-StatisticSummary "#aws-glue-api-data-quality-api-StatisticSummary")
-- [RunIdentifier structure](#aws-glue-api-data-quality-api-RunIdentifier "#aws-glue-api-data-quality-api-RunIdentifier")
-- [StatisticModelResult structure](#aws-glue-api-data-quality-api-StatisticModelResult "#aws-glue-api-data-quality-api-StatisticModelResult")
-- [DataQualityGlueTable structure](#aws-glue-api-data-quality-api-DataQualityGlueTable "#aws-glue-api-data-quality-api-DataQualityGlueTable")
-- [DataQualityRuleRecommendationRunAdditionalRunOptions structure](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions "#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions")
-- [DataQualityRuleResultsOptions structure](#aws-glue-api-data-quality-api-DataQualityRuleResultsOptions "#aws-glue-api-data-quality-api-DataQualityRuleResultsOptions")
-- [DistributionData structure](#aws-glue-api-data-quality-api-DistributionData "#aws-glue-api-data-quality-api-DistributionData")
-- [ObservationResultsOptions structure](#aws-glue-api-data-quality-api-ObservationResultsOptions "#aws-glue-api-data-quality-api-ObservationResultsOptions")
-- [ProfilingResultsOptions structure](#aws-glue-api-data-quality-api-ProfilingResultsOptions "#aws-glue-api-data-quality-api-ProfilingResultsOptions")
-- [RowLevelResultsOptions structure](#aws-glue-api-data-quality-api-RowLevelResultsOptions "#aws-glue-api-data-quality-api-RowLevelResultsOptions")
-- [CatalogTableConfigOptions structure](#aws-glue-api-data-quality-api-CatalogTableConfigOptions "#aws-glue-api-data-quality-api-CatalogTableConfigOptions")
-- [DistributionResultsOptions structure](#aws-glue-api-data-quality-api-DistributionResultsOptions "#aws-glue-api-data-quality-api-DistributionResultsOptions")
+<a name="aws-glue-api-data-quality-api-objects"></a>
++ [DataSource structure](#aws-glue-api-data-quality-api-DataSource)
++ [DataQualityRulesetListDetails structure](#aws-glue-api-data-quality-api-DataQualityRulesetListDetails)
++ [DataQualityTargetTable structure](#aws-glue-api-data-quality-api-DataQualityTargetTable)
++ [DataQualityRulesetEvaluationRunDescription structure](#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunDescription)
++ [DataQualityRulesetEvaluationRunFilter structure](#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunFilter)
++ [DataQualityEvaluationRunAdditionalRunOptions structure](#aws-glue-api-data-quality-api-DataQualityEvaluationRunAdditionalRunOptions)
++ [DataQualityRuleRecommendationRunDescription structure](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunDescription)
++ [DataQualityRuleRecommendationRunFilter structure](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunFilter)
++ [DataQualityResult structure](#aws-glue-api-data-quality-api-DataQualityResult)
++ [DataQualityAnalyzerResult structure](#aws-glue-api-data-quality-api-DataQualityAnalyzerResult)
++ [DataQualityObservation structure](#aws-glue-api-data-quality-api-DataQualityObservation)
++ [MetricBasedObservation structure](#aws-glue-api-data-quality-api-MetricBasedObservation)
++ [DataQualityMetricValues structure](#aws-glue-api-data-quality-api-DataQualityMetricValues)
++ [DataQualityRuleResult structure](#aws-glue-api-data-quality-api-DataQualityRuleResult)
++ [DataQualityResultDescription structure](#aws-glue-api-data-quality-api-DataQualityResultDescription)
++ [DataQualityResultFilterCriteria structure](#aws-glue-api-data-quality-api-DataQualityResultFilterCriteria)
++ [DataQualityRulesetFilterCriteria structure](#aws-glue-api-data-quality-api-DataQualityRulesetFilterCriteria)
++ [DataQualityAggregatedMetrics structure](#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics)
++ [StatisticAnnotation structure](#aws-glue-api-data-quality-api-StatisticAnnotation)
++ [TimestampedInclusionAnnotation structure](#aws-glue-api-data-quality-api-TimestampedInclusionAnnotation)
++ [AnnotationError structure](#aws-glue-api-data-quality-api-AnnotationError)
++ [DatapointInclusionAnnotation structure](#aws-glue-api-data-quality-api-DatapointInclusionAnnotation)
++ [StatisticSummaryList list](#aws-glue-api-data-quality-api-StatisticSummaryList)
++ [StatisticSummary structure](#aws-glue-api-data-quality-api-StatisticSummary)
++ [RunIdentifier structure](#aws-glue-api-data-quality-api-RunIdentifier)
++ [StatisticModelResult structure](#aws-glue-api-data-quality-api-StatisticModelResult)
++ [DataQualityGlueTable structure](#aws-glue-api-data-quality-api-DataQualityGlueTable)
++ [DataQualityRuleRecommendationRunAdditionalRunOptions structure](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions)
++ [DataQualityRuleResultsOptions structure](#aws-glue-api-data-quality-api-DataQualityRuleResultsOptions)
++ [DistributionData structure](#aws-glue-api-data-quality-api-DistributionData)
++ [ObservationResultsOptions structure](#aws-glue-api-data-quality-api-ObservationResultsOptions)
++ [ProfilingResultsOptions structure](#aws-glue-api-data-quality-api-ProfilingResultsOptions)
++ [RowLevelResultsOptions structure](#aws-glue-api-data-quality-api-RowLevelResultsOptions)
++ [CatalogTableConfigOptions structure](#aws-glue-api-data-quality-api-CatalogTableConfigOptions)
++ [DistributionResultsOptions structure](#aws-glue-api-data-quality-api-DistributionResultsOptions)
 
 ## DataSource structure
+<a name="aws-glue-api-data-quality-api-DataSource"></a>
 
-A data source (an AWS Glue table) for which you want data quality
-results.
+A data source (an AWS Glue table) for which you want data quality results.
 
-###### Fields
+**Fields**
++ `GlueTable` – A [GlueTable](aws-glue-api-machine-learning-api.md#aws-glue-api-machine-learning-api-GlueTable) object.
 
-- `GlueTable` – A [GlueTable](aws-glue-api-machine-learning-api.md#aws-glue-api-machine-learning-api-GlueTable "aws-glue-api-machine-learning-api.md#aws-glue-api-machine-learning-api-GlueTable") object.
+  An AWS Glue table.
++ `DataQualityGlueTable` – A [DataQualityGlueTable](#aws-glue-api-data-quality-api-DataQualityGlueTable) object.
 
-An AWS Glue table.
-
-- `DataQualityGlueTable` – A [DataQualityGlueTable](#aws-glue-api-data-quality-api-DataQualityGlueTable "#aws-glue-api-data-quality-api-DataQualityGlueTable") object.
-
-An AWS Glue table for Data Quality Operations.
+  An AWS Glue table for Data Quality Operations.
 
 ## DataQualityRulesetListDetails structure
+<a name="aws-glue-api-data-quality-api-DataQualityRulesetListDetails"></a>
 
 Describes a data quality ruleset returned by `GetDataQualityRuleset`.
 
-###### Fields
+**Fields**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the data quality ruleset.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The name of the data quality ruleset.
+  A description of the data quality ruleset.
++ `CreatedOn` – Timestamp.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  The date and time the data quality ruleset was created.
++ `LastModifiedOn` – Timestamp.
 
-A description of the data quality ruleset.
+  The date and time the data quality ruleset was last modified.
++ `TargetTable` – A [DataQualityTargetTable](#aws-glue-api-data-quality-api-DataQualityTargetTable) object.
 
-- `CreatedOn` – Timestamp.
+  An object representing an AWS Glue table.
++ `RecommendationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The date and time the data quality ruleset was created.
+  When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
++ `RuleCount` – Number (integer).
 
-- `LastModifiedOn` – Timestamp.
-
-The date and time the data quality ruleset was last modified.
-
-- `TargetTable` – A [DataQualityTargetTable](#aws-glue-api-data-quality-api-DataQualityTargetTable "#aws-glue-api-data-quality-api-DataQualityTargetTable") object.
-
-An object representing an AWS Glue table.
-
-- `RecommendationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-When a ruleset was created from a recommendation run, this run ID is generated
-to link the two together.
-
-- `RuleCount` – Number (integer).
-
-The number of rules in the ruleset.
+  The number of rules in the ruleset.
 
 ## DataQualityTargetTable structure
+<a name="aws-glue-api-data-quality-api-DataQualityTargetTable"></a>
 
 An object representing an AWS Glue table.
 
-###### Fields
+**Fields**
++ `TableName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `TableName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the AWS Glue table.
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the AWS Glue table.
+  The name of the database where the AWS Glue table exists.
++ `CatalogId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the database where the AWS Glue table exists.
-
-- `CatalogId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The catalog id where the AWS Glue table exists.
+  The catalog id where the AWS Glue table exists.
 
 ## DataQualityRulesetEvaluationRunDescription structure
+<a name="aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunDescription"></a>
 
 Describes the result of a data quality ruleset evaluation run.
 
-###### Fields
+**Fields**
++ `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The unique run identifier associated with this run.
++ `Status` – UTF-8 string (valid values: `RUNNING` \| `FINISHED` \| `FAILED` \| `PENDING_EXECUTION` \| `TIMED_OUT` \| `CANCELING` \| `CANCELED` \| `RECEIVED_BY_TASKRUNNER`).
 
-The unique run identifier associated with this run.
+  The status for this run.
++ `StartedOn` – Timestamp.
 
-- `Status` – UTF-8 string (valid values: `RUNNING` | `FINISHED` | `FAILED` | `PENDING_EXECUTION` | `TIMED_OUT` | `CANCELING` | `CANCELED` | `RECEIVED_BY_TASKRUNNER`).
+  The date and time when the run started.
++ `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-The status for this run.
-
-- `StartedOn` – Timestamp.
-
-The date and time when the run started.
-
-- `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
-
-The data source (an AWS Glue table) associated with the run.
+  The data source (an AWS Glue table) associated with the run.
 
 ## DataQualityRulesetEvaluationRunFilter structure
+<a name="aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunFilter"></a>
 
 The filter criteria.
 
-###### Fields
+**Fields**
++ `DataSource` – *Required:* A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-- `DataSource` – _Required:_ A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
+  Filter based on a data source (an AWS Glue table) associated with the run.
++ `StartedBefore` – Timestamp.
 
-Filter based on a data source (an AWS Glue table) associated
-with the run.
+  Filter results by runs that started before this time.
++ `StartedAfter` – Timestamp.
 
-- `StartedBefore` – Timestamp.
+  Filter results by runs that started after this time.
++ `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Filter results by runs that started before this time.
-
-- `StartedAfter` – Timestamp.
-
-Filter results by runs that started after this time.
-
-- `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Filter results by the name of the ruleset.
+  Filter results by the name of the ruleset.
 
 ## DataQualityEvaluationRunAdditionalRunOptions structure
+<a name="aws-glue-api-data-quality-api-DataQualityEvaluationRunAdditionalRunOptions"></a>
 
 Additional run options you can specify for an evaluation run.
 
-###### Fields
+**Fields**
++ `CloudWatchMetricsEnabled` – Boolean.
 
-- `CloudWatchMetricsEnabled` – Boolean.
+  Whether or not to enable CloudWatch metrics.
++ `ResultsS3Prefix` – UTF-8 string.
 
-Whether or not to enable CloudWatch metrics.
+  Prefix for Amazon S3 to store results.
++ `CompositeRuleEvaluationMethod` – UTF-8 string (valid values: `COLUMN` \| `ROW`).
 
-- `ResultsS3Prefix` – UTF-8 string.
+  Set the evaluation method for composite rules in the ruleset to ROW/COLUMN
++ `CustomLogGroupPrefix` – UTF-8 string.
 
-Prefix for Amazon S3 to store results.
+  A custom prefix for the CloudWatch log group names. When specified, evaluation run logs are written to `<CustomLogGroupPrefix>/error` and `<CustomLogGroupPrefix>/output` instead of the default `/aws-glue/data-quality/error` and `/aws-glue/data-quality/output` log groups.
++ `RowLevelResults` – A [RowLevelResultsOptions](#aws-glue-api-data-quality-api-RowLevelResultsOptions) object.
 
-- `CompositeRuleEvaluationMethod` – UTF-8 string (valid values: `COLUMN` | `ROW`).
+  The configuration for writing row-level evaluation results to a AWS Glue Data Catalog table.
++ `ProfilingResults` – A [ProfilingResultsOptions](#aws-glue-api-data-quality-api-ProfilingResultsOptions) object.
 
-Set the evaluation method for composite rules in the ruleset to ROW/COLUMN
+  The configuration for writing profiling results to a AWS Glue Data Catalog table.
++ `ObservationScope` – UTF-8 string (valid values: `ALL` \| `NONE`).
 
-- `CustomLogGroupPrefix` – UTF-8 string.
+  The scope of the observation for the evaluation run. Specifies whether anomaly detection is enabled or disabled.
++ `ObservationMode` – UTF-8 string (valid values: `SCHEDULED` \| `FIXED`).
 
-A custom prefix for the CloudWatch log group names. When specified, evaluation
-run logs are written to `<CustomLogGroupPrefix>/error`
-and `<CustomLogGroupPrefix>/output` instead of the default
-`/aws-glue/data-quality/error` and `/aws-glue/data-quality/output`
-log groups.
+  The observation mode for the evaluation run. Specifies how anomaly detection bounds are calculated.
++ `DataQualityRuleResults` – A [DataQualityRuleResultsOptions](#aws-glue-api-data-quality-api-DataQualityRuleResultsOptions) object.
 
-- `RowLevelResults` – A [RowLevelResultsOptions](#aws-glue-api-data-quality-api-RowLevelResultsOptions "#aws-glue-api-data-quality-api-RowLevelResultsOptions") object.
+  The configuration for writing rule results to a AWS Glue Data Catalog table.
++ `ObservationResults` – An [ObservationResultsOptions](#aws-glue-api-data-quality-api-ObservationResultsOptions) object.
 
-The configuration for writing row-level evaluation results to a AWS Glue Data Catalog table.
-
-- `ProfilingResults` – A [ProfilingResultsOptions](#aws-glue-api-data-quality-api-ProfilingResultsOptions "#aws-glue-api-data-quality-api-ProfilingResultsOptions") object.
-
-The configuration for writing profiling results to a AWS Glue Data Catalog table.
-
-- `ObservationScope` – UTF-8 string (valid values: `ALL` | `NONE`).
-
-The scope of the observation for the evaluation run. Specifies whether
-anomaly detection is enabled or disabled.
-
-- `ObservationMode` – UTF-8 string (valid values: `SCHEDULED` | `FIXED`).
-
-The observation mode for the evaluation run. Specifies how anomaly detection
-bounds are calculated.
-
-- `DataQualityRuleResults` – A [DataQualityRuleResultsOptions](#aws-glue-api-data-quality-api-DataQualityRuleResultsOptions "#aws-glue-api-data-quality-api-DataQualityRuleResultsOptions") object.
-
-The configuration for writing rule results to a AWS Glue Data Catalog table.
-
-- `ObservationResults` – An [ObservationResultsOptions](#aws-glue-api-data-quality-api-ObservationResultsOptions "#aws-glue-api-data-quality-api-ObservationResultsOptions") object.
-
-The configuration for writing observation results to a AWS Glue Data Catalog table.
+  The configuration for writing observation results to a AWS Glue Data Catalog table.
 
 ## DataQualityRuleRecommendationRunDescription structure
+<a name="aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunDescription"></a>
 
 Describes the result of a data quality rule recommendation run.
 
-###### Fields
+**Fields**
++ `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The unique run identifier associated with this run.
++ `Status` – UTF-8 string (valid values: `RUNNING` \| `FINISHED` \| `FAILED` \| `PENDING_EXECUTION` \| `TIMED_OUT` \| `CANCELING` \| `CANCELED` \| `RECEIVED_BY_TASKRUNNER`).
 
-The unique run identifier associated with this run.
+  The status for this run.
++ `StartedOn` – Timestamp.
 
-- `Status` – UTF-8 string (valid values: `RUNNING` | `FINISHED` | `FAILED` | `PENDING_EXECUTION` | `TIMED_OUT` | `CANCELING` | `CANCELED` | `RECEIVED_BY_TASKRUNNER`).
+  The date and time when this run started.
++ `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-The status for this run.
+  The data source (AWS Glue table) associated with the recommendation run.
++ `CreatedRulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `StartedOn` – Timestamp.
-
-The date and time when this run started.
-
-- `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
-
-The data source (AWS Glue table) associated with the recommendation
-run.
-
-- `CreatedRulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the ruleset that was created by the recommendation run.
+  The name of the ruleset that was created by the recommendation run.
 
 ## DataQualityRuleRecommendationRunFilter structure
+<a name="aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunFilter"></a>
 
 A filter for listing data quality recommendation runs.
 
-###### Fields
+**Fields**
++ `DataSource` – *Required:* A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-- `DataSource` – _Required:_ A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
+  Filter based on a specified data source (AWS Glue table).
++ `StartedBefore` – Timestamp.
 
-Filter based on a specified data source (AWS Glue table).
+  Filter based on time for results started before provided time.
++ `StartedAfter` – Timestamp.
 
-- `StartedBefore` – Timestamp.
-
-Filter based on time for results started before provided time.
-
-- `StartedAfter` – Timestamp.
-
-Filter based on time for results started after provided time.
+  Filter based on time for results started after provided time.
 
 ## DataQualityResult structure
+<a name="aws-glue-api-data-quality-api-DataQualityResult"></a>
 
 Describes a data quality result.
 
-###### Fields
+**Fields**
++ `ResultId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ResultId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A unique result ID for the data quality result.
++ `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A unique result ID for the data quality result.
+  The Profile ID for the data quality result.
++ `Score` – Number (double), not more than 1.0.
 
-- `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  An aggregate data quality score. Represents the ratio of rules that passed to the total number of rules.
++ `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-The Profile ID for the data quality result.
+  The table associated with the data quality result, if any.
++ `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Score` – Number (double), not more than 1.0.
+  The name of the ruleset associated with the data quality result.
++ `EvaluationContext` – UTF-8 string.
 
-An aggregate data quality score. Represents the ratio of rules that passed
-to the total number of rules.
+  In the context of a job in AWS Glue Studio, each node in the canvas is typically assigned some sort of name and data quality nodes will have names. In the case of multiple nodes, the `evaluationContext` can differentiate the nodes.
++ `StartedOn` – Timestamp.
 
-- `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
+  The date and time when this data quality run started.
++ `CompletedOn` – Timestamp.
 
-The table associated with the data quality result, if any.
+  The date and time when this data quality run completed.
++ `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The job name associated with the data quality result, if any.
++ `JobRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the ruleset associated with the data quality result.
+  The job run ID associated with the data quality result, if any.
++ `RulesetEvaluationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `EvaluationContext` – UTF-8 string.
+  The unique run ID for the ruleset evaluation for this data quality result.
++ `RuleResults` – An array of [DataQualityRuleResult](#aws-glue-api-data-quality-api-DataQualityRuleResult) objects, not more than 2000 structures.
 
-In the context of a job in AWS Glue Studio, each node in the canvas
-is typically assigned some sort of name and data quality nodes will have names.
-In the case of multiple nodes, the `evaluationContext` can differentiate
-the nodes.
+  A list of `DataQualityRuleResult` objects representing the results for each rule. 
++ `AnalyzerResults` – An array of [DataQualityAnalyzerResult](#aws-glue-api-data-quality-api-DataQualityAnalyzerResult) objects, not more than 2000 structures.
 
-- `StartedOn` – Timestamp.
+  A list of `DataQualityAnalyzerResult` objects representing the results for each analyzer. 
++ `Observations` – An array of [DataQualityObservation](#aws-glue-api-data-quality-api-DataQualityObservation) objects, not more than 50 structures.
 
-The date and time when this data quality run started.
+  A list of `DataQualityObservation` objects representing the observations generated after evaluating the rules and analyzers. 
++ `AggregatedMetrics` – A [DataQualityAggregatedMetrics](#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics) object.
 
-- `CompletedOn` – Timestamp.
-
-The date and time when this data quality run completed.
-
-- `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The job name associated with the data quality result, if any.
-
-- `JobRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The job run ID associated with the data quality result, if any.
-
-- `RulesetEvaluationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The unique run ID for the ruleset evaluation for this data quality result.
-
-- `RuleResults` – An array of [DataQualityRuleResult](#aws-glue-api-data-quality-api-DataQualityRuleResult "#aws-glue-api-data-quality-api-DataQualityRuleResult") objects, not more than 2000 structures.
-
-A list of `DataQualityRuleResult` objects representing
-the results for each rule.
-
-- `AnalyzerResults` – An array of [DataQualityAnalyzerResult](#aws-glue-api-data-quality-api-DataQualityAnalyzerResult "#aws-glue-api-data-quality-api-DataQualityAnalyzerResult") objects, not more than 2000 structures.
-
-A list of `DataQualityAnalyzerResult` objects representing
-the results for each analyzer.
-
-- `Observations` – An array of [DataQualityObservation](#aws-glue-api-data-quality-api-DataQualityObservation "#aws-glue-api-data-quality-api-DataQualityObservation") objects, not more than 50 structures.
-
-A list of `DataQualityObservation` objects representing
-the observations generated after evaluating the rules and analyzers.
-
-- `AggregatedMetrics` – A [DataQualityAggregatedMetrics](#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics "#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics") object.
-
-A summary of `DataQualityAggregatedMetrics` objects showing
-the total counts of processed rows and rules, including their pass/fail statistics
-based on row-level results.
+   A summary of `DataQualityAggregatedMetrics` objects showing the total counts of processed rows and rules, including their pass/fail statistics based on row-level results. 
 
 ## DataQualityAnalyzerResult structure
+<a name="aws-glue-api-data-quality-api-DataQualityAnalyzerResult"></a>
 
 Describes the result of the evaluation of a data quality analyzer.
 
-###### Fields
+**Fields**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the data quality analyzer.
++ `Description` – UTF-8 string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The name of the data quality analyzer.
+  A description of the data quality analyzer.
++ `EvaluationMessage` – UTF-8 string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `Description` – UTF-8 string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  An evaluation message.
++ `EvaluatedMetrics` – A map array of key-value pairs.
 
-A description of the data quality analyzer.
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `EvaluationMessage` – UTF-8 string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  Each value is a Number (double).
 
-An evaluation message.
+  A map of metrics associated with the evaluation of the analyzer.
++ `EvaluatedDistributions` – A map array of key-value pairs.
 
-- `EvaluatedMetrics` – A map array of key-value pairs.
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Each value is a A [DistributionData](#aws-glue-api-data-quality-api-DistributionData) object.
 
-Each value is a Number (double).
-
-A map of metrics associated with the evaluation of the analyzer.
-
-- `EvaluatedDistributions` – A map array of key-value pairs.
-
-Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a A [DistributionData](#aws-glue-api-data-quality-api-DistributionData "#aws-glue-api-data-quality-api-DistributionData") object.
-
-A map of distribution metrics associated with the evaluation of the analyzer.
+  A map of distribution metrics associated with the evaluation of the analyzer.
 
 ## DataQualityObservation structure
+<a name="aws-glue-api-data-quality-api-DataQualityObservation"></a>
 
 Describes the observation generated after evaluating the rules and analyzers.
 
-###### Fields
+**Fields**
++ `Description` – UTF-8 string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `Description` – UTF-8 string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  A description of the data quality observation.
++ `MetricBasedObservation` – A [MetricBasedObservation](#aws-glue-api-data-quality-api-MetricBasedObservation) object.
 
-A description of the data quality observation.
-
-- `MetricBasedObservation` – A [MetricBasedObservation](#aws-glue-api-data-quality-api-MetricBasedObservation "#aws-glue-api-data-quality-api-MetricBasedObservation") object.
-
-An object of type `MetricBasedObservation` representing
-the observation that is based on evaluated data quality metrics.
+  An object of type `MetricBasedObservation` representing the observation that is based on evaluated data quality metrics.
 
 ## MetricBasedObservation structure
+<a name="aws-glue-api-data-quality-api-MetricBasedObservation"></a>
 
-Describes the metric based observation generated based on evaluated
-data quality metrics.
+Describes the metric based observation generated based on evaluated data quality metrics.
 
-###### Fields
+**Fields**
++ `MetricName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `MetricName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the data quality metric used for generating the observation.
++ `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the data quality metric used for generating the observation.
+  The Statistic ID.
++ `MetricValues` – A [DataQualityMetricValues](#aws-glue-api-data-quality-api-DataQualityMetricValues) object.
 
-- `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  An object of type `DataQualityMetricValues` representing the analysis of the data quality metric value.
++ `NewRules` – An array of UTF-8 strings.
 
-The Statistic ID.
-
-- `MetricValues` – A [DataQualityMetricValues](#aws-glue-api-data-quality-api-DataQualityMetricValues "#aws-glue-api-data-quality-api-DataQualityMetricValues") object.
-
-An object of type `DataQualityMetricValues` representing
-the analysis of the data quality metric value.
-
-- `NewRules` – An array of UTF-8 strings.
-
-A list of new data quality rules generated as part of the observation based
-on the data quality metric value.
+  A list of new data quality rules generated as part of the observation based on the data quality metric value.
 
 ## DataQualityMetricValues structure
+<a name="aws-glue-api-data-quality-api-DataQualityMetricValues"></a>
 
-Describes the data quality metric value according to the analysis of historical
-data.
+Describes the data quality metric value according to the analysis of historical data.
 
-###### Fields
+**Fields**
++ `ActualValue` – Number (double).
 
-- `ActualValue` – Number (double).
+  The actual value of the data quality metric.
++ `ExpectedValue` – Number (double).
 
-The actual value of the data quality metric.
+  The expected value of the data quality metric according to the analysis of historical data.
++ `LowerLimit` – Number (double).
 
-- `ExpectedValue` – Number (double).
+  The lower limit of the data quality metric value according to the analysis of historical data.
++ `UpperLimit` – Number (double).
 
-The expected value of the data quality metric according to the analysis
-of historical data.
-
-- `LowerLimit` – Number (double).
-
-The lower limit of the data quality metric value according to the analysis
-of historical data.
-
-- `UpperLimit` – Number (double).
-
-The upper limit of the data quality metric value according to the analysis
-of historical data.
+  The upper limit of the data quality metric value according to the analysis of historical data.
 
 ## DataQualityRuleResult structure
+<a name="aws-glue-api-data-quality-api-DataQualityRuleResult"></a>
 
 Describes the result of the evaluation of a data quality rule.
 
-###### Fields
+**Fields**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the data quality rule.
++ `Description` – UTF-8 string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The name of the data quality rule.
+  A description of the data quality rule.
++ `EvaluationMessage` – UTF-8 string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `Description` – UTF-8 string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  An evaluation message.
++ `Result` – UTF-8 string (valid values: `PASS` \| `FAIL` \| `ERROR`).
 
-A description of the data quality rule.
+  A pass or fail status for the rule.
++ `EvaluatedMetrics` – A map array of key-value pairs.
 
-- `EvaluationMessage` – UTF-8 string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-An evaluation message.
+  Each value is a Number (double).
 
-- `Result` – UTF-8 string (valid values: `PASS` | `FAIL` | `ERROR`).
+  A map of metrics associated with the evaluation of the rule.
++ `EvaluatedRule` – UTF-8 string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-A pass or fail status for the rule.
+  The evaluated rule.
++ `RuleMetrics` – A map array of key-value pairs.
 
-- `EvaluatedMetrics` – A map array of key-value pairs.
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Each value is a Number (double).
 
-Each value is a Number (double).
+  A map containing metrics associated with the evaluation of the rule based on row-level results. 
++ `Labels` – A map array of key-value pairs.
 
-A map of metrics associated with the evaluation of the rule.
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `EvaluatedRule` – UTF-8 string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  Each value is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The evaluated rule.
-
-- `RuleMetrics` – A map array of key-value pairs.
-
-Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a Number (double).
-
-A map containing metrics associated with the evaluation of the rule based
-on row-level results.
-
-- `Labels` – A map array of key-value pairs.
-
-Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-A map containing labels assigned to the data quality rule.
+  A map containing labels assigned to the data quality rule. 
 
 ## DataQualityResultDescription structure
+<a name="aws-glue-api-data-quality-api-DataQualityResultDescription"></a>
 
 Describes a data quality result.
 
-###### Fields
+**Fields**
++ `ResultId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ResultId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The unique result ID for this data quality result.
++ `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-The unique result ID for this data quality result.
+  The table name associated with the data quality result.
++ `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
+  The job name associated with the data quality result.
++ `JobRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The table name associated with the data quality result.
+  The job run ID associated with the data quality result.
++ `StartedOn` – Timestamp.
 
-- `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The job name associated with the data quality result.
-
-- `JobRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The job run ID associated with the data quality result.
-
-- `StartedOn` – Timestamp.
-
-The time that the run started for this data quality result.
+  The time that the run started for this data quality result.
 
 ## DataQualityResultFilterCriteria structure
+<a name="aws-glue-api-data-quality-api-DataQualityResultFilterCriteria"></a>
 
 Criteria used to return data quality results.
 
-###### Fields
+**Fields**
++ `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-- `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
+  Filter results by the specified data source. For example, retrieving all results for an AWS Glue table.
++ `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Filter results by the specified data source. For example, retrieving
-all results for an AWS Glue table.
+  Filter results by the specified job name.
++ `JobRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Filter results by the specified job run ID.
++ `StartedAfter` – Timestamp.
 
-Filter results by the specified job name.
+  Filter results by runs that started after this time.
++ `StartedBefore` – Timestamp.
 
-- `JobRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Filter results by the specified job run ID.
-
-- `StartedAfter` – Timestamp.
-
-Filter results by runs that started after this time.
-
-- `StartedBefore` – Timestamp.
-
-Filter results by runs that started before this time.
+  Filter results by runs that started before this time.
 
 ## DataQualityRulesetFilterCriteria structure
+<a name="aws-glue-api-data-quality-api-DataQualityRulesetFilterCriteria"></a>
 
 The criteria used to filter data quality rulesets.
 
-###### Fields
+**Fields**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the ruleset filter criteria.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The name of the ruleset filter criteria.
+  The description of the ruleset filter criteria.
++ `CreatedBefore` – Timestamp.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  Filter on rulesets created before this date.
++ `CreatedAfter` – Timestamp.
 
-The description of the ruleset filter criteria.
+  Filter on rulesets created after this date.
++ `LastModifiedBefore` – Timestamp.
 
-- `CreatedBefore` – Timestamp.
+  Filter on rulesets last modified before this date.
++ `LastModifiedAfter` – Timestamp.
 
-Filter on rulesets created before this date.
+  Filter on rulesets last modified after this date.
++ `TargetTable` – A [DataQualityTargetTable](#aws-glue-api-data-quality-api-DataQualityTargetTable) object.
 
-- `CreatedAfter` – Timestamp.
-
-Filter on rulesets created after this date.
-
-- `LastModifiedBefore` – Timestamp.
-
-Filter on rulesets last modified before this date.
-
-- `LastModifiedAfter` – Timestamp.
-
-Filter on rulesets last modified after this date.
-
-- `TargetTable` – A [DataQualityTargetTable](#aws-glue-api-data-quality-api-DataQualityTargetTable "#aws-glue-api-data-quality-api-DataQualityTargetTable") object.
-
-The name and database name of the target table.
+  The name and database name of the target table.
 
 ## DataQualityAggregatedMetrics structure
+<a name="aws-glue-api-data-quality-api-DataQualityAggregatedMetrics"></a>
 
-A summary of metrics showing the total counts of processed rows and rules,
-including their pass/fail statistics based on row-level results.
+A summary of metrics showing the total counts of processed rows and rules, including their pass/fail statistics based on row-level results.
 
-###### Fields
+**Fields**
++ `TotalRowsProcessed` – Number (double).
 
-- `TotalRowsProcessed` – Number (double).
+  The total number of rows that were processed during the data quality evaluation.
++ `TotalRowsPassed` – Number (double).
 
-The total number of rows that were processed during the data quality evaluation.
+  The total number of rows that passed all applicable data quality rules.
++ `TotalRowsFailed` – Number (double).
 
-- `TotalRowsPassed` – Number (double).
+  The total number of rows that failed one or more data quality rules.
++ `TotalRulesProcessed` – Number (double).
 
-The total number of rows that passed all applicable data quality rules.
+  The total number of data quality rules that were evaluated.
++ `TotalRulesPassed` – Number (double).
 
-- `TotalRowsFailed` – Number (double).
+  The total number of data quality rules that passed their evaluation criteria.
++ `TotalRulesFailed` – Number (double).
 
-The total number of rows that failed one or more data quality rules.
-
-- `TotalRulesProcessed` – Number (double).
-
-The total number of data quality rules that were evaluated.
-
-- `TotalRulesPassed` – Number (double).
-
-The total number of data quality rules that passed their evaluation criteria.
-
-- `TotalRulesFailed` – Number (double).
-
-The total number of data quality rules that failed their evaluation criteria.
+  The total number of data quality rules that failed their evaluation criteria.
 
 ## StatisticAnnotation structure
+<a name="aws-glue-api-data-quality-api-StatisticAnnotation"></a>
 
 A Statistic Annotation.
 
-###### Fields
+**Fields**
++ `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The Profile ID.
++ `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The Profile ID.
+  The Statistic ID.
++ `StatisticRecordedOn` – Timestamp.
 
-- `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The timestamp when the annotated statistic was recorded.
++ `InclusionAnnotation` – A [TimestampedInclusionAnnotation](#aws-glue-api-data-quality-api-TimestampedInclusionAnnotation) object.
 
-The Statistic ID.
-
-- `StatisticRecordedOn` – Timestamp.
-
-The timestamp when the annotated statistic was recorded.
-
-- `InclusionAnnotation` – A [TimestampedInclusionAnnotation](#aws-glue-api-data-quality-api-TimestampedInclusionAnnotation "#aws-glue-api-data-quality-api-TimestampedInclusionAnnotation") object.
-
-The inclusion annotation applied to the statistic.
+  The inclusion annotation applied to the statistic.
 
 ## TimestampedInclusionAnnotation structure
+<a name="aws-glue-api-data-quality-api-TimestampedInclusionAnnotation"></a>
 
 A timestamped inclusion annotation.
 
-###### Fields
+**Fields**
++ `Value` – UTF-8 string (valid values: `INCLUDE` \| `EXCLUDE`).
 
-- `Value` – UTF-8 string (valid values: `INCLUDE` | `EXCLUDE`).
+  The inclusion annotation value.
++ `LastModifiedOn` – Timestamp.
 
-The inclusion annotation value.
-
-- `LastModifiedOn` – Timestamp.
-
-The timestamp when the inclusion annotation was last modified.
+  The timestamp when the inclusion annotation was last modified.
 
 ## AnnotationError structure
+<a name="aws-glue-api-data-quality-api-AnnotationError"></a>
 
 A failed annotation.
 
-###### Fields
+**Fields**
++ `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The Profile ID for the failed annotation.
++ `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The Profile ID for the failed annotation.
+  The Statistic ID for the failed annotation.
++ `FailureReason` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The Statistic ID for the failed annotation.
-
-- `FailureReason` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
-
-The reason why the annotation failed.
+  The reason why the annotation failed.
 
 ## DatapointInclusionAnnotation structure
+<a name="aws-glue-api-data-quality-api-DatapointInclusionAnnotation"></a>
 
 An Inclusion Annotation.
 
-###### Fields
+**Fields**
++ `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the data quality profile the statistic belongs to.
++ `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The ID of the data quality profile the statistic belongs to.
+  The Statistic ID.
++ `InclusionAnnotation` – UTF-8 string (valid values: `INCLUDE` \| `EXCLUDE`).
 
-- `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The Statistic ID.
-
-- `InclusionAnnotation` – UTF-8 string (valid values: `INCLUDE` | `EXCLUDE`).
-
-The inclusion annotation value to apply to the statistic.
+  The inclusion annotation value to apply to the statistic.
 
 ## StatisticSummaryList list
+<a name="aws-glue-api-data-quality-api-StatisticSummaryList"></a>
 
 A list of `StatisticSummary`.
 
-An array of [StatisticSummary](#aws-glue-api-data-quality-api-StatisticSummary "#aws-glue-api-data-quality-api-StatisticSummary") objects.
+An array of [StatisticSummary](#aws-glue-api-data-quality-api-StatisticSummary) objects.
 
 A list of `StatisticSummary`.
 
 ## StatisticSummary structure
+<a name="aws-glue-api-data-quality-api-StatisticSummary"></a>
 
 Summary information about a statistic.
 
-###### Fields
+**Fields**
++ `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The Statistic ID.
++ `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The Statistic ID.
+  The Profile ID.
++ `RunIdentifier` – A [RunIdentifier](#aws-glue-api-data-quality-api-RunIdentifier) object.
 
-- `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The Run Identifier
++ `StatisticName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #21](aws-glue-api-common.md#regex_21).
 
-The Profile ID.
+  The name of the statistic.
++ `DoubleValue` – Number (double).
 
-- `RunIdentifier` – A [RunIdentifier](#aws-glue-api-data-quality-api-RunIdentifier "#aws-glue-api-data-quality-api-RunIdentifier") object.
+  The value of the statistic.
++ `DistributionValue` – A [DistributionData](#aws-glue-api-data-quality-api-DistributionData) object.
 
-The Run Identifier
+  The distribution value for the statistic.
++ `EvaluationLevel` – UTF-8 string (valid values: `Dataset="DATASET"` \| `Column="COLUMN"` \| `Multicolumn="MULTICOLUMN"`).
 
-- `StatisticName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #21](aws-glue-api-common.md#regex_21 "aws-glue-api-common.md#regex_21").
+  The evaluation level of the statistic. Possible values: `Dataset`, `Column`, `Multicolumn`.
++ `ColumnsReferenced` – An array of UTF-8 strings.
 
-The name of the statistic.
+  The list of columns referenced by the statistic.
++ `ReferencedDatasets` – An array of UTF-8 strings.
 
-- `DoubleValue` – Number (double).
+  The list of datasets referenced by the statistic.
++ `StatisticProperties` – A map array of key-value pairs.
 
-The value of the statistic.
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DistributionValue` – A [DistributionData](#aws-glue-api-data-quality-api-DistributionData "#aws-glue-api-data-quality-api-DistributionData") object.
+  Each value is a Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The distribution value for the statistic.
+  A `StatisticPropertiesMap`, which contains a `NameString` and `DescriptionString`
++ `RecordedOn` – Timestamp.
 
-- `EvaluationLevel` – UTF-8 string (valid values: `Dataset="DATASET"` | `Column="COLUMN"` | `Multicolumn="MULTICOLUMN"`).
+  The timestamp when the statistic was recorded.
++ `InclusionAnnotation` – A [TimestampedInclusionAnnotation](#aws-glue-api-data-quality-api-TimestampedInclusionAnnotation) object.
 
-The evaluation level of the statistic. Possible values: `Dataset`,
-`Column`, `Multicolumn`.
-
-- `ColumnsReferenced` – An array of UTF-8 strings.
-
-The list of columns referenced by the statistic.
-
-- `ReferencedDatasets` – An array of UTF-8 strings.
-
-The list of datasets referenced by the statistic.
-
-- `StatisticProperties` – A map array of key-value pairs.
-
-Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
-
-A `StatisticPropertiesMap`, which contains a `NameString`
-and `DescriptionString`
-
-- `RecordedOn` – Timestamp.
-
-The timestamp when the statistic was recorded.
-
-- `InclusionAnnotation` – A [TimestampedInclusionAnnotation](#aws-glue-api-data-quality-api-TimestampedInclusionAnnotation "#aws-glue-api-data-quality-api-TimestampedInclusionAnnotation") object.
-
-The inclusion annotation for the statistic.
+  The inclusion annotation for the statistic.
 
 ## RunIdentifier structure
+<a name="aws-glue-api-data-quality-api-RunIdentifier"></a>
 
 A run identifier.
 
-###### Fields
+**Fields**
++ `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The Run ID.
++ `JobRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The Run ID.
-
-- `JobRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The Job Run ID.
+  The Job Run ID.
 
 ## StatisticModelResult structure
+<a name="aws-glue-api-data-quality-api-StatisticModelResult"></a>
 
 The statistic model result.
 
-###### Fields
+**Fields**
++ `LowerBound` – Number (double).
 
-- `LowerBound` – Number (double).
+  The lower bound.
++ `UpperBound` – Number (double).
 
-The lower bound.
+  The upper bound.
++ `PredictedValue` – Number (double).
 
-- `UpperBound` – Number (double).
+  The predicted value.
++ `ActualValue` – Number (double).
 
-The upper bound.
+  The actual value.
++ `Date` – Timestamp.
 
-- `PredictedValue` – Number (double).
+  The date.
++ `InclusionAnnotation` – UTF-8 string (valid values: `INCLUDE` \| `EXCLUDE`).
 
-The predicted value.
-
-- `ActualValue` – Number (double).
-
-The actual value.
-
-- `Date` – Timestamp.
-
-The date.
-
-- `InclusionAnnotation` – UTF-8 string (valid values: `INCLUDE` | `EXCLUDE`).
-
-The inclusion annotation.
+  The inclusion annotation.
 
 ## DataQualityGlueTable structure
+<a name="aws-glue-api-data-quality-api-DataQualityGlueTable"></a>
 
-The database and table in the AWS Glue Data Catalog that is used for
-input or output data for Data Quality Operations.
+The database and table in the AWS Glue Data Catalog that is used for input or output data for Data Quality Operations.
 
-###### Fields
+**Fields**
++ `DatabaseName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A database name in the AWS Glue Data Catalog.
++ `TableName` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A database name in the AWS Glue Data Catalog.
+  A table name in the AWS Glue Data Catalog.
++ `CatalogId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `TableName` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A unique identifier for the AWS Glue Data Catalog.
++ `ConnectionName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A table name in the AWS Glue Data Catalog.
+  The name of the connection to the AWS Glue Data Catalog.
++ `AdditionalOptions` – A map array of key-value pairs, not less than 1 or more than 10 pairs.
 
-- `CatalogId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A unique identifier for the AWS Glue Data Catalog.
+  Each value is a Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-- `ConnectionName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Additional options for the table. Currently there are two keys supported:
+  + `pushDownPredicate`: to filter on partitions without having to list and read all the files in your dataset.
+  + `catalogPartitionPredicate`: to use server-side partition pruning using partition indexes in the AWS Glue Data Catalog.
++ `PreProcessingQuery` – UTF-8 string, not more than 51200 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The name of the connection to the AWS Glue Data Catalog.
-
-- `AdditionalOptions` – A map array of key-value pairs, not less than 1 or more than 10 pairs.
-
-Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
-
-Additional options for the table. Currently there are two keys supported:
-
-    + `pushDownPredicate`: to filter on partitions without having
-     to list and read all the files in your dataset.
-    + `catalogPartitionPredicate`: to use server-side partition
-     pruning using partition indexes in the AWS Glue Data Catalog.
-
-- `PreProcessingQuery` – UTF-8 string, not more than 51200 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
-
-SQL Query of SparkSQL format that can be used to pre-process the data for
-the table in AWS Glue Data Catalog, before running the Data Quality Operation.
+  SQL Query of SparkSQL format that can be used to pre-process the data for the table in AWS Glue Data Catalog, before running the Data Quality Operation.
 
 ## DataQualityRuleRecommendationRunAdditionalRunOptions structure
+<a name="aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions"></a>
 
 Additional run options you can specify for a recommendation run.
 
-###### Fields
+**Fields**
++ `CustomLogGroupPrefix` – UTF-8 string.
 
-- `CustomLogGroupPrefix` – UTF-8 string.
-
-A custom prefix for the CloudWatch log group names. When specified, recommendation
-run logs are written to `<CustomLogGroupPrefix>/error`
-and `<CustomLogGroupPrefix>/output` instead of the default
-`/aws-glue/data-quality/error` and `/aws-glue/data-quality/output`
-log groups.
+  A custom prefix for the CloudWatch log group names. When specified, recommendation run logs are written to `<CustomLogGroupPrefix>/error` and `<CustomLogGroupPrefix>/output` instead of the default `/aws-glue/data-quality/error` and `/aws-glue/data-quality/output` log groups.
 
 ## DataQualityRuleResultsOptions structure
+<a name="aws-glue-api-data-quality-api-DataQualityRuleResultsOptions"></a>
 
 The configuration for writing data quality rule results.
 
-###### Fields
+**Fields**
++ `WriteDataQualityRuleResultsEnabled` – Boolean.
 
-- `WriteDataQualityRuleResultsEnabled` – Boolean.
+  Set to true to write data quality rule results.
++ `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions) object.
 
-Set to true to write data quality rule results.
-
-- `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions "#aws-glue-api-data-quality-api-CatalogTableConfigOptions") object.
-
-The AWS Glue Data Catalog table configuration for storing the rule
-results.
+  The AWS Glue Data Catalog table configuration for storing the rule results.
 
 ## DistributionData structure
+<a name="aws-glue-api-data-quality-api-DistributionData"></a>
 
 The distribution data for a statistic.
 
-###### Fields
+**Fields**
++ `BinEdges` – An array of UTF-8 strings.
 
-- `BinEdges` – An array of UTF-8 strings.
+  The bin edge values for the distribution.
++ `Count` – An array of signed 32-bit integers.
 
-The bin edge values for the distribution.
+  The frequency count for each bin in the distribution.
++ `DataType` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Count` – An array of signed 32-bit integers.
-
-The frequency count for each bin in the distribution.
-
-- `DataType` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The data type of the column for the distribution.
+  The data type of the column for the distribution.
 
 ## ObservationResultsOptions structure
+<a name="aws-glue-api-data-quality-api-ObservationResultsOptions"></a>
 
 The configuration for writing observation results.
 
-###### Fields
+**Fields**
++ `WriteObservationResultsEnabled` – Boolean.
 
-- `WriteObservationResultsEnabled` – Boolean.
+  Set to true to write observation results.
++ `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions) object.
 
-Set to true to write observation results.
-
-- `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions "#aws-glue-api-data-quality-api-CatalogTableConfigOptions") object.
-
-The AWS Glue Data Catalog table configuration for storing the observation
-results.
+  The AWS Glue Data Catalog table configuration for storing the observation results.
 
 ## ProfilingResultsOptions structure
+<a name="aws-glue-api-data-quality-api-ProfilingResultsOptions"></a>
 
 The configuration for writing profiling results.
 
-###### Fields
+**Fields**
++ `WriteProfilingResultsEnabled` – Boolean.
 
-- `WriteProfilingResultsEnabled` – Boolean.
+  Set to true to write profiling results.
++ `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions) object.
 
-Set to true to write profiling results.
+  The AWS Glue Data Catalog table configuration for storing the profiling results.
++ `DistributionResults` – A [DistributionResultsOptions](#aws-glue-api-data-quality-api-DistributionResultsOptions) object.
 
-- `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions "#aws-glue-api-data-quality-api-CatalogTableConfigOptions") object.
-
-The AWS Glue Data Catalog table configuration for storing the profiling
-results.
-
-- `DistributionResults` – A [DistributionResultsOptions](#aws-glue-api-data-quality-api-DistributionResultsOptions "#aws-glue-api-data-quality-api-DistributionResultsOptions") object.
-
-The configuration for writing distribution results.
+  The configuration for writing distribution results.
 
 ## RowLevelResultsOptions structure
+<a name="aws-glue-api-data-quality-api-RowLevelResultsOptions"></a>
 
 The configuration for writing row-level evaluation results.
 
-###### Fields
+**Fields**
++ `MaxRowsToWrite` – Number (integer).
 
-- `MaxRowsToWrite` – Number (integer).
+  The maximum number of rows to write in the results.
++ `ResultType` – UTF-8 string (valid values: `ALL` \| `PASSED_ONLY` \| `FAILED_ONLY`).
 
-The maximum number of rows to write in the results.
+  The result type to include in the row-level results output.
++ `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions) object.
 
-- `ResultType` – UTF-8 string (valid values: `ALL` | `PASSED_ONLY` | `FAILED_ONLY`).
-
-The result type to include in the row-level results output.
-
-- `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions "#aws-glue-api-data-quality-api-CatalogTableConfigOptions") object.
-
-The AWS Glue Data Catalog table configuration for storing the results.
+  The AWS Glue Data Catalog table configuration for storing the results.
 
 ## CatalogTableConfigOptions structure
+<a name="aws-glue-api-data-quality-api-CatalogTableConfigOptions"></a>
 
-The configuration for a AWS Glue Data Catalog table used to store
-data quality results.
+The configuration for a AWS Glue Data Catalog table used to store data quality results.
 
-###### Fields
+**Fields**
++ `DatabaseName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `DatabaseName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the database in the AWS Glue Data Catalog.
++ `TableName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the database in the AWS Glue Data Catalog.
+  The name of the table in the AWS Glue Data Catalog.
++ `S3Location` – UTF-8 string.
 
-- `TableName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The Amazon S3 location for storing the results.
++ `CatalogId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the table in the AWS Glue Data Catalog.
-
-- `S3Location` – UTF-8 string.
-
-The Amazon S3 location for storing the results.
-
-- `CatalogId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-A unique identifier for the AWS Glue Data Catalog.
+  A unique identifier for the AWS Glue Data Catalog.
 
 ## DistributionResultsOptions structure
+<a name="aws-glue-api-data-quality-api-DistributionResultsOptions"></a>
 
 The configuration for writing distribution results.
 
-###### Fields
+**Fields**
++ `WriteDistributionResultsEnabled` – Boolean.
 
-- `WriteDistributionResultsEnabled` – Boolean.
+  Set to true to write distribution results.
++ `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions) object.
 
-Set to true to write distribution results.
-
-- `CatalogTableConfig` – A [CatalogTableConfigOptions](#aws-glue-api-data-quality-api-CatalogTableConfigOptions "#aws-glue-api-data-quality-api-CatalogTableConfigOptions") object.
-
-The AWS Glue Data Catalog table configuration for storing the distribution
-results.
+  The AWS Glue Data Catalog table configuration for storing the distribution results.
 
 ## Operations
-
-- [StartDataQualityRulesetEvaluationRun action (Python: start\_data\_quality\_ruleset\_evaluation\_run)](#aws-glue-api-data-quality-api-StartDataQualityRulesetEvaluationRun "#aws-glue-api-data-quality-api-StartDataQualityRulesetEvaluationRun")
-- [CancelDataQualityRulesetEvaluationRun action (Python: cancel\_data\_quality\_ruleset\_evaluation\_run)](#aws-glue-api-data-quality-api-CancelDataQualityRulesetEvaluationRun "#aws-glue-api-data-quality-api-CancelDataQualityRulesetEvaluationRun")
-- [GetDataQualityRulesetEvaluationRun action (Python: get\_data\_quality\_ruleset\_evaluation\_run)](#aws-glue-api-data-quality-api-GetDataQualityRulesetEvaluationRun "#aws-glue-api-data-quality-api-GetDataQualityRulesetEvaluationRun")
-- [ListDataQualityRulesetEvaluationRuns action (Python: list\_data\_quality\_ruleset\_evaluation\_runs)](#aws-glue-api-data-quality-api-ListDataQualityRulesetEvaluationRuns "#aws-glue-api-data-quality-api-ListDataQualityRulesetEvaluationRuns")
-- [StartDataQualityRuleRecommendationRun action (Python: start\_data\_quality\_rule\_recommendation\_run)](#aws-glue-api-data-quality-api-StartDataQualityRuleRecommendationRun "#aws-glue-api-data-quality-api-StartDataQualityRuleRecommendationRun")
-- [CancelDataQualityRuleRecommendationRun action (Python: cancel\_data\_quality\_rule\_recommendation\_run)](#aws-glue-api-data-quality-api-CancelDataQualityRuleRecommendationRun "#aws-glue-api-data-quality-api-CancelDataQualityRuleRecommendationRun")
-- [GetDataQualityRuleRecommendationRun action (Python: get\_data\_quality\_rule\_recommendation\_run)](#aws-glue-api-data-quality-api-GetDataQualityRuleRecommendationRun "#aws-glue-api-data-quality-api-GetDataQualityRuleRecommendationRun")
-- [ListDataQualityRuleRecommendationRuns action (Python: list\_data\_quality\_rule\_recommendation\_runs)](#aws-glue-api-data-quality-api-ListDataQualityRuleRecommendationRuns "#aws-glue-api-data-quality-api-ListDataQualityRuleRecommendationRuns")
-- [GetDataQualityResult action (Python: get\_data\_quality\_result)](#aws-glue-api-data-quality-api-GetDataQualityResult "#aws-glue-api-data-quality-api-GetDataQualityResult")
-- [BatchGetDataQualityResult action (Python: batch\_get\_data\_quality\_result)](#aws-glue-api-data-quality-api-BatchGetDataQualityResult "#aws-glue-api-data-quality-api-BatchGetDataQualityResult")
-- [ListDataQualityResults action (Python: list\_data\_quality\_results)](#aws-glue-api-data-quality-api-ListDataQualityResults "#aws-glue-api-data-quality-api-ListDataQualityResults")
-- [CreateDataQualityRuleset action (Python: create\_data\_quality\_ruleset)](#aws-glue-api-data-quality-api-CreateDataQualityRuleset "#aws-glue-api-data-quality-api-CreateDataQualityRuleset")
-- [DeleteDataQualityRuleset action (Python: delete\_data\_quality\_ruleset)](#aws-glue-api-data-quality-api-DeleteDataQualityRuleset "#aws-glue-api-data-quality-api-DeleteDataQualityRuleset")
-- [GetDataQualityRuleset action (Python: get\_data\_quality\_ruleset)](#aws-glue-api-data-quality-api-GetDataQualityRuleset "#aws-glue-api-data-quality-api-GetDataQualityRuleset")
-- [ListDataQualityRulesets action (Python: list\_data\_quality\_rulesets)](#aws-glue-api-data-quality-api-ListDataQualityRulesets "#aws-glue-api-data-quality-api-ListDataQualityRulesets")
-- [UpdateDataQualityRuleset action (Python: update\_data\_quality\_ruleset)](#aws-glue-api-data-quality-api-UpdateDataQualityRuleset "#aws-glue-api-data-quality-api-UpdateDataQualityRuleset")
-- [ListDataQualityStatistics action (Python: list\_data\_quality\_statistics)](#aws-glue-api-data-quality-api-ListDataQualityStatistics "#aws-glue-api-data-quality-api-ListDataQualityStatistics")
-- [TimestampFilter structure](#aws-glue-api-data-quality-api-TimestampFilter "#aws-glue-api-data-quality-api-TimestampFilter")
-- [CreateDataQualityRulesetRequest structure](#aws-glue-api-data-quality-api-CreateDataQualityRulesetRequest "#aws-glue-api-data-quality-api-CreateDataQualityRulesetRequest")
-- [GetDataQualityRulesetResponse structure](#aws-glue-api-data-quality-api-GetDataQualityRulesetResponse "#aws-glue-api-data-quality-api-GetDataQualityRulesetResponse")
-- [GetDataQualityResultResponse structure](#aws-glue-api-data-quality-api-GetDataQualityResultResponse "#aws-glue-api-data-quality-api-GetDataQualityResultResponse")
-- [StartDataQualityRuleRecommendationRunRequest structure](#aws-glue-api-data-quality-api-StartDataQualityRuleRecommendationRunRequest "#aws-glue-api-data-quality-api-StartDataQualityRuleRecommendationRunRequest")
-- [GetDataQualityRuleRecommendationRunResponse structure](#aws-glue-api-data-quality-api-GetDataQualityRuleRecommendationRunResponse "#aws-glue-api-data-quality-api-GetDataQualityRuleRecommendationRunResponse")
-- [BatchPutDataQualityStatisticAnnotation action (Python: batch\_put\_data\_quality\_statistic\_annotation)](#aws-glue-api-data-quality-api-BatchPutDataQualityStatisticAnnotation "#aws-glue-api-data-quality-api-BatchPutDataQualityStatisticAnnotation")
-- [GetDataQualityModel action (Python: get\_data\_quality\_model)](#aws-glue-api-data-quality-api-GetDataQualityModel "#aws-glue-api-data-quality-api-GetDataQualityModel")
-- [GetDataQualityModelResult action (Python: get\_data\_quality\_model\_result)](#aws-glue-api-data-quality-api-GetDataQualityModelResult "#aws-glue-api-data-quality-api-GetDataQualityModelResult")
-- [ListDataQualityStatisticAnnotations action (Python: list\_data\_quality\_statistic\_annotations)](#aws-glue-api-data-quality-api-ListDataQualityStatisticAnnotations "#aws-glue-api-data-quality-api-ListDataQualityStatisticAnnotations")
-- [PutDataQualityProfileAnnotation action (Python: put\_data\_quality\_profile\_annotation)](#aws-glue-api-data-quality-api-PutDataQualityProfileAnnotation "#aws-glue-api-data-quality-api-PutDataQualityProfileAnnotation")
+<a name="aws-glue-api-data-quality-api-actions"></a>
++ [StartDataQualityRulesetEvaluationRun action (Python: start\_data\_quality\_ruleset\_evaluation\_run)](#aws-glue-api-data-quality-api-StartDataQualityRulesetEvaluationRun)
++ [CancelDataQualityRulesetEvaluationRun action (Python: cancel\_data\_quality\_ruleset\_evaluation\_run)](#aws-glue-api-data-quality-api-CancelDataQualityRulesetEvaluationRun)
++ [GetDataQualityRulesetEvaluationRun action (Python: get\_data\_quality\_ruleset\_evaluation\_run)](#aws-glue-api-data-quality-api-GetDataQualityRulesetEvaluationRun)
++ [ListDataQualityRulesetEvaluationRuns action (Python: list\_data\_quality\_ruleset\_evaluation\_runs)](#aws-glue-api-data-quality-api-ListDataQualityRulesetEvaluationRuns)
++ [StartDataQualityRuleRecommendationRun action (Python: start\_data\_quality\_rule\_recommendation\_run)](#aws-glue-api-data-quality-api-StartDataQualityRuleRecommendationRun)
++ [CancelDataQualityRuleRecommendationRun action (Python: cancel\_data\_quality\_rule\_recommendation\_run)](#aws-glue-api-data-quality-api-CancelDataQualityRuleRecommendationRun)
++ [GetDataQualityRuleRecommendationRun action (Python: get\_data\_quality\_rule\_recommendation\_run)](#aws-glue-api-data-quality-api-GetDataQualityRuleRecommendationRun)
++ [ListDataQualityRuleRecommendationRuns action (Python: list\_data\_quality\_rule\_recommendation\_runs)](#aws-glue-api-data-quality-api-ListDataQualityRuleRecommendationRuns)
++ [GetDataQualityResult action (Python: get\_data\_quality\_result)](#aws-glue-api-data-quality-api-GetDataQualityResult)
++ [BatchGetDataQualityResult action (Python: batch\_get\_data\_quality\_result)](#aws-glue-api-data-quality-api-BatchGetDataQualityResult)
++ [ListDataQualityResults action (Python: list\_data\_quality\_results)](#aws-glue-api-data-quality-api-ListDataQualityResults)
++ [CreateDataQualityRuleset action (Python: create\_data\_quality\_ruleset)](#aws-glue-api-data-quality-api-CreateDataQualityRuleset)
++ [DeleteDataQualityRuleset action (Python: delete\_data\_quality\_ruleset)](#aws-glue-api-data-quality-api-DeleteDataQualityRuleset)
++ [GetDataQualityRuleset action (Python: get\_data\_quality\_ruleset)](#aws-glue-api-data-quality-api-GetDataQualityRuleset)
++ [ListDataQualityRulesets action (Python: list\_data\_quality\_rulesets)](#aws-glue-api-data-quality-api-ListDataQualityRulesets)
++ [UpdateDataQualityRuleset action (Python: update\_data\_quality\_ruleset)](#aws-glue-api-data-quality-api-UpdateDataQualityRuleset)
++ [ListDataQualityStatistics action (Python: list\_data\_quality\_statistics)](#aws-glue-api-data-quality-api-ListDataQualityStatistics)
++ [TimestampFilter structure](#aws-glue-api-data-quality-api-TimestampFilter)
++ [CreateDataQualityRulesetRequest structure](#aws-glue-api-data-quality-api-CreateDataQualityRulesetRequest)
++ [GetDataQualityRulesetResponse structure](#aws-glue-api-data-quality-api-GetDataQualityRulesetResponse)
++ [GetDataQualityResultResponse structure](#aws-glue-api-data-quality-api-GetDataQualityResultResponse)
++ [StartDataQualityRuleRecommendationRunRequest structure](#aws-glue-api-data-quality-api-StartDataQualityRuleRecommendationRunRequest)
++ [GetDataQualityRuleRecommendationRunResponse structure](#aws-glue-api-data-quality-api-GetDataQualityRuleRecommendationRunResponse)
++ [BatchPutDataQualityStatisticAnnotation action (Python: batch\_put\_data\_quality\_statistic\_annotation)](#aws-glue-api-data-quality-api-BatchPutDataQualityStatisticAnnotation)
++ [GetDataQualityModel action (Python: get\_data\_quality\_model)](#aws-glue-api-data-quality-api-GetDataQualityModel)
++ [GetDataQualityModelResult action (Python: get\_data\_quality\_model\_result)](#aws-glue-api-data-quality-api-GetDataQualityModelResult)
++ [ListDataQualityStatisticAnnotations action (Python: list\_data\_quality\_statistic\_annotations)](#aws-glue-api-data-quality-api-ListDataQualityStatisticAnnotations)
++ [PutDataQualityProfileAnnotation action (Python: put\_data\_quality\_profile\_annotation)](#aws-glue-api-data-quality-api-PutDataQualityProfileAnnotation)
 
 ## StartDataQualityRulesetEvaluationRun action (Python: start\_data\_quality\_ruleset\_evaluation\_run)
+<a name="aws-glue-api-data-quality-api-StartDataQualityRulesetEvaluationRun"></a>
 
-Once you have a ruleset definition (either recommended or your own), you
-call this operation to evaluate the ruleset against a data source (AWS Glue table). The evaluation computes results which you can retrieve with the `GetDataQualityResult`
-API.
+Once you have a ruleset definition (either recommended or your own), you call this operation to evaluate the ruleset against a data source (AWS Glue table). The evaluation computes results which you can retrieve with the `GetDataQualityResult` API.
 
-###### Request
+**Request**
++ `DataSource` – *Required:* A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-- `DataSource` – _Required:_ A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
+  The data source (AWS Glue table) associated with this run.
++ `Role` – *Required:* UTF-8 string.
 
-The data source (AWS Glue table) associated with this run.
+  An IAM role supplied to encrypt the results of the run.
++ `NumberOfWorkers` – Number (integer).
 
-- `Role` – _Required:_ UTF-8 string.
+  The number of `G.1X` workers to be used in the run. The default is 5.
++ `Timeout` – Number (integer), at least 1.
 
-An IAM role supplied to encrypt the results of the run.
+  The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters `TIMEOUT` status. The default is 2,880 minutes (48 hours).
++ `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `NumberOfWorkers` – Number (integer).
+  Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.
++ `AdditionalRunOptions` – A [DataQualityEvaluationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityEvaluationRunAdditionalRunOptions) object.
 
-The number of `G.1X` workers to be used in the run. The default
-is 5.
+  Additional run options you can specify for an evaluation run.
++ `RulesetNames` – *Required:* An array of UTF-8 strings, not less than 1 or more than 10 strings.
 
-- `Timeout` – Number (integer), at least 1.
+  A list of ruleset names.
++ `AdditionalDataSources` – A map array of key-value pairs.
 
-The timeout for a run in minutes. This is the maximum time that a run can consume
-resources before it is terminated and enters `TIMEOUT` status.
-The default is 2,880 minutes (48 hours).
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Each value is a A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-Used for idempotency and is recommended to be set to a random ID (such as
-a UUID) to avoid creating or starting multiple instances of the same resource.
+  A map of reference strings to additional data sources you can specify for an evaluation run.
 
-- `AdditionalRunOptions` – A [DataQualityEvaluationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityEvaluationRunAdditionalRunOptions "#aws-glue-api-data-quality-api-DataQualityEvaluationRunAdditionalRunOptions") object.
+**Response**
++ `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Additional run options you can specify for an evaluation run.
+  The unique run identifier associated with this run.
 
-- `RulesetNames` – _Required:_ An array of UTF-8 strings, not less than 1 or more than 10 strings.
-
-A list of ruleset names.
-
-- `AdditionalDataSources` – A map array of key-value pairs.
-
-Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
-
-A map of reference strings to additional data sources you can specify for
-an evaluation run.
-
-###### Response
-
-- `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The unique run identifier associated with this run.
-
-###### Errors
-
-- `InvalidInputException`
-- `EntityNotFoundException`
-- `OperationTimeoutException`
-- `InternalServiceException`
-- `ConflictException`
+**Errors**
++ `InvalidInputException`
++ `EntityNotFoundException`
++ `OperationTimeoutException`
++ `InternalServiceException`
++ `ConflictException`
 
 ## CancelDataQualityRulesetEvaluationRun action (Python: cancel\_data\_quality\_ruleset\_evaluation\_run)
+<a name="aws-glue-api-data-quality-api-CancelDataQualityRulesetEvaluationRun"></a>
 
 Cancels a run where a ruleset is being evaluated against a data source.
 
-###### Request
+**Request**
++ `RunId` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `RunId` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The unique run identifier associated with this run.
 
-The unique run identifier associated with this run.
+**Response**
++ *No Response parameters.*
 
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
 
 ## GetDataQualityRulesetEvaluationRun action (Python: get\_data\_quality\_ruleset\_evaluation\_run)
+<a name="aws-glue-api-data-quality-api-GetDataQualityRulesetEvaluationRun"></a>
 
 Retrieves a specific run where a ruleset is evaluated against a data source.
 
-###### Request
+**Request**
++ `RunId` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `RunId` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The unique run identifier associated with this run.
 
-The unique run identifier associated with this run.
+**Response**
++ `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-###### Response
+  The unique run identifier associated with this run.
++ `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-- `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The data source (an AWS Glue table) associated with this evaluation run.
++ `Role` – UTF-8 string.
 
-The unique run identifier associated with this run.
+  An IAM role supplied to encrypt the results of the run.
++ `NumberOfWorkers` – Number (integer).
 
-- `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
+  The number of `G.1X` workers to be used in the run. The default is 5.
++ `Timeout` – Number (integer), at least 1.
 
-The data source (an AWS Glue table) associated with this evaluation
-run.
+  The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters `TIMEOUT` status. The default is 2,880 minutes (48 hours).
++ `AdditionalRunOptions` – A [DataQualityEvaluationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityEvaluationRunAdditionalRunOptions) object.
 
-- `Role` – UTF-8 string.
+  Additional run options you can specify for an evaluation run.
++ `Status` – UTF-8 string (valid values: `RUNNING` \| `FINISHED` \| `FAILED` \| `PENDING_EXECUTION` \| `TIMED_OUT` \| `CANCELING` \| `CANCELED` \| `RECEIVED_BY_TASKRUNNER`).
 
-An IAM role supplied to encrypt the results of the run.
+  The status for this run.
++ `ErrorString` – UTF-8 string.
 
-- `NumberOfWorkers` – Number (integer).
+  The error strings that are associated with the run.
++ `StartedOn` – Timestamp.
 
-The number of `G.1X` workers to be used in the run. The default
-is 5.
+  The date and time when this run started.
++ `LastModifiedOn` – Timestamp.
 
-- `Timeout` – Number (integer), at least 1.
+  A timestamp. The last point in time when this data quality rule recommendation run was modified.
++ `CompletedOn` – Timestamp.
 
-The timeout for a run in minutes. This is the maximum time that a run can consume
-resources before it is terminated and enters `TIMEOUT` status.
-The default is 2,880 minutes (48 hours).
+  The date and time when this run was completed.
++ `ExecutionTime` – Number (integer).
 
-- `AdditionalRunOptions` – A [DataQualityEvaluationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityEvaluationRunAdditionalRunOptions "#aws-glue-api-data-quality-api-DataQualityEvaluationRunAdditionalRunOptions") object.
+  The amount of time (in seconds) that the run consumed resources.
++ `RulesetNames` – An array of UTF-8 strings, not less than 1 or more than 10 strings.
 
-Additional run options you can specify for an evaluation run.
+  A list of ruleset names for the run. Currently, this parameter takes only one Ruleset name.
++ `ResultIds` – An array of UTF-8 strings, not less than 1 or more than 10 strings.
 
-- `Status` – UTF-8 string (valid values: `RUNNING` | `FINISHED` | `FAILED` | `PENDING_EXECUTION` | `TIMED_OUT` | `CANCELING` | `CANCELED` | `RECEIVED_BY_TASKRUNNER`).
+  A list of result IDs for the data quality results for the run.
++ `AdditionalDataSources` – A map array of key-value pairs.
 
-The status for this run.
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ErrorString` – UTF-8 string.
+  Each value is a A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-The error strings that are associated with the run.
+  A map of reference strings to additional data sources you can specify for an evaluation run.
 
-- `StartedOn` – Timestamp.
-
-The date and time when this run started.
-
-- `LastModifiedOn` – Timestamp.
-
-A timestamp. The last point in time when this data quality rule recommendation
-run was modified.
-
-- `CompletedOn` – Timestamp.
-
-The date and time when this run was completed.
-
-- `ExecutionTime` – Number (integer).
-
-The amount of time (in seconds) that the run consumed resources.
-
-- `RulesetNames` – An array of UTF-8 strings, not less than 1 or more than 10 strings.
-
-A list of ruleset names for the run. Currently, this parameter takes only
-one Ruleset name.
-
-- `ResultIds` – An array of UTF-8 strings, not less than 1 or more than 10 strings.
-
-A list of result IDs for the data quality results for the run.
-
-- `AdditionalDataSources` – A map array of key-value pairs.
-
-Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Each value is a A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
-
-A map of reference strings to additional data sources you can specify for
-an evaluation run.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
 
 ## ListDataQualityRulesetEvaluationRuns action (Python: list\_data\_quality\_ruleset\_evaluation\_runs)
+<a name="aws-glue-api-data-quality-api-ListDataQualityRulesetEvaluationRuns"></a>
 
-Lists all the runs meeting the filter criteria, where a ruleset is evaluated
-against a data source.
+Lists all the runs meeting the filter criteria, where a ruleset is evaluated against a data source.
 
-###### Request
+**Request**
++ `Filter` – A [DataQualityRulesetEvaluationRunFilter](#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunFilter) object.
 
-- `Filter` – A [DataQualityRulesetEvaluationRunFilter](#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunFilter "#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunFilter") object.
+  The filter criteria.
++ `NextToken` – UTF-8 string.
 
-The filter criteria.
+  A paginated token to offset the results.
++ `MaxResults` – Number (integer), not less than 1 or more than 1000.
 
-- `NextToken` – UTF-8 string.
+  The maximum number of results to return.
 
-A paginated token to offset the results.
+**Response**
++ `Runs` – An array of [DataQualityRulesetEvaluationRunDescription](#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunDescription) objects.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+  A list of `DataQualityRulesetEvaluationRunDescription` objects representing data quality ruleset runs.
++ `NextToken` – UTF-8 string.
 
-The maximum number of results to return.
+  A pagination token, if more results are available.
 
-###### Response
-
-- `Runs` – An array of [DataQualityRulesetEvaluationRunDescription](#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunDescription "#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunDescription") objects.
-
-A list of `DataQualityRulesetEvaluationRunDescription`
-objects representing data quality ruleset runs.
-
-- `NextToken` – UTF-8 string.
-
-A pagination token, if more results are available.
-
-###### Errors
-
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
+**Errors**
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
 
 ## StartDataQualityRuleRecommendationRun action (Python: start\_data\_quality\_rule\_recommendation\_run)
+<a name="aws-glue-api-data-quality-api-StartDataQualityRuleRecommendationRun"></a>
 
-Starts a recommendation run that is used to generate rules when you don't
-know what rules to write. AWS Glue Data Quality analyzes the data and
-comes up with recommendations for a potential ruleset. You can then triage the
-ruleset and modify the generated ruleset to your liking.
+Starts a recommendation run that is used to generate rules when you don't know what rules to write. AWS Glue Data Quality analyzes the data and comes up with recommendations for a potential ruleset. You can then triage the ruleset and modify the generated ruleset to your liking.
 
 Recommendation runs are automatically deleted after 90 days.
 
-###### Request
+**Request**
 
 The request of the Data Quality rule recommendation request.
++ `DataSource` – *Required:* A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-- `DataSource` – _Required:_ A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
+  The data source (AWS Glue table) associated with this run.
++ `Role` – *Required:* UTF-8 string.
 
-The data source (AWS Glue table) associated with this run.
+  An IAM role supplied to encrypt the results of the run.
++ `NumberOfWorkers` – Number (integer).
 
-- `Role` – _Required:_ UTF-8 string.
+  The number of `G.1X` workers to be used in the run. The default is 5.
++ `Timeout` – Number (integer), at least 1.
 
-An IAM role supplied to encrypt the results of the run.
+  The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters `TIMEOUT` status. The default is 2,880 minutes (48 hours).
++ `CreatedRulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `NumberOfWorkers` – Number (integer).
+  A name for the ruleset.
++ `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The number of `G.1X` workers to be used in the run. The default
-is 5.
+  The name of the security configuration created with the data quality encryption option.
++ `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Timeout` – Number (integer), at least 1.
+  Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.
++ `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions) object.
 
-The timeout for a run in minutes. This is the maximum time that a run can consume
-resources before it is terminated and enters `TIMEOUT` status.
-The default is 2,880 minutes (48 hours).
+  Additional run options you can specify for a recommendation run.
 
-- `CreatedRulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A name for the ruleset.
+  The unique run identifier associated with this run.
 
-- `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the security configuration created with the data quality encryption
-option.
-
-- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Used for idempotency and is recommended to be set to a random ID (such as
-a UUID) to avoid creating or starting multiple instances of the same resource.
-
-- `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions "#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions") object.
-
-Additional run options you can specify for a recommendation run.
-
-###### Response
-
-- `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The unique run identifier associated with this run.
-
-###### Errors
-
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
-- `ConflictException`
+**Errors**
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
++ `ConflictException`
 
 ## CancelDataQualityRuleRecommendationRun action (Python: cancel\_data\_quality\_rule\_recommendation\_run)
+<a name="aws-glue-api-data-quality-api-CancelDataQualityRuleRecommendationRun"></a>
 
-Cancels the specified recommendation run that was being used to generate
-rules.
+Cancels the specified recommendation run that was being used to generate rules.
 
-###### Request
+**Request**
++ `RunId` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `RunId` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The unique run identifier associated with this run.
 
-The unique run identifier associated with this run.
+**Response**
++ *No Response parameters.*
 
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
 
 ## GetDataQualityRuleRecommendationRun action (Python: get\_data\_quality\_rule\_recommendation\_run)
+<a name="aws-glue-api-data-quality-api-GetDataQualityRuleRecommendationRun"></a>
 
 Gets the specified recommendation run that was used to generate rules.
 
-###### Request
+**Request**
++ `RunId` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `RunId` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The unique run identifier associated with this run.
 
-The unique run identifier associated with this run.
-
-###### Response
+**Response**
 
 The response for the Data Quality rule recommendation run.
++ `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The unique run identifier associated with this run.
++ `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-The unique run identifier associated with this run.
+  The data source (an AWS Glue table) associated with this run.
++ `Role` – UTF-8 string.
 
-- `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
+  An IAM role supplied to encrypt the results of the run.
++ `NumberOfWorkers` – Number (integer).
 
-The data source (an AWS Glue table) associated with this run.
+  The number of `G.1X` workers to be used in the run. The default is 5.
++ `Timeout` – Number (integer), at least 1.
 
-- `Role` – UTF-8 string.
+  The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters `TIMEOUT` status. The default is 2,880 minutes (48 hours).
++ `Status` – UTF-8 string (valid values: `RUNNING` \| `FINISHED` \| `FAILED` \| `PENDING_EXECUTION` \| `TIMED_OUT` \| `CANCELING` \| `CANCELED` \| `RECEIVED_BY_TASKRUNNER`).
 
-An IAM role supplied to encrypt the results of the run.
+  The status for this run.
++ `ErrorString` – UTF-8 string.
 
-- `NumberOfWorkers` – Number (integer).
+  The error strings that are associated with the run.
++ `StartedOn` – Timestamp.
 
-The number of `G.1X` workers to be used in the run. The default
-is 5.
+  The date and time when this run started.
++ `LastModifiedOn` – Timestamp.
 
-- `Timeout` – Number (integer), at least 1.
+  A timestamp. The last point in time when this data quality rule recommendation run was modified.
++ `CompletedOn` – Timestamp.
 
-The timeout for a run in minutes. This is the maximum time that a run can consume
-resources before it is terminated and enters `TIMEOUT` status.
-The default is 2,880 minutes (48 hours).
+  The date and time when this run was completed.
++ `ExecutionTime` – Number (integer).
 
-- `Status` – UTF-8 string (valid values: `RUNNING` | `FINISHED` | `FAILED` | `PENDING_EXECUTION` | `TIMED_OUT` | `CANCELING` | `CANCELED` | `RECEIVED_BY_TASKRUNNER`).
+  The amount of time (in seconds) that the run consumed resources.
++ `RecommendedRuleset` – UTF-8 string, not less than 1 or more than 65536 bytes long.
 
-The status for this run.
+  When a start rule recommendation run completes, it creates a recommended ruleset (a set of rules). This member has those rules in Data Quality Definition Language (DQDL) format.
++ `CreatedRulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ErrorString` – UTF-8 string.
+  The name of the ruleset that was created by the run.
++ `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The error strings that are associated with the run.
+  The name of the security configuration created with the data quality encryption option.
++ `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions) object.
 
-- `StartedOn` – Timestamp.
+  Additional run options you can specify for a recommendation run.
 
-The date and time when this run started.
-
-- `LastModifiedOn` – Timestamp.
-
-A timestamp. The last point in time when this data quality rule recommendation
-run was modified.
-
-- `CompletedOn` – Timestamp.
-
-The date and time when this run was completed.
-
-- `ExecutionTime` – Number (integer).
-
-The amount of time (in seconds) that the run consumed resources.
-
-- `RecommendedRuleset` – UTF-8 string, not less than 1 or more than 65536 bytes long.
-
-When a start rule recommendation run completes, it creates a recommended
-ruleset (a set of rules). This member has those rules in Data Quality Definition
-Language (DQDL) format.
-
-- `CreatedRulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the ruleset that was created by the run.
-
-- `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the security configuration created with the data quality encryption
-option.
-
-- `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions "#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions") object.
-
-Additional run options you can specify for a recommendation run.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
 
 ## ListDataQualityRuleRecommendationRuns action (Python: list\_data\_quality\_rule\_recommendation\_runs)
+<a name="aws-glue-api-data-quality-api-ListDataQualityRuleRecommendationRuns"></a>
 
 Lists the recommendation runs meeting the filter criteria.
 
-###### Request
+**Request**
++ `Filter` – A [DataQualityRuleRecommendationRunFilter](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunFilter) object.
 
-- `Filter` – A [DataQualityRuleRecommendationRunFilter](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunFilter "#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunFilter") object.
+  The filter criteria.
++ `NextToken` – UTF-8 string.
 
-The filter criteria.
+  A paginated token to offset the results.
++ `MaxResults` – Number (integer), not less than 1 or more than 1000.
 
-- `NextToken` – UTF-8 string.
+  The maximum number of results to return.
++ `Tags` – A map array of key-value pairs, not more than 50 pairs.
 
-A paginated token to offset the results.
+  Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+  Each value is a UTF-8 string, not more than 256 bytes long.
 
-The maximum number of results to return.
+  A list of key-value pair tags to filter recommendation runs.
 
-- `Tags` – A map array of key-value pairs, not more than 50 pairs.
+**Response**
++ `Runs` – An array of [DataQualityRuleRecommendationRunDescription](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunDescription) objects.
 
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
+  A list of `DataQualityRuleRecommendationRunDescription` objects.
++ `NextToken` – UTF-8 string.
 
-Each value is a UTF-8 string, not more than 256 bytes long.
+  A pagination token, if more results are available.
 
-A list of key-value pair tags to filter recommendation runs.
-
-###### Response
-
-- `Runs` – An array of [DataQualityRuleRecommendationRunDescription](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunDescription "#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunDescription") objects.
-
-A list of `DataQualityRuleRecommendationRunDescription`
-objects.
-
-- `NextToken` – UTF-8 string.
-
-A pagination token, if more results are available.
-
-###### Errors
-
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
+**Errors**
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
 
 ## GetDataQualityResult action (Python: get\_data\_quality\_result)
+<a name="aws-glue-api-data-quality-api-GetDataQualityResult"></a>
 
 Retrieves the result of a data quality rule evaluation.
 
-###### Request
+**Request**
++ `ResultId` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ResultId` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A unique result ID for the data quality result.
 
-A unique result ID for the data quality result.
-
-###### Response
+**Response**
 
 The response for the data quality result.
++ `ResultId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ResultId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A unique result ID for the data quality result.
++ `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A unique result ID for the data quality result.
+  The Profile ID for the data quality result.
++ `Score` – Number (double), not more than 1.0.
 
-- `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  An aggregate data quality score. Represents the ratio of rules that passed to the total number of rules.
++ `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-The Profile ID for the data quality result.
+  The table associated with the data quality result, if any.
++ `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Score` – Number (double), not more than 1.0.
+  The name of the ruleset associated with the data quality result.
++ `EvaluationContext` – UTF-8 string.
 
-An aggregate data quality score. Represents the ratio of rules that passed
-to the total number of rules.
+  In the context of a job in AWS Glue Studio, each node in the canvas is typically assigned some sort of name and data quality nodes will have names. In the case of multiple nodes, the `evaluationContext` can differentiate the nodes.
++ `StartedOn` – Timestamp.
 
-- `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
+  The date and time when the run for this data quality result started.
++ `CompletedOn` – Timestamp.
 
-The table associated with the data quality result, if any.
+  The date and time when the run for this data quality result was completed.
++ `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The job name associated with the data quality result, if any.
++ `JobRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the ruleset associated with the data quality result.
+  The job run ID associated with the data quality result, if any.
++ `RulesetEvaluationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `EvaluationContext` – UTF-8 string.
+  The unique run ID associated with the ruleset evaluation.
++ `RuleResults` – An array of [DataQualityRuleResult](#aws-glue-api-data-quality-api-DataQualityRuleResult) objects, not more than 2000 structures.
 
-In the context of a job in AWS Glue Studio, each node in the canvas
-is typically assigned some sort of name and data quality nodes will have names.
-In the case of multiple nodes, the `evaluationContext` can differentiate
-the nodes.
+  A list of `DataQualityRuleResult` objects representing the results for each rule. 
++ `AnalyzerResults` – An array of [DataQualityAnalyzerResult](#aws-glue-api-data-quality-api-DataQualityAnalyzerResult) objects, not more than 2000 structures.
 
-- `StartedOn` – Timestamp.
+  A list of `DataQualityAnalyzerResult` objects representing the results for each analyzer. 
++ `Observations` – An array of [DataQualityObservation](#aws-glue-api-data-quality-api-DataQualityObservation) objects, not more than 50 structures.
 
-The date and time when the run for this data quality result started.
+  A list of `DataQualityObservation` objects representing the observations generated after evaluating the rules and analyzers. 
++ `AggregatedMetrics` – A [DataQualityAggregatedMetrics](#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics) object.
 
-- `CompletedOn` – Timestamp.
+   A summary of `DataQualityAggregatedMetrics` objects showing the total counts of processed rows and rules, including their pass/fail statistics based on row-level results. 
 
-The date and time when the run for this data quality result was completed.
-
-- `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The job name associated with the data quality result, if any.
-
-- `JobRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The job run ID associated with the data quality result, if any.
-
-- `RulesetEvaluationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The unique run ID associated with the ruleset evaluation.
-
-- `RuleResults` – An array of [DataQualityRuleResult](#aws-glue-api-data-quality-api-DataQualityRuleResult "#aws-glue-api-data-quality-api-DataQualityRuleResult") objects, not more than 2000 structures.
-
-A list of `DataQualityRuleResult` objects representing
-the results for each rule.
-
-- `AnalyzerResults` – An array of [DataQualityAnalyzerResult](#aws-glue-api-data-quality-api-DataQualityAnalyzerResult "#aws-glue-api-data-quality-api-DataQualityAnalyzerResult") objects, not more than 2000 structures.
-
-A list of `DataQualityAnalyzerResult` objects representing
-the results for each analyzer.
-
-- `Observations` – An array of [DataQualityObservation](#aws-glue-api-data-quality-api-DataQualityObservation "#aws-glue-api-data-quality-api-DataQualityObservation") objects, not more than 50 structures.
-
-A list of `DataQualityObservation` objects representing
-the observations generated after evaluating the rules and analyzers.
-
-- `AggregatedMetrics` – A [DataQualityAggregatedMetrics](#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics "#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics") object.
-
-A summary of `DataQualityAggregatedMetrics` objects showing
-the total counts of processed rows and rules, including their pass/fail statistics
-based on row-level results.
-
-###### Errors
-
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
-- `EntityNotFoundException`
+**Errors**
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
++ `EntityNotFoundException`
 
 ## BatchGetDataQualityResult action (Python: batch\_get\_data\_quality\_result)
+<a name="aws-glue-api-data-quality-api-BatchGetDataQualityResult"></a>
 
 Retrieves a list of data quality results for the specified result IDs.
 
-###### Request
+**Request**
++ `ResultIds` – *Required:* An array of UTF-8 strings, not less than 1 or more than 100 strings.
 
-- `ResultIds` – _Required:_ An array of UTF-8 strings, not less than 1 or more than 100 strings.
+  A list of unique result IDs for the data quality results.
 
-A list of unique result IDs for the data quality results.
+**Response**
++ `Results` – *Required:* An array of [DataQualityResult](#aws-glue-api-data-quality-api-DataQualityResult) objects.
 
-###### Response
+  A list of `DataQualityResult` objects representing the data quality results.
++ `ResultsNotFound` – An array of UTF-8 strings, not less than 1 or more than 100 strings.
 
-- `Results` – _Required:_ An array of [DataQualityResult](#aws-glue-api-data-quality-api-DataQualityResult "#aws-glue-api-data-quality-api-DataQualityResult") objects.
+  A list of result IDs for which results were not found.
 
-A list of `DataQualityResult` objects representing the
-data quality results.
-
-- `ResultsNotFound` – An array of UTF-8 strings, not less than 1 or more than 100 strings.
-
-A list of result IDs for which results were not found.
-
-###### Errors
-
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
+**Errors**
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
 
 ## ListDataQualityResults action (Python: list\_data\_quality\_results)
+<a name="aws-glue-api-data-quality-api-ListDataQualityResults"></a>
 
 Returns all data quality execution results for your account.
 
-###### Request
+**Request**
++ `Filter` – A [DataQualityResultFilterCriteria](#aws-glue-api-data-quality-api-DataQualityResultFilterCriteria) object.
 
-- `Filter` – A [DataQualityResultFilterCriteria](#aws-glue-api-data-quality-api-DataQualityResultFilterCriteria "#aws-glue-api-data-quality-api-DataQualityResultFilterCriteria") object.
+  The filter criteria.
++ `NextToken` – UTF-8 string.
 
-The filter criteria.
+  A paginated token to offset the results.
++ `MaxResults` – Number (integer), not less than 1 or more than 1000.
 
-- `NextToken` – UTF-8 string.
+  The maximum number of results to return.
 
-A paginated token to offset the results.
+**Response**
++ `Results` – *Required:* An array of [DataQualityResultDescription](#aws-glue-api-data-quality-api-DataQualityResultDescription) objects.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+  A list of `DataQualityResultDescription` objects.
++ `NextToken` – UTF-8 string.
 
-The maximum number of results to return.
+  A pagination token, if more results are available.
 
-###### Response
-
-- `Results` – _Required:_ An array of [DataQualityResultDescription](#aws-glue-api-data-quality-api-DataQualityResultDescription "#aws-glue-api-data-quality-api-DataQualityResultDescription") objects.
-
-A list of `DataQualityResultDescription` objects.
-
-- `NextToken` – UTF-8 string.
-
-A pagination token, if more results are available.
-
-###### Errors
-
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
+**Errors**
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
 
 ## CreateDataQualityRuleset action (Python: create\_data\_quality\_ruleset)
+<a name="aws-glue-api-data-quality-api-CreateDataQualityRuleset"></a>
 
 Creates a data quality ruleset with DQDL rules applied to a specified AWS Glue table.
 
-You create the ruleset using the Data Quality Definition Language (DQDL).
-For more information, see the AWS Glue developer guide.
+You create the ruleset using the Data Quality Definition Language (DQDL). For more information, see the AWS Glue developer guide.
 
-###### Request
+**Request**
 
 A request to create a data quality ruleset.
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A unique name for the data quality ruleset.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-A unique name for the data quality ruleset.
+  A description of the data quality ruleset.
++ `Ruleset` – *Required:* UTF-8 string, not less than 1 or more than 65536 bytes long.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
++ `Tags` – A map array of key-value pairs, not more than 50 pairs.
 
-A description of the data quality ruleset.
+  Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
 
-- `Ruleset` – _Required:_ UTF-8 string, not less than 1 or more than 65536 bytes long.
+  Each value is a UTF-8 string, not more than 256 bytes long.
 
-A Data Quality Definition Language (DQDL) ruleset. For more information,
-see the AWS Glue developer guide.
+  A list of tags applied to the data quality ruleset.
++ `TargetTable` – A [DataQualityTargetTable](#aws-glue-api-data-quality-api-DataQualityTargetTable) object.
 
-- `Tags` – A map array of key-value pairs, not more than 50 pairs.
+  A target table associated with the data quality ruleset.
++ `RecommendationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
+  A unique run ID for the recommendation run.
++ `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Each value is a UTF-8 string, not more than 256 bytes long.
+  The name of the security configuration created with the data quality encryption option.
++ `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A list of tags applied to the data quality ruleset.
+  Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.
 
-- `TargetTable` – A [DataQualityTargetTable](#aws-glue-api-data-quality-api-DataQualityTargetTable "#aws-glue-api-data-quality-api-DataQualityTargetTable") object.
+**Response**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A target table associated with the data quality ruleset.
+  A unique name for the data quality ruleset.
 
-- `RecommendationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-A unique run ID for the recommendation run.
-
-- `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the security configuration created with the data quality encryption
-option.
-
-- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Used for idempotency and is recommended to be set to a random ID (such as
-a UUID) to avoid creating or starting multiple instances of the same resource.
-
-###### Response
-
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-A unique name for the data quality ruleset.
-
-###### Errors
-
-- `InvalidInputException`
-- `AlreadyExistsException`
-- `OperationTimeoutException`
-- `InternalServiceException`
-- `ResourceNumberLimitExceededException`
+**Errors**
++ `InvalidInputException`
++ `AlreadyExistsException`
++ `OperationTimeoutException`
++ `InternalServiceException`
++ `ResourceNumberLimitExceededException`
 
 ## DeleteDataQualityRuleset action (Python: delete\_data\_quality\_ruleset)
+<a name="aws-glue-api-data-quality-api-DeleteDataQualityRuleset"></a>
 
 Deletes a data quality ruleset.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A name for the data quality ruleset.
 
-A name for the data quality ruleset.
+**Response**
++ *No Response parameters.*
 
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
 
 ## GetDataQualityRuleset action (Python: get\_data\_quality\_ruleset)
+<a name="aws-glue-api-data-quality-api-GetDataQualityRuleset"></a>
 
 Returns an existing ruleset by identifier or name.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the ruleset.
 
-The name of the ruleset.
-
-###### Response
+**Response**
 
 Returns the data quality ruleset response.
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the ruleset.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The name of the ruleset.
+  A description of the ruleset.
++ `Ruleset` – UTF-8 string, not less than 1 or more than 65536 bytes long.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
++ `TargetTable` – A [DataQualityTargetTable](#aws-glue-api-data-quality-api-DataQualityTargetTable) object.
 
-A description of the ruleset.
+  The name and database name of the target table.
++ `CreatedOn` – Timestamp.
 
-- `Ruleset` – UTF-8 string, not less than 1 or more than 65536 bytes long.
+  A timestamp. The time and date that this data quality ruleset was created.
++ `LastModifiedOn` – Timestamp.
 
-A Data Quality Definition Language (DQDL) ruleset. For more information,
-see the AWS Glue developer guide.
+  A timestamp. The last point in time when this data quality ruleset was modified.
++ `RecommendationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `TargetTable` – A [DataQualityTargetTable](#aws-glue-api-data-quality-api-DataQualityTargetTable "#aws-glue-api-data-quality-api-DataQualityTargetTable") object.
+  When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
++ `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name and database name of the target table.
+  The name of the security configuration created with the data quality encryption option.
 
-- `CreatedOn` – Timestamp.
-
-A timestamp. The time and date that this data quality ruleset was created.
-
-- `LastModifiedOn` – Timestamp.
-
-A timestamp. The last point in time when this data quality ruleset was modified.
-
-- `RecommendationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-When a ruleset was created from a recommendation run, this run ID is generated
-to link the two together.
-
-- `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the security configuration created with the data quality encryption
-option.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
 
 ## ListDataQualityRulesets action (Python: list\_data\_quality\_rulesets)
+<a name="aws-glue-api-data-quality-api-ListDataQualityRulesets"></a>
 
 Returns a paginated list of rulesets for the specified list of AWS Glue tables.
 
-###### Request
+**Request**
++ `NextToken` – UTF-8 string.
 
-- `NextToken` – UTF-8 string.
+  A paginated token to offset the results.
++ `MaxResults` – Number (integer), not less than 1 or more than 1000.
 
-A paginated token to offset the results.
+  The maximum number of results to return.
++ `Filter` – A [DataQualityRulesetFilterCriteria](#aws-glue-api-data-quality-api-DataQualityRulesetFilterCriteria) object.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+  The filter criteria. 
++ `Tags` – A map array of key-value pairs, not more than 50 pairs.
 
-The maximum number of results to return.
+  Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
 
-- `Filter` – A [DataQualityRulesetFilterCriteria](#aws-glue-api-data-quality-api-DataQualityRulesetFilterCriteria "#aws-glue-api-data-quality-api-DataQualityRulesetFilterCriteria") object.
+  Each value is a UTF-8 string, not more than 256 bytes long.
 
-The filter criteria.
+  A list of key-value pair tags.
 
-- `Tags` – A map array of key-value pairs, not more than 50 pairs.
+**Response**
++ `Rulesets` – An array of [DataQualityRulesetListDetails](#aws-glue-api-data-quality-api-DataQualityRulesetListDetails) objects.
 
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
+  A paginated list of rulesets for the specified list of AWS Glue tables.
++ `NextToken` – UTF-8 string.
 
-Each value is a UTF-8 string, not more than 256 bytes long.
+  A pagination token, if more results are available.
 
-A list of key-value pair tags.
-
-###### Response
-
-- `Rulesets` – An array of [DataQualityRulesetListDetails](#aws-glue-api-data-quality-api-DataQualityRulesetListDetails "#aws-glue-api-data-quality-api-DataQualityRulesetListDetails") objects.
-
-A paginated list of rulesets for the specified list of AWS Glue tables.
-
-- `NextToken` – UTF-8 string.
-
-A pagination token, if more results are available.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
 
 ## UpdateDataQualityRuleset action (Python: update\_data\_quality\_ruleset)
+<a name="aws-glue-api-data-quality-api-UpdateDataQualityRuleset"></a>
 
 Updates the specified data quality ruleset.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the data quality ruleset.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The name of the data quality ruleset.
+  A description of the ruleset.
++ `Ruleset` – UTF-8 string, not less than 1 or more than 65536 bytes long.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 
-A description of the ruleset.
+**Response**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Ruleset` – UTF-8 string, not less than 1 or more than 65536 bytes long.
+  The name of the data quality ruleset.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-A Data Quality Definition Language (DQDL) ruleset. For more information,
-see the AWS Glue developer guide.
+  A description of the ruleset.
++ `Ruleset` – UTF-8 string, not less than 1 or more than 65536 bytes long.
 
-###### Response
+  A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the data quality ruleset.
-
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
-
-A description of the ruleset.
-
-- `Ruleset` – UTF-8 string, not less than 1 or more than 65536 bytes long.
-
-A Data Quality Definition Language (DQDL) ruleset. For more information,
-see the AWS Glue developer guide.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `AlreadyExistsException`
-- `IdempotentParameterMismatchException`
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
-- `ResourceNumberLimitExceededException`
+**Errors**
++ `EntityNotFoundException`
++ `AlreadyExistsException`
++ `IdempotentParameterMismatchException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
++ `ResourceNumberLimitExceededException`
 
 ## ListDataQualityStatistics action (Python: list\_data\_quality\_statistics)
+<a name="aws-glue-api-data-quality-api-ListDataQualityStatistics"></a>
 
 Retrieves a list of data quality statistics.
 
-###### Request
+**Request**
++ `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The Statistic ID.
++ `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The Statistic ID.
+  The Profile ID.
++ `TimestampFilter` – A [TimestampFilter](#aws-glue-api-data-quality-api-TimestampFilter) object.
 
-- `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A timestamp filter.
++ `MaxResults` – Number (integer), not less than 1 or more than 1000.
 
-The Profile ID.
+  The maximum number of results to return in this request.
++ `NextToken` – UTF-8 string.
 
-- `TimestampFilter` – A [TimestampFilter](#aws-glue-api-data-quality-api-TimestampFilter "#aws-glue-api-data-quality-api-TimestampFilter") object.
+  A pagination token to request the next page of results.
 
-A timestamp filter.
+**Response**
++ `Statistics` – An array of [StatisticSummary](#aws-glue-api-data-quality-api-StatisticSummary) objects.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+  A `StatisticSummaryList`.
++ `NextToken` – UTF-8 string.
 
-The maximum number of results to return in this request.
+  A pagination token to request the next page of results.
 
-- `NextToken` – UTF-8 string.
-
-A pagination token to request the next page of results.
-
-###### Response
-
-- `Statistics` – An array of [StatisticSummary](#aws-glue-api-data-quality-api-StatisticSummary "#aws-glue-api-data-quality-api-StatisticSummary") objects.
-
-A `StatisticSummaryList`.
-
-- `NextToken` – UTF-8 string.
-
-A pagination token to request the next page of results.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
 
 ## TimestampFilter structure
+<a name="aws-glue-api-data-quality-api-TimestampFilter"></a>
 
 A timestamp filter.
 
-###### Fields
+**Fields**
++ `RecordedBefore` – Timestamp.
 
-- `RecordedBefore` – Timestamp.
+  The timestamp before which statistics should be included in the results.
++ `RecordedAfter` – Timestamp.
 
-The timestamp before which statistics should be included in the results.
-
-- `RecordedAfter` – Timestamp.
-
-The timestamp after which statistics should be included in the results.
+  The timestamp after which statistics should be included in the results.
 
 ## CreateDataQualityRulesetRequest structure
+<a name="aws-glue-api-data-quality-api-CreateDataQualityRulesetRequest"></a>
 
 A request to create a data quality ruleset.
 
-###### Fields
+**Fields**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A unique name for the data quality ruleset.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-A unique name for the data quality ruleset.
+  A description of the data quality ruleset.
++ `Ruleset` – *Required:* UTF-8 string, not less than 1 or more than 65536 bytes long.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
++ `Tags` – A map array of key-value pairs, not more than 50 pairs.
 
-A description of the data quality ruleset.
+  Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
 
-- `Ruleset` – _Required:_ UTF-8 string, not less than 1 or more than 65536 bytes long.
+  Each value is a UTF-8 string, not more than 256 bytes long.
 
-A Data Quality Definition Language (DQDL) ruleset. For more information,
-see the AWS Glue developer guide.
+  A list of tags applied to the data quality ruleset.
++ `TargetTable` – A [DataQualityTargetTable](#aws-glue-api-data-quality-api-DataQualityTargetTable) object.
 
-- `Tags` – A map array of key-value pairs, not more than 50 pairs.
+  A target table associated with the data quality ruleset.
++ `RecommendationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
+  A unique run ID for the recommendation run.
++ `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-Each value is a UTF-8 string, not more than 256 bytes long.
+  The name of the security configuration created with the data quality encryption option.
++ `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A list of tags applied to the data quality ruleset.
-
-- `TargetTable` – A [DataQualityTargetTable](#aws-glue-api-data-quality-api-DataQualityTargetTable "#aws-glue-api-data-quality-api-DataQualityTargetTable") object.
-
-A target table associated with the data quality ruleset.
-
-- `RecommendationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-A unique run ID for the recommendation run.
-
-- `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the security configuration created with the data quality encryption
-option.
-
-- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Used for idempotency and is recommended to be set to a random ID (such as
-a UUID) to avoid creating or starting multiple instances of the same resource.
+  Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.
 
 ## GetDataQualityRulesetResponse structure
+<a name="aws-glue-api-data-quality-api-GetDataQualityRulesetResponse"></a>
 
 Returns the data quality ruleset response.
 
-###### Fields
+**Fields**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the ruleset.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-The name of the ruleset.
+  A description of the ruleset.
++ `Ruleset` – UTF-8 string, not less than 1 or more than 65536 bytes long.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
++ `TargetTable` – A [DataQualityTargetTable](#aws-glue-api-data-quality-api-DataQualityTargetTable) object.
 
-A description of the ruleset.
+  The name and database name of the target table.
++ `CreatedOn` – Timestamp.
 
-- `Ruleset` – UTF-8 string, not less than 1 or more than 65536 bytes long.
+  A timestamp. The time and date that this data quality ruleset was created.
++ `LastModifiedOn` – Timestamp.
 
-A Data Quality Definition Language (DQDL) ruleset. For more information,
-see the AWS Glue developer guide.
+  A timestamp. The last point in time when this data quality ruleset was modified.
++ `RecommendationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `TargetTable` – A [DataQualityTargetTable](#aws-glue-api-data-quality-api-DataQualityTargetTable "#aws-glue-api-data-quality-api-DataQualityTargetTable") object.
+  When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
++ `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name and database name of the target table.
-
-- `CreatedOn` – Timestamp.
-
-A timestamp. The time and date that this data quality ruleset was created.
-
-- `LastModifiedOn` – Timestamp.
-
-A timestamp. The last point in time when this data quality ruleset was modified.
-
-- `RecommendationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-When a ruleset was created from a recommendation run, this run ID is generated
-to link the two together.
-
-- `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the security configuration created with the data quality encryption
-option.
+  The name of the security configuration created with the data quality encryption option.
 
 ## GetDataQualityResultResponse structure
+<a name="aws-glue-api-data-quality-api-GetDataQualityResultResponse"></a>
 
 The response for the data quality result.
 
-###### Fields
+**Fields**
++ `ResultId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ResultId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A unique result ID for the data quality result.
++ `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A unique result ID for the data quality result.
+  The Profile ID for the data quality result.
++ `Score` – Number (double), not more than 1.0.
 
-- `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  An aggregate data quality score. Represents the ratio of rules that passed to the total number of rules.
++ `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-The Profile ID for the data quality result.
+  The table associated with the data quality result, if any.
++ `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Score` – Number (double), not more than 1.0.
+  The name of the ruleset associated with the data quality result.
++ `EvaluationContext` – UTF-8 string.
 
-An aggregate data quality score. Represents the ratio of rules that passed
-to the total number of rules.
+  In the context of a job in AWS Glue Studio, each node in the canvas is typically assigned some sort of name and data quality nodes will have names. In the case of multiple nodes, the `evaluationContext` can differentiate the nodes.
++ `StartedOn` – Timestamp.
 
-- `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
+  The date and time when the run for this data quality result started.
++ `CompletedOn` – Timestamp.
 
-The table associated with the data quality result, if any.
+  The date and time when the run for this data quality result was completed.
++ `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `RulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The job name associated with the data quality result, if any.
++ `JobRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the ruleset associated with the data quality result.
+  The job run ID associated with the data quality result, if any.
++ `RulesetEvaluationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `EvaluationContext` – UTF-8 string.
+  The unique run ID associated with the ruleset evaluation.
++ `RuleResults` – An array of [DataQualityRuleResult](#aws-glue-api-data-quality-api-DataQualityRuleResult) objects, not more than 2000 structures.
 
-In the context of a job in AWS Glue Studio, each node in the canvas
-is typically assigned some sort of name and data quality nodes will have names.
-In the case of multiple nodes, the `evaluationContext` can differentiate
-the nodes.
+  A list of `DataQualityRuleResult` objects representing the results for each rule. 
++ `AnalyzerResults` – An array of [DataQualityAnalyzerResult](#aws-glue-api-data-quality-api-DataQualityAnalyzerResult) objects, not more than 2000 structures.
 
-- `StartedOn` – Timestamp.
+  A list of `DataQualityAnalyzerResult` objects representing the results for each analyzer. 
++ `Observations` – An array of [DataQualityObservation](#aws-glue-api-data-quality-api-DataQualityObservation) objects, not more than 50 structures.
 
-The date and time when the run for this data quality result started.
+  A list of `DataQualityObservation` objects representing the observations generated after evaluating the rules and analyzers. 
++ `AggregatedMetrics` – A [DataQualityAggregatedMetrics](#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics) object.
 
-- `CompletedOn` – Timestamp.
-
-The date and time when the run for this data quality result was completed.
-
-- `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The job name associated with the data quality result, if any.
-
-- `JobRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The job run ID associated with the data quality result, if any.
-
-- `RulesetEvaluationRunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The unique run ID associated with the ruleset evaluation.
-
-- `RuleResults` – An array of [DataQualityRuleResult](#aws-glue-api-data-quality-api-DataQualityRuleResult "#aws-glue-api-data-quality-api-DataQualityRuleResult") objects, not more than 2000 structures.
-
-A list of `DataQualityRuleResult` objects representing
-the results for each rule.
-
-- `AnalyzerResults` – An array of [DataQualityAnalyzerResult](#aws-glue-api-data-quality-api-DataQualityAnalyzerResult "#aws-glue-api-data-quality-api-DataQualityAnalyzerResult") objects, not more than 2000 structures.
-
-A list of `DataQualityAnalyzerResult` objects representing
-the results for each analyzer.
-
-- `Observations` – An array of [DataQualityObservation](#aws-glue-api-data-quality-api-DataQualityObservation "#aws-glue-api-data-quality-api-DataQualityObservation") objects, not more than 50 structures.
-
-A list of `DataQualityObservation` objects representing
-the observations generated after evaluating the rules and analyzers.
-
-- `AggregatedMetrics` – A [DataQualityAggregatedMetrics](#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics "#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics") object.
-
-A summary of `DataQualityAggregatedMetrics` objects showing
-the total counts of processed rows and rules, including their pass/fail statistics
-based on row-level results.
+   A summary of `DataQualityAggregatedMetrics` objects showing the total counts of processed rows and rules, including their pass/fail statistics based on row-level results. 
 
 ## StartDataQualityRuleRecommendationRunRequest structure
+<a name="aws-glue-api-data-quality-api-StartDataQualityRuleRecommendationRunRequest"></a>
 
 The request of the Data Quality rule recommendation request.
 
-###### Fields
+**Fields**
++ `DataSource` – *Required:* A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-- `DataSource` – _Required:_ A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
+  The data source (AWS Glue table) associated with this run.
++ `Role` – *Required:* UTF-8 string.
 
-The data source (AWS Glue table) associated with this run.
+  An IAM role supplied to encrypt the results of the run.
++ `NumberOfWorkers` – Number (integer).
 
-- `Role` – _Required:_ UTF-8 string.
+  The number of `G.1X` workers to be used in the run. The default is 5.
++ `Timeout` – Number (integer), at least 1.
 
-An IAM role supplied to encrypt the results of the run.
+  The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters `TIMEOUT` status. The default is 2,880 minutes (48 hours).
++ `CreatedRulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `NumberOfWorkers` – Number (integer).
+  A name for the ruleset.
++ `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The number of `G.1X` workers to be used in the run. The default
-is 5.
+  The name of the security configuration created with the data quality encryption option.
++ `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Timeout` – Number (integer), at least 1.
+  Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.
++ `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions) object.
 
-The timeout for a run in minutes. This is the maximum time that a run can consume
-resources before it is terminated and enters `TIMEOUT` status.
-The default is 2,880 minutes (48 hours).
-
-- `CreatedRulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-A name for the ruleset.
-
-- `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the security configuration created with the data quality encryption
-option.
-
-- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-Used for idempotency and is recommended to be set to a random ID (such as
-a UUID) to avoid creating or starting multiple instances of the same resource.
-
-- `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions "#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions") object.
-
-Additional run options you can specify for a recommendation run.
+  Additional run options you can specify for a recommendation run.
 
 ## GetDataQualityRuleRecommendationRunResponse structure
+<a name="aws-glue-api-data-quality-api-GetDataQualityRuleRecommendationRunResponse"></a>
 
 The response for the Data Quality rule recommendation run.
 
-###### Fields
+**Fields**
++ `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The unique run identifier associated with this run.
++ `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
 
-The unique run identifier associated with this run.
+  The data source (an AWS Glue table) associated with this run.
++ `Role` – UTF-8 string.
 
-- `DataSource` – A [DataSource](#aws-glue-api-data-quality-api-DataSource "#aws-glue-api-data-quality-api-DataSource") object.
+  An IAM role supplied to encrypt the results of the run.
++ `NumberOfWorkers` – Number (integer).
 
-The data source (an AWS Glue table) associated with this run.
+  The number of `G.1X` workers to be used in the run. The default is 5.
++ `Timeout` – Number (integer), at least 1.
 
-- `Role` – UTF-8 string.
+  The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters `TIMEOUT` status. The default is 2,880 minutes (48 hours).
++ `Status` – UTF-8 string (valid values: `RUNNING` \| `FINISHED` \| `FAILED` \| `PENDING_EXECUTION` \| `TIMED_OUT` \| `CANCELING` \| `CANCELED` \| `RECEIVED_BY_TASKRUNNER`).
 
-An IAM role supplied to encrypt the results of the run.
+  The status for this run.
++ `ErrorString` – UTF-8 string.
 
-- `NumberOfWorkers` – Number (integer).
+  The error strings that are associated with the run.
++ `StartedOn` – Timestamp.
 
-The number of `G.1X` workers to be used in the run. The default
-is 5.
+  The date and time when this run started.
++ `LastModifiedOn` – Timestamp.
 
-- `Timeout` – Number (integer), at least 1.
+  A timestamp. The last point in time when this data quality rule recommendation run was modified.
++ `CompletedOn` – Timestamp.
 
-The timeout for a run in minutes. This is the maximum time that a run can consume
-resources before it is terminated and enters `TIMEOUT` status.
-The default is 2,880 minutes (48 hours).
+  The date and time when this run was completed.
++ `ExecutionTime` – Number (integer).
 
-- `Status` – UTF-8 string (valid values: `RUNNING` | `FINISHED` | `FAILED` | `PENDING_EXECUTION` | `TIMED_OUT` | `CANCELING` | `CANCELED` | `RECEIVED_BY_TASKRUNNER`).
+  The amount of time (in seconds) that the run consumed resources.
++ `RecommendedRuleset` – UTF-8 string, not less than 1 or more than 65536 bytes long.
 
-The status for this run.
+  When a start rule recommendation run completes, it creates a recommended ruleset (a set of rules). This member has those rules in Data Quality Definition Language (DQDL) format.
++ `CreatedRulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ErrorString` – UTF-8 string.
+  The name of the ruleset that was created by the run.
++ `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The error strings that are associated with the run.
+  The name of the security configuration created with the data quality encryption option.
++ `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions) object.
 
-- `StartedOn` – Timestamp.
-
-The date and time when this run started.
-
-- `LastModifiedOn` – Timestamp.
-
-A timestamp. The last point in time when this data quality rule recommendation
-run was modified.
-
-- `CompletedOn` – Timestamp.
-
-The date and time when this run was completed.
-
-- `ExecutionTime` – Number (integer).
-
-The amount of time (in seconds) that the run consumed resources.
-
-- `RecommendedRuleset` – UTF-8 string, not less than 1 or more than 65536 bytes long.
-
-When a start rule recommendation run completes, it creates a recommended
-ruleset (a set of rules). This member has those rules in Data Quality Definition
-Language (DQDL) format.
-
-- `CreatedRulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the ruleset that was created by the run.
-
-- `DataQualitySecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the security configuration created with the data quality encryption
-option.
-
-- `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions "#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions") object.
-
-Additional run options you can specify for a recommendation run.
+  Additional run options you can specify for a recommendation run.
 
 ## BatchPutDataQualityStatisticAnnotation action (Python: batch\_put\_data\_quality\_statistic\_annotation)
+<a name="aws-glue-api-data-quality-api-BatchPutDataQualityStatisticAnnotation"></a>
 
-Annotate datapoints over time for a specific data quality statistic.
-The API requires both profileID and statisticID as part of the InclusionAnnotation
-input. The API only works for a single statisticId across multiple profiles.
+Annotate datapoints over time for a specific data quality statistic. The API requires both profileID and statisticID as part of the InclusionAnnotation input. The API only works for a single statisticId across multiple profiles.
 
-###### Request
+**Request**
++ `InclusionAnnotations` – *Required:* An array of [DatapointInclusionAnnotation](#aws-glue-api-data-quality-api-DatapointInclusionAnnotation) objects.
 
-- `InclusionAnnotations` – _Required:_ An array of [DatapointInclusionAnnotation](#aws-glue-api-data-quality-api-DatapointInclusionAnnotation "#aws-glue-api-data-quality-api-DatapointInclusionAnnotation") objects.
+  A list of `DatapointInclusionAnnotation`'s. The InclusionAnnotations must contain a profileId and statisticId. If there are multiple InclusionAnnotations, the list must refer to a single statisticId across multiple profileIds.
++ `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A list of `DatapointInclusionAnnotation`'s. The InclusionAnnotations
-must contain a profileId and statisticId. If there are multiple InclusionAnnotations,
-the list must refer to a single statisticId across multiple profileIds.
+  Client Token.
 
-- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ `FailedInclusionAnnotations` – An array of [AnnotationError](#aws-glue-api-data-quality-api-AnnotationError) objects.
 
-Client Token.
+  A list of `AnnotationError`'s.
 
-###### Response
-
-- `FailedInclusionAnnotations` – An array of [AnnotationError](#aws-glue-api-data-quality-api-AnnotationError "#aws-glue-api-data-quality-api-AnnotationError") objects.
-
-A list of `AnnotationError`'s.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `ResourceNumberLimitExceededException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `ResourceNumberLimitExceededException`
 
 ## GetDataQualityModel action (Python: get\_data\_quality\_model)
+<a name="aws-glue-api-data-quality-api-GetDataQualityModel"></a>
 
-Retrieve the training status of the model along with more information
-(CompletedOn, StartedOn, FailureReason).
+Retrieve the training status of the model along with more information (CompletedOn, StartedOn, FailureReason).
 
-###### Request
+**Request**
++ `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The Statistic ID.
++ `ProfileId` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The Statistic ID.
+  The Profile ID.
 
-- `ProfileId` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ `Status` – UTF-8 string (valid values: `RUNNING` \| `SUCCEEDED` \| `FAILED`).
 
-The Profile ID.
+  The training status of the data quality model.
++ `StartedOn` – Timestamp.
 
-###### Response
+  The timestamp when the data quality model training started.
++ `CompletedOn` – Timestamp.
 
-- `Status` – UTF-8 string (valid values: `RUNNING` | `SUCCEEDED` | `FAILED`).
+  The timestamp when the data quality model training completed.
++ `FailureReason` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The training status of the data quality model.
+  The training failure reason.
 
-- `StartedOn` – Timestamp.
-
-The timestamp when the data quality model training started.
-
-- `CompletedOn` – Timestamp.
-
-The timestamp when the data quality model training completed.
-
-- `FailureReason` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The training failure reason.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
 
 ## GetDataQualityModelResult action (Python: get\_data\_quality\_model\_result)
+<a name="aws-glue-api-data-quality-api-GetDataQualityModelResult"></a>
 
 Retrieve a statistic's predictions for a given Profile ID.
 
-###### Request
+**Request**
++ `StatisticId` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `StatisticId` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The Statistic ID.
++ `ProfileId` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The Statistic ID.
+  The Profile ID.
 
-- `ProfileId` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+**Response**
++ `CompletedOn` – Timestamp.
 
-The Profile ID.
+  The timestamp when the data quality model training completed.
++ `Model` – An array of [StatisticModelResult](#aws-glue-api-data-quality-api-StatisticModelResult) objects.
 
-###### Response
+  A list of `StatisticModelResult`
 
-- `CompletedOn` – Timestamp.
-
-The timestamp when the data quality model training completed.
-
-- `Model` – An array of [StatisticModelResult](#aws-glue-api-data-quality-api-StatisticModelResult "#aws-glue-api-data-quality-api-StatisticModelResult") objects.
-
-A list of `StatisticModelResult`
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `OperationTimeoutException`
-- `InternalServiceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
 
 ## ListDataQualityStatisticAnnotations action (Python: list\_data\_quality\_statistic\_annotations)
+<a name="aws-glue-api-data-quality-api-ListDataQualityStatisticAnnotations"></a>
 
 Retrieve annotations for a data quality statistic.
 
-###### Request
+**Request**
++ `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `StatisticId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The Statistic ID.
++ `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The Statistic ID.
+  The Profile ID.
++ `TimestampFilter` – A [TimestampFilter](#aws-glue-api-data-quality-api-TimestampFilter) object.
 
-- `ProfileId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  A timestamp filter.
++ `MaxResults` – Number (integer), not less than 1 or more than 1000.
 
-The Profile ID.
+  The maximum number of results to return in this request.
++ `NextToken` – UTF-8 string.
 
-- `TimestampFilter` – A [TimestampFilter](#aws-glue-api-data-quality-api-TimestampFilter "#aws-glue-api-data-quality-api-TimestampFilter") object.
+  A pagination token to retrieve the next set of results.
 
-A timestamp filter.
+**Response**
++ `Annotations` – An array of [StatisticAnnotation](#aws-glue-api-data-quality-api-StatisticAnnotation) objects.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+  A list of `StatisticAnnotation` applied to the Statistic
++ `NextToken` – UTF-8 string.
 
-The maximum number of results to return in this request.
+  A pagination token to retrieve the next set of results.
 
-- `NextToken` – UTF-8 string.
-
-A pagination token to retrieve the next set of results.
-
-###### Response
-
-- `Annotations` – An array of [StatisticAnnotation](#aws-glue-api-data-quality-api-StatisticAnnotation "#aws-glue-api-data-quality-api-StatisticAnnotation") objects.
-
-A list of `StatisticAnnotation` applied to the Statistic
-
-- `NextToken` – UTF-8 string.
-
-A pagination token to retrieve the next set of results.
-
-###### Errors
-
-- `InvalidInputException`
-- `InternalServiceException`
+**Errors**
++ `InvalidInputException`
++ `InternalServiceException`
 
 ## PutDataQualityProfileAnnotation action (Python: put\_data\_quality\_profile\_annotation)
+<a name="aws-glue-api-data-quality-api-PutDataQualityProfileAnnotation"></a>
 
 Annotate all datapoints for a Profile.
 
-###### Request
+**Request**
++ `ProfileId` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `ProfileId` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The ID of the data quality monitoring profile to annotate.
++ `InclusionAnnotation` – *Required:* UTF-8 string (valid values: `INCLUDE` \| `EXCLUDE`).
 
-The ID of the data quality monitoring profile to annotate.
+  The inclusion annotation value to apply to the profile.
 
-- `InclusionAnnotation` – _Required:_ UTF-8 string (valid values: `INCLUDE` | `EXCLUDE`).
+**Response**
++ *No Response parameters.*
 
-The inclusion annotation value to apply to the profile.
-
-###### Response
-
-- _No Response parameters._
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`

@@ -1,21 +1,18 @@
+
+
 # Use `GetJobRuns` with an AWS SDK or CLI
+<a name="example_glue_GetJobRuns_section"></a>
 
 The following code examples show how to use `GetJobRuns`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_glue_Scenario_GetStartedCrawlersJobs_section.md) 
 
-- [Learn the basics](example_glue_Scenario_GetStartedCrawlersJobs_section.md "example_glue_Scenario_GetStartedCrawlersJobs_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples). 
 
 ```
     /// <summary>
@@ -46,24 +43,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return jobRuns;
     }
-
-
-
 ```
++  For API details, see [GetJobRuns](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/GetJobRuns) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [GetJobRuns](../../../goto/DotNetSDKV3/glue-2017-03-31/GetJobRuns.md "../../../goto/DotNetSDKV3/glue-2017-03-31/GetJobRuns.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -97,29 +84,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
                 break;
             }
         } while (!nextToken.empty());
+```
++  For API details, see [GetJobRuns](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/GetJobRuns) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To get information about all job runs for a job**  
+The following `get-job-runs` example retrieves information about job runs for a job.  
 
 ```
-
-- For API details, see
-  [GetJobRuns](../../../goto/SdkForCpp/glue-2017-03-31/GetJobRuns.md "../../../goto/SdkForCpp/glue-2017-03-31/GetJobRuns.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To get information about all job runs for a job**
-
-The following `get-job-runs` example retrieves information about job runs for a job.
-
+aws glue get-job-runs \
+    --job-name {{"my-testing-job"}}
 ```
-`aws glue get-job-runs \
- --job-name `"my-testing-job"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -198,22 +177,14 @@ Output:
     ]
 }
 ```
+For more information, see [Job Runs](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html) in the *AWS Glue Developer Guide*.  
++  For API details, see [GetJobRuns](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/get-job-runs.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Job Runs](aws-glue-api-jobs-runs.md "aws-glue-api-jobs-runs.md") in the _AWS Glue Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [GetJobRuns](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/get-job-runs.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/get-job-runs.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples). 
 
 ```
     /**
@@ -266,23 +237,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             throw new RuntimeException(e);
         }
     }
-
-
 ```
++  For API details, see [GetJobRuns](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/GetJobRuns) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetJobRuns](../../../goto/SdkForJavaV2/glue-2017-03-31/GetJobRuns.md "../../../goto/SdkForJavaV2/glue-2017-03-31/GetJobRuns.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples). 
 
 ```
 const getJobRuns = (jobName) => {
@@ -293,23 +255,14 @@ const getJobRuns = (jobName) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [GetJobRuns](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetJobRunsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [GetJobRuns](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetJobRunsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/GetJobRunsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/glue#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/glue#code-examples). 
 
 ```
         $jobName = 'test-job-' . $uniqid;
@@ -327,23 +280,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
         }
         return $this->glueClient->getJobRuns($arguments);
     }
-
-
 ```
++  For API details, see [GetJobRuns](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/GetJobRuns) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [GetJobRuns](../../../goto/SdkForPHPV3/glue-2017-03-31/GetJobRuns.md "../../../goto/SdkForPHPV3/glue-2017-03-31/GetJobRuns.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples). 
 
 ```
 class GlueWrapper:
@@ -376,27 +320,16 @@ class GlueWrapper:
             raise
         else:
             return response["JobRuns"]
+```
++  For API details, see [GetJobRuns](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/GetJobRuns) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples). 
 
 ```
-
-- For API details, see
-  [GetJobRuns](../../../goto/boto3/glue-2017-03-31/GetJobRuns.md "../../../goto/boto3/glue-2017-03-31/GetJobRuns.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples").
-
-```
-
 # The `GlueWrapper` class serves as a wrapper around the AWS Glue API, providing a simplified interface for common operations.
 # It encapsulates the functionality of the AWS SDK for Glue and provides methods for interacting with Glue crawlers, databases, tables, jobs, and S3 resources.
 # The class initializes with a Glue client and a logger, allowing it to make API calls and log any errors or informational messages.
@@ -416,23 +349,14 @@ class GlueWrapper
   rescue Aws::Glue::Errors::GlueException => e
     @logger.error("Glue could not get job runs: \n#{e.message}")
   end
-
-
 ```
++  For API details, see [GetJobRuns](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/GetJobRuns) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [GetJobRuns](../../../goto/SdkForRubyV3/glue-2017-03-31/GetJobRuns.md "../../../goto/SdkForRubyV3/glue-2017-03-31/GetJobRuns.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples). 
 
 ```
     TRY.
@@ -452,30 +376,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_timeout_error) = lo_timeout_ex->if_message~get_longtext( ).
         MESSAGE lv_timeout_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetJobRuns](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetJobRuns](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/glue#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/glue#code-examples). 
 
 ```
 import AWSClientRuntime
 import AWSGlue
 
     /// Return a list of the job runs for the specified job.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - jobName: The name of the job for which to return its job runs.
@@ -508,14 +423,9 @@ import AWSGlue
             return []
         }
     }
-
-
 ```
++  For API details, see [GetJobRuns](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getjobruns(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [GetJobRuns](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getjobruns(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/getjobruns(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

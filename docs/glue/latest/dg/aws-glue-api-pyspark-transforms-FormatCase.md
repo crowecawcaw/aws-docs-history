@@ -1,8 +1,12 @@
+
+
 # FormatCase class
+<a name="aws-glue-api-pyspark-transforms-FormatCase"></a>
 
 The `FormatCase` transform changes each string in a column to the specified case type.
 
 ## Example
+<a name="pyspark-FormatCase-examples"></a>
 
 ```
 from pyspark.context import SparkContext
@@ -20,69 +24,66 @@ try:
         spark_context=sc,
         source_column="city",
         case_type="LOWER"
-    )
+    )    
 except:
     print("Unexpected Error happened ")
     raise
-
 ```
 
 ## Output
+<a name="pyspark-FormatCase-output"></a>
 
-The `FormatCase` transformation will convert the values in the `city` column to lowercase based on
-the `case\_type="LOWER"` parameter. The resulting `df\_output` DataFrame will contain all columns from the original
-`datasource1` DataFrame, but with the `city` column values in lowercase.
+ The `FormatCase` transformation will convert the values in the `city` column to lowercase based on the `case\_type="LOWER"` parameter. The resulting `df\_output` DataFrame will contain all columns from the original `datasource1` DataFrame, but with the `city` column values in lowercase. 
 
 ## Methods
-
-- [\_\_call\_\_](#aws-glue-api-pyspark-transforms-FormatCase-__call__ "#aws-glue-api-pyspark-transforms-FormatCase-__call__")
-- [apply](#aws-glue-api-crawler-pyspark-transforms-FormatCase-apply "#aws-glue-api-crawler-pyspark-transforms-FormatCase-apply")
-- [name](#aws-glue-api-crawler-pyspark-transforms-FormatCase-name "#aws-glue-api-crawler-pyspark-transforms-FormatCase-name")
-- [describeArgs](#aws-glue-api-crawler-pyspark-transforms-FormatCase-describeArgs "#aws-glue-api-crawler-pyspark-transforms-FormatCase-describeArgs")
-- [describeReturn](#aws-glue-api-crawler-pyspark-transforms-FormatCase-describeReturn "#aws-glue-api-crawler-pyspark-transforms-FormatCase-describeReturn")
-- [describeTransform](#aws-glue-api-crawler-pyspark-transforms-FormatCase-describeTransform "#aws-glue-api-crawler-pyspark-transforms-FormatCase-describeTransform")
-- [describeErrors](#aws-glue-api-crawler-pyspark-transforms-FormatCase-describeErrors "#aws-glue-api-crawler-pyspark-transforms-FormatCase-describeErrors")
-- [describe](#aws-glue-api-crawler-pyspark-transforms-FormatCase-describe "#aws-glue-api-crawler-pyspark-transforms-FormatCase-describe")
+<a name="aws-glue-api-pyspark-transforms-FormatCase-_methods"></a>
++ [\_\_call\_\_](#aws-glue-api-pyspark-transforms-FormatCase-__call__)
++ [apply](#aws-glue-api-crawler-pyspark-transforms-FormatCase-apply)
++ [name](#aws-glue-api-crawler-pyspark-transforms-FormatCase-name)
++ [describeArgs](#aws-glue-api-crawler-pyspark-transforms-FormatCase-describeArgs)
++ [describeReturn](#aws-glue-api-crawler-pyspark-transforms-FormatCase-describeReturn)
++ [describeTransform](#aws-glue-api-crawler-pyspark-transforms-FormatCase-describeTransform)
++ [describeErrors](#aws-glue-api-crawler-pyspark-transforms-FormatCase-describeErrors)
++ [describe](#aws-glue-api-crawler-pyspark-transforms-FormatCase-describe)
 
 ## \_\_call\_\_(spark\_context, data\_frame, source\_column, case\_type)
+<a name="aws-glue-api-pyspark-transforms-FormatCase-__call__"></a>
 
 The `FormatCase` transform changes each string in a column to the specified case type.
-
-- `source_column` – The name of an existing column.
-- `case_type` – Supported case types are `CAPITAL`,`LOWER`,
-  `UPPER`, `SENTENCE`.
++ `source_column` – The name of an existing column.
++ `case_type` – Supported case types are `CAPITAL`,`LOWER`, `UPPER`, `SENTENCE`. 
 
 ## apply(cls, \*args, \*\*kwargs)
+<a name="aws-glue-api-crawler-pyspark-transforms-FormatCase-apply"></a>
 
-Inherited from `GlueTransform`
-[apply](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply").
+Inherited from `GlueTransform` [apply](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply).
 
 ## name(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-FormatCase-name"></a>
 
-Inherited from `GlueTransform`
-[name](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name").
+Inherited from `GlueTransform` [name](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name).
 
 ## describeArgs(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-FormatCase-describeArgs"></a>
 
-Inherited from `GlueTransform`
-[describeArgs](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs").
+Inherited from `GlueTransform` [describeArgs](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs).
 
 ## describeReturn(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-FormatCase-describeReturn"></a>
 
-Inherited from `GlueTransform`
-[describeReturn](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn").
+Inherited from `GlueTransform` [describeReturn](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn).
 
 ## describeTransform(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-FormatCase-describeTransform"></a>
 
-Inherited from `GlueTransform`
-[describeTransform](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform").
+Inherited from `GlueTransform` [describeTransform](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform).
 
 ## describeErrors(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-FormatCase-describeErrors"></a>
 
-Inherited from `GlueTransform`
-[describeErrors](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors").
+Inherited from `GlueTransform` [describeErrors](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors).
 
 ## describe(cls)
+<a name="aws-glue-api-crawler-pyspark-transforms-FormatCase-describe"></a>
 
-Inherited from `GlueTransform`
-[describe](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe").
+Inherited from `GlueTransform` [describe](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe).

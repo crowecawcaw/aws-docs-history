@@ -1,560 +1,448 @@
-# Triggers
 
-The Triggers API describes the data types and API related to creating,
-updating, or deleting, and starting and stopping job triggers in AWS Glue.
+
+# Triggers
+<a name="aws-glue-api-jobs-trigger"></a>
+
+The Triggers API describes the data types and API related to creating, updating, or deleting, and starting and stopping job triggers in AWS Glue.
 
 ## Data types
-
-- [Trigger structure](#aws-glue-api-jobs-trigger-Trigger "#aws-glue-api-jobs-trigger-Trigger")
-- [TriggerUpdate structure](#aws-glue-api-jobs-trigger-TriggerUpdate "#aws-glue-api-jobs-trigger-TriggerUpdate")
-- [Predicate structure](#aws-glue-api-jobs-trigger-Predicate "#aws-glue-api-jobs-trigger-Predicate")
-- [Condition structure](#aws-glue-api-jobs-trigger-Condition "#aws-glue-api-jobs-trigger-Condition")
-- [Action structure](#aws-glue-api-jobs-trigger-Action "#aws-glue-api-jobs-trigger-Action")
-- [EventBatchingCondition structure](#aws-glue-api-jobs-trigger-EventBatchingCondition "#aws-glue-api-jobs-trigger-EventBatchingCondition")
+<a name="aws-glue-api-jobs-trigger-objects"></a>
++ [Trigger structure](#aws-glue-api-jobs-trigger-Trigger)
++ [TriggerUpdate structure](#aws-glue-api-jobs-trigger-TriggerUpdate)
++ [Predicate structure](#aws-glue-api-jobs-trigger-Predicate)
++ [Condition structure](#aws-glue-api-jobs-trigger-Condition)
++ [Action structure](#aws-glue-api-jobs-trigger-Action)
++ [EventBatchingCondition structure](#aws-glue-api-jobs-trigger-EventBatchingCondition)
 
 ## Trigger structure
+<a name="aws-glue-api-jobs-trigger-Trigger"></a>
 
 Information about a specific trigger.
 
-###### Fields
+**Fields**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the trigger.
++ `WorkflowName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the trigger.
+  The name of the workflow associated with the trigger.
++ `Id` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `WorkflowName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Reserved for future use.
++ `Type` – UTF-8 string (valid values: `SCHEDULED` \| `CONDITIONAL` \| `ON_DEMAND` \| `EVENT`).
 
-The name of the workflow associated with the trigger.
+  The type of trigger that this is.
++ `State` – UTF-8 string (valid values: `CREATING` \| `CREATED` \| `ACTIVATING` \| `ACTIVATED` \| `DEACTIVATING` \| `DEACTIVATED` \| `DELETING` \| `UPDATING`).
 
-- `Id` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The current state of the trigger.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-Reserved for future use.
+  A description of this trigger.
++ `Schedule` – UTF-8 string.
 
-- `Type` – UTF-8 string (valid values: `SCHEDULED` | `CONDITIONAL` | `ON_DEMAND` | `EVENT`).
+  A `cron` expression used to specify the schedule (see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
++ `Actions` – An array of [Action](#aws-glue-api-jobs-trigger-Action) objects.
 
-The type of trigger that this is.
+  The actions initiated by this trigger.
++ `Predicate` – A [Predicate](#aws-glue-api-jobs-trigger-Predicate) object.
 
-- `State` – UTF-8 string (valid values: `CREATING` | `CREATED` | `ACTIVATING` | `ACTIVATED` | `DEACTIVATING` | `DEACTIVATED` | `DELETING` | `UPDATING`).
+  The predicate of this trigger, which defines when it will fire.
++ `EventBatchingCondition` – An [EventBatchingCondition](#aws-glue-api-jobs-trigger-EventBatchingCondition) object.
 
-The current state of the trigger.
-
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
-
-A description of this trigger.
-
-- `Schedule` – UTF-8 string.
-
-A `cron` expression used to specify the schedule (see [Time-Based
-Schedules for Jobs and Crawlers](monitor-data-warehouse-schedule.md "monitor-data-warehouse-schedule.md"). For example, to run something every
-day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
-
-- `Actions` – An array of [Action](#aws-glue-api-jobs-trigger-Action "#aws-glue-api-jobs-trigger-Action") objects.
-
-The actions initiated by this trigger.
-
-- `Predicate` – A [Predicate](#aws-glue-api-jobs-trigger-Predicate "#aws-glue-api-jobs-trigger-Predicate") object.
-
-The predicate of this trigger, which defines when it will fire.
-
-- `EventBatchingCondition` – An [EventBatchingCondition](#aws-glue-api-jobs-trigger-EventBatchingCondition "#aws-glue-api-jobs-trigger-EventBatchingCondition") object.
-
-Batch condition that must be met (specified number of events received
-or batch time window expired) before EventBridge event trigger fires.
+  Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
 
 ## TriggerUpdate structure
+<a name="aws-glue-api-jobs-trigger-TriggerUpdate"></a>
 
-A structure used to provide information used to update a trigger. This
-object updates the previous trigger definition by overwriting it completely.
+A structure used to provide information used to update a trigger. This object updates the previous trigger definition by overwriting it completely.
 
-###### Fields
+**Fields**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  Reserved for future use.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-Reserved for future use.
+  A description of this trigger.
++ `Schedule` – UTF-8 string.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+  A `cron` expression used to specify the schedule (see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
++ `Actions` – An array of [Action](#aws-glue-api-jobs-trigger-Action) objects.
 
-A description of this trigger.
+  The actions initiated by this trigger.
++ `Predicate` – A [Predicate](#aws-glue-api-jobs-trigger-Predicate) object.
 
-- `Schedule` – UTF-8 string.
+  The predicate of this trigger, which defines when it will fire.
++ `EventBatchingCondition` – An [EventBatchingCondition](#aws-glue-api-jobs-trigger-EventBatchingCondition) object.
 
-A `cron` expression used to specify the schedule (see [Time-Based
-Schedules for Jobs and Crawlers](monitor-data-warehouse-schedule.md "monitor-data-warehouse-schedule.md"). For example, to run something every
-day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
-
-- `Actions` – An array of [Action](#aws-glue-api-jobs-trigger-Action "#aws-glue-api-jobs-trigger-Action") objects.
-
-The actions initiated by this trigger.
-
-- `Predicate` – A [Predicate](#aws-glue-api-jobs-trigger-Predicate "#aws-glue-api-jobs-trigger-Predicate") object.
-
-The predicate of this trigger, which defines when it will fire.
-
-- `EventBatchingCondition` – An [EventBatchingCondition](#aws-glue-api-jobs-trigger-EventBatchingCondition "#aws-glue-api-jobs-trigger-EventBatchingCondition") object.
-
-Batch condition that must be met (specified number of events received
-or batch time window expired) before EventBridge event trigger fires.
+  Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
 
 ## Predicate structure
+<a name="aws-glue-api-jobs-trigger-Predicate"></a>
 
 Defines the predicate of the trigger, which determines when it fires.
 
-###### Fields
+**Fields**
++ `Logical` – UTF-8 string (valid values: `AND` \| `ANY`).
 
-- `Logical` – UTF-8 string (valid values: `AND` | `ANY`).
+  An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
++ `Conditions` – An array of [Condition](#aws-glue-api-jobs-trigger-Condition) objects, not more than 500 structures.
 
-An optional field if only one condition is listed. If multiple conditions
-are listed, then this field is required.
-
-- `Conditions` – An array of [Condition](#aws-glue-api-jobs-trigger-Condition "#aws-glue-api-jobs-trigger-Condition") objects, not more than 500 structures.
-
-A list of the conditions that determine when the trigger will fire.
+  A list of the conditions that determine when the trigger will fire.
 
 ## Condition structure
+<a name="aws-glue-api-jobs-trigger-Condition"></a>
 
 Defines a condition under which a trigger fires.
 
-###### Fields
+**Fields**
++ `LogicalOperator` – UTF-8 string (valid values: `EQUALS`).
 
-- `LogicalOperator` – UTF-8 string (valid values: `EQUALS`).
+  A logical operator.
++ `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A logical operator.
+  The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
++ `State` – UTF-8 string (valid values: `STARTING` \| `RUNNING` \| `STOPPING` \| `STOPPED` \| `SUCCEEDED` \| `FAILED` \| `TIMEOUT` \| `ERROR` \| `WAITING` \| `EXPIRED`).
 
-- `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The condition state. Currently, the only job states that a trigger can listen for are `SUCCEEDED`, `STOPPED`, `FAILED`, and `TIMEOUT`. The only crawler states that a trigger can listen for are `SUCCEEDED`, `FAILED`, and `CANCELLED`.
++ `CrawlerName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the job whose `JobRuns` this condition applies
-to, and on which this trigger waits.
+  The name of the crawler to which this condition applies.
++ `CrawlState` – UTF-8 string (valid values: `RUNNING` \| `CANCELLING` \| `CANCELLED` \| `SUCCEEDED` \| `FAILED` \| `ERROR`).
 
-- `State` – UTF-8 string (valid values: `STARTING` | `RUNNING` | `STOPPING` | `STOPPED` | `SUCCEEDED` | `FAILED` | `TIMEOUT` | `ERROR` | `WAITING` | `EXPIRED`).
-
-The condition state. Currently, the only job states that a trigger can
-listen for are `SUCCEEDED`, `STOPPED`, `FAILED`,
-and `TIMEOUT`. The only crawler states that a trigger can listen
-for are `SUCCEEDED`, `FAILED`, and `CANCELLED`.
-
-- `CrawlerName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the crawler to which this condition applies.
-
-- `CrawlState` – UTF-8 string (valid values: `RUNNING` | `CANCELLING` | `CANCELLED` | `SUCCEEDED` | `FAILED` | `ERROR`).
-
-The state of the crawler to which this condition applies.
+  The state of the crawler to which this condition applies.
 
 ## Action structure
+<a name="aws-glue-api-jobs-trigger-Action"></a>
 
 Defines an action to be initiated by a trigger.
 
-###### Fields
+**Fields**
++ `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `JobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of a job to be run.
++ `Arguments` – A map array of key-value pairs.
 
-The name of a job to be run.
+  Each key is a UTF-8 string.
 
-- `Arguments` – A map array of key-value pairs.
+  Each value is a UTF-8 string.
 
-Each key is a UTF-8 string.
+  The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
 
-Each value is a UTF-8 string.
+  You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
 
-The job arguments used when this trigger fires. For this job run, they replace
-the default arguments set in the job definition itself.
+  For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide.
 
-You can specify arguments here that your own job-execution script consumes,
-as well as arguments that AWS Glue itself consumes.
+  For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
++ `Timeout` – Number (integer), at least 1.
 
-For information about how to specify and consume your own Job arguments,
-see the [Calling
-AWS Glue APIs in Python](aws-glue-programming-python-calling.md "aws-glue-programming-python-calling.md") topic in the developer guide.
+  The `JobRun` timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters `TIMEOUT` status. This overrides the timeout value set in the parent job.
 
-For information about the key-value pairs that AWS Glue consumes
-to set up your job, see the [Special
-Parameters Used by AWS Glue](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md") topic in the developer guide.
+  Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise, the jobs will throw an exception.
 
-- `Timeout` – Number (integer), at least 1.
+  When the value is left blank, the timeout is defaulted to 2,880 minutes for Glue version 4.0 and earlier, or 480 minutes for Glue version 5.0 and later.
 
-The `JobRun` timeout in minutes. This is the maximum time
-that a job run can consume resources before it is terminated and enters `TIMEOUT`
-status. This overrides the timeout value set in the parent job.
+  Any existing AWS Glue jobs that had a timeout value greater than 7 days will be defaulted to 7 days. For instance if you have specified a timeout of 20 days for a batch job, it will be stopped on the 7th day.
 
-Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise,
-the jobs will throw an exception.
+  For streaming jobs, if you have set up a maintenance window, it will be restarted during the maintenance window after 7 days.
++ `SecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-When the value is left blank, the timeout is defaulted to 2,880 minutes
-for Glue version 4.0 and earlier, or 480 minutes for Glue version 5.0 and later.
+  The name of the `SecurityConfiguration` structure to be used with this action.
++ `NotificationProperty` – A [NotificationProperty](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-NotificationProperty) object.
 
-Any existing AWS Glue jobs that had a timeout value greater
-than 7 days will be defaulted to 7 days. For instance if you have specified a timeout
-of 20 days for a batch job, it will be stopped on the 7th day.
+  Specifies configuration properties of a job run notification.
++ `CrawlerName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-For streaming jobs, if you have set up a maintenance window, it will be restarted
-during the maintenance window after 7 days.
-
-- `SecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the `SecurityConfiguration` structure to be
-used with this action.
-
-- `NotificationProperty` – A [NotificationProperty](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-NotificationProperty "aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-NotificationProperty") object.
-
-Specifies configuration properties of a job run notification.
-
-- `CrawlerName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the crawler to be used with this action.
+  The name of the crawler to be used with this action.
 
 ## EventBatchingCondition structure
+<a name="aws-glue-api-jobs-trigger-EventBatchingCondition"></a>
 
-Batch condition that must be met (specified number of events received
-or batch time window expired) before EventBridge event trigger fires.
+Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
 
-###### Fields
+**Fields**
++ `BatchSize` – *Required:* Number (integer), not less than 1 or more than 100.
 
-- `BatchSize` – _Required:_ Number (integer), not less than 1 or more than 100.
+  Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
++ `BatchWindow` – Number (integer), not less than 1 or more than 900.
 
-Number of events that must be received from Amazon EventBridge before
-EventBridge event trigger fires.
-
-- `BatchWindow` – Number (integer), not less than 1 or more than 900.
-
-Window of time in seconds after which EventBridge event trigger fires.
-Window starts when first event is received.
+  Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received.
 
 ## Operations
-
-- [CreateTrigger action (Python: create\_trigger)](#aws-glue-api-jobs-trigger-CreateTrigger "#aws-glue-api-jobs-trigger-CreateTrigger")
-- [StartTrigger action (Python: start\_trigger)](#aws-glue-api-jobs-trigger-StartTrigger "#aws-glue-api-jobs-trigger-StartTrigger")
-- [GetTrigger action (Python: get\_trigger)](#aws-glue-api-jobs-trigger-GetTrigger "#aws-glue-api-jobs-trigger-GetTrigger")
-- [GetTriggers action (Python: get\_triggers)](#aws-glue-api-jobs-trigger-GetTriggers "#aws-glue-api-jobs-trigger-GetTriggers")
-- [UpdateTrigger action (Python: update\_trigger)](#aws-glue-api-jobs-trigger-UpdateTrigger "#aws-glue-api-jobs-trigger-UpdateTrigger")
-- [StopTrigger action (Python: stop\_trigger)](#aws-glue-api-jobs-trigger-StopTrigger "#aws-glue-api-jobs-trigger-StopTrigger")
-- [DeleteTrigger action (Python: delete\_trigger)](#aws-glue-api-jobs-trigger-DeleteTrigger "#aws-glue-api-jobs-trigger-DeleteTrigger")
-- [ListTriggers action (Python: list\_triggers)](#aws-glue-api-jobs-trigger-ListTriggers "#aws-glue-api-jobs-trigger-ListTriggers")
-- [BatchGetTriggers action (Python: batch\_get\_triggers)](#aws-glue-api-jobs-trigger-BatchGetTriggers "#aws-glue-api-jobs-trigger-BatchGetTriggers")
+<a name="aws-glue-api-jobs-trigger-actions"></a>
++ [CreateTrigger action (Python: create\_trigger)](#aws-glue-api-jobs-trigger-CreateTrigger)
++ [StartTrigger action (Python: start\_trigger)](#aws-glue-api-jobs-trigger-StartTrigger)
++ [GetTrigger action (Python: get\_trigger)](#aws-glue-api-jobs-trigger-GetTrigger)
++ [GetTriggers action (Python: get\_triggers)](#aws-glue-api-jobs-trigger-GetTriggers)
++ [UpdateTrigger action (Python: update\_trigger)](#aws-glue-api-jobs-trigger-UpdateTrigger)
++ [StopTrigger action (Python: stop\_trigger)](#aws-glue-api-jobs-trigger-StopTrigger)
++ [DeleteTrigger action (Python: delete\_trigger)](#aws-glue-api-jobs-trigger-DeleteTrigger)
++ [ListTriggers action (Python: list\_triggers)](#aws-glue-api-jobs-trigger-ListTriggers)
++ [BatchGetTriggers action (Python: batch\_get\_triggers)](#aws-glue-api-jobs-trigger-BatchGetTriggers)
 
 ## CreateTrigger action (Python: create\_trigger)
+<a name="aws-glue-api-jobs-trigger-CreateTrigger"></a>
 
 Creates a new trigger.
 
-Job arguments may be logged. Do not pass plaintext secrets as arguments.
-Retrieve secrets from a AWS Glue Connection, AWS
-Secrets Manager or other secret management mechanism if you intend to keep them
-within the Job.
+Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets from a AWS Glue Connection, AWS Secrets Manager or other secret management mechanism if you intend to keep them within the Job.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the trigger.
++ `WorkflowName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-The name of the trigger.
+  The name of the workflow associated with the trigger.
++ `Type` – *Required:* UTF-8 string (valid values: `SCHEDULED` \| `CONDITIONAL` \| `ON_DEMAND` \| `EVENT`).
 
-- `WorkflowName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The type of the new trigger.
++ `Schedule` – UTF-8 string.
 
-The name of the workflow associated with the trigger.
+  A `cron` expression used to specify the schedule (see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
 
-- `Type` – _Required:_ UTF-8 string (valid values: `SCHEDULED` | `CONDITIONAL` | `ON_DEMAND` | `EVENT`).
+  This field is required when the trigger type is SCHEDULED.
++ `Predicate` – A [Predicate](#aws-glue-api-jobs-trigger-Predicate) object.
 
-The type of the new trigger.
+  A predicate to specify when the new trigger should fire.
 
-- `Schedule` – UTF-8 string.
+  This field is required when the trigger type is `CONDITIONAL`.
++ `Actions` – *Required:* An array of [Action](#aws-glue-api-jobs-trigger-Action) objects.
 
-A `cron` expression used to specify the schedule (see [Time-Based
-Schedules for Jobs and Crawlers](monitor-data-warehouse-schedule.md "monitor-data-warehouse-schedule.md"). For example, to run something every
-day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
+  The actions initiated by this trigger when it fires.
++ `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri).
 
-This field is required when the trigger type is SCHEDULED.
+  A description of the new trigger.
++ `StartOnCreation` – Boolean.
 
-- `Predicate` – A [Predicate](#aws-glue-api-jobs-trigger-Predicate "#aws-glue-api-jobs-trigger-Predicate") object.
+  Set to `true` to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
++ `Tags` – A map array of key-value pairs, not more than 50 pairs.
 
-A predicate to specify when the new trigger should fire.
+  Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
 
-This field is required when the trigger type is `CONDITIONAL`.
+  Each value is a UTF-8 string, not more than 256 bytes long.
 
-- `Actions` – _Required:_ An array of [Action](#aws-glue-api-jobs-trigger-Action "#aws-glue-api-jobs-trigger-Action") objects.
+  The tags to use with this trigger. You may use tags to limit access to the trigger. For more information about tags in AWS Glue, see [AWS Tags in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html) in the developer guide. 
++ `EventBatchingCondition` – An [EventBatchingCondition](#aws-glue-api-jobs-trigger-EventBatchingCondition) object.
 
-The actions initiated by this trigger when it fires.
+  Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
 
-- `Description` – Description string, not more than 2048 bytes long, matching the [URI address multi-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-uri "aws-glue-api-common.md#aws-glue-api-regex-uri").
+**Response**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A description of the new trigger.
+  The name of the trigger.
 
-- `StartOnCreation` – Boolean.
-
-Set to `true` to start `SCHEDULED` and `CONDITIONAL`
-triggers when created. True is not supported for `ON_DEMAND` triggers.
-
-- `Tags` – A map array of key-value pairs, not more than 50 pairs.
-
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
-
-Each value is a UTF-8 string, not more than 256 bytes long.
-
-The tags to use with this trigger. You may use tags to limit access to the
-trigger. For more information about tags in AWS Glue, see [AWS Tags in AWS Glue](monitor-tags.md "monitor-tags.md") in the developer guide.
-
-- `EventBatchingCondition` – An [EventBatchingCondition](#aws-glue-api-jobs-trigger-EventBatchingCondition "#aws-glue-api-jobs-trigger-EventBatchingCondition") object.
-
-Batch condition that must be met (specified number of events received
-or batch time window expired) before EventBridge event trigger fires.
-
-###### Response
-
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the trigger.
-
-###### Errors
-
-- `AlreadyExistsException`
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `IdempotentParameterMismatchException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `ResourceNumberLimitExceededException`
-- `ConcurrentModificationException`
+**Errors**
++ `AlreadyExistsException`
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `IdempotentParameterMismatchException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `ResourceNumberLimitExceededException`
++ `ConcurrentModificationException`
 
 ## StartTrigger action (Python: start\_trigger)
+<a name="aws-glue-api-jobs-trigger-StartTrigger"></a>
 
-Starts an existing trigger. See [Triggering
-Jobs](trigger-job.md "trigger-job.md") for information about how different types of trigger are started.
+Starts an existing trigger. See [Triggering Jobs](https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html) for information about how different types of trigger are started.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the trigger to start.
 
-The name of the trigger to start.
+**Response**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-###### Response
+  The name of the trigger that was started.
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the trigger that was started.
-
-###### Errors
-
-- `InvalidInputException`
-- `InternalServiceException`
-- `EntityNotFoundException`
-- `OperationTimeoutException`
-- `ResourceNumberLimitExceededException`
-- `ConcurrentRunsExceededException`
+**Errors**
++ `InvalidInputException`
++ `InternalServiceException`
++ `EntityNotFoundException`
++ `OperationTimeoutException`
++ `ResourceNumberLimitExceededException`
++ `ConcurrentRunsExceededException`
 
 ## GetTrigger action (Python: get\_trigger)
+<a name="aws-glue-api-jobs-trigger-GetTrigger"></a>
 
 Retrieves the definition of a trigger.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the trigger to retrieve.
 
-The name of the trigger to retrieve.
+**Response**
++ `Trigger` – A [Trigger](#aws-glue-api-jobs-trigger-Trigger) object.
 
-###### Response
+  The requested trigger definition.
 
-- `Trigger` – A [Trigger](#aws-glue-api-jobs-trigger-Trigger "#aws-glue-api-jobs-trigger-Trigger") object.
-
-The requested trigger definition.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
 
 ## GetTriggers action (Python: get\_triggers)
+<a name="aws-glue-api-jobs-trigger-GetTriggers"></a>
 
 Gets all the triggers associated with a job.
 
-###### Request
+**Request**
++ `NextToken` – UTF-8 string.
 
-- `NextToken` – UTF-8 string.
+  A continuation token, if this is a continuation call.
++ `DependentJobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A continuation token, if this is a continuation call.
+  The name of the job to retrieve triggers for. The trigger that can start this job is returned, and if there is no such trigger, all triggers are returned.
++ `MaxResults` – Number (integer), not less than 1 or more than 200.
 
-- `DependentJobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The maximum size of the response.
 
-The name of the job to retrieve triggers for. The trigger that can start
-this job is returned, and if there is no such trigger, all triggers are returned.
+**Response**
++ `Triggers` – An array of [Trigger](#aws-glue-api-jobs-trigger-Trigger) objects.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 200.
+  A list of triggers for the specified job.
++ `NextToken` – UTF-8 string.
 
-The maximum size of the response.
+  A continuation token, if not all the requested triggers have yet been returned.
 
-###### Response
-
-- `Triggers` – An array of [Trigger](#aws-glue-api-jobs-trigger-Trigger "#aws-glue-api-jobs-trigger-Trigger") objects.
-
-A list of triggers for the specified job.
-
-- `NextToken` – UTF-8 string.
-
-A continuation token, if not all the requested triggers have yet been returned.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
 
 ## UpdateTrigger action (Python: update\_trigger)
+<a name="aws-glue-api-jobs-trigger-UpdateTrigger"></a>
 
 Updates a trigger definition.
 
-Job arguments may be logged. Do not pass plaintext secrets as arguments.
-Retrieve secrets from a AWS Glue Connection, AWS
-Secrets Manager or other secret management mechanism if you intend to keep them
-within the Job.
+Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets from a AWS Glue Connection, AWS Secrets Manager or other secret management mechanism if you intend to keep them within the Job.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the trigger to update.
++ `TriggerUpdate` – *Required:* A [TriggerUpdate](#aws-glue-api-jobs-trigger-TriggerUpdate) object.
 
-The name of the trigger to update.
+  The new values with which to update the trigger.
 
-- `TriggerUpdate` – _Required:_ A [TriggerUpdate](#aws-glue-api-jobs-trigger-TriggerUpdate "#aws-glue-api-jobs-trigger-TriggerUpdate") object.
+**Response**
++ `Trigger` – A [Trigger](#aws-glue-api-jobs-trigger-Trigger) object.
 
-The new values with which to update the trigger.
+  The resulting trigger definition.
 
-###### Response
-
-- `Trigger` – A [Trigger](#aws-glue-api-jobs-trigger-Trigger "#aws-glue-api-jobs-trigger-Trigger") object.
-
-The resulting trigger definition.
-
-###### Errors
-
-- `InvalidInputException`
-- `InternalServiceException`
-- `EntityNotFoundException`
-- `OperationTimeoutException`
-- `ConcurrentModificationException`
+**Errors**
++ `InvalidInputException`
++ `InternalServiceException`
++ `EntityNotFoundException`
++ `OperationTimeoutException`
++ `ConcurrentModificationException`
 
 ## StopTrigger action (Python: stop\_trigger)
+<a name="aws-glue-api-jobs-trigger-StopTrigger"></a>
 
 Stops a specified trigger.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the trigger to stop.
 
-The name of the trigger to stop.
+**Response**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-###### Response
+  The name of the trigger that was stopped.
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the trigger that was stopped.
-
-###### Errors
-
-- `InvalidInputException`
-- `InternalServiceException`
-- `EntityNotFoundException`
-- `OperationTimeoutException`
-- `ConcurrentModificationException`
+**Errors**
++ `InvalidInputException`
++ `InternalServiceException`
++ `EntityNotFoundException`
++ `OperationTimeoutException`
++ `ConcurrentModificationException`
 
 ## DeleteTrigger action (Python: delete\_trigger)
+<a name="aws-glue-api-jobs-trigger-DeleteTrigger"></a>
 
-Deletes a specified trigger. If the trigger is not found, no exception
-is thrown.
+Deletes a specified trigger. If the trigger is not found, no exception is thrown.
 
-###### Request
+**Request**
++ `Name` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The name of the trigger to delete.
 
-The name of the trigger to delete.
+**Response**
++ `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-###### Response
+  The name of the trigger that was deleted.
 
-- `Name` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
-
-The name of the trigger that was deleted.
-
-###### Errors
-
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `ConcurrentModificationException`
+**Errors**
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `ConcurrentModificationException`
 
 ## ListTriggers action (Python: list\_triggers)
+<a name="aws-glue-api-jobs-trigger-ListTriggers"></a>
 
-Retrieves the names of all trigger resources in this AWS account, or the resources with the specified tag. This operation allows you
-to see which resources are available in your account, and their names.
+Retrieves the names of all trigger resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.
 
-This operation takes the optional `Tags` field, which you
-can use as a filter on the response so that tagged resources can be retrieved as
-a group. If you choose to use tags filtering, only resources with the tag are retrieved.
+This operation takes the optional `Tags` field, which you can use as a filter on the response so that tagged resources can be retrieved as a group. If you choose to use tags filtering, only resources with the tag are retrieved.
 
-###### Request
+**Request**
++ `NextToken` – UTF-8 string.
 
-- `NextToken` – UTF-8 string.
+  A continuation token, if this is a continuation request.
++ `DependentJobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
-A continuation token, if this is a continuation request.
+   The name of the job for which to retrieve triggers. The trigger that can start this job is returned. If there is no such trigger, all triggers are returned.
++ `MaxResults` – Number (integer), not less than 1 or more than 200.
 
-- `DependentJobName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+  The maximum size of a list to return.
++ `Tags` – A map array of key-value pairs, not more than 50 pairs.
 
-The name of the job for which to retrieve triggers. The trigger that can
-start this job is returned. If there is no such trigger, all triggers are returned.
+  Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
 
-- `MaxResults` – Number (integer), not less than 1 or more than 200.
+  Each value is a UTF-8 string, not more than 256 bytes long.
 
-The maximum size of a list to return.
+  Specifies to return only these tagged resources.
 
-- `Tags` – A map array of key-value pairs, not more than 50 pairs.
+**Response**
++ `TriggerNames` – An array of UTF-8 strings.
 
-Each key is a UTF-8 string, not less than 1 or more than 128 bytes long.
+  The names of all triggers in the account, or the triggers with the specified tags.
++ `NextToken` – UTF-8 string.
 
-Each value is a UTF-8 string, not more than 256 bytes long.
+  A continuation token, if the returned list does not contain the last metric available.
 
-Specifies to return only these tagged resources.
-
-###### Response
-
-- `TriggerNames` – An array of UTF-8 strings.
-
-The names of all triggers in the account, or the triggers with the specified
-tags.
-
-- `NextToken` – UTF-8 string.
-
-A continuation token, if the returned list does not contain the last metric
-available.
-
-###### Errors
-
-- `EntityNotFoundException`
-- `InvalidInputException`
-- `InternalServiceException`
-- `OperationTimeoutException`
+**Errors**
++ `EntityNotFoundException`
++ `InvalidInputException`
++ `InternalServiceException`
++ `OperationTimeoutException`
 
 ## BatchGetTriggers action (Python: batch\_get\_triggers)
+<a name="aws-glue-api-jobs-trigger-BatchGetTriggers"></a>
 
-Returns a list of resource metadata for a given list of trigger names. After
-calling the `ListTriggers` operation, you can call this operation
-to access the data to which you have been granted permissions. This operation
-supports all IAM permissions, including permission conditions that uses tags.
+Returns a list of resource metadata for a given list of trigger names. After calling the `ListTriggers` operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.
 
-###### Request
+**Request**
++ `TriggerNames` – *Required:* An array of UTF-8 strings.
 
-- `TriggerNames` – _Required:_ An array of UTF-8 strings.
+  A list of trigger names, which may be the names returned from the `ListTriggers` operation.
 
-A list of trigger names, which may be the names returned from the `ListTriggers`
-operation.
+**Response**
++ `Triggers` – An array of [Trigger](#aws-glue-api-jobs-trigger-Trigger) objects.
 
-###### Response
+  A list of trigger definitions.
++ `TriggersNotFound` – An array of UTF-8 strings.
 
-- `Triggers` – An array of [Trigger](#aws-glue-api-jobs-trigger-Trigger "#aws-glue-api-jobs-trigger-Trigger") objects.
+  A list of names of triggers not found.
 
-A list of trigger definitions.
-
-- `TriggersNotFound` – An array of UTF-8 strings.
-
-A list of names of triggers not found.
-
-###### Errors
-
-- `InternalServiceException`
-- `OperationTimeoutException`
-- `InvalidInputException`
+**Errors**
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `InvalidInputException`

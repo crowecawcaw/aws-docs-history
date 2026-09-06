@@ -1,4 +1,7 @@
+
+
 # Reading from Docusign Monitor entities
+<a name="docusign-monitor-reading-from-entities"></a>
 
 **Prerequisite**
 
@@ -6,9 +9,10 @@ A Docusign Monitor object you would like to read from.
 
 **Supported entities for source**:
 
-| Entity          | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning |
-| --------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Monitoring Data | Yes             | Yes            | No                | Yes                | No                    |
+
+| Entity | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| Monitoring Data | Yes | Yes | No | Yes | No | 
 
 **Example**:
 
@@ -23,48 +27,52 @@ docusignmonitor_read = glueContext.create_dynamic_frame.from_options(
 ```
 
 ## Docusign Monitor entity and field details
+<a name="docusign-monitor-reading-from-entities-field-details"></a>
 
 Entities with static metadata:
 
-| Entity                       | Field     | Data type | Supported operators |
-| ---------------------------- | --------- | --------- | ------------------- |
-| Monitoring Data              | timestamp | DateTime  | N/A                 |
-| eventId                      | String    | N/A       |
-| application                  | String    | N/A       |
-| environment                  | String    | N/A       |
-| site                         | String    | N/A       |
-| traceToken                   | String    | N/A       |
-| organizationId               | String    | N/A       |
-| accountId                    | String    | N/A       |
-| userId                       | String    | N/A       |
-| object                       | String    | N/A       |
-| action                       | String    | N/A       |
-| property                     | String    | N/A       |
-| field                        | String    | N/A       |
-| result                       | String    | N/A       |
-| IntegratorKey                | String    | N/A       |
-| customerVisible              | String    | N/A       |
-| version                      | String    | N/A       |
-| userAgent                    | String    | N/A       |
-| userAgentClientInfo          | Struct    | N/A       |
-| ipAddress                    | String    | N/A       |
-| ipAddressLocation            | Struct    | N/A       |
-| data                         | String    | N/A       |
-| source                       | String    | N/A       |
-| latitude                     | Double    | N/A       |
-| longitude                    | Double    | N/A       |
-| city                         | String    | N/A       |
-| state                        | String    | N/A       |
-| country                      | String    | N/A       |
-| usUserMemberOfDomain         | Boolean   | N/A       |
-| affectedUserIsMemberOfDomain | Boolean   | N/A       |
-| proxyStatus                  | String    | N/A       |
-| proxyType                    | String    | N/A       |
-| proxyLevel                   | String    | N/A       |
-| referencedUserId             | String    | N/A       |
-| device                       | String    | N/A       |
-| browser                      | String    | N/A       |
-| cursor                       | DateTime  | EQUAL\_TO |
+
+
+- **Monitoring Data**
+  - **Field:** timestamp / **Data type:** DateTime / **Supported operators:** N/A
+  - **Field:** eventId / **Data type:** String / **Supported operators:** N/A
+  - **Field:** application / **Data type:** String / **Supported operators:** N/A
+  - **Field:** environment / **Data type:** String / **Supported operators:** N/A
+  - **Field:** site / **Data type:** String / **Supported operators:** N/A
+  - **Field:** traceToken / **Data type:** String / **Supported operators:** N/A
+  - **Field:** organizationId / **Data type:** String / **Supported operators:** N/A
+  - **Field:** accountId / **Data type:** String / **Supported operators:** N/A
+  - **Field:** userId / **Data type:** String / **Supported operators:** N/A
+  - **Field:** object / **Data type:** String / **Supported operators:** N/A
+  - **Field:** action / **Data type:** String / **Supported operators:** N/A
+  - **Field:** property / **Data type:** String / **Supported operators:** N/A
+  - **Field:** field / **Data type:** String / **Supported operators:** N/A
+  - **Field:** result / **Data type:** String / **Supported operators:** N/A
+  - **Field:** IntegratorKey / **Data type:** String / **Supported operators:** N/A
+  - **Field:** customerVisible / **Data type:** String / **Supported operators:** N/A
+  - **Field:** version / **Data type:** String / **Supported operators:** N/A
+  - **Field:** userAgent / **Data type:** String / **Supported operators:** N/A
+  - **Field:** userAgentClientInfo / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** ipAddress / **Data type:** String / **Supported operators:** N/A
+  - **Field:** ipAddressLocation / **Data type:** Struct / **Supported operators:** N/A
+  - **Field:** data / **Data type:** String / **Supported operators:** N/A
+  - **Field:** source / **Data type:** String / **Supported operators:** N/A
+  - **Field:** latitude / **Data type:** Double / **Supported operators:** N/A
+  - **Field:** longitude / **Data type:** Double / **Supported operators:** N/A
+  - **Field:** city / **Data type:** String / **Supported operators:** N/A
+  - **Field:** state / **Data type:** String / **Supported operators:** N/A
+  - **Field:** country / **Data type:** String / **Supported operators:** N/A
+  - **Field:** usUserMemberOfDomain / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** affectedUserIsMemberOfDomain / **Data type:** Boolean / **Supported operators:** N/A
+  - **Field:** proxyStatus / **Data type:** String / **Supported operators:** N/A
+  - **Field:** proxyType / **Data type:** String / **Supported operators:** N/A
+  - **Field:** proxyLevel / **Data type:** String / **Supported operators:** N/A
+  - **Field:** referencedUserId / **Data type:** String / **Supported operators:** N/A
+  - **Field:** device / **Data type:** String / **Supported operators:** N/A
+  - **Field:** browser / **Data type:** String / **Supported operators:** N/A
+  - **Field:** cursor / **Data type:** DateTime / **Supported operators:** EQUAL\_TO
+
+
 
 **Partitioning queries**
 

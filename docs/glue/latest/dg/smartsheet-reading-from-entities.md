@@ -1,21 +1,24 @@
+
+
 # Reading from Smartsheet entities
+<a name="smartsheet-reading-from-entities"></a>
 
-**Prerequisites**
+ **Prerequisites** 
 
-A `Smartsheet` Object you would like to read from. Refer the supported
-entities table below to check the available entities.
+A `Smartsheet` Object you would like to read from. Refer the supported entities table below to check the available entities. 
 
-**Supported entities**
+ **Supported entities** 
 
-| Entity         | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning |
-| -------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| List Sheet     | Yes             | Yes            | No                | Yes                | No                    |
-| Row Metadata   | Yes             | Yes            | No                | Yes                | No                    |
-| Sheet Metadata | No              | No             | No                | Yes                | No                    |
-| Sheet Data     | Yes             | Yes            | Yes               | Yes                | No                    |
-| Event          | Yes             | Yes            | No                | Yes                | No                    |
 
-**Example**
+| Entity | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| List Sheet | Yes | Yes | No | Yes | No | 
+| Row Metadata | Yes | Yes | No | Yes | No | 
+| Sheet Metadata | No | No | No | Yes | No | 
+| Sheet Data | Yes | Yes | Yes | Yes | No | 
+| Event | Yes | Yes | No | Yes | No | 
+
+ **Example** 
 
 ```
 Smartsheet_read = glueContext.create_dynamic_frame.from_options(
@@ -28,87 +31,95 @@ Smartsheet_read = glueContext.create_dynamic_frame.from_options(
     })
 ```
 
-**Smartsheet entity and field details**
+ **Smartsheet entity and field details** 
 
-| Entity                     | Field    | Data Type | **Supported Operators** |
-| -------------------------- | -------- | --------- | ----------------------- |
-| List Sheets                | id       | Long      | NA                      |
-| accessLevel                | String   | NA        |
-| createdAt                  | DateTime | NA        |
-| modifiedAt                 | DateTime | NA        |
-| name                       | String   | NA        |
-| permalink                  | String   | NA        |
-| modifiedSince              | DateTime | >=        |
-| version                    | Integer  | NA        |
-| source                     | Struct   | NA        |
-| Row Metadata               | id       | Long      | NA                      |
-| sheetId                    | Long     | NA        |
-| accessLevel                | String   | NA        |
-| attachments                | List     | NA        |
-| columns                    | List     | NA        |
-| conditionalFormat          | String   | NA        |
-| createdAt                  | DateTime | NA        |
-| createdBy                  | Struct   | NA        |
-| discussions                | List     | NA        |
-| proofs                     | Struct   | NA        |
-| expanded                   | Boolean  | NA        |
-| filteredOut                | Boolean  | NA        |
-| format                     | String   | NA        |
-| inCriticalPath             | Boolean  | NA        |
-| locked                     | Boolean  | NA        |
-| lockedForUser              | Boolean  | NA        |
-| modifiedAt                 | DateTime | NA        |
-| modifiedBy                 | Struct   | NA        |
-| permalink                  | String   | NA        |
-| rowNumber                  | Integer  | NA        |
-| version                    | Integer  | NA        |
-| totalRowCount              | Integer  | NA        |
-| rowsModifiedSince          | DateTime | >         |
-| filterId                   | Long     | “="       |
-| siblingId                  | Long     | NA        |
-| parentId                   | Long     | NA        |
-| Sheet metadata             | id       | Long      | NA                      |
-| fromId                     | Long     | NA        |
-| ownerId                    | Long     | NA        |
-| accessLevel                | String   | NA        |
-| attachments                | List     | NA        |
-| columns                    | List     | NA        |
-| createdAt                  | DateTime | NA        |
-| crossSheetReferences       | List     | NA        |
-| dependenciesEnabled        | Boolean  | NA        |
-| discussions                | List     | NA        |
-| effectiveAttachmentOptions | List     | NA        |
-| favorite                   | Boolean  | NA        |
-| ganttEnabled               | Boolean  | NA        |
-| hasSummaryFields           | Boolean  | NA        |
-| modifiedAt                 | DateTime | NA        |
-| name                       | String   | NA        |
-| owner                      | String   | NA        |
-| permalink                  | String   | NA        |
-| projectSettings            | Struct   | NA        |
-| readOnly                   | Boolean  | NA        |
-| resourceManagementEnabled  | Boolean  | NA        |
-| showParentRowsForFilters   | Boolean  | NA        |
-| source                     | Struct   | NA        |
-| summary                    | Struct   | NA        |
-| totalRowCount              | Integer  | NA        |
-| userPermissions            | Struct   | NA        |
-| userSettings               | Struct   | NA        |
-| version                    | Integer  | NA        |
-| workspace                  | Struct   | NA        |
-| filters                    | List     | NA        |
-| ganttConfig                | Struct   | NA        |
-| resourceManagementType     | String   | NA        |
-| cellImageUploadEnabled     | Boolean  | NA        |
-| isMultiPicklistEnabled     | Boolean  | NA        |
-| Events                     | eventId  | String    | NA                      |
-| objectType                 | String   | NA        |
-| action                     | String   | NA        |
-| objectId                   | Long     | NA        |
-| eventTimestamp             | DateTime | NA        |
-| userId                     | Long     | NA        |
-| requestUserId              | Long     | NA        |
-| accessTokenName            | String   | NA        |
-| source                     | String   | NA        |
-| additionalDetails          | Struct   | NA        |
-| since                      | DateTime | >=        |
+
+
+- ** List Sheets **
+  - **Field:** id / **Data Type:** Long / ****Supported Operators**:** NA
+  - **Field:** accessLevel / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** createdAt / **Data Type:** DateTime / ****Supported Operators**:** NA
+  - **Field:** modifiedAt / **Data Type:** DateTime / ****Supported Operators**:** NA
+  - **Field:** name / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** permalink / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** modifiedSince / **Data Type:** DateTime / ****Supported Operators**:** >=
+  - **Field:** version / **Data Type:** Integer / ****Supported Operators**:** NA
+  - **Field:** source / **Data Type:** Struct / ****Supported Operators**:** NA
+
+- ** Row Metadata **
+  - **Field:** id / **Data Type:** Long / ****Supported Operators**:** NA
+  - **Field:** sheetId / **Data Type:** Long / ****Supported Operators**:** NA
+  - **Field:** accessLevel / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** attachments / **Data Type:** List / ****Supported Operators**:** NA
+  - **Field:** columns / **Data Type:** List / ****Supported Operators**:** NA
+  - **Field:** conditionalFormat / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** createdAt / **Data Type:** DateTime / ****Supported Operators**:** NA
+  - **Field:** createdBy / **Data Type:** Struct / ****Supported Operators**:** NA
+  - **Field:** discussions / **Data Type:** List / ****Supported Operators**:** NA
+  - **Field:** proofs / **Data Type:** Struct / ****Supported Operators**:** NA
+  - **Field:** expanded / **Data Type:** Boolean / ****Supported Operators**:** NA
+  - **Field:** filteredOut / **Data Type:** Boolean / ****Supported Operators**:** NA
+  - **Field:** format / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** inCriticalPath / **Data Type:** Boolean / ****Supported Operators**:** NA
+  - **Field:** locked / **Data Type:** Boolean / ****Supported Operators**:** NA
+  - **Field:** lockedForUser / **Data Type:** Boolean / ****Supported Operators**:** NA
+  - **Field:** modifiedAt / **Data Type:** DateTime / ****Supported Operators**:** NA
+  - **Field:** modifiedBy / **Data Type:** Struct / ****Supported Operators**:** NA
+  - **Field:** permalink / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** rowNumber / **Data Type:** Integer / ****Supported Operators**:** NA
+  - **Field:** version / **Data Type:** Integer / ****Supported Operators**:** NA
+  - **Field:** totalRowCount / **Data Type:** Integer / ****Supported Operators**:** NA
+  - **Field:** rowsModifiedSince / **Data Type:** DateTime / ****Supported Operators**:** >
+  - **Field:** filterId / **Data Type:** Long / ****Supported Operators**:** “="
+  - **Field:** siblingId / **Data Type:** Long / ****Supported Operators**:** NA
+  - **Field:** parentId / **Data Type:** Long / ****Supported Operators**:** NA
+
+- **Sheet metadata**
+  - **Field:** id / **Data Type:** Long / ****Supported Operators**:** NA
+  - **Field:** fromId / **Data Type:** Long / ****Supported Operators**:** NA
+  - **Field:** ownerId / **Data Type:** Long / ****Supported Operators**:** NA
+  - **Field:** accessLevel / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** attachments / **Data Type:** List / ****Supported Operators**:** NA
+  - **Field:** columns / **Data Type:** List / ****Supported Operators**:** NA
+  - **Field:** createdAt / **Data Type:** DateTime / ****Supported Operators**:** NA
+  - **Field:** crossSheetReferences / **Data Type:** List / ****Supported Operators**:** NA
+  - **Field:** dependenciesEnabled / **Data Type:** Boolean / ****Supported Operators**:** NA
+  - **Field:** discussions / **Data Type:** List / ****Supported Operators**:** NA
+  - **Field:** effectiveAttachmentOptions / **Data Type:** List / ****Supported Operators**:** NA
+  - **Field:** favorite / **Data Type:** Boolean / ****Supported Operators**:** NA
+  - **Field:** ganttEnabled / **Data Type:** Boolean / ****Supported Operators**:** NA
+  - **Field:** hasSummaryFields / **Data Type:** Boolean / ****Supported Operators**:** NA
+  - **Field:** modifiedAt / **Data Type:** DateTime / ****Supported Operators**:** NA
+  - **Field:** name / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** owner / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** permalink / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** projectSettings / **Data Type:** Struct / ****Supported Operators**:** NA
+  - **Field:** readOnly / **Data Type:** Boolean / ****Supported Operators**:** NA
+  - **Field:** resourceManagementEnabled / **Data Type:** Boolean / ****Supported Operators**:** NA
+  - **Field:** showParentRowsForFilters / **Data Type:** Boolean / ****Supported Operators**:** NA
+  - **Field:** source / **Data Type:** Struct / ****Supported Operators**:** NA
+  - **Field:** summary / **Data Type:** Struct / ****Supported Operators**:** NA
+  - **Field:** totalRowCount / **Data Type:** Integer / ****Supported Operators**:** NA
+  - **Field:** userPermissions / **Data Type:** Struct / ****Supported Operators**:** NA
+  - **Field:** userSettings / **Data Type:** Struct / ****Supported Operators**:** NA
+  - **Field:** version / **Data Type:** Integer / ****Supported Operators**:** NA
+  - **Field:** workspace / **Data Type:** Struct / ****Supported Operators**:** NA
+  - **Field:** filters / **Data Type:** List / ****Supported Operators**:** NA
+  - **Field:** ganttConfig / **Data Type:** Struct / ****Supported Operators**:** NA
+  - **Field:** resourceManagementType / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** cellImageUploadEnabled / **Data Type:** Boolean / ****Supported Operators**:** NA
+  - **Field:** isMultiPicklistEnabled / **Data Type:** Boolean / ****Supported Operators**:** NA
+
+- **Events**
+  - **Field:** eventId / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** objectType / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** action / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** objectId / **Data Type:** Long / ****Supported Operators**:** NA
+  - **Field:** eventTimestamp / **Data Type:** DateTime / ****Supported Operators**:** NA
+  - **Field:** userId / **Data Type:** Long / ****Supported Operators**:** NA
+  - **Field:** requestUserId / **Data Type:** Long / ****Supported Operators**:** NA
+  - **Field:** accessTokenName / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** source / **Data Type:** String / ****Supported Operators**:** NA
+  - **Field:** additionalDetails / **Data Type:** Struct / ****Supported Operators**:** NA
+  - **Field:** since / **Data Type:** DateTime / ****Supported Operators**:** >=
+

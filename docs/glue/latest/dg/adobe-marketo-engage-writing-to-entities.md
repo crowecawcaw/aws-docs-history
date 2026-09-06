@@ -1,21 +1,23 @@
+
+
 # Writing to Adobe Marketo Engage entities
+<a name="adobe-marketo-engage-writing-to-entities"></a>
 
 **Prerequisites**
++ An Adobe Marketo object you would like to write to. You will need the object name such as `leads` or `customobjects`.
++ The Adobe Marketo connector supports three write operations:
+  + INSERT
+  + UPSERT
+  + UPDATE
++ For `UPSERT` and `UPDATE` write operations, you must provide the `ID_FIELD_NAMES` option to specify the ID field for the records. When working with the `leads` entity, use `email` as `ID_FIELD_NAMES` for `UPSERT` operations and `id` for `UPDATE` operations. For the `customobjects` entity, use `marketoGUID` as `ID_FIELD_NAMES` for both `UPDATE` and `UPSERT` operations.
 
-- An Adobe Marketo object you would like to write to. You will need the object name such as `leads` or `customobjects`.
-- The Adobe Marketo connector supports three write operations:
+**Supported entities for Destination (Synchronous)**
 
-  - INSERT
-  - UPSERT
-  - UPDATE
 
-- For `UPSERT` and `UPDATE` write operations, you must provide the `ID_FIELD_NAMES` option to specify the ID field for the records. When working with the `leads` entity, use `email` as `ID_FIELD_NAMES` for `UPSERT` operations and `id` for `UPDATE` operations. For the `customobjects` entity, use `marketoGUID` as `ID_FIELD_NAMES` for both `UPDATE` and `UPSERT` operations.
-  **Supported entities for Destination (Synchronous)**
-
-| Entity name   | Will be supported as Destination Connector | Can be Inserted | Can be Updated | Can be Upserted |
-| ------------- | ------------------------------------------ | --------------- | -------------- | --------------- |
-| leads         | Yes                                        | Yes(Bulk)       | Yes(Bulk)      | Yes(Bulk)       |
-| customobjects | Yes                                        | Yes(Bulk)       | Yes(Bulk)      | Yes(Bulk)       |
+| Entity name | Will be supported as Destination Connector | Can be Inserted | Can be Updated | Can be Upserted | 
+| --- | --- | --- | --- | --- | 
+| leads | Yes | Yes(Bulk) | Yes(Bulk) | Yes(Bulk) | 
+| customobjects | Yes | Yes(Bulk) | Yes(Bulk) | Yes(Bulk) | 
 
 **Example**:
 
@@ -48,6 +50,5 @@ marketo_write = glueContext.write_dynamic_frame.from_options(
     }
 ```
 
-###### Note
-
+**Note**  
 For the `leads` and `customobjects` entities, Adobe Marketo provides endpoints to fetch metadata dynamically so the writable fields are identified from the Marketo API response.

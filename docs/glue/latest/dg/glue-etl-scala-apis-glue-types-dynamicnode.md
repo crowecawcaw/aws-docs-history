@@ -1,20 +1,25 @@
+
+
 # AWS Glue Scala DynamicNode APIs
+<a name="glue-etl-scala-apis-glue-types-dynamicnode"></a>
 
-###### Topics
+**Topics**
++ [DynamicNode class](#glue-etl-scala-apis-glue-types-dynamicnode-class)
++ [DynamicNode object](#glue-etl-scala-apis-glue-types-dynamicnode-object)
 
-- [DynamicNode class](#glue-etl-scala-apis-glue-types-dynamicnode-class "#glue-etl-scala-apis-glue-types-dynamicnode-class")
-- [DynamicNode object](#glue-etl-scala-apis-glue-types-dynamicnode-object "#glue-etl-scala-apis-glue-types-dynamicnode-object")
-  **Package: com.amazonaws.services.glue.types**
+**Package: com.amazonaws.services.glue.types**
 
 ## DynamicNode class
+<a name="glue-etl-scala-apis-glue-types-dynamicnode-class"></a>
 
 **DynamicNode**
 
 ```
-class DynamicNode extends Serializable with Cloneable
+class DynamicNode extends Serializable with Cloneable 
 ```
 
 ### DynamicNode def methods
+<a name="glue-etl-scala-apis-glue-types-dynamicnode-class-defs"></a>
 
 ```
 def getValue : Any
@@ -39,18 +44,20 @@ def toRow( schema : Schema,
 ```
 
 ```
-def typeName : String
+def typeName : String 
 ```
 
 ## DynamicNode object
+<a name="glue-etl-scala-apis-glue-types-dynamicnode-object"></a>
 
-**DynamicNode**
+ **DynamicNode**
 
 ```
 object DynamicNode
 ```
 
 ### DynamicNode def methods
+<a name="glue-etl-scala-apis-glue-types-dynamicnode-object-defs"></a>
 
 ```
 def quote( field : String,

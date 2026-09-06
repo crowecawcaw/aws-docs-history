@@ -1,23 +1,20 @@
+
+
 # Getting started with business context in the Data Catalog
+<a name="catalog-business-context-getting-started"></a>
 
-###### Note
+**Note**  
+Business context and semantic search are in preview for AWS Glue in the following AWS Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland). This feature is subject to change.
 
-Business context and semantic search are in preview for AWS Glue in the following
-AWS Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland).
-This feature is subject to change.
-
-This tutorial walks you through creating a glossary, tagging assets, and using
-semantic search to discover data by meaning.
+This tutorial walks you through creating a glossary, tagging assets, and using semantic search to discover data by meaning.
 
 ## Prerequisites
-
-- An AWS account with the AWS Glue Data Catalog configured in a supported Region.
-- The AWS CLI installed and configured.
-- At least one table registered in the Data Catalog.
-- An IAM role or user with permissions for AWS Glue Data Catalog actions.
-- Additional permissions are required to search catalogs encrypted with a
-  customer managed KMS key. For more information,
-  see [Encrypting Catalog assets with AWS KMS customer managed key](encrypt-glue-data-catalog.md#encrypt-context-search "encrypt-glue-data-catalog.md#encrypt-context-search").
+<a name="business-context-getting-started-prereqs"></a>
++ An AWS account with the AWS Glue Data Catalog configured in a supported Region.
++ The AWS CLI installed and configured.
++ At least one table registered in the Data Catalog.
++ An IAM role or user with permissions for AWS Glue Data Catalog actions.
++ Additional permissions are required to search catalogs encrypted with a customer managed KMS key. For more information, see [Encrypting Catalog assets with AWS KMS customer managed key](encrypt-glue-data-catalog.md#encrypt-context-search).
 
 Attach the following IAM policy to grant the required permissions:
 
@@ -42,9 +39,9 @@ Attach the following IAM policy to grant the required permissions:
 ```
 
 ## Step 1: Create a glossary and tag an asset
+<a name="business-context-step1-create-glossary"></a>
 
-###### To create a glossary
-
+**To create a glossary**  
 Run the following command:
 
 ```
@@ -62,8 +59,7 @@ Example output:
 }
 ```
 
-###### To create a glossary term
-
+**To create a glossary term**  
 Replace the glossary identifier with the `Id` from the preceding output.
 
 ```
@@ -84,8 +80,7 @@ Example output:
 }
 ```
 
-###### To associate the term with an asset
-
+**To associate the term with an asset**  
 Run the following command:
 
 ```
@@ -95,6 +90,7 @@ aws glue associate-glossary-terms \
 ```
 
 ## Step 2: Search for data using business context
+<a name="business-context-step2-search"></a>
 
 Use the `SearchAssets` API to find assets by business meaning.
 
@@ -132,24 +128,15 @@ aws glue search-assets \
 ```
 
 ## Using AI agents with the catalog
+<a name="business-context-getting-started-agent-toolkit"></a>
 
-MCP-compatible AI agents can discover catalog assets, retrieve business context,
-and load skill content using skills from the AWS Agent Toolkit. You can get
-catalog skills in the following ways:
-
-- **Bundled with a plugin** –
-  Install the `aws-data-analytics` plugin, which includes a curated
-  set of catalog skills available to the agent immediately after installation.
-  For instructions, see [Installing plugins](../../../agent-toolkit/latest/userguide/plugins.md#installing-plugins "../../../agent-toolkit/latest/userguide/plugins.md#installing-plugins") in the AWS Agent Toolkit User Guide.
-- **Installed locally** –
-  Download individual skills from the Agent Toolkit for AWS repository on
-  GitHub and add them to your agent's skills directory. The following skills
-  support catalog workflows:
-
-  - [exploring-data-catalog](https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/analytics-skills/exploring-data-catalog "https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/analytics-skills/exploring-data-catalog")
-  - [finding-data-lake-assets](https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/analytics-skills/finding-data-lake-assets "https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/analytics-skills/finding-data-lake-assets")
+MCP-compatible AI agents can discover catalog assets, retrieve business context, and load skill content using skills from the AWS Agent Toolkit. You can get catalog skills in the following ways:
++ **Bundled with a plugin** – Install the `aws-data-analytics` plugin, which includes a curated set of catalog skills available to the agent immediately after installation. For instructions, see [Installing plugins](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/plugins.html#installing-plugins) in the AWS Agent Toolkit User Guide.
++ **Installed locally** – Download individual skills from the Agent Toolkit for AWS repository on GitHub and add them to your agent's skills directory. The following skills support catalog workflows:
+  + [exploring-data-catalog](https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/analytics-skills/exploring-data-catalog)
+  + [finding-data-lake-assets](https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/analytics-skills/finding-data-lake-assets)
 
 ## Next steps
-
-- Attach forms to standardize metadata fields such as data residency or retention policy.
-- Create skill assets that provide AI agents with domain context for your data.
+<a name="business-context-getting-started-next-steps"></a>
++ Attach forms to standardize metadata fields such as data residency or retention policy.
++ Create skill assets that provide AI agents with domain context for your data.

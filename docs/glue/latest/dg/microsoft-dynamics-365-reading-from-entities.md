@@ -1,17 +1,19 @@
+
+
 # Reading from Microsoft Dynamics 365 CRM entities
+<a name="microsoft-dynamics-365-reading-from-entities"></a>
 
-**Prerequisites**
+ **Prerequisites** 
++  A Microsoft Dynamics 365 CRM object you would like to read from. You will need the object name such as contacts or accounts. The following table shows the supported entities. 
 
-- A Microsoft Dynamics 365 CRM object you would like to read from. You will need the object name such as contacts or accounts.
-  The following table shows the supported entities.
+ **Supported entities** 
 
-**Supported entities**
 
-| Entity         | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning |
-| -------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Dynamic entity | Yes             | Yes            | Yes               | Yes                | Yes                   |
+| Entity | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| Dynamic entity | Yes | Yes | Yes | Yes | Yes | 
 
-**Example**
+ **Example** 
 
 ```
 dynamics365_read = glueContext.create_dynamic_frame.from_options(
@@ -25,51 +27,50 @@ dynamics365_read = glueContext.create_dynamic_frame.from_options(
 ```
 
 ## Microsoft Dynamics 365 CRM Entity and Field Details
+<a name="microsoft-dynamics-365-entity-and-field-details"></a>
 
-**Entities with dynamic metadata:**
+ **Entities with dynamic metadata:** 
 
 Microsoft Dynamics 365 CRM provides endpoints to fetch metadata dynamically. Therefore, for dynamic entities, the operator support is captured at datatype level.
 
-| Entity         | Data Type       | Supported Operators      |
-| -------------- | --------------- | ------------------------ |
-| Dynamic entity | DateTime        | =, <, <=, >, >=, BETWEEN |
-| Date           | =, <, <=, >, >= |
-| String         | =, !=           |
-| Double         | =, <, <=, >, >= |
-| Integer        | =, <, <=, >, >= |
-| Decimal        | =, <, <=, >, >= |
-| Long           | =, <, <=, >, >= |
-| BigInteger     | =, <, <=, >, >= |
-| List           | NA              |
-| Struct         | NA              |
-| Map            | NA              |
+<a name="microsoft-dynamics-365-metadata-table"></a>
 
-**Partitioning queries**
+- **Dynamic entity**
+  - **Data Type:** DateTime / **Supported Operators:**  =, <, <=, >, >=, BETWEEN
+  - **Data Type:** Date / **Supported Operators:**  =, <, <=, >, >=
+  - **Data Type:** String / **Supported Operators:**  =, \!=
+  - **Data Type:** Double / **Supported Operators:**  =, <, <=, >, >=
+  - **Data Type:** Integer / **Supported Operators:**  =, <, <=, >, >=
+  - **Data Type:** Decimal / **Supported Operators:**  =, <, <=, >, >=
+  - **Data Type:** Long / **Supported Operators:**  =, <, <=, >, >=
+  - **Data Type:** BigInteger / **Supported Operators:**  =, <, <=, >, >=
+  - **Data Type:** List / **Supported Operators:** NA
+  - **Data Type:** Struct / **Supported Operators:** NA
+  - **Data Type:** Map / **Supported Operators:** NA
+
+
+
+ **Partitioning queries** 
 
 Microsoft Dynamics 365 CRM supports only field based partitioning.
 
-Additional spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`,
-`NUM_PARTITIONS` can be provided if you want to utilize concurrency in Spark. With these parameters,
-the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by spark
-tasks concurrently.
+ Additional spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`, `NUM_PARTITIONS` can be provided if you want to utilize concurrency in Spark. With these parameters, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by spark tasks concurrently. 
++  `PARTITION_FIELD`: the name of the field to be used to partition query. 
++  `LOWER_BOUND`: an inclusive lower bound value of the chosen partition field. 
 
-- `PARTITION_FIELD`: the name of the field to be used to partition query.
-- `LOWER_BOUND`: an inclusive lower bound value of the chosen partition field.
+   For Datetime, we accept the Spark timestamp format used in Spark SQL queries. Example of valid values: `"2024-01-30T06:47:51.000Z"`. 
++  `UPPER_BOUND`: an exclusive upper bound value of the chosen partition field. 
++  `NUM_PARTITIONS`: number of partitions. 
 
-For Datetime, we accept the Spark timestamp format used in Spark SQL queries.
-Example of valid values: `"2024-01-30T06:47:51.000Z"`.
+ Entity wise partitioning field support details are captured in below table: 
 
-- `UPPER_BOUND`: an exclusive upper bound value of the chosen partition field.
-- `NUM_PARTITIONS`: number of partitions.
 
-Entity wise partitioning field support details are captured in below table:
+| Entity Name | Partitioning Fields | DataType | 
+| --- | --- | --- | 
+| Dynamic Entity (Standard entity) | Dynamic DateTime fields which are queryable | createdon, modifiedon | 
+| Dynamic Entity (Custom entity) | createdon, modifiedon | createdon, modifiedon | 
 
-| Entity Name                      | Partitioning Fields                         | DataType              |
-| -------------------------------- | ------------------------------------------- | --------------------- |
-| Dynamic Entity (Standard entity) | Dynamic DateTime fields which are queryable | createdon, modifiedon |
-| Dynamic Entity (Custom entity)   | createdon, modifiedon                       | createdon, modifiedon |
-
-**Example**
+ **Example** 
 
 ```
 dynamics365_read = glueContext.create_dynamic_frame.from_options(

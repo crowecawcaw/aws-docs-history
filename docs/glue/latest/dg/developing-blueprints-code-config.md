@@ -1,8 +1,9 @@
-# Creating the configuration file
 
-The blueprint configuration file is a required file that defines the script entry
-point for generating the workflow, and the parameters that the blueprint accepts. The file
-must be named `blueprint.cfg`.
+
+# Creating the configuration file
+<a name="developing-blueprints-code-config"></a>
+
+The blueprint configuration file is a required file that defines the script entry point for generating the workflow, and the parameters that the blueprint accepts. The file must be named `blueprint.cfg`.
 
 Here is a sample configuration file.
 
@@ -37,13 +38,9 @@ Here is a sample configuration file.
 }
 ```
 
-The `layoutGenerator` property specifies the fully qualified name of the
-function in the script that generates the layout.
+The `layoutGenerator` property specifies the fully qualified name of the function in the script that generates the layout.
 
-The `parameterSpec` property specifies the parameters that this blueprint
-accepts. For more information, see [Specifying blueprint parameters](developing-blueprints-code-parameters.md "developing-blueprints-code-parameters.md").
+The `parameterSpec` property specifies the parameters that this blueprint accepts. For more information, see [Specifying blueprint parameters](developing-blueprints-code-parameters.md).
 
-###### Important
-
-Your configuration file must include the workflow name as a blueprint parameter, or
-you must generate a unique workflow name in your layout script.
+**Important**  
+Your configuration file must include the workflow name as a blueprint parameter, or you must generate a unique workflow name in your layout script.

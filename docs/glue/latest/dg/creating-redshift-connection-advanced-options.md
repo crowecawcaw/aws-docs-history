@@ -1,4 +1,6 @@
-# Advanced options
 
-See
-[Using the Amazon Redshift Spark connector on AWS Glue](aws-glue-programming-etl-redshift.md#aws-glue-programming-etl-redshift-using "aws-glue-programming-etl-redshift.md#aws-glue-programming-etl-redshift-using").
+
+# Advanced options
+<a name="creating-redshift-connection-advanced-options"></a>
+
+ See [ Using the Amazon Redshift Spark connector on AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-redshift.html#aws-glue-programming-etl-redshift-using). 

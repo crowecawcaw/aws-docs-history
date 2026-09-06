@@ -1,12 +1,16 @@
+
+
 # AWS Glue Scala ObjectNode APIs
+<a name="glue-etl-scala-apis-glue-types-objectnode"></a>
 
-###### Topics
+**Topics**
++ [ObjectNode object](#glue-etl-scala-apis-glue-types-objectnode-object)
++ [ObjectNode case class](#glue-etl-scala-apis-glue-types-objectnode-case-class)
 
-- [ObjectNode object](#glue-etl-scala-apis-glue-types-objectnode-object "#glue-etl-scala-apis-glue-types-objectnode-object")
-- [ObjectNode case class](#glue-etl-scala-apis-glue-types-objectnode-case-class "#glue-etl-scala-apis-glue-types-objectnode-case-class")
-  **Package: com.amazonaws.services.glue.types**
+**Package: com.amazonaws.services.glue.types**
 
 ## ObjectNode object
+<a name="glue-etl-scala-apis-glue-types-objectnode-object"></a>
 
 **ObjectNode**
 
@@ -15,6 +19,7 @@ object ObjectNode
 ```
 
 ### ObjectNode def methods
+<a name="glue-etl-scala-apis-glue-types-objectnode-object-defs"></a>
 
 ```
 def apply( frameKeys : Set[String],
@@ -25,8 +30,9 @@ def apply( frameKeys : Set[String],
 ```
 
 ## ObjectNode case class
+<a name="glue-etl-scala-apis-glue-types-objectnode-case-class"></a>
 
-**ObjectNode**
+ **ObjectNode**
 
 ```
 case class ObjectNode extends MapLikeNode(value)  (
@@ -34,6 +40,7 @@ case class ObjectNode extends MapLikeNode(value)  (
 ```
 
 ### ObjectNode def methods
+<a name="glue-etl-scala-apis-glue-types-objectnode-case-class-defs"></a>
 
 ```
 def clone
@@ -44,7 +51,7 @@ def equals( other : Any )
 ```
 
 ```
-def hashCode : Int
+def hashCode : Int 
 ```
 
 ```

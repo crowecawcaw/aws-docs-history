@@ -1,21 +1,18 @@
+
+
 # Use `DeleteCrawler` with an AWS SDK
+<a name="example_glue_DeleteCrawler_section"></a>
 
 The following code examples show how to use `DeleteCrawler`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_glue_Scenario_GetStartedCrawlersJobs_section.md) 
 
-- [Learn the basics](example_glue_Scenario_GetStartedCrawlersJobs_section.md "example_glue_Scenario_GetStartedCrawlersJobs_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glue#code-examples). 
 
 ```
     /// <summary>
@@ -28,24 +25,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _amazonGlue.DeleteCrawlerAsync(new DeleteCrawlerRequest { Name = crawlerName });
         return response.HttpStatusCode == HttpStatusCode.OK;
     }
-
-
-
 ```
++  For API details, see [DeleteCrawler](https://docs.aws.amazon.com/goto/DotNetSDKV3/glue-2017-03-31/DeleteCrawler) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DeleteCrawler](../../../goto/DotNetSDKV3/glue-2017-03-31/DeleteCrawler.md "../../../goto/DotNetSDKV3/glue-2017-03-31/DeleteCrawler.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/glue#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -67,26 +54,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
                       << outcome.GetError().GetMessage() << std::endl;
             result = false;
         }
+```
++  For API details, see [DeleteCrawler](https://docs.aws.amazon.com/goto/SdkForCpp/glue-2017-03-31/DeleteCrawler) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ Java ]
+
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples). 
 
 ```
-
-- For API details, see
-  [DeleteCrawler](../../../goto/SdkForCpp/glue-2017-03-31/DeleteCrawler.md "../../../goto/SdkForCpp/glue-2017-03-31/DeleteCrawler.md")
-  in _AWS SDK for C++ API Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glue#code-examples").
-
-```
-
     /**
      * Deletes a specific AWS Glue crawler.
      *
@@ -107,23 +84,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             throw e;
         }
     }
-
-
 ```
++  For API details, see [DeleteCrawler](https://docs.aws.amazon.com/goto/SdkForJavaV2/glue-2017-03-31/DeleteCrawler) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteCrawler](../../../goto/SdkForJavaV2/glue-2017-03-31/DeleteCrawler.md "../../../goto/SdkForJavaV2/glue-2017-03-31/DeleteCrawler.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glue#code-examples). 
 
 ```
 const deleteCrawler = (crawlerName) => {
@@ -135,23 +103,14 @@ const deleteCrawler = (crawlerName) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [DeleteCrawler](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteCrawlerCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteCrawler](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteCrawlerCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteCrawlerCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/glue#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/glue#code-examples). 
 
 ```
         echo "Delete the crawler.\n";
@@ -165,23 +124,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             'Name' => $crawlerName,
         ]);
     }
-
-
 ```
++  For API details, see [DeleteCrawler](https://docs.aws.amazon.com/goto/SdkForPHPV3/glue-2017-03-31/DeleteCrawler) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [DeleteCrawler](../../../goto/SdkForPHPV3/glue-2017-03-31/DeleteCrawler.md "../../../goto/SdkForPHPV3/glue-2017-03-31/DeleteCrawler.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glue#code-examples). 
 
 ```
 class GlueWrapper:
@@ -210,27 +160,16 @@ class GlueWrapper:
                 err.response["Error"]["Message"],
             )
             raise
+```
++  For API details, see [DeleteCrawler](https://docs.aws.amazon.com/goto/boto3/glue-2017-03-31/DeleteCrawler) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples). 
 
 ```
-
-- For API details, see
-  [DeleteCrawler](../../../goto/boto3/glue-2017-03-31/DeleteCrawler.md "../../../goto/boto3/glue-2017-03-31/DeleteCrawler.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/glue#code-examples").
-
-```
-
 # The `GlueWrapper` class serves as a wrapper around the AWS Glue API, providing a simplified interface for common operations.
 # It encapsulates the functionality of the AWS SDK for Glue and provides methods for interacting with Glue crawlers, databases, tables, jobs, and S3 resources.
 # The class initializes with a Glue client and a logger, allowing it to make API calls and log any errors or informational messages.
@@ -250,23 +189,14 @@ class GlueWrapper
     @logger.error("Glue could not delete crawler #{name}: \n#{e.message}")
     raise
   end
-
-
 ```
++  For API details, see [DeleteCrawler](https://docs.aws.amazon.com/goto/SdkForRubyV3/glue-2017-03-31/DeleteCrawler) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DeleteCrawler](../../../goto/SdkForRubyV3/glue-2017-03-31/DeleteCrawler.md "../../../goto/SdkForRubyV3/glue-2017-03-31/DeleteCrawler.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/glue#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/glue#code-examples). 
 
 ```
         glue.delete_crawler()
@@ -274,23 +204,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
             .send()
             .await
             .map_err(GlueMvpError::from_glue_sdk)?;
-
-
 ```
++  For API details, see [DeleteCrawler](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_crawler) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DeleteCrawler](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_crawler "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_crawler")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/glu#code-examples). 
 
 ```
     TRY.
@@ -307,30 +228,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_gluschdrtransingex.
         MESSAGE 'Scheduler is transitioning.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteCrawler](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteCrawler](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/glue#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/glue#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/glue#code-examples). 
 
 ```
 import AWSClientRuntime
 import AWSGlue
 
     /// Delete an AWS Glue crawler.
-    ///
+    /// 
     /// - Parameters:
     ///   - glueClient: The AWS Glue client to use.
     ///   - name: The name of the crawler to delete.
@@ -346,14 +258,9 @@ import AWSGlue
         }
         return true
     }
-
-
 ```
++  For API details, see [DeleteCrawler](https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletecrawler(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DeleteCrawler](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletecrawler(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletecrawler(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

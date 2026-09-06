@@ -1,4 +1,7 @@
+
+
 # Reading from Freshdesk entities
+<a name="freshdesk-reading-from-entities"></a>
 
 **Prerequisite**
 
@@ -6,35 +9,37 @@ A Freshdesk object you would like to read from. You will need the object name.
 
 **Supported entities for Sync source**:
 
-| Entity               | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning |
-| -------------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Agents               | Yes             | Yes            | No                | Yes                | Yes                   |
-| Business Hours       | No              | Yes            | No                | Yes                | Yes                   |
-| Company              | Yes             | Yes            | No                | Yes                | Yes                   |
-| Contacts             | Yes             | Yes            | No                | Yes                | Yes                   |
-| Conversations        | No              | Yes            | No                | Yes                | No                    |
-| Email Configs        | No              | Yes            | No                | Yes                | No                    |
-| Email Inboxes        | Yes             | Yes            | Yes               | Yes                | No                    |
-| Forum Categories     | No              | Yes            | No                | Yes                | No                    |
-| Forums               | No              | Yes            | No                | Yes                | No                    |
-| Groups               | No              | Yes            | No                | Yes                | No                    |
-| Products             | No              | Yes            | No                | Yes                | No                    |
-| Roles                | No              | Yes            | No                | Yes                | No                    |
-| Satisfaction Ratings | Yes             | Yes            | No                | Yes                | No                    |
-| Skills               | No              | Yes            | No                | Yes                | No                    |
-| Solutions            | Yes             | Yes            | No                | Yes                | No                    |
-| Surveys              | No              | Yes            | No                | Yes                | No                    |
-| Tickets              | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Time Entries         | Yes             | Yes            | No                | Yes                | No                    |
-| Topics               | No              | Yes            | No                | Yes                | No                    |
-| Topic Comments       | No              | Yes            | No                | Yes                | No                    |
+
+| Entity | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning | 
+| --- | --- | --- | --- | --- | --- | 
+| Agents | Yes | Yes | No | Yes | Yes | 
+| Business Hours | No | Yes | No | Yes | Yes | 
+| Company | Yes | Yes | No | Yes | Yes | 
+| Contacts | Yes | Yes | No | Yes | Yes | 
+| Conversations | No | Yes | No | Yes | No | 
+| Email Configs | No | Yes | No | Yes | No | 
+| Email Inboxes | Yes | Yes | Yes | Yes | No | 
+| Forum Categories | No | Yes | No | Yes | No | 
+| Forums | No | Yes | No | Yes | No | 
+| Groups | No | Yes | No | Yes | No | 
+| Products | No | Yes | No | Yes | No | 
+| Roles | No | Yes | No | Yes | No | 
+| Satisfaction Ratings | Yes | Yes | No | Yes | No | 
+| Skills | No | Yes | No | Yes | No | 
+| Solutions | Yes | Yes | No | Yes | No | 
+| Surveys | No | Yes | No | Yes | No | 
+| Tickets | Yes | Yes | Yes | Yes | Yes | 
+| Time Entries | Yes | Yes | No | Yes | No | 
+| Topics | No | Yes | No | Yes | No | 
+| Topic Comments | No | Yes | No | Yes | No | 
 
 **Supported entities for Async source**:
 
-| Entity    | API version | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning |
-| --------- | ----------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Companies | v2          | No              | No             | No                | No                 | No                    |
-| Contacts  | v2          | No              | No             | No                | No                 | No                    |
+
+| Entity | API version | Can be filtered | Supports limit | Supports Order by | Supports Select \* | Supports partitioning | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| Companies | v2 | No | No | No | No | No | 
+| Contacts | v2 | No | No | No | No | No | 
 
 **Example**:
 
@@ -50,53 +55,48 @@ freshdesk_read = glueContext.create_dynamic_frame.from_options(
 
 **Freshdesk entity and field details**:
 
-| Entity              | Field                                                                   |
-| ------------------- | ----------------------------------------------------------------------- |
-| Agents              | https://developers.freshdesk.com/api/#list\_all\_agents                 |
-| Business-hours      | https://developers.freshdesk.com/api/#list\_all\_business\_hours        |
-| Comments            | https://developers.freshdesk.com/api/#comment\_attributess              |
-| Company             | https://developers.freshdesk.com/api/#companies                         |
-| Contacts            | https://developers.freshdesk.com/api/#list\_all\_contacts               |
-| Conversations       | https://developers.freshdesk.com/api/#list\_all\_ticket\_notes          |
-| Email-configs       | https://developers.freshdesk.com/api/#list\_all\_email\_configs         |
-| Email-inboxes       | https://developers.freshdesk.com/api/#list\_all\_email\_mailboxes       |
-| Forum-categories    | https://developers.freshdesk.com/api/#category\_attributes              |
-| Forums              | https://developers.freshdesk.com/api/#forum\_attributes                 |
-| Groups              | https://developers.freshdesk.com/api/#list\_all\_groups                 |
-| Products            | https://developers.freshdesk.com/api/#list\_all\_products               |
-| Roles               | https://developers.freshdesk.com/api/#list\_all\_roles                  |
-| Satisfaction-rating | https://developers.freshdesk.com/api/#view\_all\_satisfaction\_ratingss |
-| Skills              | https://developers.freshdesk.com/api/#list\_all\_skills                 |
-| Solutions           | https://developers.freshdesk.com/api/#solution\_content                 |
-| Surveys             | https://developers.freshdesk.com/api/#list\_all\_survey                 |
-| Tickets             | https://developers.freshdesk.com/api/#list\_all\_tickets                |
-| Time-entries        | https://developers.freshdesk.com/api/#list\_all\_time\_entries          |
-| Topics              | https://developers.freshdesk.com/api/#topic\_attributes                 |
+
+| Entity | Field | 
+| --- | --- | 
+| Agents | https://developers.freshdesk.com/api/\#list\_all\_agents | 
+| Business-hours | https://developers.freshdesk.com/api/\#list\_all\_business\_hours | 
+| Comments | https://developers.freshdesk.com/api/\#comment\_attributess | 
+| Company | https://developers.freshdesk.com/api/\#companies | 
+| Contacts | https://developers.freshdesk.com/api/\#list\_all\_contacts | 
+| Conversations | https://developers.freshdesk.com/api/\#list\_all\_ticket\_notes | 
+| Email-configs | https://developers.freshdesk.com/api/\#list\_all\_email\_configs | 
+| Email-inboxes | https://developers.freshdesk.com/api/\#list\_all\_email\_mailboxes | 
+| Forum-categories | https://developers.freshdesk.com/api/\#category\_attributes | 
+| Forums | https://developers.freshdesk.com/api/\#forum\_attributes | 
+| Groups | https://developers.freshdesk.com/api/\#list\_all\_groups | 
+| Products | https://developers.freshdesk.com/api/\#list\_all\_products | 
+| Roles | https://developers.freshdesk.com/api/\#list\_all\_roles | 
+| Satisfaction-rating | https://developers.freshdesk.com/api/\#view\_all\_satisfaction\_ratingss | 
+| Skills | https://developers.freshdesk.com/api/\#list\_all\_skills | 
+| Solutions | https://developers.freshdesk.com/api/\#solution\_content | 
+| Surveys | https://developers.freshdesk.com/api/\#list\_all\_survey | 
+| Tickets | https://developers.freshdesk.com/api/\#list\_all\_tickets | 
+| Time-entries | https://developers.freshdesk.com/api/\#list\_all\_time\_entries | 
+| Topics | https://developers.freshdesk.com/api/\#topic\_attributes | 
 
 ## Partitioning queries
+<a name="freshdesk-reading-partitioning-queries"></a>
 
 **Filter-based partitioning**:
 
-You can provide the additional Spark options `PARTITION_FIELD`,
-`LOWER_BOUND`, `UPPER_BOUND`, and
-`NUM_PARTITIONS` if you want to utilize concurrency in Spark. With
-these parameters, the original query would be split into `NUM_PARTITIONS`
-number of sub-queries that can be executed by Spark tasks
-concurrently.
+You can provide the additional Spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`, and `NUM_PARTITIONS` if you want to utilize concurrency in Spark. With these parameters, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by Spark tasks concurrently.
++ `PARTITION_FIELD`: the name of the field to be used to partition the query.
++ `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field.
 
-- `PARTITION_FIELD`: the name of the field to be used to partition the query.
-- `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field.
+  For the Datetime field, we accept the Spark timestamp format used in Spark SQL queries.
 
-For the Datetime field, we accept the Spark timestamp format used in Spark SQL queries.
+  Examples of valid value:
 
-Examples of valid value:
-
-```
-"2024-09-30T01:01:01.000Z"
-```
-
-- `UPPER_BOUND`: an **exclusive** upper bound value of the chosen partition field.
-- `NUM_PARTITIONS`: the number of partitions.
+  ```
+  "2024-09-30T01:01:01.000Z"
+  ```
++ `UPPER_BOUND`: an **exclusive** upper bound value of the chosen partition field.
++ `NUM_PARTITIONS`: the number of partitions.
 
 Example:
 
