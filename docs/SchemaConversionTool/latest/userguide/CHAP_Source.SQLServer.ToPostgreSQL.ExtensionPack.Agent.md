@@ -1,37 +1,27 @@
+
+
 # Using an AWS SCT extension pack to emulate SQL Server Agent in PostgreSQL
+<a name="CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.Agent"></a>
 
-SQL Server Agent is a Microsoft Windows service that runs SQL Server jobs. SQL Server Agent
-runs jobs on a schedule, in response to a specific event, or on demand. For more information
-about SQL Server Agent, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent?view=sql-server-ver15").
+SQL Server Agent is a Microsoft Windows service that runs SQL Server jobs. SQL Server Agent runs jobs on a schedule, in response to a specific event, or on demand. For more information about SQL Server Agent, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent?view=sql-server-ver15).
 
-PostgreSQL doesn't have an equivalent for SQL Server Agent. To emulate the SQL Server Agent
-features, AWS SCT creates an extension pack. This extension pack uses AWS Lambda and Amazon CloudWatch.
-AWS Lambda implements the interface that you use to manage schedules and run jobs.
-Amazon CloudWatch maintains the schedule rules.
+PostgreSQL doesn't have an equivalent for SQL Server Agent. To emulate the SQL Server Agent features, AWS SCT creates an extension pack. This extension pack uses AWS Lambda and Amazon CloudWatch. AWS Lambda implements the interface that you use to manage schedules and run jobs. Amazon CloudWatch maintains the schedule rules.
 
-AWS Lambda and Amazon CloudWatch use a JSON parameter to interact. This JSON parameter has
-the following structure.
+AWS Lambda and Amazon CloudWatch use a JSON parameter to interact. This JSON parameter has the following structure.
 
 ```
 {
-    "mode": `mode`,
+    "mode": {{mode}},
     "parameters": {
-        `list of parameters`
+        {{list of parameters}}
     },
-    "callback": `procedure name`
+    "callback": {{procedure name}}
 }
 ```
 
-In the preceding example, `mode` is the type
-of the task and `list of parameters` is a set
-of parameters that depend on the type of the task. Also,
-`procedure name` is the name of the
-procedure that runs after the task is completed.
+In the preceding example, {{`mode`}} is the type of the task and `{{list of parameters}}` is a set of parameters that depend on the type of the task. Also, `{{procedure name}}` is the name of the procedure that runs after the task is completed.
 
-AWS SCT uses one Lambda function to control and run jobs. The CloudWatch rule starts the
-run of the job and provides the necessary information to start the job. When the
-CloudWatch rule triggers, it starts the Lambda function using the parameters from the
-rule.
+AWS SCT uses one Lambda function to control and run jobs. The CloudWatch rule starts the run of the job and provides the necessary information to start the job. When the CloudWatch rule triggers, it starts the Lambda function using the parameters from the rule.
 
 To create a simple job that calls a procedure, use the following format.
 
@@ -88,87 +78,85 @@ To create a job with several steps, use the following format.
 }
 ```
 
-To emulate the SQL Server Agent behavior in PostgreSQL, the AWS SCT extension pack also
-creates the following tables and procedures.
+To emulate the SQL Server Agent behavior in PostgreSQL, the AWS SCT extension pack also creates the following tables and procedures.
 
 ## Tables that emulate SQL Server Agent in PostgreSQL
+<a name="CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.Agent.Tables"></a>
 
 To emulate SQL Server Agent, the extension pack uses the following tables:
 
-**sysjobs**
+**sysjobs**  
 Stores the information about the jobs.
 
-**sysjobsteps**
+**sysjobsteps**  
 Stores the information about the steps of a job.
 
-**sysschedules**
+**sysschedules**  
 Stores the information about the job schedules.
 
-**sysjobschedules**
-Stores the schedule information for individual jobs.
+**sysjobschedules**  
+Stores the schedule information for individual jobs. 
 
-**sysjobhistory**
+**sysjobhistory**  
 Stores the information about the runs of scheduled jobs.
 
 ## Procedures that emulate SQL Server Agent in PostgreSQL
+<a name="CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.Agent.Procedures"></a>
 
 To emulate SQL Server Agent, the extension pack uses the following procedures:
 
-**sp\_add\_job**
+**sp\_add\_job**  
 Adds a new job.
 
-**sp\_add\_jobstep**
+**sp\_add\_jobstep**  
 Adds a step to a job.
 
-**sp\_add\_schedule**
-Creates a new schedule rule in Amazon CloudWatch. You can use this schedule with any number of
-jobs.
+**sp\_add\_schedule**  
+Creates a new schedule rule in Amazon CloudWatch. You can use this schedule with any number of jobs.
 
-**sp\_attach\_schedule**
+**sp\_attach\_schedule**  
 Sets a schedule for the selected job.
 
-**sp\_add\_jobschedule**
-Creates a schedule rule for a job in Amazon CloudWatch and sets
-the target for this rule.
+**sp\_add\_jobschedule**  
+Creates a schedule rule for a job in Amazon CloudWatch and sets the target for this rule.
 
-**sp\_update\_job**
+**sp\_update\_job**  
 Updates the attributes of the previously created job.
 
-**sp\_update\_jobstep**
+**sp\_update\_jobstep**  
 Updates the attributes of the step in a job.
 
-**sp\_update\_schedule**
+**sp\_update\_schedule**  
 Updates the attributes of a schedule rule in Amazon CloudWatch.
 
-**sp\_update\_jobschedule**
+**sp\_update\_jobschedule**  
 Updates the attributes of the schedule for the specified job.
 
-**sp\_delete\_job**
+**sp\_delete\_job**  
 Deletes a job.
 
-**sp\_delete\_jobstep**
+**sp\_delete\_jobstep**  
 Deletes a job step from a job.
 
-**sp\_delete\_schedule**
+**sp\_delete\_schedule**  
 Deletes a schedule.
 
-**sp\_delete\_jobschedule**
+**sp\_delete\_jobschedule**  
 Deletes the schedule rule for the specified job from Amazon CloudWatch.
 
-**sp\_detach\_schedule**
+**sp\_detach\_schedule**  
 Removes an association between a schedule and a job.
 
-**get\_jobs, update\_job**
+**get\_jobs, update\_job**  
 Internal procedures that interact with AWS Elastic Beanstalk.
 
-**sp\_verify\_job\_date, sp\_verify\_job\_time, sp\_verify\_job, sp\_verify\_jobstep, sp\_verify\_schedule, sp\_verify\_job\_identifiers, sp\_verify\_schedule\_identifiers**
+**sp\_verify\_job\_date, sp\_verify\_job\_time, sp\_verify\_job, sp\_verify\_jobstep, sp\_verify\_schedule, sp\_verify\_job\_identifiers, sp\_verify\_schedule\_identifiers**  
 Internal procedures that check settings.
 
 ## Syntax for procedures that emulate SQL Server Agent in PostgreSQL
+<a name="CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.Agent.Syntax"></a>
 
-The `aws_sqlserver_ext.sp_add_job` procedure in the extension pack
-emulates the `msdb.dbo.sp_add_job` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-job-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-job-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_add_job` procedure in the extension pack emulates the `msdb.dbo.sp_add_job` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-job-transact-sql?view=sql-server-ver15). 
 
 ```
 par_job_name varchar,
@@ -191,9 +179,7 @@ par_originating_server varchar = NULL::character varying,
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_add_jobstep` procedure in the extension pack
-emulates the `msdb.dbo.sp_add_jobstep` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-jobstep-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-jobstep-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_add_jobstep` procedure in the extension pack emulates the `msdb.dbo.sp_add_jobstep` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-jobstep-transact-sql?view=sql-server-ver15). 
 
 ```
 par_job_id integer = NULL::integer,
@@ -222,9 +208,7 @@ inout par_step_uid char = NULL::bpchar,
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_add_schedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_add_schedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-schedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-schedule-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_add_schedule` procedure in the extension pack emulates the `msdb.dbo.sp_add_schedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-schedule-transact-sql?view=sql-server-ver15). 
 
 ```
 par_schedule_name varchar,
@@ -246,9 +230,7 @@ par_originating_server varchar = NULL::character varying,
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_attach_schedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_attach_schedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-attach-schedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-attach-schedule-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_attach_schedule` procedure in the extension pack emulates the `msdb.dbo.sp_attach_schedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-attach-schedule-transact-sql?view=sql-server-ver15). 
 
 ```
 par_job_id integer = NULL::integer,
@@ -259,9 +241,7 @@ par_automatic_post smallint = 1,
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_add_jobschedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_add_jobschedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-jobschedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-jobschedule-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_add_jobschedule` procedure in the extension pack emulates the `msdb.dbo.sp_add_jobschedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-add-jobschedule-transact-sql?view=sql-server-ver15). 
 
 ```
 par_job_id integer = NULL::integer,
@@ -284,9 +264,7 @@ inout par_schedule_uid char = NULL::bpchar,
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_delete_job` procedure in the extension pack
-emulates the `msdb.dbo.sp_delete_job` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-job-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-job-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_delete_job` procedure in the extension pack emulates the `msdb.dbo.sp_delete_job` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-job-transact-sql?view=sql-server-ver15). 
 
 ```
 par_job_id integer = NULL::integer,
@@ -297,9 +275,7 @@ par_delete_unused_schedule smallint = 1,
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_delete_jobstep` procedure in the extension pack
-emulates the `msdb.dbo.sp_delete_jobstep` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-jobsteplog-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-jobsteplog-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_delete_jobstep` procedure in the extension pack emulates the `msdb.dbo.sp_delete_jobstep` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-jobsteplog-transact-sql?view=sql-server-ver15). 
 
 ```
 par_job_id integer = NULL::integer,
@@ -308,9 +284,7 @@ par_step_id integer = NULL::integer,
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_delete_jobschedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_delete_jobschedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-jobschedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-jobschedule-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_delete_jobschedule` procedure in the extension pack emulates the `msdb.dbo.sp_delete_jobschedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-jobschedule-transact-sql?view=sql-server-ver15). 
 
 ```
 par_job_id integer = NULL::integer,
@@ -321,9 +295,7 @@ par_automatic_post smallint = 1,
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_delete_schedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_delete_schedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-schedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-schedule-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_delete_schedule` procedure in the extension pack emulates the `msdb.dbo.sp_delete_schedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-delete-schedule-transact-sql?view=sql-server-ver15). 
 
 ```
 par_schedule_id integer = NULL::integer,
@@ -333,9 +305,7 @@ par_automatic_post smallint = 1,
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_detach_schedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_detach_schedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-detach-schedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-detach-schedule-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_detach_schedule` procedure in the extension pack emulates the `msdb.dbo.sp_detach_schedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-detach-schedule-transact-sql?view=sql-server-ver15). 
 
 ```
 par_job_id integer = NULL::integer,
@@ -347,9 +317,7 @@ par_automatic_post smallint = 1,
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_update_job` procedure in the extension pack
-emulates the `msdb.dbo.sp_update_job` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-job-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-job-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_update_job` procedure in the extension pack emulates the `msdb.dbo.sp_update_job` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-job-transact-sql?view=sql-server-ver15). 
 
 ```
 par_job_id integer = NULL::integer
@@ -372,9 +340,7 @@ par_automatic_post smallint = 1
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_update_jobschedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_update_jobschedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-jobschedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-jobschedule-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_update_jobschedule` procedure in the extension pack emulates the `msdb.dbo.sp_update_jobschedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-jobschedule-transact-sql?view=sql-server-ver15). 
 
 ```
 par_job_id integer = NULL::integer
@@ -396,9 +362,7 @@ par_automatic_post smallint = 1
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_update_jobstep` procedure in the extension pack
-emulates the `msdb.dbo.sp_update_jobstep` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-jobstep-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-jobstep-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_update_jobstep` procedure in the extension pack emulates the `msdb.dbo.sp_update_jobstep` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-jobstep-transact-sql?view=sql-server-ver15). 
 
 ```
 par_job_id integer = NULL::integer
@@ -426,9 +390,7 @@ par_proxy_name varchar = NULL::character varying
 out returncode integer
 ```
 
-The `aws_sqlserver_ext.sp_update_schedule` procedure in the extension pack
-emulates the `msdb.dbo.sp_update_schedule` procedure. For more information
-about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-schedule-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-schedule-transact-sql?view=sql-server-ver15").
+The `aws_sqlserver_ext.sp_update_schedule` procedure in the extension pack emulates the `msdb.dbo.sp_update_schedule` procedure. For more information about the source SQL Server Agent procedure, see [Microsoft technical documentation](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-schedule-transact-sql?view=sql-server-ver15). 
 
 ```
 par_schedule_id integer = NULL::integer
@@ -451,9 +413,9 @@ out returncode integer
 ```
 
 ## Examples for using procedures that emulate SQL Server Agent in PostgreSQL
+<a name="CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.Agent.Examples"></a>
 
-To add a new job, use the `aws_sqlserver_ext.sp_add_job` procedure
-as shown following.
+To add a new job, use the `aws_sqlserver_ext.sp_add_job` procedure as shown following.
 
 ```
 SELECT * FROM aws_sqlserver_ext.sp_add_job (
@@ -464,8 +426,7 @@ SELECT * FROM aws_sqlserver_ext.sp_add_job (
     par_owner_login_name := 'sa');
 ```
 
-To add a new job step, use the `aws_sqlserver_ext.sp_add_jobstep`
-procedure as shown following.
+To add a new job step, use the `aws_sqlserver_ext.sp_add_jobstep` procedure as shown following.
 
 ```
 SELECT * FROM aws_sqlserver_ext.sp_add_jobstep (
@@ -478,8 +439,7 @@ SELECT * FROM aws_sqlserver_ext.sp_add_jobstep (
     par_database_name := 'GOLD_TEST_SS');
 ```
 
-To add a simple schedule, use the `aws_sqlserver_ext.sp_add_schedule`
-procedure as shown following.
+To add a simple schedule, use the `aws_sqlserver_ext.sp_add_schedule` procedure as shown following.
 
 ```
 SELECT * FROM aws_sqlserver_ext.sp_add_schedule(
@@ -488,8 +448,7 @@ SELECT * FROM aws_sqlserver_ext.sp_add_schedule(
     par_active_start_time := 233000);
 ```
 
-To set a schedule for a job, use the `aws_sqlserver_ext.sp_attach_schedule`
-procedure as shown following.
+To set a schedule for a job, use the `aws_sqlserver_ext.sp_attach_schedule` procedure as shown following.
 
 ```
 SELECT * FROM aws_sqlserver_ext.sp_attach_schedule (
@@ -497,8 +456,7 @@ SELECT * FROM aws_sqlserver_ext.sp_attach_schedule (
     par_schedule_name := 'NightlyJobs');
 ```
 
-To create a schedule for a job, use the `aws_sqlserver_ext.sp_add_jobschedule`
-procedure as shown following.
+To create a schedule for a job, use the `aws_sqlserver_ext.sp_add_jobschedule` procedure as shown following.
 
 ```
 SELECT * FROM aws_sqlserver_ext.sp_add_jobschedule (
@@ -518,95 +476,78 @@ SELECT * FROM aws_sqlserver_ext.sp_add_jobschedule (
 ```
 
 ## Use case examples for emulating SQL Server Agent in PostgreSQL
+<a name="CHAP_Source.SQLServer.ToPostgreSQL.ExtensionPack.Agent.UseCases"></a>
 
-If your source database code uses SQL Server Agent to run jobs, you can use
-the SQL Server to PostgreSQL extension pack for AWS SCT to convert this code to
-PostgreSQL. The extension pack uses AWS Lambda functions to emulate the behavior
-of SQL Server Agent.
+If your source database code uses SQL Server Agent to run jobs, you can use the SQL Server to PostgreSQL extension pack for AWS SCT to convert this code to PostgreSQL. The extension pack uses AWS Lambda functions to emulate the behavior of SQL Server Agent.
 
 You can create a new AWS Lambda function or register an existing function.
 
-###### To create a new AWS Lambda function
+**To create a new AWS Lambda function**
 
-1. In AWS SCT, in the target database tree, open the context (right-click)
-   menu, choose **Apply extension pack for**,
-   and then choose **PostgreSQL**.
+1. In AWS SCT, in the target database tree, open the context (right-click) menu, choose **Apply extension pack for**, and then choose **PostgreSQL**. 
 
-The extension pack wizard appears. 2. On the **SQL Server Agent emulation service** tab,
-do the following:
+   The extension pack wizard appears. 
 
-    * Choose **Create an AWS Lambda function**.
-    * For **Database login**, enter the name of the
-     target database user.
-    * For **Database password**, enter the password
-     for the user name that you entered on the preceding step.
-    * For **Python library folder**, enter the path
-     to your Python library folder.
-    * Choose **Create AWS Lambda function**, and then
-     choose **Next**.
+1. On the **SQL Server Agent emulation service** tab, do the following: 
+   + Choose **Create an AWS Lambda function**.
+   + For **Database login**, enter the name of the target database user.
+   + For **Database password**, enter the password for the user name that you entered on the preceding step.
+   + For **Python library folder**, enter the path to your Python library folder.
+   + Choose **Create AWS Lambda function**, and then choose **Next**.
 
-###### To register an AWS Lambda function that you deployed earlier
+**To register an AWS Lambda function that you deployed earlier**
++ Run the following script on your target database.
 
-- Run the following script on your target database.
+  ```
+  SELECT
+      FROM aws_sqlserver_ext.set_service_setting(
+          p_service := 'JOB', 
+          p_setting := 'LAMBDA_ARN', 
+          p_value := {{ARN}})
+  ```
 
-```
-SELECT
-    FROM aws_sqlserver_ext.set_service_setting(
-        p_service := 'JOB',
-        p_setting := 'LAMBDA_ARN',
-        p_value := `ARN`)
-```
+  In the preceding example, {{`ARN`}} is the Amazon Resource Name (ARN) of the deployed AWS Lambda function.
 
-In the preceding example, `ARN`
-is the Amazon Resource Name (ARN) of the deployed AWS Lambda
-function.
+The following example creates a simple task that consists of one step. Every five minutes, this task runs the previously created `job_example` function. This function inserts records into the `job_example_table` table.
 
-The following example creates a simple task that consists of one step. Every five
-minutes, this task runs the previously created `job_example` function.
-This function inserts records into the `job_example_table` table.
+**To create this simple task**
 
-###### To create this simple task
+1. Create a job using the `aws_sqlserver_ext.sp_add_job` function as shown following.
 
-1. Create a job using the `aws_sqlserver_ext.sp_add_job`
-   function as shown following.
+   ```
+   SELECT
+       FROM aws_sqlserver_ext.sp_add_job (
+           par_job_name := 'test_simple_job');
+   ```
 
-```
-SELECT
-    FROM aws_sqlserver_ext.sp_add_job (
-        par_job_name := 'test_simple_job');
-```
+1. Create a job step using the `aws_sqlserver_ext.sp_add_jobstep` function as shown following.
 
-2. Create a job step using the
-   `aws_sqlserver_ext.sp_add_jobstep` function as shown
-   following.
+   ```
+   SELECT
+       FROM aws_sqlserver_ext.sp_add_jobstep (
+           par_job_name := 'test_simple_job', 
+           par_step_name := 'test_simple_job_step1', 
+           par_command := 'PERFORM job_simple_example;');
+   ```
 
-```
-SELECT
-    FROM aws_sqlserver_ext.sp_add_jobstep (
-        par_job_name := 'test_simple_job',
-        par_step_name := 'test_simple_job_step1',
-        par_command := 'PERFORM job_simple_example;');
-```
+   The job step specifies what the function does.
 
-The job step specifies what the function does. 3. Create a scheduler for the job using the
-`aws_sqlserver_ext.sp_add_jobschedule` function as shown
-following.
+1. Create a scheduler for the job using the `aws_sqlserver_ext.sp_add_jobschedule` function as shown following.
 
-```
-SELECT
-    FROM aws_sqlserver_ext.sp_add_jobschedule (
-        par_job_name := 'test_simple_job',
-        par_name := 'test_schedule',
-        par_freq_type := 4, /* Daily */
-        par_freq_interval := 1, /* frequency_interval is unused */
-        par_freq_subday_type := 4, /* Minutes */
-        par_freq_subday_interval := 5 /* 5 minutes */);
-```
+   ```
+   SELECT
+       FROM aws_sqlserver_ext.sp_add_jobschedule (
+           par_job_name := 'test_simple_job', 
+           par_name := 'test_schedule', 
+           par_freq_type := 4, /* Daily */
+           par_freq_interval := 1, /* frequency_interval is unused */
+           par_freq_subday_type := 4, /* Minutes */
+           par_freq_subday_interval := 5 /* 5 minutes */);
+   ```
 
-The job step specifies what the function does.
+   The job step specifies what the function does.
 
-To delete this job, use the `aws_sqlserver_ext.sp_delete_job`
-function as shown following.
+To delete this job, use the `aws_sqlserver_ext.sp_delete_job` function as shown following.
 
 ```
 PERFORM aws_sqlserver_ext.sp_delete_job(
