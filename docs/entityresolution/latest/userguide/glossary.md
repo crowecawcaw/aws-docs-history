@@ -47,6 +47,12 @@ For ML matching, this is the confidence level applied by AWS Entity Resolution w
 matched record set. This is part of the [matching
 workflow metadata](#matching-workflow-metadata "#matching-workflow-metadata") that will be included in output.
 
+## Record confidence level (RecordConfidenceLevel)
+
+For ML incremental matching, this is the per-record confidence level applied by AWS Entity Resolution
+when ML identifies a matched record set. This is part of the [matching workflow metadata](#matching-workflow-metadata "#matching-workflow-metadata") that will be included in
+output.
+
 ## Decryption
 
 The process of transforming encrypted data back to its original form. Decryption can only be
