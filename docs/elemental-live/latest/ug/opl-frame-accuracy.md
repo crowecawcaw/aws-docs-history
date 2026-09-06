@@ -1,11 +1,11 @@
+
+
 # About output locking and frame accuracy
+<a name="opl-frame-accuracy"></a>
 
-You can implement output locking to produce video outputs that are _frame accurate_ with each other. The frames from several outputs are _locked_ together.
+You can implement output locking to produce video outputs that are *frame accurate *with each other. The frames from several outputs are *locked *together. 
 
-Frame accuracy means that two frames with the same timecode are
-identical in the following ways:
-
-- The same content—the same picture on the video
-  frame.
-- The same segment number, manifest data, and so on.
-- The same presentation timestamp (PTS).
+Frame accuracy means that two frames with the same timecode are identical in the following ways:
++ The same content—the same picture on the video frame.
++ The same segment number, manifest data, and so on.
++ The same presentation timestamp (PTS).

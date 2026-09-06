@@ -1,26 +1,45 @@
+
+
 # Supported source captions and output captions in an fMP4 output container
+<a name="captions-hls-fmp4-output-container"></a>
 
-To read this table, find the type of container and captions from your
-input. The supported captions formats for this _output_ container are then shown in the last column.
+To read this table, find the type of container and captions from your input. The supported captions formats for this *output *container are then shown in the last column. 
 
-| Source input container | Source caption format | Supported output captions |
-| ---------------------- | --------------------- | ------------------------- |
-| HLS Container          | Embedded              | Web-VTT                   |
-| SCTE-20                | Web-VTT               |
-| MP4 Container          | Embedded              | Web-VTT                   |
-| SCTE-20                | Web-VTT               |
-| MXF Container          | Embedded              | Web-VTT                   |
-| Ancillary Data         | Web-VTT               |
-| QuickTime Container    | Embedded              | Web-VTT                   |
-| Ancillary Data         | Web-VTT               |
-| Raw Container          | SRT                   | Web-VTT                   |
-| SMI                    | Web-VTT               |
-| TTML                   | Web-VTT               |
-| STL                    | Web-VTT               |
-| SCC                    | Web-VTT               |
-| RTMP Container         | Embedded              | Web-VTT                   |
-| SDI Container          | Embedded              | Web-VTT                   |
-| Teletext               | Web-VTT               |
-| MPEG2-TS Container     | Embedded              | Web-VTT                   |
-| SCTE-20                | Web-VTT               |
-| Teletext               | Web-VTT               |
+<a name="table-captions-hls-fmp4-output-container"></a>
+
+- **HLS Container**
+  - **Source caption format:** Embedded / **Supported output captions:** Web-VTT
+  - **Source caption format:** SCTE-20 / **Supported output captions:** Web-VTT
+
+- **MP4 Container**
+  - **Source caption format:** Embedded / **Supported output captions:** Web-VTT
+  - **Source caption format:** SCTE-20 / **Supported output captions:** Web-VTT
+
+- **MXF Container**
+  - **Source caption format:** Embedded / **Supported output captions:** Web-VTT
+  - **Source caption format:** Ancillary Data / **Supported output captions:** Web-VTT
+
+- **QuickTime Container**
+  - **Source caption format:** Embedded / **Supported output captions:** Web-VTT
+  - **Source caption format:** Ancillary Data / **Supported output captions:** Web-VTT
+
+- **Raw Container**
+  - **Source caption format:** SRT / **Supported output captions:** Web-VTT
+  - **Source caption format:** SMI / **Supported output captions:** Web-VTT
+  - **Source caption format:** TTML / **Supported output captions:** Web-VTT
+  - **Source caption format:** STL / **Supported output captions:** Web-VTT
+  - **Source caption format:** SCC / **Supported output captions:** Web-VTT
+
+- **RTMP Container**
+  - **Source caption format:** Embedded
+  - **Supported output captions:** Web-VTT
+
+- **SDI Container**
+  - **Source caption format:** Embedded / **Supported output captions:** Web-VTT
+  - **Source caption format:** Teletext / **Supported output captions:** Web-VTT
+
+- **MPEG2-TS Container**
+  - **Source caption format:** Embedded / **Supported output captions:** Web-VTT
+  - **Source caption format:** SCTE-20 / **Supported output captions:** Web-VTT
+  - **Source caption format:** Teletext / **Supported output captions:** Web-VTT
+

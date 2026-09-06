@@ -1,27 +1,25 @@
-# System bandwidth
 
-System bandwidth is the rate at which network and data traffic moves
-between process on each core, and between those cores and memory.
+
+# System bandwidth
+<a name="performance-system-bandwidth"></a>
+
+System bandwidth is the rate at which network and data traffic moves between process on each core, and between those cores and memory. 
 
 ## Impact of system bandwidth issues
+<a name="performance-system-bandwidth-impact"></a>
 
-Typically, system bandwidth rates don't create performance problems on
-Elemental Live appliances.
+Typically, system bandwidth rates don't create performance problems on Elemental Live appliances.
 
-One of the ways that you know there are memory bandwidth problems on
-the appliance is through error messages in the logs. For more information,
-see [Assessing performance with logging messages](performance-via-logs.md "performance-via-logs.md").
+One of the ways that you know there are memory bandwidth problems on the appliance is through error messages in the logs. For more information, see [Assessing performance with logging messages](performance-via-logs.md). 
 
-If you suspect that system bandwidth is causing these problems, reduce
-density on the appliance.
+If you suspect that system bandwidth is causing these problems, reduce density on the appliance.
 
 ## Measuring system bandwidth
+<a name="performance-system-bandwidth-measure"></a>
 
-The `amd_bandwidth` utility is included in Elemental Live
-versions 2.18.6 and later.
+The `amd_bandwidth` utility is included in Elemental Live versions 2.18.6 and later.
 
-It shows the outbound bandwidth for each socket on the appliance. For
-example:
+It shows the outbound bandwidth for each socket on the appliance. For example:
 
 ```
 $ sudo amd_bandwidth
@@ -31,10 +29,8 @@ Socket1 bandwidth: 19.0827 GB/s
 ```
 
 ## Expected rates
+<a name="performance-system-bandwidth-expected"></a>
 
-The following guidelines apply for system bandwidth:
-
-- Single-socket L8xx appliances have a maximum bandwidth of 90
-  GBps
-- Dual-socket L8xx appliances have a maximum bandwidth of 140
-  GBps
+The following guidelines apply for system bandwidth: 
++ Single-socket L8xx appliances have a maximum bandwidth of 90 GBps
++ Dual-socket L8xx appliances have a maximum bandwidth of 140 GBps

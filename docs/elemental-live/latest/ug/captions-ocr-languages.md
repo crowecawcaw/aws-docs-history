@@ -1,211 +1,212 @@
-# Reference: Languages supported with OCR captions
 
-Following is a list of world languages that are supported in source
-captions when Elemental Live uses [OCR
-translation](support-for-ocr.md "support-for-ocr.md") to convert the source captions to the output format.
+
+# Reference: Languages supported with OCR captions
+<a name="captions-ocr-languages"></a>
+
+Following is a list of world languages that are supported in source captions when Elemental Live uses [OCR translation](support-for-ocr.md) to convert the source captions to the output format. 
 
 Afrikaans
 
-Amharic
+ Amharic
 
-Arabic
+ Arabic
 
-Assamese
+ Assamese
 
-Azerbaijani
+ Azerbaijani
 
-Azerbaijani - Cyrillic
+ Azerbaijani - Cyrillic
 
-Belarusian
+ Belarusian
 
-Bengali
+ Bengali
 
-Tibetan
+ Tibetan
 
-Bosnian
+ Bosnian
 
-Bulgarian
+ Bulgarian
 
-Catalan; Valencian
+ Catalan; Valencian
 
-Cebuano
+ Cebuano
 
-Czech
+ Czech
 
-Chinese - Simplified
+ Chinese - Simplified
 
-Chinese - Simplified Vertical
+ Chinese - Simplified Vertical
 
-Chinese - Traditional
+ Chinese - Traditional
 
-Chinese - Traditional Vertical
+ Chinese - Traditional Vertical
 
-Cherokee
+ Cherokee
 
-Welsh
+ Welsh
 
-Danish
+ Danish
 
-German
+ German
 
-Dzongkha
+ Dzongkha
 
-Greek, Modern (1453-)
+ Greek, Modern (1453-)
 
-English
+ English
 
-English, Middle (1100-1500)
+ English, Middle (1100-1500)
 
-Esperanto
+ Esperanto
 
-Estonian
+ Estonian
 
-Basque
+ Basque
 
-Persian
+ Persian
 
-Finnish
+ Finnish
 
-French
+ French
 
-German Fraktur
+ German Fraktur
 
-French, Middle (ca. 1400-1600)
+ French, Middle (ca. 1400-1600)
 
-Irish
+ Irish
 
-Galician
+ Galician 
 
-Greek, Ancient (-1453)
+ Greek, Ancient (-1453)
 
-Gujarati
+ Gujarati
 
-Haitian; Haitian Creole
+ Haitian; Haitian Creole
 
-Hebrew
+ Hebrew
 
-Hindi
+ Hindi
 
-Croatian
+ Croatian
 
-Hungarian
+ Hungarian
 
-Inuktitut
+ Inuktitut
 
-Indonesian
+ Indonesian
 
-Icelandic
+ Icelandic
 
-Italian
+ Italian
 
-Italian - Old
+ Italian - Old
 
-Javanese
+ Javanese
 
-Japanese
+ Japanese
 
-Japanese Vertical
+ Japanese Vertical
 
-Kannada
+ Kannada
 
-Georgian
+ Georgian
 
-Georgian - Old
+ Georgian - Old
 
-Kazakh
+ Kazakh
 
-Central Khmer
+ Central Khmer
 
-Kirghiz; Kyrgyz
+ Kirghiz; Kyrgyz
 
-Korean
+ Korean
 
-Korean Vertical
+ Korean Vertical
 
-Lao
+ Lao
 
-Latin
+ Latin
 
-Latvian
+ Latvian
 
-Lithuanian
+ Lithuanian
 
-Malayalam
+ Malayalam
 
-Marathi
+ Marathi
 
-Macedonian
+ Macedonian
 
-Maltese
+ Maltese
 
-Malay
+ Malay
 
-Burmese
+ Burmese
 
-Nepali
+ Nepali
 
-Dutch; Flemish
+ Dutch; Flemish
 
-Norwegian
+ Norwegian
 
-Oriya
+ Oriya
 
-Panjabi; Punjabi
+ Panjabi; Punjabi
 
-Polish
+ Polish
 
-Portuguese
+ Portuguese
 
-Pushto; Pashto
+ Pushto; Pashto
 
-Romanian; Moldavian; Moldovan
+ Romanian; Moldavian; Moldovan
 
-Russian
+ Russian
 
-Sanskrit
+ Sanskrit
 
-Sinhala; Sinhalese
+ Sinhala; Sinhalese
 
-Slovak
+ Slovak
 
-Slovenian
+ Slovenian
 
-Spanish; Castilian
+ Spanish; Castilian
 
-Spanish; Castilian - Old
+ Spanish; Castilian - Old
 
-Albanian
+ Albanian
 
-Serbian
+ Serbian
 
-Serbian - Latin
+ Serbian - Latin
 
-Swahili
+ Swahili
 
-Swedish
+ Swedish
 
-Syriac
+ Syriac
 
-Tamil
+ Tamil
 
-Telugu
+ Telugu
 
-Tajik
+ Tajik
 
-Thai
+ Thai
 
-Tigrinya
+ Tigrinya
 
-Turkish
+ Turkish
 
-Uighur; Uyghur
+ Uighur; Uyghur
 
-Ukrainian
+ Ukrainian
 
-Urdu
+ Urdu
 
-Uzbek
+ Uzbek
 
-Uzbek - Cyrillic
+ Uzbek - Cyrillic
 
-Vietnamese
+ Vietnamese 

@@ -1,54 +1,24 @@
+
+
 # Delivering HLS output to MediaPackage version 2
+<a name="output-empV4"></a>
 
-This section describes how to deliver an HLS output from AWS Elemental Live to an AWS Elemental MediaPackage
-channel that uses MediaPackage v2. You can optionally configure the video output
-for low latency, to support a glass-to-glass low latency workflow.
+This section describes how to deliver an HLS output from AWS Elemental Live to an AWS Elemental MediaPackage channel that uses MediaPackage v2. You can optionally configure the video output for low latency, to support a glass-to-glass low latency workflow. 
 
-The information in this section assumes that you are familiar with the
-general steps for creating an event.
+The information in this section assumes that you are familiar with the general steps for creating an event. 
 
 1. Obtain the following information from the MediaPackage operator:
+   + The URL for each destination for the output group. For delivery to MediaPackage v2, the URL will always include the string `mediapackagev2`. 
+   + The credentials that Elemental Live must include to deliver this output to MediaPackage v2. For example:
 
-   - The URL for each destination for the output group. For
-     delivery to MediaPackage v2, the URL will always include the string
-     `mediapackagev2`.
+     An *access key ID* that looks like this: **AKIAIOSFODNN7EXAMPLE**
 
-   - The credentials that Elemental Live must include to deliver
-     this output to MediaPackage v2. For example:
+     A *secret access key* that looks like this: **wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY**
 
-   An _access key ID_ that
-   looks like this:
-   `AKIAIOSFODNN7EXAMPLE`
+1. In the Elemental Live event, go to **Output Groups**, then to **Apple HLS**.
 
-   A _secret access key_ that
-   looks like this:
-   `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`
+1. Set up the output group in the usual way. Complete the following fields as specified:    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-live/latest/ug/output-empV4.html)
 
-2. In the Elemental Live event, go to **Output
-   Groups**, then to **Apple HLS**.
-3. Set up the output group in the usual way. Complete the following
-   fields as specified:
-
-| Section                       | Field                                                                            | Description                                                                                                                                                                                                     |
-| ----------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Apple HLS Settings            | Destination                                                                      | The URL that you obtained from the MediaPackage operator.<br>When you tab out of this field, two fields<br>automatically appear: *_Username or Access<br>Key ID_<br>• and **Password or Secret<br>Access Key**. |
-| Username or Access Key ID     | Enter the access key ID that you obtained from the<br>MediaPackage operator.     |
-| Password or Secret Access Key | Enter the secret access key that you obtained from<br>the MediaPackage operator. |
-| HTTP Push Dialect             | Choose **Basic PUT**                                                             |
-| Advanced > Encryption         | Choose *_Disabled_<br>• because MediaPackage<br>doesn't support encryption.      |
-| Advanced > Chunked Transfer   | Choose **Disabled**.                                                             |
-| Outputs                       | Segment Type                                                                     | Choose **TS**. You can't send<br>fMP4 to MediaPackage.                                                                                                                                                          |
-
-4. If you want to implement low latency in the encoder, follow the
-   guidance for these fields:
-
-| Section                       | Field                                                                                | Description                                                                                |
-| ----------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| Apple HLS Settings            | Segment Length                                                                       | We recommend 1 second for better latency.                                                  |
-| Minimum Segment Length        | A value is required for delivery to MediaPackage. This<br>value can affect latency.  |
-| Retry Interval                | We recommend the same value as the segment length.<br>This value can affect latency. |
-| Num Retries                   | This value can affect latency.                                                       |
-| FileCache Size                | This value can affect latency. We recommend a lower<br>number.                       |
-| Restart Delay                 | This value can affect latency.                                                       |
-| Outputs                       | Advanced > GOP Size                                                                  | This value can affect latency because the segment<br>length is a function of the GOP size. |
-| Advanced > Closed GOP Cadence | This value can affect latency.                                                       |
+1. If you want to implement low latency in the encoder, follow the guidance for these fields:    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-live/latest/ug/output-empV4.html)

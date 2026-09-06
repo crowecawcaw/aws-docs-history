@@ -1,53 +1,42 @@
+
+
 # Replace dynamic playlist
+<a name="replace-dynamic-playlist"></a>
 
-In the specified event (which must be currently running),
-remove all non-Active inputs from the dynamic playlist and
-append the specified file input or inputs. After this command,
-only the Active input remains from the original dynamic
-playlist; the rest of the dynamic playlist consists of new
-inputs.
+In the specified event (which must be currently running), remove all non-Active inputs from the dynamic playlist and append the specified file input or inputs. After this command, only the Active input remains from the original dynamic playlist; the rest of the dynamic playlist consists of new inputs.
 
-The dynamic playlist can only consist of file inputs; if you
-want to add live inputs or live and file inputs, use Add Dynamic
-Playlist Inputs.
+The dynamic playlist can only consist of file inputs; if you want to add live inputs or live and file inputs, use Add Dynamic Playlist Inputs.
 
-There is no maximum to the number of inputs that can be added
-using this command, and there is no maximum to the number inputs
-that result in the event. For example, you can replace the 15
-inputs currently in the event with 900 new inputs. Compare this
-lack of restrictions to the restrictions that apply with Add
-Dynamic Playlist Inputs.
+There is no maximum to the number of inputs that can be added using this command, and there is no maximum to the number inputs that result in the event. For example, you can replace the 15 inputs currently in the event with 900 new inputs. Compare this lack of restrictions to the restrictions that apply with Add Dynamic Playlist Inputs.
 
-You can use Replace Dynamic Playlist to clear the dynamic
-playlist: create a Body consisting of an empty inputs element.
+You can use Replace Dynamic Playlist to clear the dynamic playlist: create a Body consisting of an empty inputs element. 
 
 ## HTTP request and response
+<a name="replace-dynamic-playlist-http-request-and-response"></a>
 
 ### HTTP URL
+<a name="replace-dynamic-playlist-http-url"></a>
 
 ```
 POST http://<Live IP address>/live_events/<event ID>/playlist
 ```
 
 ### Body of HTTP
+<a name="replace-dynamic-playlist-body-of-http"></a>
 
 XML content consisting of:
-
-- One inputs element that contains:
-
-  - One or more input elements that each
-    contains one or more of the regular
-    input tags. See [Elements and tags in an event input XML](elements-and-tags.md "elements-and-tags.md").
++ One inputs element that contains:
+  + One or more input elements that each contains one or more of the regular input tags. See [Elements and tags in an event input XML](elements-and-tags.md).
 
 ### Response
+<a name="replace-dynamic-playlist-response"></a>
 
 200 OK for a successful request.
 
 ## Example
+<a name="replace-dynamic-playlist-example"></a>
 
-This request specifies two inputs to the event with the ID 31. The first input is a live input, the second is a file
-input. This list of inputs will replace the current dynamic
-playlist, not including the currently active input.
+This request specifies two inputs to the event with the ID 31. The first input is a live input, the second is a file input. This list of inputs will replace the current dynamic playlist, not including the currently active input.
 
 ```
 POST http://10.4.136.92/live_events/31/playlist
@@ -77,5 +66,4 @@ POST http://10.4.136.92/live_events/31/playlist
     </audio_selector>
   </input>
 </inputs>
-
 ```

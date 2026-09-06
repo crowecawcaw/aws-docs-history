@@ -1,17 +1,25 @@
+
+
 # Video: H.264 (AVC) support
+<a name="codecs-containers-h264"></a>
 
 H.264 is supported in the following variations.
 
-| Direction | Chroma Sampling  | Bit Depth                                                                                            | Profile/Format                                                                               | Level   | License Requirement |
-| --------- | ---------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------- | ------------------- |
-| Input     | 4:2:0            | 8-bit and 10-bit                                                                                     | Baseline, Main, High, High 10, High<br>4:2:2, High 10 Intra, High 422 Intra,<br>AS-11/RP2027 | 1.0-5.2 | None                |
-| 4:2:2     | 8-bit and 10-bit | None                                                                                                 |
-| Output    | 4:2:0            | 8-bit                                                                                                | None                                                                                         |
-| 4:2:0     | 10-bit           | For AVC Intra, purchase the BCE license<br>pack.                                                     |
-| 4:2:2     | 8-bit and 10-bit | For AVC Intra, purchase the BCE license<br>pack.<br>For AVC 4:2:2, purchase the BCE license<br>pack. |
+<a name="codecs-containers-h264-table"></a>
 
-Both 4:2:0 and 4:2:2 chroma sampling are supported in raw outputs
-(.264, .avc, extensions) and MPEG-2 transport streams.
+- **Input**
+  - **Chroma Sampling:** 4:2:0  / **Bit Depth:** 8-bit and 10-bit / **License Requirement:** None
+  - **Chroma Sampling:** 4:2:2 / **Bit Depth:** 8-bit and 10-bit / **License Requirement:** None
+  - **Profile/Format:** Baseline, Main, High, High 10, High 4:2:2, High 10 Intra, High 422 Intra, AS-11/RP2027
+  - **Level:** 1.0-5.2
 
-In all other containers, only 4:2:0 chroma sampling is
-supported.
+- **Output**
+  - **Chroma Sampling:** 4:2:0  / **Bit Depth:** 8-bit / **License Requirement:** None
+  - **Chroma Sampling:** 4:2:0  / **Bit Depth:** 10-bit / **License Requirement:** For AVC Intra, purchase the BCE license pack.
+  - **Chroma Sampling:** 4:2:2  / **Bit Depth:** 8-bit and 10-bit / **License Requirement:** For AVC Intra, purchase the BCE license pack.<br />For AVC 4:2:2, purchase the BCE license pack.
+
+
+
+Both 4:2:0 and 4:2:2 chroma sampling are supported in raw outputs (.264, .avc, extensions) and MPEG-2 transport streams. 
+
+In all other containers, only 4:2:0 chroma sampling is supported.

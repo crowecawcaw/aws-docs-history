@@ -1,53 +1,59 @@
+
+
 # Add-on packages for video codecs
+<a name="ref-license-codecs-video"></a>
 
-Some video codecs require an add-on package. This table lists video
-codecs in alphabetical order. Each row identifies whether Elemental Live
-requires an add-on package in order to decode a video source that uses this
-codec or encode an output with this codec.
+Some video codecs require an add-on package. This table lists video codecs in alphabetical order. Each row identifies whether Elemental Live requires an add-on package in order to decode a video source that uses this codec or encode an output with this codec.
 
-| Codec                                                                                                                                                              | Action                                                                                                                                                          | Add-on Package                                                                                                                                                                                                                                                                                                                                                                                | Change on web interface                                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| AVC (H.264)                                                                                                                                                        | Decode                                                                                                                                                          | No add-on package required                                                                                                                                                                                                                                                                                                                                                                    |                                                                                                                                    |
-| Encode specific variations of AVC (H.264). See [Add-on packages for AVC (H.264) variations](#ref-license-codecs-video-h264 "#ref-license-codecs-video-h264").      | Advanced Broadcast Contribution Encoder Package                                                                                                                 | When the *_Video Codec_<br>• field is set to<br>*_MPEG-4 AVC_<br>• (H.264), then the<br>*_Profile_<br>• field for an event includes options for<br>these variations.<br>To<br>find the field in the event, go to an **Output Groups**<br>tab. In that tab, go to the *_Outputs_<br>• section, then to<br>the *_Streams_<br>• section. Choose<br>**Video**. The field is on the first<br>line. |
-| HEVC (H.265)                                                                                                                                                       | Decode specific variations of HEVC (H.265). See [Add-on packages for HEVC (H.265) variations](#ref-license-codecs-video-h265 "#ref-license-codecs-video-h265"). | HEVC Main Profile Encode and Decode Package                                                                                                                                                                                                                                                                                                                                                   | There is no change in the input section of an event, but<br>Elemental Livewill ingest these variations from a supported input.     |
-| Encode specific variations of HEVC (H.265). See [Add-on packages for HEVC (H.265) variations](#ref-license-codecs-video-h265 "#ref-license-codecs-video-h265").    | HEVC Main Profile Encode and Decode Package                                                                                                                     | When the *_Video Codec_<br>• field is set to<br>*_HEVC_<br>• (H.265), then the<br>*_Profile_<br>• field for an event includes options for<br>these variations.<br>To<br>find the field in the event, go to an **Output Groups**<br>tab. In that tab, go to the *_Outputs_<br>• section, then to<br>the *_Streams_<br>• section. Choose<br>**Video**. The field is on the first<br>line.       |
-| Encode specific variations of HEVC (H.265).<br>See [Add-on packages for HEVC (H.265) variations](#ref-license-codecs-video-h265 "#ref-license-codecs-video-h265"). | Advanced Broadcast Contribution Encoder Package                                                                                                                 | When the *_Video Codec_<br>• field is set to<br>*_HEVC_<br>• (H.265), then the<br>*_Profile_<br>• field for an event includes options for<br>these<br>variations.To<br>find the field in the event, go to an **Output Groups**<br>tab. In that tab, go to the *_Outputs_<br>• section, then to<br>the *_Streams_<br>• section. Choose<br>**Video**. The field is on the first<br>line.        |
-| JPEG XS                                                                                                                                                            | Decode                                                                                                                                                          | JPEG XS Encode and Decode Package                                                                                                                                                                                                                                                                                                                                                             | There is no change in the input section of an event, but<br>Elemental Live will ingest JPEG XS video sources in a supported input. |
-| Encode                                                                                                                                                             | JPEG-XS Encode and Decode Package                                                                                                                               | The *_JPEG-XS_<br>• codec appears as an option<br>in the *_Video Codec_<br>• field in supported outputs of an<br>event.<br>To<br>find the field in the event, go to an **Output Groups**<br>tab. In that tab, go to the *_Outputs_<br>• section, then to<br>the *_Streams_<br>• section. Choose<br>**Video**. The field is on the first<br>line.                                              |
-| Other video codecs                                                                                                                                                 | Decode                                                                                                                                                          | No add-on package required                                                                                                                                                                                                                                                                                                                                                                    |                                                                                                                                    |
-| Encode                                                                                                                                                             | No add-on package required                                                                                                                                      |                                                                                                                                                                                                                                                                                                                                                                                               |
+
+
+- ** AVC (H.264)   **
+  - **Action:** Decode  / **Add-on Package:** No add-on package required  / **Change on web interface:** 
+  - **Action:** Encode specific variations of AVC (H.264). See [Add-on packages for AVC (H.264) variations](#ref-license-codecs-video-h264). / **Add-on Package:** Advanced Broadcast Contribution Encoder Package / **Change on web interface:** When the **Video Codec** field is set to **MPEG-4 AVC** (H.264), then the **Profile** field for an event includes options for these variations. To find the field in the event, go to an Output Groups tab. In that tab, go to the Outputs section, then to the Streams section. Choose Video. The field is on the first line.
+
+- ** HEVC (H.265)    **
+  - **Action:** Decode specific variations of HEVC (H.265). See [Add-on packages for HEVC (H.265) variations](#ref-license-codecs-video-h265).  / **Add-on Package:** HEVC Main Profile Encode and Decode Package / **Change on web interface:** There is no change in the input section of an event, but Elemental Livewill ingest these variations from a supported input.
+  - **Action:** Encode specific variations of HEVC (H.265). See [Add-on packages for HEVC (H.265) variations](#ref-license-codecs-video-h265).  / **Add-on Package:** HEVC Main Profile Encode and Decode Package  / **Change on web interface:** When the **Video Codec** field is set to **HEVC** (H.265), then the **Profile** field for an event includes options for these variations. To find the field in the event, go to an Output Groups tab. In that tab, go to the Outputs section, then to the Streams section. Choose Video. The field is on the first line.
+  - **Action:** Encode specific variations of HEVC (H.265).<br />See [Add-on packages for HEVC (H.265) variations](#ref-license-codecs-video-h265).  / **Add-on Package:** Advanced Broadcast Contribution Encoder Package  / **Change on web interface:** When the **Video Codec** field is set to **HEVC** (H.265), then the **Profile** field for an event includes options for these variations.To find the field in the event, go to an Output Groups tab. In that tab, go to the Outputs section, then to the Streams section. Choose Video. The field is on the first line.
+
+- ** JPEG XS  **
+  - **Action:** Decode  / **Add-on Package:** JPEG XS Encode and Decode Package  / **Change on web interface:** There is no change in the input section of an event, but Elemental Live will ingest JPEG XS video sources in a supported input. 
+  - **Action:** Encode  / **Add-on Package:** JPEG-XS Encode and Decode Package  / **Change on web interface:** The **JPEG-XS** codec appears as an option in the **Video Codec** field in supported outputs of an event. To find the field in the event, go to an Output Groups tab. In that tab, go to the Outputs section, then to the Streams section. Choose Video. The field is on the first line.
+
+- ** Other video codecs   **
+  - **Action:** Decode  / **Add-on Package:** No add-on package required  / **Change on web interface:** 
+  - **Action:** Encode  / **Add-on Package:** No add-on package required  / **Change on web interface:** 
+
+
 
 ## Add-on packages for AVC (H.264) variations
+<a name="ref-license-codecs-video-h264"></a>
 
-The AVC (H.264) codec has _variations_ based on the profile, chroma sampling, and bit depth
-that apply. Some variations require an add-on package to encode. The
-following table lists the variations, and identifies the add-on packages
-that Elemental Live requires to encode each variation.
+The AVC (H.264) codec has * variations* based on the profile, chroma sampling, and bit depth that apply. Some variations require an add-on package to encode. The following table lists the variations, and identifies the add-on packages that Elemental Live requires to encode each variation.
 
-| Profile  | Chroma Sampling | Bit Depth | Option in Profile field on Web Interface | Add-on Package to Decode | Add-on Package to Encode                        |
-| -------- | --------------- | --------- | ---------------------------------------- | ------------------------ | ----------------------------------------------- |
-| Baseline | 4:2:0           | 8-bit     | **Baseline**                             | None                     | None                                            |
-| Main     | 4:2:0           | 8-bit     | **Main**                                 | None                     | None                                            |
-| High     | 4:2:0           | 8-bit     | **High**                                 | None                     | None                                            |
-| High     | 4:2:0           | 10-bit    | **High 10-bit**                          | None                     | Advanced Broadcast Contribution Encoder Package |
-| High     | 4:2:2           | 8-bit     | **High 4:2:2**                           | None                     | Advanced Broadcast Contribution Encoder Package |
-| High     | 4:2:2           | 10-bit    | **High 4:2:2 10-bit**                    | None                     | Advanced Broadcast Contribution Encoder Package |
+
+|  Profile   |  Chroma Sampling   |  Bit Depth   |  Option in Profile field on Web Interface   |  Add-on Package to Decode  |  Add-on Package to Encode  | 
+| --- | --- | --- | --- | --- | --- | 
+| Baseline  | 4:2:0  | 8-bit  | **Baseline**  | None  | None  | 
+| Main  | 4:2:0  | 8-bit  | **Main**  | None  | None  | 
+| High  | 4:2:0  | 8-bit  | **High**  | None  | None  | 
+| High  | 4:2:0  | 10-bit  | **High 10-bit**  | None  | Advanced Broadcast Contribution Encoder Package  | 
+| High  | 4:2:2  | 8-bit  | **High 4:2:2**  | None  | Advanced Broadcast Contribution Encoder Package  | 
+| High  | 4:2:2  | 10-bit  | **High 4:2:2 10-bit** | None  | Advanced Broadcast Contribution Encoder Package  | 
 
 ## Add-on packages for HEVC (H.265) variations
+<a name="ref-license-codecs-video-h265"></a>
 
-The HEVC (H.265) codec has _variations_ based on the profile, chroma sampling, bit depth, and
-tier that apply. All variations require an add-on package to decode and/or
-to encode. The following table lists the variations, and identifies the
-add-on package that Elemental Live requires to decode a source that uses this
-codec or encode an output with this codec.
+The HEVC (H.265) codec has * variations* based on the profile, chroma sampling, bit depth, and tier that apply. All variations require an add-on package to decode and/or to encode. The following table lists the variations, and identifies the add-on package that Elemental Live requires to decode a source that uses this codec or encode an output with this codec.
 
-| Profile | Chroma Sampling | Bit Depth | Tier | Option in Profile field on Web Interface | Add-on Package to Decode                    | Add-on Package to Encode                        |
-| ------- | --------------- | --------- | ---- | ---------------------------------------- | ------------------------------------------- | ----------------------------------------------- |
-| Main    | 4:2:0           | 8-bit     | Main | **Main/Main**                            | HEVC Main Profile Encode and Decode Package | HEVC Main Profile Encode and Decode Package     |
-| Main    | 4:2:0           | 8-bit     | High | **Main/High**                            | HEVC Main Profile Encode and Decode Package | HEVC Main Profile Encode and Decode Package     |
-| Main    | 4:2:0           | 10-bit    | Main | **Main10/Main**                          | HEVC Main Profile Encode and Decode Package | HEVC Main Profile Encode and Decode Package     |
-| Main    | 4:2:0           | 10-bit    | High | **Main10/High**                          | HEVC Main Profile Encode and Decode Package | HEVC Main Profile Encode and Decode Package     |
-| Main    | 4:2:2           | 8-bit     | Main | **Main 4:2:2 8-bit/Main**                | HEVC Main Profile Encode and Decode Package | Advanced Broadcast Contribution Encoder Package |
-| Main    | 4:2:2           | 8-bit     | High | **Main 4:2:2 8-bit/High**                | HEVC Main Profile Encode and Decode Package | Advanced Broadcast Contribution Encoder Package |
-| Main    | 4:2:2           | 10-bit    | Main | **Main 4:2:2 10-bit/Main**               | HEVC Main Profile Encode and Decode Package | Advanced Broadcast Contribution Encoder Package |
-| Main    | 4:2:2           | 10-bit    | High | **Main 4:2:2 10-bit/High**               | HEVC Main Profile Encode and Decode Package | Advanced Broadcast Contribution Encoder Package |
+
+|  Profile   |  Chroma Sampling   |  Bit Depth   |  Tier   |  Option in Profile field on Web Interface   |  Add-on Package to Decode  |  Add-on Package to Encode  | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| Main  | 4:2:0  | 8-bit  | Main  | **Main/Main**  | HEVC Main Profile Encode and Decode Package  | HEVC Main Profile Encode and Decode Package  | 
+| Main  | 4:2:0  | 8-bit  | High  | **Main/High**  | HEVC Main Profile Encode and Decode Package | HEVC Main Profile Encode and Decode Package | 
+| Main  | 4:2:0  | 10-bit  | Main  | **Main10/Main**  | HEVC Main Profile Encode and Decode Package  | HEVC Main Profile Encode and Decode Package  | 
+| Main  | 4:2:0  | 10-bit  | High  | **Main10/High**  | HEVC Main Profile Encode and Decode Package | HEVC Main Profile Encode and Decode Package | 
+| Main  | 4:2:2  | 8-bit  | Main  | **Main 4:2:2 8-bit/Main**  | HEVC Main Profile Encode and Decode Package  | Advanced Broadcast Contribution Encoder Package  | 
+| Main  | 4:2:2  | 8-bit  | High  | **Main 4:2:2 8-bit/High**  | HEVC Main Profile Encode and Decode Package | Advanced Broadcast Contribution Encoder Package  | 
+| Main  | 4:2:2  | 10-bit  | Main  | **Main 4:2:2 10-bit/Main**  | HEVC Main Profile Encode and Decode Package  | Advanced Broadcast Contribution Encoder Package  | 
+| Main  | 4:2:2  | 10-bit  | High  | **Main 4:2:2 10-bit/High**  | HEVC Main Profile Encode and Decode Package | Advanced Broadcast Contribution Encoder Package  | 

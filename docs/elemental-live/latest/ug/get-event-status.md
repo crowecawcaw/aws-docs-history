@@ -1,64 +1,58 @@
+
+
 # Get event status
+<a name="get-event-status"></a>
 
 Get the status of the inputs in the specified event.
 
-There is no explicit command to get the status of the inputs
-in the dynamic playlist. But you can get the event status in
-order to get status information about the dynamic
-playlist.
+There is no explicit command to get the status of the inputs in the dynamic playlist. But you can get the event status in order to get status information about the dynamic playlist.
 
-Warning: Get Event Status only works with the JSON format.
-Therefore, the request header must include Accept:
-application/json and Content-type:application/json
+Warning: Get Event Status only works with the JSON format. Therefore, the request header must include Accept: application/json and Content-type:application/json 
 
 ## HTTP request and response
+<a name="get-event-status-http-request-and-response"></a>
 
 ### HTTP URL
+<a name="get-event-status-http-url"></a>
 
 ```
 GET http://<Live IP address>/live_events/<event ID>/status
 ```
 
 ### Response
+<a name="get-event-status-response"></a>
 
-JSON content consisting of one live\_event element that
-contains:
+JSON content consisting of one live\_event element that contains:
++ One outputs element and one output\_groups element that each includes various tags.
++ One active\_input tag that contains the REST ID of the currently Active input.
++ One inputs element that lists the inputs. The inputs appear in the order in which they were originally listed when the dynamic playlist was created. The following information appears for each input:
 
-- One outputs element and one output\_groups
-  element that each includes various tags.
-- One active\_input tag that contains the REST ID
-  of the currently Active input.
-- One inputs element that lists the inputs. The
-  inputs appear in the order in which they were
-  originally listed when the dynamic playlist was
-  created. The following information appears for
-  each input:
 
-| Tag          | Value   | Description                                                                                                                                                                                                                                                                                                                        |
-| ------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id           | Integer | The unique REST ID for this<br>input                                                                                                                                                                                                                                                                                               |
-| state        | String  | The state of the input:<br>• clear: The input is Activated or<br>Prepared.<br>• quarantined: The input is either<br>starting or is recovering from a failure<br>condition.<br>• pending: The input is Idle<br>• errored: A failure condition (as<br>defined by the failure\_condition tag in<br>the event XML) has been triggered. |
-| input\_label | String  | The input label, if one was<br>created.                                                                                                                                                                                                                                                                                            |
-| uri          | String  | The URI for a file input.                                                                                                                                                                                                                                                                                                          |
+|  Tag  |  Value  |  Description  | 
+| --- | --- | --- | 
+| id | Integer | The unique REST ID for this input | 
+| state | String | The state of the input:+  clear: The input is Activated or Prepared. <br />+  quarantined: The input is either starting or is recovering from a failure condition. <br />+  pending: The input is Idle <br />+  errored: A failure condition (as defined by the failure\_condition tag in the event XML) has been triggered.   | 
+| input\_label | String | The input label, if one was created. | 
+| uri | String | The URI for a file input.  | 
 
 ### Stage and state
+<a name="get-event-status-stage-and-state"></a>
 
-The state tag and active\_input tag can provide some
-information about the stage and state of each input:
+The state tag and active\_input tag can provide some information about the stage and state of each input: 
 
-| State tag   | active\_input tag           | Stage and state                                                                                           |
-| ----------- | --------------------------- | --------------------------------------------------------------------------------------------------------- |
-| pending     | Does not specify this input | The input is one of:<br>• Idle and Unprepared<br>• Next-in-line and Unprepared                            |
-| clear       | Does not specify this input | The input is one of:<br>• Idle and Prepared<br>• Active<br>• Next-in-line and Prepared                    |
-| clear       | Specifies this input        | The input is:<br>• Active                                                                                 |
-| quarantined | Specifies this input        | The input is:<br>• Active                                                                                 |
-| errored     | Specifies this input        | A failure condition (as defined by<br>the failure\_condition tag in the event<br>XML) has been triggered. |
 
-Note that you cannot determine whether the input is
-Next-in-line from the response to this Get. You must
-maintain that information outside of Elemental Live.
+|  State tag  |  active\_input tag  |  Stage and state  | 
+| --- | --- | --- | 
+| pending | Does not specify this input | The input is one of:+  Idle and Unprepared <br />+  Next-in-line and Unprepared  | 
+| clear | Does not specify this input | The input is one of:+  Idle and Prepared <br />+  Active <br />+  Next-in-line and Prepared  | 
+| clear | Specifies this input | The input is:+  Active  | 
+| quarantined | Specifies this input | The input is:+  Active  | 
+| errored | Specifies this input | A failure condition (as defined by the failure\_condition tag in the event XML) has been triggered.  | 
+
+Note that you cannot determine whether the input is Next-in-line from the response to this Get. You must maintain that information outside of Elemental Live. 
 
 ## Example
+<a name="get-event-status-example"></a>
 
 ```
 GET http://10.4.136.92/live_events/47/status
@@ -130,5 +124,4 @@ GET http://10.4.136.92/live_events/47/status
     "elapsed_time_in_words": "01:10:28"
   }
 }
-
 ```

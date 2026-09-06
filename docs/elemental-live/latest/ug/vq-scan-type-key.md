@@ -1,117 +1,79 @@
+
+
 # Key fields for converting scan type
+<a name="vq-scan-type-key"></a>
 
 ## Description
+<a name="description-vq-scan-type-key"></a>
 
-Configuring
-for scan type conversion involves setting fields in specific ways. The three
-key fields to convert the scan type of the input are **Configuration
+Configuring for scan type conversion involves setting fields in specific ways. The three key fields to convert the scan type of the input are **Configuration - Deinterlace Mode**, **Configuration - Interlace Mode**, and **Configuration - Telecine**. The following table describes how to set these three key fields to convert a given input to a given output. 
 
-- Deinterlace Mode**, **Configuration - Interlace
-  Mode**, and **Configuration - Telecine**. The
-  following table describes how to set these three key fields to convert a
-  given input to a given output.
 
-| Input         | Output        | Configuration<br>• Deinterlace mode | Configuration<br>• Interlace mode | Configuration<br>• Telecine |
-| ------------- | ------------- | ----------------------------------- | --------------------------------- | --------------------------- |
-| Progressive   | Progressive   | Off                                 | Progressive                       | None                        |
-| Interlaced    | Progressive   | Deinterlace                         | Progressive                       | None                        |
-| Interlaced    | Progressive   | Adaptive                            | Progressive                       | None                        |
-| Hard telecine | Progressive   | Inverse telecine                    | Progressive                       | None                        |
-| Hard telecine | Progressive   | Adaptive                            | Progressive                       | None                        |
-| Soft telecine | Progressive   | Off                                 | Progressive                       | None                        |
-| Mixed         | Progressive   | Adaptive                            | Progressive                       | None                        |
-| Progressive   | Hard telecine | Off                                 | One of the other options          | Hard telecine               |
-| Hard telecine | Hard telecine | Off                                 | One of the other options          | None                        |
-| Soft telecine | Hard telecine | Off                                 | One of the other options          | Hard telecine               |
-| Mixed         | Hard telecine | Off                                 | One of the other options          | Hard telecine               |
-| Interlaced    | Interlaced    | Off                                 | One of the other options          | None                        |
-| Mixed         | Interlaced    | Off                                 | One of the other options          | None                        |
-| Progressive   | Soft telecine | Off                                 | One of the other options          | Soft telecine               |
-| Hard telecine | Soft telecine | Inverse telecine                    | One of the other options          | Soft telecine               |
-| Hard telecine | Soft telecine | Adaptive                            | One of the other options          | Soft telecine               |
-| Soft telecine | Soft telecine | Off                                 | One of the other options          | Soft telecine               |
-| Mixed         | Soft telecine | Adaptive                            | One of the other options          | Soft telecine               |
 
-\* Deinterlace Mode is an image processing control. Interlace Mode and
-Telecine are encoding controls.
+| Input | Output | Configuration - Deinterlace mode | Configuration - Interlace mode | Configuration - Telecine | 
+| --- | --- | --- | --- | --- | 
+| Progressive | Progressive | Off | Progressive | None | 
+| Interlaced | Progressive | Deinterlace | Progressive | None | 
+| Interlaced | Progressive | Adaptive | Progressive | None | 
+| Hard telecine | Progressive | Inverse telecine | Progressive | None | 
+| Hard telecine | Progressive | Adaptive | Progressive | None | 
+| Soft telecine | Progressive | Off | Progressive | None | 
+| Mixed | Progressive | Adaptive | Progressive | None | 
+| Progressive | Hard telecine | Off | One of the other options | Hard telecine | 
+| Hard telecine | Hard telecine | Off | One of the other options | None | 
+| Soft telecine | Hard telecine | Off | One of the other options | Hard telecine | 
+| Mixed | Hard telecine | Off | One of the other options | Hard telecine | 
+| Interlaced | Interlaced | Off | One of the other options | None | 
+| Mixed | Interlaced | Off | One of the other options | None | 
+| Progressive | Soft telecine | Off | One of the other options | Soft telecine | 
+| Hard telecine | Soft telecine | Inverse telecine | One of the other options | Soft telecine | 
+| Hard telecine | Soft telecine | Adaptive  | One of the other options | Soft telecine | 
+| Soft telecine | Soft telecine | Off | One of the other options | Soft telecine | 
+| Mixed | Soft telecine | Adaptive | One of the other options | Soft telecine | 
 
-**Note: Converting the scan type to
-progressive**
+\* Deinterlace Mode is an image processing control. Interlace Mode and Telecine are encoding controls. 
 
-If content is not being converted to a higher framerate, the
-deinterlacer outputs one frame for every two fields in the source content
-(i.e., 1080i30 content is converted to 1080p30). If the framerate is being
-doubled (e.g. 29.97 fps to 59.94 fps, 29.97 to 60, or 25 to 50), the
-deinterlacer converts each field into a frame.
+**Note: Converting the scan type to progressive** 
+
+ If content is not being converted to a higher framerate, the deinterlacer outputs one frame for every two fields in the source content (i.e., 1080i30 content is converted to 1080p30). If the framerate is being doubled (e.g. 29.97 fps to 59.94 fps, 29.97 to 60, or 25 to 50), the deinterlacer converts each field into a frame. 
 
 **Deinterlace mode**
 
-This field applies an initial conversion for certain from/to
-conversions (as shown in the table above).
-
-- **Deinterlace**: Applies a deinterlace
-  algorithm to content. If Elemental Live detects that the source content is
-  already progressive, no deinterlacing is applied.
-- **Inverse Telecine**: Converts hard
-  telecine 29.97i to progressive 23.976p.
-- **Adaptive**: Analyzes source content to
-  determine whether to apply the deinterlace or inverse telecine algorithm
-  on source content.
+This field applies an initial conversion for certain from/to conversions (as shown in the table above). 
++  **Deinterlace**: Applies a deinterlace algorithm to content. If Elemental Live detects that the source content is already progressive, no deinterlacing is applied. 
++ **Inverse Telecine**: Converts hard telecine 29.97i to progressive 23.976p. 
++ **Adaptive**: Analyzes source content to determine whether to apply the deinterlace or inverse telecine algorithm on source content. 
 
 **Interlace mode**
 
-This field controls video field order and how the scan type is
-represented in the output bitstream.
-
-- **Progressive**: Encodes output as
-  "progressive."
-- **Top Field First** or **Bottom Field First**: Forces field polarity (top or
-  bottom first) to the specified value, reordering fields if the source has
-  a different order and encodes the result as interlaced.
-- **Follow (Default Top)** and **Follow (Default Bottom)**: Produces interlaced
-  output, with the output having the same field polarity as the source.
-  Therefore:
-
-  - If the source is "interlaced", the output is interlaced with the
-    same polarity as the source (it follows the source). The output could
-    therefore be a mix of “top field first” and “bottom field first.”
-  - If the source is "progressive", the output is interlaced with “top
-    field first” or “bottom field first” polarity (depending on which Follow
-    option you chose).
+This field controls video field order and how the scan type is represented in the output bitstream.
++ **Progressive**: Encodes output as "progressive." 
++ **Top Field First** or **Bottom Field First**: Forces field polarity (top or bottom first) to the specified value, reordering fields if the source has a different order and encodes the result as interlaced. 
++ **Follow (Default Top) **and **Follow (Default Bottom)**: Produces interlaced output, with the output having the same field polarity as the source. Therefore:
+  + If the source is "interlaced", the output is interlaced with the same polarity as the source (it follows the source). The output could therefore be a mix of “top field first” and “bottom field first.” 
+  + If the source is "progressive", the output is interlaced with “top field first” or “bottom field first” polarity (depending on which Follow option you chose). 
 
 **Telecine**
 
-This field appears for MPEG-4 AVC and MPEG-2 only if the Streams >
-Advanced > framerate field is set to 29.970.
-
-- **Hard**: Produce 29.97i output from
-  23.976 input.
-- **Soft**: Produce 23.976; the player
-  converts this output to 29.97i.
+This field appears for MPEG-4 AVC and MPEG-2 only if the Streams > Advanced > framerate field is set to 29.970. 
++ **Hard**: Produce 29.97i output from 23.976 input. 
++ **Soft**: Produce 23.976; the player converts this output to 29.97i. 
 
 ## Recommendations
-
-- Converting to progressive output always improves output quality and
-  should be enabled in any use case where progressive output is required or
-  acceptable.
-- Interlace coding is inherently less efficient than progressive
-  coding so use interlace coding only for content that has already been
-  interlaced.
-- The choice of deinterlacing algorithm is very subjective. **Motion Adaptive Interpolation** is generally
-  recommended as the sharper image quality tends to provide the best
-  perceived quality across a broad set of users. Use the **Force Mode** option for deinterlacing only when the
-  input is known to be interlaced content incorrectly flagged as
-  "progressive."
-- Use the **Force Mode** option for
-  **Inverse Hard Telecine** when the input is
-  known to consist entirely of Hard Telecine content.
+<a name="vq-scan-type-key-recommendations"></a>
++ Converting to progressive output always improves output quality and should be enabled in any use case where progressive output is required or acceptable.
++  Interlace coding is inherently less efficient than progressive coding so use interlace coding only for content that has already been interlaced. 
++ The choice of deinterlacing algorithm is very subjective. **Motion Adaptive Interpolation **is generally recommended as the sharper image quality tends to provide the best perceived quality across a broad set of users. Use the **Force Mode** option for deinterlacing only when the input is known to be interlaced content incorrectly flagged as "progressive." 
++ Use the **Force Mode** option for **Inverse Hard Telecine **when the input is known to consist entirely of Hard Telecine content. 
 
 ## Location of fields
+<a name="vq-scan-type-key-api"></a>
 
-| Location of field on web interface                                          | Location of tag in XML                                                                                                                                                                                              |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Streams > Advanced > Telecine                                               | stream\_assembly/video\_description/`codec`/telecine<br>where `codec` is one of the<br>following:<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings`<br>• `prores_settings`                            |
-| Streams > Advanced > Interlace Mode                                         | stream\_assembly/video\_description/`codec`/interlace\_mode<br>where `codec` is one of the<br>following:<br>• `vc1_settings`<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings`<br>• `prores_settings` |
-| Streams > Advanced >Preprocessors > Deinterlacer > Deinterlace<br>Mode      | stream\_assembly/video\_description/video\_preprocessors/deinterlacer/deinterlace\_mode                                                                                                                             |
-| Streams > Advanced >Preprocessors > Deinterlacer > Deinterlace<br>Algorithm | stream\_assembly/video\_description/video\_preprocessors/deinterlacer/algorithm                                                                                                                                     |
-| Streams > Advanced >Preprocessors > Deinterlacer > Force<br>Mode            | stream\_assembly/video\_description/video\_preprocessors/deinterlacer/force                                                                                                                                         |
+
+| Location of field on web interface | Location of tag in XML | 
+| --- | --- | 
+| Streams > Advanced > Telecine | stream\_assembly/video\_description/{{codec}}/telecine<br />where {{codec}} is one of the following:+  **h264\_settings ** <br />+  **mpeg2\_settings** <br />+  **h265\_settings** <br />+  **prores\_settings**  | 
+| Streams > Advanced > Interlace Mode | stream\_assembly/video\_description/{{codec}}/interlace\_mode<br />where {{codec}} is one of the following:+  **vc1\_settings ** <br />+  **h264\_settings** <br />+  **mpeg2\_settings ** <br />+  **h265\_settings ** <br />+  **prores\_settings**  | 
+| Streams > Advanced >Preprocessors > Deinterlacer > Deinterlace Mode | stream\_assembly/video\_description/video\_preprocessors/deinterlacer/deinterlace\_mode | 
+| Streams > Advanced >Preprocessors > Deinterlacer > Deinterlace Algorithm | stream\_assembly/video\_description/video\_preprocessors/deinterlacer/algorithm | 
+| Streams > Advanced >Preprocessors > Deinterlacer > Force Mode | stream\_assembly/video\_description/video\_preprocessors/deinterlacer/force | 

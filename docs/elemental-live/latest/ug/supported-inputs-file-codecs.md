@@ -1,18 +1,21 @@
+
+
 # Supported codecs
+<a name="supported-inputs-file-codecs"></a>
 
-This table specifies the codecs that are supported for each type of
-file input container.
+This table specifies the codecs that are supported for each type of file input container.
 
-| Container              | Media Type | Video Codecs                                                                                                                                  | Audio Codecs                                                                                                                                                                            |
-| ---------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Adobe Flash            | F4V        | H.264                                                                                                                                         | AAC                                                                                                                                                                                     |
-| Apple HLS              | HLS        | H.264<br>H.265                                                                                                                                | AAC                                                                                                                                                                                     |
-| Audio Video Interleave | AVI        | Uncompressed<br>DivX/Xvid<br>DV/DVCPRO                                                                                                        | Dolby Digital<br>Dolby Digital Plus up to coding mode 7.1<br>Dolby Digital Plus with Atmos<br>Dolby E frames carried in PCM streams tagged with<br>SMPTE-337<br>MPEG-1, layer II<br>PCM |
-| Matroska               | MKV        | H.264<br>MPEG-2<br>MPEG-4 part 2                                                                                                              | AAC<br>Dolby Digital<br>Dolby Digital Plus up to coding mode 7.1<br>Dolby Digital Plus with Atmos                                                                                       |
-| MPEG Transport Streams | MPEG TS    | H.264<br>H.265<br>MPEG-2                                                                                                                      | AAC<br>AIFF<br>Dolby Digital<br>Dolby Digital Plus up to coding mode 7.1<br>Dolby Digital Plus with Atmos<br>Dolby E frames carried in non-PCM streams<br>MPEG-1, layer II<br>PCM       |
-| MPEG-1 System Streams  | MPEG SS    | MPEG-1<br>MPEG-2                                                                                                                              | AAC<br>AIFF<br>Dolby Digital<br>Dolby Digital Plus up to coding mode 7.1<br>Dolby Digital Plus with Atmos<br>MPEG-1, layer II<br>PCM                                                    |
-| MPEG-4                 | MPEG-4     | Uncompressed<br>AVC Intra 50/100<br>DivX/Xvid<br>H.262<br>H.264<br>JPEG 2000<br>MJPEG<br>MPEG-2<br>MPEG-4 part 2                              | AAC<br>Dolby Digital<br>Dolby Digital Plus up to coding mode 7.1<br>Dolby Digital Plus with Atmos<br>PCM                                                                                |
-| MXF                    | MXF        | Uncompressed<br>AVC Intra 50/100<br>DV/DVCPRO<br>DV25<br>DV50<br>DVCPro HD<br>H.264<br>JPEG 2000<br>MPEG-2                                    | AAC<br>AIFF<br>MPEG-1, layer II<br>PCM<br>Dolby E frames carried in PCM streams tagged with SMPTE-337                                                                                   |
-| No Container           |            | DV/DVCPRO<br>H.264<br>H.265<br>MPEG-1<br>MPEG-2                                                                                               |                                                                                                                                                                                         |
-| QuickTime              |            | Uncompressed<br>Apple ProRes<br>AVC Intra 50/100<br>DivX/Xvid<br>DV/DVCPRO<br>H.262<br>H.264<br>JPEG 2000<br>MJPEG<br>MPEG-2<br>MPEG-4 part 2 | AAC                                                                                                                                                                                     |
-| WAV                    | WAV        | None                                                                                                                                          | Dolby E frames carried in PCM streams tagged with SMPTE-337                                                                                                                             |
+
+|  Container   |  Media Type   |  Video Codecs   |  Audio Codecs   | 
+| --- | --- | --- | --- | 
+| Adobe Flash  | F4V  | H.264  | AAC  | 
+| Apple HLS  | HLS  | H.264<br />H.265  | AAC  | 
+| Audio Video Interleave  | AVI  | Uncompressed<br />DivX/Xvid<br />DV/DVCPRO  | Dolby Digital<br />Dolby Digital Plus up to coding mode 7.1<br />Dolby Digital Plus with Atmos<br />Dolby E frames carried in PCM streams tagged with SMPTE-337<br />MPEG-1, layer II<br />PCM  | 
+| Matroska  | MKV  | H.264<br />MPEG-2<br />MPEG-4 part 2  | AAC<br />Dolby Digital<br />Dolby Digital Plus up to coding mode 7.1 <br />Dolby Digital Plus with Atmos | 
+| MPEG Transport Streams  | MPEG TS  | H.264<br />H.265<br />MPEG-2  | AAC<br />AIFF<br />Dolby Digital<br />Dolby Digital Plus up to coding mode 7.1<br />Dolby Digital Plus with Atmos<br />Dolby E frames carried in non-PCM streams<br />MPEG-1, layer II<br />PCM  | 
+| MPEG-1 System Streams  | MPEG SS  | MPEG-1<br />MPEG-2  | AAC<br />AIFF<br />Dolby Digital<br />Dolby Digital Plus up to coding mode 7.1<br />Dolby Digital Plus with Atmos<br />MPEG-1, layer II<br />PCM  | 
+| MPEG-4  | MPEG-4  | Uncompressed<br />AVC Intra 50/100<br />DivX/Xvid<br />H.262<br />H.264<br />JPEG 2000<br />MJPEG<br />MPEG-2<br />MPEG-4 part 2  | AAC<br />Dolby Digital<br />Dolby Digital Plus up to coding mode 7.1<br />Dolby Digital Plus with Atmos<br />PCM  | 
+| MXF  | MXF  | Uncompressed<br />AVC Intra 50/100<br />DV/DVCPRO<br />DV25<br />DV50<br />DVCPro HD<br />H.264<br />JPEG 2000<br />MPEG-2  | AAC<br />AIFF<br />MPEG-1, layer II<br />PCM <br />Dolby E frames carried in PCM streams tagged with SMPTE-337  | 
+| No Container  |  | DV/DVCPRO<br />H.264<br />H.265<br />MPEG-1<br />MPEG-2  |  | 
+| QuickTime  |  | Uncompressed<br />Apple ProRes<br />AVC Intra 50/100<br />DivX/Xvid<br />DV/DVCPRO<br />H.262<br />H.264<br />JPEG 2000<br />MJPEG<br />MPEG-2<br />MPEG-4 part 2  | AAC  | 
+| WAV  | WAV  | None  | Dolby E frames carried in PCM streams tagged with SMPTE-337  | 
