@@ -1,17 +1,20 @@
 # Interacting with the device using Appium
 
-Once you've [created a remote access session](how-to-create-session.md "how-to-create-session.md"), the device will be available for Appium testing.
-For the entire duration of the remote access session, you can run as many Appium sessions as you'd like on the device, with no limits on what clients you use.
-For example, you can start by running a test using your local Appium code from your IDE, then switch over to using Appium Inspector to troubleshoot any issues you encounter.
-The session can last up to [150-minutes](limits.md#service-limits "limits.md#service-limits"), however, if there is no activity for over 5 minutes
-(either through the interactive console or through the Appium endpoint), the session will time out.
+After you [create a remote access session](how-to-create-session.md "how-to-create-session.md"), the device will be
+available for Appium testing. For the duration of the remote access session, you can run as many Appium sessions
+as you want on the device, with no limits on what clients you use. For example, you can start by running a test
+using your local Appium code from your IDE, then switch to using Appium Inspector to troubleshoot any issues you
+encounter. The session can last up to [150 minutes](limits.md#service-limits "limits.md#service-limits"). However, if there is no
+activity for more than 5 minutes (through either the interactive console or the Appium endpoint), the session
+times out.
 
 ## Using apps for testing with your Appium session
 
 There are several ways to provide an app for use with your Appium session:
 
 - Upload an app to Device Farm and install it in the session.
-- Specify an HTTPS URL or Amazon S3 URI as the `appium:app` capability.
+- Specify an HTTPS URL or an Amazon Simple Storage Service (Amazon S3) URI as the `appium:app`
+  capability.
 - Reference an already-installed app by its package name (using `appium:appPackage` on Android or `appium:bundleId` on iOS).
 - Test a web app by specifying the `browserName` capability (`Chrome` on Android, `Safari` on iOS).
 
@@ -55,7 +58,9 @@ For example, if you create a remote access session using `com.aws.devicefarm.sam
 
 If you install a new app during the session, it replaces the current `appium:app` capability. If the previously installed app has a distinct package name, it remains on the device and moves to the `appium:otherApps` capability.
 
-For example, if you initially use `com.aws.devicefarm.sample` when creating your remote access session, but then install `com.aws.devicefarm.other.sample` during the session, then your Appium sessions will have capabilities similar to the following:
+For example, if you initially use `com.aws.devicefarm.sample` when creating your
+remote access session, but then install `com.aws.devicefarm.other.sample` during the
+session, your Appium sessions will have capabilities similar to the following:
 
 ```
 {
@@ -74,7 +79,8 @@ For example, if you initially use `com.aws.devicefarm.sample` when creating your
 
 ###### Note
 
-For more information about automatically uploading apps as a part of your remote access session, please see [automating app uploads.](api-ref.md#upload-example "api-ref.md#upload-example")
+For more information about automatically uploading apps as part of your
+remote access session, see [Automating Device Farm](api-ref.md "api-ref.md").
 
 ### Using an HTTPS URL
 
@@ -103,15 +109,24 @@ For example, the following Appium session creation request downloads an app from
 
 ### Using an Amazon S3 URI
 
-You can specify an Amazon S3 URI (for example, `s3://my-bucket/path/to/MyApp.ipa`) as the `appium:app` desired capability when creating an Appium session. Device Farm downloads the app from the specified S3 location and installs it onto the device under test.
+You can specify an Amazon S3 URI (for example,
+`s3://amzn-s3-demo-bucket/path/to/MyApp.ipa`) as the
+`appium:app` desired capability when creating an Appium session.
+Device Farm downloads the app from the specified Amazon S3 location and installs it onto the
+device under test.
 
-To use an S3 URI, the following requirements must be met:
+To use an Amazon S3 URI, the following requirements must be met:
 
 - The remote access session must be started from a project that has an [IAM execution role](custom-test-environments-iam-roles.md "custom-test-environments-iam-roles.md") configured.
-- The IAM execution role must have a maximum session duration of at least 150 minutes, because the role is assumed for the duration of the remote access session.
-- The IAM execution role must have permission to call `s3:GetObject` on the S3 object specified in the URI. We also recommend granting `s3:HeadObject` permission on the same object, which allows Device Farm to validate the object's existence before attempting the download.
+- The IAM execution role must have a maximum session duration of at least 150 minutes. This is
+  the case because the role is assumed for the duration of the remote access session.
+- The IAM execution role must have permission to call `s3:GetObject` on the S3
+  object specified in the URI. This permission also authorizes the `HeadObject` API
+  call on the same object, which allows Device Farm to validate the object's existence before attempting
+  the download.
 
-For example, the following Appium session creation request downloads an app from an S3 URI:
+For example, the following Appium session creation request downloads an app from
+an Amazon S3 URI:
 
 ```
 {
@@ -121,14 +136,17 @@ For example, the following Appium session creation request downloads an app from
         "firstMatch":
         [
             {
-                "appium:app": "s3://my-test-bucket/apps/MyApp.ipa"
+                "appium:app": "s3://amzn-s3-demo-bucket/apps/MyApp.ipa"
             }
         ]
     }
 }
 ```
 
-The following is an example IAM permissions policy that grants the recommended access for downloading an app from Amazon S3, including the optional `s3:HeadObject` permission. For more information about configuring IAM execution roles, see [Access AWS resources using an IAM Execution Role](custom-test-environments-iam-roles.md "custom-test-environments-iam-roles.md").
+The following is an example of an IAM permissions policy that grants the recommended access for
+downloading an app from Amazon S3. The `s3:GetObject` permission also authorizes the
+`HeadObject` API call, which is used to validate the object's existence. For more
+information about configuring IAM execution roles, see [Access AWS resources using an IAM Execution Role](custom-test-environments-iam-roles.md "custom-test-environments-iam-roles.md").
 
 ###### Example
 
@@ -139,10 +157,9 @@ The following is an example IAM permissions policy that grants the recommended a
     {
       "Effect": "Allow",
       "Action": [
-        "s3:GetObject",
-        "s3:HeadObject"
+        "s3:GetObject"
       ],
-      "Resource": "arn:aws:s3:::my-test-bucket/apps/*"
+      "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/apps/*"
     }
   ]
 }
@@ -152,7 +169,8 @@ The following is an example IAM permissions policy that grants the recommended a
 
 If the app you want to test is already installed on the device, you can reference it directly by its package name instead of uploading it. Use the `appium:appPackage` and `appium:appActivity` capabilities on Android, or the `appium:bundleId` capability on iOS.
 
-For example, the following Appium session creation request launches an already-installed Android app:
+For example, the following Appium session creation request launches an Android app that's already
+installed:
 
 ```
 {
@@ -210,21 +228,26 @@ For example, the following request opens Chrome on an Android device:
 
 ## How to use the Appium endpoint
 
-Here are the steps to access the session's Appium endpoint from the console, the AWS CLI, and the AWS SDKs. These steps include how to get started with running tests using various Appium client testing frameworks:
+Here are the steps to access the session's Appium endpoint from the console, the AWS CLI, and the AWS
+SDKs. These steps include how to get started with running tests by using various Appium client testing
+frameworks:
 
 Console
 
 1. Open your remote access session page in your web browser:
 
-![The remote access session page](images/aws-device-farm-appium-endpoint.png) 2. For running a session using Appium Inspector, do the following:
+![The remote access session page](images/aws-device-farm-appium-endpoint.png) 2. For running a session by using Appium Inspector, do the following:
 
-    1. Click the button **Setup Appium session**
-    2. Follow along with the instructions on the page for how to start a session using Appium Inspector.
+    1. Choose **Setup Appium session**.
+    2. Follow the instructions on the page to start a session by using Appium
+     Inspector.
 
 3. For running an Appium test from your local IDE, do the following:
 
-    1. Click the "copy" icon next to the text **Appium endpoint URL**
-    2. Paste this URL into your local Appium code wherever you currently specify your remote address or command executor. For language-specific examples, please click one of the tabs in this example window for your language of choice.
+    1. Choose the copy icon next to **Appium endpoint URL**.
+    2. Paste the copied URL into your local Appium code wherever you currently
+     specify your remote address or command executor. For language-specific examples,
+     refer to other tabs in this section.
 
 AWS CLI
 First, verify that your AWS CLI version is up-to-date by [downloading and installing the latest version](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
@@ -233,7 +256,9 @@ First, verify that your AWS CLI version is up-to-date by [downloading and instal
 
 The Appium endpoint field isn't available in older versions of the AWS CLI.
 
-Once your session is up and running, the Appium endpoint URL will be available via a field named `remoteDriverEndpoint` in the response to a call to the [`GetRemoteAccessSession`](../APIReference/API_GetRemoteAccessSession.md "../APIReference/API_GetRemoteAccessSession.md") API:
+Once your session is up and running, the Appium endpoint URL will be available via a field
+named `remoteDriverEndpoint` in the response to a call to the
+[`GetRemoteAccessSession`](../APIReference/API_GetRemoteAccessSession.md "../APIReference/API_GetRemoteAccessSession.md") API:
 
 ```
 `$` `aws devicefarm get-remote-access-session \
@@ -254,9 +279,13 @@ This will show output such as the following:
 }`
 ```
 
-You can use this URL in your local Appium code wherever you currently specify your remote address or command executor. For language-specific examples, please click one of the tabs in this example window for your language of choice.
+You can use this URL in your local Appium code wherever you currently specify your remote
+address or command executor. For language-specific examples, please click one of the tabs in
+this example window for your language of choice.
 
-For an example of how to interact with the endpoint directly from the command line, you can use the [command-line tool curl](https://curl.se/ "https://curl.se/") to call a WebDriver endpoint directly:
+For an example of how to interact with the endpoint directly from the command line, you can
+use the [command-line tool curl](https://curl.se/ "https://curl.se/") to call a WebDriver
+endpoint directly:
 
 ```
 `$` `curl "https://devicefarm-interactive-global.us-west-2.api.aws/remote-endpoint/ABCD1234.../status"`

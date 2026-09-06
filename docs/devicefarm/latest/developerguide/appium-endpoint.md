@@ -22,7 +22,7 @@ To learn more about server-side execution, please see [Test frameworks and built
 - [Getting started with Appium testing](appium-endpoint-getting-started.md "appium-endpoint-getting-started.md")
 - [Interacting with the device using Appium](appium-endpoint-interaction.md "appium-endpoint-interaction.md")
 - [Reviewing your Appium server logs](appium-endpoint-server-logs.md "appium-endpoint-server-logs.md")
-- [Supported Appium capabilities and commands](appium-endpoint-supported-caps-and-commands.md "appium-endpoint-supported-caps-and-commands.md")
+- [Supported features and versions](appium-endpoint-support.md "appium-endpoint-support.md")
 
 ## What is an Appium endpoint?
 
