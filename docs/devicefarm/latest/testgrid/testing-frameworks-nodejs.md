@@ -1,26 +1,27 @@
+
+
 # Using Device Farm desktop browser testing with Node.js
+<a name="testing-frameworks-nodejs"></a>
 
 Device Farm desktop browser testing can be used alongside the AWS SDK for JavaScript in Node.js and W3C WebDriver Specification compatible libraries, such as the official Selenium WebDriver package and Webdriver.IO.
 
-###### Topics
-
-- [Using the Selenium WebDriver Node.js package to interact with Device Farm desktop browser testing](#testing-frameworks-nodejs-selenium "#testing-frameworks-nodejs-selenium")
-- [Configuring Webdriver.IO API to interact with Device Farm desktop browser testing](#w2aac10c15c13 "#w2aac10c15c13")
+**Topics**
++ [Using the Selenium WebDriver Node.js package to interact with Device Farm desktop browser testing](#testing-frameworks-nodejs-selenium)
++ [Configuring Webdriver.IO API to interact with Device Farm desktop browser testing](#w2aac10c15c13)
 
 ## Using the Selenium WebDriver Node.js package to interact with Device Farm desktop browser testing
+<a name="testing-frameworks-nodejs-selenium"></a>
 
-You can use Device Farm desktop browser testing with the Selenium Node.js `selenium-webdriver` package. The following
-example shows how to use the `selenium-webdriver` npm package to interact with Device Farm desktop browser testing.
+You can use Device Farm desktop browser testing with the Selenium Node.js `selenium-webdriver` package. The following example shows how to use the `selenium-webdriver` npm package to interact with Device Farm desktop browser testing.
 
-###### Note
-
-This example assumes you have the SDK for JavaScript in Node.js configured and installed. For more information, see [AWS SDK for JavaScript in Node.js Getting Started Guide](../../../AWSJavaScriptSDK/guide/node-intro.md "../../../AWSJavaScriptSDK/guide/node-intro.md").
+**Note**  
+This example assumes you have the SDK for JavaScript in Node.js configured and installed. For more information, see [AWS SDK for JavaScript in Node.js Getting Started Guide](https://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-intro.html).
 
 ```
 var webdriver = require('selenium-webdriver');
 var AWS = require("aws-sdk");
 
-var PROJECT_ARN = "arn:aws:devicefarm:us-west-2:`111122223333`:testgrid-project:`123e4567-e89b-12d3-a456-426655440000`";
+var PROJECT_ARN = "arn:aws:devicefarm:us-west-2:{{111122223333}}:testgrid-project:{{123e4567-e89b-12d3-a456-426655440000}}";
 var devicefarm = new AWS.DeviceFarm({ region: "us-west-2" });
 
 (async () => {
@@ -51,22 +52,20 @@ var runExample = async (urlString) => {
     console.log("Deleting session...");
     await driver.quit();
 }
-
-
 ```
 
 ## Configuring Webdriver.IO API to interact with Device Farm desktop browser testing
+<a name="w2aac10c15c13"></a>
 
-Device Farm desktop browser testing is supported in Webdriver.IO with some slight configuration changes. The following two examples show how to use Device Farm desktop browser testing with and without the Mocha test framework.
+ Device Farm desktop browser testing is supported in Webdriver.IO with some slight configuration changes. The following two examples show how to use Device Farm desktop browser testing with and without the Mocha test framework. 
 
 ### Using Webdriver.IO and Device Farm desktop browser testing without Mocha
+<a name="testing-frameworks-nodejs-wdio-standalone"></a>
 
-Using Device Farm desktop browser testing with Webdriver.IO does not require the inherent use of the Mocha test suite. The following example demonstrates how to configure the Webdriver.IO API for use with
-Device Farm desktop browser testing and interact with a browser session.
+Using Device Farm desktop browser testing with Webdriver.IO does not require the inherent use of the Mocha test suite. The following example demonstrates how to configure the Webdriver.IO API for use with Device Farm desktop browser testing and interact with a browser session.
 
-###### Note
-
-This example assumes you have the SDK for JavaScript in Node.js configured and installed. For more information, see [AWS SDK for JavaScript in Node.js Getting Started Guide](../../../AWSJavaScriptSDK/guide/node-intro.md "../../../AWSJavaScriptSDK/guide/node-intro.md").
+**Note**  
+This example assumes you have the SDK for JavaScript in Node.js configured and installed. For more information, see [AWS SDK for JavaScript in Node.js Getting Started Guide](https://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-intro.html).
 
 ```
 const webdriverio = require('webdriverio');
@@ -110,6 +109,4 @@ var runExample = async (urlString) => {
 
     await browser.deleteSession()
 }
-
-
 ```

@@ -1,49 +1,36 @@
+
+
 # Device Farm desktop browser testing API
+<a name="techref-api-reference"></a>
 
-The [Device Farm API Reference](../APIReference.md "../APIReference.md") includes a
-`CreateProject` action and a `CreateTestGridProject` action. For desktop browser and
-Selenium testing, the following API calls are used:
+The [Device Farm API Reference](https://docs.aws.amazon.com/devicefarm/latest/APIReference/) includes a `CreateProject` action and a `CreateTestGridProject` action. For desktop browser and Selenium testing, the following API calls are used:Project Management APIs
 
-###### Project Management APIs
-
-[`CreateTestGridProject`](../APIReference/API_CreateTestGridProject.md "../APIReference/API_CreateTestGridProject.md")
-
+[`CreateTestGridProject`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateTestGridProject.html)  
 Creates a desktop browser testing project.
 
-[`DeleteTestGridProject`](../APIReference/API_DeleteTestGridProject.md "../APIReference/API_DeleteTestGridProject.md")
-
+[`DeleteTestGridProject`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_DeleteTestGridProject.html)  
 Deletes a desktop browser testing project.
 
-[`GetTestGridProject`](../APIReference/API_GetTestGridProject.md "../APIReference/API_GetTestGridProject.md")
-
+[`GetTestGridProject`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetTestGridProject.html)  
 Gets information about a desktop browser testing project.
 
-[`UpdateTestGridProject`](../APIReference/API_UpdateTestGridProject.md "../APIReference/API_UpdateTestGridProject.md")
-
+[`UpdateTestGridProject`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_UpdateTestGridProject.html)  
 Updates attributes (name, description) of a desktop browser testing project.
 
-[`ListTestGridProjects`](../APIReference/API_ListTestGridProjects.md "../APIReference/API_ListTestGridProjects.md")
+[`ListTestGridProjects`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListTestGridProjects.html)  
+Lists desktop browser testing projects, including ARNs, names, and descriptions.Session Management APIs
 
-Lists desktop browser testing projects, including ARNs, names, and descriptions.
-
-###### Session Management APIs
-
-[`CreateTestGridUrl`](../APIReference/API_CreateTestGridUrl.md "../APIReference/API_CreateTestGridUrl.md")
-
+[`CreateTestGridUrl`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateTestGridUrl.html)  
 Creates a limited-time desktop browser testing WebDriver path for creating sessions.
 
-[`ListTestGridSessions`](../APIReference/API_ListTestGridSessions.md "../APIReference/API_ListTestGridSessions.md")
-
+[`ListTestGridSessions`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListTestGridSessions.html)  
 Lists your desktop browser testing sessions.
 
-[`GetTestGridSession`](../APIReference/API_GetTestGridSession.md "../APIReference/API_GetTestGridSession.md")
-
+[`GetTestGridSession`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetTestGridSession.html)  
 Gets a desktop browser testing session.
 
-[`ListTestGridSessionActions`](../APIReference/API_ListTestGridSessionActions.md "../APIReference/API_ListTestGridSessionActions.md")
-
+[`ListTestGridSessionActions`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListTestGridSessionActions.html)  
 Gets a list of the actions performed during a session.
 
-[`ListTestGridSessionArtifacts`](../APIReference/API_ListTestGridSessionArtifacts.md "../APIReference/API_ListTestGridSessionArtifacts.md")
-
+[`ListTestGridSessionArtifacts`](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListTestGridSessionArtifacts.html)  
 Lists the artifacts (video, Selenium logs, and so on) associated with a session.
